@@ -26,6 +26,7 @@ export class PermissionsGuard implements CanActivate {
       return false;
     }
 
+    // should use sth to cache roles and permissions
     const dbUser = await this.prisma.user.findUnique({
       where: { user_id: user.sub },
       select: {
