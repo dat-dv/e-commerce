@@ -13,5 +13,5 @@ export class CreatePermissionDto {
 
   @IsString()
   @IsOptional()
-  category_id?: string;
+  category?: string;
 }

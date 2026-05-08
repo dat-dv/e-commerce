@@ -16,7 +16,6 @@ async function cleanDatabase() {
   await prisma.tag.deleteMany({});
   await prisma.user.deleteMany({});
   await prisma.permission.deleteMany({});
-  await prisma.permissionCategory.deleteMany({});
   await prisma.role.deleteMany({});
 }
 

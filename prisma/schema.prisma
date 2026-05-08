@@ -107,21 +107,10 @@ model Permission {
   permission_id   String   @id @default(cuid())
   permission_name String   @unique 
   description     String?
+  category        String?
   created_at      DateTime @default(now())
   updated_at      DateTime @updatedAt
 
   roles           Role[]
-  category_id     String?
-  category        PermissionCategory? @relation(fields: [category_id], references: [category_id])
-}
-
-model PermissionCategory {
-  category_id   String   @id @default(cuid())
-  category_name String   @unique
-  description   String?
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
-
-  permissions   Permission[]
 }
 

@@ -57,7 +57,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .post('/api/posts')
         .set('Cookie', user1Cookies)
-        .send({ title: 'User 1 Post', content: 'Post content' });
+        .send({ title: 'e2e: User 1 Post', content: 'e2e: Post content' });
 
       expect(res.status).toBe(201);
       testPostId = (res.body as { data: { post_id: string } }).data.post_id;
@@ -68,7 +68,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .patch(`/api/posts/${testPostId}`)
         .set('Cookie', user1Cookies)
-        .send({ title: 'User 1 Post Updated' });
+        .send({ title: 'e2e: User 1 Post Updated' });
 
       expect(res.status).toBe(200);
     });
@@ -91,7 +91,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .patch(`/api/posts/${testPostId}`)
         .set('Cookie', user2Cookies)
-        .send({ title: 'User 2 trying to update' });
+        .send({ title: 'e2e: User 2 trying to update' });
 
       expect(res.status).toBe(403);
     });
@@ -100,7 +100,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .patch(`/api/posts/${testPostId}`)
         .set('Cookie', adminCookies)
-        .send({ title: 'Admin updated this post' });
+        .send({ title: 'e2e: Admin updated this post' });
 
       expect(res.status).toBe(200);
     });
@@ -111,7 +111,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .post(`/api/posts/${testPostId}/comments`)
         .set('Cookie', user1Cookies)
-        .send({ content: 'User 1 Comment' });
+        .send({ content: 'e2e: User 1 Comment' });
 
       expect(res.status).toBe(201);
       testCommentId = (res.body as { data: { comment_id: string } }).data.comment_id;
@@ -121,7 +121,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .patch(`/api/posts/${testPostId}/comments/${testCommentId}`)
         .set('Cookie', user2Cookies)
-        .send({ content: 'User 2 trying to update comment' });
+        .send({ content: 'e2e: User 2 trying to update comment' });
 
       expect(res.status).toBe(403);
     });
@@ -140,7 +140,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .post('/api/tags')
         .set('Cookie', user1Cookies)
-        .send({ tag_name: 'NewTag' });
+        .send({ tag_name: 'e2e_NewTag' });
 
       expect(res.status).toBe(403);
     });
@@ -149,7 +149,7 @@ describe('RBAC & Ownership (e2e)', () => {
       const res = await request(app.getHttpServer())
         .post('/api/tags')
         .set('Cookie', adminCookies)
-        .send({ tag_name: 'AdminTag' });
+        .send({ tag_name: 'e2e_AdminTag' });
 
       expect(res.status).toBe(201);
     });

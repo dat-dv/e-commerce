@@ -11,28 +11,7 @@ import { ROLE_ADMIN, ROLE_USER } from '../../src/common/constants/roles.constant
 export async function seedRBAC(prisma: PrismaClient) {
   console.log('--- Phase 0: Roles & Permissions ---');
 
-  // 1. Định nghĩa danh mục
-  const categories: Prisma.PermissionCategoryCreateInput[] = [
-    { category_name: 'Quản lý bài viết', description: 'Các quyền liên quan đến bài viết' },
-    { category_name: 'Quản lý người dùng', description: 'Các quyền liên quan đến người dùng' },
-    { category_name: 'Quản lý bình luận', description: 'Các quyền liên quan đến bình luận' },
-    { category_name: 'Quản lý vai trò', description: 'Các quyền liên quan đến vai trò và phân quyền' },
-    { category_name: 'Quản lý thẻ', description: 'Các quyền liên quan đến thẻ (Tag)' },
-  ];
-
-  // Tạo categories hàng loạt
-
-  await prisma.permissionCategory.createMany({
-    data: categories,
-  });
-
-  const dbCategories = await prisma.permissionCategory.findMany();
-  const categoryMap = new Map<string, string>();
-  dbCategories.forEach((c: { category_name: string; category_id: string }) => {
-    categoryMap.set(c.category_name, c.category_id);
-  });
-
-  // 2. Định nghĩa danh sách quyền gốc (Master List)
+  // 1. Định nghĩa danh sách quyền gốc (Master List)
   const permissions = [
     // Quản lý bài viết
     { permission_name: 'CREATE:POST', description: 'Quyền tạo bài viết', category: 'Quản lý bài viết' },
@@ -124,17 +103,13 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'DELETE:TAG', description: 'Quyền xóa thẻ', category: 'Quản lý thẻ' },
   ];
 
-  // Map category_id vào permissions
-  const permissionsToCreate: Prisma.PermissionCreateManyInput[] = permissions.map((p) => ({
-    permission_name: p.permission_name,
-    description: p.description,
-    category_id: categoryMap.get(p.category),
-  }));
-
   // Tạo permissions hàng loạt
-
   await prisma.permission.createMany({
-    data: permissionsToCreate,
+    data: permissions.map((p) => ({
+      permission_name: p.permission_name,
+      description: p.description,
+      category: p.category,
+    })),
   });
 
   // 3. Tạo Role Admin (Có tất cả các quyền)
