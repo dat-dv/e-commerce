@@ -3,13 +3,13 @@ import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { ConfigService } from '@nestjs/config';
-import { AppConfig } from 'src/config/config.validation';
+import { EnvVars } from 'src/config/config.validation';
 
 @Controller('posts')
 export class PostsController {
   constructor(
     private readonly postsService: PostsService,
-    private readonly configService: ConfigService<AppConfig>,
+    private readonly configService: ConfigService<EnvVars>,
   ) {}
 
   @Post()

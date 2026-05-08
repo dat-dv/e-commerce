@@ -1,6 +1,6 @@
 import * as Joi from 'joi';
 
-export const envValidationSchema = Joi.object<AppConfig>({
+export const envValidationSchema = Joi.object<EnvVars>({
   PORT: Joi.number().default(3000),
   DATABASE_URL: Joi.string().required(),
   ACCESS_TOKEN_SECRET: Joi.string().required(),
@@ -9,7 +9,7 @@ export const envValidationSchema = Joi.object<AppConfig>({
   REFRESH_TOKEN_EXPIRES_IN: Joi.string().required(),
 });
 
-export interface AppConfig {
+export interface EnvVars {
   PORT: string;
   DATABASE_URL: string;
   ACCESS_TOKEN_SECRET: string;
