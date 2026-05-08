@@ -1,17 +1,10 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { ConfigService } from '@nestjs/config';
 import { Request } from 'express';
-import { EnvVars } from 'src/config/config.validation';
 import { AuthService } from '../auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(
-    private readonly jwtService: JwtService,
-    private readonly authService: AuthService,
-    private readonly configService: ConfigService<EnvVars>,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
   /**
    * Determines if the request is allowed to proceed.
    * Checks for access_token in cookies and verifies it.

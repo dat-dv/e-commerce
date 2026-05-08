@@ -12,7 +12,7 @@ export class UpdatePasswordDto {
   oldPassword: string;
 
   @IsString()
-  newPassword: string;
+  new_password: string;
 
   @IsString()
   confirm_password: string;

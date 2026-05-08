@@ -1,20 +1,25 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, BadRequestException } from '@nestjs/common';
 import { LoginDto } from './dto/login.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import express from 'express';
-import { TAccessTokenPayload, TRefreshTokenPayload } from './auth.types';
+import { TAccessTokenPayload, TRefreshTokenPayload, TResetPasswordPayload } from './auth.types';
 import { UsersService } from 'src/users/users.service';
 import { RegisterDto } from './dto/register.dto';
+import { MailService } from 'src/mail/mail.service';
+import { ForgotPasswordDto } from './dto/forgot-password.dto';
+import { ResetPasswordDto } from './dto/reset-password.dto';
+import { EnvVars } from 'src/config/config.validation';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
-    private readonly configService: ConfigService,
+    private readonly configService: ConfigService<EnvVars>,
     private readonly usersService: UsersService,
+    private readonly mailService: MailService,
   ) {}
 
   async login(dto: LoginDto, res: express.Response) {
@@ -39,7 +44,7 @@ export class AuthService {
       data: {
         token: refreshToken,
         user_id: user.user_id,
-        expires_at: new Date(Date.now() + Number(this.configService.get('REFRESH_TOKEN_EXPIRES_IN'))),
+        expires_at: new Date(Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true })),
       },
     });
 
@@ -50,14 +55,14 @@ export class AuthService {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get('ACCESS_TOKEN_EXPIRES_IN'),
+      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }),
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
+      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }),
     });
 
     return userResponse;
@@ -73,7 +78,7 @@ export class AuthService {
       data: {
         token: refreshToken,
         user_id: user.user_id,
-        expires_at: new Date(Date.now() + Number(this.configService.get('REFRESH_TOKEN_EXPIRES_IN'))),
+        expires_at: new Date(Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true })),
       },
     });
 
@@ -81,14 +86,14 @@ export class AuthService {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get('ACCESS_TOKEN_EXPIRES_IN'),
+      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }),
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
+      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }),
     });
 
     const { password, ...userResponse } = user;
@@ -107,6 +112,56 @@ export class AuthService {
     return true;
   }
 
+  async forgotPassword(dto: ForgotPasswordDto) {
+    const user = await this.prisma.user.findUnique({
+      where: { email: dto.email, deleted_at: null },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    if (user.deleted_at) {
+      throw new BadRequestException('Account has been deleted');
+    }
+
+    // Generate a short-lived reset token (JWT)
+    const payload: TResetPasswordPayload = { sub: user.user_id, email: user.email };
+    const resetToken = await this.generateResetPasswordToken(payload);
+    const resetLink = `${this.configService.get<string>('FE_URL')}/reset-password?token=${resetToken}`;
+    const text = `Click the link to reset your password: ${resetLink}`;
+    const html = `<p>Click the link to reset your password: <a href="${resetLink}">Reset Password</a></p>`;
+
+    try {
+      await this.mailService.sendMail(user.email, 'Password Reset', text, html);
+    } catch (error) {
+      throw new BadRequestException('Failed to send email');
+    }
+
+    return { message: 'If an account exists with this email, a reset link has been sent.' };
+  }
+
+  async resetPassword(dto: ResetPasswordDto) {
+    if (dto.new_password !== dto.confirm_password) {
+      throw new BadRequestException('Passwords do not match');
+    }
+
+    try {
+      const payload = await this.jwtService.verifyAsync<TResetPasswordPayload>(dto.token, {
+        secret: this.configService.get<string>('RESET_PASSWORD_TOKEN'),
+      });
+
+      await this.prisma.user.update({
+        where: { user_id: payload.sub },
+        data: { password: dto.new_password },
+      });
+
+      return { message: 'Password has been reset successfully' };
+    } catch (error) {
+      throw new BadRequestException('Invalid or expired reset token');
+    }
+  }
+
   async removeRefreshToken(refreshToken: string) {
     try {
       await this.prisma.refreshToken.delete({
@@ -116,6 +171,13 @@ export class AuthService {
       // Token might already be deleted or invalid
     }
     return { success: true };
+  }
+
+  async generateResetPasswordToken(payload: TResetPasswordPayload) {
+    return this.jwtService.signAsync(payload, {
+      secret: this.configService.get('RESET_PASSWORD_TOKEN'),
+      expiresIn: this.configService.get('RESET_PASSWORD_TOKEN_EXPIRES_IN'),
+    });
   }
 
   async generateAccessToken(payload: TAccessTokenPayload) {

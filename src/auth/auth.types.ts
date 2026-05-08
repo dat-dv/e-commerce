@@ -6,3 +6,8 @@ export type TAccessTokenPayload = {
 export type TRefreshTokenPayload = {
   sub: string;
 };
+
+export type TResetPasswordPayload = {
+  sub: string;
+  email: string;
+};
