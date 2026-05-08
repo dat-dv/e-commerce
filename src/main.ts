@@ -26,7 +26,11 @@ async function bootstrap() {
   // 1. use global pipe
   app.useGlobalFilters(new GlobalExceptionFilter());
   app.useGlobalPipes(new ValidationPipe());
-  app.useGlobalInterceptors(new ResponseInterceptor());
+
+  /**
+   * Hạn chế vì nó ảnh hưởng đến việc generate documents cho swagger
+   * app.useGlobalInterceptors(new ResponseInterceptor());
+   **/
 
   initSwagger(app);
   const configService = app.get(ConfigService<EnvVars>);
