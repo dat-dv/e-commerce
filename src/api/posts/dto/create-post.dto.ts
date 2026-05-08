@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsArray, IsObject, MaxLength, IsEnum } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsArray, IsObject, MaxLength, IsEnum, ArrayMaxSize } from 'class-validator';
 import { IPostStatus } from 'generated/prisma/enums';
 
 export class CreatePostDto {
@@ -22,5 +22,6 @@ export class CreatePostDto {
   @IsArray()
   @IsString({ each: true })
   @IsOptional()
+  @ArrayMaxSize(10, { message: 'A post can have at most 10 tags' })
   tag_ids?: string[] = [];
 }

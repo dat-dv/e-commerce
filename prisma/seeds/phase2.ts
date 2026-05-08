@@ -11,20 +11,28 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
   // Hàm tự sinh chuỗi ID ngẫu nhiên giả lập CUID
   const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
-  console.log(`🌱 Đang chuẩn bị dữ liệu cho 50 Bài viết...`);
+  // Hàm lấy ngẫu nhiên N phần tử từ mảng Tags
+  const getRandomTags = (count: number) => {
+    const shuffled = [...tags].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
+  console.log(`🌱 Đang chuẩn bị dữ liệu cho 50 Bài viết (Mỗi bài từ 1 đến 10 tags)...`);
 
   // 1. Tạo dữ liệu 5 Bài viết riêng cho Default User
   const defaultUserPosts = Array(5)
     .fill(0)
     .map((_, i) => {
-      const randomTag = tags[Math.floor(Math.random() * tags.length)];
+      const tagCount = Math.floor(Math.random() * 10) + 1; // Ngẫu nhiên từ 1 đến 10
+      const randomTags = getRandomTags(tagCount);
+
       return {
         post_id: generateId(),
-        title: `Bài viết của tôi số ${i + 1} về ${randomTag.tag_name}`,
+        title: `Bài viết của tôi số ${i + 1}`,
         content: { text: `Đây là bài viết do tài khoản user@example.com tự viết. Bài số ${i + 1}.` },
         slug: `bai-viet-cua-toi-so-${i + 1}-${Math.random().toString(36).substring(7)}`,
         user_id: defaultUser.user_id,
-        _tag_id: randomTag.id, // Lưu tạm để lát tạo PostTag
+        _tag_ids: randomTags.map((t) => t.id), // Lưu mảng ID tạm để lát tạo PostTag
       };
     });
 
@@ -33,33 +41,37 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
     .fill(0)
     .map((_, i) => {
       const randomUser = users[Math.floor(Math.random() * users.length)];
-      const randomTag = tags[Math.floor(Math.random() * tags.length)];
+      const tagCount = Math.floor(Math.random() * 10) + 1; // Ngẫu nhiên từ 1 đến 10
+      const randomTags = getRandomTags(tagCount);
+
       return {
         post_id: generateId(),
         title: `Bài viết mẫu số ${i + 1}`,
         content: { text: `Đây là nội dung của bài viết mẫu số ${i + 1}.` },
         slug: `bai-viet-mau-so-${i + 1}-${Math.random().toString(36).substring(7)}`,
         user_id: randomUser.user_id,
-        _tag_id: randomTag.id,
+        _tag_ids: randomTags.map((t) => t.id),
       };
     });
 
   const allPostsData = [...defaultUserPosts, ...otherPosts];
 
-  // Loại bỏ trường tạm _tag_id trước khi đẩy vào Prisma
-  const postsToInsert = allPostsData.map(({ _tag_id, ...rest }) => rest);
+  // Loại bỏ trường tạm _tag_ids trước khi đẩy vào Prisma
+  const postsToInsert = allPostsData.map(({ _tag_ids, ...rest }) => rest);
 
-  console.log(`💾 Đang lưu 50 Bài viết vào DB bằng createMany...`);
+  console.log(`💾 Đang lưu 50 Bài viết vào DB...`);
   await prisma.post.createMany({
     data: postsToInsert,
   });
 
   // 3. Tạo dữ liệu PostTag
-  console.log(`🏷️ Đang gắn Tag cho các Bài viết...`);
-  const postTagsData = allPostsData.map((post) => ({
-    post_id: post.post_id,
-    tag_id: post._tag_id,
-  }));
+  console.log(`🏷️ Đang gắn Tag cho các Bài viết (Hàng loạt bằng flatMap)...`);
+  const postTagsData = allPostsData.flatMap((post) =>
+    post._tag_ids.map((tagId) => ({
+      post_id: post.post_id,
+      tag_id: tagId,
+    })),
+  );
 
   await prisma.postTag.createMany({
     data: postTagsData,
@@ -67,6 +79,5 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
 
   console.log(`📝 Đã tạo thành công 50 Bài viết kèm Tags.`);
 
-  // Trả về danh sách post data để Phase 3 dùng (chỉ cần post_id và user_id là đủ)
   return postsToInsert;
 }
