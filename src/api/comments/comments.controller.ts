@@ -16,11 +16,7 @@ export class CommentsController {
   @Post()
   @UseGuards(AuthGuard, PermissionsGuard)
   @Permissions('CREATE:COMMENT')
-  async create(
-    @Req() req: Express.Request,
-    @Param('postId') postId: string,
-    @Body() dto: CreateCommentDto,
-  ) {
+  async create(@Req() req: Express.Request, @Param('postId') postId: string, @Body() dto: CreateCommentDto) {
     const res = await this.commentsService.createComment(req.user.sub, postId, dto.content, dto.parent_id);
     return createSuccessResponse(res);
   }
@@ -39,11 +35,7 @@ export class CommentsController {
 
   @Patch(':commentId')
   @UseGuards(AuthGuard)
-  async update(
-    @Req() req: Express.Request,
-    @Param('commentId') commentId: string,
-    @Body() dto: UpdateCommentDto,
-  ) {
+  async update(@Req() req: Express.Request, @Param('commentId') commentId: string, @Body() dto: UpdateCommentDto) {
     const res = await this.commentsService.update(commentId, req.user.sub, dto.content);
     return createSuccessResponse(res);
   }
