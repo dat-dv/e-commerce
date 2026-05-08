@@ -4,6 +4,7 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import express from 'express';
+import { TAccessTokenPayload, TRefreshTokenPayload } from './auth.types';
 
 @Injectable()
 export class AuthService {
@@ -82,14 +83,14 @@ export class AuthService {
     return { success: true };
   }
 
-  private async generateAccessToken(payload: { sub: string; email: string }) {
+  async generateAccessToken(payload: TAccessTokenPayload) {
     return this.jwtService.signAsync(payload, {
       secret: this.configService.get('ACCESS_TOKEN_SECRET'),
       expiresIn: this.configService.get('ACCESS_TOKEN_EXPIRES_IN'),
     });
   }
 
-  private async generateRefreshToken(payload: { sub: string }) {
+  async generateRefreshToken(payload: TRefreshTokenPayload) {
     return this.jwtService.signAsync(payload, {
       secret: this.configService.get('REFRESH_TOKEN_SECRET'),
       expiresIn: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
@@ -101,14 +102,14 @@ export class AuthService {
    * @param token JWT token
    * @returns boolean | true = not expired, false = expired
    */
-  private async checkJWTTokenIsExpired(token: string) {
+  async checkJWTTokenIsExpired(token: string) {
     try {
-      await this.jwtService.verifyAsync(token, {
+      const payload = await this.jwtService.verifyAsync<TAccessTokenPayload>(token, {
         secret: this.configService.get('ACCESS_TOKEN_SECRET'),
       });
-      return true;
+      return payload;
     } catch (error) {
-      return false;
+      throw new UnauthorizedException('Invalid or expired access token');
     }
   }
 
@@ -117,9 +118,9 @@ export class AuthService {
    * @param token refresh token
    * @returns boolean | true = not expired, false = expired
    */
-  private async checkRefreshTokenIsExpired(token: string) {
+  async checkRefreshTokenIsExpired(token: string) {
     try {
-      await this.jwtService.verifyAsync(token, {
+      await this.jwtService.verifyAsync<TRefreshTokenPayload>(token, {
         secret: this.configService.get('REFRESH_TOKEN_SECRET'),
       });
       const refreshToken = await this.prisma.refreshToken.findUnique({
@@ -131,7 +132,7 @@ export class AuthService {
 
       return true;
     } catch (error) {
-      return false;
+      throw new UnauthorizedException('Invalid or expired refresh token');
     }
   }
 }
