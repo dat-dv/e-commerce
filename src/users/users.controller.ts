@@ -16,21 +16,25 @@ export class UsersController {
 
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    const res = this.usersService.findAll();
+    return createSuccessResponse(res);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(id);
+    const res = this.usersService.findOne(id);
+    return createSuccessResponse(res);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(id, updateUserDto);
+    const res = this.usersService.update(id, updateUserDto);
+    return createSuccessResponse(res);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.usersService.remove(id);
+    const res = this.usersService.remove(id);
+    return createSuccessResponse(res);
   }
 }
