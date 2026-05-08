@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, ForbiddenException, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
@@ -87,7 +87,7 @@ export class CommentsService {
       }
 
       if (parentComment.parent_id) {
-        finalParentId = parentComment.parent_id as string;
+        finalParentId = parentComment.parent_id;
       }
     }
 
@@ -99,5 +99,86 @@ export class CommentsService {
         parent_id: finalParentId,
       },
     });
+  }
+
+  async update(id: string, requestingUserId: string, content: string) {
+    const comment = await this.prismaClient.comment.findUnique({
+      where: { comment_id: id, deleted_at: null },
+    });
+
+    if (!comment) {
+      throw new NotFoundException('Comment not found');
+    }
+
+    await this.checkOwnershipOrPermission(
+      comment.user_id,
+      requestingUserId,
+      'UPDATE:OWN_COMMENT',
+      'UPDATE:ANY_COMMENT',
+    );
+
+    return this.prismaClient.comment.update({
+      where: { comment_id: id },
+      data: { content },
+    });
+  }
+
+  async remove(id: string, requestingUserId: string) {
+    const comment = await this.prismaClient.comment.findUnique({
+      where: { comment_id: id, deleted_at: null },
+    });
+
+    if (!comment) {
+      throw new NotFoundException('Comment not found');
+    }
+
+    await this.checkOwnershipOrPermission(
+      comment.user_id,
+      requestingUserId,
+      'DELETE:OWN_COMMENT',
+      'DELETE:ANY_COMMENT',
+    );
+
+    return this.prismaClient.comment.update({
+      where: { comment_id: id },
+      data: { deleted_at: new Date() },
+    });
+  }
+
+  private async checkOwnershipOrPermission(
+    resourceUserId: string,
+    requestingUserId: string,
+    ownPermission: string,
+    anyPermission: string,
+  ) {
+    const user = await this.prismaClient.user.findUnique({
+      where: { user_id: requestingUserId },
+      include: {
+        role: {
+          include: {
+            permissions: true,
+          },
+        },
+      },
+    });
+
+    const userPermissions = user?.role?.permissions.map((p) => p.permission_name) || [];
+
+    if (userPermissions.includes(anyPermission)) {
+      return;
+    }
+
+    const isOwner = resourceUserId === requestingUserId;
+    if (isOwner) {
+      if (!userPermissions.includes(ownPermission)) {
+        throw new ForbiddenException(
+          `You do not have the '${ownPermission}' permission to action on your own resource`,
+        );
+      }
+    } else {
+      throw new ForbiddenException(
+        `You do not have the '${anyPermission}' permission to action on other people's resources`,
+      );
+    }
   }
 }
