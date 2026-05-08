@@ -1,12 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Logger, ValidationPipe } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
+import { Logger } from '@nestjs/common';
+
 import { ConfigService } from '@nestjs/config';
 import { initSwagger } from './config/swagger.config';
 import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
-import { ResponseInterceptor } from './common/intercepters/response.interceptor';
 import { EnvVars } from './config/config.validation';
+import { CustomValidationPipe } from './common/pipes/custom-validation.pipe';
 
 async function bootstrap() {
   const logger = new Logger();
@@ -25,7 +26,7 @@ async function bootstrap() {
 
   // 1. use global pipe
   app.useGlobalFilters(new GlobalExceptionFilter());
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new CustomValidationPipe());
 
   /**
    * Hạn chế vì nó ảnh hưởng đến việc generate documents cho swagger

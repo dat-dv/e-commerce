@@ -146,10 +146,6 @@ export class AuthService {
   }
 
   async resetPassword(dto: ResetPasswordDto) {
-    if (dto.new_password !== dto.confirm_password) {
-      throw new BadRequestException('Passwords do not match');
-    }
-
     try {
       const payload = await this.jwtService.verifyAsync<TResetPasswordPayload>(dto.token, {
         secret: this.configService.get<string>('RESET_PASSWORD_TOKEN'),
