@@ -7,6 +7,8 @@ import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
 import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
+import { Permissions } from 'src/common/decorators/permissions.decorator';
 import express from 'express';
 
 @Controller('posts')
@@ -17,7 +19,8 @@ export class PostsController {
   ) {}
 
   @Post()
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, PermissionsGuard)
+  @Permissions('CREATE:POST')
   async create(@Req() req: Express.Request, @Body() createPostDto: CreatePostDto) {
     const res = await this.postsService.create(req.user.sub, createPostDto);
     return createSuccessResponse(res);
@@ -36,7 +39,8 @@ export class PostsController {
   }
 
   @Patch(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, PermissionsGuard)
+  @Permissions('UPDATE:POST')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     // TODO: only admin or owner do action
     const res = await this.postsService.update(id, updatePostDto);
@@ -44,7 +48,8 @@ export class PostsController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, PermissionsGuard)
+  @Permissions('DELETE:POST')
   async remove(@Param('id') id: string) {
     // TODO: only admin or owner do action
     const res = await this.postsService.remove(id);
