@@ -82,16 +82,16 @@ export class AuthService {
     return userResponse;
   }
 
-  async logout(req: express.Request, res: express.Response) {
-    const refreshToken = req.cookies['refresh_token'] as string | undefined;
-
+  async logout(req: Express.Request, res: express.Response) {
+    const refreshToken = req.cookies['refresh_token'];
+    res.clearCookie('access_token');
     if (refreshToken) {
       await this.removeRefreshToken(refreshToken);
+      res.clearCookie('refresh_token');
+      return true;
+    } else {
+      return false;
     }
-
-    res.clearCookie('access_token');
-    res.clearCookie('refresh_token');
-    return true;
   }
 
   async forgotPassword(dto: ForgotPasswordDto) {
