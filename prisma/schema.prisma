@@ -29,10 +29,11 @@ model User {
 model Post {
   post_id    String   @id @default(cuid())
   title      String
-  content    String
+  content    Json
   user_id    String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  deleted_at DateTime?
   post_tags PostTag[]
   user       User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
 }
