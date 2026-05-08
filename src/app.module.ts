@@ -3,10 +3,11 @@ import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './api/posts/posts.module';
 import { UsersModule } from './api/users/users.module';
 import { AuthModule } from './api/auth/auth.module';
+import { TagsModule } from './api/tags/tags.module';
 import ConfigModule from './config/config.module';
 
 @Module({
-  imports: [ConfigModule, SharedModule, PostsModule, UsersModule, AuthModule],
+  imports: [ConfigModule, SharedModule, PostsModule, UsersModule, AuthModule, TagsModule],
   controllers: [],
   providers: [],
 })

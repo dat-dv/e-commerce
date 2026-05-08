@@ -42,7 +42,7 @@ export class AuthController {
   }
 
   @Post('refresh-token')
-  async refreshToken(@Req() req: Express.Request, @Res({ passthrough: true }) res: Express.Response) {
+  async refreshToken(@Req() req: express.Request, @Res({ passthrough: true }) res: express.Response) {
     const result = await this.authService.refreshToken(req, res);
     return createSuccessResponse(result);
   }

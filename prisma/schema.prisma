@@ -52,6 +52,7 @@ model Tag {
   tag_name String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  deleted_at DateTime?
   post_tags PostTag[]
 }
 

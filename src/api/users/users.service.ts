@@ -3,6 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from 'generated/prisma/browser';
+import { handlePrismaNotFound } from '../../common/utils/prisma.util';
 
 @Injectable()
 export class UsersService {
@@ -40,18 +41,30 @@ export class UsersService {
   }
 
   async findOne(id: string) {
-    return await this.prisma.user.findUnique({ where: { user_id: id, deleted_at: null } });
+    return handlePrismaNotFound(
+      this.prisma.user.findUniqueOrThrow({ where: { user_id: id, deleted_at: null } }),
+      'User not found',
+    );
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    return await this.prisma.user.update({ where: { user_id: id }, data: updateUserDto });
+    return handlePrismaNotFound(
+      this.prisma.user.update({
+        where: { user_id: id, deleted_at: null },
+        data: updateUserDto,
+      }),
+      'User not found',
+    );
   }
 
   async remove(id: string) {
-    return await this.prisma.user.update({
-      where: { user_id: id },
-      data: { deleted_at: new Date() },
-    });
+    return handlePrismaNotFound(
+      this.prisma.user.update({
+        where: { user_id: id, deleted_at: null },
+        data: { deleted_at: new Date() },
+      }),
+      'User not found',
+    );
   }
 
   async findOneByEmail(email: string, isDeleted: boolean = false) {
