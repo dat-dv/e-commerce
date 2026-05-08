@@ -36,13 +36,17 @@ export class PostsController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard)
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
+    // TODO: only admin or owner do action
     const res = await this.postsService.update(id, updatePostDto);
     return createSuccessResponse(res);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard)
   async remove(@Param('id') id: string) {
+    // TODO: only admin or owner do action
     const res = await this.postsService.remove(id);
     return createSuccessResponse(res);
   }

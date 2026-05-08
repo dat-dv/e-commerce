@@ -72,7 +72,12 @@ export class PostsService {
         },
       },
     });
-    return handlePrismaNotFound(findPost, 'Post not found');
+    const data = await handlePrismaNotFound(findPost, 'Post not found');
+    const { _count, ...postData } = data;
+    return {
+      ...postData,
+      total_comments: _count.comments,
+    };
   }
 
   async update(id: string, updatePostDto: UpdatePostDto) {
