@@ -81,10 +81,14 @@ model Comment {
   content    String
   post_id    String
   user_id    String
+  parent_id  String?
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   deleted_at DateTime?
 
   post       Post     @relation(fields: [post_id], references: [post_id], onDelete: Cascade, onUpdate: NoAction)
   user       User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+  
+  parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [comment_id], onDelete: Cascade, onUpdate: NoAction)
+  replies    Comment[] @relation("CommentToComment")
 }
