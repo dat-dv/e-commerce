@@ -37,8 +37,26 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'CREATE:POST', description: 'Quyền tạo bài viết', category: 'Quản lý bài viết' },
     { permission_name: 'LIST:POST', description: 'Quyền xem danh sách bài viết', category: 'Quản lý bài viết' },
     { permission_name: 'DETAIL:POST', description: 'Quyền xem chi tiết bài viết', category: 'Quản lý bài viết' },
-    { permission_name: 'UPDATE:POST', description: 'Quyền sửa bài viết', category: 'Quản lý bài viết' },
-    { permission_name: 'DELETE:POST', description: 'Quyền xóa bài viết', category: 'Quản lý bài viết' },
+    {
+      permission_name: 'UPDATE:OWN_POST',
+      description: 'Quyền sửa bài viết của chính mình',
+      category: 'Quản lý bài viết',
+    },
+    {
+      permission_name: 'UPDATE:ANY_POST',
+      description: 'Quyền sửa bài viết của bất kỳ ai',
+      category: 'Quản lý bài viết',
+    },
+    {
+      permission_name: 'DELETE:OWN_POST',
+      description: 'Quyền xóa bài viết của chính mình',
+      category: 'Quản lý bài viết',
+    },
+    {
+      permission_name: 'DELETE:ANY_POST',
+      description: 'Quyền xóa bài viết của bất kỳ ai',
+      category: 'Quản lý bài viết',
+    },
 
     // Quản lý người dùng
     { permission_name: 'CREATE:USER', description: 'Quyền tạo người dùng', category: 'Quản lý người dùng' },
@@ -51,8 +69,26 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'CREATE:COMMENT', description: 'Quyền tạo bình luận', category: 'Quản lý bình luận' },
     { permission_name: 'LIST:COMMENT', description: 'Quyền xem danh sách bình luận', category: 'Quản lý bình luận' },
     { permission_name: 'DETAIL:COMMENT', description: 'Quyền xem chi tiết bình luận', category: 'Quản lý bình luận' },
-    { permission_name: 'UPDATE:COMMENT', description: 'Quyền sửa bình luận', category: 'Quản lý bình luận' },
-    { permission_name: 'DELETE:COMMENT', description: 'Quyền xóa bình luận', category: 'Quản lý bình luận' },
+    {
+      permission_name: 'UPDATE:OWN_COMMENT',
+      description: 'Quyền sửa bình luận của chính mình',
+      category: 'Quản lý bình luận',
+    },
+    {
+      permission_name: 'UPDATE:ANY_COMMENT',
+      description: 'Quyền sửa bình luận của bất kỳ ai',
+      category: 'Quản lý bình luận',
+    },
+    {
+      permission_name: 'DELETE:OWN_COMMENT',
+      description: 'Quyền xóa bình luận của chính mình',
+      category: 'Quản lý bình luận',
+    },
+    {
+      permission_name: 'DELETE:ANY_COMMENT',
+      description: 'Quyền xóa bình luận của bất kỳ ai',
+      category: 'Quản lý bình luận',
+    },
 
     // Quản lý vai trò
     { permission_name: 'CREATE:ROLE', description: 'Quyền tạo vai trò', category: 'Quản lý vai trò' },
@@ -101,9 +137,13 @@ export async function seedRBAC(prisma: PrismaClient) {
     'CREATE:POST',
     'LIST:POST',
     'DETAIL:POST',
+    'UPDATE:OWN_POST',
+    'DELETE:OWN_POST',
     'CREATE:COMMENT',
     'LIST:COMMENT',
     'DETAIL:COMMENT',
+    'UPDATE:OWN_COMMENT',
+    'DELETE:OWN_COMMENT',
     'LIST:TAG',
     'DETAIL:TAG',
     'DETAIL:USER',

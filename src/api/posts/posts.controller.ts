@@ -39,20 +39,16 @@ export class PostsController {
   }
 
   @Patch(':id')
-  @UseGuards(AuthGuard, PermissionsGuard)
-  @Permissions('UPDATE:POST')
-  async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    // TODO: only admin or owner do action
-    const res = await this.postsService.update(id, updatePostDto);
+  @UseGuards(AuthGuard)
+  async update(@Req() req: Express.Request, @Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
+    const res = await this.postsService.update(id, req.user.sub, updatePostDto);
     return createSuccessResponse(res);
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard, PermissionsGuard)
-  @Permissions('DELETE:POST')
-  async remove(@Param('id') id: string) {
-    // TODO: only admin or owner do action
-    const res = await this.postsService.remove(id);
+  @UseGuards(AuthGuard)
+  async remove(@Req() req: Express.Request, @Param('id') id: string) {
+    const res = await this.postsService.remove(id, req.user.sub);
     return createSuccessResponse(res);
   }
 }

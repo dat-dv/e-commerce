@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, ForbiddenException } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -80,7 +80,7 @@ export class PostsService {
     };
   }
 
-  async update(id: string, updatePostDto: UpdatePostDto) {
+  async update(id: string, requestingUserId: string, updatePostDto: UpdatePostDto) {
     const { tag_ids, ...postData } = updatePostDto;
 
     // Fetch current post to compare slug
@@ -88,6 +88,8 @@ export class PostsService {
       where: { post_id: id, deleted_at: null },
     });
     const currentPost = await handlePrismaNotFound(findPost, 'Post not found');
+
+    await this.checkOwnershipOrPermission(currentPost.user_id, requestingUserId, 'UPDATE:OWN_POST', 'UPDATE:ANY_POST');
 
     let slug = currentPost.slug;
     if (postData.slug && postData.slug !== currentPost.slug) {
@@ -113,7 +115,12 @@ export class PostsService {
     return handlePrismaNotFound(updatePost, 'Post not found');
   }
 
-  async remove(id: string) {
+  async remove(id: string, requestingUserId: string) {
+    const findPost = this.prismaClient.post.findUniqueOrThrow({
+      where: { post_id: id, deleted_at: null },
+    });
+    const currentPost = await handlePrismaNotFound(findPost, 'Post not found');
+    await this.checkOwnershipOrPermission(currentPost.user_id, requestingUserId, 'DELETE:OWN_POST', 'DELETE:ANY_POST');
     return handlePrismaNotFound(
       this.prismaClient.post.update({
         where: { post_id: id, deleted_at: null },
@@ -121,5 +128,41 @@ export class PostsService {
       }),
       'Post not found',
     );
+  }
+
+  private async checkOwnershipOrPermission(
+    resourceUserId: string,
+    requestingUserId: string,
+    ownPermission: string,
+    anyPermission: string,
+  ) {
+    const isOwner = resourceUserId === requestingUserId;
+
+    const user = await this.prismaClient.user.findUnique({
+      where: { user_id: requestingUserId },
+      include: {
+        role: {
+          include: {
+            permissions: true,
+          },
+        },
+      },
+    });
+
+    const userPermissions = user?.role?.permissions.map((p) => p.permission_name) || [];
+
+    if (isOwner) {
+      if (!userPermissions.includes(ownPermission)) {
+        throw new ForbiddenException(
+          `You do not have the '${ownPermission}' permission to action on your own resource`,
+        );
+      }
+    } else {
+      if (!userPermissions.includes(anyPermission)) {
+        throw new ForbiddenException(
+          `You do not have the '${anyPermission}' permission to action on other people's resources`,
+        );
+      }
+    }
   }
 }
