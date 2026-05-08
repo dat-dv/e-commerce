@@ -8,7 +8,7 @@ export class CreateUserDto {
   password: string;
 
   @IsString()
-  confirmPassword: string;
+  confirm_password: string;
 
   @IsString()
   first_name: string;

@@ -5,6 +5,8 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import express from 'express';
 import { TAccessTokenPayload, TRefreshTokenPayload } from './auth.types';
+import { UsersService } from 'src/users/users.service';
+import { RegisterDto } from './dto/register.dto';
 
 @Injectable()
 export class AuthService {
@@ -12,6 +14,7 @@ export class AuthService {
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
+    private readonly usersService: UsersService,
   ) {}
 
   async login(dto: LoginDto, res: express.Response) {
@@ -60,6 +63,38 @@ export class AuthService {
     return userResponse;
   }
 
+  async register(dto: RegisterDto, res: express.Response) {
+    const user = await this.usersService.create(dto);
+    const payload = { sub: user.user_id, email: user.email };
+    const accessToken = await this.generateAccessToken(payload);
+    const refreshToken = await this.generateRefreshToken({ sub: user.user_id });
+
+    await this.prisma.refreshToken.create({
+      data: {
+        token: refreshToken,
+        user_id: user.user_id,
+        expires_at: new Date(Date.now() + Number(this.configService.get('REFRESH_TOKEN_EXPIRES_IN'))),
+      },
+    });
+
+    res.cookie('access_token', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: this.configService.get('ACCESS_TOKEN_EXPIRES_IN'),
+    });
+
+    res.cookie('refresh_token', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
+    });
+
+    const { password, ...userResponse } = user;
+    return userResponse;
+  }
+
   async logout(req: express.Request, res: express.Response) {
     const refreshToken = req.cookies['refresh_token'] as string | undefined;
 
@@ -97,11 +132,6 @@ export class AuthService {
     });
   }
 
-  /**
-   * Check JWT token is expired
-   * @param token JWT token
-   * @returns boolean | true = not expired, false = expired
-   */
   async checkJWTTokenIsExpired(token: string) {
     try {
       const payload = await this.jwtService.verifyAsync<TAccessTokenPayload>(token, {
@@ -113,11 +143,6 @@ export class AuthService {
     }
   }
 
-  /**
-   * Check refresh token is expired
-   * @param token refresh token
-   * @returns boolean | true = not expired, false = expired
-   */
   async checkRefreshTokenIsExpired(token: string) {
     try {
       await this.jwtService.verifyAsync<TRefreshTokenPayload>(token, {

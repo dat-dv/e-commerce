@@ -4,7 +4,7 @@ import { CreateUserDto } from './create-user.dto';
 import { PartialType, OmitType } from '@nestjs/swagger';
 
 export class UpdateUserDto extends PartialType(
-  OmitType(CreateUserDto, ['email', 'password', 'confirmPassword'] as const),
+  OmitType(CreateUserDto, ['email', 'password', 'confirm_password'] as const),
 ) {}
 
 export class UpdatePasswordDto {
@@ -15,5 +15,5 @@ export class UpdatePasswordDto {
   newPassword: string;
 
   @IsString()
-  confirmPassword: string;
+  confirm_password: string;
 }

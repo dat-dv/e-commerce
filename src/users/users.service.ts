@@ -1,4 +1,4 @@
-import { Injectable, ConflictException, BadRequestException } from '@nestjs/common';
+import { Injectable, ConflictException, BadRequestException, UnauthorizedException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -8,6 +8,10 @@ import { Prisma } from 'generated/prisma/browser';
 export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
   async create(dto: CreateUserDto) {
+    if (dto.password !== dto.confirm_password) {
+      throw new UnauthorizedException('Passwords do not match');
+    }
+
     const existingUser = await this.findOneByEmail(dto.email, true);
     const isNewUser = !existingUser;
 
