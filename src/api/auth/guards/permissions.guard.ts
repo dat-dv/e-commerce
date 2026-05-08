@@ -28,22 +28,23 @@ export class PermissionsGuard implements CanActivate {
 
     const dbUser = await this.prisma.user.findUnique({
       where: { user_id: user.sub },
-      include: {
+      select: {
         role: {
-          include: {
-            permissions: true,
+          select: {
+            permissions: {
+              select: {
+                permission_name: true,
+              },
+            },
           },
         },
       },
     });
-
     if (!dbUser || !dbUser.role) {
       return false;
     }
 
     const userPermissions = dbUser.role.permissions.map((p) => p.permission_name);
-
-    // Check if user has all required permissions
     return requiredPermissions.every((permission) => userPermissions.includes(permission));
   }
 }
