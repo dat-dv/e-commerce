@@ -4,5 +4,9 @@ namespace Express {
       access_token?: string;
       refresh_token?: string;
     };
+    user: {
+      sub: string;
+      email: string;
+    };
   }
 }

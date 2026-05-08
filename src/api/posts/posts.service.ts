@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -13,20 +13,26 @@ export class PostsService {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(createPostDto: CreatePostDto) {
+  async create(user_id: string, createPostDto: CreatePostDto) {
     const { tag_ids = [], ...postData } = createPostDto;
 
+    if (tag_ids.length > 0) {
+      const existingTags = await this.prismaClient.tag.findMany({
+        where: { id: { in: tag_ids } },
+      });
+      if (existingTags.length !== tag_ids.length) {
+        throw new BadRequestException('The tag is not existed');
+      }
+    }
     const slug = generateSlug(postData.slug || postData.title);
-
-    const post_tags = {
-      create: tag_ids.map((tag_id) => ({ tag_id })),
-    };
-
+    const listTagIds = tag_ids.map((tag_id) => ({ tag_id }));
+    const post_tags = listTagIds.length ? { create: listTagIds } : undefined;
     return this.prismaClient.post.create({
       data: {
         ...postData,
         slug,
         post_tags,
+        user_id,
       },
       include: {
         post_tags: true,
@@ -60,6 +66,9 @@ export class PostsService {
           include: {
             tag: true,
           },
+        },
+        _count: {
+          select: { comments: true },
         },
       },
     });

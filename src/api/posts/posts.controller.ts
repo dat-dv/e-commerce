@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards, Req } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
@@ -6,6 +6,8 @@ import { GetPostsDto } from './dto/get-posts.dto';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
 import createSuccessResponse from 'src/common/respomse';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import express from 'express';
 
 @Controller('posts')
 export class PostsController {
@@ -15,8 +17,9 @@ export class PostsController {
   ) {}
 
   @Post()
-  async create(@Body() createPostDto: CreatePostDto) {
-    const res = await this.postsService.create(createPostDto);
+  @UseGuards(AuthGuard)
+  async create(@Req() req: Express.Request, @Body() createPostDto: CreatePostDto) {
+    const res = await this.postsService.create(req.user.sub, createPostDto);
     return createSuccessResponse(res);
   }
 

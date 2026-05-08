@@ -17,14 +17,10 @@ export class CreatePostDto {
 
   @IsEnum(IPostStatus)
   @IsOptional()
-  status?: IPostStatus;
-
-  @IsString()
-  @IsNotEmpty()
-  user_id: string;
+  status?: IPostStatus = IPostStatus.DRAFT;
 
   @IsArray()
   @IsString({ each: true })
   @IsOptional()
-  tag_ids?: string[];
+  tag_ids?: string[] = [];
 }
