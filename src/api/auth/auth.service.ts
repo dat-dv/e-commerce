@@ -53,19 +53,8 @@ export class AuthService {
     const { password, ...userResponse } = user;
 
     // Set cookies
-    res.cookie('access_token', accessToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
-    });
-
-    res.cookie('refresh_token', refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
-    });
+    this.setAccessTokenCookies(accessToken, res);
+    this.setRefreshTokenCookies(refreshToken, res);
 
     return userResponse;
   }
@@ -86,19 +75,8 @@ export class AuthService {
       },
     });
 
-    res.cookie('access_token', accessToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
-    });
-
-    res.cookie('refresh_token', refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
-    });
+    this.setAccessTokenCookies(accessToken, res);
+    this.setRefreshTokenCookies(refreshToken, res);
 
     const { password, ...userResponse } = user;
     return userResponse;
@@ -162,13 +140,57 @@ export class AuthService {
     }
   }
 
+  async refreshToken(req: Express.Request, res: express.Response) {
+    try {
+      const accessToken = req.cookies['access_token'];
+      const decodedAT = await this.isValidAccessToken(accessToken || '');
+      if (!decodedAT) {
+        throw new UnauthorizedException('Invalid or expired access token');
+      }
+      const refreshToken = req.cookies['refresh_token'];
+      if (!refreshToken) {
+        throw new UnauthorizedException('Invalid or expired refresh token');
+      }
+      const isValidRT = await this.isValidRefreshToken(refreshToken);
+      if (!isValidRT) {
+        throw new UnauthorizedException('Invalid or expired refresh token');
+      }
+      await this.removeRefreshToken(refreshToken);
+      const newRefreshToken = await this.generateRefreshToken({ sub: decodedAT.sub });
+      const newAccessToken = await this.generateAccessToken({ sub: decodedAT.sub, email: decodedAT.email });
+      await this.saveRefreshToken(newRefreshToken, decodedAT.sub);
+      // Set cookies
+      this.setAccessTokenCookies(newAccessToken, res);
+      this.setRefreshTokenCookies(newRefreshToken, res);
+
+      return true;
+    } catch (error) {
+      throw new UnauthorizedException('Invalid or expired refresh token');
+    }
+  }
+
+  async saveRefreshToken(refreshToken: string, userId: string) {
+    if (!refreshToken || !userId) {
+      throw new UnauthorizedException('Invalid refresh token');
+    }
+    await this.prisma.refreshToken.create({
+      data: {
+        token: refreshToken,
+        user_id: userId,
+        expires_at: new Date(
+          Date.now() + (this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) ?? 0) * 1000,
+        ),
+      },
+    });
+  }
+
   async removeRefreshToken(refreshToken: string) {
     try {
       await this.prisma.refreshToken.delete({
         where: { token: refreshToken },
       });
     } catch (error) {
-      // Token might already be deleted or invalid
+      throw new BadRequestException('Invalid or expired refresh token');
     }
     return { success: true };
   }
@@ -194,7 +216,7 @@ export class AuthService {
     });
   }
 
-  async checkJWTTokenIsExpired(token: string) {
+  async isValidAccessToken(token: string) {
     try {
       const payload = await this.jwtService.verifyAsync<TAccessTokenPayload>(token, {
         secret: this.configService.get('ACCESS_TOKEN_SECRET'),
@@ -205,7 +227,7 @@ export class AuthService {
     }
   }
 
-  async checkRefreshTokenIsExpired(token: string) {
+  async isValidRefreshToken(token: string) {
     try {
       await this.jwtService.verifyAsync<TRefreshTokenPayload>(token, {
         secret: this.configService.get('REFRESH_TOKEN_SECRET'),
@@ -221,5 +243,23 @@ export class AuthService {
     } catch (error) {
       throw new UnauthorizedException('Invalid or expired refresh token');
     }
+  }
+
+  setAccessTokenCookies(accessToken: string, res: express.Response) {
+    res.cookie('access_token', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
+    });
+  }
+
+  setRefreshTokenCookies(refreshToken: string, res: express.Response) {
+    res.cookie('refresh_token', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
+    });
   }
 }

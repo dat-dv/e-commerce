@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Missing access token');
     }
     try {
-      const payload = await this.authService.checkJWTTokenIsExpired(token);
+      const payload = await this.authService.isValidAccessToken(token);
       // Attach user info to request object for use in controllers
       request['user'] = payload;
     } catch (error) {

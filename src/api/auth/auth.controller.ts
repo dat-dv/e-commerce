@@ -40,4 +40,10 @@ export class AuthController {
     const result = await this.authService.logout(req, res);
     return createSuccessResponse(result);
   }
+
+  @Post('refresh-token')
+  async refreshToken(@Req() req: Express.Request, @Res({ passthrough: true }) res: Express.Response) {
+    const result = await this.authService.refreshToken(req, res);
+    return createSuccessResponse(result);
+  }
 }
