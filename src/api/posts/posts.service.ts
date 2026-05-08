@@ -3,10 +3,14 @@ import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { handlePrismaNotFound } from '../../common/utils/prisma.util';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()
 export class PostsService {
-  constructor(private readonly prismaClient: PrismaService) {}
+  constructor(
+    private readonly prismaClient: PrismaService,
+    private readonly paginationService: PaginationService,
+  ) {}
 
   async create(createPostDto: CreatePostDto) {
     const { tag_ids = [], ...postData } = createPostDto;
@@ -26,9 +30,27 @@ export class PostsService {
     });
   }
 
-  async findAll() {
-    return this.prismaClient.post.findMany({
-      where: { deleted_at: null },
+  async findAll(page: number = 1, limit: number = 10) {
+    return this.paginationService.paginate(
+      this.prismaClient.post,
+      {
+        where: { deleted_at: null },
+        include: {
+          post_tags: {
+            include: {
+              tag: true,
+            },
+          },
+        },
+      },
+      page,
+      limit,
+    );
+  }
+
+  async findOne(id: string) {
+    const findPost = this.prismaClient.post.findUniqueOrThrow({
+      where: { post_id: id, deleted_at: null },
       include: {
         post_tags: {
           include: {
@@ -37,45 +59,27 @@ export class PostsService {
         },
       },
     });
-  }
-
-  async findOne(id: string) {
-    return handlePrismaNotFound(
-      this.prismaClient.post.findUniqueOrThrow({
-        where: { post_id: id, deleted_at: null },
-        include: {
-          post_tags: {
-            include: {
-              tag: true,
-            },
-          },
-        },
-      }),
-      'Post not found',
-    );
+    return handlePrismaNotFound(findPost, 'Post not found');
   }
 
   async update(id: string, updatePostDto: UpdatePostDto) {
     const { tag_ids, ...postData } = updatePostDto;
-
-    return handlePrismaNotFound(
-      this.prismaClient.post.update({
-        where: { post_id: id, deleted_at: null },
-        data: {
-          ...postData,
-          post_tags: tag_ids
-            ? {
-                deleteMany: {},
-                create: tag_ids.map((tag_id) => ({ tag_id })),
-              }
-            : undefined,
-        },
-        include: {
-          post_tags: true,
-        },
-      }),
-      'Post not found',
-    );
+    const updatePost = this.prismaClient.post.update({
+      where: { post_id: id, deleted_at: null },
+      data: {
+        ...postData,
+        post_tags: tag_ids
+          ? {
+              deleteMany: {},
+              create: tag_ids.map((tag_id) => ({ tag_id })),
+            }
+          : undefined,
+      },
+      include: {
+        post_tags: true,
+      },
+    });
+    return handlePrismaNotFound(updatePost, 'Post not found');
   }
 
   async remove(id: string) {

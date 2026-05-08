@@ -26,7 +26,7 @@ export class PaginationService {
     ]);
 
     return {
-      data,
+      list: data,
       meta: {
         total,
         page,
