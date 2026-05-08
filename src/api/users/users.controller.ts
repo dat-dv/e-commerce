@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import createSuccessResponse from 'src/common/respomse';
-import { AuthGuard } from 'src/auth/guards/auth.guard';
+import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { UseGuards } from '@nestjs/common';
 
 @UseGuards(AuthGuard)

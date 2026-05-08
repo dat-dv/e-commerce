@@ -25,7 +25,11 @@ export class MailService {
       html,
     };
 
-    const info = await this.transporter.sendMail(mailOptions);
-    return info;
+    try {
+      await this.transporter.sendMail(mailOptions);
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 }

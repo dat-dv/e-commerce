@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import express from 'express';
 import { TAccessTokenPayload, TRefreshTokenPayload, TResetPasswordPayload } from './auth.types';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'src/api/users/users.service';
 import { RegisterDto } from './dto/register.dto';
 import { MailService } from 'src/mail/mail.service';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
@@ -44,7 +44,9 @@ export class AuthService {
       data: {
         token: refreshToken,
         user_id: user.user_id,
-        expires_at: new Date(Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true })),
+        expires_at: new Date(
+          Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
+        ),
       },
     });
 
@@ -55,14 +57,14 @@ export class AuthService {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }),
+      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }),
+      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
 
     return userResponse;
@@ -78,7 +80,9 @@ export class AuthService {
       data: {
         token: refreshToken,
         user_id: user.user_id,
-        expires_at: new Date(Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true })),
+        expires_at: new Date(
+          Date.now() + (this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) ?? 0) * 1000,
+        ),
       },
     });
 
@@ -86,14 +90,14 @@ export class AuthService {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }),
+      maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }),
+      maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
 
     const { password, ...userResponse } = user;
