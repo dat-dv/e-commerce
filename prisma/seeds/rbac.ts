@@ -61,8 +61,26 @@ export async function seedRBAC(prisma: PrismaClient) {
     // Quản lý người dùng
     { permission_name: 'CREATE:USER', description: 'Quyền tạo người dùng', category: 'Quản lý người dùng' },
     { permission_name: 'LIST:USER', description: 'Quyền xem danh sách người dùng', category: 'Quản lý người dùng' },
-    { permission_name: 'DETAIL:USER', description: 'Quyền xem chi tiết người dùng', category: 'Quản lý người dùng' },
-    { permission_name: 'UPDATE:USER', description: 'Quyền sửa thông tin người dùng', category: 'Quản lý người dùng' },
+    {
+      permission_name: 'DETAIL:OWN_USER',
+      description: 'Quyền xem thông tin của chính mình',
+      category: 'Quản lý người dùng',
+    },
+    {
+      permission_name: 'DETAIL:ANY_USER',
+      description: 'Quyền xem thông tin của bất kỳ ai',
+      category: 'Quản lý người dùng',
+    },
+    {
+      permission_name: 'UPDATE:OWN_USER',
+      description: 'Quyền sửa thông tin của chính mình',
+      category: 'Quản lý người dùng',
+    },
+    {
+      permission_name: 'UPDATE:ANY_USER',
+      description: 'Quyền sửa thông tin của bất kỳ ai',
+      category: 'Quản lý người dùng',
+    },
     { permission_name: 'DELETE:USER', description: 'Quyền xóa người dùng', category: 'Quản lý người dùng' },
 
     // Quản lý bình luận
@@ -146,7 +164,8 @@ export async function seedRBAC(prisma: PrismaClient) {
     'DELETE:OWN_COMMENT',
     'LIST:TAG',
     'DETAIL:TAG',
-    'DETAIL:USER',
+    'DETAIL:OWN_USER',
+    'UPDATE:OWN_USER',
   ];
 
   const userRole = await prisma.role.upsert({

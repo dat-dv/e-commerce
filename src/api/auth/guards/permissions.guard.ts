@@ -3,7 +3,6 @@ import { Reflector } from '@nestjs/core';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PERMISSIONS_KEY } from 'src/common/decorators/permissions.decorator';
 import { Request } from 'express';
-import { TAccessTokenPayload } from '../auth.types';
 
 @Injectable()
 export class PermissionsGuard implements CanActivate {

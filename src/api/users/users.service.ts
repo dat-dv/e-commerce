@@ -1,4 +1,10 @@
-import { Injectable, ConflictException, BadRequestException, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  ConflictException,
+  BadRequestException,
+  UnauthorizedException,
+  ForbiddenException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -44,14 +50,18 @@ export class UsersService {
     return this.paginationService.paginate(this.prisma.user, { where: { deleted_at: null } }, page, limit);
   }
 
-  async findOne(id: string) {
+  async findOne(id: string, requestingUserId: string) {
+    await this.checkOwnershipOrPermission(id, requestingUserId, 'DETAIL:OWN_USER', 'DETAIL:ANY_USER');
+
     return handlePrismaNotFound(
       this.prisma.user.findUniqueOrThrow({ where: { user_id: id, deleted_at: null } }),
       'User not found',
     );
   }
 
-  async update(id: string, updateUserDto: UpdateUserDto) {
+  async update(id: string, requestingUserId: string, updateUserDto: UpdateUserDto) {
+    await this.checkOwnershipOrPermission(id, requestingUserId, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+
     return handlePrismaNotFound(
       this.prisma.user.update({
         where: { user_id: id, deleted_at: null },
@@ -69,6 +79,41 @@ export class UsersService {
       }),
       'User not found',
     );
+  }
+
+  private async checkOwnershipOrPermission(
+    targetUserId: string,
+    requestingUserId: string,
+    ownPermission: string,
+    anyPermission: string,
+  ) {
+    const user = await this.prisma.user.findUnique({
+      where: { user_id: requestingUserId },
+      include: {
+        role: {
+          include: {
+            permissions: true,
+          },
+        },
+      },
+    });
+
+    const userPermissions = user?.role?.permissions.map((p) => p.permission_name) || [];
+
+    if (userPermissions.includes(anyPermission)) {
+      return;
+    }
+
+    const isOwner = targetUserId === requestingUserId;
+    if (isOwner) {
+      if (!userPermissions.includes(ownPermission)) {
+        throw new ForbiddenException(`You do not have the '${ownPermission}' permission to action on your own profile`);
+      }
+    } else {
+      throw new ForbiddenException(
+        `You do not have the '${anyPermission}' permission to action on other people's profiles`,
+      );
+    }
   }
 
   async findOneByEmail(email: string, isDeleted: boolean = false) {
