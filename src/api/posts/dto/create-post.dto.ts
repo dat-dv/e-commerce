@@ -15,6 +15,10 @@ export class CreatePostDto {
   @IsNotEmpty()
   content: object;
 
+  @IsString()
+  @IsOptional()
+  thumbnail?: string;
+
   @IsEnum(IPostStatus)
   @IsOptional()
   status?: IPostStatus = IPostStatus.DRAFT;

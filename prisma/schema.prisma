@@ -39,6 +39,7 @@ model Post {
   title      String
   slug       String   @unique
   content    Json
+  thumbnail  String?
   status     IPostStatus @default(DRAFT)
   user_id    String
   created_at DateTime @default(now())
