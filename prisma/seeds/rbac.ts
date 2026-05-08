@@ -1,4 +1,5 @@
 import { PrismaClient, Prisma } from '../../generated/prisma/client';
+import { ROLE_ADMIN, ROLE_USER } from '../../src/common/constants/roles.constant';
 
 /**
  * Seeds the database with default roles, permissions, and categories.
@@ -139,10 +140,10 @@ export async function seedRBAC(prisma: PrismaClient) {
   // 3. Tạo Role Admin (Có tất cả các quyền)
 
   const adminRole = await prisma.role.upsert({
-    where: { role_name: 'ADMIN' },
+    where: { role_name: ROLE_ADMIN },
     update: {},
     create: {
-      role_name: 'ADMIN',
+      role_name: ROLE_ADMIN,
       description: 'Quản trị viên hệ thống',
       permissions: {
         connect: permissions.map((p) => ({ permission_name: p.permission_name })),
@@ -169,10 +170,10 @@ export async function seedRBAC(prisma: PrismaClient) {
   ];
 
   const userRole = await prisma.role.upsert({
-    where: { role_name: 'USER' },
+    where: { role_name: ROLE_USER },
     update: {},
     create: {
-      role_name: 'USER',
+      role_name: ROLE_USER,
       description: 'Người dùng thông thường',
       permissions: {
         connect: userPermNames.map((name) => ({ permission_name: name })),

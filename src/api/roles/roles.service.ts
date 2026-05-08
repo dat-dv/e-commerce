@@ -3,6 +3,7 @@ import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { handlePrismaNotFound } from '../../common/utils/prisma.util';
+import { SYSTEM_ROLES } from 'src/common/constants/roles.constant';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()
@@ -57,6 +58,19 @@ export class RolesService {
   }
 
   async remove(id: string) {
+    const role = await this.prismaClient.role.findUnique({
+      where: { role_id: id },
+    });
+
+    if (!role) {
+      throw new BadRequestException('Role not found');
+    }
+
+    // Không cho phép xóa các role hệ thống
+    if (SYSTEM_ROLES.includes(role.role_name)) {
+      throw new BadRequestException(`Cannot delete system roles (${SYSTEM_ROLES.join(' or ')})`);
+    }
+
     const usersWithRole = await this.prismaClient.user.count({
       where: { role_id: id },
     });
