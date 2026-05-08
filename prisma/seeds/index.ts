@@ -2,6 +2,7 @@ import { PrismaClient } from '../../generated/prisma/client';
 import { seedPhase1 } from './phase1';
 import { seedPhase2 } from './phase2';
 import { seedPhase3 } from './phase3';
+import { seedRBAC } from './rbac';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
@@ -14,11 +15,17 @@ async function cleanDatabase() {
   await prisma.post.deleteMany({});
   await prisma.tag.deleteMany({});
   await prisma.user.deleteMany({});
+  await prisma.permission.deleteMany({});
+  await prisma.permissionCategory.deleteMany({});
+  await prisma.role.deleteMany({});
 }
 
 async function main() {
   await cleanDatabase();
   console.log('🌱 Đang tạo dữ liệu mẫu theo các Phase...');
+
+  // phase 0: Tạo Roles & Permissions
+  await seedRBAC(prisma);
 
   // phase 1: Tạo user và tag
   const { defaultUser, listUsers, listTags } = await seedPhase1(prisma);

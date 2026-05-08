@@ -11,8 +11,6 @@ datasource db {
   provider = "sqlite"
 }
 
-// Example models
-
 model User {
   user_id       String         @id @default(cuid())
   first_name    String
@@ -25,13 +23,15 @@ model User {
   posts         Post[]
   refreshTokens RefreshToken[]
   comments      Comment[]
+  
+  role_id       String?
+  role          Role?          @relation(fields: [role_id], references: [role_id])
 }
 
 enum IPostStatus {
   DRAFT
   PUBLISHED
   ARCHIVED
-	@@map("PostStatus")
 }
 
 model Post {
@@ -57,7 +57,6 @@ model RefreshToken {
   updated_at DateTime @updatedAt
   user       User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
 }
-
 
 model Tag {
   id String @id @default(cuid())
@@ -92,3 +91,37 @@ model Comment {
   parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [comment_id], onDelete: Cascade, onUpdate: NoAction)
   replies    Comment[] @relation("CommentToComment")
 }
+
+model Role {
+  role_id     String   @id @default(cuid())
+  role_name   String   @unique
+  description String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  users       User[]
+  permissions Permission[]
+}
+
+model Permission {
+  permission_id   String   @id @default(cuid())
+  permission_name String   @unique 
+  description     String?
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  roles           Role[]
+  category_id     String?
+  category        PermissionCategory? @relation(fields: [category_id], references: [category_id])
+}
+
+model PermissionCategory {
+  category_id   String   @id @default(cuid())
+  category_name String   @unique
+  description   String?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  permissions   Permission[]
+}
+
