@@ -1,7 +1,10 @@
-import { PrismaClient, Prisma } from '../../generated/prisma/client';
+import { PrismaClient, Prisma, Role } from '../../generated/prisma/client';
 
-export async function seedPhase1(prisma: PrismaClient) {
+export async function seedPhase1(prisma: PrismaClient, adminRole: Role, userRole: Role) {
   console.log('--- Phase 1: Users & Tags ---');
+  if (!userRole) {
+    throw new Error('Role USER không tồn tại. Vui lòng chạy seedRBAC trước.');
+  }
 
   // 1. Tạo User đặc biệt để test Auth
   const defaultUser = await prisma.user.upsert({
@@ -12,17 +15,19 @@ export async function seedPhase1(prisma: PrismaClient) {
       password: 'string',
       first_name: 'string',
       last_name: 'string',
+      role_id: adminRole.role_id,
     },
   });
 
   // 2. Tạo 100 Users ngẫu nhiên
-  const users: Prisma.UserCreateWithoutPostsInput[] = Array(100)
+  const users = Array(100)
     .fill(0)
     .map((_, i) => ({
       email: `example-${i}@gmail.com`,
       first_name: 'John',
       last_name: 'Doe',
       password: 'password',
+      role_id: userRole.role_id,
     }));
 
   await prisma.user.createMany({

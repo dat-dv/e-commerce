@@ -25,10 +25,10 @@ async function main() {
   console.log('🌱 Đang tạo dữ liệu mẫu theo các Phase...');
 
   // phase 0: Tạo Roles & Permissions
-  await seedRBAC(prisma);
+  const { adminRole, userRole } = await seedRBAC(prisma);
 
   // phase 1: Tạo user và tag
-  const { defaultUser, listUsers, listTags } = await seedPhase1(prisma);
+  const { defaultUser, listUsers, listTags } = await seedPhase1(prisma, adminRole, userRole);
 
   // phase 2: Tạo bài viết
   const posts = await seedPhase2(prisma, defaultUser, listUsers, listTags);
