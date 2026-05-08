@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ConflictException, BadRequestException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -25,10 +25,10 @@ export class UsersService {
 
     const isExistedUser = existingUser?.deleted_at === null;
     if (isExistedUser) {
-      throw new Error('User already exists');
+      throw new ConflictException('User already exists');
     }
 
-    throw new Error('User is soft deleted, please contact admin to restore');
+    throw new BadRequestException('User is soft deleted, please contact admin to restore');
   }
 
   async findAll() {

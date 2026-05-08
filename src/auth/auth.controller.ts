@@ -10,27 +10,8 @@ export class AuthController {
 
   @Post('login')
   async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: express.Response) {
-    const result = await this.authService.login(dto);
-
-    // Set cookies
-    res.cookie('access_token', result.accessToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: 15 * 60 * 1000, // 15 minutes
-    });
-
-    res.cookie('refresh_token', result.refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    });
-
-    return {
-      message: 'Login successful',
-      user: result.user,
-    };
+    const result = await this.authService.login(dto, res);
+    return createSuccessResponse(result);
   }
 
   @Post('logout')

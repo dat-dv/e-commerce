@@ -13,7 +13,7 @@ export class AuthService {
     private readonly configService: ConfigService,
   ) {}
 
-  async login(dto: LoginDto) {
+  async login(dto: LoginDto, res: express.Response) {
     const user = await this.prisma.user.findUnique({
       where: { email: dto.email },
     });
@@ -41,11 +41,22 @@ export class AuthService {
 
     const { password, ...userResponse } = user;
 
-    return {
-      accessToken,
-      refreshToken,
-      user: userResponse,
-    };
+    // Set cookies
+    res.cookie('access_token', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: this.configService.get('ACCESS_TOKEN_EXPIRES_IN'),
+    });
+
+    res.cookie('refresh_token', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
+    });
+
+    return userResponse;
   }
 
   async logout(req: express.Request, res: express.Response) {
