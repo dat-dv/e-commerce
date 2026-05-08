@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { TagsService } from './tags.service';
 import { CreateTagDto } from './dto/create-tag.dto';
 import { UpdateTagDto } from './dto/update-tag.dto';
 import createSuccessResponse from 'src/common/respomse';
+import { GetTagsDto } from './dto/get-tags.dto';
 
 @Controller('tags')
 export class TagsController {
@@ -15,8 +16,8 @@ export class TagsController {
   }
 
   @Get()
-  async findAll() {
-    const result = await this.tagsService.findAll();
+  async findAll(@Query() paginationDto: GetTagsDto) {
+    const result = await this.tagsService.findAll(paginationDto.page, paginationDto.limit);
     return createSuccessResponse(result);
   }
 

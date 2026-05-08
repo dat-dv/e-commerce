@@ -4,10 +4,14 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from 'generated/prisma/browser';
 import { handlePrismaNotFound } from '../../common/utils/prisma.util';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly paginationService: PaginationService,
+  ) {}
   async create(dto: CreateUserDto) {
     if (dto.password !== dto.confirm_password) {
       throw new UnauthorizedException('Passwords do not match');
@@ -36,8 +40,8 @@ export class UsersService {
     throw new BadRequestException('User is soft deleted, please contact admin to restore');
   }
 
-  async findAll() {
-    return await this.prisma.user.findMany();
+  async findAll(page: number, limit: number) {
+    return this.paginationService.paginate(this.prisma.user, { where: { deleted_at: null } }, page, limit);
   }
 
   async findOne(id: string) {

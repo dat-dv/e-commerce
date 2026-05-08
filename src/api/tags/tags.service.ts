@@ -3,10 +3,14 @@ import { CreateTagDto } from './dto/create-tag.dto';
 import { UpdateTagDto } from './dto/update-tag.dto';
 import { PrismaService } from '../../shared/services/prisma/prisma.service';
 import { handlePrismaNotFound } from '../../common/utils/prisma.util';
+import { PaginationService } from '../../shared/services/pagination/pagination.service';
 
 @Injectable()
 export class TagsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly paginationService: PaginationService,
+  ) {}
 
   create(createTagDto: CreateTagDto) {
     return this.prisma.tag.create({
@@ -14,10 +18,15 @@ export class TagsService {
     });
   }
 
-  findAll() {
-    return this.prisma.tag.findMany({
-      where: { deleted_at: null },
-    });
+  async findAll(page: number, limit: number) {
+    return this.paginationService.paginate(
+      this.prisma.tag,
+      {
+        where: { deleted_at: null },
+      },
+      page,
+      limit,
+    );
   }
 
   async findOne(id: string) {

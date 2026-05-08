@@ -30,7 +30,7 @@ export class PostsService {
     });
   }
 
-  async findAll(page: number = 1, limit: number = 10) {
+  async findAll(page: number, limit: number) {
     return this.paginationService.paginate(
       this.prismaClient.post,
       {

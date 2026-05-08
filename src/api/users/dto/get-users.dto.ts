@@ -1,7 +1,7 @@
-import { Max, Min, IsOptional, IsInt } from 'class-validator';
+import { IsOptional, IsInt, Min, Max } from 'class-validator';
 import { Type } from 'class-transformer';
 
-export class GetPostsDto {
+export class GetUsersDto {
   @IsOptional()
   @Type(() => Number)
   @IsInt()
@@ -13,5 +13,5 @@ export class GetPostsDto {
   @IsInt()
   @Min(1)
   @Max(100)
-  limit: number = 25;
+  limit: number = 10;
 }
