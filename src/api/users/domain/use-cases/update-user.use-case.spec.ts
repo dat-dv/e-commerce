@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UpdateUserUseCase } from './update-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 
 describe('UpdateUserUseCase', () => {
@@ -10,12 +10,14 @@ describe('UpdateUserUseCase', () => {
   let mockUsersRepository: {
     findById: jest.Mock;
     update: jest.Mock;
+    getUserPermissions: jest.Mock;
   };
 
   beforeEach(async () => {
     mockUsersRepository = {
       findById: jest.fn(),
       update: jest.fn(),
+      getUserPermissions: jest.fn(),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -38,20 +40,20 @@ describe('UpdateUserUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      [],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue([]);
 
     const dto: UpdateUserDto = { first_name: 'Updated' };
 
@@ -59,20 +61,20 @@ describe('UpdateUserUseCase', () => {
   });
 
   it('should update user', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      ['UPDATE:OWN_USER'],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue(['UPDATE:OWN_USER']);
     mockUsersRepository.update.mockResolvedValue({ ...user, first_name: 'Updated' });
 
     const dto: UpdateUserDto = { first_name: 'Updated' };

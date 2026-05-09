@@ -1,59 +1,34 @@
+import { IComment } from './comment.entity';
+import { IUser } from '../../../users/domain/entities/user.entity';
 import { Prisma } from 'generated/prisma/client';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
-export type CommentWithRelations = Prisma.CommentGetPayload<{
-  include: {
-    user: {
-      select: {
-        user_id: true;
-        first_name: true;
-        last_name: true;
-        email: true;
-      };
-    };
-    replies: {
-      include: {
-        user: {
-          select: {
-            user_id: true;
-            first_name: true;
-            last_name: true;
-            email: true;
-          };
-        };
-      };
-    };
-    _count: {
-      select: { replies: true };
-    };
+export interface ICommentWithUser extends IComment {
+  user: {
+    user_id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
   };
-}>;
+}
 
-export type CommentWithUser = Prisma.CommentGetPayload<{
-  include: {
-    user: {
-      select: {
-        user_id: true;
-        first_name: true;
-        last_name: true;
-        email: true;
-      };
-    };
+export interface ICommentWithRelations extends ICommentWithUser {
+  replies: ICommentWithUser[];
+  _count: {
+    replies: number;
   };
-}>;
-
-export type CommentModel = Prisma.CommentGetPayload<Record<string, never>>;
+}
 
 export interface ICommentsRepository {
-  getCommentsByPost(postId: string, page: number, limit: number): Promise<PaginatedResult<CommentWithRelations>>;
+  getCommentsByPost(postId: string, page: number, limit: number): Promise<PaginatedResult<ICommentWithRelations>>;
 
-  getReplies(parentId: string, page: number, limit: number): Promise<PaginatedResult<CommentWithUser>>;
+  getReplies(parentId: string, page: number, limit: number): Promise<PaginatedResult<ICommentWithUser>>;
 
-  findById(id: string): Promise<CommentModel | null>;
+  findById(id: string): Promise<IComment | null>;
 
-  create(data: Prisma.CommentCreateInput): Promise<CommentModel>;
+  create(data: Prisma.CommentCreateInput): Promise<IComment>;
 
-  update(id: string, data: Prisma.CommentUpdateInput): Promise<CommentModel>;
+  update(id: string, data: Prisma.CommentUpdateInput): Promise<IComment>;
 
   getUserPermissions(userId: string): Promise<string[]>;
 }

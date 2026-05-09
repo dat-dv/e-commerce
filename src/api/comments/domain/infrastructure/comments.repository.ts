@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import {
   ICommentsRepository,
-  CommentWithRelations,
-  CommentWithUser,
-  CommentModel,
+  ICommentWithRelations,
+  ICommentWithUser,
 } from '../entities/comments.repository.interface';
+import { IComment } from '../entities/comment.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService, PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
@@ -18,8 +18,12 @@ export class CommentsRepository implements ICommentsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async getCommentsByPost(postId: string, page: number, limit: number): Promise<PaginatedResult<CommentWithRelations>> {
-    return this.paginationService.paginate<CommentWithRelations>(
+  async getCommentsByPost(
+    postId: string,
+    page: number,
+    limit: number,
+  ): Promise<PaginatedResult<ICommentWithRelations>> {
+    return this.paginationService.paginate<ICommentWithRelations>(
       this.prisma.comment,
       {
         where: {
@@ -61,8 +65,8 @@ export class CommentsRepository implements ICommentsRepository {
     );
   }
 
-  async getReplies(parentId: string, page: number, limit: number): Promise<PaginatedResult<CommentWithUser>> {
-    return this.paginationService.paginate<CommentWithUser>(
+  async getReplies(parentId: string, page: number, limit: number): Promise<PaginatedResult<ICommentWithUser>> {
+    return this.paginationService.paginate<ICommentWithUser>(
       this.prisma.comment,
       {
         where: {
@@ -86,19 +90,19 @@ export class CommentsRepository implements ICommentsRepository {
     );
   }
 
-  async findById(id: string): Promise<CommentModel | null> {
+  async findById(id: string): Promise<IComment | null> {
     return this.prisma.comment.findUnique({
       where: { comment_id: id, deleted_at: null },
     });
   }
 
-  async create(data: Prisma.CommentCreateInput): Promise<CommentModel> {
+  async create(data: Prisma.CommentCreateInput): Promise<IComment> {
     return this.prisma.comment.create({
       data,
     });
   }
 
-  async update(id: string, data: Prisma.CommentUpdateInput): Promise<CommentModel> {
+  async update(id: string, data: Prisma.CommentUpdateInput): Promise<IComment> {
     return this.prisma.comment.update({
       where: { comment_id: id },
       data,

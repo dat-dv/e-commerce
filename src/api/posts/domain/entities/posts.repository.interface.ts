@@ -1,39 +1,30 @@
+import { IPost } from './post.entity';
+import { ITag } from '../../../tags/domain/entities/tag.entity';
 import { Prisma } from 'generated/prisma/client';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
-export type PostWithRelations = Prisma.PostGetPayload<{
-  include: {
-    post_tags: {
-      include: {
-        tag: true;
-      };
-    };
-  };
-}>;
+export interface IPostWithRelations extends IPost {
+  post_tags: {
+    tag: ITag;
+  }[];
+}
 
-export type PostDetails = Prisma.PostGetPayload<{
-  include: {
-    post_tags: {
-      include: {
-        tag: true;
-      };
-    };
-    _count: {
-      select: { comments: true };
-    };
+export interface IPostDetails extends IPostWithRelations {
+  _count: {
+    comments: number;
   };
-}>;
+}
 
 export interface IPostsRepository {
-  create(data: Prisma.PostCreateInput): Promise<Prisma.PostGetPayload<Record<string, never>>>;
+  create(data: Prisma.PostCreateInput): Promise<IPost>;
 
-  findAll(page: number, limit: number): Promise<PaginatedResult<PostWithRelations>>;
+  findAll(page: number, limit: number): Promise<PaginatedResult<IPostWithRelations>>;
 
-  findById(id: string): Promise<PostDetails | null>;
+  findById(id: string): Promise<IPostDetails | null>;
 
-  update(id: string, data: Prisma.PostUpdateInput): Promise<Prisma.PostGetPayload<Record<string, never>>>;
+  update(id: string, data: Prisma.PostUpdateInput): Promise<IPost>;
 
-  delete(id: string): Promise<Prisma.PostGetPayload<Record<string, never>>>;
+  delete(id: string): Promise<IPost>;
 
   getUserPermissions(userId: string): Promise<string[]>;
 

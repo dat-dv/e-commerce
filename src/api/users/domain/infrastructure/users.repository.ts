@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
@@ -23,7 +23,7 @@ export class UsersRepository implements IUsersRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async findById(id: string): Promise<User | null> {
+  async findById(id: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { user_id: id },
       include: {
@@ -41,7 +41,7 @@ export class UsersRepository implements IUsersRepository {
     return this.mapToEntity(prismaUser);
   }
 
-  async findByEmail(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { email },
       include: {
@@ -59,12 +59,10 @@ export class UsersRepository implements IUsersRepository {
     return this.mapToEntity(prismaUser);
   }
 
-  async update(id: string, data: Partial<User>): Promise<User> {
-    const { avatar, permissions, ...updateData } = data;
-
+  async update(id: string, data: Partial<IUser>): Promise<IUser> {
     const prismaUser = await this.prisma.user.update({
       where: { user_id: id },
-      data: updateData,
+      data: data,
       include: {
         avatar: true,
         role: {
@@ -78,7 +76,7 @@ export class UsersRepository implements IUsersRepository {
     return this.mapToEntity(prismaUser);
   }
 
-  async create(data: { email: string; first_name: string; last_name: string; password?: string }): Promise<User> {
+  async create(data: { email: string; first_name: string; last_name: string; password?: string }): Promise<IUser> {
     const prismaUser = await this.prisma.user.create({
       data: data as Prisma.UserCreateInput,
       include: {
@@ -94,7 +92,7 @@ export class UsersRepository implements IUsersRepository {
     return this.mapToEntity(prismaUser);
   }
 
-  async findAll(page: number, limit: number): Promise<{ data: User[]; meta: any }> {
+  async findAll(page: number, limit: number): Promise<{ data: IUser[]; meta: any }> {
     const result = await this.paginationService.paginate(
       this.prisma.user,
       {
@@ -118,27 +116,44 @@ export class UsersRepository implements IUsersRepository {
     };
   }
 
-  private mapToEntity(prismaUser: PrismaUserWithRelations): User {
-    const permissions = prismaUser.role?.permissions.map((p) => p.permission_name) || [];
+  async getUserPermissions(userId: string): Promise<string[]> {
+    const user = await this.prisma.user.findUnique({
+      where: { user_id: userId },
+      include: {
+        role: {
+          include: {
+            permissions: true,
+          },
+        },
+      },
+    });
 
-    return new User(
-      prismaUser.user_id,
-      prismaUser.first_name,
-      prismaUser.last_name,
-      prismaUser.email,
-      prismaUser.avatar_id,
-      prismaUser.password,
-      prismaUser.created_at,
-      prismaUser.updated_at,
-      prismaUser.deleted_at,
-      prismaUser.avatar
-        ? {
-            id: prismaUser.avatar.id,
-            publicId: prismaUser.avatar.publicId,
-            url: prismaUser.avatar.url,
-          }
-        : null,
-      permissions,
-    );
+    return user?.role?.permissions.map((p) => p.permission_name) || [];
+  }
+
+  async getUserAvatarPublicId(userId: string): Promise<string | null> {
+    const user = await this.prisma.user.findUnique({
+      where: { user_id: userId },
+      include: {
+        avatar: true,
+      },
+    });
+
+    return user?.avatar?.publicId || null;
+  }
+
+  private mapToEntity(prismaUser: PrismaUserWithRelations): IUser {
+    return {
+      user_id: prismaUser.user_id,
+      first_name: prismaUser.first_name,
+      last_name: prismaUser.last_name,
+      email: prismaUser.email,
+      avatar_id: prismaUser.avatar_id,
+      password: prismaUser.password,
+      created_at: prismaUser.created_at,
+      updated_at: prismaUser.updated_at,
+      deleted_at: prismaUser.deleted_at,
+      role_id: prismaUser.role_id,
+    };
   }
 }

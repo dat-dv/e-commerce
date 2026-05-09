@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from 'generated/prisma/client';
+import { IRefreshToken } from '../entities/refresh-token.entity';
 
 @Injectable()
 export class AuthRepository implements IAuthRepository {
@@ -23,7 +24,7 @@ export class AuthRepository implements IAuthRepository {
     });
   }
 
-  async findRefreshToken(token: string): Promise<Prisma.RefreshTokenGetPayload<Record<string, never>> | null> {
+  async findRefreshToken(token: string): Promise<IRefreshToken | null> {
     return this.prisma.refreshToken.findFirst({
       where: { token },
     });

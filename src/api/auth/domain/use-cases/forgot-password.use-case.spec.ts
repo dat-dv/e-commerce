@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { MailService } from 'src/mail/mail.service';
 import { BadRequestException } from '@nestjs/common';
-import { User } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from 'src/api/users/domain/entities/user.entity';
 
 describe('ForgotPasswordUseCase', () => {
   let useCase: ForgotPasswordUseCase;
@@ -57,7 +57,14 @@ describe('ForgotPasswordUseCase', () => {
   });
 
   it('should send reset password mail successfully', async () => {
-    const user = new User('1', 'Test', 'User', 'test@example.com', null, 'password');
+    const user: IUser = {
+      user_id: '1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+    };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
     mockJwtService.signAsync.mockResolvedValue('token');
 

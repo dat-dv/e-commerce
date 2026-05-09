@@ -5,7 +5,7 @@ import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { UnauthorizedException } from '@nestjs/common';
-import { User } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from 'src/api/users/domain/entities/user.entity';
 
 describe('LoginUseCase', () => {
   let useCase: LoginUseCase;
@@ -61,7 +61,14 @@ describe('LoginUseCase', () => {
   });
 
   it('should throw UnauthorizedException if password incorrect', async () => {
-    const user = new User('1', 'Test', 'User', 'test@example.com', null, 'correct-password');
+    const user: IUser = {
+      user_id: '1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'correct-password',
+    };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
 
     await expect(useCase.execute({ email: 'test@example.com', password: 'wrong-password' })).rejects.toThrow(
@@ -70,7 +77,14 @@ describe('LoginUseCase', () => {
   });
 
   it('should login successfully and return tokens', async () => {
-    const user = new User('1', 'Test', 'User', 'test@example.com', null, 'password');
+    const user: IUser = {
+      user_id: '1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+    };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
     mockJwtService.signAsync.mockResolvedValueOnce('at').mockResolvedValueOnce('rt');
 

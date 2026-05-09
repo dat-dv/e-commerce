@@ -2,7 +2,7 @@ import { Injectable, BadRequestException, ForbiddenException, Inject } from '@ne
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { UploadImageUseCase } from 'src/api/upload/domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from 'src/api/upload/domain/use-cases/delete-image.use-case';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 
 @Injectable()
 export class UpdateAvatarUseCase {
@@ -26,15 +26,19 @@ export class UpdateAvatarUseCase {
       throw new BadRequestException('Requesting user not found');
     }
 
-    this.checkOwnershipOrPermission(id, requestingUser, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+    const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
+
+    this.checkOwnershipOrPermission(id, requestingUser.user_id, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+
+    const oldAvatarPublicId = await this.usersRepository.getUserAvatarPublicId(id);
 
     const image = await this.uploadImageUseCase.execute(file);
 
     const updatedUser = await this.usersRepository.update(id, { avatar_id: image.id });
 
-    if (user.avatar) {
+    if (oldAvatarPublicId) {
       try {
-        await this.deleteImageUseCase.execute(user.avatar.publicId);
+        await this.deleteImageUseCase.execute(oldAvatarPublicId);
       } catch (error) {
         console.error('Failed to delete old avatar file from cloud:', error);
       }
@@ -45,18 +49,19 @@ export class UpdateAvatarUseCase {
 
   private checkOwnershipOrPermission(
     targetUserId: string,
-    requestingUser: User,
+    requestingUserId: string,
+    permissions: string[],
     ownPermission: string,
     anyPermission: string,
   ) {
-    const isOwner = targetUserId === requestingUser.user_id;
+    const isOwner = targetUserId === requestingUserId;
 
     if (isOwner) {
-      if (!requestingUser.permissions.includes(ownPermission)) {
+      if (!permissions.includes(ownPermission)) {
         throw new ForbiddenException(`You do not have the '${ownPermission}' permission to action on your own profile`);
       }
     } else {
-      if (!requestingUser.permissions.includes(anyPermission)) {
+      if (!permissions.includes(anyPermission)) {
         throw new ForbiddenException(`You do not have the '${anyPermission}' permission to action on other profiles`);
       }
     }

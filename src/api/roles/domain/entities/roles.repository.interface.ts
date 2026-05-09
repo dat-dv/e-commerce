@@ -1,18 +1,19 @@
+import { IRole } from './role.entity';
 import { Prisma } from 'generated/prisma/client';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 export interface IRolesRepository {
-  create(data: Prisma.RoleCreateInput): Promise<Prisma.RoleGetPayload<Record<string, never>>>;
+  create(data: Prisma.RoleCreateInput): Promise<IRole>;
 
-  findAll(page: number, limit: number): Promise<PaginatedResult<Prisma.RoleGetPayload<Record<string, never>>>>;
+  findAll(page: number, limit: number): Promise<PaginatedResult<IRole>>;
 
-  findById(id: string): Promise<Prisma.RoleGetPayload<Record<string, never>> | null>;
+  findById(id: string): Promise<IRole | null>;
 
-  findByName(name: string): Promise<Prisma.RoleGetPayload<Record<string, never>> | null>;
+  findByName(name: string): Promise<IRole | null>;
 
-  update(id: string, data: Prisma.RoleUpdateInput): Promise<Prisma.RoleGetPayload<Record<string, never>>>;
+  update(id: string, data: Prisma.RoleUpdateInput): Promise<IRole>;
 
-  delete(id: string): Promise<Prisma.RoleGetPayload<Record<string, never>>>;
+  delete(id: string): Promise<IRole>;
 
   countUsersWithRole(roleId: string): Promise<number>;
 }

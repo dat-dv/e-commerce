@@ -1,18 +1,19 @@
+import { IPermission } from './permission.entity';
 import { Prisma } from 'generated/prisma/client';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 export interface IPermissionsRepository {
-  create(data: Prisma.PermissionCreateInput): Promise<Prisma.PermissionGetPayload<Record<string, never>>>;
+  create(data: Prisma.PermissionCreateInput): Promise<IPermission>;
 
-  findAll(page: number, limit: number): Promise<PaginatedResult<Prisma.PermissionGetPayload<Record<string, never>>>>;
+  findAll(page: number, limit: number): Promise<PaginatedResult<IPermission>>;
 
-  findById(id: string): Promise<Prisma.PermissionGetPayload<Record<string, never>> | null>;
+  findById(id: string): Promise<IPermission | null>;
 
-  findByName(name: string): Promise<Prisma.PermissionGetPayload<Record<string, never>> | null>;
+  findByName(name: string): Promise<IPermission | null>;
 
-  update(id: string, data: Prisma.PermissionUpdateInput): Promise<Prisma.PermissionGetPayload<Record<string, never>>>;
+  update(id: string, data: Prisma.PermissionUpdateInput): Promise<IPermission>;
 
-  delete(id: string): Promise<Prisma.PermissionGetPayload<Record<string, never>>>;
+  delete(id: string): Promise<IPermission>;
 
   countRolesWithPermission(permissionId: string): Promise<number>;
 }

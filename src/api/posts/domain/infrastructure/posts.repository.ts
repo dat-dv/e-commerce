@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { IPostsRepository, PostWithRelations, PostDetails } from '../entities/posts.repository.interface';
+import { IPostsRepository, IPostWithRelations, IPostDetails } from '../entities/posts.repository.interface';
+import { IPost } from '../entities/post.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
@@ -11,14 +12,14 @@ export class PostsRepository implements IPostsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(data: Prisma.PostCreateInput): Promise<Prisma.PostGetPayload<Record<string, never>>> {
+  async create(data: Prisma.PostCreateInput): Promise<IPost> {
     return this.prisma.post.create({
       data,
     });
   }
 
-  async findAll(page: number, limit: number): Promise<PaginatedResult<PostWithRelations>> {
-    return this.paginationService.paginate<PostWithRelations>(
+  async findAll(page: number, limit: number): Promise<PaginatedResult<IPostWithRelations>> {
+    return this.paginationService.paginate<IPostWithRelations>(
       this.prisma.post,
       {
         where: { deleted_at: null },
@@ -35,7 +36,7 @@ export class PostsRepository implements IPostsRepository {
     );
   }
 
-  async findById(id: string): Promise<PostDetails | null> {
+  async findById(id: string): Promise<IPostDetails | null> {
     return this.prisma.post.findUnique({
       where: { post_id: id, deleted_at: null },
       include: {
@@ -51,14 +52,14 @@ export class PostsRepository implements IPostsRepository {
     });
   }
 
-  async update(id: string, data: Prisma.PostUpdateInput): Promise<Prisma.PostGetPayload<Record<string, never>>> {
+  async update(id: string, data: Prisma.PostUpdateInput): Promise<IPost> {
     return this.prisma.post.update({
       where: { post_id: id, deleted_at: null },
       data,
     });
   }
 
-  async delete(id: string): Promise<Prisma.PostGetPayload<Record<string, never>>> {
+  async delete(id: string): Promise<IPost> {
     return this.prisma.post.update({
       where: { post_id: id, deleted_at: null },
       data: { deleted_at: new Date() },

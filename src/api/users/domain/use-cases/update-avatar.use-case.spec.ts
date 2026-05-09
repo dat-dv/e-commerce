@@ -4,13 +4,15 @@ import { IUsersRepository } from '../entities/users.repository.interface';
 import { UploadImageUseCase } from 'src/api/upload/domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from 'src/api/upload/domain/use-cases/delete-image.use-case';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 
 describe('UpdateAvatarUseCase', () => {
   let useCase: UpdateAvatarUseCase;
   let mockUsersRepository: {
     findById: jest.Mock;
     update: jest.Mock;
+    getUserPermissions: jest.Mock;
+    getUserAvatarPublicId: jest.Mock;
   };
   let mockUploadImageUseCase = {
     execute: jest.fn(),
@@ -23,6 +25,8 @@ describe('UpdateAvatarUseCase', () => {
     mockUsersRepository = {
       findById: jest.fn(),
       update: jest.fn(),
+      getUserPermissions: jest.fn(),
+      getUserAvatarPublicId: jest.fn(),
     };
 
     mockUploadImageUseCase = {
@@ -58,20 +62,20 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      [],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue([]);
 
     const file = { buffer: Buffer.from('test'), originalname: 'test.jpg' } as Express.Multer.File;
 
@@ -79,22 +83,23 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should upload avatar and update user', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      ['UPDATE:OWN_USER'],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     const image = { id: 'img-1', url: 'http://example.com/avatar.jpg' };
 
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue(['UPDATE:OWN_USER']);
+    mockUsersRepository.getUserAvatarPublicId.mockResolvedValue(null);
     mockUploadImageUseCase.execute.mockResolvedValue(image);
     mockUsersRepository.update.mockResolvedValue({ ...user, avatar_id: 'img-1' });
 
@@ -108,22 +113,23 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should delete old avatar if exists', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      'old-img-1',
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      { id: 'old-img-1', publicId: 'old-public-id', url: '...' },
-      ['UPDATE:OWN_USER'],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: 'old-img-1',
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     const image = { id: 'new-img-1', url: 'http://example.com/new-avatar.jpg' };
 
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue(['UPDATE:OWN_USER']);
+    mockUsersRepository.getUserAvatarPublicId.mockResolvedValue('old-public-id');
     mockUploadImageUseCase.execute.mockResolvedValue(image);
     mockDeleteImageUseCase.execute.mockResolvedValue(true);
     mockUsersRepository.update.mockResolvedValue({ ...user, avatar_id: 'new-img-1' });

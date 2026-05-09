@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RemoveUserUseCase } from './remove-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException } from '@nestjs/common';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 
 describe('RemoveUserUseCase', () => {
   let useCase: RemoveUserUseCase;
@@ -35,19 +35,18 @@ describe('RemoveUserUseCase', () => {
   });
 
   it('should soft delete user', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      [],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.update.mockResolvedValue({ ...user, deleted_at: new Date() });
 

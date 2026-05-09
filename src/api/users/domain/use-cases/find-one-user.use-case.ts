@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, ForbiddenException, Inject } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 
 @Injectable()
 export class FindOneUserUseCase {
@@ -9,13 +9,15 @@ export class FindOneUserUseCase {
     private readonly usersRepository: IUsersRepository,
   ) {}
 
-  async execute(id: string, requestingUserId: string): Promise<User> {
+  async execute(id: string, requestingUserId: string): Promise<IUser> {
     const requestingUser = await this.usersRepository.findById(requestingUserId);
     if (!requestingUser) {
       throw new BadRequestException('Requesting user not found');
     }
 
-    this.checkOwnershipOrPermission(id, requestingUser, 'DETAIL:OWN_USER', 'DETAIL:ANY_USER');
+    const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
+
+    this.checkOwnershipOrPermission(id, requestingUser.user_id, permissions, 'DETAIL:OWN_USER', 'DETAIL:ANY_USER');
 
     const user = await this.usersRepository.findById(id);
     if (!user || user.deleted_at) {
@@ -27,18 +29,19 @@ export class FindOneUserUseCase {
 
   private checkOwnershipOrPermission(
     targetUserId: string,
-    requestingUser: User,
+    requestingUserId: string,
+    permissions: string[],
     ownPermission: string,
     anyPermission: string,
   ) {
-    const isOwner = targetUserId === requestingUser.user_id;
+    const isOwner = targetUserId === requestingUserId;
 
     if (isOwner) {
-      if (!requestingUser.permissions.includes(ownPermission)) {
+      if (!permissions.includes(ownPermission)) {
         throw new ForbiddenException(`You do not have the '${ownPermission}' permission to action on your own profile`);
       }
     } else {
-      if (!requestingUser.permissions.includes(anyPermission)) {
+      if (!permissions.includes(anyPermission)) {
         throw new ForbiddenException(`You do not have the '${anyPermission}' permission to action on other profiles`);
       }
     }

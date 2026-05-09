@@ -2,17 +2,19 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { FindOneUserUseCase } from './find-one-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { User } from '../entities/user.entity';
+import { IUser } from '../entities/user.entity';
 
 describe('FindOneUserUseCase', () => {
   let useCase: FindOneUserUseCase;
   let mockUsersRepository: {
     findById: jest.Mock;
+    getUserPermissions: jest.Mock;
   };
 
   beforeEach(async () => {
     mockUsersRepository = {
       findById: jest.fn(),
+      getUserPermissions: jest.fn(),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -33,39 +35,39 @@ describe('FindOneUserUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      [],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue([]);
 
     await expect(useCase.execute('user-1', 'user-1')).rejects.toThrow(ForbiddenException);
   });
 
   it('should return user if has permission', async () => {
-    const user = new User(
-      'user-1',
-      'Test',
-      'User',
-      'test@example.com',
-      null,
-      'password',
-      new Date(),
-      new Date(),
-      null,
-      null,
-      ['DETAIL:OWN_USER'],
-    );
+    const user: IUser = {
+      user_id: 'user-1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date(),
+      deleted_at: null,
+      role_id: null,
+    };
     mockUsersRepository.findById.mockResolvedValue(user);
+    mockUsersRepository.getUserPermissions.mockResolvedValue(['DETAIL:OWN_USER']);
 
     const result = await useCase.execute('user-1', 'user-1');
 

@@ -4,7 +4,7 @@ import { CreateUserUseCase } from 'src/api/users/domain/use-cases/create-user.us
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { User } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from 'src/api/users/domain/entities/user.entity';
 
 describe('RegisterUseCase', () => {
   let useCase: RegisterUseCase;
@@ -52,7 +52,14 @@ describe('RegisterUseCase', () => {
   });
 
   it('should register successfully and return tokens', async () => {
-    const user = new User('1', 'Test', 'User', 'test@example.com', null, 'password');
+    const user: IUser = {
+      user_id: '1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'password',
+    };
     mockCreateUserUseCase.execute.mockResolvedValue(user);
     mockJwtService.signAsync.mockResolvedValueOnce('at').mockResolvedValueOnce('rt');
 

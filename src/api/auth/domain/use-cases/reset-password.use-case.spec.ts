@@ -4,7 +4,7 @@ import { IUsersRepository } from 'src/api/users/domain/entities/users.repository
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { BadRequestException, UnauthorizedException } from '@nestjs/common';
-import { User } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from 'src/api/users/domain/entities/user.entity';
 
 describe('ResetPasswordUseCase', () => {
   let useCase: ResetPasswordUseCase;
@@ -62,7 +62,14 @@ describe('ResetPasswordUseCase', () => {
   });
 
   it('should reset password successfully', async () => {
-    const user = new User('1', 'Test', 'User', 'test@example.com', null, 'old-password');
+    const user: IUser = {
+      user_id: '1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      password: 'old-password',
+    };
     mockJwtService.verifyAsync.mockResolvedValue({ sub: '1' });
     mockUsersRepository.findById.mockResolvedValue(user);
 
