@@ -1,68 +1,45 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
-import * as admin from 'firebase-admin';
-import { ConfigService } from '@nestjs/config';
-import { Bucket } from '@google-cloud/storage';
+import { Injectable } from '@nestjs/common';
+import { FirebaseService } from './firebase.service';
+import { CloudinaryService } from './cloudinary.service';
+import { StorageService, UploadImageResponse } from './storage.service';
 
 @Injectable()
-export class UploadService implements OnModuleInit {
-  private bucket: Bucket | null = null;
+export class UploadService {
+  private storageService: StorageService;
 
-  constructor(private readonly configService: ConfigService) {}
-
-  onModuleInit() {
-    const projectId = this.configService.get<string>('FIREBASE_PROJECT_ID');
-    const clientEmail = this.configService.get<string>('FIREBASE_CLIENT_EMAIL');
-    const privateKey = this.configService.get<string>('FIREBASE_PRIVATE_KEY')?.replace(/\\n/g, '\n');
-    const storageBucket = this.configService.get<string>('FIREBASE_STORAGE_BUCKET');
-
-    if (projectId && clientEmail && privateKey) {
-      admin.initializeApp({
-        credential: admin.credential.cert({
-          projectId,
-          clientEmail,
-          privateKey,
-        }),
-        storageBucket,
-      });
-      this.bucket = admin.storage().bucket();
-    } else {
-      console.warn('Firebase credentials not found. Upload service might not work.');
-    }
+  constructor(
+    private readonly firebaseService: FirebaseService,
+    private readonly cloudinaryService: CloudinaryService,
+  ) {
+    this.storageService = this.cloudinaryService;
   }
 
-  async uploadFile(file: Express.Multer.File): Promise<string> {
-    if (!this.bucket) {
-      throw new Error('Firebase Storage is not initialized');
+  verifyImage(file: Express.Multer.File) {
+    const maxSize = 5 * 1024 * 1024;
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    if (file.size > maxSize) {
+      throw new Error('Image size exceeds 5MB');
     }
+    if (!allowedTypes.includes(file.mimetype)) {
+      throw new Error('Invalid image format');
+    }
+    return true;
+  }
 
-    const fileName = `${Date.now()}-${file.originalname}`;
-    const fileUpload = this.bucket.file(fileName);
+  verifyVideo(file: Express.Multer.File) {
+    const maxSize = 100 * 1024 * 1024;
+    const allowedTypes = ['video/mp4', 'video/webm', 'video/ogg'];
+    if (file.size > maxSize) {
+      throw new Error('Video size exceeds 100MB');
+    }
+    if (!allowedTypes.includes(file.mimetype)) {
+      throw new Error('Invalid video format');
+    }
+    return true;
+  }
 
-    const stream = fileUpload.createWriteStream({
-      metadata: {
-        contentType: file.mimetype,
-      },
-    });
-
-    return new Promise((resolve, reject) => {
-      stream.on('error', (error) => {
-        reject(error instanceof Error ? error : new Error(String(error)));
-      });
-
-      stream.on('finish', () => {
-        // Make the file public
-        fileUpload
-          .makePublic()
-          .then(() => {
-            const publicUrl = `https://storage.googleapis.com/${this.bucket!.name}/${fileName}`;
-            resolve(publicUrl);
-          })
-          .catch((error) => {
-            reject(error instanceof Error ? error : new Error(String(error)));
-          });
-      });
-
-      stream.end(file.buffer);
-    });
+  async uploadImage(file: Express.Multer.File): Promise<UploadImageResponse> {
+    this.verifyImage(file);
+    return await this.storageService.uploadImage(file, 'images');
   }
 }

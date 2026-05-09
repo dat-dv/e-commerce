@@ -6,8 +6,8 @@ export const initSwagger = (app: INestApplication) => {
     .setTitle('Task Management API')
     .setDescription('API documentation for E-Comerce')
     .setVersion('1.0')
-    .addBearerAuth()
-    .addSecurityRequirements('bearer')
+    // .addBearerAuth()
+    // .addSecurityRequirements('bearer')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
