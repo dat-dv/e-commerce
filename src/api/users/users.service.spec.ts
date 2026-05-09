@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { UploadService } from 'src/api/upload/upload.service';
 import {
   ConflictException,
   BadRequestException,
@@ -21,10 +22,18 @@ describe('UsersService', () => {
       findUniqueOrThrow: jest.fn(),
       update: jest.fn(),
     },
+    image: {
+      delete: jest.fn(),
+    },
   };
 
   const mockPagination = {
     paginate: jest.fn(),
+  };
+
+  const mockUploadService = {
+    uploadImage: jest.fn(),
+    deleteImage: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -33,6 +42,7 @@ describe('UsersService', () => {
         UsersService,
         { provide: PrismaService, useValue: mockPrisma },
         { provide: PaginationService, useValue: mockPagination },
+        { provide: UploadService, useValue: mockUploadService },
       ],
     }).compile();
 
@@ -107,6 +117,58 @@ describe('UsersService', () => {
 
       expect(mockPrisma.user.update).toHaveBeenCalled();
       expect(result.first_name).toBe('Updated');
+    });
+  });
+
+  describe('updateAvatar', () => {
+    const file = { buffer: Buffer.from('test'), originalname: 'test.jpg' } as Express.Multer.File;
+
+    it('should throw BadRequestException if user not found', async () => {
+      mockPrisma.user.findUnique
+        .mockResolvedValueOnce({ user_id: 'user-1', role: { permissions: [{ permission_name: 'UPDATE:OWN_USER' }] } })
+        .mockResolvedValueOnce(null);
+
+      await expect(service.updateAvatar('user-1', 'user-1', file)).rejects.toThrow(BadRequestException);
+    });
+
+    it('should upload avatar and update user', async () => {
+      const user = { user_id: 'user-1', role: { permissions: [{ permission_name: 'UPDATE:OWN_USER' }] } };
+      const image = { id: 'img-1', url: 'http://example.com/avatar.jpg' };
+
+      mockPrisma.user.findUnique.mockResolvedValue(user);
+      mockUploadService.uploadImage.mockResolvedValue(image);
+      mockPrisma.user.update.mockResolvedValue({ user_id: 'user-1', avatar_id: 'img-1' });
+
+      const result = await service.updateAvatar('user-1', 'user-1', file);
+
+      expect(mockUploadService.uploadImage).toHaveBeenCalledWith(file);
+      expect(mockPrisma.user.update).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { user_id: 'user-1' },
+          data: { avatar_id: 'img-1' },
+        }),
+      );
+      expect(result.avatar_id).toBe('img-1');
+    });
+
+    it('should delete old avatar if exists', async () => {
+      const user = {
+        user_id: 'user-1',
+        avatar_id: 'old-img-1',
+        avatar: { id: 'old-img-1', publicId: 'old-public-id' },
+        role: { permissions: [{ permission_name: 'UPDATE:OWN_USER' }] },
+      };
+      const image = { id: 'new-img-1', url: 'http://example.com/new-avatar.jpg' };
+
+      mockPrisma.user.findUnique.mockResolvedValue(user);
+      mockUploadService.uploadImage.mockResolvedValue(image);
+      mockUploadService.deleteImage.mockResolvedValue(true);
+      mockPrisma.image.delete.mockResolvedValue({ id: 'old-img-1' });
+      mockPrisma.user.update.mockResolvedValue({ user_id: 'user-1', avatar_id: 'new-img-1' });
+
+      await service.updateAvatar('user-1', 'user-1', file);
+
+      expect(mockUploadService.deleteImage).toHaveBeenCalledWith('old-public-id');
     });
   });
 });

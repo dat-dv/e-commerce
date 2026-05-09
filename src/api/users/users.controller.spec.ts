@@ -17,6 +17,7 @@ describe('UsersController', () => {
     findOne: jest.fn(),
     update: jest.fn(),
     remove: jest.fn(),
+    updateAvatar: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -95,6 +96,21 @@ describe('UsersController', () => {
       const result = await controller.update(req, 'user-2', dto);
 
       expect(mockUsersService.update).toHaveBeenCalledWith('user-2', 'user-1', dto);
+      expect(result).toEqual(expect.objectContaining({ status: 'success', data: serviceResult }));
+    });
+  });
+
+  describe('uploadAvatar', () => {
+    it('should call service.updateAvatar and return success response', async () => {
+      const req = { user: { sub: 'user-1' } } as unknown as Express.Request;
+      const file = { buffer: Buffer.from('test'), originalname: 'test.jpg' } as Express.Multer.File;
+      const serviceResult = { user_id: 'user-2', avatar_id: 'img-1' };
+
+      mockUsersService.updateAvatar.mockResolvedValue(serviceResult);
+
+      const result = await controller.uploadAvatar(req, 'user-2', file);
+
+      expect(mockUsersService.updateAvatar).toHaveBeenCalledWith('user-2', 'user-1', file);
       expect(result).toEqual(expect.objectContaining({ status: 'success', data: serviceResult }));
     });
   });
