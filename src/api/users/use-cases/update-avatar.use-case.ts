@@ -1,0 +1,63 @@
+import { Injectable, BadRequestException, ForbiddenException, Inject } from '@nestjs/common';
+import { IUsersRepository } from '../domain/users.repository.interface';
+import { UploadService } from 'src/api/upload/upload.service';
+import { User } from '../domain/user.entity';
+
+@Injectable()
+export class UpdateAvatarUseCase {
+  constructor(
+    @Inject(IUsersRepository)
+    private readonly usersRepository: IUsersRepository,
+    private readonly uploadService: UploadService,
+  ) {}
+
+  async execute(id: string, requestingUserId: string, file: Express.Multer.File) {
+    const user = await this.usersRepository.findById(id);
+
+    if (!user) {
+      throw new BadRequestException('User not found');
+    }
+
+    const requestingUser = await this.usersRepository.findById(requestingUserId);
+
+    if (!requestingUser) {
+      throw new BadRequestException('Requesting user not found');
+    }
+
+    // Permission check using entity permissions!
+    this.checkOwnershipOrPermission(id, requestingUser, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+
+    const image = await this.uploadService.uploadImage(file);
+
+    const updatedUser = await this.usersRepository.update(id, { avatar_id: image.id });
+
+    if (user.avatar) {
+      try {
+        await this.uploadService.deleteImage(user.avatar.publicId);
+      } catch (error) {
+        console.error('Failed to delete old avatar file from cloud:', error);
+      }
+    }
+
+    return updatedUser;
+  }
+
+  private checkOwnershipOrPermission(
+    targetUserId: string,
+    requestingUser: User,
+    ownPermission: string,
+    anyPermission: string,
+  ) {
+    const isOwner = targetUserId === requestingUser.user_id;
+
+    if (isOwner) {
+      if (!requestingUser.permissions.includes(ownPermission)) {
+        throw new ForbiddenException(`You do not have the '${ownPermission}' permission to action on your own profile`);
+      }
+    } else {
+      if (!requestingUser.permissions.includes(anyPermission)) {
+        throw new ForbiddenException(`You do not have the '${anyPermission}' permission to action on other profiles`);
+      }
+    }
+  }
+}

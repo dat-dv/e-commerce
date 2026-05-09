@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UsersService } from 'src/api/users/users.service';
+import { CreateUserUseCase } from 'src/api/users/use-cases/create-user.use-case';
 import { MailService } from 'src/mail/mail.service';
 import { UnauthorizedException, BadRequestException } from '@nestjs/common';
 import express from 'express';
@@ -38,8 +38,8 @@ describe('AuthService', () => {
     }),
   };
 
-  const mockUsersService = {
-    create: jest.fn(),
+  const mockCreateUserUseCase = {
+    execute: jest.fn(),
   };
 
   const mockMailService = {
@@ -59,7 +59,7 @@ describe('AuthService', () => {
         { provide: PrismaService, useValue: mockPrisma },
         { provide: JwtService, useValue: mockJwtService },
         { provide: ConfigService, useValue: mockConfigService },
-        { provide: UsersService, useValue: mockUsersService },
+        { provide: CreateUserUseCase, useValue: mockCreateUserUseCase },
         { provide: MailService, useValue: mockMailService },
       ],
     }).compile();
@@ -117,7 +117,7 @@ describe('AuthService', () => {
 
     it('should register successfully and set cookies', async () => {
       const user = { user_id: 'user-1', email: 'test@example.com' };
-      mockUsersService.create.mockResolvedValue(user);
+      mockCreateUserUseCase.execute.mockResolvedValue(user);
       mockJwtService.signAsync.mockResolvedValue('token');
       mockPrisma.refreshToken.create.mockResolvedValue({});
 

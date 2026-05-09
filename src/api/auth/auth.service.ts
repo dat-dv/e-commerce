@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import express from 'express';
 import { TAccessTokenPayload, TRefreshTokenPayload, TResetPasswordPayload } from './auth.types';
-import { UsersService } from 'src/api/users/users.service';
+import { CreateUserUseCase } from 'src/api/users/use-cases/create-user.use-case';
 import { RegisterDto } from './dto/register.dto';
 import { MailService } from 'src/mail/mail.service';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
@@ -18,7 +18,7 @@ export class AuthService {
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService<EnvVars>,
-    private readonly usersService: UsersService,
+    private readonly createUserUseCase: CreateUserUseCase,
     private readonly mailService: MailService,
   ) {}
 
@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   async register(dto: RegisterDto, res: express.Response) {
-    const user = await this.usersService.create(dto);
+    const user = await this.createUserUseCase.execute(dto);
     const payload = { sub: user.user_id, email: user.email };
     const accessToken = await this.generateAccessToken(payload);
     const refreshToken = await this.generateRefreshToken({ sub: user.user_id });
