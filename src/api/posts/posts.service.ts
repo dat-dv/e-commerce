@@ -14,7 +14,7 @@ export class PostsService {
   ) {}
 
   async create(user_id: string, createPostDto: CreatePostDto) {
-    const { tag_ids = [], ...postData } = createPostDto;
+    const { tag_ids = [], thumbnail, ...postData } = createPostDto;
 
     if (tag_ids.length > 0) {
       const existingTags = await this.prismaClient.tag.findMany({
@@ -27,15 +27,33 @@ export class PostsService {
     const slug = generateSlug(postData.slug || postData.title);
     const listTagIds = tag_ids.map((tag_id) => ({ tag_id }));
     const post_tags = listTagIds.length ? { create: listTagIds } : undefined;
+
+    let thumbnail_id: string | undefined;
+    if (thumbnail) {
+      const image = await this.prismaClient.image.create({
+        data: {
+          url: thumbnail.url,
+          publicId: thumbnail.publicId,
+          width: thumbnail.width,
+          height: thumbnail.height,
+          format: thumbnail.format,
+          bytes: thumbnail.bytes,
+        },
+      });
+      thumbnail_id = image.id;
+    }
+
     return this.prismaClient.post.create({
       data: {
         ...postData,
         slug,
         post_tags,
         user_id,
+        thumbnail_id,
       },
       include: {
         post_tags: true,
+        thumbnail: true,
       },
     });
   }
@@ -81,7 +99,7 @@ export class PostsService {
   }
 
   async update(id: string, requestingUserId: string, updatePostDto: UpdatePostDto) {
-    const { tag_ids, ...postData } = updatePostDto;
+    const { tag_ids, thumbnail, ...postData } = updatePostDto;
 
     // Fetch current post to compare slug
     const findPost = this.prismaClient.post.findUniqueOrThrow({
@@ -96,11 +114,27 @@ export class PostsService {
       slug = generateSlug(postData.slug);
     }
 
+    let thumbnail_id = currentPost.thumbnail_id;
+    if (thumbnail) {
+      const image = await this.prismaClient.image.create({
+        data: {
+          url: thumbnail.url,
+          publicId: thumbnail.publicId,
+          width: thumbnail.width,
+          height: thumbnail.height,
+          format: thumbnail.format,
+          bytes: thumbnail.bytes,
+        },
+      });
+      thumbnail_id = image.id;
+    }
+
     const updatePost = this.prismaClient.post.update({
       where: { post_id: id, deleted_at: null },
       data: {
         ...postData,
         slug,
+        thumbnail_id,
         post_tags: tag_ids
           ? {
               deleteMany: {},
@@ -110,6 +144,7 @@ export class PostsService {
       },
       include: {
         post_tags: true,
+        thumbnail: true,
       },
     });
     return handlePrismaNotFound(updatePost, 'Post not found');

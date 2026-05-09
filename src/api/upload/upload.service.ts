@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { FirebaseService } from './firebase.service';
 import { CloudinaryService } from './cloudinary.service';
-import { StorageService, UploadImageResponse } from './storage.service';
+import { StorageService } from './storage.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { Image } from 'generated/prisma/client';
 
 @Injectable()
 export class UploadService {
@@ -10,6 +12,7 @@ export class UploadService {
   constructor(
     private readonly firebaseService: FirebaseService,
     private readonly cloudinaryService: CloudinaryService,
+    private readonly prisma: PrismaService,
   ) {
     this.storageService = this.cloudinaryService;
   }
@@ -38,8 +41,11 @@ export class UploadService {
     return true;
   }
 
-  async uploadImage(file: Express.Multer.File): Promise<UploadImageResponse> {
+  async uploadImage(file: Express.Multer.File): Promise<Image> {
     this.verifyImage(file);
-    return await this.storageService.uploadImage(file, 'images');
+    const res = await this.storageService.uploadImage(file, 'images');
+    return await this.prisma.image.create({
+      data: res,
+    });
   }
 }

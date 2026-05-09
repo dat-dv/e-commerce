@@ -1,5 +1,6 @@
 import { IsString, IsNotEmpty, IsOptional, IsArray, IsObject, MaxLength, IsEnum, ArrayMaxSize } from 'class-validator';
-import { IPostStatus } from 'generated/prisma/enums';
+import type { Image } from 'generated/prisma/client';
+import { IPostStatus } from 'generated/prisma/client';
 
 export class CreatePostDto {
   @IsString()
@@ -15,9 +16,9 @@ export class CreatePostDto {
   @IsNotEmpty()
   content: object;
 
-  @IsString()
+  @IsObject()
   @IsOptional()
-  thumbnail?: string;
+  thumbnail?: Image;
 
   @IsEnum(IPostStatus)
   @IsOptional()

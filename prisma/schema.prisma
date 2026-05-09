@@ -35,19 +35,34 @@ enum IPostStatus {
 }
 
 model Post {
-  post_id    String   @id @default(cuid())
-  title      String
-  slug       String   @unique
-  content    Json
-  thumbnail  String?
-  status     IPostStatus @default(DRAFT)
-  user_id    String
+  post_id      String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  content      Json
+  thumbnail_id String?  @unique
+  thumbnail    Image?   @relation(fields: [thumbnail_id], references: [id])
+  status       IPostStatus @default(DRAFT)
+  user_id      String
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  deleted_at   DateTime?
+  post_tags    PostTag[]
+  comments     Comment[]
+  user         User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model Image {
+  id         String   @id @default(cuid())
+  url        String
+  publicId   String
+  width      Int?
+  height     Int?
+  format     String?
+  bytes      Int?
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  deleted_at DateTime?
-  post_tags  PostTag[]
-  comments   Comment[]
-  user       User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+
+  post       Post?
 }
 
 model RefreshToken {

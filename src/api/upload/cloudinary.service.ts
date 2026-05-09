@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { v2 as cloudinary } from 'cloudinary';
 import { ConfigService } from '@nestjs/config';
 import { StorageService } from './storage.service';
+import type { Image } from 'generated/prisma/client';
 
 @Injectable()
 export class CloudinaryService extends StorageService {
@@ -14,7 +15,7 @@ export class CloudinaryService extends StorageService {
     });
   }
 
-  async uploadImage(file: Express.Multer.File, location: string): Promise<UploadImageResponse> {
+  async uploadImage(file: Express.Multer.File, location: string): Promise<Image> {
     return new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
@@ -30,6 +31,9 @@ export class CloudinaryService extends StorageService {
             return reject(new Error('Cloudinary upload failed: No result'));
           }
           resolve({
+            id: '',
+            created_at: new Date(),
+            updated_at: new Date(),
             url: result.secure_url,
             publicId: result.public_id,
             width: result.width,
