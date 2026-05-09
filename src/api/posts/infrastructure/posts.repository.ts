@@ -1,12 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import {
-  IPostsRepository,
-  PostWithRelations,
-  PostDetails,
-  PaginatedResult,
-} from '../domain/posts.repository.interface';
+import { IPostsRepository, PostWithRelations, PostDetails } from '../domain/posts.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
 
 @Injectable()

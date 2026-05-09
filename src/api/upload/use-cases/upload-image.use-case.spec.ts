@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UploadImageUseCase } from './upload-image.use-case';
 import { IUploadRepository } from '../domain/upload.repository.interface';
-import { CloudinaryService } from '../cloudinary.service';
+import { StorageService } from '../storage.service';
 
 describe('UploadImageUseCase', () => {
   let useCase: UploadImageUseCase;
@@ -21,7 +21,7 @@ describe('UploadImageUseCase', () => {
       providers: [
         UploadImageUseCase,
         { provide: IUploadRepository, useValue: mockUploadRepository },
-        { provide: CloudinaryService, useValue: mockCloudinaryService },
+        { provide: StorageService, useValue: mockCloudinaryService },
       ],
     }).compile();
 

@@ -1,27 +1,21 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IUploadRepository } from '../domain/upload.repository.interface';
-import { CloudinaryService } from '../cloudinary.service';
 import { StorageService } from '../storage.service';
+import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';
 
 @Injectable()
 export class UploadImageUseCase {
-  private storageService: StorageService;
-
   constructor(
     @Inject(IUploadRepository)
     private readonly uploadRepository: IUploadRepository,
-    private readonly cloudinaryService: CloudinaryService,
-  ) {
-    this.storageService = this.cloudinaryService;
-  }
+    private readonly storageService: StorageService,
+  ) {}
 
   verifyImage(file: Express.Multer.File) {
-    const maxSize = 5 * 1024 * 1024;
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-    if (file.size > maxSize) {
+    if (file.size > UPLOAD_MAX_SIZE) {
       throw new Error('Image size exceeds 5MB');
     }
-    if (!allowedTypes.includes(file.mimetype)) {
+    if (!UPLOAD_ALLOWED_TYPES.includes(file.mimetype)) {
       throw new Error('Invalid image format');
     }
     return true;

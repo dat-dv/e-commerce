@@ -4,11 +4,7 @@ import { StorageService } from '../storage.service';
 
 @Injectable()
 export class DeleteImageUseCase {
-  private storageService: StorageService;
-
-  constructor(private readonly cloudinaryService: CloudinaryService) {
-    this.storageService = this.cloudinaryService;
-  }
+  constructor(private readonly storageService: StorageService) {}
 
   async execute(publicId: string): Promise<boolean> {
     return this.storageService.deleteImage(publicId);

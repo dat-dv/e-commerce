@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DeleteImageUseCase } from './delete-image.use-case';
-import { CloudinaryService } from '../cloudinary.service';
+import { StorageService } from '../storage.service';
 
 describe('DeleteImageUseCase', () => {
   let useCase: DeleteImageUseCase;
@@ -13,7 +13,7 @@ describe('DeleteImageUseCase', () => {
     jest.clearAllMocks();
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [DeleteImageUseCase, { provide: CloudinaryService, useValue: mockCloudinaryService }],
+      providers: [DeleteImageUseCase, { provide: StorageService, useValue: mockCloudinaryService }],
     }).compile();
 
     useCase = module.get<DeleteImageUseCase>(DeleteImageUseCase);

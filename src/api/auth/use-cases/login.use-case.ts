@@ -5,6 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { LoginDto } from '../dto/login.dto';
 import { EnvVars } from 'src/config/config.validation';
+import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.constant';
 
 @Injectable()
 export class LoginUseCase {
@@ -43,8 +44,7 @@ export class LoginUseCase {
       },
     );
 
-    // Save refresh token
-    const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days
+    const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
     await this.authRepository.saveRefreshToken(refreshToken, user.user_id, expiresAt);
 
     return {

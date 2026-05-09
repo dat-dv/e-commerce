@@ -14,6 +14,7 @@ import { UploadImageUseCase } from './use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from './use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';
 
 @ApiTags('Upload')
 @Controller('upload')
@@ -50,13 +51,11 @@ export class UploadController {
     }
 
     // Validate file type
-    const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-    if (!allowedMimeTypes.includes(file.mimetype)) {
+    if (!UPLOAD_ALLOWED_TYPES.includes(file.mimetype)) {
       throw new BadRequestException('Invalid file type. Only images are allowed.');
     }
 
-    const maxSize = 5 * 1024 * 1024;
-    if (file.size > maxSize) {
+    if (file.size > UPLOAD_MAX_SIZE) {
       throw new BadRequestException('File size too large. Maximum size is 5MB.');
     }
 
