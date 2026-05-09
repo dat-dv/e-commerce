@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IRolesRepository } from '../entities/roles.repository.interface';
+import { IRole } from '../entities/role.entity';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
@@ -12,41 +13,36 @@ export class RolesRepository implements IRolesRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(data: Prisma.RoleCreateInput): Promise<Prisma.RoleGetPayload<Record<string, never>>> {
+  async create(data: Prisma.RoleCreateInput): Promise<IRole> {
     return this.prisma.role.create({
       data,
     });
   }
 
-  async findAll(page: number, limit: number): Promise<PaginatedResult<Prisma.RoleGetPayload<Record<string, never>>>> {
-    return this.paginationService.paginate<Prisma.RoleGetPayload<Record<string, never>>>(
-      this.prisma.role,
-      {},
-      page,
-      limit,
-    );
+  async findAll(page: number, limit: number): Promise<PaginatedResult<IRole>> {
+    return this.paginationService.paginate<IRole>(this.prisma.role, {}, page, limit);
   }
 
-  async findById(id: string): Promise<Prisma.RoleGetPayload<Record<string, never>> | null> {
+  async findById(id: string): Promise<IRole | null> {
     return this.prisma.role.findUnique({
       where: { role_id: id },
     });
   }
 
-  async findByName(name: string): Promise<Prisma.RoleGetPayload<Record<string, never>> | null> {
+  async findByName(name: string): Promise<IRole | null> {
     return this.prisma.role.findUnique({
       where: { role_name: name },
     });
   }
 
-  async update(id: string, data: Prisma.RoleUpdateInput): Promise<Prisma.RoleGetPayload<Record<string, never>>> {
+  async update(id: string, data: Prisma.RoleUpdateInput): Promise<IRole> {
     return this.prisma.role.update({
       where: { role_id: id },
       data,
     });
   }
 
-  async delete(id: string): Promise<Prisma.RoleGetPayload<Record<string, never>>> {
+  async delete(id: string): Promise<IRole> {
     return this.prisma.role.delete({
       where: { role_id: id },
     });
