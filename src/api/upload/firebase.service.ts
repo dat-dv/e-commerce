@@ -85,4 +85,14 @@ export class FirebaseService extends StorageService implements OnModuleInit {
       stream.end(file.buffer);
     });
   }
+
+  async deleteImage(publicId: string): Promise<boolean> {
+    if (!this.bucket) {
+      throw new Error('Firebase Storage is not initialized');
+    }
+    const file = this.bucket.file(publicId);
+    await file.delete();
+
+    return true;
+  }
 }

@@ -8,4 +8,6 @@ export abstract class StorageService {
     file: Express.Multer.File,
     location: string,
   ): Promise<Omit<Image, 'id' | 'created_at' | 'updated_at'>>;
+
+  abstract deleteImage(publicId: string): Promise<boolean>;
 }

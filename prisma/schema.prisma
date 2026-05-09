@@ -17,7 +17,8 @@ model User {
   last_name     String
   email         String         @unique
   password      String
-  avatar_url    String?
+  avatar_id     String?        @unique
+  avatar        Image?         @relation(fields: [avatar_id], references: [id])
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
   deleted_at    DateTime?
@@ -64,6 +65,7 @@ model Image {
   updated_at DateTime @updatedAt
 
   post       Post?
+  user       User?
 }
 
 model RefreshToken {

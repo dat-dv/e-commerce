@@ -8,15 +8,17 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { Prisma } from 'generated/prisma/browser';
+import { Prisma, Image } from 'generated/prisma/client';
 import { handlePrismaNotFound } from '../../common/utils/prisma.util';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { UploadService } from 'src/api/upload/upload.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly paginationService: PaginationService,
+    private readonly uploadService: UploadService,
   ) {}
   async create(dto: CreateUserDto) {
     if (dto.password !== dto.confirm_password) {
@@ -69,6 +71,36 @@ export class UsersService {
       }),
       'User not found',
     );
+  }
+
+  async updateAvatar(id: string, requestingUserId: string, file: Express.Multer.File) {
+    await this.checkOwnershipOrPermission(id, requestingUserId, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+
+    const user = await this.prisma.user.findUnique({
+      where: { user_id: id },
+      include: { avatar: true },
+    });
+
+    if (!user) {
+      throw new BadRequestException('User not found');
+    }
+
+    const image = await this.uploadService.uploadImage(file);
+
+    const updatedUser = await this.prisma.user.update({
+      where: { user_id: id },
+      data: { avatar_id: image.id },
+    });
+
+    if (user.avatar) {
+      try {
+        await this.uploadService.deleteImage(user.avatar.publicId);
+      } catch (error) {
+        console.error('Failed to delete old avatar file from cloud or DB:', error);
+      }
+    }
+
+    return updatedUser;
   }
 
   async remove(id: string) {

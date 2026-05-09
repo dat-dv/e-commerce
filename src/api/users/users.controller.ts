@@ -1,4 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Req } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  Req,
+  UseInterceptors,
+  UploadedFile,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -8,6 +20,8 @@ import { UseGuards } from '@nestjs/common';
 import { GetUsersDto } from './dto/get-users.dto';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiConsumes, ApiBody } from '@nestjs/swagger';
 
 @UseGuards(AuthGuard)
 @Controller('users')
@@ -39,6 +53,25 @@ export class UsersController {
   @Patch(':id')
   async update(@Req() req: Express.Request, @Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     const res = await this.usersService.update(id, req.user.sub, updateUserDto);
+    return createSuccessResponse(res);
+  }
+
+  @Patch(':id/avatar')
+  @UseInterceptors(FileInterceptor('avatar'))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        avatar: {
+          type: 'string',
+          format: 'binary',
+        },
+      },
+    },
+  })
+  async uploadAvatar(@Req() req: Express.Request, @Param('id') id: string, @UploadedFile() file: Express.Multer.File) {
+    const res = await this.usersService.updateAvatar(id, req.user.sub, file);
     return createSuccessResponse(res);
   }
 

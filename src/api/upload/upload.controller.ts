@@ -6,6 +6,8 @@ import {
   BadRequestException,
   UseGuards,
   Logger,
+  Delete,
+  Param,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UploadService } from './upload.service';
@@ -61,6 +63,26 @@ export class UploadController {
       this.logger.error('File upload failed', error);
       throw new BadRequestException(
         `Failed to upload file: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      );
+    }
+  }
+
+  @Delete('image/:publicId')
+  @ApiOperation({ summary: 'Delete an image' })
+  @ApiResponse({ status: 200, description: 'File deleted successfully' })
+  @ApiResponse({ status: 400, description: 'Bad request (invalid file type or size)' })
+  async deleteImage(@Param('publicId') publicId: string) {
+    if (!publicId) {
+      throw new BadRequestException('No publicId provided');
+    }
+
+    try {
+      const deleteResult = await this.uploadService.deleteImage(publicId);
+      return deleteResult;
+    } catch (error) {
+      this.logger.error('File delete failed', error);
+      throw new BadRequestException(
+        `Failed to delete file: ${error instanceof Error ? error.message : 'Unknown error'}`,
       );
     }
   }

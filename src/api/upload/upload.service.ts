@@ -36,4 +36,8 @@ export class UploadService {
       data: res,
     });
   }
+
+  async deleteImage(publicId: string): Promise<boolean> {
+    return await this.storageService.deleteImage(publicId);
+  }
 }

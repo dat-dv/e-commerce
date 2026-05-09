@@ -47,4 +47,14 @@ export class CloudinaryService extends StorageService {
       uploadStream.end(file.buffer);
     });
   }
+
+  async deleteImage(publicId: string): Promise<boolean> {
+    try {
+      await cloudinary.uploader.destroy(publicId);
+      return true;
+    } catch (error) {
+      this.logger.error('Cloudinary delete failed', error);
+      throw new Error('Cloudinary delete failed', { cause: error });
+    }
+  }
 }
