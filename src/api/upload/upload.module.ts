@@ -4,10 +4,10 @@ import { AuthModule } from '../auth/auth.module';
 import { FirebaseService } from './firebase.service';
 import { CloudinaryService } from './cloudinary.service';
 import { StorageService } from './storage.service';
-import { IUploadRepository } from './domain/upload.repository.interface';
-import { UploadRepository } from './infrastructure/upload.repository';
-import { UploadImageUseCase } from './use-cases/upload-image.use-case';
-import { DeleteImageUseCase } from './use-cases/delete-image.use-case';
+import { IUploadRepository } from './domain/entities/upload.repository.interface';
+import { UploadRepository } from './domain/infrastructure/upload.repository';
+import { UploadImageUseCase } from './domain/use-cases/upload-image.use-case';
+import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 
 @Module({
   imports: [forwardRef(() => AuthModule)],

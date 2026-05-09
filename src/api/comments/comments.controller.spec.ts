@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CommentsController } from './comments.controller';
-import { CreateCommentUseCase } from './use-cases/create-comment.use-case';
-import { GetCommentsByPostUseCase } from './use-cases/get-comments-by-post.use-case';
-import { GetRepliesUseCase } from './use-cases/get-replies.use-case';
-import { UpdateCommentUseCase } from './use-cases/update-comment.use-case';
-import { RemoveCommentUseCase } from './use-cases/remove-comment.use-case';
+import { CreateCommentUseCase } from './domain/use-cases/create-comment.use-case';
+import { GetCommentsByPostUseCase } from './domain/use-cases/get-comments-by-post.use-case';
+import { GetRepliesUseCase } from './domain/use-cases/get-replies.use-case';
+import { UpdateCommentUseCase } from './domain/use-cases/update-comment.use-case';
+import { RemoveCommentUseCase } from './domain/use-cases/remove-comment.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { CreateCommentDto } from './dto/create-comment.dto';

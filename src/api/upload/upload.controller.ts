@@ -10,8 +10,8 @@ import {
   Param,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { UploadImageUseCase } from './use-cases/upload-image.use-case';
-import { DeleteImageUseCase } from './use-cases/delete-image.use-case';
+import { UploadImageUseCase } from './domain/use-cases/upload-image.use-case';
+import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';

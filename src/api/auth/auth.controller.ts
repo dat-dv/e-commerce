@@ -5,12 +5,12 @@ import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import express from 'express';
 import createSuccessResponse from 'src/common/respomse';
-import { LoginUseCase } from './use-cases/login.use-case';
-import { RegisterUseCase } from './use-cases/register.use-case';
-import { LogoutUseCase } from './use-cases/logout.use-case';
-import { ForgotPasswordUseCase } from './use-cases/forgot-password.use-case';
-import { ResetPasswordUseCase } from './use-cases/reset-password.use-case';
-import { RefreshTokenUseCase } from './use-cases/refresh-token.use-case';
+import { LoginUseCase } from './domain/use-cases/login.use-case';
+import { RegisterUseCase } from './domain/use-cases/register.use-case';
+import { LogoutUseCase } from './domain/use-cases/logout.use-case';
+import { ForgotPasswordUseCase } from './domain/use-cases/forgot-password.use-case';
+import { ResetPasswordUseCase } from './domain/use-cases/reset-password.use-case';
+import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
 

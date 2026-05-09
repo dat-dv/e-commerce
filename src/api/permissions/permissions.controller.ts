@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
-import { FindAllPermissionsUseCase } from './use-cases/find-all-permissions.use-case';
-import { FindOnePermissionUseCase } from './use-cases/find-one-permission.use-case';
-import { UpdatePermissionUseCase } from './use-cases/update-permission.use-case';
-import { RemovePermissionUseCase } from './use-cases/remove-permission.use-case';
+import { FindAllPermissionsUseCase } from './domain/use-cases/find-all-permissions.use-case';
+import { FindOnePermissionUseCase } from './domain/use-cases/find-one-permission.use-case';
+import { UpdatePermissionUseCase } from './domain/use-cases/update-permission.use-case';
+import { RemovePermissionUseCase } from './domain/use-cases/remove-permission.use-case';
 import { UpdatePermissionDto } from './dto/update-permission.dto';
 import { GetPermissionsDto } from './dto/get-permissions.dto';
 import createSuccessResponse from 'src/common/respomse';

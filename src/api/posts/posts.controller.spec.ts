@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PostsController } from './posts.controller';
-import { CreatePostUseCase } from './use-cases/create-post.use-case';
-import { FindAllPostsUseCase } from './use-cases/find-all-posts.use-case';
-import { FindOnePostUseCase } from './use-cases/find-one-post.use-case';
-import { UpdatePostUseCase } from './use-cases/update-post.use-case';
-import { RemovePostUseCase } from './use-cases/remove-post.use-case';
+import { CreatePostUseCase } from './domain/use-cases/create-post.use-case';
+import { FindAllPostsUseCase } from './domain/use-cases/find-all-posts.use-case';
+import { FindOnePostUseCase } from './domain/use-cases/find-one-post.use-case';
+import { UpdatePostUseCase } from './domain/use-cases/update-post.use-case';
+import { RemovePostUseCase } from './domain/use-cases/remove-post.use-case';
 import { ConfigService } from '@nestjs/config';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';

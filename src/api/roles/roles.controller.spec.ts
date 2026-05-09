@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { RolesController } from './roles.controller';
-import { CreateRoleUseCase } from './use-cases/create-role.use-case';
-import { FindAllRolesUseCase } from './use-cases/find-all-roles.use-case';
-import { FindOneRoleUseCase } from './use-cases/find-one-role.use-case';
-import { UpdateRoleUseCase } from './use-cases/update-role.use-case';
-import { RemoveRoleUseCase } from './use-cases/remove-role.use-case';
+import { CreateRoleUseCase } from './domain/use-cases/create-role.use-case';
+import { FindAllRolesUseCase } from './domain/use-cases/find-all-roles.use-case';
+import { FindOneRoleUseCase } from './domain/use-cases/find-one-role.use-case';
+import { UpdateRoleUseCase } from './domain/use-cases/update-role.use-case';
+import { RemoveRoleUseCase } from './domain/use-cases/remove-role.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { CreateRoleDto } from './dto/create-role.dto';

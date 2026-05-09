@@ -11,12 +11,12 @@ import {
   UseInterceptors,
   UploadedFile,
 } from '@nestjs/common';
-import { CreateUserUseCase } from './use-cases/create-user.use-case';
-import { UpdateUserUseCase } from './use-cases/update-user.use-case';
-import { FindAllUsersUseCase } from './use-cases/find-all-users.use-case';
-import { FindOneUserUseCase } from './use-cases/find-one-user.use-case';
-import { RemoveUserUseCase } from './use-cases/remove-user.use-case';
-import { UpdateAvatarUseCase } from './use-cases/update-avatar.use-case';
+import { CreateUserUseCase } from './domain/use-cases/create-user.use-case';
+import { UpdateUserUseCase } from './domain/use-cases/update-user.use-case';
+import { FindAllUsersUseCase } from './domain/use-cases/find-all-users.use-case';
+import { FindOneUserUseCase } from './domain/use-cases/find-one-user.use-case';
+import { RemoveUserUseCase } from './domain/use-cases/remove-user.use-case';
+import { UpdateAvatarUseCase } from './domain/use-cases/update-avatar.use-case';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import createSuccessResponse from 'src/common/respomse';

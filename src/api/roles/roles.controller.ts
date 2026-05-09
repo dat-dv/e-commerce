@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
-import { CreateRoleUseCase } from './use-cases/create-role.use-case';
-import { FindAllRolesUseCase } from './use-cases/find-all-roles.use-case';
-import { FindOneRoleUseCase } from './use-cases/find-one-role.use-case';
-import { UpdateRoleUseCase } from './use-cases/update-role.use-case';
-import { RemoveRoleUseCase } from './use-cases/remove-role.use-case';
+import { CreateRoleUseCase } from './domain/use-cases/create-role.use-case';
+import { FindAllRolesUseCase } from './domain/use-cases/find-all-roles.use-case';
+import { FindOneRoleUseCase } from './domain/use-cases/find-one-role.use-case';
+import { UpdateRoleUseCase } from './domain/use-cases/update-role.use-case';
+import { RemoveRoleUseCase } from './domain/use-cases/remove-role.use-case';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { GetRolesDto } from './dto/get-roles.dto';

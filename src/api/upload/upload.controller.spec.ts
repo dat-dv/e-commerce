@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UploadController } from './upload.controller';
-import { UploadImageUseCase } from './use-cases/upload-image.use-case';
-import { DeleteImageUseCase } from './use-cases/delete-image.use-case';
+import { UploadImageUseCase } from './domain/use-cases/upload-image.use-case';
+import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 
 describe('UploadController', () => {

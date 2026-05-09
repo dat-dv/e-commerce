@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
-import { CreateTagUseCase } from './use-cases/create-tag.use-case';
-import { FindAllTagsUseCase } from './use-cases/find-all-tags.use-case';
-import { FindOneTagUseCase } from './use-cases/find-one-tag.use-case';
-import { UpdateTagUseCase } from './use-cases/update-tag.use-case';
-import { RemoveTagUseCase } from './use-cases/remove-tag.use-case';
+import { CreateTagUseCase } from './domain/use-cases/create-tag.use-case';
+import { FindAllTagsUseCase } from './domain/use-cases/find-all-tags.use-case';
+import { FindOneTagUseCase } from './domain/use-cases/find-one-tag.use-case';
+import { UpdateTagUseCase } from './domain/use-cases/update-tag.use-case';
+import { RemoveTagUseCase } from './domain/use-cases/remove-tag.use-case';
 import { CreateTagDto } from './dto/create-tag.dto';
 import { UpdateTagDto } from './dto/update-tag.dto';
 import createSuccessResponse from 'src/common/respomse';

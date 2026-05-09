@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PermissionsController } from './permissions.controller';
-import { FindAllPermissionsUseCase } from './use-cases/find-all-permissions.use-case';
-import { FindOnePermissionUseCase } from './use-cases/find-one-permission.use-case';
-import { UpdatePermissionUseCase } from './use-cases/update-permission.use-case';
-import { RemovePermissionUseCase } from './use-cases/remove-permission.use-case';
+import { FindAllPermissionsUseCase } from './domain/use-cases/find-all-permissions.use-case';
+import { FindOnePermissionUseCase } from './domain/use-cases/find-one-permission.use-case';
+import { UpdatePermissionUseCase } from './domain/use-cases/update-permission.use-case';
+import { RemovePermissionUseCase } from './domain/use-cases/remove-permission.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { GetPermissionsDto } from './dto/get-permissions.dto';
 import { UpdatePermissionDto } from './dto/update-permission.dto';

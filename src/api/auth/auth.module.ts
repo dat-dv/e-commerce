@@ -3,14 +3,14 @@ import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from 'src/api/users/users.module';
 import { MailModule } from 'src/mail/mail.module';
-import { LoginUseCase } from './use-cases/login.use-case';
-import { RegisterUseCase } from './use-cases/register.use-case';
-import { LogoutUseCase } from './use-cases/logout.use-case';
-import { ForgotPasswordUseCase } from './use-cases/forgot-password.use-case';
-import { ResetPasswordUseCase } from './use-cases/reset-password.use-case';
-import { RefreshTokenUseCase } from './use-cases/refresh-token.use-case';
-import { IAuthRepository } from './domain/auth.repository.interface';
-import { AuthRepository } from './infrastructure/auth.repository';
+import { LoginUseCase } from './domain/use-cases/login.use-case';
+import { RegisterUseCase } from './domain/use-cases/register.use-case';
+import { LogoutUseCase } from './domain/use-cases/logout.use-case';
+import { ForgotPasswordUseCase } from './domain/use-cases/forgot-password.use-case';
+import { ResetPasswordUseCase } from './domain/use-cases/reset-password.use-case';
+import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
+import { IAuthRepository } from './domain/entities/auth.repository.interface';
+import { AuthRepository } from './domain/infrastructure/auth.repository';
 
 @Module({
   imports: [JwtModule, forwardRef(() => UsersModule), MailModule],

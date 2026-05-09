@@ -12,11 +12,11 @@ import {
   UseInterceptors,
   UploadedFile,
 } from '@nestjs/common';
-import { CreatePostUseCase } from './use-cases/create-post.use-case';
-import { FindAllPostsUseCase } from './use-cases/find-all-posts.use-case';
-import { FindOnePostUseCase } from './use-cases/find-one-post.use-case';
-import { UpdatePostUseCase } from './use-cases/update-post.use-case';
-import { RemovePostUseCase } from './use-cases/remove-post.use-case';
+import { CreatePostUseCase } from './domain/use-cases/create-post.use-case';
+import { FindAllPostsUseCase } from './domain/use-cases/find-all-posts.use-case';
+import { FindOnePostUseCase } from './domain/use-cases/find-one-post.use-case';
+import { UpdatePostUseCase } from './domain/use-cases/update-post.use-case';
+import { RemovePostUseCase } from './domain/use-cases/remove-post.use-case';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { GetPostsDto } from './dto/get-posts.dto';

@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TagsController } from './tags.controller';
-import { CreateTagUseCase } from './use-cases/create-tag.use-case';
-import { FindAllTagsUseCase } from './use-cases/find-all-tags.use-case';
-import { FindOneTagUseCase } from './use-cases/find-one-tag.use-case';
-import { UpdateTagUseCase } from './use-cases/update-tag.use-case';
-import { RemoveTagUseCase } from './use-cases/remove-tag.use-case';
+import { CreateTagUseCase } from './domain/use-cases/create-tag.use-case';
+import { FindAllTagsUseCase } from './domain/use-cases/find-all-tags.use-case';
+import { FindOneTagUseCase } from './domain/use-cases/find-one-tag.use-case';
+import { UpdateTagUseCase } from './domain/use-cases/update-tag.use-case';
+import { RemoveTagUseCase } from './domain/use-cases/remove-tag.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { CreateTagDto } from './dto/create-tag.dto';
