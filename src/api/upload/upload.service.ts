@@ -29,18 +29,6 @@ export class UploadService {
     return true;
   }
 
-  verifyVideo(file: Express.Multer.File) {
-    const maxSize = 100 * 1024 * 1024;
-    const allowedTypes = ['video/mp4', 'video/webm', 'video/ogg'];
-    if (file.size > maxSize) {
-      throw new Error('Video size exceeds 100MB');
-    }
-    if (!allowedTypes.includes(file.mimetype)) {
-      throw new Error('Invalid video format');
-    }
-    return true;
-  }
-
   async uploadImage(file: Express.Multer.File): Promise<Image> {
     this.verifyImage(file);
     const res = await this.storageService.uploadImage(file, 'images');

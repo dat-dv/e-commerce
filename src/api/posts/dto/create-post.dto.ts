@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsOptional, IsArray, IsObject, MaxLength, IsEnum, ArrayMaxSize } from 'class-validator';
-import type { Image } from 'generated/prisma/client';
 import { IPostStatus } from 'generated/prisma/client';
+import { Transform } from 'class-transformer';
 
 export class CreatePostDto {
   @IsString()
@@ -14,11 +14,14 @@ export class CreatePostDto {
 
   @IsObject()
   @IsNotEmpty()
+  @Transform(({ value }): object => {
+    try {
+      return typeof value === 'string' ? (JSON.parse(value) as object) : (value as object);
+    } catch {
+      return value as object;
+    }
+  })
   content: object;
-
-  @IsObject()
-  @IsOptional()
-  thumbnail?: Image;
 
   @IsEnum(IPostStatus)
   @IsOptional()
@@ -28,5 +31,13 @@ export class CreatePostDto {
   @IsString({ each: true })
   @IsOptional()
   @ArrayMaxSize(10, { message: 'A post can have at most 10 tags' })
+  @Transform(({ value }): string[] => {
+    if (value === '') return [];
+    try {
+      return typeof value === 'string' ? (JSON.parse(value) as string[]) : (value as string[]);
+    } catch {
+      return value as string[];
+    }
+  })
   tag_ids?: string[] = [];
 }

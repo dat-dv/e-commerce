@@ -1,4 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards, Req } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  UseGuards,
+  Req,
+  UseInterceptors,
+  UploadedFile,
+} from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
@@ -9,7 +22,8 @@ import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
-import express from 'express';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiConsumes, ApiBody } from '@nestjs/swagger';
 
 @Controller('posts')
 export class PostsController {
@@ -21,8 +35,30 @@ export class PostsController {
   @Post()
   @UseGuards(AuthGuard, PermissionsGuard)
   @Permissions('CREATE:POST')
-  async create(@Req() req: Express.Request, @Body() createPostDto: CreatePostDto) {
-    const res = await this.postsService.create(req.user.sub, createPostDto);
+  @UseInterceptors(FileInterceptor('thumbnail'))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        thumbnail: {
+          type: 'string',
+          format: 'binary',
+        },
+        title: { type: 'string' },
+        slug: { type: 'string' },
+        content: { type: 'object' },
+        status: { type: 'string' },
+        tag_ids: { type: 'array', items: { type: 'string' } },
+      },
+    },
+  })
+  async create(
+    @Req() req: Express.Request,
+    @Body() createPostDto: CreatePostDto,
+    @UploadedFile() file?: Express.Multer.File,
+  ) {
+    const res = await this.postsService.create(req.user.sub, createPostDto, file);
     return createSuccessResponse(res);
   }
 
@@ -40,8 +76,31 @@ export class PostsController {
 
   @Patch(':id')
   @UseGuards(AuthGuard)
-  async update(@Req() req: Express.Request, @Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    const res = await this.postsService.update(id, req.user.sub, updatePostDto);
+  @UseInterceptors(FileInterceptor('thumbnail'))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        thumbnail: {
+          type: 'string',
+          format: 'binary',
+        },
+        title: { type: 'string' },
+        slug: { type: 'string' },
+        content: { type: 'object' },
+        status: { type: 'string' },
+        tag_ids: { type: 'array', items: { type: 'string' } },
+      },
+    },
+  })
+  async update(
+    @Req() req: Express.Request,
+    @Param('id') id: string,
+    @Body() updatePostDto: UpdatePostDto,
+    @UploadedFile() file?: Express.Multer.File,
+  ) {
+    const res = await this.postsService.update(id, req.user.sub, updatePostDto, file);
     return createSuccessResponse(res);
   }
 

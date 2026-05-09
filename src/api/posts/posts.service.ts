@@ -5,16 +5,18 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { handlePrismaNotFound } from '../../common/utils/prisma.util';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { generateSlug } from 'src/common/utils/generate-slug';
+import { UploadService } from '../upload/upload.service';
 
 @Injectable()
 export class PostsService {
   constructor(
     private readonly prismaClient: PrismaService,
     private readonly paginationService: PaginationService,
+    private readonly uploadService: UploadService,
   ) {}
 
-  async create(user_id: string, createPostDto: CreatePostDto) {
-    const { tag_ids = [], thumbnail, ...postData } = createPostDto;
+  async create(user_id: string, createPostDto: CreatePostDto, file?: Express.Multer.File) {
+    const { tag_ids = [], ...postData } = createPostDto;
 
     if (tag_ids.length > 0) {
       const existingTags = await this.prismaClient.tag.findMany({
@@ -29,18 +31,15 @@ export class PostsService {
     const post_tags = listTagIds.length ? { create: listTagIds } : undefined;
 
     let thumbnail_id: string | undefined;
-    if (thumbnail) {
-      const image = await this.prismaClient.image.create({
-        data: {
-          url: thumbnail.url,
-          publicId: thumbnail.publicId,
-          width: thumbnail.width,
-          height: thumbnail.height,
-          format: thumbnail.format,
-          bytes: thumbnail.bytes,
-        },
-      });
-      thumbnail_id = image.id;
+
+    if (file) {
+      try {
+        const image = await this.uploadService.uploadImage(file);
+        thumbnail_id = image.id;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        throw new BadRequestException(`Failed to upload thumbnail: ${message}`);
+      }
     }
 
     return this.prismaClient.post.create({
@@ -98,8 +97,8 @@ export class PostsService {
     };
   }
 
-  async update(id: string, requestingUserId: string, updatePostDto: UpdatePostDto) {
-    const { tag_ids, thumbnail, ...postData } = updatePostDto;
+  async update(id: string, requestingUserId: string, updatePostDto: UpdatePostDto, file?: Express.Multer.File) {
+    const { tag_ids, ...postData } = updatePostDto;
 
     // Fetch current post to compare slug
     const findPost = this.prismaClient.post.findUniqueOrThrow({
@@ -115,18 +114,14 @@ export class PostsService {
     }
 
     let thumbnail_id = currentPost.thumbnail_id;
-    if (thumbnail) {
-      const image = await this.prismaClient.image.create({
-        data: {
-          url: thumbnail.url,
-          publicId: thumbnail.publicId,
-          width: thumbnail.width,
-          height: thumbnail.height,
-          format: thumbnail.format,
-          bytes: thumbnail.bytes,
-        },
-      });
-      thumbnail_id = image.id;
+    if (file) {
+      try {
+        const image = await this.uploadService.uploadImage(file);
+        thumbnail_id = image.id;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        throw new BadRequestException(`Failed to upload thumbnail: ${message}`);
+      }
     }
 
     const updatePost = this.prismaClient.post.update({

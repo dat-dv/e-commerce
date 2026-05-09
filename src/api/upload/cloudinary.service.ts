@@ -15,7 +15,10 @@ export class CloudinaryService extends StorageService {
     });
   }
 
-  async uploadImage(file: Express.Multer.File, location: string): Promise<Image> {
+  async uploadImage(
+    file: Express.Multer.File,
+    location: string,
+  ): Promise<Omit<Image, 'id' | 'created_at' | 'updated_at'>> {
     return new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
@@ -31,9 +34,6 @@ export class CloudinaryService extends StorageService {
             return reject(new Error('Cloudinary upload failed: No result'));
           }
           resolve({
-            id: '',
-            created_at: new Date(),
-            updated_at: new Date(),
             url: result.secure_url,
             publicId: result.public_id,
             width: result.width,

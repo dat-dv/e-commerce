@@ -41,7 +41,10 @@ export class FirebaseService extends StorageService implements OnModuleInit {
     }
   }
 
-  async uploadImage(file: Express.Multer.File, location: string): Promise<Image> {
+  async uploadImage(
+    file: Express.Multer.File,
+    location: string,
+  ): Promise<Omit<Image, 'id' | 'created_at' | 'updated_at'>> {
     if (!this.bucket) {
       throw new Error('Firebase Storage is not initialized');
     }
@@ -66,9 +69,6 @@ export class FirebaseService extends StorageService implements OnModuleInit {
           .then(() => {
             const publicUrl = `https://storage.googleapis.com/${this.bucket!.name}/${fileName}`;
             resolve({
-              id: '',
-              created_at: new Date(),
-              updated_at: new Date(),
               url: publicUrl,
               publicId: fileName,
               format: file.mimetype.split('/')[1],
