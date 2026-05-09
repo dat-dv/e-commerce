@@ -1,13 +1,6 @@
 import { PrismaClient, Prisma } from '../../generated/prisma/client';
 import { ROLE_ADMIN, ROLE_USER } from '../../src/common/constants/roles.constant';
 
-/**
- * Seeds the database with default roles, permissions, and categories.
- * Creates a master list of permissions and assigns them to default roles.
- *
- * @param prisma The Prisma client instance.
- * @returns The created default roles.
- */
 export async function seedRBAC(prisma: PrismaClient) {
   console.log('--- Phase 0: Roles & Permissions ---');
 

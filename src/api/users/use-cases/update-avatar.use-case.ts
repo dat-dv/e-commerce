@@ -1,6 +1,7 @@
 import { Injectable, BadRequestException, ForbiddenException, Inject } from '@nestjs/common';
 import { IUsersRepository } from '../domain/users.repository.interface';
-import { UploadService } from 'src/api/upload/upload.service';
+import { UploadImageUseCase } from 'src/api/upload/use-cases/upload-image.use-case';
+import { DeleteImageUseCase } from 'src/api/upload/use-cases/delete-image.use-case';
 import { User } from '../domain/user.entity';
 
 @Injectable()
@@ -8,7 +9,8 @@ export class UpdateAvatarUseCase {
   constructor(
     @Inject(IUsersRepository)
     private readonly usersRepository: IUsersRepository,
-    private readonly uploadService: UploadService,
+    private readonly uploadImageUseCase: UploadImageUseCase,
+    private readonly deleteImageUseCase: DeleteImageUseCase,
   ) {}
 
   async execute(id: string, requestingUserId: string, file: Express.Multer.File) {
@@ -27,13 +29,13 @@ export class UpdateAvatarUseCase {
     // Permission check using entity permissions!
     this.checkOwnershipOrPermission(id, requestingUser, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
 
-    const image = await this.uploadService.uploadImage(file);
+    const image = await this.uploadImageUseCase.execute(file);
 
     const updatedUser = await this.usersRepository.update(id, { avatar_id: image.id });
 
     if (user.avatar) {
       try {
-        await this.uploadService.deleteImage(user.avatar.publicId);
+        await this.deleteImageUseCase.execute(user.avatar.publicId);
       } catch (error) {
         console.error('Failed to delete old avatar file from cloud:', error);
       }

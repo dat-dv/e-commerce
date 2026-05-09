@@ -10,7 +10,8 @@ import {
   Param,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { UploadService } from './upload.service';
+import { UploadImageUseCase } from './use-cases/upload-image.use-case';
+import { DeleteImageUseCase } from './use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
@@ -19,7 +20,10 @@ import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestj
 @UseGuards(AuthGuard) // Yêu cầu đăng nhập mới được upload
 export class UploadController {
   private readonly logger = new Logger(UploadController.name);
-  constructor(private readonly uploadService: UploadService) {}
+  constructor(
+    private readonly uploadImageUseCase: UploadImageUseCase,
+    private readonly deleteImageUseCase: DeleteImageUseCase,
+  ) {}
 
   @Post('image')
   @UseInterceptors(FileInterceptor('image'))
@@ -57,7 +61,7 @@ export class UploadController {
     }
 
     try {
-      const uploadResult = await this.uploadService.uploadImage(file);
+      const uploadResult = await this.uploadImageUseCase.execute(file);
       return uploadResult;
     } catch (error) {
       this.logger.error('File upload failed', error);
@@ -77,7 +81,7 @@ export class UploadController {
     }
 
     try {
-      const deleteResult = await this.uploadService.deleteImage(publicId);
+      const deleteResult = await this.deleteImageUseCase.execute(publicId);
       return deleteResult;
     } catch (error) {
       this.logger.error('File delete failed', error);

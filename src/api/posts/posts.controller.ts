@@ -12,7 +12,11 @@ import {
   UseInterceptors,
   UploadedFile,
 } from '@nestjs/common';
-import { PostsService } from './posts.service';
+import { CreatePostUseCase } from './use-cases/create-post.use-case';
+import { FindAllPostsUseCase } from './use-cases/find-all-posts.use-case';
+import { FindOnePostUseCase } from './use-cases/find-one-post.use-case';
+import { UpdatePostUseCase } from './use-cases/update-post.use-case';
+import { RemovePostUseCase } from './use-cases/remove-post.use-case';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { GetPostsDto } from './dto/get-posts.dto';
@@ -28,7 +32,11 @@ import { ApiConsumes, ApiBody } from '@nestjs/swagger';
 @Controller('posts')
 export class PostsController {
   constructor(
-    private readonly postsService: PostsService,
+    private readonly createPostUseCase: CreatePostUseCase,
+    private readonly findAllPostsUseCase: FindAllPostsUseCase,
+    private readonly findOnePostUseCase: FindOnePostUseCase,
+    private readonly updatePostUseCase: UpdatePostUseCase,
+    private readonly removePostUseCase: RemovePostUseCase,
     private readonly configService: ConfigService<EnvVars>,
   ) {}
 
@@ -58,19 +66,19 @@ export class PostsController {
     @Body() createPostDto: CreatePostDto,
     @UploadedFile() file?: Express.Multer.File,
   ) {
-    const res = await this.postsService.create(req.user.sub, createPostDto, file);
+    const res = await this.createPostUseCase.execute(req.user.sub, createPostDto, file);
     return createSuccessResponse(res);
   }
 
   @Get()
   async findAll(@Query() getPostsDto: GetPostsDto) {
-    const res = await this.postsService.findAll(getPostsDto.page, getPostsDto.limit);
+    const res = await this.findAllPostsUseCase.execute(getPostsDto.page, getPostsDto.limit);
     return createSuccessResponse(res);
   }
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    const res = await this.postsService.findOne(id);
+    const res = await this.findOnePostUseCase.execute(id);
     return createSuccessResponse(res);
   }
 
@@ -100,14 +108,14 @@ export class PostsController {
     @Body() updatePostDto: UpdatePostDto,
     @UploadedFile() file?: Express.Multer.File,
   ) {
-    const res = await this.postsService.update(id, req.user.sub, updatePostDto, file);
+    const res = await this.updatePostUseCase.execute(id, req.user.sub, updatePostDto, file);
     return createSuccessResponse(res);
   }
 
   @Delete(':id')
   @UseGuards(AuthGuard)
   async remove(@Req() req: Express.Request, @Param('id') id: string) {
-    const res = await this.postsService.remove(id, req.user.sub);
+    const res = await this.removePostUseCase.execute(id, req.user.sub);
     return createSuccessResponse(res);
   }
 }

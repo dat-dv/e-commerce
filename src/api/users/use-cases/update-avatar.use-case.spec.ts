@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UpdateAvatarUseCase } from './update-avatar.use-case';
 import { IUsersRepository } from '../domain/users.repository.interface';
-import { UploadService } from 'src/api/upload/upload.service';
+import { UploadImageUseCase } from 'src/api/upload/use-cases/upload-image.use-case';
+import { DeleteImageUseCase } from 'src/api/upload/use-cases/delete-image.use-case';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
 import { User } from '../domain/user.entity';
 
@@ -11,9 +12,11 @@ describe('UpdateAvatarUseCase', () => {
     findById: jest.Mock;
     update: jest.Mock;
   };
-  let mockUploadService: {
-    uploadImage: jest.Mock;
-    deleteImage: jest.Mock;
+  let mockUploadImageUseCase = {
+    execute: jest.fn(),
+  };
+  let mockDeleteImageUseCase = {
+    execute: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -22,16 +25,20 @@ describe('UpdateAvatarUseCase', () => {
       update: jest.fn(),
     };
 
-    mockUploadService = {
-      uploadImage: jest.fn(),
-      deleteImage: jest.fn(),
+    mockUploadImageUseCase = {
+      execute: jest.fn(),
+    };
+
+    mockDeleteImageUseCase = {
+      execute: jest.fn(),
     };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         UpdateAvatarUseCase,
         { provide: IUsersRepository, useValue: mockUsersRepository },
-        { provide: UploadService, useValue: mockUploadService },
+        { provide: UploadImageUseCase, useValue: mockUploadImageUseCase },
+        { provide: DeleteImageUseCase, useValue: mockDeleteImageUseCase },
       ],
     }).compile();
 
@@ -88,14 +95,14 @@ describe('UpdateAvatarUseCase', () => {
     const image = { id: 'img-1', url: 'http://example.com/avatar.jpg' };
 
     mockUsersRepository.findById.mockResolvedValue(user);
-    mockUploadService.uploadImage.mockResolvedValue(image);
+    mockUploadImageUseCase.execute.mockResolvedValue(image);
     mockUsersRepository.update.mockResolvedValue({ ...user, avatar_id: 'img-1' });
 
     const file = { buffer: Buffer.from('test'), originalname: 'test.jpg' } as Express.Multer.File;
 
     const result = await useCase.execute('user-1', 'user-1', file);
 
-    expect(mockUploadService.uploadImage).toHaveBeenCalledWith(file);
+    expect(mockUploadImageUseCase.execute).toHaveBeenCalledWith(file);
     expect(mockUsersRepository.update).toHaveBeenCalledWith('user-1', { avatar_id: 'img-1' });
     expect(result.avatar_id).toBe('img-1');
   });
@@ -117,14 +124,14 @@ describe('UpdateAvatarUseCase', () => {
     const image = { id: 'new-img-1', url: 'http://example.com/new-avatar.jpg' };
 
     mockUsersRepository.findById.mockResolvedValue(user);
-    mockUploadService.uploadImage.mockResolvedValue(image);
-    mockUploadService.deleteImage.mockResolvedValue(true);
+    mockUploadImageUseCase.execute.mockResolvedValue(image);
+    mockDeleteImageUseCase.execute.mockResolvedValue(true);
     mockUsersRepository.update.mockResolvedValue({ ...user, avatar_id: 'new-img-1' });
 
     const file = { buffer: Buffer.from('test'), originalname: 'test.jpg' } as Express.Multer.File;
 
     await useCase.execute('user-1', 'user-1', file);
 
-    expect(mockUploadService.deleteImage).toHaveBeenCalledWith('old-public-id');
+    expect(mockDeleteImageUseCase.execute).toHaveBeenCalledWith('old-public-id');
   });
 });

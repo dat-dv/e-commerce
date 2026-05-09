@@ -28,11 +28,6 @@ async function bootstrap() {
   app.useGlobalFilters(new GlobalExceptionFilter());
   app.useGlobalPipes(new CustomValidationPipe());
 
-  /**
-   * Hạn chế vì nó ảnh hưởng đến việc generate documents cho swagger
-   * app.useGlobalInterceptors(new ResponseInterceptor());
-   **/
-
   initSwagger(app);
   const configService = app.get(ConfigService<EnvVars>);
   const port = configService.get<number>('PORT');

@@ -1,5 +1,15 @@
 import { Injectable } from '@nestjs/common';
 
+export interface PaginatedResult<T> {
+  items: T[];
+  meta: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+}
+
 interface PrismaModelDelegate {
   findMany(args?: any): Promise<any>;
   count(args?: any): Promise<number>;
@@ -12,7 +22,7 @@ export class PaginationService {
     queryArgs: Record<string, unknown> = {},
     page: number = 1,
     limit: number = 10,
-  ) {
+  ): Promise<PaginatedResult<T>> {
     const skip = (page - 1) * limit;
     const take = limit;
 

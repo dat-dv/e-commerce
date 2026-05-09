@@ -1,32 +1,36 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PermissionsController } from './permissions.controller';
-import { PermissionsService } from './permissions.service';
+import { FindAllPermissionsUseCase } from './use-cases/find-all-permissions.use-case';
+import { FindOnePermissionUseCase } from './use-cases/find-one-permission.use-case';
+import { UpdatePermissionUseCase } from './use-cases/update-permission.use-case';
+import { RemovePermissionUseCase } from './use-cases/remove-permission.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { GetPermissionsDto } from './dto/get-permissions.dto';
 import { UpdatePermissionDto } from './dto/update-permission.dto';
 
 describe('PermissionsController', () => {
   let controller: PermissionsController;
-  let service: PermissionsService;
 
-  const mockPermissionsService = {
-    findAll: jest.fn(),
-    findOne: jest.fn(),
-    update: jest.fn(),
-    remove: jest.fn(),
-  };
+  const mockFindAllPermissionsUseCase = { execute: jest.fn() };
+  const mockFindOnePermissionUseCase = { execute: jest.fn() };
+  const mockUpdatePermissionUseCase = { execute: jest.fn() };
+  const mockRemovePermissionUseCase = { execute: jest.fn() };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PermissionsController],
-      providers: [{ provide: PermissionsService, useValue: mockPermissionsService }],
+      providers: [
+        { provide: FindAllPermissionsUseCase, useValue: mockFindAllPermissionsUseCase },
+        { provide: FindOnePermissionUseCase, useValue: mockFindOnePermissionUseCase },
+        { provide: UpdatePermissionUseCase, useValue: mockUpdatePermissionUseCase },
+        { provide: RemovePermissionUseCase, useValue: mockRemovePermissionUseCase },
+      ],
     })
       .overrideGuard(AuthGuard)
       .useValue({ canActivate: () => true })
       .compile();
 
     controller = module.get<PermissionsController>(PermissionsController);
-    service = module.get<PermissionsService>(PermissionsService);
   });
 
   afterEach(() => {
@@ -38,55 +42,55 @@ describe('PermissionsController', () => {
   });
 
   describe('findAll', () => {
-    it('should call service.findAll and return success response', async () => {
+    it('should call FindAllPermissionsUseCase.execute and return success response', async () => {
       const query = { page: 1, limit: 10 };
       const serviceResult = { items: [], total: 0 };
 
-      mockPermissionsService.findAll.mockResolvedValue(serviceResult);
+      mockFindAllPermissionsUseCase.execute.mockResolvedValue(serviceResult);
 
       const result = await controller.findAll(query);
 
-      expect(mockPermissionsService.findAll).toHaveBeenCalledWith(1, 10);
+      expect(mockFindAllPermissionsUseCase.execute).toHaveBeenCalledWith(1, 10);
       expect(result).toEqual(expect.objectContaining({ status: 'success', data: serviceResult }));
     });
   });
 
   describe('findOne', () => {
-    it('should call service.findOne and return success response', async () => {
+    it('should call FindOnePermissionUseCase.execute and return success response', async () => {
       const serviceResult = { permission_id: 'perm-1', permission_name: 'CUSTOM_PERMISSION' };
 
-      mockPermissionsService.findOne.mockResolvedValue(serviceResult);
+      mockFindOnePermissionUseCase.execute.mockResolvedValue(serviceResult);
 
       const result = await controller.findOne('perm-1');
 
-      expect(mockPermissionsService.findOne).toHaveBeenCalledWith('perm-1');
+      expect(mockFindOnePermissionUseCase.execute).toHaveBeenCalledWith('perm-1');
       expect(result).toEqual(expect.objectContaining({ status: 'success', data: serviceResult }));
     });
   });
 
   describe('update', () => {
-    it('should call service.update and return success response', async () => {
+    it('should call UpdatePermissionUseCase.execute and return success response', async () => {
       const dto = { permission_name: 'UPDATED_PERMISSION' } as unknown as UpdatePermissionDto;
       const serviceResult = { permission_id: 'perm-1', permission_name: 'UPDATED_PERMISSION' };
 
-      mockPermissionsService.update.mockResolvedValue(serviceResult);
+      mockUpdatePermissionUseCase.execute.mockResolvedValue(serviceResult);
 
       const result = await controller.update('perm-1', dto);
 
-      expect(mockPermissionsService.update).toHaveBeenCalledWith('perm-1', dto);
+      expect(mockUpdatePermissionUseCase.execute).toHaveBeenCalledWith('perm-1', dto);
       expect(result).toEqual(expect.objectContaining({ status: 'success', data: serviceResult }));
     });
   });
 
   describe('remove', () => {
-    it('should call service.remove and return success response', async () => {
+    it('should call RemovePermissionUseCase.execute and return success response', async () => {
       const serviceResult = { permission_id: 'perm-1', permission_name: 'CUSTOM_PERMISSION' };
 
-      mockPermissionsService.remove.mockResolvedValue(serviceResult);
+      mockRemovePermissionUseCase.execute.mockResolvedValue(serviceResult);
 
       const result = await controller.remove('perm-1');
 
-      expect(mockPermissionsService.remove).toHaveBeenCalledWith('perm-1');
+      expect(mockRemovePermissionUseCase.execute).toHaveBeenCalledWith('perm-1');
       expect(result).toEqual(expect.objectContaining({ status: 'success', data: serviceResult }));
     });
   });
