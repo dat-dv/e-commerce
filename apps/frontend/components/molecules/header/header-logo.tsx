@@ -10,8 +10,8 @@ const HeaderLogo = () => {
           S
         </div>
         <span className="text-lg md:text-xl font-bold tracking-tight text-content select-none">
-          Task
-          <span className="hidden sm:inline text-primary transition-all">.manager</span>
+          Shop
+          <span className="hidden sm:inline text-primary transition-all">.hub</span>
         </span>
       </div>
     </Link>

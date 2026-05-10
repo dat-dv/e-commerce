@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { APP_ROUTES } from '@/constants/routes';
-import { cn } from '@/utils/cn';
+import { APP_ROUTES } from "@/constants/routes";
+import { cn } from "@/utils/cn";
 
 const HeaderNav = () => {
   const pathname = usePathname();
@@ -12,18 +12,22 @@ const HeaderNav = () => {
   return (
     <nav className="hidden md:flex items-center gap-6">
       {[
-        { href: APP_ROUTES.HOME, label: 'Home', exact: true },
-        { href: APP_ROUTES.DOCS, label: 'Docs', exact: false },
+        { href: APP_ROUTES.HOME, label: "Home", exact: true },
+        { href: "/products", label: "Products", exact: false },
       ].map((link) => {
-        const isActive = link.exact ? pathname === link.href : pathname.startsWith(link.href);
+        const isActive = link.exact
+          ? pathname === link.href
+          : pathname.startsWith(link.href);
 
         return (
           <Link
             key={link.href}
             href={link.href}
             className={cn(
-              'relative text-sm font-bold transition-all hover:text-primary',
-              isActive ? 'text-primary' : 'text-content/40 hover:text-content/60',
+              "relative text-sm font-bold transition-all hover:text-primary",
+              isActive
+                ? "text-primary"
+                : "text-content/40 hover:text-content/60",
             )}
           >
             {link.label}
@@ -37,6 +41,6 @@ const HeaderNav = () => {
   );
 };
 
-HeaderNav.displayName = 'HeaderNav';
+HeaderNav.displayName = "HeaderNav";
 
 export default HeaderNav;

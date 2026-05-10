@@ -1,8 +1,7 @@
-import { AnimationContainer, AnimationItem } from '@/components/atoms/animate';
-import AppContainer from '@/components/atoms/app-container';
-import Button from '@/components/atoms/button';
-import { HomeLiveStateMonitor } from '@/components/organisms/home-view/home-live-state-monitor';
-import { APP_ROUTES } from '@/constants/routes';
+import { AnimationContainer, AnimationItem } from "@/components/atoms/animate";
+import AppContainer from "@/components/atoms/app-container";
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
 
 const HomepagePublic = () => {
   return (
@@ -14,14 +13,14 @@ const HomepagePublic = () => {
       <AnimationContainer className="flex flex-col gap-8 items-center">
         <AnimationItem className="space-y-4">
           <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-tight">
-            Focus <span className="text-primary italic font-serif">&</span> Flow.
+            Discover <span className="text-primary italic font-serif">&</span>{" "}
+            Shop.
           </h1>
           <p className="text-lg opacity-70 leading-relaxed font-medium">
-            Streamline your daily workflow with our minimal, modern task management application.
+            Explore our curated collection of minimalist and high-performance
+            products.
           </p>
         </AnimationItem>
-
-        <HomeLiveStateMonitor />
 
         <AnimationItem className="pt-4">
           <Button
@@ -30,9 +29,10 @@ const HomepagePublic = () => {
             size="lg"
             className="rounded-2xl px-12 text-base font-bold shadow-lg shadow-primary/10 transition-all hover:scale-105 active:scale-95"
           >
-            Sign In to Dashboard
+            Start Shopping
           </Button>
         </AnimationItem>
+
       </AnimationContainer>
     </AppContainer>
   );

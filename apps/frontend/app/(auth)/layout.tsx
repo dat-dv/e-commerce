@@ -16,11 +16,11 @@ export default function AuthLayout({
             <span className="text-4xl">🚀</span>
           </div>
           <h1 className="text-5xl font-black tracking-tighter mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Task Management Reimagined.
+            E-Commerce Reimagined.
           </h1>
           <p className="text-lg font-medium text-content/60 leading-relaxed">
-            Experience the most fluid and responsive task manager ever built. Designed for
-            productivity, crafted for you.
+            Experience the most fluid and responsive shopping platform ever built. Designed for
+            simplicity, crafted for you.
           </p>
         </div>
 
