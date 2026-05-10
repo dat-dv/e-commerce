@@ -13,11 +13,14 @@
     "lint:be": "npm run lint -w apps/backend",
     "format:be": "npm run format -w apps/backend",
     "dev:fe": "npm run dev -w apps/frontend",
-    "dev": "npm run dev --workspaces",
+    "build:fe": "npm run build -w apps/frontend",
+    "lint:fe": "npm run lint -w apps/frontend",
+    "dev": "concurrently \"npm run dev:be\" \"npm run dev:fe\"",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "prettier": "^3.0.0"
   }
 }

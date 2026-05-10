@@ -7,6 +7,8 @@ console.log('npm run lint:be    - Check code style for Backend');
 console.log('npm run format:be  - Auto format code for Backend');
 console.log('-----------------------------------');
 console.log('npm run dev:fe     - Start Frontend in Dev mode');
+console.log('npm run build:fe   - Build Frontend');
+console.log('npm run lint:fe    - Check code style for Frontend');
 console.log('-----------------------------------');
 console.log('npm run dev        - Start all projects in Dev mode');
 console.log('npm run build      - Build all projects');
