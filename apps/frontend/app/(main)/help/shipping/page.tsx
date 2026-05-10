@@ -89,23 +89,20 @@ const SHIPPING_TOPICS = [
 
 export default function ShippingPage() {
   const header = (
-    <div>
+    <div className="mb-10">
       <Link
         href="/help"
         className="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1"
       >
         ← Back to Help Center
       </Link>
-      <div className="mt-4 bg-gradient-to-br from-primary/10 via-transparent to-transparent p-10 rounded-3xl border border-content/5 relative overflow-hidden">
-        <div className="relative z-10">
-          <h1 className="text-4xl font-black text-content mb-2">
-            Shipping Information
-          </h1>
-          <p className="text-content/60 text-lg">
-            Find answers to questions about shipping and delivery.
-          </p>
-        </div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/10 to-transparent -z-10" />
+      <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10 mt-4">
+        <h1 className="text-3xl font-black text-content mb-2">
+          Shipping Information
+        </h1>
+        <p className="text-content/60 text-base">
+          Find answers to questions about shipping and delivery.
+        </p>
       </div>
     </div>
   );

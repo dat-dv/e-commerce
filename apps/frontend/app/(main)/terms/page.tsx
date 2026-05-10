@@ -14,16 +14,13 @@ const SECTIONS = [
 
 export default function TermsPage() {
   const header = (
-    <div className="bg-gradient-to-br from-primary/10 via-transparent to-transparent p-10 rounded-3xl border border-content/5 relative overflow-hidden">
-      <div className="relative z-10">
-        <h1 className="text-4xl font-black text-content mb-2">
-          Terms of Service
-        </h1>
-        <p className="text-content/60 text-lg">
-          Please read these terms carefully before using our services.
-        </p>
-      </div>
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/10 to-transparent -z-10" />
+    <div className="bg-content/5 p-8 rounded-2xl border border-content/5 mb-10">
+      <h1 className="text-3xl font-black text-content mb-2">
+        Terms of Service
+      </h1>
+      <p className="text-content/60 text-base">
+        Please read these terms carefully before using our services.
+      </p>
     </div>
   );
 
