@@ -2,19 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { IUser } from '../entities/user.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
-
-type PrismaUserWithRelations = Prisma.UserGetPayload<{
-  include: {
-    avatar: true;
-    role: {
-      include: {
-        permissions: true;
-      };
-    };
-  };
-}>;
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -35,6 +24,8 @@ export class UsersRepository implements IUsersRepository {
         },
       },
     });
+
+    console.log(999, prismaUser);
 
     if (!prismaUser) return null;
 

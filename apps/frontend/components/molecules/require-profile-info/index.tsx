@@ -5,12 +5,10 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { RequireProfileInfoForm } from "./require-profile-info-form";
 import { TRequireProfileInfoSchema } from "./require-profile-info-form.schema";
 import { authUseCase } from "@/domain/auth/use-cases";
-
 const RequireProfileInfoModal = () => {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const logout = useAuthStore((state) => state.logout);
-
   const show =
     user && (!user.first_name || !user.last_name || !user.date_of_birth);
 
