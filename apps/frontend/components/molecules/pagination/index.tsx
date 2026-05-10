@@ -40,9 +40,6 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
   return pages;
 };
 
-/**
- * Single Pagination Button / Item
- */
 const PaginationItem = ({
   page,
   active,
@@ -75,9 +72,6 @@ const PaginationItem = ({
   );
 };
 
-/**
- * Left/Right Arrow Buttons
- */
 const PaginationArrow = ({
   direction,
   disabled,

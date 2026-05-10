@@ -1,4 +1,4 @@
-import { API_ROUTES } from "@/constants/routes";
+import { APP_ROUTES } from "@/constants/routes";
 import { TRequest } from "@/utils/request/request.types";
 
 import {

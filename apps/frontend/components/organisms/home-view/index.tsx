@@ -7,5 +7,5 @@ import HomepagePublic from "./home-view-public";
 
 export const HomeView = () => {
   const isLogin = useAuthStore((state) => !!state.user?.id);
-  return isLogin ? <HomepagePrivate /> : <HomepagePublic />;
+  return !isLogin ? <HomepagePrivate /> : <HomepagePublic />;
 };

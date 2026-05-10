@@ -1,8 +1,3 @@
-/**
- * Creates an Image from a URL string
- * @param {string} url - The URL of the image
- * @returns {Promise<HTMLImageElement>}
- */
 export const createImage = (url: string): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
     const image = new Image();
@@ -12,13 +7,6 @@ export const createImage = (url: string): Promise<HTMLImageElement> =>
     image.src = url;
   });
 
-/**
- * Returns the cropped image as a Blob
- * @param {string} imageSrc - The URL of the source image
- * @param {any} pixelCrop - The dimensions for cropping
- * @param {number} rotation - Rotation in degrees (default 0)
- * @returns {Promise<Blob | null>}
- */
 export default async function getCroppedImg(
   imageSrc: string,
   pixelCrop: { x: number; y: number; width: number; height: number },
