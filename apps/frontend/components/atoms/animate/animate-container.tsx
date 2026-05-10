@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { HTMLMotionProps, motion, Variants } from 'framer-motion';
-import React from 'react';
+import { HTMLMotionProps, motion, Variants } from "framer-motion";
+import React from "react";
 
-export interface AnimationContainerProps extends HTMLMotionProps<'div'> {
+export interface AnimationContainerProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
 }
 
@@ -12,7 +12,11 @@ const containerVariants: Variants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-export const AnimationContainer = ({ children, className, ...props }: AnimationContainerProps) => {
+export const AnimationContainer = ({
+  children,
+  className,
+  ...props
+}: AnimationContainerProps) => {
   return (
     <motion.div
       variants={containerVariants}

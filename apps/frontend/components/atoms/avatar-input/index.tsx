@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { Camera } from 'lucide-react';
-import React, { useRef, useState } from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import { Camera } from "lucide-react";
+import React, { useRef, useState } from "react";
 
-import Avatar from '@/components/atoms/avatar';
-import ImgCropper from '@/components/molecules/img-cropper';
+import Avatar from "@/components/atoms/avatar";
+import ImgCropper from "@/components/molecules/img-cropper";
 
 export interface AvatarInputProps {
   value?: string;
@@ -34,7 +34,7 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
     reader.onload = () => {
       setSelectedImage(reader.result as string);
       setShowCropper(true);
-      if (fileRef.current) fileRef.current.value = '';
+      if (fileRef.current) fileRef.current.value = "";
     };
     reader.readAsDataURL(file);
   };
@@ -56,7 +56,10 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
 
   return (
     <>
-      <div className="relative group/avatar" style={{ width: size, height: size }}>
+      <div
+        className="relative group/avatar"
+        style={{ width: size, height: size }}
+      >
         {/* Glow effect */}
         <div className="absolute -inset-4 bg-primary/20 rounded-full blur-2xl group-hover/avatar:bg-primary/30 transition-all duration-500" />
 

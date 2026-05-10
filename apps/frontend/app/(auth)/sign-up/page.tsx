@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import SignUpForm from '@/components/molecules/sign-up-form';
+import SignUpForm from "@/components/molecules/sign-up-form";
 
 export const metadata: Metadata = {
-  title: 'Sign Up',
-  description: 'Join us to experience a premium, real-time task management environment.',
+  title: "Sign Up",
+  description:
+    "Join us to experience a premium, real-time task management environment.",
 };
 
 export default function SignUpPage() {

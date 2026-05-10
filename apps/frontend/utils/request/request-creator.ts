@@ -4,8 +4,11 @@ import {
   IRequestParams,
   ResponseType,
   TRequestCreator,
-} from './request.types';
-import { errorResponseStrategies, successResponseStrategies } from './response-mapping';
+} from "./request.types";
+import {
+  errorResponseStrategies,
+  successResponseStrategies,
+} from "./response-mapping";
 
 export class RequestError extends Error {
   constructor(
@@ -13,14 +16,17 @@ export class RequestError extends Error {
     public data?: ApiErrorResponse,
   ) {
     super(message);
-    this.name = 'RequestError';
+    this.name = "RequestError";
   }
 }
 
-function resolveResponseType(res: Response, responseType?: ResponseType): ResponseType {
+function resolveResponseType(
+  res: Response,
+  responseType?: ResponseType,
+): ResponseType {
   if (responseType) return responseType;
-  const contentType = res.headers.get('content-type') ?? '';
-  return contentType.includes('application/json') ? 'json' : 'blob';
+  const contentType = res.headers.get("content-type") ?? "";
+  return contentType.includes("application/json") ? "json" : "blob";
 }
 
 // ===== CORE REQUEST =====
@@ -34,10 +40,10 @@ const requestCreator: TRequestCreator = async <T>({
 
   const res = await fetch(url, {
     method,
-    credentials: 'include',
+    credentials: "include",
     ...options,
     headers: {
-      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+      ...(isFormData ? {} : { "Content-Type": "application/json" }),
       ...options?.headers,
     },
     body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
@@ -45,10 +51,12 @@ const requestCreator: TRequestCreator = async <T>({
 
   // ===== ERROR =====
   if (!res.ok) {
-    const contentType = res.headers.get('content-type') ?? '';
-    const errorType: ErrorResponseType = contentType.includes('application/json')
-      ? 'json'
-      : 'other';
+    const contentType = res.headers.get("content-type") ?? "";
+    const errorType: ErrorResponseType = contentType.includes(
+      "application/json",
+    )
+      ? "json"
+      : "other";
     const error = await errorResponseStrategies[errorType](res);
 
     throw new RequestError(error.message, error);

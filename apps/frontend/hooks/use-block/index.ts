@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { toast } from 'react-toastify';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 
 export const useBlock = ({
   duration = 3000,
-  message = 'Please wait a moment',
+  message = "Please wait a moment",
   shouldLock = false,
 }: {
   duration?: number;
@@ -35,7 +35,7 @@ export const useBlock = ({
     if (shouldLock) {
       forceLock();
       toast.warning(message, {
-        toastId: 'lock-warning',
+        toastId: "lock-warning",
       });
     }
   }, [shouldLock, forceLock, message]);

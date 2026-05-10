@@ -1,5 +1,5 @@
 // ==== REQUEST =====
-export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+export type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
 export interface IRequestOptions extends RequestInit {
   responseType?: ResponseType;
@@ -12,14 +12,28 @@ export interface IRequestParams {
   options?: IRequestOptions;
 }
 
-export type TRequestCreator = <T = unknown>(params: IRequestParams) => Promise<T>;
+export type TRequestCreator = <T = unknown>(
+  params: IRequestParams,
+) => Promise<T>;
 
 export type TRequest = {
   get: <T = unknown>(url: string, options?: IRequestOptions) => Promise<T>;
-  post: <T = unknown>(url: string, body?: unknown, options?: IRequestOptions) => Promise<T>;
-  put: <T = unknown>(url: string, body?: unknown, options?: IRequestOptions) => Promise<T>;
+  post: <T = unknown>(
+    url: string,
+    body?: unknown,
+    options?: IRequestOptions,
+  ) => Promise<T>;
+  put: <T = unknown>(
+    url: string,
+    body?: unknown,
+    options?: IRequestOptions,
+  ) => Promise<T>;
   delete: <T = unknown>(url: string, options?: IRequestOptions) => Promise<T>;
-  patch: <T = unknown>(url: string, body?: unknown, options?: IRequestOptions) => Promise<T>;
+  patch: <T = unknown>(
+    url: string,
+    body?: unknown,
+    options?: IRequestOptions,
+  ) => Promise<T>;
 };
 
 // ==== RESPONSE =====
@@ -44,5 +58,5 @@ export interface ApiErrorResponse {
   errors?: Record<string, string[]>;
 }
 
-export type ResponseType = 'json' | 'blob' | 'arrayBuffer' | 'text';
-export type ErrorResponseType = 'json' | 'other';
+export type ResponseType = "json" | "blob" | "arrayBuffer" | "text";
+export type ErrorResponseType = "json" | "other";

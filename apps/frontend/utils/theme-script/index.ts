@@ -1,4 +1,4 @@
-import { CONFIG_STORE_KEY, ETheme } from '@/constants/theme.constanst';
+import { CONFIG_STORE_KEY, ETheme } from "@/constants/theme.constanst";
 
 export const themeScript = `(function() {
   try {

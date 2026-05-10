@@ -1,7 +1,7 @@
-import { useShallow } from 'zustand/react/shallow';
+import { useShallow } from "zustand/react/shallow";
 
-import { useTodoQuery } from '../use-todo-query';
-import { useTodoStore } from '../use-todo-store';
+import { useTodoQuery } from "../use-todo-query";
+import { useTodoStore } from "../use-todo-store";
 
 export const useTodoList = () => {
   const { page, pageSize } = useTodoQuery();

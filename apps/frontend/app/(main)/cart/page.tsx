@@ -1,11 +1,11 @@
-import AppContainer from '@/components/atoms/app-container';
-import Button from '@/components/atoms/button';
-import { APP_ROUTES } from '@/constants/routes';
-import type { Metadata } from 'next';
+import AppContainer from "@/components/atoms/app-container";
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Cart',
-  description: 'Your shopping cart.',
+  title: "Cart",
+  description: "Your shopping cart.",
 };
 
 export default function CartPage() {
@@ -16,8 +16,15 @@ export default function CartPage() {
     >
       <div className="text-6xl mb-4">🛒</div>
       <h1 className="text-3xl font-black mb-2 text-content">Your Cart</h1>
-      <p className="text-content/40 text-sm mb-8">Your cart is currently empty.</p>
-      <Button href="/products" variant="primary" size="lg" className="rounded-2xl px-8">
+      <p className="text-content/40 text-sm mb-8">
+        Your cart is currently empty.
+      </p>
+      <Button
+        href="/products"
+        variant="primary"
+        size="lg"
+        className="rounded-2xl px-8"
+      >
         Start Shopping
       </Button>
     </AppContainer>

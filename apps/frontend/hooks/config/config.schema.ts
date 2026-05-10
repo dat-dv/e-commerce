@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from "zod";
 
-import { ETheme } from '@/constants/theme.constanst';
+import { ETheme } from "@/constants/theme.constanst";
 
 export const themeConfigSchema = z.object({
   isDarkMode: z.boolean(),

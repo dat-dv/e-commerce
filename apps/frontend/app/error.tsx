@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { RefreshCcw, ShieldAlert } from 'lucide-react';
+import { RefreshCcw, ShieldAlert } from "lucide-react";
 
-import Button from '@/components/atoms/button';
-import { APP_ROUTES } from '@/constants/routes';
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const metadata = {
-  title: '503 - Service Unavailable',
+  title: "503 - Service Unavailable",
 };
 
 export default function Error({
@@ -30,15 +30,16 @@ export default function Error({
           503 • Something went wrong
         </h1>
         <p className="text-content/70 text-lg font-medium mb-10 leading-relaxed max-w-md">
-          Our systems are currently taking a quick breather or something unexpected happened.
-          We&apos;ve been notified and are already looking into it.
+          Our systems are currently taking a quick breather or something
+          unexpected happened. We&apos;ve been notified and are already looking
+          into it.
         </p>
 
         <div className="bg-surface/40 backdrop-blur-2xl border border-content/5 p-6 rounded-[24px] mb-10 w-full">
           <p className="text-xs font-mono opacity-50 text-left overflow-auto break-all">
-            ERROR_ID: {error.digest || 'UNKNOWN'}
+            ERROR_ID: {error.digest || "UNKNOWN"}
             <br />
-            MSG: {error.message || 'Service Unavailable'}
+            MSG: {error.message || "Service Unavailable"}
           </p>
         </div>
 

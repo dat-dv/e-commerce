@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
-import { APP_ROUTES, CALLBACK_URL_KEY } from '@/constants/routes';
-import { IAuthRequest } from '@/domain/auth/model/auth.model';
-import { authUseCase } from '@/domain/auth/use-cases';
+import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
+import { IAuthRequest } from "@/domain/auth/model/auth.model";
+import { authUseCase } from "@/domain/auth/use-cases";
 
-import { useAuthStore } from '../use-auth-store';
-import { LoginSchema, loginSchema } from './login.schema';
+import { useAuthStore } from "../use-auth-store";
+import { LoginSchema, loginSchema } from "./login.schema";
 
 // adapter - react có life cycle riêng nên việc tương tác với các đối tượng khác cần thông qua adapter
 // nhận dữ liệu của react -> chuyển sang cho thằng use case
@@ -25,8 +25,8 @@ const useLogin = () => {
   const methods = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
@@ -44,8 +44,8 @@ const useLogin = () => {
       const callbackUrl = searchParams.get(CALLBACK_URL_KEY) || APP_ROUTES.HOME;
       router.push(callbackUrl);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Login failed';
-      toast.error(errorMessage || 'Login Failed');
+      const errorMessage = err instanceof Error ? err.message : "Login failed";
+      toast.error(errorMessage || "Login Failed");
     } finally {
       setLoading(false);
     }

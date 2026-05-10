@@ -1,13 +1,13 @@
-import { act, renderHook } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, renderHook } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { AuthProvider } from '@/components/molecules/providers/auth-provider';
-import { authUseCase } from '@/domain/auth/use-cases';
+import { AuthProvider } from "@/components/molecules/providers/auth-provider";
+import { authUseCase } from "@/domain/auth/use-cases";
 
-import { useProfile } from './index';
+import { useProfile } from "./index";
 
 // Mock authUseCase
-vi.mock('@/domain/auth/use-cases', () => ({
+vi.mock("@/domain/auth/use-cases", () => ({
   authUseCase: {
     updateProfile: {
       execute: vi.fn(),
@@ -15,14 +15,14 @@ vi.mock('@/domain/auth/use-cases', () => ({
   },
 }));
 
-describe('useProfile Hook', () => {
+describe("useProfile Hook", () => {
   const mockUser = {
-    id: '1',
-    name: 'Old Name',
-    email: 'john@example.com',
-    address: 'Old Address',
-    dob: '1990-01-01',
-    avatarUrl: 'old-avatar.png',
+    id: "1",
+    name: "Old Name",
+    email: "john@example.com",
+    address: "Old Address",
+    dob: "1990-01-01",
+    avatarUrl: "old-avatar.png",
   };
 
   const wrapper = ({ children }: { children: React.ReactNode }) => (
@@ -33,15 +33,15 @@ describe('useProfile Hook', () => {
     vi.clearAllMocks();
   });
 
-  it('should initialize with user data from store', () => {
+  it("should initialize with user data from store", () => {
     const { result } = renderHook(() => useProfile(), { wrapper });
 
-    expect(result.current.user?.name).toBe('Old Name');
-    expect(result.current.methods.getValues('name')).toBe('Old Name');
+    expect(result.current.user?.name).toBe("Old Name");
+    expect(result.current.methods.getValues("name")).toBe("Old Name");
     expect(result.current.isEditing).toBe(false);
   });
 
-  it('should toggle editing state', () => {
+  it("should toggle editing state", () => {
     const { result } = renderHook(() => useProfile(), { wrapper });
 
     act(() => {
@@ -55,25 +55,25 @@ describe('useProfile Hook', () => {
     expect(result.current.isEditing).toBe(false);
   });
 
-  it('should save profile and update store', async () => {
-    const updatedUser = { ...mockUser, name: 'New Name' };
+  it("should save profile and update store", async () => {
+    const updatedUser = { ...mockUser, name: "New Name" };
     vi.mocked(authUseCase.updateProfile.execute).mockResolvedValue(updatedUser);
 
     const { result } = renderHook(() => useProfile(), { wrapper });
 
     await act(async () => {
       await result.current.handleSave({
-        name: 'New Name',
-        address: 'Old Address',
-        dob: '1990-01-01',
-        avatarUrl: 'old-avatar.png',
+        name: "New Name",
+        address: "Old Address",
+        dob: "1990-01-01",
+        avatarUrl: "old-avatar.png",
       });
     });
 
     expect(authUseCase.updateProfile.execute).toHaveBeenCalledWith(
-      expect.objectContaining({ name: 'New Name' }),
+      expect.objectContaining({ name: "New Name" }),
     );
     // Kiểm tra state user trong hook đã được cập nhật
-    expect(result.current.user?.name).toBe('New Name');
+    expect(result.current.user?.name).toBe("New Name");
   });
 });

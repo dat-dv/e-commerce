@@ -1,10 +1,15 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import React from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 
-import { cn } from '@/utils/cn';
+import { cn } from "@/utils/cn";
 
-import { variantBase, variantDisabled, variantError, variantNormal } from './input.styles';
-import { InputVariant } from './input.types';
+import {
+  variantBase,
+  variantDisabled,
+  variantError,
+  variantNormal,
+} from "./input.styles";
+import { InputVariant } from "./input.types";
 
 interface DateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -13,7 +18,7 @@ interface DateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
-  ({ className, label, error, id, variant = 'outline', ...rest }, ref) => {
+  ({ className, label, error, id, variant = "outline", ...rest }, ref) => {
     const isDisabled = rest.disabled;
 
     const stateStyle = isDisabled
@@ -40,8 +45,8 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             id={id}
             type="date"
             className={cn(
-              'w-full outline-none transition-all duration-300 cursor-pointer uppercase',
-              isDisabled && 'cursor-not-allowed opacity-70',
+              "w-full outline-none transition-all duration-300 cursor-pointer uppercase",
+              isDisabled && "cursor-not-allowed opacity-70",
               variantBase[variant as keyof typeof variantBase],
               stateStyle,
               className,
@@ -70,4 +75,4 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
   },
 );
 
-DateInput.displayName = 'DateInput';
+DateInput.displayName = "DateInput";

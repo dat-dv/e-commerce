@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
-import AvatarInput from '@/components/atoms/avatar-input';
+import AvatarInput from "@/components/atoms/avatar-input";
 
 interface FormAvatarInputProps {
   name: string;

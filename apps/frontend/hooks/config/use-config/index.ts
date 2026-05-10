@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-import { ETheme } from '@/constants/theme.constanst';
+import { ETheme } from "@/constants/theme.constanst";
 
-import { useAppConfig } from '../use-config-store';
+import { useAppConfig } from "../use-config-store";
 
 export const useConfig = () => {
   const theme = useAppConfig((s) => s.theme);
@@ -17,7 +17,7 @@ export const useConfig = () => {
   const setTheme = useCallback(
     (newTheme: ETheme) => {
       setThemeStore(newTheme);
-      document?.documentElement?.setAttribute('data-theme', newTheme);
+      document?.documentElement?.setAttribute("data-theme", newTheme);
     },
     [setThemeStore],
   );
@@ -25,13 +25,13 @@ export const useConfig = () => {
   const toggleDarkMode = useCallback(() => {
     const newDarkMode = !isDarkMode;
     toggleDarkModeStore();
-    document?.documentElement?.classList.toggle('dark', newDarkMode);
+    document?.documentElement?.classList.toggle("dark", newDarkMode);
   }, [isDarkMode, toggleDarkModeStore]);
 
   const setDarkMode = useCallback(
     (isDarkMode: boolean) => {
       setDarkModeStore(isDarkMode);
-      document?.documentElement?.classList.toggle('dark', isDarkMode);
+      document?.documentElement?.classList.toggle("dark", isDarkMode);
     },
     [setDarkModeStore],
   );

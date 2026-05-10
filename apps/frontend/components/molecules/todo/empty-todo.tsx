@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { memo } from 'react';
+import { motion } from "framer-motion";
+import { memo } from "react";
 
 const EmptyTodo = memo(() => {
   return (
@@ -15,6 +15,6 @@ const EmptyTodo = memo(() => {
   );
 });
 
-EmptyTodo.displayName = 'EmptyTodo';
+EmptyTodo.displayName = "EmptyTodo";
 
 export default EmptyTodo;

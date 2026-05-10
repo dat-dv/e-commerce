@@ -1,4 +1,4 @@
-import { IUser } from '@/domain/auth/model/auth.model';
+import { IUser } from "@/domain/auth/model/auth.model";
 
 export interface IAuthStore extends IAuthStoreState, IAuthStoreHandler {}
 

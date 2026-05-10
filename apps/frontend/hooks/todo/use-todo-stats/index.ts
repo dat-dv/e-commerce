@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useTodoStore } from '../use-todo-store';
+import { useTodoStore } from "../use-todo-store";
 
 /**
  * Hook to calculate todo statistics from the store.

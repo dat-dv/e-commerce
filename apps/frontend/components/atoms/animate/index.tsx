@@ -1,2 +1,2 @@
-export * from './animate-container';
-export * from './animate-item';
+export * from "./animate-container";
+export * from "./animate-item";

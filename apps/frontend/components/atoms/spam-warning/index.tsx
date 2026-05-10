@@ -1,8 +1,14 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 
-import { useSpamListener } from '@/hooks/use-spam-listener';
+import { useSpamListener } from "@/hooks/use-spam-listener";
 
-const SpamWarning = ({ isSpam, message }: { isSpam: boolean; message?: string }) => {
+const SpamWarning = ({
+  isSpam,
+  message,
+}: {
+  isSpam: boolean;
+  message?: string;
+}) => {
   useSpamListener({ isSpam, message });
   return <></>;
 };

@@ -1,24 +1,24 @@
-import { delay } from '@/utils/delay';
+import { delay } from "@/utils/delay";
 
-import { IAuthRequest, IRegisterRequest, IUser } from '../model/auth.model';
-import { IAuthRepository } from '../model/auth.repository';
-import { UserMapper } from './auth.mapper';
-import { IUserResponse } from './auth.response';
+import { IAuthRequest, IRegisterRequest, IUser } from "../model/auth.model";
+import { IAuthRepository } from "../model/auth.repository";
+import { UserMapper } from "./auth.mapper";
+import { IUserResponse } from "./auth.response";
 
 export class MockAuthRepository implements IAuthRepository {
   getSession(): boolean {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
   logout(): Promise<void> {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
   private static MOCK_USER: IUserResponse = {
-    id: '1',
-    full_name: 'John Doe',
-    email_address: 'john.doe@example.com',
-    profile_picture: 'https://i.pravatar.cc/150?u=1',
-    date_of_birth: '20031990',
-    address: '123 Premium St, Antigravity City',
+    id: "1",
+    full_name: "John Doe",
+    email_address: "john.doe@example.com",
+    profile_picture: "https://i.pravatar.cc/150?u=1",
+    date_of_birth: "20031990",
+    address: "123 Premium St, Antigravity City",
   };
 
   async login(request: IAuthRequest): Promise<IUser> {
@@ -26,7 +26,7 @@ export class MockAuthRepository implements IAuthRepository {
 
     MockAuthRepository.MOCK_USER = {
       ...MockAuthRepository.MOCK_USER,
-      full_name: request.email.split('@')[0] || 'User',
+      full_name: request.email.split("@")[0] || "User",
       email_address: request.email,
     };
 

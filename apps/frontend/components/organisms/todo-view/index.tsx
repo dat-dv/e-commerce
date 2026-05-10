@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import TodoList from '@/components/molecules/todo/todo-list';
-import { TodoSkeleton } from '@/components/molecules/todo/todo-skeleton';
-import TodoStats from '@/components/molecules/todo/todo-stats';
-import { useTodoList } from '@/hooks/todo/use-todo-list';
+import TodoList from "@/components/molecules/todo/todo-list";
+import { TodoSkeleton } from "@/components/molecules/todo/todo-skeleton";
+import TodoStats from "@/components/molecules/todo/todo-stats";
+import { useTodoList } from "@/hooks/todo/use-todo-list";
 
-import { TodoFilterMemo } from '../../molecules/todo/todo-filter';
-import { TodoInput } from '../../molecules/todo/todo-input';
-import { TodoPagination } from '../../molecules/todo/todo-pagination';
+import { TodoFilterMemo } from "../../molecules/todo/todo-filter";
+import { TodoInput } from "../../molecules/todo/todo-input";
+import { TodoPagination } from "../../molecules/todo/todo-pagination";
 
 export const TodoView = () => {
   const { todos, loading, totalItems } = useTodoList();

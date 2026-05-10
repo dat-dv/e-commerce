@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React, { memo } from 'react';
+import React, { memo } from "react";
 
-import { ETodoFilter } from '@/domain/todo/model/todo.model';
-import { useTodoQuery } from '@/hooks/todo/use-todo-query';
-import { cn } from '@/utils/cn';
+import { ETodoFilter } from "@/domain/todo/model/todo.model";
+import { useTodoQuery } from "@/hooks/todo/use-todo-query";
+import { cn } from "@/utils/cn";
 
 const TodoFilterComponent = () => {
   const { filter: currentFilter, setFilter } = useTodoQuery();
 
   const FILTERS = [
-    { id: ETodoFilter.ALL, label: 'All' },
-    { id: ETodoFilter.ACTIVE, label: 'Active' },
-    { id: ETodoFilter.COMPLETED, label: 'Completed' },
+    { id: ETodoFilter.ALL, label: "All" },
+    { id: ETodoFilter.ACTIVE, label: "Active" },
+    { id: ETodoFilter.COMPLETED, label: "Completed" },
   ];
 
   return (
@@ -27,10 +27,10 @@ const TodoFilterComponent = () => {
             key={f.id}
             onClick={() => setFilter(f.id)}
             className={cn(
-              'px-4 py-2 rounded-xl text-sm font-bold tracking-tight transition-all duration-300',
+              "px-4 py-2 rounded-xl text-sm font-bold tracking-tight transition-all duration-300",
               active
-                ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-100'
-                : 'text-content/50 hover:text-content hover:bg-content/5 hover:scale-105',
+                ? "bg-primary text-white shadow-lg shadow-primary/20 scale-100"
+                : "text-content/50 hover:text-content hover:bg-content/5 hover:scale-105",
             )}
           >
             {f.label}

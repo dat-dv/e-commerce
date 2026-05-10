@@ -1,6 +1,6 @@
-import { AnimationContainer, AnimationItem } from '@/components/atoms/animate';
-import Button from '@/components/atoms/button';
-import { APP_ROUTES } from '@/constants/routes';
+import { AnimationContainer, AnimationItem } from "@/components/atoms/animate";
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const AccessDenied = () => {
   return (

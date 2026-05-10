@@ -1,7 +1,12 @@
-import { delay } from '@/utils/delay';
+import { delay } from "@/utils/delay";
 
-import { ICreateTodoRequest, IGetTodosParams, ITodo, ITodoList } from '../model/todo.model';
-import { ITodoRepository } from '../model/todo.repository';
+import {
+  ICreateTodoRequest,
+  IGetTodosParams,
+  ITodo,
+  ITodoList,
+} from "../model/todo.model";
+import { ITodoRepository } from "../model/todo.repository";
 
 export class MockTodoRepository implements ITodoRepository {
   private todos: ITodo[] = Array.from({ length: 15 }).map((_, i) => ({
@@ -15,16 +20,21 @@ export class MockTodoRepository implements ITodoRepository {
   async findAll(params?: IGetTodosParams): Promise<ITodoList> {
     await delay(800);
 
-    const filter = params?.filter || 'all';
+    const filter = params?.filter || "all";
     const page = params?.page || 1;
     const pageSize = params?.pageSize || 10;
 
     let filteredTodos = [...this.todos];
-    if (filter === 'active') filteredTodos = filteredTodos.filter((t) => !t.completed);
-    if (filter === 'completed') filteredTodos = filteredTodos.filter((t) => t.completed);
+    if (filter === "active")
+      filteredTodos = filteredTodos.filter((t) => !t.completed);
+    if (filter === "completed")
+      filteredTodos = filteredTodos.filter((t) => t.completed);
 
     const startIndex = (page - 1) * pageSize;
-    const paginatedTodos = filteredTodos.slice(startIndex, startIndex + pageSize);
+    const paginatedTodos = filteredTodos.slice(
+      startIndex,
+      startIndex + pageSize,
+    );
 
     const todos = paginatedTodos.map((t) => {
       return {

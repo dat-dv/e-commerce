@@ -1,28 +1,31 @@
-import { renderHook } from '@testing-library/react';
-import { toast } from 'react-toastify';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { renderHook } from "@testing-library/react";
+import { toast } from "react-toastify";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useSpamListener } from './index';
+import { useSpamListener } from "./index";
 
 // Mock react-toastify
-vi.mock('react-toastify', () => ({
+vi.mock("react-toastify", () => ({
   toast: {
     warning: vi.fn(),
   },
 }));
 
-describe('useSpamListener Hook', () => {
+describe("useSpamListener Hook", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should trigger toast warning when isSpam transitions to true', () => {
+  it("should trigger toast warning when isSpam transitions to true", () => {
     vi.useFakeTimers();
-    vi.setSystemTime(new Date('2023-01-01T10:00:00Z'));
+    vi.setSystemTime(new Date("2023-01-01T10:00:00Z"));
 
-    const { rerender } = renderHook(({ isSpam }) => useSpamListener({ isSpam }), {
-      initialProps: { isSpam: false },
-    });
+    const { rerender } = renderHook(
+      ({ isSpam }) => useSpamListener({ isSpam }),
+      {
+        initialProps: { isSpam: false },
+      },
+    );
 
     expect(toast.warning).not.toHaveBeenCalled();
 
@@ -30,16 +33,19 @@ describe('useSpamListener Hook', () => {
     rerender({ isSpam: true });
 
     expect(toast.warning).toHaveBeenCalledWith(
-      'Too many actions! Please wait a moment.',
-      expect.objectContaining({ toastId: 'spam-warning' }),
+      "Too many actions! Please wait a moment.",
+      expect.objectContaining({ toastId: "spam-warning" }),
     );
   });
 
-  it('should throttle toast warnings', () => {
+  it("should throttle toast warnings", () => {
     vi.useFakeTimers();
-    const { result, rerender } = renderHook(({ isSpam }) => useSpamListener({ isSpam }), {
-      initialProps: { isSpam: true },
-    });
+    const { result, rerender } = renderHook(
+      ({ isSpam }) => useSpamListener({ isSpam }),
+      {
+        initialProps: { isSpam: true },
+      },
+    );
 
     expect(toast.warning).toHaveBeenCalledTimes(1);
 

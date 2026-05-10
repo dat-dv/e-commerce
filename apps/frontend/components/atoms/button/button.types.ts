@@ -1,4 +1,4 @@
-import { sizeClasses, variantClasses } from './button.style';
+import { sizeClasses, variantClasses } from "./button.style";
 
 export type Variant = keyof typeof variantClasses;
 export type Size = keyof typeof sizeClasses;

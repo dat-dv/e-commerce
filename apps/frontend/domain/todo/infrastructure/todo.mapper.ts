@@ -1,5 +1,5 @@
-import { ITodo } from '../model/todo.model';
-import { ITodoResponse } from './todo.response';
+import { ITodo } from "../model/todo.model";
+import { ITodoResponse } from "./todo.response";
 
 export const TodoMapper = {
   toDomain(dto: ITodoResponse): ITodo {

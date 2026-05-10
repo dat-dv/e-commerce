@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { APP_ROUTES } from '@/constants/routes';
+import { APP_ROUTES } from "@/constants/routes";
 
 const HeaderLogo = () => {
   return (
@@ -11,7 +11,9 @@ const HeaderLogo = () => {
         </div>
         <span className="text-lg md:text-xl font-bold tracking-tight text-content select-none">
           Shop
-          <span className="hidden sm:inline text-primary transition-all">.hub</span>
+          <span className="hidden sm:inline text-primary transition-all">
+            .hub
+          </span>
         </span>
       </div>
     </Link>

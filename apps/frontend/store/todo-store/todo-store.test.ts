@@ -1,20 +1,20 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from "vitest";
 
-import { ETodoFilter, ITodo } from '@/domain/todo/model/todo.model';
+import { ETodoFilter, ITodo } from "@/domain/todo/model/todo.model";
 
-import { createTodoStore } from './index';
+import { createTodoStore } from "./index";
 
-describe('TodoStore', () => {
+describe("TodoStore", () => {
   const mockTodo: ITodo = {
-    id: '1',
-    tempId: 'temp-1',
-    title: 'Test Todo',
+    id: "1",
+    tempId: "temp-1",
+    title: "Test Todo",
     completed: false,
     createdAt: new Date().toISOString(),
     position: 0,
   };
 
-  it('should initialize with default state', () => {
+  it("should initialize with default state", () => {
     const store = createTodoStore();
     const state = store.getState();
 
@@ -26,7 +26,7 @@ describe('TodoStore', () => {
     expect(state.filter).toBe(ETodoFilter.ALL);
   });
 
-  it('should append a todo', () => {
+  it("should append a todo", () => {
     const store = createTodoStore();
     store.getState().appendTodo(mockTodo);
 
@@ -36,7 +36,7 @@ describe('TodoStore', () => {
     expect(state.total).toBe(1);
   });
 
-  it('should update a todo and totalCompleted correctly', () => {
+  it("should update a todo and totalCompleted correctly", () => {
     const store = createTodoStore({
       todos: [mockTodo],
       total: 1,
@@ -44,20 +44,24 @@ describe('TodoStore', () => {
     });
 
     // Mark as completed
-    store.getState().updateTodo('temp-1', { completed: true });
+    store.getState().updateTodo("temp-1", { completed: true });
 
     expect(store.getState().todos[0].completed).toBe(true);
     expect(store.getState().totalCompleted).toBe(1);
 
     // Mark as active again
-    store.getState().updateTodo('temp-1', { completed: false });
+    store.getState().updateTodo("temp-1", { completed: false });
 
     expect(store.getState().todos[0].completed).toBe(false);
     expect(store.getState().totalCompleted).toBe(0);
   });
 
-  it('should delete a todo and update counts', () => {
-    const completedTodo: ITodo = { ...mockTodo, tempId: 'temp-comp', completed: true };
+  it("should delete a todo and update counts", () => {
+    const completedTodo: ITodo = {
+      ...mockTodo,
+      tempId: "temp-comp",
+      completed: true,
+    };
     const store = createTodoStore({
       todos: [mockTodo, completedTodo],
       total: 2,
@@ -65,19 +69,19 @@ describe('TodoStore', () => {
     });
 
     // Delete active todo
-    store.getState().deleteTodo('temp-1');
+    store.getState().deleteTodo("temp-1");
     expect(store.getState().todos).toHaveLength(1);
     expect(store.getState().total).toBe(1);
     expect(store.getState().totalCompleted).toBe(1);
 
     // Delete completed todo
-    store.getState().deleteTodo('temp-comp');
+    store.getState().deleteTodo("temp-comp");
     expect(store.getState().todos).toHaveLength(0);
     expect(store.getState().total).toBe(0);
     expect(store.getState().totalCompleted).toBe(0);
   });
 
-  it('should handle pending count correctly', () => {
+  it("should handle pending count correctly", () => {
     const store = createTodoStore();
 
     store.getState().incrementPendingCount();
@@ -97,20 +101,20 @@ describe('TodoStore', () => {
     expect(store.getState().pendingCount).toBe(0);
   });
 
-  it('should slice todos to pageSize on append', () => {
+  it("should slice todos to pageSize on append", () => {
     const store = createTodoStore({ pageSize: 2 });
 
-    store.getState().appendTodo({ ...mockTodo, tempId: '1' });
-    store.getState().appendTodo({ ...mockTodo, tempId: '2' });
-    store.getState().appendTodo({ ...mockTodo, tempId: '3' });
+    store.getState().appendTodo({ ...mockTodo, tempId: "1" });
+    store.getState().appendTodo({ ...mockTodo, tempId: "2" });
+    store.getState().appendTodo({ ...mockTodo, tempId: "3" });
 
     const state = store.getState();
     expect(state.todos).toHaveLength(2);
-    expect(state.todos[0].tempId).toBe('3');
+    expect(state.todos[0].tempId).toBe("3");
     expect(state.total).toBe(3); // Total count still increases
   });
 
-  it('should update query params', () => {
+  it("should update query params", () => {
     const store = createTodoStore();
 
     store.getState().setPage(5);

@@ -1,4 +1,4 @@
-import { ETodoFilter, ITodo } from '@/domain/todo/model/todo.model';
+import { ETodoFilter, ITodo } from "@/domain/todo/model/todo.model";
 
 export interface TodoStore extends TodoStoreState, TodoStoreHandler {}
 
@@ -22,7 +22,11 @@ export interface TodoStoreHandler {
   decrementPendingCount: () => void;
 
   // Data Actions
-  setTodos: (todos: Partial<ITodo>[], total: number, totalCompleted: number) => void;
+  setTodos: (
+    todos: Partial<ITodo>[],
+    total: number,
+    totalCompleted: number,
+  ) => void;
   appendTodo: (todo: Partial<ITodo>) => void;
   updateTodo: (tempId: string, patch: Partial<ITodo>) => void;
   deleteTodo: (tempId: string) => void;

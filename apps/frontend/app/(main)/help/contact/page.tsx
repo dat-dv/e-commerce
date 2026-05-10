@@ -31,7 +31,9 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {/* Contact Form */}
         <div className="md:col-span-2 border border-content/5 rounded-2xl p-8 bg-surface shadow-sm">
-          <h2 className="text-xl font-bold text-content mb-6">Send us a message</h2>
+          <h2 className="text-xl font-bold text-content mb-6">
+            Send us a message
+          </h2>
           <ContactForm />
         </div>
 

@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
-import { authUseCase } from '@/domain/auth/use-cases';
-import { useAuthStore } from '@/hooks/auth/use-auth-store';
+import { authUseCase } from "@/domain/auth/use-cases";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
-import { ProfileSchema, profileSchema } from '../profile.schema';
+import { ProfileSchema, profileSchema } from "../profile.schema";
 
 export const useProfile = () => {
   const user = useAuthStore((state) => state.user);
@@ -22,20 +22,20 @@ export const useProfile = () => {
   const methods = useForm<ProfileSchema>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      name: user?.name || '',
-      address: user?.address || '',
-      dob: user?.dob || '',
-      avatarUrl: user?.avatarUrl || '',
+      name: user?.name || "",
+      address: user?.address || "",
+      dob: user?.dob || "",
+      avatarUrl: user?.avatarUrl || "",
     },
   });
 
   useEffect(() => {
     if (user) {
       methods.reset({
-        name: user.name || '',
-        address: user.address || '',
-        dob: user.dob || '',
-        avatarUrl: avatarRef.current || user.avatarUrl || '',
+        name: user.name || "",
+        address: user.address || "",
+        dob: user.dob || "",
+        avatarUrl: avatarRef.current || user.avatarUrl || "",
       });
     }
   }, [user, methods]);
@@ -49,7 +49,9 @@ export const useProfile = () => {
       setUser(updatedUser);
       setIsEditing(false);
     } catch (err: unknown) {
-      toast.error((err as Error).message || 'Update failed', { toastId: 'profile-error' });
+      toast.error((err as Error).message || "Update failed", {
+        toastId: "profile-error",
+      });
     } finally {
       setLoading(false);
     }
@@ -63,10 +65,10 @@ export const useProfile = () => {
     if (user) {
       avatarRef.current = user.avatarUrl;
       methods.reset({
-        name: user.name || '',
-        address: user.address || '',
-        dob: user.dob || '',
-        avatarUrl: user.avatarUrl || '',
+        name: user.name || "",
+        address: user.address || "",
+        dob: user.dob || "",
+        avatarUrl: user.avatarUrl || "",
       });
     }
     setIsEditing(false);

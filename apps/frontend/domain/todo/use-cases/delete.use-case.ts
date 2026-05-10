@@ -1,6 +1,6 @@
-import { UseCase } from '@/utils/use-case';
+import { UseCase } from "@/utils/use-case";
 
-import { ITodoRepository } from '../model/todo.repository';
+import { ITodoRepository } from "../model/todo.repository";
 
 export class DeleteTodoUseCase extends UseCase<string, Promise<void>> {
   constructor(private repository: ITodoRepository) {
@@ -8,7 +8,7 @@ export class DeleteTodoUseCase extends UseCase<string, Promise<void>> {
   }
 
   async execute(id: string): Promise<void> {
-    if (!id) throw new Error('ID is required for deletion');
+    if (!id) throw new Error("ID is required for deletion");
     return this.repository.delete(id);
   }
 }

@@ -1,13 +1,13 @@
-import { act, renderHook } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, renderHook } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { TodoProvider } from '@/components/molecules/providers/todo-provider';
-import { todoUseCase } from '@/domain/todo/use-cases';
+import { TodoProvider } from "@/components/molecules/providers/todo-provider";
+import { todoUseCase } from "@/domain/todo/use-cases";
 
-import { useTodoFetch } from './index';
+import { useTodoFetch } from "./index";
 
 // Mock API layer
-vi.mock('@/domain/todo/use-cases', () => ({
+vi.mock("@/domain/todo/use-cases", () => ({
   todoUseCase: {
     getTodos: {
       execute: vi.fn(),
@@ -15,7 +15,7 @@ vi.mock('@/domain/todo/use-cases', () => ({
   },
 }));
 
-describe('useTodoFetch Hook', () => {
+describe("useTodoFetch Hook", () => {
   const wrapper = ({ children }: { children: React.ReactNode }) => (
     <TodoProvider>{children}</TodoProvider>
   );
@@ -24,12 +24,12 @@ describe('useTodoFetch Hook', () => {
     vi.clearAllMocks();
   });
 
-  it('should fetch todos and update the store successfully', async () => {
+  it("should fetch todos and update the store successfully", async () => {
     const mockData = {
       todos: [
         {
-          id: '1',
-          title: 'Task 1',
+          id: "1",
+          title: "Task 1",
           completed: false,
           createdAt: new Date().toISOString(),
           position: 1,
@@ -51,12 +51,15 @@ describe('useTodoFetch Hook', () => {
     // Vì useTodoFetch cập nhật Store, ta có thể tin tưởng vào UseCase đã được gọi
   });
 
-  it('should handle loading state correctly', async () => {
+  it("should handle loading state correctly", async () => {
     // Trì hoãn API một chút để check loading
     vi.mocked(todoUseCase.getTodos.execute).mockImplementation(
       () =>
         new Promise((resolve) =>
-          setTimeout(() => resolve({ todos: [], total: 0, totalCompleted: 0 }), 50),
+          setTimeout(
+            () => resolve({ todos: [], total: 0, totalCompleted: 0 }),
+            50,
+          ),
         ),
     );
 
@@ -76,8 +79,10 @@ describe('useTodoFetch Hook', () => {
     });
   });
 
-  it('should set error state when API fails', async () => {
-    vi.mocked(todoUseCase.getTodos.execute).mockRejectedValue(new Error('Network Error'));
+  it("should set error state when API fails", async () => {
+    vi.mocked(todoUseCase.getTodos.execute).mockRejectedValue(
+      new Error("Network Error"),
+    );
 
     const { result } = renderHook(() => useTodoFetch(), { wrapper });
 

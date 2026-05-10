@@ -1,18 +1,19 @@
-'use client';
+"use client";
 
-import { useCallback, useMemo } from 'react';
-import { toast } from 'react-toastify';
-import { useShallow } from 'zustand/react/shallow';
+import { useCallback, useMemo } from "react";
+import { toast } from "react-toastify";
+import { useShallow } from "zustand/react/shallow";
 
-import { ETodoFilter, ITodo } from '@/domain/todo/model/todo.model';
-import { todoUseCase } from '@/domain/todo/use-cases';
-import { createTodoSchema } from '@/hooks/todo/todo.schema';
+import { ETodoFilter, ITodo } from "@/domain/todo/model/todo.model";
+import { todoUseCase } from "@/domain/todo/use-cases";
+import { createTodoSchema } from "@/hooks/todo/todo.schema";
 
-import { useTodoQuery } from '../use-todo-query';
-import { useTodoStore } from '../use-todo-store';
+import { useTodoQuery } from "../use-todo-query";
+import { useTodoStore } from "../use-todo-store";
 
 export const useTodoAction = () => {
-  const { filter, page, pageSize, setFilter, setPage, setPageSize } = useTodoQuery();
+  const { filter, page, pageSize, setFilter, setPage, setPageSize } =
+    useTodoQuery();
 
   const {
     setTodos,
@@ -57,13 +58,20 @@ export const useTodoAction = () => {
         updateTodo(tempId, { ...data, tempId });
       } catch (err) {
         removeTodo(tempId);
-        toast.error(err instanceof Error ? err.message : 'Add failed');
+        toast.error(err instanceof Error ? err.message : "Add failed");
         throw err; // Ném lỗi để UseCreateTodo biết mà rollback title
       } finally {
         decrementPendingCount();
       }
     },
-    [appendTodo, updateTodo, removeTodo, incrementPendingCount, decrementPendingCount, setPage],
+    [
+      appendTodo,
+      updateTodo,
+      removeTodo,
+      incrementPendingCount,
+      decrementPendingCount,
+      setPage,
+    ],
   );
 
   const toggleTodo = useCallback(
@@ -72,7 +80,10 @@ export const useTodoAction = () => {
       const todo = todos.find((t) => t.tempId === tempId);
       if (!todo) return;
 
-      const updatedTodo: Partial<ITodo> = { ...todo, completed: !todo.completed };
+      const updatedTodo: Partial<ITodo> = {
+        ...todo,
+        completed: !todo.completed,
+      };
 
       updateTodo(tempId, updatedTodo);
       incrementPendingCount();
@@ -87,7 +98,7 @@ export const useTodoAction = () => {
         updateTodo(tempId, { ...data, tempId });
       } catch {
         updateTodo(tempId, todo);
-        toast.error('Toggle failed');
+        toast.error("Toggle failed");
       } finally {
         decrementPendingCount();
       }
@@ -117,9 +128,13 @@ export const useTodoAction = () => {
       try {
         await todoUseCase.deleteTodo.execute(originalTodo.id);
       } catch {
-        const data = await todoUseCase.getTodos.execute({ filter, page, pageSize });
+        const data = await todoUseCase.getTodos.execute({
+          filter,
+          page,
+          pageSize,
+        });
         setTodos(data.todos, data.total, data.totalCompleted);
-        toast.error('Delete failed');
+        toast.error("Delete failed");
       } finally {
         decrementPendingCount();
       }
@@ -167,6 +182,13 @@ export const useTodoAction = () => {
       handleChangePageSize,
       handleChangeFilter,
     }),
-    [addTodo, toggleTodo, deleteTodo, handleChangePage, handleChangePageSize, handleChangeFilter],
+    [
+      addTodo,
+      toggleTodo,
+      deleteTodo,
+      handleChangePage,
+      handleChangePageSize,
+      handleChangeFilter,
+    ],
   );
 };

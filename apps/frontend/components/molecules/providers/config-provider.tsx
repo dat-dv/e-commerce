@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { createContext, ReactNode, useState } from 'react';
-import { useStore } from 'zustand';
+import { createContext, ReactNode, useState } from "react";
+import { useStore } from "zustand";
 
-import Loading from '@/components/atoms/loading';
-import { createConfigStore } from '@/store/config';
+import Loading from "@/components/atoms/loading";
+import { createConfigStore } from "@/store/config";
 
 export type ConfigStore = ReturnType<typeof createConfigStore>;
 export const ConfigContext = createContext<ConfigStore | null>(null);
@@ -21,5 +21,7 @@ export const ConfigProvider = ({ children }: ConfigProviderProps) => {
     return <Loading />;
   }
 
-  return <ConfigContext.Provider value={store}>{children}</ConfigContext.Provider>;
+  return (
+    <ConfigContext.Provider value={store}>{children}</ConfigContext.Provider>
+  );
 };

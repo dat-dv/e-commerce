@@ -1,29 +1,32 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 
-import { useAuthStore } from '@/hooks/auth/use-auth-store';
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
-vi.mock('@/hooks/auth/use-auth-store', () => ({
+vi.mock("@/hooks/auth/use-auth-store", () => ({
   useAuthStore: vi.fn(),
 }));
 
-import { IAuthStore } from '@/store/user-store/user-store.type';
+import { IAuthStore } from "@/store/user-store/user-store.type";
 
-import { HomeView } from './index';
+import { HomeView } from "./index";
 
-describe('HomeView Organism', () => {
-  vi.mock('@/hooks/config/use-config', () => ({
+describe("HomeView Organism", () => {
+  vi.mock("@/hooks/config/use-config", () => ({
     useConfig: vi.fn().mockReturnValue({
-      config: { siteName: 'Zustand Todo', siteDescription: 'Premium Todo App' },
+      config: { siteName: "Zustand Todo", siteDescription: "Premium Todo App" },
     }),
   }));
 
-  vi.mock('@/hooks/config/use-config-store', () => ({
+  vi.mock("@/hooks/config/use-config-store", () => ({
     useAppConfig: vi.fn((selector) =>
       selector({
-        theme: 'light',
+        theme: "light",
         isDarkMode: false,
-        config: { siteName: 'Zustand Todo', siteDescription: 'Premium Todo App' },
+        config: {
+          siteName: "Zustand Todo",
+          siteDescription: "Premium Todo App",
+        },
       }),
     ),
   }));
@@ -38,7 +41,7 @@ describe('HomeView Organism', () => {
     logout: vi.fn(),
   };
   const mockAuthStoreWithUser: IAuthStore = {
-    user: { id: '1' },
+    user: { id: "1" },
     setUser: vi.fn(),
     loading: false,
     _hasHydrated: false,
@@ -47,19 +50,23 @@ describe('HomeView Organism', () => {
     logout: vi.fn(),
   };
 
-  it('should render HomepagePublic when user is not logged in', () => {
-    vi.mocked(useAuthStore).mockImplementation((selector) => selector(mockAuthStore));
+  it("should render HomepagePublic when user is not logged in", () => {
+    vi.mocked(useAuthStore).mockImplementation((selector) =>
+      selector(mockAuthStore),
+    );
 
     render(<HomeView />);
-    expect(screen.getByTestId('public-home')).toBeInTheDocument();
-    expect(screen.queryByTestId('private-home')).not.toBeInTheDocument();
+    expect(screen.getByTestId("public-home")).toBeInTheDocument();
+    expect(screen.queryByTestId("private-home")).not.toBeInTheDocument();
   });
 
-  it('should render HomepagePrivate when user is logged in', () => {
-    vi.mocked(useAuthStore).mockImplementation((selector) => selector(mockAuthStoreWithUser));
+  it("should render HomepagePrivate when user is logged in", () => {
+    vi.mocked(useAuthStore).mockImplementation((selector) =>
+      selector(mockAuthStoreWithUser),
+    );
 
     render(<HomeView />);
-    expect(screen.getByTestId('private-home')).toBeInTheDocument();
-    expect(screen.queryByTestId('public-home')).not.toBeInTheDocument();
+    expect(screen.getByTestId("private-home")).toBeInTheDocument();
+    expect(screen.queryByTestId("public-home")).not.toBeInTheDocument();
   });
 });

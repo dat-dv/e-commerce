@@ -1,27 +1,37 @@
-'use client';
+"use client";
 
-import { Plus } from 'lucide-react';
-import { memo } from 'react';
-import { useFormState } from 'react-hook-form';
+import { Plus } from "lucide-react";
+import { memo } from "react";
+import { useFormState } from "react-hook-form";
 
-import Button from '@/components/atoms/button';
-import UseCreateTodo from '@/hooks/todo/use-create-todo';
+import Button from "@/components/atoms/button";
+import UseCreateTodo from "@/hooks/todo/use-create-todo";
 
-import AppForm from '../form/app-form';
-import { FormInput } from '../form/form-input';
+import AppForm from "../form/app-form";
+import { FormInput } from "../form/form-input";
 
 export const TodoInput = memo(() => {
   const { methods, onSubmit } = UseCreateTodo();
 
   return (
-    <AppForm data-testid="todo-input" className="flex gap-2" methods={methods} onSubmit={onSubmit}>
-      <FormInput name="title" placeholder="Add a new task..." className="flex-1" maxCount={100} />
+    <AppForm
+      data-testid="todo-input"
+      className="flex gap-2"
+      methods={methods}
+      onSubmit={onSubmit}
+    >
+      <FormInput
+        name="title"
+        placeholder="Add a new task..."
+        className="flex-1"
+        maxCount={100}
+      />
       <ButtonSubmitNewTodo />
     </AppForm>
   );
 });
 
-TodoInput.displayName = 'TodoInput';
+TodoInput.displayName = "TodoInput";
 
 const ButtonSubmitNewTodo = memo(() => {
   const { isValid, isSubmitting } = useFormState();
@@ -38,4 +48,4 @@ const ButtonSubmitNewTodo = memo(() => {
   );
 });
 
-ButtonSubmitNewTodo.displayName = 'ButtonSubmitNewTodo';
+ButtonSubmitNewTodo.displayName = "ButtonSubmitNewTodo";

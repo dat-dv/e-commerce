@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { WindowVirtualizer } from 'virtua';
+import { WindowVirtualizer } from "virtua";
 
-import { ITodo } from '@/domain/todo/model/todo.model';
-import { useTodoAction } from '@/hooks/todo/use-todo-action';
-import { useTodoStore } from '@/hooks/todo/use-todo-store';
-import { useBlock } from '@/hooks/use-block';
+import { ITodo } from "@/domain/todo/model/todo.model";
+import { useTodoAction } from "@/hooks/todo/use-todo-action";
+import { useTodoStore } from "@/hooks/todo/use-todo-store";
+import { useBlock } from "@/hooks/use-block";
 
-import EmptyTodo from './empty-todo';
-import { TodoItem } from './todo-item';
+import EmptyTodo from "./empty-todo";
+import { TodoItem } from "./todo-item";
 
 const MAX_PENDING_TODO = 44;
 const TodoList = ({ items }: { items: Partial<ITodo>[] }) => {
@@ -17,7 +17,7 @@ const TodoList = ({ items }: { items: Partial<ITodo>[] }) => {
 
   const { isLocked } = useBlock({
     shouldLock: pendingCount > MAX_PENDING_TODO,
-    message: 'Too many actions! Please wait a moment.',
+    message: "Too many actions! Please wait a moment.",
   });
 
   const hasTodo = items.length > 0;

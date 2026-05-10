@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronRight, FileText, FolderClosed, FolderOpen } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { useMemo, useState } from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronRight, FileText, FolderClosed, FolderOpen } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useMemo, useState } from "react";
 
-import { DocItem } from '@/utils/docs';
+import { DocItem } from "@/utils/docs";
 
 // ─── Utils ──────────────────────────────────────────────────────────────────
 
 const getTitle = (id: string) => {
   return id
-    .split('-')
+    .split("-")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
+    .join(" ");
 };
 
 // ─── Presentational Component: SidebarRow ───────────────────────────────────
@@ -27,18 +27,24 @@ interface SidebarRowProps {
   onToggle: (e: React.MouseEvent) => void;
 }
 
-const SidebarRow: React.FC<SidebarRowProps> = ({ item, depth, isOpen, isActive, onToggle }) => {
+const SidebarRow: React.FC<SidebarRowProps> = ({
+  item,
+  depth,
+  isOpen,
+  isActive,
+  onToggle,
+}) => {
   const hasChildren = !!item.children?.length;
   const title = useMemo(() => getTitle(item.id), [item.id]);
 
   return (
     <div
       className={`relative group flex w-full items-center gap-2.5 py-2 px-3 rounded-xl transition-all duration-300 outline-none ${
-        depth > 0 ? 'ml-4' : ''
+        depth > 0 ? "ml-4" : ""
       } ${
         isActive
-          ? 'bg-primary/10 text-primary shadow-[0_4px_12px_rgba(var(--primary),0.05)]'
-          : 'hover:bg-content/[0.04] text-content/60 hover:text-content'
+          ? "bg-primary/10 text-primary shadow-[0_4px_12px_rgba(var(--primary),0.05)]"
+          : "hover:bg-content/[0.04] text-content/60 hover:text-content"
       }`}
     >
       {/* Active Indicator */}
@@ -46,7 +52,7 @@ const SidebarRow: React.FC<SidebarRowProps> = ({ item, depth, isOpen, isActive, 
         <motion.div
           layoutId="active-nav-bg"
           className="absolute inset-0 bg-primary/[0.05] rounded-xl -z-10"
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
       )}
 
@@ -59,7 +65,10 @@ const SidebarRow: React.FC<SidebarRowProps> = ({ item, depth, isOpen, isActive, 
             <FolderClosed size={14} className="text-primary/40" />
           )
         ) : (
-          <FileText size={14} className={isActive ? 'text-primary' : 'text-content/30'} />
+          <FileText
+            size={14}
+            className={isActive ? "text-primary" : "text-content/30"}
+          />
         )}
       </div>
 
@@ -74,7 +83,7 @@ const SidebarRow: React.FC<SidebarRowProps> = ({ item, depth, isOpen, isActive, 
           type="button"
           onClick={onToggle}
           className={`shrink-0 p-1 rounded-md transition-all duration-300 hover:bg-primary/10 ${
-            isOpen ? 'rotate-90 text-primary' : 'text-content/20'
+            isOpen ? "rotate-90 text-primary" : "text-content/20"
           }`}
         >
           <ChevronRight size={13} strokeWidth={3} />
@@ -86,10 +95,14 @@ const SidebarRow: React.FC<SidebarRowProps> = ({ item, depth, isOpen, isActive, 
 
 // ─── Main SidebarItem Hook / Component ─────────────────────────────────────
 
-export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({ item, depth = 0 }) => {
+export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({
+  item,
+  depth = 0,
+}) => {
   const pathname = usePathname();
   const isActive = pathname === item.href;
-  const isChildActive = !!item.routePath && pathname.startsWith(`${item.routePath}/`);
+  const isChildActive =
+    !!item.routePath && pathname.startsWith(`${item.routePath}/`);
 
   const [isOpen, setIsOpen] = useState(isActive || isChildActive);
 
@@ -128,9 +141,9 @@ export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({ item,
         {isOpen && hasChildren && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden border-l border-primary/10 ml-5"
           >
             <div className="py-1">

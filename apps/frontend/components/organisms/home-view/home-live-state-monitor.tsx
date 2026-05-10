@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { AnimationItem } from '@/components/atoms/animate';
-import { BoltIcon } from '@/components/atoms/icons';
-import { useAppConfig } from '@/hooks/config/use-config-store';
+import { AnimationItem } from "@/components/atoms/animate";
+import { BoltIcon } from "@/components/atoms/icons";
+import { useAppConfig } from "@/hooks/config/use-config-store";
 
 export const HomeLiveStateMonitor = () => {
   const theme = useAppConfig((state) => state.theme);
@@ -16,18 +16,28 @@ export const HomeLiveStateMonitor = () => {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-sm font-bold uppercase tracking-widest opacity-40">System Sync</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest opacity-40">
+            System Sync
+          </h2>
           <div className="flex flex-row justify-center gap-3">
             <div className="px-4 py-1.5 rounded-lg bg-content/5 border border-content/10 font-mono text-xs text-content shadow-sm">
-              Theme: <span className="text-primary font-bold">{theme.toUpperCase()}</span>
+              Theme:{" "}
+              <span className="text-primary font-bold">
+                {theme.toUpperCase()}
+              </span>
             </div>
             <div className="px-4 py-1.5 rounded-lg bg-content/5 border border-content/10 font-mono text-xs text-content shadow-sm">
-              Mode: <span className="text-primary font-bold">{isDarkMode ? 'DARK' : 'LIGHT'}</span>
+              Mode:{" "}
+              <span className="text-primary font-bold">
+                {isDarkMode ? "DARK" : "LIGHT"}
+              </span>
             </div>
           </div>
         </div>
 
-        <p className="text-xs opacity-40 italic">Experience seamless real-time synchronization.</p>
+        <p className="text-xs opacity-40 italic">
+          Experience seamless real-time synchronization.
+        </p>
       </div>
     </AnimationItem>
   );

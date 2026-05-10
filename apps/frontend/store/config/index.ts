@@ -1,11 +1,11 @@
-import { StateCreator } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
-import { createStore } from 'zustand/vanilla';
+import { StateCreator } from "zustand";
+import { devtools, persist } from "zustand/middleware";
+import { createStore } from "zustand/vanilla";
 
-import { PUBLIC_ENV } from '@/config/public.env.config';
-import { CONFIG_STORE_KEY, ETheme } from '@/constants/theme.constanst';
+import { PUBLIC_ENV } from "@/config/public.env.config";
+import { CONFIG_STORE_KEY, ETheme } from "@/constants/theme.constanst";
 
-import { ConfigState, ConfigStore } from './config.types';
+import { ConfigState, ConfigStore } from "./config.types";
 
 export const configCreator =
   (initState?: Partial<ConfigState>): StateCreator<ConfigStore> =>
@@ -17,7 +17,8 @@ export const configCreator =
       ...initState,
       setTheme: (theme: ETheme) => set({ theme }),
       setDarkMode: (isDarkMode: boolean) => set({ isDarkMode }),
-      toggleDarkMode: () => set((state: ConfigState) => ({ isDarkMode: !state.isDarkMode })),
+      toggleDarkMode: () =>
+        set((state: ConfigState) => ({ isDarkMode: !state.isDarkMode })),
       setHasHydrated: (_hasHydrated: boolean) => set({ _hasHydrated }),
     };
 
@@ -34,7 +35,7 @@ export const createConfigStore = (initState?: Partial<ConfigState>) =>
         },
       }),
       {
-        name: 'ConfigStore',
+        name: "ConfigStore",
         enabled: PUBLIC_ENV.IS_DEBUG,
       },
     ),

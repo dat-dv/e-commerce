@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
-import { BLACK_LIST_SCROLL_TO_TOP } from '@/config/blacklist-scroll-to-top.config';
+import { BLACK_LIST_SCROLL_TO_TOP } from "@/config/blacklist-scroll-to-top.config";
 
 export default function ScrollToTop() {
   const pathname = usePathname();

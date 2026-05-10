@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Button from '@/components/atoms/button';
-import { APP_ROUTES } from '@/constants/routes';
-import useLogin from '@/hooks/auth/use-login';
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
+import useLogin from "@/hooks/auth/use-login";
 
-import AppForm from '../form/app-form';
-import { FormButton } from '../form/form-button';
-import { FormInput } from '../form/form-input';
+import AppForm from "../form/app-form";
+import { FormButton } from "../form/form-button";
+import { FormInput } from "../form/form-input";
 
 export default function SignInForm() {
   const { handleLogin, methods, isLoading } = useLogin();
@@ -22,7 +22,11 @@ export default function SignInForm() {
         </p>
       </div>
 
-      <AppForm className="flex flex-col gap-4" methods={methods} onSubmit={handleLogin}>
+      <AppForm
+        className="flex flex-col gap-4"
+        methods={methods}
+        onSubmit={handleLogin}
+      >
         <FormInput
           name="email"
           label="Email"
@@ -51,7 +55,7 @@ export default function SignInForm() {
 
       <div className="text-center">
         <p className="text-sm opacity-60">
-          Don&apos;t have an account?{' '}
+          Don&apos;t have an account?{" "}
           <Button
             variant="ghost"
             size="sm"

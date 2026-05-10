@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
-import { FieldValues, FormProvider, UseFormReturn } from 'react-hook-form';
+import React, { ReactNode } from "react";
+import { FieldValues, FormProvider, UseFormReturn } from "react-hook-form";
 
 type AppFormProps<T extends FieldValues> = {
   methods: UseFormReturn<T>;
   children: ReactNode;
   onSubmit: (data: T) => void | Promise<void>;
-} & Omit<React.ComponentProps<'form'>, 'onSubmit'>;
+} & Omit<React.ComponentProps<"form">, "onSubmit">;
 
 const AppForm = <T extends FieldValues>({
   methods,

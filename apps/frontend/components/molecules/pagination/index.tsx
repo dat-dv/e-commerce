@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { cn } from '@/utils/cn';
+import { cn } from "@/utils/cn";
 
 const getPaginationRange = (currentPage: number, totalPages: number) => {
   const MAX_ITEMS = 7;
@@ -14,11 +14,11 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
   }
 
   if (currentPage <= 4) {
-    pages.push(1, 2, 3, 4, 5, '...', totalPages);
+    pages.push(1, 2, 3, 4, 5, "...", totalPages);
   } else if (currentPage >= totalPages - 3) {
     pages.push(
       1,
-      '...',
+      "...",
       totalPages - 4,
       totalPages - 3,
       totalPages - 2,
@@ -26,7 +26,15 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
       totalPages,
     );
   } else {
-    pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+    pages.push(
+      1,
+      "...",
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      "...",
+      totalPages,
+    );
   }
 
   return pages;
@@ -44,7 +52,7 @@ const PaginationItem = ({
   active: boolean;
   onClick: (page: number) => void;
 }) => {
-  if (typeof page === 'string') {
+  if (typeof page === "string") {
     return (
       <span className="flex h-10 w-8 items-center justify-center text-sm opacity-20 font-bold">
         {page}
@@ -56,10 +64,10 @@ const PaginationItem = ({
     <button
       onClick={() => onClick(page as number)}
       className={cn(
-        'flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 font-bold text-sm',
+        "flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 font-bold text-sm",
         active
-          ? 'bg-primary text-white shadow-lg shadow-primary/25 scale-110 z-10'
-          : 'bg-white/5 border border-white/5 text-content/40 hover:bg-white/10 hover:text-content active:scale-90',
+          ? "bg-primary text-white shadow-lg shadow-primary/25 scale-110 z-10"
+          : "bg-white/5 border border-white/5 text-content/40 hover:bg-white/10 hover:text-content active:scale-90",
       )}
     >
       {page}
@@ -75,18 +83,18 @@ const PaginationArrow = ({
   disabled,
   onClick,
 }: {
-  direction: 'left' | 'right';
+  direction: "left" | "right";
   disabled: boolean;
   onClick: () => void;
 }) => {
-  const Icon = direction === 'left' ? ChevronLeft : ChevronRight;
+  const Icon = direction === "left" ? ChevronLeft : ChevronRight;
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-content/10 text-content/60 transition-all hover:bg-white/10 hover:text-content disabled:opacity-30 disabled:cursor-not-allowed',
-        !disabled && 'active:scale-90',
+        "h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-content/10 text-content/60 transition-all hover:bg-white/10 hover:text-content disabled:opacity-30 disabled:cursor-not-allowed",
+        !disabled && "active:scale-90",
       )}
     >
       <Icon className="w-5 h-5" />
@@ -100,7 +108,11 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+export const Pagination = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) => {
   if (totalPages <= 1) return null;
 
   const pages = getPaginationRange(currentPage, totalPages);
@@ -115,7 +127,12 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
 
       <div className="flex items-center gap-2">
         {pages.map((p, i) => (
-          <PaginationItem key={i} page={p} active={currentPage === p} onClick={onPageChange} />
+          <PaginationItem
+            key={i}
+            page={p}
+            active={currentPage === p}
+            onClick={onPageChange}
+          />
         ))}
       </div>
 

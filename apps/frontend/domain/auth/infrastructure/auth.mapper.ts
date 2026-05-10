@@ -1,5 +1,5 @@
-import { IUser } from '../model/auth.model';
-import { IUserResponse } from './auth.response';
+import { IUser } from "../model/auth.model";
+import { IUserResponse } from "./auth.response";
 
 export const UserMapper = {
   toDomain(dto: IUserResponse): IUser {

@@ -1,15 +1,15 @@
 // index.test.tsx
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { CopyButton } from '.';
+import { CopyButton } from ".";
 
-describe('CopyButton Component', () => {
+describe("CopyButton Component", () => {
   beforeEach(() => {
     vi.useFakeTimers();
 
     // Mock clipboard before each test
-    Object.defineProperty(navigator, 'clipboard', {
+    Object.defineProperty(navigator, "clipboard", {
       value: {
         writeText: vi.fn().mockResolvedValue(undefined), // <-- spy
       },
@@ -21,11 +21,11 @@ describe('CopyButton Component', () => {
     vi.useRealTimers();
   });
 
-  it('should copy text to clipboard when clicked', async () => {
+  it("should copy text to clipboard when clicked", async () => {
     const codeSnippet = 'const test = "testing";';
     render(<CopyButton code={codeSnippet} />);
 
-    const button = screen.getByRole('button');
+    const button = screen.getByRole("button");
     fireEvent.click(button);
 
     // Verify it called clipboard API

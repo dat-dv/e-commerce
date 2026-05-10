@@ -1,6 +1,6 @@
-import { useTodoQuery } from '@/hooks/todo/use-todo-query';
+import { useTodoQuery } from "@/hooks/todo/use-todo-query";
 
-import { Pagination } from '../pagination';
+import { Pagination } from "../pagination";
 
 export const TodoPagination = ({ totalItems }: { totalItems: number }) => {
   const { page: currentPage, pageSize, setPage } = useTodoQuery();
@@ -9,7 +9,11 @@ export const TodoPagination = ({ totalItems }: { totalItems: number }) => {
 
   return (
     <div data-testid="todo-pagination">
-      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setPage} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
     </div>
   );
 };

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import Button from '@/components/atoms/button';
-import Input from '@/components/atoms/input';
-import { APP_ROUTES } from '@/constants/routes';
-import { useRegister } from '@/hooks/auth/use-register';
+import Button from "@/components/atoms/button";
+import Input from "@/components/atoms/input";
+import { APP_ROUTES } from "@/constants/routes";
+import { useRegister } from "@/hooks/auth/use-register";
 
 export default function SignUpForm() {
   const { methods, onSubmit, loading } = useRegister();
@@ -27,7 +27,7 @@ export default function SignUpForm() {
           label="Full Name"
           type="text"
           placeholder="John Doe"
-          {...methods.register('fullName')}
+          {...methods.register("fullName")}
           autoComplete="name"
           error={methods.formState.errors.fullName?.message}
         />
@@ -37,7 +37,7 @@ export default function SignUpForm() {
           label="Email"
           type="email"
           placeholder="name@example.com"
-          {...methods.register('email')}
+          {...methods.register("email")}
           autoComplete="email"
           error={methods.formState.errors.email?.message}
         />
@@ -47,7 +47,7 @@ export default function SignUpForm() {
           label="Password"
           type="password"
           placeholder="••••••••"
-          {...methods.register('password')}
+          {...methods.register("password")}
           autoComplete="new-password"
           error={methods.formState.errors.password?.message}
         />
@@ -65,7 +65,7 @@ export default function SignUpForm() {
 
       <div className="text-center">
         <p className="text-sm opacity-60">
-          Already have an account?{' '}
+          Already have an account?{" "}
           <Button
             variant="ghost"
             size="sm"
@@ -78,14 +78,14 @@ export default function SignUpForm() {
       </div>
 
       <p className="text-center text-[11px] opacity-40 leading-relax tracking-tight">
-        By continuing, you agree to our{' '}
+        By continuing, you agree to our{" "}
         <Link
           href={APP_ROUTES.TERMS}
           className="underline cursor-pointer hover:text-primary transition-colors"
         >
           Terms of Service
-        </Link>{' '}
-        and{' '}
+        </Link>{" "}
+        and{" "}
         <Link
           href={APP_ROUTES.PRIVACY}
           className="underline cursor-pointer hover:text-primary transition-colors"

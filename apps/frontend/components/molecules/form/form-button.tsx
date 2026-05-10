@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
-import React from 'react';
+import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
+import React from "react";
 
-interface FormButtonProps extends HTMLMotionProps<'button'> {
+interface FormButtonProps extends HTMLMotionProps<"button"> {
   isLoading?: boolean;
   loadingText?: string;
 }
 
 export const FormButton: React.FC<FormButtonProps> = ({
   isLoading,
-  loadingText = 'Processing...',
+  loadingText = "Processing...",
   children,
-  className = '',
+  className = "",
   disabled,
   ...props
 }) => {

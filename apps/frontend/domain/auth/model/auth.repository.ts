@@ -1,4 +1,4 @@
-import { IAuthRequest, IRegisterRequest, IUser } from './auth.model';
+import { IAuthRequest, IRegisterRequest, IUser } from "./auth.model";
 
 // ===== IRepository =====
 export interface IAuthRepository {

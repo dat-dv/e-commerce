@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { MoonIcon, SunIcon } from '@/components/atoms/icons';
-import { THEMES } from '@/config/config';
-import { useConfig } from '@/hooks/config/use-config';
+import { MoonIcon, SunIcon } from "@/components/atoms/icons";
+import { THEMES } from "@/config/config";
+import { useConfig } from "@/hooks/config/use-config";
 
 export default function ThemeSwitcher() {
   const { theme, isDarkMode, setTheme, toggleDarkMode } = useConfig();
@@ -19,7 +19,9 @@ export default function ThemeSwitcher() {
               onClick={() => setTheme(t.id)}
               title={t.label}
               className={`h-6 w-6 rounded-full transition-all ${
-                active ? 'ring-2 ring-primary ring-offset-2' : 'opacity-60 hover:opacity-100'
+                active
+                  ? "ring-2 ring-primary ring-offset-2"
+                  : "opacity-60 hover:opacity-100"
               }`}
               style={{ backgroundColor: t.color }}
             />

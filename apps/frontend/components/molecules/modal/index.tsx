@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import React, { useEffect, useRef } from 'react';
+import { useRouter } from "next/navigation";
+import React, { useEffect, useRef } from "react";
 
-import Button from '@/components/atoms/button';
-import { XIcon } from '@/components/atoms/icons';
+import Button from "@/components/atoms/button";
+import { XIcon } from "@/components/atoms/icons";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -12,10 +12,10 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') router.back();
+      if (e.key === "Escape") router.back();
     };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, [router]);
 
   return (

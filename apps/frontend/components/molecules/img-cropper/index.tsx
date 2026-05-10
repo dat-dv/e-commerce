@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { MaximizeIcon, XIcon } from 'lucide-react';
-import React, { useCallback, useState } from 'react';
-import Cropper, { Area, Point } from 'react-easy-crop';
+import { motion } from "framer-motion";
+import { MaximizeIcon, XIcon } from "lucide-react";
+import React, { useCallback, useState } from "react";
+import Cropper, { Area, Point } from "react-easy-crop";
 
-import Button from '@/components/atoms/button';
+import Button from "@/components/atoms/button";
 
-import getCroppedImg from './get-cropped-img';
+import getCroppedImg from "./get-cropped-img";
 
 interface ImgCropperProps {
   image: string;
@@ -23,8 +23,8 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
   onCropComplete,
   onCancel,
   aspect = 1,
-  saveLabel = 'Save changes',
-  title: _title = 'Edit photo',
+  saveLabel = "Save changes",
+  title: _title = "Edit photo",
 }) => {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -39,9 +39,12 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
     setZoom(zoom);
   };
 
-  const onCropChangeComplete = useCallback((_croppedArea: Area, croppedAreaPixels: Area) => {
-    setCroppedAreaPixels(croppedAreaPixels);
-  }, []);
+  const onCropChangeComplete = useCallback(
+    (_croppedArea: Area, croppedAreaPixels: Area) => {
+      setCroppedAreaPixels(croppedAreaPixels);
+    },
+    [],
+  );
 
   const handleCrop = async () => {
     if (!croppedAreaPixels) return;
@@ -94,10 +97,10 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
             onZoomChange={onZoomChange}
             restrictPosition={false}
             classes={{
-              containerClassName: 'cursor-move',
-              mediaClassName: 'transition-transform duration-300 ease-out',
+              containerClassName: "cursor-move",
+              mediaClassName: "transition-transform duration-300 ease-out",
               cropAreaClassName:
-                'border-2 border-primary rounded-full shadow-[0_0_0_9999px_rgba(0,0,0,0.5)]',
+                "border-2 border-primary rounded-full shadow-[0_0_0_9999px_rgba(0,0,0,0.5)]",
             }}
             showGrid={false}
           />

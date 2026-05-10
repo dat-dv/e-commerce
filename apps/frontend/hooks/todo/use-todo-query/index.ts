@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { usePathname, useRouter } from 'next/navigation';
-import { useCallback, useMemo } from 'react';
-import { useShallow } from 'zustand/react/shallow';
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useMemo } from "react";
+import { useShallow } from "zustand/react/shallow";
 
-import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from '@/config/pagination.confg';
-import { ETodoFilter } from '@/domain/todo/model/todo.model';
+import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "@/config/pagination.confg";
+import { ETodoFilter } from "@/domain/todo/model/todo.model";
 
-import { useTodoFetch } from '../use-todo-fetch';
-import { useTodoStore } from '../use-todo-store';
+import { useTodoFetch } from "../use-todo-fetch";
+import { useTodoStore } from "../use-todo-store";
 
 export const todoQueryDefaults = {
   page: DEFAULT_PAGE,
@@ -20,7 +20,14 @@ export const useTodoQuery = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { page, pageSize, filter, setStorePage, setStorePageSize, setStoreFilter } = useTodoStore(
+  const {
+    page,
+    pageSize,
+    filter,
+    setStorePage,
+    setStorePageSize,
+    setStoreFilter,
+  } = useTodoStore(
     useShallow((s) => ({
       page: s.page,
       pageSize: s.pageSize,
@@ -38,18 +45,26 @@ export const useTodoQuery = () => {
 
       const params = new URLSearchParams(window.location.search);
       if (newFilter === todoQueryDefaults.filter) {
-        params.delete('filter');
+        params.delete("filter");
       } else {
-        params.set('filter', String(newFilter));
+        params.set("filter", String(newFilter));
       }
-      params.delete('page');
+      params.delete("page");
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
 
       setStoreFilter(newFilter);
       setStorePage(1);
       fetchTodos(newFilter, 1, pageSize);
     },
-    [filter, pathname, router, setStoreFilter, setStorePage, fetchTodos, pageSize],
+    [
+      filter,
+      pathname,
+      router,
+      setStoreFilter,
+      setStorePage,
+      fetchTodos,
+      pageSize,
+    ],
   );
 
   const setPage = useCallback(
@@ -58,9 +73,9 @@ export const useTodoQuery = () => {
 
       const params = new URLSearchParams(window.location.search);
       if (newPage <= todoQueryDefaults.page) {
-        params.delete('page');
+        params.delete("page");
       } else {
-        params.set('page', newPage.toString());
+        params.set("page", newPage.toString());
       }
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
 
@@ -76,18 +91,26 @@ export const useTodoQuery = () => {
 
       const params = new URLSearchParams(window.location.search);
       if (newPageSize === todoQueryDefaults.pageSize) {
-        params.delete('pageSize');
+        params.delete("pageSize");
       } else {
-        params.set('pageSize', newPageSize.toString());
+        params.set("pageSize", newPageSize.toString());
       }
-      params.delete('page');
+      params.delete("page");
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
 
       setStorePageSize(newPageSize);
       setStorePage(1);
       fetchTodos(filter, 1, newPageSize);
     },
-    [pageSize, pathname, router, setStorePageSize, setStorePage, filter, fetchTodos],
+    [
+      pageSize,
+      pathname,
+      router,
+      setStorePageSize,
+      setStorePage,
+      filter,
+      fetchTodos,
+    ],
   );
 
   return useMemo(

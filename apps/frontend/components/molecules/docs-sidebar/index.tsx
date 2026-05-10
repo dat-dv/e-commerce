@@ -1,15 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import { SidebarItem } from '@/components/atoms/sidebar-item';
-import { DocItem } from '@/utils/docs';
+import { SidebarItem } from "@/components/atoms/sidebar-item";
+import { DocItem } from "@/utils/docs";
 
 // ─── Main Sidebar Molecule ──────────────────────────────────────────────────
 
 export const DocsSidebar = ({ items }: { items: DocItem[] }) => {
   // Filter items that have no content AND no children
-  const normalizedItems = items.filter((item) => item.href || item.children?.length);
+  const normalizedItems = items.filter(
+    (item) => item.href || item.children?.length,
+  );
 
   return (
     <div className="w-full h-full flex flex-col pr-2 pb-12 space-y-6">

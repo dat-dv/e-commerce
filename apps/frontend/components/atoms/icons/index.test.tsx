@@ -1,14 +1,14 @@
-import { render } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { render } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 
-import * as Icons from './index';
+import * as Icons from "./index";
 
-describe('Icons Components', () => {
-  it('should render all icons correctly', () => {
+describe("Icons Components", () => {
+  it("should render all icons correctly", () => {
     Object.entries(Icons).forEach(([_name, IconComponent]) => {
       const { container } = render(<IconComponent />);
       // Icons usually render as <svg>
-      const svg = container.querySelector('svg');
+      const svg = container.querySelector("svg");
       expect(svg).toBeInTheDocument();
     });
   });

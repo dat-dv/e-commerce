@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useState } from "react";
 
-import { createTodoStore } from '@/store/todo-store';
-import { TodoStoreState } from '@/store/todo-store/todo-store.types';
+import { createTodoStore } from "@/store/todo-store";
+import { TodoStoreState } from "@/store/todo-store/todo-store.types";
 
 export type TodoStore = ReturnType<typeof createTodoStore>;
 export const TodoContext = createContext<TodoStore | null>(null);

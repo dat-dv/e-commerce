@@ -1,6 +1,6 @@
-import { ListTodo } from 'lucide-react';
+import { ListTodo } from "lucide-react";
 
-import { useTodoStats } from '@/hooks/todo/use-todo-stats';
+import { useTodoStats } from "@/hooks/todo/use-todo-stats";
 
 const TodoStats = () => {
   const { totalTasks, completedTasks } = useTodoStats();
@@ -10,11 +10,13 @@ const TodoStats = () => {
         <ListTodo className="w-8 h-8" />
       </div>
       <div>
-        <h2 className="text-3xl font-black text-content tracking-tight">Active Tasks</h2>
+        <h2 className="text-3xl font-black text-content tracking-tight">
+          Active Tasks
+        </h2>
         <p className="text-sm font-bold opacity-60 flex gap-2">
           <span className="text-primary">
             {completedTasks}/{totalTasks}
-          </span>{' '}
+          </span>{" "}
           Completed
         </p>
       </div>

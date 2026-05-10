@@ -1,17 +1,25 @@
-'use client';
+"use client";
 
-import { AnimationItem } from '@/components/atoms/animate';
-import Button from '@/components/atoms/button';
-import { FormAvatarInput } from '@/components/molecules/form/form-avatar-input';
-import { FormDateInput } from '@/components/molecules/form/form-date-input';
-import { FormInput } from '@/components/molecules/form/form-input';
-import { useProfile } from '@/hooks/profile/use-profile';
+import { AnimationItem } from "@/components/atoms/animate";
+import Button from "@/components/atoms/button";
+import { FormAvatarInput } from "@/components/molecules/form/form-avatar-input";
+import { FormDateInput } from "@/components/molecules/form/form-date-input";
+import { FormInput } from "@/components/molecules/form/form-input";
+import { useProfile } from "@/hooks/profile/use-profile";
 
-import AppForm from '../form/app-form';
-import FormListenerDirty from '../form/form-listener-dirty';
+import AppForm from "../form/app-form";
+import FormListenerDirty from "../form/form-listener-dirty";
 
 export const ProfileForm = () => {
-  const { user, methods, loading, isEditing, enableEdit, disableEdit, handleSave } = useProfile();
+  const {
+    user,
+    methods,
+    loading,
+    isEditing,
+    enableEdit,
+    disableEdit,
+    handleSave,
+  } = useProfile();
   const isDisabled = loading || !isEditing;
 
   return (
@@ -31,7 +39,9 @@ export const ProfileForm = () => {
               variant="underline"
               disabled={isDisabled}
               autoComplete="name"
-              className={'text-center text-4xl sm:text-5xl font-black tracking-tight'}
+              className={
+                "text-center text-4xl sm:text-5xl font-black tracking-tight"
+              }
               placeholder="Your Name"
             />
             <p className="text-lg opacity-60 font-medium">{user?.email}</p>
@@ -70,7 +80,7 @@ export const ProfileForm = () => {
                     className="rounded-2xl px-8 bg-primary shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all text-white disabled:opacity-50 disabled:hover:scale-100"
                     disabled={loading || !isDirty}
                   >
-                    {loading ? 'Updating...' : 'Update Profile'}
+                    {loading ? "Updating..." : "Update Profile"}
                   </Button>
                 )}
               </FormListenerDirty>

@@ -6,9 +6,9 @@
 export const createImage = (url: string): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
     const image = new Image();
-    image.addEventListener('load', () => resolve(image));
-    image.addEventListener('error', (error) => reject(error));
-    image.setAttribute('crossOrigin', 'anonymous'); // needed to avoid cross-origin issues on CodeSandbox
+    image.addEventListener("load", () => resolve(image));
+    image.addEventListener("error", (error) => reject(error));
+    image.setAttribute("crossOrigin", "anonymous"); // needed to avoid cross-origin issues on CodeSandbox
     image.src = url;
   });
 
@@ -25,8 +25,8 @@ export default async function getCroppedImg(
   rotation = 0,
 ): Promise<Blob | null> {
   const image = await createImage(imageSrc);
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
 
   if (!ctx) {
     return null;
@@ -35,7 +35,11 @@ export default async function getCroppedImg(
   const rotRad = (rotation * Math.PI) / 180;
 
   // calculate bounding box of the rotated image
-  const { width: bBoxWidth, height: bBoxHeight } = rotateSize(image.width, image.height, rotation);
+  const { width: bBoxWidth, height: bBoxHeight } = rotateSize(
+    image.width,
+    image.height,
+    rotation,
+  );
 
   // set canvas size to match the bounding box
   canvas.width = bBoxWidth;
@@ -51,7 +55,12 @@ export default async function getCroppedImg(
 
   // croppedAreaPixels values are bounding box relative
   // extract the cropped image using these values
-  const data = ctx.getImageData(pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height);
+  const data = ctx.getImageData(
+    pixelCrop.x,
+    pixelCrop.y,
+    pixelCrop.width,
+    pixelCrop.height,
+  );
 
   // set canvas width to final desired crop size - this will clear existing context
   canvas.width = pixelCrop.width;
@@ -64,7 +73,7 @@ export default async function getCroppedImg(
   return new Promise((resolve) => {
     canvas.toBlob((file) => {
       resolve(file);
-    }, 'image/jpeg');
+    }, "image/jpeg");
   });
 }
 
@@ -72,7 +81,9 @@ function rotateSize(width: number, height: number, rotation: number) {
   const rotRad = (rotation * Math.PI) / 180;
 
   return {
-    width: Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
-    height: Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
+    width:
+      Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
+    height:
+      Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
   };
 }

@@ -1,13 +1,16 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from "react";
 
 interface UseSpamCounterOptions {
   maxCount?: number;
   interval?: number;
 }
 
-export const useSpamCounter = ({ maxCount = 3, interval = 1000 }: UseSpamCounterOptions = {}) => {
+export const useSpamCounter = ({
+  maxCount = 3,
+  interval = 1000,
+}: UseSpamCounterOptions = {}) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {

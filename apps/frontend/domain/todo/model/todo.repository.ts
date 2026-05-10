@@ -1,4 +1,9 @@
-import { ICreateTodoRequest, IGetTodosParams, ITodo, ITodoList } from './todo.model';
+import {
+  ICreateTodoRequest,
+  IGetTodosParams,
+  ITodo,
+  ITodoList,
+} from "./todo.model";
 
 // ===== IRepository =====
 export interface ITodoRepository {

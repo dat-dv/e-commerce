@@ -1,16 +1,19 @@
-import { API_ROUTES } from '@/constants/routes';
-import { TRequest } from '@/utils/request/request.types';
+import { API_ROUTES } from "@/constants/routes";
+import { TRequest } from "@/utils/request/request.types";
 
-import { IAuthRequest, IRegisterRequest, IUser } from '../model/auth.model';
-import { IAuthRepository } from '../model/auth.repository';
-import { UserMapper } from './auth.mapper';
-import { IUserResponse } from './auth.response';
+import { IAuthRequest, IRegisterRequest, IUser } from "../model/auth.model";
+import { IAuthRepository } from "../model/auth.repository";
+import { UserMapper } from "./auth.mapper";
+import { IUserResponse } from "./auth.response";
 
 export class AuthRepository implements IAuthRepository {
   constructor(private request: TRequest) {}
 
   async login(request: IAuthRequest): Promise<IUser> {
-    const userRes = await this.request.post<IUserResponse>(API_ROUTES.AUTH.LOGIN, request);
+    const userRes = await this.request.post<IUserResponse>(
+      API_ROUTES.AUTH.LOGIN,
+      request,
+    );
     return UserMapper.toDomain(userRes);
   }
 
@@ -25,7 +28,10 @@ export class AuthRepository implements IAuthRepository {
 
   async updateProfile(data: Partial<IUser>): Promise<IUser> {
     const userDto = UserMapper.toDTO(data);
-    const updatedUser = await this.request.put<IUserResponse>(API_ROUTES.AUTH.ME, userDto);
+    const updatedUser = await this.request.put<IUserResponse>(
+      API_ROUTES.AUTH.ME,
+      userDto,
+    );
     return UserMapper.toDomain(updatedUser);
   }
 

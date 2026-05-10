@@ -1,12 +1,9 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
-import { MoonIcon, SunIcon } from "@/components/atoms/icons";
 import SidebarLayout from "@/components/molecules/sidebar-layout";
 import TableOfContents from "@/components/molecules/toc";
 import { THEMES } from "@/config/config";
 import { useConfig } from "@/hooks/config/use-config";
-import React from "react";
 
 export default function SettingsPage() {
   const { theme, isDarkMode, setTheme, toggleDarkMode } = useConfig();

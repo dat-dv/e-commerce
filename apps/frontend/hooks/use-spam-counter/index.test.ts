@@ -1,23 +1,27 @@
-import { act, renderHook } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, renderHook } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useSpamCounter } from './index';
+import { useSpamCounter } from "./index";
 
-describe('useSpamCounter Hook', () => {
+describe("useSpamCounter Hook", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.useRealTimers();
   });
 
-  it('should initialize with zero count', () => {
-    const { result } = renderHook(() => useSpamCounter({ maxCount: 5, interval: 1000 }));
+  it("should initialize with zero count", () => {
+    const { result } = renderHook(() =>
+      useSpamCounter({ maxCount: 5, interval: 1000 }),
+    );
 
     expect(result.current.count).toBe(0);
     expect(result.current.isSpam).toBe(false);
   });
 
-  it('should increment count and trigger isSpam when reaching maxCount', () => {
-    const { result } = renderHook(() => useSpamCounter({ maxCount: 2, interval: 1000 }));
+  it("should increment count and trigger isSpam when reaching maxCount", () => {
+    const { result } = renderHook(() =>
+      useSpamCounter({ maxCount: 2, interval: 1000 }),
+    );
 
     act(() => {
       result.current.increment();
@@ -31,9 +35,11 @@ describe('useSpamCounter Hook', () => {
     expect(result.current.isSpam).toBe(true);
   });
 
-  it('should reset count after interval passes', () => {
+  it("should reset count after interval passes", () => {
     vi.useFakeTimers();
-    const { result } = renderHook(() => useSpamCounter({ maxCount: 5, interval: 1000 }));
+    const { result } = renderHook(() =>
+      useSpamCounter({ maxCount: 5, interval: 1000 }),
+    );
 
     act(() => {
       result.current.increment();

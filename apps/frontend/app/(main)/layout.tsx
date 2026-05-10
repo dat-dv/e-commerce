@@ -1,5 +1,5 @@
-import Footer from '@/components/atoms/footer';
-import Header from '@/components/molecules/header';
+import Footer from "@/components/atoms/footer";
+import Header from "@/components/molecules/header";
 
 export default function MainLayout({
   children,

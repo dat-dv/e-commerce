@@ -1,7 +1,7 @@
-import { UseCase } from '@/utils/use-case';
+import { UseCase } from "@/utils/use-case";
 
-import { IGetTodosParams, ITodo, ITodoList } from '../model/todo.model';
-import { ITodoRepository } from '../model/todo.repository';
+import { IGetTodosParams, ITodo, ITodoList } from "../model/todo.model";
+import { ITodoRepository } from "../model/todo.repository";
 
 export class FindAllTodosUseCase extends UseCase<
   IGetTodosParams | undefined,

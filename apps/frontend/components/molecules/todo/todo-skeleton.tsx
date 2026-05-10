@@ -1,10 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 export const TodoSkeleton = () => {
   return (
-    <div data-testid="todo-skeleton" className="space-y-4 animate-in fade-in duration-500">
+    <div
+      data-testid="todo-skeleton"
+      className="space-y-4 animate-in fade-in duration-500"
+    >
       {[1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}

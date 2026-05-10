@@ -1,7 +1,7 @@
-import { AnimationContainer, AnimationItem } from '@/components/atoms/animate';
-import Button from '@/components/atoms/button';
-import { HomeLiveStateMonitor } from '@/components/organisms/home-view/home-live-state-monitor';
-import { APP_ROUTES } from '@/constants/routes';
+import { AnimationContainer, AnimationItem } from "@/components/atoms/animate";
+import Button from "@/components/atoms/button";
+import { HomeLiveStateMonitor } from "@/components/organisms/home-view/home-live-state-monitor";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const HomepagePrivate = () => {
   return (
@@ -12,10 +12,12 @@ export const HomepagePrivate = () => {
       <AnimationContainer className="max-w-xl w-full flex flex-col gap-10 text-center items-center">
         <AnimationItem className="space-y-4">
           <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-tight">
-            Manage <span className="text-primary italic font-serif">Your Tasks.</span>
+            Manage{" "}
+            <span className="text-primary italic font-serif">Your Tasks.</span>
           </h1>
           <p className="text-lg opacity-70 leading-relaxed font-medium">
-            Take control of your workflow and stay productive with our lightweight task list.
+            Take control of your workflow and stay productive with our
+            lightweight task list.
           </p>
         </AnimationItem>
 

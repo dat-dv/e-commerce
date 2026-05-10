@@ -1,4 +1,4 @@
-import { ETheme } from '@/constants/theme.constanst';
+import { ETheme } from "@/constants/theme.constanst";
 
 export interface IThemeConfig {
   isDarkMode: boolean;

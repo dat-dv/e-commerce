@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
-import { APP_ROUTES, CALLBACK_URL_KEY } from '@/constants/routes';
-import { authUseCase } from '@/domain/auth/use-cases';
-import { useAuthStore } from '@/hooks/auth/use-auth-store';
+import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
+import { authUseCase } from "@/domain/auth/use-cases";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
-import { RegisterSchema, registerSchema } from './register.schema';
+import { RegisterSchema, registerSchema } from "./register.schema";
 
 export const useRegister = () => {
   const router = useRouter();
@@ -21,9 +21,9 @@ export const useRegister = () => {
   const methods = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      fullName: '',
-      email: '',
-      password: '',
+      fullName: "",
+      email: "",
+      password: "",
     },
   });
 
@@ -32,7 +32,7 @@ export const useRegister = () => {
 
     try {
       await authUseCase.register.execute(data);
-      toast.success('Registration successful! Please login.');
+      toast.success("Registration successful! Please login.");
 
       const callbackUrl = searchParams.get(CALLBACK_URL_KEY);
       const signInUrl = callbackUrl
@@ -41,8 +41,8 @@ export const useRegister = () => {
 
       router.push(signInUrl);
     } catch (err: unknown) {
-      const errorMessage = (err as Error).message || 'Registration failed';
-      toast.error(errorMessage, { toastId: 'auth-error' });
+      const errorMessage = (err as Error).message || "Registration failed";
+      toast.error(errorMessage, { toastId: "auth-error" });
     } finally {
       setLoading(false);
     }

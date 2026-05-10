@@ -1,22 +1,22 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 
-import { ETheme } from '@/constants/theme.constanst';
-import { useConfig } from '@/hooks/config/use-config';
+import { ETheme } from "@/constants/theme.constanst";
+import { useConfig } from "@/hooks/config/use-config";
 
-import ThemeSwitcher from './index';
+import ThemeSwitcher from "./index";
 
 // Mock the hook and configuration
-vi.mock('@/hooks/config/use-config', () => ({
+vi.mock("@/hooks/config/use-config", () => ({
   useConfig: vi.fn(),
 }));
 
-vi.mock('@/config/config', () => ({
-  THEMES: [{ id: ETheme.BLUE, label: 'Blue', color: '#3b82f6' }],
+vi.mock("@/config/config", () => ({
+  THEMES: [{ id: ETheme.BLUE, label: "Blue", color: "#3b82f6" }],
 }));
 
-describe('ThemeSwitcher Molecule', () => {
-  it('should render theme selection buttons', () => {
+describe("ThemeSwitcher Molecule", () => {
+  it("should render theme selection buttons", () => {
     vi.mocked(useConfig).mockReturnValue({
       theme: ETheme.BLUE,
       isDarkMode: false,
@@ -28,10 +28,10 @@ describe('ThemeSwitcher Molecule', () => {
     render(<ThemeSwitcher />);
 
     // Check for theme dots (using title for identification as labeled in code)
-    expect(screen.getByTitle('Blue')).toBeInTheDocument();
+    expect(screen.getByTitle("Blue")).toBeInTheDocument();
   });
 
-  it('should call setTheme when a theme dot is clicked', () => {
+  it("should call setTheme when a theme dot is clicked", () => {
     const setTheme = vi.fn();
     vi.mocked(useConfig).mockReturnValue({
       theme: ETheme.BLUE,
@@ -43,11 +43,11 @@ describe('ThemeSwitcher Molecule', () => {
 
     render(<ThemeSwitcher />);
 
-    fireEvent.click(screen.getByTitle('Blue'));
+    fireEvent.click(screen.getByTitle("Blue"));
     expect(setTheme).toHaveBeenCalledWith(ETheme.BLUE);
   });
 
-  it('should call toggleDarkMode when the sun/moon button is clicked', () => {
+  it("should call toggleDarkMode when the sun/moon button is clicked", () => {
     const toggleDarkMode = vi.fn();
     vi.mocked(useConfig).mockReturnValue({
       theme: ETheme.BLUE,
@@ -60,7 +60,7 @@ describe('ThemeSwitcher Molecule', () => {
     render(<ThemeSwitcher />);
 
     // Find button with toggle action
-    const toggleButton = screen.getAllByRole('button').pop();
+    const toggleButton = screen.getAllByRole("button").pop();
     fireEvent.click(toggleButton!);
     expect(toggleDarkMode).toHaveBeenCalled();
   });

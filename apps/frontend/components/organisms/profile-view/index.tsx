@@ -1,7 +1,7 @@
-import { AnimationContainer } from '@/components/atoms/animate';
-import AppContainer from '@/components/atoms/app-container';
+import { AnimationContainer } from "@/components/atoms/animate";
+import AppContainer from "@/components/atoms/app-container";
 
-import { ProfileForm } from '../../molecules/profile-form';
+import { ProfileForm } from "../../molecules/profile-form";
 
 export const ProfileView = () => {
   return (

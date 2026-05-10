@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
-import { DateInput } from '@/components/atoms/input/date-input';
-import { InputVariant } from '@/components/atoms/input/input.types';
-import { fromPickerFormat, toPickerFormat } from '@/utils/date-format';
+import { DateInput } from "@/components/atoms/input/date-input";
+import { InputVariant } from "@/components/atoms/input/input.types";
+import { fromPickerFormat, toPickerFormat } from "@/utils/date-format";
 
 interface FormDateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -13,7 +13,10 @@ interface FormDateInputProps extends React.InputHTMLAttributes<HTMLInputElement>
   variant?: InputVariant;
 }
 
-export const FormDateInput: React.FC<FormDateInputProps> = ({ name, ...rest }) => {
+export const FormDateInput: React.FC<FormDateInputProps> = ({
+  name,
+  ...rest
+}) => {
   const { control } = useFormContext();
 
   return (

@@ -5,15 +5,17 @@ export default function Loading() {
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%)',
-          animation: 'pulse-glow 3s ease-in-out infinite',
+          background:
+            "radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%)",
+          animation: "pulse-glow 3s ease-in-out infinite",
         }}
       />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 60%)',
-          animation: 'pulse-glow 3s ease-in-out infinite 1.5s',
+          background:
+            "radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 60%)",
+          animation: "pulse-glow 3s ease-in-out infinite 1.5s",
         }}
       />
 
@@ -24,21 +26,21 @@ export default function Loading() {
           <div
             className="absolute inset-0 rounded-full"
             style={{
-              border: '1px solid hsl(var(--primary) / 0.15)',
-              animation: 'spin-slow 8s linear infinite',
+              border: "1px solid hsl(var(--primary) / 0.15)",
+              animation: "spin-slow 8s linear infinite",
             }}
           />
 
           {/* Orbiting dot on outer ring */}
           <div
             className="absolute inset-0 rounded-full"
-            style={{ animation: 'spin-slow 8s linear infinite' }}
+            style={{ animation: "spin-slow 8s linear infinite" }}
           >
             <div
               className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
               style={{
-                background: 'hsl(var(--primary) / 0.9)',
-                boxShadow: '0 0 8px 2px hsl(var(--primary) / 0.5)',
+                background: "hsl(var(--primary) / 0.9)",
+                boxShadow: "0 0 8px 2px hsl(var(--primary) / 0.5)",
               }}
             />
           </div>
@@ -47,10 +49,11 @@ export default function Loading() {
           <div
             className="absolute inset-[10px] rounded-full"
             style={{
-              border: '2px solid transparent',
-              borderTopColor: 'hsl(var(--primary) / 0.8)',
-              borderRightColor: 'hsl(var(--primary) / 0.3)',
-              animation: 'spin-medium 1.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite',
+              border: "2px solid transparent",
+              borderTopColor: "hsl(var(--primary) / 0.8)",
+              borderRightColor: "hsl(var(--primary) / 0.3)",
+              animation:
+                "spin-medium 1.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite",
             }}
           />
 
@@ -58,10 +61,10 @@ export default function Loading() {
           <div
             className="absolute inset-[22px] rounded-full"
             style={{
-              border: '2px solid transparent',
-              borderBottomColor: 'hsl(var(--primary) / 0.6)',
-              borderLeftColor: 'hsl(var(--primary) / 0.2)',
-              animation: 'spin-reverse 1.8s ease-in-out infinite',
+              border: "2px solid transparent",
+              borderBottomColor: "hsl(var(--primary) / 0.6)",
+              borderLeftColor: "hsl(var(--primary) / 0.2)",
+              animation: "spin-reverse 1.8s ease-in-out infinite",
             }}
           />
 
@@ -70,16 +73,16 @@ export default function Loading() {
             <div
               className="absolute inset-0 rounded-full"
               style={{
-                background: 'hsl(var(--primary) / 0.15)',
-                animation: 'core-pulse 2s ease-in-out infinite',
+                background: "hsl(var(--primary) / 0.15)",
+                animation: "core-pulse 2s ease-in-out infinite",
               }}
             />
             <div
               className="h-3 w-3 rounded-full"
               style={{
-                background: 'hsl(var(--primary) / 0.9)',
-                boxShadow: '0 0 10px 3px hsl(var(--primary) / 0.4)',
-                animation: 'core-pulse 2s ease-in-out infinite 0.5s',
+                background: "hsl(var(--primary) / 0.9)",
+                boxShadow: "0 0 10px 3px hsl(var(--primary) / 0.4)",
+                animation: "core-pulse 2s ease-in-out infinite 0.5s",
               }}
             />
           </div>
@@ -91,12 +94,12 @@ export default function Loading() {
             className="text-sm font-semibold tracking-[0.2em] uppercase"
             style={{
               background:
-                'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.5), hsl(var(--primary)))',
-              backgroundSize: '200% auto',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              animation: 'shimmer 2.5s linear infinite',
+                "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.5), hsl(var(--primary)))",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              animation: "shimmer 2.5s linear infinite",
             }}
           >
             Loading
@@ -109,16 +112,16 @@ export default function Loading() {
                 key={i}
                 className="h-0.5 rounded-full"
                 style={{
-                  width: i === 2 ? '24px' : '8px',
-                  background: 'hsl(var(--primary) / 0.25)',
-                  position: 'relative',
-                  overflow: 'hidden',
+                  width: i === 2 ? "24px" : "8px",
+                  background: "hsl(var(--primary) / 0.25)",
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
                 <div
                   className="absolute inset-0 rounded-full"
                   style={{
-                    background: 'hsl(var(--primary) / 0.85)',
+                    background: "hsl(var(--primary) / 0.85)",
                     animation: `bar-fill 1.8s ease-in-out infinite`,
                     animationDelay: `${i * 0.15}s`,
                   }}

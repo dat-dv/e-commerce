@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { LogOut, User } from 'lucide-react';
+import { LogOut, User } from "lucide-react";
 
-import Avatar from '@/components/atoms/avatar';
-import Button from '@/components/atoms/button';
-import { APP_ROUTES } from '@/constants/routes';
-import { useAuthStore } from '@/hooks/auth/use-auth-store';
-import { useLogout } from '@/hooks/auth/use-logout';
+import Avatar from "@/components/atoms/avatar";
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useLogout } from "@/hooks/auth/use-logout";
 
-import { Dropdown } from '../dropdown';
+import { Dropdown } from "../dropdown";
 
 const AvatarDropdown = () => {
   const user = useAuthStore((store) => store.user);
@@ -17,9 +17,12 @@ const AvatarDropdown = () => {
   return (
     <Dropdown
       trigger={
-        <div className="h-10 w-10 relative cursor-pointer group" aria-label="User Account Menu">
+        <div
+          className="h-10 w-10 relative cursor-pointer group"
+          aria-label="User Account Menu"
+        >
           <div className="absolute inset-0 rounded-xl border-2 border-primary/20 bg-primary/5 transition-all group-hover:border-primary/40 group-hover:scale-105 active:scale-95 overflow-hidden ring-offset-background group-focus-visible:ring-2 group-focus-visible:ring-primary/50">
-            <Avatar name={user?.name || 'User'} url={user?.avatarUrl || ''} />
+            <Avatar name={user?.name || "User"} url={user?.avatarUrl || ""} />
           </div>
         </div>
       }
@@ -32,10 +35,10 @@ const AvatarDropdown = () => {
           </p>
           <div className="flex flex-col">
             <p className="font-bold text-sm truncate text-content leading-snug">
-              {user?.name || 'User'}
+              {user?.name || "User"}
             </p>
             <p className="text-xs text-content/60 truncate font-medium">
-              {user?.email || 'No email provided'}
+              {user?.email || "No email provided"}
             </p>
           </div>
         </div>

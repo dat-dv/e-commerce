@@ -1,10 +1,10 @@
-import { appRequest } from '@/utils/request/request';
+import { appRequest } from "@/utils/request/request";
 
-import { AuthRepository } from '../infrastructure/auth.repository';
-import { FetchMeUseCase } from './fetch-me.use-case';
-import { LoginUseCase } from './login.use-case';
-import { RegisterUseCase } from './register.use-case';
-import { UpdateProfileUseCase } from './update-profile.use-case';
+import { AuthRepository } from "../infrastructure/auth.repository";
+import { FetchMeUseCase } from "./fetch-me.use-case";
+import { LoginUseCase } from "./login.use-case";
+import { RegisterUseCase } from "./register.use-case";
+import { UpdateProfileUseCase } from "./update-profile.use-case";
 
 const repo = new AuthRepository(appRequest);
 

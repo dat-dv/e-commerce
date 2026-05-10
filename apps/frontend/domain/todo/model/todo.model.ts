@@ -14,9 +14,9 @@ export interface ITodoList {
 }
 
 export enum ETodoFilter {
-  ALL = 'all',
-  ACTIVE = 'active',
-  COMPLETED = 'completed',
+  ALL = "all",
+  ACTIVE = "active",
+  COMPLETED = "completed",
 }
 
 export interface IGetTodosParams {

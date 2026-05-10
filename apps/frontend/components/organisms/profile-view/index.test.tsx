@@ -1,20 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 
-import { AuthProvider } from '@/components/molecules/providers/auth-provider';
+import { AuthProvider } from "@/components/molecules/providers/auth-provider";
 
-import { ProfileView } from './index';
+import { ProfileView } from "./index";
 
-describe('ProfileView Organism', () => {
-  it('should render ProfileForm with user data', () => {
+describe("ProfileView Organism", () => {
+  it("should render ProfileForm with user data", () => {
     render(
       <AuthProvider
         initState={{
           user: {
-            id: '1',
-            name: 'John Doe',
-            email: 'john@example.com',
-            avatarUrl: '',
+            id: "1",
+            name: "John Doe",
+            email: "john@example.com",
+            avatarUrl: "",
           },
         }}
       >
@@ -22,8 +22,8 @@ describe('ProfileView Organism', () => {
       </AuthProvider>,
     );
 
-    expect(screen.getByTestId('profile-form')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('John Doe')).toBeInTheDocument();
-    expect(screen.getByText('john@example.com')).toBeInTheDocument();
+    expect(screen.getByTestId("profile-form")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("John Doe")).toBeInTheDocument();
+    expect(screen.getByText("john@example.com")).toBeInTheDocument();
   });
 });
