@@ -85,7 +85,7 @@ export default function TermsPage() {
             <p>
               2.1. Shop.Hub takes your privacy seriously. To protect user
               rights, Shop.Hub provides a Privacy Policy to explain in detail
-              Shop.Hub's privacy practices. Please refer to the Privacy Policy
+              Shop.Hub&apos;s privacy practices. Please refer to the Privacy Policy
               to know how Shop.Hub collects and uses information related to the
               Account and/or use of the Services of the User.
             </p>

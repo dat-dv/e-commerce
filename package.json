@@ -18,6 +18,8 @@
     "dev": "concurrently \"npm run dev:be\" \"npm run dev:fe\"",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "type-check": "npm run type-check -w apps/frontend",
     "format": "prettier --write ."
   },
   "devDependencies": {
