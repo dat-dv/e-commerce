@@ -40,8 +40,8 @@ describe('CreateCommentUseCase', () => {
     expect(result).toBe(mockComment);
     expect(mockCommentsRepository.create).toHaveBeenCalledWith({
       content: 'Content',
-      post: { connect: { post_id: 'post1' } },
-      user: { connect: { user_id: 'user1' } },
+      post: { connect: { id: 'post1' } },
+      user: { connect: { id: 'user1' } },
       parent: undefined,
     });
   });
@@ -57,9 +57,9 @@ describe('CreateCommentUseCase', () => {
     expect(result).toBe(mockComment);
     expect(mockCommentsRepository.create).toHaveBeenCalledWith({
       content: 'Content',
-      post: { connect: { post_id: 'post1' } },
-      user: { connect: { user_id: 'user1' } },
-      parent: { connect: { comment_id: 'grandparent1' } },
+      post: { connect: { id: 'post1' } },
+      user: { connect: { id: 'user1' } },
+      parent: { connect: { id: 'grandparent1' } },
     });
   });
 });

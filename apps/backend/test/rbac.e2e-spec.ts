@@ -60,7 +60,7 @@ describe('RBAC & Ownership (e2e)', () => {
         .send({ title: 'e2e: User 1 Post', content: 'e2e: Post content' });
 
       expect(res.status).toBe(201);
-      testPostId = (res.body as { data: { post_id: string } }).data.post_id;
+      testPostId = (res.body as { data: { id: string } }).data.id;
       expect(testPostId).toBeDefined();
     });
 
@@ -114,7 +114,7 @@ describe('RBAC & Ownership (e2e)', () => {
         .send({ content: 'e2e: User 1 Comment' });
 
       expect(res.status).toBe(201);
-      testCommentId = (res.body as { data: { comment_id: string } }).data.comment_id;
+      testCommentId = (res.body as { data: { id: string } }).data.id;
     });
 
     it('User 2 should fail to update User 1 comment (403)', async () => {
