@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AuthLayout({
   children,
 }: Readonly<{
@@ -12,15 +14,13 @@ export default function AuthLayout({
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[140px] pointer-events-none rounded-full" />
 
         <div className="relative z-10 max-w-md text-center">
-          <div className="inline-flex items-center justify-center p-4 bg-surface/30 backdrop-blur-3xl border border-content/5 rounded-[32px] mb-8 shadow-2xl">
-            <span className="text-4xl">🚀</span>
-          </div>
-          <h1 className="text-5xl font-black tracking-tighter mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            E-Commerce Reimagined.
-          </h1>
+          <Link href="/">
+            <h1 className="text-5xl font-black tracking-tighter mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity">
+              Shop.Hub
+            </h1>
+          </Link>
           <p className="text-lg font-medium text-content/60 leading-relaxed">
-            Experience the most fluid and responsive shopping platform ever built. Designed for
-            simplicity, crafted for you.
+            The most loved e-commerce platform in Southeast Asia & Taiwan.
           </p>
         </div>
 
@@ -30,8 +30,18 @@ export default function AuthLayout({
 
       {/* Right side: the form */}
       <div className="flex-1 flex flex-col items-center justify-center p-8 sm:p-12 relative z-10 bg-surface">
+        <div className="absolute top-8 right-8">
+          <Link
+            href="/"
+            className="text-sm font-medium text-content/60 hover:text-primary transition-colors"
+          >
+            ← Back to Home
+          </Link>
+        </div>
         <div className="w-full max-w-md">
-          <div className="animate-in fade-in slide-in-from-right-8 duration-700">{children}</div>
+          <div className="animate-in fade-in slide-in-from-right-8 duration-700">
+            {children}
+          </div>
         </div>
       </div>
     </div>

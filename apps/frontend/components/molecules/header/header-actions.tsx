@@ -1,16 +1,29 @@
-import Button from '@/components/atoms/button';
-import ProtectedSection from '@/components/atoms/protected-section/protected-section';
-import { APP_ROUTES } from '@/constants/routes';
+import Button from "@/components/atoms/button";
+import ProtectedSection from "@/components/atoms/protected-section/protected-section";
+import { APP_ROUTES } from "@/constants/routes";
 
-import AvatarDropdown from '../avatar-dropdown';
+import AvatarDropdown from "../avatar-dropdown";
 
 export default function HeaderActions() {
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2 border-l border-black/[.08] pl-2 md:pl-5">
+      <Button
+        variant="ghost"
+        size="sm"
+        href="/help"
+        className="text-content/60 hover:text-primary font-bold"
+      >
+        Need Help?
+      </Button>
       <ProtectedSection
         fallbackChildren={
           <>
-            <Button variant="ghost" size="sm" href={APP_ROUTES.SIGN_IN} className="hidden sm:flex">
+            <Button
+              variant="ghost"
+              size="sm"
+              href={APP_ROUTES.SIGN_IN}
+              className="hidden sm:flex"
+            >
               Sign In
             </Button>
             <Button

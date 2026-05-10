@@ -13,12 +13,10 @@ const HomepagePublic = () => {
       <AnimationContainer className="flex flex-col gap-8 items-center">
         <AnimationItem className="space-y-4">
           <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-tight">
-            Discover <span className="text-primary italic font-serif">&</span>{" "}
-            Shop.
+            Shop.Hub
           </h1>
           <p className="text-lg opacity-70 leading-relaxed font-medium">
-            Explore our curated collection of minimalist and high-performance
-            products.
+            The most loved e-commerce platform in Southeast Asia & Taiwan.
           </p>
         </AnimationItem>
 
@@ -32,7 +30,6 @@ const HomepagePublic = () => {
             Start Shopping
           </Button>
         </AnimationItem>
-
       </AnimationContainer>
     </AppContainer>
   );

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
@@ -9,19 +10,28 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Categories</h3>
           <ul className="space-y-2">
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link
+                href="/products"
+                className="hover:text-primary cursor-pointer"
+              >
                 All Products
-              </span>
+              </Link>
             </li>
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link
+                href="/products"
+                className="hover:text-primary cursor-pointer"
+              >
                 Featured
-              </span>
+              </Link>
             </li>
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link
+                href="/products"
+                className="hover:text-primary cursor-pointer"
+              >
                 New Arrivals
-              </span>
+              </Link>
             </li>
           </ul>
         </div>
@@ -31,17 +41,19 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Support</h3>
           <ul className="space-y-2">
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link href="/help" className="hover:text-primary cursor-pointer">
                 Contact Us
-              </span>
+              </Link>
             </li>
             <li>
-              <span className="hover:text-primary cursor-pointer">FAQs</span>
+              <Link href="/help" className="hover:text-primary cursor-pointer">
+                FAQs
+              </Link>
             </li>
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link href="/help" className="hover:text-primary cursor-pointer">
                 Shipping
-              </span>
+              </Link>
             </li>
           </ul>
         </div>
@@ -51,14 +63,14 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Legal</h3>
           <ul className="space-y-2">
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link href="/terms" className="hover:text-primary cursor-pointer">
                 Privacy Policy
-              </span>
+              </Link>
             </li>
             <li>
-              <span className="hover:text-primary cursor-pointer">
+              <Link href="/terms" className="hover:text-primary cursor-pointer">
                 Terms of Service
-              </span>
+              </Link>
             </li>
           </ul>
         </div>

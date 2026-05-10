@@ -1,47 +1,89 @@
-import AppContainer from '@/components/atoms/app-container';
+import AppContainer from "@/components/atoms/app-container";
 
 export const metadata = {
-  title: 'Terms of Service',
+  title: "Terms of Service",
 };
 
 export default function TermsPage() {
   return (
     <AppContainer
-      size="sm"
-      className="py-24 animate-in fade-in slide-in-from-bottom-6 duration-1000"
+      size="2xl"
+      className="py-16 animate-in fade-in slide-in-from-bottom-6 duration-700"
     >
-      <div className="flex flex-col items-center mb-12 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tighter mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-          Terms of Service
-        </h1>
-        <p className="text-content/60 font-medium">Simple & Just-for-fun Edition</p>
-      </div>
+      <h1 className="text-3xl font-black mb-2 text-content">
+        Terms of Service
+      </h1>
+      <p className="text-content/40 text-sm mb-8">
+        Last updated: {new Date().toLocaleDateString()}
+      </p>
 
-      <div className="bg-surface/30 backdrop-blur-xl border border-content/5 p-8 rounded-[32px] space-y-6 shadow-2xl">
-        <p className="text-content/80 text-lg leading-relaxed font-medium">
-          Welcome! This is a <strong>learning project</strong> built to explore Next.js, Clean
-          Architecture, and state management.
-        </p>
+      <div className="space-y-8 text-content/80 leading-relaxed text-sm sm:text-base">
+        <section>
+          <h2 className="text-lg font-bold text-content mb-3">
+            1. INTRODUCTION
+          </h2>
+          <div className="space-y-3">
+            <p>
+              1.1. Welcome to the Shop.Hub platform (including website and
+              mobile application) operated by Shop.Hub and its affiliates. We
+              take our responsibilities regarding information security seriously
+              in accordance with the regulations on the protection of personal
+              information privacy by law.
+            </p>
+            <p>
+              1.2. By using the Services, registering an account with us, or
+              accessing the Platform, you acknowledge and agree that you accept
+              the methods, requirements, and/or policies described in this
+              Policy.
+            </p>
+            <p>
+              1.3. IF YOU DO NOT AGREE TO ALLOW THE PROCESSING OF YOUR PERSONAL
+              DATA AS DESCRIBED IN THIS POLICY, PLEASE DO NOT USE OUR SERVICES
+              OR ACCESS THE PLATFORM.
+            </p>
+          </div>
+        </section>
 
-        <div className="space-y-4 text-content/70">
-          <p>
-            • <strong>No Guarantees:</strong> Since this is a &quot;playground&rdquo; project,
-            things might break, data might be reset, and bugs are probably part of the experience.
-          </p>
-          <p>
-            • <strong>Your Data:</strong> While we try to store it safely, please don&apos;t use
-            this for sensitive or critical information. Use it for fun tasks like &quot;Buy
-            coffee&rdquo; or &quot;Learn React&rdquo;!
-          </p>
-          <p>
-            • <strong>Enjoy:</strong> Use it, break it, and learn from it. That&apos;s the main
-            goal!
-          </p>
-        </div>
+        <section>
+          <h2 className="text-lg font-bold text-content mb-3">
+            2. WHEN WILL WE COLLECT DATA?
+          </h2>
+          <div className="space-y-3">
+            <p>2.1. We will/may collect personal data about you:</p>
+            <ul className="list-disc pl-5 space-y-1 text-content/70">
+              <li>
+                When you register and/or use our Services or Platform, or open
+                an account with us;
+              </li>
+              <li>
+                When you submit any form, including application forms or other
+                forms related to any of our products and services;
+              </li>
+              <li>
+                When you enter into any agreement or provide other documents or
+                information related to your interaction with us.
+              </li>
+            </ul>
+          </div>
+        </section>
 
-        <p className="pt-6 border-t border-content/5 text-sm opacity-40 text-center">
-          Last updated: Today
-        </p>
+        <section>
+          <h2 className="text-lg font-bold text-content mb-3">
+            3. RIGHTS AND RESPONSIBILITIES
+          </h2>
+          <div className="space-y-3">
+            <p>
+              3.1. You agree not to provide us with any inaccurate or misleading
+              information and you agree to notify us of any inaccurate
+              information or when there are changes to information.
+            </p>
+            <p>
+              3.2. We reserve the right, at our sole discretion, to request
+              other necessary documents to verify any information provided by
+              you.
+            </p>
+          </div>
+        </section>
       </div>
     </AppContainer>
   );
