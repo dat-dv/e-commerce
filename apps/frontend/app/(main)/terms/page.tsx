@@ -14,7 +14,7 @@ const SECTIONS = [
 
 export default function TermsPage() {
   const header = (
-    <div className="bg-content/5 p-8 rounded-2xl border border-content/5 mb-10">
+    <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10 mb-10">
       <h1 className="text-3xl font-black text-content mb-2">
         Terms of Service
       </h1>

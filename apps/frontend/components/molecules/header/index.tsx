@@ -1,9 +1,10 @@
-import AppContainer from '@/components/atoms/app-container';
+import AppContainer from "@/components/atoms/app-container";
+import Link from "next/link";
 
-import ThemeSwitcher from '../theme-switcher';
-import HeaderActions from './header-actions';
-import HeaderLogo from './header-logo';
-import HeaderNav from './header-nav';
+import HeaderActions from "./header-actions";
+import HeaderLogo from "./header-logo";
+import HeaderNav from "./header-nav";
+import { Settings } from "lucide-react";
 
 export default function Header() {
   return (
@@ -14,9 +15,18 @@ export default function Header() {
           <HeaderNav />
         </div>
 
-        <div className="flex items-center gap-2 md:gap-6">
-          <ThemeSwitcher />
+        <div className="flex items-center gap-0">
           <HeaderActions />
+
+          <div className="h-6 w-px bg-black/[.08] dark:bg-white/[.08] mx-2" />
+
+          <Link
+            href="/settings"
+            className="w-10 h-10 flex items-center justify-center text-content/60 hover:text-content hover:bg-content/5 rounded-full transition-colors"
+            title="Settings"
+          >
+            <Settings size={20} />
+          </Link>
         </div>
       </AppContainer>
     </header>

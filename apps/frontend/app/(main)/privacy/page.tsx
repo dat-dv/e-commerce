@@ -14,7 +14,7 @@ const SECTIONS = [
 
 export default function PrivacyPage() {
   const header = (
-    <div className="bg-content/5 p-8 rounded-2xl border border-content/5 mb-10">
+    <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10 mb-10">
       <h1 className="text-3xl font-black text-content mb-2">Privacy Policy</h1>
       <p className="text-content/60 text-base">
         We are committed to protecting your personal information.
