@@ -17,7 +17,7 @@ export class FindOneUserUseCase {
 
     const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
 
-    this.checkOwnershipOrPermission(id, requestingUser.user_id, permissions, 'DETAIL:OWN_USER', 'DETAIL:ANY_USER');
+    this.checkOwnershipOrPermission(id, requestingUser.id, permissions, 'DETAIL:OWN_USER', 'DETAIL:ANY_USER');
 
     const user = await this.usersRepository.findById(id);
     if (!user || user.deleted_at) {

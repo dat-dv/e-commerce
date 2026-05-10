@@ -36,7 +36,7 @@ describe('RemoveUserUseCase', () => {
 
   it('should soft delete user', async () => {
     const user: IUser = {
-      user_id: 'user-1',
+      id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',

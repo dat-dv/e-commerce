@@ -2,7 +2,6 @@ import { Injectable, BadRequestException, ForbiddenException, Inject } from '@ne
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { UploadImageUseCase } from 'src/api/upload/domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from 'src/api/upload/domain/use-cases/delete-image.use-case';
-import { IUser } from '../entities/user.entity';
 
 @Injectable()
 export class UpdateAvatarUseCase {
@@ -28,7 +27,7 @@ export class UpdateAvatarUseCase {
 
     const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
 
-    this.checkOwnershipOrPermission(id, requestingUser.user_id, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+    this.checkOwnershipOrPermission(id, requestingUser.id, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
 
     const oldAvatarPublicId = await this.usersRepository.getUserAvatarPublicId(id);
 

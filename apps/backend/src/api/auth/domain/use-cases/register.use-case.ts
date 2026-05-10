@@ -19,7 +19,7 @@ export class RegisterUseCase {
 
   async execute(dto: RegisterDto) {
     const user = await this.createUserUseCase.execute(dto);
-    const payload = { sub: user.user_id, email: user.email };
+    const payload = { sub: user.id, email: user.email };
 
     const accessToken = await this.jwtService.signAsync(payload, {
       secret: this.configService.get('ACCESS_TOKEN_SECRET'),
@@ -27,7 +27,7 @@ export class RegisterUseCase {
     });
 
     const refreshToken = await this.jwtService.signAsync(
-      { sub: user.user_id },
+      { sub: user.id },
       {
         secret: this.configService.get('REFRESH_TOKEN_SECRET'),
         expiresIn: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
@@ -35,7 +35,7 @@ export class RegisterUseCase {
     );
 
     const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
-    await this.authRepository.saveRefreshToken(refreshToken, user.user_id, expiresAt);
+    await this.authRepository.saveRefreshToken(refreshToken, user.id, expiresAt);
 
     return {
       user,

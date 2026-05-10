@@ -63,7 +63,7 @@ describe('UpdateAvatarUseCase', () => {
 
   it('should throw ForbiddenException if user does not have permission', async () => {
     const user: IUser = {
-      user_id: 'user-1',
+      id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
@@ -84,7 +84,7 @@ describe('UpdateAvatarUseCase', () => {
 
   it('should upload avatar and update user', async () => {
     const user: IUser = {
-      user_id: 'user-1',
+      id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
@@ -114,7 +114,7 @@ describe('UpdateAvatarUseCase', () => {
 
   it('should delete old avatar if exists', async () => {
     const user: IUser = {
-      user_id: 'user-1',
+      id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',

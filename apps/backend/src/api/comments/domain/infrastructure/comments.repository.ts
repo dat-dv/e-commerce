@@ -34,7 +34,7 @@ export class CommentsRepository implements ICommentsRepository {
         include: {
           user: {
             select: {
-              user_id: true,
+              id: true,
               first_name: true,
               last_name: true,
               email: true,
@@ -46,7 +46,7 @@ export class CommentsRepository implements ICommentsRepository {
             include: {
               user: {
                 select: {
-                  user_id: true,
+                  id: true,
                   first_name: true,
                   last_name: true,
                   email: true,
@@ -76,7 +76,7 @@ export class CommentsRepository implements ICommentsRepository {
         include: {
           user: {
             select: {
-              user_id: true,
+              id: true,
               first_name: true,
               last_name: true,
               email: true,
@@ -92,7 +92,7 @@ export class CommentsRepository implements ICommentsRepository {
 
   async findById(id: string): Promise<IComment | null> {
     return this.prisma.comment.findUnique({
-      where: { comment_id: id, deleted_at: null },
+      where: { id, deleted_at: null },
     });
   }
 
@@ -104,14 +104,14 @@ export class CommentsRepository implements ICommentsRepository {
 
   async update(id: string, data: Prisma.CommentUpdateInput): Promise<IComment> {
     return this.prisma.comment.update({
-      where: { comment_id: id },
+      where: { id },
       data,
     });
   }
 
   async getUserPermissions(userId: string): Promise<string[]> {
     const user = await this.prisma.user.findUnique({
-      where: { user_id: userId },
+      where: { id: userId },
       include: {
         role: {
           include: {

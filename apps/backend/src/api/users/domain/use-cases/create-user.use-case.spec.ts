@@ -29,7 +29,7 @@ describe('CreateUserUseCase', () => {
   });
 
   it('should throw BadRequestException if email exists', async () => {
-    mockUsersRepository.findByEmail.mockResolvedValue({ user_id: '1' });
+    mockUsersRepository.findByEmail.mockResolvedValue({ id: '1' });
 
     const dto: CreateUserDto = {
       email: 'test@example.com',
@@ -44,7 +44,7 @@ describe('CreateUserUseCase', () => {
 
   it('should create user', async () => {
     mockUsersRepository.findByEmail.mockResolvedValue(null);
-    mockUsersRepository.create.mockResolvedValue({ user_id: '1', email: 'test@example.com' });
+    mockUsersRepository.create.mockResolvedValue({ id: '1', email: 'test@example.com' });
 
     const dto: CreateUserDto = {
       email: 'test@example.com',
@@ -62,6 +62,6 @@ describe('CreateUserUseCase', () => {
       last_name: dto.last_name,
       password: dto.password,
     });
-    expect(result.user_id).toBe('1');
+    expect(result.id).toBe('1');
   });
 });

@@ -25,7 +25,7 @@ export class PermissionsRepository implements IPermissionsRepository {
 
   async findById(id: string): Promise<IPermission | null> {
     return this.prisma.permission.findUnique({
-      where: { permission_id: id },
+      where: { id },
     });
   }
 
@@ -37,20 +37,20 @@ export class PermissionsRepository implements IPermissionsRepository {
 
   async update(id: string, data: Prisma.PermissionUpdateInput): Promise<IPermission> {
     return this.prisma.permission.update({
-      where: { permission_id: id },
+      where: { id },
       data,
     });
   }
 
   async delete(id: string): Promise<IPermission> {
     return this.prisma.permission.delete({
-      where: { permission_id: id },
+      where: { id },
     });
   }
 
   async countRolesWithPermission(permissionId: string): Promise<number> {
     return this.prisma.role.count({
-      where: { permissions: { some: { permission_id: permissionId } } },
+      where: { permissions: { some: { id: permissionId } } },
     });
   }
 }

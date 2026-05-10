@@ -25,7 +25,7 @@ export class RolesRepository implements IRolesRepository {
 
   async findById(id: string): Promise<IRole | null> {
     return this.prisma.role.findUnique({
-      where: { role_id: id },
+      where: { id },
     });
   }
 
@@ -37,14 +37,14 @@ export class RolesRepository implements IRolesRepository {
 
   async update(id: string, data: Prisma.RoleUpdateInput): Promise<IRole> {
     return this.prisma.role.update({
-      where: { role_id: id },
+      where: { id },
       data,
     });
   }
 
   async delete(id: string): Promise<IRole> {
     return this.prisma.role.delete({
-      where: { role_id: id },
+      where: { id },
     });
   }
 

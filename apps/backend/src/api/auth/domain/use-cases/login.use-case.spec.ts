@@ -62,7 +62,7 @@ describe('LoginUseCase', () => {
 
   it('should throw UnauthorizedException if password incorrect', async () => {
     const user: IUser = {
-      user_id: '1',
+      id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
@@ -78,7 +78,7 @@ describe('LoginUseCase', () => {
 
   it('should login successfully and return tokens', async () => {
     const user: IUser = {
-      user_id: '1',
+      id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',

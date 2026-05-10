@@ -46,7 +46,7 @@ export class CreatePostUseCase {
       ...postData,
       slug,
       post_tags,
-      user: { connect: { user_id } },
+      user: { connect: { id: user_id } },
       thumbnail: thumbnail_id ? { connect: { id: thumbnail_id } } : undefined,
     };
 

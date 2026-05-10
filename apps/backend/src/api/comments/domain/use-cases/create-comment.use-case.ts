@@ -25,9 +25,9 @@ export class CreateCommentUseCase {
 
     return this.commentsRepository.create({
       content,
-      post: { connect: { post_id: postId } },
-      user: { connect: { user_id: userId } },
-      parent: finalParentId ? { connect: { comment_id: finalParentId } } : undefined,
+      post: { connect: { id: postId } },
+      user: { connect: { id: userId } },
+      parent: finalParentId ? { connect: { id: finalParentId } } : undefined,
     });
   }
 }

@@ -79,12 +79,12 @@ describe('RBAC & Ownership (e2e)', () => {
       if (!user2) throw new Error('User 2 not found in seed data');
 
       const userPermissions = await prisma.role.findMany({
-        where: { users: { some: { user_id: user2.user_id } } },
+        where: { users: { some: { id: user2.id } } },
         include: { permissions: true },
       });
 
-      const hasAnyPermission = userPermissions.some((rp) =>
-        rp.permissions.some((p) => p.permission_name === 'UPDATE:POST:ANY'),
+      const hasAnyPermission = userPermissions.some((rp: any) =>
+        rp.permissions.some((p: any) => p.permission_name === 'UPDATE:POST:ANY'),
       );
       expect(hasAnyPermission).toBe(false);
 

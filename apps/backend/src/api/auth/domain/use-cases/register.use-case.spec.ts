@@ -53,7 +53,7 @@ describe('RegisterUseCase', () => {
 
   it('should register successfully and return tokens', async () => {
     const user: IUser = {
-      user_id: '1',
+      id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',

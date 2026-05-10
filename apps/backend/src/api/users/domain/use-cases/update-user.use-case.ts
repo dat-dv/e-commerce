@@ -23,7 +23,7 @@ export class UpdateUserUseCase {
 
     const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
 
-    this.checkOwnershipOrPermission(id, requestingUser.user_id, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+    this.checkOwnershipOrPermission(id, requestingUser.id, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
 
     return this.usersRepository.update(id, dto);
   }

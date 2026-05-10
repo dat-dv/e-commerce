@@ -41,7 +41,7 @@ describe('UpdateUserUseCase', () => {
 
   it('should throw ForbiddenException if user does not have permission', async () => {
     const user: IUser = {
-      user_id: 'user-1',
+      id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
@@ -62,7 +62,7 @@ describe('UpdateUserUseCase', () => {
 
   it('should update user', async () => {
     const user: IUser = {
-      user_id: 'user-1',
+      id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',

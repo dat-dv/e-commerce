@@ -25,7 +25,7 @@ export class UsersRepository implements IUsersRepository {
 
   async findById(id: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
-      where: { user_id: id },
+      where: { id },
       include: {
         avatar: true,
         role: {
@@ -61,7 +61,7 @@ export class UsersRepository implements IUsersRepository {
 
   async update(id: string, data: Partial<IUser>): Promise<IUser> {
     const prismaUser = await this.prisma.user.update({
-      where: { user_id: id },
+      where: { id },
       data: data,
       include: {
         avatar: true,
@@ -118,7 +118,7 @@ export class UsersRepository implements IUsersRepository {
 
   async getUserPermissions(userId: string): Promise<string[]> {
     const user = await this.prisma.user.findUnique({
-      where: { user_id: userId },
+      where: { id: userId },
       include: {
         role: {
           include: {
@@ -133,7 +133,7 @@ export class UsersRepository implements IUsersRepository {
 
   async getUserAvatarPublicId(userId: string): Promise<string | null> {
     const user = await this.prisma.user.findUnique({
-      where: { user_id: userId },
+      where: { id: userId },
       include: {
         avatar: true,
       },
@@ -144,7 +144,7 @@ export class UsersRepository implements IUsersRepository {
 
   private mapToEntity(prismaUser: PrismaUserWithRelations): IUser {
     return {
-      user_id: prismaUser.user_id,
+      id: prismaUser.id,
       first_name: prismaUser.first_name,
       last_name: prismaUser.last_name,
       email: prismaUser.email,

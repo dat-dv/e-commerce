@@ -23,7 +23,7 @@ export class ForgotPasswordUseCase {
     }
 
     const resetToken = await this.jwtService.signAsync(
-      { sub: user.user_id },
+      { sub: user.id },
       {
         secret: this.configService.get('RESET_PASSWORD_TOKEN'),
         expiresIn: this.configService.get('RESET_PASSWORD_TOKEN_EXPIRES_IN'),

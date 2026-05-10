@@ -58,7 +58,7 @@ describe('ForgotPasswordUseCase', () => {
 
   it('should send reset password mail successfully', async () => {
     const user: IUser = {
-      user_id: '1',
+      id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',

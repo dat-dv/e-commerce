@@ -38,7 +38,7 @@ export class PostsRepository implements IPostsRepository {
 
   async findById(id: string): Promise<IPostDetails | null> {
     return this.prisma.post.findUnique({
-      where: { post_id: id, deleted_at: null },
+      where: { id, deleted_at: null },
       include: {
         post_tags: {
           include: {
@@ -54,21 +54,21 @@ export class PostsRepository implements IPostsRepository {
 
   async update(id: string, data: Prisma.PostUpdateInput): Promise<IPost> {
     return this.prisma.post.update({
-      where: { post_id: id, deleted_at: null },
+      where: { id, deleted_at: null },
       data,
     });
   }
 
   async delete(id: string): Promise<IPost> {
     return this.prisma.post.update({
-      where: { post_id: id, deleted_at: null },
+      where: { id, deleted_at: null },
       data: { deleted_at: new Date() },
     });
   }
 
   async getUserPermissions(userId: string): Promise<string[]> {
     const user = await this.prisma.user.findUnique({
-      where: { user_id: userId },
+      where: { id: userId },
       include: {
         role: {
           include: {
