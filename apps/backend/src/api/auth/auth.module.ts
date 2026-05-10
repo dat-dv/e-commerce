@@ -12,6 +12,7 @@ import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
 import { GetMeUseCase } from './domain/use-cases/get-me.use-case';
 import { IAuthRepository } from './domain/entities/auth.repository.interface';
 import { AuthRepository } from './domain/infrastructure/auth.repository';
+import { TokenService } from '../../shared/services/token/token.service';
 
 @Module({
   imports: [JwtModule, forwardRef(() => UsersModule), MailModule],
@@ -24,6 +25,7 @@ import { AuthRepository } from './domain/infrastructure/auth.repository';
     ResetPasswordUseCase,
     RefreshTokenUseCase,
     GetMeUseCase,
+    TokenService,
     {
       provide: IAuthRepository,
       useClass: AuthRepository,
@@ -37,6 +39,7 @@ import { AuthRepository } from './domain/infrastructure/auth.repository';
     ResetPasswordUseCase,
     RefreshTokenUseCase,
     GetMeUseCase,
+    TokenService,
     IAuthRepository,
     JwtModule,
   ],

@@ -1,5 +1,6 @@
 import {
   ApiErrorResponse,
+  ApiResponse,
   ErrorResponseType,
   IRequestParams,
   ResponseType,
@@ -9,6 +10,10 @@ import {
   errorResponseStrategies,
   successResponseStrategies,
 } from "./response-mapping";
+import { PUBLIC_ENV } from "@/config/public.env.config";
+import { API_ROUTES } from "@/constants/routes";
+
+import { refreshState, processQueue } from "./request-queue";
 
 export class RequestError extends Error {
   constructor(
@@ -35,7 +40,21 @@ const requestCreator: TRequestCreator = async <T>({
   url,
   body,
   options,
-}: IRequestParams): Promise<T> => {
+}: IRequestParams): Promise<ApiResponse<T>> => {
+  // ===== QUEUE IF REFRESHING =====
+  if (refreshState.isRefreshing && !options?.skipAutoRefresh) {
+    return new Promise<ApiResponse<T>>((resolve, reject) => {
+      refreshState.failedQueue.push({
+        resolve: () => {
+          requestCreator<T>({ method, url, body, options })
+            .then(resolve)
+            .catch(reject);
+        },
+        reject: (err) => reject(err),
+      });
+    });
+  }
+
   const isFormData = body instanceof FormData;
 
   const res = await fetch(url, {
@@ -48,6 +67,38 @@ const requestCreator: TRequestCreator = async <T>({
     },
     body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
   });
+
+  // ===== REFRESH TOKEN =====
+  if (res.status === 401 && !options?.skipAutoRefresh) {
+    return new Promise<ApiResponse<T>>((resolve, reject) => {
+      refreshState.failedQueue.push({
+        resolve: () => {
+          requestCreator<T>({ method, url, body, options })
+            .then(resolve)
+            .catch(reject);
+        },
+        reject: (err) => reject(err),
+      });
+
+      if (!refreshState.isRefreshing) {
+        refreshState.isRefreshing = true;
+
+        requestCreator({
+          method: "POST",
+          url: `${PUBLIC_ENV.NEXT_PUBLIC_API_URL}${API_ROUTES.AUTH.REFRESH_TOKEN}`,
+          options: { skipAutoRefresh: true },
+        })
+          .then(() => {
+            refreshState.isRefreshing = false;
+            processQueue(null);
+          })
+          .catch((err) => {
+            refreshState.isRefreshing = false;
+            processQueue(err);
+          });
+      }
+    });
+  }
 
   // ===== ERROR =====
   if (!res.ok) {
@@ -66,7 +117,7 @@ const requestCreator: TRequestCreator = async <T>({
   const type = resolveResponseType(res, options?.responseType);
   const data = await successResponseStrategies[type](res);
 
-  return data as T;
+  return data as ApiResponse<T>;
 };
 
 export default requestCreator;

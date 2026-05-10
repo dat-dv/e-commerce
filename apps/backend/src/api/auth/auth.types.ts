@@ -4,6 +4,7 @@ export type TAccessTokenPayload = {
 };
 
 export type TRefreshTokenPayload = {
+  email: string;
   sub: string;
 };
 

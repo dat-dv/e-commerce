@@ -36,6 +36,7 @@ export const API_ROUTES = {
     REGISTER: "/auth/register",
     ME: "/auth/me",
     LOGOUT: "/auth/logout",
+    REFRESH_TOKEN: "/auth/refresh-token",
   },
   USERS: {
     PROFILE: "/users/profile",

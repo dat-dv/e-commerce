@@ -11,7 +11,7 @@ export interface PaginatedResult<T> {
 }
 
 interface PrismaModelDelegate {
-  findMany(args?: any): Promise<any>;
+  findMany(args?: any): Promise<any[]>;
   count(args?: any): Promise<number>;
 }
 
@@ -36,7 +36,7 @@ export class PaginationService {
     ]);
 
     return {
-      items: data,
+      items: data as T[],
       meta: {
         total,
         page,

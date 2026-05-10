@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import { RegisterDto } from '../../dto/register.dto';
 import { EnvVars } from 'src/config/config.validation';
 import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.constant';
+import { TokenService } from 'src/shared/services/token/token.service';
 
 @Injectable()
 export class RegisterUseCase {
@@ -13,7 +14,7 @@ export class RegisterUseCase {
     private readonly createUserUseCase: CreateUserUseCase,
     @Inject(IAuthRepository)
     private readonly authRepository: IAuthRepository,
-    private readonly jwtService: JwtService,
+    private readonly tokenService: TokenService,
     private readonly configService: ConfigService<EnvVars>,
   ) {}
 
@@ -25,18 +26,9 @@ export class RegisterUseCase {
     });
     const payload = { sub: user.id, email: user.email };
 
-    const accessToken = await this.jwtService.signAsync(payload, {
-      secret: this.configService.get('ACCESS_TOKEN_SECRET'),
-      expiresIn: this.configService.get('ACCESS_TOKEN_EXPIRES_IN'),
-    });
+    const accessToken = await this.tokenService.generateAccessToken(payload);
 
-    const refreshToken = await this.jwtService.signAsync(
-      { sub: user.id },
-      {
-        secret: this.configService.get('REFRESH_TOKEN_SECRET'),
-        expiresIn: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
-      },
-    );
+    const refreshToken = await this.tokenService.generateRefreshToken(payload);
 
     const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
     await this.authRepository.saveRefreshToken(refreshToken, user.id, expiresAt);

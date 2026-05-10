@@ -3,6 +3,7 @@ export type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
 export interface IRequestOptions extends RequestInit {
   responseType?: ResponseType;
+  skipAutoRefresh?: boolean;
 }
 
 export interface IRequestParams {

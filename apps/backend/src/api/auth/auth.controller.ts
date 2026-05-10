@@ -65,8 +65,8 @@ export class AuthController {
   }
 
   @Post('logout')
-  async logout(@Req() req: express.Request, @Res({ passthrough: true }) res: express.Response) {
-    const refreshToken = req.cookies['refresh_token'] as string | undefined;
+  async logout(@Req() req: Express.Request, @Res({ passthrough: true }) res: express.Response) {
+    const refreshToken = req.cookies['refresh_token'];
     const result = await this.logoutUseCase.execute(refreshToken);
 
     res.clearCookie('access_token');
@@ -76,12 +76,11 @@ export class AuthController {
   }
 
   @Post('refresh-token')
-  async refreshToken(@Req() req: express.Request, @Res({ passthrough: true }) res: express.Response) {
-    const accessToken = req.cookies['access_token'] as string | undefined;
-    const refreshToken = req.cookies['refresh_token'] as string | undefined;
+  async refreshToken(@Req() req: Express.Request, @Res({ passthrough: true }) res: express.Response) {
+    const accessToken = req.cookies.access_token;
+    const refreshToken = req.cookies.refresh_token;
 
     const result = await this.refreshTokenUseCase.execute(accessToken, refreshToken);
-
     this.setAccessTokenCookies(result.accessToken, res);
     this.setRefreshTokenCookies(result.refreshToken, res);
 

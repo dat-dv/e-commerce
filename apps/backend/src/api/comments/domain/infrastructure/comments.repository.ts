@@ -23,7 +23,7 @@ export class CommentsRepository implements ICommentsRepository {
     page: number,
     limit: number,
   ): Promise<PaginatedResult<ICommentWithRelations>> {
-    return this.paginationService.paginate<ICommentWithRelations>(
+    return this.paginationService.paginate(
       this.prisma.comment,
       {
         where: {
