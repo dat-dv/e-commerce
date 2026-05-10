@@ -16,12 +16,17 @@ export interface ConfigProviderProps {
 export const ConfigProvider = ({ children }: ConfigProviderProps) => {
   const [store] = useState(() => createConfigStore());
   const hasHydrated = useStore(store, (s) => s._hasHydrated);
-
-  if (!hasHydrated) {
-    return <Loading />;
-  }
+  const isLoadingTransition = useStore(store, (s) => s.isLoadingTransition);
+  const showLoading = !hasHydrated || isLoadingTransition;
 
   return (
-    <ConfigContext.Provider value={store}>{children}</ConfigContext.Provider>
+    <ConfigContext.Provider value={store}>
+      {showLoading && (
+        <div className="fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center">
+          <Loading />
+        </div>
+      )}
+      {children}
+    </ConfigContext.Provider>
   );
 };

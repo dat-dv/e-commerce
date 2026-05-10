@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import MissingProduct from "@/components/molecules/missing-product";
+
 export const metadata: Metadata = {
   title: "Product Details",
   description: "View product details.",
@@ -11,6 +13,10 @@ export default async function ProductDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+
+  if (!id) {
+    return <MissingProduct />;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">

@@ -10,15 +10,35 @@ import { ConfigState, ConfigStore } from "./config.types";
 export const configCreator =
   (initState?: Partial<ConfigState>): StateCreator<ConfigStore> =>
   (set, _get, _store) => {
+
+    const turnOffTransition = () => {
+      setTimeout(() => {
+        set({ isLoadingTransition: false });
+      }, 320);
+    }
     const store: ConfigStore = {
       theme: ETheme.BLUE,
       isDarkMode: false,
       _hasHydrated: false,
+      isLoadingTransition: false,
       ...initState,
-      setTheme: (theme: ETheme) => set({ theme }),
-      setDarkMode: (isDarkMode: boolean) => set({ isDarkMode }),
-      toggleDarkMode: () =>
-        set((state: ConfigState) => ({ isDarkMode: !state.isDarkMode })),
+      setTheme: (theme: ETheme) => {
+        set({ theme, isLoadingTransition: true });
+           turnOffTransition()
+
+      },
+      setDarkMode: (isDarkMode: boolean) => {
+        set({ isDarkMode, isLoadingTransition: true });
+           turnOffTransition()
+
+      },
+      toggleDarkMode: () => {
+        set((state: ConfigState) => ({ 
+          isDarkMode: !state.isDarkMode, 
+          isLoadingTransition: true 
+        }));
+        turnOffTransition();
+      },
       setHasHydrated: (_hasHydrated: boolean) => set({ _hasHydrated }),
     };
 

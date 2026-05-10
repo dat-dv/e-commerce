@@ -11,6 +11,7 @@ export interface ConfigState {
   theme: ETheme;
   isDarkMode: boolean;
   _hasHydrated: boolean;
+  isLoadingTransition: boolean
 }
 
 export interface ConfigHandler {
