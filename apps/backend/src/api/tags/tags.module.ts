@@ -23,6 +23,6 @@ import { RemoveTagUseCase } from './domain/use-cases/remove-tag.use-case';
       useClass: TagsRepository,
     },
   ],
-  exports: [ITagsRepository],
+  exports: [FindAllTagsUseCase, ITagsRepository],
 })
 export class TagsModule {}

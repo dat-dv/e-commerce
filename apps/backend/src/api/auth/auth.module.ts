@@ -35,6 +35,7 @@ import { AuthRepository } from './domain/infrastructure/auth.repository';
     ResetPasswordUseCase,
     RefreshTokenUseCase,
     IAuthRepository,
+    JwtModule,
   ],
 })
 export class AuthModule {}

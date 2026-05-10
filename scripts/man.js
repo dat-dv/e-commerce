@@ -1,0 +1,13 @@
+console.log('AVAILABLE COMMANDS IN MONOREPO:');
+console.log('-----------------------------------');
+console.log('npm run dev:be     - Start Backend in Dev mode');
+console.log('npm run build:be   - Build Backend to dist folder');
+console.log('npm run test:be    - Run tests for Backend');
+console.log('npm run lint:be    - Check code style for Backend');
+console.log('npm run format:be  - Auto format code for Backend');
+console.log('-----------------------------------');
+console.log('npm run dev:fe     - Start Frontend in Dev mode');
+console.log('-----------------------------------');
+console.log('npm run dev        - Start all projects in Dev mode');
+console.log('npm run build      - Build all projects');
+console.log('npm run test       - Run tests for all projects');

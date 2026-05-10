@@ -26,6 +26,6 @@ import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
       useClass: CloudinaryService,
     },
   ],
-  exports: [IUploadRepository],
+  exports: [IUploadRepository, UploadImageUseCase, DeleteImageUseCase],
 })
 export class UploadModule {}

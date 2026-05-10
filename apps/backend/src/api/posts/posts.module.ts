@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { PostsController } from './posts.controller';
 import { AuthModule } from '../auth/auth.module';
 import { UploadModule } from '../upload/upload.module';
@@ -11,7 +11,7 @@ import { UpdatePostUseCase } from './domain/use-cases/update-post.use-case';
 import { RemovePostUseCase } from './domain/use-cases/remove-post.use-case';
 
 @Module({
-  imports: [AuthModule, UploadModule],
+  imports: [forwardRef(() => AuthModule), UploadModule],
   controllers: [PostsController],
   providers: [
     CreatePostUseCase,
