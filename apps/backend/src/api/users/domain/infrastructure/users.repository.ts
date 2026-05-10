@@ -145,8 +145,8 @@ export class UsersRepository implements IUsersRepository {
   private mapToEntity(prismaUser: PrismaUserWithRelations): IUser {
     return {
       id: prismaUser.id,
-      first_name: prismaUser.first_name,
-      last_name: prismaUser.last_name,
+      first_name: prismaUser.first_name || '',
+      last_name: prismaUser.last_name || '',
       email: prismaUser.email,
       avatar_id: prismaUser.avatar_id,
       password: prismaUser.password,

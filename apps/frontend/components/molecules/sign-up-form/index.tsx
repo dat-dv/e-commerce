@@ -23,16 +23,6 @@ export default function SignUpForm() {
 
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <Input
-          id="fullName"
-          label="Full Name"
-          type="text"
-          placeholder="John Doe"
-          {...methods.register("fullName")}
-          autoComplete="name"
-          error={methods.formState.errors.fullName?.message}
-        />
-
-        <Input
           id="email"
           label="Email"
           type="email"
@@ -50,6 +40,16 @@ export default function SignUpForm() {
           {...methods.register("password")}
           autoComplete="new-password"
           error={methods.formState.errors.password?.message}
+        />
+
+        <Input
+          id="confirmPassword"
+          label="Confirm Password"
+          type="password"
+          placeholder="••••••••"
+          {...methods.register("confirmPassword")}
+          autoComplete="new-password"
+          error={methods.formState.errors.confirmPassword?.message}
         />
 
         <Button

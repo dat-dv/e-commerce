@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, Req, UnauthorizedException } from '@nestjs/common';
+import { Controller, Post, Body, Res, Req, UnauthorizedException, Get, UseGuards } from '@nestjs/common';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
@@ -11,6 +11,8 @@ import { LogoutUseCase } from './domain/use-cases/logout.use-case';
 import { ForgotPasswordUseCase } from './domain/use-cases/forgot-password.use-case';
 import { ResetPasswordUseCase } from './domain/use-cases/reset-password.use-case';
 import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
+import { GetMeUseCase } from './domain/use-cases/get-me.use-case';
+import { AuthGuard } from './guards/auth.guard';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
 
@@ -23,8 +25,16 @@ export class AuthController {
     private readonly forgotPasswordUseCase: ForgotPasswordUseCase,
     private readonly resetPasswordUseCase: ResetPasswordUseCase,
     private readonly refreshTokenUseCase: RefreshTokenUseCase,
+    private readonly getMeUseCase: GetMeUseCase,
     private readonly configService: ConfigService<EnvVars>,
   ) {}
+
+  @UseGuards(AuthGuard)
+  @Get('me')
+  async me(@Req() req: express.Request) {
+    const user = await this.getMeUseCase.execute(req.user.sub);
+    return createSuccessResponse(user);
+  }
 
   @Post('login')
   async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: express.Response) {

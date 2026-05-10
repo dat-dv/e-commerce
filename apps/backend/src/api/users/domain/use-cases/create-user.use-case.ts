@@ -18,9 +18,9 @@ export class CreateUserUseCase {
 
     return this.usersRepository.create({
       email: dto.email,
+      password: dto.password,
       first_name: dto.first_name,
       last_name: dto.last_name,
-      password: dto.password,
     });
   }
 }

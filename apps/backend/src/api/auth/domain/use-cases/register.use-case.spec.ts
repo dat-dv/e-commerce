@@ -67,8 +67,6 @@ describe('RegisterUseCase', () => {
       email: 'test@example.com',
       password: 'password',
       confirm_password: 'password',
-      first_name: 'Test',
-      last_name: 'User',
     });
 
     expect(result.user).toBe(user);

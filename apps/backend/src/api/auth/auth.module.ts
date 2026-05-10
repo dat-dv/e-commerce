@@ -9,6 +9,7 @@ import { LogoutUseCase } from './domain/use-cases/logout.use-case';
 import { ForgotPasswordUseCase } from './domain/use-cases/forgot-password.use-case';
 import { ResetPasswordUseCase } from './domain/use-cases/reset-password.use-case';
 import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
+import { GetMeUseCase } from './domain/use-cases/get-me.use-case';
 import { IAuthRepository } from './domain/entities/auth.repository.interface';
 import { AuthRepository } from './domain/infrastructure/auth.repository';
 
@@ -22,6 +23,7 @@ import { AuthRepository } from './domain/infrastructure/auth.repository';
     ForgotPasswordUseCase,
     ResetPasswordUseCase,
     RefreshTokenUseCase,
+    GetMeUseCase,
     {
       provide: IAuthRepository,
       useClass: AuthRepository,
@@ -34,6 +36,7 @@ import { AuthRepository } from './domain/infrastructure/auth.repository';
     ForgotPasswordUseCase,
     ResetPasswordUseCase,
     RefreshTokenUseCase,
+    GetMeUseCase,
     IAuthRepository,
     JwtModule,
   ],

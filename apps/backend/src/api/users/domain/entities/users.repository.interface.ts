@@ -4,7 +4,7 @@ export interface IUsersRepository {
   findById(id: string): Promise<IUser | null>;
   findByEmail(email: string): Promise<IUser | null>;
   update(id: string, data: Partial<IUser>): Promise<IUser>;
-  create(data: { email: string; first_name: string; last_name: string; password?: string }): Promise<IUser>;
+  create(data: { email: string; password?: string; first_name?: string; last_name?: string }): Promise<IUser>;
   findAll(page: number, limit: number): Promise<{ data: IUser[]; meta: any }>;
   getUserPermissions(userId: string): Promise<string[]>;
   getUserAvatarPublicId(userId: string): Promise<string | null>;

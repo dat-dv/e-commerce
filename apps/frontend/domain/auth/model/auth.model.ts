@@ -4,13 +4,13 @@ export interface IAuthRequest {
 }
 
 export interface IRegisterRequest extends IAuthRequest {
-  fullName: string;
+  confirmPassword: string;
 }
 
 export interface TUser {
   id: string;
-  first_name: string;
-  last_name: string;
+  first_name?: string;
+  last_name?: string;
   email: string;
   password?: string;
   avatar_id?: string | null;

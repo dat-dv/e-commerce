@@ -18,7 +18,11 @@ export class RegisterUseCase {
   ) {}
 
   async execute(dto: RegisterDto) {
-    const user = await this.createUserUseCase.execute(dto);
+    const user = await this.createUserUseCase.execute({
+      ...dto,
+      first_name: '',
+      last_name: '',
+    });
     const payload = { sub: user.id, email: user.email };
 
     const accessToken = await this.jwtService.signAsync(payload, {

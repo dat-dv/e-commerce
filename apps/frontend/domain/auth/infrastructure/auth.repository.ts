@@ -18,7 +18,12 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async register(request: IRegisterRequest): Promise<void> {
-    await this.request.post(API_ROUTES.AUTH.REGISTER, request);
+    const payload = {
+      email: request.email,
+      password: request.password,
+      confirm_password: request.confirmPassword,
+    };
+    await this.request.post(API_ROUTES.AUTH.REGISTER, payload);
   }
 
   async fetchMe(): Promise<TUser> {
