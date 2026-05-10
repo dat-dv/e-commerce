@@ -2,6 +2,7 @@ import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const metadata: Metadata = {
   title: "Help Center",
@@ -97,7 +98,7 @@ export default function HelpPage() {
               Popular Articles
             </h2>
             <Link
-              href="/help/faq"
+              href={APP_ROUTES.FAQ}
               className="text-sm font-medium text-primary hover:underline"
             >
               View More FAQ
@@ -156,7 +157,7 @@ export default function HelpPage() {
               variant="outline"
               size="sm"
               className="w-full"
-              href="/help/contact"
+              href={APP_ROUTES.CONTACT}
             >
               Contact Us
             </Button>
@@ -169,7 +170,7 @@ export default function HelpPage() {
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-content">Shipping FAQs</h2>
           <Link
-            href="/help/shipping"
+            href={APP_ROUTES.SHIPPING}
             className="text-sm font-medium text-primary hover:underline"
           >
             View More Shipping Info

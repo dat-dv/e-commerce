@@ -3,6 +3,7 @@ import Button from "@/components/atoms/button";
 import ContactForm from "@/components/molecules/contact-form";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -17,7 +18,7 @@ export default function ContactPage() {
     >
       <div className="mb-8">
         <Link
-          href="/help"
+          href={APP_ROUTES.HELP}
           className="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1"
         >
           ← Back to Help Center

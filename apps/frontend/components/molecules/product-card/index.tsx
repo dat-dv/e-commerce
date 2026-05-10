@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 export interface Product {
   id: number;
@@ -20,7 +21,7 @@ export const ProductCard = ({ product }: { product: Product }) => (
       {/* View Detail Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-content/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
         <Link
-          href={`/products/${product.id}`}
+          href={APP_ROUTES.PRODUCT_DETAIL(product.id)}
           className="text-surface text-xs font-bold bg-primary px-4 py-2 rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary/90"
         >
           View Detail
@@ -33,7 +34,7 @@ export const ProductCard = ({ product }: { product: Product }) => (
         {product.category}
       </span>
       <h3 className="text-sm font-bold text-content hover:text-primary transition-colors line-clamp-1">
-        <Link href={`/products/${product.id}`}>{product.name}</Link>
+        <Link href={APP_ROUTES.PRODUCT_DETAIL(product.id)}>{product.name}</Link>
       </h3>
       <span className="text-sm font-black text-content/80">
         {product.price}

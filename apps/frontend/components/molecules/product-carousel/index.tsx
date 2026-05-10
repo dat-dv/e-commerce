@@ -5,6 +5,7 @@ import { Carousel, CarouselItem } from "@/components/molecules/carousel";
 import Link from "next/link";
 import { ArrowRight, LucideIcon } from "lucide-react";
 import { ProductCard, Product } from "@/components/molecules/product-card";
+import { APP_ROUTES } from "@/constants/routes";
 
 interface ProductCarouselProps {
   title: string;
@@ -29,7 +30,7 @@ export const ProductCarousel = ({
           {title}
         </h2>
         <Link
-          href="/products"
+          href={APP_ROUTES.PRODUCTS}
           className="text-sm font-medium text-primary hover:underline flex items-center gap-1"
         >
           View all <ArrowRight className="w-4 h-4" />

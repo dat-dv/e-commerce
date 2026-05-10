@@ -3,6 +3,7 @@
 import React from "react";
 import { Sparkles, ArrowRight, ShoppingCart, Package } from "lucide-react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 interface WelcomeBannerProps {
   userName: string;
@@ -54,7 +55,7 @@ export const WelcomeBanner = ({
       <div className="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto justify-between lg:justify-end">
         {/* Quick Stats (Clean and integrated with links) */}
         <div className="flex items-center gap-8">
-          <Link href="/cart" className="flex items-center gap-3 group">
+          <Link href={APP_ROUTES.CART} className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-content/[0.03] border border-content/[0.05] flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
               <ShoppingCart className="w-4 h-4 text-content/60 group-hover:text-primary transition-colors" />
             </div>
@@ -68,7 +69,7 @@ export const WelcomeBanner = ({
             </div>
           </Link>
 
-          <Link href="/orders" className="flex items-center gap-3 group">
+          <Link href={APP_ROUTES.ORDERS} className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-content/[0.03] border border-content/[0.05] flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
               <Package className="w-4 h-4 text-content/60 group-hover:text-primary transition-colors" />
             </div>

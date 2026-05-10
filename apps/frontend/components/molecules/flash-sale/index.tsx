@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 import { ArrowRight, Flame } from "lucide-react";
 
 interface FlashSaleProduct {
@@ -41,7 +42,7 @@ export const FlashSale = ({ products }: FlashSaleProps) => {
           </div>
         </div>
         <Link
-          href="#"
+          href={APP_ROUTES.CATEGORY("flash-sale")}
           className="text-sm font-medium text-primary hover:underline flex items-center gap-1"
         >
           View all <ArrowRight className="w-4 h-4" />

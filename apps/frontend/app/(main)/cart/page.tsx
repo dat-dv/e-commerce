@@ -20,7 +20,7 @@ export default function CartPage() {
         Your cart is currently empty.
       </p>
       <Button
-        href="/products"
+        href={APP_ROUTES.PRODUCTS}
         variant="primary"
         size="lg"
         className="rounded-2xl px-8"

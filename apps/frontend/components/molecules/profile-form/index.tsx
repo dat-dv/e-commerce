@@ -6,6 +6,7 @@ import { FormAvatarInput } from "@/components/molecules/form/form-avatar-input";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { useProfile } from "@/hooks/profile/use-profile";
+import { APP_ROUTES } from "@/constants/routes";
 
 import AppForm from "../form/app-form";
 import FormListenerDirty from "../form/form-listener-dirty";
@@ -97,7 +98,7 @@ export const ProfileForm = () => {
           ) : (
             <>
               <Button
-                href="/todo"
+                href={APP_ROUTES.TODO}
                 variant="primary"
                 size="lg"
                 className="rounded-2xl px-8 shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all"

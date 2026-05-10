@@ -1,6 +1,7 @@
 import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import type { Metadata } from "next";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const metadata: Metadata = {
   title: "My Orders",
@@ -17,7 +18,7 @@ export default function OrdersPage() {
       <h1 className="text-3xl font-black mb-2 text-content">My Orders</h1>
       <p className="text-content/40 text-sm mb-8">You have no orders yet.</p>
       <Button
-        href="/products"
+        href={APP_ROUTES.PRODUCTS}
         variant="outline"
         size="lg"
         className="rounded-2xl px-8"

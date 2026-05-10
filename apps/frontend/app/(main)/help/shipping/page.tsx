@@ -4,6 +4,7 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import TableOfContents from "@/components/molecules/toc";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const metadata: Metadata = {
   title: "Shipping Information",
@@ -91,7 +92,7 @@ export default function ShippingPage() {
   const header = (
     <div className="mb-10">
       <Link
-        href="/help"
+        href={APP_ROUTES.HELP}
         className="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1"
       >
         ← Back to Help Center
@@ -129,7 +130,7 @@ export default function ShippingPage() {
           variant="primary"
           size="sm"
           className="w-full text-xs py-2 rounded-lg"
-          href="/help/contact"
+          href={APP_ROUTES.CONTACT}
         >
           Contact Us
         </Button>

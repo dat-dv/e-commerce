@@ -4,8 +4,14 @@ import Button from "@/components/atoms/button";
 import { motion } from "framer-motion";
 import { ChevronRight, Search } from "lucide-react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 export default function MissingProduct() {
+  const suggestedRoutes = [
+    { label: "Browse products", href: APP_ROUTES.PRODUCTS },
+    { label: "View shopping cart", href: APP_ROUTES.CART },
+    { label: "Back to homepage", href: APP_ROUTES.HOME },
+  ];
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] p-6">
       <motion.div
@@ -30,11 +36,7 @@ export default function MissingProduct() {
 
         {/* Clean Navigation Links (Vercel Style) */}
         <div className="space-y-2 mb-8">
-          {[
-            { label: "Browse products", href: "/products" },
-            { label: "View shopping cart", href: "/cart" },
-            { label: "Back to homepage", href: "/" },
-          ].map((item) => (
+          {suggestedRoutes.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -51,7 +53,7 @@ export default function MissingProduct() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button
-            href="/products"
+            href={APP_ROUTES.PRODUCTS}
             variant="primary"
             size="md"
             className="flex-1"

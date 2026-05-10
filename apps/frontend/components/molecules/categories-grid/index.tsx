@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 import { ArrowRight, LucideIcon } from "lucide-react";
 
 interface Category {
@@ -21,7 +22,7 @@ export const CategoriesGrid = ({ categories }: CategoriesGridProps) => {
       {categories.map((cat) => (
         <Link
           key={cat.name}
-          href={`/categories/${cat.name.toLowerCase()}`}
+          href={APP_ROUTES.CATEGORY(cat.name.toLowerCase())}
           className="group relative h-32 bg-content/[0.02] border border-content/[0.05] hover:border-content/[0.1] rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden"
         >
           <div

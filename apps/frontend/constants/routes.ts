@@ -10,6 +10,17 @@ export const APP_ROUTES = {
   TERMS: "/terms",
   PRIVACY: "/privacy",
   DOCS: "/docs",
+  CATEGORIES: "/products/categories",
+  CATEGORY: (name: string) => `/products/categories?name=${name}`,
+  PRODUCT_DETAIL: (id: string | number) => `/products/${id}`,
+  CART: "/cart",
+  ORDERS: "/orders",
+  PRODUCTS: "/products",
+  SETTINGS: "/settings",
+  HELP: "/help",
+  FAQ: "/help/faq",
+  SHIPPING: "/help/shipping",
+  CONTACT: "/help/contact",
 } as const;
 
 /** @description API endpoint paths */

@@ -39,7 +39,7 @@ export const HeroSection = () => {
               Start Shopping
             </Button>
             <Button
-              href="/products"
+              href={APP_ROUTES.PRODUCTS}
               variant="ghost"
               size="lg"
               className="rounded-xl px-8 text-sm font-bold border border-content/10"
