@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-
-import { ProfileView } from "@/components/organisms/profile-view";
+import { ProfileForm } from "@/components/molecules/profile-form";
 
 export const metadata: Metadata = {
   title: "Profile",
@@ -8,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProfilePage() {
-  return <ProfileView />;
+  return <ProfileForm />;
 }

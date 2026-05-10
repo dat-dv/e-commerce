@@ -42,7 +42,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-10 border-t border-content/10 bg-surface">
+    <footer className="py-10 border-t border-content/10 bg-surface mt-30">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-content/60">
         {FOOTER_SECTIONS.map((section) => (
           <div key={section.title}>

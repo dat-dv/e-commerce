@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Calendar } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 
@@ -20,14 +21,10 @@ interface DateInputProps extends Omit<
   label?: string;
   error?: string;
   variant?: InputVariant;
-  onInvalid?: (message: string) => void;
 }
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
-  (
-    { className, label, error, id, variant = "outline", onInvalid, ...rest },
-    ref,
-  ) => {
+  ({ className, label, error, id, variant = "outline", ...rest }, ref) => {
     const isDisabled = rest.disabled;
 
     const stateStyle = isDisabled
@@ -36,67 +33,141 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         ? variantError[variant as keyof typeof variantError]
         : variantNormal[variant as keyof typeof variantNormal];
 
-    // Helper to convert ISO string (or any string) to YYYY-MM-DD
-    const formatDateToYMD = (val?: string | number | readonly string[]) => {
-      if (!val || typeof val !== "string") return "";
-      return val.split("T")[0]; // Extracts YYYY-MM-DD
-    };
+    const [day, setDay] = React.useState("");
+    const [month, setMonth] = React.useState("");
+    const [year, setYear] = React.useState("");
 
-    const nativeValue = formatDateToYMD(rest.value);
-    const nativeMax = "2026-05-11"; // Hardcoded today for testing
-    const nativeMin = "2026-05-11"; // Hardcoded today for testing
+    const dayRef = React.useRef<HTMLInputElement>(null);
+    const monthRef = React.useRef<HTMLInputElement>(null);
+    const yearRef = React.useRef<HTMLInputElement>(null);
 
-    const localRef = React.useRef<HTMLInputElement>(null);
+    // Forward the day ref to the parent ref
+    React.useImperativeHandle(ref, () => dayRef.current!);
 
-    // Forward the local ref to the parent ref
-    React.useImperativeHandle(ref, () => localRef.current!);
-
-    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value;
-      if (!val) {
-        rest.onChange?.(e);
-        return;
+    React.useEffect(() => {
+      if (rest.value && typeof rest.value === "string") {
+        const datePart = rest.value.split("T")[0];
+        const parts = datePart.split("-");
+        if (parts.length === 3) {
+          const [y, m, d] = parts;
+          setDay(d || "");
+          setMonth(m || "");
+          setYear(y || "");
+        }
+      } else if (!rest.value) {
+        setDay("");
+        setMonth("");
+        setYear("");
       }
+    }, [rest.value]);
 
-      const date = new Date(val);
-
-      // If the date is invalid (e.g. typing "11111"), pass the raw value to avoid crash
-      if (isNaN(date.getTime())) {
-        rest.onChange?.(e);
-        return;
+    const updateValue = (d: string, m: string, y: string) => {
+      if (d.length === 2 && m.length === 2 && y.length === 4) {
+        const date = new Date(`${y}-${m}-${d}T00:00:00.000Z`);
+        if (!isNaN(date.getTime())) {
+          const isoString = date.toISOString();
+          const event = {
+            target: { value: isoString },
+          } as React.ChangeEvent<HTMLInputElement>;
+          rest.onChange?.(event);
+        }
+      } else if (!d && !m && !y) {
+        const event = {
+          target: { value: "" },
+        } as React.ChangeEvent<HTMLInputElement>;
+        rest.onChange?.(event);
       }
-
-      const isoString = date.toISOString();
-
-      // Override the target value with ISO string for parent components
-      const customEvent = {
-        ...e,
-        target: { ...e.target, value: isoString },
-      };
-
-      rest.onChange?.(customEvent);
     };
 
-    const handleIconClick = () => {
-      localRef.current?.showPicker();
-    };
-
-    const handleInvalidDate = (e: React.InvalidEvent<HTMLInputElement>) => {
-      const target = e.target as HTMLInputElement;
-      const validity = target.validity;
-      let message = "Invalid date"; // Default message
-      if (validity.rangeOverflow) {
-        message = "Date cannot be later than the allowed date";
-      } else if (validity.rangeUnderflow) {
-        message = "Date cannot be earlier than the allowed date";
-      } else if (validity.valueMissing) {
-        message = "Please enter a date";
+    const handleDayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value.replace(/[^0-9]/g, "").slice(0, 2);
+      setDay(val);
+      updateValue(val, month, year);
+      if (val.length === 2) {
+        monthRef.current?.focus();
       }
-      onInvalid?.(message);
     };
+
+    const handleMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value.replace(/[^0-9]/g, "").slice(0, 2);
+      setMonth(val);
+      updateValue(day, val, year);
+      if (val.length === 2) {
+        yearRef.current?.focus();
+      }
+    };
+
+    const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value.replace(/[^0-9]/g, "").slice(0, 4);
+      setYear(val);
+      updateValue(day, month, val);
+    };
+
+    const CustomInput = React.forwardRef<HTMLDivElement, any>(
+      (props, divRef) => (
+        <div
+          ref={divRef}
+          onClick={props.onClick}
+          className={cn(
+            "flex items-center pr-4 relative",
+            isDisabled && "cursor-not-allowed opacity-70",
+            variantBase[variant as keyof typeof variantBase],
+            stateStyle,
+            className,
+          )}
+        >
+          <input
+            ref={dayRef}
+            value={day}
+            onChange={handleDayChange}
+            onFocus={(e) => e.target.select()}
+            placeholder="DD"
+            maxLength={2}
+            disabled={isDisabled}
+            className="w-8 h-8 text-center bg-transparent border-none outline-none focus:outline-none z-10"
+            aria-invalid={!!error}
+            onClick={(e) => e.stopPropagation()}
+          />
+          <span className="text-content/50 z-10">/</span>
+          <input
+            ref={monthRef}
+            value={month}
+            onChange={handleMonthChange}
+            onFocus={(e) => e.target.select()}
+            placeholder="MM"
+            maxLength={2}
+            disabled={isDisabled}
+            className="w-8 h-8 text-center bg-transparent border-none outline-none focus:outline-none z-10"
+            aria-invalid={!!error}
+            onClick={(e) => e.stopPropagation()}
+          />
+          <span className="text-content/50 z-10">/</span>
+          <input
+            ref={yearRef}
+            value={year}
+            onChange={handleYearChange}
+            onFocus={(e) => e.target.select()}
+            placeholder="YYYY"
+            maxLength={4}
+            disabled={isDisabled}
+            className="w-12 h-8 text-center bg-transparent border-none outline-none focus:outline-none z-10"
+            aria-invalid={!!error}
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <div className="ml-auto text-content/30 hover:text-content/60 transition-colors cursor-pointer z-10">
+            <Calendar size={18} />
+          </div>
+        </div>
+      ),
+    );
+    CustomInput.displayName = "CustomDateInput";
+
+    const valueAsDate = rest.value ? new Date(rest.value as string) : null;
+    const isValidDate = valueAsDate && !isNaN(valueAsDate.getTime());
 
     return (
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-1.5 w-full">
         {label && (
           <label
             htmlFor={id}
@@ -106,37 +177,196 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
           </label>
         )}
 
-        <div className="relative flex items-center">
-          <input
-            {...rest}
-            value={nativeValue}
-            max={nativeMax}
-            min={nativeMin}
-            onChange={handleOnChange}
-            ref={localRef}
-            id={id}
-            type="date"
-            className={cn(
-              "w-full outline-none transition-all duration-300 cursor-pointer uppercase pr-10",
-              isDisabled && "cursor-not-allowed opacity-70",
-              variantBase[variant as keyof typeof variantBase],
-              stateStyle,
-              className,
-            )}
-            aria-invalid={!!error}
-            aria-describedby={error ? `${id}-error` : undefined}
-            onInvalid={handleInvalidDate}
-          />
+        <div className="relative w-full">
+          <DatePicker
+            wrapperClassName="w-full"
+            selected={isValidDate ? valueAsDate : null}
+            onChange={(date: Date | null) => {
+              if (date) {
+                const isoString = date.toISOString();
+                const [y, m, d] = isoString.split("T")[0].split("-");
+                setDay(d);
+                setMonth(m);
+                setYear(y);
+                updateValue(d, m, y);
+              } else {
+                setDay("");
+                setMonth("");
+                setYear("");
+                updateValue("", "", "");
+              }
+            }}
+            customInput={<CustomInput />}
+            popperPlacement="bottom-end"
+            renderCustomHeader={({
+              date,
+              changeYear,
+              changeMonth,
+              decreaseMonth,
+              increaseMonth,
+              prevMonthButtonDisabled,
+              nextMonthButtonDisabled,
+            }) => {
+              const years = Array.from(
+                { length: 100 },
+                (_, i) => new Date().getFullYear() - i,
+              );
+              const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
 
-          <button
-            type="button"
-            onClick={handleIconClick}
-            disabled={isDisabled}
-            className="absolute right-3 text-content/50 hover:text-content/80 transition-colors cursor-pointer"
-          >
-            <Calendar size={18} />
-          </button>
+              return (
+                <div className="flex justify-between items-center px-4 py-2 bg-white">
+                  <button
+                    type="button"
+                    onClick={decreaseMonth}
+                    disabled={prevMonthButtonDisabled}
+                    className="p-1 text-content/50 hover:text-content disabled:opacity-30 flex items-center justify-center"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <div className="flex gap-1 font-semibold text-content/80 text-sm">
+                    <select
+                      value={date.getMonth()}
+                      onChange={({ target: { value } }) =>
+                        changeMonth(Number(value))
+                      }
+                      className="bg-transparent border-none outline-none cursor-pointer hover:text-content appearance-none"
+                    >
+                      {months.map((month, index) => (
+                        <option key={month} value={index}>
+                          {month}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={date.getFullYear()}
+                      onChange={({ target: { value } }) =>
+                        changeYear(Number(value))
+                      }
+                      className="bg-transparent border-none outline-none cursor-pointer hover:text-content appearance-none"
+                    >
+                      {years.map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={increaseMonth}
+                    disabled={nextMonthButtonDisabled}
+                    className="p-1 text-content/50 hover:text-content disabled:opacity-30 flex items-center justify-center"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
+              );
+            }}
+            todayButton={
+              <div className="flex justify-between w-full text-sm font-semibold text-content/80">
+                <span>Today</span>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setDay("");
+                    setMonth("");
+                    setYear("");
+                    updateValue("", "", "");
+                  }}
+                  className="text-red-500 hover:text-red-700 transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
+            }
+          />
         </div>
+
+        <style>{`
+          .react-datepicker {
+            background-color: white !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 16px !important;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+            overflow: hidden;
+            font-family: inherit !important;
+          }
+          .react-datepicker__triangle {
+            fill: white !important;
+            stroke: #e2e8f0 !important;
+          }
+          .react-datepicker__header {
+            background-color: white !important;
+            border-bottom: none !important;
+            padding-top: 16px !important;
+          }
+          .react-datepicker__current-month {
+            font-weight: 600 !important;
+            color: #0f172a !important;
+            font-size: 1rem !important;
+          }
+          .react-datepicker__day-name, .react-datepicker__day {
+            width: 2.25rem !important;
+            line-height: 2.25rem !important;
+            margin: 0.125rem !important;
+            color: #475569 !important;
+          }
+          .react-datepicker__day-name {
+            font-weight: 500 !important;
+            color: #94a3b8 !important;
+          }
+          .react-datepicker__day--selected {
+            background-color: #0f172a !important;
+            color: white !important;
+            border-radius: 9999px !important;
+            font-weight: 600 !important;
+          }
+          .react-datepicker__day:hover {
+            background-color: #f1f5f9 !important;
+            border-radius: 9999px !important;
+            color: #0f172a !important;
+          }
+          .react-datepicker__day--outside-month {
+            color: #cbd5e1 !important;
+          }
+          .react-datepicker__today-button {
+            background-color: white !important;
+            border-top: 1px solid #f1f5f9 !important;
+            font-weight: 600 !important;
+            color: #0f172a !important;
+            padding: 12px !important;
+            border-bottom-left-radius: 16px !important;
+            border-bottom-right-radius: 16px !important;
+          }
+          .react-datepicker__day--keyboard-selected {
+            background-color: #f8fafc !important;
+            color: #0f172a !important;
+            border-radius: 9999px !important;
+          }
+          .react-datepicker__navigation {
+            top: 16px !important;
+          }
+          .react-datepicker__navigation--previous {
+            left: 12px !important;
+          }
+          .react-datepicker__navigation--next {
+            right: 12px !important;
+          }
+        `}</style>
 
         <AnimatePresence mode="wait">
           {error && (

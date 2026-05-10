@@ -9,7 +9,7 @@ export const profileSchema = z.object({
     .or(z.literal("")),
   dob: z
     .string()
-    .length(8, { message: "Date of birth must be DDMMYYYY (8 digits)" })
+    .datetime({ message: "Invalid date format (must be ISO string)" })
     .optional()
     .or(z.literal("")),
   avatarUrl: z

@@ -71,11 +71,9 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
         {/* Camera overlay */}
         {!disabled && (
           <>
-            <motion.button
+            <button
               type="button"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              className="absolute inset-0 rounded-full bg-black/50 flex flex-col items-center justify-center gap-1 cursor-pointer z-10"
+              className="absolute inset-0 rounded-full bg-black/50 flex flex-col items-center justify-center gap-1 cursor-pointer z-10 opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300"
               onClick={() => fileRef.current?.click()}
               aria-label="Change avatar"
             >
@@ -83,7 +81,7 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
               <span className="text-[10px] font-bold text-white uppercase tracking-widest">
                 Change
               </span>
-            </motion.button>
+            </button>
 
             <input
               ref={fileRef}
