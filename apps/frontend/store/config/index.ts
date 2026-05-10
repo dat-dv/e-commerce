@@ -10,12 +10,11 @@ import { ConfigState, ConfigStore } from "./config.types";
 export const configCreator =
   (initState?: Partial<ConfigState>): StateCreator<ConfigStore> =>
   (set, _get, _store) => {
-
     const turnOffTransition = () => {
       setTimeout(() => {
         set({ isLoadingTransition: false });
       }, 320);
-    }
+    };
     const store: ConfigStore = {
       theme: ETheme.BLUE,
       isDarkMode: false,
@@ -24,18 +23,16 @@ export const configCreator =
       ...initState,
       setTheme: (theme: ETheme) => {
         set({ theme, isLoadingTransition: true });
-           turnOffTransition()
-
+        turnOffTransition();
       },
       setDarkMode: (isDarkMode: boolean) => {
         set({ isDarkMode, isLoadingTransition: true });
-           turnOffTransition()
-
+        turnOffTransition();
       },
       toggleDarkMode: () => {
-        set((state: ConfigState) => ({ 
-          isDarkMode: !state.isDarkMode, 
-          isLoadingTransition: true 
+        set((state: ConfigState) => ({
+          isDarkMode: !state.isDarkMode,
+          isLoadingTransition: true,
         }));
         turnOffTransition();
       },

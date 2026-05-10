@@ -41,6 +41,8 @@ export const AuthProvider = ({ children, initState }: AuthProviderProps) => {
         }
       } catch {
         // Handle error silently
+      } finally {
+        store.getState().setHasHydrated(true);
       }
     };
     initAuthStore();
