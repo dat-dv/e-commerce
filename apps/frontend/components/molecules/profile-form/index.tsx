@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { AnimationItem } from "@/components/atoms/animate";
 import Button from "@/components/atoms/button";
 import { FormAvatarInput } from "@/components/molecules/form/form-avatar-input";
@@ -10,6 +11,7 @@ import { APP_ROUTES } from "@/constants/routes";
 
 import AppForm from "../form/app-form";
 import FormListenerDirty from "../form/form-listener-dirty";
+import MapPickerModal from "./map-picker-modal";
 
 export const ProfileForm = () => {
   const {
@@ -22,6 +24,11 @@ export const ProfileForm = () => {
     handleSave,
   } = useProfile();
   const isDisabled = loading || !isEditing;
+  const [mapOpen, setMapOpen] = useState(false);
+
+  const handlePickAddress = (address: string) => {
+    methods.setValue("address", address, { shouldDirty: true });
+  };
 
   return (
     <AppForm data-testid="profile-form" methods={methods} onSubmit={handleSave}>
@@ -29,7 +36,7 @@ export const ProfileForm = () => {
         <AnimationItem className="flex flex-col items-center text-center gap-6">
           <FormAvatarInput
             name="avatarUrl"
-            displayName={user?.name}
+            displayName={user?.first_name + " " + user?.last_name}
             size={160}
             disabled={isDisabled}
           />
@@ -53,10 +60,10 @@ export const ProfileForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormInput
             variant="underline"
-            name="address"
-            label="Address"
-            placeholder="Your Address"
-            autoComplete="street-address"
+            name="phoneNumber"
+            label="Phone Number"
+            placeholder="Your Phone Number"
+            autoComplete="tel"
             disabled={isDisabled}
           />
           <FormDateInput
@@ -67,6 +74,35 @@ export const ProfileForm = () => {
             disabled={isDisabled}
           />
         </div>
+
+        <div className="flex flex-col gap-2">
+          <FormInput
+            variant="underline"
+            name="address"
+            label="Address"
+            placeholder="Your Address"
+            autoComplete="street-address"
+            disabled={isDisabled}
+          />
+          <div className="flex justify-end">
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() => setMapOpen(true)}
+              className="text-primary hover:text-primary-focus font-medium"
+              disabled={isDisabled}
+            >
+              Pick on Map
+            </Button>
+          </div>
+        </div>
+
+        <MapPickerModal
+          isOpen={mapOpen}
+          onClose={() => setMapOpen(false)}
+          onPick={handlePickAddress}
+        />
 
         {/* Form Actions Section */}
         <AnimationItem className="flex flex-wrap items-center justify-center gap-4 pt-6">
