@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma, User, Tag } from '../../generated/prisma/client';
+import { PrismaClient, Prisma, User, Tag, Post } from '../../generated/prisma/client';
 
 export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users: User[], tags: Tag[]) {
   console.log('--- Phase 2: Posts ---');

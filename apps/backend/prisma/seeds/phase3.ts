@@ -1,13 +1,11 @@
-import { PrismaClient } from '../../generated/prisma/client';
-import { IUser } from '../../src/api/users/domain/entities/user.entity';
-import { IPost } from '../../src/api/posts/domain/entities/post.entity';
+import { PrismaClient, Prisma, User } from '../../generated/prisma/client';
 import { IComment } from '../../src/api/comments/domain/entities/comment.entity';
 
 export async function seedPhase3(
   prisma: PrismaClient,
-  posts: Pick<IPost, 'id' | 'user_id'>[],
-  defaultUser: IUser,
-  users: IUser[],
+  posts: Prisma.PostCreateManyInput[],
+  defaultUser: User,
+  users: User[],
 ) {
   console.log('--- Phase 3: Comments ---');
 
@@ -26,7 +24,7 @@ export async function seedPhase3(
   const defaultUserComments: IComment[] = otherPosts.map((post, i) => ({
     id: generateId(),
     content: `Bài viết này hay quá! Mình là user@example.com đây. (Comment dạo số ${i + 1})`,
-    post_id: post.id,
+    post_id: post.id!,
     user_id: defaultUser.id,
     created_at: new Date(),
     updated_at: new Date(),
@@ -42,7 +40,7 @@ export async function seedPhase3(
         return {
           id: generateId(),
           content: `Bình luận gốc số ${i + 1} trên bài viết.`,
-          post_id: post.id,
+          post_id: post.id!,
           user_id: randomUser.id,
           created_at: new Date(),
           updated_at: new Date(),
@@ -53,7 +51,7 @@ export async function seedPhase3(
   const allRootComments = [...defaultUserComments, ...randomRootComments];
 
   // 3. Tạo reply ngẫu nhiên dựa trên danh sách comment gốc vừa tạo
-  const allReplies: IComment[] = allRootComments.flatMap((rootComment) => {
+  const allReplies: Prisma.CommentCreateManyInput[] = allRootComments.flatMap((rootComment) => {
     // Tỷ lệ 20% tạo nhiều reply để test Load More
     const hasManyReplies = Math.random() > 0.8;
     const replyCount = hasManyReplies ? 10 : Math.floor(Math.random() * 2);
