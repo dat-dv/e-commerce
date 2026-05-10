@@ -60,10 +60,6 @@ const MOCK_PRODUCTS = [
   },
 ];
 
-/**
- * CategoryPage component renders the products listing for a specific category.
- * It uses dynamic route params to get the category slug and displays a grid of products.
- */
 export default function CategoryPage() {
   const params = useParams();
   const slug = params?.slug as string;

@@ -1,15 +1,14 @@
 "use client";
 
-import React from "react";
-import AppContainer from "@/components/atoms/app-container";
-import Link from "next/link";
 import { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 interface FeatureItem {
   name: string;
   desc: string;
   icon: LucideIcon;
   color: string;
+  href?: string;
 }
 
 interface FeatureGridProps {
@@ -22,7 +21,7 @@ export const FeatureGrid = ({ items }: FeatureGridProps) => {
       {items.map((item) => (
         <Link
           key={item.name}
-          href="#"
+          href={item?.href || "#"}
           className="bg-content/[0.02] border border-content/[0.05] rounded-2xl p-4 flex flex-col gap-4 hover:bg-content/[0.04] hover:border-content/[0.1] hover:translate-y-[-2px] transition-all duration-300 group"
         >
           <div className="w-10 h-10 rounded-xl bg-content/[0.03] flex items-center justify-center group-hover:bg-content/[0.05] transition-colors">

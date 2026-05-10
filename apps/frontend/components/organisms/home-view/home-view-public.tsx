@@ -21,6 +21,7 @@ import { PromoBanner } from "@/components/molecules/promo-banner";
 import { Newsletter } from "@/components/molecules/newsletter";
 import { CategoriesGrid } from "@/components/molecules/categories-grid";
 import { FlashSale } from "@/components/molecules/flash-sale";
+import { APP_ROUTES } from "@/constants/routes";
 
 const FLASH_SALE_PRODUCTS = [
   {
@@ -90,32 +91,43 @@ const FEATURE_ITEMS = [
     desc: "Up to 70% off",
     icon: Flame,
     color: "text-orange-500",
+    href: APP_ROUTES.SUPER_DEALS,
   },
   {
     name: "Vouchers",
-    desc: "Save extra",
+    desc: "Coming soon",
     icon: Ticket,
     color: "text-pink-500",
+    href: APP_ROUTES.CATEGORY("vouchers"),
   },
   {
     name: "Fast Delivery",
     desc: "2H shipping",
     icon: Truck,
     color: "text-blue-500",
+    href: APP_ROUTES.FAST_DELIVERY,
   },
   {
     name: "Top Brands",
     desc: "Certified stores",
     icon: Star,
     color: "text-yellow-500",
+    href: APP_ROUTES.TOP_BRANDS,
   },
   {
     name: "New Arrivals",
     desc: "Fresh drops",
     icon: Sparkles,
     color: "text-purple-500",
+    href: APP_ROUTES.NEW_ARRIVALS,
   },
-  { name: "Flash Sale", desc: "Ending soon", icon: Zap, color: "text-red-500" },
+  {
+    name: "Flash Sale",
+    desc: "Ending soon",
+    icon: Zap,
+    color: "text-red-500",
+    href: APP_ROUTES.FLASH_SALE,
+  },
 ];
 
 const TRENDING_PRODUCTS = [

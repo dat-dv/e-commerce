@@ -11,10 +11,6 @@ interface WelcomeBannerProps {
   orderCount: number;
 }
 
-/**
- * WelcomeBanner component displays a personalized greeting for authenticated users.
- * This version removes fake features like loyalty points and sticks to real concepts like Cart and Orders.
- */
 export const WelcomeBanner = ({
   userName,
   cartCount,

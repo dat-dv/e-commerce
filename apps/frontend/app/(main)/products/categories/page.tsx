@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/molecules/product-card";
 import { useSearchParams } from "next/navigation";
 import { SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 // Mock data for products in this category
 const MOCK_PRODUCTS = [
@@ -118,11 +119,6 @@ function CategoriesContent() {
   );
 }
 
-/**
- * CategoriesPage component renders the products listing for a specific category based on query params.
- * It uses searchParams to get the category name and displays a grid of products.
- * Wrapped in Suspense to support static export.
- */
 export default function CategoriesPage() {
   return (
     <Suspense

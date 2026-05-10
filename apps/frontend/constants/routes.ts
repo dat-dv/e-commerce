@@ -21,6 +21,12 @@ export const APP_ROUTES = {
   FAQ: "/help/faq",
   SHIPPING: "/help/shipping",
   CONTACT: "/help/contact",
+  VOUCHERS: "/vouchers",
+  SUPER_DEALS: "/products/categories?name=super-deals",
+  FAST_DELIVERY: "/products/categories?name=fast-delivery",
+  TOP_BRANDS: "/products/categories?name=top-brands",
+  NEW_ARRIVALS: "/products/categories?name=new-arrivals",
+  FLASH_SALE: "/products/categories?name=flash-sale",
 } as const;
 
 /** @description API endpoint paths */
