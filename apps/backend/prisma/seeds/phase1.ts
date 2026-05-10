@@ -15,19 +15,19 @@ export async function seedPhase1(prisma: PrismaClient, adminRole: Role, userRole
       password: 'string',
       first_name: 'string',
       last_name: 'string',
-      role_id: adminRole.role_id,
+      role_id: adminRole.id,
     },
   });
 
   // 2. Tạo 100 Users ngẫu nhiên
-  const users = Array(100)
+  const users: Prisma.UserCreateManyInput[] = Array(100)
     .fill(0)
     .map((_, i) => ({
       email: `example-${i}@gmail.com`,
       first_name: 'John',
       last_name: 'Doe',
       password: 'password',
-      role_id: userRole.role_id,
+      role_id: userRole.id,
     }));
 
   await prisma.user.createMany({

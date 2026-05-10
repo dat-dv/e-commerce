@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ZodError } from "zod";
 
-import { IUser } from "../model/auth.model";
+import { TUser } from "../model/auth.model";
 import { IAuthRepository } from "../model/auth.repository";
 import { FetchMeUseCase } from "./fetch-me.use-case";
 import { LoginUseCase } from "./login.use-case";
@@ -11,7 +11,7 @@ import { UpdateProfileUseCase } from "./update-profile.use-case";
 describe("Auth Use Cases", () => {
   let mockRepo: IAuthRepository;
 
-  const mockUser: IUser = {
+  const mockUser: TUser = {
     id: "user-123",
     name: "John Doe",
     email: "john@example.com",

@@ -13,7 +13,7 @@ export class UpdateRoleUseCase {
     if (updateRoleDto.role_name) {
       const existingRole = await this.rolesRepository.findByName(updateRoleDto.role_name);
 
-      if (existingRole && existingRole.role_id !== id) {
+      if (existingRole && existingRole.id !== id) {
         throw new BadRequestException('Role name already exists');
       }
     }

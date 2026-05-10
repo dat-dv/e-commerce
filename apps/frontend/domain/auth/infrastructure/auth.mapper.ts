@@ -1,8 +1,8 @@
-import { IUser } from "../model/auth.model";
+import { TUser } from "../model/auth.model";
 import { IUserResponse } from "./auth.response";
 
 export const UserMapper = {
-  toDomain(dto: IUserResponse): IUser {
+  toDomain(dto: IUserResponse): TUser {
     return {
       id: dto.id,
       name: dto.full_name,
@@ -12,7 +12,7 @@ export const UserMapper = {
       avatarUrl: dto.profile_picture,
     };
   },
-  toDTO(user: Partial<IUser>): Partial<IUserResponse> {
+  toDTO(user: Partial<TUser>): Partial<IUserResponse> {
     const dto: Partial<IUserResponse> = {};
     if (user.id) dto.id = user.id;
     if (user.name) dto.full_name = user.name;

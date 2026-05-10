@@ -7,18 +7,21 @@ export interface IRegisterRequest extends IAuthRequest {
   fullName: string;
 }
 
-export interface IUser {
+export interface TUser {
   id: string;
-  name: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  avatarUrl?: string | null;
-  address?: string | null;
-  dob?: string | null;
   password?: string;
+  avatar_id?: string | null;
+  created_at?: string | Date;
+  updated_at?: string | Date;
+  deleted_at?: string | Date | null;
+  role_id?: string | null;
 }
 
 export interface IAuthState {
-  user: IUser | null;
+  user: TUser | null;
   token: string | null;
   loading: boolean;
   error: string | null;

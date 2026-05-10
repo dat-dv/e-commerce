@@ -1,14 +1,14 @@
 import { UseCase } from "@/utils/use-case";
 
-import { IUser } from "../model/auth.model";
+import { TUser } from "../model/auth.model";
 import { IAuthRepository } from "../model/auth.repository";
 
-export class FetchMeUseCase extends UseCase<void, Promise<IUser>> {
+export class FetchMeUseCase extends UseCase<void, Promise<TUser>> {
   constructor(private repository: IAuthRepository) {
     super();
   }
 
-  async execute(): Promise<IUser> {
+  async execute(): Promise<TUser> {
     return this.repository.fetchMe();
   }
 }

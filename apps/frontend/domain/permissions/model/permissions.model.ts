@@ -1,8 +1,8 @@
-export interface IPermission {
+export interface TPermission {
   id: string;
   permission_name: string;
   description?: string | null;
   category?: string | null;
-  created_at: Date;
-  updated_at: Date;
+  created_at: string | Date;
+  updated_at: string | Date;
 }

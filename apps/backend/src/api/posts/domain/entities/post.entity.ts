@@ -1,7 +1,7 @@
 import { IPostStatus } from 'generated/prisma/client';
 
 export interface IPost {
-  post_id: string;
+  id: string;
   title: string;
   slug: string;
   content: any; // Prisma.JsonValue

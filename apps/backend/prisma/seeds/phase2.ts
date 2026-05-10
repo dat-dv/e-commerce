@@ -1,4 +1,4 @@
-import { PrismaClient, User, Tag } from '../../generated/prisma/client';
+import { PrismaClient, Prisma, User, Tag } from '../../generated/prisma/client';
 
 export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users: User[], tags: Tag[]) {
   console.log('--- Phase 2: Posts ---');
@@ -27,11 +27,11 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
       const randomTags = getRandomTags(tagCount);
 
       return {
-        post_id: generateId(),
+        id: generateId(),
         title: `Bài viết của tôi số ${i + 1}`,
         content: { text: `Đây là bài viết do tài khoản user@example.com tự viết. Bài số ${i + 1}.` },
         slug: `bai-viet-cua-toi-so-${i + 1}-${Math.random().toString(36).substring(7)}`,
-        user_id: defaultUser.user_id,
+        user_id: defaultUser.id,
         _tag_ids: randomTags.map((t) => t.id), // Lưu mảng ID tạm để lát tạo PostTag
       };
     });
@@ -45,11 +45,11 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
       const randomTags = getRandomTags(tagCount);
 
       return {
-        post_id: generateId(),
+        id: generateId(),
         title: `Bài viết mẫu số ${i + 1}`,
         content: { text: `Đây là nội dung của bài viết mẫu số ${i + 1}.` },
         slug: `bai-viet-mau-so-${i + 1}-${Math.random().toString(36).substring(7)}`,
-        user_id: randomUser.user_id,
+        user_id: randomUser.id,
         _tag_ids: randomTags.map((t) => t.id),
       };
     });
@@ -57,7 +57,7 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
   const allPostsData = [...defaultUserPosts, ...otherPosts];
 
   // Loại bỏ trường tạm _tag_ids trước khi đẩy vào Prisma
-  const postsToInsert = allPostsData.map(({ _tag_ids, ...rest }) => rest);
+  const postsToInsert: Prisma.PostCreateManyInput[] = allPostsData.map(({ _tag_ids, ...rest }) => rest);
 
   console.log(`💾 Đang lưu 50 Bài viết vào DB...`);
   await prisma.post.createMany({
@@ -66,9 +66,9 @@ export async function seedPhase2(prisma: PrismaClient, defaultUser: User, users:
 
   // 3. Tạo dữ liệu PostTag
   console.log(`🏷️ Đang gắn Tag cho các Bài viết (Hàng loạt bằng flatMap)...`);
-  const postTagsData = allPostsData.flatMap((post) =>
+  const postTagsData: Prisma.PostTagCreateManyInput[] = allPostsData.flatMap((post) =>
     post._tag_ids.map((tagId) => ({
-      post_id: post.post_id,
+      post_id: post.id,
       tag_id: tagId,
     })),
   );

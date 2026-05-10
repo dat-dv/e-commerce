@@ -18,7 +18,7 @@ export class UpdatePermissionUseCase {
     if (updatePermissionDto.permission_name) {
       const existingPermission = await this.permissionsRepository.findByName(updatePermissionDto.permission_name);
 
-      if (existingPermission && existingPermission.permission_id !== id) {
+      if (existingPermission && existingPermission.id !== id) {
         throw new BadRequestException('Permission name already exists');
       }
     }

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 
-import { IUser } from "@/domain/auth/model/auth.model";
+import { TUser } from "@/domain/auth/model/auth.model";
 
 import { createUserStore } from "./index";
 
@@ -9,7 +9,7 @@ describe("AuthStore", () => {
     localStorage.clear();
   });
 
-  const mockUser: IUser = {
+  const mockUser: TUser = {
     id: "user-1",
     email: "test@example.com",
     name: "test user",

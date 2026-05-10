@@ -1,6 +1,6 @@
 import { delay } from "@/utils/delay";
 
-import { IAuthRequest, IRegisterRequest, IUser } from "../model/auth.model";
+import { IAuthRequest, IRegisterRequest, TUser } from "../model/auth.model";
 import { IAuthRepository } from "../model/auth.repository";
 import { UserMapper } from "./auth.mapper";
 import { IUserResponse } from "./auth.response";
@@ -21,7 +21,7 @@ export class MockAuthRepository implements IAuthRepository {
     address: "123 Premium St, Antigravity City",
   };
 
-  async login(request: IAuthRequest): Promise<IUser> {
+  async login(request: IAuthRequest): Promise<TUser> {
     await delay(1200);
 
     MockAuthRepository.MOCK_USER = {
@@ -37,13 +37,13 @@ export class MockAuthRepository implements IAuthRepository {
     await delay(1200);
   }
 
-  async fetchMe(): Promise<IUser> {
+  async fetchMe(): Promise<TUser> {
     await delay(800);
     const user = UserMapper.toDomain(MockAuthRepository.MOCK_USER);
     return user;
   }
 
-  async updateProfile(data: Partial<IUser>): Promise<IUser> {
+  async updateProfile(data: Partial<TUser>): Promise<TUser> {
     await delay(1000);
 
     MockAuthRepository.MOCK_USER = {
