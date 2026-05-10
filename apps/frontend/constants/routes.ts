@@ -8,6 +8,7 @@ export const APP_ROUTES = {
   TODO: '/todo',
   PROFILE: '/profile',
   TERMS: '/terms',
+  PRIVACY: '/privacy',
   DOCS: '/docs',
 } as const;
 

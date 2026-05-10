@@ -41,17 +41,26 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Support</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/help" className="hover:text-primary cursor-pointer">
+              <Link
+                href="/help/contact"
+                className="hover:text-primary cursor-pointer"
+              >
                 Contact Us
               </Link>
             </li>
             <li>
-              <Link href="/help" className="hover:text-primary cursor-pointer">
+              <Link
+                href="/help/faq"
+                className="hover:text-primary cursor-pointer"
+              >
                 FAQs
               </Link>
             </li>
             <li>
-              <Link href="/help" className="hover:text-primary cursor-pointer">
+              <Link
+                href="/help/shipping"
+                className="hover:text-primary cursor-pointer"
+              >
                 Shipping
               </Link>
             </li>
@@ -63,7 +72,10 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Legal</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/terms" className="hover:text-primary cursor-pointer">
+              <Link
+                href="/privacy"
+                className="hover:text-primary cursor-pointer"
+              >
                 Privacy Policy
               </Link>
             </li>

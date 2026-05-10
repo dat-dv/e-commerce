@@ -1,4 +1,5 @@
 import AppContainer from "@/components/atoms/app-container";
+import Button from "@/components/atoms/button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,9 +9,21 @@ export const metadata: Metadata = {
 
 export default function OrdersPage() {
   return (
-    <AppContainer className="py-16 flex flex-col items-center justify-center min-h-[50vh] text-center">
-      <h1 className="text-4xl font-black mb-4">My Orders</h1>
-      <p className="text-content/60 text-lg">You have no orders yet.</p>
+    <AppContainer
+      size="2xl"
+      className="py-16 animate-in fade-in slide-in-from-bottom-6 duration-700 flex flex-col items-center justify-center min-h-[50vh] text-center"
+    >
+      <div className="text-6xl mb-4">📦</div>
+      <h1 className="text-3xl font-black mb-2 text-content">My Orders</h1>
+      <p className="text-content/40 text-sm mb-8">You have no orders yet.</p>
+      <Button
+        href="/products"
+        variant="outline"
+        size="lg"
+        className="rounded-2xl px-8"
+      >
+        Discover Products
+      </Button>
     </AppContainer>
   );
 }

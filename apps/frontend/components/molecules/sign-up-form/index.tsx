@@ -85,7 +85,14 @@ export default function SignUpForm() {
         >
           Terms of Service
         </Link>{' '}
-        and <span className="underline cursor-pointer">Privacy Policy</span>.
+        and{' '}
+        <Link
+          href={APP_ROUTES.PRIVACY}
+          className="underline cursor-pointer hover:text-primary transition-colors"
+        >
+          Privacy Policy
+        </Link>
+        .
       </p>
     </div>
   );

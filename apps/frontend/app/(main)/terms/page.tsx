@@ -24,63 +24,64 @@ export default function TermsPage() {
           </h2>
           <div className="space-y-3">
             <p>
-              1.1. Welcome to the Shop.Hub platform (including website and
-              mobile application) operated by Shop.Hub and its affiliates. We
-              take our responsibilities regarding information security seriously
-              in accordance with the regulations on the protection of personal
-              information privacy by law.
+              1.1. Welcome to the Shop.Hub E-Commerce platform via website or
+              mobile application (&quot;Shop.Hub Site&quot; or &quot;Shop.Hub
+              Platform&quot;). Before using the Shop.Hub Site or creating a
+              Shop.Hub account (&quot;Account&quot;), please read the following
+              Terms of Service carefully and the Operation Regulations of the
+              Shop.Hub E-Commerce Platform to understand your legal rights and
+              obligations with respect to Shop.Hub and its affiliates and
+              subsidiaries.
             </p>
             <p>
-              1.2. By using the Services, registering an account with us, or
-              accessing the Platform, you acknowledge and agree that you accept
-              the methods, requirements, and/or policies described in this
-              Policy.
+              1.2. The Services include an online platform service connecting
+              consumers to provide business opportunities between buyers
+              (&quot;Buyers&quot;) and sellers (&quot;Sellers&quot;). The actual
+              sales contract is directly between the Buyer and the Seller.
             </p>
             <p>
-              1.3. IF YOU DO NOT AGREE TO ALLOW THE PROCESSING OF YOUR PERSONAL
-              DATA AS DESCRIBED IN THIS POLICY, PLEASE DO NOT USE OUR SERVICES
-              OR ACCESS THE PLATFORM.
+              1.3. Before becoming a User of the Shop.Hub Site, you must read
+              and accept all the terms and conditions defined in, and referenced
+              to, this Terms of Service and the Privacy Policy.
+            </p>
+            <p>
+              1.4. Shop.Hub reserves the right to change, modify, suspend or
+              terminate all or any part of the Shop.Hub Site or Services at any
+              time in accordance with legal regulations.
+            </p>
+            <p>
+              1.5. Shop.Hub reserves the right to refuse requests to open an
+              Account or your access to the Shop.Hub Site or Services in
+              accordance with legal regulations and the Terms of Service.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-content mb-3">2. PRIVACY</h2>
+          <div className="space-y-3">
+            <p>
+              2.1. Shop.Hub takes your privacy seriously. To protect user
+              rights, Shop.Hub provides a Privacy Policy to explain in detail
+              Shop.Hub's privacy practices. Please refer to the Privacy Policy
+              to know how Shop.Hub collects and uses information related to the
+              Account and/or use of the Services of the User.
             </p>
           </div>
         </section>
 
         <section>
           <h2 className="text-lg font-bold text-content mb-3">
-            2. WHEN WILL WE COLLECT DATA?
-          </h2>
-          <div className="space-y-3">
-            <p>2.1. We will/may collect personal data about you:</p>
-            <ul className="list-disc pl-5 space-y-1 text-content/70">
-              <li>
-                When you register and/or use our Services or Platform, or open
-                an account with us;
-              </li>
-              <li>
-                When you submit any form, including application forms or other
-                forms related to any of our products and services;
-              </li>
-              <li>
-                When you enter into any agreement or provide other documents or
-                information related to your interaction with us.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">
-            3. RIGHTS AND RESPONSIBILITIES
+            3. LIMITATION OF LIABILITY
           </h2>
           <div className="space-y-3">
             <p>
-              3.1. You agree not to provide us with any inaccurate or misleading
-              information and you agree to notify us of any inaccurate
-              information or when there are changes to information.
-            </p>
-            <p>
-              3.2. We reserve the right, at our sole discretion, to request
-              other necessary documents to verify any information provided by
-              you.
+              3.1. Shop.Hub grants the User the appropriate right to access and
+              use the Services in accordance with the terms and conditions
+              defined in this Terms of Service. All Content, trademarks, service
+              marks, trade names, logos and other exclusive intellectual
+              property displayed on the Shop.Hub Site are owned by Shop.Hub and
+              third-party owners (if any).
             </p>
           </div>
         </section>
