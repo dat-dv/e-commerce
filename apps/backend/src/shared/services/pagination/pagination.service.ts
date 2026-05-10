@@ -31,7 +31,7 @@ export class PaginationService {
         ...queryArgs,
         skip,
         take,
-      }) as Promise<T[]>,
+      }),
       prismaModel.count({ where: queryArgs.where as Record<string, unknown> }),
     ]);
 

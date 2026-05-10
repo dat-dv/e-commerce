@@ -40,6 +40,13 @@ export class UsersController {
     private readonly updateAvatarUseCase: UpdateAvatarUseCase,
   ) {}
 
+  @UseGuards(AuthGuard)
+  @Patch('profile')
+  async updateProfile(@Req() req: Express.Request, @Body() dto: UpdateUserDto) {
+    const res = await this.updateUserUseCase.execute(req.user.sub, dto);
+    return createSuccessResponse(res);
+  }
+
   @Post()
   @UseGuards(PermissionsGuard)
   @Permissions('CREATE:USER')
@@ -59,12 +66,6 @@ export class UsersController {
   @Get(':id')
   async findOne(@Req() req: Express.Request, @Param('id') id: string) {
     const res = await this.findOneUserUseCase.execute(id, req.user.sub);
-    return createSuccessResponse(res);
-  }
-
-  @Patch(':id')
-  async update(@Req() req: Express.Request, @Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    const res = await this.updateUserUseCase.execute(id, req.user.sub, updateUserDto);
     return createSuccessResponse(res);
   }
 

@@ -26,6 +26,7 @@ export const errorResponseStrategies: Record<
       message?: string;
       error?: string;
     } & Record<string, unknown>;
+
     return {
       ...json,
       message: json.message || json.error || "Request failed",

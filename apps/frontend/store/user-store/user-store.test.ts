@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 
-import { TUser } from "@/domain/auth/model/auth.model";
+import { TUser } from "@/domain/auth/types/auth.model";
 
 import { createUserStore } from "./index";
 

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
-import { IAuthRequest } from "@/domain/auth/model/auth.model";
+import { IAuthRequest } from "@/domain/auth/types/auth.model";
 import { authUseCase } from "@/domain/auth/use-cases";
 
 import { useAuthStore } from "../use-auth-store";

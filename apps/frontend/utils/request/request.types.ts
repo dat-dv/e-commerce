@@ -14,42 +14,40 @@ export interface IRequestParams {
 
 export type TRequestCreator = <T = unknown>(
   params: IRequestParams,
-) => Promise<T>;
+) => Promise<ApiResponse<T>>;
 
 export type TRequest = {
-  get: <T = unknown>(url: string, options?: IRequestOptions) => Promise<T>;
+  get: <T = unknown>(
+    url: string,
+    options?: IRequestOptions,
+  ) => Promise<ApiResponse<T>>;
   post: <T = unknown>(
     url: string,
     body?: unknown,
     options?: IRequestOptions,
-  ) => Promise<T>;
+  ) => Promise<ApiResponse<T>>;
   put: <T = unknown>(
     url: string,
     body?: unknown,
     options?: IRequestOptions,
-  ) => Promise<T>;
-  delete: <T = unknown>(url: string, options?: IRequestOptions) => Promise<T>;
+  ) => Promise<ApiResponse<T>>;
+  delete: <T = unknown>(
+    url: string,
+    options?: IRequestOptions,
+  ) => Promise<ApiResponse<T>>;
   patch: <T = unknown>(
     url: string,
     body?: unknown,
     options?: IRequestOptions,
-  ) => Promise<T>;
+  ) => Promise<ApiResponse<T>>;
 };
 
 // ==== RESPONSE =====
 export interface ApiResponse<T> {
   data: T;
   message?: string;
-  meta?: {
-    pagination?: {
-      page: number;
-      limit: number;
-      totalItems: number;
-      totalPages: number;
-    };
-    requestId?: string;
-    timestamp?: string;
-  };
+  timestamp?: string;
+  status: "success" | "fail";
 }
 
 export interface ApiErrorResponse {

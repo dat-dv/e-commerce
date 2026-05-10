@@ -1,3 +1,4 @@
+import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 import { IUser } from './user.entity';
 
 export interface IUsersRepository {
@@ -5,7 +6,7 @@ export interface IUsersRepository {
   findByEmail(email: string): Promise<IUser | null>;
   update(id: string, data: Partial<IUser>): Promise<IUser>;
   create(data: { email: string; password?: string; first_name?: string; last_name?: string }): Promise<IUser>;
-  findAll(page: number, limit: number): Promise<{ data: IUser[]; meta: any }>;
+  findAll(page: number, limit: number): Promise<PaginatedResult<IUser>>;
   getUserPermissions(userId: string): Promise<string[]>;
   getUserAvatarPublicId(userId: string): Promise<string | null>;
 }

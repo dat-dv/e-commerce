@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { IUser } from '../entities/user.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
 
 type PrismaUserWithRelations = Prisma.UserGetPayload<{
@@ -38,7 +38,7 @@ export class UsersRepository implements IUsersRepository {
 
     if (!prismaUser) return null;
 
-    return this.mapToEntity(prismaUser);
+    return prismaUser;
   }
 
   async findByEmail(email: string): Promise<IUser | null> {
@@ -56,7 +56,7 @@ export class UsersRepository implements IUsersRepository {
 
     if (!prismaUser) return null;
 
-    return this.mapToEntity(prismaUser);
+    return prismaUser;
   }
 
   async update(id: string, data: Partial<IUser>): Promise<IUser> {
@@ -73,7 +73,7 @@ export class UsersRepository implements IUsersRepository {
       },
     });
 
-    return this.mapToEntity(prismaUser);
+    return prismaUser;
   }
 
   async create(data: { email: string; first_name: string; last_name: string; password?: string }): Promise<IUser> {
@@ -89,11 +89,11 @@ export class UsersRepository implements IUsersRepository {
       },
     });
 
-    return this.mapToEntity(prismaUser);
+    return prismaUser;
   }
 
-  async findAll(page: number, limit: number): Promise<{ data: IUser[]; meta: any }> {
-    const result = await this.paginationService.paginate(
+  async findAll(page: number, limit: number) {
+    const result = await this.paginationService.paginate<IUser>(
       this.prisma.user,
       {
         where: { deleted_at: null },
@@ -110,10 +110,7 @@ export class UsersRepository implements IUsersRepository {
       limit,
     );
 
-    return {
-      data: result.items.map((u: unknown) => this.mapToEntity(u as PrismaUserWithRelations)),
-      meta: result.meta,
-    };
+    return result;
   }
 
   async getUserPermissions(userId: string): Promise<string[]> {
@@ -140,20 +137,5 @@ export class UsersRepository implements IUsersRepository {
     });
 
     return user?.avatar?.publicId || null;
-  }
-
-  private mapToEntity(prismaUser: PrismaUserWithRelations): IUser {
-    return {
-      id: prismaUser.id,
-      first_name: prismaUser.first_name || '',
-      last_name: prismaUser.last_name || '',
-      email: prismaUser.email,
-      avatar_id: prismaUser.avatar_id,
-      password: prismaUser.password,
-      created_at: prismaUser.created_at,
-      updated_at: prismaUser.updated_at,
-      deleted_at: prismaUser.deleted_at,
-      role_id: prismaUser.role_id,
-    };
   }
 }

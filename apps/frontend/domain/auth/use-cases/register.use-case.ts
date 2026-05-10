@@ -1,8 +1,8 @@
 import { registerSchema } from "@/hooks/auth/use-register/register.schema";
 import { UseCase } from "@/utils/use-case";
 
-import { IRegisterRequest } from "../model/auth.model";
-import { IAuthRepository } from "../model/auth.repository";
+import { IRegisterRequest } from "../types/auth.model";
+import { IAuthRepository } from "../types/auth.repository";
 
 export class RegisterUseCase extends UseCase<IRegisterRequest, Promise<void>> {
   constructor(private repository: IAuthRepository) {

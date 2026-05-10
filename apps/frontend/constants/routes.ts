@@ -37,6 +37,9 @@ export const API_ROUTES = {
     ME: "/auth/me",
     LOGOUT: "/auth/logout",
   },
+  USERS: {
+    PROFILE: "/users/profile",
+  },
   TODO: {
     LIST: "/todos",
     CREATE: "/todos",

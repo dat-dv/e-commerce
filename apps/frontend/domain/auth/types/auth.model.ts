@@ -14,10 +14,11 @@ export interface TUser {
   email: string;
   password?: string;
   avatar_id?: string | null;
-  created_at?: string | Date;
-  updated_at?: string | Date;
-  deleted_at?: string | Date | null;
+  created_at?: string | null;
+  updated_at?: string | null;
+  deleted_at?: string | null;
   role_id?: string | null;
+  date_of_birth?: string | null;
 }
 
 export interface IAuthState {

@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ZodError } from "zod";
 
-import { TUser } from "../model/auth.model";
-import { IAuthRepository } from "../model/auth.repository";
+import { TUser } from "../types/auth.model";
+import { IAuthRepository } from "../types/auth.repository";
 import { FetchMeUseCase } from "./fetch-me.use-case";
 import { LoginUseCase } from "./login.use-case";
 import { RegisterUseCase } from "./register.use-case";
@@ -13,7 +13,8 @@ describe("Auth Use Cases", () => {
 
   const mockUser: TUser = {
     id: "user-123",
-    name: "John Doe",
+    first_name: "John",
+    last_name: "Doe",
     email: "john@example.com",
   };
 
@@ -34,11 +35,12 @@ describe("Auth Use Cases", () => {
         email: "john@example.com",
         password: "password123",
       };
-      vi.mocked(mockRepo.login).mockResolvedValue(mockUser);
+      const mockResponse = { status: "success" as const, data: mockUser };
+      vi.mocked(mockRepo.login).mockResolvedValue(mockResponse);
 
       const result = await useCase.execute(credentials);
 
-      expect(result).toEqual(mockUser);
+      expect(result).toEqual(mockResponse);
       expect(mockRepo.login).toHaveBeenCalledWith(credentials);
     });
 
@@ -63,9 +65,13 @@ describe("Auth Use Cases", () => {
       const data = {
         email: "new@example.com",
         password: "password123",
+        confirmPassword: "password123",
         fullName: "New User",
       };
-      vi.mocked(mockRepo.register).mockResolvedValue(undefined);
+      vi.mocked(mockRepo.register).mockResolvedValue({
+        status: "success",
+        data: undefined,
+      });
 
       await useCase.execute(data);
 
@@ -76,11 +82,12 @@ describe("Auth Use Cases", () => {
   describe("FetchMeUseCase", () => {
     it("should fetch current user", async () => {
       const useCase = new FetchMeUseCase(mockRepo);
-      vi.mocked(mockRepo.fetchMe).mockResolvedValue(mockUser);
+      const mockResponse = { status: "success" as const, data: mockUser };
+      vi.mocked(mockRepo.fetchMe).mockResolvedValue(mockResponse);
 
       const result = await useCase.execute();
 
-      expect(result).toEqual(mockUser);
+      expect(result).toEqual(mockResponse);
       expect(mockRepo.fetchMe).toHaveBeenCalled();
     });
   });
@@ -88,15 +95,16 @@ describe("Auth Use Cases", () => {
   describe("UpdateProfileUseCase", () => {
     it("should update partial profile successfully", async () => {
       const useCase = new UpdateProfileUseCase(mockRepo);
-      const patch = { name: "Updated Name" };
-      vi.mocked(mockRepo.updateProfile).mockResolvedValue({
-        ...mockUser,
-        name: "Updated Name",
-      });
+      const patch = { first_name: "Updated Name" };
+      const mockResponse = {
+        status: "success" as const,
+        data: { ...mockUser, first_name: "Updated Name" },
+      };
+      vi.mocked(mockRepo.updateProfile).mockResolvedValue(mockResponse);
 
       const result = await useCase.execute(patch);
 
-      expect(result.name).toBe("Updated Name");
+      expect(result.data.first_name).toBe("Updated Name");
       expect(mockRepo.updateProfile).toHaveBeenCalledWith(
         expect.objectContaining(patch),
       );

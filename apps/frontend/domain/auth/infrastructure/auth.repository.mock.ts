@@ -1,59 +1,77 @@
 import { delay } from "@/utils/delay";
 
-import { IAuthRequest, IRegisterRequest, TUser } from "../model/auth.model";
-import { IAuthRepository } from "../model/auth.repository";
+import { ApiResponse } from "@/utils/request/request.types";
+
+import { IAuthRequest, IRegisterRequest, TUser } from "../types/auth.model";
+import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
-import { IUserResponse } from "./auth.response";
+import { IAppUserResponse } from "../types/auth.response";
 
 export class MockAuthRepository implements IAuthRepository {
   getSession(): boolean {
     throw new Error("Method not implemented.");
   }
-  logout(): Promise<void> {
+  async logout(): Promise<ApiResponse<void>> {
     throw new Error("Method not implemented.");
   }
-  private static MOCK_USER: IUserResponse = {
+  private static MOCK_USER: IAppUserResponse = {
     id: "1",
-    full_name: "John Doe",
-    email_address: "john.doe@example.com",
-    profile_picture: "https://i.pravatar.cc/150?u=1",
+    first_name: "John",
+    last_name: "Doe",
+    email: "john.doe@example.com",
+    avatar_id: "https://i.pravatar.cc/150?u=1",
     date_of_birth: "20031990",
-    address: "123 Premium St, Antigravity City",
   };
 
-  async login(request: IAuthRequest): Promise<TUser> {
+  async login(request: IAuthRequest): Promise<ApiResponse<TUser>> {
     await delay(1200);
 
     MockAuthRepository.MOCK_USER = {
       ...MockAuthRepository.MOCK_USER,
-      full_name: request.email.split("@")[0] || "User",
-      email_address: request.email,
+      first_name: request.email.split("@")[0] || "User",
+      last_name: "",
+      email: request.email,
     };
 
-    return UserMapper.toDomain(MockAuthRepository.MOCK_USER);
+    return {
+      data: UserMapper.toDomain(MockAuthRepository.MOCK_USER),
+      status: "success",
+    };
   }
 
-  async register(_request: IRegisterRequest): Promise<void> {
+  async register(_request: IRegisterRequest): Promise<ApiResponse<void>> {
     await delay(1200);
+    return {
+      data: undefined as unknown as void,
+      status: "success",
+    };
   }
 
-  async fetchMe(): Promise<TUser> {
+  async fetchMe(): Promise<ApiResponse<TUser>> {
     await delay(800);
     const user = UserMapper.toDomain(MockAuthRepository.MOCK_USER);
-    return user;
+    return {
+      data: user,
+      status: "success",
+    };
   }
 
-  async updateProfile(data: Partial<TUser>): Promise<TUser> {
+  async updateProfile(data: Partial<TUser>): Promise<ApiResponse<TUser>> {
     await delay(1000);
 
     MockAuthRepository.MOCK_USER = {
       ...MockAuthRepository.MOCK_USER,
-      full_name: data.name || MockAuthRepository.MOCK_USER.full_name,
-      email_address: data.email || MockAuthRepository.MOCK_USER.email_address,
-      date_of_birth: data.dob || MockAuthRepository.MOCK_USER.date_of_birth,
-      address: data.address || MockAuthRepository.MOCK_USER.address,
+      first_name: data.first_name || MockAuthRepository.MOCK_USER.first_name,
+      last_name: data.last_name || MockAuthRepository.MOCK_USER.last_name,
+      email: data.email || MockAuthRepository.MOCK_USER.email,
+      date_of_birth:
+        data.date_of_birth || MockAuthRepository.MOCK_USER.date_of_birth,
+      avatar_id: data.avatar_id || MockAuthRepository.MOCK_USER.avatar_id,
     };
 
-    return UserMapper.toDomain(MockAuthRepository.MOCK_USER);
+    return {
+      data: UserMapper.toDomain(MockAuthRepository.MOCK_USER),
+      status: "success",
+    };
   }
 }

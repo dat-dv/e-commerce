@@ -1,6 +1,6 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
 
-import { IRequestOptions, TRequest } from "./request.types";
+import { ApiResponse, IRequestOptions, TRequest } from "./request.types";
 import requestCreator from "./request-creator";
 
 const forwardClientRequest = async <T>(
@@ -8,7 +8,7 @@ const forwardClientRequest = async <T>(
   url: string,
   body?: unknown,
   options?: IRequestOptions,
-): Promise<T> => {
+): Promise<ApiResponse<T>> => {
   const isServer = typeof window === "undefined";
   const headers: Record<string, string> = {
     ...((options?.headers as Record<string, string>) || {}),

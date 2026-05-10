@@ -34,9 +34,9 @@ describe('UpdateUserUseCase', () => {
   it('should throw BadRequestException if user not found', async () => {
     mockUsersRepository.findById.mockResolvedValue(null);
 
-    const dto: UpdateUserDto = { first_name: 'Updated' };
+    const dto: UpdateUserDto = { first_name: 'Updated', id: 'user-1', date_of_birth: new Date() };
 
-    await expect(useCase.execute('user-1', 'user-1', dto)).rejects.toThrow(BadRequestException);
+    await expect(useCase.execute('user-1', dto)).rejects.toThrow(BadRequestException);
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
@@ -55,9 +55,9 @@ describe('UpdateUserUseCase', () => {
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
 
-    const dto: UpdateUserDto = { first_name: 'Updated' };
+    const dto: UpdateUserDto = { first_name: 'Updated', id: 'user-1', date_of_birth: new Date() };
 
-    await expect(useCase.execute('user-1', 'user-1', dto)).rejects.toThrow(ForbiddenException);
+    await expect(useCase.execute('user-1', dto)).rejects.toThrow(ForbiddenException);
   });
 
   it('should update user', async () => {
@@ -77,9 +77,9 @@ describe('UpdateUserUseCase', () => {
     mockUsersRepository.getUserPermissions.mockResolvedValue(['UPDATE:OWN_USER']);
     mockUsersRepository.update.mockResolvedValue({ ...user, first_name: 'Updated' });
 
-    const dto: UpdateUserDto = { first_name: 'Updated' };
+    const dto: UpdateUserDto = { first_name: 'Updated', id: 'user-1', date_of_birth: new Date() };
 
-    const result = await useCase.execute('user-1', 'user-1', dto);
+    const result = await useCase.execute('user-1', dto);
 
     expect(mockUsersRepository.update).toHaveBeenCalledWith('user-1', dto);
     expect(result.first_name).toBe('Updated');

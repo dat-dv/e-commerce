@@ -18,11 +18,10 @@ vi.mock("@/domain/auth/use-cases", () => ({
 describe("useProfile Hook", () => {
   const mockUser = {
     id: "1",
-    name: "Old Name",
+    first_name: "Old",
+    last_name: "Name",
     email: "john@example.com",
-    address: "Old Address",
-    dob: "1990-01-01",
-    avatarUrl: "old-avatar.png",
+    date_of_birth: "1990-01-01",
   };
 
   const wrapper = ({ children }: { children: React.ReactNode }) => (
@@ -36,7 +35,8 @@ describe("useProfile Hook", () => {
   it("should initialize with user data from store", () => {
     const { result } = renderHook(() => useProfile(), { wrapper });
 
-    expect(result.current.user?.name).toBe("Old Name");
+    expect(result.current.user?.first_name).toBe("Old");
+    expect(result.current.user?.last_name).toBe("Name");
     expect(result.current.methods.getValues("name")).toBe("Old Name");
     expect(result.current.isEditing).toBe(false);
   });
@@ -56,7 +56,7 @@ describe("useProfile Hook", () => {
   });
 
   it("should save profile and update store", async () => {
-    const updatedUser = { ...mockUser, name: "New Name" };
+    const updatedUser = { ...mockUser, first_name: "New", last_name: "Name" };
     vi.mocked(authUseCase.updateProfile.execute).mockResolvedValue(updatedUser);
 
     const { result } = renderHook(() => useProfile(), { wrapper });
@@ -74,6 +74,6 @@ describe("useProfile Hook", () => {
       expect.objectContaining({ name: "New Name" }),
     );
     // Kiểm tra state user trong hook đã được cập nhật
-    expect(result.current.user?.name).toBe("New Name");
+    expect(result.current.user?.first_name).toBe("New");
   });
 });

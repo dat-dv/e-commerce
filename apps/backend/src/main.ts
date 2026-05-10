@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 import { ConfigService } from '@nestjs/config';
 import { initSwagger } from './config/swagger.config';
@@ -25,6 +25,11 @@ async function bootstrap() {
   app.use(cookieParser());
 
   // 1. use global pipe
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  );
   app.useGlobalFilters(new GlobalExceptionFilter());
   app.useGlobalPipes(new CustomValidationPipe());
 

@@ -17,25 +17,25 @@ export const useProfile = () => {
   const loading = useAuthStore((state) => state.loading);
   const [isEditing, setIsEditing] = useState(false);
 
-  const avatarRef = useRef(user?.avatarUrl);
+  const avatarRef = useRef(user?.avatar_id);
 
   const methods = useForm<ProfileSchema>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      name: user?.name || "",
-      address: user?.address || "",
-      dob: user?.dob || "",
-      avatarUrl: user?.avatarUrl || "",
+      name: `${user?.first_name || ""} ${user?.last_name || ""}`.trim() || "",
+      address: "",
+      dob: String(user?.date_of_birth || ""),
+      avatarUrl: "",
     },
   });
 
   useEffect(() => {
     if (user) {
       methods.reset({
-        name: user.name || "",
-        address: user.address || "",
-        dob: user.dob || "",
-        avatarUrl: avatarRef.current || user.avatarUrl || "",
+        name: `${user.first_name || ""} ${user.last_name || ""}`.trim() || "",
+        address: "",
+        dob: String(user.date_of_birth || ""),
+        avatarUrl: "",
       });
     }
   }, [user, methods]);
@@ -45,8 +45,12 @@ export const useProfile = () => {
     setLoading(true);
 
     try {
-      const updatedUser = await authUseCase.updateProfile.execute(data);
-      setUser(updatedUser);
+      const response = await authUseCase.updateProfile.execute({
+        ...data,
+        id: user?.id,
+      });
+
+      setUser(response.data);
       setIsEditing(false);
     } catch (err: unknown) {
       toast.error((err as Error).message || "Update failed", {
@@ -63,12 +67,12 @@ export const useProfile = () => {
 
   const disableEdit = () => {
     if (user) {
-      avatarRef.current = user.avatarUrl;
+      avatarRef.current = user.avatar_id;
       methods.reset({
-        name: user.name || "",
-        address: user.address || "",
-        dob: user.dob || "",
-        avatarUrl: user.avatarUrl || "",
+        name: `${user.first_name || ""} ${user.last_name || ""}`.trim() || "",
+        address: "",
+        dob: String(user.date_of_birth || ""),
+        avatarUrl: "",
       });
     }
     setIsEditing(false);

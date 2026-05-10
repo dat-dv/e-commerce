@@ -10,6 +10,8 @@ import { createUserStore } from "@/store/user-store";
 import { IAuthStoreState } from "@/store/user-store/user-store.type";
 import { safe } from "@/utils/promise";
 import { appRequest } from "@/utils/request/request";
+import { useRouter } from "next/navigation";
+import { APP_ROUTES } from "@/constants/routes";
 
 export type UserStore = ReturnType<typeof createUserStore>;
 export const AuthContext = createContext<UserStore | null>(null);
@@ -20,6 +22,7 @@ export interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children, initState }: AuthProviderProps) => {
+  const router = useRouter();
   const [store] = useState(() =>
     createUserStore({
       ...initState,
@@ -34,10 +37,12 @@ export const AuthProvider = ({ children, initState }: AuthProviderProps) => {
     const initAuthStore = async () => {
       try {
         const authRepo = new AuthRepository(appRequest);
-        const user = await safe(new FetchMeUseCase(authRepo).execute());
+        const response = await safe(new FetchMeUseCase(authRepo).execute());
+
         const authStore = store.getState();
-        if (user && !authStore.user?.id) {
-          authStore.setUser(user);
+        if (response && response.data && !authStore.user?.id) {
+          authStore.setUser(response.data);
+          router.replace(APP_ROUTES.HOME);
         }
       } catch {
         // Handle error silently
@@ -46,7 +51,7 @@ export const AuthProvider = ({ children, initState }: AuthProviderProps) => {
       }
     };
     initAuthStore();
-  }, [hasHydrated, store]);
+  }, [hasHydrated, router, store]);
 
   if (!hasHydrated) {
     return <Loading />;

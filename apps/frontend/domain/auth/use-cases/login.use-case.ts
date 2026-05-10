@@ -1,8 +1,8 @@
 import { loginSchema } from "@/hooks/auth/use-login/login.schema";
 import { UseCase } from "@/utils/use-case";
 
-import { IAuthRequest, TUser } from "../model/auth.model";
-import { IAuthRepository } from "../model/auth.repository";
+import { IAuthRequest, TUser } from "../types/auth.model";
+import { IAuthRepository } from "../types/auth.repository";
 
 export class LoginUseCase extends UseCase<IAuthRequest, Promise<TUser>> {
   constructor(private repository: IAuthRepository) {
