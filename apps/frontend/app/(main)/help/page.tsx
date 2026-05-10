@@ -28,6 +28,9 @@ const POPULAR_ARTICLES = [
     views: "8.2k",
   },
   { title: "How do I track my order?", views: "24.1k" },
+  { title: "What is the return policy?", views: "15.3k" },
+  { title: "How do I use a voucher?", views: "9.7k" },
+  { title: "What payment methods are supported?", views: "18.2k" },
 ];
 
 export default function HelpPage() {
@@ -63,14 +66,14 @@ export default function HelpPage() {
       <div className="mb-16">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-content">Browse Categories</h2>
-          <span className="text-sm font-medium text-primary cursor-pointer hover:underline">
-            View All
-          </span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {CATEGORIES.map((cat, index) => (
-            <div
+          {CATEGORIES.filter((cat) =>
+            ["Shopping", "Shipping", "General"].includes(cat.title),
+          ).map((cat, index) => (
+            <Link
               key={index}
+              href={cat.title === "Shipping" ? "/help/shipping" : "/help/faq"}
               className="group border border-content/5 rounded-2xl p-6 flex flex-col items-start hover:border-primary/20 hover:bg-surface/50 transition-all cursor-pointer shadow-sm hover:shadow-md"
             >
               <div className="text-4xl mb-4 p-3 bg-surface rounded-xl border border-content/5 group-hover:scale-110 transition-transform">
@@ -80,7 +83,7 @@ export default function HelpPage() {
                 {cat.title}
               </h3>
               <p className="text-content/60 text-xs">{cat.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -192,11 +195,6 @@ export default function HelpPage() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Footer Note */}
-      <div className="text-center text-content/40 text-xs">
-        © 2026 Shop.Hub. All rights reserved.
       </div>
     </AppContainer>
   );

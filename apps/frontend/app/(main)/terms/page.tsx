@@ -1,25 +1,47 @@
-import AppContainer from "@/components/atoms/app-container";
+import SidebarLayout from "@/components/molecules/sidebar-layout";
+import TableOfContents from "@/components/molecules/toc";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Terms of Service",
 };
 
-export default function TermsPage() {
-  return (
-    <AppContainer
-      size="2xl"
-      className="py-16 animate-in fade-in slide-in-from-bottom-6 duration-700"
-    >
-      <h1 className="text-3xl font-black mb-2 text-content">
-        Terms of Service
-      </h1>
-      <p className="text-content/40 text-sm mb-8">
-        Last updated: {new Date().toLocaleDateString()}
-      </p>
+const SECTIONS = [
+  { id: "introduction", title: "1. Introduction" },
+  { id: "privacy", title: "2. Privacy" },
+  { id: "liability", title: "3. Limitation of Liability" },
+];
 
-      <div className="space-y-8 text-content/80 leading-relaxed text-sm sm:text-base">
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">
+export default function TermsPage() {
+  const header = (
+    <div className="bg-gradient-to-br from-primary/10 via-transparent to-transparent p-10 rounded-3xl border border-content/5 relative overflow-hidden">
+      <div className="relative z-10">
+        <h1 className="text-4xl font-black text-content mb-2">
+          Terms of Service
+        </h1>
+        <p className="text-content/60 text-lg">
+          Please read these terms carefully before using our services.
+        </p>
+      </div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/10 to-transparent -z-10" />
+    </div>
+  );
+
+  const sidebar = (
+    <div>
+      <h3 className="text-sm font-bold text-content/40 uppercase tracking-wider mb-3">
+        Table of Contents
+      </h3>
+      <TableOfContents items={SECTIONS} />
+    </div>
+  );
+
+  return (
+    <SidebarLayout header={header} sidebar={sidebar}>
+      <div className="space-y-12 text-content/80 leading-relaxed text-sm sm:text-base">
+        <section id="introduction" className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
             1. INTRODUCTION
           </h2>
           <div className="space-y-3">
@@ -57,8 +79,11 @@ export default function TermsPage() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">2. PRIVACY</h2>
+        <section id="privacy" className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
+            2. PRIVACY
+          </h2>
           <div className="space-y-3">
             <p>
               2.1. Shop.Hub takes your privacy seriously. To protect user
@@ -70,8 +95,9 @@ export default function TermsPage() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">
+        <section id="liability" className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
             3. LIMITATION OF LIABILITY
           </h2>
           <div className="space-y-3">
@@ -86,6 +112,6 @@ export default function TermsPage() {
           </div>
         </section>
       </div>
-    </AppContainer>
+    </SidebarLayout>
   );
 }

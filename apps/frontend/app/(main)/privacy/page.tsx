@@ -1,25 +1,41 @@
-import AppContainer from '@/components/atoms/app-container';
+import SidebarLayout from '@/components/molecules/sidebar-layout';
+import TableOfContents from '@/components/molecules/toc';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Privacy Policy',
 };
 
-export default function PrivacyPage() {
-  return (
-    <AppContainer
-      size="2xl"
-      className="py-16 animate-in fade-in slide-in-from-bottom-6 duration-700"
-    >
-      <h1 className="text-3xl font-black mb-2 text-content">
-        Privacy Policy
-      </h1>
-      <p className="text-content/40 text-sm mb-8">
-        Last updated: {new Date().toLocaleDateString()}
-      </p>
+const SECTIONS = [
+  { id: 'introduction', title: '1. Introduction' },
+  { id: 'when-collect', title: '2. When will we collect data?' },
+  { id: 'what-collect', title: '3. What data will we collect?' },
+];
 
-      <div className="space-y-8 text-content/80 leading-relaxed text-sm sm:text-base">
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">
+export default function PrivacyPage() {
+  const header = (
+    <div className="bg-gradient-to-br from-primary/10 via-transparent to-transparent p-10 rounded-3xl border border-content/5 relative overflow-hidden">
+      <div className="relative z-10">
+        <h1 className="text-4xl font-black text-content mb-2">Privacy Policy</h1>
+        <p className="text-content/60 text-lg">We are committed to protecting your personal information.</p>
+      </div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/10 to-transparent -z-10" />
+    </div>
+  );
+
+  const sidebar = (
+    <div>
+      <h3 className="text-sm font-bold text-content/40 uppercase tracking-wider mb-3">Table of Contents</h3>
+      <TableOfContents items={SECTIONS} />
+    </div>
+  );
+
+  return (
+    <SidebarLayout header={header} sidebar={sidebar}>
+      <div className="space-y-12 text-content/80 leading-relaxed text-sm sm:text-base">
+        <section id="introduction" className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
             1. INTRODUCTION
           </h2>
           <div className="space-y-3">
@@ -35,8 +51,9 @@ export default function PrivacyPage() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">
+        <section id="when-collect" className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
             2. WHEN WILL WE COLLECT DATA?
           </h2>
           <div className="space-y-3">
@@ -49,8 +66,9 @@ export default function PrivacyPage() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-lg font-bold text-content mb-3">
+        <section id="what-collect" className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
             3. WHAT DATA WILL WE COLLECT?
           </h2>
           <div className="space-y-3">
@@ -60,6 +78,6 @@ export default function PrivacyPage() {
           </div>
         </section>
       </div>
-    </AppContainer>
+    </SidebarLayout>
   );
 }

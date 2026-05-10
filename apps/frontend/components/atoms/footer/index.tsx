@@ -1,7 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const getLinkClass = (href: string) => {
+    return `hover:text-primary cursor-pointer transition-colors ${
+      pathname === href ? "text-primary font-bold" : ""
+    }`;
+  };
+
   return (
     <footer className="py-10 border-t border-content/10 bg-surface">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-content/60">
@@ -10,10 +21,7 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Categories</h3>
           <ul className="space-y-2">
             <li>
-              <Link
-                href="/products"
-                className="hover:text-primary cursor-pointer"
-              >
+              <Link href="/products" className={getLinkClass("/products")}>
                 All Products
               </Link>
             </li>
@@ -41,25 +49,27 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Support</h3>
           <ul className="space-y-2">
             <li>
+              <Link href="/help" className={getLinkClass("/help")}>
+                Help Center
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/help/contact"
-                className="hover:text-primary cursor-pointer"
+                className={getLinkClass("/help/contact")}
               >
                 Contact Us
               </Link>
             </li>
             <li>
-              <Link
-                href="/help/faq"
-                className="hover:text-primary cursor-pointer"
-              >
+              <Link href="/help/faq" className={getLinkClass("/help/faq")}>
                 FAQs
               </Link>
             </li>
             <li>
               <Link
                 href="/help/shipping"
-                className="hover:text-primary cursor-pointer"
+                className={getLinkClass("/help/shipping")}
               >
                 Shipping
               </Link>
@@ -72,15 +82,12 @@ export default function Footer() {
           <h3 className="font-bold text-content mb-3">Legal</h3>
           <ul className="space-y-2">
             <li>
-              <Link
-                href="/privacy"
-                className="hover:text-primary cursor-pointer"
-              >
+              <Link href="/privacy" className={getLinkClass("/privacy")}>
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-primary cursor-pointer">
+              <Link href="/terms" className={getLinkClass("/terms")}>
                 Terms of Service
               </Link>
             </li>

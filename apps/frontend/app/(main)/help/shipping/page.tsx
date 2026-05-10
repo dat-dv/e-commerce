@@ -1,6 +1,7 @@
-import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import Accordion from "@/components/molecules/accordion";
+import SidebarLayout from "@/components/molecules/sidebar-layout";
+import TableOfContents from "@/components/molecules/toc";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -87,115 +88,96 @@ const SHIPPING_TOPICS = [
 ];
 
 export default function ShippingPage() {
-  return (
-    <AppContainer
-      size="2xl"
-      className="py-12 animate-in fade-in slide-in-from-bottom-6 duration-700 scroll-smooth"
-    >
-      {/* Header */}
-      <div className="mb-12">
-        <Link
-          href="/help"
-          className="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1"
+  const header = (
+    <div>
+      <Link
+        href="/help"
+        className="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1"
+      >
+        ← Back to Help Center
+      </Link>
+      <div className="mt-4 bg-gradient-to-br from-primary/10 via-transparent to-transparent p-10 rounded-3xl border border-content/5 relative overflow-hidden">
+        <div className="relative z-10">
+          <h1 className="text-4xl font-black text-content mb-2">
+            Shipping Information
+          </h1>
+          <p className="text-content/60 text-lg">
+            Find answers to questions about shipping and delivery.
+          </p>
+        </div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/10 to-transparent -z-10" />
+      </div>
+    </div>
+  );
+
+  const tocItems = SHIPPING_TOPICS.map((topic) => ({
+    id: topic.name.toLowerCase().replace(/\s+/g, "-"),
+    title: topic.name,
+  }));
+
+  const sidebar = (
+    <div>
+      <h3 className="text-sm font-bold text-content/40 uppercase tracking-wider mb-3">
+        Topics
+      </h3>
+      <TableOfContents items={tocItems} />
+      <div className="border border-content/5 rounded-2xl p-5 bg-surface mt-6">
+        <h3 className="text-base font-bold text-content mb-1">
+          Still need help?
+        </h3>
+        <p className="text-content/60 text-xs mb-3">
+          Can&apos;t find what you need?
+        </p>
+        <Button
+          variant="primary"
+          size="sm"
+          className="w-full text-xs py-2 rounded-lg"
+          href="/help/contact"
         >
-          ← Back to Help Center
-        </Link>
-        <div className="mt-4 bg-gradient-to-br from-primary/10 via-transparent to-transparent p-10 rounded-3xl border border-content/5 relative overflow-hidden">
-          <div className="relative z-10">
-            <h1 className="text-4xl font-black text-content mb-2">
-              Shipping Information
-            </h1>
-            <p className="text-content/60 text-lg">
-              Find answers to questions about shipping and delivery.
-            </p>
+          Contact Us
+        </Button>
+      </div>
+    </div>
+  );
+
+  return (
+    <SidebarLayout header={header} sidebar={sidebar}>
+      {/* Search inside Shipping */}
+      <div className="mb-8">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search shipping topics..."
+            className="w-full h-12 px-5 pl-12 rounded-2xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
+          />
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-content/40">
+            🔍
           </div>
-          {/* Decorative background shape */}
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/10 to-transparent -z-10" />
         </div>
       </div>
 
-      {/* 2-Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Sidebar (Left) */}
-        <div className="lg:col-span-1">
-          <div className="sticky top-24 space-y-6">
-            <div>
-              <h3 className="text-sm font-bold text-content/40 uppercase tracking-wider mb-3">
-                Topics
-              </h3>
-              <ul className="space-y-1">
-                {SHIPPING_TOPICS.map((topic, index) => (
-                  <li key={index}>
-                    <Link
-                      href={`#${topic.name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className={`w-full block text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${index === 0 ? "bg-primary text-white" : "text-content/70 hover:bg-surface/80 hover:text-primary"}`}
-                    >
-                      {topic.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Need Help Card in Sidebar */}
-            <div className="border border-content/5 rounded-2xl p-5 bg-surface shadow-sm">
-              <h3 className="text-base font-bold text-content mb-1">
-                Still need help?
-              </h3>
-              <p className="text-content/60 text-xs mb-3">
-                Can't find what you need?
-              </p>
-              <Button
-                variant="primary"
-                size="sm"
-                className="w-full text-xs py-2 rounded-lg"
-              >
-                Open a Ticket
-              </Button>
+      {/* Accordion List Grouped by Topic */}
+      <div className="space-y-10">
+        {SHIPPING_TOPICS.map((topic, index) => (
+          <div
+            key={index}
+            id={topic.name.toLowerCase().replace(/\s+/g, "-")}
+            className="scroll-mt-24"
+          >
+            <h2 className="text-xl font-bold text-content mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 bg-primary rounded-full"></span>
+              {topic.name}
+            </h2>
+            <div className="space-y-3">
+              {topic.faqs.map((faq, faqIndex) => (
+                <Accordion key={faqIndex} title={faq.q}>
+                  {faq.a}
+                </Accordion>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Main Content (Right) */}
-        <div className="lg:col-span-3">
-          {/* Search inside Shipping */}
-          <div className="mb-8">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search shipping topics..."
-                className="w-full h-12 px-5 pl-12 rounded-2xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
-              />
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-content/40">
-                🔍
-              </div>
-            </div>
-          </div>
-
-          {/* Accordion List Grouped by Topic */}
-          <div className="space-y-10">
-            {SHIPPING_TOPICS.map((topic, index) => (
-              <div
-                key={index}
-                id={topic.name.toLowerCase().replace(/\s+/g, "-")}
-                className="scroll-mt-24"
-              >
-                <h2 className="text-xl font-bold text-content mb-4 flex items-center gap-2">
-                  <span className="w-1 h-5 bg-primary rounded-full"></span>
-                  {topic.name}
-                </h2>
-                <div className="space-y-3">
-                  {topic.faqs.map((faq, faqIndex) => (
-                    <Accordion key={faqIndex} title={faq.q}>
-                      {faq.a}
-                    </Accordion>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
-    </AppContainer>
+    </SidebarLayout>
   );
 }
