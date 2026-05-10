@@ -18,6 +18,8 @@ import {
   Ticket,
   Truck,
   Star,
+  Eye,
+  RefreshCw,
   Zap,
 } from "lucide-react";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
@@ -239,6 +241,24 @@ export const HomepagePrivate = () => {
           title="Based on Your Interest"
           icon={Laptop}
           iconColor="text-blue-500"
+          products={TECH_PRODUCTS}
+          rows={1}
+        />
+
+        {/* 7. Recently Viewed Section */}
+        <ProductCarousel
+          title="Recently Viewed"
+          icon={Eye}
+          iconColor="text-blue-400"
+          products={TRENDING_PRODUCTS}
+          rows={1}
+        />
+
+        {/* 8. Buy It Again Section */}
+        <ProductCarousel
+          title="Buy It Again"
+          icon={RefreshCw}
+          iconColor="text-green-500"
           products={TECH_PRODUCTS}
           rows={1}
         />
