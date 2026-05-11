@@ -14,7 +14,7 @@ import { InputVariant } from "@/components/atoms/input/input.types";
 
 interface Option {
   label: string;
-  value: string;
+  value: string | number;
 }
 
 interface FormSelectProps {

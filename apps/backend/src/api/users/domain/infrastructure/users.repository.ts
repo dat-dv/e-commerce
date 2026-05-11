@@ -48,7 +48,7 @@ export class UsersRepository implements IUsersRepository {
     return prismaUser;
   }
 
-  async update(id: string, data: Partial<IUser>): Promise<IUser> {
+  async update(id: string, data: Partial<Omit<IUser, 'addresses'>>): Promise<IUser> {
     const prismaUser = await this.prisma.user.update({
       where: { id },
       data: data,

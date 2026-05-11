@@ -7,6 +7,12 @@ export interface IRegisterRequest extends IAuthRequest {
   confirmPassword: string;
 }
 
+export enum EGender {
+  MALE = 0,
+  FEMALE = 1,
+  OTHER = 2,
+}
+
 export interface TUser {
   id: string;
   first_name?: string;
@@ -20,6 +26,7 @@ export interface TUser {
   role_id?: string | null;
   date_of_birth?: string | null;
   avatar_url?: string | null;
+  gender?: EGender | null;
 }
 
 export interface IAuthState {

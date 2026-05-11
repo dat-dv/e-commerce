@@ -7,12 +7,14 @@ import { useForm } from "react-hook-form";
 import Button from "@/components/atoms/button";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
+import { FormSelect } from "@/components/molecules/form/form-select";
 import AppForm from "@/components/molecules/form/app-form";
 import { TUser } from "@/domain/auth/types/auth.model";
 import {
   requireProfileInfoSchema,
   TRequireProfileInfoSchema,
 } from "./require-profile-info-form.schema";
+import { GENDER_OPTIONS } from "@/constants/gender.constant";
 
 export const RequireProfileInfoForm = ({
   onSubmit,
@@ -21,16 +23,23 @@ export const RequireProfileInfoForm = ({
 }: {
   onSubmit: (data: TRequireProfileInfoSchema) => void;
   logout: () => void;
-  user: Pick<TUser, "first_name" | "last_name" | "date_of_birth">;
+  user: Pick<TUser, "first_name" | "last_name" | "date_of_birth" | "gender">;
 }) => {
+  const requireFields = ["first_name", "last_name", "date_of_birth", "gender"];
   const show =
-    !!user && (!user?.first_name || !user?.last_name || !user.date_of_birth);
+    !!user &&
+    requireFields.every((field) => {
+      const value = user[field as keyof typeof user];
+      return value === null || value === undefined || value === "";
+    });
+
   const methods = useForm<TRequireProfileInfoSchema>({
     resolver: zodResolver(requireProfileInfoSchema),
     defaultValues: {
       first_name: user?.first_name || "",
       last_name: user?.last_name || "",
       dob: user?.date_of_birth ? String(user.date_of_birth) : "",
+      gender: user?.gender ?? undefined,
     },
   });
 
@@ -40,6 +49,7 @@ export const RequireProfileInfoForm = ({
         first_name: user?.first_name || "",
         last_name: user?.last_name || "",
         dob: user?.date_of_birth ? String(user.date_of_birth) : "",
+        gender: user?.gender ?? undefined,
       });
     }
   }, [user, methods, show]);
@@ -64,6 +74,12 @@ export const RequireProfileInfoForm = ({
           label="Date of Birth"
           placeholder="dd/mm/yyyy"
           variant="underline"
+        />
+        <FormSelect
+          name="gender"
+          label="Gender"
+          variant="underline"
+          options={GENDER_OPTIONS}
         />
       </div>
 
