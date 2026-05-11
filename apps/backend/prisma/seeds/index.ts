@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { PrismaClient } from '../../generated/prisma/client';
 import { seedPhase1 } from './phase1';
 import { seedPhase2 } from './phase2';

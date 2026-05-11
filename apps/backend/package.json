@@ -19,7 +19,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./test/jest-e2e.json",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "db:reset": "prisma migrate reset --force && prisma generate && npx tsx prisma/seeds/index.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -91,5 +92,8 @@
       "^generated/(.*)$": "<rootDir>/../generated/$1",
       "^(\\.+\\/.*)\\.js$": "$1"
     }
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seeds/index.ts"
   }
 }
