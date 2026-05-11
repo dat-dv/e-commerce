@@ -48,8 +48,8 @@ describe('RefreshTokenUseCase', () => {
   });
 
   it('should throw UnauthorizedException if tokens missing', async () => {
-    await expect(useCase.execute(undefined, 'rt')).rejects.toThrow(UnauthorizedException);
-    await expect(useCase.execute('at', undefined)).rejects.toThrow(UnauthorizedException);
+    await expect(useCase.execute('rt')).rejects.toThrow(UnauthorizedException);
+    await expect(useCase.execute('at')).rejects.toThrow(UnauthorizedException);
   });
 
   it('should throw UnauthorizedException if refresh token not in db', async () => {
@@ -58,7 +58,7 @@ describe('RefreshTokenUseCase', () => {
       .mockResolvedValueOnce({ sub: '1' });
     mockAuthRepository.findRefreshToken.mockResolvedValue(null);
 
-    await expect(useCase.execute('at', 'rt')).rejects.toThrow(UnauthorizedException);
+    await expect(useCase.execute('rt')).rejects.toThrow(UnauthorizedException);
   });
 
   it('should refresh tokens successfully', async () => {
@@ -75,7 +75,7 @@ describe('RefreshTokenUseCase', () => {
     mockAuthRepository.findRefreshToken.mockResolvedValue(dbToken);
     mockJwtService.signAsync.mockResolvedValueOnce('new-rt').mockResolvedValueOnce('new-at');
 
-    const result = await useCase.execute('at', 'rt');
+    const result = await useCase.execute('rt');
 
     expect(result.accessToken).toBe('new-at');
     expect(result.refreshToken).toBe('new-rt');

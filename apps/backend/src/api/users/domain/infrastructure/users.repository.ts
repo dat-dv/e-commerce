@@ -25,10 +25,7 @@ export class UsersRepository implements IUsersRepository {
       },
     });
 
-    console.log(999, prismaUser);
-
     if (!prismaUser) return null;
-
     return prismaUser;
   }
 

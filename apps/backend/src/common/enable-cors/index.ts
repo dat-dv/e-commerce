@@ -18,7 +18,6 @@ export const enableCors = (app: INestApplication) => {
         callback(new Error('Not allowed by CORS'));
       }
     },
-
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization', 'timezone'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

@@ -14,7 +14,7 @@ export class RefreshTokenUseCase {
     private readonly configService: ConfigService<EnvVars>,
   ) {}
 
-  async execute(accessToken: string | undefined, refreshToken: string | undefined) {
+  async execute(refreshToken: string | undefined) {
     if (!refreshToken) {
       throw new BadRequestException('Invalid or expired refresh token');
     }
@@ -42,7 +42,7 @@ export class RefreshTokenUseCase {
         refreshToken: newRefreshToken,
       };
     } catch (error) {
-      throw new UnauthorizedException('Invalid or expired refresh token');
+      throw new BadRequestException('Invalid or expired refresh token');
     }
   }
 }

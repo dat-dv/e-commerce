@@ -55,7 +55,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             ref={inputRef}
             disabled={isDisabled}
             readOnly={true}
-            className="w-full h-10 bg-transparent border-none outline-none focus:outline-none z-10 text-sm pl-4 cursor-pointer"
+            className="w-full h-10 bg-transparent border-none outline-none focus:outline-none z-10 text-base font-semibold cursor-pointer"
             placeholder="DD/MM/YYYY"
           />
           <div className="ml-auto text-content/30 hover:text-content/60 transition-colors cursor-pointer z-10">

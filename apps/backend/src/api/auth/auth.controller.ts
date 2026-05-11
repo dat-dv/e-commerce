@@ -68,23 +68,25 @@ export class AuthController {
   async logout(@Req() req: Express.Request, @Res({ passthrough: true }) res: express.Response) {
     const refreshToken = req.cookies['refresh_token'];
     const result = await this.logoutUseCase.execute(refreshToken);
-
     res.clearCookie('access_token');
     res.clearCookie('refresh_token');
-
     return createSuccessResponse(result);
   }
 
   @Post('refresh-token')
   async refreshToken(@Req() req: Express.Request, @Res({ passthrough: true }) res: express.Response) {
-    const accessToken = req.cookies.access_token;
-    const refreshToken = req.cookies.refresh_token;
+    try {
+      const refreshToken = req.cookies.refresh_token;
+      const result = await this.refreshTokenUseCase.execute(refreshToken);
+      this.setAccessTokenCookies(result.accessToken, res);
+      this.setRefreshTokenCookies(result.refreshToken, res);
 
-    const result = await this.refreshTokenUseCase.execute(accessToken, refreshToken);
-    this.setAccessTokenCookies(result.accessToken, res);
-    this.setRefreshTokenCookies(result.refreshToken, res);
-
-    return createSuccessResponse(true);
+      return createSuccessResponse(true);
+    } catch (error) {
+      res.clearCookie('access_token');
+      res.clearCookie('refresh_token');
+      throw error;
+    }
   }
 
   private setAccessTokenCookies(accessToken: string, res: express.Response) {
