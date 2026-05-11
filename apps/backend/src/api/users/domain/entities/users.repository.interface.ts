@@ -9,6 +9,10 @@ export interface IUsersRepository {
   findAll(page: number, limit: number): Promise<PaginatedResult<IUser>>;
   getUserPermissions(userId: string): Promise<string[]>;
   getUserAvatarPublicId(userId: string): Promise<string | null>;
+  addUserPhone(
+    userId: string,
+    data: { phone: string; phone_code: string; is_verified: boolean; is_default: boolean },
+  ): Promise<void>;
 }
 
 export const IUsersRepository = Symbol('IUsersRepository');

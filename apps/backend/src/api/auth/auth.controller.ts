@@ -3,6 +3,7 @@ import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
+import { VerifyPhoneDto } from './dto/verify-phone.dto';
 import express from 'express';
 import createSuccessResponse from 'src/common/respomse';
 import { LoginUseCase } from './domain/use-cases/login.use-case';
@@ -12,6 +13,7 @@ import { ForgotPasswordUseCase } from './domain/use-cases/forgot-password.use-ca
 import { ResetPasswordUseCase } from './domain/use-cases/reset-password.use-case';
 import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
 import { GetMeUseCase } from './domain/use-cases/get-me.use-case';
+import { VerifyPhoneUseCase } from './domain/use-cases/verify-phone.use-case';
 import { AuthGuard } from './guards/auth.guard';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
@@ -26,6 +28,7 @@ export class AuthController {
     private readonly resetPasswordUseCase: ResetPasswordUseCase,
     private readonly refreshTokenUseCase: RefreshTokenUseCase,
     private readonly getMeUseCase: GetMeUseCase,
+    private readonly verifyPhoneUseCase: VerifyPhoneUseCase,
     private readonly configService: ConfigService<EnvVars>,
   ) {}
 
@@ -61,6 +64,14 @@ export class AuthController {
   @Post('reset-password')
   async resetPassword(@Body() dto: ResetPasswordDto) {
     const result = await this.resetPasswordUseCase.execute(dto);
+    return createSuccessResponse(result);
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('verify-phone')
+  async verifyPhone(@Req() req: express.Request, @Body() dto: VerifyPhoneDto) {
+    const userId = req.user.sub;
+    const result = await this.verifyPhoneUseCase.execute(userId, dto);
     return createSuccessResponse(result);
   }
 

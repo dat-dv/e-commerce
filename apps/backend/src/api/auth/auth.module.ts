@@ -10,6 +10,7 @@ import { ForgotPasswordUseCase } from './domain/use-cases/forgot-password.use-ca
 import { ResetPasswordUseCase } from './domain/use-cases/reset-password.use-case';
 import { RefreshTokenUseCase } from './domain/use-cases/refresh-token.use-case';
 import { GetMeUseCase } from './domain/use-cases/get-me.use-case';
+import { VerifyPhoneUseCase } from './domain/use-cases/verify-phone.use-case';
 import { IAuthRepository } from './domain/entities/auth.repository.interface';
 import { AuthRepository } from './domain/infrastructure/auth.repository';
 import { TokenService } from '../../shared/services/token/token.service';
@@ -25,6 +26,7 @@ import { TokenService } from '../../shared/services/token/token.service';
     ResetPasswordUseCase,
     RefreshTokenUseCase,
     GetMeUseCase,
+    VerifyPhoneUseCase,
     TokenService,
     {
       provide: IAuthRepository,
@@ -39,6 +41,7 @@ import { TokenService } from '../../shared/services/token/token.service';
     ResetPasswordUseCase,
     RefreshTokenUseCase,
     GetMeUseCase,
+    VerifyPhoneUseCase,
     TokenService,
     IAuthRepository,
     JwtModule,

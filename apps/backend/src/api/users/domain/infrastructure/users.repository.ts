@@ -48,7 +48,7 @@ export class UsersRepository implements IUsersRepository {
     return prismaUser;
   }
 
-  async update(id: string, data: Partial<Omit<IUser, 'addresses'>>): Promise<IUser> {
+  async update(id: string, data: Partial<Omit<IUser, 'addresses' | 'phones'>>): Promise<IUser> {
     const prismaUser = await this.prisma.user.update({
       where: { id },
       data: data,
@@ -132,5 +132,17 @@ export class UsersRepository implements IUsersRepository {
     });
 
     return user?.avatar?.publicId || null;
+  }
+
+  async addUserPhone(
+    userId: string,
+    data: { phone: string; phone_code: string; is_verified: boolean; is_default: boolean },
+  ): Promise<void> {
+    await this.prisma.userPhone.create({
+      data: {
+        ...data,
+        user_id: userId,
+      },
+    });
   }
 }

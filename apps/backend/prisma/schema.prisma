@@ -29,9 +29,22 @@ model User {
   comments      Comment[]
   shiping_addresses     ShippingAddress[]
   password_reset_tokens PasswordResetToken[]
+  phones                UserPhone[]
   
   role_id       String?
   role          Role?          @relation(fields: [role_id], references: [id])
+}
+
+model UserPhone {
+  id           String   @id @default(cuid())
+  phone        String   @unique
+  phone_code   String
+  is_verified  Boolean  @default(false)
+  is_default   Boolean  @default(false)
+  user_id      String
+  user         User     @relation(fields: [user_id], references: [id])
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
 }
 
 enum IPostStatus {

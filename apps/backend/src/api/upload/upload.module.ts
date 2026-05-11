@@ -1,8 +1,8 @@
 import { Module, forwardRef } from '@nestjs/common';
 import { UploadController } from './upload.controller';
 import { AuthModule } from '../auth/auth.module';
-import { FirebaseService } from './firebase.service';
-import { CloudinaryService } from './cloudinary.service';
+import { FirebaseService } from './firebase-upload.service';
+import { CloudinaryService } from './cloudinary-upload.service';
 import { StorageService } from './storage.service';
 import { IUploadRepository } from './domain/entities/upload.repository.interface';
 import { UploadRepository } from './domain/infrastructure/upload.repository';

@@ -31,6 +31,17 @@ export interface IAddress {
   updated_at: Date;
 }
 
+export interface IUserPhone {
+  id: string;
+  phone: string;
+  phone_code?: string | null;
+  is_verified: boolean;
+  is_default: boolean;
+  user_id: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
 export interface IUser {
   id: string;
   first_name?: string | null;
@@ -45,4 +56,5 @@ export interface IUser {
   deleted_at?: Date | null;
   role_id?: string | null;
   addresses?: IAddress[];
+  phones?: IUserPhone[];
 }
