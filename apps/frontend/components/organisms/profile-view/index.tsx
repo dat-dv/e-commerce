@@ -3,7 +3,6 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import { Bell, User, ShoppingBag, ShoppingCart } from "lucide-react";
 import { ProfileForm } from "../../molecules/profile-form";
 import Link from "next/link";
-import { cn } from "@/utils/cn";
 
 export const ProfileView = () => {
   const sidebarContent = (

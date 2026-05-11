@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, ReactNode, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useEffectEvent,
+  useRef,
+  useState,
+} from "react";
 import { useStore } from "zustand";
 
 import Loading from "@/components/atoms/loading";
@@ -10,8 +17,6 @@ import { createUserStore } from "@/store/user-store";
 import { IAuthStoreState } from "@/store/user-store/user-store.type";
 import { safe } from "@/utils/promise";
 import { appRequest } from "@/utils/request/request";
-import { useRouter } from "next/navigation";
-import { APP_ROUTES } from "@/constants/routes";
 
 export type UserStore = ReturnType<typeof createUserStore>;
 export const AuthContext = createContext<UserStore | null>(null);
@@ -22,36 +27,38 @@ export interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children, initState }: AuthProviderProps) => {
-  const router = useRouter();
   const [store] = useState(() =>
     createUserStore({
       ...initState,
-      // If we provide initState, we assume it's "hydrated" for testing
       _hasHydrated: initState ? true : false,
     }),
   );
   const hasHydrated = useStore(store, (s) => s._hasHydrated);
+  const user = useStore(store, (s) => s.user);
+  const hasCheckedAuthRef = useRef(false);
+
+  const initAuthStore = useEffectEvent(async () => {
+    if (!hasHydrated || hasCheckedAuthRef.current) return;
+    hasCheckedAuthRef.current = true;
+    if (!user) return;
+    try {
+      const authRepo = new AuthRepository(appRequest);
+      const response = await safe(new FetchMeUseCase(authRepo).execute());
+
+      const authStore = store.getState();
+      if (response && response.data) {
+        authStore.setUser(response.data);
+      } else {
+        authStore.setUser(null);
+      }
+    } catch {
+      store.getState().setUser(null);
+    }
+  });
 
   useEffect(() => {
-    if (hasHydrated) return;
-    const initAuthStore = async () => {
-      try {
-        const authRepo = new AuthRepository(appRequest);
-        const response = await safe(new FetchMeUseCase(authRepo).execute());
-
-        const authStore = store.getState();
-        if (response && response.data && !authStore.user?.id) {
-          authStore.setUser(response.data);
-          router.replace(APP_ROUTES.HOME);
-        }
-      } catch {
-        // Handle error silently
-      } finally {
-        store.getState().setHasHydrated(true);
-      }
-    };
     initAuthStore();
-  }, [hasHydrated, router, store]);
+  }, [hasHydrated, user, store]);
 
   if (!hasHydrated) {
     return <Loading />;
