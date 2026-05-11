@@ -22,20 +22,20 @@ export const useProfile = () => {
   const methods = useForm<ProfileSchema>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      name: `${user?.first_name || ""} ${user?.last_name || ""}`.trim() || "",
-      address: "",
+      first_name: user?.first_name || "",
+      last_name: user?.last_name || "",
       dob: String(user?.date_of_birth || ""),
-      avatarUrl: "",
+      avatarUrl: user?.avatar_url || "",
     },
   });
 
   useEffect(() => {
     if (user) {
       methods.reset({
-        name: `${user.first_name || ""} ${user.last_name || ""}`.trim() || "",
-        address: "",
+        first_name: user.first_name || "",
+        last_name: user.last_name || "",
         dob: String(user.date_of_birth || ""),
-        avatarUrl: "",
+        avatarUrl: user?.avatar_url || "",
       });
     }
   }, [user, methods]);
@@ -46,8 +46,11 @@ export const useProfile = () => {
 
     try {
       const response = await authUseCase.updateProfile.execute({
-        ...data,
         id: user?.id,
+        date_of_birth: data.dob,
+        last_name: data.last_name,
+        first_name: data.first_name,
+        avatar_url: data.avatarUrl,
       });
 
       setUser(response.data);

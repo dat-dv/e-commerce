@@ -19,6 +19,7 @@ export interface TUser {
   deleted_at?: string | null;
   role_id?: string | null;
   date_of_birth?: string | null;
+  avatar_url?: string | null;
 }
 
 export interface IAuthState {

@@ -1,12 +1,8 @@
 import { z } from "zod";
 
 export const profileSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  address: z
-    .string()
-    .min(5, { message: "Address must be at least 5 characters" })
-    .optional()
-    .or(z.literal("")),
+  first_name: z.string().min(1, { message: "First name is required" }),
+  last_name: z.string().min(1, { message: "Last name is required" }),
   dob: z
     .string()
     .datetime({ message: "Invalid date format (must be ISO string)" })

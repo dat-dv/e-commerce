@@ -26,12 +26,8 @@ export const ProfileForm = () => {
     handleSave,
   } = useProfile();
   const isDisabled = loading || !isEditing;
-  const [mapOpen, setMapOpen] = useState(false);
-  const watchedName = methods.watch("name");
-
-  const handlePickAddress = (address: string) => {
-    methods.setValue("address", address, { shouldDirty: true });
-  };
+  const watchedFirstName = methods.watch("first_name");
+  const watchedLastName = methods.watch("last_name");
 
   return (
     <AppForm data-testid="profile-form" methods={methods} onSubmit={handleSave}>
@@ -43,21 +39,18 @@ export const ProfileForm = () => {
             <FormAvatarInput
               name="avatarUrl"
               displayName={
-                watchedName || user?.first_name + " " + user?.last_name
+                `${watchedFirstName || ""} ${watchedLastName || ""}`.trim() ||
+                user?.first_name + " " + user?.last_name
               }
               size={64}
               disabled={isDisabled}
             />
 
             <div className="space-y-1 text-content text-left w-full max-w-md">
-              <FormInput
-                name="name"
-                variant="underline"
-                disabled={isDisabled}
-                autoComplete="name"
-                className="text-left text-xl font-bold tracking-tight h-auto"
-                placeholder="Your Name"
-              />
+              <p className="text-left text-xl font-bold tracking-tight">
+                {`${watchedFirstName || ""} ${watchedLastName || ""}`.trim() ||
+                  "Your Name"}
+              </p>
               <p className="text-sm opacity-60 font-medium ml-1">
                 {user?.email}
               </p>
@@ -65,6 +58,22 @@ export const ProfileForm = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormInput
+              variant="outline"
+              name="first_name"
+              label="First Name"
+              placeholder="Your First Name"
+              disabled={isDisabled}
+              className="h-10 text-sm rounded-xl"
+            />
+            <FormInput
+              variant="outline"
+              name="last_name"
+              label="Last Name"
+              placeholder="Your Last Name"
+              disabled={isDisabled}
+              className="h-10 text-sm rounded-xl"
+            />
             <FormInput
               variant="outline"
               name="phoneNumber"
@@ -95,29 +104,6 @@ export const ProfileForm = () => {
             ]}
             className="h-10 text-sm rounded-xl"
           />
-
-          <div className="relative">
-            <div
-              onClick={() => !isDisabled && setMapOpen(true)}
-              className={cn(
-                "cursor-pointer",
-                isDisabled && "cursor-not-allowed",
-              )}
-            >
-              <FormInput
-                variant="outline"
-                name="address"
-                label="Address"
-                placeholder="Click to pick address on map"
-                autoComplete="street-address"
-                disabled
-                className="pointer-events-none pr-10 h-10 text-sm rounded-xl"
-              />
-              <div className="absolute right-4 top-[34px] text-primary pointer-events-none">
-                <MapPin className="w-4 h-4" />
-              </div>
-            </div>
-          </div>
 
           <AnimationItem className="flex flex-wrap items-center justify-end gap-4 pt-6">
             {isEditing ? (
@@ -161,12 +147,6 @@ export const ProfileForm = () => {
             )}
           </AnimationItem>
         </div>
-
-        <MapPickerModal
-          isOpen={mapOpen}
-          onClose={() => setMapOpen(false)}
-          onPick={handlePickAddress}
-        />
 
         {/* Form Actions Section */}
       </div>

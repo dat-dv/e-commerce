@@ -32,7 +32,6 @@ export default function MapPickerModal({
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [addressDetails, setAddressDetails] = useState("");
   const [suggestions, setSuggestions] = useState<NominatimResult[]>([]);
   const [mapCenter, setMapCenter] = useState<[number, number] | undefined>(
     undefined,
@@ -40,7 +39,6 @@ export default function MapPickerModal({
 
   const handlePickAddress = (newAddress: string) => {
     setAddress(newAddress);
-    setAddressDetails(""); // Clear details when picking a new address
     setSearchQuery(newAddress);
     setSuggestions([]);
   };
@@ -171,17 +169,6 @@ export default function MapPickerModal({
                   </div>
                 )}
               </div>
-
-              <p className="text-sm font-medium opacity-60 mb-2">
-                Specific Details (House number, building, floor...):
-              </p>
-              <input
-                type="text"
-                value={addressDetails}
-                onChange={(e) => setAddressDetails(e.target.value)}
-                placeholder="E.g., No. 10, ABC Building, Room 502"
-                className="w-full px-4 py-3 bg-surface border border-content/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-lg shadow-sm hover:border-content/20"
-              />
             </div>
 
             <div className="flex justify-end gap-4">
@@ -191,10 +178,7 @@ export default function MapPickerModal({
               <Button
                 variant="primary"
                 onClick={() => {
-                  const fullAddress = addressDetails
-                    ? `${addressDetails}, ${address}`
-                    : address;
-                  onPick(fullAddress);
+                  onPick(address);
                   onClose();
                 }}
                 disabled={!address || loading}

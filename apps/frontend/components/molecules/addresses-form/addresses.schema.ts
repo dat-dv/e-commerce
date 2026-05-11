@@ -5,6 +5,9 @@ export const addressSchema = z.object({
   receiverName: z.string().min(1, "Receiver name is required"),
   receiverPhone: z.string().min(1, "Receiver phone is required"),
   detailAddress: z.string().min(1, "Detail address is required"),
+  specificDetails: z
+    .string()
+    .min(1, "Specific details are required (House number, building, floor...)"),
   isDefault: z.boolean(),
 });
 
