@@ -17,24 +17,10 @@ export class UpdateUserUseCase {
       throw new BadRequestException('User not found');
     }
 
-    const isUpdateAnotherProfile = id !== requestingUserId;
-
-    if (isUpdateAnotherProfile) {
-      return this.updateOrderAnotherUserProfie(id, requestingUserId, dto);
-    }
-
-    return this.usersRepository.update(id, dto);
-  }
-
-  private async updateOrderAnotherUserProfie(id: string, requestingUserId: string, dto: UpdateUserDto) {
-    const requestingUser = await this.usersRepository.findById(requestingUserId);
-    if (!requestingUser) {
-      throw new BadRequestException('Requesting user not found');
-    }
-
     const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
 
-    this.checkOwnershipOrPermission(id, requestingUser.id, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+    this.checkOwnershipOrPermission(id, requestingUserId, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+
     return this.usersRepository.update(id, dto);
   }
 

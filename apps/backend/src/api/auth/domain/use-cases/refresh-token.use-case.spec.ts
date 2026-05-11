@@ -1,10 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { Prisma } from 'generated/prisma/client';
 import { RefreshTokenUseCase } from './refresh-token.use-case';
+import { TokenService } from 'src/shared/services/token/token.service';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UnauthorizedException } from '@nestjs/common';
+import { UnauthorizedException, BadRequestException } from '@nestjs/common';
 
 describe('RefreshTokenUseCase', () => {
   let useCase: RefreshTokenUseCase;
@@ -15,9 +16,10 @@ describe('RefreshTokenUseCase', () => {
     saveRefreshToken: jest.fn(),
   };
 
-  const mockJwtService = {
-    verifyAsync: jest.fn(),
-    signAsync: jest.fn(),
+  const mockTokenService = {
+    verifyRefreshToken: jest.fn(),
+    generateRefreshToken: jest.fn(),
+    generateAccessToken: jest.fn(),
   };
 
   const mockConfigService = {
@@ -35,7 +37,7 @@ describe('RefreshTokenUseCase', () => {
       providers: [
         RefreshTokenUseCase,
         { provide: IAuthRepository, useValue: mockAuthRepository },
-        { provide: JwtService, useValue: mockJwtService },
+        { provide: TokenService, useValue: mockTokenService },
         { provide: ConfigService, useValue: mockConfigService },
       ],
     }).compile();
@@ -48,17 +50,15 @@ describe('RefreshTokenUseCase', () => {
   });
 
   it('should throw UnauthorizedException if tokens missing', async () => {
-    await expect(useCase.execute('rt')).rejects.toThrow(UnauthorizedException);
-    await expect(useCase.execute('at')).rejects.toThrow(UnauthorizedException);
+    await expect(useCase.execute('rt')).rejects.toThrow(BadRequestException);
+    await expect(useCase.execute('at')).rejects.toThrow(BadRequestException);
   });
 
   it('should throw UnauthorizedException if refresh token not in db', async () => {
-    mockJwtService.verifyAsync
-      .mockResolvedValueOnce({ sub: '1', email: 'test@example.com' })
-      .mockResolvedValueOnce({ sub: '1' });
+    mockTokenService.verifyRefreshToken.mockResolvedValue({ sub: '1', email: 'test@example.com' });
     mockAuthRepository.findRefreshToken.mockResolvedValue(null);
 
-    await expect(useCase.execute('rt')).rejects.toThrow(UnauthorizedException);
+    await expect(useCase.execute('rt')).rejects.toThrow(BadRequestException);
   });
 
   it('should refresh tokens successfully', async () => {
@@ -69,11 +69,10 @@ describe('RefreshTokenUseCase', () => {
       created_at: new Date(),
       updated_at: new Date(),
     };
-    mockJwtService.verifyAsync
-      .mockResolvedValueOnce({ sub: '1', email: 'test@example.com' })
-      .mockResolvedValueOnce({ sub: '1' });
+    mockTokenService.verifyRefreshToken.mockResolvedValue({ sub: '1', email: 'test@example.com' });
     mockAuthRepository.findRefreshToken.mockResolvedValue(dbToken);
-    mockJwtService.signAsync.mockResolvedValueOnce('new-rt').mockResolvedValueOnce('new-at');
+    mockTokenService.generateRefreshToken.mockResolvedValue('new-rt');
+    mockTokenService.generateAccessToken.mockResolvedValue('new-at');
 
     const result = await useCase.execute('rt');
 

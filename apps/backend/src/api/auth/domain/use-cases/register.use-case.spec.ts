@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { RegisterUseCase } from './register.use-case';
+import { TokenService } from 'src/shared/services/token/token.service';
 import { CreateUserUseCase } from 'src/api/users/domain/use-cases/create-user.use-case';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
@@ -17,8 +18,9 @@ describe('RegisterUseCase', () => {
     saveRefreshToken: jest.fn(),
   };
 
-  const mockJwtService = {
-    signAsync: jest.fn(),
+  const mockTokenService = {
+    generateAccessToken: jest.fn(),
+    generateRefreshToken: jest.fn(),
   };
 
   const mockConfigService = {
@@ -39,7 +41,7 @@ describe('RegisterUseCase', () => {
         RegisterUseCase,
         { provide: CreateUserUseCase, useValue: mockCreateUserUseCase },
         { provide: IAuthRepository, useValue: mockAuthRepository },
-        { provide: JwtService, useValue: mockJwtService },
+        { provide: TokenService, useValue: mockTokenService },
         { provide: ConfigService, useValue: mockConfigService },
       ],
     }).compile();
@@ -61,7 +63,8 @@ describe('RegisterUseCase', () => {
       password: 'password',
     };
     mockCreateUserUseCase.execute.mockResolvedValue(user);
-    mockJwtService.signAsync.mockResolvedValueOnce('at').mockResolvedValueOnce('rt');
+    mockTokenService.generateAccessToken.mockResolvedValue('at');
+    mockTokenService.generateRefreshToken.mockResolvedValue('rt');
 
     const result = await useCase.execute({
       email: 'test@example.com',

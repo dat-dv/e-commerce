@@ -1,10 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { LoginUseCase } from './login.use-case';
+import { TokenService } from 'src/shared/services/token/token.service';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UnauthorizedException } from '@nestjs/common';
+import { UnauthorizedException, BadRequestException } from '@nestjs/common';
 import { IUser } from 'src/api/users/domain/entities/user.entity';
 
 describe('LoginUseCase', () => {
@@ -18,8 +19,9 @@ describe('LoginUseCase', () => {
     saveRefreshToken: jest.fn(),
   };
 
-  const mockJwtService = {
-    signAsync: jest.fn(),
+  const mockTokenService = {
+    generateAccessToken: jest.fn(),
+    generateRefreshToken: jest.fn(),
   };
 
   const mockConfigService = {
@@ -40,8 +42,7 @@ describe('LoginUseCase', () => {
         LoginUseCase,
         { provide: IUsersRepository, useValue: mockUsersRepository },
         { provide: IAuthRepository, useValue: mockAuthRepository },
-        { provide: JwtService, useValue: mockJwtService },
-        { provide: ConfigService, useValue: mockConfigService },
+        { provide: TokenService, useValue: mockTokenService },
       ],
     }).compile();
 
@@ -56,7 +57,7 @@ describe('LoginUseCase', () => {
     mockUsersRepository.findByEmail.mockResolvedValue(null);
 
     await expect(useCase.execute({ email: 'test@example.com', password: 'password' })).rejects.toThrow(
-      UnauthorizedException,
+      BadRequestException,
     );
   });
 
@@ -72,7 +73,7 @@ describe('LoginUseCase', () => {
     mockUsersRepository.findByEmail.mockResolvedValue(user);
 
     await expect(useCase.execute({ email: 'test@example.com', password: 'wrong-password' })).rejects.toThrow(
-      UnauthorizedException,
+      BadRequestException,
     );
   });
 
@@ -86,7 +87,8 @@ describe('LoginUseCase', () => {
       password: 'password',
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
-    mockJwtService.signAsync.mockResolvedValueOnce('at').mockResolvedValueOnce('rt');
+    mockTokenService.generateAccessToken.mockResolvedValue('at');
+    mockTokenService.generateRefreshToken.mockResolvedValue('rt');
 
     const result = await useCase.execute({ email: 'test@example.com', password: 'password' });
 
