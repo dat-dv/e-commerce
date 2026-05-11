@@ -23,7 +23,14 @@ export default function RegionSelectorModal() {
   const handleSelect = (code: string) => {
     localStorage.setItem("user_region", code);
     setIsOpen(false);
-    window.location.reload();
+
+    // Tìm country tương ứng để lấy language
+    const country = aseanCountries.find((c) => c.code === code);
+    if (country && country.language) {
+      window.location.href = `/${country.language}`;
+    } else {
+      window.location.reload();
+    }
   };
 
   return (

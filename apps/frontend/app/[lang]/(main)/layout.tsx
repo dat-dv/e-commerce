@@ -1,11 +1,16 @@
 import Footer from "@/components/atoms/footer";
 import Header from "@/components/molecules/header";
 
-export default function MainLayout({
+export default async function MainLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const resolvedParams = await params;
+  const lang = resolvedParams?.lang || "en";
+
   return (
     <div className="min-h-full flex flex-col">
       <Header />

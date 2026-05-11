@@ -80,3 +80,12 @@ export const aseanCountries = [
     enabled: false,
   },
 ];
+
+export const STORAGE_KEYS = {
+  USER_REGION: "user_region",
+};
+
+export const language = {
+  vi: "Vietnam",
+  en: "English",
+};

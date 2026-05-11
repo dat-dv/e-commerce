@@ -1,9 +1,5 @@
-"use client";
-
-import React from "react";
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
-import { useParams } from "next/navigation";
 import { SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
@@ -60,9 +56,22 @@ const MOCK_PRODUCTS = [
   },
 ];
 
-export default function CategoryPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
+// This is required for static export with dynamic routes
+export async function generateStaticParams() {
+  return [
+    { slug: "electronics" },
+    { slug: "accessories" },
+    { slug: "home-living" },
+  ];
+}
+
+export default async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
 
   // Capitalize slug for title
   const title = slug
