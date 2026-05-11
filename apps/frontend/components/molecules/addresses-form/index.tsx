@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { Plus, MapPin } from "lucide-react";
+import { Plus } from "lucide-react";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
@@ -9,16 +8,16 @@ import AppForm from "@/components/molecules/form/app-form";
 import Button from "@/components/atoms/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addressSchema, AddressFormData } from "./addresses.schema";
-import MapPickerModal from "@/components/molecules/profile-form/map-picker-modal";
-import { cn } from "@/utils/cn";
-
-const labelOptions = [
-  { label: "Home", value: "Home" },
-  { label: "Apartment", value: "Apartment" },
-  { label: "Office", value: "Office" },
-  { label: "Other", value: "Other" },
-];
+import {
+  addressSchema,
+  AddressFormData,
+  AddressFormInput,
+} from "./addresses.schema";
+import {
+  EShippingAddressLabels,
+  SHIPPING_ADDRESS_LABELS_OPTIONS,
+} from "@/constants/shipping-address.constanst";
+import { FormMapPicker } from "../form/form-map-picker";
 
 interface AddressesFormProps {
   onSubmit: (data: AddressFormData) => Promise<boolean>;
@@ -26,23 +25,22 @@ interface AddressesFormProps {
 }
 
 export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
-  const [mapOpen, setMapOpen] = useState(false);
-
-  const methods = useForm<AddressFormData>({
+  const methods = useForm<AddressFormInput>({
     resolver: zodResolver(addressSchema),
     defaultValues: {
-      label: "",
-      receiverName: "",
-      receiverPhone: "",
-      detailAddress: "",
-      specificDetails: "",
-      isDefault: false,
+      label: EShippingAddressLabels.HOME,
+      receiver_name: "",
+      receiver_phone: "",
+      latitude: 0,
+      longitude: 0,
+      street: "",
+      city: "",
+      state: "",
+      country: "",
+      postal_code: "",
+      is_default: false,
     },
   });
-
-  const handlePickAddress = (address: string) => {
-    methods.setValue("detailAddress", address, { shouldDirty: true });
-  };
 
   const handleFormSubmit = async (data: AddressFormData) => {
     const success = await onSubmit(data);
@@ -56,7 +54,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <FormInput
-            name="receiverName"
+            name="receiver_name"
             label="Receiver Name"
             placeholder="John Doe"
             variant="outline"
@@ -64,7 +62,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
             disabled={loading}
           />
           <FormPhoneInput
-            name="receiverPhone"
+            name="receiver_phone"
             label="Receiver Phone"
             placeholder="0123456789"
             disabled={loading}
@@ -75,62 +73,75 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
         <FormSelect
           name="label"
           label="Label"
-          options={labelOptions}
+          options={SHIPPING_ADDRESS_LABELS_OPTIONS}
           variant="outline"
           className="h-10 text-sm rounded-xl"
           disabled={loading}
         />
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-content">
-            Address from Map
-          </label>
-          <div
-            onClick={() => !loading && setMapOpen(true)}
-            className={cn(
-              "p-3 border rounded-xl cursor-pointer flex justify-between items-center",
-              methods.watch("detailAddress")
-                ? "border-primary/20 bg-primary/5"
-                : "border-content/10 bg-white",
-              loading && "cursor-not-allowed opacity-50",
-            )}
-          >
-            <div className="flex items-center gap-2 max-w-[80%]">
-              <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-              <span
-                className={cn(
-                  "text-sm truncate",
-                  !methods.watch("detailAddress") && "text-content/40",
-                )}
-              >
-                {methods.watch("detailAddress") ||
-                  "Click to pick address on map"}
-              </span>
-            </div>
-            <span className="text-xs text-primary font-medium">
-              {methods.watch("detailAddress") ? "Change" : "Select"}
-            </span>
-          </div>
-        </div>
+        <FormMapPicker
+          label="Address from Map"
+          nameLat="latitude"
+          nameLng="longitude"
+          disabled={loading}
+        />
 
         <FormInput
-          name="specificDetails"
-          label="Specific Details (House number, building, floor...)"
-          placeholder="e.g., House No. 12, Floor 3"
+          name="street"
+          label="Street / Specific Details"
+          placeholder="e.g., House No. 12, Floor 3, Street Name"
           variant="outline"
           className="h-10 text-sm rounded-xl"
           disabled={loading}
         />
+
+        <div className="grid grid-cols-2 gap-4">
+          <FormInput
+            name="city"
+            label="City"
+            placeholder="City"
+            variant="outline"
+            className="h-10 text-sm rounded-xl"
+            disabled={loading}
+          />
+          <FormInput
+            name="state"
+            label="State / Province"
+            placeholder="State"
+            variant="outline"
+            className="h-10 text-sm rounded-xl"
+            disabled={loading}
+          />
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <FormInput
+            name="country"
+            label="Country"
+            placeholder="Country"
+            variant="outline"
+            className="h-10 text-sm rounded-xl"
+            disabled={loading}
+          />
+          <FormInput
+            name="postal_code"
+            label="Postal Code"
+            placeholder="Postal Code"
+            variant="outline"
+            className="h-10 text-sm rounded-xl"
+            disabled={loading}
+          />
+        </div>
 
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
-            id="isDefault"
-            {...methods.register("isDefault")}
+            id="is_default"
+            {...methods.register("is_default")}
             className="rounded border-content/20 text-primary focus:ring-primary"
             disabled={loading}
           />
-          <label htmlFor="isDefault" className="text-sm text-content/80">
+          <label htmlFor="is_default" className="text-sm text-content/80">
             Set as default address
           </label>
         </div>
@@ -144,12 +155,6 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           Add Address
         </Button>
       </div>
-
-      <MapPickerModal
-        isOpen={mapOpen}
-        onClose={() => setMapOpen(false)}
-        onPick={handlePickAddress}
-      />
     </AppForm>
   );
 };

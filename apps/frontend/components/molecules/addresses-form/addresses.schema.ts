@@ -1,14 +1,21 @@
+import { EShippingAddressLabels } from "@/constants/shipping-address.constanst";
 import * as z from "zod";
 
 export const addressSchema = z.object({
-  label: z.string().min(1, "Label is required (e.g., Home, Office)"),
-  receiverName: z.string().min(1, "Receiver name is required"),
-  receiverPhone: z.string().min(1, "Receiver phone is required"),
-  detailAddress: z.string().min(1, "Detail address is required"),
-  specificDetails: z
-    .string()
-    .min(1, "Specific details are required (House number, building, floor...)"),
-  isDefault: z.boolean(),
+  label: z.nativeEnum(EShippingAddressLabels, {
+    error: "Label is required",
+  }),
+  receiver_name: z.string().min(1, "Receiver name is required"),
+  receiver_phone: z.string().min(1, "Receiver phone is required"),
+  latitude: z.number().refine((val) => val !== 0, "Map location is required"),
+  longitude: z.number().refine((val) => val !== 0, "Map location is required"),
+  street: z.string().min(1, "Street is required"),
+  city: z.string().min(1, "City is required"),
+  state: z.string().min(1, "State is required"),
+  country: z.string().min(1, "Country is required"),
+  postal_code: z.string().min(1, "Postal code is required"),
+  is_default: z.boolean(),
 });
 
 export type AddressFormData = z.infer<typeof addressSchema>;
+export type AddressFormInput = z.input<typeof addressSchema>;
