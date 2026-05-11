@@ -38,6 +38,8 @@ export const API_ROUTES = {
     ME: "/auth/me",
     LOGOUT: "/auth/logout",
     REFRESH_TOKEN: "/auth/refresh-token",
+    FORGOT_PASSWORD: "/auth/forgot-password",
+    RESET_PASSWORD: "/auth/reset-password",
   },
   USERS: {
     PROFILE: "/users/profile",

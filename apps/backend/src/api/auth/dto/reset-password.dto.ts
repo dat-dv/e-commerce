@@ -1,4 +1,5 @@
 import { IsString, MinLength } from 'class-validator';
+import { Match } from 'src/common/decorators/match.decorator';
 
 export class ResetPasswordDto {
   @IsString()
@@ -9,5 +10,6 @@ export class ResetPasswordDto {
   new_password: string;
 
   @IsString()
+  @Match('new_password', { message: 'Passwords do not match' })
   confirm_password: string;
 }

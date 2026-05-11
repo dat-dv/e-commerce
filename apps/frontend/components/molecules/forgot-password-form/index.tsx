@@ -12,50 +12,22 @@ import { FormButton } from "../form/form-button";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import { useState } from "react";
 import { FormPhoneInput } from "../form/form-phone-input";
 import SuccessModal from "./success-modal";
+import useForgotPassword from "@/hooks/auth/use-forgot-password";
 
 export default function ForgotPasswordForm() {
-  const [method, setMethod] = useState<"email" | "phone">("email");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState({ title: "", message: "" });
-  const [isSent, setIsSent] = useState(false);
-
-  const methods = useForm<TForgotPasswordSchema>({
-    resolver: zodResolver(forgotPasswordSchema),
-    defaultValues: {
-      email: "",
-      phone: "",
-    },
-  });
-
   const {
-    formState: { isSubmitting },
-  } = methods;
-
-  const onSubmit = async (data: TForgotPasswordSchema) => {
-    try {
-      // Call API here!
-      // await api.post("/auth/forgot-password", data);
-
-      if (method === "email") {
-        setModalContent({
-          title: "Link Sent",
-          message: `We have sent a reset password link to your email: ${data.email}`,
-        });
-      } else {
-        setModalContent({
-          title: "OTP Sent",
-          message: `We have sent a 6-digit OTP to your phone: ${data.phone}`,
-        });
-      }
-      setIsSent(true);
-      setIsModalOpen(true);
-    } catch (error) {
-      console.error("Failed to send reset link:", error);
-    }
-  };
+    handleForgotPassword,
+    methods,
+    isLoading,
+    method,
+    setMethod,
+    isModalOpen,
+    setIsModalOpen,
+    modalContent,
+    isSent,
+  } = useForgotPassword();
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-sm">
@@ -93,7 +65,7 @@ export default function ForgotPasswordForm() {
         </button>
       </div>
 
-      <AppForm<TForgotPasswordSchema> methods={methods} onSubmit={onSubmit}>
+      <AppForm<TForgotPasswordSchema> methods={methods} onSubmit={handleForgotPassword}>
         {method === "email" ? (
           <FormInput
             name="email"
@@ -108,7 +80,7 @@ export default function ForgotPasswordForm() {
 
         <FormButton
           type="submit"
-          isLoading={isSubmitting}
+          isLoading={isLoading}
           loadingText="Sending..."
           className="mt-4"
           disabled={isSent}

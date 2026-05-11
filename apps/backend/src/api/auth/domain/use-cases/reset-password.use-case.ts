@@ -1,27 +1,20 @@
 import { Injectable, BadRequestException, UnauthorizedException, Inject } from '@nestjs/common';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
-import { JwtService } from '@nestjs/jwt';
-import { ConfigService } from '@nestjs/config';
 import { ResetPasswordDto } from '../../dto/reset-password.dto';
-import { EnvVars } from 'src/config/config.validation';
-import { TResetPasswordPayload } from '../../auth.types';
+import { TokenService } from 'src/shared/services/token/token.service';
 
 @Injectable()
 export class ResetPasswordUseCase {
   constructor(
     @Inject(IUsersRepository)
     private readonly usersRepository: IUsersRepository,
-    private readonly jwtService: JwtService,
-    private readonly configService: ConfigService<EnvVars>,
+    private readonly tokenService: TokenService,
   ) {}
 
   async execute(dto: ResetPasswordDto) {
     try {
-      const payload = await this.jwtService.verifyAsync<TResetPasswordPayload>(dto.token, {
-        secret: this.configService.get<string>('RESET_PASSWORD_TOKEN_SECRET'),
-      });
-
-      const user = await this.usersRepository.findById(payload.sub);
+      const payload = await this.tokenService.verifyResetPasswordToken(dto.token);
+      const user = await this.usersRepository.findById(payload?.userId);
       if (!user) {
         throw new BadRequestException('User not found');
       }

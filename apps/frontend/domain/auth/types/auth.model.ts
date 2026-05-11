@@ -7,6 +7,12 @@ export interface IRegisterRequest extends IAuthRequest {
   confirmPassword: string;
 }
 
+export interface IResetPasswordRequest {
+  token: string;
+  new_password: string;
+  confirm_password: string;
+}
+
 export enum EGender {
   MALE = 0,
   FEMALE = 1,

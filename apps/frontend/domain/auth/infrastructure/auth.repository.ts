@@ -1,7 +1,12 @@
 import { API_ROUTES } from "@/constants/routes";
 import { ApiResponse, TRequest } from "@/utils/request/request.types";
 
-import { IAuthRequest, IRegisterRequest, TUser } from "../types/auth.model";
+import {
+  IAuthRequest,
+  IRegisterRequest,
+  TUser,
+  IResetPasswordRequest,
+} from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
 import { IAppUserResponse } from "../types/auth.response";
@@ -53,5 +58,18 @@ export class AuthRepository implements IAuthRepository {
 
   async logout(): Promise<ApiResponse<void>> {
     return this.request.post(API_ROUTES.AUTH.LOGOUT, {});
+  }
+
+  async forgotPassword(request: {
+    email?: string;
+    phone?: string;
+  }): Promise<ApiResponse<void>> {
+    return this.request.post(API_ROUTES.AUTH.FORGOT_PASSWORD, request);
+  }
+
+  async resetPassword(
+    request: IResetPasswordRequest,
+  ): Promise<ApiResponse<void>> {
+    return this.request.post(API_ROUTES.AUTH.RESET_PASSWORD, request);
   }
 }

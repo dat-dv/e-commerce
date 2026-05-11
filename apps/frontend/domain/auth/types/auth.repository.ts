@@ -1,6 +1,11 @@
 import { ApiResponse } from "@/utils/request/request.types";
 
-import { IAuthRequest, IRegisterRequest, TUser } from "./auth.model";
+import {
+  IAuthRequest,
+  IRegisterRequest,
+  TUser,
+  IResetPasswordRequest,
+} from "./auth.model";
 
 // ===== IRepository =====
 export interface IAuthRepository {
@@ -9,4 +14,9 @@ export interface IAuthRepository {
   fetchMe(): Promise<ApiResponse<TUser>>;
   updateProfile(user: Partial<TUser>): Promise<ApiResponse<TUser>>;
   logout(): Promise<ApiResponse<void>>;
+  forgotPassword(request: {
+    email?: string;
+    phone?: string;
+  }): Promise<ApiResponse<void>>;
+  resetPassword(request: IResetPasswordRequest): Promise<ApiResponse<void>>;
 }

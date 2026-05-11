@@ -1,48 +1,25 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams, useRouter } from "next/navigation";
-import { resetPasswordSchema, TResetPasswordSchema } from "./reset-password.schema";
+import { notFound } from "next/navigation";
+import useResetPassword from "@/hooks/auth/use-reset-password";
+import {
+  resetPasswordSchema,
+  TResetPasswordSchema,
+} from "./reset-password.schema";
 import AppForm from "../form/app-form";
 import { FormInput } from "../form/form-input";
 import { FormButton } from "../form/form-button";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
+import { authUseCase } from "@/domain/auth/use-cases";
 
 export default function ResetPasswordForm() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const token = searchParams.get("token");
+  const { handleResetPassword, methods, isLoading, token } = useResetPassword();
 
-  const methods = useForm<TResetPasswordSchema>({
-    resolver: zodResolver(resetPasswordSchema),
-    defaultValues: {
-      password: "",
-      confirmPassword: "",
-    },
-  });
-
-  const { handleSubmit, formState: { isSubmitting } } = methods;
-
-  const onSubmit = async (data: TResetPasswordSchema) => {
-    if (!token) {
-      alert("Invalid or missing token");
-      return;
-    }
-    
-    try {
-      // Call API here!
-      // await api.post("/auth/reset-password", { token, password: data.password });
-      console.log("Resetting password with token:", token, "and data:", data);
-      
-      // Redirect to sign in!
-      router.push(APP_ROUTES.SIGN_IN);
-    } catch (error) {
-      console.error("Failed to reset password:", error);
-    }
-  };
+  if (!token) {
+    notFound();
+  }
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-sm">
@@ -53,7 +30,11 @@ export default function ResetPasswordForm() {
         </p>
       </div>
 
-      <AppForm<TResetPasswordSchema> methods={methods} onSubmit={onSubmit}>
+      <AppForm<TResetPasswordSchema>
+        methods={methods}
+        onSubmit={handleResetPassword}
+        className="flex flex-col gap-4"
+      >
         <FormInput
           name="password"
           label="New Password"
@@ -72,7 +53,7 @@ export default function ResetPasswordForm() {
 
         <FormButton
           type="submit"
-          isLoading={isSubmitting}
+          isLoading={isLoading}
           loadingText="Resetting..."
           className="mt-2"
         >
