@@ -1,0 +1,23 @@
+// prisma/schema/rbac.prisma
+
+model Role {
+  id          String   @id @default(cuid())
+  role_name   String   @unique
+  description String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  users       User[]
+  permissions Permission[]
+}
+
+model Permission {
+  id              String   @id @default(cuid())
+  permission_name String   @unique 
+  description     String?
+  category        String?
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  roles           Role[]
+}
