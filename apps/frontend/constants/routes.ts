@@ -40,6 +40,7 @@ export const API_ROUTES = {
     REFRESH_TOKEN: "/auth/refresh-token",
     FORGOT_PASSWORD: "/auth/forgot-password",
     RESET_PASSWORD: "/auth/reset-password",
+    CHANGE_PASSWORD: "/auth/change-password",
   },
   USERS: {
     PROFILE: "/users/profile",

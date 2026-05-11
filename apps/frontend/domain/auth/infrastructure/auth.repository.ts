@@ -73,11 +73,11 @@ export class AuthRepository implements IAuthRepository {
     return this.request.post(API_ROUTES.AUTH.RESET_PASSWORD, request);
   }
 
-  async verifyPhone(request: {
-    token: string;
-    phone: string;
-    phone_code: string;
+  async changePassword(request: {
+    old_password: string;
+    new_password: string;
+    confirm_password: string;
   }): Promise<ApiResponse<{ success: boolean }>> {
-    return this.request.post(API_ROUTES.AUTH.VERIFY_PHONE, request);
+    return this.request.post(API_ROUTES.AUTH.CHANGE_PASSWORD, request);
   }
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { ChangePasswordFormData } from "../../components/molecules/change-password-form/change-password.schema";
+import { authUseCase } from "@/domain/auth/use-cases";
 
 export const useChangePassword = () => {
   const [loading, setLoading] = useState(false);
@@ -8,12 +9,20 @@ export const useChangePassword = () => {
   const changePassword = async (data: ChangePasswordFormData) => {
     setLoading(true);
     try {
-      // Mock API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Password changed successfully", data);
-      toast.success("Password changed successfully!");
-      return true; // Return success status
-    } catch (error) {
+      const response = await authUseCase.changePassword.execute({
+        old_password: data.currentPassword,
+        new_password: data.newPassword,
+        confirm_password: data.confirmPassword,
+      });
+
+      if (response.data.success) {
+        toast.success("Password changed successfully!");
+        return true;
+      } else {
+        toast.error("Failed to change password.");
+        return false;
+      }
+    } catch {
       toast.error("Failed to change password. Please try again.");
       return false;
     } finally {

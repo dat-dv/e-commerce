@@ -24,4 +24,9 @@ export interface IAuthRepository {
     phone: string;
     phone_code: string;
   }): Promise<ApiResponse<{ success: boolean }>>;
+  changePassword(request: {
+    old_password: string;
+    new_password: string;
+    confirm_password: string;
+  }): Promise<ApiResponse<{ success: boolean }>>;
 }
