@@ -5,7 +5,7 @@ export const aseanCountries = [
     dialCode: "+84",
     flag: "🇻🇳",
     language: "vi",
-    enabled: true,
+    disabled: false,
   },
   {
     name: "Thailand",
@@ -13,7 +13,7 @@ export const aseanCountries = [
     dialCode: "+66",
     flag: "🇹🇭",
     language: "th",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Singapore",
@@ -21,7 +21,7 @@ export const aseanCountries = [
     dialCode: "+65",
     flag: "🇸🇬",
     language: "en",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Malaysia",
@@ -29,7 +29,7 @@ export const aseanCountries = [
     dialCode: "+60",
     flag: "🇲🇾",
     language: "ms",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Indonesia",
@@ -37,7 +37,7 @@ export const aseanCountries = [
     dialCode: "+62",
     flag: "🇮🇩",
     language: "id",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Philippines",
@@ -45,7 +45,7 @@ export const aseanCountries = [
     dialCode: "+63",
     flag: "🇵🇭",
     language: "fil",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Brunei",
@@ -53,7 +53,7 @@ export const aseanCountries = [
     dialCode: "+673",
     flag: "🇧🇳",
     language: "ms",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Cambodia",
@@ -61,7 +61,7 @@ export const aseanCountries = [
     dialCode: "+855",
     flag: "🇰🇭",
     language: "km",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Laos",
@@ -69,7 +69,7 @@ export const aseanCountries = [
     dialCode: "+856",
     flag: "🇱🇦",
     language: "lo",
-    enabled: false,
+    disabled: true,
   },
   {
     name: "Myanmar",
@@ -77,7 +77,7 @@ export const aseanCountries = [
     dialCode: "+95",
     flag: "🇲🇲",
     language: "my",
-    enabled: false,
+    disabled: true,
   },
 ];
 

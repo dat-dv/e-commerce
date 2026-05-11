@@ -10,27 +10,8 @@ export interface Address {
   isDefault: boolean;
 }
 
-const mockAddresses: Address[] = [
-  {
-    id: "1",
-    label: "Home",
-    receiverName: "Dat Doan",
-    receiverPhone: "0123456789",
-    detailAddress: "123 Street, Ward 4, District 5, HCMC",
-    isDefault: true,
-  },
-  {
-    id: "2",
-    label: "Office",
-    receiverName: "Dat Doan",
-    receiverPhone: "0987654321",
-    detailAddress: "456 Avenue, Ward 1, District 1, HCMC",
-    isDefault: false,
-  },
-];
-
 export const useAddresses = () => {
-  const [addresses, setAddresses] = useState<Address[]>(mockAddresses);
+  const [addresses, setAddresses] = useState<Address[]>([]);
   const [adding, setAdding] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [settingDefaultId, setSettingDefaultId] = useState<string | null>(null);

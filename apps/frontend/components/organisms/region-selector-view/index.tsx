@@ -7,9 +7,9 @@ export function RegionSelectorView() {
   const handleSelect = (country: {
     code: string;
     language: string;
-    enabled: boolean;
+    disabled: boolean;
   }) => {
-    if (!country.enabled) return;
+    if (!country.disabled) return;
   };
 
   return (
@@ -30,10 +30,10 @@ export function RegionSelectorView() {
             <button
               key={country.code}
               onClick={() => handleSelect(country)}
-              disabled={!country.enabled}
+              disabled={country.disabled}
               className={cn(
                 "flex items-center gap-3 p-4 rounded-2xl border transition-all duration-200",
-                country.enabled
+                country.disabled
                   ? "border-primary/20 bg-primary/5 hover:bg-primary/10 hover:border-primary/40 cursor-pointer"
                   : "border-content/5 bg-content/5 opacity-50 cursor-not-allowed",
               )}
@@ -42,7 +42,7 @@ export function RegionSelectorView() {
               <div className="text-left">
                 <p className="font-medium text-content">{country.name}</p>
                 <p className="text-xs text-content/50">
-                  {country.enabled ? "Available" : "Coming Soon"}
+                  {country.disabled ? "Available" : "Coming Soon"}
                 </p>
               </div>
             </button>

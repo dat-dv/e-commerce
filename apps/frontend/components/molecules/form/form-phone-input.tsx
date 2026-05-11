@@ -6,16 +6,29 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { aseanCountries } from "@/constants/countries";
+import { AnimatePresence, motion } from "framer-motion";
+
+interface CountryOption {
+  name: string;
+  code: string;
+  flag: string;
+  dialCode: string;
+  disabled?: boolean;
+}
 
 interface FormPhoneInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label?: string;
+  countries?: CountryOption[];
+  disabledSelected?: boolean;
 }
 
 export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
   name,
   label,
   className,
+  countries = aseanCountries as CountryOption[],
+  disabledSelected = false,
   ...rest
 }) => {
   const { control } = useFormContext();
@@ -27,8 +40,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
       render={({ field: { value, onChange }, fieldState: { error } }) => {
         const valStr = value || "";
         const country =
-          aseanCountries.find((c) => valStr.startsWith(c.dialCode)) ||
-          aseanCountries[0];
+          countries.find((c) => valStr.startsWith(c.dialCode)) || countries[0];
 
         const number = valStr.startsWith(country.dialCode)
           ? valStr.slice(country.dialCode.length)
@@ -62,14 +74,17 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
             >
               <Menu as="div" className="relative inline-block text-left">
                 <MenuButton
+                  disabled={rest.disabled}
                   className={cn(
-                    "flex items-center gap-1 px-3 h-full border-r border-content/[0.08] hover:bg-content/[0.02] cursor-pointer",
-                    rest.disabled && "pointer-events-none opacity-50",
+                    "flex items-center gap-1 px-3 h-full border-r border-content/[0.08] hover:bg-content/[0.02]",
+                    rest.disabled
+                      ? "cursor-not-allowed opacity-50"
+                      : "cursor-pointer",
                   )}
                 >
                   <span className="text-lg">{country.flag}</span>
                   <span className="text-sm font-medium text-content/80">
-                    {country.code}
+                    {country.dialCode}
                   </span>
                   <ChevronDown size={14} className="text-content/50" />
                 </MenuButton>
@@ -78,31 +93,37 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                   className="z-[100] mt-1 w-56 origin-top-left rounded-xl bg-surface border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden"
                 >
                   <div className="py-1 max-h-60 overflow-y-auto">
-                    {aseanCountries.map((c) => (
-                      <MenuItem key={c.code}>
-                        {({ active }) => (
-                          <div
-                            onClick={() => handleCountryChange(c.dialCode)}
-                            className={cn(
-                              "flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors",
-                              active || country.code === c.code
-                                ? "bg-content/[0.04]"
-                                : "",
-                            )}
-                          >
-                            <span className="text-xl">{c.flag}</span>
-                            <div className="flex flex-col">
-                              <span className="text-sm font-medium text-content/80">
-                                {c.name}
-                              </span>
-                              <span className="text-xs text-content/50">
-                                {c.dialCode}
-                              </span>
+                    {countries.map((c) => {
+                      const isOptionDisabled =
+                        c.disabled ||
+                        (disabledSelected && country.code === c.code);
+                      return (
+                        <MenuItem key={c.code} disabled={isOptionDisabled}>
+                          {({ active, disabled }) => (
+                            <div
+                              onClick={() =>
+                                !disabled && handleCountryChange(c.dialCode)
+                              }
+                              className={cn(
+                                "flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors",
+                                active ? "bg-content/[0.04]" : "",
+                                disabled && "opacity-50 cursor-not-allowed",
+                              )}
+                            >
+                              <span className="text-xl">{c.flag}</span>
+                              <div className="flex flex-col">
+                                <span className="text-sm font-medium text-content/80">
+                                  {c.name}
+                                </span>
+                                <span className="text-xs text-content/50">
+                                  {c.dialCode}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      </MenuItem>
-                    ))}
+                          )}
+                        </MenuItem>
+                      );
+                    })}
                   </div>
                 </MenuItems>
               </Menu>
@@ -116,11 +137,19 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
               />
             </div>
 
-            {error && (
-              <span className="text-xs text-red-500 ml-1 mt-0.5">
-                {error.message}
-              </span>
-            )}
+            <AnimatePresence mode="wait">
+              {error && (
+                <motion.span
+                  role="alert"
+                  initial={{ opacity: 0, height: 0, y: -5 }}
+                  animate={{ opacity: 1, height: "auto", y: 0 }}
+                  exit={{ opacity: 0, height: 0, y: -5 }}
+                  className="text-[11px] font-bold text-red-500 tracking-tight ml-1 overflow-hidden block mt-0.5"
+                >
+                  {error.message}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </div>
         );
       }}

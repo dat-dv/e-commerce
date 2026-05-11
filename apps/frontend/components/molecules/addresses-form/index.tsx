@@ -42,6 +42,10 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
     },
   });
 
+  const receiverName = methods.watch("receiver_name");
+  const receiverPhone = methods.watch("receiver_phone");
+  const isRecipientFilled = !!receiverName && !!receiverPhone;
+
   const handleFormSubmit = async (data: AddressFormData) => {
     const success = await onSubmit(data);
     if (success) {
@@ -64,7 +68,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           <FormPhoneInput
             name="receiver_phone"
             label="Receiver Phone"
-            placeholder="0123456789"
+            placeholder="Enter phone number without the leading 0"
             disabled={loading}
             className="h-10 text-sm rounded-xl"
           />
@@ -83,7 +87,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           label="Address from Map"
           nameLat="latitude"
           nameLng="longitude"
-          disabled={loading}
+          disabled={!isRecipientFilled || loading}
         />
 
         <FormInput
@@ -92,7 +96,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           placeholder="e.g., House No. 12, Floor 3, Street Name"
           variant="outline"
           className="h-10 text-sm rounded-xl"
-          disabled={loading}
+          disabled={!isRecipientFilled || loading}
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -102,7 +106,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
             placeholder="City"
             variant="outline"
             className="h-10 text-sm rounded-xl"
-            disabled={loading}
+            disabled={!isRecipientFilled || loading}
           />
           <FormInput
             name="state"

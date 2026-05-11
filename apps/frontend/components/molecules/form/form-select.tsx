@@ -15,6 +15,7 @@ import { InputVariant } from "@/components/atoms/input/input.types";
 interface Option {
   label: string;
   value: string | number;
+  disabled?: boolean;
 }
 
 interface FormSelectProps {
@@ -81,15 +82,17 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                 <MenuItems className="absolute z-[100] mt-1 w-full origin-top-right rounded-xl bg-surface border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden">
                   <div className="py-1">
                     {options.map((option) => (
-                      <MenuItem key={option.value}>
-                        {({ active }) => (
+                      <MenuItem key={option.value} disabled={option.disabled}>
+                        {({ active, disabled }) => (
                           <button
                             type="button"
                             onClick={() => field.onChange(option.value)}
+                            disabled={disabled}
                             className={cn(
                               active
                                 ? "bg-primary/10 text-primary"
                                 : "text-content",
+                              disabled && "opacity-50 cursor-not-allowed",
                               "group flex w-full items-center px-4 py-3 text-sm font-medium transition-colors",
                             )}
                           >
