@@ -6,6 +6,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 
 import AppToast from "@/components/atoms/toast";
+import RegionSelectorModal from "@/components/molecules/region-selector-modal";
 import { AuthProvider } from "@/components/molecules/providers/auth-provider";
 import { ConfigProvider } from "@/components/molecules/providers/config-provider";
 import { PUBLIC_ENV } from "@/config/public.env.config";
@@ -91,6 +92,7 @@ export default async function RootLayout({
         <ConfigProvider>
           <AuthProvider>{children}</AuthProvider>
           <AppToast />
+          <RegionSelectorModal />
         </ConfigProvider>
       </body>
     </html>

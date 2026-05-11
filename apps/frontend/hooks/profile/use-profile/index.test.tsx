@@ -5,6 +5,7 @@ import { AuthProvider } from "@/components/molecules/providers/auth-provider";
 import { authUseCase } from "@/domain/auth/use-cases";
 
 import { useProfile } from "./index";
+import { TUser } from "@/domain/auth/types/auth.model";
 
 // Mock authUseCase
 vi.mock("@/domain/auth/use-cases", () => ({
@@ -37,7 +38,8 @@ describe("useProfile Hook", () => {
 
     expect(result.current.user?.first_name).toBe("Old");
     expect(result.current.user?.last_name).toBe("Name");
-    expect(result.current.methods.getValues("name")).toBe("Old Name");
+    expect(result.current.methods.getValues("first_name")).toBe("Old");
+    expect(result.current.methods.getValues("last_name")).toBe("Name");
     expect(result.current.isEditing).toBe(false);
   });
 
@@ -57,21 +59,29 @@ describe("useProfile Hook", () => {
 
   it("should save profile and update store", async () => {
     const updatedUser = { ...mockUser, first_name: "New", last_name: "Name" };
-    vi.mocked(authUseCase.updateProfile.execute).mockResolvedValue(updatedUser);
+    const updatedUserResponse = {
+      data: updatedUser,
+      status: "success" as const,
+      message: "Success",
+    };
+    vi.mocked(authUseCase.updateProfile.execute).mockResolvedValue(
+      updatedUserResponse,
+    );
 
     const { result } = renderHook(() => useProfile(), { wrapper });
 
     await act(async () => {
       await result.current.handleSave({
-        name: "New Name",
-        address: "Old Address",
+        first_name: "New",
+        last_name: "Name",
+        phoneNumber: "+84399179067",
         dob: "1990-01-01",
         avatarUrl: "old-avatar.png",
       });
     });
 
     expect(authUseCase.updateProfile.execute).toHaveBeenCalledWith(
-      expect.objectContaining({ name: "New Name" }),
+      expect.objectContaining({ first_name: "New", last_name: "Name" }),
     );
     // Kiểm tra state user trong hook đã được cập nhật
     expect(result.current.user?.first_name).toBe("New");

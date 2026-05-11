@@ -12,7 +12,8 @@ describe("AuthStore", () => {
   const mockUser: TUser = {
     id: "user-1",
     email: "test@example.com",
-    name: "test user",
+    first_name: "test",
+    last_name: "user",
   };
 
   it("should initialize with default state", () => {

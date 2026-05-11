@@ -38,9 +38,8 @@ const useLogin = () => {
     setLoading(true);
 
     try {
-      const user = await authUseCase.login.execute(payload);
-
-      setUser(user);
+      const response = await authUseCase.login.execute(payload);
+      setUser(response.data);
       const callbackUrl = searchParams.get(CALLBACK_URL_KEY) || APP_ROUTES.HOME;
       router.push(callbackUrl);
     } catch (err) {

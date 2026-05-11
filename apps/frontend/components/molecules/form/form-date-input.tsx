@@ -31,9 +31,6 @@ export const FormDateInput: React.FC<FormDateInputProps> = ({
             value={field.value}
             onChange={(e) => field.onChange(e.target.value)}
             error={error?.message}
-            onInvalid={(message: string) => {
-              setError(name, { message });
-            }}
           />
         );
       }}

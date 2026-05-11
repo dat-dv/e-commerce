@@ -72,10 +72,10 @@ export const useProfile = () => {
     if (user) {
       avatarRef.current = user.avatar_id;
       methods.reset({
-        name: `${user.first_name || ""} ${user.last_name || ""}`.trim() || "",
-        address: "",
+        first_name: user.first_name || "",
+        last_name: user.last_name || "",
         dob: String(user.date_of_birth || ""),
-        avatarUrl: "",
+        avatarUrl: user?.avatar_url || "",
       });
     }
     setIsEditing(false);

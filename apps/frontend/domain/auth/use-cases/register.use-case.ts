@@ -3,13 +3,17 @@ import { UseCase } from "@/utils/use-case";
 
 import { IRegisterRequest } from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
+import { ApiResponse } from "@/utils/request/request.types";
 
-export class RegisterUseCase extends UseCase<IRegisterRequest, Promise<void>> {
+export class RegisterUseCase extends UseCase<
+  IRegisterRequest,
+  Promise<ApiResponse<void>>
+> {
   constructor(private repository: IAuthRepository) {
     super();
   }
 
-  async execute(request: IRegisterRequest): Promise<void> {
+  async execute(request: IRegisterRequest): Promise<ApiResponse<void>> {
     const validated = registerSchema.parse(request);
     return this.repository.register(validated);
   }

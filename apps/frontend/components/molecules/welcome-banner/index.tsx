@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ArrowRight, ShoppingCart, Package } from "lucide-react";
+import { Sparkles, ShoppingCart, Package } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 

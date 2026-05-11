@@ -12,9 +12,10 @@ describe("ProfileView Organism", () => {
         initState={{
           user: {
             id: "1",
-            name: "John Doe",
+            first_name: "John",
+            last_name: "Doe",
             email: "john@example.com",
-            avatarUrl: "",
+            avatar_url: "",
           },
         }}
       >
@@ -23,7 +24,8 @@ describe("ProfileView Organism", () => {
     );
 
     expect(screen.getByTestId("profile-form")).toBeInTheDocument();
-    expect(screen.getByDisplayValue("John Doe")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("John")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("Doe")).toBeInTheDocument();
     expect(screen.getByText("john@example.com")).toBeInTheDocument();
   });
 });

@@ -105,7 +105,7 @@ export default function ProfileLayout({
           return (
             <div key={index}>
               <Link
-                href={item.href}
+                href={item.href || "/"}
                 className={cn(
                   "font-bold flex items-center gap-2 px-3 py-2 rounded-xl transition-all text-sm",
                   pathname === item.href

@@ -1,10 +1,17 @@
+"use client";
+
 import Button from "@/components/atoms/button";
 import ProtectedSection from "@/components/atoms/protected-section/protected-section";
 import { APP_ROUTES } from "@/constants/routes";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useLogout } from "@/hooks/auth/use-logout";
 
 import AvatarDropdown from "../avatar-dropdown";
 
 export default function HeaderActions() {
+  const user = useAuthStore((store) => store.user);
+  const { handleClickLogout } = useLogout();
+
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">
       <ProtectedSection
@@ -29,7 +36,12 @@ export default function HeaderActions() {
           </>
         }
       >
-        <AvatarDropdown />
+        <AvatarDropdown
+          name={`${user?.first_name || ""} ${user?.last_name || ""}`}
+          email={user?.email || ""}
+          avatarUrl={user?.avatar_url || ""}
+          handleClickLogout={handleClickLogout}
+        />
       </ProtectedSection>
     </div>
   );

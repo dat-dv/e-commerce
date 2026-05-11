@@ -5,24 +5,12 @@ import { Controller, useFormContext } from "react-hook-form";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { aseanCountries } from "@/constants/countries";
 
 interface FormPhoneInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label?: string;
 }
-
-const aseanCountries = [
-  { name: "Vietnam", code: "+84", flag: "🇻🇳" },
-  { name: "Thailand", code: "+66", flag: "🇹🇭" },
-  { name: "Singapore", code: "+65", flag: "🇸🇬" },
-  { name: "Malaysia", code: "+60", flag: "🇲🇾" },
-  { name: "Indonesia", code: "+62", flag: "🇮🇩" },
-  { name: "Philippines", code: "+63", flag: "🇵🇭" },
-  { name: "Brunei", code: "+673", flag: "🇧🇳" },
-  { name: "Cambodia", code: "+855", flag: "🇰🇭" },
-  { name: "Laos", code: "+856", flag: "🇱🇦" },
-  { name: "Myanmar", code: "+95", flag: "🇲🇲" },
-];
 
 export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
   name,
@@ -39,20 +27,20 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
       render={({ field: { value, onChange }, fieldState: { error } }) => {
         const valStr = value || "";
         const country =
-          aseanCountries.find((c) => valStr.startsWith(c.code)) ||
+          aseanCountries.find((c) => valStr.startsWith(c.dialCode)) ||
           aseanCountries[0];
 
-        const number = valStr.startsWith(country.code)
-          ? valStr.slice(country.code.length)
+        const number = valStr.startsWith(country.dialCode)
+          ? valStr.slice(country.dialCode.length)
           : valStr;
 
         const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           const num = e.target.value.replace(/[^0-9]/g, "");
-          onChange(country.code + num);
+          onChange(country.dialCode + num);
         };
 
-        const handleCountryChange = (code: string) => {
-          onChange(code + number);
+        const handleCountryChange = (dialCode: string) => {
+          onChange(dialCode + number);
         };
 
         return (
@@ -94,7 +82,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                       <MenuItem key={c.code}>
                         {({ active }) => (
                           <div
-                            onClick={() => handleCountryChange(c.code)}
+                            onClick={() => handleCountryChange(c.dialCode)}
                             className={cn(
                               "flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors",
                               active || country.code === c.code
@@ -108,7 +96,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                                 {c.name}
                               </span>
                               <span className="text-xs text-content/50">
-                                {c.code}
+                                {c.dialCode}
                               </span>
                             </div>
                           </div>

@@ -5,7 +5,6 @@ export const APP_ROUTES = {
   HOME: "/",
   SIGN_IN: "/sign-in",
   SIGN_UP: "/sign-up",
-  TODO: "/todo",
   PROFILE: "/profile",
   TERMS: "/terms",
   PRIVACY: "/privacy",
@@ -40,13 +39,6 @@ export const API_ROUTES = {
   },
   USERS: {
     PROFILE: "/users/profile",
-  },
-  TODO: {
-    LIST: "/todos",
-    CREATE: "/todos",
-    DETAIL: (id: string) => `/todos/${id}`,
-    UPDATE: (id: string) => `/todos/${id}`,
-    DELETE: (id: string) => `/todos/${id}`,
   },
   CONFIG: "/config",
 } as const;
