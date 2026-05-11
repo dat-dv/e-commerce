@@ -14,12 +14,13 @@ const RequireProfileInfoModal = () => {
 
   const onSubmit = async (data: TRequireProfileInfoSchema) => {
     try {
-      const updatedUser = await authUseCase.updateProfile.execute({
+      const res = await authUseCase.updateProfile.execute({
         first_name: data.first_name,
         last_name: data.last_name,
         date_of_birth: data.dob,
         id: user?.id,
       });
+      const updatedUser = res.data;
 
       setUser({
         ...user,

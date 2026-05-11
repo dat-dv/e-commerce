@@ -4,6 +4,7 @@ import { IUser } from '../entities/user.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
+import { ROLE_USER } from 'src/common/constants/roles.constant';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -64,9 +65,15 @@ export class UsersRepository implements IUsersRepository {
     return prismaUser;
   }
 
-  async create(data: { email: string; first_name: string; last_name: string; password?: string }): Promise<IUser> {
-    const prismaUser = await this.prisma.user.create({
-      data: data as Prisma.UserCreateInput,
+  async create(data: { email: string; first_name: string; last_name: string; password: string }): Promise<IUser> {
+    const user = await this.prisma.user.create({
+      data: {
+        ...data,
+        role: {
+          connect: { role_name: ROLE_USER },
+        },
+      },
+
       include: {
         avatar: true,
         role: {
@@ -76,8 +83,8 @@ export class UsersRepository implements IUsersRepository {
         },
       },
     });
-
-    return prismaUser;
+    const { password, ...userWithoutPassword } = user;
+    return userWithoutPassword;
   }
 
   async findAll(page: number, limit: number) {
