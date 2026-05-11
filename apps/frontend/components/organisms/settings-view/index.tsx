@@ -4,9 +4,38 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import TableOfContents from "@/components/molecules/toc";
 import { THEMES } from "@/config/config";
 import { useConfig } from "@/hooks/config/use-config";
+import { motion } from "framer-motion";
+import { ELanguage } from "@/store/config/config.types";
 
-export default function SettingsPage() {
-  const { theme, isDarkMode, setTheme, toggleDarkMode } = useConfig();
+export function SettingsView() {
+  const {
+    theme,
+    isDarkMode,
+    setTheme,
+    toggleDarkMode,
+    language: currentLang,
+    setLanguage,
+  } = useConfig();
+
+  const changeLanguage = (newLang: ELanguage) => {
+    if (currentLang === newLang) return;
+
+    const url = new URL(window.location.href);
+    const hostParts = url.hostname.split(".");
+    if (
+      hostParts.length >= 2 &&
+      (hostParts[0].length <= 3 || hostParts[0] === "www")
+    ) {
+      hostParts[0] = newLang;
+    } else {
+      hostParts.unshift(newLang);
+    }
+
+    url.hostname = hostParts.join(".");
+    setLanguage(newLang);
+    // eslint-disable-next-line react-hooks/immutability
+    window.location.href = url.toString();
+  };
 
   const header = (
     <div className="mb-10">
@@ -96,21 +125,35 @@ export default function SettingsPage() {
           </div>
         </div>
 
-        {/* Language Section (Placeholder) */}
+        {/* Language Section */}
         <div
           id="language"
-          className="border border-content/10 rounded-xl p-6 bg-surface opacity-60 scroll-mt-24"
+          className="border border-content/10 rounded-xl p-6 bg-surface/50 backdrop-blur-md scroll-mt-24"
         >
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <span className="font-medium text-content block">Language</span>
               <span className="text-sm text-content/60">
-                Language settings will be available soon.
+                Select your preferred language. This will change the subdomain.
               </span>
             </div>
-            <span className="text-sm text-content/60 font-medium">
-              English (US)
-            </span>
+            <div className="flex items-center gap-3">
+              {Object.values(ELanguage).map((value) => (
+                <motion.button
+                  key={value}
+                  onClick={() => changeLanguage(value)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-4 py-2 rounded-lg border transition-all ${
+                    currentLang === value
+                      ? "bg-primary text-white border-primary"
+                      : "border-content/10 text-content hover:bg-content/5"
+                  }`}
+                >
+                  {value}
+                </motion.button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

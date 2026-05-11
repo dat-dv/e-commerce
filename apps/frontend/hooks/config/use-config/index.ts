@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { ETheme } from "@/constants/theme.constanst";
 
 import { useAppConfig } from "../use-config-store";
+import { language } from "@/constants/countries";
 
 export const useConfig = () => {
   const theme = useAppConfig((s) => s.theme);
@@ -13,6 +14,8 @@ export const useConfig = () => {
   const setThemeStore = useAppConfig((s) => s.setTheme);
   const setDarkModeStore = useAppConfig((s) => s.setDarkMode);
   const toggleDarkModeStore = useAppConfig((s) => s.toggleDarkMode);
+  const language = useAppConfig((s) => s.language);
+  const setLanguage = useAppConfig((s) => s.setLanguage);
 
   const setTheme = useCallback(
     (newTheme: ETheme) => {
@@ -42,5 +45,7 @@ export const useConfig = () => {
     setTheme,
     toggleDarkMode,
     setDarkMode,
+    language,
+    setLanguage,
   };
 };

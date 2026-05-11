@@ -86,6 +86,6 @@ export const STORAGE_KEYS = {
 };
 
 export const language = {
-  vi: "Vietnam",
+  vi: "Vietnamese",
   en: "English",
 };
