@@ -20,7 +20,7 @@ describe('ForgotPasswordUseCase', () => {
 
   const mockConfigService = {
     get: jest.fn((key: string) => {
-      if (key === 'RESET_PASSWORD_TOKEN') return 'reset-secret';
+      if (key === 'RESET_PASSWORD_TOKEN_SECRET') return 'reset-secret';
       if (key === 'FE_URL') return 'http://localhost:3000';
       return key;
     }),

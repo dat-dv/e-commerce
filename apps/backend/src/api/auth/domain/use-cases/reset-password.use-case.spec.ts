@@ -3,7 +3,7 @@ import { ResetPasswordUseCase } from './reset-password.use-case';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { BadRequestException, UnauthorizedException } from '@nestjs/common';
+import { UnauthorizedException } from '@nestjs/common';
 import { IUser } from 'src/api/users/domain/entities/user.entity';
 
 describe('ResetPasswordUseCase', () => {
@@ -20,7 +20,7 @@ describe('ResetPasswordUseCase', () => {
 
   const mockConfigService = {
     get: jest.fn((key: string) => {
-      if (key === 'RESET_PASSWORD_TOKEN') return 'reset-secret';
+      if (key === 'RESET_PASSWORD_TOKEN_SECRET') return 'reset-secret';
       return key;
     }),
   };

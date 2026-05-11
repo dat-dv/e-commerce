@@ -22,7 +22,7 @@ export const FormButton: React.FC<FormButtonProps> = ({
       whileTap={{ scale: isLoading ? 1 : 0.98 }}
       disabled={isLoading || disabled}
       className={`
-        group relative h-14 w-full rounded-2xl bg-primary text-on-primary font-bold 
+        group relative h-11 w-full rounded-xl bg-primary text-on-primary font-bold 
         shadow-lg shadow-primary/20 transition-all duration-300
         disabled:opacity-50 disabled:cursor-not-allowed
         overflow-hidden ${className}

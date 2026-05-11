@@ -23,6 +23,12 @@ export class TokenService {
     });
   }
 
+  async verifyResetPasswordToken(token: string) {
+    return this.jwtService.verifyAsync<{ userId: string }>(token, {
+      secret: this.configService.get('RESET_PASSWORD_TOKEN_SECRET'),
+    });
+  }
+
   async generateAccessToken(payload: TAccessTokenPayload) {
     return this.jwtService.signAsync(payload, {
       secret: this.configService.get('ACCESS_TOKEN_SECRET'),
@@ -34,6 +40,13 @@ export class TokenService {
     return this.jwtService.signAsync(payload, {
       secret: this.configService.get('REFRESH_TOKEN_SECRET'),
       expiresIn: this.configService.get('REFRESH_TOKEN_EXPIRES_IN'),
+    });
+  }
+
+  async generateResetPasswordToken(payload: { userId: string }) {
+    return this.jwtService.signAsync(payload, {
+      secret: this.configService.get('RESET_PASSWORD_TOKEN_SECRET'),
+      expiresIn: this.configService.get('RESET_PASSWORD_TOKEN_EXPIRES_IN'),
     });
   }
 }

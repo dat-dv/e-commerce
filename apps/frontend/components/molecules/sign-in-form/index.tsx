@@ -43,6 +43,17 @@ export default function SignInForm() {
           autoComplete="current-password"
         />
 
+        <div className="flex justify-end -mt-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            href={APP_ROUTES.FORGOT_PASSWORD}
+            className="text-xs text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100 hover:bg-transparent"
+          >
+            Forgot Password?
+          </Button>
+        </div>
+
         <FormButton
           type="submit"
           isLoading={isLoading}
@@ -60,7 +71,7 @@ export default function SignInForm() {
             variant="ghost"
             size="sm"
             href={APP_ROUTES.SIGN_UP}
-            className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100"
+            className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100 hover:bg-transparent"
           >
             Sign Up
           </Button>

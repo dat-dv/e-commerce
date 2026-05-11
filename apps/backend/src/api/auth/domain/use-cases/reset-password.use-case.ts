@@ -18,7 +18,7 @@ export class ResetPasswordUseCase {
   async execute(dto: ResetPasswordDto) {
     try {
       const payload = await this.jwtService.verifyAsync<TResetPasswordPayload>(dto.token, {
-        secret: this.configService.get<string>('RESET_PASSWORD_TOKEN'),
+        secret: this.configService.get<string>('RESET_PASSWORD_TOKEN_SECRET'),
       });
 
       const user = await this.usersRepository.findById(payload.sub);

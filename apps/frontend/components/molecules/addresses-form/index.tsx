@@ -68,7 +68,6 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           <FormPhoneInput
             name="receiver_phone"
             label="Receiver Phone"
-            placeholder="Enter phone number without the leading 0"
             disabled={loading}
             className="h-10 text-sm rounded-xl"
           />
