@@ -6,10 +6,6 @@ export const metadata: Metadata = {
   description: "E-commerce platform with real-time focus.",
 };
 
-export async function generateStaticParams() {
-  return [{ lang: "vi" }, { lang: "en" }];
-}
-
 export default function Home() {
   return <HomeView />;
 }
