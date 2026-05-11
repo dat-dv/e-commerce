@@ -13,6 +13,10 @@ export const profileSchema = z.object({
     .url({ message: "Invalid URL" })
     .optional()
     .or(z.literal("")),
+  phoneNumber: z
+    .string()
+    .min(1, { message: "Phone number is required" })
+    .regex(/^\+\d{1,4}\d{7,11}$/, { message: "Invalid phone number format" }),
 });
 
 export type ProfileSchema = z.infer<typeof profileSchema>;

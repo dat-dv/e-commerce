@@ -29,6 +29,7 @@ interface DateInputProps extends Omit<
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
   ({ className, label, error, id, variant = "outline", ...rest }, ref) => {
     const isDisabled = rest.disabled;
+    const [isCalendarOpen, setIsCalendarOpen] = React.useState(false);
 
     const stateStyle = isDisabled
       ? variantDisabled[variant as keyof typeof variantDisabled]
@@ -36,128 +37,27 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         ? variantError[variant as keyof typeof variantError]
         : variantNormal[variant as keyof typeof variantNormal];
 
-    const [day, setDay] = React.useState("");
-    const [month, setMonth] = React.useState("");
-    const [year, setYear] = React.useState("");
-
-    const dayRef = React.useRef<HTMLInputElement>(null);
-    const monthRef = React.useRef<HTMLInputElement>(null);
-    const yearRef = React.useRef<HTMLInputElement>(null);
-
-    // Forward the day ref to the parent ref
-    React.useImperativeHandle(ref, () => dayRef.current!);
-
-    React.useEffect(() => {
-      if (rest.value && typeof rest.value === "string") {
-        const datePart = rest.value.split("T")[0];
-        const parts = datePart.split("-");
-        if (parts.length === 3) {
-          const [y, m, d] = parts;
-          setDay(d || "");
-          setMonth(m || "");
-          setYear(y || "");
-        }
-      } else if (!rest.value) {
-        setDay("");
-        setMonth("");
-        setYear("");
-      }
-    }, [rest.value]);
-
-    const updateValue = (d: string, m: string, y: string) => {
-      if (d.length === 2 && m.length === 2 && y.length === 4) {
-        const date = new Date(`${y}-${m}-${d}T00:00:00.000Z`);
-        if (!isNaN(date.getTime())) {
-          const isoString = date.toISOString();
-          const event = {
-            target: { value: isoString },
-          } as React.ChangeEvent<HTMLInputElement>;
-          rest.onChange?.(event);
-        }
-      } else if (!d && !m && !y) {
-        const event = {
-          target: { value: "" },
-        } as React.ChangeEvent<HTMLInputElement>;
-        rest.onChange?.(event);
-      }
-    };
-
-    const handleDayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value.replace(/[^0-9]/g, "").slice(0, 2);
-      setDay(val);
-      updateValue(val, month, year);
-      if (val.length === 2) {
-        monthRef.current?.focus();
-      }
-    };
-
-    const handleMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value.replace(/[^0-9]/g, "").slice(0, 2);
-      setMonth(val);
-      updateValue(day, val, year);
-      if (val.length === 2) {
-        yearRef.current?.focus();
-      }
-    };
-
-    const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value.replace(/[^0-9]/g, "").slice(0, 4);
-      setYear(val);
-      updateValue(day, month, val);
-    };
-
-    const CustomInput = React.forwardRef<HTMLDivElement, CustomInputProps>(
-      (props, divRef) => (
+    const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
+      (props, inputRef) => (
         <div
-          ref={divRef}
-          onClick={props.onClick}
           className={cn(
-            "flex items-center pr-4 relative",
+            "flex items-center pr-4 relative transition-all",
             isDisabled && "cursor-not-allowed opacity-70",
             variantBase[variant as keyof typeof variantBase],
-            stateStyle,
+            isCalendarOpen
+              ? "border-primary ring-2 ring-primary/20"
+              : stateStyle,
             className,
           )}
         >
           <input
-            ref={dayRef}
-            value={day}
-            onChange={handleDayChange}
-            onFocus={(e) => e.target.select()}
-            placeholder="DD"
-            maxLength={2}
+            {...props}
+            ref={inputRef}
             disabled={isDisabled}
-            className="w-8 h-8 text-center bg-transparent border-none outline-none focus:outline-none z-10"
-            aria-invalid={!!error}
-            onClick={(e) => e.stopPropagation()}
+            readOnly={true}
+            className="w-full h-10 bg-transparent border-none outline-none focus:outline-none z-10 text-sm pl-4 cursor-pointer"
+            placeholder="DD/MM/YYYY"
           />
-          <span className="text-content/50 z-10">/</span>
-          <input
-            ref={monthRef}
-            value={month}
-            onChange={handleMonthChange}
-            onFocus={(e) => e.target.select()}
-            placeholder="MM"
-            maxLength={2}
-            disabled={isDisabled}
-            className="w-8 h-8 text-center bg-transparent border-none outline-none focus:outline-none z-10"
-            aria-invalid={!!error}
-            onClick={(e) => e.stopPropagation()}
-          />
-          <span className="text-content/50 z-10">/</span>
-          <input
-            ref={yearRef}
-            value={year}
-            onChange={handleYearChange}
-            onFocus={(e) => e.target.select()}
-            placeholder="YYYY"
-            maxLength={4}
-            disabled={isDisabled}
-            className="w-12 h-8 text-center bg-transparent border-none outline-none focus:outline-none z-10"
-            aria-invalid={!!error}
-            onClick={(e) => e.stopPropagation()}
-          />
-
           <div className="ml-auto text-content/30 hover:text-content/60 transition-colors cursor-pointer z-10">
             <Calendar size={18} />
           </div>
@@ -187,20 +87,22 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             onChange={(date: Date | null) => {
               if (date) {
                 const isoString = date.toISOString();
-                const [y, m, d] = isoString.split("T")[0].split("-");
-                setDay(d);
-                setMonth(m);
-                setYear(y);
-                updateValue(d, m, y);
+                const event = {
+                  target: { value: isoString },
+                } as React.ChangeEvent<HTMLInputElement>;
+                rest.onChange?.(event);
               } else {
-                setDay("");
-                setMonth("");
-                setYear("");
-                updateValue("", "", "");
+                const event = {
+                  target: { value: "" },
+                } as React.ChangeEvent<HTMLInputElement>;
+                rest.onChange?.(event);
               }
             }}
             customInput={<CustomInput />}
+            dateFormat="dd/MM/yyyy"
             popperPlacement="bottom-end"
+            onCalendarOpen={() => setIsCalendarOpen(true)}
+            onCalendarClose={() => setIsCalendarOpen(false)}
             renderCustomHeader={({
               date,
               changeYear,
@@ -285,10 +187,10 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setDay("");
-                    setMonth("");
-                    setYear("");
-                    updateValue("", "", "");
+                    const mockEvent = {
+                      target: { value: "" },
+                    } as unknown as React.ChangeEvent<HTMLInputElement>;
+                    rest.onChange?.(mockEvent);
                   }}
                   className="text-red-500 hover:text-red-700 transition-colors"
                 >
@@ -320,13 +222,14 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
           .react-datepicker__current-month {
             font-weight: 600 !important;
             color: #0f172a !important;
-            font-size: 1rem !important;
+            font-size: 0.875rem !important;
           }
           .react-datepicker__day-name, .react-datepicker__day {
-            width: 2.25rem !important;
-            line-height: 2.25rem !important;
-            margin: 0.125rem !important;
+            width: 1.75rem !important;
+            line-height: 1.75rem !important;
+            margin: 0.1rem !important;
             color: #475569 !important;
+            font-size: 0.8rem !important;
           }
           .react-datepicker__day-name {
             font-weight: 500 !important;

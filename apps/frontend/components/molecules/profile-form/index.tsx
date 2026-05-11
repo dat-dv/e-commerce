@@ -1,19 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { AnimationItem } from "@/components/atoms/animate";
 import Button from "@/components/atoms/button";
 import { FormAvatarInput } from "@/components/molecules/form/form-avatar-input";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
+import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
 import { useProfile } from "@/hooks/profile/use-profile";
-import { cn } from "@/utils/cn";
-import { MapPin, Pencil } from "lucide-react";
+import { Pencil } from "lucide-react";
 
 import AppForm from "../form/app-form";
 import FormListenerDirty from "../form/form-listener-dirty";
-import MapPickerModal from "./map-picker-modal";
 
 export const ProfileForm = () => {
   const {
@@ -74,12 +72,10 @@ export const ProfileForm = () => {
               disabled={isDisabled}
               className="h-10 text-sm rounded-xl"
             />
-            <FormInput
-              variant="outline"
+            <FormPhoneInput
               name="phoneNumber"
               label="Phone Number"
               placeholder="Your Phone Number"
-              autoComplete="tel"
               disabled={isDisabled}
               className="h-10 text-sm rounded-xl"
             />

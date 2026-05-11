@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Plus, MapPin } from "lucide-react";
 import { FormInput } from "@/components/molecules/form/form-input";
+import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
 import AppForm from "@/components/molecules/form/app-form";
 import Button from "@/components/atoms/button";
@@ -13,9 +14,10 @@ import MapPickerModal from "@/components/molecules/profile-form/map-picker-modal
 import { cn } from "@/utils/cn";
 
 const labelOptions = [
-  { label: "Home (Nhà riêng)", value: "Home" },
-  { label: "Office (Công ty)", value: "Office" },
-  { label: "Other (Khác)", value: "Other" },
+  { label: "Home", value: "Home" },
+  { label: "Apartment", value: "Apartment" },
+  { label: "Office", value: "Office" },
+  { label: "Other", value: "Other" },
 ];
 
 interface AddressesFormProps {
@@ -61,13 +63,12 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
             className="h-10 text-sm rounded-xl"
             disabled={loading}
           />
-          <FormInput
+          <FormPhoneInput
             name="receiverPhone"
             label="Receiver Phone"
             placeholder="0123456789"
-            variant="outline"
-            className="h-10 text-sm rounded-xl"
             disabled={loading}
+            className="h-10 text-sm rounded-xl"
           />
         </div>
 
@@ -81,19 +82,29 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
         />
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-content">Address from Map</label>
+          <label className="text-sm font-medium text-content">
+            Address from Map
+          </label>
           <div
             onClick={() => !loading && setMapOpen(true)}
             className={cn(
               "p-3 border rounded-xl cursor-pointer flex justify-between items-center",
-              methods.watch("detailAddress") ? "border-primary/20 bg-primary/5" : "border-content/10 bg-white",
-              loading && "cursor-not-allowed opacity-50"
+              methods.watch("detailAddress")
+                ? "border-primary/20 bg-primary/5"
+                : "border-content/10 bg-white",
+              loading && "cursor-not-allowed opacity-50",
             )}
           >
             <div className="flex items-center gap-2 max-w-[80%]">
               <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className={cn("text-sm truncate", !methods.watch("detailAddress") && "text-content/40")}>
-                {methods.watch("detailAddress") || "Click to pick address on map"}
+              <span
+                className={cn(
+                  "text-sm truncate",
+                  !methods.watch("detailAddress") && "text-content/40",
+                )}
+              >
+                {methods.watch("detailAddress") ||
+                  "Click to pick address on map"}
               </span>
             </div>
             <span className="text-xs text-primary font-medium">

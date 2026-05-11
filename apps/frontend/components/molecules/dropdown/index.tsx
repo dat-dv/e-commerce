@@ -36,7 +36,7 @@ export const Dropdown = ({
   }, [open]);
 
   return (
-    <div ref={ref} className="relative inline-block">
+    <div ref={ref} className={`relative inline-block ${open ? "z-[9999]" : ""}`}>
       {/* Trigger */}
       <div
         onClick={(e) => {
@@ -63,7 +63,7 @@ export const Dropdown = ({
               damping: 30,
             }}
             className={[
-              "absolute mt-3 w-72 z-50",
+              "absolute mt-3 w-72 z-[100]",
               "bg-surface/95 backdrop-blur-3xl",
               "rounded-2xl border border-content/[0.08]",
               "shadow-[0_20px_70px_-10px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_70px_-10px_rgba(0,0,0,0.4)] p-2",
