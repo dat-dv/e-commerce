@@ -19,4 +19,9 @@ export interface IAuthRepository {
     phone?: string;
   }): Promise<ApiResponse<void>>;
   resetPassword(request: IResetPasswordRequest): Promise<ApiResponse<void>>;
+  verifyPhone(request: {
+    token: string;
+    phone: string;
+    phone_code: string;
+  }): Promise<ApiResponse<{ success: boolean }>>;
 }

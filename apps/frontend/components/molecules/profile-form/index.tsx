@@ -6,10 +6,9 @@ import { FormAvatarInput } from "@/components/molecules/form/form-avatar-input";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
+import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
 import { useProfile } from "@/hooks/profile/use-profile";
 import { Pencil } from "lucide-react";
-import { useState } from "react";
-import ChangePhoneModal from "./change-phone-modal";
 
 import AppForm from "../form/app-form";
 import FormListenerDirty from "../form/form-listener-dirty";
@@ -24,10 +23,10 @@ export const ProfileForm = () => {
     disableEdit,
     handleSave,
   } = useProfile();
+
   const isDisabled = loading || !isEditing;
   const watchedFirstName = methods.watch("first_name");
   const watchedLastName = methods.watch("last_name");
-  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false);
 
   return (
     <AppForm data-testid="profile-form" methods={methods} onSubmit={handleSave}>
@@ -74,24 +73,12 @@ export const ProfileForm = () => {
               disabled={isDisabled}
               className="h-10 text-sm rounded-xl"
             />
-            <div className="relative">
-              <FormInput
-                variant="outline"
-                name="phoneNumber"
-                label="Phone Number"
-                placeholder="Your Phone Number"
-                disabled={true}
-                className="h-10 text-sm rounded-xl pr-20"
-              />
-              <button
-                type="button"
-                onClick={() => setIsPhoneModalOpen(true)}
-                disabled={isDisabled}
-                className="absolute right-3 top-[34px] text-sm font-medium text-primary hover:text-primary-hover disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {methods.watch("phoneNumber") ? "Change" : "Add"}
-              </button>
-            </div>
+            <FormPhoneInput
+              name="phoneNumber"
+              label="Phone Number"
+              disabled={isDisabled}
+              className="h-10 text-sm rounded-xl"
+            />
             <FormDateInput
               variant="outline"
               name="dob"
@@ -159,14 +146,6 @@ export const ProfileForm = () => {
 
         {/* Form Actions Section */}
       </div>
-      <ChangePhoneModal
-        isOpen={isPhoneModalOpen}
-        onClose={() => setIsPhoneModalOpen(false)}
-        onSuccess={(newPhone) => {
-          methods.setValue("phoneNumber", newPhone, { shouldDirty: true });
-        }}
-        currentPhone={methods.getValues("phoneNumber") || ""}
-      />
     </AppForm>
   );
 };

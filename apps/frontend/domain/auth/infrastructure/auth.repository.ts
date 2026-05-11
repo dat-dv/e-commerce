@@ -72,4 +72,12 @@ export class AuthRepository implements IAuthRepository {
   ): Promise<ApiResponse<void>> {
     return this.request.post(API_ROUTES.AUTH.RESET_PASSWORD, request);
   }
+
+  async verifyPhone(request: {
+    token: string;
+    phone: string;
+    phone_code: string;
+  }): Promise<ApiResponse<{ success: boolean }>> {
+    return this.request.post(API_ROUTES.AUTH.VERIFY_PHONE, request);
+  }
 }

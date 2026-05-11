@@ -7,6 +7,7 @@ import { RegisterUseCase } from "./register.use-case";
 import { UpdateProfileUseCase } from "./update-profile.use-case";
 import { ForgotPasswordUseCase } from "./forgot-password.use-case";
 import { ResetPasswordUseCase } from "./reset-password.use-case";
+import { VerifyPhoneUseCase } from "./verify-phone.use-case";
 
 const repo = new AuthRepository(appRequest);
 
@@ -17,4 +18,5 @@ export const authUseCase = {
   updateProfile: new UpdateProfileUseCase(repo),
   forgotPassword: new ForgotPasswordUseCase(repo),
   resetPassword: new ResetPasswordUseCase(repo),
+  verifyPhone: new VerifyPhoneUseCase(repo),
 };
