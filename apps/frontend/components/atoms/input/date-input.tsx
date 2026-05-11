@@ -13,7 +13,10 @@ import {
   variantNormal,
 } from "./input.styles";
 import { InputVariant } from "./input.types";
-
+interface CustomInputProps {
+  onClick?: () => void;
+  value?: string;
+}
 interface DateInputProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   "onInvalid"
@@ -103,7 +106,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
       updateValue(day, month, val);
     };
 
-    const CustomInput = React.forwardRef<HTMLDivElement, any>(
+    const CustomInput = React.forwardRef<HTMLDivElement, CustomInputProps>(
       (props, divRef) => (
         <div
           ref={divRef}

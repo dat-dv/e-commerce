@@ -37,7 +37,7 @@ export const ProfileForm = () => {
     <AppForm data-testid="profile-form" methods={methods} onSubmit={handleSave}>
       <div className="space-y-12">
         {/* Form Fields Section */}
-        <div className="bg-surface/50 backdrop-blur-xl border border-content/10 rounded-2xl p-6 shadow-2xl space-y-6">
+        <div className="bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl space-y-6">
           {/* Avatar & Name Header INSIDE the card! */}
           <div className="flex flex-col sm:flex-row items-center gap-4 pb-4 border-b border-content/10">
             <FormAvatarInput
