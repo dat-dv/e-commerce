@@ -85,7 +85,10 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                   </span>
                   <ChevronDown size={14} className="text-content/50" />
                 </MenuButton>
-                <MenuItems anchor="bottom start" className="z-[100] mt-1 w-56 origin-top-left rounded-xl bg-surface border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden">
+                <MenuItems
+                  anchor="bottom start"
+                  className="z-[100] mt-1 w-56 origin-top-left rounded-xl bg-surface border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden"
+                >
                   <div className="py-1 max-h-60 overflow-y-auto">
                     {aseanCountries.map((c) => (
                       <MenuItem key={c.code}>
@@ -94,13 +97,19 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                             onClick={() => handleCountryChange(c.code)}
                             className={cn(
                               "flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors",
-                              active || country.code === c.code ? "bg-content/[0.04]" : ""
+                              active || country.code === c.code
+                                ? "bg-content/[0.04]"
+                                : "",
                             )}
                           >
                             <span className="text-xl">{c.flag}</span>
                             <div className="flex flex-col">
-                              <span className="text-sm font-medium text-content/80">{c.name}</span>
-                              <span className="text-xs text-content/50">{c.code}</span>
+                              <span className="text-sm font-medium text-content/80">
+                                {c.name}
+                              </span>
+                              <span className="text-xs text-content/50">
+                                {c.code}
+                              </span>
                             </div>
                           </div>
                         )}
