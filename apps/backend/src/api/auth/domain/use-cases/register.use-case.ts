@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { CreateUserUseCase } from 'src/api/users/domain/use-cases/create-user.use-case';
 import { IAuthRepository } from '../entities/auth.repository.interface';
-import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { RegisterDto } from '../../dto/register.dto';
 import { EnvVars } from 'src/config/config.validation';

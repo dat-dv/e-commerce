@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException, Inject } from '@nestjs/common';
+import { Injectable, UnauthorizedException, Inject, BadRequestException } from '@nestjs/common';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
@@ -16,7 +16,7 @@ export class RefreshTokenUseCase {
 
   async execute(accessToken: string | undefined, refreshToken: string | undefined) {
     if (!refreshToken) {
-      throw new UnauthorizedException('Invalid or expired refresh token');
+      throw new BadRequestException('Invalid or expired refresh token');
     }
 
     try {
@@ -24,7 +24,7 @@ export class RefreshTokenUseCase {
 
       const dbToken = await this.authRepository.findRefreshToken(refreshToken);
       if (!dbToken) {
-        throw new UnauthorizedException('Invalid or expired refresh token');
+        throw new BadRequestException('Invalid or expired refresh token');
       }
 
       await this.authRepository.removeRefreshToken(refreshToken);

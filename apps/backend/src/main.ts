@@ -8,6 +8,7 @@ import { initSwagger } from './config/swagger.config';
 import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
 import { EnvVars } from './config/config.validation';
 import { CustomValidationPipe } from './common/pipes/custom-validation.pipe';
+import { enableCors } from './common/enable-cors';
 
 async function bootstrap() {
   const logger = new Logger();
@@ -15,12 +16,7 @@ async function bootstrap() {
     logger: ['log', 'error', 'warn', 'debug', 'verbose'],
   });
   app.setGlobalPrefix('api');
-  app.enableCors({
-    origin: ['http://localhost:5173', 'http://localhost:3000'],
-    credentials: true,
-    allowedHeaders: 'Content-Type, Authorization, timezone',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  });
+  enableCors(app);
 
   app.use(cookieParser());
 

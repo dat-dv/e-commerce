@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
 
-const layout = () => {
-  return <div>layout</div>;
+import React from "react";
+import { AuthGuard } from "@/components/molecules/providers/auth-guard";
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  return <AuthGuard>{children}</AuthGuard>;
 };
 
-export default layout;
+export default Layout;
