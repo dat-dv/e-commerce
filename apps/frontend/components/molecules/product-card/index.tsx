@@ -24,7 +24,9 @@ export interface Product {
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const addItem = useCartStore((s) => s.addItem);
-  const sku = product.skus[0];
+  const sku = product.skus?.[0];
+
+  if (!sku) return null;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();

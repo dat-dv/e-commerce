@@ -19,7 +19,15 @@ export interface IHomepageSectionResponse {
     title: string;
     type: string;
     slug?: string;
-    params?: Record<string, string>;
+    categories?: {
+      id: string;
+      slug: string;
+      level: number;
+      order: number;
+      translations?: {
+        name: string;
+      }[];
+    }[];
   };
   data: IHomepageProduct[];
 }

@@ -2,6 +2,8 @@ export const HOMEPAGE_SECTION_TYPES = {
   FLASH_SALE: "flash_sale",
   CATEGORIES: "categories",
   PRODUCT_CAROUSEL: "product_carousel",
+  RECOMMENDS: "recommends",
+  RECENT_VIEW: "recent_view",
 } as const;
 
 export type HomepageSectionType =

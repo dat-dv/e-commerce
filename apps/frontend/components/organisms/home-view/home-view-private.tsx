@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import AppContainer from "@/components/atoms/app-container";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { FlashSale } from "@/components/molecules/flash-sale";
@@ -8,8 +7,6 @@ import { CategoriesGrid } from "@/components/molecules/categories-grid";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { WelcomeBanner } from "@/components/molecules/welcome-banner";
 import { APP_ROUTES } from "@/constants/routes";
-import { productsUseCase } from "@/domain/products/use-cases";
-import { IProduct } from "@/domain/products/types/products.model";
 import {
   Flame,
   Laptop,
@@ -26,8 +23,6 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
-import { homepageUseCase } from "@/domain/homepage/use-cases";
-import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
 
 const POPULAR_CATEGORIES = [
   {
@@ -103,8 +98,12 @@ const FEATURE_ITEMS = [
 
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 
+import { useProductsStore } from "@/hooks/products/use-products-store";
+
 const SECTION_ICONS: Record<string, LucideIcon> = {
   [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
+  [HOMEPAGE_SECTION_TYPES.RECOMMENDS]: Sparkles,
+  [HOMEPAGE_SECTION_TYPES.RECENT_VIEW]: Eye,
   electronics: Laptop,
   "tv-audio-cameras": Laptop,
   "toys-baby-products": Sparkles,
@@ -115,39 +114,14 @@ const SECTION_ICONS: Record<string, LucideIcon> = {
 
 const getIcon = (type: string, slug?: string) => {
   if (type === HOMEPAGE_SECTION_TYPES.FLASH_SALE) return Zap;
+  if (type === HOMEPAGE_SECTION_TYPES.RECOMMENDS) return Sparkles;
+  if (type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW) return Eye;
   return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
 };
 
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
-
-  const [sections, setSections] = useState<IHomepageSection[]>([]);
-  const [interestProducts, setInterestProducts] = useState<IProduct[]>([]);
-  const [recentProducts, setRecentProducts] = useState<IProduct[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // 1. Fetch dynamic sections (Option A - Aggregated)
-        const secRes = await homepageUseCase.getSections.execute();
-        if (secRes.status === "success" && secRes.data) {
-          setSections(secRes.data);
-        }
-
-        // 2. Keep specific use cases for personalized sections
-        const interest = await productsUseCase.getBasedOnInterest.execute();
-        if (interest.status === "success" && interest.data)
-          setInterestProducts(interest.data);
-
-        const recent = await productsUseCase.getRecentlyViewed.execute();
-        if (recent.status === "success" && recent.data)
-          setRecentProducts(recent.data);
-      } catch (error) {
-        console.error("Failed to fetch products:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  const sections = useProductsStore((state) => state.sections);
 
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="private-home">
@@ -187,7 +161,10 @@ export const HomepagePrivate = () => {
           }
 
           if (
-            section.category.type === HOMEPAGE_SECTION_TYPES.PRODUCT_CAROUSEL &&
+            (section.category.type ===
+              HOMEPAGE_SECTION_TYPES.PRODUCT_CAROUSEL ||
+              section.category.type === HOMEPAGE_SECTION_TYPES.RECOMMENDS ||
+              section.category.type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW) &&
             section.data.length > 0
           ) {
             return (
@@ -195,7 +172,11 @@ export const HomepagePrivate = () => {
                 key={section.category.id}
                 title={section.category.title}
                 icon={getIcon(section.category.type, section.category.slug)}
-                iconColor="text-blue-500"
+                iconColor={
+                  section.category.type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW
+                    ? "text-blue-400"
+                    : "text-blue-500"
+                }
                 products={section.data}
                 rows={1}
               />
@@ -204,28 +185,6 @@ export const HomepagePrivate = () => {
 
           return null;
         })}
-
-        {/* 4. Personalized Sections (Keeping FE Use Cases) */}
-        {interestProducts.length > 0 && (
-          <ProductCarousel
-            title="Based on Your Interest"
-            icon={Laptop}
-            iconColor="text-blue-500"
-            products={interestProducts}
-            rows={1}
-          />
-        )}
-
-        {/* 5. Recently Viewed Section */}
-        {recentProducts.length > 0 && (
-          <ProductCarousel
-            title="Recently Viewed"
-            icon={Eye}
-            iconColor="text-blue-400"
-            products={recentProducts}
-            rows={1}
-          />
-        )}
       </AppContainer>
     </div>
   );

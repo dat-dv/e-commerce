@@ -19,6 +19,16 @@ export class HomepageRepository implements IHomepageRepository {
       data:
         response.data?.map((item) => ({
           ...item,
+          category: {
+            ...item.category,
+            categories: item.category.categories?.map((c) => ({
+              id: c.id,
+              slug: c.slug,
+              level: c.level,
+              order: c.order,
+              name: c.translations?.[0]?.name,
+            })),
+          },
           data: item.data?.map((p) => ProductMapper.toDomain(p)) || [],
         })) || [],
     };

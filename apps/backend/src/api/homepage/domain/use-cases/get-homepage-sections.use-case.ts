@@ -17,7 +17,7 @@ export class GetHomepageSectionsUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(languageCode = 'vi', userId?: string): Promise<IHomepageSectionResponse[]> {
+  async execute(languageCode = 'en', userId?: string): Promise<IHomepageSectionResponse[]> {
     const isLoggedIn = !!userId;
     const sections = await this.homepageSectionRepo.findAllEnabled(isLoggedIn);
 

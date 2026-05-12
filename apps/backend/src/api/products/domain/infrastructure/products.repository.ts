@@ -9,7 +9,7 @@ import { Prisma } from 'generated/prisma/client';
 export class ProductsRepository implements IProductsRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findById(id: string, languageCode = 'vi'): Promise<IProduct | null> {
+  async findById(id: string, languageCode = 'en'): Promise<IProduct | null> {
     const product = await this.prisma.product.findUnique({
       where: { id },
       include: {
@@ -93,7 +93,7 @@ export class ProductsRepository implements IProductsRepository {
     return product?.categories[0]?.category_id || null;
   }
 
-  async getActiveFlashSale(): Promise<IFlashSale | null> {
+  async getActiveFlashSale(languageCode = 'en'): Promise<IFlashSale | null> {
     const now = new Date();
     const flashSale = await this.prisma.flashSale.findFirst({
       where: {
@@ -110,7 +110,7 @@ export class ProductsRepository implements IProductsRepository {
                     translations: {
                       where: {
                         language: {
-                          code: 'vi',
+                          code: languageCode,
                         },
                       },
                     },
@@ -136,7 +136,7 @@ export class ProductsRepository implements IProductsRepository {
           original_price: p.sku.original_price ? Number(p.sku.original_price) : null,
         },
       })),
-    } as IFlashSale;
+    };
   }
 
   async findMany(params: {
@@ -146,7 +146,7 @@ export class ProductsRepository implements IProductsRepository {
     take?: number;
     languageCode?: string;
   }): Promise<IProduct[]> {
-    const { category_id, category_slug, orderBy, take, languageCode = 'vi' } = params;
+    const { category_id, category_slug, orderBy, take, languageCode = 'en' } = params;
 
     const products = await this.prisma.product.findMany({
       where: {
@@ -161,7 +161,7 @@ export class ProductsRepository implements IProductsRepository {
           categories: {
             some: {
               category: {
-                slug: category_slug,
+                OR: [{ slug: category_slug }, { parent: { slug: category_slug } }],
               },
             },
           },
@@ -192,7 +192,7 @@ export class ProductsRepository implements IProductsRepository {
     }));
   }
 
-  async getRecentlyViewed(userId: string, take = 10, languageCode = 'vi'): Promise<IProduct[]> {
+  async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<IProduct[]> {
     const whereHistory = { user_id: userId };
     const history = await this.prisma.userBrowsingHistory.findMany({
       where: whereHistory,
@@ -263,7 +263,7 @@ export class ProductsRepository implements IProductsRepository {
       max_price,
       attribute_value_ids,
       sort,
-      languageCode = 'vi',
+      languageCode = 'en',
     } = params;
     const skip = (page - 1) * limit;
 

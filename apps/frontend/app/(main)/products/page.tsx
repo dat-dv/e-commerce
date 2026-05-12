@@ -9,52 +9,94 @@ export const metadata: Metadata = {
 
 const FAKE_PRODUCTS = [
   {
-    id: 1,
+    id: "1",
     name: "Minimalist T-Shirt",
-    price: "$29.99",
     category: "Apparel",
     image_url:
       "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop",
+    skus: [
+      {
+        id: "1",
+        price: "29.99 ₫",
+        image_url:
+          "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop",
+      },
+    ],
   },
   {
-    id: 2,
+    id: "2",
     name: "Sleek Hoodie",
-    price: "$49.99",
     category: "Apparel",
     image_url:
       "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&auto=format&fit=crop",
+    skus: [
+      {
+        id: "2",
+        price: "49.99 ₫",
+        image_url:
+          "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&auto=format&fit=crop",
+      },
+    ],
   },
   {
-    id: 3,
+    id: "3",
     name: "Classic Sneakers",
-    price: "$79.99",
     category: "Footwear",
     image_url:
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&auto=format&fit=crop",
+    skus: [
+      {
+        id: "3",
+        price: "79.99 ₫",
+        image_url:
+          "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&auto=format&fit=crop",
+      },
+    ],
   },
   {
-    id: 4,
+    id: "4",
     name: "Smart Watch",
-    price: "$199.99",
     category: "Electronics",
     image_url:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop",
+    skus: [
+      {
+        id: "4",
+        price: "199.99 ₫",
+        image_url:
+          "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop",
+      },
+    ],
   },
   {
-    id: 5,
+    id: "5",
     name: "Wireless Earbuds",
-    price: "$99.99",
     category: "Electronics",
     image_url:
       "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop",
+    skus: [
+      {
+        id: "5",
+        price: "99.99 ₫",
+        image_url:
+          "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop",
+      },
+    ],
   },
   {
-    id: 6,
+    id: "6",
     name: "Leather Wallet",
-    price: "$39.99",
     category: "Accessories",
     image_url:
       "https://images.unsplash.com/photo-1627123430985-71d464a21886?w=800&auto=format&fit=crop",
+    skus: [
+      {
+        id: "6",
+        price: "39.99 ₫",
+        image_url:
+          "https://images.unsplash.com/photo-1627123430985-71d464a21886?w=800&auto=format&fit=crop",
+      },
+    ],
   },
 ];
 

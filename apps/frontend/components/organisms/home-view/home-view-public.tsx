@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import AppContainer from "@/components/atoms/app-container";
 import {
   Zap,
@@ -17,7 +16,6 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
-import { IProduct } from "@/domain/products/types/products.model";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { HeroSection } from "@/components/molecules/hero-section";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
@@ -98,20 +96,15 @@ const FEATURE_ITEMS = [
   },
 ];
 
-const chunkArray = (arr: IProduct[], size: number): IProduct[][] => {
-  const result: IProduct[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
-  }
-  return result;
-};
-
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
-import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
-import { homepageUseCase } from "@/domain/homepage/use-cases";
+
+import { useProductsStore } from "@/hooks/products/use-products-store";
+import { Eye } from "lucide-react";
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
   [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
+  [HOMEPAGE_SECTION_TYPES.RECOMMENDS]: Sparkles,
+  [HOMEPAGE_SECTION_TYPES.RECENT_VIEW]: Eye,
   electronics: Laptop,
   "tv-audio-cameras": Laptop,
   "toys-baby-products": Sparkles,
@@ -122,25 +115,13 @@ const SECTION_ICONS: Record<string, LucideIcon> = {
 
 const getIcon = (type: string, slug?: string) => {
   if (type === HOMEPAGE_SECTION_TYPES.FLASH_SALE) return Zap;
+  if (type === HOMEPAGE_SECTION_TYPES.RECOMMENDS) return Sparkles;
+  if (type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW) return Eye;
   return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
 };
 
 export const HomepagePublic = () => {
-  const [sections, setSections] = useState<IHomepageSection[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const secRes = await homepageUseCase.getSections.execute();
-        if (secRes.status === "success" && secRes.data) {
-          setSections(secRes.data);
-        }
-      } catch (error) {
-        console.error("Failed to fetch homepage sections:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  const sections = useProductsStore((state) => state.sections);
 
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="public-home">
@@ -178,7 +159,10 @@ export const HomepagePublic = () => {
           }
 
           if (
-            section.category.type === HOMEPAGE_SECTION_TYPES.PRODUCT_CAROUSEL &&
+            (section.category.type ===
+              HOMEPAGE_SECTION_TYPES.PRODUCT_CAROUSEL ||
+              section.category.type === HOMEPAGE_SECTION_TYPES.RECOMMENDS ||
+              section.category.type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW) &&
             section.data.length > 0
           ) {
             return (
@@ -186,7 +170,11 @@ export const HomepagePublic = () => {
                 key={section.category.id}
                 title={section.category.title}
                 icon={getIcon(section.category.type, section.category.slug)}
-                iconColor="text-blue-500"
+                iconColor={
+                  section.category.type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW
+                    ? "text-blue-400"
+                    : "text-blue-500"
+                }
                 products={section.data}
                 rows={1}
               />

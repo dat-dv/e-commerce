@@ -9,7 +9,7 @@ export class HomepageController {
   constructor(private readonly getHomepageSectionsUseCase: GetHomepageSectionsUseCase) {}
 
   @Get('sections')
-  async getSections(@Query('lang') lang = 'vi') {
+  async getSections(@Query('lang') lang = 'en') {
     const result = await this.getHomepageSectionsUseCase.execute(lang);
     return createSuccessResponse(result);
   }

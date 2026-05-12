@@ -45,7 +45,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient) {
   const fileName = process.argv[2];
   let filesToProcess: string[] = [];
 
-  const isDevSeed = true;
+  const isDevSeed = !true;
   const datasetDir = path.join(__dirname, '../dataset');
 
   if (fileName) {

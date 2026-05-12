@@ -19,6 +19,9 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
       include: {
         categories: {
           orderBy: { order: 'asc' },
+          include: {
+            translations: true,
+          },
         },
         translations: {
           include: {

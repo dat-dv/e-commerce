@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { HomeView } from "@/components/organisms/home-view";
-import { productsUseCase } from "@/domain/products/use-cases";
+import { homepageUseCase } from "@/domain/homepage/use-cases";
 import { ProductsProvider } from "@/components/molecules/providers/products-provider";
 
 export const metadata: Metadata = {
@@ -9,16 +9,15 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  // Fetch data on the server
-  const flashSaleResponse = await productsUseCase.getFlashSale.execute();
-  const recommendedResponse = await productsUseCase.getRecommended.execute();
+  // Fetch dynamic sections on the server
+  const sectionsResponse = await homepageUseCase.getSections.execute();
 
   const initialData = {
-    flashSaleProducts:
-      flashSaleResponse.status === "success" ? flashSaleResponse.data : [],
-    recommendedProducts:
-      recommendedResponse.status === "success" ? recommendedResponse.data : [],
+    sections:
+      sectionsResponse.status === "success" ? sectionsResponse.data : [],
   };
+
+  console.log(sectionsResponse);
 
   return (
     <ProductsProvider initState={initialData}>
