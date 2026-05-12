@@ -12,10 +12,12 @@ const createCartStoreCreator =
     const state: ICartStore = {
       items: [],
       loading: false,
+      isOpen: false, // Mặc định là đóng
       _hasHydrated: false,
       ...initState,
 
       setHasHydrated: (state) => set({ _hasHydrated: state }),
+      setIsOpen: (isOpen) => set({ isOpen }),
 
       addItem: (item, quantity) => {
         const { items } = get();

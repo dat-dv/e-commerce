@@ -8,6 +8,8 @@ import Script from "next/script";
 import AppToast from "@/components/atoms/toast";
 import { AuthProvider } from "@/components/molecules/providers/auth-provider";
 import { ConfigProvider } from "@/components/molecules/providers/config-provider";
+import { CartProvider } from "@/components/molecules/providers/cart-provider";
+import { CartDrawer } from "@/components/organisms/cart/cart-drawer";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
 
@@ -89,7 +91,12 @@ export default async function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
         <ConfigProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <CartProvider>
+              {children}
+              <CartDrawer />
+            </CartProvider>
+          </AuthProvider>
           <AppToast />
         </ConfigProvider>
       </body>

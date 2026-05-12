@@ -12,6 +12,7 @@ export interface ICartItem {
 export interface ICartStoreState {
   items: ICartItem[];
   loading: boolean;
+  isOpen: boolean;
   _hasHydrated: boolean;
 }
 
@@ -20,6 +21,7 @@ export interface ICartStoreActions {
   removeItem: (sku_id: string) => void;
   updateQuantity: (sku_id: string, quantity: number) => void;
   clearCart: () => void;
+  setIsOpen: (isOpen: boolean) => void;
   setHasHydrated: (state: boolean) => void;
 }
 

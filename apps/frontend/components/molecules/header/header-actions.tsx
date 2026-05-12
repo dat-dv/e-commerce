@@ -5,15 +5,34 @@ import ProtectedSection from "@/components/atoms/protected-section/protected-sec
 import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
-
 import AvatarDropdown from "../avatar-dropdown";
+import { ShoppingBag } from "lucide-react";
+import { useCartStore } from "@/hooks/cart/use-cart-store";
 
 export default function HeaderActions() {
   const user = useAuthStore((store) => store.user);
   const { handleClickLogout } = useLogout();
+  const setIsOpen = useCartStore((s) => s.setIsOpen);
+  const itemsCount = useCartStore((s) =>
+    s.items.reduce((acc, item) => acc + item.quantity, 0),
+  );
 
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">
+      {/* Nút Giỏ hàng */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
+        title="Giỏ hàng"
+      >
+        <ShoppingBag size={20} />
+        {itemsCount > 0 && (
+          <span className="absolute -top-0.5 -right-0.5 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+            {itemsCount}
+          </span>
+        )}
+      </button>
+
       <ProtectedSection
         fallbackChildren={
           <>

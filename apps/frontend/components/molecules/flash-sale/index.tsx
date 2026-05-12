@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { ArrowRight, Flame } from "lucide-react";
+import { FlashSaleCard } from "../product-card/flash-sale-card";
 
 interface FlashSaleProduct {
   id: number;
@@ -51,54 +52,7 @@ export const FlashSale = ({ products }: FlashSaleProps) => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <div key={product.id} className="group flex flex-col gap-3">
-            <div className="relative aspect-square bg-content/[0.02] border border-content/[0.05] rounded-xl overflow-hidden flex items-center justify-center">
-              <span className="text-content/20 text-xs font-medium">
-                Product Image
-              </span>
-              <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
-                -
-                {Math.round(
-                  (1 -
-                    parseFloat(product.price.slice(1)) /
-                      parseFloat(product.oldPrice.slice(1))) *
-                    100,
-                )}
-                %
-              </div>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-sm font-bold text-content group-hover:text-primary transition-colors line-clamp-1">
-                {product.name}
-              </h3>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-black text-red-500">
-                  {product.price}
-                </span>
-                <span className="text-xs text-content/40 line-through">
-                  {product.oldPrice}
-                </span>
-              </div>
-              <div className="mt-1">
-                <div className="w-full h-1.5 bg-content/[0.05] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-red-500 rounded-full"
-                    style={{
-                      width: `${(product.sold / product.total) * 100}%`,
-                    }}
-                  />
-                </div>
-                <div className="flex justify-between items-center mt-1">
-                  <span className="text-[10px] font-bold text-content/60">
-                    Sold {product.sold}
-                  </span>
-                  <span className="text-[10px] font-bold text-content/40">
-                    {product.total} left
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <FlashSaleCard key={product.id} product={product} />
         ))}
       </div>
     </div>
