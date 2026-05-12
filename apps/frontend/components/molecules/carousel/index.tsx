@@ -8,9 +8,16 @@ import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
 interface CarouselProps {
   children: React.ReactNode;
   options?: EmblaOptionsType;
+  onNearEnd?: (info: { selectedIndex: number; totalSnaps: number }) => void;
+  threshold?: number;
 }
 
-export const Carousel = ({ children, options }: CarouselProps) => {
+export const Carousel = ({
+  children,
+  options,
+  onNearEnd,
+  threshold = 2,
+}: CarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -24,10 +31,21 @@ export const Carousel = ({ children, options }: CarouselProps) => {
     [emblaApi],
   );
 
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setPrevBtnEnabled(emblaApi.canScrollPrev());
-    setNextBtnEnabled(emblaApi.canScrollNext());
-  }, []);
+  const onSelect = useCallback(
+    (emblaApi: EmblaCarouselType) => {
+      setPrevBtnEnabled(emblaApi.canScrollPrev());
+      setNextBtnEnabled(emblaApi.canScrollNext());
+
+      if (onNearEnd) {
+        const selected = emblaApi.selectedScrollSnap();
+        const total = emblaApi.scrollSnapList().length;
+        if (selected >= total - threshold) {
+          onNearEnd({ selectedIndex: selected, totalSnaps: total });
+        }
+      }
+    },
+    [onNearEnd, threshold],
+  );
 
   useEffect(() => {
     if (!emblaApi) return;

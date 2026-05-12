@@ -11,8 +11,10 @@ const createProductsStoreCreator =
       flashSaleProducts: [],
       recommendedProducts: [],
       sections: [],
+      categories: [],
       loading: false,
       ...initState,
+      lang: initState?.lang || "vi",
       setFlashSaleProducts: (products) => set({ flashSaleProducts: products }),
       setRecommendedProducts: (products) =>
         set({ recommendedProducts: products }),

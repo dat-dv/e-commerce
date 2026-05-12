@@ -4,6 +4,7 @@ import AppContainer from "@/components/atoms/app-container";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { FlashSale } from "@/components/molecules/flash-sale";
 import { CategoriesGrid } from "@/components/molecules/categories-grid";
+import { CategoriesSection } from "@/components/molecules/categories-section";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { WelcomeBanner } from "@/components/molecules/welcome-banner";
 import { APP_ROUTES } from "@/constants/routes";
@@ -91,6 +92,7 @@ const FEATURE_ITEMS = [
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
+import { useCategories } from "@/hooks/categories/use-categories";
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
   [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
@@ -114,6 +116,8 @@ const getIcon = (type: string, slug?: string) => {
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
   const sections = useProductsStore((state) => state.sections);
+  const { categories, fetchMore } = useCategories();
+  const lang = useProductsStore((state) => state.lang);
 
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="private-home">
@@ -126,6 +130,13 @@ export const HomepagePrivate = () => {
         />
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
+
+        {/* Categories Section */}
+        <CategoriesSection
+          categories={categories}
+          lang={lang}
+          onLoadMore={fetchMore}
+        />
 
         {/* 3. Dynamic Backend Sections */}
         {sections.map((section) => {

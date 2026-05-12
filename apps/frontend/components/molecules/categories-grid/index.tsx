@@ -4,12 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { ArrowRight, LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 interface Category {
   name: string;
   count: string;
   icon: LucideIcon;
   color: string;
+  image?: string;
 }
 
 interface CategoriesGridProps {
@@ -35,9 +37,19 @@ export const CategoriesGrid = ({ categories }: CategoriesGridProps) => {
               </h3>
               <p className="text-xs text-content/40">{cat.count}</p>
             </div>
-            <cat.icon
-              className={`w-6 h-6 ${cat.color} opacity-30 group-hover:opacity-100 transition-opacity`}
-            />
+            {cat.image ? (
+              <Image
+                width={20}
+                height={20}
+                src={cat.image}
+                alt={cat.name}
+                className="w-10 h-10 object-cover rounded-xl"
+              />
+            ) : (
+              <cat.icon
+                className={`w-6 h-6 ${cat.color} opacity-30 group-hover:opacity-100 transition-opacity`}
+              />
+            )}
           </div>
           <div className="w-8 h-8 bg-surface border border-content/[0.05] rounded-full flex items-center justify-center self-end group-hover:bg-content/5 transition-colors">
             <ArrowRight className="w-4 h-4 text-content/60 group-hover:translate-x-0.5 transition-all" />

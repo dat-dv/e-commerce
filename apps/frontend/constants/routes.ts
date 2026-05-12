@@ -55,5 +55,6 @@ export const API_ROUTES = {
   HOMEPAGE: {
     SECTIONS: "/homepage/sections",
   },
+  PRODUCT_CATEGORIES: "/product-categories",
   CONFIG: "/config",
 } as const;
