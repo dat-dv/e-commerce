@@ -13,4 +13,5 @@ model Image {
 
   user       User?
   product    Product?
+  category   ProductCategory?
 }

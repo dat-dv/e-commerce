@@ -1,0 +1,40 @@
+// prisma/schema/category.prisma
+
+model ProductCategory {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  image_id    String?   @unique
+  parent_id   String?   // null = danh mục gốc (level 1), có giá trị = danh mục con
+  
+  level       Int       @default(1)
+  order       Int       @default(0)
+  is_active   Boolean   @default(true)
+  
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+
+  parent      ProductCategory?  @relation("CategoryTree", fields: [parent_id], references: [id])
+  children    ProductCategory[] @relation("CategoryTree")
+  
+  image       Image?    @relation(fields: [image_id], references: [id])
+
+  // Many-to-many với Product qua junction table
+  product_categories ProductCategoryMapping[]
+  
+  // Đa ngôn ngữ cho danh mục
+  translations       ProductCategoryTranslation[]
+
+  @@map("product_categories")
+}
+
+// Junction table: Product <-> Category (many-to-many)
+model ProductCategoryMapping {
+  product_id  String
+  category_id String
+
+  product     Product         @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  category    ProductCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+
+  @@id([product_id, category_id])
+  @@map("product_category_mappings")
+}

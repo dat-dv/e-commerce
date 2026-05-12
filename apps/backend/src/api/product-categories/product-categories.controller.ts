@@ -1,10 +1,13 @@
-import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query } from '@nestjs/common';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { CreateProductCategoryUseCase } from './domain/use-cases/create-category.use-case';
 import { UpdateProductCategoryUseCase } from './domain/use-cases/update-product-category.use-case';
 import { GetAllProductCategoriesUseCase } from './domain/use-cases/get-all-product-categories.use-case';
 import { DeleteProductCategoryUseCase } from './domain/use-cases/delete-product-category.use-case';
+import { GetProductCategoryGroupsUseCase } from './domain/use-cases/get-product-category-groups.use-case';
+import { GetProductCategoryByIdUseCase } from './domain/use-cases/get-product-category-by-id.use-case';
+import { GetProductCategoryTreeUseCase } from './domain/use-cases/get-product-category-tree.use-case';
 import createSuccessResponse from 'src/common/respomse';
 import { CreateCategoryDto } from './dto/create-product-category.dto';
 import { UpdateCategoryDto } from './dto/update-product-category.dto';
@@ -16,6 +19,9 @@ export class ProductCategoriesController {
     private readonly updateCategoryUseCase: UpdateProductCategoryUseCase,
     private readonly getAllCategoriesUseCase: GetAllProductCategoriesUseCase,
     private readonly deleteCategoryUseCase: DeleteProductCategoryUseCase,
+    private readonly getGroupsUseCase: GetProductCategoryGroupsUseCase,
+    private readonly getByIdUseCase: GetProductCategoryByIdUseCase,
+    private readonly getTreeUseCase: GetProductCategoryTreeUseCase,
   ) {}
 
   @UseGuards(PermissionsGuard)
@@ -37,6 +43,24 @@ export class ProductCategoriesController {
   @Get()
   async getAllCategories() {
     const result = await this.getAllCategoriesUseCase.execute();
+    return createSuccessResponse(result);
+  }
+
+  @Get('groups')
+  async getGroups(@Query('lang') lang: string = 'vi') {
+    const result = await this.getGroupsUseCase.execute(lang);
+    return createSuccessResponse(result);
+  }
+
+  @Get('tree')
+  async getTree(@Query('lang') lang: string = 'vi') {
+    const result = await this.getTreeUseCase.execute(lang);
+    return createSuccessResponse(result);
+  }
+
+  @Get(':id')
+  async getById(@Param('id') id: string, @Query('lang') lang: string = 'vi') {
+    const result = await this.getByIdUseCase.execute(id, lang);
     return createSuccessResponse(result);
   }
 

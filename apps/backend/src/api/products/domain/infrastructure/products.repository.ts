@@ -49,7 +49,13 @@ export class ProductsRepository implements IProductsRepository {
 
     const products = await this.prisma.product.findMany({
       where: {
-        category_id,
+        ...(category_id && {
+          categories: {
+            some: {
+              category_id,
+            },
+          },
+        }),
         deleted_at: null,
       },
       orderBy,
@@ -93,10 +99,15 @@ export class ProductsRepository implements IProductsRepository {
 
     const product = await this.prisma.product.findUnique({
       where: { id: topProductId },
-      select: { category_id: true },
+      select: {
+        categories: {
+          select: { category_id: true },
+          take: 1,
+        },
+      },
     });
 
-    return product?.category_id || null;
+    return product?.categories[0]?.category_id || null;
   }
 
   async getActiveFlashSale(): Promise<any> {
@@ -184,7 +195,11 @@ export class ProductsRepository implements IProductsRepository {
     };
 
     if (category_id) {
-      where.category_id = category_id;
+      where.categories = {
+        some: {
+          category_id,
+        },
+      };
     }
 
     if (search) {

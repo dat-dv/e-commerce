@@ -1,0 +1,29 @@
+// prisma/schema/flash_sale.prisma
+
+model FlashSale {
+  id          String    @id @default(cuid())
+  name        String
+  start_time  DateTime
+  end_time    DateTime
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+
+  products    FlashSaleProduct[]
+
+  @@map("flash_sales")
+}
+
+model FlashSaleProduct {
+  id             String    @id @default(cuid())
+  flash_sale_id  String
+  sku_id         String
+  sale_price     Float     
+  stock          Int       
+  sold_count     Int       @default(0)
+
+  flash_sale     FlashSale @relation(fields: [flash_sale_id], references: [id], onDelete: Cascade)
+  sku            Sku       @relation(fields: [sku_id], references: [id], onDelete: Cascade)
+
+  @@unique([flash_sale_id, sku_id])
+  @@map("flash_sale_products")
+}

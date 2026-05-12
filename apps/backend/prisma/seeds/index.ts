@@ -3,6 +3,7 @@ import { PrismaClient } from '../../generated/prisma/client';
 import { seedPhase1 } from './phase1';
 import { seedProducts } from './products';
 import { seedRBAC } from './rbac';
+import { setupLanguage } from './language';
 import { seedCategories } from './categories';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
@@ -25,6 +26,8 @@ async function cleanDatabase() {
   await prisma.flashSale.deleteMany({});
   await prisma.sku.deleteMany({});
   await prisma.productTranslation.deleteMany({});
+  await prisma.productCategoryTranslation.deleteMany({});
+  await prisma.productCategoryMapping.deleteMany({});
   await prisma.product.deleteMany({});
   await prisma.productCategory.deleteMany({});
   await prisma.language.deleteMany({});
@@ -38,18 +41,18 @@ async function cleanDatabase() {
 
 async function main() {
   await cleanDatabase();
-  console.log('🌱 Đang tạo dữ liệu mẫu theo các Phase...');
+  console.log('🌱 Đang tạo dữ liệu mẫu...');
 
-  // phase 0: Tạo Roles & Permissions
-  const { adminRole, userRole } = await seedRBAC(prisma);
+  // --- Phase 0: Setup (Foundational Data) ---
+  console.log('--- Phase 0: Setup ---');
+  await seedRBAC(prisma);
+  await setupLanguage(prisma);
 
-  // phase 1: Tạo user
-  const { defaultUser, listUsers } = await seedPhase1(prisma, adminRole, userRole);
+  // --- Phase 1: Core Entities ---
+  await seedPhase1(prisma);
 
-  // phase 2: Tạo categories
+  // --- Phase 2: Business Data ---
   await seedCategories(prisma);
-
-  // phase 3: Tạo sản phẩm
   await seedProducts(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');

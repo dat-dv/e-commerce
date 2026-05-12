@@ -1,48 +1,32 @@
 // prisma/schema/product.prisma
 
-// 1. Danh mục sản phẩm
-model ProductCategory {
-  id          String    @id @default(cuid())
-  name        String
-  slug        String    @unique
-  description String?
-  image_id    String?   @unique
-  parent_id   String?   // null = danh mục gốc (level 1), có giá trị = danh mục con
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
-
-  parent      ProductCategory?  @relation("CategoryTree", fields: [parent_id], references: [id])
-  children    ProductCategory[] @relation("CategoryTree")
-  products    Product[]
-
-  @@map("product_categories")
-}
-
-// 2. TẦNG SẢN PHẨM (PRODUCT)
+// 1. TẦNG SẢN PHẨM (PRODUCT)
 model Product {
   id          String    @id @default(cuid())
   seller_id   String?   // Ai tạo sản phẩm này (Tạm thời để optional)
-  category_id String?
   brand_id    String?
   status      String    @default("DRAFT") // DRAFT, ACTIVE, OUT_OF_STOCK
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
   deleted_at  DateTime?
-  
+
   thumbnail_id String?   @unique
   thumbnail    Image?    @relation(fields: [thumbnail_id], references: [id])
 
   translations ProductTranslation[]
   skus         Sku[]
-  
-  category    ProductCategory? @relation(fields: [category_id], references: [id])
-  
+
+  // Many-to-many với Category qua junction table
+  categories   ProductCategoryMapping[]
+
   // Relations from other tables that still reference Product
   view_history     UserBrowsingHistory[]
   reviews          Review[]
+
+  @@map("products")
 }
 
-// 3. TẦNG BIẾN THỂ & KHO HÀNG (SKU)
+// 2. TẦNG BIẾN THỂ & KHO HÀNG (SKU)
 model Sku {
   id         String   @id @default(cuid())
   product_id String
@@ -59,30 +43,6 @@ model Sku {
   order_items      OrderItem[]
   flash_sales      FlashSaleProduct[]
   reviews          Review[]
-}
 
-// 4. Chiến dịch Flash Sale
-model FlashSale {
-  id          String    @id @default(cuid())
-  name        String
-  start_time  DateTime
-  end_time    DateTime
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
-
-  products    FlashSaleProduct[]
-}
-
-model FlashSaleProduct {
-  id             String    @id @default(cuid())
-  flash_sale_id  String
-  sku_id         String
-  sale_price     Float     
-  stock          Int       
-  sold_count     Int       @default(0)
-
-  flash_sale     FlashSale @relation(fields: [flash_sale_id], references: [id], onDelete: Cascade)
-  sku            Sku       @relation(fields: [sku_id], references: [id], onDelete: Cascade)
-
-  @@unique([flash_sale_id, sku_id])
+  @@map("skus")
 }

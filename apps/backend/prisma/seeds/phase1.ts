@@ -1,10 +1,16 @@
-import { PrismaClient, Prisma, Role } from '../../generated/prisma/client';
+import { PrismaClient, Prisma } from '../../generated/prisma/client';
+import { SeedRegistry } from './registry';
 
-export async function seedPhase1(prisma: PrismaClient, adminRole: Role, userRole: Role) {
+/**
+ * Phase 1: Seed initial users.
+ * Fetches required roles and languages directly from the database using SeedRegistry.
+ */
+export async function seedPhase1(prisma: PrismaClient) {
   console.log('--- Phase 1: Users & Tags ---');
-  if (!userRole) {
-    throw new Error('Role USER không tồn tại. Vui lòng chạy seedRBAC trước.');
-  }
+
+  // Fetch dependencies from registry instead of passing them as props
+  const adminRole = await SeedRegistry.getAdminRole(prisma);
+  const userRole = await SeedRegistry.getUserRole(prisma);
 
   // 1. Tạo User đặc biệt để test Auth
   const defaultUser = await prisma.user.upsert({
@@ -45,6 +51,7 @@ export async function seedPhase1(prisma: PrismaClient, adminRole: Role, userRole
 
   console.log(`👥 Đã tạo thêm ${listUsers.length} Users mẫu`);
 
-  // Trả về riêng defaultUser
+  // Trả về riêng defaultUser (nếu các phase sau thực sự cần return value,
+  // nhưng lý tưởng nhất là các phase sau cũng query listUsers nếu cần)
   return { defaultUser, listUsers };
 }

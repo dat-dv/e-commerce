@@ -1,20 +1,12 @@
 import { PrismaClient } from '../../generated/prisma/client';
+import { SeedRegistry } from './registry';
 
 export async function seedProducts(prisma: PrismaClient) {
   console.log('--- Phase 2: Products ---');
 
-  // 1. Tạo Languages
-  const vi = await prisma.language.upsert({
-    where: { code: 'vi' },
-    update: {},
-    create: { code: 'vi', name: 'Tiếng Việt' },
-  });
-
-  const en = await prisma.language.upsert({
-    where: { code: 'en' },
-    update: {},
-    create: { code: 'en', name: 'English' },
-  });
+  // Fetch languages from registry
+  const vi = await SeedRegistry.getLanguage(prisma, 'vi');
+  const en = await SeedRegistry.getLanguage(prisma, 'en');
 
   // 2. Lấy categories từ DB
   const categories = await prisma.productCategory.findMany({ orderBy: { created_at: 'asc' } });
@@ -38,12 +30,23 @@ export async function seedProducts(prisma: PrismaClient) {
   const r8 = await prisma.attributeValue.create({ data: { attribute_id: ram.id, value: '8GB' } });
   const r16 = await prisma.attributeValue.create({ data: { attribute_id: ram.id, value: '16GB' } });
 
+  // Helper: tạo mapping product -> categories
+  async function linkCategories(productId: string, categorySlugs: string[]) {
+    for (const slug of categorySlugs) {
+      const cat = categories.find((c) => c.slug === slug);
+      if (cat) {
+        await prisma.productCategoryMapping.create({
+          data: { product_id: productId, category_id: cat.id },
+        });
+      }
+    }
+  }
+
   // 4. Tạo Products
 
-  // Product 1: iPhone 15 (Điện thoại)
+  // Product 1: iPhone 15 (Điện thoại + Đồ Công Nghệ)
   const p1 = await prisma.product.create({
     data: {
-      category_id: categories[0].id,
       status: 'ACTIVE',
       translations: {
         create: [
@@ -57,6 +60,7 @@ export async function seedProducts(prisma: PrismaClient) {
       },
     },
   });
+  await linkCategories(p1.id, ['dien-thoai', 'do-cong-nghe']);
 
   await prisma.sku.create({
     data: {
@@ -78,10 +82,9 @@ export async function seedProducts(prisma: PrismaClient) {
     },
   });
 
-  // Product 2: MacBook Air (Laptop)
+  // Product 2: MacBook Air (Laptop + Đồ Công Nghệ)
   const p2 = await prisma.product.create({
     data: {
-      category_id: categories[1].id,
       status: 'ACTIVE',
       translations: {
         create: [
@@ -99,6 +102,7 @@ export async function seedProducts(prisma: PrismaClient) {
       },
     },
   });
+  await linkCategories(p2.id, ['laptop', 'do-cong-nghe']);
 
   await prisma.sku.create({
     data: {
@@ -120,10 +124,9 @@ export async function seedProducts(prisma: PrismaClient) {
     },
   });
 
-  // Product 3: Apple Watch (Đồng hồ)
+  // Product 3: Apple Watch (Đồng hồ thông minh + Đồ Công Nghệ)
   const p3 = await prisma.product.create({
     data: {
-      category_id: categories[2].id,
       status: 'ACTIVE',
       translations: {
         create: [
@@ -141,6 +144,7 @@ export async function seedProducts(prisma: PrismaClient) {
       },
     },
   });
+  await linkCategories(p3.id, ['dong-ho-thong-minh', 'do-cong-nghe']);
 
   await prisma.sku.create({
     data: {
@@ -162,10 +166,9 @@ export async function seedProducts(prisma: PrismaClient) {
     },
   });
 
-  // Product 4: AirPods Pro (Tai nghe)
+  // Product 4: AirPods Pro (Tai nghe + Đồ Công Nghệ)
   const p4 = await prisma.product.create({
     data: {
-      category_id: categories[3].id,
       status: 'ACTIVE',
       translations: {
         create: [
@@ -179,6 +182,7 @@ export async function seedProducts(prisma: PrismaClient) {
       },
     },
   });
+  await linkCategories(p4.id, ['tai-nghe', 'do-cong-nghe']);
 
   await prisma.sku.create({
     data: {
