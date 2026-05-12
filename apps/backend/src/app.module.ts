@@ -8,6 +8,7 @@ import ConfigModule from './config/config.module';
 import { UploadModule } from './api/upload/upload.module';
 import { ProductsModule } from './api/products/products.module';
 import { ProductCategoriesModule } from './api/product-categories/product-categories.module';
+import { ReviewsModule } from './api/reviews/reviews.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ProductCategoriesModule } from './api/product-categories/product-catego
     UploadModule,
     ProductsModule,
     ProductCategoriesModule,
+    ReviewsModule,
   ],
   controllers: [],
   providers: [],

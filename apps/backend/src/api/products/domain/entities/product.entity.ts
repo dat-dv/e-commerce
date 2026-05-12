@@ -1,3 +1,5 @@
+import { IImage } from 'src/api/upload/domain/entities/image.entity';
+
 export interface IProductTranslation {
   language_id: string;
   name: string;
@@ -40,7 +42,7 @@ export interface IProduct {
 
   translations?: IProductTranslation[];
   skus?: ISku[];
-  thumbnail?: any;
+  thumbnail?: IImage | null;
 }
 
 export interface IProductCategory {

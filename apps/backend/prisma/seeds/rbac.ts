@@ -44,6 +44,13 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'DETAIL:CATEGORY', description: 'Quyền xem chi tiết danh mục', category: 'Quản lý danh mục' },
     { permission_name: 'UPDATE:CATEGORY', description: 'Quyền sửa danh mục', category: 'Quản lý danh mục' },
     { permission_name: 'DELETE:CATEGORY', description: 'Quyền xóa danh mục', category: 'Quản lý danh mục' },
+
+    // Quản lý đánh giá (Review)
+    { permission_name: 'CREATE:REVIEW', description: 'Quyền tạo đánh giá', category: 'Quản lý đánh giá' },
+    { permission_name: 'LIST:REVIEW', description: 'Quyền xem danh sách đánh giá', category: 'Quản lý đánh giá' },
+    { permission_name: 'DETAIL:REVIEW', description: 'Quyền xem chi tiết đánh giá', category: 'Quản lý đánh giá' },
+    { permission_name: 'UPDATE:REVIEW', description: 'Quyền sửa đánh giá', category: 'Quản lý đánh giá' },
+    { permission_name: 'DELETE:REVIEW', description: 'Quyền xóa đánh giá', category: 'Quản lý đánh giá' },
   ];
 
   // Lấy danh sách permission đã có
@@ -86,7 +93,15 @@ export async function seedRBAC(prisma: PrismaClient) {
   });
 
   // 4. Tạo Role User (Chỉ có một số quyền cơ bản)
-  const userPermNames = ['LIST:CATEGORY', 'DETAIL:CATEGORY', 'DETAIL:OWN_USER', 'UPDATE:OWN_USER'];
+  const userPermNames = [
+    'LIST:CATEGORY',
+    'DETAIL:CATEGORY',
+    'CREATE:REVIEW',
+    'LIST:REVIEW',
+    'DETAIL:REVIEW',
+    'DETAIL:OWN_USER',
+    'UPDATE:OWN_USER',
+  ];
 
   const userRole = await prisma.role.upsert({
     where: { role_name: ROLE_USER },

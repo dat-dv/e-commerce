@@ -83,8 +83,8 @@ describe('RBAC & Ownership (e2e)', () => {
         include: { permissions: true },
       });
 
-      const hasAnyPermission = userPermissions.some((rp: any) =>
-        rp.permissions.some((p: any) => p.permission_name === 'UPDATE:POST:ANY'),
+      const hasAnyPermission = userPermissions.some((rp: { permissions: { permission_name: string }[] }) =>
+        rp.permissions.some((p: { permission_name: string }) => p.permission_name === 'UPDATE:POST:ANY'),
       );
       expect(hasAnyPermission).toBe(false);
 

@@ -25,7 +25,7 @@ export class AuthRepository implements IAuthRepository {
     };
   }
 
-  async register(request: IRegisterRequest): Promise<ApiResponse<void>> {
+  async register(request: IRegisterRequest): Promise<ApiResponse<null>> {
     const payload = {
       email: request.email,
       password: request.password,
