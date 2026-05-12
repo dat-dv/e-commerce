@@ -23,14 +23,19 @@ export class FirebaseService implements OnModuleInit {
     }
 
     try {
-      this.firebaseApp = admin.initializeApp({
-        credential: admin.credential.cert({
-          projectId,
-          clientEmail,
-          privateKey: privateKey.replace(/\\n/g, '\n'),
-        }),
-      });
-      this.logger.log('Firebase Admin initialized successfully.');
+      if (admin.apps.length > 0) {
+        this.firebaseApp = admin.app();
+        this.logger.log('Reusing existing Firebase Admin app.');
+      } else {
+        this.firebaseApp = admin.initializeApp({
+          credential: admin.credential.cert({
+            projectId,
+            clientEmail,
+            privateKey: privateKey.replace(/\\n/g, '\n'),
+          }),
+        });
+        this.logger.log('Firebase Admin initialized successfully.');
+      }
     } catch (error) {
       this.logger.error('Failed to initialize Firebase Admin:', error instanceof Error ? error.message : String(error));
     }

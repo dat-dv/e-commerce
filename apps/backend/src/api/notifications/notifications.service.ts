@@ -38,21 +38,25 @@ export class NotificationService {
 
       // Nếu có token lỗi (ví dụ token đã hết hạn), mình nên xóa nó đi
       if (response.failureCount > 0) {
-        response.responses.forEach((resp, idx) => {
+        for (let idx = 0; idx < response.responses.length; idx++) {
+          const resp = response.responses[idx];
           if (!resp.success) {
             const errorCode = resp.error?.code;
             if (
               errorCode === 'messaging/registration-token-not-registered' ||
               errorCode === 'messaging/invalid-registration-token'
             ) {
-              this.notificationsRepository.removeToken(tokens[idx]);
+              await this.notificationsRepository.removeToken(tokens[idx]);
               this.logger.log(`Removed invalid token: ${tokens[idx]}`);
             }
           }
-        });
+        }
       }
     } catch (error) {
-      this.logger.error(`Error sending notification to user ${userId}:`, error.message);
+      this.logger.error(
+        `Error sending notification to user ${userId}:`,
+        error instanceof Error ? error.message : String(error),
+      );
     }
   }
 }

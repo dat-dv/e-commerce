@@ -14,6 +14,8 @@ export class FirebaseService extends StorageService implements OnModuleInit {
   }
 
   onModuleInit() {
+    const tempDisabled = true;
+    if (tempDisabled) return; // Tạm thời ngắt Firebase Upload để tránh xung đột
     const projectId = this.configService.get<string>('FIREBASE_PROJECT_ID');
     const clientEmail = this.configService.get<string>('FIREBASE_CLIENT_EMAIL');
     const privateKey = this.configService
@@ -24,15 +26,20 @@ export class FirebaseService extends StorageService implements OnModuleInit {
 
     if (projectId && clientEmail && privateKey) {
       try {
-        admin.initializeApp({
-          credential: admin.credential.cert({
-            projectId,
-            clientEmail,
-            privateKey,
-          }),
-          storageBucket,
-        });
-        this.bucket = admin.storage().bucket();
+        if (admin.apps.length > 0) {
+          this.logger.log('Reusing existing Firebase Admin app.');
+        } else {
+          admin.initializeApp({
+            credential: admin.credential.cert({
+              projectId,
+              clientEmail,
+              privateKey,
+            }),
+            storageBucket,
+          });
+          this.logger.log('Firebase Admin initialized successfully.');
+        }
+        this.bucket = admin.storage().bucket(storageBucket);
       } catch (error) {
         this.logger.error('Failed to initialize Firebase Admin SDK', error);
       }
