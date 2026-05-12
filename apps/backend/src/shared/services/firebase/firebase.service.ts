@@ -11,16 +11,24 @@ export class FirebaseService implements OnModuleInit {
   constructor(private readonly configService: ConfigService) {}
 
   onModuleInit() {
-    const serviceAccountPath = this.configService.get<string>('FIREBASE_SERVICE_ACCOUNT_PATH');
+    const projectId = this.configService.get<string>('FIREBASE_PROJECT_ID');
+    const clientEmail = this.configService.get<string>('FIREBASE_CLIENT_EMAIL');
+    const privateKey = this.configService.get<string>('FIREBASE_PRIVATE_KEY');
 
-    if (!serviceAccountPath) {
-      this.logger.warn('FIREBASE_SERVICE_ACCOUNT_PATH not found. Firebase Admin will not be initialized.');
+    if (!projectId || !clientEmail || !privateKey) {
+      this.logger.warn(
+        'Firebase config missing (Project ID, Client Email, or Private Key). Firebase Admin will not be initialized.',
+      );
       return;
     }
 
     try {
       this.firebaseApp = admin.initializeApp({
-        credential: admin.credential.cert(serviceAccountPath),
+        credential: admin.credential.cert({
+          projectId,
+          clientEmail,
+          privateKey: privateKey.replace(/\\n/g, '\n'),
+        }),
       });
       this.logger.log('Firebase Admin initialized successfully.');
     } catch (error) {
