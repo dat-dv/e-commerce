@@ -13,32 +13,47 @@ model Category {
   products    Product[]
 }
 
-// 2. Sản phẩm
+// 2. TẦNG SẢN PHẨM (PRODUCT)
 model Product {
-  id               String    @id @default(cuid())
-  name             String
-  slug             String    @unique
-  description      String?
-  price            Float     // Giá gốc
-  compare_at_price Float?    // Giá trước khi giảm (để hiển thị -51%)
-  stock            Int       @default(0)
-  sold_count       Int       @default(0)
-  
-  category_id      String?
-  category         Category? @relation(fields: [category_id], references: [id])
-  
-  created_at       DateTime  @default(now())
-  updated_at       DateTime  @updatedAt
-  deleted_at       DateTime?
+  id          String    @id @default(cuid())
+  seller_id   String?   // Ai tạo sản phẩm này (Tạm thời để optional)
+  category_id String?
+  brand_id    String?
+  status      String    @default("DRAFT") // DRAFT, ACTIVE, OUT_OF_STOCK
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  deleted_at  DateTime?
 
-  // Relations
+  translations ProductTranslation[]
+  skus         Sku[]
+  
+  category    Category? @relation(fields: [category_id], references: [id])
+  
+  // Relations from other tables that still reference Product
+  view_history     UserBrowsingHistory[]
+  reviews          Review[]
+}
+
+// 3. TẦNG BIẾN THỂ & KHO HÀNG (SKU)
+model Sku {
+  id         String   @id @default(cuid())
+  product_id String
+  sku_code   String   @unique
+  price      Float
+  stock      Int      @default(0)
+  image_url  String?
+  
+  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  sku_attribute_values SkuAttributeValue[]
+  
+  // Relations from other tables
   cart_items       CartItem[]
   order_items      OrderItem[]
   flash_sales      FlashSaleProduct[]
-  view_history     UserBrowsingHistory[]
+  reviews          Review[]
 }
 
-// 3. Chiến dịch Flash Sale
+// 4. Chiến dịch Flash Sale
 model FlashSale {
   id          String    @id @default(cuid())
   name        String
@@ -50,19 +65,18 @@ model FlashSale {
   products    FlashSaleProduct[]
 }
 
-// 4. Sản phẩm trong Flash Sale
 model FlashSaleProduct {
   id             String    @id @default(cuid())
   flash_sale_id  String
-  product_id     String
+  sku_id         String
   sale_price     Float     
   stock          Int       
   sold_count     Int       @default(0)
 
   flash_sale     FlashSale @relation(fields: [flash_sale_id], references: [id], onDelete: Cascade)
-  product        Product   @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  sku            Sku       @relation(fields: [sku_id], references: [id], onDelete: Cascade)
 
-  @@unique([flash_sale_id, product_id])
+  @@unique([flash_sale_id, sku_id])
 }
 
 // 5. Giỏ hàng
@@ -79,13 +93,13 @@ model Cart {
 model CartItem {
   id         String   @id @default(cuid())
   cart_id    String
-  product_id String
+  sku_id     String
   quantity   Int      @default(1)
 
   cart       Cart     @relation(fields: [cart_id], references: [id], onDelete: Cascade)
-  product    Product  @relation(fields: [product_id], references: [id])
+  sku        Sku      @relation(fields: [sku_id], references: [id])
 
-  @@unique([cart_id, product_id])
+  @@unique([cart_id, sku_id])
 }
 
 // 6. Đơn hàng
@@ -105,12 +119,12 @@ model Order {
 model OrderItem {
   id         String   @id @default(cuid())
   order_id   String
-  product_id String
+  sku_id     String
   quantity   Int
-  price      Float    
+  price      Float    // Lưu giá lúc mua
 
   order      Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  product    Product  @relation(fields: [product_id], references: [id])
+  sku        Sku      @relation(fields: [sku_id], references: [id])
 }
 
 // 7. Lịch sử xem sản phẩm

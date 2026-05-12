@@ -13,69 +13,16 @@ model User {
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
   deleted_at    DateTime?
-  posts         Post[]
+  
   refreshTokens RefreshToken[]
-  comments      Comment[]
   shiping_addresses     ShippingAddress[]
   password_reset_tokens PasswordResetToken[]
   phones                UserPhone[]
   cart                  Cart?
   orders                Order[]
   browsing_history      UserBrowsingHistory[]
+  reviews               Review[]
   
   role_id       String?
   role          Role?          @relation(fields: [role_id], references: [id])
-}
-
-model UserPhone {
-  id           String   @id @default(cuid())
-  phone        String   @unique
-  phone_code   String
-  is_verified  Boolean  @default(false)
-  is_default   Boolean  @default(false)
-  user_id      String
-  user         User     @relation(fields: [user_id], references: [id])
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
-}
-
-model RefreshToken {
-  token      String   @id @default(cuid())
-  user_id    String
-  expires_at DateTime
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-}
-
-model PasswordResetToken {
-  id         String   @id @default(cuid())
-  token      String   @unique
-  user_id    String
-  expires_at DateTime
-  created_at DateTime @default(now())
-
-  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-}
-
-model ShippingAddress {
-  id               String   @id @default(cuid())
-  receiver_name    String
-  receiver_phone   String
-  label            Int
-  latitude         Float
-  longitude        Float
-  
-  street           String
-  city             String
-  state            String
-  country          String
-  postal_code      String
-  
-  is_default       Boolean  @default(false)
-  user_id          String
-  created_at       DateTime @default(now())
-  updated_at       DateTime @updatedAt
-
-  user             User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }

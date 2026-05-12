@@ -1,0 +1,22 @@
+// prisma/schema/language.prisma
+
+model Language {
+  id    String @id @default(cuid())
+  code  String @unique // vi, en, jp
+  name  String
+  
+  translations ProductTranslation[]
+}
+
+model ProductTranslation {
+  id          String   @id @default(cuid())
+  product_id  String
+  language_id String
+  name        String
+  description String?
+  
+  product     Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  language    Language @relation(fields: [language_id], references: [id], onDelete: Cascade)
+  
+  @@unique([product_id, language_id])
+}

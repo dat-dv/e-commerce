@@ -1,0 +1,16 @@
+// prisma/schema/review.prisma
+
+model Review {
+  id         String   @id @default(cuid())
+  product_id String
+  sku_id     String
+  user_id    String
+  rating     Int
+  comment    String?
+  images     Json?    // Mảng ảnh review
+  created_at DateTime @default(now())
+
+  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  sku        Sku      @relation(fields: [sku_id], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,26 @@
+// prisma/schema/attribute.prisma
+
+model Attribute {
+  id   String @id @default(cuid())
+  name String // "Color", "Size"
+  values AttributeValue[]
+}
+
+model AttributeValue {
+  id           String @id @default(cuid())
+  attribute_id String
+  value        String // "Red", "XL"
+  
+  attribute    Attribute @relation(fields: [attribute_id], references: [id], onDelete: Cascade)
+  sku_attribute_values SkuAttributeValue[]
+}
+
+model SkuAttributeValue {
+  sku_id             String
+  attribute_value_id String
+  
+  sku                Sku            @relation(fields: [sku_id], references: [id], onDelete: Cascade)
+  attribute_value    AttributeValue @relation(fields: [attribute_value_id], references: [id], onDelete: Cascade)
+  
+  @@id([sku_id, attribute_value_id])
+}

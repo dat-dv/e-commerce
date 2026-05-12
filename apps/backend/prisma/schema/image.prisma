@@ -1,0 +1,15 @@
+// prisma/schema/image.prisma
+
+model Image {
+  id         String   @id @default(cuid())
+  url        String
+  publicId   String
+  width      Int?
+  height     Int?
+  format     String?
+  bytes      Int?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user       User?
+}
