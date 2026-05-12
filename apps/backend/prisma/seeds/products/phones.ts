@@ -54,8 +54,8 @@ export async function seedPhones(prisma: PrismaClient, viId: string, enId: strin
   ];
 
   // 1. Tạo Products hàng loạt và lấy về danh sách đã tạo (để lấy ID)
-  const productsToCreate: Prisma.ProductCreateManyInput[] = phoneData.flatMap(
-    () => Array(5).fill({ status: 'ACTIVE' }), // Nhân bản 5 lần như yêu cầu trước
+  const productsToCreate: Prisma.ProductCreateManyInput[] = phoneData.flatMap((): Prisma.ProductCreateManyInput[] =>
+    Array.from({ length: 5 }, () => ({ status: 'ACTIVE' })),
   );
 
   const createdProducts = await prisma.product.createManyAndReturn({
