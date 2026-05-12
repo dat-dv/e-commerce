@@ -11,27 +11,34 @@ import Image from "next/image";
 export interface Product {
   id: string;
   name: string;
-  price: string;
-  original_price?: string;
-  discount_percent?: number;
   category: string;
   image_url?: string;
+  skus: {
+    id: string;
+    price: string;
+    original_price?: string;
+    discount_percent?: number;
+    image_url?: string;
+  }[];
 }
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const addItem = useCartStore((s) => s.addItem);
+  const sku = product.skus[0];
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    const priceNumber = parseFloat(product.price.replace(/[^0-9.-]+/g, ""));
+    const priceNumber = parseFloat(
+      (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
+    );
     addItem(
       {
-        id: `sku-${product.id}`,
+        id: sku?.id || `sku-${product.id}`,
         product_id: String(product.id),
-        sku_id: `sku-${product.id}`,
+        sku_id: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: isNaN(priceNumber) ? 0 : priceNumber,
-        image_url: product.image_url || null,
+        image_url: product.image_url || sku?.image_url || null,
         attributes: product.category,
       },
       1,
@@ -62,9 +69,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
         )}
 
         {/* Badge Giảm giá */}
-        {product.discount_percent && (
+        {sku?.discount_percent && (
           <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-lg z-10 shadow-lg shadow-red-500/20">
-            -{product.discount_percent}%
+            -{sku.discount_percent}%
           </div>
         )}
 
@@ -101,11 +108,11 @@ export const ProductCard = ({ product }: { product: Product }) => {
         <div className="flex items-center justify-between mt-1.5">
           <div className="flex flex-col">
             <span className="text-sm font-black text-blue-500">
-              {product.price}
+              {sku?.price}
             </span>
-            {product.original_price && (
+            {sku?.original_price && (
               <span className="text-xs text-content/30 line-through mt-0.5">
-                {product.original_price}
+                {sku.original_price}
               </span>
             )}
           </div>

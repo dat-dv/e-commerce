@@ -1,11 +1,8 @@
+import { IProduct, ISku } from './product.entity';
+
 export interface IFlashSaleProduct {
-  sku: {
-    id: string;
-    price: number;
-    product: {
-      id: string;
-      translations?: { name: string }[];
-    };
+  sku: ISku & {
+    product: IProduct;
   };
   sale_price: number;
   sold_count: number;

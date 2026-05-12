@@ -31,6 +31,7 @@ export interface ISku {
   id: string;
   sku_code: string;
   price: number;
+  original_price?: number | null;
   stock: number;
   image_url?: string | null;
   sku_attribute_values?: ISkuAttributeValue[];

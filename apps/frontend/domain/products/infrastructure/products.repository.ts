@@ -47,4 +47,18 @@ export class ProductsRepository implements IProductsRepository {
       data: response.data?.map((item) => ProductMapper.toDomain(item)) || [],
     };
   }
+
+  async getProductById(
+    id: string,
+    lang = "vi",
+  ): Promise<ApiResponse<IProduct | null>> {
+    const response = await this.request.get<IProductResponse>(
+      `${API_ROUTES.PRODUCTS.BASE}/${id}`,
+      { params: { lang } },
+    );
+    return {
+      ...response,
+      data: response.data ? ProductMapper.toDomain(response.data) : null,
+    };
+  }
 }

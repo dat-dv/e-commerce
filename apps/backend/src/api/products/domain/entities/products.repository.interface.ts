@@ -1,3 +1,4 @@
+import { IFlashSale } from './flash-sale.entity';
 import { IProduct } from './product.entity';
 
 export interface IProductsRepository {
@@ -7,6 +8,7 @@ export interface IProductsRepository {
 
   findMany(params: {
     category_id?: string;
+    category_slug?: string;
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
@@ -14,7 +16,7 @@ export interface IProductsRepository {
 
   getUserTopCategory(userId: string): Promise<string | null>;
 
-  getActiveFlashSale(): Promise<any>;
+  getActiveFlashSale(): Promise<IFlashSale | null>;
 
   getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProduct[]>;
 

@@ -214,6 +214,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient) {
               create: p.skus.map((sku) => ({
                 sku_code: sku.sku_code,
                 price: sku.price,
+                original_price: p.actual_price_vnd,
                 stock: sku.stock,
                 image_url: imageUrl,
               })),

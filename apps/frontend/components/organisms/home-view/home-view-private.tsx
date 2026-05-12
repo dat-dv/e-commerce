@@ -100,33 +100,42 @@ const FEATURE_ITEMS = [
   },
 ];
 
+import { Zap, Laptop, Sparkles, Heart, Home, LucideIcon } from "lucide-react";
+import { homepageUseCase } from "@/domain/homepage/use-cases";
+import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
+
+const SECTION_ICONS: Record<string, LucideIcon> = {
+  flash_sale: Zap,
+  electronics: Laptop,
+  "tv-audio-cameras": Laptop,
+  "toys-baby-products": Sparkles,
+  "beauty-health": Heart,
+  "home-kitchen": Home,
+  default: Sparkles,
+};
+
+const getIcon = (type: string, slug?: string) => {
+  if (type === "flash_sale") return Zap;
+  return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
+};
+
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
 
-  const recommendedProducts = useProductsStore(
-    (state) => state.recommendedProducts,
-  );
-  const flashSaleProducts = useProductsStore(
-    (state) => state.flashSaleProducts,
-  );
-  const setRecommendedProducts = useProductsStore(
-    (state) => state.setRecommendedProducts,
-  );
-  const setFlashSaleProducts = useProductsStore(
-    (state) => state.setFlashSaleProducts,
-  );
-
+  const [sections, setSections] = useState<IHomepageSection[]>([]);
   const [interestProducts, setInterestProducts] = useState<IProduct[]>([]);
   const [recentProducts, setRecentProducts] = useState<IProduct[]>([]);
-  const [buyItAgainProducts, setBuyItAgainProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const rec = await productsUseCase.getRecommended.execute();
-        if (rec.status === "success" && rec.data)
-          setRecommendedProducts(rec.data);
+        // 1. Fetch dynamic sections (Option A - Aggregated)
+        const secRes = await homepageUseCase.getSections.execute();
+        if (secRes.status === "success" && secRes.data) {
+          setSections(secRes.data);
+        }
 
+        // 2. Keep specific use cases for personalized sections
         const interest = await productsUseCase.getBasedOnInterest.execute();
         if (interest.status === "success" && interest.data)
           setInterestProducts(interest.data);
@@ -134,10 +143,6 @@ export const HomepagePrivate = () => {
         const recent = await productsUseCase.getRecentlyViewed.execute();
         if (recent.status === "success" && recent.data)
           setRecentProducts(recent.data);
-
-        const flash = await productsUseCase.getFlashSale.execute();
-        if (flash.status === "success" && flash.data)
-          setFlashSaleProducts(flash.data);
       } catch (error) {
         console.error("Failed to fetch products:", error);
       }
@@ -157,34 +162,51 @@ export const HomepagePrivate = () => {
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
 
-        {/* 3. Flash Sale */}
-        {flashSaleProducts.length > 0 && (
-          <FlashSale products={flashSaleProducts} />
-        )}
+        {/* 3. Dynamic Backend Sections */}
+        {sections.map((section) => {
+          if (
+            section.category.type === "flash_sale" &&
+            section.data.length > 0
+          ) {
+            return (
+              <FlashSale key={section.category.id} products={section.data} />
+            );
+          }
 
-        {/* 4. Categories */}
-        <div className="flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-content flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-purple-500" />
-              Your Top Categories
-            </h2>
-          </div>
-          <CategoriesGrid categories={POPULAR_CATEGORIES} />
-        </div>
+          if (section.category.type === "categories") {
+            return (
+              <div key={section.category.id} className="flex flex-col gap-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold text-content flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-purple-500" />
+                    {section.category.title}
+                  </h2>
+                </div>
+                <CategoriesGrid categories={POPULAR_CATEGORIES} />
+              </div>
+            );
+          }
 
-        {/* 5. Recommended for You Section */}
-        {recommendedProducts.length > 0 && (
-          <ProductCarousel
-            title="Recommended for You"
-            icon={Heart}
-            iconColor="text-pink-500"
-            products={recommendedProducts}
-            rows={1}
-          />
-        )}
+          if (
+            section.category.type === "product_carousel" &&
+            section.data.length > 0
+          ) {
+            return (
+              <ProductCarousel
+                key={section.category.id}
+                title={section.category.title}
+                icon={getIcon(section.category.type, section.category.slug)}
+                iconColor="text-blue-500"
+                products={section.data}
+                rows={1}
+              />
+            );
+          }
 
-        {/* 6. Based on Your Interest Section */}
+          return null;
+        })}
+
+        {/* 4. Personalized Sections (Keeping FE Use Cases) */}
         {interestProducts.length > 0 && (
           <ProductCarousel
             title="Based on Your Interest"
@@ -195,24 +217,13 @@ export const HomepagePrivate = () => {
           />
         )}
 
-        {/* 7. Recently Viewed Section */}
+        {/* 5. Recently Viewed Section */}
         {recentProducts.length > 0 && (
           <ProductCarousel
             title="Recently Viewed"
             icon={Eye}
             iconColor="text-blue-400"
             products={recentProducts}
-            rows={1}
-          />
-        )}
-
-        {/* 8. Buy It Again Section */}
-        {buyItAgainProducts.length > 0 && (
-          <ProductCarousel
-            title="Buy It Again"
-            icon={RefreshCw}
-            iconColor="text-green-500"
-            products={buyItAgainProducts}
             rows={1}
           />
         )}

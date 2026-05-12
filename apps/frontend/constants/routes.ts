@@ -52,5 +52,8 @@ export const API_ROUTES = {
     RECENTLY_VIEWED: "/products/recently-viewed",
     FLASH_SALE: "/products/flash-sale",
   },
+  HOMEPAGE: {
+    SECTIONS: "/homepage/sections",
+  },
   CONFIG: "/config",
 } as const;

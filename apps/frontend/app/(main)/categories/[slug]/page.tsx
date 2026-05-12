@@ -5,54 +5,54 @@ import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 
 // Mock data for products in this category
-const MOCK_PRODUCTS = [
+const MOCK_PRODUCTS: Product[] = [
   {
-    id: 1,
+    id: "1",
     name: "Minimalist Wireless Keyboard",
-    price: "$89.00",
     category: "Electronics",
+    skus: [{ id: "sku-1", price: "$89.00" }],
   },
   {
-    id: 2,
+    id: "2",
     name: "Premium Leather Backpack",
-    price: "$120.00",
     category: "Accessories",
+    skus: [{ id: "sku-2", price: "$120.00" }],
   },
   {
-    id: 3,
+    id: "3",
     name: "Smart Water Bottle",
-    price: "$45.00",
     category: "Home & Living",
+    skus: [{ id: "sku-3", price: "$45.00" }],
   },
   {
-    id: 4,
+    id: "4",
     name: "Noise Cancelling Headphones",
-    price: "$299.00",
     category: "Electronics",
+    skus: [{ id: "sku-4", price: "$299.00" }],
   },
   {
-    id: 5,
+    id: "5",
     name: "Mechanical Gaming Keyboard",
-    price: "$129.00",
     category: "Electronics",
+    skus: [{ id: "sku-5", price: "$129.00" }],
   },
   {
-    id: 6,
+    id: "6",
     name: "Ergonomic Desk Chair",
-    price: "$199.00",
     category: "Home & Living",
+    skus: [{ id: "sku-6", price: "$199.00" }],
   },
   {
-    id: 7,
+    id: "7",
     name: "Wireless Charging Pad",
-    price: "$35.00",
     category: "Electronics",
+    skus: [{ id: "sku-7", price: "$35.00" }],
   },
   {
-    id: 8,
+    id: "8",
     name: "Leather Passport Holder",
-    price: "$25.00",
     category: "Accessories",
+    skus: [{ id: "sku-8", price: "$25.00" }],
   },
 ];
 

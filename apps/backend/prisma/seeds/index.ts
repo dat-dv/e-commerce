@@ -4,6 +4,7 @@ import { seedPhase1 } from './phase1';
 import { seedProductsAndCategories } from './products-n-categories';
 import { seedRBAC } from './rbac';
 import { setupLanguage } from './language';
+import { seedHomepageSections } from './homepage-sections';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
@@ -50,6 +51,8 @@ async function main() {
   await seedPhase1(prisma);
   // --- Phase 2: Business Data ---
   await seedProductsAndCategories(prisma);
+  // --- Phase 3: Config ---
+  await seedHomepageSections(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');
 }

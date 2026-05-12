@@ -9,31 +9,40 @@ import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 
 export interface FlashSaleProduct {
-  id: number;
+  id: string;
   name: string;
-  price: string;
-  oldPrice: string;
-  sold: number;
-  total: number;
+  category: string;
   image_url?: string;
+  skus: {
+    id: string;
+    price: string;
+    original_price?: string;
+    discount_percent?: number;
+    sold?: number;
+    total?: number;
+    image_url?: string;
+  }[];
 }
 
 export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
   const addItem = useCartStore((s) => s.addItem);
+  const sku = product.skus[0];
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigating to product detail
 
-    const priceNumber = parseFloat(product.price.replace(/[^0-9.-]+/g, ""));
+    const priceNumber = parseFloat(
+      (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
+    );
 
     addItem(
       {
-        id: `sku-${product.id}`,
+        id: sku?.id || `sku-${product.id}`,
         product_id: String(product.id),
-        sku_id: `sku-${product.id}`,
+        sku_id: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: isNaN(priceNumber) ? 0 : priceNumber,
-        image_url: product.image_url || null,
+        image_url: product.image_url || sku?.image_url || null,
         attributes: "Flash Sale",
       },
       1,
@@ -41,12 +50,18 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
   };
 
   // Calculate discount percentage
-  const discountPercent = Math.round(
-    (1 -
-      parseFloat(product.price.replace(/[^0-9.-]+/g, "")) /
-        parseFloat(product.oldPrice.replace(/[^0-9.-]+/g, ""))) *
-      100,
+  const currentPriceNum = parseFloat(
+    (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
   );
+  const oldPriceNum = sku?.original_price
+    ? parseFloat(sku.original_price.replace(/[^0-9.-]+/g, ""))
+    : 0;
+
+  const discountPercent =
+    oldPriceNum > 0 ? Math.round((1 - currentPriceNum / oldPriceNum) * 100) : 0;
+
+  const soldCount = sku?.sold || 0;
+  const totalCount = sku?.total || 1; // Avoid division by zero
 
   return (
     <motion.div
@@ -104,12 +119,12 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
         </h3>
 
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-black text-red-500">
-            {product.price}
-          </span>
-          <span className="text-xs text-content/40 line-through">
-            {product.oldPrice}
-          </span>
+          <span className="text-sm font-black text-red-500">{sku?.price}</span>
+          {sku?.original_price && (
+            <span className="text-xs text-content/40 line-through">
+              {sku?.original_price}
+            </span>
+          )}
         </div>
 
         {/* Progress Bar */}
@@ -118,16 +133,16 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
             <div
               className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full"
               style={{
-                width: `${(product.sold / product.total) * 100}%`,
+                width: `${(soldCount / totalCount) * 100}%`,
               }}
             />
           </div>
           <div className="flex justify-between items-center mt-1.5">
             <span className="text-[10px] font-bold text-content/60">
-              Sold {product.sold}
+              Sold {soldCount}
             </span>
             <span className="text-[10px] font-bold text-content/40">
-              Left {product.total - product.sold}
+              Left {Math.max(0, totalCount - soldCount)}
             </span>
           </div>
         </div>

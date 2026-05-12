@@ -7,13 +7,13 @@ import { ApiResponse } from "@/utils/request/request.types";
 
 export class RegisterUseCase extends UseCase<
   IRegisterRequest,
-  Promise<ApiResponse<void>>
+  Promise<ApiResponse<null>>
 > {
   constructor(private repository: IAuthRepository) {
     super();
   }
 
-  async execute(request: IRegisterRequest): Promise<ApiResponse<void>> {
+  async execute(request: IRegisterRequest): Promise<ApiResponse<null>> {
     const validated = registerSchema.parse(request);
     return this.repository.register(validated);
   }

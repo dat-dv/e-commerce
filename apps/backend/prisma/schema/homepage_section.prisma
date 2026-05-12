@@ -1,0 +1,14 @@
+// prisma/schema/homepage_section.prisma
+
+model HomepageSection {
+  id         String   @id @default(cuid())
+  title      String
+  type       String   // e.g., 'flash_sale', 'categories', 'product_carousel'
+  order      Int      @default(0)
+  is_enabled Boolean  @default(true)
+  params     String?  // JSON string for extra params, e.g., { "category_id": "..." }
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("homepage_sections")
+}

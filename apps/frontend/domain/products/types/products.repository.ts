@@ -6,4 +6,8 @@ export interface IProductsRepository {
   getBasedOnInterest(): Promise<ApiResponse<IProduct[]>>;
   getRecentlyViewed(): Promise<ApiResponse<IProduct[]>>;
   getFlashSale(): Promise<ApiResponse<IProduct[]>>;
+  getProductById(
+    id: string,
+    lang?: string,
+  ): Promise<ApiResponse<IProduct | null>>;
 }

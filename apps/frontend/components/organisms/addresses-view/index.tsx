@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Plus, MapPin, Trash2, X } from "lucide-react";
-import { useAddresses } from "@/hooks/profile/use-addresses";
+import { useAddresses, Address } from "@/hooks/profile/use-addresses";
 import Button from "@/components/atoms/button";
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import { AddressFormData } from "@/components/molecules/addresses-form/addresses.schema";
@@ -19,7 +19,22 @@ export const AddressesView = () => {
   const [showForm, setShowForm] = useState(false);
 
   const handleAddAddress = async (data: AddressFormData) => {
-    const success = await addAddress(data);
+    const formattedData: Omit<Address, "id"> = {
+      label: data.label,
+      receiverName: data.receiver_name,
+      receiverPhone: data.receiver_phone,
+      street: data.street,
+      city: data.city,
+      state: data.state,
+      country: data.country,
+      postalCode: data.postal_code,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      detailAddress: `${data.street}, ${data.city}, ${data.state}, ${data.country}`,
+      isDefault: data.is_default,
+    };
+
+    const success = await addAddress(formattedData);
     if (success) {
       setShowForm(false);
     }

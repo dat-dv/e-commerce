@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { IProduct } from '../entities/product.entity';
+import { IFlashSale } from '../entities/flash-sale.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from 'generated/prisma/client';
 
@@ -50,11 +51,12 @@ export class ProductsRepository implements IProductsRepository {
 
   async findMany(params: {
     category_id?: string;
+    category_slug?: string;
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
   }): Promise<IProduct[]> {
-    const { category_id, orderBy, take, languageCode = 'vi' } = params;
+    const { category_id, category_slug, orderBy, take, languageCode = 'vi' } = params;
 
     const products = await this.prisma.product.findMany({
       where: {
@@ -62,6 +64,15 @@ export class ProductsRepository implements IProductsRepository {
           categories: {
             some: {
               category_id,
+            },
+          },
+        }),
+        ...(category_slug && {
+          categories: {
+            some: {
+              category: {
+                slug: category_slug,
+              },
             },
           },
         }),
@@ -119,7 +130,7 @@ export class ProductsRepository implements IProductsRepository {
     return product?.categories[0]?.category_id || null;
   }
 
-  async getActiveFlashSale(): Promise<any> {
+  async getActiveFlashSale(): Promise<IFlashSale | null> {
     const now = new Date();
     const flashSale = await this.prisma.flashSale.findFirst({
       where: {
@@ -136,7 +147,7 @@ export class ProductsRepository implements IProductsRepository {
                     translations: {
                       where: {
                         language: {
-                          code: 'vi', // Tạm thời mặc định 'vi'
+                          code: 'vi',
                         },
                       },
                     },
@@ -149,7 +160,27 @@ export class ProductsRepository implements IProductsRepository {
       },
     });
 
-    return flashSale;
+    if (!flashSale) return null;
+
+    return {
+      id: flashSale.id,
+      name: flashSale.name,
+      end_time: flashSale.end_time,
+      products: flashSale.products.map((p) => ({
+        sale_price: Number(p.sale_price),
+        sold_count: p.sold_count,
+        stock: p.stock,
+        sku: {
+          id: p.sku.id,
+          sku_code: p.sku.sku_code,
+          price: Number(p.sku.price),
+          original_price: p.sku.original_price ? Number(p.sku.original_price) : null,
+          stock: p.sku.stock,
+          image_url: p.sku.image_url,
+          product: p.sku.product,
+        },
+      })),
+    };
   }
 
   async getRecentlyViewed(userId: string, take = 10, languageCode = 'vi'): Promise<IProduct[]> {

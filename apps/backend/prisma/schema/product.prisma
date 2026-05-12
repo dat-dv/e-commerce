@@ -32,6 +32,7 @@ model Sku {
   product_id String
   sku_code   String   @unique
   price      Float
+  original_price Float?
   stock      Int      @default(0)
   image_url  String?
   

@@ -25,6 +25,9 @@ describe("Auth Use Cases", () => {
       fetchMe: vi.fn(),
       updateProfile: vi.fn(),
       logout: vi.fn(),
+      forgotPassword: vi.fn(),
+      resetPassword: vi.fn(),
+      changePassword: vi.fn(),
     };
   });
 
@@ -70,7 +73,7 @@ describe("Auth Use Cases", () => {
       };
       vi.mocked(mockRepo.register).mockResolvedValue({
         status: "success",
-        data: undefined,
+        data: null,
       });
 
       await useCase.execute(data);

@@ -13,6 +13,7 @@ import { CartModule } from './api/cart/cart.module';
 import { OrdersModule } from './api/orders/orders.module';
 import { AddressesModule } from './api/addresses/addresses.module';
 import { NotificationsModule } from './api/notifications/notifications.module';
+import { HomepageModule } from './api/homepage/homepage.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { NotificationsModule } from './api/notifications/notifications.module';
     OrdersModule,
     AddressesModule,
     NotificationsModule,
+    HomepageModule,
   ],
   controllers: [],
   providers: [],

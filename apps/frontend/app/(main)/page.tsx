@@ -14,8 +14,10 @@ export default async function Home() {
   const recommendedResponse = await productsUseCase.getRecommended.execute();
 
   const initialData = {
-    flashSale: flashSaleResponse.status === "success" ? flashSaleResponse.data : [],
-    recommended: recommendedResponse.status === "success" ? recommendedResponse.data : [],
+    flashSaleProducts:
+      flashSaleResponse.status === "success" ? flashSaleResponse.data : [],
+    recommendedProducts:
+      recommendedResponse.status === "success" ? recommendedResponse.data : [],
   };
 
   return (

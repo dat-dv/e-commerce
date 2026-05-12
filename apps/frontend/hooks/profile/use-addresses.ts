@@ -3,9 +3,16 @@ import { toast } from "react-toastify";
 
 export interface Address {
   id: string;
-  label: string; // e.g., Home, Office
+  label: string;
   receiverName: string;
   receiverPhone: string;
+  street: string;
+  city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  latitude: number;
+  longitude: number;
   detailAddress: string;
   isDefault: boolean;
 }

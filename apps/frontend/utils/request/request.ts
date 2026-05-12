@@ -25,8 +25,18 @@ const forwardClientRequest = async <T>(
   }
 
   const baseUrl = PUBLIC_ENV.NEXT_PUBLIC_API_URL;
+  let fullUrl = `${baseUrl}${url}`;
 
-  const fullUrl = `${baseUrl}${url}`;
+  if (options?.params) {
+    const searchParams = new URLSearchParams();
+    Object.entries(options.params).forEach(([key, value]) => {
+      searchParams.append(key, String(value));
+    });
+    const queryString = searchParams.toString();
+    if (queryString) {
+      fullUrl += (fullUrl.includes("?") ? "&" : "?") + queryString;
+    }
+  }
 
   return requestCreator<T>({
     method,
