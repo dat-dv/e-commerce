@@ -22,6 +22,7 @@ model User {
   orders                Order[]
   browsing_history      UserBrowsingHistory[]
   reviews               Review[]
+  notification_tokens   NotificationToken[]
   
   role_id       String?
   role          Role?          @relation(fields: [role_id], references: [id])

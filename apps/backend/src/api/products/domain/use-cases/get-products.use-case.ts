@@ -13,6 +13,11 @@ export class GetProductsUseCase {
     limit?: number;
     search?: string;
     category_id?: string;
+    brand_id?: string;
+    min_price?: number;
+    max_price?: number;
+    attribute_value_ids?: string[];
+    sort?: string;
     languageCode?: string;
   }) {
     const page = Number(params.page) || 1;
@@ -23,6 +28,11 @@ export class GetProductsUseCase {
       limit,
       search: params.search,
       category_id: params.category_id,
+      brand_id: params.brand_id,
+      min_price: params.min_price,
+      max_price: params.max_price,
+      attribute_value_ids: params.attribute_value_ids,
+      sort: params.sort,
       languageCode: params.languageCode,
     });
   }

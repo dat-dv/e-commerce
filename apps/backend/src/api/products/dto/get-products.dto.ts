@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsInt, Min, Max } from 'class-validator';
+import { IsOptional, IsString, IsInt, Min, Max, IsArray } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class GetProductsDto {
@@ -22,6 +22,29 @@ export class GetProductsDto {
   @IsOptional()
   @IsString()
   category_id?: string;
+
+  @IsOptional()
+  @IsString()
+  brand_id?: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  min_price?: number;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  max_price?: number;
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  attribute_value_ids?: string[];
+
+  @IsOptional()
+  @IsString()
+  sort?: string; // 'price_asc', 'price_desc', 'newest'
 
   @IsOptional()
   @IsString()

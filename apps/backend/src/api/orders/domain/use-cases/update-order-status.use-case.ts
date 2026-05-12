@@ -2,6 +2,7 @@ import { Injectable, Inject, UnauthorizedException, BadRequestException, NotFoun
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { OrderStatus } from '../entities/order-status.enum';
+import { NotificationService } from 'src/api/notifications/notifications.service';
 
 @Injectable()
 export class UpdateOrderStatusUseCase {
@@ -9,6 +10,7 @@ export class UpdateOrderStatusUseCase {
     @Inject(IOrdersRepository)
     private readonly ordersRepository: IOrdersRepository,
     private readonly prisma: PrismaService,
+    private readonly notificationService: NotificationService,
   ) {}
 
   async execute(id: string, newStatus: number, isAdmin = false) {
@@ -30,11 +32,13 @@ export class UpdateOrderStatusUseCase {
       throw new BadRequestException('Cannot update status of a delivered or cancelled order');
     }
 
+    let updatedOrder;
+
     // 2. Logic hoàn trả hàng nếu chuyển sang CANCELLED hoặc REFUNDED
     if (newStatus === Number(OrderStatus.CANCELLED) || newStatus === Number(OrderStatus.REFUNDED)) {
-      return await this.prisma.$transaction(async (tx) => {
+      updatedOrder = await this.prisma.$transaction(async (tx) => {
         // Cập nhật trạng thái
-        const updatedOrder = await tx.order.update({
+        const res = await tx.order.update({
           where: { id },
           data: { status: newStatus },
         });
@@ -56,11 +60,45 @@ export class UpdateOrderStatusUseCase {
             });
           }
         }
-        return updatedOrder;
+        return res;
       });
+    } else {
+      // 3. Cập nhật trạng thái thông thường
+      updatedOrder = await this.ordersRepository.updateStatus(id, newStatus);
     }
 
-    // 3. Cập nhật trạng thái thông thường
-    return this.ordersRepository.updateStatus(id, newStatus);
+    // 4. Gửi thông báo cho khách hàng
+    this.sendNotification(order.user_id, newStatus, id);
+
+    return updatedOrder;
+  }
+
+  private async sendNotification(userId: string, status: number, orderId: string) {
+    let title = 'Cập nhật đơn hàng';
+    let body = `Đơn hàng #${orderId.slice(-6)} của bạn đã thay đổi trạng thái.`;
+
+    switch (status) {
+      case Number(OrderStatus.CONFIRMED):
+        title = 'Đơn hàng đã được xác nhận';
+        body = `Đơn hàng #${orderId.slice(-6)} đã được người bán xác nhận.`;
+        break;
+      case Number(OrderStatus.SHIPPING):
+        title = 'Đơn hàng đang được giao';
+        body = `Đơn hàng #${orderId.slice(-6)} đang trên đường đến với bạn.`;
+        break;
+      case Number(OrderStatus.DELIVERED):
+        title = 'Giao hàng thành công';
+        body = `Đơn hàng #${orderId.slice(-6)} đã được giao thành công. Chúc bạn trải nghiệm sản phẩm vui vẻ!`;
+        break;
+      case Number(OrderStatus.CANCELLED):
+        title = 'Đơn hàng đã bị hủy';
+        body = `Đơn hàng #${orderId.slice(-6)} của bạn đã bị hủy.`;
+        break;
+    }
+
+    await this.notificationService.sendToUser(userId, title, body, {
+      orderId: orderId,
+      type: 'ORDER_STATUS_CHANGE',
+    });
   }
 }

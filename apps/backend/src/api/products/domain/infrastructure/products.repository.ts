@@ -188,6 +188,11 @@ export class ProductsRepository implements IProductsRepository {
     limit: number;
     search?: string;
     category_id?: string;
+    brand_id?: string;
+    min_price?: number;
+    max_price?: number;
+    attribute_value_ids?: string[];
+    sort?: string;
     languageCode?: string;
   }): Promise<{
     data: IProduct[];
@@ -196,7 +201,7 @@ export class ProductsRepository implements IProductsRepository {
     limit: number;
     totalPages: number;
   }> {
-    const { page, limit, search, category_id, languageCode = 'vi' } = params;
+    const { page, limit, search, category_id, brand_id, min_price, max_price, attribute_value_ids, sort, languageCode = 'vi' } = params;
     const skip = (page - 1) * limit;
 
     const where: Prisma.ProductWhereInput = {
@@ -209,6 +214,10 @@ export class ProductsRepository implements IProductsRepository {
           category_id,
         },
       };
+    }
+
+    if (brand_id) {
+      where.brand_id = brand_id;
     }
 
     if (search) {
@@ -224,12 +233,36 @@ export class ProductsRepository implements IProductsRepository {
       };
     }
 
+    if (min_price !== undefined || max_price !== undefined || (attribute_value_ids && attribute_value_ids.length > 0)) {
+      where.skus = {
+        some: {
+          ...(min_price !== undefined && { price: { gte: min_price } }),
+          ...(max_price !== undefined && { price: { lte: max_price } }),
+          ...(attribute_value_ids && attribute_value_ids.length > 0 && {
+            sku_attribute_values: {
+              some: {
+                attribute_value_id: { in: attribute_value_ids }
+              }
+            }
+          }),
+        },
+      };
+    }
+
+    let orderBy: Prisma.ProductOrderByWithRelationInput = { created_at: 'desc' };
+    if (sort === 'price_asc') {
+      orderBy = { skus: { _count: 'asc' } }; 
+    } else if (sort === 'price_desc') {
+      orderBy = { skus: { _count: 'desc' } };
+    }
+
     const data = await this.prisma.product.findMany({
       where,
       skip,
       take: limit,
-      orderBy: { created_at: 'desc' },
+      orderBy,
       include: {
+        thumbnail: true,
         translations: {
           where: {
             language: {
@@ -241,13 +274,11 @@ export class ProductsRepository implements IProductsRepository {
       },
     });
 
-    const allProducts = await this.prisma.product.findMany({ where });
-    const total = allProducts.length;
-
+    const total = await this.prisma.product.count({ where });
     const totalPages = Math.ceil(total / limit);
 
     return {
-      data: data,
+      data: data as any,
       total,
       page,
       limit,

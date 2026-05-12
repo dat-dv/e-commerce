@@ -23,6 +23,11 @@ export interface IProductsRepository {
     limit: number;
     search?: string;
     category_id?: string;
+    brand_id?: string;
+    min_price?: number;
+    max_price?: number;
+    attribute_value_ids?: string[];
+    sort?: string;
     languageCode?: string;
   }): Promise<{
     data: IProduct[];
