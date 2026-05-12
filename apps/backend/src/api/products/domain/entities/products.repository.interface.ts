@@ -20,6 +20,16 @@ export interface IProductsRepository {
       product: IProduct;
     }[];
   } | null>;
+
+  getRecentlyViewed(userId: string, take?: number): Promise<IProduct[]>;
+
+  findPaginated(params: { page: number; limit: number; search?: string; category_id?: string }): Promise<{
+    data: IProduct[];
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  }>;
 }
 
 export const IProductsRepository = Symbol('IProductsRepository');

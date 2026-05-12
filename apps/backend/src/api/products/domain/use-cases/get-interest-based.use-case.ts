@@ -1,0 +1,35 @@
+import { Injectable, Inject } from '@nestjs/common';
+import { IProductsRepository } from '../entities/products.repository.interface';
+import { IProduct } from '../entities/product.entity';
+
+@Injectable()
+export class GetInterestBasedUseCase {
+  constructor(
+    @Inject(IProductsRepository)
+    private readonly productsRepository: IProductsRepository,
+  ) {}
+
+  async execute(take: number, userId?: string): Promise<IProduct[]> {
+    let basedOnInterest: IProduct[] = [];
+
+    if (userId) {
+      const topCategoryId = await this.productsRepository.getUserTopCategory(userId);
+      if (topCategoryId) {
+        basedOnInterest = await this.productsRepository.findMany({
+          category_id: topCategoryId,
+          orderBy: { sold_count: 'desc' },
+          take: take,
+        });
+      }
+    }
+
+    if (basedOnInterest.length === 0) {
+      basedOnInterest = await this.productsRepository.findMany({
+        orderBy: { created_at: 'desc' },
+        take: take,
+      });
+    }
+
+    return basedOnInterest;
+  }
+}

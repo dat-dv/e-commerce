@@ -1,22 +1,49 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Query, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
-import { GetRecommendationsUseCase } from './domain/use-cases/get-recommendations.use-case';
+import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
+import { GetInterestBasedUseCase } from './domain/use-cases/get-interest-based.use-case';
+import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed.use-case';
 import { GetFlashSaleUseCase } from './domain/use-cases/get-flash-sale.use-case';
+import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
+import { GetProductsDto } from './dto/get-products.dto';
 import createSuccessResponse from 'src/common/respomse';
 import express from 'express';
 
 @Controller('products')
 export class ProductsController {
   constructor(
-    private readonly getRecommendationsUseCase: GetRecommendationsUseCase,
+    private readonly getRecommendedUseCase: GetRecommendedUseCase,
+    private readonly getInterestBasedUseCase: GetInterestBasedUseCase,
+    private readonly getRecentlyViewedUseCase: GetRecentlyViewedUseCase,
     private readonly getFlashSaleUseCase: GetFlashSaleUseCase,
+    private readonly getProductsUseCase: GetProductsUseCase,
   ) {}
 
+  @Get()
+  async getProducts(@Query() query: GetProductsDto) {
+    const result = await this.getProductsUseCase.execute(query);
+    return createSuccessResponse(result);
+  }
+
+  @Get('recommended')
+  async getRecommended() {
+    const result = await this.getRecommendedUseCase.execute(12);
+    return createSuccessResponse(result);
+  }
+
   @UseGuards(AuthGuard)
-  @Get('recommendations')
-  async getRecommendations(@Req() req: express.Request) {
-    const userId = req.user?.sub; // Lấy từ JWT payload trong AuthGuard
-    const result = await this.getRecommendationsUseCase.execute(userId);
+  @Get('based-on-interest')
+  async getBasedOnInterest(@Req() req: express.Request) {
+    const userId = req.user?.sub;
+    const result = await this.getInterestBasedUseCase.execute(12, userId);
+    return createSuccessResponse(result);
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('recently-viewed')
+  async getRecentlyViewed(@Req() req: express.Request) {
+    const userId = req.user?.sub;
+    const result = await this.getRecentlyViewedUseCase.execute(userId);
     return createSuccessResponse(result);
   }
 

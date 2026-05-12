@@ -12,7 +12,7 @@ export class GetFlashSaleUseCase {
     const flashSale = await this.productsRepository.getActiveFlashSale();
 
     if (!flashSale) {
-      return null;
+      return [];
     }
 
     // Format lại dữ liệu trả về cho đẹp và khớp với UI
