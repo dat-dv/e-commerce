@@ -3,7 +3,7 @@
 model Order {
   id                  String      @id @default(cuid())
   user_id             String
-  status              String      @default("PENDING") 
+  status              Int         @default(0) // 0: PENDING, 1: CONFIRMED, 2: PROCESSING, 3: SHIPPING, 4: DELIVERED, 5: CANCELLED, 6: REFUNDED
   total_amount        Float
   shipping_address_id String?
   created_at          DateTime    @default(now())

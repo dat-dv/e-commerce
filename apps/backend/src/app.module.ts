@@ -9,6 +9,8 @@ import { UploadModule } from './api/upload/upload.module';
 import { ProductsModule } from './api/products/products.module';
 import { ProductCategoriesModule } from './api/product-categories/product-categories.module';
 import { ReviewsModule } from './api/reviews/reviews.module';
+import { CartModule } from './api/cart/cart.module';
+import { OrdersModule } from './api/orders/orders.module';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { ReviewsModule } from './api/reviews/reviews.module';
     ProductsModule,
     ProductCategoriesModule,
     ReviewsModule,
+    CartModule,
+    OrdersModule,
   ],
   controllers: [],
   providers: [],

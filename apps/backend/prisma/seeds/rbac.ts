@@ -51,6 +51,13 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'DETAIL:REVIEW', description: 'Quyền xem chi tiết đánh giá', category: 'Quản lý đánh giá' },
     { permission_name: 'UPDATE:REVIEW', description: 'Quyền sửa đánh giá', category: 'Quản lý đánh giá' },
     { permission_name: 'DELETE:REVIEW', description: 'Quyền xóa đánh giá', category: 'Quản lý đánh giá' },
+
+    // Quản lý đơn hàng (Order)
+    {
+      permission_name: 'UPDATE:ORDER',
+      description: 'Quyền cập nhật trạng thái đơn hàng',
+      category: 'Quản lý đơn hàng',
+    },
   ];
 
   // Lấy danh sách permission đã có
