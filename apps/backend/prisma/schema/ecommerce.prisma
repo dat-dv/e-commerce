@@ -1,0 +1,127 @@
+// prisma/schema/ecommerce.prisma
+
+// 1. Danh mục sản phẩm
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image_id    String?   @unique
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+
+  products    Product[]
+}
+
+// 2. Sản phẩm
+model Product {
+  id               String    @id @default(cuid())
+  name             String
+  slug             String    @unique
+  description      String?
+  price            Float     // Giá gốc
+  compare_at_price Float?    // Giá trước khi giảm (để hiển thị -51%)
+  stock            Int       @default(0)
+  sold_count       Int       @default(0)
+  
+  category_id      String?
+  category         Category? @relation(fields: [category_id], references: [id])
+  
+  created_at       DateTime  @default(now())
+  updated_at       DateTime  @updatedAt
+  deleted_at       DateTime?
+
+  // Relations
+  cart_items       CartItem[]
+  order_items      OrderItem[]
+  flash_sales      FlashSaleProduct[]
+  view_history     UserBrowsingHistory[]
+}
+
+// 3. Chiến dịch Flash Sale
+model FlashSale {
+  id          String    @id @default(cuid())
+  name        String
+  start_time  DateTime
+  end_time    DateTime
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+
+  products    FlashSaleProduct[]
+}
+
+// 4. Sản phẩm trong Flash Sale
+model FlashSaleProduct {
+  id             String    @id @default(cuid())
+  flash_sale_id  String
+  product_id     String
+  sale_price     Float     
+  stock          Int       
+  sold_count     Int       @default(0)
+
+  flash_sale     FlashSale @relation(fields: [flash_sale_id], references: [id], onDelete: Cascade)
+  product        Product   @relation(fields: [product_id], references: [id], onDelete: Cascade)
+
+  @@unique([flash_sale_id, product_id])
+}
+
+// 5. Giỏ hàng
+model Cart {
+  id         String     @id @default(cuid())
+  user_id    String     @unique 
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+
+  items      CartItem[]
+  user       User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model CartItem {
+  id         String   @id @default(cuid())
+  cart_id    String
+  product_id String
+  quantity   Int      @default(1)
+
+  cart       Cart     @relation(fields: [cart_id], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [product_id], references: [id])
+
+  @@unique([cart_id, product_id])
+}
+
+// 6. Đơn hàng
+model Order {
+  id                  String      @id @default(cuid())
+  user_id             String
+  status              String      @default("PENDING") 
+  total_amount        Float
+  shipping_address_id String?
+  created_at          DateTime    @default(now())
+  updated_at          DateTime    @updatedAt
+
+  items               OrderItem[]
+  user                User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model OrderItem {
+  id         String   @id @default(cuid())
+  order_id   String
+  product_id String
+  quantity   Int
+  price      Float    
+
+  order      Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [product_id], references: [id])
+}
+
+// 7. Lịch sử xem sản phẩm
+model UserBrowsingHistory {
+  id         String   @id @default(cuid())
+  user_id    String
+  product_id String
+  viewed_at  DateTime @default(now())
+
+  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, viewed_at])
+}
