@@ -194,5 +194,127 @@ export async function seedProducts(prisma: PrismaClient) {
     },
   });
 
+  // Tạo thêm dữ liệu mẫu thực tế (iPhone, Samsung, Laptop)
+  console.log('--- Tạo thêm dữ liệu mẫu thực tế ---');
+
+  const phones = [
+    {
+      vi: 'iPhone 15 Pro Max',
+      en: 'iPhone 15 Pro Max',
+      descVi: 'iPhone đỉnh nhất với khung titan.',
+      descEn: 'Top-tier iPhone with titanium frame.',
+    },
+    {
+      vi: 'iPhone 14 Pro',
+      en: 'iPhone 14 Pro',
+      descVi: 'iPhone với Dynamic Island.',
+      descEn: 'iPhone with Dynamic Island.',
+    },
+    {
+      vi: 'Samsung Galaxy S24 Ultra',
+      en: 'Samsung Galaxy S24 Ultra',
+      descVi: 'Flagship Samsung với camera 200MP.',
+      descEn: 'Samsung flagship with 200MP camera.',
+    },
+    {
+      vi: 'Samsung Galaxy Z Fold 5',
+      en: 'Samsung Galaxy Z Fold 5',
+      descVi: 'Điện thoại màn hình gập cao cấp.',
+      descEn: 'Premium foldable phone.',
+    },
+    {
+      vi: 'Samsung Galaxy A54',
+      en: 'Samsung Galaxy A54',
+      descVi: 'Điện thoại tầm trung bán chạy.',
+      descEn: 'Best-selling mid-range phone.',
+    },
+  ];
+
+  const laptops = [
+    {
+      vi: 'MacBook Pro 14 M3',
+      en: 'MacBook Pro 14 M3',
+      descVi: 'Laptop chuyên nghiệp cho đồ họa.',
+      descEn: 'Professional laptop for graphics.',
+    },
+    {
+      vi: 'Dell XPS 13',
+      en: 'Dell XPS 13',
+      descVi: 'Laptop Windows mỏng nhẹ cao cấp.',
+      descEn: 'Premium thin and light Windows laptop.',
+    },
+    {
+      vi: 'ASUS ROG Zephyrus G14',
+      en: 'ASUS ROG Zephyrus G14',
+      descVi: 'Laptop gaming nhỏ gọn mạnh mẽ.',
+      descEn: 'Compact and powerful gaming laptop.',
+    },
+    {
+      vi: 'Lenovo ThinkPad X1 Carbon',
+      en: 'Lenovo ThinkPad X1 Carbon',
+      descVi: 'Laptop doanh nhân bền bỉ.',
+      descEn: 'Durable business laptop.',
+    },
+    {
+      vi: 'HP Spectre x360',
+      en: 'HP Spectre x360',
+      descVi: 'Laptop xoay gập 2-trong-1.',
+      descEn: '2-in-1 convertible laptop.',
+    },
+  ];
+
+  // Tạo 5 bản sao cho mỗi sản phẩm để tăng số lượng (tổng 50 sản phẩm)
+  for (let j = 1; j <= 5; j++) {
+    // Seed Phones
+    for (let i = 0; i < phones.length; i++) {
+      const item = phones[i];
+      const p = await prisma.product.create({
+        data: {
+          status: 'ACTIVE',
+          translations: {
+            create: [
+              { language_id: vi.id, name: `${item.vi} - Bản mẫu ${j}`, description: item.descVi },
+              { language_id: en.id, name: `${item.en} - Sample ${j}`, description: item.descEn },
+            ],
+          },
+        },
+      });
+      await linkCategories(p.id, ['dien-thoai', 'do-cong-nghe']);
+      await prisma.sku.create({
+        data: {
+          product_id: p.id,
+          sku_code: `PHONE-SAMPLE-${j}-${i}`,
+          price: Math.floor(Math.random() * 1000) + 500,
+          stock: Math.floor(Math.random() * 100) + 10,
+        },
+      });
+    }
+
+    // Seed Laptops
+    for (let i = 0; i < laptops.length; i++) {
+      const item = laptops[i];
+      const p = await prisma.product.create({
+        data: {
+          status: 'ACTIVE',
+          translations: {
+            create: [
+              { language_id: vi.id, name: `${item.vi} - Bản mẫu ${j}`, description: item.descVi },
+              { language_id: en.id, name: `${item.en} - Sample ${j}`, description: item.descEn },
+            ],
+          },
+        },
+      });
+      await linkCategories(p.id, ['laptop', 'do-cong-nghe']);
+      await prisma.sku.create({
+        data: {
+          product_id: p.id,
+          sku_code: `LAPTOP-SAMPLE-${j}-${i}`,
+          price: Math.floor(Math.random() * 1500) + 1000,
+          stock: Math.floor(Math.random() * 50) + 5,
+        },
+      });
+    }
+  }
+
   console.log('🚀 Seed sản phẩm hoàn tất!');
 }
