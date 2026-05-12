@@ -1,5 +1,5 @@
 import AppContainer from "@/components/atoms/app-container";
-import Button from "@/components/atoms/button";
+import { ProductCard } from "@/components/molecules/product-card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,12 +8,54 @@ export const metadata: Metadata = {
 };
 
 const FAKE_PRODUCTS = [
-  { id: 1, name: "Minimalist T-Shirt", price: "$29.99", emoji: "👕" },
-  { id: 2, name: "Sleek Hoodie", price: "$49.99", emoji: "🧥" },
-  { id: 3, name: "Classic Sneakers", price: "$79.99", emoji: "👟" },
-  { id: 4, name: "Smart Watch", price: "$199.99", emoji: "⌚" },
-  { id: 5, name: "Wireless Earbuds", price: "$99.99", emoji: "🎧" },
-  { id: 6, name: "Leather Wallet", price: "$39.99", emoji: "👛" },
+  {
+    id: 1,
+    name: "Minimalist T-Shirt",
+    price: "$29.99",
+    category: "Apparel",
+    image_url:
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop",
+  },
+  {
+    id: 2,
+    name: "Sleek Hoodie",
+    price: "$49.99",
+    category: "Apparel",
+    image_url:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&auto=format&fit=crop",
+  },
+  {
+    id: 3,
+    name: "Classic Sneakers",
+    price: "$79.99",
+    category: "Footwear",
+    image_url:
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&auto=format&fit=crop",
+  },
+  {
+    id: 4,
+    name: "Smart Watch",
+    price: "$199.99",
+    category: "Electronics",
+    image_url:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    name: "Wireless Earbuds",
+    price: "$99.99",
+    category: "Electronics",
+    image_url:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    name: "Leather Wallet",
+    price: "$39.99",
+    category: "Accessories",
+    image_url:
+      "https://images.unsplash.com/photo-1627123430985-71d464a21886?w=800&auto=format&fit=crop",
+  },
 ];
 
 export default function ProductsPage() {
@@ -29,17 +71,7 @@ export default function ProductsPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {FAKE_PRODUCTS.map((product) => (
-          <div
-            key={product.id}
-            className="border border-content/5 rounded-2xl p-6 flex flex-col items-center justify-between hover:border-primary/20 transition-colors"
-          >
-            <div className="text-6xl mb-4">{product.emoji}</div>
-            <h2 className="text-lg font-bold text-content">{product.name}</h2>
-            <p className="text-content/60 text-sm mb-4">{product.price}</p>
-            <Button variant="outline" size="sm" className="w-full">
-              Add to Cart
-            </Button>
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </AppContainer>
