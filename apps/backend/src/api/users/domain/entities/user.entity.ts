@@ -55,6 +55,7 @@ export interface IUser {
   updated_at?: Date;
   deleted_at?: Date | null;
   role_id?: string | null;
+  role_name?: string | null;
   addresses?: IAddress[];
   phones?: IUserPhone[];
 }

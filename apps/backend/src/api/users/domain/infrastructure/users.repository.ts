@@ -21,6 +21,7 @@ export class UsersRepository implements IUsersRepository {
   async findById(id: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { id },
+      include: { role: true },
     });
 
     if (!prismaUser) return null;
@@ -38,12 +39,14 @@ export class UsersRepository implements IUsersRepository {
       updated_at: prismaUser.updated_at,
       deleted_at: prismaUser.deleted_at,
       role_id: prismaUser.role_id,
+      role_name: prismaUser.role?.role_name ?? null,
     };
   }
 
   async findByEmail(email: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { email },
+      include: { role: true },
     });
 
     if (!prismaUser) return null;
@@ -61,6 +64,7 @@ export class UsersRepository implements IUsersRepository {
       updated_at: prismaUser.updated_at,
       deleted_at: prismaUser.deleted_at,
       role_id: prismaUser.role_id,
+      role_name: prismaUser.role?.role_name ?? null,
     };
   }
 

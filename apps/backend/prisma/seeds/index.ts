@@ -3,6 +3,7 @@ import { PrismaClient } from '../../generated/prisma/client';
 import { seedPhase1 } from './phase1';
 import { seedProducts } from './products';
 import { seedRBAC } from './rbac';
+import { seedCategories } from './categories';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
@@ -45,7 +46,10 @@ async function main() {
   // phase 1: Tạo user
   const { defaultUser, listUsers } = await seedPhase1(prisma, adminRole, userRole);
 
-  // phase 2: Tạo sản phẩm
+  // phase 2: Tạo categories
+  await seedCategories(prisma);
+
+  // phase 3: Tạo sản phẩm
   await seedProducts(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');

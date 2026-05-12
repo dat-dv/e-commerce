@@ -16,19 +16,9 @@ export async function seedProducts(prisma: PrismaClient) {
     create: { code: 'en', name: 'English' },
   });
 
-  // 2. Tạo Categories
-  const categoriesData = [
-    { name: 'Điện thoại', slug: 'dien-thoai', description: 'Các loại điện thoại thông minh' },
-    { name: 'Laptop', slug: 'laptop', description: 'Máy tính xách tay' },
-    { name: 'Đồng hồ', slug: 'dong-ho', description: 'Đồng hồ thông minh và thời trang' },
-    { name: 'Tai nghe', slug: 'tai-nghe', description: 'Tai nghe không dây và có dây' },
-  ];
-
-  await prisma.productCategory.createMany({
-    data: categoriesData,
-  });
-
-  const categories = await prisma.productCategory.findMany();
+  // 2. Lấy categories từ DB
+  const categories = await prisma.productCategory.findMany({ orderBy: { created_at: 'asc' } });
+  if (categories.length === 0) throw new Error('No categories found. Chạy seedCategories trước.');
 
   // 3. Tạo Attributes
   const color = await prisma.attribute.create({ data: { name: 'Color' } });
