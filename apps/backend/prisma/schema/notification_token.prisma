@@ -4,9 +4,9 @@ model NotificationToken {
   id          String   @id @default(cuid())
   user_id     String
   token       String   @unique
-  device_type String?  // e.g., 'web', 'android', 'ios'
+  device_type String? // e.g., 'web', 'android', 'ios'
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
-  user        User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }

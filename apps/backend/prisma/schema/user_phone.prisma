@@ -1,13 +1,13 @@
 // prisma/schema/user_phone.prisma
 
 model UserPhone {
-  id           String   @id @default(cuid())
-  phone        String   @unique
-  phone_code   String
-  is_verified  Boolean  @default(false)
-  is_default   Boolean  @default(false)
-  user_id      String
-  user         User     @relation(fields: [user_id], references: [id])
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
+  id          String   @id @default(cuid())
+  phone       String   @unique
+  phone_code  String
+  is_verified Boolean  @default(false)
+  is_default  Boolean  @default(false)
+  user_id     String
+  user        User     @relation(fields: [user_id], references: [id])
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
 }

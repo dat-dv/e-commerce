@@ -1,10 +1,10 @@
 // prisma/schema/language.prisma
 
 model Language {
-  id    String @id @default(cuid())
-  code  String @unique // vi, en, jp
-  name  String
-  
+  id   String @id @default(cuid())
+  code String @unique // vi, en, jp
+  name String
+
   translations          ProductTranslation[]
   category_translations ProductCategoryTranslation[]
 
@@ -12,27 +12,27 @@ model Language {
 }
 
 model ProductTranslation {
-  id          String   @id @default(cuid())
+  id          String  @id @default(cuid())
   product_id  String
   language_id String
   name        String
   description String?
-  
-  product     Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  language    Language @relation(fields: [language_id], references: [id], onDelete: Cascade)
-  
+
+  product  Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  language Language @relation(fields: [language_id], references: [id], onDelete: Cascade)
+
   @@unique([product_id, language_id])
 }
 
 model ProductCategoryTranslation {
-  id          String   @id @default(cuid())
+  id          String  @id @default(cuid())
   category_id String
   language_id String
   name        String
   description String?
 
-  category    ProductCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
-  language    Language        @relation(fields: [language_id], references: [id], onDelete: Cascade)
+  category ProductCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  language Language        @relation(fields: [language_id], references: [id], onDelete: Cascade)
 
   @@unique([category_id, language_id])
   @@map("product_category_translations")

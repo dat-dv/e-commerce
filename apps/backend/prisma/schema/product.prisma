@@ -2,48 +2,48 @@
 
 // 1. TẦNG SẢN PHẨM (PRODUCT)
 model Product {
-  id          String    @id @default(cuid())
-  seller_id   String?   // Ai tạo sản phẩm này (Tạm thời để optional)
-  brand_id    String?
-  status      Int       @default(0) // 0: DRAFT, 1: ACTIVE, 2: OUT_OF_STOCK
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
-  deleted_at  DateTime?
+  id         String    @id @default(cuid())
+  seller_id  String? // Ai tạo sản phẩm này (Tạm thời để optional)
+  brand_id   String?
+  status     Int       @default(0) // 0: DRAFT, 1: ACTIVE, 2: OUT_OF_STOCK
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
 
-  thumbnail_id String?   @unique
-  thumbnail    Image?    @relation(fields: [thumbnail_id], references: [id])
+  thumbnail_id String? @unique
+  thumbnail    Image?  @relation(fields: [thumbnail_id], references: [id])
 
   translations ProductTranslation[]
   skus         Sku[]
 
   // Many-to-many với Category qua junction table
-  categories   ProductCategoryMapping[]
+  categories ProductCategoryMapping[]
 
   // Relations from other tables that still reference Product
-  view_history     UserBrowsingHistory[]
-  reviews          Review[]
+  view_history UserBrowsingHistory[]
+  reviews      Review[]
 
   @@map("products")
 }
 
 // 2. TẦNG BIẾN THỂ & KHO HÀNG (SKU)
 model Sku {
-  id         String   @id @default(cuid())
-  product_id String
-  sku_code   String   @unique
-  price      Float
+  id             String  @id @default(cuid())
+  product_id     String
+  sku_code       String  @unique
+  price          Float
   original_price Float?
-  stock      Int      @default(0)
-  image_url  String?
-  
-  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  stock          Int     @default(0)
+  image_url      String?
+
+  product              Product             @relation(fields: [product_id], references: [id], onDelete: Cascade)
   sku_attribute_values SkuAttributeValue[]
-  
+
   // Relations from other tables
-  cart_items       CartItem[]
-  order_items      OrderItem[]
-  flash_sales      FlashSaleProduct[]
-  reviews          Review[]
+  cart_items  CartItem[]
+  order_items OrderItem[]
+  flash_sales FlashSaleProduct[]
+  reviews     Review[]
 
   @@map("skus")
 }

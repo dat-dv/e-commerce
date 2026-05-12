@@ -1,20 +1,20 @@
 // prisma/schema/user.prisma
 
 model User {
-  id            String         @id @default(cuid())
+  id            String    @id @default(cuid())
   first_name    String?
   last_name     String?
-  email         String         @unique
+  email         String    @unique
   password      String
   date_of_birth DateTime?
   gender        Int?
-  avatar_id     String?        @unique
-  avatar        Image?         @relation(fields: [avatar_id], references: [id])
-  created_at    DateTime       @default(now())
-  updated_at    DateTime       @updatedAt
+  avatar_id     String?   @unique
+  avatar        Image?    @relation(fields: [avatar_id], references: [id])
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
   deleted_at    DateTime?
-  
-  refreshTokens RefreshToken[]
+
+  refreshTokens         RefreshToken[]
   shiping_addresses     ShippingAddress[]
   password_reset_tokens PasswordResetToken[]
   phones                UserPhone[]
@@ -23,7 +23,8 @@ model User {
   browsing_history      UserBrowsingHistory[]
   reviews               Review[]
   notification_tokens   NotificationToken[]
-  
-  role_id       String?
-  role          Role?          @relation(fields: [role_id], references: [id])
+  favorite_categories   UserFavoriteCategory[]
+
+  role_id String?
+  role    Role?   @relation(fields: [role_id], references: [id])
 }

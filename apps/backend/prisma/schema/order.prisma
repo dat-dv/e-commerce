@@ -1,30 +1,30 @@
 // prisma/schema/order.prisma
 
 model Order {
-  id                  String      @id @default(cuid())
+  id                  String   @id @default(cuid())
   user_id             String
-  status              Int         @default(0) // 0: PENDING, 1: CONFIRMED, 2: PROCESSING, 3: SHIPPING, 4: DELIVERED, 5: CANCELLED, 6: REFUNDED
+  status              Int      @default(0) // 0: PENDING, 1: CONFIRMED, 2: PROCESSING, 3: SHIPPING, 4: DELIVERED, 5: CANCELLED, 6: REFUNDED
   total_amount        Float
-  discount_amount     Float       @default(0)
+  discount_amount     Float    @default(0)
   shipping_address_id String?
   coupon_id           String?
-  created_at          DateTime    @default(now())
-  updated_at          DateTime    @updatedAt
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
 
-  items               OrderItem[]
-  user                User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  shippingAddress     ShippingAddress? @relation(fields: [shipping_address_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
-  coupon              Coupon?     @relation(fields: [coupon_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
+  items           OrderItem[]
+  user            User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  shippingAddress ShippingAddress? @relation(fields: [shipping_address_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
+  coupon          Coupon?          @relation(fields: [coupon_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
 }
 
 model OrderItem {
-  id            String   @id @default(cuid())
+  id            String  @id @default(cuid())
   order_id      String
   sku_id        String
-  flash_sale_id String?  // ID của FlashSaleProduct nếu là hàng flash sale
+  flash_sale_id String? // ID của FlashSaleProduct nếu là hàng flash sale
   quantity      Int
-  price         Float    // Lưu giá lúc mua
+  price         Float // Lưu giá lúc mua
 
-  order         Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  sku           Sku      @relation(fields: [sku_id], references: [id])
+  order Order @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  sku   Sku   @relation(fields: [sku_id], references: [id])
 }

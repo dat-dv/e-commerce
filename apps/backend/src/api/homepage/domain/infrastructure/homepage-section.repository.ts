@@ -17,7 +17,9 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
       },
       orderBy: { order: 'asc' },
       include: {
-        categories: true,
+        categories: {
+          orderBy: { order: 'asc' },
+        },
         translations: {
           include: {
             language: true,
@@ -30,6 +32,10 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
       let sectionType: EHomepageSectionType = EHomepageSectionType.PRODUCT_CAROUSEL;
       if (row.type === 'flash_sale') {
         sectionType = EHomepageSectionType.FLASH_SALE;
+      } else if (row.type === 'recommends') {
+        sectionType = EHomepageSectionType.RECOMMENDS;
+      } else if (row.type === 'recent_view') {
+        sectionType = EHomepageSectionType.RECENT_VIEW;
       }
 
       return {

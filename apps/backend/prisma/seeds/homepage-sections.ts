@@ -9,58 +9,89 @@ export async function seedHomepageSections(prisma: PrismaClient) {
 
   await prisma.homepageSection.deleteMany({});
 
+  const viLang = await prisma.language.findUnique({ where: { code: 'vi' } });
+  const enLang = await prisma.language.findUnique({ where: { code: 'en' } });
+
+  if (!viLang || !enLang) {
+    console.error('Languages vi, en not found, skipping homepage sections seed');
+    return;
+  }
+
+  // Lấy vài category để link
+  const techCat = await prisma.productCategory.findUnique({ where: { slug: 'electronics' } });
+  const beautyCat = await prisma.productCategory.findUnique({ where: { slug: 'beauty-health' } });
+
   const sections = [
+    // --- KHÔNG YÊU CẦU LOGIN (Public) ---
     {
-      title: 'Flash Sale',
       type: 'flash_sale',
       order: 1,
       is_enabled: true,
-      params: null,
+      require_login: false,
+      translations: {
+        create: [
+          { language_id: viLang.id, title: 'Flash Sale Công Nghệ' },
+          { language_id: enLang.id, title: 'Tech Flash Sale' },
+        ],
+      },
     },
     {
-      title: 'Popular Categories',
-      type: 'categories',
+      type: 'product_carousel',
       order: 2,
       is_enabled: true,
-      params: null,
+      require_login: false,
+      categories: techCat ? { connect: [{ id: techCat.id }] } : undefined,
+      translations: {
+        create: [
+          { language_id: viLang.id, title: 'Top Hot Công Nghệ' },
+          { language_id: enLang.id, title: 'Trending Electronics' },
+        ],
+      },
     },
     {
-      title: 'Trending Now',
       type: 'product_carousel',
       order: 3,
       is_enabled: true,
-      params: JSON.stringify({ category_slug: 'electronics' }),
+      require_login: false,
+      categories: beautyCat ? { connect: [{ id: beautyCat.id }] } : undefined,
+      translations: {
+        create: [
+          { language_id: viLang.id, title: 'Làm Đẹp Mùa Hè' },
+          { language_id: enLang.id, title: 'Summer Beauty' },
+        ],
+      },
     },
+
+    // --- YÊU CẦU LOGIN (Personalized) ---
     {
-      title: 'Technology',
-      type: 'product_carousel',
+      type: 'recommends',
       order: 4,
       is_enabled: true,
-      params: JSON.stringify({ category_slug: 'tv-audio-cameras' }),
+      require_login: true,
+      translations: {
+        create: [
+          { language_id: viLang.id, title: 'Gợi ý riêng cho bạn' },
+          { language_id: enLang.id, title: 'Recommended For You' },
+        ],
+      },
     },
     {
-      title: 'Mom & Baby',
-      type: 'product_carousel',
+      type: 'recent_view',
       order: 5,
       is_enabled: true,
-      params: JSON.stringify({ category_slug: 'toys-baby-products' }),
-    },
-    {
-      title: 'Beauty & Health',
-      type: 'product_carousel',
-      order: 6,
-      is_enabled: true,
-      params: JSON.stringify({ category_slug: 'beauty-health' }),
-    },
-    {
-      title: 'Home & Kitchen',
-      type: 'product_carousel',
-      order: 7,
-      is_enabled: true,
-      params: JSON.stringify({ category_slug: 'home-kitchen' }),
+      require_login: true,
+      translations: {
+        create: [
+          { language_id: viLang.id, title: 'Sản phẩm bạn vừa xem' },
+          { language_id: enLang.id, title: 'Recently Viewed' },
+        ],
+      },
     },
   ];
 
-  await prisma.homepageSection.createMany({ data: sections });
+  for (const s of sections) {
+    await prisma.homepageSection.create({ data: s });
+  }
+
   console.log(`✅ Created ${sections.length} homepage sections.`);
 }

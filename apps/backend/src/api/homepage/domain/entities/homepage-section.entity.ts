@@ -6,6 +6,8 @@ import { IProductCategory } from 'src/api/product-categories/domain/entities/pro
 export enum EHomepageSectionType {
   FLASH_SALE = 'flash_sale',
   PRODUCT_CAROUSEL = 'product_carousel',
+  RECOMMENDS = 'recommends',
+  RECENT_VIEW = 'recent_view',
 }
 
 export interface IHomepageSectionTranslation {

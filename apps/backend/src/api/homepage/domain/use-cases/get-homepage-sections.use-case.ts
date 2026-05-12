@@ -17,7 +17,8 @@ export class GetHomepageSectionsUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(languageCode = 'vi', isLoggedIn = false): Promise<IHomepageSectionResponse[]> {
+  async execute(languageCode = 'vi', userId?: string): Promise<IHomepageSectionResponse[]> {
+    const isLoggedIn = !!userId;
     const sections = await this.homepageSectionRepo.findAllEnabled(isLoggedIn);
 
     const results = await Promise.all(
@@ -47,6 +48,26 @@ export class GetHomepageSectionsUseCase {
               take: 12,
               languageCode,
             });
+          }
+        } else if (section.type === EHomepageSectionType.RECOMMENDS) {
+          if (userId) {
+            const favCats = await this.prisma.userFavoriteCategory.findMany({
+              where: { user_id: userId },
+              orderBy: { score: 'desc' },
+              take: 1,
+            });
+            if (favCats.length > 0) {
+              products = await this.productsRepo.findMany({
+                category_id: favCats[0].category_id,
+                orderBy: { created_at: 'desc' },
+                take: 12,
+                languageCode,
+              });
+            }
+          }
+        } else if (section.type === EHomepageSectionType.RECENT_VIEW) {
+          if (userId) {
+            products = await this.productsRepo.getRecentlyViewed(userId, 12, languageCode);
           }
         }
 

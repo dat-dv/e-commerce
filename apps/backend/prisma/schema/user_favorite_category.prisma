@@ -1,0 +1,17 @@
+// prisma/schema/user_favorite_category.prisma
+
+model UserFavoriteCategory {
+  id          String   @id @default(cuid())
+  user_id     String
+  category_id String
+  score       Int      @default(1) // Điểm quan tâm (có thể tăng lên khi user click nhiều vào danh mục này)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  user     User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  category ProductCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, category_id])
+  @@index([user_id])
+  @@map("user_favorite_categories")
+}
