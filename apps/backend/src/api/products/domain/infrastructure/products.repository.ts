@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { IProduct } from '../entities/product.entity';
 import { IFlashSale } from '../entities/flash-sale.entity';
+import { IBrand } from 'src/api/homepage/domain/entities/homepage-section.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from 'generated/prisma/client';
 
@@ -59,10 +60,10 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async getUserTopCategory(userId: string): Promise<string | null> {
-    const history = await (this.prisma.userBrowsingHistory.findMany({
+    const history = await this.prisma.userBrowsingHistory.findMany({
       where: { user_id: userId },
       select: { product_id: true },
-    }) as Promise<{ product_id: string }[]>);
+    });
 
     if (history.length === 0) return null;
 
@@ -233,6 +234,109 @@ export class ProductsRepository implements IProductsRepository {
     );
 
     return productIds.map((id) => productMap.get(id)).filter((p) => p !== undefined);
+  }
+
+  async getSuperDeals(take = 12, languageCode = 'en'): Promise<IProduct[]> {
+    const candidates = await this.prisma.product.findMany({
+      where: {
+        deleted_at: null,
+        status: 1,
+        skus: {
+          some: {
+            original_price: { not: null },
+          },
+        },
+      },
+      take: take * 5, // over-fetch; sort + slice below
+      orderBy: { created_at: 'desc' },
+      include: {
+        thumbnail: true,
+        translations: {
+          where: { language: { code: languageCode } },
+        },
+        skus: true,
+      },
+    });
+
+    // Sort by best discount % across any SKU
+    const withDiscount = candidates
+      .map((p) => {
+        const bestDiscount = p.skus.reduce((max, sku) => {
+          if (!sku.original_price || sku.original_price <= sku.price) return max;
+          const pct = ((sku.original_price - sku.price) / sku.original_price) * 100;
+          return pct > max ? pct : max;
+        }, 0);
+        return { product: p, bestDiscount };
+      })
+      .filter((x) => x.bestDiscount > 0)
+      .sort((a, b) => b.bestDiscount - a.bestDiscount)
+      .slice(0, take)
+      .map(({ product: p }) => ({
+        ...p,
+        skus: p.skus.map((sku) => ({
+          ...sku,
+          price: Number(sku.price),
+          original_price: sku.original_price ? Number(sku.original_price) : null,
+        })),
+      }));
+
+    return withDiscount;
+  }
+
+  /** New Arrivals: most recently created active products. */
+  async getNewArrivals(take = 12, languageCode = 'en'): Promise<IProduct[]> {
+    const products = await this.prisma.product.findMany({
+      where: { deleted_at: null, status: 1 },
+      orderBy: { created_at: 'desc' },
+      take,
+      include: {
+        thumbnail: true,
+        translations: {
+          where: { language: { code: languageCode } },
+        },
+        skus: true,
+      },
+    });
+
+    return products.map((p) => ({
+      ...p,
+      skus: p.skus.map((sku) => ({
+        ...sku,
+        price: Number(sku.price),
+        original_price: sku.original_price ? Number(sku.original_price) : null,
+      })),
+    }));
+  }
+
+  /** Featured Brands: is_featured=true brands with product count. */
+  async getFeaturedBrands(take = 10, languageCode = 'en'): Promise<IBrand[]> {
+    const brands = await this.prisma.brand.findMany({
+      where: { is_featured: true },
+      orderBy: { order: 'asc' },
+      take,
+      include: {
+        translations: {
+          where: { language: { code: languageCode } },
+        },
+        _count: { select: { products: true } },
+      },
+    });
+
+    return brands.map((b) => {
+      const translation = b.translations[0];
+      return {
+        id: b.id,
+        slug: b.slug,
+        logo_url: b.logo_url,
+        website_url: b.website_url,
+        is_verified: b.is_verified,
+        is_featured: b.is_featured,
+        order: b.order,
+        name: translation?.name,
+        description: translation?.description,
+        product_count: b._count.products,
+      };
+    });
   }
 
   async findPaginated(params: {

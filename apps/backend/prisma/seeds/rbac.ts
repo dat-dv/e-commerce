@@ -1,11 +1,6 @@
 import { PrismaClient, Prisma } from '../../generated/prisma/client';
 import { ROLE_ADMIN, ROLE_USER } from '../../src/common/constants/roles.constant';
 
-/**
- * Seeds the Role-Based Access Control (RBAC) permissions and roles.
- * Why: This ensures that the system has all required permissions and default roles on startup or reset.
- * @param prisma The Prisma client instance.
- */
 export async function seedRBAC(prisma: PrismaClient) {
   console.log('--- Phase 0: Roles & Permissions ---');
 

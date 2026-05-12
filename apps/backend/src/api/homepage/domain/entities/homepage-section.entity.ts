@@ -8,6 +8,10 @@ export enum EHomepageSectionType {
   PRODUCT_CAROUSEL = 'product_carousel',
   RECOMMENDS = 'recommends',
   RECENT_VIEW = 'recent_view',
+  SUPER_DEALS = 'super_deals',
+  NEW_ARRIVALS = 'new_arrivals',
+  TOP_BRANDS = 'top_brands',
+  CATEGORIES = 'categories',
 }
 
 export interface IHomepageSectionTranslation {
@@ -31,6 +35,19 @@ export interface IHomepageSection {
   created_at: Date;
   updated_at: Date;
 }
+export interface IBrand {
+  id: string;
+  slug: string;
+  logo_url?: string | null;
+  website_url?: string | null;
+  is_verified: boolean;
+  is_featured: boolean;
+  order: number;
+  name?: string; // from translation
+  description?: string | null;
+  product_count?: number;
+}
+
 export interface IHomepageSectionResponse {
   category: {
     id: string;
@@ -39,4 +56,5 @@ export interface IHomepageSectionResponse {
     categories?: IProductCategory[];
   };
   data: IProduct[];
+  brands?: IBrand[]; // populated only when type === TOP_BRANDS
 }

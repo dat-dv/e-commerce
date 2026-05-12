@@ -25,10 +25,14 @@ export const ProductCarousel = ({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-content flex items-center gap-2">
+        <Link
+          href={APP_ROUTES.PRODUCTS}
+          type="button"
+          className="text-xl font-bold text-content flex items-center gap-2"
+        >
           <Icon className={`w-5 h-5 ${iconColor}`} />
           {title}
-        </h2>
+        </Link>
         <Link
           href={APP_ROUTES.PRODUCTS}
           className="text-sm font-medium text-primary hover:underline flex items-center gap-1"

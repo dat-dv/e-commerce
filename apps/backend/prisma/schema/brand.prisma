@@ -1,0 +1,30 @@
+model Brand {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  logo_url    String?
+  website_url String?
+  is_verified Boolean  @default(false)
+  is_featured Boolean  @default(false) // dùng cho Top Brands section
+  order       Int      @default(0) // thứ tự hiển thị trong Top Brands
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  translations BrandTranslation[]
+  products     Product[]
+
+  @@map("brands")
+}
+
+model BrandTranslation {
+  id          String @id @default(cuid())
+  brand_id    String
+  language_id String
+  name        String
+  description String?
+
+  brand    Brand    @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  language Language @relation(fields: [language_id], references: [id])
+
+  @@unique([brand_id, language_id])
+  @@map("brand_translations")
+}

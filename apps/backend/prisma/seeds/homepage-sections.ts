@@ -37,7 +37,7 @@ export async function seedHomepageSections(prisma: PrismaClient) {
     },
     {
       type: 'product_carousel',
-      order: 2,
+      order: 3,
       is_enabled: true,
       require_login: false,
       categories: { connect: techCat ? [{ id: techCat.id }] : [] },
@@ -45,6 +45,42 @@ export async function seedHomepageSections(prisma: PrismaClient) {
         create: [
           { language_id: langVi.id, title: 'Top Hot Công Nghệ' },
           { language_id: langEn.id, title: 'Top Tech Deals' },
+        ],
+      },
+    },
+    {
+      type: 'super_deals',
+      order: 2,
+      is_enabled: true,
+      require_login: false,
+      translations: {
+        create: [
+          { language_id: langVi.id, title: 'Siêu Ưu Đãi' },
+          { language_id: langEn.id, title: 'Super Deals' },
+        ],
+      },
+    },
+    {
+      type: 'top_brands',
+      order: 4,
+      is_enabled: true,
+      require_login: false,
+      translations: {
+        create: [
+          { language_id: langVi.id, title: 'Thương Hiệu Nổi Bật' },
+          { language_id: langEn.id, title: 'Top Brands' },
+        ],
+      },
+    },
+    {
+      type: 'new_arrivals',
+      order: 5,
+      is_enabled: true,
+      require_login: false,
+      translations: {
+        create: [
+          { language_id: langVi.id, title: 'Hàng Mới Về' },
+          { language_id: langEn.id, title: 'New Arrivals' },
         ],
       },
     },
@@ -126,7 +162,7 @@ export async function seedHomepageSections(prisma: PrismaClient) {
     },
     {
       type: 'product_carousel',
-      order: 9,
+      order: 10,
       is_enabled: true,
       require_login: false,
       categories: { connect: beautyCat ? [{ id: beautyCat.id }] : [] },
@@ -138,6 +174,13 @@ export async function seedHomepageSections(prisma: PrismaClient) {
       },
     },
   ];
+
+  // Map other orders forward
+  sections.forEach((s) => {
+    if (s.order !== undefined && s.order > 5 && s.order < 10) {
+      s.order += 4;
+    }
+  });
 
   for (const s of sections) {
     await prisma.homepageSection.create({ data: s });

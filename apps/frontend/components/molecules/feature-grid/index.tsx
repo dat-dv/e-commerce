@@ -17,12 +17,12 @@ interface FeatureGridProps {
 
 export const FeatureGrid = ({ items }: FeatureGridProps) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    <div className="grid grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
       {items.map((item) => (
         <Link
           key={item.name}
           href={item?.href || "#"}
-          className="bg-content/[0.02] border border-content/[0.05] rounded-2xl p-4 flex flex-col gap-4 hover:bg-content/[0.04] hover:border-content/[0.1] hover:translate-y-[-2px] transition-all duration-300 group"
+          className="w-full bg-content/[0.02] border border-content/[0.05] rounded-2xl p-4 flex flex-col items-center gap-4 hover:bg-content/[0.04] hover:border-content/[0.1] hover:translate-y-[-2px] transition-all duration-300 group text-center"
         >
           <div className="w-10 h-10 rounded-xl bg-content/[0.03] flex items-center justify-center group-hover:bg-content/[0.05] transition-colors">
             <item.icon

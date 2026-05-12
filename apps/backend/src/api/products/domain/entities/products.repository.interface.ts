@@ -1,5 +1,6 @@
 import { IFlashSale } from './flash-sale.entity';
 import { IProduct } from './product.entity';
+import { IBrand } from 'src/api/homepage/domain/entities/homepage-section.entity';
 
 export interface IProductsRepository {
   findById(id: string, languageCode?: string): Promise<IProduct | null>;
@@ -19,6 +20,12 @@ export interface IProductsRepository {
   getActiveFlashSale(languageCode?: string): Promise<IFlashSale | null>;
 
   getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProduct[]>;
+
+  getSuperDeals(take: number, languageCode?: string): Promise<IProduct[]>;
+
+  getNewArrivals(take: number, languageCode?: string): Promise<IProduct[]>;
+
+  getFeaturedBrands(take: number, languageCode?: string): Promise<IBrand[]>;
 
   findPaginated(params: {
     page: number;

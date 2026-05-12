@@ -1,10 +1,6 @@
 import { PrismaClient, Prisma } from '../../generated/prisma/client';
 import { SeedRegistry } from './registry';
 
-/**
- * Phase 1: Seed initial users.
- * Fetches required roles and languages directly from the database using SeedRegistry.
- */
 export async function seedPhase1(prisma: PrismaClient) {
   console.log('--- Phase 1: Users & Tags ---');
 

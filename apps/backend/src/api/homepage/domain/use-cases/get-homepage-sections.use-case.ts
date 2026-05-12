@@ -5,6 +5,7 @@ import { IHomepageSectionRepository } from '../entities/homepage-section.reposit
 import { EHomepageSectionType, IHomepageSection, IHomepageSectionResponse } from '../entities/homepage-section.entity';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IProduct } from 'src/api/products/domain/entities/product.entity';
+import { IBrand } from '../entities/homepage-section.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 
 @Injectable()
@@ -24,6 +25,7 @@ export class GetHomepageSectionsUseCase {
     const results = await Promise.all(
       sections.map(async (section): Promise<IHomepageSectionResponse> => {
         let products: IProduct[] = [];
+        let brands: IBrand[] | undefined;
 
         if (section.type === EHomepageSectionType.FLASH_SALE) {
           const flashSale = await this.productsRepo.getActiveFlashSale(languageCode);
@@ -69,6 +71,12 @@ export class GetHomepageSectionsUseCase {
           if (userId) {
             products = await this.productsRepo.getRecentlyViewed(userId, 12, languageCode);
           }
+        } else if (section.type === EHomepageSectionType.NEW_ARRIVALS) {
+          products = await this.productsRepo.getNewArrivals(12, languageCode);
+        } else if (section.type === EHomepageSectionType.SUPER_DEALS) {
+          products = await this.productsRepo.getSuperDeals(12, languageCode);
+        } else if (section.type === EHomepageSectionType.TOP_BRANDS) {
+          brands = await this.productsRepo.getFeaturedBrands(10, languageCode);
         }
 
         const translation =
@@ -83,6 +91,7 @@ export class GetHomepageSectionsUseCase {
             categories: section.categories,
           },
           data: products,
+          brands,
         };
       }),
     );

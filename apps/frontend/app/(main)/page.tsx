@@ -17,8 +17,6 @@ export default async function Home() {
       sectionsResponse.status === "success" ? sectionsResponse.data : [],
   };
 
-  console.log(sectionsResponse);
-
   return (
     <ProductsProvider initState={initialData}>
       <HomeView />

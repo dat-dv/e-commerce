@@ -13,6 +13,8 @@ model Product {
   thumbnail_id String? @unique
   thumbnail    Image?  @relation(fields: [thumbnail_id], references: [id])
 
+  brand Brand? @relation(fields: [brand_id], references: [id])
+
   translations ProductTranslation[]
   skus         Sku[]
 
