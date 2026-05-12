@@ -25,6 +25,18 @@ export async function seedPhase1(prisma: PrismaClient) {
     },
   });
 
+  await prisma.user.upsert({
+    where: { email: 'user@example.com' },
+    update: {},
+    create: {
+      email: 'datdoan.dev@gmail.com',
+      password: 'datdoan.dev@gmail.com',
+      first_name: 'string',
+      last_name: 'string',
+      role_id: adminRole.id,
+    },
+  });
+
   // 2. Tạo 100 Users ngẫu nhiên
   const users: Prisma.UserCreateManyInput[] = Array(100)
     .fill(0)
