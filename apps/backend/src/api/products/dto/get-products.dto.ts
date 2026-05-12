@@ -22,4 +22,8 @@ export class GetProductsDto {
   @IsOptional()
   @IsString()
   category_id?: string;
+
+  @IsOptional()
+  @IsString()
+  languageCode?: string = 'vi';
 }

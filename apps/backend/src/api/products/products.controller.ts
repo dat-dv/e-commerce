@@ -26,30 +26,30 @@ export class ProductsController {
   }
 
   @Get('recommended')
-  async getRecommended() {
-    const result = await this.getRecommendedUseCase.execute(12);
+  async getRecommended(@Query('lang') lang = 'vi') {
+    const result = await this.getRecommendedUseCase.execute(12); // Tạm thời chưa truyền lang
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('based-on-interest')
-  async getBasedOnInterest(@Req() req: express.Request) {
+  async getBasedOnInterest(@Req() req: express.Request, @Query('lang') lang = 'vi') {
     const userId = req.user?.sub;
-    const result = await this.getInterestBasedUseCase.execute(12, userId);
+    const result = await this.getInterestBasedUseCase.execute(12, userId); // Tạm thời chưa truyền lang
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('recently-viewed')
-  async getRecentlyViewed(@Req() req: express.Request) {
+  async getRecentlyViewed(@Req() req: express.Request, @Query('lang') lang = 'vi') {
     const userId = req.user?.sub;
-    const result = await this.getRecentlyViewedUseCase.execute(userId);
+    const result = await this.getRecentlyViewedUseCase.execute(userId, 10, lang);
     return createSuccessResponse(result);
   }
 
   @Get('flash-sale')
-  async getFlashSale() {
-    const result = await this.getFlashSaleUseCase.execute();
+  async getFlashSale(@Query('lang') lang = 'vi') {
+    const result = await this.getFlashSaleUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 }

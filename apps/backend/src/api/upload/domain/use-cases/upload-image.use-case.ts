@@ -1,13 +1,13 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IUploadRepository } from '../entities/upload.repository.interface';
+import { IImageRepository, ImageCreateInput } from '../entities/upload.repository.interface';
 import { StorageService } from '../../storage.service';
 import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';
 
 @Injectable()
 export class UploadImageUseCase {
   constructor(
-    @Inject(IUploadRepository)
-    private readonly uploadRepository: IUploadRepository,
+    @Inject(IImageRepository)
+    private readonly uploadRepository: IImageRepository,
     private readonly storageService: StorageService,
   ) {}
 
@@ -24,6 +24,6 @@ export class UploadImageUseCase {
   async execute(file: Express.Multer.File) {
     this.verifyImage(file);
     const res = await this.storageService.uploadImage(file, 'images');
-    return this.uploadRepository.createImage(res);
+    return this.uploadRepository.saveImage(res);
   }
 }

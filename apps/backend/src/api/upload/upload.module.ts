@@ -4,8 +4,8 @@ import { AuthModule } from '../auth/auth.module';
 import { FirebaseService } from './firebase-upload.service';
 import { CloudinaryService } from './cloudinary-upload.service';
 import { StorageService } from './storage.service';
-import { IUploadRepository } from './domain/entities/upload.repository.interface';
-import { UploadRepository } from './domain/infrastructure/upload.repository';
+import { IImageRepository } from './domain/entities/upload.repository.interface';
+import { ImageRepository } from './domain/infrastructure/image.repository';
 import { UploadImageUseCase } from './domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 
@@ -18,14 +18,14 @@ import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
     FirebaseService,
     CloudinaryService,
     {
-      provide: IUploadRepository,
-      useClass: UploadRepository,
+      provide: IImageRepository,
+      useClass: ImageRepository,
     },
     {
       provide: StorageService,
       useClass: CloudinaryService,
     },
   ],
-  exports: [IUploadRepository, UploadImageUseCase, DeleteImageUseCase],
+  exports: [IImageRepository, UploadImageUseCase, DeleteImageUseCase],
 })
 export class UploadModule {}

@@ -43,22 +43,8 @@ export async function seedPhase1(prisma: PrismaClient, adminRole: Role, userRole
     },
   });
 
-  // ==== Tags ====
-  const tags: Prisma.TagCreateInput[] = Array(20)
-    .fill(0)
-    .map((_, i) => ({
-      tag_name: `Tag-${i}`,
-    }));
-
-  await prisma.tag.createMany({
-    data: tags,
-  });
-
-  const listTags = await prisma.tag.findMany();
-
   console.log(`👥 Đã tạo thêm ${listUsers.length} Users mẫu`);
-  console.log(`🏷️ Đã tạo ${listTags.length} Tags`);
 
   // Trả về riêng defaultUser
-  return { defaultUser, listUsers, listTags };
+  return { defaultUser, listUsers };
 }

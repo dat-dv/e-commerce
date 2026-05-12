@@ -12,7 +12,7 @@ export interface IUsersRepository {
   addUserPhone(
     userId: string,
     data: { phone: string; phone_code: string; is_verified: boolean; is_default: boolean },
-  ): Promise<void>;
+  ): Promise<boolean>;
 }
 
 export const IUsersRepository = Symbol('IUsersRepository');

@@ -8,7 +8,13 @@ export class GetProductsUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(params: { page?: number; limit?: number; search?: string; category_id?: string }) {
+  async execute(params: {
+    page?: number;
+    limit?: number;
+    search?: string;
+    category_id?: string;
+    languageCode?: string;
+  }) {
     const page = Number(params.page) || 1;
     const limit = Number(params.limit) || 10;
 
@@ -17,6 +23,7 @@ export class GetProductsUseCase {
       limit,
       search: params.search,
       category_id: params.category_id,
+      languageCode: params.languageCode,
     });
   }
 }

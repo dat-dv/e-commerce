@@ -1,10 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IUser } from '../entities/user.entity';
+import { IUser, Gender } from '../entities/user.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Prisma } from 'generated/prisma/client';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
+
+interface UserWithAvatar {
+  avatar: {
+    public_id: string | null;
+  } | null;
+}
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -16,53 +21,69 @@ export class UsersRepository implements IUsersRepository {
   async findById(id: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { id },
-      include: {
-        avatar: true,
-        role: {
-          include: {
-            permissions: true,
-          },
-        },
-      },
     });
 
     if (!prismaUser) return null;
-    return prismaUser;
+
+    return {
+      id: prismaUser.id,
+      first_name: prismaUser.first_name,
+      last_name: prismaUser.last_name,
+      email: prismaUser.email,
+      date_of_birth: prismaUser.date_of_birth,
+      gender: prismaUser.gender,
+      avatar_id: prismaUser.avatar_id,
+      password: prismaUser.password,
+      created_at: prismaUser.created_at,
+      updated_at: prismaUser.updated_at,
+      deleted_at: prismaUser.deleted_at,
+      role_id: prismaUser.role_id,
+    };
   }
 
   async findByEmail(email: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { email },
-      include: {
-        avatar: true,
-        role: {
-          include: {
-            permissions: true,
-          },
-        },
-      },
     });
 
     if (!prismaUser) return null;
 
-    return prismaUser;
+    return {
+      id: prismaUser.id,
+      first_name: prismaUser.first_name,
+      last_name: prismaUser.last_name,
+      email: prismaUser.email,
+      date_of_birth: prismaUser.date_of_birth,
+      gender: prismaUser.gender,
+      avatar_id: prismaUser.avatar_id,
+      password: prismaUser.password,
+      created_at: prismaUser.created_at,
+      updated_at: prismaUser.updated_at,
+      deleted_at: prismaUser.deleted_at,
+      role_id: prismaUser.role_id,
+    };
   }
 
   async update(id: string, data: Partial<Omit<IUser, 'addresses' | 'phones'>>): Promise<IUser> {
     const prismaUser = await this.prisma.user.update({
       where: { id },
-      data: data,
-      include: {
-        avatar: true,
-        role: {
-          include: {
-            permissions: true,
-          },
-        },
-      },
+      data,
     });
 
-    return prismaUser;
+    return {
+      id: prismaUser.id,
+      first_name: prismaUser.first_name,
+      last_name: prismaUser.last_name,
+      email: prismaUser.email,
+      date_of_birth: prismaUser.date_of_birth,
+      gender: prismaUser.gender,
+      avatar_id: prismaUser.avatar_id,
+      password: prismaUser.password,
+      created_at: prismaUser.created_at,
+      updated_at: prismaUser.updated_at,
+      deleted_at: prismaUser.deleted_at,
+      role_id: prismaUser.role_id,
+    };
   }
 
   async create(data: { email: string; first_name: string; last_name: string; password: string }): Promise<IUser> {
@@ -73,18 +94,22 @@ export class UsersRepository implements IUsersRepository {
           connect: { role_name: ROLE_USER },
         },
       },
-
-      include: {
-        avatar: true,
-        role: {
-          include: {
-            permissions: true,
-          },
-        },
-      },
     });
-    const { password, ...userWithoutPassword } = user;
-    return userWithoutPassword;
+
+    return {
+      id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      date_of_birth: user.date_of_birth,
+      gender: user.gender,
+      avatar_id: user.avatar_id,
+      password: user.password,
+      created_at: user.created_at,
+      updated_at: user.updated_at,
+      deleted_at: user.deleted_at,
+      role_id: user.role_id,
+    };
   }
 
   async findAll(page: number, limit: number) {
@@ -92,14 +117,6 @@ export class UsersRepository implements IUsersRepository {
       this.prisma.user,
       {
         where: { deleted_at: null },
-        include: {
-          avatar: true,
-          role: {
-            include: {
-              permissions: true,
-            },
-          },
-        },
       },
       page,
       limit,
@@ -137,12 +154,19 @@ export class UsersRepository implements IUsersRepository {
   async addUserPhone(
     userId: string,
     data: { phone: string; phone_code: string; is_verified: boolean; is_default: boolean },
-  ): Promise<void> {
+  ): Promise<boolean> {
     await this.prisma.userPhone.create({
       data: {
-        ...data,
         user_id: userId,
+        phone: data.phone,
+        phone_code: data.phone_code,
+        is_default: data.is_default,
+        is_verified: data.is_verified,
+        created_at: new Date(),
+        updated_at: new Date(),
       },
     });
+
+    return true;
   }
 }

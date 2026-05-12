@@ -37,14 +37,14 @@ export class VerifyPhoneUseCase {
       }
 
       // Add phone record
-      await this.usersRepository.addUserPhone(userId, {
+      const result = await this.usersRepository.addUserPhone(userId, {
         phone: dto.phone,
         phone_code: dto.phone_code,
         is_verified: true,
         is_default: true,
       });
 
-      return { success: true };
+      return result;
     } catch (error) {
       if (error instanceof BadRequestException) {
         throw error;

@@ -15,6 +15,7 @@ import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';
+import createSuccessResponse from 'src/common/respomse';
 
 @ApiTags('Upload')
 @Controller('upload')
@@ -61,7 +62,7 @@ export class UploadController {
 
     try {
       const uploadResult = await this.uploadImageUseCase.execute(file);
-      return uploadResult;
+      return createSuccessResponse(uploadResult);
     } catch (error) {
       this.logger.error('File upload failed', error);
       throw new BadRequestException(
@@ -81,7 +82,7 @@ export class UploadController {
 
     try {
       const deleteResult = await this.deleteImageUseCase.execute(publicId);
-      return deleteResult;
+      return createSuccessResponse(deleteResult);
     } catch (error) {
       this.logger.error('File delete failed', error);
       throw new BadRequestException(

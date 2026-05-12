@@ -1,8 +1,7 @@
 import 'dotenv/config';
 import { PrismaClient } from '../../generated/prisma/client';
 import { seedPhase1 } from './phase1';
-import { seedPhase2 } from './phase2';
-import { seedPhase3 } from './phase3';
+import { seedProducts } from './products';
 import { seedRBAC } from './rbac';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
@@ -11,10 +10,26 @@ const prisma = new PrismaClient({ adapter });
 
 async function cleanDatabase() {
   console.log('🗑️ Đang xóa dữ liệu cũ...');
-  await prisma.postTag.deleteMany({});
-  await prisma.comment.deleteMany({});
-  await prisma.post.deleteMany({});
-  await prisma.tag.deleteMany({});
+  // Xóa theo thứ tự để tránh lỗi khóa ngoại
+  await prisma.skuAttributeValue.deleteMany({});
+  await prisma.attributeValue.deleteMany({});
+  await prisma.attribute.deleteMany({});
+  await prisma.review.deleteMany({});
+  await prisma.cartItem.deleteMany({});
+  await prisma.cart.deleteMany({});
+  await prisma.orderItem.deleteMany({});
+  await prisma.order.deleteMany({});
+  await prisma.userBrowsingHistory.deleteMany({});
+  await prisma.flashSaleProduct.deleteMany({});
+  await prisma.flashSale.deleteMany({});
+  await prisma.sku.deleteMany({});
+  await prisma.productTranslation.deleteMany({});
+  await prisma.product.deleteMany({});
+  await prisma.category.deleteMany({});
+  await prisma.language.deleteMany({});
+  await prisma.userPhone.deleteMany({});
+  await prisma.passwordResetToken.deleteMany({});
+  await prisma.refreshToken.deleteMany({});
   await prisma.user.deleteMany({});
   await prisma.permission.deleteMany({});
   await prisma.role.deleteMany({});
@@ -27,14 +42,11 @@ async function main() {
   // phase 0: Tạo Roles & Permissions
   const { adminRole, userRole } = await seedRBAC(prisma);
 
-  // phase 1: Tạo user và tag
-  const { defaultUser, listUsers, listTags } = await seedPhase1(prisma, adminRole, userRole);
+  // phase 1: Tạo user
+  const { defaultUser, listUsers } = await seedPhase1(prisma, adminRole, userRole);
 
-  // phase 2: Tạo bài viết
-  const posts = await seedPhase2(prisma, defaultUser, listUsers, listTags);
-
-  // phase 3: Tạo comment
-  await seedPhase3(prisma, posts, defaultUser, listUsers);
+  // phase 2: Tạo sản phẩm
+  await seedProducts(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');
 }

@@ -9,7 +9,7 @@ export class GetRecentlyViewedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(userId: string, limit = 10): Promise<IProduct[]> {
-    return this.productsRepository.getRecentlyViewed(userId, limit);
+  async execute(userId: string, limit = 10, languageCode = 'vi'): Promise<IProduct[]> {
+    return this.productsRepository.getRecentlyViewed(userId, limit, languageCode);
   }
 }
