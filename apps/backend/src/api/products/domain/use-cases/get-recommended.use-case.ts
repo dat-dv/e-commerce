@@ -11,7 +11,7 @@ export class GetRecommendedUseCase {
 
   async execute(limit: number): Promise<IProduct[]> {
     return this.productsRepository.findMany({
-      orderBy: { sold_count: 'desc' },
+      orderBy: { created_at: 'desc' },
       take: limit,
     });
   }

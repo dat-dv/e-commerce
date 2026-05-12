@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   // output: "export",
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "m.media-amazon.com"],
   },
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AppContainer from "@/components/atoms/app-container";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { FlashSale } from "@/components/molecules/flash-sale";
@@ -8,6 +8,9 @@ import { CategoriesGrid } from "@/components/molecules/categories-grid";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { WelcomeBanner } from "@/components/molecules/welcome-banner";
 import { APP_ROUTES } from "@/constants/routes";
+import { productsUseCase } from "@/domain/products/use-cases";
+import { IProduct } from "@/domain/products/types/products.model";
+import { useProductsStore } from "@/hooks/products/use-products-store";
 import {
   Flame,
   Laptop,
@@ -24,41 +27,6 @@ import {
   Zap,
 } from "lucide-react";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
-
-const FLASH_SALE_PRODUCTS = [
-  {
-    id: 1,
-    name: "Wireless Earbuds Pro",
-    price: "$29.00",
-    oldPrice: "$59.00",
-    sold: 45,
-    total: 100,
-  },
-  {
-    id: 2,
-    name: "Smart Fitness Tracker",
-    price: "$19.00",
-    oldPrice: "$39.00",
-    sold: 80,
-    total: 100,
-  },
-  {
-    id: 3,
-    name: "Portable Power Bank",
-    price: "$15.00",
-    oldPrice: "$25.00",
-    sold: 12,
-    total: 50,
-  },
-  {
-    id: 4,
-    name: "Bluetooth Speaker Mini",
-    price: "$25.00",
-    oldPrice: "$49.00",
-    sold: 95,
-    total: 100,
-  },
-];
 
 const POPULAR_CATEGORIES = [
   {
@@ -132,86 +100,50 @@ const FEATURE_ITEMS = [
   },
 ];
 
-const TRENDING_PRODUCTS = [
-  {
-    id: 1,
-    name: "Minimalist Wireless Keyboard",
-    price: "$89.00",
-    category: "Electronics",
-  },
-  {
-    id: 2,
-    name: "Premium Leather Backpack",
-    price: "$120.00",
-    category: "Accessories",
-  },
-  {
-    id: 3,
-    name: "Smart Water Bottle",
-    price: "$45.00",
-    category: "Home & Living",
-  },
-  {
-    id: 4,
-    name: "Noise Cancelling Headphones",
-    price: "$299.00",
-    category: "Electronics",
-  },
-  {
-    id: 5,
-    name: "Mechanical Gaming Keyboard",
-    price: "$129.00",
-    category: "Electronics",
-  },
-  {
-    id: 6,
-    name: "Ergonomic Desk Chair",
-    price: "$199.00",
-    category: "Home & Living",
-  },
-  {
-    id: 7,
-    name: "Wireless Charging Pad",
-    price: "$35.00",
-    category: "Electronics",
-  },
-  {
-    id: 8,
-    name: "Leather Passport Holder",
-    price: "$25.00",
-    category: "Accessories",
-  },
-];
-
-const TECH_PRODUCTS = [
-  {
-    id: 9,
-    name: "Ultra-wide Curved Monitor",
-    price: "$499.00",
-    category: "Electronics",
-  },
-  {
-    id: 10,
-    name: "RGB Mechanical Keyboard",
-    price: "$149.00",
-    category: "Electronics",
-  },
-  {
-    id: 11,
-    name: "Wireless Gaming Mouse",
-    price: "$79.00",
-    category: "Electronics",
-  },
-  {
-    id: 12,
-    name: "Noise Cancelling Earbuds",
-    price: "$159.00",
-    category: "Electronics",
-  },
-];
-
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
+
+  const recommendedProducts = useProductsStore(
+    (state) => state.recommendedProducts,
+  );
+  const flashSaleProducts = useProductsStore(
+    (state) => state.flashSaleProducts,
+  );
+  const setRecommendedProducts = useProductsStore(
+    (state) => state.setRecommendedProducts,
+  );
+  const setFlashSaleProducts = useProductsStore(
+    (state) => state.setFlashSaleProducts,
+  );
+
+  const [interestProducts, setInterestProducts] = useState<IProduct[]>([]);
+  const [recentProducts, setRecentProducts] = useState<IProduct[]>([]);
+  const [buyItAgainProducts, setBuyItAgainProducts] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const rec = await productsUseCase.getRecommended.execute();
+        if (rec.status === "success" && rec.data)
+          setRecommendedProducts(rec.data);
+
+        const interest = await productsUseCase.getBasedOnInterest.execute();
+        if (interest.status === "success" && interest.data)
+          setInterestProducts(interest.data);
+
+        const recent = await productsUseCase.getRecentlyViewed.execute();
+        if (recent.status === "success" && recent.data)
+          setRecentProducts(recent.data);
+
+        const flash = await productsUseCase.getFlashSale.execute();
+        if (flash.status === "success" && flash.data)
+          setFlashSaleProducts(flash.data);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="private-home">
@@ -226,7 +158,9 @@ export const HomepagePrivate = () => {
         <FeatureGrid items={FEATURE_ITEMS} />
 
         {/* 3. Flash Sale */}
-        <FlashSale products={FLASH_SALE_PRODUCTS} />
+        {flashSaleProducts.length > 0 && (
+          <FlashSale products={flashSaleProducts} />
+        )}
 
         {/* 4. Categories */}
         <div className="flex flex-col gap-6">
@@ -240,40 +174,48 @@ export const HomepagePrivate = () => {
         </div>
 
         {/* 5. Recommended for You Section */}
-        <ProductCarousel
-          title="Recommended for You"
-          icon={Heart}
-          iconColor="text-pink-500"
-          products={TRENDING_PRODUCTS}
-          rows={1}
-        />
+        {recommendedProducts.length > 0 && (
+          <ProductCarousel
+            title="Recommended for You"
+            icon={Heart}
+            iconColor="text-pink-500"
+            products={recommendedProducts}
+            rows={1}
+          />
+        )}
 
         {/* 6. Based on Your Interest Section */}
-        <ProductCarousel
-          title="Based on Your Interest"
-          icon={Laptop}
-          iconColor="text-blue-500"
-          products={TECH_PRODUCTS}
-          rows={1}
-        />
+        {interestProducts.length > 0 && (
+          <ProductCarousel
+            title="Based on Your Interest"
+            icon={Laptop}
+            iconColor="text-blue-500"
+            products={interestProducts}
+            rows={1}
+          />
+        )}
 
         {/* 7. Recently Viewed Section */}
-        <ProductCarousel
-          title="Recently Viewed"
-          icon={Eye}
-          iconColor="text-blue-400"
-          products={TRENDING_PRODUCTS}
-          rows={1}
-        />
+        {recentProducts.length > 0 && (
+          <ProductCarousel
+            title="Recently Viewed"
+            icon={Eye}
+            iconColor="text-blue-400"
+            products={recentProducts}
+            rows={1}
+          />
+        )}
 
         {/* 8. Buy It Again Section */}
-        <ProductCarousel
-          title="Buy It Again"
-          icon={RefreshCw}
-          iconColor="text-green-500"
-          products={TECH_PRODUCTS}
-          rows={1}
-        />
+        {buyItAgainProducts.length > 0 && (
+          <ProductCarousel
+            title="Buy It Again"
+            icon={RefreshCw}
+            iconColor="text-green-500"
+            products={buyItAgainProducts}
+            rows={1}
+          />
+        )}
       </AppContainer>
     </div>
   );

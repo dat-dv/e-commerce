@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import AppContainer from "@/components/atoms/app-container";
 import {
   Zap,
@@ -14,6 +15,10 @@ import {
   Watch,
   Heart,
 } from "lucide-react";
+import { APP_ROUTES } from "@/constants/routes";
+import { productsUseCase } from "@/domain/products/use-cases";
+import { IProduct } from "@/domain/products/types/products.model";
+import { useProductsStore } from "@/hooks/products/use-products-store";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { HeroSection } from "@/components/molecules/hero-section";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
@@ -21,42 +26,6 @@ import { PromoBanner } from "@/components/molecules/promo-banner";
 import { Newsletter } from "@/components/molecules/newsletter";
 import { CategoriesGrid } from "@/components/molecules/categories-grid";
 import { FlashSale } from "@/components/molecules/flash-sale";
-import { APP_ROUTES } from "@/constants/routes";
-
-const FLASH_SALE_PRODUCTS = [
-  {
-    id: 1,
-    name: "Wireless Earbuds Pro",
-    price: "$29.00",
-    oldPrice: "$59.00",
-    sold: 45,
-    total: 100,
-  },
-  {
-    id: 2,
-    name: "Smart Fitness Tracker",
-    price: "$19.00",
-    oldPrice: "$39.00",
-    sold: 80,
-    total: 100,
-  },
-  {
-    id: 3,
-    name: "Portable Power Bank",
-    price: "$15.00",
-    oldPrice: "$25.00",
-    sold: 12,
-    total: 50,
-  },
-  {
-    id: 4,
-    name: "Bluetooth Speaker Mini",
-    price: "$25.00",
-    oldPrice: "$49.00",
-    sold: 95,
-    total: 100,
-  },
-];
 
 const POPULAR_CATEGORIES = [
   {
@@ -130,119 +99,47 @@ const FEATURE_ITEMS = [
   },
 ];
 
-const TRENDING_PRODUCTS = [
-  {
-    id: 1,
-    name: "Minimalist Wireless Keyboard",
-    price: "$89.00",
-    category: "Electronics",
-  },
-  {
-    id: 2,
-    name: "Premium Leather Backpack",
-    price: "$120.00",
-    category: "Accessories",
-  },
-  {
-    id: 3,
-    name: "Smart Water Bottle",
-    price: "$45.00",
-    category: "Home & Living",
-  },
-  {
-    id: 4,
-    name: "Noise Cancelling Headphones",
-    price: "$299.00",
-    category: "Electronics",
-  },
-  {
-    id: 5,
-    name: "Mechanical Gaming Keyboard",
-    price: "$129.00",
-    category: "Electronics",
-  },
-  {
-    id: 6,
-    name: "Ergonomic Desk Chair",
-    price: "$199.00",
-    category: "Home & Living",
-  },
-  {
-    id: 7,
-    name: "Wireless Charging Pad",
-    price: "$35.00",
-    category: "Electronics",
-  },
-  {
-    id: 8,
-    name: "Leather Passport Holder",
-    price: "$25.00",
-    category: "Accessories",
-  },
-];
+const chunkArray = (arr: IProduct[], size: number): IProduct[][] => {
+  const result: IProduct[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+};
 
-const TECH_PRODUCTS = [
-  {
-    id: 9,
-    name: "Ultra-wide Curved Monitor",
-    price: "$499.00",
-    category: "Electronics",
-  },
-  {
-    id: 10,
-    name: "RGB Mechanical Keyboard",
-    price: "$149.00",
-    category: "Electronics",
-  },
-  {
-    id: 11,
-    name: "Wireless Gaming Mouse",
-    price: "$79.00",
-    category: "Electronics",
-  },
-  {
-    id: 12,
-    name: "Noise Cancelling Earbuds",
-    price: "$159.00",
-    category: "Electronics",
-  },
-];
+export const HomepagePublic = () => {
+  const flashSaleProducts = useProductsStore(
+    (state) => state.flashSaleProducts,
+  );
+  const trendingProducts = useProductsStore(
+    (state) => state.recommendedProducts,
+  );
+  const setFlashSaleProducts = useProductsStore(
+    (state) => state.setFlashSaleProducts,
+  );
+  const setTrendingProducts = useProductsStore(
+    (state) => state.setRecommendedProducts,
+  );
 
-const BABY_PRODUCTS = [
-  [
-    { id: 13, name: "Organic Baby Wipes", price: "$15.00", category: "Baby" },
-    { id: 17, name: "Baby Shampoo", price: "$12.00", category: "Baby" },
-  ],
-  [
-    {
-      id: 14,
-      name: "Vitamin C Supplements",
-      price: "$25.00",
-      category: "Health",
-    },
-    {
-      id: 18,
-      name: "Digital Thermometer",
-      price: "$19.00",
-      category: "Health",
-    },
-  ],
-  [
-    { id: 15, name: "Eco-friendly Diapers", price: "$35.00", category: "Baby" },
-    {
-      id: 19,
-      name: "Baby Bottle Sterilizer",
-      price: "$45.00",
-      category: "Baby",
-    },
-  ],
-  [
-    { id: 16, name: "Moisturizing Cream", price: "$18.00", category: "Health" },
-    { id: 20, name: "Soft Cotton Towels", price: "$22.00", category: "Baby" },
-  ],
-];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const flash = await productsUseCase.getFlashSale.execute();
+        if (flash.status === "success" && flash.data)
+          setFlashSaleProducts(flash.data);
 
-const HomepagePublic = () => {
+        const rec = await productsUseCase.getRecommended.execute();
+        if (rec.status === "success" && rec.data) setTrendingProducts(rec.data);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Tạo mảng 2 hàng cho phần Mom & Baby
+  const babyProductsChunked = chunkArray(trendingProducts, 2);
+
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="public-home">
       {/* 1. Hero Banner Section */}
@@ -254,7 +151,9 @@ const HomepagePublic = () => {
         <FeatureGrid items={FEATURE_ITEMS} />
 
         {/* 3. Flash Sale */}
-        <FlashSale products={FLASH_SALE_PRODUCTS} />
+        {flashSaleProducts.length > 0 && (
+          <FlashSale products={flashSaleProducts} />
+        )}
 
         {/* 4. Categories */}
         <div className="flex flex-col gap-6">
@@ -268,31 +167,37 @@ const HomepagePublic = () => {
         </div>
 
         {/* 3. Trending Now Section */}
-        <ProductCarousel
-          title="Trending Now"
-          icon={Flame}
-          iconColor="text-orange-500"
-          products={TRENDING_PRODUCTS}
-          rows={1}
-        />
+        {trendingProducts.length > 0 && (
+          <ProductCarousel
+            title="Trending Now"
+            icon={Flame}
+            iconColor="text-orange-500"
+            products={trendingProducts}
+            rows={1}
+          />
+        )}
 
         {/* 4. Technology Section */}
-        <ProductCarousel
-          title="Technology"
-          icon={Laptop}
-          iconColor="text-blue-500"
-          products={TECH_PRODUCTS}
-          rows={1}
-        />
+        {trendingProducts.length > 0 && (
+          <ProductCarousel
+            title="Technology"
+            icon={Laptop}
+            iconColor="text-blue-500"
+            products={trendingProducts} // Tạm thời dùng chung dữ liệu thật
+            rows={1}
+          />
+        )}
 
         {/* 5. Mom & Baby Section */}
-        <ProductCarousel
-          title="Mom & Baby"
-          icon={Heart}
-          iconColor="text-pink-500"
-          products={BABY_PRODUCTS}
-          rows={2}
-        />
+        {babyProductsChunked.length > 0 && (
+          <ProductCarousel
+            title="Mom & Baby"
+            icon={Heart}
+            iconColor="text-pink-500"
+            products={babyProductsChunked}
+            rows={2}
+          />
+        )}
 
         {/* 4. Promotional Banner */}
         <PromoBanner />
