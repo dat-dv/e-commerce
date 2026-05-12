@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req, Query } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { GetCartUseCase } from './domain/use-cases/get-cart.use-case';
 import { AddToCartUseCase } from './domain/use-cases/add-to-cart.use-case';
@@ -44,9 +44,9 @@ export class CartController {
   @Get()
   @ApiOperation({ summary: 'Get current user cart' })
   @ApiResponse({ status: 200, description: 'Return cart data' })
-  async getCart(@Req() req: Request) {
+  async getCart(@Req() req: Request, @Query('lang') lang: string = 'vi') {
     const userId = req.user.sub;
-    const result = await this.getCartUseCase.execute(userId);
+    const result = await this.getCartUseCase.execute(userId, lang);
     return createSuccessResponse(result);
   }
 

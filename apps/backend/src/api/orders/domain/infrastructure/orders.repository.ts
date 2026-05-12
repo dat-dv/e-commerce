@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { OrderStatus } from '../entities/order-status.enum';
 
 @Injectable()
 export class OrdersRepository implements IOrdersRepository {
@@ -47,6 +48,13 @@ export class OrdersRepository implements IOrdersRepository {
     return this.prisma.order.update({
       where: { id },
       data: { status },
+    });
+  }
+
+  async cancelOrder(id: string, userId: string) {
+    return this.prisma.order.update({
+      where: { id, user_id: userId },
+      data: { status: OrderStatus.CANCELLED }, // 5: CANCELLED
     });
   }
 }

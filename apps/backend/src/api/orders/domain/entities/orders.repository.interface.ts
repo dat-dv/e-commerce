@@ -10,6 +10,7 @@ export interface IOrdersRepository {
   getOrder(id: string): Promise<(Order & { items: OrderItem[] }) | null>;
   getUserOrders(userId: string): Promise<Order[]>;
   updateStatus(id: string, status: number): Promise<Order>;
+  cancelOrder(id: string, userId: string): Promise<Order>;
 }
 
 export const IOrdersRepository = Symbol('IOrdersRepository');

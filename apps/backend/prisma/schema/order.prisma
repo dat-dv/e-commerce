@@ -11,15 +11,17 @@ model Order {
 
   items               OrderItem[]
   user                User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  shippingAddress     ShippingAddress? @relation(fields: [shipping_address_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
 }
 
 model OrderItem {
-  id         String   @id @default(cuid())
-  order_id   String
-  sku_id     String
-  quantity   Int
-  price      Float    // Lưu giá lúc mua
+  id            String   @id @default(cuid())
+  order_id      String
+  sku_id        String
+  flash_sale_id String?  // ID của FlashSaleProduct nếu là hàng flash sale
+  quantity      Int
+  price         Float    // Lưu giá lúc mua
 
-  order      Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  sku        Sku      @relation(fields: [sku_id], references: [id])
+  order         Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  sku           Sku      @relation(fields: [sku_id], references: [id])
 }

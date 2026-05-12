@@ -9,7 +9,7 @@ import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
 import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.use-case';
 import { GetProductsDto } from './dto/get-products.dto';
 import createSuccessResponse from 'src/common/respomse';
-import { Request } from 'express';
+import type { Request } from 'express';
 
 @Controller('products')
 export class ProductsController {
