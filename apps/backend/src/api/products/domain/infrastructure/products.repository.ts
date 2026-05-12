@@ -201,7 +201,18 @@ export class ProductsRepository implements IProductsRepository {
     limit: number;
     totalPages: number;
   }> {
-    const { page, limit, search, category_id, brand_id, min_price, max_price, attribute_value_ids, sort, languageCode = 'vi' } = params;
+    const {
+      page,
+      limit,
+      search,
+      category_id,
+      brand_id,
+      min_price,
+      max_price,
+      attribute_value_ids,
+      sort,
+      languageCode = 'vi',
+    } = params;
     const skip = (page - 1) * limit;
 
     const where: Prisma.ProductWhereInput = {
@@ -238,20 +249,21 @@ export class ProductsRepository implements IProductsRepository {
         some: {
           ...(min_price !== undefined && { price: { gte: min_price } }),
           ...(max_price !== undefined && { price: { lte: max_price } }),
-          ...(attribute_value_ids && attribute_value_ids.length > 0 && {
-            sku_attribute_values: {
-              some: {
-                attribute_value_id: { in: attribute_value_ids }
-              }
-            }
-          }),
+          ...(attribute_value_ids &&
+            attribute_value_ids.length > 0 && {
+              sku_attribute_values: {
+                some: {
+                  attribute_value_id: { in: attribute_value_ids },
+                },
+              },
+            }),
         },
       };
     }
 
     let orderBy: Prisma.ProductOrderByWithRelationInput = { created_at: 'desc' };
     if (sort === 'price_asc') {
-      orderBy = { skus: { _count: 'asc' } }; 
+      orderBy = { skus: { _count: 'asc' } };
     } else if (sort === 'price_desc') {
       orderBy = { skus: { _count: 'desc' } };
     }
@@ -278,7 +290,7 @@ export class ProductsRepository implements IProductsRepository {
     const totalPages = Math.ceil(total / limit);
 
     return {
-      data: data as any,
+      data: data,
       total,
       page,
       limit,

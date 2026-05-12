@@ -1,5 +1,11 @@
 import { IImage } from 'src/api/upload/domain/entities/image.entity';
 
+export enum EProductStatus {
+  DRAFT = 0,
+  ACTIVE = 1,
+  OUT_OF_STOCK = 2,
+}
+
 export interface IProductTranslation {
   language_id: string;
   name: string;
@@ -35,7 +41,7 @@ export interface IProduct {
   seller_id?: string | null;
   category_id?: string | null;
   brand_id?: string | null;
-  status: string;
+  status: EProductStatus;
   created_at: Date;
   updated_at: Date;
   deleted_at?: Date | null;

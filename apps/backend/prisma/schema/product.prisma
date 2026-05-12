@@ -5,7 +5,7 @@ model Product {
   id          String    @id @default(cuid())
   seller_id   String?   // Ai tạo sản phẩm này (Tạm thời để optional)
   brand_id    String?
-  status      String    @default("DRAFT") // DRAFT, ACTIVE, OUT_OF_STOCK
+  status      Int       @default(0) // 0: DRAFT, 1: ACTIVE, 2: OUT_OF_STOCK
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
   deleted_at  DateTime?

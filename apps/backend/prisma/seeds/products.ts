@@ -1,5 +1,6 @@
 import { PrismaClient } from '../../generated/prisma/client';
 import { SeedRegistry } from './registry';
+import { ProductStatus } from './products/enums';
 
 export async function seedProducts(prisma: PrismaClient) {
   console.log('--- Phase 2: Products ---');
@@ -47,7 +48,7 @@ export async function seedProducts(prisma: PrismaClient) {
   // Product 1: iPhone 15 (Điện thoại + Đồ Công Nghệ)
   const p1 = await prisma.product.create({
     data: {
-      status: 'ACTIVE',
+      status: ProductStatus.ACTIVE,
       translations: {
         create: [
           {
@@ -85,7 +86,7 @@ export async function seedProducts(prisma: PrismaClient) {
   // Product 2: MacBook Air (Laptop + Đồ Công Nghệ)
   const p2 = await prisma.product.create({
     data: {
-      status: 'ACTIVE',
+      status: ProductStatus.ACTIVE,
       translations: {
         create: [
           {
@@ -127,7 +128,7 @@ export async function seedProducts(prisma: PrismaClient) {
   // Product 3: Apple Watch (Đồng hồ thông minh + Đồ Công Nghệ)
   const p3 = await prisma.product.create({
     data: {
-      status: 'ACTIVE',
+      status: ProductStatus.ACTIVE,
       translations: {
         create: [
           {
@@ -169,7 +170,7 @@ export async function seedProducts(prisma: PrismaClient) {
   // Product 4: AirPods Pro (Tai nghe + Đồ Công Nghệ)
   const p4 = await prisma.product.create({
     data: {
-      status: 'ACTIVE',
+      status: ProductStatus.ACTIVE,
       translations: {
         create: [
           {
@@ -270,7 +271,7 @@ export async function seedProducts(prisma: PrismaClient) {
       const item = phones[i];
       const p = await prisma.product.create({
         data: {
-          status: 'ACTIVE',
+          status: ProductStatus.ACTIVE,
           translations: {
             create: [
               { language_id: vi.id, name: `${item.vi} - Bản mẫu ${j}`, description: item.descVi },
@@ -295,7 +296,7 @@ export async function seedProducts(prisma: PrismaClient) {
       const item = laptops[i];
       const p = await prisma.product.create({
         data: {
-          status: 'ACTIVE',
+          status: ProductStatus.ACTIVE,
           translations: {
             create: [
               { language_id: vi.id, name: `${item.vi} - Bản mẫu ${j}`, description: item.descVi },

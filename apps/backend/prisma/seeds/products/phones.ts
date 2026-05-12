@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from '../../../generated/prisma/client';
+import { ProductStatus } from './enums';
 
 export interface PhoneSeedData {
   vi: string;
@@ -55,7 +56,7 @@ export async function seedPhones(prisma: PrismaClient, viId: string, enId: strin
 
   // 1. Tạo Products hàng loạt và lấy về danh sách đã tạo (để lấy ID)
   const productsToCreate: Prisma.ProductCreateManyInput[] = phoneData.flatMap((): Prisma.ProductCreateManyInput[] =>
-    Array.from({ length: 5 }, () => ({ status: 'ACTIVE' })),
+    Array.from({ length: 5 }, () => ({ status: ProductStatus.ACTIVE })),
   );
 
   const createdProducts = await prisma.product.createManyAndReturn({
