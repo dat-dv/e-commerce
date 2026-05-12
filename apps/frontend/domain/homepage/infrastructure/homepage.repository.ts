@@ -8,10 +8,9 @@ import { IHomepageSectionResponse } from "../types/homepage.response";
 export class HomepageRepository implements IHomepageRepository {
   constructor(private request: TRequest) {}
 
-  async getSections(lang = "vi"): Promise<ApiResponse<IHomepageSection[]>> {
+  async getSections(): Promise<ApiResponse<IHomepageSection[]>> {
     const response = await this.request.get<IHomepageSectionResponse[]>(
       API_ROUTES.HOMEPAGE.SECTIONS,
-      { params: { lang } },
     );
 
     return {

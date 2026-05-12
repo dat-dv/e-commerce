@@ -2,6 +2,7 @@ import { PUBLIC_ENV } from "@/config/public.env.config";
 
 import { ApiResponse, IRequestOptions, TRequest } from "./request.types";
 import requestCreator from "./request-creator";
+import { getLanguageSubdomain } from "../sub-domain/extract-sub-domain";
 
 const forwardClientRequest = async <T>(
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
@@ -16,9 +17,13 @@ const forwardClientRequest = async <T>(
 
   if (isServer) {
     try {
-      const { cookies } = await import("next/headers");
+      const { cookies, headers: nextHeaders } = await import("next/headers");
       const cookieStore = await cookies();
+      const headerStore = await nextHeaders();
+      const host = headerStore.get("host") ?? undefined;
+
       headers["Cookie"] = cookieStore.toString();
+      headers["Accept-Language"] = getLanguageSubdomain(host);
     } catch {
       // Not in a request context, skip cookie forwarding
     }

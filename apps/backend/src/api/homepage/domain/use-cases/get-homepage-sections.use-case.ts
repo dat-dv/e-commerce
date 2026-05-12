@@ -26,7 +26,7 @@ export class GetHomepageSectionsUseCase {
         let products: IProduct[] = [];
 
         if (section.type === EHomepageSectionType.FLASH_SALE) {
-          const flashSale = await this.productsRepo.getActiveFlashSale();
+          const flashSale = await this.productsRepo.getActiveFlashSale(languageCode);
           const flashSaleProducts = flashSale?.products || [];
 
           products = flashSaleProducts.reduce((acc: IProduct[], p) => {

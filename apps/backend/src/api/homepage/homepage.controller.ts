@@ -1,15 +1,14 @@
-// src/api/homepage/homepage.controller.ts
-
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { GetHomepageSectionsUseCase } from './domain/use-cases/get-homepage-sections.use-case';
 import createSuccessResponse from 'src/common/respomse';
+import { Language } from 'src/common/decorators/language.decorator';
 
 @Controller('homepage')
 export class HomepageController {
   constructor(private readonly getHomepageSectionsUseCase: GetHomepageSectionsUseCase) {}
 
   @Get('sections')
-  async getSections(@Query('lang') lang = 'en') {
+  async getSections(@Language() lang: string) {
     const result = await this.getHomepageSectionsUseCase.execute(lang);
     return createSuccessResponse(result);
   }

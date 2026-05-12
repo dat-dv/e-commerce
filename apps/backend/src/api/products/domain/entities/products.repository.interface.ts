@@ -16,7 +16,7 @@ export interface IProductsRepository {
 
   getUserTopCategory(userId: string): Promise<string | null>;
 
-  getActiveFlashSale(): Promise<IFlashSale | null>;
+  getActiveFlashSale(languageCode?: string): Promise<IFlashSale | null>;
 
   getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProduct[]>;
 

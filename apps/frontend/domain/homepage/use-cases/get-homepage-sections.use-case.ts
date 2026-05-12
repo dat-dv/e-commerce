@@ -5,7 +5,7 @@ import { IHomepageSection } from "../types/homepage.model";
 export class GetHomepageSectionsUseCase {
   constructor(private repository: IHomepageRepository) {}
 
-  async execute(lang?: string): Promise<ApiResponse<IHomepageSection[]>> {
-    return this.repository.getSections(lang);
+  async execute(): Promise<ApiResponse<IHomepageSection[]>> {
+    return this.repository.getSections();
   }
 }

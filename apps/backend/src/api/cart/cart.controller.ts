@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { GetCartUseCase } from './domain/use-cases/get-cart.use-case';
 import { AddToCartUseCase } from './domain/use-cases/add-to-cart.use-case';
@@ -8,6 +8,7 @@ import createSuccessResponse from 'src/common/respomse';
 import { IsNotEmpty, IsString, IsNumber, Min } from 'class-validator';
 import type { Request } from 'express';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiProperty } from '@nestjs/swagger';
+import { Language } from 'src/common/decorators/language.decorator';
 
 class AddToCartDto {
   @ApiProperty({ example: 'sku_123', description: 'SKU ID' })
@@ -44,7 +45,7 @@ export class CartController {
   @Get()
   @ApiOperation({ summary: 'Get current user cart' })
   @ApiResponse({ status: 200, description: 'Return cart data' })
-  async getCart(@Req() req: Request, @Query('lang') lang: string = 'vi') {
+  async getCart(@Req() req: Request, @Language() lang: string) {
     const userId = req.user.sub;
     const result = await this.getCartUseCase.execute(userId, lang);
     return createSuccessResponse(result);

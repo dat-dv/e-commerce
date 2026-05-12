@@ -1,4 +1,5 @@
-import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete } from '@nestjs/common';
+import { Language } from 'src/common/decorators/language.decorator';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { CreateProductCategoryUseCase } from './domain/use-cases/create-category.use-case';
@@ -47,19 +48,19 @@ export class ProductCategoriesController {
   }
 
   @Get('groups')
-  async getGroups(@Query('lang') lang: string = 'vi') {
+  async getGroups(@Language() lang: string) {
     const result = await this.getGroupsUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 
   @Get('tree')
-  async getTree(@Query('lang') lang: string = 'vi') {
+  async getTree(@Language() lang: string) {
     const result = await this.getTreeUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 
   @Get(':id')
-  async getById(@Param('id') id: string, @Query('lang') lang: string = 'vi') {
+  async getById(@Param('id') id: string, @Language() lang: string) {
     const result = await this.getByIdUseCase.execute(id, lang);
     return createSuccessResponse(result);
   }

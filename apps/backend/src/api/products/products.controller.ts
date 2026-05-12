@@ -1,4 +1,5 @@
 import { Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
+import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { OptionalAuthGuard } from '../auth/guards/optional-auth.guard';
 import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
@@ -29,14 +30,14 @@ export class ProductsController {
   }
 
   @Get('recommended')
-  async getRecommended(@Query('lang') lang = 'vi') {
+  async getRecommended(@Language() lang: string) {
     const result = await this.getRecommendedUseCase.execute(12); // Tạm thời chưa truyền lang
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('based-on-interest')
-  async getBasedOnInterest(@Req() req: Request, @Query('lang') lang = 'vi') {
+  async getBasedOnInterest(@Req() req: Request, @Language() lang: string) {
     const userId = req.user?.sub;
     const result = await this.getInterestBasedUseCase.execute(12, userId); // Tạm thời chưa truyền lang
     return createSuccessResponse(result);
@@ -44,21 +45,21 @@ export class ProductsController {
 
   @UseGuards(AuthGuard)
   @Get('recently-viewed')
-  async getRecentlyViewed(@Req() req: Request, @Query('lang') lang = 'vi') {
+  async getRecentlyViewed(@Req() req: Request, @Language() lang: string) {
     const userId = req.user?.sub;
     const result = await this.getRecentlyViewedUseCase.execute(userId, 10, lang);
     return createSuccessResponse(result);
   }
 
   @Get('flash-sale')
-  async getFlashSale(@Query('lang') lang = 'vi') {
+  async getFlashSale(@Language() lang: string) {
     const result = await this.getFlashSaleUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 
   @UseGuards(OptionalAuthGuard)
   @Get(':id')
-  async getProductDetail(@Param('id') id: string, @Req() req: Request, @Query('lang') lang = 'vi') {
+  async getProductDetail(@Param('id') id: string, @Req() req: Request, @Language() lang: string) {
     const userId = req.user?.sub;
     const result = await this.getProductDetailUseCase.execute(id, lang, userId);
     return createSuccessResponse(result);
