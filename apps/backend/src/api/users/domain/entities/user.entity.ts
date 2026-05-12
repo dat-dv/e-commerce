@@ -51,6 +51,7 @@ export interface IUser {
   gender?: Gender | null;
   avatar_id?: string | null;
   password?: string;
+  salt?: string | null;
   created_at?: Date;
   updated_at?: Date;
   deleted_at?: Date | null;

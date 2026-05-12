@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { IUser, Gender } from '../entities/user.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
 
@@ -25,7 +26,6 @@ export class UsersRepository implements IUsersRepository {
     });
 
     if (!prismaUser) return null;
-
     return {
       id: prismaUser.id,
       first_name: prismaUser.first_name,
@@ -50,7 +50,6 @@ export class UsersRepository implements IUsersRepository {
     });
 
     if (!prismaUser) return null;
-
     return {
       id: prismaUser.id,
       first_name: prismaUser.first_name,
@@ -69,9 +68,21 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async update(id: string, data: Partial<Omit<IUser, 'addresses' | 'phones'>>): Promise<IUser> {
+    let updateData = { ...data };
+
+    if (data.password) {
+      const salt = crypto.randomBytes(16).toString('hex');
+      const hashedPassword = crypto.pbkdf2Sync(data.password, salt, 1000, 64, 'sha512').toString('hex');
+      updateData = {
+        ...updateData,
+        password: hashedPassword,
+        salt,
+      };
+    }
+
     const prismaUser = await this.prisma.user.update({
       where: { id },
-      data,
+      data: updateData,
     });
 
     return {
@@ -91,9 +102,14 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async create(data: { email: string; first_name: string; last_name: string; password: string }): Promise<IUser> {
+    const salt = crypto.randomBytes(16).toString('hex');
+    const hashedPassword = crypto.pbkdf2Sync(data.password, salt, 1000, 64, 'sha512').toString('hex');
+
     const user = await this.prisma.user.create({
       data: {
         ...data,
+        password: hashedPassword,
+        salt,
         role: {
           connect: { role_name: ROLE_USER },
         },

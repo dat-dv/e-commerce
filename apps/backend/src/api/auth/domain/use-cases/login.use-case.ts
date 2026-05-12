@@ -4,6 +4,7 @@ import { IAuthRepository } from '../entities/auth.repository.interface';
 import { LoginDto } from '../../dto/login.dto';
 import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.constant';
 import { TokenService } from 'src/shared/services/token/token.service';
+import * as crypto from 'crypto';
 
 @Injectable()
 export class LoginUseCase {
@@ -22,8 +23,15 @@ export class LoginUseCase {
       throw new BadRequestException('Invalid credentials');
     }
 
-    if (user.password !== dto.password) {
-      throw new BadRequestException('Invalid credentials');
+    if (user.salt) {
+      const hash = crypto.pbkdf2Sync(dto.password, user.salt, 1000, 64, 'sha512').toString('hex');
+      if (user.password !== hash) {
+        throw new BadRequestException('Invalid credentials');
+      }
+    } else {
+      if (user.password !== dto.password) {
+        throw new BadRequestException('Invalid credentials');
+      }
     }
 
     const payload = { sub: user.id, email: user.email };
@@ -38,7 +46,7 @@ export class LoginUseCase {
     const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
     await this.authRepository.saveRefreshToken(refreshToken, user.id, expiresAt);
 
-    const { password, ...userResponse } = user;
+    const { password, salt, ...userResponse } = user;
 
     return { user: userResponse, accessToken, refreshToken };
   }
