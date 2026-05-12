@@ -7,6 +7,7 @@ import { PermissionsModule } from './api/permissions/permissions.module';
 import ConfigModule from './config/config.module';
 import { UploadModule } from './api/upload/upload.module';
 import { ProductsModule } from './api/products/products.module';
+import { ProductCategoriesModule } from './api/product-categories/product-categories.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ProductsModule } from './api/products/products.module';
     PermissionsModule,
     UploadModule,
     ProductsModule,
+    ProductCategoriesModule,
   ],
   controllers: [],
   providers: [],

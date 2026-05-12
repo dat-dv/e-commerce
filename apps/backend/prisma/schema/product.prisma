@@ -1,7 +1,7 @@
 // prisma/schema/product.prisma
 
 // 1. Danh mục sản phẩm
-model Category {
+model ProductCategory {
   id          String    @id @default(cuid())
   name        String
   slug        String    @unique
@@ -11,6 +11,8 @@ model Category {
   updated_at  DateTime  @updatedAt
 
   products    Product[]
+
+  @@map("product_categories")
 }
 
 // 2. TẦNG SẢN PHẨM (PRODUCT)
@@ -30,7 +32,7 @@ model Product {
   translations ProductTranslation[]
   skus         Sku[]
   
-  category    Category? @relation(fields: [category_id], references: [id])
+  category    ProductCategory? @relation(fields: [category_id], references: [id])
   
   // Relations from other tables that still reference Product
   view_history     UserBrowsingHistory[]

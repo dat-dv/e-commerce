@@ -24,11 +24,11 @@ export async function seedProducts(prisma: PrismaClient) {
     { name: 'Tai nghe', slug: 'tai-nghe', description: 'Tai nghe không dây và có dây' },
   ];
 
-  await prisma.category.createMany({
+  await prisma.productCategory.createMany({
     data: categoriesData,
   });
 
-  const categories = await prisma.category.findMany();
+  const categories = await prisma.productCategory.findMany();
 
   // 3. Tạo Attributes
   const color = await prisma.attribute.create({ data: { name: 'Color' } });

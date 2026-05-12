@@ -42,3 +42,13 @@ export interface IProduct {
   skus?: ISku[];
   thumbnail?: any;
 }
+
+export interface IProductCategory {
+  id: string;
+  name: string;
+}
+
+export interface IProductBrand {
+  id: string;
+  name: string;
+}
