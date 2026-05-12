@@ -52,9 +52,13 @@ export const API_ROUTES = {
     RECENTLY_VIEWED: "/products/recently-viewed",
     FLASH_SALE: "/products/flash-sale",
   },
+  PRODUCT_CATEGORIES: {
+    BASE: "/product-categories",
+    TREE: "/product-categories/tree",
+    GROUPS: "/product-categories/groups",
+  },
   HOMEPAGE: {
     SECTIONS: "/homepage/sections",
   },
-  PRODUCT_CATEGORIES: "/product-categories",
   CONFIG: "/config",
 } as const;

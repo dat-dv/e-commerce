@@ -92,7 +92,7 @@ const FEATURE_ITEMS = [
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
-import { useCategories } from "@/hooks/categories/use-categories";
+import { useHomepageCategories } from "@/hooks/categories/use-homepage-categories";
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
   [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
@@ -116,7 +116,7 @@ const getIcon = (type: string, slug?: string) => {
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
   const sections = useProductsStore((state) => state.sections);
-  const { categories, fetchMore } = useCategories();
+  const { categories, fetchMore } = useHomepageCategories();
   const lang = useProductsStore((state) => state.lang);
 
   return (

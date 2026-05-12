@@ -3,8 +3,8 @@ import { IProductCategory } from './product-category.entity';
 export interface IProductCategoriesRepository {
   create(data: { name: string; slug: string; description?: string }): Promise<IProductCategory>;
   update(id: string, data: { name?: string; slug?: string; description?: string }): Promise<IProductCategory>;
-  findAll(): Promise<IProductCategory[]>;
-  findGroups(languageCode?: string): Promise<IProductCategory[]>;
+  findMany(params?: { page?: number; limit?: number; level?: number }): Promise<IProductCategory[]>;
+  findGroups(languageCode?: string, params?: { page?: number; limit?: number }): Promise<IProductCategory[]>;
   findById(id: string, languageCode?: string): Promise<IProductCategory | null>;
   findTree(languageCode?: string): Promise<IProductCategory[]>;
   delete(id: string): Promise<IProductCategory>;

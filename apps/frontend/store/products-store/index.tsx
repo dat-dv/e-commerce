@@ -11,7 +11,6 @@ const createProductsStoreCreator =
       flashSaleProducts: [],
       recommendedProducts: [],
       sections: [],
-      categories: [],
       loading: false,
       ...initState,
       lang: initState?.lang || "vi",

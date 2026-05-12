@@ -7,6 +7,9 @@ export class CategoryMapper {
       id: response.id,
       slug: response.slug,
       name: response.translations?.[0]?.name || response.slug,
+      children: response.children?.map((child) =>
+        CategoryMapper.toDomain(child),
+      ),
     };
   }
 }

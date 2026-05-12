@@ -8,7 +8,7 @@ export class GetProductCategoryGroupsUseCase {
     private readonly categoriesRepository: IProductCategoriesRepository,
   ) {}
 
-  async execute(languageCode: string = 'vi') {
-    return this.categoriesRepository.findGroups(languageCode);
+  async execute(languageCode: string = 'vi', params?: { page?: number; limit?: number }) {
+    return this.categoriesRepository.findGroups(languageCode, params);
   }
 }

@@ -6,4 +6,5 @@ export interface ICategoryResponse {
   id: string;
   slug: string;
   translations?: ICategoryTranslationResponse[];
+  children?: ICategoryResponse[];
 }

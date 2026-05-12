@@ -3,6 +3,7 @@ import { HomeView } from "@/components/organisms/home-view";
 import { homepageUseCase } from "@/domain/homepage/use-cases";
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { ProductsProvider } from "@/components/molecules/providers/products-provider";
+import { CategoriesProvider } from "@/components/molecules/providers/categories-provider";
 import { headers } from "next/headers";
 import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
 
@@ -16,23 +17,27 @@ export default async function Home() {
   const host = headerStore.get("host");
   const lang = getLanguageSubdomain(host ?? "");
 
-  // Fetch dynamic sections and categories on the server
   const [sectionsResponse, categoriesResponse] = await Promise.all([
     homepageUseCase.getSections.execute(),
-    categoriesUseCase.getCategories.execute(),
+    categoriesUseCase.getCategories.execute({ page: 1, limit: 10, level: 1 }),
   ]);
 
-  const initialData = {
+  const productsInitialData = {
     sections:
       sectionsResponse.status === "success" ? sectionsResponse.data : [],
-    categories:
-      categoriesResponse.status === "success" ? categoriesResponse.data : [],
     lang,
   };
 
+  const categoriesInitialData = {
+    categories:
+      categoriesResponse.status === "success" ? categoriesResponse.data : [],
+  };
+
   return (
-    <ProductsProvider initState={initialData}>
-      <HomeView />
+    <ProductsProvider initState={productsInitialData}>
+      <CategoriesProvider initState={categoriesInitialData}>
+        <HomeView />
+      </CategoriesProvider>
     </ProductsProvider>
   );
 }

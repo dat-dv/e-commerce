@@ -8,7 +8,11 @@ export class GetAllProductCategoriesUseCase {
     private readonly categoriesRepository: IProductCategoriesRepository,
   ) {}
 
-  async execute() {
-    return this.categoriesRepository.findAll();
+  async execute(params?: { page?: number; limit?: number; level?: number }) {
+    return this.categoriesRepository.findMany({
+      page: params?.page,
+      limit: params?.limit,
+      level: params?.level,
+    });
   }
 }

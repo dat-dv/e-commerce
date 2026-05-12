@@ -10,29 +10,45 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
   async create(data: { name: string; slug: string; description?: string }): Promise<IProductCategory> {
     return this.prisma.productCategory.create({
       data,
-    }) as unknown as IProductCategory;
+    });
   }
 
   async update(id: string, data: { name?: string; slug?: string; description?: string }): Promise<IProductCategory> {
     return this.prisma.productCategory.update({
       where: { id },
       data,
-    }) as unknown as IProductCategory;
+    });
   }
 
-  async findAll(): Promise<IProductCategory[]> {
+  async findMany(params?: { page?: number; limit?: number; level?: number }): Promise<IProductCategory[]> {
+    const skip = params?.page && params?.limit ? (params.page - 1) * params.limit : undefined;
+    const take = params?.limit;
+
     return this.prisma.productCategory.findMany({
+      skip,
+      take,
       include: {
         translations: true,
       },
-    }) as unknown as IProductCategory[];
+      where: {
+        level: params?.level,
+      },
+    });
   }
 
-  async findGroups(languageCode: string = 'vi'): Promise<IProductCategory[]> {
+  async findGroups(
+    languageCode: string = 'vi',
+    params?: { page?: number; limit?: number },
+  ): Promise<IProductCategory[]> {
+    const skip = params?.page && params?.limit ? (params.page - 1) * params.limit : undefined;
+    const take = params?.limit;
+
     return this.prisma.productCategory.findMany({
       where: {
         parent_id: null,
       },
+      skip,
+      take,
       include: {
         translations: {
           where: {
@@ -42,7 +58,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
           },
         },
       },
-    }) as unknown as IProductCategory[];
+    });
   }
 
   async findById(id: string, languageCode: string = 'vi'): Promise<IProductCategory | null> {
@@ -69,7 +85,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
         },
       },
     });
-    return result as unknown as IProductCategory | null;
+    return result;
   }
 
   async findTree(languageCode: string = 'vi'): Promise<IProductCategory[]> {
@@ -97,12 +113,12 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
           },
         },
       },
-    }) as unknown as IProductCategory[];
+    });
   }
 
   async delete(id: string): Promise<IProductCategory> {
     return this.prisma.productCategory.delete({
       where: { id },
-    }) as unknown as IProductCategory;
+    });
   }
 }

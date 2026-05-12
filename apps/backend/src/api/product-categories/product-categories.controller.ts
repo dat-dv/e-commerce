@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
@@ -42,8 +42,12 @@ export class ProductCategoriesController {
   }
 
   @Get()
-  async getAllCategories() {
-    const result = await this.getAllCategoriesUseCase.execute();
+  async getAllCategories(@Query() query: { page?: string; limit?: string; level?: string }) {
+    const result = await this.getAllCategoriesUseCase.execute({
+      page: query.page ? parseInt(query.page) : undefined,
+      limit: query.limit ? parseInt(query.limit) : undefined,
+      level: query.level ? parseInt(query.level) : undefined,
+    });
     return createSuccessResponse(result);
   }
 

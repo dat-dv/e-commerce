@@ -3,7 +3,7 @@ import { ICategoriesRepository } from "../entities/categories.repository.interfa
 export class GetCategoriesUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
-  async execute(params?: { page?: number; limit?: number }) {
+  async execute(params?: { page?: number; limit?: number; level?: number }) {
     return this.categoriesRepository.getCategories(params);
   }
 }
