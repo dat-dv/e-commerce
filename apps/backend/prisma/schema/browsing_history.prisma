@@ -1,0 +1,13 @@
+// prisma/schema/browsing_history.prisma
+
+model UserBrowsingHistory {
+  id         String   @id @default(cuid())
+  user_id    String
+  product_id String
+  viewed_at  DateTime @default(now())
+
+  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, viewed_at])
+}

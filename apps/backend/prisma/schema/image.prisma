@@ -12,4 +12,5 @@ model Image {
   updated_at DateTime @updatedAt
 
   user       User?
+  product    Product?
 }

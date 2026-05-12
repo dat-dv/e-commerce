@@ -1,0 +1,25 @@
+// prisma/schema/order.prisma
+
+model Order {
+  id                  String      @id @default(cuid())
+  user_id             String
+  status              String      @default("PENDING") 
+  total_amount        Float
+  shipping_address_id String?
+  created_at          DateTime    @default(now())
+  updated_at          DateTime    @updatedAt
+
+  items               OrderItem[]
+  user                User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model OrderItem {
+  id         String   @id @default(cuid())
+  order_id   String
+  sku_id     String
+  quantity   Int
+  price      Float    // Lưu giá lúc mua
+
+  order      Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  sku        Sku      @relation(fields: [sku_id], references: [id])
+}

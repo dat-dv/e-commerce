@@ -1,0 +1,23 @@
+// prisma/schema/cart.prisma
+
+model Cart {
+  id         String     @id @default(cuid())
+  user_id    String     @unique 
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+
+  items      CartItem[]
+  user       User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model CartItem {
+  id         String   @id @default(cuid())
+  cart_id    String
+  sku_id     String
+  quantity   Int      @default(1)
+
+  cart       Cart     @relation(fields: [cart_id], references: [id], onDelete: Cascade)
+  sku        Sku      @relation(fields: [sku_id], references: [id])
+
+  @@unique([cart_id, sku_id])
+}

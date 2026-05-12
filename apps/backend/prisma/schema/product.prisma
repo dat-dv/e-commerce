@@ -1,4 +1,4 @@
-// prisma/schema/ecommerce.prisma
+// prisma/schema/product.prisma
 
 // 1. Danh mục sản phẩm
 model Category {
@@ -23,6 +23,9 @@ model Product {
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
   deleted_at  DateTime?
+  
+  thumbnail_id String?   @unique
+  thumbnail    Image?    @relation(fields: [thumbnail_id], references: [id])
 
   translations ProductTranslation[]
   skus         Sku[]
@@ -77,65 +80,4 @@ model FlashSaleProduct {
   sku            Sku       @relation(fields: [sku_id], references: [id], onDelete: Cascade)
 
   @@unique([flash_sale_id, sku_id])
-}
-
-// 5. Giỏ hàng
-model Cart {
-  id         String     @id @default(cuid())
-  user_id    String     @unique 
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
-
-  items      CartItem[]
-  user       User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
-}
-
-model CartItem {
-  id         String   @id @default(cuid())
-  cart_id    String
-  sku_id     String
-  quantity   Int      @default(1)
-
-  cart       Cart     @relation(fields: [cart_id], references: [id], onDelete: Cascade)
-  sku        Sku      @relation(fields: [sku_id], references: [id])
-
-  @@unique([cart_id, sku_id])
-}
-
-// 6. Đơn hàng
-model Order {
-  id                  String      @id @default(cuid())
-  user_id             String
-  status              String      @default("PENDING") 
-  total_amount        Float
-  shipping_address_id String?
-  created_at          DateTime    @default(now())
-  updated_at          DateTime    @updatedAt
-
-  items               OrderItem[]
-  user                User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
-}
-
-model OrderItem {
-  id         String   @id @default(cuid())
-  order_id   String
-  sku_id     String
-  quantity   Int
-  price      Float    // Lưu giá lúc mua
-
-  order      Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  sku        Sku      @relation(fields: [sku_id], references: [id])
-}
-
-// 7. Lịch sử xem sản phẩm
-model UserBrowsingHistory {
-  id         String   @id @default(cuid())
-  user_id    String
-  product_id String
-  viewed_at  DateTime @default(now())
-
-  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  @@index([user_id, viewed_at])
 }
