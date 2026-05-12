@@ -7,12 +7,12 @@ import { ArrowRight, Flame } from "lucide-react";
 import { FlashSaleCard } from "../product-card/flash-sale-card";
 
 interface FlashSaleProduct {
-  id: number;
+  id: string;
   name: string;
   price: string;
-  oldPrice: string;
-  sold: number;
-  total: number;
+  oldPrice?: string;
+  sold?: number;
+  total?: number;
 }
 
 interface FlashSaleProps {

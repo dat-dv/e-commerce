@@ -9,7 +9,7 @@ import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   price: string;
   original_price?: string;
