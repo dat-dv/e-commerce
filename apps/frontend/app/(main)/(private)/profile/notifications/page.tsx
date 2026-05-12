@@ -5,7 +5,8 @@ const mockNotifications = [
   {
     id: 1,
     title: "Order Shipped! 🚀",
-    description: "Your order #ORD-2026-9921 has been shipped and is on its way to you.",
+    description:
+      "Your order #ORD-2026-9921 has been shipped and is on its way to you.",
     time: "2 hours ago",
     icon: <ShoppingBag size={20} className="text-blue-500" />,
     bg: "bg-blue-50",
@@ -37,7 +38,9 @@ export default function ProfileNotificationsPage() {
       <div className="mb-6 flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold text-content">Notifications</h1>
-          <p className="text-sm text-content/60">Stay updated with the latest activity.</p>
+          <p className="text-sm text-content/60">
+            Stay updated with the latest activity.
+          </p>
         </div>
         <button className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
           Mark all as read
@@ -54,12 +57,16 @@ export default function ProfileNotificationsPage() {
                 : "bg-white/50 border-content/5"
             }`}
           >
-            <div className={`w-10 h-10 ${noti.bg} rounded-full flex items-center justify-center flex-shrink-0`}>
+            <div
+              className={`w-10 h-10 ${noti.bg} rounded-full flex items-center justify-center flex-shrink-0`}
+            >
               {noti.icon}
             </div>
             <div className="flex-1 space-y-1">
               <div className="flex justify-between items-start">
-                <h3 className={`font-semibold ${noti.unread ? "text-content" : "text-content/80"}`}>
+                <h3
+                  className={`font-semibold ${noti.unread ? "text-content" : "text-content/80"}`}
+                >
                   {noti.title}
                 </h3>
                 <span className="text-xs text-content/50">{noti.time}</span>

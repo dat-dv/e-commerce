@@ -7,7 +7,9 @@ export default function BankAccountPage() {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold text-content">Bank Account</h1>
-          <p className="text-sm text-content/60">Manage your bank accounts for withdrawals.</p>
+          <p className="text-sm text-content/60">
+            Manage your bank accounts for withdrawals.
+          </p>
         </div>
         <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-primary/90 transition-colors">
           <Plus size={18} />
@@ -20,8 +22,12 @@ export default function BankAccountPage() {
           <CreditCard size={24} />
         </div>
         <div>
-          <p className="font-semibold text-content">No bank accounts added yet</p>
-          <p className="text-sm text-content/50">Add a bank account to enable fast withdrawals.</p>
+          <p className="font-semibold text-content">
+            No bank accounts added yet
+          </p>
+          <p className="text-sm text-content/50">
+            Add a bank account to enable fast withdrawals.
+          </p>
         </div>
       </div>
     </div>

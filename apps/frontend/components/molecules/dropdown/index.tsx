@@ -36,7 +36,10 @@ export const Dropdown = ({
   }, [open]);
 
   return (
-    <div ref={ref} className={`relative inline-block ${open ? "z-[9999]" : ""}`}>
+    <div
+      ref={ref}
+      className={`relative inline-block ${open ? "z-[9999]" : ""}`}
+    >
       {/* Trigger */}
       <div
         onClick={(e) => {

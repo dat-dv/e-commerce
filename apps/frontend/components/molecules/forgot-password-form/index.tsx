@@ -65,7 +65,10 @@ export default function ForgotPasswordForm() {
         </button>
       </div>
 
-      <AppForm<TForgotPasswordSchema> methods={methods} onSubmit={handleForgotPassword}>
+      <AppForm<TForgotPasswordSchema>
+        methods={methods}
+        onSubmit={handleForgotPassword}
+      >
         {method === "email" ? (
           <FormInput
             name="email"

@@ -45,5 +45,12 @@ export const API_ROUTES = {
   USERS: {
     PROFILE: "/users/profile",
   },
+  PRODUCTS: {
+    BASE: "/products",
+    RECOMMENDED: "/products/recommended",
+    BASED_ON_INTEREST: "/products/based-on-interest",
+    RECENTLY_VIEWED: "/products/recently-viewed",
+    FLASH_SALE: "/products/flash-sale",
+  },
   CONFIG: "/config",
 } as const;
