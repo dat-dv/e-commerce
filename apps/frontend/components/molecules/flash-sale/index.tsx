@@ -8,10 +8,17 @@ import { FlashSaleCard } from "../product-card/flash-sale-card";
 interface FlashSaleProduct {
   id: string;
   name: string;
-  price: string;
-  oldPrice?: string;
-  sold?: number;
-  total?: number;
+  category: string;
+  image_url?: string;
+  skus: {
+    id: string;
+    price: string;
+    original_price?: string;
+    discount_percent?: number;
+    sold?: number;
+    total?: number;
+    image_url?: string;
+  }[];
 }
 
 interface FlashSaleProps {

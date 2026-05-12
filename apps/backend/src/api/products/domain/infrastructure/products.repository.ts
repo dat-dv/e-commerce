@@ -37,7 +37,16 @@ export class ProductsRepository implements IProductsRepository {
       },
     });
 
-    return product;
+    if (!product) return null;
+
+    return {
+      ...product,
+      skus: product.skus?.map((sku) => ({
+        ...sku,
+        price: Number(sku.price),
+        original_price: sku.original_price ? Number(sku.original_price) : null,
+      })),
+    };
   }
 
   async recordView(userId: string, productId: string): Promise<void> {
@@ -47,52 +56,6 @@ export class ProductsRepository implements IProductsRepository {
         product_id: productId,
       },
     });
-  }
-
-  async findMany(params: {
-    category_id?: string;
-    category_slug?: string;
-    orderBy?: Record<string, 'asc' | 'desc'>;
-    take?: number;
-    languageCode?: string;
-  }): Promise<IProduct[]> {
-    const { category_id, category_slug, orderBy, take, languageCode = 'vi' } = params;
-
-    const products = await this.prisma.product.findMany({
-      where: {
-        ...(category_id && {
-          categories: {
-            some: {
-              category_id,
-            },
-          },
-        }),
-        ...(category_slug && {
-          categories: {
-            some: {
-              category: {
-                slug: category_slug,
-              },
-            },
-          },
-        }),
-        deleted_at: null,
-      },
-      orderBy,
-      take,
-      include: {
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        skus: true,
-      },
-    });
-
-    return products;
   }
 
   async getUserTopCategory(userId: string): Promise<string | null> {
@@ -163,24 +126,70 @@ export class ProductsRepository implements IProductsRepository {
     if (!flashSale) return null;
 
     return {
-      id: flashSale.id,
-      name: flashSale.name,
-      end_time: flashSale.end_time,
+      ...flashSale,
       products: flashSale.products.map((p) => ({
+        ...p,
         sale_price: Number(p.sale_price),
-        sold_count: p.sold_count,
-        stock: p.stock,
         sku: {
-          id: p.sku.id,
-          sku_code: p.sku.sku_code,
+          ...p.sku,
           price: Number(p.sku.price),
           original_price: p.sku.original_price ? Number(p.sku.original_price) : null,
-          stock: p.sku.stock,
-          image_url: p.sku.image_url,
-          product: p.sku.product,
         },
       })),
-    };
+    } as IFlashSale;
+  }
+
+  async findMany(params: {
+    category_id?: string;
+    category_slug?: string;
+    orderBy?: Record<string, 'asc' | 'desc'>;
+    take?: number;
+    languageCode?: string;
+  }): Promise<IProduct[]> {
+    const { category_id, category_slug, orderBy, take, languageCode = 'vi' } = params;
+
+    const products = await this.prisma.product.findMany({
+      where: {
+        ...(category_id && {
+          categories: {
+            some: {
+              category_id,
+            },
+          },
+        }),
+        ...(category_slug && {
+          categories: {
+            some: {
+              category: {
+                slug: category_slug,
+              },
+            },
+          },
+        }),
+        deleted_at: null,
+      },
+      orderBy,
+      take,
+      include: {
+        translations: {
+          where: {
+            language: {
+              code: languageCode,
+            },
+          },
+        },
+        skus: true,
+      },
+    });
+
+    return products.map((p) => ({
+      ...p,
+      skus: p.skus?.map((sku) => ({
+        ...sku,
+        price: Number(sku.price),
+        original_price: sku.original_price ? Number(sku.original_price) : null,
+      })),
+    }));
   }
 
   async getRecentlyViewed(userId: string, take = 10, languageCode = 'vi'): Promise<IProduct[]> {
@@ -209,7 +218,19 @@ export class ProductsRepository implements IProductsRepository {
       },
     });
 
-    const productMap = new Map(fetchedProducts.map((p) => [p.id, p]));
+    const productMap = new Map(
+      fetchedProducts.map((p) => [
+        p.id,
+        {
+          ...p,
+          skus: p.skus?.map((sku) => ({
+            ...sku,
+            price: Number(sku.price),
+            original_price: sku.original_price ? Number(sku.original_price) : null,
+          })),
+        },
+      ]),
+    );
 
     return productIds.map((id) => productMap.get(id)).filter((p) => p !== undefined);
   }
@@ -321,7 +342,14 @@ export class ProductsRepository implements IProductsRepository {
     const totalPages = Math.ceil(total / limit);
 
     return {
-      data: data,
+      data: data.map((p) => ({
+        ...p,
+        skus: p.skus?.map((sku) => ({
+          ...sku,
+          price: Number(sku.price),
+          original_price: sku.original_price ? Number(sku.original_price) : null,
+        })),
+      })),
       total,
       page,
       limit,

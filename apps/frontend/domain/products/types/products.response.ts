@@ -8,11 +8,20 @@ export interface ISkuResponse {
   id: string;
   sku_code: string;
   price: number;
-  original_price?: number;
+  original_price?: number | null;
   stock: number;
-  sold?: number;
-  total?: number;
   image_url?: string | null;
+  flash_sales?: IFlashSaleProductResponse[];
+}
+
+export interface IFlashSaleProductResponse {
+  id: string;
+  flash_sale_id: string;
+  sku_id: string;
+  sale_price: number;
+  stock: number;
+  sold_count: number;
+  order_limit: number;
 }
 
 export interface IProductCategoryResponse {

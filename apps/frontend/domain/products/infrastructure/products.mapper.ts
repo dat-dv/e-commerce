@@ -9,23 +9,30 @@ export class ProductMapper {
 
     const skus: ISkuDomain[] =
       dto.skus?.map((sku) => {
-        const currentPrice = sku.sale_price || sku.price || 0;
-        const originalPrice = sku.original_price || sku.price || 0;
+        const flashSale = sku.flash_sales?.[0];
+        const salePrice = flashSale?.sale_price;
+        const regularPrice = sku.price;
+
+        // Logic: Nếu có Flash Sale, giá hiển thị là salePrice, giá gạch đi (original) là regularPrice.
+        // Nếu không có, giá hiển thị là regularPrice, giá gạch đi là sku.original_price.
+        const displayPrice = salePrice || regularPrice;
+        const strikePrice = salePrice ? regularPrice : sku.original_price;
+
         const discountPercent =
-          originalPrice > currentPrice
-            ? Math.round(((originalPrice - currentPrice) / originalPrice) * 100)
-            : 0;
+          strikePrice && strikePrice > displayPrice
+            ? Math.round(((strikePrice - displayPrice) / strikePrice) * 100)
+            : undefined;
 
         return {
           id: sku.id,
-          price: currentPrice.toLocaleString("vi-VN") + " ₫",
+          price: displayPrice.toLocaleString("vi-VN") + " ₫",
           original_price:
-            originalPrice > currentPrice
-              ? originalPrice.toLocaleString("vi-VN") + " ₫"
+            strikePrice && strikePrice > displayPrice
+              ? strikePrice.toLocaleString("vi-VN") + " ₫"
               : undefined,
-          discount_percent: discountPercent > 0 ? discountPercent : undefined,
-          sold: sku.sold,
-          total: sku.total,
+          discount_percent: discountPercent,
+          sold: flashSale?.sold_count,
+          total: flashSale?.stock,
           image_url: sku.image_url || undefined,
         };
       }) || [];

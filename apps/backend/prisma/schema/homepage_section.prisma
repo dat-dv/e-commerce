@@ -2,13 +2,28 @@
 
 model HomepageSection {
   id         String   @id @default(cuid())
-  title      String
-  type       String   // e.g., 'flash_sale', 'categories', 'product_carousel'
+  type       String   // e.g., 'flash_sale', 'product thuộc category', 'recommends', 'recent view' 
   order      Int      @default(0)
-  is_enabled Boolean  @default(true)
-  params     String?  // JSON string for extra params, e.g., { "category_id": "..." }
-  created_at DateTime @default(now())
+  is_enabled    Boolean  @default(true)
+  require_login Boolean  @default(false)
+  created_at    DateTime @default(now())
   updated_at DateTime @updatedAt
 
+  categories   ProductCategory[]
+  translations HomepageSectionTranslation[]
+
   @@map("homepage_sections")
+}
+
+model HomepageSectionTranslation {
+  id                  String          @id @default(cuid())
+  homepage_section_id String
+  language_id         String
+  title               String
+
+  homepage_section    HomepageSection @relation(fields: [homepage_section_id], references: [id], onDelete: Cascade)
+  language            Language        @relation(fields: [language_id], references: [id])
+
+  @@unique([homepage_section_id, language_id])
+  @@map("homepage_section_translations")
 }

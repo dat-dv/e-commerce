@@ -2,7 +2,7 @@
 
 import { Injectable, Inject } from '@nestjs/common';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { IHomepageSection, IHomepageSectionResponse, IHomepageProduct } from '../entities/homepage-section.entity';
+import { EHomepageSectionType, IHomepageSection, IHomepageSectionResponse } from '../entities/homepage-section.entity';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IProduct } from 'src/api/products/domain/entities/product.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -17,46 +17,49 @@ export class GetHomepageSectionsUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(languageCode = 'vi'): Promise<IHomepageSectionResponse[]> {
-    const sections = await this.homepageSectionRepo.findAllEnabled();
+  async execute(languageCode = 'vi', isLoggedIn = false): Promise<IHomepageSectionResponse[]> {
+    const sections = await this.homepageSectionRepo.findAllEnabled(isLoggedIn);
 
     const results = await Promise.all(
       sections.map(async (section): Promise<IHomepageSectionResponse> => {
-        let products: any[] = [];
+        let products: IProduct[] = [];
 
-        if (section.type === 'flash_sale') {
+        if (section.type === EHomepageSectionType.FLASH_SALE) {
           const flashSale = await this.productsRepo.getActiveFlashSale();
-          products =
-            flashSale?.products?.map(
-              (p): IHomepageProduct => ({
-                ...p.sku.product,
-                skus: [
-                  {
-                    ...p.sku,
-                    sale_price: p.sale_price,
-                    sold: p.sold_count,
-                    total: p.stock,
-                  },
-                ],
-              }),
-            ) || [];
-        } else if (section.type === 'product_carousel') {
-          const categorySlug = section.params?.category_slug;
-          products = await this.productsRepo.findMany({
-            category_slug: categorySlug,
-            orderBy: { created_at: 'desc' },
-            take: 12,
-            languageCode,
-          });
+          const flashSaleProducts = flashSale?.products || [];
+
+          products = flashSaleProducts.reduce((acc: IProduct[], p) => {
+            const product = p.sku?.product;
+            if (product) {
+              acc.push({
+                ...product,
+                skus: (product.skus || []).map((sku) => (sku.id === p.sku_id ? { ...sku, flash_sales: [p] } : sku)),
+              });
+            }
+            return acc;
+          }, []);
+        } else if (section.type === EHomepageSectionType.PRODUCT_CAROUSEL) {
+          const categorySlug = section.categories?.[0]?.slug;
+          if (categorySlug) {
+            products = await this.productsRepo.findMany({
+              category_slug: categorySlug,
+              orderBy: { created_at: 'desc' },
+              take: 12,
+              languageCode,
+            });
+          }
         }
+
+        const translation =
+          section.translations?.find((t) => t.language?.code === languageCode) || section.translations?.[0];
+        const title = translation?.title || '';
 
         return {
           category: {
             id: section.id,
-            title: section.title,
+            title: title,
             type: section.type,
-            slug: section.params?.category_slug,
-            params: section.params,
+            categories: section.categories,
           },
           data: products,
         };

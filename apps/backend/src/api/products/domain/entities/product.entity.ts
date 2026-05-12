@@ -27,14 +27,26 @@ export interface ISkuAttributeValue {
   attribute_value?: IAttributeValue;
 }
 
+export interface ISkuFlashSale {
+  id: string;
+  flash_sale_id: string;
+  sku_id: string;
+  sale_price: number;
+  stock: number;
+  sold_count: number;
+}
+
 export interface ISku {
   id: string;
+  product_id: string;
   sku_code: string;
   price: number;
   original_price?: number | null;
   stock: number;
   image_url?: string | null;
   sku_attribute_values?: ISkuAttributeValue[];
+  flash_sales?: ISkuFlashSale[]; // Quan hệ từ FlashSaleProduct
+  product?: IProduct; // Quan hệ ngược về Product
 }
 
 export interface IProduct {

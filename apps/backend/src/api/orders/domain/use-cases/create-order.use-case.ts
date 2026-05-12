@@ -195,34 +195,19 @@ export class CreateOrderUseCase {
       const totalAmount = subTotal - discountAmount;
 
       // 3. Tạo đơn hàng
-      const order = await tx.order.create({
-        data: {
-          user_id: userId,
-          total_amount: totalAmount,
-          discount_amount: discountAmount,
-          shipping_address_id: finalShippingAddressId,
-          coupon_id: appliedCouponId,
-          status: OrderStatus.PENDING,
-          items: {
-            create: orderItems.map((item) => ({
-              sku_id: item.sku_id,
-              quantity: item.quantity,
-              price: item.price,
-              flash_sale_id: item.flash_sale_id,
-            })),
-          },
-        },
-        include: {
-          items: true,
-        },
+      return await this.ordersRepository.createOrder({
+        user_id: userId,
+        total_amount: totalAmount,
+        discount_amount: discountAmount,
+        shipping_address_id: finalShippingAddressId,
+        coupon_id: appliedCouponId,
+        items: orderItems.map((item) => ({
+          sku_id: item.sku_id,
+          quantity: item.quantity,
+          price: item.price,
+          flash_sale_id: item.flash_sale_id,
+        })),
       });
-
-      // 4. Xóa các items đã thanh toán trong giỏ hàng
-      await tx.cartItem.deleteMany({
-        where: { id: { in: cartItemIds } },
-      });
-
-      return order;
     });
   }
 }

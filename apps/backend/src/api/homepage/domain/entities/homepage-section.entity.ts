@@ -1,34 +1,40 @@
 // src/api/homepage/domain/entities/homepage-section.entity.ts
 
-import { IProduct, ISku } from 'src/api/products/domain/entities/product.entity';
+import { IProduct } from 'src/api/products/domain/entities/product.entity';
+import { IProductCategory } from 'src/api/product-categories/domain/entities/product-category.entity';
+
+export enum EHomepageSectionType {
+  FLASH_SALE = 'flash_sale',
+  PRODUCT_CAROUSEL = 'product_carousel',
+}
+
+export interface IHomepageSectionTranslation {
+  id: string;
+  homepage_section_id: string;
+  language_id: string;
+  title: string;
+  language?: {
+    code: string;
+  };
+}
 
 export interface IHomepageSection {
   id: string;
-  title: string;
-  type: string;
+  type: EHomepageSectionType;
   order: number;
   is_enabled: boolean;
-  params: Record<string, string> | null;
+  require_login: boolean;
+  categories?: IProductCategory[];
+  translations?: IHomepageSectionTranslation[];
   created_at: Date;
   updated_at: Date;
 }
-export interface IHomepageSku extends ISku {
-  sale_price?: number;
-  sold?: number;
-  total?: number;
-}
-
-export interface IHomepageProduct extends Omit<IProduct, 'skus'> {
-  skus: IHomepageSku[];
-}
-
 export interface IHomepageSectionResponse {
   category: {
     id: string;
     title: string;
-    type: string;
-    slug?: string;
-    params?: Record<string, string> | null;
+    type: EHomepageSectionType;
+    categories?: IProductCategory[];
   };
-  data: IHomepageProduct[];
+  data: IProduct[];
 }

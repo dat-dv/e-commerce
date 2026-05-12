@@ -3,21 +3,46 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { IHomepageSection } from '../entities/homepage-section.entity';
+import { EHomepageSectionType, IHomepageSection } from '../entities/homepage-section.entity';
 
 @Injectable()
 export class HomepageSectionRepository implements IHomepageSectionRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAllEnabled(): Promise<IHomepageSection[]> {
+  async findAllEnabled(isLoggedIn: boolean = false): Promise<IHomepageSection[]> {
     const rows = await this.prisma.homepageSection.findMany({
-      where: { is_enabled: true },
+      where: {
+        is_enabled: true,
+        ...(isLoggedIn ? {} : { require_login: false }),
+      },
       orderBy: { order: 'asc' },
+      include: {
+        categories: true,
+        translations: {
+          include: {
+            language: true,
+          },
+        },
+      },
     });
 
-    return rows.map((row) => ({
-      ...row,
-      params: row.params ? (JSON.parse(row.params) as Record<string, string>) : null,
-    }));
+    return rows.map((row) => {
+      let sectionType: EHomepageSectionType = EHomepageSectionType.PRODUCT_CAROUSEL;
+      if (row.type === 'flash_sale') {
+        sectionType = EHomepageSectionType.FLASH_SALE;
+      }
+
+      return {
+        id: row.id,
+        type: sectionType,
+        order: row.order,
+        is_enabled: row.is_enabled,
+        require_login: !!row.require_login,
+        categories: row.categories,
+        translations: row.translations,
+        created_at: row.created_at,
+        updated_at: row.updated_at,
+      };
+    });
   }
 }

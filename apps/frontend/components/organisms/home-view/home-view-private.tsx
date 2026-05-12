@@ -10,7 +10,6 @@ import { WelcomeBanner } from "@/components/molecules/welcome-banner";
 import { APP_ROUTES } from "@/constants/routes";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { IProduct } from "@/domain/products/types/products.model";
-import { useProductsStore } from "@/hooks/products/use-products-store";
 import {
   Flame,
   Laptop,
@@ -23,10 +22,12 @@ import {
   Truck,
   Star,
   Eye,
-  RefreshCw,
   Zap,
+  LucideIcon,
 } from "lucide-react";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { homepageUseCase } from "@/domain/homepage/use-cases";
+import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
 
 const POPULAR_CATEGORIES = [
   {
@@ -100,12 +101,10 @@ const FEATURE_ITEMS = [
   },
 ];
 
-import { Zap, Laptop, Sparkles, Heart, Home, LucideIcon } from "lucide-react";
-import { homepageUseCase } from "@/domain/homepage/use-cases";
-import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
+import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
-  flash_sale: Zap,
+  [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
   electronics: Laptop,
   "tv-audio-cameras": Laptop,
   "toys-baby-products": Sparkles,
@@ -115,7 +114,7 @@ const SECTION_ICONS: Record<string, LucideIcon> = {
 };
 
 const getIcon = (type: string, slug?: string) => {
-  if (type === "flash_sale") return Zap;
+  if (type === HOMEPAGE_SECTION_TYPES.FLASH_SALE) return Zap;
   return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
 };
 
@@ -165,7 +164,7 @@ export const HomepagePrivate = () => {
         {/* 3. Dynamic Backend Sections */}
         {sections.map((section) => {
           if (
-            section.category.type === "flash_sale" &&
+            section.category.type === HOMEPAGE_SECTION_TYPES.FLASH_SALE &&
             section.data.length > 0
           ) {
             return (
@@ -173,7 +172,7 @@ export const HomepagePrivate = () => {
             );
           }
 
-          if (section.category.type === "categories") {
+          if (section.category.type === HOMEPAGE_SECTION_TYPES.CATEGORIES) {
             return (
               <div key={section.category.id} className="flex flex-col gap-6">
                 <div className="flex items-center justify-between">
@@ -188,7 +187,7 @@ export const HomepagePrivate = () => {
           }
 
           if (
-            section.category.type === "product_carousel" &&
+            section.category.type === HOMEPAGE_SECTION_TYPES.PRODUCT_CAROUSEL &&
             section.data.length > 0
           ) {
             return (

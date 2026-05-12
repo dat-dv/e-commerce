@@ -14,11 +14,10 @@ import {
   Home,
   Watch,
   Heart,
+  LucideIcon,
 } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
-import { productsUseCase } from "@/domain/products/use-cases";
 import { IProduct } from "@/domain/products/types/products.model";
-import { useProductsStore } from "@/hooks/products/use-products-store";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { HeroSection } from "@/components/molecules/hero-section";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
@@ -107,38 +106,41 @@ const chunkArray = (arr: IProduct[], size: number): IProduct[][] => {
   return result;
 };
 
+import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
+import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
+import { homepageUseCase } from "@/domain/homepage/use-cases";
+
+const SECTION_ICONS: Record<string, LucideIcon> = {
+  [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
+  electronics: Laptop,
+  "tv-audio-cameras": Laptop,
+  "toys-baby-products": Sparkles,
+  "beauty-health": Heart,
+  "home-kitchen": Home,
+  default: Sparkles,
+};
+
+const getIcon = (type: string, slug?: string) => {
+  if (type === HOMEPAGE_SECTION_TYPES.FLASH_SALE) return Zap;
+  return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
+};
+
 export const HomepagePublic = () => {
-  const flashSaleProducts = useProductsStore(
-    (state) => state.flashSaleProducts,
-  );
-  const trendingProducts = useProductsStore(
-    (state) => state.recommendedProducts,
-  );
-  const setFlashSaleProducts = useProductsStore(
-    (state) => state.setFlashSaleProducts,
-  );
-  const setTrendingProducts = useProductsStore(
-    (state) => state.setRecommendedProducts,
-  );
+  const [sections, setSections] = useState<IHomepageSection[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const flash = await productsUseCase.getFlashSale.execute();
-        if (flash.status === "success" && flash.data)
-          setFlashSaleProducts(flash.data);
-
-        const rec = await productsUseCase.getRecommended.execute();
-        if (rec.status === "success" && rec.data) setTrendingProducts(rec.data);
+        const secRes = await homepageUseCase.getSections.execute();
+        if (secRes.status === "success" && secRes.data) {
+          setSections(secRes.data);
+        }
       } catch (error) {
-        console.error("Failed to fetch products:", error);
+        console.error("Failed to fetch homepage sections:", error);
       }
     };
     fetchData();
   }, []);
-
-  // Tạo mảng 2 hàng cho phần Mom & Baby
-  const babyProductsChunked = chunkArray(trendingProducts, 2);
 
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="public-home">
@@ -150,54 +152,49 @@ export const HomepagePublic = () => {
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
 
-        {/* 3. Flash Sale */}
-        {flashSaleProducts.length > 0 && (
-          <FlashSale products={flashSaleProducts} />
-        )}
+        {/* 3. Dynamic Backend Sections */}
+        {sections.map((section) => {
+          if (
+            section.category.type === HOMEPAGE_SECTION_TYPES.FLASH_SALE &&
+            section.data.length > 0
+          ) {
+            return (
+              <FlashSale key={section.category.id} products={section.data} />
+            );
+          }
 
-        {/* 4. Categories */}
-        <div className="flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-content flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-purple-500" />
-              Popular Categories
-            </h2>
-          </div>
-          <CategoriesGrid categories={POPULAR_CATEGORIES} />
-        </div>
+          if (section.category.type === HOMEPAGE_SECTION_TYPES.CATEGORIES) {
+            return (
+              <div key={section.category.id} className="flex flex-col gap-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold text-content flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-purple-500" />
+                    {section.category.title}
+                  </h2>
+                </div>
+                <CategoriesGrid categories={POPULAR_CATEGORIES} />
+              </div>
+            );
+          }
 
-        {/* 3. Trending Now Section */}
-        {trendingProducts.length > 0 && (
-          <ProductCarousel
-            title="Trending Now"
-            icon={Flame}
-            iconColor="text-orange-500"
-            products={trendingProducts}
-            rows={1}
-          />
-        )}
+          if (
+            section.category.type === HOMEPAGE_SECTION_TYPES.PRODUCT_CAROUSEL &&
+            section.data.length > 0
+          ) {
+            return (
+              <ProductCarousel
+                key={section.category.id}
+                title={section.category.title}
+                icon={getIcon(section.category.type, section.category.slug)}
+                iconColor="text-blue-500"
+                products={section.data}
+                rows={1}
+              />
+            );
+          }
 
-        {/* 4. Technology Section */}
-        {trendingProducts.length > 0 && (
-          <ProductCarousel
-            title="Technology"
-            icon={Laptop}
-            iconColor="text-blue-500"
-            products={trendingProducts} // Tạm thời dùng chung dữ liệu thật
-            rows={1}
-          />
-        )}
-
-        {/* 5. Mom & Baby Section */}
-        {babyProductsChunked.length > 0 && (
-          <ProductCarousel
-            title="Mom & Baby"
-            icon={Heart}
-            iconColor="text-pink-500"
-            products={babyProductsChunked}
-            rows={2}
-          />
-        )}
+          return null;
+        })}
 
         {/* 4. Promotional Banner */}
         <PromoBanner />
