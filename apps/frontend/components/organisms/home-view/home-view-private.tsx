@@ -16,7 +16,6 @@ import {
   Home,
   Watch,
   Ticket,
-  Truck,
   Star,
   Eye,
   Zap,
@@ -65,13 +64,6 @@ const FEATURE_ITEMS = [
     icon: Ticket,
     color: "text-pink-500",
     href: APP_ROUTES.VOUCHERS,
-  },
-  {
-    name: "Fast Delivery",
-    desc: "2H shipping",
-    icon: Truck,
-    color: "text-blue-500",
-    href: APP_ROUTES.FAST_DELIVERY,
   },
   {
     name: "Top Brands",
