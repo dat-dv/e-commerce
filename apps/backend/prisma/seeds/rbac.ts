@@ -1,6 +1,11 @@
 import { PrismaClient, Prisma } from '../../generated/prisma/client';
 import { ROLE_ADMIN, ROLE_USER } from '../../src/common/constants/roles.constant';
 
+/**
+ * Seeds the Role-Based Access Control (RBAC) permissions and roles.
+ * Why: This ensures that the system has all required permissions and default roles on startup or reset.
+ * @param prisma The Prisma client instance.
+ */
 export async function seedRBAC(prisma: PrismaClient) {
   console.log('--- Phase 0: Roles & Permissions ---');
 
@@ -53,10 +58,77 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'DELETE:REVIEW', description: 'Quyền xóa đánh giá', category: 'Quản lý đánh giá' },
 
     // Quản lý đơn hàng (Order)
+    { permission_name: 'CREATE:ORDER', description: 'Quyền tạo đơn hàng', category: 'Quản lý đơn hàng' },
+    {
+      permission_name: 'LIST:OWN_ORDER',
+      description: 'Quyền xem danh sách đơn hàng của mình',
+      category: 'Quản lý đơn hàng',
+    },
+    {
+      permission_name: 'LIST:ANY_ORDER',
+      description: 'Quyền xem danh sách tất cả đơn hàng',
+      category: 'Quản lý đơn hàng',
+    },
+    {
+      permission_name: 'DETAIL:OWN_ORDER',
+      description: 'Quyền xem chi tiết đơn hàng của mình',
+      category: 'Quản lý đơn hàng',
+    },
+    {
+      permission_name: 'DETAIL:ANY_ORDER',
+      description: 'Quyền xem chi tiết bất kỳ đơn hàng nào',
+      category: 'Quản lý đơn hàng',
+    },
     {
       permission_name: 'UPDATE:ORDER',
       description: 'Quyền cập nhật trạng thái đơn hàng',
       category: 'Quản lý đơn hàng',
+    },
+
+    // Quản lý sản phẩm (Product)
+    { permission_name: 'CREATE:PRODUCT', description: 'Quyền tạo sản phẩm', category: 'Quản lý sản phẩm' },
+    { permission_name: 'LIST:PRODUCT', description: 'Quyền xem danh sách sản phẩm', category: 'Quản lý sản phẩm' },
+    { permission_name: 'DETAIL:PRODUCT', description: 'Quyền xem chi tiết sản phẩm', category: 'Quản lý sản phẩm' },
+    { permission_name: 'UPDATE:PRODUCT', description: 'Quyền sửa sản phẩm', category: 'Quản lý sản phẩm' },
+    { permission_name: 'DELETE:PRODUCT', description: 'Quyền xóa sản phẩm', category: 'Quản lý sản phẩm' },
+
+    // Quản lý Flash Sale
+    {
+      permission_name: 'CREATE:FLASH_SALE',
+      description: 'Quyền tạo chiến dịch Flash Sale',
+      category: 'Quản lý Flash Sale',
+    },
+    {
+      permission_name: 'LIST:FLASH_SALE',
+      description: 'Quyền xem danh sách Flash Sale',
+      category: 'Quản lý Flash Sale',
+    },
+    {
+      permission_name: 'DETAIL:FLASH_SALE',
+      description: 'Quyền xem chi tiết Flash Sale',
+      category: 'Quản lý Flash Sale',
+    },
+    {
+      permission_name: 'UPDATE:FLASH_SALE',
+      description: 'Quyền sửa chiến dịch Flash Sale',
+      category: 'Quản lý Flash Sale',
+    },
+    {
+      permission_name: 'DELETE:FLASH_SALE',
+      description: 'Quyền xóa chiến dịch Flash Sale',
+      category: 'Quản lý Flash Sale',
+    },
+
+    // Quản lý Thông báo
+    {
+      permission_name: 'CREATE:NOTIFICATION_TOKEN',
+      description: 'Quyền đăng ký token thông báo',
+      category: 'Quản lý thông báo',
+    },
+    {
+      permission_name: 'DELETE:NOTIFICATION_TOKEN',
+      description: 'Quyền xóa token thông báo',
+      category: 'Quản lý thông báo',
     },
   ];
 
@@ -108,6 +180,15 @@ export async function seedRBAC(prisma: PrismaClient) {
     'DETAIL:REVIEW',
     'DETAIL:OWN_USER',
     'UPDATE:OWN_USER',
+    'LIST:PRODUCT',
+    'DETAIL:PRODUCT',
+    'LIST:FLASH_SALE',
+    'DETAIL:FLASH_SALE',
+    'CREATE:NOTIFICATION_TOKEN',
+    'DELETE:NOTIFICATION_TOKEN',
+    'CREATE:ORDER',
+    'LIST:OWN_ORDER',
+    'DETAIL:OWN_ORDER',
   ];
 
   const userRole = await prisma.role.upsert({
