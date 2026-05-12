@@ -3,6 +3,8 @@ import { IProduct } from './product.entity';
 export interface IProductsRepository {
   findById(id: string, languageCode?: string): Promise<IProduct | null>;
 
+  recordView(userId: string, productId: string): Promise<void>;
+
   findMany(params: {
     category_id?: string;
     orderBy?: Record<string, 'asc' | 'desc'>;

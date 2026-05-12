@@ -39,6 +39,15 @@ export class ProductsRepository implements IProductsRepository {
     return product;
   }
 
+  async recordView(userId: string, productId: string): Promise<void> {
+    await this.prisma.userBrowsingHistory.create({
+      data: {
+        user_id: userId,
+        product_id: productId,
+      },
+    });
+  }
+
   async findMany(params: {
     category_id?: string;
     orderBy?: Record<string, 'asc' | 'desc'>;
