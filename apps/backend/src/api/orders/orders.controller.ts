@@ -26,7 +26,7 @@ export class OrdersController {
   @Post()
   async createOrder(@Body() body: CreateOrderDto, @Req() req: Request) {
     const userId = req.user.sub;
-    const result = await this.createOrderUseCase.execute(userId, body.shipping_address_id);
+    const result = await this.createOrderUseCase.execute(userId, body);
     return createSuccessResponse(result);
   }
 

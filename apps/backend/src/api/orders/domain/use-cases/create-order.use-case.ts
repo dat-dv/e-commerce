@@ -21,11 +21,22 @@ export class CreateOrderUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(userId: string, shippingAddressId?: string) {
-    // 0. Kiểm tra địa chỉ giao hàng nếu có cung cấp
-    if (shippingAddressId) {
+  async execute(userId: string, data: { cartItemIds: string[]; shippingAddressId?: string; promoCode?: string }) {
+    const { cartItemIds, shippingAddressId, promoCode } = data;
+
+    // 0. Xác định địa chỉ giao hàng
+    let finalShippingAddressId = shippingAddressId;
+    if (!finalShippingAddressId) {
+      const defaultAddress = await this.prisma.shippingAddress.findFirst({
+        where: { user_id: userId, is_default: true },
+      });
+      if (!defaultAddress) {
+        throw new BadRequestException('No shipping address provided and no default address found');
+      }
+      finalShippingAddressId = defaultAddress.id;
+    } else {
       const address = await this.prisma.shippingAddress.findFirst({
-        where: { id: shippingAddressId, user_id: userId },
+        where: { id: finalShippingAddressId, user_id: userId },
       });
       if (!address) {
         throw new BadRequestException('Shipping address not found or does not belong to user');
@@ -33,18 +44,23 @@ export class CreateOrderUseCase {
     }
 
     return await this.prisma.$transaction(async (tx) => {
-      // 1. Lấy giỏ hàng
+      // 1. Lấy giỏ hàng và lọc các items được chọn
       const cart = await this.cartRepository.getCart(userId);
       if (!cart || cart.items.length === 0) {
         throw new BadRequestException('Cart is empty');
       }
 
+      const selectedItems = cart.items.filter((item) => cartItemIds.includes(item.id));
+      if (selectedItems.length === 0) {
+        throw new BadRequestException('No valid cart items selected for checkout');
+      }
+
       const now = new Date();
-      let totalAmount = 0;
+      let subTotal = 0;
       const orderItems: IOrderItemInput[] = [];
 
-      // 2. Xử lý từng item trong giỏ hàng
-      for (const cartItem of cart.items) {
+      // 2. Xử lý từng item trong các item được chọn
+      for (const cartItem of selectedItems) {
         // Kiểm tra xem SKU có đang trong Flash Sale không
         const flashSaleProduct = await tx.flashSaleProduct.findFirst({
           where: {
@@ -116,7 +132,7 @@ export class CreateOrderUseCase {
           });
         }
 
-        totalAmount += finalPrice * cartItem.quantity;
+        subTotal += finalPrice * cartItem.quantity;
         orderItems.push({
           sku_id: cartItem.sku_id,
           quantity: cartItem.quantity,
@@ -125,12 +141,67 @@ export class CreateOrderUseCase {
         });
       }
 
+      // 2.5. Áp dụng Coupon nếu có
+      let discountAmount = 0;
+      let appliedCouponId: string | undefined = undefined;
+
+      if (promoCode) {
+        const coupon = await tx.coupon.findUnique({
+          where: { code: promoCode, is_active: true },
+        });
+
+        if (!coupon) {
+          throw new BadRequestException('Invalid or inactive promo code');
+        }
+
+        if (now < coupon.start_date || now > coupon.end_date) {
+          throw new BadRequestException('Promo code is expired');
+        }
+
+        if (subTotal < coupon.min_order_amount) {
+          throw new BadRequestException(`Minimum order amount for this promo code is ${coupon.min_order_amount}`);
+        }
+
+        if (coupon.used_count >= coupon.usage_limit) {
+          throw new BadRequestException('Promo code usage limit reached');
+        }
+
+        // Tính toán discount
+        if (coupon.discount_type === 0) {
+          // PERCENTAGE
+          discountAmount = (subTotal * coupon.discount_value) / 100;
+          if (coupon.max_discount_amount && discountAmount > coupon.max_discount_amount) {
+            discountAmount = coupon.max_discount_amount;
+          }
+        } else {
+          // FIXED_AMOUNT
+          discountAmount = coupon.discount_value;
+        }
+
+        // Không cho phép discount > subTotal
+        if (discountAmount > subTotal) {
+          discountAmount = subTotal;
+        }
+
+        appliedCouponId = coupon.id;
+
+        // Cập nhật số lần sử dụng coupon
+        await tx.coupon.update({
+          where: { id: coupon.id },
+          data: { used_count: { increment: 1 } },
+        });
+      }
+
+      const totalAmount = subTotal - discountAmount;
+
       // 3. Tạo đơn hàng
       const order = await tx.order.create({
         data: {
           user_id: userId,
           total_amount: totalAmount,
-          shipping_address_id: shippingAddressId,
+          discount_amount: discountAmount,
+          shipping_address_id: finalShippingAddressId,
+          coupon_id: appliedCouponId,
           status: OrderStatus.PENDING,
           items: {
             create: orderItems.map((item) => ({
@@ -146,9 +217,9 @@ export class CreateOrderUseCase {
         },
       });
 
-      // 4. Xóa các items trong giỏ hàng (giữ lại record Cart)
+      // 4. Xóa các items đã thanh toán trong giỏ hàng
       await tx.cartItem.deleteMany({
-        where: { cart: { user_id: userId } },
+        where: { id: { in: cartItemIds } },
       });
 
       return order;

@@ -1,0 +1,19 @@
+// prisma/schema/coupon.prisma
+
+model Coupon {
+  id                  String   @id @default(cuid())
+  code                String   @unique
+  discount_type       Int      // 0: PERCENTAGE, 1: FIXED_AMOUNT
+  discount_value      Float
+  min_order_amount    Float    @default(0)
+  max_discount_amount Float?
+  start_date          DateTime
+  end_date            DateTime
+  usage_limit         Int      @default(1)
+  used_count          Int      @default(0)
+  is_active           Boolean  @default(true)
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
+
+  orders              Order[]
+}

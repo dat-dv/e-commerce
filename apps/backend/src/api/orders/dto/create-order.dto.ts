@@ -1,7 +1,16 @@
-import { IsOptional, IsString } from 'class-validator';
+import { IsArray, IsString, IsOptional, IsNotEmpty } from 'class-validator';
 
 export class CreateOrderDto {
-  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  @IsNotEmpty({ each: true })
+  cartItemIds: string[];
+
   @IsString()
-  shipping_address_id?: string;
+  @IsOptional()
+  shippingAddressId?: string;
+
+  @IsString()
+  @IsOptional()
+  promoCode?: string;
 }
