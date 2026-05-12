@@ -38,10 +38,8 @@ export class LoginUseCase {
     const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
     await this.authRepository.saveRefreshToken(refreshToken, user.id, expiresAt);
 
-    return {
-      user,
-      accessToken,
-      refreshToken,
-    };
+    const { password, ...userResponse } = user;
+
+    return { user: userResponse, accessToken, refreshToken };
   }
 }

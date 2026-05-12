@@ -4,12 +4,28 @@ export interface IProductTranslation {
   description?: string | null;
 }
 
+export interface IAttribute {
+  id: string;
+  name: string;
+}
+
+export interface IAttributeValue {
+  id: string;
+  value: string;
+  attribute?: IAttribute;
+}
+
+export interface ISkuAttributeValue {
+  attribute_value?: IAttributeValue;
+}
+
 export interface ISku {
   id: string;
   sku_code: string;
   price: number;
   stock: number;
   image_url?: string | null;
+  sku_attribute_values?: ISkuAttributeValue[];
 }
 
 export interface IProduct {
@@ -24,4 +40,5 @@ export interface IProduct {
 
   translations?: IProductTranslation[];
   skus?: ISku[];
+  thumbnail?: any;
 }

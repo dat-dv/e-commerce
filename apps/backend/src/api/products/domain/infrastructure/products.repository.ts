@@ -12,6 +12,7 @@ export class ProductsRepository implements IProductsRepository {
     const product = await this.prisma.product.findUnique({
       where: { id },
       include: {
+        thumbnail: true,
         translations: {
           where: {
             language: {
@@ -19,7 +20,19 @@ export class ProductsRepository implements IProductsRepository {
             },
           },
         },
-        skus: true,
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
 
@@ -210,7 +223,7 @@ export class ProductsRepository implements IProductsRepository {
     const totalPages = Math.ceil(total / limit);
 
     return {
-      data: data as unknown as IProduct[],
+      data: data,
       total,
       page,
       limit,
