@@ -11,6 +11,7 @@ import { ProductCategoriesModule } from './api/product-categories/product-catego
 import { ReviewsModule } from './api/reviews/reviews.module';
 import { CartModule } from './api/cart/cart.module';
 import { OrdersModule } from './api/orders/orders.module';
+import { AddressesModule } from './api/addresses/addresses.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { OrdersModule } from './api/orders/orders.module';
     ReviewsModule,
     CartModule,
     OrdersModule,
+    AddressesModule,
   ],
   controllers: [],
   providers: [],
