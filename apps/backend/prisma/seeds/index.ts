@@ -1,10 +1,9 @@
 import 'dotenv/config';
 import { PrismaClient } from '../../generated/prisma/client';
 import { seedPhase1 } from './phase1';
-import { seedProducts } from './products';
+import { seedProductsAndCategories } from './products-n-categories';
 import { seedRBAC } from './rbac';
 import { setupLanguage } from './language';
-import { seedCategories } from './categories';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
@@ -47,13 +46,10 @@ async function main() {
   console.log('--- Phase 0: Setup ---');
   await seedRBAC(prisma);
   await setupLanguage(prisma);
-
   // --- Phase 1: Core Entities ---
   await seedPhase1(prisma);
-
   // --- Phase 2: Business Data ---
-  await seedCategories(prisma);
-  await seedProducts(prisma);
+  await seedProductsAndCategories(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');
 }
