@@ -1,5 +1,5 @@
+import { EProductStatus } from 'src/api/products/domain/entities/product.entity';
 import { Prisma, PrismaClient } from '../../../generated/prisma/client';
-import { ProductStatus } from './enums';
 
 export interface LaptopSeedData {
   vi: string;
@@ -52,7 +52,7 @@ export async function seedLaptops(prisma: PrismaClient, viId: string, enId: stri
 
   // 1. Tạo Products hàng loạt và lấy về danh sách đã tạo (để lấy ID)
   const productsToCreate: Prisma.ProductCreateManyInput[] = laptopData.flatMap((): Prisma.ProductCreateManyInput[] =>
-    Array.from({ length: 5 }, () => ({ status: ProductStatus.ACTIVE })),
+    Array.from({ length: 5 }, () => ({ status: EProductStatus.ACTIVE })),
   );
 
   const createdProducts = await prisma.product.createManyAndReturn({
