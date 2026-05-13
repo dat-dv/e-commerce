@@ -29,6 +29,7 @@ export interface AmazonProduct {
   description_vi: string;
   description_en: string;
   skus: AmazonSku[];
+  brand?: string;
 }
 
 function slugify(text: string): string {
@@ -41,12 +42,12 @@ function slugify(text: string): string {
     .replace(/--+/g, '-'); // Xoá nhiều - liên tiếp
 }
 
-export async function seedProductsAndCategories(prisma: PrismaClient) {
+export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
   const fileName = process.argv[2];
   let filesToProcess: string[] = [];
 
   const isDevSeed = !true;
-  const datasetDir = path.join(__dirname, '../dataset');
+  const datasetDir = path.join(__dirname, '../dataset/products');
 
   if (fileName) {
     filesToProcess.push(fileName);
@@ -201,6 +202,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient) {
           data: {
             status: 1, // ACTIVE
             thumbnail_id: thumbnail.id,
+            brand_id: p.brand ? brandMap[p.brand] : null,
             translations: {
               create: [
                 { language_id: langVi.id, name: p.name_vi, description: p.description_vi },
