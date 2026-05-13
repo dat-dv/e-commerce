@@ -11,7 +11,6 @@ export enum EHomepageSectionType {
   SUPER_DEALS = 'super_deals',
   NEW_ARRIVALS = 'new_arrivals',
   TOP_BRANDS = 'top_brands',
-  CATEGORIES = 'categories',
 }
 
 export interface IHomepageSectionTranslation {

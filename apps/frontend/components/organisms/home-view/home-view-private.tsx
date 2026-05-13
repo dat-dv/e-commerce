@@ -3,7 +3,6 @@
 import AppContainer from "@/components/atoms/app-container";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { FlashSale } from "@/components/molecules/flash-sale";
-import { CategoriesGrid } from "@/components/molecules/categories-grid";
 import { CategoriesSection } from "@/components/molecules/categories-section";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { WelcomeBanner } from "@/components/molecules/welcome-banner";
@@ -13,9 +12,7 @@ import {
   Laptop,
   Heart,
   Sparkles,
-  Shirt,
   Home,
-  Watch,
   Ticket,
   Star,
   Eye,
@@ -23,33 +20,6 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
-
-const POPULAR_CATEGORIES = [
-  {
-    name: "Electronics",
-    count: "1.2k+ Products",
-    icon: Laptop,
-    color: "text-blue-500",
-  },
-  {
-    name: "Fashion",
-    count: "800+ Products",
-    icon: Shirt,
-    color: "text-pink-500",
-  },
-  {
-    name: "Home & Living",
-    count: "500+ Products",
-    icon: Home,
-    color: "text-orange-500",
-  },
-  {
-    name: "Accessories",
-    count: "300+ Products",
-    icon: Watch,
-    color: "text-purple-500",
-  },
-];
 
 const FEATURE_ITEMS = [
   {
@@ -148,20 +118,6 @@ export const HomepagePrivate = () => {
           ) {
             return (
               <FlashSale key={section.category.id} products={section.data} />
-            );
-          }
-
-          if (section.category.type === HOMEPAGE_SECTION_TYPES.CATEGORIES) {
-            return (
-              <div key={section.category.id} className="flex flex-col gap-6">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-content flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-purple-500" />
-                    {section.category.title}
-                  </h2>
-                </div>
-                <CategoriesGrid categories={POPULAR_CATEGORIES} />
-              </div>
             );
           }
 

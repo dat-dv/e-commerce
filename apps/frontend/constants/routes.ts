@@ -12,7 +12,8 @@ export const APP_ROUTES = {
   PRIVACY: "/privacy",
   DOCS: "/docs",
   CATEGORIES: "/products/categories",
-  CATEGORY: (name: string) => `/products/categories?name=${name}`,
+  CATEGORY: (name: "flash-sale" | "new-arrivals") =>
+    `/products/categories?name=${name}`,
   PRODUCT_DETAIL: (id: string | number) => `/products/${id}`,
   CART: "/cart",
   ORDERS: "/orders",
@@ -24,8 +25,7 @@ export const APP_ROUTES = {
   CONTACT: "/help/contact",
   VOUCHERS: "/vouchers",
   SUPER_DEALS: "/products/categories?name=super-deals",
-  FAST_DELIVERY: "/products/categories?name=fast-delivery",
-  TOP_BRANDS: "/products/categories?name=top-brands",
+  TOP_BRANDS: "/top-brands",
   NEW_ARRIVALS: "/products/categories?name=new-arrivals",
   FLASH_SALE: "/products/categories?name=flash-sale",
 } as const;
