@@ -16,7 +16,7 @@ export const CartDrawer = () => {
   const updateQuantity = useCartStore((s) => s.updateQuantity);
 
   const subtotal = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + (item.price || 0) * item.quantity,
     0,
   );
 
@@ -104,7 +104,7 @@ export const CartDrawer = () => {
                             </p>
                           )}
                           <p className="text-sm font-semibold mt-1 text-blue-500">
-                            {item.price.toLocaleString("vi-VN")} đ
+                            {(item.price || 0).toLocaleString("vi-VN")} đ
                           </p>
                         </div>
                         <div className="flex items-center justify-between mt-2">

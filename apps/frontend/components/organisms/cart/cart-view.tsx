@@ -14,7 +14,7 @@ export default function CartView() {
   const _hasHydrated = useCartStore((s) => s._hasHydrated);
 
   const subtotal = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + (item.price || 0) * item.quantity,
     0,
   );
 
@@ -88,7 +88,7 @@ export default function CartView() {
                       </p>
                     )}
                     <p className="text-sm font-black text-blue-500 mt-1">
-                      {item.price.toLocaleString("vi-VN")} đ
+                      {(item.price || 0).toLocaleString("vi-VN")} đ
                     </p>
                   </div>
 
@@ -119,7 +119,10 @@ export default function CartView() {
                     </div>
 
                     <p className="text-sm font-bold text-content min-w-[100px] text-right">
-                      {(item.price * item.quantity).toLocaleString("vi-VN")} đ
+                      {((item.price || 0) * item.quantity).toLocaleString(
+                        "vi-VN",
+                      )}{" "}
+                      đ
                     </p>
 
                     <button
