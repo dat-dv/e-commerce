@@ -126,6 +126,32 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     });
   }
 
+  async findTreeBySlug(slug: string, languageCode: string = 'vi'): Promise<IProductCategory | null> {
+    return this.prisma.productCategory.findUnique({
+      where: { slug },
+      include: {
+        translations: {
+          where: {
+            language: {
+              code: languageCode,
+            },
+          },
+        },
+        children: {
+          include: {
+            translations: {
+              where: {
+                language: {
+                  code: languageCode,
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
   async delete(id: string): Promise<IProductCategory> {
     return this.prisma.productCategory.delete({
       where: { id },

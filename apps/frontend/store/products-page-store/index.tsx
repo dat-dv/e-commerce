@@ -4,6 +4,7 @@ import { StateCreator } from "zustand";
 import { devtools } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 import { PUBLIC_ENV } from "@/config/public.env.config";
+import { productsUseCase } from "@/domain/products/use-cases";
 import {
   IProductsPageStore,
   IProductsPageState,

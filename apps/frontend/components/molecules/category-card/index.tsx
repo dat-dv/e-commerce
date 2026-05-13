@@ -3,13 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { LucideIcon, Sparkles } from "lucide-react";
-import { APP_ROUTES } from "@/constants/routes";
 import Image from "next/image";
 
 interface CategoryCardProps {
   name: string;
   count: string;
-  slug?: string;
+  href?: string;
   icon?: LucideIcon;
   color?: string;
   image?: string;
@@ -18,14 +17,14 @@ interface CategoryCardProps {
 export const CategoryCard = ({
   name,
   count,
-  slug,
+  href = "/",
   icon: Icon = Sparkles,
   color = "text-primary",
   image,
 }: CategoryCardProps) => {
   return (
     <Link
-      href={APP_ROUTES.CATEGORY_DETAIL(slug || name.toLowerCase())}
+      href={href}
       className="group relative h-32 bg-content/[0.02] border border-content/[0.05] hover:border-content/[0.1] rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden w-full"
     >
       <div

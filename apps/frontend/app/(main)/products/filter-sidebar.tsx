@@ -13,8 +13,6 @@ export function FilterSidebar({ categories }: FilterSidebarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const currentCategory = searchParams.get("category_id");
-
   const updateFilter = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString());
     if (value) {
@@ -23,37 +21,35 @@ export function FilterSidebar({ categories }: FilterSidebarProps) {
       params.delete(key);
     }
     params.set("page", "1"); // Reset về trang 1
-    router.push(`/products?${params.toString()}`);
+
+    const path = window.location.pathname;
+    router.push(`${path}?${params.toString()}`);
+  };
+
+  const navigateToCategory = (slug: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", "1");
+    router.push(`/categories/${slug}?${params.toString()}`);
   };
 
   return (
     <div className="bg-surface/80 border border-content/[0.05] backdrop-blur-md rounded-xl p-4 flex flex-col gap-6 shadow-sm h-fit sticky top-24">
       {/* Categories */}
       <div>
-        <h3 className="font-semibold text-sm mb-3 text-content">
-          Categories
-        </h3>
+        <h3 className="font-semibold text-sm mb-3 text-content">Categories</h3>
         <div className="flex flex-col gap-1.5">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => updateFilter("category_id", null)}
-            className={`text-left px-2.5 py-1.5 rounded-lg text-sm transition-all ${
-              !currentCategory
-                ? "bg-primary text-white font-medium"
-                : "text-content/70 hover:bg-content/5 hover:text-content"
-            }`}
-          >
-            All Categories
-          </motion.button>
+          {categories.length === 0 && (
+            <p className="text-content/50 text-sm">No categories found.</p>
+          )}
+
           {categories.map((cat) => (
             <div key={cat.id} className="flex flex-col gap-1">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => updateFilter("category_id", cat.id)}
-                className={`text-left px-3 py-2 rounded-xl transition-all ${
-                  currentCategory === cat.id
+                onClick={() => navigateToCategory(cat.slug)}
+                className={`capitalize text-left px-3 py-2 rounded-xl transition-all ${
+                  window.location.pathname.includes(cat.slug)
                     ? "bg-primary/10 text-primary font-semibold"
                     : "text-content/70 hover:bg-content/5 hover:text-content"
                 }`}
@@ -67,9 +63,9 @@ export function FilterSidebar({ categories }: FilterSidebarProps) {
                       key={child.id}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      onClick={() => updateFilter("category_id", child.id)}
+                      onClick={() => navigateToCategory(child.slug)}
                       className={`text-left px-3 py-1.5 rounded-lg text-sm transition-all ${
-                        currentCategory === child.id
+                        window.location.pathname.includes(child.slug)
                           ? "bg-primary/5 text-primary font-medium"
                           : "text-content/50 hover:bg-content/5 hover:text-content"
                       }`}

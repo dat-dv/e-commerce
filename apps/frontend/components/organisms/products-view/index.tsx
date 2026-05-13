@@ -1,35 +1,70 @@
 "use client";
 
-import React, { useEffect } from "react";
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
 import { ProductsHeader } from "@/app/(main)/products/products-header";
 import { FilterSidebar } from "@/app/(main)/products/filter-sidebar";
 import { ProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
+import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { Search } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface ProductsViewProps {
   categories: TCategory[];
+  categorySlug: string;
 }
 
-export function ProductsView({ categories }: ProductsViewProps) {
-  const {
-    products,
-    total,
-    currentPage,
-    totalPages,
-    loading,
-    category_id,
-    sort,
-    search,
-    min_price,
-    max_price,
-  } = useProductsPageStore((state) => state);
+export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
+  const { products, total, currentPage, totalPages, loading } =
+    useProductsPageStore((state) => state);
 
-  // Here we would add useEffect to fetch data when filters change on client
-  // For now, let's just render the UI
+  const { fetchProducts } = useProductsAdapter();
+
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page");
+  const sort = searchParams.get("sort");
+  const search = searchParams.get("search");
+
+  const isFirstMount = useRef(true);
+
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+
+    fetchProducts({
+      category_slug: categorySlug,
+      page: page ? parseInt(page) : 1,
+      limit: 56,
+      sort: sort || "newest",
+      search: search || undefined,
+    });
+  }, [categorySlug, page, sort, search, fetchProducts]);
+
+  // Tìm category cấp cao nhất chứa slug hiện tại
+  const findTopLevelCategoryForSlug = (
+    cats: TCategory[],
+    slug: string,
+  ): TCategory | null => {
+    for (const cat of cats) {
+      if (cat.slug === slug) return cat;
+      if (cat.children) {
+        const found = findTopLevelCategoryForSlug(cat.children, slug);
+        if (found) return cat; // Trả về category cha cấp cao nhất
+      }
+    }
+    return null;
+  };
+
+  const activeCategory = categorySlug
+    ? findTopLevelCategoryForSlug(categories, categorySlug)
+    : null;
+  // Nếu đang ở một category cụ thể, chỉ hiển thị tree của category đó
+  const displayCategories = activeCategory ? [activeCategory] : categories;
 
   return (
     <AppContainer size="2xl" className="py-16">
@@ -38,7 +73,7 @@ export function ProductsView({ categories }: ProductsViewProps) {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar */}
         <div className="lg:col-span-1">
-          <FilterSidebar categories={categories} />
+          <FilterSidebar categories={displayCategories} />
         </div>
 
         {/* Products Area */}

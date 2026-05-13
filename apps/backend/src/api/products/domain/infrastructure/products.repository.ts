@@ -310,6 +310,30 @@ export class ProductsRepository implements IProductsRepository {
     }));
   }
 
+  private async getDescendantCategoryIds(categorySlug: string): Promise<string[]> {
+    const category = await this.prisma.productCategory.findUnique({
+      where: { slug: categorySlug },
+      select: { id: true },
+    });
+
+    if (!category) return [];
+
+    const ids: string[] = [category.id];
+    let currentLevelIds: string[] = [category.id];
+
+    while (currentLevelIds.length > 0) {
+      const children = await this.prisma.productCategory.findMany({
+        where: { parent_id: { in: currentLevelIds } },
+        select: { id: true },
+      });
+
+      currentLevelIds = children.map((c) => c.id);
+      ids.push(...currentLevelIds);
+    }
+
+    return ids;
+  }
+
   async findPaginated(params: {
     page: number;
     limit: number;
@@ -359,11 +383,10 @@ export class ProductsRepository implements IProductsRepository {
     }
 
     if (category_slug) {
+      const categoryIds = await this.getDescendantCategoryIds(category_slug);
       where.categories = {
         some: {
-          category: {
-            slug: category_slug,
-          },
+          category_id: { in: categoryIds },
         },
       };
     }

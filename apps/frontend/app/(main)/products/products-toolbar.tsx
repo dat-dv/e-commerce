@@ -24,21 +24,23 @@ export function ProductsToolbar({
     const params = new URLSearchParams(searchParams.toString());
     params.set("sort", value);
     params.set("page", "1");
-    router.push(`/products?${params.toString()}`);
+    const path = window.location.pathname;
+    router.push(`${path}?${params.toString()}`);
   };
 
   const updatePage = (newPage: number) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", newPage.toString());
-    router.push(`/products?${params.toString()}`);
+    const path = window.location.pathname;
+    router.push(`${path}?${params.toString()}`);
   };
 
   return (
     <div className="bg-surface/80 border border-content/[0.05] backdrop-blur-md rounded-xl p-3 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-sm">
       <div className="flex items-center gap-2 text-content/70 text-xs">
         <span>
-          Page <span className="font-semibold text-content">{currentPage}</span>/
-          {totalPages}
+          Page <span className="font-semibold text-content">{currentPage}</span>
+          /{totalPages}
         </span>
         <div className="flex gap-1">
           <motion.button
@@ -78,7 +80,8 @@ export function ProductsToolbar({
                 params.delete("search");
               }
               params.set("page", "1");
-              router.push(`/products?${params.toString()}`);
+              const path = window.location.pathname;
+              router.push(`${path}?${params.toString()}`);
             }
           }}
           className="w-full pl-8 pr-3 py-1 rounded-lg bg-content/[0.02] border border-content/[0.05] focus:outline-none focus:border-primary transition-all text-xs text-content"

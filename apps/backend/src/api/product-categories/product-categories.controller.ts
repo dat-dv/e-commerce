@@ -9,6 +9,7 @@ import { DeleteProductCategoryUseCase } from './domain/use-cases/delete-product-
 import { GetProductCategoryGroupsUseCase } from './domain/use-cases/get-product-category-groups.use-case';
 import { GetProductCategoryByIdUseCase } from './domain/use-cases/get-product-category-by-id.use-case';
 import { GetProductCategoryTreeUseCase } from './domain/use-cases/get-product-category-tree.use-case';
+import { GetProductCategoryTreeBySlugUseCase } from './domain/use-cases/get-product-category-tree-by-slug.use-case';
 import createSuccessResponse from 'src/common/respomse';
 import { CreateCategoryDto } from './dto/create-product-category.dto';
 import { UpdateCategoryDto } from './dto/update-product-category.dto';
@@ -23,6 +24,7 @@ export class ProductCategoriesController {
     private readonly getGroupsUseCase: GetProductCategoryGroupsUseCase,
     private readonly getByIdUseCase: GetProductCategoryByIdUseCase,
     private readonly getTreeUseCase: GetProductCategoryTreeUseCase,
+    private readonly getTreeBySlugUseCase: GetProductCategoryTreeBySlugUseCase,
   ) {}
 
   @UseGuards(PermissionsGuard)
@@ -60,6 +62,12 @@ export class ProductCategoriesController {
   @Get('tree')
   async getTree(@Language() lang: string) {
     const result = await this.getTreeUseCase.execute(lang);
+    return createSuccessResponse(result);
+  }
+
+  @Get('tree/:slug')
+  async getTreeBySlug(@Param('slug') slug: string, @Language() lang: string) {
+    const result = await this.getTreeBySlugUseCase.execute(lang, slug);
     return createSuccessResponse(result);
   }
 

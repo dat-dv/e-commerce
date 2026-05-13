@@ -28,12 +28,9 @@ export const CategoriesSection = ({
 }: CategoriesSectionProps) => {
   const title = lang === "vi" ? "Danh Mục" : "Categories";
 
-  const displayCategories = categories.map((c) => c.name);
-
-  // Group categories into columns of 2 for the 2-row carousel
   const chunkedCategories = [];
-  for (let i = 0; i < displayCategories.length; i += 2) {
-    chunkedCategories.push(displayCategories.slice(i, i + 2));
+  for (let i = 0; i < categories.length; i += 2) {
+    chunkedCategories.push(categories.slice(i, i + 2));
   }
 
   return (
@@ -52,10 +49,11 @@ export const CategoriesSection = ({
             className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%]"
           >
             <div className="flex flex-col gap-4">
-              {column.map((name, catIndex) => (
+              {column.map((category, catIndex) => (
                 <CategoryCard
-                  key={name}
-                  name={name}
+                  key={category.id}
+                  href={`/categories/${category.slug}`}
+                  name={category.name}
                   count="100+ Products"
                   image={`https://picsum.photos/100?random=${index * 2 + catIndex}`}
                 />

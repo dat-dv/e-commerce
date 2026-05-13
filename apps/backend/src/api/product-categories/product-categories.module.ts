@@ -7,6 +7,7 @@ import { DeleteProductCategoryUseCase } from './domain/use-cases/delete-product-
 import { GetProductCategoryGroupsUseCase } from './domain/use-cases/get-product-category-groups.use-case';
 import { GetProductCategoryByIdUseCase } from './domain/use-cases/get-product-category-by-id.use-case';
 import { GetProductCategoryTreeUseCase } from './domain/use-cases/get-product-category-tree.use-case';
+import { GetProductCategoryTreeBySlugUseCase } from './domain/use-cases/get-product-category-tree-by-slug.use-case';
 import { IProductCategoriesRepository } from './domain/entities/product-categories.repository.interface';
 import { ProductCategoriesRepository } from './domain/infrastructure/product-categories.repository';
 import { AuthModule } from 'src/api/auth/auth.module';
@@ -22,6 +23,7 @@ import { AuthModule } from 'src/api/auth/auth.module';
     GetProductCategoryGroupsUseCase,
     GetProductCategoryByIdUseCase,
     GetProductCategoryTreeUseCase,
+    GetProductCategoryTreeBySlugUseCase,
     {
       provide: IProductCategoriesRepository,
       useClass: ProductCategoriesRepository,
@@ -35,6 +37,7 @@ import { AuthModule } from 'src/api/auth/auth.module';
     GetProductCategoryGroupsUseCase,
     GetProductCategoryByIdUseCase,
     GetProductCategoryTreeUseCase,
+    GetProductCategoryTreeBySlugUseCase,
     IProductCategoriesRepository,
   ],
 })

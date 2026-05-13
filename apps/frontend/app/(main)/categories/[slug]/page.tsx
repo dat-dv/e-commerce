@@ -1,130 +1,77 @@
-import AppContainer from "@/components/atoms/app-container";
-import { ProductCard } from "@/components/molecules/product-card";
-import { SlidersHorizontal } from "lucide-react";
-import Link from "next/link";
-import { APP_ROUTES } from "@/constants/routes";
-import { TProduct } from "@/domain/products/types/products.model";
+import type { Metadata } from "next";
+import { productsUseCase } from "@/domain/products/use-cases";
+import { categoriesUseCase } from "@/domain/categories/use-cases";
+import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
+import { ProductsView } from "@/components/organisms/products-view";
 
-// Mock data for products in this category
-const MOCK_PRODUCTS: TProduct[] = [
-  {
-    id: "1",
-    name: "Minimalist Wireless Keyboard",
-    category: "Electronics",
-    skus: [{ id: "sku-1", price: "$89.00" }],
-  },
-  {
-    id: "2",
-    name: "Premium Leather Backpack",
-    category: "Accessories",
-    skus: [{ id: "sku-2", price: "$120.00" }],
-  },
-  {
-    id: "3",
-    name: "Smart Water Bottle",
-    category: "Home & Living",
-    skus: [{ id: "sku-3", price: "$45.00" }],
-  },
-  {
-    id: "4",
-    name: "Noise Cancelling Headphones",
-    category: "Electronics",
-    skus: [{ id: "sku-4", price: "$299.00" }],
-  },
-  {
-    id: "5",
-    name: "Mechanical Gaming Keyboard",
-    category: "Electronics",
-    skus: [{ id: "sku-5", price: "$129.00" }],
-  },
-  {
-    id: "6",
-    name: "Ergonomic Desk Chair",
-    category: "Home & Living",
-    skus: [{ id: "sku-6", price: "$199.00" }],
-  },
-  {
-    id: "7",
-    name: "Wireless Charging Pad",
-    category: "Electronics",
-    skus: [{ id: "sku-7", price: "$35.00" }],
-  },
-  {
-    id: "8",
-    name: "Leather Passport Holder",
-    category: "Accessories",
-    skus: [{ id: "sku-8", price: "$25.00" }],
-  },
-];
-
-// This is required for static export with dynamic routes
-export async function generateStaticParams() {
-  return [
-    { slug: "electronics" },
-    { slug: "accessories" },
-    { slug: "home-living" },
-  ];
+interface ProductsPageProps {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function CategoryPage({
+export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
+}: ProductsPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  return {
+    title: `Products - ${slug}`,
+    description: `Explore our collection of products in ${slug}.`,
+  };
+}
 
-  // Capitalize slug for title
-  const title = slug
-    ? slug.charAt(0).toUpperCase() + slug.slice(1)
-    : "Category";
+export default async function CategoryProductsPage({
+  params,
+  searchParams,
+}: ProductsPageProps) {
+  const { slug } = await params;
+  const sp = await searchParams;
+
+  const page = sp.page ? parseInt(sp.page as string) : 1;
+  const limit = 56;
+  const brand_id = sp.brand_id as string;
+  const sort = sp.sort as string;
+  const search = sp.search as string;
+  const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
+  const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;
+
+  const [productsRes, categoriesRes] = await Promise.all([
+    productsUseCase.getProducts.execute({
+      page,
+      limit,
+      category_slug: slug,
+      brand_id,
+      sort,
+      min_price,
+      max_price,
+      search,
+    }),
+    categoriesUseCase.getTree.execute(),
+  ]);
+
+  const products =
+    productsRes.status === "success" ? productsRes.data?.items || [] : [];
+  const total =
+    productsRes.status === "success" ? productsRes.data?.meta.total || 0 : 0;
+  const categories =
+    categoriesRes.status === "success" ? categoriesRes.data || [] : [];
 
   return (
-    <AppContainer className="py-10 flex flex-col gap-8">
-      {/* Breadcrumb & Back */}
-      <div className="flex items-center gap-2 text-sm text-content/60">
-        <Link
-          href={APP_ROUTES.HOME}
-          className="hover:text-primary transition-colors"
-        >
-          Home
-        </Link>
-        <span>/</span>
-        <span className="text-content font-medium">{title}</span>
-      </div>
-
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <h1 className="text-4xl font-black tracking-tight text-content">
-            {title}
-          </h1>
-          <p className="text-sm text-content/60 mt-1">
-            Found 8 products in this category
-          </p>
-        </div>
-
-        {/* Filter & Sort Bar */}
-        <div className="flex items-center gap-3 w-full md:w-auto">
-          <button className="flex items-center gap-2 bg-content/[0.02] border border-content/[0.05] rounded-xl px-4 py-2.5 text-sm font-bold text-content hover:bg-content/[0.05] transition-colors">
-            <SlidersHorizontal className="w-4 h-4" />
-            Filters
-          </button>
-          <select className="bg-content/[0.02] border border-content/[0.05] rounded-xl px-4 py-2.5 text-sm font-bold text-content hover:bg-content/[0.05] transition-colors flex-1 md:flex-initial">
-            <option>Sort by: Featured</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Newest Arrivals</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Product Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {MOCK_PRODUCTS.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    </AppContainer>
+    <ProductsPageProvider
+      initState={{
+        products,
+        total,
+        currentPage: page,
+        totalPages:
+          productsRes.status === "success"
+            ? productsRes.data?.meta.totalPages || 1
+            : 1,
+        sort: sort || "newest",
+        search,
+        min_price,
+        max_price,
+      }}
+    >
+      <ProductsView categories={categories} categorySlug={slug} />
+    </ProductsPageProvider>
   );
 }
