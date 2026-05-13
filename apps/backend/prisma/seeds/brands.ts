@@ -29,6 +29,7 @@ export async function seedBrands(prisma: PrismaClient) {
   const brandsToCreate: any[] = [];
   const translationsToCreate: any[] = [];
   const brandMap: Record<string, string> = {};
+  const usedSlugs = new Set<string>();
 
   brandsData.forEach((brandName) => {
     const brandId = createId();
@@ -38,9 +39,17 @@ export async function seedBrands(prisma: PrismaClient) {
       .replace(/-+/g, '-')
       .replace(/^-|-$/g, '');
 
+    const finalSlug = slug || `brand-${brandId}`;
+
+    if (usedSlugs.has(finalSlug)) {
+      return;
+    }
+
+    usedSlugs.add(finalSlug);
+
     brandsToCreate.push({
       id: brandId,
-      slug: slug || `brand-${brandId}`,
+      slug: finalSlug,
       is_verified: true,
       is_featured: Math.random() > 0.9, // Ngẫu nhiên 10% hãng nổi bật
     });

@@ -175,11 +175,6 @@ export const HomepagePublic = () => {
                 key={section.category.id}
                 title={section.category.title}
                 icon={getIcon(section.category.type, section.category.slug)}
-                iconColor={
-                  section.category.type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW
-                    ? "text-blue-400"
-                    : "text-blue-500"
-                }
                 products={section.data}
                 rows={1}
               />
