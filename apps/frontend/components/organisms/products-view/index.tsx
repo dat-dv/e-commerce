@@ -3,14 +3,14 @@
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
 import { ProductsHeader } from "@/app/(main)/products/products-header";
-import { FilterSidebar } from "@/app/(main)/products/filter-sidebar";
+import { ProductsFilterSidebar } from "./products-filter-sidebar";
 import { ProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { TCategory } from "@/domain/categories/types/categories.model";
-import { Search } from "lucide-react";
+import { Search, Star } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 interface ProductsViewProps {
   categories: TCategory[];
@@ -24,9 +24,27 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
   const { fetchProducts } = useProductsAdapter();
 
   const searchParams = useSearchParams();
+  const router = useRouter();
   const page = searchParams.get("page");
   const sort = searchParams.get("sort");
   const search = searchParams.get("search");
+
+  const updateFilter = (key: string, value: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value) {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+    params.set("page", "1");
+    router.push(`${window.location.pathname}?${params.toString()}`);
+  };
+
+  const navigateToCategory = (slug: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", "1");
+    router.push(`/categories/${slug}?${params.toString()}`);
+  };
 
   const isFirstMount = useRef(true);
 
@@ -73,7 +91,11 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar */}
         <div className="lg:col-span-1">
-          <FilterSidebar categories={displayCategories} />
+          <ProductsFilterSidebar
+            categories={displayCategories}
+            onFilterChange={updateFilter}
+            onCategoryChange={navigateToCategory}
+          />
         </div>
 
         {/* Products Area */}

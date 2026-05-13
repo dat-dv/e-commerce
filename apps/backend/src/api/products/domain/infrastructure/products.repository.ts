@@ -453,16 +453,6 @@ export class ProductsRepository implements IProductsRepository {
       limit,
     );
 
-    return {
-      items: result.items.map((p) => ({
-        ...p,
-        skus: p.skus?.map((sku) => ({
-          ...sku,
-          price: Number(sku.price),
-          original_price: sku.original_price ? Number(sku.original_price) : null,
-        })),
-      })),
-      meta: result.meta,
-    };
+    return result;
   }
 }
