@@ -1,6 +1,7 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { ProductsController } from './products.controller';
 import { AuthModule } from 'src/api/auth/auth.module';
+import { SharedModule } from 'src/shared/shared.module';
 import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
 import { GetInterestBasedUseCase } from './domain/use-cases/get-interest-based.use-case';
 import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed.use-case';
@@ -11,7 +12,7 @@ import { IProductsRepository } from './domain/entities/products.repository.inter
 import { ProductsRepository } from './domain/infrastructure/products.repository';
 
 @Module({
-  imports: [forwardRef(() => AuthModule)],
+  imports: [forwardRef(() => AuthModule), SharedModule],
   controllers: [ProductsController],
   providers: [
     GetRecommendedUseCase,

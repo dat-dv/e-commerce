@@ -48,7 +48,7 @@ export class CategoriesRepository implements ICategoriesRepository {
   async getGroups(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<TCategory[]>> {
+  }): Promise<ApiResponse<ApiListResponse<TCategory>>> {
     let url = API_ROUTES.PRODUCT_CATEGORIES.GROUPS;
     if (params) {
       const searchParams = new URLSearchParams();
@@ -57,11 +57,22 @@ export class CategoriesRepository implements ICategoriesRepository {
       url += `?${searchParams.toString()}`;
     }
 
-    const response = await this.request.get<IProductCategory[]>(url);
+    const response =
+      await this.request.get<ApiListResponse<IProductCategory>>(url);
 
     return {
       ...response,
-      data: response.data?.map((item) => CategoryMapper.toDomain(item)) || [],
+      data: {
+        items:
+          response.data?.items.map((item) => CategoryMapper.toDomain(item)) ||
+          [],
+        meta: response.data?.meta || {
+          total: 0,
+          page: 1,
+          limit: 10,
+          totalPages: 1,
+        },
+      },
     };
   }
 

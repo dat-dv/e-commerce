@@ -10,6 +10,6 @@ export interface ICategoriesRepository {
   getGroups(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<TCategory[]>>;
+  }): Promise<ApiResponse<ApiListResponse<TCategory>>>;
   getTree(): Promise<ApiResponse<TCategory[]>>;
 }

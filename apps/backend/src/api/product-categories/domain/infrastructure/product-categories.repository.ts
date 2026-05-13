@@ -46,26 +46,29 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
   async findGroups(
     languageCode: string = 'vi',
     params?: { page?: number; limit?: number },
-  ): Promise<IProductCategory[]> {
-    const skip = params?.page && params?.limit ? (params.page - 1) * params.limit : undefined;
-    const take = params?.limit;
+  ): Promise<PaginatedResult<IProductCategory>> {
+    const page = params?.page || 1;
+    const limit = params?.limit || 10;
 
-    return this.prisma.productCategory.findMany({
-      where: {
-        parent_id: null,
-      },
-      skip,
-      take,
-      include: {
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
+    return this.paginationService.paginate<IProductCategory>(
+      this.prisma.productCategory,
+      {
+        where: {
+          parent_id: null,
+        },
+        include: {
+          translations: {
+            where: {
+              language: {
+                code: languageCode,
+              },
             },
           },
         },
       },
-    });
+      page,
+      limit,
+    );
   }
 
   async findById(id: string, languageCode: string = 'vi'): Promise<IProductCategory | null> {

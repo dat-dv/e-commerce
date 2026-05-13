@@ -3,11 +3,15 @@ import { IProductsRepository } from '../entities/products.repository.interface';
 import { IProduct } from '@ecommerce/shared';
 import { IFlashSale } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly paginationService: PaginationService,
+  ) {}
 
   async findById(id: string, languageCode = 'en'): Promise<IProduct | null> {
     const product = await this.prisma.product.findUnique({
@@ -318,11 +322,13 @@ export class ProductsRepository implements IProductsRepository {
     sort?: string;
     languageCode?: string;
   }): Promise<{
-    data: IProduct[];
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
+    items: IProduct[];
+    meta: {
+      total: number;
+      page: number;
+      limit: number;
+      totalPages: number;
+    };
   }> {
     const {
       page,
@@ -391,29 +397,29 @@ export class ProductsRepository implements IProductsRepository {
       orderBy = { skus: { _count: 'desc' } };
     }
 
-    const data = await this.prisma.product.findMany({
-      where,
-      skip,
-      take: limit,
-      orderBy,
-      include: {
-        thumbnail: true,
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
+    const result = await this.paginationService.paginate<any>(
+      this.prisma.product,
+      {
+        where,
+        orderBy,
+        include: {
+          thumbnail: true,
+          translations: {
+            where: {
+              language: {
+                code: languageCode,
+              },
             },
           },
+          skus: true,
         },
-        skus: true,
       },
-    });
-
-    const total = await this.prisma.product.count({ where });
-    const totalPages = Math.ceil(total / limit);
+      page,
+      limit,
+    );
 
     return {
-      data: data.map((p) => ({
+      items: result.items.map((p) => ({
         ...p,
         skus: p.skus?.map((sku) => ({
           ...sku,
@@ -421,10 +427,7 @@ export class ProductsRepository implements IProductsRepository {
           original_price: sku.original_price ? Number(sku.original_price) : null,
         })),
       })),
-      total,
-      page,
-      limit,
-      totalPages,
+      meta: result.meta,
     };
   }
 }

@@ -36,11 +36,13 @@ export interface IProductsRepository {
     sort?: string;
     languageCode?: string;
   }): Promise<{
-    data: IProduct[];
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
+    items: IProduct[];
+    meta: {
+      total: number;
+      page: number;
+      limit: number;
+      totalPages: number;
+    };
   }>;
 }
 

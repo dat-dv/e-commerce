@@ -92,19 +92,10 @@ export class ProductsRepository implements IProductsRepository {
       ...response,
       data: response.data
         ? {
-            items: Array.isArray(response.data)
-              ? response.data.map((item) => ProductMapper.toDomain(item))
-              : (response.data.items || []).map((item) =>
-                  ProductMapper.toDomain(item),
-                ),
-            meta: Array.isArray(response.data)
-              ? {
-                  total: response.data.length,
-                  page: 1,
-                  limit: response.data.length,
-                  totalPages: 1,
-                }
-              : response.data.meta,
+            items: response.data.items.map((item) =>
+              ProductMapper.toDomain(item),
+            ),
+            meta: response.data.meta,
           }
         : {
             items: [],
