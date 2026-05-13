@@ -2,10 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IProductCategory } from '../entities/product-category.entity';
+import { PaginationService, PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()
 export class ProductCategoriesRepository implements IProductCategoriesRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly paginationService: PaginationService,
+  ) {}
 
   async create(data: { name: string; slug: string; description?: string }): Promise<IProductCategory> {
     return this.prisma.productCategory.create({
@@ -20,20 +24,23 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     });
   }
 
-  async findMany(params?: { page?: number; limit?: number; level?: number }): Promise<IProductCategory[]> {
-    const skip = params?.page && params?.limit ? (params.page - 1) * params.limit : undefined;
-    const take = params?.limit;
+  async findMany(params?: {
+    page?: number;
+    limit?: number;
+    level?: number;
+  }): Promise<PaginatedResult<IProductCategory>> {
+    const page = params?.page || 1;
+    const limit = params?.limit || 10;
 
-    return this.prisma.productCategory.findMany({
-      skip,
-      take,
-      include: {
-        translations: true,
+    return this.paginationService.paginate<IProductCategory>(
+      this.prisma.productCategory,
+      {
+        where: { level: params?.level },
+        include: { translations: true },
       },
-      where: {
-        level: params?.level,
-      },
-    });
+      page,
+      limit,
+    );
   }
 
   async findGroups(

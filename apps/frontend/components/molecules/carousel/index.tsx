@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight } from "lucide-react";
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
@@ -8,19 +8,17 @@ import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
 interface CarouselProps {
   children: React.ReactNode;
   options?: EmblaOptionsType;
-  onNearEnd?: (info: { selectedIndex: number; totalSnaps: number }) => void;
+  loadMore?: () => void;
   threshold?: number;
+  total?: number;
+  current?: number;
 }
 
-export const Carousel = ({
-  children,
-  options,
-  onNearEnd,
-  threshold = 2,
-}: CarouselProps) => {
+export const Carousel = ({ children, options, loadMore }: CarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  const hasTriggeredRef = useRef(false);
 
   const scrollPrev = useCallback(
     () => emblaApi && emblaApi.scrollPrev(),
@@ -31,33 +29,42 @@ export const Carousel = ({
     [emblaApi],
   );
 
-  const onSelect = useCallback(
-    (emblaApi: EmblaCarouselType) => {
-      setPrevBtnEnabled(emblaApi.canScrollPrev());
-      setNextBtnEnabled(emblaApi.canScrollNext());
-
-      if (onNearEnd) {
-        const selected = emblaApi.selectedScrollSnap();
-        const total = emblaApi.scrollSnapList().length;
-        if (selected >= total - threshold) {
-          onNearEnd({ selectedIndex: selected, totalSnaps: total });
-        }
-      }
-    },
-    [onNearEnd, threshold],
-  );
+  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
+    setPrevBtnEnabled(emblaApi.canScrollPrev());
+    setNextBtnEnabled(emblaApi.canScrollNext());
+  }, []);
 
   useEffect(() => {
     if (!emblaApi) return;
 
-    // Defer the initial call to avoid cascading renders warning in React
-    const timeoutId = setTimeout(() => onSelect(emblaApi), 0);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    onSelect(emblaApi);
 
+    const onScroll = () => {
+      const progress = emblaApi.scrollProgress();
+      const totalSnaps = emblaApi.scrollSnapList().length;
+      if (totalSnaps <= 1) return;
+
+      // gần cuối
+      if (progress > 0.9) {
+        if (!hasTriggeredRef.current) {
+          hasTriggeredRef.current = true;
+          loadMore?.();
+        }
+      } else {
+        hasTriggeredRef.current = false;
+      }
+    };
+
+    emblaApi.on("scroll", onScroll);
     emblaApi.on("reInit", onSelect);
     emblaApi.on("select", onSelect);
-
-    return () => clearTimeout(timeoutId);
-  }, [emblaApi, onSelect]);
+    return () => {
+      emblaApi.off("scroll", onScroll);
+      emblaApi.off("reInit", onSelect);
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, loadMore, onSelect]);
 
   return (
     <div className="relative">

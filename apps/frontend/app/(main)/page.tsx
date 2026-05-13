@@ -30,7 +30,13 @@ export default async function Home() {
 
   const categoriesInitialData = {
     categories:
-      categoriesResponse.status === "success" ? categoriesResponse.data : [],
+      categoriesResponse.status === "success"
+        ? categoriesResponse.data.items
+        : [],
+    pagination:
+      categoriesResponse.status === "success"
+        ? categoriesResponse.data.meta
+        : undefined,
   };
 
   return (

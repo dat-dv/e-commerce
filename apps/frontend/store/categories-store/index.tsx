@@ -15,6 +15,7 @@ const createCategoriesStoreCreator =
     const state: ICategoriesStore = {
       categories: [],
       loading: false,
+      pagination: undefined,
       ...initState,
       setCategories: (categories) => set({ categories }),
       setLoading: (loading) => set({ loading }),

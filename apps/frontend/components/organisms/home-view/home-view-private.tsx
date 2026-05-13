@@ -116,7 +116,7 @@ const getIcon = (type: string, slug?: string) => {
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
   const sections = useProductsStore((state) => state.sections);
-  const { categories, fetchMore } = useHomepageCategories();
+  const { categories, fetchMore, pagination } = useHomepageCategories();
   const lang = useProductsStore((state) => state.lang);
 
   return (
@@ -136,6 +136,8 @@ export const HomepagePrivate = () => {
           categories={categories}
           lang={lang}
           onLoadMore={fetchMore}
+          total={pagination?.total}
+          current={categories.length}
         />
 
         {/* 3. Dynamic Backend Sections */}

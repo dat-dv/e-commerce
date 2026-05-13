@@ -1,4 +1,4 @@
-import { ApiResponse } from "@/utils/request/request.types";
+import { ApiResponse, ApiListResponse } from "@/utils/request/request.types";
 import { ICategory } from "../types/categories.model";
 
 export interface ICategoriesRepository {
@@ -6,7 +6,7 @@ export interface ICategoriesRepository {
     page?: number;
     limit?: number;
     level?: number;
-  }): Promise<ApiResponse<ICategory[]>>;
+  }): Promise<ApiResponse<ApiListResponse<ICategory>>>;
   getGroups(params?: {
     page?: number;
     limit?: number;

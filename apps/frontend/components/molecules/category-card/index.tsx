@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, LucideIcon, Sparkles } from "lucide-react";
+import { LucideIcon, Sparkles } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
 import Image from "next/image";
 
@@ -31,7 +31,7 @@ export const CategoryCard = ({
       />
       <div className="flex justify-between items-start">
         <div>
-          <h3 className="font-bold text-content group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-content group-hover:text-primary transition-colors capitalize pr-1 line-clamp-2">
             {name}
           </h3>
           <p className="text-xs text-content/40">{count}</p>

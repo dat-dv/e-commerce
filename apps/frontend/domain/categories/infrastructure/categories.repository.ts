@@ -1,5 +1,9 @@
 import { API_ROUTES } from "@/constants/routes";
-import { ApiResponse, TRequest } from "@/utils/request/request.types";
+import {
+  ApiListResponse,
+  ApiResponse,
+  TRequest,
+} from "@/utils/request/request.types";
 import { ICategory } from "../types/categories.model";
 import { ICategoryResponse } from "../types/categories.response";
 import { ICategoriesRepository } from "../entities/categories.repository.interface";
@@ -12,7 +16,7 @@ export class CategoriesRepository implements ICategoriesRepository {
     page?: number;
     limit?: number;
     level?: number;
-  }): Promise<ApiResponse<ICategory[]>> {
+  }): Promise<ApiResponse<ApiListResponse<ICategory>>> {
     let url = API_ROUTES.PRODUCT_CATEGORIES.BASE;
     if (params) {
       const searchParams = new URLSearchParams();
@@ -22,11 +26,22 @@ export class CategoriesRepository implements ICategoriesRepository {
       url += `?${searchParams.toString()}`;
     }
 
-    const response = await this.request.get<ICategoryResponse[]>(url);
+    const response =
+      await this.request.get<ApiListResponse<ICategoryResponse>>(url);
 
     return {
       ...response,
-      data: response.data?.map((item) => CategoryMapper.toDomain(item)) || [],
+      data: {
+        items:
+          response.data?.items.map((item) => CategoryMapper.toDomain(item)) ||
+          [],
+        meta: response.data?.meta || {
+          total: 0,
+          page: 1,
+          limit: 10,
+          totalPages: 1,
+        },
+      },
     };
   }
 

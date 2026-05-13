@@ -45,6 +45,18 @@ export type TRequest = {
 };
 
 // ==== RESPONSE =====
+export interface IPaginationMeta {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export interface ApiListResponse<T> {
+  items: T[];
+  meta: IPaginationMeta;
+}
+
 export interface ApiResponse<T> {
   data: T;
   message?: string;
