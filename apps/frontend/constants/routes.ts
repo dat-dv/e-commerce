@@ -24,9 +24,9 @@ export const APP_ROUTES = {
   SHIPPING: "/help/shipping",
   CONTACT: "/help/contact",
   VOUCHERS: "/vouchers",
-  SUPER_DEALS: "/categories?name=super-deals",
   TOP_BRANDS: "/top-brands",
-  NEW_ARRIVALS: "/categories?name=new-arrivals",
+  BRAND_DETAIL: (slug: string) => `/brands/${slug}`,
+  NEW_ARRIVALS: "/new-arrivals",
   FLASH_SALE: "/flash-sale",
 } as const;
 

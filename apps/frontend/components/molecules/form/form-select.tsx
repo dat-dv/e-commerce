@@ -73,7 +73,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                           ?.label || ""
                       }
                       placeholder="Select..."
-                      className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content/80 text-sm font-semibold"
+                      className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content/80 font-semibold"
                     />
                     <ChevronDown className="w-4 h-4 ml-2 opacity-50" />
                   </MenuButton>
@@ -93,7 +93,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                                 ? "bg-primary/10 text-primary"
                                 : "text-content",
                               disabled && "opacity-50 cursor-not-allowed",
-                              "group flex w-full items-center px-4 py-3 text-sm font-medium transition-colors",
+                              "group flex w-full items-center px-4 py-3 text-base font-medium transition-colors",
                             )}
                           >
                             {option.label}

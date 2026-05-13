@@ -55,7 +55,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             ref={inputRef}
             disabled={isDisabled}
             readOnly={true}
-            className="w-full h-10 bg-transparent border-none outline-none focus:outline-none z-10 text-base font-semibold cursor-pointer"
+            className="w-full bg-transparent border-none outline-none focus:outline-none z-10 font-semibold cursor-pointer py-1"
             placeholder="DD/MM/YYYY"
           />
           <div className="ml-auto text-content/30 hover:text-content/60 transition-colors cursor-pointer z-10">
@@ -229,7 +229,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             line-height: 1.75rem !important;
             margin: 0.1rem !important;
             color: #475569 !important;
-            font-size: 0.8rem !important;
+            font-size: 0.875rem !important;
           }
           .react-datepicker__day-name {
             font-weight: 500 !important;

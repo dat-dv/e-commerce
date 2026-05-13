@@ -3,6 +3,7 @@ import { PrismaClient } from '../../generated/prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
+import { TOP_BRANDS_DATA } from './top-brands.data';
 
 export interface AmazonSku {
   sku_code: string;
@@ -69,6 +70,26 @@ function resolveSkuCode(originalCode: string, productName: string, color: string
 function fallbackSkuCode(color: string, size: string): string {
   const rand = crypto.randomBytes(5).toString('hex').toUpperCase();
   return `SKU-${rand}-${color.slice(0, 3).toUpperCase()}-${size.slice(0, 1).toUpperCase()}`;
+}
+
+function findBrandIdByProductName(productName: string, brandMap: Record<string, string>): string | null {
+  const nameLower = productName.toLowerCase();
+
+  // 1. Kiểm tra theo keywords của Top Brands
+  for (const brand of TOP_BRANDS_DATA) {
+    if (brand.keywords.some((k) => nameLower.includes(k.toLowerCase()))) {
+      return brandMap[brand.name.toLowerCase()] || null;
+    }
+  }
+
+  // 2. Fallback kiểm tra trực tiếp trong brandMap
+  for (const [brandName, brandId] of Object.entries(brandMap)) {
+    if (nameLower.includes(brandName.toLowerCase())) {
+      return brandId;
+    }
+  }
+
+  return null;
 }
 
 function getAllJsonFiles(dir: string, baseDir: string): string[] {
@@ -179,6 +200,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
 
     for (let i = 0; i < products.length; i++) {
       const p = products[i];
+
       if (i % 50 === 0 && i > 0) {
         console.log(`... Đã xử lý ${i}/${products.length} sản phẩm`);
       }
@@ -228,12 +250,18 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
           },
         });
 
+        // ĐỊNH NGHĨA BRAND ID TẠI ĐÂY
+        let brandId = p.brand ? brandMap[p.brand.toLowerCase()] : null;
+        if (!brandId) {
+          brandId = findBrandIdByProductName(p.name, brandMap);
+        }
+
         const createdProduct = await prisma.product.create({
           data: {
             slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
             status: ProductStatus.ACTIVE,
             thumbnail_id: thumbnail.id,
-            brand_id: p.brand && brandMap[p.brand] ? brandMap[p.brand] : null,
+            brand_id: brandId,
             translations: {
               create: [
                 { language_id: langVi.id, name: p.name_vi, description: p.description_vi },

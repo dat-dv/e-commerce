@@ -2,6 +2,7 @@ import { PrismaClient } from '../../generated/prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
 import { createId } from '@paralleldrive/cuid2';
+import { TOP_BRANDS_DATA } from './top-brands.data';
 
 interface BrandDetailed {
   name: string;
@@ -46,6 +47,7 @@ export async function seedBrands(prisma: PrismaClient) {
     id: string;
     slug: string;
     logo_url: string | null;
+    banner_url: string | null;
     website_url: string | null;
     is_verified: boolean;
     is_featured: boolean;
@@ -58,6 +60,7 @@ export async function seedBrands(prisma: PrismaClient) {
     language_id: string;
     name: string;
     description: string | null;
+    story: string | null;
   }
 
   const brandsToCreate: BrandCreateInput[] = [];
@@ -65,8 +68,48 @@ export async function seedBrands(prisma: PrismaClient) {
   const brandMap: Record<string, string> = {};
   const usedSlugs = new Set<string>();
 
+  // --- PHASE 1: Seed Top Brands (Dữ liệu chất lượng cao) ---
+  TOP_BRANDS_DATA.forEach((brand, index) => {
+    const brandId = createId();
+    usedSlugs.add(brand.slug);
+
+    brandsToCreate.push({
+      id: brandId,
+      slug: brand.slug,
+      logo_url: brand.logo,
+      banner_url: brand.banner,
+      website_url: brand.website || null,
+      is_verified: true,
+      is_featured: true,
+      order: index,
+    });
+
+    translationsToCreate.push({
+      id: createId(),
+      brand_id: brandId,
+      language_id: langVi.id,
+      name: brand.name,
+      description: brand.description_vi,
+      story: brand.story_vi,
+    });
+
+    translationsToCreate.push({
+      id: createId(),
+      brand_id: brandId,
+      language_id: langEn.id,
+      name: brand.name,
+      description: brand.description_en,
+      story: brand.story_en,
+    });
+
+    brandMap[brand.name.toLowerCase()] = brandId;
+  });
+
+  // --- PHASE 2: Seed Other Brands from JSON ---
   rawData.forEach((item, index) => {
     const brandName = isDetailed ? (item as BrandDetailed).name : (item as string);
+    if (brandMap[brandName.toLowerCase()]) return; // Bỏ qua nếu đã có trong Top Brands
+
     const detail = isDetailed ? (item as BrandDetailed) : null;
     const brandId = createId();
 
@@ -89,31 +132,33 @@ export async function seedBrands(prisma: PrismaClient) {
       id: brandId,
       slug: slug,
       logo_url: detail?.logo_url ?? null,
+      banner_url: null,
       website_url: detail?.website_url ?? null,
       is_verified: detail?.is_verified ?? false,
-      is_featured: index < 20, // 20 thương hiệu đầu tiên làm Featured cho đẹp
-      order: index,
+      is_featured: false,
+      order: index + TOP_BRANDS_DATA.length,
     });
 
-    // Chuẩn bị dữ liệu bảng BrandTranslation (Tiếng Việt)
+    // Chuẩn bị dữ liệu bảng BrandTranslation
     translationsToCreate.push({
       id: createId(),
       brand_id: brandId,
       language_id: langVi.id,
       name: brandName,
       description: detail && detail.description_vi ? detail.description_vi : `Thương hiệu ${brandName} chính hãng.`,
+      story: null,
     });
 
-    // Chuẩn bị dữ liệu bảng BrandTranslation (Tiếng Anh - mặc định)
     translationsToCreate.push({
       id: createId(),
       brand_id: brandId,
       language_id: langEn.id,
       name: brandName,
       description: detail && detail.description_en ? detail.description_en : `Official ${brandName} brand store.`,
+      story: null,
     });
 
-    brandMap[brandName] = brandId;
+    brandMap[brandName.toLowerCase()] = brandId;
   });
 
   // Bulk Insert

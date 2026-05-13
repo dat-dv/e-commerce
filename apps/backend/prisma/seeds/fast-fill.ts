@@ -112,11 +112,7 @@ async function fillFile(filePath: string): Promise<{ file: string; filled: numbe
       filled++;
     }
     // Cũng fill description nếu trống hoặc là placeholder
-    if (
-      !p.description_en ||
-      p.description_en === 'short ecommerce description' ||
-      p.description_en.length < 20
-    ) {
+    if (!p.description_en || p.description_en === 'short ecommerce description' || p.description_en.length < 20) {
       const cat = p.sub_category || p.main_category || 'general';
       const descs = generateDescriptions(p.pure_name || p.name, cat);
       p.description_en = descs.description_en;

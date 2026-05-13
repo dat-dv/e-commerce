@@ -8,6 +8,8 @@ import { IBrand } from "@ecommerce/shared";
 import { IBrandsRepository } from "../types/brands.repository";
 import { BrandMapper } from "./brands.mapper";
 import { API_ROUTES } from "@/constants/routes";
+import { ProductMapper } from "../../products/infrastructure/products.mapper";
+import { IProduct } from "@ecommerce/shared";
 
 export class BrandsRepository implements IBrandsRepository {
   constructor(private request: TRequest) {}
@@ -32,6 +34,50 @@ export class BrandsRepository implements IBrandsRepository {
         ? {
             items: response.data.items.map((item) =>
               BrandMapper.toDomain(item),
+            ),
+            meta: response.data.meta,
+          }
+        : {
+            items: [],
+            meta: { total: 0, page, limit, totalPages: 0 },
+          },
+    };
+  }
+
+  async getBrandBySlug(slug: string): Promise<ApiResponse<TBrand>> {
+    const response = await this.request.get<IBrand>(
+      API_ROUTES.BRAND.DETAIL(slug),
+    );
+
+    return {
+      ...response,
+      data: response.data ? BrandMapper.toDomain(response.data) : undefined,
+    };
+  }
+
+  async getBrandProducts(
+    slug: string,
+    page = 1,
+    limit = 20,
+  ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
+    const response = await this.request.get<{
+      items: IProduct[];
+      meta: {
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+      };
+    }>(`${API_ROUTES.BRAND.DETAIL(slug)}/products`, {
+      params: { page, limit },
+    });
+
+    return {
+      ...response,
+      data: response.data
+        ? {
+            items: response.data.items.map((item) =>
+              ProductMapper.toDomain(item),
             ),
             meta: response.data.meta,
           }

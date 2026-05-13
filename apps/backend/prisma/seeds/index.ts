@@ -6,6 +6,7 @@ import { seedRBAC } from './rbac';
 import { setupLanguage } from './language';
 import { seedHomepageSections } from './homepage-sections';
 import { seedBrands } from './brands';
+import { updateTopBrands } from './update-top-brands';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
@@ -49,17 +50,20 @@ async function main() {
   await cleanDatabase();
   console.log('🌱 Đang tạo dữ liệu mẫu...');
 
-  // --- Phase 0: Setup (Foundational Data) ---
-  console.log('--- Phase 0: Setup ---');
+  // --- Phase 0: Setup ---
   await seedRBAC(prisma);
   await setupLanguage(prisma);
+
   // --- Phase 1: Core Entities ---
   await seedPhase1(prisma);
   const brandMap = await seedBrands(prisma);
+
   // --- Phase 2: Business Data ---
   await seedProductsAndCategories(prisma, brandMap);
-  // --- Phase 3: Config ---
+
+  // --- Phase 3: Config & Optimization ---
   await seedHomepageSections(prisma);
+  await updateTopBrands(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');
 }

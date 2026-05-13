@@ -26,6 +26,7 @@ export const useProfile = () => {
       last_name: user?.last_name || "",
       dob: String(user?.date_of_birth || ""),
       avatarUrl: user?.avatar_url || "",
+      phoneNumber: user?.phone_number || "",
     },
   });
 
@@ -36,6 +37,7 @@ export const useProfile = () => {
         last_name: user.last_name || "",
         dob: String(user.date_of_birth || ""),
         avatarUrl: user?.avatar_url || "",
+        phoneNumber: user.phone_number || "",
       });
     }
   }, [user, methods]);
@@ -76,6 +78,7 @@ export const useProfile = () => {
         last_name: user.last_name || "",
         dob: String(user.date_of_birth || ""),
         avatarUrl: user?.avatar_url || "",
+        phoneNumber: user.phone_number || "",
       });
     }
     setIsEditing(false);

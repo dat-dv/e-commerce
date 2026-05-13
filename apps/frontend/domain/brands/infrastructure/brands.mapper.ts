@@ -8,6 +8,9 @@ export class BrandMapper {
       name: dto.name || "No Name",
       slug: dto.slug,
       logo_url: dto.logo_url || "",
+      banner_url: dto.banner_url || "",
+      description: dto.description || "",
+      story: dto.story_vi || dto.story_en || "", // Fallback to either language
       product_count: dto.product_count,
     };
   }
