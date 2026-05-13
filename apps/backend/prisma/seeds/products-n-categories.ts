@@ -30,6 +30,11 @@ export interface AmazonProduct {
   description_en: string;
   skus: AmazonSku[];
   brand?: string;
+  reviews?: {
+    rating: number;
+    title: string;
+    comment: string;
+  }[];
 }
 
 export enum ProductStatus {
@@ -75,7 +80,17 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
   let filesToProcess: string[] = [];
 
   const isDevSeed = false;
-  const datasetDir = path.join(__dirname, '../dataset/products');
+  const originalDatasetDir = path.join(__dirname, '../dataset/products');
+  const enrichedDatasetDir = path.join(__dirname, '../dataset/enriched/products');
+
+  // Ưu tiên dùng thư mục đã được AI xử lý (enriched)
+  const datasetDir = fs.existsSync(enrichedDatasetDir) ? enrichedDatasetDir : originalDatasetDir;
+
+  if (datasetDir === enrichedDatasetDir) {
+    console.log('✅ Đang sử dụng dữ liệu ĐÃ ĐƯỢC XỬ LÝ (Enriched) từ thư mục enriched/products');
+  } else {
+    console.log('ℹ️ Đang sử dụng dữ liệu GỐC (Original) từ thư mục products');
+  }
 
   if (fileName) {
     filesToProcess.push(fileName);
@@ -100,6 +115,12 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
     return;
   }
 
+  // Lấy danh sách User để gán Review ngẫu nhiên
+  const users = await prisma.user.findMany({ select: { id: true }, take: 100 });
+  if (users.length === 0) {
+    console.warn('⚠️ Không tìm thấy User nào trong DB. Review sẽ không được seed.');
+  }
+
   for (const file of filesToProcess) {
     const filePath = path.join(datasetDir, file);
     if (!fs.existsSync(filePath)) {
@@ -119,8 +140,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
 
     let products: AmazonProduct[];
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      products = JSON.parse(fileContent || '');
+      products = JSON.parse(fileContent || '') as AmazonProduct[];
       if (!Array.isArray(products)) {
         console.log(`⏩ Bỏ qua ${file} vì không phải là mảng sản phẩm.`);
         continue;
@@ -176,43 +196,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
           },
         });
 
-        // 2. KIỂM TRA TRÙNG SKU TRƯỚC KHI TẠO PRODUCT
-        // Lấy danh sách mã SKU của sản phẩm hiện tại
-        const skuCodes = p.skus.map((sku) => sku.sku_code);
-
-        // Tìm xem có SKU nào đã tồn tại trong DB chưa
-        const existingSku = await prisma.sku.findFirst({
-          where: {
-            sku_code: { in: skuCodes },
-          },
-        });
-
-        if (existingSku) {
-          // Sản phẩm đã tồn tại! Ta chỉ cần link nó vào danh mục mới nếu chưa có
-          const existingMapping = await prisma.productCategoryMapping.findUnique({
-            where: {
-              product_id_category_id: {
-                product_id: existingSku.product_id,
-                category_id: subCategory.id,
-              },
-            },
-          });
-
-          if (!existingMapping) {
-            await prisma.productCategoryMapping.create({
-              data: {
-                product_id: existingSku.product_id,
-                category_id: subCategory.id,
-              },
-            });
-            // console.log(`🔗 Đã liên kết sản phẩm trùng "${p.pure_name}" vào danh mục mới.`);
-          }
-
-          // Bỏ qua không tạo sản phẩm mới nữa
-          continue;
-        }
-
-        // 3. Tạo Image cho Thumbnail
+        // 2. Tạo Image cho Thumbnail
         const thumbnail = await prisma.image.create({
           data: {
             url: imageUrl || '',
@@ -220,13 +204,13 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
           },
         });
 
-        // 4. Tạo Product và các mối quan hệ (Vì chưa tồn tại)
-        await prisma.product.create({
+        // 3. Tạo Product và các mối quan hệ
+        const createdProduct = await prisma.product.create({
           data: {
             slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
             status: ProductStatus.ACTIVE,
             thumbnail_id: thumbnail.id,
-            brand_id: p.brand ? brandMap[p.brand] : null,
+            brand_id: (p.brand && brandMap[p.brand]) ? brandMap[p.brand] : null,
             translations: {
               create: [
                 { language_id: langVi.id, name: p.name_vi, description: p.description_vi },
@@ -252,10 +236,29 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
               }),
             },
           },
+          include: {
+            skus: true,
+          },
         });
-      } catch (error: any) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        console.error(`❌ Lỗi khi seed sản phẩm ${p.pure_name}:`, error.message);
+
+        // 4. Seed Reviews nếu có
+        if (p.reviews && p.reviews.length > 0 && users.length > 0) {
+          const firstSku = createdProduct.skus[0];
+          if (firstSku) {
+            await prisma.review.createMany({
+              data: p.reviews.map((rev) => ({
+                product_id: createdProduct.id,
+                sku_id: firstSku.id,
+                user_id: users[Math.floor(Math.random() * users.length)].id,
+                rating: rev.rating,
+                comment: rev.title ? `[${rev.title}] ${rev.comment}` : rev.comment,
+              })),
+            });
+          }
+        }
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error(`❌ Lỗi khi seed sản phẩm ${p.pure_name}:`, message);
       }
     }
     console.log(`✅ Hoàn thành seed file: ${file}!`);

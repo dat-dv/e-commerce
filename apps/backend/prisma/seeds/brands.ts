@@ -3,80 +3,122 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { createId } from '@paralleldrive/cuid2';
 
+interface BrandDetailed {
+  name: string;
+  slug?: string;
+  description_vi?: string;
+  website_url?: string;
+  logo_url?: string;
+  is_verified?: boolean;
+}
+
 export async function seedBrands(prisma: PrismaClient) {
-  console.log('📦 Đang seed dữ liệu Brand...');
+  console.log('📦 Đang seed dữ liệu Brand (phiên bản Detailed)...');
 
-  // 1. Đọc file brands.json
-  const brandsPath = path.join(__dirname, '../dataset/brands/brands.json');
-  if (!fs.existsSync(brandsPath)) {
-    console.log('⚠️ Không tìm thấy file brands.json. Bỏ qua seed brand.');
+  const detailedPath = path.join(__dirname, '../dataset/brands/brands_detailed.json');
+  const basicPath = path.join(__dirname, '../dataset/brands/brands.json');
+
+  let rawData: (BrandDetailed | string)[] = [];
+  let isDetailed = false;
+
+  if (fs.existsSync(detailedPath)) {
+    rawData = JSON.parse(fs.readFileSync(detailedPath, 'utf-8')) as (BrandDetailed | string)[];
+    isDetailed = true;
+    console.log('✅ Phát hiện brands_detailed.json. Đang sử dụng dữ liệu chi tiết.');
+  } else if (fs.existsSync(basicPath)) {
+    rawData = JSON.parse(fs.readFileSync(basicPath, 'utf-8')) as (BrandDetailed | string)[];
+    console.log('ℹ️ Không thấy bản chi tiết. Sử dụng brands.json cơ bản.');
+  } else {
+    console.warn('⚠️ Không tìm thấy bất kỳ file brand nào. Bỏ qua.');
     return {};
   }
 
-  const brandsData = JSON.parse(fs.readFileSync(brandsPath, 'utf-8')) as string[];
+  const langVi = await prisma.language.findUnique({ where: { code: 'vi' } });
+  const langEn = await prisma.language.findUnique({ where: { code: 'en' } });
 
-  // Lấy ID của ngôn ngữ mặc định (ưu tiên tiếng Việt, không có thì tiếng Anh)
-  const langVi = await prisma.language.findFirst({ where: { code: 'vi' } });
-  const langEn = await prisma.language.findFirst({ where: { code: 'en' } });
-
-  const defaultLangId = langVi?.id || langEn?.id;
-
-  if (!defaultLangId) {
-    console.log('⚠️ Không tìm thấy Language trong DB. Vui lòng seed Language trước!');
+  if (!langVi || !langEn) {
+    console.error('❌ Thiếu ngôn ngữ hệ thống. Vui lòng seed Language trước.');
     return {};
   }
 
-  const brandsToCreate: any[] = [];
-  const translationsToCreate: any[] = [];
+  interface BrandCreateInput {
+    id: string;
+    slug: string;
+    logo_url: string | null;
+    website_url: string | null;
+    is_verified: boolean;
+    is_featured: boolean;
+    order: number;
+  }
+
+  interface BrandTranslationCreateInput {
+    id: string;
+    brand_id: string;
+    language_id: string;
+    name: string;
+    description: string | null;
+  }
+
+  const brandsToCreate: BrandCreateInput[] = [];
+  const translationsToCreate: BrandTranslationCreateInput[] = [];
   const brandMap: Record<string, string> = {};
   const usedSlugs = new Set<string>();
 
-  brandsData.forEach((brandName) => {
+  rawData.forEach((item, index) => {
+    const brandName = isDetailed ? (item as BrandDetailed).name : (item as string);
+    const detail = isDetailed ? (item as BrandDetailed) : null;
     const brandId = createId();
-    const slug = brandName
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '');
 
-    const finalSlug = slug || `brand-${brandId}`;
+    // Tạo slug
+    let slug =
+      detail && detail.slug
+        ? detail.slug
+        : brandName
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
 
-    if (usedSlugs.has(finalSlug)) {
-      return;
-    }
+    if (!slug) slug = `brand-${brandId}`;
+    if (usedSlugs.has(slug)) slug = `${slug}-${brandId.substring(0, 5)}`;
+    usedSlugs.add(slug);
 
-    usedSlugs.add(finalSlug);
-
+    // Chuẩn bị dữ liệu bảng Brand
     brandsToCreate.push({
       id: brandId,
-      slug: finalSlug,
-      is_verified: true,
-      is_featured: Math.random() > 0.9, // Ngẫu nhiên 10% hãng nổi bật
+      slug: slug,
+      logo_url: detail?.logo_url ?? null,
+      website_url: detail?.website_url ?? null,
+      is_verified: detail?.is_verified ?? false,
+      is_featured: index < 20, // 20 thương hiệu đầu tiên làm Featured cho đẹp
+      order: index,
     });
 
+    // Chuẩn bị dữ liệu bảng BrandTranslation (Tiếng Việt)
     translationsToCreate.push({
       id: createId(),
       brand_id: brandId,
-      language_id: defaultLangId,
+      language_id: langVi.id,
       name: brandName,
-      description: `Thương hiệu ${brandName} chất lượng cao.`,
+      description: detail && detail.description_vi ? detail.description_vi : `Thương hiệu ${brandName} chính hãng.`,
+    });
+
+    // Chuẩn bị dữ liệu bảng BrandTranslation (Tiếng Anh - mặc định)
+    translationsToCreate.push({
+      id: createId(),
+      brand_id: brandId,
+      language_id: langEn.id,
+      name: brandName,
+      description: `Official ${brandName} brand store.`,
     });
 
     brandMap[brandName] = brandId;
   });
 
-  // Bulk insert Brands bằng createMany (Siêu nhanh)
-  await prisma.brand.createMany({
-    data: brandsToCreate,
-  });
+  // Bulk Insert
+  await prisma.brand.createMany({ data: brandsToCreate });
+  await prisma.brandTranslation.createMany({ data: translationsToCreate });
 
-  // Bulk insert Translations
-  await prisma.brandTranslation.createMany({
-    data: translationsToCreate,
-  });
-
-  console.log(`--> Đã seed thành công ${brandsToCreate.length} Brands!`);
-
-  // Trả về brandMap để dùng cho việc seed Product
+  console.log(`--> Hoàn thành seed ${brandsToCreate.length} thương hiệu!`);
   return brandMap;
 }
