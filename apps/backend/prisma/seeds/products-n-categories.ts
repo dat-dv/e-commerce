@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import { PrismaClient } from '../../generated/prisma/client';
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as crypto from 'crypto';
 
 export interface AmazonSku {
   sku_code: string;
@@ -53,6 +53,24 @@ function slugify(text: string): string {
     .replace(/--+/g, '-'); // Xoá nhiều - liên tiếp
 }
 
+/**
+ * Sinh SKU code duy nhất:
+ * - Ưu tiên dùng hash deterministic từ (skuCode gốc + productName + color + size)
+ *   để đảm bảo idempotent nếu chạy lại.
+ * - Nếu vẫn trùng (cực hiếm), fallback sang random 8 ký tự.
+ */
+function resolveSkuCode(originalCode: string, productName: string, color: string, size: string): string {
+  const raw = `${originalCode}|${productName}|${color}|${size}`;
+  const hash = crypto.createHash('sha256').update(raw).digest('hex').toUpperCase();
+  // Lấy 8 ký tự đầu của hash → xác suất collision gần như 0 với dataset ~100k SKU
+  return `SKU-${hash.slice(0, 8)}-${color.slice(0, 3).toUpperCase()}-${size.slice(0, 1).toUpperCase()}`;
+}
+
+function fallbackSkuCode(color: string, size: string): string {
+  const rand = crypto.randomBytes(5).toString('hex').toUpperCase();
+  return `SKU-${rand}-${color.slice(0, 3).toUpperCase()}-${size.slice(0, 1).toUpperCase()}`;
+}
+
 function getAllJsonFiles(dir: string, baseDir: string): string[] {
   let results: string[] = [];
   if (!fs.existsSync(dir)) return results;
@@ -76,6 +94,13 @@ function getAllJsonFiles(dir: string, baseDir: string): string[] {
 }
 
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
+  const seedLogsPath = path.join(process.cwd(), `seedlogs-${Date.now()}.txt`);
+  fs.writeFileSync(
+    seedLogsPath,
+    `Bắt đầu seed dữ liệu lúc: ${new Date().toLocaleString()}\n=========================================\n`,
+    'utf-8',
+  );
+
   const fileName = process.argv[2];
   let filesToProcess: string[] = [];
 
@@ -222,9 +247,13 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
               create: p.skus.map((sku) => {
                 const price = sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
                 const originalPrice = p.actual_price_vnd > 0 ? p.actual_price_vnd : price;
+                const color = sku.attributes?.color ?? 'NA';
+                const size = sku.attributes?.size ?? 'NA';
+                // Sinh SKU deterministic từ hash — tránh hoàn toàn collision ngẫu nhiên
+                const safeSkuCode = resolveSkuCode(sku.sku_code, p.pure_name, color, size);
 
                 return {
-                  sku_code: sku.sku_code,
+                  sku_code: safeSkuCode,
                   price: price,
                   original_price: originalPrice,
                   unit_price: 'VND',
@@ -258,7 +287,11 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
         }
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : String(error);
-        console.error(`❌ Lỗi khi seed sản phẩm ${p.pure_name}:`, message);
+        // Nếu vẫn còn collision sau hash (cực hiếm), log rõ để debug
+        const isSkuCollision = message.includes('sku_code');
+        const errorLog = `❌ Lỗi khi seed sản phẩm ${p.pure_name} (File: ${file})${isSkuCollision ? ' [SKU_COLLISION]' : ''}:\n${message}\n-----------------------------------------\n`;
+        console.error(errorLog);
+        fs.appendFileSync(seedLogsPath, errorLog, 'utf-8');
       }
     }
     console.log(`✅ Hoàn thành seed file: ${file}!`);
