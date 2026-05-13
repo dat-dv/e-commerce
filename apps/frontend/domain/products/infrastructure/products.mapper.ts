@@ -13,11 +13,11 @@ export class ProductMapper {
         const salePrice = flashSale?.sale_price;
         const regularPrice = sku.price;
 
-        const displayPrice = salePrice || regularPrice;
+        const displayPrice = salePrice || regularPrice || 0;
         const strikePrice = salePrice ? regularPrice : sku.original_price;
 
         const discountPercent =
-          strikePrice && strikePrice > displayPrice
+          strikePrice && displayPrice && strikePrice > displayPrice
             ? Math.round(((strikePrice - displayPrice) / strikePrice) * 100)
             : undefined;
 
@@ -26,7 +26,7 @@ export class ProductMapper {
           price: displayPrice.toLocaleString("vi-VN") + " ₫",
           unit_price: displayPrice.toString(),
           original_price:
-            strikePrice && strikePrice > displayPrice
+            strikePrice && displayPrice && strikePrice > displayPrice
               ? strikePrice.toLocaleString("vi-VN") + " ₫"
               : undefined,
           discount_percent: discountPercent,

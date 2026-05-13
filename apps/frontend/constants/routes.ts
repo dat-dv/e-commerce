@@ -64,6 +64,7 @@ export const API_ROUTES = {
     TOP: "/brands/top",
     BASE: "/brands",
     DETAIL: (slug: string) => `/brands/${slug}`,
+    PRODUCTS: (slug: string) => `/brands/${slug}/products`,
   },
   HOMEPAGE: {
     SECTIONS: "/homepage/sections",

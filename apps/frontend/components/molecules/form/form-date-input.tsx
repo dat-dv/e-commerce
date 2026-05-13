@@ -10,6 +10,8 @@ interface FormDateInputProps extends React.InputHTMLAttributes<HTMLInputElement>
   name: string;
   label?: string;
   variant?: InputVariant;
+  maxDate?: Date;
+  minDate?: Date;
 }
 
 export const FormDateInput: React.FC<FormDateInputProps> = ({

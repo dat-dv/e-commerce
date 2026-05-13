@@ -10,6 +10,7 @@ import { BrandMapper } from "./brands.mapper";
 import { API_ROUTES } from "@/constants/routes";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
 import { IProduct } from "@ecommerce/shared";
+import { TProduct } from "@/domain/products/types/products.model";
 
 export class BrandsRepository implements IBrandsRepository {
   constructor(private request: TRequest) {}
@@ -30,21 +31,14 @@ export class BrandsRepository implements IBrandsRepository {
 
     return {
       ...response,
-      data: response.data
-        ? {
-            items: response.data.items.map((item) =>
-              BrandMapper.toDomain(item),
-            ),
-            meta: response.data.meta,
-          }
-        : {
-            items: [],
-            meta: { total: 0, page, limit, totalPages: 0 },
-          },
+      data: {
+        items: response?.data?.items?.map((item) => BrandMapper.toDomain(item)),
+        meta: response.data?.meta,
+      },
     };
   }
 
-  async getBrandBySlug(slug: string): Promise<ApiResponse<TBrand>> {
+  async getBrandBySlug(slug: string): Promise<ApiResponse<TBrand | undefined>> {
     const response = await this.request.get<IBrand>(
       API_ROUTES.BRAND.DETAIL(slug),
     );

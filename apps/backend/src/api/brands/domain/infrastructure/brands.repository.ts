@@ -106,20 +106,23 @@ export class BrandsRepository implements IBrandsRepository {
   }
 
   async getBrandProducts(slug: string, page = 1, limit = 20, languageCode = 'en'): Promise<PaginatedResult<any>> {
-    return this.paginationService.paginate(
-      this.prisma.product,
-      {
-        where: {
-          brand: { slug },
+    console.log(`🔍 [Backend] Đang lấy sản phẩm cho Brand: "${slug}"`);
+    try {
+      const result = await this.paginationService.paginate(
+        this.prisma.product,
+        {
+          where: {
+            brand: { slug },
+          },
         },
-        include: {
-          skus: true,
-          category: true,
-        },
-        orderBy: { created_at: 'desc' },
-      },
-      page,
-      limit,
-    );
+        page,
+        limit,
+      );
+      console.log(`✅ [Backend] Lấy thành công ${result.items.length} sản phẩm cho Brand: "${slug}"`);
+      return result;
+    } catch (error) {
+      console.error(`❌ [Backend] Lỗi nghiêm trọng tại getBrandProducts cho slug="${slug}":`, error);
+      throw error;
+    }
   }
 }

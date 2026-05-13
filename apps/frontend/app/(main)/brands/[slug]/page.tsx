@@ -9,17 +9,16 @@ import { BrandStory } from "./brand-story";
 import { allSafe } from "@/utils/promise";
 
 interface BrandDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: BrandDetailPageProps): Promise<Metadata> {
-  const { data: brand } = await brandsUseCase.getBrandBySlug.execute(
-    params.slug,
-  );
+  const { slug } = await params;
+  const { data: brand } = await brandsUseCase.getBrandBySlug.execute(slug);
 
   if (!brand) return { title: "Brand Not Found" };
 
@@ -32,9 +31,12 @@ export async function generateMetadata({
 export default async function BrandDetailPage({
   params,
 }: BrandDetailPageProps) {
+  const { slug } = await params;
+  console.log(`🔍 [BrandDetail] Đang truy cập slug thực tế: ${slug}`);
+
   const [brandResult, productsResult] = await allSafe([
-    brandsUseCase.getBrandBySlug.execute(params.slug),
-    brandsUseCase.getBrandProducts.execute(params.slug, 1, 20),
+    brandsUseCase.getBrandBySlug.execute(slug),
+    brandsUseCase.getBrandProducts.execute(slug, 1, 20),
   ]);
 
   if (!brandResult?.data || !productsResult?.data) notFound();

@@ -4,7 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   // output: "export",
   images: {
-    domains: ["images.unsplash.com", "m.media-amazon.com", "picsum.photos"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
 };
 

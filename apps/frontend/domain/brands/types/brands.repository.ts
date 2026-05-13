@@ -8,7 +8,7 @@ export interface IBrandsRepository {
     limit?: number,
   ): Promise<ApiResponse<ApiListResponse<TBrand>>>;
 
-  getBrandBySlug(slug: string): Promise<ApiResponse<TBrand>>;
+  getBrandBySlug(slug: string): Promise<ApiResponse<TBrand | undefined>>;
 
   getBrandProducts(
     slug: string,

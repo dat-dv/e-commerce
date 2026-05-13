@@ -2,7 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 
 interface BrandHeroProps {
   brand: TBrand;
@@ -11,23 +12,25 @@ interface BrandHeroProps {
 export function BrandHero({ brand }: BrandHeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  
+
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 1.1]);
+  const [imgError, setImgError] = useState(false);
 
   return (
-    <section ref={containerRef} className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center bg-background">
+    <section
+      ref={containerRef}
+      className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center bg-background"
+    >
       {/* Background Banner with Parallax */}
-      <motion.div 
-        style={{ y: y1, scale }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y: y1, scale }} className="absolute inset-0 z-0">
         {brand.banner_url ? (
-          <img 
-            src={brand.banner_url} 
-            alt={brand.name} 
-            className="w-full h-full object-cover"
+          <Image
+            src={brand.banner_url}
+            alt={brand.name}
+            fill
+            className="object-cover"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-500/20" />
@@ -36,24 +39,24 @@ export function BrandHero({ brand }: BrandHeroProps) {
       </motion.div>
 
       {/* Floating Logo and Name */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
         className="relative z-10 flex flex-col items-center gap-12"
       >
-        <div className="w-40 h-40 md:w-56 md:h-56 p-8 rounded-[4rem] bg-background/30 backdrop-blur-3xl border border-content/10 shadow-2xl flex items-center justify-center">
-          {brand.logo_url ? (
-            <img 
-              src={brand.logo_url} 
-              alt={brand.name} 
-              className="w-full h-full object-contain drop-shadow-2xl"
+        {brand.logo_url && imgError && (
+          <div className="relative w-40 h-40 md:w-56 md:h-56 p-8 rounded-[4rem] bg-background/30 backdrop-blur-3xl border border-content/10 shadow-2xl flex items-center justify-center">
+            <Image
+              src={brand.logo_url}
+              alt={brand.name}
+              fill
+              className="object-contain drop-shadow-2xl"
+              onError={() => setImgError(true)}
             />
-          ) : (
-             <span className="text-6xl font-black text-primary">{brand.name.charAt(0)}</span>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -61,11 +64,11 @@ export function BrandHero({ brand }: BrandHeroProps) {
           >
             {brand.name}
           </motion.h1>
-          <motion.div 
+          <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ delay: 1, duration: 1 }}
-            className="h-1 w-full bg-primary mt-4" 
+            className="h-1 w-full bg-primary mt-4"
           />
         </div>
       </motion.div>
