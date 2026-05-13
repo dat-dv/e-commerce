@@ -8,6 +8,8 @@ import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed
 import { GetFlashSaleUseCase } from './domain/use-cases/get-flash-sale.use-case';
 import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
 import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.use-case';
+import { GetProductReviewsUseCase } from './domain/use-cases/get-product-reviews.use-case';
+import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
 import { GetProductsDto } from './dto/get-products.dto';
 import createSuccessResponse from 'src/common/respomse';
 import type { Request } from 'express';
@@ -21,6 +23,8 @@ export class ProductsController {
     private readonly getFlashSaleUseCase: GetFlashSaleUseCase,
     private readonly getProductsUseCase: GetProductsUseCase,
     private readonly getProductDetailUseCase: GetProductDetailUseCase,
+    private readonly getProductReviewsUseCase: GetProductReviewsUseCase,
+    private readonly getSimilarProductsUseCase: GetSimilarProductsUseCase,
   ) {}
 
   @Get()
@@ -58,10 +62,30 @@ export class ProductsController {
   }
 
   @UseGuards(OptionalAuthGuard)
-  @Get(':id')
-  async getProductDetail(@Param('id') id: string, @Req() req: Request, @Language() lang: string) {
+  @Get(':slug')
+  async getProductDetail(@Param('slug') slug: string, @Req() req: Request, @Language() lang: string) {
     const userId = req.user?.sub;
-    const result = await this.getProductDetailUseCase.execute(id, lang, userId);
+    const result = await this.getProductDetailUseCase.execute(slug, lang, userId);
+    return createSuccessResponse(result);
+  }
+
+  @Get(':id/reviews')
+  async getProductReviews(
+    @Param('id') id: string,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+  ) {
+    const result = await this.getProductReviewsUseCase.execute(id, page, limit);
+    return createSuccessResponse(result);
+  }
+
+  @Get(':id/similar')
+  async getSimilarProducts(
+    @Param('id') id: string,
+    @Query('limit', new DefaultValuePipe(4), ParseIntPipe) limit: number,
+    @Language() lang: string,
+  ) {
+    const result = await this.getSimilarProductsUseCase.execute(id, limit, lang);
     return createSuccessResponse(result);
   }
 }

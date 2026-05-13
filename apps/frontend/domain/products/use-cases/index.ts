@@ -6,6 +6,8 @@ import { GetRecentlyViewedUseCase } from "./get-recently-viewed.use-case";
 import { GetFlashSaleUseCase } from "./get-flash-sale.use-case";
 import { GetProductByIdUseCase } from "./get-product-by-id.use-case";
 import { GetProductsUseCase } from "./get-products.use-case";
+import { GetProductReviewsUseCase } from "./get-product-reviews.use-case";
+import { GetSimilarProductsUseCase } from "./get-similar-products.use-case";
 
 const repo = new ProductsRepository(appRequest);
 
@@ -16,4 +18,6 @@ export const productsUseCase = {
   getFlashSale: new GetFlashSaleUseCase(repo),
   getProductById: new GetProductByIdUseCase(repo),
   getProducts: new GetProductsUseCase(repo),
+  getProductReviews: new GetProductReviewsUseCase(repo),
+  getSimilarProducts: new GetSimilarProductsUseCase(repo),
 };

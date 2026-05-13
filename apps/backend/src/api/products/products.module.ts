@@ -8,6 +8,8 @@ import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed
 import { GetFlashSaleUseCase } from './domain/use-cases/get-flash-sale.use-case';
 import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
 import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.use-case';
+import { GetProductReviewsUseCase } from './domain/use-cases/get-product-reviews.use-case';
+import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
 import { IProductsRepository } from './domain/entities/products.repository.interface';
 import { ProductsRepository } from './domain/infrastructure/products.repository';
 
@@ -21,6 +23,8 @@ import { ProductsRepository } from './domain/infrastructure/products.repository'
     GetFlashSaleUseCase,
     GetProductsUseCase,
     GetProductDetailUseCase,
+    GetProductReviewsUseCase,
+    GetSimilarProductsUseCase,
     {
       provide: IProductsRepository,
       useClass: ProductsRepository,
@@ -33,6 +37,8 @@ import { ProductsRepository } from './domain/infrastructure/products.repository'
     GetFlashSaleUseCase,
     GetProductsUseCase,
     GetProductDetailUseCase,
+    GetProductReviewsUseCase,
+    GetSimilarProductsUseCase,
     IProductsRepository,
   ],
 })

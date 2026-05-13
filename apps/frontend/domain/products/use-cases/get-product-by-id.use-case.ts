@@ -9,6 +9,6 @@ export class GetProductByIdUseCase {
     id: string,
     lang = "vi",
   ): Promise<ApiResponse<TProduct | null>> {
-    return this.productsRepository.getProductById(id, lang);
+    return this.productsRepository.getProductBySlug(id);
   }
 }

@@ -1,4 +1,5 @@
 import { IImage } from './image';
+import { IProductCategory } from './product-category';
 
 export enum EProductStatus {
   DRAFT = 0,
@@ -12,15 +13,27 @@ export interface IProductTranslation {
   description?: string | null;
 }
 
+export interface IAttributeTranslation {
+  language_id: string;
+  name: string;
+}
+
 export interface IAttribute {
   id: string;
   name: string;
+  translations?: IAttributeTranslation[];
+}
+
+export interface IAttributeValueTranslation {
+  language_id: string;
+  value: string;
 }
 
 export interface IAttributeValue {
   id: string;
   value: string;
   attribute?: IAttribute;
+  translations?: IAttributeValueTranslation[];
 }
 
 export interface ISkuAttributeValue {
@@ -49,8 +62,15 @@ export interface ISku {
   product?: IProduct; // Quan hệ ngược về Product
 }
 
+export interface IProductCategoryMapping {
+  product_id: string;
+  category_id: string;
+  category?: IProductCategory;
+}
+
 export interface IProduct {
   id: string;
+  slug?: string | null;
   seller_id?: string | null;
   category_id?: string | null;
   brand_id?: string | null;
@@ -62,9 +82,27 @@ export interface IProduct {
   translations?: IProductTranslation[];
   skus?: ISku[];
   thumbnail?: IImage | null;
+  categories?: IProductCategoryMapping[];
 }
 
 export interface IProductBrand {
   id: string;
   name: string;
+}
+
+export interface IReview {
+  id: string;
+  product_id: string;
+  sku_id: string;
+  user_id: string;
+  rating: number;
+  comment?: string | null;
+  images?: unknown;
+  created_at: Date;
+  user?: {
+    id: string;
+    first_name: string | null;
+    last_name: string | null;
+  };
+  sku?: ISku;
 }

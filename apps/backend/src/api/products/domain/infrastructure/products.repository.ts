@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct } from '@ecommerce/shared';
+import { IProduct, IReview } from '@ecommerce/shared';
 import { IFlashSale } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
@@ -18,6 +18,24 @@ export class ProductsRepository implements IProductsRepository {
       where: { id },
       include: {
         thumbnail: true,
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: { language: { code: languageCode } },
+                },
+              },
+            },
+          },
+        },
         translations: {
           where: {
             language: {
@@ -51,6 +69,59 @@ export class ProductsRepository implements IProductsRepository {
         original_price: sku.original_price ? Number(sku.original_price) : null,
       })),
     };
+  }
+
+  async findBySlug(slug: string, languageCode = 'en'): Promise<IProduct | null> {
+    const product = await this.prisma.product.findUnique({
+      where: { slug },
+      include: {
+        thumbnail: true,
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: { language: { code: languageCode } },
+                },
+              },
+            },
+          },
+        },
+        translations: {
+          where: {
+            language: {
+              code: languageCode,
+            },
+          },
+        },
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!product) {
+      return this.findById(slug, languageCode);
+    }
+
+    return product;
   }
 
   async recordView(userId: string, productId: string): Promise<void> {
@@ -432,7 +503,7 @@ export class ProductsRepository implements IProductsRepository {
       orderBy = { skus: { _count: 'desc' } };
     }
 
-    const result = await this.paginationService.paginate<any>(
+    const result = await this.paginationService.paginate<IProduct>(
       this.prisma.product,
       {
         where,
@@ -454,5 +525,44 @@ export class ProductsRepository implements IProductsRepository {
     );
 
     return result;
+  }
+
+  async getProductReviews(productId: string, page = 1, limit = 10): Promise<PaginatedResult<IReview>> {
+    const result = await this.paginationService.paginate<IReview>(
+      this.prisma.review,
+      {
+        where: { product_id: productId },
+        orderBy: { created_at: 'desc' },
+        include: {
+          user: {
+            select: { id: true, first_name: true, last_name: true },
+          },
+          sku: true,
+        },
+      },
+      page,
+      limit,
+    );
+    return result;
+  }
+
+  async getSimilarProducts(categoryId: string, limit = 4, languageCode = 'en'): Promise<IProduct[]> {
+    const products = await this.prisma.product.findMany({
+      where: {
+        categories: {
+          some: { category_id: categoryId },
+        },
+        deleted_at: null,
+        status: 1,
+      },
+      take: limit,
+      include: {
+        translations: {
+          where: { language: { code: languageCode } },
+        },
+        skus: true,
+      },
+    });
+    return products;
   }
 }

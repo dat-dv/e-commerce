@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default async function ProductDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
+  const { slug } = await params;
 
-  const response = await safe(productsUseCase.getProductById.execute(id));
+  const response = await safe(productsUseCase.getProductById.execute(slug));
   const backendProduct = response?.data;
 
   if (!backendProduct?.id) {

@@ -32,6 +32,12 @@ export interface AmazonProduct {
   brand?: string;
 }
 
+export enum ProductStatus {
+  DRAFT = 0,
+  ACTIVE = 1,
+  OUT_OF_STOCK = 2,
+}
+
 function slugify(text: string): string {
   return text
     .toString()
@@ -200,7 +206,8 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
         // 4. Tạo Product và các mối quan hệ (Vì chưa tồn tại)
         await prisma.product.create({
           data: {
-            status: 1, // ACTIVE
+            slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
+            status: ProductStatus.ACTIVE,
             thumbnail_id: thumbnail.id,
             brand_id: p.brand ? brandMap[p.brand] : null,
             translations: {

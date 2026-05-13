@@ -10,6 +10,7 @@ import Image from "next/image";
 
 export interface FlashSaleProduct {
   id: string;
+  slug: string;
   name: string;
   category: string;
   image_url?: string;
@@ -94,7 +95,7 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
         {/* Action Buttons on Hover */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
           <Link
-            href={APP_ROUTES.PRODUCT_DETAIL(product.id)}
+            href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
             className="p-3 bg-white text-black rounded-full hover:bg-white/90 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center"
             title="View Details"
           >
@@ -113,7 +114,7 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
       {/* Info */}
       <div className="flex flex-col gap-1 px-1 py-1">
         <h3 className="text-sm font-bold text-content hover:text-primary transition-colors line-clamp-1">
-          <Link href={APP_ROUTES.PRODUCT_DETAIL(product.id)}>
+          <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
             {product.name}
           </Link>
         </h3>

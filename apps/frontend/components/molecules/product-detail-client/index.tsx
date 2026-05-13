@@ -12,8 +12,11 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
-import { TProduct } from "@/domain/products/types/products.model";
+import { useState, useEffect } from "react";
+import { TProduct, TReview } from "@/domain/products/types/products.model";
+import { productsUseCase } from "@/domain/products/use-cases";
+import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
 
 export interface ProductDetailProps {
   product: TProduct;
@@ -23,10 +26,100 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const addItem = useCartStore((s) => s.addItem);
 
   const [quantity, setQuantity] = useState(1);
-  const [selectedSkuIndex, setSelectedSkuIndex] = useState(0);
-  const [selectedColor, setSelectedColor] = useState("Q86 trắng");
+  const [selectedAttributes, setSelectedAttributes] = useState<{
+    [key: string]: string;
+  }>({});
 
-  const selectedSku = product.skus[selectedSkuIndex];
+  const [reviews, setReviews] = useState<TReview[]>([]);
+  const [similarProducts, setSimilarProducts] = useState<TProduct[]>([]);
+  const [recommendedProducts, setRecommendedProducts] = useState<TProduct[]>(
+    [],
+  );
+  const [loadingReviews, setLoadingReviews] = useState(true);
+  const [loadingSimilar, setLoadingSimilar] = useState(true);
+  const [loadingRecommended, setLoadingRecommended] = useState(true);
+
+  // Group attributes across all SKUs
+  const attributeGroups: { [key: string]: Set<string> } = {};
+  product.skus.forEach((sku) => {
+    sku.attributes?.forEach((attr) => {
+      if (!attributeGroups[attr.name]) {
+        attributeGroups[attr.name] = new Set();
+      }
+      attributeGroups[attr.name].add(attr.value);
+    });
+  });
+
+  // Find selected SKU based on attributes
+  const selectedSku =
+    product.skus.find((sku) => {
+      return sku.attributes?.every(
+        (attr) => selectedAttributes[attr.name] === attr.value,
+      );
+    }) || product.skus[0];
+
+  // Initialize selected attributes from first SKU
+  useEffect(() => {
+    if (product.skus[0]?.attributes) {
+      const initialAttrs: { [key: string]: string } = {};
+      product.skus[0].attributes.forEach((attr) => {
+        initialAttrs[attr.name] = attr.value;
+      });
+      setSelectedAttributes(initialAttrs);
+    }
+  }, [product.skus]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      setLoadingReviews(true);
+      try {
+        const response = await productsUseCase.getProductReviews.execute(
+          product.id,
+        );
+        if (response.data) {
+          setReviews(response.data.items);
+        }
+      } catch (error) {
+        console.error("Failed to fetch reviews:", error);
+      } finally {
+        setLoadingReviews(false);
+      }
+    };
+
+    const fetchSimilar = async () => {
+      setLoadingSimilar(true);
+      try {
+        const response = await productsUseCase.getSimilarProducts.execute(
+          product.id,
+        );
+        if (response.data) {
+          setSimilarProducts(response.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch similar products:", error);
+      } finally {
+        setLoadingSimilar(false);
+      }
+    };
+
+    const fetchRecommended = async () => {
+      setLoadingRecommended(true);
+      try {
+        const response = await productsUseCase.getRecommended.execute();
+        if (response.data) {
+          setRecommendedProducts(response.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch recommended products:", error);
+      } finally {
+        setLoadingRecommended(false);
+      }
+    };
+
+    fetchReviews();
+    fetchSimilar();
+    fetchRecommended();
+  }, [product.id]);
 
   // Collect all available images
   const images = [
@@ -62,67 +155,6 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
       quantity,
     );
   };
-
-  // Dummy data for reviews
-  const reviews = [
-    {
-      id: 1,
-      user: "Nguyễn Văn A",
-      rating: 5,
-      date: "2 ngày trước",
-      content: "Sản phẩm cực kỳ tốt, đóng gói cẩn thận. Rất đáng tiền!",
-      likes: 12,
-    },
-    {
-      id: 2,
-      user: "Trần Thị B",
-      rating: 4,
-      date: "1 tuần trước",
-      content:
-        "Chất lượng ổn, giao hàng hơi lâu một xíu nhưng shipper thân thiện.",
-      likes: 4,
-    },
-    {
-      id: 3,
-      user: "Lê Văn C",
-      rating: 5,
-      date: "2 tuần trước",
-      content: "Đẹp tuyệt vời, đúng như mô tả. Sẽ ủng hộ shop dài dài.",
-      likes: 8,
-    },
-  ];
-
-  // Dummy data for similar products
-  const dummyProducts = [
-    {
-      id: "1",
-      name: "Sản phẩm tương tự 1",
-      price: 1500000,
-      image_url:
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format",
-    },
-    {
-      id: "2",
-      name: "Sản phẩm tương tự 2",
-      price: 2100000,
-      image_url:
-        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format",
-    },
-    {
-      id: "3",
-      name: "Sản phẩm tương tự 3",
-      price: 990000,
-      image_url:
-        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&auto=format",
-    },
-    {
-      id: "4",
-      name: "Sản phẩm tương tự 4",
-      price: 3200000,
-      image_url:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format",
-    },
-  ];
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl space-y-12">
@@ -234,44 +266,51 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
             </span>
           </div>
 
-          {/* Color Options */}
-          <div className="flex flex-col gap-3">
-            <span className="text-sm font-medium text-content/60 w-24">
-              Màu sắc
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {["Q86 trắng", "Q86 nâu"].map((color) => (
-                <button
-                  key={color}
-                  onClick={() => setSelectedColor(color)}
-                  className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all flex items-center gap-2 ${
-                    selectedColor === color
-                      ? "border-primary text-primary bg-primary/5"
-                      : "border-content/[0.1] hover:border-content/20 text-content/80"
-                  }`}
-                >
-                  {color}
-                  {selectedColor === color && (
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10 3L4.5 8.5L2 6"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  )}
-                </button>
-              ))}
+          {/* Dynamic Options */}
+          {Object.entries(attributeGroups).map(([attrName, values]) => (
+            <div key={attrName} className="flex flex-col gap-3">
+              <span className="text-sm font-medium text-content/60 w-24">
+                {attrName}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {Array.from(values).map((value) => (
+                  <button
+                    key={value}
+                    onClick={() =>
+                      setSelectedAttributes({
+                        ...selectedAttributes,
+                        [attrName]: value,
+                      })
+                    }
+                    className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all flex items-center gap-2 ${
+                      selectedAttributes[attrName] === value
+                        ? "border-primary text-primary bg-primary/5"
+                        : "border-content/[0.1] hover:border-content/20 text-content/80"
+                    }`}
+                  >
+                    {value}
+                    {selectedAttributes[attrName] === value && (
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10 3L4.5 8.5L2 6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
 
           {/* Quantity & Stock */}
           <div className="flex flex-col gap-3">
@@ -415,28 +454,44 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
 
         {/* Review List */}
         <div className="divide-y divide-content/[0.05]">
-          {reviews.map((review) => (
-            <div key={review.id} className="py-4 flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="font-bold text-content text-sm">
-                    {review.user}
-                  </span>
-                  <div className="flex text-amber-400 mt-0.5">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} size={12} fill="currentColor" />
-                    ))}
-                  </div>
-                </div>
-                <span className="text-xs text-content/30">{review.date}</span>
+          {loadingReviews ? (
+            [...Array(3)].map((_, i) => (
+              <div key={i} className="py-4 animate-pulse">
+                <div className="h-4 bg-content/[0.05] rounded w-1/4 mb-2"></div>
+                <div className="h-3 bg-content/[0.05] rounded w-full mb-1"></div>
+                <div className="h-3 bg-content/[0.05] rounded w-2/3"></div>
               </div>
-              <p className="text-sm text-content/70">{review.content}</p>
-              <button className="flex items-center gap-1.5 text-xs text-content/40 hover:text-content transition-colors w-fit">
-                <ThumbsUp size={12} />
-                <span>Hữu ích ({review.likes})</span>
-              </button>
+            ))
+          ) : reviews.length === 0 ? (
+            <div className="col-span-full text-center text-content/50 py-8">
+              Chưa có đánh giá nào
             </div>
-          ))}
+          ) : (
+            reviews.map((review) => (
+              <div key={review.id} className="py-4 flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="font-bold text-content text-sm">
+                      {review.user?.name || "Người dùng ẩn danh"}
+                    </span>
+                    <div className="flex text-amber-400 mt-0.5">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} size={12} fill="currentColor" />
+                      ))}
+                    </div>
+                  </div>
+                  <span className="text-xs text-content/30">
+                    {new Date(review.created_at).toLocaleDateString("vi-VN")}
+                  </span>
+                </div>
+                <p className="text-sm text-content/70">{review.comment}</p>
+                <button className="flex items-center gap-1.5 text-xs text-content/40 hover:text-content transition-colors w-fit">
+                  <ThumbsUp size={12} />
+                  <span>Hữu ích</span>
+                </button>
+              </div>
+            ))
+          )}
         </div>
 
         {/* Pagination */}
@@ -467,27 +522,44 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           </button>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {dummyProducts.map((p) => (
-            <div
-              key={p.id}
-              className="group cursor-pointer bg-surface border border-content/[0.05] rounded-xl p-3 shadow-sm hover:shadow-md transition-all"
-            >
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-content/[0.02] mb-3">
-                <Image
-                  src={p.image_url}
-                  alt={p.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-bold text-sm text-content line-clamp-1">
-                {p.name}
-              </h3>
-              <p className="text-sm font-black text-primary mt-1">
-                {p.price.toLocaleString("vi-VN")} đ
-              </p>
+          {loadingSimilar ? (
+            [...Array(4)].map((_, i) => (
+              <div
+                key={i}
+                className="animate-pulse bg-content/[0.05] rounded-xl p-3 h-64"
+              ></div>
+            ))
+          ) : similarProducts.length === 0 ? (
+            <div className="col-span-full text-center text-content/50 py-8">
+              Không có sản phẩm tương tự
             </div>
-          ))}
+          ) : (
+            similarProducts.map((p) => (
+              <Link
+                key={p.id}
+                href={APP_ROUTES.PRODUCT_DETAIL(p.slug)}
+                className="group cursor-pointer bg-surface border border-content/[0.05] rounded-xl p-3 shadow-sm hover:shadow-md transition-all block"
+              >
+                <div className="relative aspect-square rounded-lg overflow-hidden bg-content/[0.02] mb-3">
+                  <Image
+                    src={
+                      p.image_url ||
+                      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format"
+                    }
+                    alt={p.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="font-bold text-sm text-content line-clamp-1">
+                  {p.name}
+                </h3>
+                <p className="text-sm font-black text-primary mt-1">
+                  {Number(p.skus[0]?.price || 0).toLocaleString("vi-VN")} đ
+                </p>
+              </Link>
+            ))
+          )}
         </div>
       </div>
 
@@ -500,27 +572,44 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           </button>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {dummyProducts.reverse().map((p) => (
-            <div
-              key={p.id}
-              className="group cursor-pointer bg-surface border border-content/[0.05] rounded-xl p-3 shadow-sm hover:shadow-md transition-all"
-            >
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-content/[0.02] mb-3">
-                <Image
-                  src={p.image_url}
-                  alt={p.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-bold text-sm text-content line-clamp-1">
-                {p.name}
-              </h3>
-              <p className="text-sm font-black text-primary mt-1">
-                {p.price.toLocaleString("vi-VN")} đ
-              </p>
+          {loadingRecommended ? (
+            [...Array(4)].map((_, i) => (
+              <div
+                key={i}
+                className="animate-pulse bg-content/[0.05] rounded-xl p-3 h-64"
+              ></div>
+            ))
+          ) : recommendedProducts.length === 0 ? (
+            <div className="col-span-full text-center text-content/50 py-8">
+              Không có gợi ý nào
             </div>
-          ))}
+          ) : (
+            recommendedProducts.map((p) => (
+              <Link
+                key={p.id}
+                href={APP_ROUTES.PRODUCT_DETAIL(p.slug)}
+                className="group cursor-pointer bg-surface border border-content/[0.05] rounded-xl p-3 shadow-sm hover:shadow-md transition-all block"
+              >
+                <div className="relative aspect-square rounded-lg overflow-hidden bg-content/[0.02] mb-3">
+                  <Image
+                    src={
+                      p.image_url ||
+                      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format"
+                    }
+                    alt={p.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="font-bold text-sm text-content line-clamp-1">
+                  {p.name}
+                </h3>
+                <p className="text-sm font-black text-primary mt-1">
+                  {Number(p.skus[0]?.price || 0).toLocaleString("vi-VN")} đ
+                </p>
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </div>

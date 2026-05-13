@@ -8,8 +8,8 @@ export class GetProductDetailUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(id: string, languageCode = 'vi', userId?: string) {
-    const product = await this.productsRepository.findById(id, languageCode);
+  async execute(slug: string, languageCode = 'vi', userId?: string) {
+    const product = await this.productsRepository.findBySlug(slug, languageCode);
 
     if (!product) {
       throw new NotFoundException('Product not found');
@@ -17,7 +17,7 @@ export class GetProductDetailUseCase {
 
     if (userId) {
       try {
-        await this.productsRepository.recordView(userId, id);
+        await this.productsRepository.recordView(userId, product.id);
       } catch (error) {
         console.error('Failed to record product view:', error);
       }

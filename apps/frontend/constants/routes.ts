@@ -13,7 +13,7 @@ export const APP_ROUTES = {
   DOCS: "/docs",
   CATEGORIES: "/categories",
   CATEGORY_DETAIL: (slug: string) => `/categories/${slug}`,
-  PRODUCT_DETAIL: (id: string | number) => `/products/${id}`,
+  PRODUCT_DETAIL: (slug: string) => `/products/${slug}`,
   CART: "/cart",
   ORDERS: "/orders",
   PRODUCTS: "/products",
@@ -50,6 +50,9 @@ export const API_ROUTES = {
     BASED_ON_INTEREST: "/products/based-on-interest",
     RECENTLY_VIEWED: "/products/recently-viewed",
     FLASH_SALE: "/products/flash-sale",
+    DETAIL_BY_SLUG: (slug: string) => `/products/${slug}`,
+    REVIEWS: (id: string) => `/products/${id}/reviews`,
+    SIMILAR: (id: string) => `/products/${id}/similar`,
   },
   PRODUCT_CATEGORIES: {
     BASE: "/product-categories",

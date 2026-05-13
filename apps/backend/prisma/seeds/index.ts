@@ -31,6 +31,8 @@ async function cleanDatabase() {
   await prisma.sku.deleteMany({});
   await prisma.productTranslation.deleteMany({});
   await prisma.productCategoryTranslation.deleteMany({});
+  await prisma.brandTranslation.deleteMany({});
+  await prisma.brand.deleteMany({});
   await prisma.productCategoryMapping.deleteMany({});
   await prisma.product.deleteMany({});
   await prisma.productCategory.deleteMany({});

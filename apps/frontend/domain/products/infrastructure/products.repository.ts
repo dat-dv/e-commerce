@@ -4,7 +4,7 @@ import {
   TRequest,
   ApiListResponse,
 } from "@/utils/request/request.types";
-import { TProduct } from "../types/products.model";
+import { TProduct, TReview } from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
 import { IProduct } from "@ecommerce/shared";
 import { ProductMapper } from "./products.mapper";
@@ -52,13 +52,9 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async getProductById(
-    id: string,
-    lang = "vi",
-  ): Promise<ApiResponse<TProduct | null>> {
+  async getProductBySlug(slug: string): Promise<ApiResponse<TProduct | null>> {
     const response = await this.request.get<IProduct>(
-      `${API_ROUTES.PRODUCTS.BASE}/${id}`,
-      { params: { lang } },
+      API_ROUTES.PRODUCTS.DETAIL_BY_SLUG(slug),
     );
     return {
       ...response,
@@ -107,6 +103,32 @@ export class ProductsRepository implements IProductsRepository {
               totalPages: 0,
             },
           },
+    };
+  }
+
+  async getProductReviews(
+    id: string,
+    page = 1,
+    limit = 10,
+  ): Promise<ApiResponse<ApiListResponse<TReview>>> {
+    const response = await this.request.get<ApiListResponse<TReview>>(
+      API_ROUTES.PRODUCTS.REVIEWS(id),
+      { params: { page, limit } },
+    );
+    return response;
+  }
+
+  async getSimilarProducts(
+    id: string,
+    limit = 4,
+  ): Promise<ApiResponse<TProduct[]>> {
+    const response = await this.request.get<IProduct[]>(
+      API_ROUTES.PRODUCTS.SIMILAR(id),
+      { params: { limit } },
+    );
+    return {
+      ...response,
+      data: response.data?.map((item) => ProductMapper.toDomain(item)) || [],
     };
   }
 }

@@ -1,8 +1,11 @@
 import { IFlashSale } from '@ecommerce/shared';
-import { IProduct } from '@ecommerce/shared';
+import { IProduct, IReview } from '@ecommerce/shared';
+import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 export interface IProductsRepository {
   findById(id: string, languageCode?: string): Promise<IProduct | null>;
+
+  findBySlug(slug: string, languageCode?: string): Promise<IProduct | null>;
 
   recordView(userId: string, productId: string): Promise<void>;
 
@@ -36,15 +39,11 @@ export interface IProductsRepository {
     attribute_value_ids?: string[];
     sort?: string;
     languageCode?: string;
-  }): Promise<{
-    items: IProduct[];
-    meta: {
-      total: number;
-      page: number;
-      limit: number;
-      totalPages: number;
-    };
-  }>;
+  }): Promise<PaginatedResult<IProduct>>;
+
+  getProductReviews(productId: string, page?: number, limit?: number): Promise<PaginatedResult<IReview>>;
+
+  getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProduct[]>;
 }
 
 export const IProductsRepository = Symbol('IProductsRepository');
