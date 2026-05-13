@@ -196,15 +196,13 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
           },
         });
 
-        // 2. Tạo Image cho Thumbnail
         const thumbnail = await prisma.image.create({
           data: {
             url: imageUrl || '',
-            publicId: imageUrl || `placeholder-${Date.now()}`,
+            public_id: imageUrl || `placeholder-${Date.now()}`,
           },
         });
 
-        // 3. Tạo Product và các mối quan hệ
         const createdProduct = await prisma.product.create({
           data: {
             slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
@@ -242,16 +240,18 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
         });
 
         // 4. Seed Reviews nếu có
-        if (p.reviews && p.reviews.length > 0 && users.length > 0) {
+        type ParsedReview = { rating?: number | string | null; title?: string | null; comment?: string | null };
+        const validReviews = p.reviews?.filter((rev: ParsedReview) => rev.rating != null || rev.comment != null) || [];
+        if (validReviews.length > 0 && users.length > 0) {
           const firstSku = createdProduct.skus[0];
           if (firstSku) {
             await prisma.review.createMany({
-              data: p.reviews.map((rev) => ({
+              data: validReviews.map((rev: ParsedReview) => ({
                 product_id: createdProduct.id,
                 sku_id: firstSku.id,
                 user_id: users[Math.floor(Math.random() * users.length)].id,
-                rating: rev.rating,
-                comment: rev.title ? `[${rev.title}] ${rev.comment}` : rev.comment,
+                rating: Number(rev.rating) || 5,
+                comment: rev.title ? `[${rev.title}] ${rev.comment || ''}` : rev.comment || '',
               })),
             });
           }

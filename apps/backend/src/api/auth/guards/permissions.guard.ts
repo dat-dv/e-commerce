@@ -34,7 +34,11 @@ export class PermissionsGuard implements CanActivate {
           select: {
             permissions: {
               select: {
-                permission_name: true,
+                permission: {
+                  select: {
+                    permission_name: true,
+                  },
+                },
               },
             },
           },
@@ -45,7 +49,7 @@ export class PermissionsGuard implements CanActivate {
       return false;
     }
 
-    const userPermissions = dbUser.role.permissions.map((p) => p.permission_name);
+    const userPermissions = dbUser.role.permissions.map((p) => p.permission.permission_name);
     return requiredPermissions.every((permission) => userPermissions.includes(permission));
   }
 }

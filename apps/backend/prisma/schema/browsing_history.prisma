@@ -10,4 +10,5 @@ model UserBrowsingHistory {
   user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id, viewed_at])
+  @@map("user_browsing_histories")
 }

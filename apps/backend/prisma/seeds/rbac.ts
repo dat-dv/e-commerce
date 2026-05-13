@@ -153,15 +153,19 @@ export async function seedRBAC(prisma: PrismaClient) {
     where: { role_name: ROLE_ADMIN },
     update: {
       permissions: {
-        set: [],
-        connect: permissions.map((p) => ({ permission_name: p.permission_name })),
+        deleteMany: {},
+        create: permissions.map((p) => ({
+          permission: { connect: { permission_name: p.permission_name } },
+        })),
       },
     },
     create: {
       role_name: ROLE_ADMIN,
       description: 'Quản trị viên hệ thống',
       permissions: {
-        connect: permissions.map((p) => ({ permission_name: p.permission_name })),
+        create: permissions.map((p) => ({
+          permission: { connect: { permission_name: p.permission_name } },
+        })),
       },
     },
   });
@@ -190,15 +194,19 @@ export async function seedRBAC(prisma: PrismaClient) {
     where: { role_name: ROLE_USER },
     update: {
       permissions: {
-        set: [],
-        connect: userPermNames.map((name) => ({ permission_name: name })),
+        deleteMany: {},
+        create: userPermNames.map((name) => ({
+          permission: { connect: { permission_name: name } },
+        })),
       },
     },
     create: {
       role_name: ROLE_USER,
       description: 'Người dùng thông thường',
       permissions: {
-        connect: userPermNames.map((name) => ({ permission_name: name })),
+        create: userPermNames.map((name) => ({
+          permission: { connect: { permission_name: name } },
+        })),
       },
     },
   });

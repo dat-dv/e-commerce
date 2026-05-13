@@ -8,6 +8,8 @@ model Cart {
 
   items CartItem[]
   user  User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("carts")
 }
 
 model CartItem {
@@ -20,4 +22,5 @@ model CartItem {
   sku  Sku  @relation(fields: [sku_id], references: [id])
 
   @@unique([cart_id, sku_id])
+  @@map("cart_items")
 }

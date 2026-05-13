@@ -1,7 +1,7 @@
 export interface IImage {
   id: string;
   url: string;
-  publicId: string;
+  public_id: string;
   width?: number | null;
   height?: number | null;
   format?: string | null;

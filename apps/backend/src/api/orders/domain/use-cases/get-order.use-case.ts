@@ -27,7 +27,7 @@ export class GetOrderUseCase {
             },
           },
         },
-        shippingAddress: true,
+        shipping_address: true,
       },
     });
 

@@ -77,7 +77,7 @@ export class FirebaseService extends StorageService implements OnModuleInit {
             const publicUrl = `https://storage.googleapis.com/${this.bucket!.name}/${fileName}`;
             resolve({
               url: publicUrl,
-              publicId: fileName,
+              public_id: fileName,
               format: file.mimetype.split('/')[1],
               bytes: file.size,
               width: null,

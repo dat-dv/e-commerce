@@ -13,8 +13,10 @@ model Order {
 
   items           OrderItem[]
   user            User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  shippingAddress ShippingAddress? @relation(fields: [shipping_address_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
+  shipping_address ShippingAddress? @relation(fields: [shipping_address_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
   coupon          Coupon?          @relation(fields: [coupon_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
+
+  @@map("orders")
 }
 
 model OrderItem {
@@ -27,4 +29,6 @@ model OrderItem {
 
   order Order @relation(fields: [order_id], references: [id], onDelete: Cascade)
   sku   Sku   @relation(fields: [sku_id], references: [id])
+
+  @@map("order_items")
 }

@@ -50,7 +50,7 @@ export class PermissionsRepository implements IPermissionsRepository {
 
   async countRolesWithPermission(permissionId: string): Promise<number> {
     return this.prisma.role.count({
-      where: { permissions: { some: { id: permissionId } } },
+      where: { permissions: { some: { permission_id: permissionId } } },
     });
   }
 }

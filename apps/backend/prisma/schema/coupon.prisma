@@ -16,4 +16,6 @@ model Coupon {
   updated_at          DateTime @updatedAt
 
   orders Order[]
+
+  @@map("coupons")
 }

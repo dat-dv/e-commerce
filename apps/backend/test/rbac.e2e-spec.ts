@@ -80,11 +80,14 @@ describe('RBAC & Ownership (e2e)', () => {
 
       const userPermissions = await prisma.role.findMany({
         where: { users: { some: { id: user2.id } } },
-        include: { permissions: true },
+        include: { permissions: { include: { permission: true } } },
       });
 
-      const hasAnyPermission = userPermissions.some((rp: { permissions: { permission_name: string }[] }) =>
-        rp.permissions.some((p: { permission_name: string }) => p.permission_name === 'UPDATE:POST:ANY'),
+      const hasAnyPermission = userPermissions.some(
+        (rp: { permissions: { permission: { permission_name: string } }[] }) =>
+          rp.permissions.some(
+            (p: { permission: { permission_name: string } }) => p.permission.permission_name === 'UPDATE:POST:ANY',
+          ),
       );
       expect(hasAnyPermission).toBe(false);
 

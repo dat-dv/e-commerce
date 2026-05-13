@@ -2,7 +2,11 @@ import { IImage } from '@ecommerce/shared';
 
 export interface ImageCreateInput {
   url: string;
-  public_id?: string | null;
+  public_id: string;
+  width?: number | null;
+  height?: number | null;
+  format?: string | null;
+  bytes?: number | null;
 }
 
 export interface IImageRepository {

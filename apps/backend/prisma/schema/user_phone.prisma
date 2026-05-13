@@ -10,4 +10,6 @@ model UserPhone {
   user        User     @relation(fields: [user_id], references: [id])
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
+
+  @@map("user_phones")
 }

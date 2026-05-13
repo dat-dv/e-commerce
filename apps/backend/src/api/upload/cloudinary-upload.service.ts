@@ -35,7 +35,7 @@ export class CloudinaryService extends StorageService {
           }
           resolve({
             url: result.secure_url,
-            publicId: result.public_id,
+            public_id: result.public_id,
             width: result.width,
             height: result.height,
             format: result.format,

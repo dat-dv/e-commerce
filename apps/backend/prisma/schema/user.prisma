@@ -15,8 +15,8 @@ model User {
   updated_at    DateTime  @updatedAt
   deleted_at    DateTime?
 
-  refreshTokens         RefreshToken[]
-  shiping_addresses     ShippingAddress[]
+  refresh_tokens         RefreshToken[]
+  shipping_addresses     ShippingAddress[]
   password_reset_tokens PasswordResetToken[]
   phones                UserPhone[]
   cart                  Cart?
@@ -28,4 +28,6 @@ model User {
 
   role_id String?
   role    Role?   @relation(fields: [role_id], references: [id])
+
+  @@map("users")
 }

@@ -9,7 +9,9 @@ model Language {
   category_translations ProductCategoryTranslation[]
   brand_translations    BrandTranslation[]
 
-  homepageSectionTranslations HomepageSectionTranslation[]
+  homepage_section_translations HomepageSectionTranslation[]
+
+  @@map("languages")
 }
 
 model ProductTranslation {
@@ -23,6 +25,7 @@ model ProductTranslation {
   language Language @relation(fields: [language_id], references: [id], onDelete: Cascade)
 
   @@unique([product_id, language_id])
+  @@map("product_translations")
 }
 
 model ProductCategoryTranslation {

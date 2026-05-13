@@ -147,13 +147,17 @@ export class UsersRepository implements IUsersRepository {
       include: {
         role: {
           include: {
-            permissions: true,
+            permissions: {
+              include: {
+                permission: true,
+              },
+            },
           },
         },
       },
     });
 
-    return user?.role?.permissions.map((p) => p.permission_name) || [];
+    return user?.role?.permissions.map((p) => p.permission.permission_name) || [];
   }
 
   async getUserAvatarPublicId(userId: string): Promise<string | null> {
@@ -164,7 +168,7 @@ export class UsersRepository implements IUsersRepository {
       },
     });
 
-    return user?.avatar?.publicId || null;
+    return user?.avatar?.public_id || null;
   }
 
   async addUserPhone(

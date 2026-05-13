@@ -13,4 +13,6 @@ model Review {
   product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
   sku     Sku     @relation(fields: [sku_id], references: [id], onDelete: Cascade)
   user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("reviews")
 }

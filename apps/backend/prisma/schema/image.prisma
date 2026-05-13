@@ -3,7 +3,7 @@
 model Image {
   id         String   @id @default(cuid())
   url        String
-  publicId   String
+  public_id  String
   width      Int?
   height     Int?
   format     String?
@@ -14,4 +14,6 @@ model Image {
   user     User?
   product  Product?
   category ProductCategory?
+
+  @@map("images")
 }

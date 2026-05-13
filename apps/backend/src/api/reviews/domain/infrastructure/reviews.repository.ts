@@ -69,8 +69,8 @@ export class ReviewsRepository implements IReviewsRepository {
         role: {
           select: {
             permissions: {
-              where: { permission_name: permissionName },
-              select: { permission_name: true },
+              where: { permission: { permission_name: permissionName } },
+              select: { permission: { select: { permission_name: true } } },
             },
           },
         },

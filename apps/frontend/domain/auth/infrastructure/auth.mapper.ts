@@ -8,12 +8,16 @@ export const UserMapper = {
       first_name: dto.first_name || "",
       last_name: dto.last_name || "",
       email: dto.email,
-      date_of_birth: dto.date_of_birth ? dto.date_of_birth.toISOString() : "",
+      date_of_birth: dto.date_of_birth
+        ? new Date(dto.date_of_birth).toISOString()
+        : "",
       avatar_id: dto.avatar_id || "",
       password: dto.password,
-      created_at: dto.created_at ? dto.created_at.toISOString() : null,
-      updated_at: dto.updated_at ? dto.updated_at.toISOString() : null,
-      deleted_at: dto.deleted_at ? dto.deleted_at.toISOString() : null,
+      created_at: dto.created_at ? new Date(dto.created_at).toISOString() : "",
+      updated_at: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
+      deleted_at: dto.deleted_at
+        ? new Date(dto.deleted_at).toISOString()
+        : null,
       role_id: dto.role_id,
     };
   },
