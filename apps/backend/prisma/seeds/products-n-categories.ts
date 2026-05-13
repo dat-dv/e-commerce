@@ -210,7 +210,7 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
             slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
             status: ProductStatus.ACTIVE,
             thumbnail_id: thumbnail.id,
-            brand_id: (p.brand && brandMap[p.brand]) ? brandMap[p.brand] : null,
+            brand_id: p.brand && brandMap[p.brand] ? brandMap[p.brand] : null,
             translations: {
               create: [
                 { language_id: langVi.id, name: p.name_vi, description: p.description_vi },

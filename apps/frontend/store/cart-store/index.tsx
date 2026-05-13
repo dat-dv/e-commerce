@@ -11,8 +11,9 @@ const createCartStoreCreator =
   (set, get, _store) => {
     const state: ICartStore = {
       items: [],
+      selectedSkuIds: [],
       loading: false,
-      isOpen: false, // Mặc định là đóng
+      isOpen: false,
       _hasHydrated: false,
       ...initState,
 
@@ -35,8 +36,11 @@ const createCartStoreCreator =
       },
 
       removeItem: (sku_id) => {
-        const { items } = get();
-        set({ items: items.filter((i) => i.sku_id !== sku_id) });
+        const { items, selectedSkuIds } = get();
+        set({
+          items: items.filter((i) => i.sku_id !== sku_id),
+          selectedSkuIds: selectedSkuIds.filter((id) => id !== sku_id),
+        });
       },
 
       updateQuantity: (sku_id, quantity) => {
@@ -47,7 +51,24 @@ const createCartStoreCreator =
         set({ items: updatedItems });
       },
 
-      clearCart: () => set({ items: [] }),
+      clearCart: () => set({ items: [], selectedSkuIds: [] }),
+
+      toggleSelectItem: (sku_id) => {
+        const { selectedSkuIds } = get();
+        const next = selectedSkuIds.includes(sku_id)
+          ? selectedSkuIds.filter((id) => id !== sku_id)
+          : [...selectedSkuIds, sku_id];
+        set({ selectedSkuIds: next });
+      },
+
+      selectItems: (sku_ids) => set({ selectedSkuIds: sku_ids }),
+
+      selectAll: () => {
+        const { items } = get();
+        set({ selectedSkuIds: items.map((i) => i.sku_id) });
+      },
+
+      clearSelection: () => set({ selectedSkuIds: [] }),
     };
 
     return state;

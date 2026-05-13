@@ -1,8 +1,5 @@
 import { IProductsRepository } from "../types/products.repository";
 
-/**
- * Use case to get products with filters.
- */
 export class GetProductsUseCase {
   constructor(private repository: IProductsRepository) {}
 

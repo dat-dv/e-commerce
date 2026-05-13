@@ -24,6 +24,7 @@ export class ProductMapper {
         return {
           id: sku.id,
           price: displayPrice.toLocaleString("vi-VN") + " ₫",
+          unit_price: displayPrice.toString(),
           original_price:
             strikePrice && strikePrice > displayPrice
               ? strikePrice.toLocaleString("vi-VN") + " ₫"

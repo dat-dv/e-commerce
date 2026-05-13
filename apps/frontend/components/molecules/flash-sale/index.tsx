@@ -7,6 +7,7 @@ import { FlashSaleCard } from "../product-card/flash-sale-card";
 
 interface FlashSaleProduct {
   id: string;
+  slug: string;
   name: string;
   category: string;
   image_url?: string;

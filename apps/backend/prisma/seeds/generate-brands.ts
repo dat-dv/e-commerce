@@ -1,6 +1,7 @@
-import 'dotenv/config';
 import * as fs from 'fs';
 import * as path from 'path';
+import { jsonrepair } from 'jsonrepair';
+import pLimit from 'p-limit';
 
 const OLLAMA_URL = 'http://localhost:11434/api/generate';
 const MODEL = 'qwen2.5:0.5b';
@@ -11,6 +12,7 @@ interface BrandDetailed {
   name: string;
   slug: string;
   description_vi: string;
+  description_en: string;
   website_url: string;
   logo_url: string;
   is_verified: boolean;
@@ -20,67 +22,41 @@ interface OllamaGenerateResponse {
   response: string;
 }
 
-interface QueueItem<T = unknown> {
-  fn: () => Promise<T>;
-  resolve: (value: T | PromiseLike<T>) => void;
-  reject: (reason?: unknown) => void;
+const limit = pLimit(CONCURRENCY);
+
+interface OllamaParsedResponse {
+  description_vi?: string;
+  description_en?: string;
+  website_url?: string;
+  is_verified?: boolean | string | number;
 }
-
-function createLimit(concurrency: number) {
-  const queue: QueueItem[] = [];
-  let activeCount = 0;
-
-  const next = () => {
-    if (queue.length === 0 || activeCount >= concurrency) return;
-    activeCount++;
-    const item = queue.shift();
-    if (!item) return;
-
-    const { fn, resolve, reject } = item;
-    fn()
-      .then(resolve)
-      .catch(reject)
-      .finally(() => {
-        activeCount--;
-        next();
-      });
-  };
-
-  return <T>(fn: () => Promise<T>): Promise<T> => {
-    return new Promise((resolve, reject) => {
-      queue.push({ fn, resolve, reject });
-      next();
-    });
-  };
-}
-
-const limit = createLimit(CONCURRENCY);
 
 const BRAND_PROMPT_TEMPLATE = `
 Brand: {{BRAND_NAME}}
 
-Return JSON only:
+Return ONLY valid minified JSON:
 {
-  "description_vi": "",
-  "website_url": "",
-  "is_verified": true
+"description_vi":"",
+"description_en":"",
+"website_url":"",
+"is_verified":true
 }
 
 Rules:
-- Vietnamese
-- Short description
-- Realistic website
-- No markdown
-- No explanation
+- description_vi: 40-60 words, professional Vietnamese
+- description_en: 30-50 words, professional English
+- website: realistic
+- valid JSON only
+- no markdown
 `;
 
-function cleanJson(text: string): string {
-  const start = text.indexOf('{');
-  const end = text.lastIndexOf('}');
-  if (start !== -1 && end !== -1) {
-    return text.substring(start, end + 1);
-  }
-  return text.trim();
+function cleanJson(text: string) {
+  return text
+    .replace(/```json/g, '')
+    .replace(/```/g, '')
+    .replace(/\n/g, ' ')
+    .replace(/\r/g, ' ')
+    .trim();
 }
 
 function toSlug(text: string): string {
@@ -104,36 +80,57 @@ async function callOllama(brandName: string): Promise<BrandDetailed | null> {
         model: MODEL,
         prompt,
         stream: false,
-        options: { temperature: 0.3, num_predict: 120 },
+        options: { temperature: 0.2, num_predict: 250 },
       }),
     });
 
     if (!response.ok) return null;
 
-    interface OllamaParsedResponse {
-      description_vi?: string;
-      website_url?: string;
-      is_verified?: boolean | string | number;
-    }
-
     const data = (await response.json()) as OllamaGenerateResponse;
     const cleaned = cleanJson(data.response);
-    const parsed = JSON.parse(cleaned) as OllamaParsedResponse;
 
-    const website = parsed.website_url || `https://www.${toSlug(brandName)}.com`;
+    try {
+      const parsed = JSON.parse(cleaned) as OllamaParsedResponse;
+      return buildBrandResult(brandName, parsed);
+    } catch {
+      try {
+        const repaired = jsonrepair(cleaned);
+        const parsed = JSON.parse(repaired) as OllamaParsedResponse;
+        return buildBrandResult(brandName, parsed);
+      } catch (e) {
+        const start = cleaned.indexOf('{');
+        const end = cleaned.lastIndexOf('}');
 
-    return {
-      name: brandName,
-      slug: toSlug(brandName),
-      description_vi: parsed.description_vi || `${brandName} là thương hiệu nổi bật trên thị trường.`,
-      website_url: website,
-      logo_url: `https://www.google.com/s2/favicons?domain=${website}&sz=128`,
-      is_verified: Boolean(parsed.is_verified),
-    };
+        if (start !== -1 && end !== -1) {
+          try {
+            const sliced = cleaned.slice(start, end + 1);
+            const repaired = jsonrepair(sliced);
+            const parsed = JSON.parse(repaired) as OllamaParsedResponse;
+            return buildBrandResult(brandName, parsed);
+          } catch {
+            return null;
+          }
+        }
+        return null;
+      }
+    }
   } catch (error) {
     console.error(`❌ ${brandName}`, error);
     return null;
   }
+}
+
+function buildBrandResult(brandName: string, parsed: OllamaParsedResponse): BrandDetailed {
+  const website = parsed.website_url || `https://www.${toSlug(brandName)}.com`;
+  return {
+    name: brandName,
+    slug: toSlug(brandName),
+    description_vi: parsed.description_vi || `${brandName} là thương hiệu nổi bật trên thị trường.`,
+    description_en: parsed.description_en || `${brandName} is a leading brand in the market.`,
+    website_url: website,
+    logo_url: `https://www.google.com/s2/favicons?domain=${website}&sz=128`,
+    is_verified: Boolean(parsed.is_verified),
+  };
 }
 
 function saveFile(targetPath: string, data: BrandDetailed[]) {

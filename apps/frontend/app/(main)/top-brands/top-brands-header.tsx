@@ -3,10 +3,6 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
-/**
- * TopBrandsHeader component that displays the title and description with animations and glassmorphism.
- * Follows the rules defined in notes/general-rules.md
- */
 export function TopBrandsHeader() {
   return (
     <motion.div

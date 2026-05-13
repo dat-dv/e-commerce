@@ -6,12 +6,6 @@ import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
 
-interface UserWithAvatar {
-  avatar: {
-    public_id: string | null;
-  } | null;
-}
-
 @Injectable()
 export class UsersRepository implements IUsersRepository {
   constructor(
@@ -35,6 +29,7 @@ export class UsersRepository implements IUsersRepository {
       gender: prismaUser.gender,
       avatar_id: prismaUser.avatar_id,
       password: prismaUser.password,
+      salt: prismaUser.salt,
       created_at: prismaUser.created_at,
       updated_at: prismaUser.updated_at,
       deleted_at: prismaUser.deleted_at,
@@ -59,6 +54,7 @@ export class UsersRepository implements IUsersRepository {
       gender: prismaUser.gender,
       avatar_id: prismaUser.avatar_id,
       password: prismaUser.password,
+      salt: prismaUser.salt,
       created_at: prismaUser.created_at,
       updated_at: prismaUser.updated_at,
       deleted_at: prismaUser.deleted_at,

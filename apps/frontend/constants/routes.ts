@@ -15,6 +15,7 @@ export const APP_ROUTES = {
   CATEGORY_DETAIL: (slug: string) => `/categories/${slug}`,
   PRODUCT_DETAIL: (slug: string) => `/products/${slug}`,
   CART: "/cart",
+  CHECKOUT: "/checkout",
   ORDERS: "/orders",
   PRODUCTS: "/products",
   SETTINGS: "/settings",

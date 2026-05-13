@@ -7,6 +7,7 @@ interface BrandDetailed {
   name: string;
   slug?: string;
   description_vi?: string;
+  description_en?: string;
   website_url?: string;
   logo_url?: string;
   is_verified?: boolean;
@@ -109,7 +110,7 @@ export async function seedBrands(prisma: PrismaClient) {
       brand_id: brandId,
       language_id: langEn.id,
       name: brandName,
-      description: `Official ${brandName} brand store.`,
+      description: detail && detail.description_en ? detail.description_en : `Official ${brandName} brand store.`,
     });
 
     brandMap[brandName] = brandId;
