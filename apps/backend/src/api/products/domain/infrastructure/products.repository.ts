@@ -315,6 +315,7 @@ export class ProductsRepository implements IProductsRepository {
     limit: number;
     search?: string;
     category_id?: string;
+    category_slug?: string;
     brand_id?: string;
     min_price?: number;
     max_price?: number;
@@ -335,6 +336,7 @@ export class ProductsRepository implements IProductsRepository {
       limit,
       search,
       category_id,
+      category_slug,
       brand_id,
       min_price,
       max_price,
@@ -352,6 +354,16 @@ export class ProductsRepository implements IProductsRepository {
       where.categories = {
         some: {
           category_id,
+        },
+      };
+    }
+
+    if (category_slug) {
+      where.categories = {
+        some: {
+          category: {
+            slug: category_slug,
+          },
         },
       };
     }

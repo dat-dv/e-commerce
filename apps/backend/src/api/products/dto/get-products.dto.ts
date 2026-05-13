@@ -25,6 +25,10 @@ export class GetProductsDto {
 
   @IsOptional()
   @IsString()
+  category_slug?: string;
+
+  @IsOptional()
+  @IsString()
   brand_id?: string;
 
   @IsOptional()

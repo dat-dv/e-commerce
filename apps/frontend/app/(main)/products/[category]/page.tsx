@@ -4,22 +4,30 @@ import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
 import { ProductsView } from "@/components/organisms/products-view";
 
-export const metadata: Metadata = {
-  title: "Products",
-  description: "Explore our collection of products.",
-};
-
 interface ProductsPageProps {
+  params: Promise<{ category: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function ProductsPage({
+export async function generateMetadata({
+  params,
+}: ProductsPageProps): Promise<Metadata> {
+  const { category } = await params;
+  return {
+    title: `Products - ${category}`,
+    description: `Explore our collection of products in ${category}.`,
+  };
+}
+
+export default async function CategoryProductsPage({
+  params,
   searchParams,
 }: ProductsPageProps) {
+  const { category } = await params;
   const sp = await searchParams;
+
   const page = sp.page ? parseInt(sp.page as string) : 1;
-  const limit = 12;
-  const category_id = sp.category_id as string;
+  const limit = 56;
   const brand_id = sp.brand_id as string;
   const sort = sp.sort as string;
   const search = sp.search as string;
@@ -30,7 +38,7 @@ export default async function ProductsPage({
     productsUseCase.getProducts.execute({
       page,
       limit,
-      category_id,
+      category_slug: category,
       brand_id,
       sort,
       min_price,
@@ -57,8 +65,7 @@ export default async function ProductsPage({
           productsRes.status === "success"
             ? productsRes.data?.meta.totalPages || 1
             : 1,
-        category_id,
-        sort,
+        sort: sort || "newest",
         search,
         min_price,
         max_price,

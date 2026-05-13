@@ -15,6 +15,7 @@ export interface IProductsRepository {
     limit?: number;
     search?: string;
     category_id?: string;
+    category_slug?: string;
     brand_id?: string;
     min_price?: number;
     max_price?: number;

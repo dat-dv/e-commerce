@@ -13,6 +13,7 @@ export class GetProductsUseCase {
     limit?: number;
     search?: string;
     category_id?: string;
+    category_slug?: string;
     brand_id?: string;
     min_price?: number;
     max_price?: number;
@@ -28,6 +29,7 @@ export class GetProductsUseCase {
       limit,
       search: params.search,
       category_id: params.category_id,
+      category_slug: params.category_slug,
       brand_id: params.brand_id,
       min_price: params.min_price,
       max_price: params.max_price,
