@@ -12,9 +12,10 @@ import { jsonrepair } from 'jsonrepair';
 const OLLAMA_URL = 'http://localhost:11434/api/generate';
 const MODEL = 'qwen2.5:1.5b';
 
-const BATCH_SIZE = 1; // ⚠️ FIX: Số lượng sản phẩm gom vào 1 prompt (để 1 cho an toàn)
-const CONCURRENCY_LIMIT = 4; // 🚀 Tốc độ x4: Chạy song song 4 luồng
-const FETCH_TIMEOUT = 120000; // Tăng timeout do model có thể sinh chậm
+const BATCH_SIZE = 1; // Số product gom vào 1 prompt
+const CONCURRENCY_LIMIT = 6; // Số Ollama call song song trong 1 file
+const FILE_CONCURRENCY = 4; // 🚀 Số file xử lý song song cùng lúc
+const FETCH_TIMEOUT = 120000;
 
 const DATASET_DIR = path.join(__dirname, '../dataset/products');
 
@@ -131,9 +132,10 @@ async function callOllamaBatch(batch: any[]) {
         keep_alive: '1h',
         prompt: buildPrompt(batch),
         options: {
-          temperature: 0.2,
-          num_ctx: 8192, // ⚠️ FIX: tăng context window
-          num_predict: 4000, // ⚠️ FIX: tăng để không bị cut JSON
+          temperature: 0.7, // Tăng lên để tránh loop detection
+          repeat_penalty: 1.3, // Phạt token lặp → triệt tiêu vòng loop
+          num_ctx: 4096,
+          num_predict: 1024, // Giảm xuống vừa đủ cho 1 product
         },
       }),
     });
@@ -225,9 +227,22 @@ async function processFile(filePath: string) {
     // Chờ tất cả luồng chạy xong
     const resultsArray = await Promise.all(promises);
 
-    for (const results of resultsArray) {
+    for (let bIdx = 0; bIdx < resultsArray.length; bIdx++) {
+      const results = resultsArray[bIdx];
+      // Index của batch này trong pendingIndexes
+      const batchStartJ = bIdx * BATCH_SIZE;
+      const batchIdx = chunkIdx.slice(batchStartJ, batchStartJ + BATCH_SIZE);
+
       if (!Array.isArray(results)) {
-        console.log('⚠️ invalid batch result');
+        // Ollama fail → gán fallback để không retry vô hạn
+        console.log(`⚠️ Ollama fail → fallback cho ${batchIdx.length} product(s)`);
+        for (const idx of batchIdx) {
+          const product = products[idx] as any;
+          if (!product.reviews || product.reviews.length === 0) {
+            product.reviews = generateReviews();
+            updated++;
+          }
+        }
         continue;
       }
 
@@ -235,14 +250,21 @@ async function processFile(filePath: string) {
 
       for (const r of results) {
         const product = products[r.id];
-
         if (!product) continue;
 
         product.description_en = r.en;
         product.description_vi = r.vi;
         product.reviews = generateReviews();
-
         updated++;
+      }
+
+      // Fallback cho product trong batch mà Ollama không trả về
+      for (const idx of batchIdx) {
+        const product = products[idx] as any;
+        if (!product.reviews || product.reviews.length === 0) {
+          product.reviews = generateReviews();
+          updated++;
+        }
       }
     }
 
@@ -262,14 +284,40 @@ async function processFile(filePath: string) {
 // MAIN
 // ==========================================
 async function main() {
-  console.log('🚀 PIPELINE START (FIXED)');
+  console.log('🚀 PIPELINE START (PARALLEL MODE)');
+  console.log(`⚙️  File concurrency: ${FILE_CONCURRENCY} | Ollama concurrency: ${CONCURRENCY_LIMIT}\n`);
 
-  const files = scan(DATASET_DIR);
+  const allFiles = scan(DATASET_DIR);
+  console.log(`📦 Tổng số file: ${allFiles.length} — đang lọc...`);
 
-  for (const file of files) {
-    await processFile(file);
+  // Pre-filter song song: đọc tất cả file cùng lúc để check nhanh
+  const checkResults = await Promise.all(
+    allFiles.map(async (file) => {
+      const raw = await fsAsync.readFile(file, 'utf-8');
+      const products: any[] = JSON.parse(raw);
+      const hasPending = products.some((p) => !p.reviews || p.reviews.length === 0);
+      return { file, hasPending };
+    }),
+  );
 
-    if (isPaused) break;
+  const pendingFiles = checkResults
+    .filter(({ hasPending, file }) => {
+      if (!hasPending) {
+        console.log(`⏭️  Bỏ qua: ${path.relative(DATASET_DIR, file)}`);
+      }
+      return hasPending;
+    })
+    .map(({ file }) => file);
+
+  console.log(`\n✅ Cần xử lý: ${pendingFiles.length} / ${allFiles.length} file`);
+  console.log('─'.repeat(50) + '\n');
+
+  // Xử lý song song nhiều file cùng lúc (FILE_CONCURRENCY)
+  let i = 0;
+  while (i < pendingFiles.length && !isPaused) {
+    const batch = pendingFiles.slice(i, i + FILE_CONCURRENCY);
+    await Promise.all(batch.map((file) => processFile(file)));
+    i += FILE_CONCURRENCY;
   }
 
   console.log('\n🏁 DONE ALL');
