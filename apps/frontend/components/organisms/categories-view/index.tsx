@@ -11,9 +11,17 @@ export interface CategoriesViewProps {
 }
 
 export const CategoriesView = ({ initialTree }: CategoriesViewProps) => {
-  const [activeId, setActiveId] = useState<string>(initialTree[0]?.id || "");
+  const [activeId, setActiveId] = useState<string>("all");
 
   const activeCategory = initialTree.find((cat) => cat.id === activeId);
+
+  const title = activeCategory ? activeCategory.name : "All Categories";
+  const description = activeCategory
+    ? `Explore our curated collection of high-quality products in ${activeCategory.name}.`
+    : "Explore all our product categories.";
+  const categories = activeCategory
+    ? activeCategory.children || []
+    : initialTree;
 
   return (
     <AppContainer className="py-10 flex gap-8">
@@ -22,7 +30,12 @@ export const CategoriesView = ({ initialTree }: CategoriesViewProps) => {
         activeId={activeId}
         setActiveId={setActiveId}
       />
-      <CategoriesContent activeCategory={activeCategory} />
+      <CategoriesContent
+        title={title}
+        description={description}
+        categories={categories}
+        activeId={activeId}
+      />
     </AppContainer>
   );
 };

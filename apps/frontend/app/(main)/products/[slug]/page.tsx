@@ -1,4 +1,4 @@
-import ProductDetailClient from "@/components/molecules/product-detail-client";
+import ProductDetailClient from "@/components/organisms/product-detail-view";
 import MissingProduct from "@/components/molecules/missing-product";
 import type { Metadata } from "next";
 import { productsUseCase } from "@/domain/products/use-cases";

@@ -38,6 +38,33 @@ export const CategoriesSidebar = ({
       </div>
 
       <div className="flex flex-col gap-2 overflow-y-auto flex-1">
+        <button
+          onClick={() => setActiveId("all")}
+          className={cn(
+            "flex items-center gap-3 px-5 py-3.5 rounded-xl transition-all duration-300 text-left relative group",
+            activeId === "all"
+              ? "text-primary font-semibold"
+              : "text-neutral-600 hover:text-neutral-900",
+          )}
+        >
+          {activeId === "all" && (
+            <motion.div
+              layoutId="active-sidebar-bg"
+              className="absolute inset-0 bg-primary/10 rounded-xl -z-10 border border-primary/20"
+              transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+            />
+          )}
+          <div
+            className={cn(
+              "w-1.5 h-1.5 rounded-full transition-all duration-300",
+              activeId === "all"
+                ? "bg-primary scale-100"
+                : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-neutral-300",
+            )}
+          />
+          <span className="truncate capitalize">All Categories</span>
+        </button>
+
         {filteredCategories.map((category) => {
           const isActive = category.id === activeId;
           return (
