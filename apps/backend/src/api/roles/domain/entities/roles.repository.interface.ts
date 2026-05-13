@@ -1,4 +1,4 @@
-import { IRole } from './role.entity';
+import { IRole } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 

@@ -3,8 +3,8 @@ import {
   TRequest,
   ApiListResponse,
 } from "@/utils/request/request.types";
-import { IBrand } from "@/domain/homepage/types/homepage.model";
-import { IBrandResponse } from "@/domain/homepage/types/homepage.response";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
+import { IBrand } from "@ecommerce/shared";
 import { IBrandsRepository } from "../types/brands.repository";
 import { BrandMapper } from "./brands.mapper";
 import { API_ROUTES } from "@/constants/routes";
@@ -15,9 +15,9 @@ export class BrandsRepository implements IBrandsRepository {
   async getTopBrands(
     page = 1,
     limit = 10,
-  ): Promise<ApiResponse<ApiListResponse<IBrand>>> {
+  ): Promise<ApiResponse<ApiListResponse<TBrand>>> {
     const response = await this.request.get<{
-      items: IBrandResponse[];
+      items: IBrand[];
       meta: {
         total: number;
         page: number;
@@ -30,7 +30,9 @@ export class BrandsRepository implements IBrandsRepository {
       ...response,
       data: response.data
         ? {
-            items: response.data.items.map((item) => BrandMapper.toDomain(item)),
+            items: response.data.items.map((item) =>
+              BrandMapper.toDomain(item),
+            ),
             meta: response.data.meta,
           }
         : {

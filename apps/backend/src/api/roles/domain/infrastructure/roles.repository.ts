@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IRolesRepository } from '../entities/roles.repository.interface';
-import { IRole } from '../entities/role.entity';
+import { IRole } from '@ecommerce/shared';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';

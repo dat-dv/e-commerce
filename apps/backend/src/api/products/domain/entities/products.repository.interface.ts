@@ -1,5 +1,5 @@
-import { IFlashSale } from './flash-sale.entity';
-import { IProduct } from './product.entity';
+import { IFlashSale } from '@ecommerce/shared';
+import { IProduct } from '@ecommerce/shared';
 
 export interface IProductsRepository {
   findById(id: string, languageCode?: string): Promise<IProduct | null>;

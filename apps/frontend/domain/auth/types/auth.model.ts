@@ -1,13 +1,13 @@
-export interface IAuthRequest {
+export interface TAuthRequest {
   email: string;
   password: string;
 }
 
-export interface IRegisterRequest extends IAuthRequest {
+export interface TRegisterRequest extends TAuthRequest {
   confirmPassword: string;
 }
 
-export interface IResetPasswordRequest {
+export interface TResetPasswordRequest {
   token: string;
   new_password: string;
   confirm_password: string;
@@ -35,7 +35,7 @@ export interface TUser {
   gender?: EGender | null;
 }
 
-export interface IAuthState {
+export interface TAuthState {
   user: TUser | null;
   token: string | null;
   loading: boolean;

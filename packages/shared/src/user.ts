@@ -4,7 +4,7 @@ export enum Gender {
   OTHER = 2,
 }
 
-enum AddressLabel {
+export enum AddressLabel {
   HOME = 0,
   OFFICE = 1,
   APARTMENT = 2,

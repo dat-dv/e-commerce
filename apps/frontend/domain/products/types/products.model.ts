@@ -1,4 +1,4 @@
-export interface ISkuDomain {
+export interface TSkuDomain {
   id: string;
   price: string;
   original_price?: string;
@@ -8,10 +8,10 @@ export interface ISkuDomain {
   image_url?: string;
 }
 
-export interface IProduct {
+export interface TProduct {
   id: string;
   name: string;
   category: string;
   image_url?: string;
-  skus: ISkuDomain[];
+  skus: TSkuDomain[];
 }

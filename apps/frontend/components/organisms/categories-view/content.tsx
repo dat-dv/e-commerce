@@ -1,11 +1,11 @@
 "use client";
 
-import { ICategory } from "@/domain/categories/types/categories.model";
+import { TCategory } from "@/domain/categories/types/categories.model";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 interface CategoriesContentProps {
-  activeCategory: ICategory | undefined;
+  activeCategory: TCategory | undefined;
 }
 
 export const CategoriesContent = ({

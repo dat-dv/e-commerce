@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrand } from 'src/api/homepage/domain/entities/homepage-section.entity';
+import { IBrand } from '@ecommerce/shared';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()

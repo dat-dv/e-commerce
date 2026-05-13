@@ -1,4 +1,4 @@
-import { IImage } from 'src/api/upload/domain/entities/image.entity';
+import { IImage } from './image';
 
 export enum EProductStatus {
   DRAFT = 0,
@@ -62,11 +62,6 @@ export interface IProduct {
   translations?: IProductTranslation[];
   skus?: ISku[];
   thumbnail?: IImage | null;
-}
-
-export interface IProductCategory {
-  id: string;
-  name: string;
 }
 
 export interface IProductBrand {

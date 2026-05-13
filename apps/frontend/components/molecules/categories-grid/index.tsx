@@ -9,6 +9,7 @@ import Image from "next/image";
 interface Category {
   name: string;
   count: string;
+  slug?: string;
   icon: LucideIcon;
   color: string;
   image?: string;
@@ -24,7 +25,7 @@ export const CategoriesGrid = ({ categories }: CategoriesGridProps) => {
       {categories.map((cat) => (
         <Link
           key={cat.name}
-          href={APP_ROUTES.CATEGORY(cat.name.toLowerCase())}
+          href={APP_ROUTES.CATEGORY_DETAIL(cat.slug || cat.name.toLowerCase())}
           className="group relative h-32 bg-content/[0.02] border border-content/[0.05] hover:border-content/[0.1] rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden"
         >
           <div

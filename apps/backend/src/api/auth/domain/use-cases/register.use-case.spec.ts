@@ -3,9 +3,8 @@ import { RegisterUseCase } from './register.use-case';
 import { TokenService } from 'src/shared/services/token/token.service';
 import { CreateUserUseCase } from 'src/api/users/domain/use-cases/create-user.use-case';
 import { IAuthRepository } from '../entities/auth.repository.interface';
-import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { IUser } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 describe('RegisterUseCase', () => {
   let useCase: RegisterUseCase;

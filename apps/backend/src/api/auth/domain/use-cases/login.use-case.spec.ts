@@ -6,7 +6,7 @@ import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { UnauthorizedException, BadRequestException } from '@nestjs/common';
-import { IUser } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 describe('LoginUseCase', () => {
   let useCase: LoginUseCase;

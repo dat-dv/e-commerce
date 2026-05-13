@@ -1,18 +1,18 @@
-import { IProduct } from "@/domain/products/types/products.model";
-import { IHomepageSection } from "@/domain/homepage/types/homepage.model";
+import { TProduct } from "@/domain/products/types/products.model";
+import { THomepageSection } from "@/domain/homepage/types/homepage.model";
 
 export interface IProductsStoreState {
-  flashSaleProducts: IProduct[];
-  recommendedProducts: IProduct[];
-  sections: IHomepageSection[];
+  flashSaleProducts: TProduct[];
+  recommendedProducts: TProduct[];
+  sections: THomepageSection[];
   lang: string;
   loading: boolean;
 }
 
 export interface IProductsStore extends IProductsStoreState {
-  setFlashSaleProducts: (products: IProduct[]) => void;
-  setRecommendedProducts: (products: IProduct[]) => void;
-  setSections: (sections: IHomepageSection[]) => void;
+  setFlashSaleProducts: (products: TProduct[]) => void;
+  setRecommendedProducts: (products: TProduct[]) => void;
+  setSections: (sections: THomepageSection[]) => void;
   setLoading: (loading: boolean) => void;
   hydrate: (data: Partial<IProductsStoreState>) => void;
 }

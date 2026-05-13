@@ -1,4 +1,4 @@
-import { IOrder, IOrderItem, ICreateOrderInput } from './order.entity';
+import { IOrder, IOrderItem, ICreateOrderInput } from '@ecommerce/shared';
 
 export interface IOrdersRepository {
   createOrder(data: ICreateOrderInput): Promise<IOrder>;

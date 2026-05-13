@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, Inject } from '@nestjs/common';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
-import { IUser } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 @Injectable()
 export class GetMeUseCase {

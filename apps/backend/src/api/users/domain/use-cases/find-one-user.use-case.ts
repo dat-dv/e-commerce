@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, ForbiddenException, Inject } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IUser } from '../entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 @Injectable()
 export class FindOneUserUseCase {

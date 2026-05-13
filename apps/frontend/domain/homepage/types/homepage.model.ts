@@ -1,6 +1,6 @@
-import { IProduct } from "../../products/types/products.model";
+import { TProduct } from "../../products/types/products.model";
 
-export interface IHomepageSectionCategory {
+export interface THomepageSectionCategory {
   id: string;
   slug: string;
   level: number;
@@ -8,7 +8,7 @@ export interface IHomepageSectionCategory {
   name?: string;
 }
 
-export interface IBrand {
+export interface TBrand {
   id: string;
   name: string;
   slug: string;
@@ -16,18 +16,18 @@ export interface IBrand {
   product_count?: number;
 }
 
-export interface IHomepageSection {
+export interface THomepageSection {
   category: {
     id: string;
     title: string;
     type: string;
     slug?: string;
-    categories?: IHomepageSectionCategory[];
+    categories?: THomepageSectionCategory[];
   };
-  data: IProduct[];
-  brands?: IBrand[];
+  data: TProduct[];
+  brands?: TBrand[];
 }
 
-export interface IGetHomepageSectionsRequest {
+export interface TGetHomepageSectionsRequest {
   lang?: string;
 }

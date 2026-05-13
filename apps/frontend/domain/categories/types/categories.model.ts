@@ -1,6 +1,6 @@
-export interface ICategory {
+export interface TCategory {
   id: string;
   slug: string;
   name: string;
-  children?: ICategory[];
+  children?: TCategory[];
 }

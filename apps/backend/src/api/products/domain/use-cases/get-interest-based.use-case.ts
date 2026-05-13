@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct } from '../entities/product.entity';
+import { IProduct } from '@ecommerce/shared';
 
 @Injectable()
 export class GetInterestBasedUseCase {

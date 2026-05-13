@@ -1,14 +1,14 @@
 import { API_ROUTES } from "@/constants/routes";
 import { ApiResponse, TRequest } from "@/utils/request/request.types";
-import { IHomepageSection } from "../types/homepage.model";
-import { IHomepageRepository } from "../entities/homepage.repository.interface";
+import { THomepageSection } from "../types/homepage.model";
+import { IHomepageRepository } from "../types/homepage.repository.interface";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
-import { IHomepageSectionResponse } from "../types/homepage.response";
+import { IHomepageSectionResponse } from "@ecommerce/shared";
 
 export class HomepageRepository implements IHomepageRepository {
   constructor(private request: TRequest) {}
 
-  async getSections(): Promise<ApiResponse<IHomepageSection[]>> {
+  async getSections(): Promise<ApiResponse<THomepageSection[]>> {
     const response = await this.request.get<IHomepageSectionResponse[]>(
       API_ROUTES.HOMEPAGE.SECTIONS,
     );
@@ -29,6 +29,13 @@ export class HomepageRepository implements IHomepageRepository {
             })),
           },
           data: item.data?.map((p) => ProductMapper.toDomain(p)) || [],
+          brands: item.brands?.map((b) => ({
+            id: b.id,
+            name: b.name || "No Name",
+            slug: b.slug,
+            logo_url: b.logo_url || undefined,
+            product_count: b.product_count,
+          })),
         })) || [],
     };
   }

@@ -23,6 +23,7 @@
     "db:reset": "prisma migrate reset --force && prisma generate && npx tsx prisma/seeds/index.ts"
   },
   "dependencies": {
+    "@ecommerce/shared": "*",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",

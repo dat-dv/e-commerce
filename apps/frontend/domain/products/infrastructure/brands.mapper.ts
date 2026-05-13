@@ -1,8 +1,8 @@
-import { IBrand } from "@/domain/homepage/types/homepage.model";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { IBrandResponse } from "@/domain/homepage/types/homepage.response";
 
 export class BrandMapper {
-  static toDomain(dto: IBrandResponse): IBrand {
+  static toDomain(dto: IBrandResponse): TBrand {
     return {
       id: dto.id,
       name: dto.name,

@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { FindOneUserUseCase } from './find-one-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { IUser } from '../entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 describe('FindOneUserUseCase', () => {
   let useCase: FindOneUserUseCase;

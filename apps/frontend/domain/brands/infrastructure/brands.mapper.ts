@@ -1,13 +1,13 @@
-import { IBrand } from "@/domain/homepage/types/homepage.model";
-import { IBrandResponse } from "@/domain/homepage/types/homepage.response";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
+import { IBrand } from "@ecommerce/shared";
 
 export class BrandMapper {
-  static toDomain(dto: IBrandResponse): IBrand {
+  static toDomain(dto: IBrand): TBrand {
     return {
       id: dto.id,
-      name: dto.name,
+      name: dto.name || "No Name",
       slug: dto.slug,
-      logo_url: dto.logo_url,
+      logo_url: dto.logo_url || "",
       product_count: dto.product_count,
     };
   }

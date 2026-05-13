@@ -1,4 +1,4 @@
-import { IPermission } from './permission.entity';
+import { IPermission } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 

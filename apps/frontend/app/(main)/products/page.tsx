@@ -3,7 +3,7 @@ import { ProductCard } from "@/components/molecules/product-card";
 import type { Metadata } from "next";
 import { productsUseCase } from "@/domain/products/use-cases";
 import ProductsHeader from "./products-header";
-import { IProduct } from "@/domain/products/types/products.model";
+import { TProduct } from "@/domain/products/types/products.model";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default async function ProductsPage() {
   const response = await productsUseCase.getProducts.execute({ limit: 12 });
 
-  let products: IProduct[] = [];
-  if (response.status === "success" && response.data) {
+  let products: TProduct[] = [];
+  if (response.status === "success" && response.data?.items) {
     products = response.data.items;
   }
 

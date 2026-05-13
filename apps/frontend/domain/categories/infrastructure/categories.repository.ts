@@ -4,10 +4,10 @@ import {
   ApiResponse,
   TRequest,
 } from "@/utils/request/request.types";
-import { ICategory } from "../types/categories.model";
-import { ICategoryResponse } from "../types/categories.response";
-import { ICategoriesRepository } from "../entities/categories.repository.interface";
+import { TCategory } from "../types/categories.model";
+import { ICategoriesRepository } from "../types/categories.repository.interface";
 import { CategoryMapper } from "./categories.mapper";
+import { IProductCategory } from "@ecommerce/shared";
 
 export class CategoriesRepository implements ICategoriesRepository {
   constructor(private request: TRequest) {}
@@ -16,7 +16,7 @@ export class CategoriesRepository implements ICategoriesRepository {
     page?: number;
     limit?: number;
     level?: number;
-  }): Promise<ApiResponse<ApiListResponse<ICategory>>> {
+  }): Promise<ApiResponse<ApiListResponse<TCategory>>> {
     let url = API_ROUTES.PRODUCT_CATEGORIES.BASE;
     if (params) {
       const searchParams = new URLSearchParams();
@@ -27,7 +27,7 @@ export class CategoriesRepository implements ICategoriesRepository {
     }
 
     const response =
-      await this.request.get<ApiListResponse<ICategoryResponse>>(url);
+      await this.request.get<ApiListResponse<IProductCategory>>(url);
 
     return {
       ...response,
@@ -48,7 +48,7 @@ export class CategoriesRepository implements ICategoriesRepository {
   async getGroups(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<ICategory[]>> {
+  }): Promise<ApiResponse<TCategory[]>> {
     let url = API_ROUTES.PRODUCT_CATEGORIES.GROUPS;
     if (params) {
       const searchParams = new URLSearchParams();
@@ -57,7 +57,7 @@ export class CategoriesRepository implements ICategoriesRepository {
       url += `?${searchParams.toString()}`;
     }
 
-    const response = await this.request.get<ICategoryResponse[]>(url);
+    const response = await this.request.get<IProductCategory[]>(url);
 
     return {
       ...response,
@@ -65,8 +65,8 @@ export class CategoriesRepository implements ICategoriesRepository {
     };
   }
 
-  async getTree(): Promise<ApiResponse<ICategory[]>> {
-    const response = await this.request.get<ICategoryResponse[]>(
+  async getTree(): Promise<ApiResponse<TCategory[]>> {
+    const response = await this.request.get<IProductCategory[]>(
       API_ROUTES.PRODUCT_CATEGORIES.TREE,
     );
 

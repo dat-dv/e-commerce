@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { IRefreshToken } from '../entities/refresh-token.entity';
+import { IRefreshToken } from '@ecommerce/shared';
 
 @Injectable()
 export class AuthRepository implements IAuthRepository {

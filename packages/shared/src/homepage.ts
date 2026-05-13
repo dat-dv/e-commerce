@@ -1,7 +1,5 @@
-// src/api/homepage/domain/entities/homepage-section.entity.ts
-
-import { IProduct } from 'src/api/products/domain/entities/product.entity';
-import { IProductCategory } from 'src/api/product-categories/domain/entities/product-category.entity';
+import { IProduct } from './product';
+import { IProductCategory } from './product-category';
 
 export enum EHomepageSectionType {
   FLASH_SALE = 'flash_sale',
@@ -33,6 +31,7 @@ export interface IHomepageSection {
   created_at: Date;
   updated_at: Date;
 }
+
 export interface IBrand {
   id: string;
   slug: string;

@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { MailService } from 'src/mail/mail.service';
 import { BadRequestException } from '@nestjs/common';
-import { IUser } from 'src/api/users/domain/entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 describe('ForgotPasswordUseCase', () => {
   let useCase: ForgotPasswordUseCase;

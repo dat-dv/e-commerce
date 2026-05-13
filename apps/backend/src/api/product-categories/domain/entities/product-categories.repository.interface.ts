@@ -1,4 +1,4 @@
-import { IProductCategory } from './product-category.entity';
+import { IProductCategory } from '@ecommerce/shared';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 export interface IProductCategoriesRepository {

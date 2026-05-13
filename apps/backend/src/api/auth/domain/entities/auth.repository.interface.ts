@@ -1,5 +1,4 @@
-import { IRefreshToken } from './refresh-token.entity';
-import { Prisma } from 'generated/prisma/client';
+import { IRefreshToken } from '@ecommerce/shared';
 
 export interface IAuthRepository {
   saveRefreshToken(token: string, userId: string, expiresAt: Date): Promise<void>;

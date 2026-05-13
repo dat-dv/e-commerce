@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct } from '../entities/product.entity';
-import { IFlashSale } from '../entities/flash-sale.entity';
-import { IBrand } from 'src/api/homepage/domain/entities/homepage-section.entity';
+import { IProduct } from '@ecommerce/shared';
+import { IFlashSale } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from 'generated/prisma/client';
 

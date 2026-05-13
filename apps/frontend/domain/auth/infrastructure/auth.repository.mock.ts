@@ -3,14 +3,14 @@ import { delay } from "@/utils/delay";
 import { ApiResponse } from "@/utils/request/request.types";
 
 import {
-  IAuthRequest,
-  IRegisterRequest,
+  TAuthRequest,
+  TRegisterRequest,
   TUser,
-  IResetPasswordRequest,
+  TResetPasswordRequest,
 } from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
-import { IAppUserResponse } from "../types/auth.response";
+import { IUser } from "@ecommerce/shared";
 
 export class MockAuthRepository implements IAuthRepository {
   getSession(): boolean {
@@ -19,16 +19,18 @@ export class MockAuthRepository implements IAuthRepository {
   async logout(): Promise<ApiResponse<void>> {
     throw new Error("Method not implemented.");
   }
-  private static MOCK_USER: IAppUserResponse = {
+  private static MOCK_USER: IUser = {
     id: "1",
     first_name: "John",
     last_name: "Doe",
     email: "john.doe@example.com",
     avatar_id: "https://i.pravatar.cc/150?u=1",
-    date_of_birth: "20031990",
+    date_of_birth: new Date("1990-03-20"),
+    created_at: new Date(),
+    updated_at: new Date(),
   };
 
-  async login(request: IAuthRequest): Promise<ApiResponse<TUser>> {
+  async login(request: TAuthRequest): Promise<ApiResponse<TUser>> {
     await delay(1200);
 
     MockAuthRepository.MOCK_USER = {
@@ -44,7 +46,7 @@ export class MockAuthRepository implements IAuthRepository {
     };
   }
 
-  async register(_request: IRegisterRequest): Promise<ApiResponse<null>> {
+  async register(_request: TRegisterRequest): Promise<ApiResponse<null>> {
     await delay(1200);
     return {
       data: null,
@@ -69,8 +71,9 @@ export class MockAuthRepository implements IAuthRepository {
       first_name: data.first_name || MockAuthRepository.MOCK_USER.first_name,
       last_name: data.last_name || MockAuthRepository.MOCK_USER.last_name,
       email: data.email || MockAuthRepository.MOCK_USER.email,
-      date_of_birth:
-        data.date_of_birth || MockAuthRepository.MOCK_USER.date_of_birth,
+      date_of_birth: data.date_of_birth
+        ? new Date(data.date_of_birth)
+        : MockAuthRepository.MOCK_USER.date_of_birth,
       avatar_id: data.avatar_id || MockAuthRepository.MOCK_USER.avatar_id,
     };
 
@@ -89,7 +92,7 @@ export class MockAuthRepository implements IAuthRepository {
   }
 
   async resetPassword(
-    request: IResetPasswordRequest,
+    request: TResetPasswordRequest,
   ): Promise<ApiResponse<void>> {
     await delay(500);
     return { data: undefined, status: "success" };

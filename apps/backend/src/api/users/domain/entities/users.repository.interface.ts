@@ -1,5 +1,5 @@
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
-import { IUser } from './user.entity';
+import { IUser } from '@ecommerce/shared';
 
 export interface IUsersRepository {
   findById(id: string): Promise<IUser | null>;

@@ -9,6 +9,7 @@ import Image from "next/image";
 interface CategoryCardProps {
   name: string;
   count: string;
+  slug?: string;
   icon?: LucideIcon;
   color?: string;
   image?: string;
@@ -17,13 +18,14 @@ interface CategoryCardProps {
 export const CategoryCard = ({
   name,
   count,
+  slug,
   icon: Icon = Sparkles,
   color = "text-primary",
   image,
 }: CategoryCardProps) => {
   return (
     <Link
-      href={APP_ROUTES.CATEGORY(name.toLowerCase())}
+      href={APP_ROUTES.CATEGORY_DETAIL(slug || name.toLowerCase())}
       className="group relative h-32 bg-content/[0.02] border border-content/[0.05] hover:border-content/[0.1] rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden w-full"
     >
       <div

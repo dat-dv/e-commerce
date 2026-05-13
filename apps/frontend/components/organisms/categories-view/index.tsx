@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ICategory } from "@/domain/categories/types/categories.model";
+import { TCategory } from "@/domain/categories/types/categories.model";
 import AppContainer from "@/components/atoms/app-container";
 import { CategoriesSidebar } from "./sidebar";
 import { CategoriesContent } from "./content";
 
 export interface CategoriesViewProps {
-  initialTree: ICategory[];
+  initialTree: TCategory[];
 }
 
 export const CategoriesView = ({ initialTree }: CategoriesViewProps) => {

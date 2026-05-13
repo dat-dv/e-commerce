@@ -20,7 +20,7 @@ export const AddressesView = () => {
 
   const handleAddAddress = async (data: AddressFormData) => {
     const formattedData: Omit<Address, "id"> = {
-      label: data.label,
+      label: data.label as unknown as string,
       receiverName: data.receiver_name,
       receiverPhone: data.receiver_phone,
       street: data.street,

@@ -1,8 +1,8 @@
-import { ICategory } from "../types/categories.model";
-import { ICategoryResponse } from "../types/categories.response";
+import { TCategory } from "../types/categories.model";
+import { IProductCategory } from "@ecommerce/shared";
 
 export class CategoryMapper {
-  static toDomain(response: ICategoryResponse): ICategory {
+  static toDomain(response: IProductCategory): TCategory {
     return {
       id: response.id,
       slug: response.slug,

@@ -30,7 +30,7 @@ export const FlashSale = ({ products }: FlashSaleProps) => {
     <div className="bg-surface border border-content/[0.05] rounded-3xl p-6 flex flex-col gap-6">
       <SectionHeader
         title="Flash Sale"
-        href={APP_ROUTES.CATEGORY("flash-sale")}
+        href={APP_ROUTES.FLASH_SALE}
         icon={Flame}
         lang="en"
       >

@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IFlashSale } from '../entities/flash-sale.entity';
+import { IFlashSale } from '@ecommerce/shared';
 
 @Injectable()
 export class GetFlashSaleUseCase {

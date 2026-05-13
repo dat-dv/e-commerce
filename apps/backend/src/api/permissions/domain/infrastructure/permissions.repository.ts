@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IPermissionsRepository } from '../entities/permissions.repository.interface';
-import { IPermission } from '../entities/permission.entity';
+import { IPermission } from '@ecommerce/shared';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';

@@ -11,9 +11,8 @@ export const APP_ROUTES = {
   TERMS: "/terms",
   PRIVACY: "/privacy",
   DOCS: "/docs",
-  CATEGORIES: "/products/categories",
-  CATEGORY: (name: "flash-sale" | "new-arrivals") =>
-    `/products/categories?name=${name}`,
+  CATEGORIES: "/categories",
+  CATEGORY_DETAIL: (slug: string) => `/categories/${slug}`,
   PRODUCT_DETAIL: (id: string | number) => `/products/${id}`,
   CART: "/cart",
   ORDERS: "/orders",
@@ -24,10 +23,10 @@ export const APP_ROUTES = {
   SHIPPING: "/help/shipping",
   CONTACT: "/help/contact",
   VOUCHERS: "/vouchers",
-  SUPER_DEALS: "/products/categories?name=super-deals",
+  SUPER_DEALS: "/categories?name=super-deals",
   TOP_BRANDS: "/top-brands",
-  NEW_ARRIVALS: "/products/categories?name=new-arrivals",
-  FLASH_SALE: "/products/categories?name=flash-sale",
+  NEW_ARRIVALS: "/categories?name=new-arrivals",
+  FLASH_SALE: "/categories?name=flash-sale",
 } as const;
 
 /** @description API endpoint paths */

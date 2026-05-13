@@ -1,43 +1,39 @@
 import { TUser } from "../types/auth.model";
-import {
-  IAppUpdateUserRequest,
-  IAppUserResponse,
-} from "../types/auth.response";
+import { IUser } from "@ecommerce/shared";
 
 export const UserMapper = {
-  toDomain(dto: IAppUserResponse): TUser {
+  toDomain(dto: IUser): TUser {
     return {
       id: dto.id,
       first_name: dto.first_name || "",
       last_name: dto.last_name || "",
       email: dto.email,
-      date_of_birth: dto.date_of_birth || "",
+      date_of_birth: dto.date_of_birth ? dto.date_of_birth.toISOString() : "",
       avatar_id: dto.avatar_id || "",
       password: dto.password,
-      created_at: dto.created_at,
-      updated_at: dto.updated_at,
-      deleted_at: dto.deleted_at,
+      created_at: dto.created_at ? dto.created_at.toISOString() : null,
+      updated_at: dto.updated_at ? dto.updated_at.toISOString() : null,
+      deleted_at: dto.deleted_at ? dto.deleted_at.toISOString() : null,
       role_id: dto.role_id,
     };
   },
-  toDTO(user: Partial<TUser>): Partial<IAppUpdateUserRequest> {
-    const dto: Partial<IAppUpdateUserRequest> = {};
+  toDTO(user: Partial<TUser>): Partial<IUser> {
+    const dto: Partial<IUser> = {};
     if (user.id) dto.id = user.id;
     if (user.first_name) dto.first_name = user.first_name;
     if (user.last_name) dto.last_name = user.last_name;
-    if (user.password) dto.password = user.password;
     if (user.date_of_birth) {
-      dto.date_of_birth = user.date_of_birth;
+      dto.date_of_birth = new Date(user.date_of_birth);
     }
     if (user.avatar_id) dto.avatar_id = user.avatar_id;
     if (user.created_at) {
-      dto.created_at = user.created_at;
+      dto.created_at = new Date(user.created_at);
     }
     if (user.updated_at) {
-      dto.updated_at = user.updated_at;
+      dto.updated_at = new Date(user.updated_at);
     }
     if (user.deleted_at) {
-      dto.deleted_at = user.deleted_at;
+      dto.deleted_at = new Date(user.deleted_at);
     }
 
     if (user.role_id) dto.role_id = user.role_id;

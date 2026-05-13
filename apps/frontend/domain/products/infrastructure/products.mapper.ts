@@ -1,13 +1,13 @@
-import { IProduct, ISkuDomain } from "../types/products.model";
-import { IProductResponse } from "../types/products.response";
+import { TProduct, TSkuDomain } from "../types/products.model";
+import { IProduct } from "@ecommerce/shared";
 
 export class ProductMapper {
-  static toDomain(dto: IProductResponse, lang: string = "vi"): IProduct {
+  static toDomain(dto: IProduct, lang: string = "vi"): TProduct {
     const translation =
       dto.translations?.find((t) => t.language_id === lang) ||
       dto.translations?.[0];
 
-    const skus: ISkuDomain[] =
+    const skus: TSkuDomain[] =
       dto.skus?.map((sku) => {
         const flashSale = sku.flash_sales?.[0];
         const salePrice = flashSale?.sale_price;
@@ -40,7 +40,7 @@ export class ProductMapper {
     return {
       id: String(dto.id),
       name: translation?.name || "No Name",
-      category: dto.category?.name || "General",
+      category: "General",
       image_url: dto.thumbnail?.url || skus[0]?.image_url || "",
       skus,
     };

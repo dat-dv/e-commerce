@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ICategory } from "@/domain/categories/types/categories.model";
+import { TCategory } from "@/domain/categories/types/categories.model";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Input from "@/components/atoms/input";
 
 interface CategoriesSidebarProps {
-  categories: ICategory[];
+  categories: TCategory[];
   activeId: string;
   setActiveId: (id: string) => void;
 }

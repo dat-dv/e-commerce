@@ -1,6 +1,6 @@
 // src/api/homepage/domain/entities/homepage-section.repository.interface.ts
 
-import { IHomepageSection } from './homepage-section.entity';
+import { IHomepageSection } from '@ecommerce/shared';
 
 export interface IHomepageSectionRepository {
   findAllEnabled(isLoggedIn?: boolean): Promise<IHomepageSection[]>;

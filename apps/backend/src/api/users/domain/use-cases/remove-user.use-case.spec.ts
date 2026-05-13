@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RemoveUserUseCase } from './remove-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException } from '@nestjs/common';
-import { IUser } from '../entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 describe('RemoveUserUseCase', () => {
   let useCase: RemoveUserUseCase;

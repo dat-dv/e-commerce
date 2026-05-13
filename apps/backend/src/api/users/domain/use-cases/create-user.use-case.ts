@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException, Inject } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { CreateUserDto } from '../../dto/create-user.dto';
-import { IUser } from '../entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 @Injectable()
 export class CreateUserUseCase {

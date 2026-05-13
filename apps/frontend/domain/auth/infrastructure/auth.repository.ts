@@ -2,20 +2,20 @@ import { API_ROUTES } from "@/constants/routes";
 import { ApiResponse, TRequest } from "@/utils/request/request.types";
 
 import {
-  IAuthRequest,
-  IRegisterRequest,
+  TAuthRequest,
+  TRegisterRequest,
   TUser,
-  IResetPasswordRequest,
+  TResetPasswordRequest,
 } from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
-import { IAppUserResponse } from "../types/auth.response";
+import { IUser } from "@ecommerce/shared";
 
 export class AuthRepository implements IAuthRepository {
   constructor(private request: TRequest) {}
 
-  async login(request: IAuthRequest): Promise<ApiResponse<TUser>> {
-    const response = await this.request.post<IAppUserResponse>(
+  async login(request: TAuthRequest): Promise<ApiResponse<TUser>> {
+    const response = await this.request.post<IUser>(
       API_ROUTES.AUTH.LOGIN,
       request,
     );
@@ -25,7 +25,7 @@ export class AuthRepository implements IAuthRepository {
     };
   }
 
-  async register(request: IRegisterRequest): Promise<ApiResponse<null>> {
+  async register(request: TRegisterRequest): Promise<ApiResponse<null>> {
     const payload = {
       email: request.email,
       password: request.password,
@@ -35,9 +35,7 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async fetchMe(): Promise<ApiResponse<TUser>> {
-    const response = await this.request.get<IAppUserResponse>(
-      API_ROUTES.AUTH.ME,
-    );
+    const response = await this.request.get<IUser>(API_ROUTES.AUTH.ME);
     return {
       ...response,
       data: UserMapper.toDomain(response.data),
@@ -46,7 +44,7 @@ export class AuthRepository implements IAuthRepository {
 
   async updateProfile(data: Partial<TUser>): Promise<ApiResponse<TUser>> {
     const userDto = UserMapper.toDTO(data);
-    const response = await this.request.patch<IAppUserResponse>(
+    const response = await this.request.patch<IUser>(
       API_ROUTES.USERS.PROFILE,
       userDto,
     );
@@ -68,7 +66,7 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async resetPassword(
-    request: IResetPasswordRequest,
+    request: TResetPasswordRequest,
   ): Promise<ApiResponse<void>> {
     return this.request.post(API_ROUTES.AUTH.RESET_PASSWORD, request);
   }

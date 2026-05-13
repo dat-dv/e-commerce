@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UpdateUserUseCase } from './update-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { IUser } from '../entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 
 describe('UpdateUserUseCase', () => {

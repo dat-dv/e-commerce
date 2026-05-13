@@ -3,7 +3,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { EHomepageSectionType, IHomepageSection } from '../entities/homepage-section.entity';
+import { EHomepageSectionType, IHomepageSection } from '@ecommerce/shared';
 
 @Injectable()
 export class HomepageSectionRepository implements IHomepageSectionRepository {

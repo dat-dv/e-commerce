@@ -4,7 +4,7 @@ import { IUsersRepository } from '../entities/users.repository.interface';
 import { UploadImageUseCase } from 'src/api/upload/domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from 'src/api/upload/domain/use-cases/delete-image.use-case';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { IUser } from '../entities/user.entity';
+import { IUser } from '@ecommerce/shared';
 
 describe('UpdateAvatarUseCase', () => {
   let useCase: UpdateAvatarUseCase;

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IUser, Gender } from '../entities/user.entity';
+import { IUser, Gender } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrand } from 'src/api/homepage/domain/entities/homepage-section.entity';
+import { IBrand } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import {
   PaginationService,

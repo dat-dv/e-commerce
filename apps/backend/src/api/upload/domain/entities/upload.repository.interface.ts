@@ -1,4 +1,4 @@
-import { IImage } from './image.entity';
+import { IImage } from '@ecommerce/shared';
 
 export interface ImageCreateInput {
   url: string;

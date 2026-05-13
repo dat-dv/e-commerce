@@ -3,9 +3,10 @@ import { ProductCard } from "@/components/molecules/product-card";
 import { SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
+import { TProduct } from "@/domain/products/types/products.model";
 
 // Mock data for products in this category
-const MOCK_PRODUCTS: Product[] = [
+const MOCK_PRODUCTS: TProduct[] = [
   {
     id: "1",
     name: "Minimalist Wireless Keyboard",

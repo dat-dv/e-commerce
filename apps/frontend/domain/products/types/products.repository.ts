@@ -1,15 +1,15 @@
 import { ApiResponse, ApiListResponse } from "@/utils/request/request.types";
-import { IProduct } from "./products.model";
+import { TProduct } from "./products.model";
 
 export interface IProductsRepository {
-  getRecommended(): Promise<ApiResponse<IProduct[]>>;
-  getBasedOnInterest(): Promise<ApiResponse<IProduct[]>>;
-  getRecentlyViewed(): Promise<ApiResponse<IProduct[]>>;
-  getFlashSale(): Promise<ApiResponse<IProduct[]>>;
+  getRecommended(): Promise<ApiResponse<TProduct[]>>;
+  getBasedOnInterest(): Promise<ApiResponse<TProduct[]>>;
+  getRecentlyViewed(): Promise<ApiResponse<TProduct[]>>;
+  getFlashSale(): Promise<ApiResponse<TProduct[]>>;
   getProductById(
     id: string,
     lang?: string,
-  ): Promise<ApiResponse<IProduct | null>>;
+  ): Promise<ApiResponse<TProduct | null>>;
   getProducts(params?: {
     page?: number;
     limit?: number;
@@ -21,5 +21,5 @@ export interface IProductsRepository {
     attribute_value_ids?: string[];
     sort?: string;
     languageCode?: string;
-  }): Promise<ApiResponse<ApiListResponse<IProduct>>>;
+  }): Promise<ApiResponse<ApiListResponse<TProduct>>>;
 }

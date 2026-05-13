@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { IProductCategory } from '../entities/product-category.entity';
+import { IProductCategory } from '@ecommerce/shared';
 import { PaginationService, PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()

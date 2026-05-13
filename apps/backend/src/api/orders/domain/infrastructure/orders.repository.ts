@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { OrderStatus } from '../entities/order-status.enum';
-import { ICreateOrderInput, IOrder, IOrderItem } from '../entities/order.entity';
+import { ICreateOrderInput, IOrder, IOrderItem } from '@ecommerce/shared';
 
 @Injectable()
 export class OrdersRepository implements IOrdersRepository {

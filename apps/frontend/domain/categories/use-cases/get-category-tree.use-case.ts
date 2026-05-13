@@ -1,4 +1,4 @@
-import { ICategoriesRepository } from "../entities/categories.repository.interface";
+import { ICategoriesRepository } from "../types/categories.repository.interface";
 
 export class GetCategoryTreeUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}

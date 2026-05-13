@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 
-import { IBrand } from "@/domain/homepage/types/homepage.model";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
 
 interface TopBrandsGridProps {
-  brands: IBrand[];
+  brands: TBrand[];
 }
 
 const cardVariants = {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import AppContainer from "@/components/atoms/app-container";
 import { TopBrandsGrid } from "@/components/organisms/top-brands-grid";
-import { IBrand } from "@/domain/homepage/types/homepage.model";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
 import TopBrandsHeader from "./top-brands-header";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function TopBrandsPage() {
   const response = await brandsUseCase.getTopBrands.execute(1, 20);
 
-  let brands: IBrand[] = [];
+  let brands: TBrand[] = [];
 
   if (response.status === "success" && response.data) {
     brands = response.data.items;

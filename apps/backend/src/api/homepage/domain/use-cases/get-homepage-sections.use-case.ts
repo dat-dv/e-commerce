@@ -2,11 +2,9 @@
 
 import { Injectable, Inject } from '@nestjs/common';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { EHomepageSectionType, IHomepageSection, IHomepageSectionResponse } from '../entities/homepage-section.entity';
+import { EHomepageSectionType, IHomepageSection, IHomepageSectionResponse, IProduct, IBrand } from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IBrandsRepository } from 'src/api/brands/domain/entities/brands.repository.interface';
-import { IProduct } from 'src/api/products/domain/entities/product.entity';
-import { IBrand } from '../entities/homepage-section.entity';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 
 @Injectable()
