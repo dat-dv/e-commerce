@@ -73,7 +73,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                           ?.label || ""
                       }
                       placeholder="Select..."
-                      className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content/80 font-semibold"
+                      className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content font-semibold"
                     />
                     <ChevronDown className="w-4 h-4 ml-2 opacity-50" />
                   </MenuButton>

@@ -74,6 +74,7 @@ export const RequireProfileInfoForm = ({
           label="Date of Birth"
           placeholder="dd/mm/yyyy"
           variant="underline"
+          maxDate={new Date()}
         />
         <FormSelect
           name="gender"

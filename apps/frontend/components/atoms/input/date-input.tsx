@@ -24,6 +24,8 @@ interface DateInputProps extends Omit<
   label?: string;
   error?: string;
   variant?: InputVariant;
+  maxDate?: Date;
+  minDate?: Date;
 }
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
@@ -49,6 +51,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
               : stateStyle,
             className,
           )}
+          onClick={isDisabled ? undefined : props.onClick}
         >
           <input
             {...props}
@@ -100,6 +103,8 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             }}
             customInput={<CustomInput />}
             dateFormat="dd/MM/yyyy"
+            maxDate={rest.maxDate}
+            minDate={rest.minDate}
             popperPlacement="bottom-end"
             onCalendarOpen={() => setIsCalendarOpen(true)}
             onCalendarClose={() => setIsCalendarOpen(false)}
@@ -248,6 +253,15 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
           }
           .react-datepicker__day--outside-month {
             color: #cbd5e1 !important;
+          }
+          .react-datepicker__day--disabled {
+            color: #cbd5e1 !important;
+            opacity: 0.3 !important;
+            cursor: not-allowed !important;
+            pointer-events: none !important;
+          }
+          .react-datepicker__day--disabled:hover {
+            background-color: transparent !important;
           }
           .react-datepicker__today-button {
             background-color: white !important;
