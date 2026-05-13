@@ -1,40 +1,70 @@
-import AppContainer from "@/components/atoms/app-container";
-import { ProductCard } from "@/components/molecules/product-card";
 import type { Metadata } from "next";
 import { productsUseCase } from "@/domain/products/use-cases";
-import ProductsHeader from "./products-header";
-import { TProduct } from "@/domain/products/types/products.model";
+import { categoriesUseCase } from "@/domain/categories/use-cases";
+import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
+import { ProductsView } from "@/components/organisms/products-view";
 
 export const metadata: Metadata = {
   title: "Products",
   description: "Explore our collection of products.",
 };
 
-export default async function ProductsPage() {
-  const response = await productsUseCase.getProducts.execute({ limit: 12 });
+interface ProductsPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
-  let products: TProduct[] = [];
-  if (response.status === "success" && response.data?.items) {
-    products = response.data.items;
-  }
+export default async function ProductsPage({
+  searchParams,
+}: ProductsPageProps) {
+  const sp = await searchParams;
+  const page = sp.page ? parseInt(sp.page as string) : 1;
+  const limit = 12;
+  const category_id = sp.category_id as string;
+  const brand_id = sp.brand_id as string;
+  const sort = sp.sort as string;
+  const search = sp.search as string;
+  const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
+  const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;
+
+  const [productsRes, categoriesRes] = await Promise.all([
+    productsUseCase.getProducts.execute({
+      page,
+      limit,
+      category_id,
+      brand_id,
+      sort,
+      min_price,
+      max_price,
+      search,
+    }),
+    categoriesUseCase.getTree.execute(),
+  ]);
+
+  const products =
+    productsRes.status === "success" ? productsRes.data?.items || [] : [];
+  const total =
+    productsRes.status === "success" ? productsRes.data?.meta.total || 0 : 0;
+  const categories =
+    categoriesRes.status === "success" ? categoriesRes.data || [] : [];
 
   return (
-    <AppContainer size="2xl" className="py-16">
-      <ProductsHeader />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-
-      {products.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-slate-500 dark:text-slate-400">
-            No products found.
-          </p>
-        </div>
-      )}
-    </AppContainer>
+    <ProductsPageProvider
+      initState={{
+        products,
+        total,
+        currentPage: page,
+        totalPages:
+          productsRes.status === "success"
+            ? productsRes.data?.meta.totalPages || 1
+            : 1,
+        category_id,
+        sort,
+        search,
+        min_price,
+        max_price,
+      }}
+    >
+      <ProductsView categories={categories} />
+    </ProductsPageProvider>
   );
 }

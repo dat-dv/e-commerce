@@ -9,7 +9,7 @@ export function ProductsHeader() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mb-12 p-8 rounded-3xl backdrop-blur-md bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50 shadow-xl"
+      className="mb-12 p-8 rounded-3xl bg-surface border border-content/5 backdrop-blur-md shadow-xl shadow-black/[0.02]"
     >
       <div className="flex items-center gap-3 mb-4">
         <motion.div
@@ -17,14 +17,12 @@ export function ProductsHeader() {
           animate={{ rotate: 0, scale: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
         >
-          <ShoppingBag className="w-10 h-10 text-blue-500 fill-blue-500/10" />
+          <ShoppingBag className="w-10 h-10 text-primary fill-primary/10" />
         </motion.div>
-        <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-          Our Products
-        </h1>
+        <h1 className="text-4xl font-bold text-content">Our Products</h1>
       </div>
 
-      <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+      <p className="text-lg text-content/70 max-w-2xl">
         Explore our curated collection of premium products. We guarantee 100%
         authenticity and quality.
       </p>
