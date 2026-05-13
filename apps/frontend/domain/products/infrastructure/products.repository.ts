@@ -1,5 +1,9 @@
 import { API_ROUTES } from "@/constants/routes";
-import { ApiResponse, TRequest } from "@/utils/request/request.types";
+import {
+  ApiResponse,
+  TRequest,
+  ApiListResponse,
+} from "@/utils/request/request.types";
 import { IProduct } from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
 import { IProductResponse } from "../types/products.response";
@@ -59,6 +63,49 @@ export class ProductsRepository implements IProductsRepository {
     return {
       ...response,
       data: response.data ? ProductMapper.toDomain(response.data) : null,
+    };
+  }
+
+  async getProducts(params?: {
+    page?: number;
+    limit?: number;
+    search?: string;
+    category_id?: string;
+    brand_id?: string;
+    min_price?: number;
+    max_price?: number;
+    attribute_value_ids?: string[];
+    sort?: string;
+    languageCode?: string;
+  }): Promise<ApiResponse<ApiListResponse<IProduct>>> {
+    const response = await this.request.get<{
+      items: IProductResponse[];
+      meta: {
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+      };
+    }>(`${API_ROUTES.PRODUCTS.BASE}`, { params });
+
+    return {
+      ...response,
+      data: response.data
+        ? {
+            items: response.data.items.map((item) =>
+              ProductMapper.toDomain(item),
+            ),
+            meta: response.data.meta,
+          }
+        : {
+            items: [],
+            meta: {
+              total: 0,
+              page: params?.page || 1,
+              limit: params?.limit || 10,
+              totalPages: 0,
+            },
+          },
     };
   }
 }

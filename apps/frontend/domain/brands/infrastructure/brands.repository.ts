@@ -17,21 +17,21 @@ export class BrandsRepository implements IBrandsRepository {
     limit = 10,
   ): Promise<ApiResponse<ApiListResponse<IBrand>>> {
     const response = await this.request.get<{
-      data: IBrandResponse[];
-      total: number;
+      items: IBrandResponse[];
+      meta: {
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+      };
     }>(`${API_ROUTES.BRAND.TOP}`, { params: { page, limit } });
 
     return {
       ...response,
       data: response.data
         ? {
-            items: response.data.data.map((item) => BrandMapper.toDomain(item)),
-            meta: {
-              total: response.data.total,
-              page,
-              limit,
-              totalPages: Math.ceil(response.data.total / limit),
-            },
+            items: response.data.items.map((item) => BrandMapper.toDomain(item)),
+            meta: response.data.meta,
           }
         : {
             items: [],

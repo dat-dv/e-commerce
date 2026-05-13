@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import AppContainer from "@/components/atoms/app-container";
-import { Star } from "lucide-react";
 import { TopBrandsGrid } from "@/components/organisms/top-brands-grid";
 import { IBrand } from "@/domain/homepage/types/homepage.model";
+import TopBrandsHeader from "./top-brands-header";
 
 export const metadata: Metadata = {
   title: "Top Brands",
@@ -33,18 +33,7 @@ export default async function TopBrandsPage() {
   return (
     <div className="py-12">
       <AppContainer>
-        <div className="flex items-center gap-3 mb-8">
-          <Star className="w-8 h-8 text-yellow-500 fill-yellow-500" />
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">
-            Top Brands
-          </h1>
-        </div>
-
-        <p className="text-slate-500 dark:text-slate-400 mb-12 max-w-2xl">
-          Discover the most trusted brands in our store. We guarantee 100%
-          authenticity and premium quality from all certified partners.
-        </p>
-
+        <TopBrandsHeader />
         <TopBrandsGrid brands={brands} />
       </AppContainer>
     </div>

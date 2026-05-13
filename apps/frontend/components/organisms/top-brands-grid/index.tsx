@@ -67,12 +67,12 @@ export const TopBrandsGrid = ({ brands }: TopBrandsGridProps) => {
               <div className="flex flex-col items-center">
                 <div className="w-20 h-20 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-600 group-hover:border-primary transition-colors duration-300">
                   <span className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                    {brand.name.charAt(0)}
+                    {brand.name?.charAt(0) || brand.slug?.charAt(0) || "?"}
                   </span>
                 </div>
 
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-1">
-                  {brand.name}
+                  {brand.name || brand.slug}
                 </h3>
 
                 <p className="text-sm text-slate-500 dark:text-slate-400">

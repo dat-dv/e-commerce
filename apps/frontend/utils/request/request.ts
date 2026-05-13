@@ -35,7 +35,11 @@ const forwardClientRequest = async <T>(
   if (options?.params) {
     const searchParams = new URLSearchParams();
     Object.entries(options.params).forEach(([key, value]) => {
-      searchParams.append(key, String(value));
+      if (Array.isArray(value)) {
+        value.forEach((v) => searchParams.append(key, String(v)));
+      } else if (value !== undefined) {
+        searchParams.append(key, String(value));
+      }
     });
     const queryString = searchParams.toString();
     if (queryString) {

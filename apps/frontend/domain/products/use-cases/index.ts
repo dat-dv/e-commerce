@@ -5,6 +5,7 @@ import { GetBasedOnInterestUseCase } from "./get-based-on-interest.use-case";
 import { GetRecentlyViewedUseCase } from "./get-recently-viewed.use-case";
 import { GetFlashSaleUseCase } from "./get-flash-sale.use-case";
 import { GetProductByIdUseCase } from "./get-product-by-id.use-case";
+import { GetProductsUseCase } from "./get-products.use-case";
 
 const repo = new ProductsRepository(appRequest);
 
@@ -14,4 +15,5 @@ export const productsUseCase = {
   getRecentlyViewed: new GetRecentlyViewedUseCase(repo),
   getFlashSale: new GetFlashSaleUseCase(repo),
   getProductById: new GetProductByIdUseCase(repo),
+  getProducts: new GetProductsUseCase(repo),
 };
