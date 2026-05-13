@@ -57,7 +57,8 @@ export const Recommendations = ({
                 {p.name}
               </h3>
               <p className="text-sm font-black text-primary mt-1">
-                {Number(p.skus[0]?.price || 0).toLocaleString("vi-VN")} đ
+                {Number(p.skus[0]?.price || 0).toLocaleString("vi-VN")}{" "}
+                {p.skus[0]?.unit_price || "VND"}
               </p>
             </Link>
           ))

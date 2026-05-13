@@ -3,7 +3,7 @@
 // 1. TẦNG SẢN PHẨM (PRODUCT)
 model Product {
   id         String    @id @default(cuid())
-  slug       String?   @unique
+  slug       String   @unique
   seller_id  String? // Ai tạo sản phẩm này (Tạm thời để optional)
   brand_id   String?
   status     Int       @default(0) // 0: DRAFT, 1: ACTIVE, 2: OUT_OF_STOCK
@@ -40,6 +40,7 @@ model Sku {
   original_price Float?
   stock          Int     @default(0)
   image_url      String?
+  unit_price String? @default("VND")
 
   product              Product             @relation(fields: [product_id], references: [id], onDelete: Cascade)
   sku_attribute_values SkuAttributeValue[]

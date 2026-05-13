@@ -48,29 +48,46 @@ function slugify(text: string): string {
     .replace(/--+/g, '-'); // Xoá nhiều - liên tiếp
 }
 
+function getAllJsonFiles(dir: string, baseDir: string): string[] {
+  let results: string[] = [];
+  if (!fs.existsSync(dir)) return results;
+
+  const list = fs.readdirSync(dir);
+  list.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getAllJsonFiles(filePath, baseDir));
+    } else if (file.endsWith('.json')) {
+      // Giới hạn size file JSON là 5MB để tránh crash memory
+      if (stat.size <= 5 * 1024 * 1024) {
+        results.push(path.relative(baseDir, filePath));
+      } else {
+        console.warn(`⚠️ Bỏ qua file quá lớn (>5MB): ${filePath}`);
+      }
+    }
+  });
+  return results;
+}
+
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
   const fileName = process.argv[2];
   let filesToProcess: string[] = [];
 
-  const isDevSeed = !true;
+  const isDevSeed = false;
   const datasetDir = path.join(__dirname, '../dataset/products');
 
   if (fileName) {
     filesToProcess.push(fileName);
   } else {
-    console.log('ℹ️ Không có file cụ thể được chỉ định. Đang quét toàn bộ file JSON trong thư mục dataset...');
-    if (fs.existsSync(datasetDir)) {
-      const files = fs.readdirSync(datasetDir);
-      filesToProcess = files.filter((file) => {
-        if (!file.endsWith('.json')) return false;
-        const stats = fs.statSync(path.join(datasetDir, file));
-        return stats.size <= 5 * 1024 * 1024;
-      });
+    console.log(
+      'ℹ️ Không có file cụ thể được chỉ định. Đang quét toàn bộ file JSON trong thư mục dataset (bao gồm cả thư mục con)...',
+    );
+    filesToProcess = getAllJsonFiles(datasetDir, datasetDir);
 
-      if (isDevSeed) {
-        filesToProcess = filesToProcess.slice(0, 5);
-        console.log(`ℹ️ Chế độ Dev Seed: Chỉ lấy ${filesToProcess.length} file đầu tiên để seed.`);
-      }
+    if (isDevSeed) {
+      filesToProcess = filesToProcess.slice(0, 5);
+      console.log(`ℹ️ Chế độ Dev Seed: Chỉ lấy ${filesToProcess.length} file đầu tiên để seed.`);
     }
     console.log(`Tìm thấy ${filesToProcess.length} file JSON hợp lệ để seed.`);
   }
@@ -220,13 +237,19 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
               create: [{ category_id: subCategory.id }],
             },
             skus: {
-              create: p.skus.map((sku) => ({
-                sku_code: sku.sku_code,
-                price: sku.price,
-                original_price: p.actual_price_vnd,
-                stock: sku.stock,
-                image_url: imageUrl,
-              })),
+              create: p.skus.map((sku) => {
+                const price = sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
+                const originalPrice = p.actual_price_vnd > 0 ? p.actual_price_vnd : price;
+
+                return {
+                  sku_code: sku.sku_code,
+                  price: price,
+                  original_price: originalPrice,
+                  unit_price: 'VND',
+                  stock: sku.stock,
+                  image_url: imageUrl,
+                };
+              }),
             },
           },
         });
