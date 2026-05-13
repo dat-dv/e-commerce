@@ -6,60 +6,18 @@ import { FlashSale } from "@/components/molecules/flash-sale";
 import { CategoriesSection } from "@/components/molecules/categories-section";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { WelcomeBanner } from "@/components/molecules/welcome-banner";
-import { APP_ROUTES } from "@/constants/routes";
 import {
-  Flame,
   Laptop,
   Heart,
   Sparkles,
   Home,
-  Ticket,
-  Star,
   Eye,
   Zap,
   LucideIcon,
 } from "lucide-react";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
-const FEATURE_ITEMS = [
-  {
-    name: "Super Deals",
-    desc: "Up to 70% off",
-    icon: Flame,
-    color: "text-orange-500",
-    href: APP_ROUTES.SUPER_DEALS,
-  },
-  {
-    name: "Vouchers",
-    desc: "Coming soon",
-    icon: Ticket,
-    color: "text-pink-500",
-    href: APP_ROUTES.VOUCHERS,
-  },
-  {
-    name: "Top Brands",
-    desc: "Certified stores",
-    icon: Star,
-    color: "text-yellow-500",
-    href: APP_ROUTES.TOP_BRANDS,
-  },
-  {
-    name: "New Arrivals",
-    desc: "Fresh drops",
-    icon: Sparkles,
-    color: "text-purple-500",
-    href: APP_ROUTES.NEW_ARRIVALS,
-  },
-  {
-    name: "Flash Sale",
-    desc: "Ending soon",
-    icon: Zap,
-    color: "text-red-500",
-    href: APP_ROUTES.FLASH_SALE,
-  },
-];
-
-import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
+import { HOMEPAGE_SECTION_TYPES, FEATURE_ITEMS } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useHomepageCategories } from "@/hooks/categories/use-homepage-categories";

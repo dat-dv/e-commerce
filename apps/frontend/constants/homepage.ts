@@ -1,4 +1,4 @@
-import { Zap, Ticket, Star, Sparkles } from "lucide-react";
+import { Zap, Ticket, Star, Sparkles, Flame } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
 
 export const HOMEPAGE_SECTION_TYPES = {
@@ -12,6 +12,13 @@ export type HomepageSectionType =
   (typeof HOMEPAGE_SECTION_TYPES)[keyof typeof HOMEPAGE_SECTION_TYPES];
 
 export const FEATURE_ITEMS = [
+  {
+    name: "Siêu Sale",
+    desc: "Giảm đến 70%",
+    icon: Flame,
+    color: "text-orange-500",
+    href: APP_ROUTES.SUPER_DEALS,
+  },
   {
     name: "Flash Sale",
     desc: "Ending soon",

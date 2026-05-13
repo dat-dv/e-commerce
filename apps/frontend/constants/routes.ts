@@ -27,7 +27,7 @@ export const APP_ROUTES = {
   SUPER_DEALS: "/categories?name=super-deals",
   TOP_BRANDS: "/top-brands",
   NEW_ARRIVALS: "/categories?name=new-arrivals",
-  FLASH_SALE: "/categories?name=flash-sale",
+  FLASH_SALE: "/flash-sale",
 } as const;
 
 /** @description API endpoint paths */
