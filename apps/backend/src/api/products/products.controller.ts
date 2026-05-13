@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { OptionalAuthGuard } from '../auth/guards/optional-auth.guard';

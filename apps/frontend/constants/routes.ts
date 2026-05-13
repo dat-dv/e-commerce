@@ -57,6 +57,11 @@ export const API_ROUTES = {
     TREE: "/product-categories/tree",
     GROUPS: "/product-categories/groups",
   },
+  BRAND: {
+    TOP: "/brands/top",
+    BASE: "/brands",
+    DETAIL: (slug: string) => `/brands/${slug}`,
+  },
   HOMEPAGE: {
     SECTIONS: "/homepage/sections",
   },

@@ -14,6 +14,7 @@ import { OrdersModule } from './api/orders/orders.module';
 import { AddressesModule } from './api/addresses/addresses.module';
 import { NotificationsModule } from './api/notifications/notifications.module';
 import { HomepageModule } from './api/homepage/homepage.module';
+import { BrandsModule } from './api/brands/brands.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { HomepageModule } from './api/homepage/homepage.module';
     AddressesModule,
     NotificationsModule,
     HomepageModule,
+    BrandsModule,
   ],
   controllers: [],
   providers: [],

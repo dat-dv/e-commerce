@@ -10,7 +10,7 @@ export interface PaginatedResult<T> {
   };
 }
 
-interface PrismaModelDelegate {
+export interface PrismaModelDelegate {
   findMany(args?: any): Promise<any[]>;
   count(args?: any): Promise<number>;
 }

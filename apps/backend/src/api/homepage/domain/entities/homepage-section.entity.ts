@@ -10,7 +10,6 @@ export enum EHomepageSectionType {
   RECENT_VIEW = 'recent_view',
   SUPER_DEALS = 'super_deals',
   NEW_ARRIVALS = 'new_arrivals',
-  TOP_BRANDS = 'top_brands',
 }
 
 export interface IHomepageSectionTranslation {

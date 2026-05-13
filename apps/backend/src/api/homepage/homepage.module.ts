@@ -6,6 +6,7 @@ import { GetHomepageSectionsUseCase } from './domain/use-cases/get-homepage-sect
 import { HomepageSectionRepository } from './domain/infrastructure/homepage-section.repository';
 import { IHomepageSectionRepository } from './domain/entities/homepage-section.repository.interface';
 import { ProductsModule } from 'src/api/products/products.module';
+import { BrandsModule } from 'src/api/brands/brands.module';
 
 @Module({
   imports: [ProductsModule],

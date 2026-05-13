@@ -8,6 +8,14 @@ export interface IHomepageSectionCategory {
   name?: string;
 }
 
+export interface IBrand {
+  id: string;
+  name: string;
+  slug: string;
+  logo_url?: string;
+  product_count?: number;
+}
+
 export interface IHomepageSection {
   category: {
     id: string;
@@ -17,6 +25,7 @@ export interface IHomepageSection {
     categories?: IHomepageSectionCategory[];
   };
   data: IProduct[];
+  brands?: IBrand[];
 }
 
 export interface IGetHomepageSectionsRequest {

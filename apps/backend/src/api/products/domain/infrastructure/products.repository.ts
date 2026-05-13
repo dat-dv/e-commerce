@@ -200,7 +200,6 @@ export class ProductsRepository implements IProductsRepository {
       orderBy: { viewed_at: 'desc' },
       take: take,
     });
-
     const productIds = [...new Set(history.map((h) => h.product_id))].filter(
       (id): id is string => typeof id === 'string',
     );
@@ -306,37 +305,6 @@ export class ProductsRepository implements IProductsRepository {
         original_price: sku.original_price ? Number(sku.original_price) : null,
       })),
     }));
-  }
-
-  /** Featured Brands: is_featured=true brands with product count. */
-  async getFeaturedBrands(take = 10, languageCode = 'en'): Promise<IBrand[]> {
-    const brands = await this.prisma.brand.findMany({
-      where: { is_featured: true },
-      orderBy: { order: 'asc' },
-      take,
-      include: {
-        translations: {
-          where: { language: { code: languageCode } },
-        },
-        _count: { select: { products: true } },
-      },
-    });
-
-    return brands.map((b) => {
-      const translation = b.translations[0];
-      return {
-        id: b.id,
-        slug: b.slug,
-        logo_url: b.logo_url,
-        website_url: b.website_url,
-        is_verified: b.is_verified,
-        is_featured: b.is_featured,
-        order: b.order,
-        name: translation?.name,
-        description: translation?.description,
-        product_count: b._count.products,
-      };
-    });
   }
 
   async findPaginated(params: {

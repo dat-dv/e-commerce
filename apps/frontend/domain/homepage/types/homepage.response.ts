@@ -13,6 +13,14 @@ export interface IHomepageProduct extends Omit<IProductResponse, "skus"> {
   skus: IHomepageSku[];
 }
 
+export interface IBrandResponse {
+  id: string;
+  name: string;
+  slug: string;
+  logo_url?: string;
+  product_count?: number;
+}
+
 export interface IHomepageSectionResponse {
   category: {
     id: string;
@@ -30,4 +38,5 @@ export interface IHomepageSectionResponse {
     }[];
   };
   data: IHomepageProduct[];
+  brands?: IBrandResponse[];
 }
