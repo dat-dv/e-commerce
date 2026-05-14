@@ -18,7 +18,6 @@ export class GetUserOrdersUseCase {
           select: { items: true },
         },
         items: {
-          take: 1,
           include: {
             sku: {
               include: {

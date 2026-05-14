@@ -1,10 +1,9 @@
-import React from "react";
-import { Metadata } from "next";
 import { OrdersView } from "@/components/organisms/orders/orders-view";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "My Orders | Luxury E-commerce",
-  description: "Track and manage your premium orders.",
+  title: "Đơn mua | E-commerce Premium",
+  description: "Quản lý lịch sử mua hàng và trạng thái đơn hàng của bạn.",
 };
 
 export default function OrdersPage() {
