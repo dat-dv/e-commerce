@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Banknote, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { cn } from "@/utils/cn";
 import Button from "@/components/atoms/button";
 

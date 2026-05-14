@@ -23,8 +23,6 @@ export default function CartView() {
     updateQuantity,
     toggleSelectItem,
     handleToggleSelectAll,
-    handleDeleteSelected,
-    clearCart,
   } = useCartAdapter();
 
   const _hasHydrated = useCartStore((s) => s._hasHydrated);
@@ -82,7 +80,7 @@ export default function CartView() {
           <CartRecommendations />
         </div>
       ) : (
-        <div className="space-y-6 pb-32">
+        <div className="space-y-6">
           <CartTableHead
             isAllSelected={isAllSelected}
             onToggleSelectAll={handleToggleSelectAll}
@@ -104,12 +102,8 @@ export default function CartView() {
           </div>
 
           <CartFooter
-            itemCount={items.length}
             selectedCount={selectedSkuIds.length}
             totalAmount={totalAmount}
-            isAllSelected={isAllSelected}
-            onToggleSelectAll={handleToggleSelectAll}
-            onDeleteSelected={handleDeleteSelected}
           />
 
           <CartRecommendations />

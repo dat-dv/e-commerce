@@ -26,8 +26,7 @@ export const CartItemRow = ({
   onRemove,
   onUpdateQuantity,
 }: CartItemRowProps) => {
-  // @ts-expect-error - is_out_of_stock exists in dummy items for demo
-  const isOutOfStock = item.is_out_of_stock;
+  const isOutOfStock = item.quantity === 0;
 
   return (
     <motion.div
@@ -77,16 +76,16 @@ export const CartItemRow = ({
             </h3>
             <div className="flex flex-wrap gap-2 mt-1">
               {item.attributes && (
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-content/[0.05] text-content/40">
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-content/[0.05] text-content/40">
                   {item.attributes}
                 </span>
               )}
               {isOutOfStock ? (
-                <span className="text-[10px] font-bold text-red-500 uppercase tracking-wider bg-red-50 px-1.5 py-0.5 rounded">
+                <span className="text-[10px] font-semibold text-red-500 bg-red-50 px-1.5 py-0.5 rounded">
                   Out of stock
                 </span>
               ) : (
-                <span className="text-[10px] font-bold text-green-500 uppercase tracking-wider">
+                <span className="text-[10px] font-semibold text-green-500">
                   In stock
                 </span>
               )}
@@ -99,7 +98,6 @@ export const CartItemRow = ({
           </div>
         </div>
 
-        {/* Desktop Pricing & Quantity */}
         <div className="hidden md:flex items-center gap-4 w-full md:w-auto">
           <div className="w-32 text-center font-bold text-content/40 text-sm italic font-light">
             ${item.price.toLocaleString()}
@@ -121,26 +119,6 @@ export const CartItemRow = ({
             <button
               onClick={onRemove}
               className="p-4 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-[1rem] transition-all"
-            >
-              <Trash2 size={18} />
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Pricing & Quantity */}
-        <div className="flex md:hidden items-center justify-between w-full pt-3 border-t border-content/[0.05]">
-          <div className="font-black text-primary">
-            ${(item.price * item.quantity).toLocaleString()}
-          </div>
-          <div className="flex items-center gap-4">
-            <QuantitySelector
-              value={item.quantity}
-              onChange={onUpdateQuantity}
-              disabled={isOutOfStock}
-            />
-            <button
-              onClick={onRemove}
-              className="p-2 text-content/20 hover:text-red-500"
             >
               <Trash2 size={18} />
             </button>
