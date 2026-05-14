@@ -32,7 +32,10 @@ const createCartStoreCreator =
           updatedItems[existingItemIndex].quantity += quantity;
           set({ items: updatedItems });
         } else {
-          set({ items: [...items, { ...item, quantity }] });
+          set({
+            items: [...items, { ...item, quantity }],
+            selectedSkuIds: [...get().selectedSkuIds, item.sku_id],
+          });
         }
       },
 

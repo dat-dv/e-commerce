@@ -144,11 +144,18 @@ export const useCartAdapter = () => {
     }
   }, [isAllSelected, clearCart, selectedSkuIds, items, _removeItem]);
 
+  const subtotal = useMemo(
+    () =>
+      items.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0),
+    [items],
+  );
+
   return {
     items,
     selectedSkuIds,
     selectedItems,
     totalAmount,
+    subtotal,
     itemsCount,
     isAllSelected,
     isOpen,

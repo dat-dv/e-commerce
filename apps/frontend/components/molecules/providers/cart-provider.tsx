@@ -17,7 +17,8 @@ export interface CartProviderProps {
 export const CartProvider = ({ children, initState }: CartProviderProps) => {
   const [store] = useState(() =>
     createCartStore({
-      ...initState,
+      items: initState || [],
+      selectedSkuIds: initState?.map((item) => item.sku_id) || [],
       _hasHydrated: initState ? true : false,
     }),
   );

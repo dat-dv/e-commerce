@@ -15,7 +15,7 @@ import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 
 export const CartDrawer = () => {
-  const { items, removeItem, updateQuantity, totalAmount, setIsOpen, isOpen } =
+  const { items, removeItem, updateQuantity, subtotal, setIsOpen, isOpen } =
     useCartAdapter();
 
   return (
@@ -175,7 +175,7 @@ export const CartDrawer = () => {
                       Subtotal
                     </span>
                     <div className="text-3xl font-black tracking-tighter text-primary leading-none">
-                      ${totalAmount.toLocaleString()}
+                      ${subtotal.toLocaleString()}
                     </div>
                   </div>
                   <div className="text-right">

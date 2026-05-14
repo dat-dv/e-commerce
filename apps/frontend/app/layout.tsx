@@ -12,9 +12,13 @@ import { CategoriesProvider } from "@/components/molecules/providers/categories-
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
-import { allSafe, safe } from "@/utils/promise";
-import { headers } from "next/headers";
+import { allSafe } from "@/utils/promise";
 import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
+import { AddressProvider } from "@/components/molecules/providers/address-provider";
+import { CartProvider } from "@/components/molecules/providers/cart-provider";
+import { CartDrawer } from "@/components/organisms/cart/cart-drawer";
+import { addressesUseCase } from "@/domain/addresses";
+import { cartUseCase } from "@/domain/cart/use-cases";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -71,10 +75,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [categoriesRes, language] = await allSafe([
-    categoriesUseCase.getTree.execute(),
-    getLanguageSubdomain(),
-  ]);
+  const [categoriesRes, language, initialCartState, initialAddressesState] =
+    await allSafe([
+      categoriesUseCase.getTree.execute(),
+      getLanguageSubdomain(),
+      cartUseCase.getCart.execute(),
+      addressesUseCase.getAddresses.execute(),
+    ]);
 
   const categories =
     categoriesRes?.status === "success" ? categoriesRes.data : [];
@@ -103,7 +110,14 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
         <ConfigProvider initState={{ language: language || "en" }}>
           <CategoriesProvider initState={{ categories }}>
-            <AuthProvider>{children}</AuthProvider>
+            <AuthProvider>
+              <CartProvider initState={initialCartState?.data?.items || []}>
+                <AddressProvider initState={initialAddressesState?.data || []}>
+                  {children}
+                  <CartDrawer />
+                </AddressProvider>
+              </CartProvider>
+            </AuthProvider>
           </CategoriesProvider>
           <AppToast />
         </ConfigProvider>
