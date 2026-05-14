@@ -4,37 +4,59 @@ import { toast } from "react-toastify";
 import { useCartAdapter } from "../cart/use-cart-adapter";
 import { addressesUseCase } from "@/domain/addresses";
 import { ordersUseCase } from "@/domain/orders";
-import { IAddress } from "@/domain/addresses/types/address.model";
+import {
+  IAddress,
+  ICreateAddressInput,
+} from "@/domain/addresses/types/address.model";
 import { APP_ROUTES } from "@/constants/routes";
 
 export const useCheckoutAdapter = () => {
   const router = useRouter();
-  const { selectedItems, selectedSkuIds, totalAmount, clearSelection } = useCartAdapter();
-  
+  const { selectedItems, selectedSkuIds, totalAmount, clearSelection } =
+    useCartAdapter();
+
   const [addresses, setAddresses] = useState<IAddress[]>([]);
   const [selectedAddressId, setSelectedAddressId] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [placingOrder, setPlacingOrder] = useState(false);
 
-  useEffect(() => {
-    const fetchAddresses = async () => {
-      setLoading(true);
-      try {
-        const res = await addressesUseCase.getAddresses.execute();
-        if (res.status === "success") {
-          setAddresses(res.data || []);
-          const defaultAddr = res.data?.find((a) => a.isDefault);
-          if (defaultAddr) setSelectedAddressId(defaultAddr.id);
-        }
-      } catch (error) {
-        console.error("Failed to fetch addresses:", error);
-      } finally {
-        setLoading(false);
+  const fetchAddresses = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await addressesUseCase.getAddresses.execute();
+      if (res.status === "success") {
+        setAddresses(res.data || []);
+        const defaultAddr = res.data?.find((a) => a.isDefault);
+        if (defaultAddr && !selectedAddressId)
+          setSelectedAddressId(defaultAddr.id);
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch addresses:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [selectedAddressId]);
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchAddresses();
-  }, []);
+  }, [fetchAddresses]);
+
+  const handleAddAddress = async (data: ICreateAddressInput) => {
+    try {
+      const res = await addressesUseCase.createAddress.execute(data);
+      if (res.status === "success") {
+        toast.success("Address added successfully");
+        await fetchAddresses();
+        return true;
+      }
+      toast.error(res.message || "Failed to add address");
+      return false;
+    } catch {
+      toast.error("An error occurred while adding address");
+      return false;
+    }
+  };
 
   const handlePlaceOrder = useCallback(async () => {
     if (!selectedAddressId) {
@@ -50,7 +72,7 @@ export const useCheckoutAdapter = () => {
     setPlacingOrder(true);
     try {
       const res = await ordersUseCase.placeOrder.execute({
-        cartItemIds: selectedSkuIds, // Note: In a real system, these would be CartItem IDs from backend
+        cartItemIds: selectedSkuIds,
         shippingAddressId: selectedAddressId,
       });
 
@@ -62,7 +84,10 @@ export const useCheckoutAdapter = () => {
         toast.error(res.message || "Failed to place order");
       }
     } catch (error) {
-      const message = error instanceof Error ? error.message : "An error occurred while placing your order";
+      const message =
+        error instanceof Error
+          ? error.message
+          : "An error occurred while placing your order";
       toast.error(message);
     } finally {
       setPlacingOrder(false);
@@ -78,5 +103,6 @@ export const useCheckoutAdapter = () => {
     loading,
     placingOrder,
     handlePlaceOrder,
+    handleAddAddress,
   };
 };
