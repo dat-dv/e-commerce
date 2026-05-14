@@ -4,7 +4,6 @@ import AppContainer from "@/components/atoms/app-container";
 import { HeroSection } from "@/components/molecules/hero-section";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { PromoBanner } from "@/components/molecules/promo-banner";
-import { Newsletter } from "@/components/molecules/newsletter";
 import { CategoriesSection } from "@/components/molecules/categories-section";
 
 import { FEATURE_ITEMS } from "@/constants/homepage";
@@ -45,9 +44,6 @@ export const HomepagePublic = () => {
 
         {/* 4. Promotional Banner */}
         <PromoBanner />
-
-        {/* 5. Newsletter */}
-        <Newsletter />
       </AppContainer>
     </div>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { Star, Minus, Plus, ShoppingCart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
@@ -42,6 +41,15 @@ export const ProductInfo = ({
   handleAddToCart,
   handleBuyNow,
 }: ProductInfoProps) => {
+  const isDiscounted = originalPrice > price;
+  const hasValidDiscountPercent = isDiscounted && discountPercent > 0;
+  const parsedAttributeGroups = Object.entries(attributeGroups).map(
+    ([name, valuesSet]) => ({
+      name,
+      values: Array.from(valuesSet),
+    }),
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -56,7 +64,7 @@ export const ProductInfo = ({
 
       {/* Rating, Reviews, Sold & Report */}
       <div className="flex items-center justify-between text-sm border-b border-content/[0.05] pb-4">
-        <div className="flex items-center gap-4 divide-x divide-content/[0.1]">
+        <div className="flex items-center gap-4">
           <div className="flex items-center gap-1">
             <span className="font-bold text-primary text-base">
               {rating.toFixed(1)}
@@ -72,11 +80,17 @@ export const ProductInfo = ({
               ))}
             </div>
           </div>
-          <div className="pl-4 flex items-center gap-1">
+
+          <div className="w-[1px] h-4 bg-content/[0.1]" />
+
+          <div className="flex items-center gap-1">
             <span className="font-bold text-content">{reviewsCount}</span>
             <span className="text-content/50 text-xs">Reviews</span>
           </div>
-          <div className="pl-4 flex items-center gap-1">
+
+          <div className="w-[1px] h-4 bg-content/[0.1]" />
+
+          <div className="flex items-center gap-1">
             <span className="font-bold text-content">
               {product.sold_count || 0}
             </span>
@@ -90,7 +104,7 @@ export const ProductInfo = ({
 
       {/* Price Box - Shopee Style */}
       <div className="bg-content/[0.02] p-4 rounded-xl flex items-center gap-4">
-        {originalPrice > price && (
+        {isDiscounted && (
           <span className="text-content/40 line-through text-base">
             {formatCurrency(originalPrice)}
           </span>
@@ -98,7 +112,7 @@ export const ProductInfo = ({
         <span className="text-3xl font-bold text-primary">
           {formatCurrency(price)}
         </span>
-        {originalPrice > price && discountPercent > 0 && (
+        {hasValidDiscountPercent && (
           <span className="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-lg">
             -{discountPercent}%
           </span>
@@ -106,13 +120,13 @@ export const ProductInfo = ({
       </div>
 
       {/* Dynamic Options */}
-      {Object.entries(attributeGroups).map(([attrName, values]) => (
+      {parsedAttributeGroups.map(({ name: attrName, values }) => (
         <div key={attrName} className="flex flex-col gap-3">
           <span className="text-sm font-medium text-content/60 w-24">
             {attrName}
           </span>
           <div className="flex flex-wrap gap-2">
-            {Array.from(values).map((value) => (
+            {values.map((value) => (
               <button
                 key={value}
                 onClick={() =>

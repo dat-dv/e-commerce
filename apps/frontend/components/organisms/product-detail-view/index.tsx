@@ -1,13 +1,7 @@
 "use client";
 
-import { useCartStore } from "@/hooks/cart/use-cart-store";
-import { useAuthStore } from "@/hooks/auth/use-auth-store";
-import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
-import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
-import { useState, useEffect } from "react";
-import { TProduct, TReview } from "@/domain/products/types/products.model";
-import { productsUseCase } from "@/domain/products/use-cases";
+import { useProductDetail } from "@/hooks/products/use-product-detail";
+import { TProduct } from "@/domain/products/types/products.model";
 import { ProductImages } from "./product-images";
 import { ProductInfo } from "./product-info";
 import { BrandInfo } from "./brand-info";
@@ -21,166 +15,31 @@ export interface ProductDetailProps {
 }
 
 export default function ProductDetailClient({ product }: ProductDetailProps) {
-  const addItem = useCartStore((s) => s.addItem);
-
-  const [quantity, setQuantity] = useState(1);
-  const [selectedAttributes, setSelectedAttributes] = useState<{
-    [key: string]: string;
-  }>({});
-
-  const [reviews, setReviews] = useState<TReview[]>([]);
-  const [totalReviews, setTotalReviews] = useState(0);
-  const [similarProducts, setSimilarProducts] = useState<TProduct[]>([]);
-  const [recommendedProducts, setRecommendedProducts] = useState<TProduct[]>(
-    [],
-  );
-  const [loadingReviews, setLoadingReviews] = useState(true);
-  const [loadingSimilar, setLoadingSimilar] = useState(true);
-  const [loadingRecommended, setLoadingRecommended] = useState(true);
-
-  // Group attributes across all SKUs
-  const attributeGroups: { [key: string]: Set<string> } = {};
-
-  product.skus.forEach((sku, idx) => {
-    sku.attributes?.forEach((attr) => {
-      if (!attributeGroups[attr.name]) {
-        attributeGroups[attr.name] = new Set();
-      }
-      attributeGroups[attr.name].add(attr.value);
-    });
-  });
-
-  // Find selected SKU based on attributes
-  const selectedSku =
-    product.skus.find((sku) => {
-      return sku.attributes?.every(
-        (attr) => selectedAttributes[attr.name] === attr.value,
-      );
-    }) || product.skus[0];
-
-  // Initialize selected attributes from first SKU
-  useEffect(() => {
-    if (product.skus[0]?.attributes) {
-      const initialAttrs: { [key: string]: string } = {};
-      product.skus[0].attributes.forEach((attr) => {
-        initialAttrs[attr.name] = attr.value;
-      });
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSelectedAttributes(initialAttrs);
-    }
-  }, [product.skus]);
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      setLoadingReviews(true);
-      try {
-        const response = await productsUseCase.getProductReviews.execute(
-          product.id,
-        );
-        if (response.data) {
-          setReviews(response.data.items);
-          setTotalReviews(response.data.meta.total);
-        }
-      } catch (error) {
-        console.error("Failed to fetch reviews:", error);
-      } finally {
-        setLoadingReviews(false);
-      }
-    };
-
-    const fetchSimilar = async () => {
-      setLoadingSimilar(true);
-      try {
-        const response = await productsUseCase.getSimilarProducts.execute(
-          product.id,
-        );
-        if (response.data) {
-          setSimilarProducts(response.data);
-        }
-      } catch (error) {
-        console.error("Failed to fetch similar products:", error);
-      } finally {
-        setLoadingSimilar(false);
-      }
-    };
-
-    const fetchRecommended = async () => {
-      setLoadingRecommended(true);
-      try {
-        const response = await productsUseCase.getRecommended.execute();
-        if (response.data) {
-          setRecommendedProducts(response.data);
-        }
-      } catch (error) {
-        console.error("Failed to fetch recommended products:", error);
-      } finally {
-        setLoadingRecommended(false);
-      }
-    };
-
-    fetchReviews();
-    fetchSimilar();
-    fetchRecommended();
-  }, [product.id]);
-
-  const images = Array.from(
-    new Set(
-      [product.image_url, ...product.skus.map((sku) => sku.image_url)].filter(
-        (img): img is string => !!img && typeof img === "string",
-      ),
-    ),
-  );
-
-  const [selectedImage, setSelectedImage] = useState(0);
+  const {
+    quantity,
+    setQuantity,
+    selectedAttributes,
+    setSelectedAttributes,
+    selectedImage,
+    setSelectedImage,
+    attributeGroups,
+    selectedSku,
+    images,
+    reviews,
+    totalReviews,
+    loadingReviews,
+    similarProducts,
+    loadingSimilar,
+    recommendedProducts,
+    loadingRecommended,
+    handleAddToCart,
+    handleBuyNow,
+  } = useProductDetail(product);
 
   const name = product.name;
   const price = selectedSku.price || 0;
   const originalPrice = selectedSku.original_price || 0;
   const discountPercent = selectedSku.discount_percent || 0;
-
-  const user = useAuthStore((s) => s.user);
-  const router = useRouter();
-
-  const handleAddToCart = () => {
-    if (!user) {
-      toast.info("Please sign in to perform this action", {
-        toastId: "auth-required",
-      });
-      const callbackUrl = encodeURIComponent(window.location.pathname);
-      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
-      return;
-    }
-
-    if (!selectedSku) return;
-
-    addItem(
-      {
-        id: selectedSku.id,
-        product_id: product.id,
-        sku_id: selectedSku.id,
-        name: name,
-        price: price,
-        image_url: images[selectedImage] || product.image_url || "",
-        attributes: Object.entries(selectedAttributes)
-          .map(([key, value]) => `${key}: ${value}`)
-          .join(", "),
-      },
-      quantity,
-    );
-    toast.success("Added to cart successfully");
-  };
-
-  const handleBuyNow = () => {
-    if (!user) {
-      toast.info("Please sign in to buy items");
-      const callbackUrl = encodeURIComponent(window.location.pathname);
-      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
-      return;
-    }
-
-    handleAddToCart();
-    router.push(APP_ROUTES.CART);
-  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl space-y-12">
