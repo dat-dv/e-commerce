@@ -34,7 +34,7 @@ export default async function BrandDetailPage({
   const { slug } = await params;
   console.log(`🔍 [BrandDetail] Accessing slug: ${slug}`);
 
-  const [brandResult, productsResult] = await Promise.all([
+  const [brandResult, productsResult] = await allSafe([
     brandsUseCase.getBrandBySlug.execute(slug),
     brandsUseCase.getBrandProducts.execute(slug, 1, 20),
   ]);
