@@ -1,6 +1,7 @@
 import Footer from "@/components/atoms/footer";
 import Header from "@/components/molecules/header";
 import { CategoriesProvider } from "@/components/molecules/providers/categories-provider";
+import { CartProvider } from "@/components/molecules/providers/cart-provider";
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 
 export default async function MainLayout({
@@ -14,11 +15,13 @@ export default async function MainLayout({
 
   return (
     <CategoriesProvider initState={{ categories }}>
-      <div className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="min-h-full flex flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+      </CartProvider>
     </CategoriesProvider>
   );
 }

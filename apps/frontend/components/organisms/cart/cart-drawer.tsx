@@ -1,6 +1,6 @@
 "use client";
 
-import { useCartStore } from "@/hooks/cart/use-cart-store";
+import { useCartAdapter } from "@/hooks/cart/use-cart-adapter";
 import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingBag, Trash2, X } from "lucide-react";
 import Image from "next/image";
@@ -9,16 +9,10 @@ import { APP_ROUTES } from "@/constants/routes";
 import Button from "@/components/atoms/button";
 
 export const CartDrawer = () => {
-  const isOpen = useCartStore((s) => s.isOpen);
-  const setIsOpen = useCartStore((s) => s.setIsOpen);
-  const items = useCartStore((s) => s.items);
-  const removeItem = useCartStore((s) => s.removeItem);
-  const updateQuantity = useCartStore((s) => s.updateQuantity);
+  const { items, removeItem, updateQuantity, totalAmount, setIsOpen, isOpen } =
+    useCartAdapter();
 
-  const subtotal = items.reduce(
-    (acc, item) => acc + (item.price || 0) * item.quantity,
-    0,
-  );
+  const subtotal = totalAmount;
 
   return (
     <>
@@ -162,9 +156,20 @@ export const CartDrawer = () => {
                       {subtotal.toLocaleString("vi-VN")} đ
                     </span>
                   </div>
-                  <Button variant="primary" size="lg" className="w-full">
-                    Proceed to Checkout
-                  </Button>
+                  <div className="grid grid-cols-2 gap-3">
+                    <Button
+                      variant="ghost"
+                      size="lg"
+                      className="w-full border border-content/[0.1] hover:bg-content/[0.05]"
+                      href={APP_ROUTES.CART}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      View Cart
+                    </Button>
+                    <Button variant="primary" size="lg" className="w-full">
+                      Checkout
+                    </Button>
+                  </div>
                 </div>
               )}
             </motion.div>

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React from "react";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
+import { useCartAdapter } from "@/hooks/cart/use-cart-adapter";
 import { AnimatePresence } from "framer-motion";
 import CartRecommendations from "./cart-recommendations";
 
@@ -12,17 +13,21 @@ import { CartFooter } from "../../molecules/cart-part/cart-footer";
 import { EmptyCart } from "../../molecules/cart-part/empty-cart";
 
 export default function CartView() {
-  const items = useCartStore((s) => s.items);
-  const removeItem = useCartStore((s) => s.removeItem);
-  const updateQuantity = useCartStore((s) => s.updateQuantity);
-  const addItem = useCartStore((s) => s.addItem);
-  const clearCart = useCartStore((s) => s.clearCart);
-  const _hasHydrated = useCartStore((s) => s._hasHydrated);
+  const {
+    items,
+    selectedSkuIds,
+    totalAmount,
+    isAllSelected,
+    addItem,
+    removeItem,
+    updateQuantity,
+    toggleSelectItem,
+    handleToggleSelectAll,
+    handleDeleteSelected,
+    clearCart,
+  } = useCartAdapter();
 
-  const selectedSkuIds = useCartStore((s) => s.selectedSkuIds);
-  const toggleSelectItem = useCartStore((s) => s.toggleSelectItem);
-  const selectAll = useCartStore((s) => s.selectAll);
-  const clearSelection = useCartStore((s) => s.clearSelection);
+  const _hasHydrated = useCartStore((s) => s._hasHydrated);
 
   const seedDummyData = () => {
     const dummyItems = [
@@ -30,26 +35,26 @@ export default function CartView() {
         sku_id: "dummy-1",
         product_id: "prod-1",
         name: "COMBO 5/2 Đầu nối nhanh vòi máy giặt, PPR, ống nước cứng PVC",
-        price: 0,
+        price: 15,
         image_url: "https://picsum.photos/200/200?random=1",
-        attributes: "Loại: 5/2 Đầu nối",
+        attributes: "Type: 5/2 Connector",
         is_out_of_stock: true,
       },
       {
         sku_id: "dummy-2",
         product_id: "prod-2",
-        name: "Bộ quà tặng trang điểm nhỏ Flower Knows Butterfly Cloud Collar",
-        price: 858000,
+        name: "Flower Knows Butterfly Cloud Collar Makeup Gift Set",
+        price: 85,
         image_url: "https://picsum.photos/200/200?random=2",
-        attributes: "Phân loại: Bộ quà tặng 6",
+        attributes: "Style: Gift Set 6",
       },
       {
         sku_id: "dummy-3",
         product_id: "prod-3",
-        name: "Bộ micrô chơi game năng động Maono PD100X RGB USB/XLR",
-        price: 909000,
+        name: "Maono PD100X RGB USB/XLR Dynamic Gaming Microphone",
+        price: 120,
         image_url: "https://picsum.photos/200/200?random=3",
-        attributes: "Màu: Đen RGB",
+        attributes: "Color: Black RGB",
       },
     ];
 
@@ -57,36 +62,6 @@ export default function CartView() {
       // @ts-expect-error - Dummy items for UI demo have extra fields
       addItem(item, 1);
     });
-  };
-
-  const selectedItems = useMemo(
-    () => items.filter((item) => selectedSkuIds.includes(item.sku_id)),
-    [items, selectedSkuIds],
-  );
-
-  const totalAmount = useMemo(
-    () =>
-      selectedItems.reduce((acc, item) => acc + item.price * item.quantity, 0),
-    [selectedItems],
-  );
-
-  const isAllSelected =
-    items.length > 0 && selectedSkuIds.length === items.length;
-
-  const handleToggleSelectAll = () => {
-    if (isAllSelected) {
-      clearSelection();
-    } else {
-      selectAll();
-    }
-  };
-
-  const handleDeleteSelected = () => {
-    if (isAllSelected) {
-      clearCart();
-    } else {
-      selectedSkuIds.forEach((id) => removeItem(id));
-    }
   };
 
   if (!_hasHydrated) {

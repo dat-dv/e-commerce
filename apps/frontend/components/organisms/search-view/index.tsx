@@ -7,7 +7,6 @@ import { ProductsFilterSidebar } from "@/components/organisms/products-view/prod
 import { ListingProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
-import { TCategory } from "@/domain/categories/types/categories.model";
 import { Search } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -30,7 +29,6 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Load recommended products
   const { recommendedProducts, loadingRecommended } = useRecommendedProducts();
 
   const page = searchParams.get("page");
@@ -123,8 +121,8 @@ export function SearchView({ searchQuery }: SearchViewProps) {
                   No results found
                 </h3>
                 <p className="text-content/50 text-base max-w-md mx-auto">
-                  We couldn't find anything matching "{shortQuery}". Try using
-                  different keywords or browsing our categories.
+                  {`We couldn't find anything matching "${shortQuery}". Try using
+                  different keywords or browsing our categories.`}
                 </p>
               </div>
             </div>

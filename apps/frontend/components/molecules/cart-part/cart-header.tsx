@@ -11,22 +11,30 @@ export const CartHeader = ({ itemCount }: CartHeaderProps) => {
   return (
     <>
       {/* Promotional Banner */}
-      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-3 rounded-xl mb-6 flex items-center gap-3 shadow-lg shadow-orange-500/20">
-        <div className="bg-white/20 p-1.5 rounded-lg">
-          <ShoppingBag size={20} />
+      <div className="bg-content text-surface p-4 rounded-xl mb-10 flex items-center justify-between gap-4 shadow-xl shadow-content/10">
+        <div className="flex items-center gap-3">
+          <div className="bg-surface/10 p-2 rounded-lg">
+            <ShoppingBag size={18} />
+          </div>
+          <p className="text-xs font-black uppercase tracking-[0.2em]">
+            Free Express Shipping on Orders Over $500
+          </p>
         </div>
-        <p className="text-sm font-bold">
-          Siêu Rẻ - Chỉ Từ 1.000Đ. Săn ngay kẻo lỡ!
+        <div className="hidden md:block h-px flex-1 bg-surface/10 mx-4" />
+        <p className="text-[10px] font-bold uppercase opacity-50 tracking-widest hidden sm:block">
+          limited time offer
         </p>
       </div>
 
       {/* Main Title */}
-      <h1 className="text-2xl font-black mb-6 text-content flex items-center gap-2">
-        Giỏ hàng
-        <span className="text-sm font-normal text-content/40 bg-content/[0.05] px-2 py-0.5 rounded-full">
-          {itemCount} sản phẩm
+      <div className="flex items-end justify-between mb-8 border-b border-content/[0.05] pb-6">
+        <h1 className="text-4xl md:text-5xl font-black text-content tracking-tighter">
+          Shopping Cart
+        </h1>
+        <span className="text-[11px] font-black uppercase tracking-[0.2em] text-content/40 bg-content/[0.03] px-4 py-1.5 rounded-full border border-content/[0.05]">
+          {itemCount} Items
         </span>
-      </h1>
+      </div>
     </>
   );
 };

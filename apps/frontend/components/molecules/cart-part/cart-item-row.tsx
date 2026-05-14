@@ -38,8 +38,9 @@ export const CartItemRow = ({
       className={cn(
         "bg-white/80 backdrop-blur-sm border rounded-2xl p-4 transition-all hover:shadow-md",
         isOutOfStock ? "opacity-60 grayscale-[0.5]" : "",
+        isOutOfStock ? "opacity-60 grayscale-[0.5]" : "",
         isSelected
-          ? "border-blue-500/50 bg-blue-50/20"
+          ? "border-primary/30 bg-primary/[0.02]"
           : "border-content/[0.05]",
       )}
     >
@@ -57,7 +58,7 @@ export const CartItemRow = ({
                 src={item.image_url}
                 alt={item.name}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-content/20 bg-content/[0.05]">
@@ -67,7 +68,7 @@ export const CartItemRow = ({
           </Link>
 
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-content text-sm md:text-base line-clamp-2 hover:text-blue-600 transition-colors">
+            <h3 className="font-bold text-content text-sm md:text-base line-clamp-2 hover:text-primary transition-colors">
               <Link href={APP_ROUTES.PRODUCT_DETAIL(item.product_id)}>
                 {item.name}
               </Link>
@@ -80,18 +81,17 @@ export const CartItemRow = ({
               )}
               {isOutOfStock ? (
                 <span className="text-[10px] font-bold text-red-500 uppercase tracking-wider bg-red-50 px-1.5 py-0.5 rounded">
-                  Hết hàng
+                  Out of stock
                 </span>
               ) : (
                 <span className="text-[10px] font-bold text-green-500 uppercase tracking-wider">
-                  Còn hàng
+                  In stock
                 </span>
               )}
             </div>
             {isOutOfStock && (
               <p className="text-[11px] text-red-500 mt-2 font-medium">
-                Phân loại hàng này bán hết, vui lòng lựa chọn một phân loại
-                khác.
+                This item is currently unavailable.
               </p>
             )}
           </div>
@@ -100,7 +100,7 @@ export const CartItemRow = ({
         {/* Desktop Pricing & Quantity */}
         <div className="hidden md:flex items-center gap-4 w-full md:w-auto">
           <div className="w-32 text-center font-bold text-content/80">
-            {item.price.toLocaleString("vi-VN")}₫
+            ${item.price.toLocaleString()}
           </div>
 
           <div className="w-32 flex justify-center">
@@ -111,8 +111,8 @@ export const CartItemRow = ({
             />
           </div>
 
-          <div className="w-32 text-center font-black text-blue-600">
-            {(item.price * item.quantity).toLocaleString("vi-VN")}₫
+          <div className="w-32 text-center font-black text-primary">
+            ${(item.price * item.quantity).toLocaleString()}
           </div>
 
           <div className="w-24 flex justify-center">
@@ -127,8 +127,8 @@ export const CartItemRow = ({
 
         {/* Mobile Pricing & Quantity */}
         <div className="flex md:hidden items-center justify-between w-full pt-3 border-t border-content/[0.05]">
-          <div className="font-black text-blue-600">
-            {(item.price * item.quantity).toLocaleString("vi-VN")}₫
+          <div className="font-black text-primary">
+            ${(item.price * item.quantity).toLocaleString()}
           </div>
           <div className="flex items-center gap-4">
             <QuantitySelector
