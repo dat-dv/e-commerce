@@ -39,7 +39,8 @@ export const CategoriesContent = ({
                 Curation Index
               </span>
               <h1 className="text-5xl md:text-6xl font-black text-content tracking-tighter leading-none mb-4 uppercase">
-                {title} <span className="italic font-light opacity-20">Collection</span>
+                {title}{" "}
+                <span className="italic font-light opacity-20">Collection</span>
               </h1>
               <p className="text-content/40 text-lg leading-relaxed italic font-light">
                 {description}
@@ -49,7 +50,9 @@ export const CategoriesContent = ({
             {/* Visual accent */}
             <div className="ml-auto relative hidden lg:block pr-8">
               <div className="w-32 h-32 rounded-3xl bg-content/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-700 border border-content/5">
-                <span className="text-5xl opacity-40 group-hover:opacity-100 transition-opacity">✨</span>
+                <span className="text-5xl opacity-40 group-hover:opacity-100 transition-opacity">
+                  ✨
+                </span>
               </div>
             </div>
           </div>
@@ -59,7 +62,8 @@ export const CategoriesContent = ({
             <div className="flex items-center justify-between mb-10 border-b border-content/[0.05] pb-6 px-4">
               <div>
                 <h3 className="text-2xl font-black text-content uppercase tracking-tight mb-1">
-                  Discover <span className="italic font-light opacity-30">Series</span>
+                  Discover{" "}
+                  <span className="italic font-light opacity-30">Series</span>
                 </h3>
                 <p className="text-[10px] uppercase tracking-[0.3em] font-black text-content/20">
                   Refined hardware selection

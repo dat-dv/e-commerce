@@ -25,10 +25,21 @@
     "lint": "npm run lint --workspaces",
     "type-check": "npm run type-check -w apps/frontend",
     "db:reset": "npm run db:reset -w apps/backend",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.0.0"
+  },
+  "lint-staged": {
+    "apps/frontend/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --config apps/frontend/eslint.config.mjs"
+    ],
+    "apps/backend/**/*.ts": [
+      "eslint --fix --config apps/backend/eslint.config.mjs"
+    ]
   }
 }

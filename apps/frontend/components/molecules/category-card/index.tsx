@@ -30,15 +30,17 @@ export const CategoryCard = ({
       <div
         className={`absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity`}
       />
-      
+
       <div className="flex justify-between items-start relative z-10">
         <div className="flex-1">
           <h3 className="text-lg font-black text-content group-hover:text-primary transition-colors capitalize leading-tight mb-2">
             {name}
           </h3>
-          <p className="text-[10px] uppercase tracking-widest font-black text-content/20">{count}</p>
+          <p className="text-[10px] uppercase tracking-widest font-black text-content/20">
+            {count}
+          </p>
         </div>
-        
+
         {image ? (
           <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-content/5">
             <Image
