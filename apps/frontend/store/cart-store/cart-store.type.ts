@@ -40,6 +40,7 @@ export interface TCartStoreActions {
   selectItems: (sku_ids: string[]) => void;
   selectAll: () => void;
   clearSelection: () => void;
+  deleteOrUpdateItem: (sku_id: string, quantity: number) => void;
 }
 
 export type TCartStore = TCartStoreState & TCartStoreActions;

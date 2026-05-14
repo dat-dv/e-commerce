@@ -1,12 +1,18 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ordersUseCase } from "@/domain/orders";
 import { IOrder } from "@/domain/orders/types/order.model";
+import { useAuthStore } from "../auth/use-auth-store";
 
-export const useOrdersAdapter = () => {
+export const useGetOrders = (shouldFetchOnMount = true) => {
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [loading, setLoading] = useState(false);
+  const isFetched = useRef(false);
+
+  const userId = useAuthStore((s) => s.user?.id);
 
   const fetchOrders = useCallback(async () => {
+    if (!userId) return;
+
     setLoading(true);
     try {
       const res = await ordersUseCase.getOrders.execute();
@@ -18,22 +24,13 @@ export const useOrdersAdapter = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
-    let isMounted = true;
-
-    // Poll every 5 seconds to see status updates from the simulator
-    const interval = setInterval(async () => {
-      if (isMounted) {
-        await fetchOrders();
-      }
-    }, 5000);
-    return () => {
-      isMounted = false;
-      clearInterval(interval);
-    };
-  }, [fetchOrders]);
+    if (!isFetched.current && shouldFetchOnMount) {
+      fetchOrders();
+    }
+  }, [fetchOrders, shouldFetchOnMount]);
 
   return {
     orders,

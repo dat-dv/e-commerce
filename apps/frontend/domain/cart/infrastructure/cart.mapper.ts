@@ -31,17 +31,17 @@ export interface ICartDTO {
 
 export class CartMapper {
   static toDomainItem(dto: ICartItemDTO): TCartItem {
-    const flashSalePrice = dto.sku.flash_sales[0]?.sale_price;
-    const price = flashSalePrice ?? dto.sku.price;
+    const flashSalePrice = dto.sku?.flash_sales?.[0]?.sale_price;
+    const price = flashSalePrice ?? dto.sku?.price ?? 0;
 
     return {
       id: dto.id,
-      product_id: dto.sku.product_id,
+      product_id: dto.sku?.product_id || "",
       sku_id: dto.sku_id,
-      name: dto.sku.product.translations[0]?.name || "Unnamed Product",
+      name: dto.sku?.product?.translations?.[0]?.name || "Unnamed Product",
       price: price,
       quantity: dto.quantity,
-      image_url: dto.sku.product.thumbnail_url || null,
+      image_url: dto.sku?.product?.thumbnail_url || null,
       attributes: "", // TODO: Fetch SKU attributes if needed
     };
   }

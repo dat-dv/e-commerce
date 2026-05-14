@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
-import { useOrdersAdapter } from "@/hooks/orders/use-orders-adapter";
+import { useGetOrders } from "@/hooks/orders/use-get-orders";
 import { cn } from "@/utils/cn";
 import { format } from "date-fns";
 
@@ -47,7 +47,7 @@ const statusConfig: Record<
 };
 
 export const OrdersView = () => {
-  const { orders, loading } = useOrdersAdapter();
+  const { orders, loading } = useGetOrders();
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -74,7 +74,7 @@ export const OrdersView = () => {
             No orders yet
           </h2>
           <p className="text-content/40 mb-10 max-w-xs italic font-light">
-            Looks like you haven't placed any orders with us yet.
+            Looks like you haven&apos;t placed any orders with us yet.
           </p>
           <Link
             href={APP_ROUTES.PRODUCTS}

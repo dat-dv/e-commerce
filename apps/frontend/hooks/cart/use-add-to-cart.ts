@@ -12,20 +12,17 @@ export const useAddToCart = () => {
   const router = useRouter();
   const pathname = usePathname();
   const _addItem = useCartStore((s) => s.addItem);
+  const _deleteOrUpdateItem = useCartStore((s) => s.deleteOrUpdateItem);
 
   return useCallback(
     async (item: Omit<TCartItem, "quantity">, quantity: number) => {
       try {
         if (user) {
-          const response = await cartUseCase.addItem.execute({
+          _addItem(item, quantity);
+          cartUseCase.addItem.execute({
             sku_id: item.sku_id,
             quantity,
           });
-
-          if (response.data) {
-            _addItem(response.data, quantity);
-            toast.success("Added to cart");
-          }
         } else {
           const callbackUrl = encodeURIComponent(pathname);
           router.push(
@@ -34,10 +31,11 @@ export const useAddToCart = () => {
           toast.info("Please sign in to add items to cart");
         }
       } catch (err) {
+        _deleteOrUpdateItem(item.sku_id, quantity);
         toast.error("Failed to add to cart");
         throw err;
       }
     },
-    [user, _addItem, router, pathname],
+    [user, _addItem, pathname, router, _deleteOrUpdateItem],
   );
 };

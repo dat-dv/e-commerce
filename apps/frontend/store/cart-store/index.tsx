@@ -145,6 +145,36 @@ const createCartStoreCreator =
           ...computeCartDerived(items, []),
         });
       },
+      deleteOrUpdateItem: (item, quantity) => {
+        const { items, selectedSkuIds } = get();
+        const newItems = [...items];
+        let newSelectedIds = [...selectedSkuIds];
+
+        const existingItemIndex = newItems.findIndex(
+          (i) => i.sku_id === item.sku_id,
+        );
+
+        if (existingItemIndex !== -1) {
+          if (quantity <= 0) {
+            newItems.splice(existingItemIndex, 1);
+            newSelectedIds = newSelectedIds.filter((id) => id !== item.sku_id);
+          } else {
+            newItems[existingItemIndex] = {
+              ...newItems[existingItemIndex],
+              quantity,
+            };
+          }
+        } else if (quantity > 0) {
+          newItems.push({ ...item, quantity });
+          newSelectedIds.push(item.sku_id);
+        }
+
+        set({
+          items: newItems,
+          selectedSkuIds: newSelectedIds,
+          ...computeCartDerived(newItems, newSelectedIds),
+        });
+      },
     };
 
     return state;
