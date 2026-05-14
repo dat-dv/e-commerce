@@ -9,14 +9,37 @@ import AppContainer from "@/components/atoms/app-container";
 import { cn } from "@/utils/cn";
 import { usePathname } from "next/navigation";
 
+const SubCategory = ({
+  name,
+  href,
+  isActive,
+  className,
+}: {
+  name: string;
+  href: string;
+  isActive?: boolean;
+  className?: string;
+}) => {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "min-w-fit px-4 py-1.5 rounded-full border font-bold transition-all text-[12px]",
+        isActive
+          ? "border-primary text-primary bg-primary/5"
+          : "border-content/10 text-content/80 hover:text-primary hover:border-primary/30 hover:bg-primary/5",
+        className,
+      )}
+    >
+      {name}
+    </Link>
+  );
+};
+
 const CategoryMegaMenuContent = () => {
   const categories = useCategoriesStore((s) => s.categories);
-  const {
-    setIsOpenCategory,
-    activeCategoryId,
-    setActiveCategoryId,
-    isOpenCategory,
-  } = useHeaderStore();
+  const { activeCategoryId, setActiveCategoryId, isOpenCategory } =
+    useHeaderStore();
 
   React.useEffect(() => {
     if (!activeCategoryId && categories.length > 0) {
@@ -24,9 +47,10 @@ const CategoryMegaMenuContent = () => {
     }
   }, [activeCategoryId, categories, setActiveCategoryId, isOpenCategory]);
 
-  const activeCategory = categories.find(
+  const allChildrenCategories = categories.find(
     (c) => c.id === activeCategoryId,
   )?.children;
+  const currentCategory = categories.find((cat) => cat.id === activeCategoryId);
 
   const tabsRef = React.useRef<Map<string, HTMLButtonElement>>(new Map());
 
@@ -40,8 +64,6 @@ const CategoryMegaMenuContent = () => {
       });
     }
   }, [activeCategoryId]);
-
-  const onClose = () => setIsOpenCategory(false);
 
   const pathname = usePathname();
 
@@ -85,24 +107,24 @@ const CategoryMegaMenuContent = () => {
       {/* 2. Subcategories List */}
       <div className="flex-1">
         <div className="flex gap-x-4 flex-wrap gap-y-3">
-          {activeCategory?.map((cat) => {
-            const isSubActive =
-              pathname === APP_ROUTES.CATEGORY_DETAIL(cat.slug);
-
+          <SubCategory
+            name={`All ${currentCategory?.name || ""}`}
+            href={APP_ROUTES.CATEGORY_DETAIL(currentCategory?.slug || "")}
+            isActive={
+              pathname ===
+              APP_ROUTES.CATEGORY_DETAIL(currentCategory?.slug || "")
+            }
+            className="capitalize"
+          />
+          {allChildrenCategories?.map((cat) => {
+            const isActive = pathname === APP_ROUTES.CATEGORY_DETAIL(cat.slug);
             return (
-              <Link
+              <SubCategory
                 key={cat.id}
+                name={cat.name}
                 href={APP_ROUTES.CATEGORY_DETAIL(cat.slug)}
-                className={cn(
-                  "min-w-fit px-4 py-1.5 rounded-full border font-bold transition-all text-[12px]",
-                  isSubActive
-                    ? "border-primary text-primary bg-primary/5"
-                    : "border-content/10 text-content/80 hover:text-primary hover:border-primary/30 hover:bg-primary/5",
-                )}
-                onClick={onClose}
-              >
-                {cat.name}
-              </Link>
+                isActive={isActive}
+              />
             );
           })}
         </div>

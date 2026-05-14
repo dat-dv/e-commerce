@@ -12,7 +12,9 @@ import { CategoriesProvider } from "@/components/molecules/providers/categories-
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
-import { safe } from "@/utils/promise";
+import { allSafe, safe } from "@/utils/promise";
+import { headers } from "next/headers";
+import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -69,7 +71,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const categoriesRes = await safe(categoriesUseCase.getTree.execute());
+  const [categoriesRes, language] = await allSafe([
+    categoriesUseCase.getTree.execute(),
+    getLanguageSubdomain(),
+  ]);
 
   const categories =
     categoriesRes?.status === "success" ? categoriesRes.data : [];
@@ -96,7 +101,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
-        <ConfigProvider>
+        <ConfigProvider initState={{ language: language || "en" }}>
           <CategoriesProvider initState={{ categories }}>
             <AuthProvider>{children}</AuthProvider>
           </CategoriesProvider>

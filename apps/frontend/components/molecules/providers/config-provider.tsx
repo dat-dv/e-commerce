@@ -5,16 +5,21 @@ import { useStore } from "zustand";
 
 import Loading from "@/components/atoms/loading";
 import { createConfigStore } from "@/store/config";
+import { ConfigState } from "@/store/config/config.types";
 
 export type ConfigStore = ReturnType<typeof createConfigStore>;
 export const ConfigContext = createContext<ConfigStore | null>(null);
 
 export interface ConfigProviderProps {
   children: ReactNode;
+  initState?: Partial<ConfigState>;
 }
 
-export const ConfigProvider = ({ children }: ConfigProviderProps) => {
-  const [store] = useState(() => createConfigStore());
+export const ConfigProvider = ({
+  children,
+  initState,
+}: ConfigProviderProps) => {
+  const [store] = useState(() => createConfigStore(initState));
   const hasHydrated = useStore(store, (s) => s._hasHydrated);
   const isLoadingTransition = useStore(store, (s) => s.isLoadingTransition);
   const showLoading = !hasHydrated || isLoadingTransition;

@@ -1,15 +1,15 @@
 "use client";
 
-import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { useState } from "react";
+import { useConfig } from "../config/use-config";
 
 export const useHomepageCategories = () => {
   const categories = useCategoriesStore((state) => state.categories);
   const pagination = useCategoriesStore((state) => state.pagination);
   const hydrate = useCategoriesStore((state) => state.hydrate);
-  const lang = useProductsStore((state) => state.lang);
+  const { language: lang } = useConfig();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const limit = 16;

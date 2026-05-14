@@ -11,11 +11,12 @@ import { FEATURE_ITEMS } from "@/constants/homepage";
 import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useHomepageCategories } from "@/hooks/categories/use-homepage-categories";
 import { DynamicSections } from "./dynamic-sections";
+import { useConfig } from "@/hooks/config/use-config";
 
 export const HomepagePublic = () => {
   const sections = useProductsStore((state) => state.sections);
   const { categories, fetchMore, pagination } = useHomepageCategories();
-  const lang = useProductsStore((state) => state.lang);
+  const { language: lang } = useConfig();
 
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="public-home">

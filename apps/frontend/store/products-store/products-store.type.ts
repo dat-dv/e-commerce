@@ -5,7 +5,6 @@ export interface IProductsStoreState {
   flashSaleProducts: TProduct[];
   recommendedProducts: TProduct[];
   sections: THomepageSection[];
-  lang: string;
   loading: boolean;
 }
 
