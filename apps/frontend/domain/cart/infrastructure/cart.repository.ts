@@ -1,18 +1,19 @@
 import { API_ROUTES } from "@/constants/routes";
 import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import { ICartRepository } from "../types/cart.repository";
-import { TCartItem, ICart } from "../types/cart.model";
+import { TCart } from "../types/cart.model";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { CartMapper, ICartDTO, ICartItemDTO } from "./cart.mapper";
 
 export class CartRepository implements ICartRepository {
   constructor(private request: TRequest) {}
 
-  async getCart(): Promise<ApiResponse<ICart>> {
+  async getCart(): Promise<ApiResponse<TCart>> {
     const response = await this.request.get<ICartDTO>(API_ROUTES.CART.BASE);
     return {
       ...response,
       data: response.data ? CartMapper.toDomain(response.data) : undefined,
-    } as ApiResponse<ICart>;
+    } as ApiResponse<TCart>;
   }
 
   async addItem(

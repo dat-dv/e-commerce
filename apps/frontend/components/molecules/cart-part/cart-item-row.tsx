@@ -7,12 +7,12 @@ import Link from "next/link";
 import { Trash2, ShoppingBag } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { APP_ROUTES } from "@/constants/routes";
-import { ICartItem } from "@/store/cart-store/cart-store.type";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { Checkbox } from "./checkbox";
 import { QuantitySelector } from "./quantity-selector";
 
 interface CartItemRowProps {
-  item: ICartItem;
+  item: TCartItem;
   isSelected: boolean;
   onToggleSelect: () => void;
   onRemove: () => void;

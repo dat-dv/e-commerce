@@ -21,11 +21,18 @@ export const useOrdersAdapter = () => {
   }, []);
 
   useEffect(() => {
-    fetchOrders();
-    
+    let isMounted = true;
+
     // Poll every 5 seconds to see status updates from the simulator
-    const interval = setInterval(fetchOrders, 5000);
-    return () => clearInterval(interval);
+    const interval = setInterval(async () => {
+      if (isMounted) {
+        await fetchOrders();
+      }
+    }, 5000);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
   }, [fetchOrders]);
 
   return {

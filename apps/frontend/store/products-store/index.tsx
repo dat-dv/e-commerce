@@ -13,7 +13,6 @@ const createProductsStoreCreator =
       sections: [],
       loading: false,
       ...initState,
-      lang: initState?.lang || "vi",
       setFlashSaleProducts: (products) => set({ flashSaleProducts: products }),
       setRecommendedProducts: (products) =>
         set({ recommendedProducts: products }),

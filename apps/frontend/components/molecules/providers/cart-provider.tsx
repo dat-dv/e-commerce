@@ -3,7 +3,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
 import { createCartStore } from "@/store/cart-store";
-import { ICartItem } from "@/store/cart-store/cart-store.type";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { cartUseCase } from "@/domain/cart/use-cases";
 
 export type CartStore = ReturnType<typeof createCartStore>;
@@ -11,7 +11,7 @@ export const CartContext = createContext<CartStore | null>(null);
 
 export interface CartProviderProps {
   children: ReactNode;
-  initState?: ICartItem[];
+  initState?: TCartItem[];
 }
 
 export const CartProvider = ({ children, initState }: CartProviderProps) => {

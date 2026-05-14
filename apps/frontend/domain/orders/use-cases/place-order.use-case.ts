@@ -1,4 +1,7 @@
-import { IOrdersRepository, IPlaceOrderParams } from "../infrastructure/orders.repository";
+import {
+  IOrdersRepository,
+  IPlaceOrderParams,
+} from "../infrastructure/orders.repository";
 
 export class PlaceOrderUseCase {
   constructor(private ordersRepository: IOrdersRepository) {}

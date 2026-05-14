@@ -4,83 +4,154 @@ import { createStore } from "zustand/vanilla";
 
 import { PUBLIC_ENV } from "@/config/public.env.config";
 
-import { ICartStore, ICartStoreState } from "./cart-store.type";
+import { TCartItem, TCartStore, TCartStoreState } from "./cart-store.type";
+
+const computeCartDerived = (items: TCartItem[], selectedSkuIds: string[]) => {
+  const selectedItems = items.filter((i) => selectedSkuIds.includes(i.sku_id));
+  const totalAmount = selectedItems.reduce(
+    (acc, item) => acc + (item.price || 0) * item.quantity,
+    0,
+  );
+  const subtotal = items.reduce(
+    (acc, item) => acc + (item.price || 0) * item.quantity,
+    0,
+  );
+  const itemsCount = items.reduce((acc, item) => acc + item.quantity, 0);
+  const isAllSelected =
+    items.length > 0 && selectedSkuIds.length === items.length;
+
+  return {
+    selectedItems,
+    totalAmount,
+    subtotal,
+    itemsCount,
+    isAllSelected,
+  };
+};
 
 const createCartStoreCreator =
-  (initState?: Partial<ICartStoreState>): StateCreator<ICartStore> =>
+  (initState?: Partial<TCartStoreState>): StateCreator<TCartStore> =>
   (set, get, _store) => {
-    const state: ICartStore = {
-      items: [],
-      selectedSkuIds: [],
+    const initialItems = initState?.items || [];
+    const initialSelectedIds = initState?.selectedSkuIds || [];
+
+    const state: TCartStore = {
+      items: initialItems,
+      selectedSkuIds: initialSelectedIds,
       loading: false,
       isOpen: false,
       _hasHydrated: false,
       ...initState,
+      ...computeCartDerived(initialItems, initialSelectedIds),
 
       setHasHydrated: (state) => set({ _hasHydrated: state }),
       setLoading: (loading) => set({ loading }),
       setIsOpen: (isOpen) => set({ isOpen }),
 
       addItem: (item, quantity) => {
-        const { items } = get();
+        const { items, selectedSkuIds } = get();
         const existingItemIndex = items.findIndex(
           (i) => i.sku_id === item.sku_id,
         );
 
+        let newItems = [...items];
+        let newSelectedIds = [...selectedSkuIds];
+
         if (existingItemIndex !== -1) {
-          const updatedItems = [...items];
-          updatedItems[existingItemIndex].quantity += quantity;
-          set({ items: updatedItems });
+          newItems[existingItemIndex].quantity += quantity;
         } else {
-          set({
-            items: [...items, { ...item, quantity }],
-            selectedSkuIds: [...get().selectedSkuIds, item.sku_id],
-          });
+          newItems = [...items, { ...item, quantity }];
+          newSelectedIds = [...selectedSkuIds, item.sku_id];
         }
+
+        set({
+          items: newItems,
+          selectedSkuIds: newSelectedIds,
+          ...computeCartDerived(newItems, newSelectedIds),
+        });
       },
 
       removeItem: (sku_id) => {
         const { items, selectedSkuIds } = get();
+        const newItems = items.filter((i) => i.sku_id !== sku_id);
+        const newSelectedIds = selectedSkuIds.filter((id) => id !== sku_id);
+
         set({
-          items: items.filter((i) => i.sku_id !== sku_id),
-          selectedSkuIds: selectedSkuIds.filter((id) => id !== sku_id),
+          items: newItems,
+          selectedSkuIds: newSelectedIds,
+          ...computeCartDerived(newItems, newSelectedIds),
         });
       },
 
       updateQuantity: (sku_id, quantity) => {
-        const { items } = get();
-        const updatedItems = items.map((i) =>
+        const { items, selectedSkuIds } = get();
+        const newItems = items.map((i) =>
           i.sku_id === sku_id ? { ...i, quantity } : i,
         );
-        set({ items: updatedItems });
+        set({
+          items: newItems,
+          ...computeCartDerived(newItems, selectedSkuIds),
+        });
       },
 
-      setItems: (items) => set({ items }),
-      clearCart: () => set({ items: [], selectedSkuIds: [] }),
+      setItems: (items) => {
+        const { selectedSkuIds } = get();
+        set({
+          items,
+          ...computeCartDerived(items, selectedSkuIds),
+        });
+      },
+
+      clearCart: () =>
+        set({
+          items: [],
+          selectedSkuIds: [],
+          ...computeCartDerived([], []),
+        }),
 
       toggleSelectItem: (sku_id) => {
-        const { selectedSkuIds } = get();
+        const { items, selectedSkuIds } = get();
         const next = selectedSkuIds.includes(sku_id)
           ? selectedSkuIds.filter((id) => id !== sku_id)
           : [...selectedSkuIds, sku_id];
-        set({ selectedSkuIds: next });
+
+        set({
+          selectedSkuIds: next,
+          ...computeCartDerived(items, next),
+        });
       },
 
-      selectItems: (sku_ids) => set({ selectedSkuIds: sku_ids }),
+      selectItems: (sku_ids) => {
+        const { items } = get();
+        set({
+          selectedSkuIds: sku_ids,
+          ...computeCartDerived(items, sku_ids),
+        });
+      },
 
       selectAll: () => {
         const { items } = get();
-        set({ selectedSkuIds: items.map((i) => i.sku_id) });
+        const next = items.map((i) => i.sku_id);
+        set({
+          selectedSkuIds: next,
+          ...computeCartDerived(items, next),
+        });
       },
 
-      clearSelection: () => set({ selectedSkuIds: [] }),
+      clearSelection: () => {
+        const { items } = get();
+        set({
+          selectedSkuIds: [],
+          ...computeCartDerived(items, []),
+        });
+      },
     };
 
     return state;
   };
 
-export const createCartStore = (initState?: Partial<ICartStoreState>) =>
-  createStore<ICartStore>()(
+export const createCartStore = (initState?: Partial<TCartStoreState>) =>
+  createStore<TCartStore>()(
     devtools(
       persist(createCartStoreCreator(initState), {
         name: "CartStore",

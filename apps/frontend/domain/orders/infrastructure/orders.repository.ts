@@ -19,8 +19,11 @@ export class OrdersRepository implements IOrdersRepository {
   constructor(private request: TRequest) {}
 
   async placeOrder(params: IPlaceOrderParams): Promise<ApiResponse<IOrder>> {
-    const response = await this.request.post<IOrderDTO>(API_ROUTES.ORDERS.BASE, params);
-    
+    const response = await this.request.post<IOrderDTO>(
+      API_ROUTES.ORDERS.BASE,
+      params,
+    );
+
     return {
       ...response,
       data: response.data ? OrderMapper.toDomain(response.data) : undefined,
@@ -28,8 +31,10 @@ export class OrdersRepository implements IOrdersRepository {
   }
 
   async getOrders(): Promise<ApiResponse<IOrder[]>> {
-    const response = await this.request.get<IOrderDTO[]>(API_ROUTES.ORDERS.MINE);
-    
+    const response = await this.request.get<IOrderDTO[]>(
+      API_ROUTES.ORDERS.MINE,
+    );
+
     return {
       ...response,
       data: response.data?.map(OrderMapper.toDomain) || [],
@@ -37,8 +42,10 @@ export class OrdersRepository implements IOrdersRepository {
   }
 
   async getOrderDetail(id: string): Promise<ApiResponse<IOrder>> {
-    const response = await this.request.get<IOrderDTO>(API_ROUTES.ORDERS.DETAIL(id));
-    
+    const response = await this.request.get<IOrderDTO>(
+      API_ROUTES.ORDERS.DETAIL(id),
+    );
+
     return {
       ...response,
       data: response.data ? OrderMapper.toDomain(response.data) : undefined,

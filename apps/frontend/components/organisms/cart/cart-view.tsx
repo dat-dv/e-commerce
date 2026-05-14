@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { useCartStore } from "@/hooks/cart/use-cart-store";
-import { useCartAdapter } from "@/hooks/cart/use-cart-adapter";
+import { useCart } from "@/hooks/cart/use-cart";
+import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
+import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";
 import { AnimatePresence } from "framer-motion";
 import CartRecommendations from "./cart-recommendations";
 
@@ -18,11 +18,11 @@ export default function CartView() {
     selectedSkuIds,
     totalAmount,
     isAllSelected,
-    removeItem,
-    updateQuantity,
     toggleSelectItem,
     handleToggleSelectAll,
-  } = useCartAdapter();
+  } = useCart();
+  const { removeItem } = useRemoveFromCart();
+  const updateQuantity = useUpdateCartQuantity();
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -48,8 +48,8 @@ export default function CartView() {
                   item={item}
                   isSelected={selectedSkuIds.includes(item.sku_id)}
                   onToggleSelect={() => toggleSelectItem(item.sku_id)}
-                  onRemove={() => removeItem(item.sku_id)}
-                  onUpdateQuantity={(val) => updateQuantity(item.sku_id, val)}
+                  onRemove={() => removeItem(item)}
+                  onUpdateQuantity={(val) => updateQuantity(item, val)}
                 />
               ))}
             </AnimatePresence>

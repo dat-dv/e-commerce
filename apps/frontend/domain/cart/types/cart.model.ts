@@ -1,8 +1,6 @@
-import { ICartItem } from "@/store/cart-store/cart-store.type";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 
-export type TCartItem = ICartItem;
-
-export interface ICart {
+export interface TCart {
   id: string;
   user_id: string;
   items: TCartItem[];

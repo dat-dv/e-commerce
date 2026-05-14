@@ -54,12 +54,6 @@ function slugify(text: string): string {
     .replace(/--+/g, '-'); // Xoá nhiều - liên tiếp
 }
 
-/**
- * Sinh SKU code duy nhất:
- * - Ưu tiên dùng hash deterministic từ (skuCode gốc + productName + color + size)
- *   để đảm bảo idempotent nếu chạy lại.
- * - Nếu vẫn trùng (cực hiếm), fallback sang random 8 ký tự.
- */
 function resolveSkuCode(originalCode: string, productName: string, color: string, size: string): string {
   const raw = `${originalCode}|${productName}|${color}|${size}`;
   const hash = crypto.createHash('sha256').update(raw).digest('hex').toUpperCase();

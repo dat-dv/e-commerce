@@ -6,16 +6,16 @@ import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
-import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { CALLBACK_URL_KEY } from "@/constants/routes";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 
 export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
-  const addItem = useCartStore((s) => s.addItem);
+  const addItem = useAddToCart();
   const sku = product.skus[0];
 
   const user = useAuthStore((s) => s.user);

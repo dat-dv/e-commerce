@@ -1,14 +1,14 @@
-import { IProduct } from './product';
-import { IProductCategory } from './product-category';
-import { IBrand } from './brand';
+import { IProduct } from "./product";
+import { IProductCategory } from "./product-category";
+import { IBrand } from "./brand";
 
 export enum EHomepageSectionType {
-  FLASH_SALE = 'flash_sale',
-  PRODUCT_CAROUSEL = 'product_carousel',
-  RECOMMENDS = 'recommends',
-  RECENT_VIEW = 'recent_view',
-  SUPER_DEALS = 'super_deals',
-  NEW_ARRIVALS = 'new_arrivals',
+  FLASH_SALE = "flash_sale",
+  PRODUCT_CAROUSEL = "product_carousel",
+  RECOMMENDS = "recommends",
+  RECENT_VIEW = "recent_view",
+  SUPER_DEALS = "super_deals",
+  NEW_ARRIVALS = "new_arrivals",
 }
 
 export interface IHomepageSectionTranslation {

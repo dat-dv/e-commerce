@@ -1,7 +1,7 @@
 import { UseCase } from "@/utils/use-case";
 import { ICartRepository } from "../types/cart.repository";
-import { TCartItem } from "../types/cart.model";
 import { ApiResponse } from "@/utils/request/request.types";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 
 export class AddToCartUseCase extends UseCase<
   { sku_id: string; quantity: number },

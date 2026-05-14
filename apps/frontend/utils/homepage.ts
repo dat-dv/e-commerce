@@ -1,9 +1,6 @@
 import { APP_ROUTES } from "@/constants/routes";
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 
-/**
- * Xác định link điều hướng cho một Homepage Section dựa trên type và slug
- */
 export const getSectionHref = (type: string, slug?: string): string => {
   if (slug) {
     return APP_ROUTES.CATEGORY_DETAIL(slug);

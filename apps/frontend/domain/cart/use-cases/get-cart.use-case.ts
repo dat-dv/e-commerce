@@ -1,14 +1,14 @@
 import { UseCase } from "@/utils/use-case";
 import { ICartRepository } from "../types/cart.repository";
-import { ICart } from "../types/cart.model";
+import { TCart } from "../types/cart.model";
 import { ApiResponse } from "@/utils/request/request.types";
 
-export class GetCartUseCase extends UseCase<void, Promise<ApiResponse<ICart>>> {
+export class GetCartUseCase extends UseCase<void, Promise<ApiResponse<TCart>>> {
   constructor(private repository: ICartRepository) {
     super();
   }
 
-  async execute(): Promise<ApiResponse<ICart>> {
+  async execute(): Promise<ApiResponse<TCart>> {
     return this.repository.getCart();
   }
 }

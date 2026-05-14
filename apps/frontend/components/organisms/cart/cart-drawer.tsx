@@ -1,6 +1,8 @@
 "use client";
 
-import { useCartAdapter } from "@/hooks/cart/use-cart-adapter";
+import { useCart } from "@/hooks/cart/use-cart";
+import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
+import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ShoppingBag,
@@ -15,8 +17,10 @@ import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 
 export const CartDrawer = () => {
-  const { items, removeItem, updateQuantity, subtotal, setIsOpen, isOpen } =
-    useCartAdapter();
+  const { items, subtotal, setIsOpen, isOpen } = useCart();
+
+  const { removeItem } = useRemoveFromCart();
+  const updateQuantity = useUpdateCartQuantity();
 
   return (
     <AnimatePresence>
@@ -130,7 +134,7 @@ export const CartDrawer = () => {
                               <button
                                 onClick={() =>
                                   updateQuantity(
-                                    item.sku_id,
+                                    item,
                                     Math.max(1, item.quantity - 1),
                                   )
                                 }
@@ -143,7 +147,7 @@ export const CartDrawer = () => {
                               </span>
                               <button
                                 onClick={() =>
-                                  updateQuantity(item.sku_id, item.quantity + 1)
+                                  updateQuantity(item, item.quantity + 1)
                                 }
                                 className="w-6 h-6 flex items-center justify-center rounded-lg hover:bg-surface transition-colors"
                               >
@@ -153,7 +157,7 @@ export const CartDrawer = () => {
                           </div>
 
                           <button
-                            onClick={() => removeItem(item.sku_id)}
+                            onClick={() => removeItem(item)}
                             className="p-3 text-content/20 hover:text-red-500 hover:bg-red-500/10 rounded-xl transition-all"
                           >
                             <Trash2 size={16} />

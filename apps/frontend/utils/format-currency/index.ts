@@ -1,11 +1,3 @@
-/**
- * Formats a numeric value into a currency string.
- * Default is en-US locale with VND currency.
- *
- * @param amount - The value to format
- * @param locale - Locale code (default: en-US)
- * @param currency - Currency code (default: VND)
- */
 export const formatCurrency = (
   amount: number | string | undefined | null,
   locale = "vi-VN",

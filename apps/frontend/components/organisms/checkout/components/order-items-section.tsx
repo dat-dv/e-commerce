@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Package, ShoppingBag } from "lucide-react";
 import Image from "next/image";
-import { ICartItem } from "@/domain/cart/types/cart.model";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 
 interface OrderItemsSectionProps {
-  items: ICartItem[];
+  items: TCartItem[];
 }
 
 export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {

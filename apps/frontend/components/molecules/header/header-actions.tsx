@@ -7,12 +7,12 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 import AvatarDropdown from "../avatar-dropdown";
 import { ShoppingBag, Heart } from "lucide-react";
-import { useCartAdapter } from "@/hooks/cart/use-cart-adapter";
+import { useCart } from "@/hooks/cart/use-cart";
 
 export default function HeaderActions() {
   const user = useAuthStore((store) => store.user);
   const { handleClickLogout } = useLogout();
-  const { setIsOpen, itemsCount } = useCartAdapter();
+  const { setIsOpen, itemsCount } = useCart();
 
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">

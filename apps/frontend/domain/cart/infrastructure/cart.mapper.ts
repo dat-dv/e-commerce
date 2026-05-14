@@ -1,4 +1,5 @@
-import { TCartItem, ICart } from "../types/cart.model";
+import { TCart } from "../types/cart.model";
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 
 export interface ICartItemDTO {
   id: string;
@@ -45,7 +46,7 @@ export class CartMapper {
     };
   }
 
-  static toDomain(dto: ICartDTO): ICart {
+  static toDomain(dto: ICartDTO): TCart {
     return {
       id: dto.id,
       user_id: dto.user_id,

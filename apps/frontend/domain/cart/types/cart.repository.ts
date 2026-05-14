@@ -1,8 +1,9 @@
+import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { ApiResponse } from "@/utils/request/request.types";
-import { TCartItem, ICart } from "./cart.model";
+import { TCart } from "./cart.model";
 
 export interface ICartRepository {
-  getCart(): Promise<ApiResponse<ICart>>;
+  getCart(): Promise<ApiResponse<TCart>>;
   addItem(sku_id: string, quantity: number): Promise<ApiResponse<TCartItem>>;
   updateItem(id: string, quantity: number): Promise<ApiResponse<TCartItem>>;
   removeItem(id: string): Promise<ApiResponse<void>>;

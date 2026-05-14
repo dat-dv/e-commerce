@@ -1,6 +1,6 @@
-import { IImage } from './image';
-import { IProductCategory } from './product-category';
-import { IBrand } from './brand';
+import { IImage } from "./image";
+import { IProductCategory } from "./product-category";
+import { IBrand } from "./brand";
 
 export enum EProductStatus {
   DRAFT = 0,
@@ -49,7 +49,7 @@ export interface ISkuAttributeValue {
   attribute_value?: IAttributeValue;
 }
 
-import { IFlashSale } from './flash-sale';
+import { IFlashSale } from "./flash-sale";
 
 export interface ISkuFlashSale {
   id: string;

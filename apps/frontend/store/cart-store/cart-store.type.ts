@@ -1,4 +1,4 @@
-export interface ICartItem {
+export interface TCartItem {
   id: string;
   product_id: string;
   sku_id: string;
@@ -9,20 +9,27 @@ export interface ICartItem {
   attributes?: string;
 }
 
-export interface ICartStoreState {
-  items: ICartItem[];
+export interface TCartStoreState {
+  items: TCartItem[];
   selectedSkuIds: string[];
   loading: boolean;
   isOpen: boolean;
   _hasHydrated: boolean;
+
+  // Derived state (Calculated on every change)
+  subtotal: number;
+  totalAmount: number;
+  itemsCount: number;
+  isAllSelected: boolean;
+  selectedItems: TCartItem[];
 }
 
-export interface ICartStoreActions {
+export interface TCartStoreActions {
   // Actions
-  addItem: (item: Omit<ICartItem, "quantity">, quantity: number) => void;
+  addItem: (item: Omit<TCartItem, "quantity">, quantity: number) => void;
   removeItem: (sku_id: string) => void;
   updateQuantity: (sku_id: string, quantity: number) => void;
-  setItems: (items: ICartItem[]) => void;
+  setItems: (items: TCartItem[]) => void;
   clearCart: () => void;
   setIsOpen: (isOpen: boolean) => void;
   setHasHydrated: (state: boolean) => void;
@@ -35,4 +42,4 @@ export interface ICartStoreActions {
   clearSelection: () => void;
 }
 
-export type ICartStore = ICartStoreState & ICartStoreActions;
+export type TCartStore = TCartStoreState & TCartStoreActions;

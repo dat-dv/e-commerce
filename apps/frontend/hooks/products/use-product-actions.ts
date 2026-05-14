@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { useCartStore } from "@/hooks/cart/use-cart-store";
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
@@ -14,7 +14,7 @@ export const useProductActions = (
 ) => {
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
-  const addItem = useCartStore((s) => s.addItem);
+  const addItem = useAddToCart();
 
   const handleAddToCart = () => {
     if (!user) {

@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { useCartAdapter } from "../cart/use-cart-adapter";
+import { useCart } from "@/hooks/cart/use-cart";
 import { ordersUseCase } from "@/domain/orders";
 import { APP_ROUTES } from "@/constants/routes";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
@@ -14,8 +14,7 @@ import {
 
 export const useCheckoutAdapter = () => {
   const router = useRouter();
-  const { items, selectedItems, totalAmount, clearSelection } =
-    useCartAdapter();
+  const { items, selectedItems, totalAmount, clearSelection } = useCart();
   const selectedSkuIds = useCartStore((s) => s.selectedSkuIds);
 
   const {

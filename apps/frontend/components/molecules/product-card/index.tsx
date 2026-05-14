@@ -2,16 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { APP_ROUTES } from "@/constants/routes";
-import { motion } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
-import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
-import { useAuthStore } from "@/hooks/auth/use-auth-store";
-import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
-import { CALLBACK_URL_KEY } from "@/constants/routes";
+import { APP_ROUTES } from "@/constants/routes";
 
 import { TProduct } from "@/domain/products/types/products.model";
 
@@ -19,24 +13,15 @@ interface ProductCardProps {
   product: TProduct;
 }
 
-export const ProductCard = ({ product }: ProductCardProps) => {
-  const addItem = useCartStore((s) => s.addItem);
-  const sku = product?.skus?.[0];
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 
-  const user = useAuthStore((s) => s.user);
-  const router = useRouter();
+export const ProductCard = ({ product }: ProductCardProps) => {
+  const addItem = useAddToCart();
+  const sku = product?.skus?.[0];
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-
-    if (!user) {
-      toast.info("Please sign in to add items to cart");
-      const productDetailUrl = APP_ROUTES.PRODUCT_DETAIL(product.slug);
-      const callbackUrl = encodeURIComponent(productDetailUrl);
-      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
-      return;
-    }
 
     const priceNumber = sku?.price || 0;
 
@@ -52,7 +37,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       },
       1,
     );
-    toast.success("Added to cart");
   };
 
   const badgeText =
