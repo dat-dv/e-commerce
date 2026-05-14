@@ -5,10 +5,10 @@ import { useCheckoutAdapter } from "@/hooks/checkout/use-checkout-adapter";
 import { useCreateAddress } from "@/hooks/addresses/use-create-address";
 import { CheckoutHeader } from "./components/checkout-header";
 import { ShippingSection } from "./components/shipping-section";
-import { PaymentSection } from "./components/payment-section";
 import { OrderItemsSection } from "./components/order-items-section";
 import { OrderSummary } from "./components/order-summary";
 import { AddAddressModal } from "./components/add-address-modal";
+import { TAddress } from "@/domain/addresses/types/address.model";
 
 export const CheckoutView = () => {
   const {
@@ -20,18 +20,24 @@ export const CheckoutView = () => {
     loading: loadingAddresses,
     placingOrder,
     handlePlaceOrder,
-    handleAddAddress,
+    handleSubmitAddress,
   } = useCheckoutAdapter();
 
   const {
     isOpen: isAddModalOpen,
     isSubmitting: isAddingAddress,
     open: openAddModal,
+    openEdit,
     close: closeAddModal,
     handleSubmit: onAddAddressSubmit,
+    editingAddress,
   } = useCreateAddress({
-    onSubmit: handleAddAddress,
+    onSubmit: handleSubmitAddress,
   });
+
+  const onClickEdit = (address: TAddress) => {
+    openEdit(address);
+  };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl">
@@ -46,9 +52,8 @@ export const CheckoutView = () => {
             setSelectedAddressId={setSelectedAddressId}
             loading={loadingAddresses}
             onAddAddress={openAddModal}
+            onClickEdit={onClickEdit}
           />
-
-          <PaymentSection />
 
           <OrderItemsSection items={selectedItems} />
         </div>
@@ -59,6 +64,12 @@ export const CheckoutView = () => {
           onPlaceOrder={handlePlaceOrder}
           loading={placingOrder}
           isItemsEmpty={selectedItems.length === 0}
+          recipientName={
+            addresses.find((a) => a.id === selectedAddressId)?.name
+          }
+          recipientPhone={
+            addresses.find((a) => a.id === selectedAddressId)?.phone
+          }
         />
       </div>
 
@@ -67,6 +78,7 @@ export const CheckoutView = () => {
         onClose={closeAddModal}
         onSubmit={onAddAddressSubmit}
         loading={isAddingAddress}
+        editingAddress={editingAddress}
       />
     </div>
   );

@@ -1,4 +1,6 @@
-export interface IAddress {
+import { EShippingAddressLabels } from "@/constants/shipping-address.constanst";
+
+export interface TAddress {
   id: string;
   name: string;
   phone: string;
@@ -9,10 +11,10 @@ export interface IAddress {
   isDefault: boolean;
 }
 
-export interface ICreateAddressInput {
+export interface TCreateAddressInput {
   receiver_name: string;
   receiver_phone: string;
-  label: string;
+  label: EShippingAddressLabels;
   street: string;
   city: string;
   state: string;

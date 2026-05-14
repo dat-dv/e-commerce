@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { ICreateAddressInput } from "@/domain/addresses/types/address.model";
+import {
+  TAddress,
+  TCreateAddressInput,
+} from "@/domain/addresses/types/address.model";
 
 interface UseCreateAddressProps {
   onSuccess?: () => void;
-  onSubmit: (data: ICreateAddressInput) => Promise<boolean>;
+  onSubmit: (
+    data: TCreateAddressInput,
+    editingAddress?: TAddress | null,
+  ) => Promise<boolean>;
 }
 
 export const useCreateAddress = ({
@@ -12,13 +18,26 @@ export const useCreateAddress = ({
 }: UseCreateAddressProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editingAddress, setEditingAddress] = useState<TAddress | null>(null);
 
-  const open = () => setIsOpen(true);
-  const close = () => setIsOpen(false);
+  const open = () => {
+    setEditingAddress(null);
+    setIsOpen(true);
+  };
 
-  const handleSubmit = async (data: ICreateAddressInput) => {
+  const openEdit = (address: TAddress) => {
+    setEditingAddress(address);
+    setIsOpen(true);
+  };
+
+  const close = () => {
+    setIsOpen(false);
+    setEditingAddress(null);
+  };
+
+  const handleSubmit = async (data: TCreateAddressInput) => {
     setIsSubmitting(true);
-    const success = await onSubmit(data);
+    const success = await onSubmit(data, editingAddress);
     setIsSubmitting(false);
 
     if (success) {
@@ -31,7 +50,9 @@ export const useCreateAddress = ({
   return {
     isOpen,
     isSubmitting,
+    editingAddress,
     open,
+    openEdit,
     close,
     handleSubmit,
   };

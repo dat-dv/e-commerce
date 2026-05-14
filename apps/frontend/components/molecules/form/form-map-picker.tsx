@@ -45,8 +45,10 @@ export const FormMapPicker = ({
   };
 
   return (
-    <div className="space-y-2">
-      <label className="text-sm font-medium text-content">{label}</label>
+    <div className="flex flex-col gap-1.5 w-full">
+      <label className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+        {label}
+      </label>
       <div
         onClick={() => !disabled && setMapOpen(true)}
         className={cn(

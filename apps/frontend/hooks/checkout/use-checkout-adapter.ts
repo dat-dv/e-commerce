@@ -1,61 +1,36 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useCartAdapter } from "../cart/use-cart-adapter";
-import { addressesUseCase } from "@/domain/addresses";
 import { ordersUseCase } from "@/domain/orders";
-import {
-  IAddress,
-  ICreateAddressInput,
-} from "@/domain/addresses/types/address.model";
 import { APP_ROUTES } from "@/constants/routes";
+import { useCartStore } from "@/hooks/cart/use-cart-store";
+import { useAddresses } from "@/hooks/addresses/use-addresses";
 
 export const useCheckoutAdapter = () => {
   const router = useRouter();
-  const { selectedItems, selectedSkuIds, totalAmount, clearSelection } =
-    useCartAdapter();
+  const { selectedItems, totalAmount, clearSelection } = useCartAdapter();
+  const selectedSkuIds = useCartStore((s) => s.selectedSkuIds);
 
-  const [addresses, setAddresses] = useState<IAddress[]>([]);
-  const [selectedAddressId, setSelectedAddressId] = useState<string>("");
-  const [loading, setLoading] = useState(false);
+  const {
+    addresses,
+    loading: loadingAddresses,
+    selectedAddressId,
+    setSelectedAddressId,
+    addAddress,
+    updateAddress,
+  } = useAddresses();
+
   const [placingOrder, setPlacingOrder] = useState(false);
 
-  const fetchAddresses = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await addressesUseCase.getAddresses.execute();
-      if (res.status === "success") {
-        setAddresses(res.data || []);
-        const defaultAddr = res.data?.find((a) => a.isDefault);
-        if (defaultAddr && !selectedAddressId)
-          setSelectedAddressId(defaultAddr.id);
-      }
-    } catch (error) {
-      console.error("Failed to fetch addresses:", error);
-    } finally {
-      setLoading(false);
+  const handleSubmitAddress = async (
+    data: ICreateAddressInput,
+    editingAddress?: IAddress | null,
+  ) => {
+    if (editingAddress) {
+      return updateAddress(editingAddress.id, data);
     }
-  }, [selectedAddressId]);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    fetchAddresses();
-  }, [fetchAddresses]);
-
-  const handleAddAddress = async (data: ICreateAddressInput) => {
-    try {
-      const res = await addressesUseCase.createAddress.execute(data);
-      if (res.status === "success") {
-        toast.success("Address added successfully");
-        await fetchAddresses();
-        return true;
-      }
-      toast.error(res.message || "Failed to add address");
-      return false;
-    } catch {
-      toast.error("An error occurred while adding address");
-      return false;
-    }
+    return addAddress(data);
   };
 
   const handlePlaceOrder = useCallback(async () => {
@@ -100,9 +75,9 @@ export const useCheckoutAdapter = () => {
     addresses,
     selectedAddressId,
     setSelectedAddressId,
-    loading,
+    loading: loadingAddresses,
     placingOrder,
     handlePlaceOrder,
-    handleAddAddress,
+    handleSubmitAddress,
   };
 };

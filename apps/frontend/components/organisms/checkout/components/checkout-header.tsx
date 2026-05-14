@@ -8,16 +8,16 @@ export const CheckoutHeader = () => {
     <div className="mb-12">
       <Link
         href={APP_ROUTES.CART}
-        className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-black text-content/40 hover:text-primary transition-colors mb-6 group"
+        className="inline-flex items-center gap-2 text-sm font-medium text-content/60 hover:text-primary transition-colors mb-6 group"
       >
         <ChevronLeft
-          size={14}
+          size={16}
           className="group-hover:-translate-x-1 transition-transform"
         />
         Back to Shopping Bag
       </Link>
-      <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-4 uppercase">
-        CHECK<span className="italic font-light opacity-20">OUT</span>
+      <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-content mb-4">
+        Checkout
       </h1>
       <div className="h-px w-24 bg-primary" />
     </div>

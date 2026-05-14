@@ -1,10 +1,10 @@
 import { TCreateAddressInput } from "../types/address.model";
 import { IAddressesRepository } from "../infrastructure/addresses.repository";
 
-export class CreateAddressUseCase {
+export class UpdateAddressUseCase {
   constructor(private addressesRepository: IAddressesRepository) {}
 
-  async execute(data: TCreateAddressInput) {
-    return this.addressesRepository.createAddress(data);
+  async execute(id: string, data: Partial<TCreateAddressInput>) {
+    return this.addressesRepository.updateAddress(id, data);
   }
 }

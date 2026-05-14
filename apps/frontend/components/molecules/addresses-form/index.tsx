@@ -22,9 +22,14 @@ import { FormMapPicker } from "../form/form-map-picker";
 interface AddressesFormProps {
   onSubmit: (data: AddressFormData) => Promise<boolean>;
   loading: boolean;
+  initialData?: Partial<AddressFormInput>;
 }
 
-export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
+export const AddressesForm = ({
+  onSubmit,
+  loading,
+  initialData,
+}: AddressesFormProps) => {
   const methods = useForm<AddressFormInput>({
     resolver: zodResolver(addressSchema),
     defaultValues: {
@@ -39,12 +44,9 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
       country: "",
       postal_code: "",
       is_default: false,
+      ...initialData,
     },
   });
-
-  const receiverName = methods.watch("receiver_name");
-  const receiverPhone = methods.watch("receiver_phone");
-  const isRecipientFilled = !!receiverName && !!receiverPhone;
 
   const handleFormSubmit = async (data: AddressFormData) => {
     const success = await onSubmit(data);
@@ -86,7 +88,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           label="Address from Map"
           nameLat="latitude"
           nameLng="longitude"
-          disabled={!isRecipientFilled || loading}
+          disabled={loading}
         />
 
         <FormInput
@@ -95,7 +97,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           placeholder="e.g., House No. 12, Floor 3, Street Name"
           variant="outline"
           className="h-10 text-sm rounded-xl"
-          disabled={!isRecipientFilled || loading}
+          disabled={loading}
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -105,7 +107,7 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
             placeholder="City"
             variant="outline"
             className="h-10 text-sm rounded-xl"
-            disabled={!isRecipientFilled || loading}
+            disabled={loading}
           />
           <FormInput
             name="state"
@@ -154,8 +156,14 @@ export const AddressesForm = ({ onSubmit, loading }: AddressesFormProps) => {
           loading={loading}
           className="flex items-center justify-center gap-2 w-full mt-6"
         >
-          <Plus size={18} />
-          Add Address
+          {initialData ? (
+            "Update Address"
+          ) : (
+            <>
+              <Plus size={18} />
+              Add Address
+            </>
+          )}
         </Button>
       </div>
     </AppForm>
