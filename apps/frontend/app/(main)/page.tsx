@@ -6,6 +6,8 @@ import { ProductsProvider } from "@/components/molecules/providers/products-prov
 import { CategoriesProvider } from "@/components/molecules/providers/categories-provider";
 import { headers } from "next/headers";
 import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
+import { allSafe } from "@/utils/promise";
+import NotFound from "../not-found";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -17,10 +19,14 @@ export default async function Home() {
   const host = headerStore.get("host");
   const lang = getLanguageSubdomain(host ?? "");
 
-  const [sectionsResponse, categoriesResponse] = await Promise.all([
+  const [sectionsResponse, categoriesResponse] = await allSafe([
     homepageUseCase.getSections.execute(),
     categoriesUseCase.getCategories.execute({ page: 1, limit: 10, level: 1 }),
   ]);
+
+  if (!sectionsResponse || !categoriesResponse) {
+    return <NotFound />;
+  }
 
   const productsInitialData = {
     sections:
