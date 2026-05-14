@@ -18,6 +18,7 @@ export const APP_ROUTES = {
   CHECKOUT: "/checkout",
   ORDERS: "/orders",
   PRODUCTS: "/products",
+  SEARCH: "/search",
   SETTINGS: "/settings",
   HELP: "/help",
   FAQ: "/help/faq",

@@ -19,20 +19,6 @@ export default function HeaderActions() {
 
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">
-      {/* Nút Giỏ hàng */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
-        title="Giỏ hàng"
-      >
-        <ShoppingBag size={20} />
-        {itemsCount > 0 && (
-          <span className="absolute -top-0.5 -right-0.5 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
-            {itemsCount}
-          </span>
-        )}
-      </button>
-
       <ProtectedSection
         fallbackChildren={
           <>
@@ -55,6 +41,18 @@ export default function HeaderActions() {
           </>
         }
       >
+        <button
+          onClick={() => setIsOpen(true)}
+          className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
+          title="Giỏ hàng"
+        >
+          <ShoppingBag size={20} />
+          {itemsCount > 0 && (
+            <span className="absolute -top-0.5 -right-0.5 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+              {itemsCount}
+            </span>
+          )}
+        </button>
         <AvatarDropdown
           name={`${user?.first_name || ""} ${user?.last_name || ""}`}
           email={user?.email || ""}

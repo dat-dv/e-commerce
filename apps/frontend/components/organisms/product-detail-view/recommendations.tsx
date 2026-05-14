@@ -16,9 +16,9 @@ export const Recommendations = ({
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-content">Gợi ý cho bạn</h2>
+        <h2 className="text-lg font-bold text-content">Recommended products</h2>
         <button className="text-sm font-semibold text-primary hover:underline">
-          Xem tất cả
+          See all
         </button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -34,9 +34,7 @@ export const Recommendations = ({
             Không có gợi ý nào
           </div>
         ) : (
-          recommendedProducts.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))
+          recommendedProducts.map((p) => <ProductCard key={p.id} product={p} />)
         )}
       </div>
     </div>
