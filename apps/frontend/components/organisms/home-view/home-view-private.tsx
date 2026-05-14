@@ -9,14 +9,14 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { FEATURE_ITEMS } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
-import { useHomepageCategories } from "@/hooks/categories/use-homepage-categories";
+import { useCategories } from "@/hooks/categories/use-homepage-categories";
 import { DynamicSections } from "./dynamic-sections";
 import { useConfig } from "@/hooks/config/use-config";
 
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
   const sections = useProductsStore((state) => state.sections);
-  const { categories, fetchMore, pagination } = useHomepageCategories();
+  const { treeCategories: categories, fetchMore, pagination } = useCategories();
   const { language: lang } = useConfig();
 
   return (

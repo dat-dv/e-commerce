@@ -70,7 +70,7 @@ const CategoryMegaMenuContent = () => {
   return (
     <div className="w-full py-8 flex flex-col">
       {/* 1. 2-Row Horizontal Grid Navigation */}
-      <div className="grid grid-rows-2 grid-flow-col gap-x-10 gap-y-4 border-b border-content/10 pb-6 mb-10 overflow-x-auto hide-scrollbar shrink-0 scroll-smooth">
+      <div className="grid grid-rows-2 grid-flow-col gap-x-10 gap-y-4 border-b border-content/10 pb-6 mb-8 overflow-x-auto hide-scrollbar shrink-0 scroll-smooth">
         {categories.map((cat) => {
           // Check if this parent category contains the current active subcategory
           const isParentOfActive = cat.children?.some(

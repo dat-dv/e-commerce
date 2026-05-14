@@ -100,6 +100,7 @@ export const CategoriesContent = ({
                     name={child.name}
                     count={`${child.children?.length || 0} Categories`}
                     href={`/categories/${child.slug}`}
+                    showCount={!!child?.children?.length}
                   />
                 </motion.div>
               ))}

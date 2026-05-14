@@ -9,13 +9,13 @@ import { CategoriesSection } from "@/components/molecules/categories-section";
 import { FEATURE_ITEMS } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
-import { useHomepageCategories } from "@/hooks/categories/use-homepage-categories";
+import { useCategories } from "@/hooks/categories/use-homepage-categories";
 import { DynamicSections } from "./dynamic-sections";
 import { useConfig } from "@/hooks/config/use-config";
 
 export const HomepagePublic = () => {
   const sections = useProductsStore((state) => state.sections);
-  const { categories, fetchMore, pagination } = useHomepageCategories();
+  const { treeCategories: categories } = useCategories();
   const { language: lang } = useConfig();
 
   return (
@@ -32,13 +32,7 @@ export const HomepagePublic = () => {
         />
 
         {/* Categories Section */}
-        <CategoriesSection
-          categories={categories}
-          lang={lang}
-          onLoadMore={fetchMore}
-          total={pagination?.total}
-          current={categories.length}
-        />
+        <CategoriesSection categories={categories} lang={lang} />
 
         {/* 3. Dynamic Backend Sections */}
         <DynamicSections sections={sections} />

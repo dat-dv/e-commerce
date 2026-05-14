@@ -12,6 +12,7 @@ interface CategoryCardProps {
   icon?: LucideIcon;
   color?: string;
   image?: string;
+  showCount?: boolean;
 }
 
 export const CategoryCard = ({
@@ -21,6 +22,7 @@ export const CategoryCard = ({
   icon: Icon = Sparkles,
   color = "text-primary",
   image,
+  showCount = true,
 }: CategoryCardProps) => {
   return (
     <Link
@@ -35,7 +37,7 @@ export const CategoryCard = ({
           <h3 className="font-bold text-content group-hover:text-primary transition-colors capitalize pr-1 line-clamp-2">
             {name}
           </h3>
-          <p className="text-xs text-content/40">{count}</p>
+          {showCount && <p className="text-xs text-content/40">{count}</p>}
         </div>
         {image ? (
           <Image

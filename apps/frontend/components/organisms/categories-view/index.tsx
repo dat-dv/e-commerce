@@ -6,9 +6,7 @@ import { CategoriesSidebar } from "./sidebar";
 import { CategoriesContent } from "./content";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 
-export interface CategoriesViewProps {}
-
-export const CategoriesView = ({}: CategoriesViewProps) => {
+export const CategoriesView = () => {
   const categoriesTree = useCategoriesStore((s) => s.categories);
   const [activeId, setActiveId] = useState<string>("all");
 
