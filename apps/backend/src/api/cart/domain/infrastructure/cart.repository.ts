@@ -38,6 +38,12 @@ export class CartRepository implements ICartRepository {
     });
   }
 
+  async findItemById(itemId: string) {
+    return this.prisma.cartItem.findUnique({
+      where: { id: itemId },
+    });
+  }
+
   async findItem(cartId: string, skuId: string) {
     return this.prisma.cartItem.findUnique({
       where: { cart_id_sku_id: { cart_id: cartId, sku_id: skuId } },

@@ -28,7 +28,15 @@ export class AddToCartUseCase {
     }
 
     const existingItem = await this.cartRepository.findItem(cart.id, skuId);
-    const newTotalQuantity = (existingItem?.quantity || 0) + quantity;
+    const existingQuantity: number = existingItem?.quantity ?? 0;
+    const newTotalQuantity = existingQuantity + quantity;
+
+    if (newTotalQuantity <= 0) {
+      if (existingItem) {
+        return this.cartRepository.removeItem(existingItem.id);
+      }
+      return null;
+    }
 
     // 2. Validate tổng số lượng sau khi thêm có vượt quá kho không
     if (newTotalQuantity > sku.stock) {

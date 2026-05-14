@@ -11,18 +11,27 @@ export const useAddToCart = () => {
   const user = useAuthStore((s) => s.user);
   const router = useRouter();
   const pathname = usePathname();
-  const _addItem = useCartStore((s) => s.addItem);
-  const _deleteOrUpdateItem = useCartStore((s) => s.deleteOrUpdateItem);
+  const _addOrUpdateItem = useCartStore((s) => s.addOrUpdateItem);
+  const currentItems = useCartStore((s) => s.items);
 
   return useCallback(
     async (item: Omit<TCartItem, "quantity">, quantity: number) => {
+      const existingItem = currentItems.find((i) => i.sku_id === item.sku_id);
+      const previousQuantity = existingItem?.quantity || 0;
+      const nextQuantity = previousQuantity + quantity;
+
       try {
         if (user) {
-          _addItem(item, quantity);
-          cartUseCase.addItem.execute({
+          _addOrUpdateItem(item, nextQuantity);
+
+          const response = await cartUseCase.addItem.execute({
             sku_id: item.sku_id,
             quantity,
           });
+
+          if (response.data) {
+            _addOrUpdateItem({ ...item, id: response.data.id }, nextQuantity);
+          }
         } else {
           const callbackUrl = encodeURIComponent(pathname);
           router.push(
@@ -31,11 +40,10 @@ export const useAddToCart = () => {
           toast.info("Please sign in to add items to cart");
         }
       } catch (err) {
-        _deleteOrUpdateItem(item.sku_id, quantity);
+        _addOrUpdateItem(item, previousQuantity);
         toast.error("Failed to add to cart");
-        throw err;
       }
     },
-    [user, _addItem, pathname, router, _deleteOrUpdateItem],
+    [currentItems, user, _addOrUpdateItem, pathname, router],
   );
 };

@@ -58,8 +58,16 @@ const createCartStoreCreator =
         let newSelectedIds = [...selectedSkuIds];
 
         if (existingItemIndex !== -1) {
-          newItems[existingItemIndex].quantity += quantity;
-        } else {
+          newItems[existingItemIndex] = {
+            ...newItems[existingItemIndex],
+            quantity: newItems[existingItemIndex].quantity + quantity,
+          };
+
+          if (newItems[existingItemIndex].quantity <= 0) {
+            newItems.splice(existingItemIndex, 1);
+            newSelectedIds = newSelectedIds.filter((id) => id !== item.sku_id);
+          }
+        } else if (quantity > 0) {
           newItems = [...items, { ...item, quantity }];
           newSelectedIds = [...selectedSkuIds, item.sku_id];
         }
@@ -145,7 +153,7 @@ const createCartStoreCreator =
           ...computeCartDerived(items, []),
         });
       },
-      deleteOrUpdateItem: (item, quantity) => {
+      addOrUpdateItem: (item, quantity) => {
         const { items, selectedSkuIds } = get();
         const newItems = [...items];
         let newSelectedIds = [...selectedSkuIds];
@@ -161,6 +169,7 @@ const createCartStoreCreator =
           } else {
             newItems[existingItemIndex] = {
               ...newItems[existingItemIndex],
+              ...item,
               quantity,
             };
           }

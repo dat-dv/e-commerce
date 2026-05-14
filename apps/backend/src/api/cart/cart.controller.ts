@@ -16,10 +16,9 @@ class AddToCartDto {
   @IsString()
   sku_id: string;
 
-  @ApiProperty({ example: 1, description: 'Quantity' })
+  @ApiProperty({ example: 1, description: 'Quantity (can be negative for decrease)' })
   @IsNotEmpty()
   @IsNumber()
-  @Min(1)
   quantity: number;
 }
 

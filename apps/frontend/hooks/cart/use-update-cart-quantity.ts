@@ -7,23 +7,31 @@ import { useCartStore } from "./use-cart-store";
 
 export const useUpdateCartQuantity = () => {
   const user = useAuthStore((s) => s.user);
-  const _updateQuantity = useCartStore((s) => s.updateQuantity);
+  const _addOrUpdateItem = useCartStore((s) => s.addOrUpdateItem);
+  const currentItems = useCartStore((s) => s.items);
 
   return useCallback(
     async (item: TCartItem, quantity: number) => {
+      // Get fresh state to know what to revert to
+      const existingItem = currentItems.find((i) => i.sku_id === item.sku_id);
+      const previousQuantity = existingItem?.quantity || item.quantity;
+
       try {
+        // Optimistic update
+        _addOrUpdateItem(item, quantity);
+
         if (user) {
           await cartUseCase.updateItem.execute({
             id: item.id,
             quantity,
           });
         }
-        _updateQuantity(item.sku_id, quantity);
       } catch (err) {
+        // Revert on error
+        _addOrUpdateItem(item, previousQuantity);
         toast.error("Failed to update quantity");
-        throw err;
       }
     },
-    [user, _updateQuantity],
+    [user, _addOrUpdateItem, currentItems],
   );
 };

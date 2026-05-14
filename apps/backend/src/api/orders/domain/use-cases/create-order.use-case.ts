@@ -2,7 +2,6 @@ import { Injectable, Inject, BadRequestException } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { OrderStatus } from '../entities/order-status.enum';
 
 interface IOrderItemInput {
   sku_id: string;
@@ -24,7 +23,7 @@ export class CreateOrderUseCase {
   async execute(userId: string, data: { cartItemIds: string[]; shippingAddressId?: string; promoCode?: string }) {
     const { cartItemIds, shippingAddressId, promoCode } = data;
 
-    // 0. Xác định địa chỉ giao hàng
+    // Prioritize provided shipping address or fallback to default to ensure deliverability
     let finalShippingAddressId = shippingAddressId;
     if (!finalShippingAddressId) {
       const defaultAddress = await this.prisma.shippingAddress.findFirst({
@@ -44,9 +43,9 @@ export class CreateOrderUseCase {
     }
 
     return await this.prisma.$transaction(async (tx) => {
-      // 1. Lấy giỏ hàng và lọc các items được chọn
+      // Isolate selected items and verify the user's intent matches their current cart state
       const cart = await this.cartRepository.getCart(userId);
-      if (!cart || cart.items.length === 0) {
+      if (!cart || !cart.items || cart.items.length === 0) {
         throw new BadRequestException('Cart is empty');
       }
 
@@ -59,9 +58,9 @@ export class CreateOrderUseCase {
       let subTotal = 0;
       const orderItems: IOrderItemInput[] = [];
 
-      // 2. Xử lý từng item trong các item được chọn
+      // Process each item to lock in pricing and decrement inventory to prevent overselling
       for (const cartItem of selectedItems) {
-        // Kiểm tra xem SKU có đang trong Flash Sale không
+        // Check for active flash sale participation to apply promotional pricing and specific stock pools
         const flashSaleProduct = await tx.flashSaleProduct.findFirst({
           where: {
             sku_id: cartItem.sku_id,
@@ -80,14 +79,14 @@ export class CreateOrderUseCase {
         let flashSaleId: string | undefined = undefined;
 
         if (flashSaleProduct) {
-          // A. Có Flash Sale và còn hàng
+          // Handle flash sale inventory locking
           if (flashSaleProduct.stock < cartItem.quantity) {
             throw new BadRequestException(
               `Insufficient flash sale stock for SKU ${flashSaleProduct.sku.sku_code} (only ${flashSaleProduct.stock} units left)`,
             );
           }
 
-          // Kiểm tra tồn kho thực tế của SKU
+          // Verify physical warehouse stock can accommodate the flash sale allocation
           if (flashSaleProduct.sku.stock < cartItem.quantity) {
             throw new BadRequestException(`Product ${flashSaleProduct.sku.sku_code} is out of stock in warehouse`);
           }
@@ -95,7 +94,7 @@ export class CreateOrderUseCase {
           finalPrice = flashSaleProduct.sale_price;
           flashSaleId = flashSaleProduct.id;
 
-          // Cập nhật tồn kho Flash Sale
+          // Decrement flash sale pool
           await tx.flashSaleProduct.update({
             where: { id: flashSaleProduct.id },
             data: {
@@ -104,13 +103,13 @@ export class CreateOrderUseCase {
             },
           });
 
-          // Cập nhật tồn kho tổng của SKU
+          // Synchronize total SKU stock to reflect global availability
           await tx.sku.update({
             where: { id: cartItem.sku_id },
             data: { stock: { decrement: cartItem.quantity } },
           });
         } else {
-          // B. Không có Flash Sale hoặc hết hàng Flash Sale -> Dùng giá gốc
+          // Fallback to standard pricing and inventory when no flash sale is applicable
           const sku = await tx.sku.findUnique({
             where: { id: cartItem.sku_id },
           });
@@ -125,7 +124,7 @@ export class CreateOrderUseCase {
 
           finalPrice = sku.price;
 
-          // Cập nhật tồn kho tổng của SKU
+          // Lock inventory at the standard SKU level
           await tx.sku.update({
             where: { id: cartItem.sku_id },
             data: { stock: { decrement: cartItem.quantity } },
@@ -141,7 +140,7 @@ export class CreateOrderUseCase {
         });
       }
 
-      // 2.5. Áp dụng Coupon nếu có
+      // Apply promotional codes and validate usage limits/expiration
       let discountAmount = 0;
       let appliedCouponId: string | undefined = undefined;
 
@@ -166,7 +165,7 @@ export class CreateOrderUseCase {
           throw new BadRequestException('Promo code usage limit reached');
         }
 
-        // Tính toán discount
+        // Apply discount based on type (percentage vs fixed)
         if (coupon.discount_type === 0) {
           // PERCENTAGE
           discountAmount = (subTotal * coupon.discount_value) / 100;
@@ -178,14 +177,14 @@ export class CreateOrderUseCase {
           discountAmount = coupon.discount_value;
         }
 
-        // Không cho phép discount > subTotal
+        // Cap discount at subtotal to prevent negative order totals
         if (discountAmount > subTotal) {
           discountAmount = subTotal;
         }
 
         appliedCouponId = coupon.id;
 
-        // Cập nhật số lần sử dụng coupon
+        // Record coupon usage to enforce limits
         await tx.coupon.update({
           where: { id: coupon.id },
           data: { used_count: { increment: 1 } },
@@ -194,7 +193,7 @@ export class CreateOrderUseCase {
 
       const totalAmount = subTotal - discountAmount;
 
-      // 3. Tạo đơn hàng
+      // Finalize the order record in the database
       const order = await this.ordersRepository.createOrder({
         user_id: userId,
         total_amount: totalAmount,
@@ -209,7 +208,7 @@ export class CreateOrderUseCase {
         })),
       });
 
-      // 4. Xóa các cart items đã mua
+      // Evict purchased items from the cart to synchronize session state
       await tx.cartItem.deleteMany({
         where: { id: { in: cartItemIds } },
       });

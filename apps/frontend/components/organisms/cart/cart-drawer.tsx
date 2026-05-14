@@ -1,8 +1,9 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
-import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ShoppingBag,
@@ -16,11 +17,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 
+const DISABLED_EDIT_ROUTES: string[] = [APP_ROUTES.CHECKOUT];
+
 export const CartDrawer = () => {
+  const pathname = usePathname();
   const { items, subtotal, setIsOpen, isOpen } = useCart();
 
+  const isCheckoutPage = DISABLED_EDIT_ROUTES.includes(pathname);
+
+  const addItem = useAddToCart();
   const { removeItem } = useRemoveFromCart();
-  const updateQuantity = useUpdateCartQuantity();
 
   return (
     <AnimatePresence>
@@ -130,38 +136,39 @@ export const CartDrawer = () => {
                             </div>
 
                             {/* Modern Quantity Control */}
-                            <div className="flex items-center gap-1 bg-content/[0.03] p-1 rounded-xl border border-content/5">
-                              <button
-                                onClick={() =>
-                                  updateQuantity(
-                                    item,
-                                    Math.max(1, item.quantity - 1),
-                                  )
-                                }
-                                className="w-6 h-6 flex items-center justify-center rounded-lg hover:bg-surface transition-colors"
-                              >
-                                <Minus size={12} />
-                              </button>
-                              <span className="w-8 text-center text-xs font-black">
-                                {item.quantity}
-                              </span>
-                              <button
-                                onClick={() =>
-                                  updateQuantity(item, item.quantity + 1)
-                                }
-                                className="w-6 h-6 flex items-center justify-center rounded-lg hover:bg-surface transition-colors"
-                              >
-                                <Plus size={12} />
-                              </button>
-                            </div>
+                            {!isCheckoutPage ? (
+                              <div className="flex items-center gap-1 bg-content/[0.03] p-1 rounded-xl border border-content/5">
+                                <button
+                                  onClick={() => addItem(item, -1)}
+                                  className="w-6 h-6 flex items-center justify-center rounded-lg hover:bg-surface transition-colors"
+                                >
+                                  <Minus size={12} />
+                                </button>
+                                <span className="w-8 text-center text-xs font-black">
+                                  {item.quantity}
+                                </span>
+                                <button
+                                  onClick={() => addItem(item, 1)}
+                                  className="w-6 h-6 flex items-center justify-center rounded-lg hover:bg-surface transition-colors"
+                                >
+                                  <Plus size={12} />
+                                </button>
+                              </div>
+                            ) : (
+                              <div className="text-[10px] uppercase tracking-[0.2em] font-black text-content/30 bg-content/[0.02] px-3 py-1.5 rounded-lg border border-content/5 inline-block italic">
+                                Quantity: {item.quantity}
+                              </div>
+                            )}
                           </div>
 
-                          <button
-                            onClick={() => removeItem(item)}
-                            className="p-3 text-content/20 hover:text-red-500 hover:bg-red-500/10 rounded-xl transition-all"
-                          >
-                            <Trash2 size={16} />
-                          </button>
+                          {!isCheckoutPage && (
+                            <button
+                              onClick={() => removeItem(item)}
+                              className="p-3 text-content/20 hover:text-red-500 hover:bg-red-500/10 rounded-xl transition-all"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          )}
                         </div>
                       </div>
                     </motion.div>
@@ -172,48 +179,51 @@ export const CartDrawer = () => {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="p-8 bg-content/[0.02] border-t border-content/10 relative">
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-[0.4em] font-black text-content/30 mb-1 block">
-                      Subtotal
+              <div className="p-6 bg-content/[0.02] border-t border-content/10 relative">
+                <div className="flex items-end justify-between mb-6">
+                  <div className="space-y-1">
+                    <span className="text-[9px] uppercase tracking-[0.3em] font-black text-content/30 block">
+                      Total Sum
                     </span>
-                    <div className="text-3xl font-black tracking-tighter text-primary leading-none">
+                    <div className="text-2xl font-black tracking-tighter text-primary leading-none">
                       ${subtotal.toLocaleString()}
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-[9px] uppercase tracking-[0.2em] font-black text-content/30">
-                      Standard Shipping
-                    </span>
-                    <div className="text-sm font-bold uppercase tracking-widest text-green-500">
-                      FREE
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-green-500">
+                      FREE SHIPPING
                     </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Link
-                      href={APP_ROUTES.CHECKOUT}
-                      onClick={() => setIsOpen(false)}
-                      className="w-full h-16 flex items-center justify-center bg-content text-surface rounded-2xl font-black text-sm uppercase tracking-[0.3em] shadow-2xl shadow-content/30 hover:bg-primary hover:text-primary-foreground transition-all group"
+                <div className="space-y-3">
+                  {!isCheckoutPage ? (
+                    <motion.div
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
                     >
-                      Begin Checkout
-                      <ChevronRight
-                        size={18}
-                        className="ml-2 group-hover:translate-x-1 transition-transform"
-                      />
-                    </Link>
-                  </motion.div>
+                      <Link
+                        href={APP_ROUTES.CHECKOUT}
+                        onClick={() => setIsOpen(false)}
+                        className="w-full h-14 flex items-center justify-center bg-content text-surface rounded-xl font-black text-xs uppercase tracking-[0.3em] shadow-xl shadow-content/20 hover:bg-primary hover:text-primary-foreground transition-all group"
+                      >
+                        Begin Checkout
+                        <ChevronRight
+                          size={16}
+                          className="ml-2 group-hover:translate-x-1 transition-transform"
+                        />
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <div className="w-full h-14 flex items-center justify-center bg-content/[0.05] text-content/40 rounded-xl font-black text-[9px] uppercase tracking-[0.4em] border border-content/10 italic">
+                      Finalizing Order
+                    </div>
+                  )}
 
                   <Link
                     href={APP_ROUTES.CART}
                     onClick={() => setIsOpen(false)}
-                    className="w-full py-4 text-center text-[11px] uppercase tracking-[0.2em] font-black text-content/40 hover:text-content transition-colors"
+                    className="w-full block text-center text-[10px] uppercase tracking-[0.2em] font-black text-content/30 hover:text-content transition-colors pt-1"
                   >
                     View Full Details
                   </Link>

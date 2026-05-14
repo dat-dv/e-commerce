@@ -8,37 +8,43 @@ import { useCartStore } from "./use-cart-store";
 export const useRemoveFromCart = () => {
   const user = useAuthStore((s) => s.user);
   const _removeItem = useCartStore((s) => s.removeItem);
+  const _addOrUpdateItem = useCartStore((s) => s.addOrUpdateItem);
 
   const removeItem = useCallback(
     async (item: TCartItem) => {
       try {
+        _removeItem(item.sku_id);
+
         if (user) {
           await cartUseCase.removeItem.execute(item.id);
         }
-        _removeItem(item.sku_id);
       } catch (err) {
+        _addOrUpdateItem(item, item.quantity);
         toast.error("Failed to remove item");
-        throw err;
       }
     },
-    [user, _removeItem],
+    [user, _removeItem, _addOrUpdateItem],
   );
 
   const removeItems = useCallback(
     async (items: TCartItem[]) => {
+      const previousItems = [...items];
       try {
+        // Optimistic remove all
+        items.forEach((item) => _removeItem(item.sku_id));
+
         if (user) {
           await Promise.all(
             items.map((item) => cartUseCase.removeItem.execute(item.id)),
           );
         }
-        items.forEach((item) => _removeItem(item.sku_id));
       } catch (err) {
+        // Revert: put all items back
+        previousItems.forEach((item) => _addOrUpdateItem(item, item.quantity));
         toast.error("Failed to remove items");
-        throw err;
       }
     },
-    [user, _removeItem],
+    [user, _removeItem, _addOrUpdateItem],
   );
 
   return { removeItem, removeItems };

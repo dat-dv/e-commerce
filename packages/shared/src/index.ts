@@ -3,6 +3,8 @@ export * from "./brand";
 export * from "./product";
 export * from "./flash-sale";
 export * from "./user";
+export * from "./cart";
+
 export * from "./role";
 export * from "./permission";
 export * from "./product-category";

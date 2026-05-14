@@ -9,6 +9,12 @@ export class RemoveFromCartUseCase {
   ) {}
 
   async execute(itemId: string) {
+    const item = await this.cartRepository.findItemById(itemId);
+
+    if (!item) {
+      return null;
+    }
+
     return this.cartRepository.removeItem(itemId);
   }
 }
