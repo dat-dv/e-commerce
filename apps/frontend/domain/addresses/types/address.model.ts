@@ -8,6 +8,11 @@ export interface TAddress {
   district: string;
   ward: string;
   street: string;
+  country: string;
+  postalCode: string;
+  latitude: number;
+  longitude: number;
+  label: EShippingAddressLabels;
   isDefault: boolean;
 }
 

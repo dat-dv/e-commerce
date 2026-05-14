@@ -16,7 +16,7 @@ import { useConfig } from "@/hooks/config/use-config";
 export const HomepagePrivate = () => {
   const user = useAuthStore((state) => state.user);
   const sections = useProductsStore((state) => state.sections);
-  const { treeCategories: categories, fetchMore, pagination } = useCategories();
+  const { treeCategories: categories } = useCategories();
   const { language: lang } = useConfig();
 
   return (
@@ -32,13 +32,7 @@ export const HomepagePrivate = () => {
         <FeatureGrid items={FEATURE_ITEMS} />
 
         {/* Categories Section */}
-        <CategoriesSection
-          categories={categories}
-          lang={lang}
-          onLoadMore={fetchMore}
-          total={pagination?.total}
-          current={categories.length}
-        />
+        <CategoriesSection categories={categories} lang={lang} />
 
         {/* 3. Dynamic Backend Sections */}
         <DynamicSections sections={sections} />

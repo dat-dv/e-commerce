@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ShoppingBag } from "lucide-react";
+import { Banknote, ShoppingBag } from "lucide-react";
 import { cn } from "@/utils/cn";
 import Button from "@/components/atoms/button";
 
@@ -81,19 +81,7 @@ export const OrderSummary = ({
                   Payment method
                 </span>
               </div>
-              <div className="p-4 rounded-2xl bg-content/[0.03] border border-content/5 flex items-center gap-4">
-                <div className="w-10 h-6 bg-content/5 rounded flex items-center justify-center border border-content/10">
-                  <div className="w-4 h-4 rounded-full bg-primary/20 shrink-0" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm text-content">
-                    Cash on Delivery
-                  </div>
-                  <div className="text-xs text-content/40 mt-0.5">
-                    Pay on receipt
-                  </div>
-                </div>
-              </div>
+              <div className="text-xs text-content/60">Cash on Delivery</div>
             </div>
 
             <div className="flex justify-between items-end">
@@ -101,7 +89,7 @@ export const OrderSummary = ({
                 <span className="text-xs font-semibold text-content capitalize mb-1">
                   Grand Total
                 </span>
-                <span className="text-4xl font-black tracking-tighter">
+                <span className="text-3xl font-bold tracking-tight">
                   ${totalAmount.toLocaleString()}
                 </span>
               </div>
@@ -113,10 +101,10 @@ export const OrderSummary = ({
             disabled={loading || isItemsEmpty}
             loading={loading}
             className={cn(
-              "w-full py-7 rounded-2xl font-black text-[12px] uppercase tracking-[0.3em] transition-all relative overflow-hidden",
+              "w-full py-6 rounded-2xl font-semibold text-[11px] uppercase tracking-[0.3em] transition-all relative overflow-hidden",
               loading || isItemsEmpty
                 ? "bg-content/5 text-content/20 cursor-not-allowed"
-                : "bg-content text-surface hover:bg-primary transition-colors shadow-2xl shadow-content/10",
+                : "bg-primary text-surface hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/20",
             )}
           >
             {loading ? "Processing Order..." : "Complete Purchase"}

@@ -25,7 +25,7 @@ if (typeof window !== "undefined") {
 }
 
 interface MapComponentProps {
-  onPick: (address: string) => void;
+  onPick: (address: string, lat?: number, lng?: number) => void;
   setLoading: (loading: boolean) => void;
   center?: [number, number];
 }
@@ -104,7 +104,7 @@ export default function MapComponent({
         `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`,
       );
       const data = await res.json();
-      onPick(data.display_name || "Unknown Address");
+      onPick(data.display_name || "Unknown Address", lat, lng);
     } catch (error) {
       console.error(error);
     } finally {

@@ -5,6 +5,7 @@ import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { useMapPicker } from "@/hooks/addresses/use-map-picker";
 
 const MapComponent = dynamic(
   () => import("@/components/molecules/profile-form/map-component"),
@@ -14,14 +15,7 @@ const MapComponent = dynamic(
 interface MapPickerModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onPick: (address: string) => void;
-}
-
-interface NominatimResult {
-  place_id: number;
-  lat: string;
-  lon: string;
-  display_name: string;
+  onPick: (address: string, coord?: { lat: number; lng: number }) => void;
 }
 
 export default function MapPickerModal({
@@ -29,85 +23,31 @@ export default function MapPickerModal({
   onClose,
   onPick,
 }: MapPickerModalProps) {
-  const [address, setAddress] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [suggestions, setSuggestions] = useState<NominatimResult[]>([]);
-  const [mapCenter, setMapCenter] = useState<[number, number] | undefined>(
-    undefined,
-  );
-
-  const handlePickAddress = (newAddress: string) => {
-    setAddress(newAddress);
-    setSearchQuery(newAddress);
-    setSuggestions([]);
-  };
-
-  const handleSetLoading = (val: boolean) => {
-    setLoading(val);
-  };
-
-  const fetchSuggestions = async (query: string) => {
-    try {
-      const res = await fetch(
-        `https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lang=en`,
-      );
-      const data = await res.json();
-
-      interface PhotonFeature {
-        properties: {
-          osm_id: number;
-          name?: string;
-          street?: string;
-          city?: string;
-          country?: string;
-        };
-        geometry: {
-          coordinates: [number, number];
-        };
-      }
-
-      // Photon returns GeoJSON, we map it to fit our NominatimResult interface
-      const formatted = data.features.map((feat: PhotonFeature) => ({
-        place_id: feat.properties.osm_id,
-        lat: feat.geometry.coordinates[1].toString(),
-        lon: feat.geometry.coordinates[0].toString(),
-        display_name: [
-          feat.properties.name,
-          feat.properties.street,
-          feat.properties.city,
-          feat.properties.country,
-        ]
-          .filter(Boolean)
-          .join(", "),
-      }));
-
-      setSuggestions(formatted);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const {
+    address,
+    loading,
+    searchQuery,
+    suggestions,
+    mapCenter,
+    mapCoords,
+    setSearchQuery,
+    setLoading,
+    fetchSuggestions,
+    selectSuggestion,
+    updateLocation,
+  } = useMapPicker();
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (searchQuery.length > 2 && searchQuery !== address) {
         fetchSuggestions(searchQuery);
       } else {
-        setSuggestions([]);
+        // We don't clear suggestions here if we want them to stay while typing
       }
     }, 500);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchQuery, address]);
-
-  const handleSelectSuggestion = (item: NominatimResult) => {
-    const lat = parseFloat(item.lat);
-    const lon = parseFloat(item.lon);
-    setMapCenter([lat, lon]);
-    setAddress(item.display_name);
-    setSuggestions([]);
-    setSearchQuery(item.display_name);
-  };
+  }, [searchQuery, address, fetchSuggestions]);
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-[100]">
@@ -136,8 +76,8 @@ export default function MapPickerModal({
 
           <div className="h-[400px] w-full rounded-2xl overflow-hidden border border-content/10 mb-4">
             <MapComponent
-              onPick={handlePickAddress}
-              setLoading={handleSetLoading}
+              onPick={updateLocation}
+              setLoading={setLoading}
               center={mapCenter}
             />
           </div>
@@ -161,7 +101,7 @@ export default function MapPickerModal({
                       <div
                         key={item.place_id}
                         className="px-4 py-3 hover:bg-primary/5 cursor-pointer text-sm border-b border-content/5 last:border-b-0 transition-colors"
-                        onClick={() => handleSelectSuggestion(item)}
+                        onClick={() => selectSuggestion(item)}
                       >
                         {item.display_name}
                       </div>
@@ -178,7 +118,7 @@ export default function MapPickerModal({
               <Button
                 variant="primary"
                 onClick={() => {
-                  onPick(address);
+                  onPick(address, mapCoords);
                   onClose();
                 }}
                 disabled={!address || loading}

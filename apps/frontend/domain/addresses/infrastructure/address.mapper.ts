@@ -9,6 +9,9 @@ export interface IAddressDTO {
   state: string;
   country: string;
   postal_code: string;
+  latitude: number;
+  longitude: number;
+  label: number;
   is_default: boolean;
 }
 
@@ -22,6 +25,11 @@ export class AddressMapper {
       district: dto.city,
       ward: "",
       street: dto.street,
+      country: dto.country,
+      postalCode: dto.postal_code,
+      latitude: dto.latitude,
+      longitude: dto.longitude,
+      label: dto.label,
       isDefault: dto.is_default,
     };
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapPin } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import { cn } from "@/utils/cn";
@@ -21,19 +21,57 @@ export const FormMapPicker = ({
   disabled,
 }: FormMapPickerProps) => {
   const [mapOpen, setMapOpen] = useState(false);
-  const [mapAddressStr, setMapAddressStr] = useState("");
   const {
     setValue,
+    watch,
     formState: { errors },
   } = useFormContext();
+
+  const lat = watch(nameLat);
+  const lng = watch(nameLng);
+  const hasCoord =
+    typeof lat === "number" &&
+    typeof lng === "number" &&
+    lat !== 0 &&
+    lng !== 0;
+
+  const [pickedAddress, setPickedAddress] = useState("");
+  const [resolving, setResolving] = useState(false);
+
+  useEffect(() => {
+    if (hasCoord && !pickedAddress && !resolving) {
+      const resolveAddress = async () => {
+        setResolving(true);
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`,
+          );
+          const data = await res.json();
+          if (data.display_name) {
+            setPickedAddress(data.display_name);
+          }
+        } catch (error) {
+          console.error("Failed to resolve address:", error);
+        } finally {
+          setResolving(false);
+        }
+      };
+      resolveAddress();
+    }
+  }, [hasCoord, lat, lng, pickedAddress, resolving]);
+
+  const displayValue = resolving
+    ? "Resolving location..."
+    : pickedAddress || (hasCoord ? `${lat.toFixed(4)}, ${lng.toFixed(4)}` : "");
+
   const error = errors[nameLat] || errors[nameLng];
 
   const handlePickAddress = (
     address: string,
     coord?: { lat: number; lng: number },
   ) => {
-    setMapAddressStr(address);
-    const finalCoord = coord || { lat: 1, lng: 1 };
+    setPickedAddress(address);
+    const finalCoord = coord || { lat: 0, lng: 0 };
     setValue(nameLat, finalCoord.lat, {
       shouldValidate: true,
       shouldDirty: true,
@@ -53,7 +91,7 @@ export const FormMapPicker = ({
         onClick={() => !disabled && setMapOpen(true)}
         className={cn(
           "p-3 border rounded-xl cursor-pointer flex justify-between items-center",
-          mapAddressStr
+          displayValue
             ? "border-primary/20 bg-primary/5"
             : "border-content/10 bg-white",
           disabled && "cursor-not-allowed opacity-50",
@@ -64,14 +102,14 @@ export const FormMapPicker = ({
           <span
             className={cn(
               "text-sm truncate",
-              !mapAddressStr && "text-content/40",
+              !displayValue && "text-content/40",
             )}
           >
-            {mapAddressStr || "Click to pick address on map"}
+            {displayValue || "Click to pick address on map"}
           </span>
         </div>
         <span className="text-xs text-primary font-medium">
-          {mapAddressStr ? "Change" : "Select"}
+          {displayValue ? "Change" : "Select"}
         </span>
       </div>
 

@@ -30,9 +30,14 @@ export const AddAddressModal = ({
     ? {
         receiver_name: editingAddress.name,
         receiver_phone: editingAddress.phone,
+        label: editingAddress.label,
         state: editingAddress.province,
         city: editingAddress.district,
         street: editingAddress.street,
+        country: editingAddress.country,
+        postal_code: editingAddress.postalCode,
+        latitude: editingAddress.latitude,
+        longitude: editingAddress.longitude,
         is_default: editingAddress.isDefault,
       }
     : undefined;
