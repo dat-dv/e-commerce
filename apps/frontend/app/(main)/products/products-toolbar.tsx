@@ -11,19 +11,19 @@ import {
 import { Dropdown } from "@/components/molecules/dropdown";
 import { EProductSort } from "@ecommerce/shared";
 
-interface ProductsToolbarProps {
+interface IListingProductsToolbarProps {
   total: number;
   currentPage: number;
   totalPages: number;
   isLoading?: boolean;
 }
 
-export function ProductsToolbar({
+export function ListingProductsToolbar({
   total,
   currentPage,
   totalPages,
   isLoading = false,
-}: ProductsToolbarProps) {
+}: IListingProductsToolbarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -57,7 +57,7 @@ export function ProductsToolbar({
     sortOptions[0];
 
   return (
-    <div className="relative z-30 bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl rounded-2xl p-4 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]">
+    <div className="relative z-30 bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl rounded-2xl p-3 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]">
       {/* Left side: Info & Pagination */}
       <div className="flex items-center justify-between w-full md:w-auto gap-4">
         <div className="text-sm font-medium text-content/70">
@@ -71,12 +71,12 @@ export function ProductsToolbar({
             whileTap={{ scale: 0.95 }}
             onClick={() => updatePage(currentPage - 1)}
             disabled={currentPage <= 1}
-            className="p-2 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors"
+            className="p-1.5 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors"
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={14} />
           </motion.button>
 
-          <span className="text-xs font-semibold px-2 text-content/70">
+          <span className="text-[11px] font-semibold px-1 text-content/70">
             {currentPage} <span className="text-content/30">/</span>{" "}
             {totalPages}
           </span>
@@ -86,9 +86,9 @@ export function ProductsToolbar({
             whileTap={{ scale: 0.95 }}
             onClick={() => updatePage(currentPage + 1)}
             disabled={currentPage >= totalPages}
-            className="p-2 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors"
+            className="p-1.5 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors"
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={14} />
           </motion.button>
         </div>
       </div>
@@ -96,8 +96,8 @@ export function ProductsToolbar({
       {/* Right side: Sort Options */}
       <div className="flex items-center gap-3 w-full md:w-auto">
         <div className="hidden md:flex items-center gap-2 text-content/40 mr-2">
-          <SlidersHorizontal size={14} />
-          <span className="text-[10px] font-bold uppercase tracking-widest">
+          <SlidersHorizontal size={12} />
+          <span className="text-[9px] font-bold uppercase tracking-widest">
             Sort By
           </span>
         </div>
@@ -106,21 +106,21 @@ export function ProductsToolbar({
           trigger={
             <button
               disabled={isLoading}
-              className="flex items-center gap-3 px-4 py-2.5 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-2xl transition-all group min-w-[180px] justify-between disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-3 px-3.5 py-2 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-xl transition-all group min-w-[160px] justify-between disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span className="text-xs font-bold text-content/70 group-hover:text-content">
+              <span className="text-[11px] font-bold text-content/70 group-hover:text-content">
                 {isLoading ? "Loading..." : currentSortOption.label}
               </span>
               <ChevronDown
-                size={14}
+                size={12}
                 className="text-content/30 group-hover:text-content transition-colors"
               />
             </button>
           }
         >
-          <div className="flex flex-col gap-1 min-w-[220px]">
-            <div className="px-3 py-2 mb-1 border-b border-content/[0.05]">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-content/30">
+          <div className="flex flex-col gap-0.5 min-w-[200px]">
+            <div className="px-3 py-1.5 mb-0.5 border-b border-content/[0.05]">
+              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-content/30">
                 Sort Products By
               </span>
             </div>
@@ -128,9 +128,9 @@ export function ProductsToolbar({
               <button
                 key={option.value}
                 onClick={() => updateSort(option.value.toString())}
-                className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-bold transition-all ${
+                className={`flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-bold transition-all ${
                   currentSort === option.value.toString()
-                    ? "bg-primary text-white shadow-lg shadow-primary/25"
+                    ? "bg-primary text-white shadow-md shadow-primary/20"
                     : "text-content/60 hover:text-content hover:bg-content/5"
                 }`}
               >
@@ -138,7 +138,7 @@ export function ProductsToolbar({
                 {currentSort === option.value.toString() && (
                   <motion.div
                     layoutId="active-sort"
-                    className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                    className="w-1 h-1 rounded-full bg-white"
                   />
                 )}
               </button>
@@ -150,4 +150,4 @@ export function ProductsToolbar({
   );
 }
 
-export default ProductsToolbar;
+export default ListingProductsToolbar;

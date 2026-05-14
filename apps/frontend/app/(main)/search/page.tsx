@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { allSafe } from "@/utils/promise";
 import NotFound from "@/app/not-found";
 import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
@@ -29,7 +28,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
   const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;
 
-  const [productsRes, categoriesRes] = await allSafe([
+  const [productsRes] = await allSafe([
     productsUseCase.getProducts.execute({
       page,
       limit,
@@ -38,17 +37,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       min_price,
       max_price,
     }),
-    categoriesUseCase.getTree.execute(),
   ]);
 
-  if (!productsRes || !categoriesRes) return <NotFound />;
+  if (!productsRes) return <NotFound />;
 
   const products =
     productsRes.status === "success" ? productsRes.data?.items || [] : [];
   const total =
     productsRes.status === "success" ? productsRes.data?.meta.total || 0 : 0;
-  const categories =
-    categoriesRes.status === "success" ? categoriesRes.data || [] : [];
 
   return (
     <ProductsPageProvider
@@ -66,7 +62,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         max_price,
       }}
     >
-      <SearchView categories={categories} searchQuery={query} />
+      <SearchView searchQuery={query} />
     </ProductsPageProvider>
   );
 }

@@ -3,7 +3,9 @@ import { productsUseCase } from "@/domain/products/use-cases";
 import { useProductsPageStore } from "./use-products-page-store";
 
 export const useProductsAdapter = () => {
-  const { setProducts, setLoading } = useProductsPageStore((state) => state);
+  const { setProducts, setLoading, setPage } = useProductsPageStore(
+    (state) => state,
+  );
 
   const fetchProducts = useCallback(
     async (params: {
@@ -22,13 +24,16 @@ export const useProductsAdapter = () => {
           listData.meta.total,
           listData.meta.totalPages,
         );
+        if (params.page) {
+          setPage(params.page);
+        }
       } catch (error) {
         console.error("Failed to fetch products in adapter:", error);
       } finally {
         setLoading(false);
       }
     },
-    [setProducts, setLoading],
+    [setProducts, setLoading, setPage],
   );
 
   return { fetchProducts };

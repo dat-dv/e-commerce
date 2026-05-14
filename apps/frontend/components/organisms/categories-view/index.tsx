@@ -1,19 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { TCategory } from "@/domain/categories/types/categories.model";
 import AppContainer from "@/components/atoms/app-container";
 import { CategoriesSidebar } from "./sidebar";
 import { CategoriesContent } from "./content";
+import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 
-export interface CategoriesViewProps {
-  initialTree: TCategory[];
-}
+export interface CategoriesViewProps {}
 
-export const CategoriesView = ({ initialTree }: CategoriesViewProps) => {
+export const CategoriesView = ({}: CategoriesViewProps) => {
+  const categoriesTree = useCategoriesStore((s) => s.categories);
   const [activeId, setActiveId] = useState<string>("all");
 
-  const activeCategory = initialTree.find((cat) => cat.id === activeId);
+  const activeCategory = categoriesTree.find((cat) => cat.id === activeId);
 
   const title = activeCategory ? activeCategory.name : "All Categories";
   const description = activeCategory
@@ -21,12 +20,12 @@ export const CategoriesView = ({ initialTree }: CategoriesViewProps) => {
     : "Explore all our product categories.";
   const categories = activeCategory
     ? activeCategory.children || []
-    : initialTree;
+    : categoriesTree;
 
   return (
     <AppContainer className="py-10 flex gap-8">
       <CategoriesSidebar
-        categories={initialTree}
+        categories={categoriesTree}
         activeId={activeId}
         setActiveId={setActiveId}
       />

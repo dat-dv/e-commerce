@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
 import { ProductsView } from "@/components/organisms/products-view";
 import { allSafe } from "@/utils/promise";
@@ -36,7 +35,7 @@ export default async function CategoryProductsPage({
   const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
   const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;
 
-  const [productsRes, categoriesRes] = await allSafe([
+  const [productsRes] = await allSafe([
     productsUseCase.getProducts.execute({
       page,
       limit,
@@ -47,10 +46,9 @@ export default async function CategoryProductsPage({
       max_price,
       search,
     }),
-    categoriesUseCase.getTree.execute(),
   ]);
 
-  if (!productsRes || !categoriesRes) {
+  if (!productsRes) {
     return <NotFound />;
   }
 
@@ -58,8 +56,6 @@ export default async function CategoryProductsPage({
     productsRes.status === "success" ? productsRes.data?.items || [] : [];
   const total =
     productsRes.status === "success" ? productsRes.data?.meta.total || 0 : 0;
-  const categories =
-    categoriesRes.status === "success" ? categoriesRes.data || [] : [];
 
   return (
     <ProductsPageProvider
@@ -77,7 +73,7 @@ export default async function CategoryProductsPage({
         max_price,
       }}
     >
-      <ProductsView categories={categories} categorySlug={slug} />
+      <ProductsView categorySlug={slug} />
     </ProductsPageProvider>
   );
 }

@@ -4,7 +4,7 @@ import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
 import { ProductsHeader } from "@/app/(main)/products/products-header";
 import { ProductsFilterSidebar } from "./products-filter-sidebar";
-import { ProductsToolbar } from "@/app/(main)/products/products-toolbar";
+import { ListingProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { TCategory } from "@/domain/categories/types/categories.model";
@@ -14,12 +14,15 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Pagination } from "@/components/molecules/pagination";
 import { EProductSort } from "@ecommerce/shared";
 
+import { useRecommendedProducts } from "@/hooks/products/use-recommended-products";
+import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+
 interface ProductsViewProps {
-  categories: TCategory[];
   categorySlug: string;
 }
 
-export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
+export function ProductsView({ categorySlug }: ProductsViewProps) {
+  const categories = useCategoriesStore((s) => s.categories);
   const { products, total, currentPage, totalPages, loading } =
     useProductsPageStore((state) => state);
 
@@ -127,7 +130,7 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
 
         {/* Products Area */}
         <div className="lg:col-span-3">
-          <ProductsToolbar
+          <ListingProductsToolbar
             total={total}
             currentPage={currentPage}
             totalPages={totalPages}
