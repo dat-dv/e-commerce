@@ -35,7 +35,7 @@ const HeaderNav = () => {
               "relative text-sm font-bold transition-all hover:text-primary flex items-center gap-1.5",
               isActive
                 ? "text-primary"
-                : "text-content/40 hover:text-content/60",
+                : "text-content/60 hover:text-content/90",
             )}
           >
             {link.label}

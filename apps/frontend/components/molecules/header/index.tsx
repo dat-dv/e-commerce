@@ -1,3 +1,4 @@
+"use client";
 import AppContainer from "@/components/atoms/app-container";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
@@ -7,11 +8,30 @@ import HeaderLogo from "./header-logo";
 import HeaderNav from "./header-nav";
 import { Settings } from "lucide-react";
 import { GlobalSearch } from "@/components/organisms/global-search";
+import { CategoryMegaMenuContentWrapper } from "./category-mega-menu-content";
+
+import { useClickOutside } from "@/hooks/ui/use-click-outside";
+import { useHeaderStore } from "@/hooks/config/use-header-store";
+import { useRef } from "react";
 
 export default function Header() {
+  const { setIsOpenCategory, isOpenCategory } = useHeaderStore();
+  const headerRef = useRef<HTMLElement>(null);
+
+  useClickOutside(
+    headerRef,
+    () => {
+      if (isOpenCategory) setIsOpenCategory(false);
+    },
+    isOpenCategory,
+  );
+
   return (
-    <header className="sticky top-0 z-50 w-full flex flex-col border-b border-black/[.08] bg-surface/80 backdrop-blur-md">
-      <AppContainer className="flex h-16 items-center justify-between">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 w-full flex flex-col border-b border-content/10 bg-surface"
+    >
+      <AppContainer className="flex h-16 items-center justify-between relative z-20">
         <div className="flex items-center gap-4 md:gap-10">
           <HeaderLogo />
           <HeaderNav />
@@ -20,7 +40,7 @@ export default function Header() {
         <div className="flex items-center gap-0">
           <HeaderActions />
 
-          <div className="h-6 w-px bg-black/[.08] dark:bg-white/[.08] mx-2" />
+          <div className="h-6 w-px bg-content/10 mx-2" />
 
           <Link
             href={APP_ROUTES.SETTINGS}
@@ -31,6 +51,7 @@ export default function Header() {
           </Link>
         </div>
       </AppContainer>
+      <CategoryMegaMenuContentWrapper />
       <GlobalSearch />
     </header>
   );
