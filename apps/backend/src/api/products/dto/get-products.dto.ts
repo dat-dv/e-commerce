@@ -1,4 +1,5 @@
 import { IsOptional, IsString, IsInt, Min, Max, IsArray, IsEnum } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { EProductSort } from '@ecommerce/shared';
 
@@ -47,10 +48,11 @@ export class GetProductsDto {
   @IsString({ each: true })
   attribute_value_ids?: string[];
 
+  @ApiProperty({ enum: EProductSort, required: false })
   @IsOptional()
   @Type(() => Number)
   @IsEnum(EProductSort)
-  sort?: EProductSort;
+  sort?: number;
 
   @IsOptional()
   @IsString()

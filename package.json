@@ -24,6 +24,7 @@
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces",
     "type-check": "npm run type-check -w apps/frontend",
+    "db:reset": "npm run db:reset -w apps/backend",
     "format": "prettier --write ."
   },
   "devDependencies": {
