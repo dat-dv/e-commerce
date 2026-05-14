@@ -76,6 +76,7 @@ export class ProductMapper {
       skus,
       rating: dto.rating,
       sold_count: dto.sold_count,
+      review_count: dto.review_count,
     };
   }
 }

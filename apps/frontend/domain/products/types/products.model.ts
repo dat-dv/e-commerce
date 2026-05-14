@@ -6,12 +6,9 @@ export interface TSkuDomain {
   discount_percent?: number;
   image_url?: string;
   attributes?: { name: string; value: string }[];
-
-  // Dữ liệu từ bảng flash_sale_products
-  sold?: number; // tương ứng với sold_count trong DB
-  total?: number; // tương ứng với stock trong DB
-
-  // Dữ liệu từ bảng flash_sales
+  sold?: number;
+  total?: number;
+  stock?: number;
   flash_sale_start?: string;
   flash_sale_end?: string;
 }
@@ -33,13 +30,12 @@ export interface TProduct {
   image_url?: string;
   skus: TSkuDomain[];
   sold_count?: number;
+  review_count?: number;
   rating?: number;
   brand?: TBrand;
 }
 
-export interface TFlashSaleProduct extends TProduct {
-  // Có thể thêm các trường bổ sung nếu cần ở cấp độ Product
-}
+export type TFlashSaleProduct = TProduct;
 
 export interface TReview {
   id: string;

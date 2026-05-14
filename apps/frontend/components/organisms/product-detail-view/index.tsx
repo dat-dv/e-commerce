@@ -123,18 +123,17 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     fetchRecommended();
   }, [product.id]);
 
-  // Collect all available images
-  const images = [
-    product.image_url,
-    ...product.skus.map((sku) => sku.image_url).filter(Boolean),
-  ].filter((img): img is string => typeof img === "string");
+  const images = Array.from(
+    new Set(
+      [product.image_url, ...product.skus.map((sku) => sku.image_url)].filter(
+        (img): img is string => !!img && typeof img === "string",
+      ),
+    ),
+  );
 
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // Use specific dummy data or real data
-  const name =
-    product.name ||
-    "Tai nghe Bluetooth cổ điển Q86 không dây, hiệu ứng âm thanh nổi hifi, micrô tích hợp, cuộc gọi thoại độ phân giải cao";
+  const name = product.name;
   const price = selectedSku.price || 0;
   const originalPrice = selectedSku.original_price || 0;
   const discountPercent = selectedSku.discount_percent || 0;
@@ -195,6 +194,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         />
 
         <ProductInfo
+          product={product}
+          selectedSku={selectedSku}
           name={name}
           originalPrice={originalPrice}
           price={price}

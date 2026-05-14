@@ -38,7 +38,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       return;
     }
 
-    const priceNumber = sku.price;
+    const priceNumber = sku?.price || 0;
 
     addItem(
       {
@@ -55,86 +55,114 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     toast.success("Added to cart");
   };
 
-  return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group bg-content/[0.02] border border-content/[0.05] rounded-2xl overflow-hidden flex flex-col gap-3 p-3 hover:border-content/[0.1] transition-colors shadow-lg shadow-black/5"
-    >
-      {/* Product Image Placeholder hoặc Real Image */}
-      <div className="relative aspect-square bg-content/[0.02] border border-content/[0.05] rounded-xl overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-tr from-content/[0.03] to-transparent" />
+  const badgeText =
+    product.brand?.name ||
+    (product.category !== "General" ? product.category : "");
 
+  return (
+    <div className="group relative flex flex-col bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
+      {/* Image Section */}
+      <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
         {product.image_url ? (
           <Image
             src={product.image_url}
             alt={product.name}
             fill
-            className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 50vw, 20vw"
+            className="object-contain transition-transform duration-500"
           />
         ) : (
-          <span className="text-content/20 text-sm font-medium">
-            Product Image
-          </span>
-        )}
-
-        {/* Badge Giảm giá */}
-        {sku?.discount_percent && (
-          <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-lg z-10 shadow-lg shadow-red-500/20">
-            -{sku.discount_percent}%
+          <div className="text-content/20 text-[10px] font-bold uppercase tracking-widest text-center">
+            No Image
           </div>
         )}
 
-        {/* Nút Xem nhanh / Thêm vào giỏ khi Hover */}
+        {/* Action Overlay */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
-            className="p-3 bg-white text-black rounded-full hover:bg-white/90 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center"
-            title="View Details"
+            className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:bg-white/90 transition-all"
           >
-            <Eye size={20} />
+            <Eye size={18} />
           </Link>
           <button
             onClick={handleAddToCart}
-            className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75 flex items-center justify-center"
-            title="Add to Cart"
-          >
-            <ShoppingBag size={20} />
-          </button>
-        </div>
-      </div>
-
-      {/* Product Info */}
-      <div className="flex flex-col gap-1 px-1 py-1">
-        <span className="text-xs text-content/40 font-medium uppercase tracking-wider">
-          {product.category}
-        </span>
-        <h3 className="text-sm font-bold text-content hover:text-primary transition-colors line-clamp-1 mt-0.5">
-          <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
-            {product.name}
-          </Link>
-        </h3>
-        {/* Phần giá sản phẩm */}
-        <div className="flex items-center justify-between mt-1.5">
-          <div className="flex flex-col">
-            <span className="text-sm font-black text-blue-500">
-              {formatCurrency(sku?.price)}
-            </span>
-            {sku?.original_price && (
-              <span className="text-xs text-content/30 line-through mt-0.5">
-                {formatCurrency(sku.original_price)}
-              </span>
-            )}
-          </div>
-          {/* Icon giỏ hàng nhỏ cho mobile */}
-          <button
-            onClick={handleAddToCart}
-            className="text-zinc-400 hover:text-blue-500 transition-colors lg:hidden"
+            className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-all"
           >
             <ShoppingBag size={18} />
           </button>
         </div>
+
+        {/* Badges */}
+        {sku?.discount_percent && (
+          <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10 shadow-lg shadow-red-500/20">
+            -{sku.discount_percent}%
+          </div>
+        )}
       </div>
-    </motion.div>
+
+      {/* Info Section */}
+      <div className="mt-3 flex flex-col flex-grow">
+        {badgeText && (
+          <span className="text-[10px] text-content/60 font-bold uppercase tracking-widest truncate">
+            {badgeText}
+          </span>
+        )}
+
+        <h3 className="mt-1 text-sm font-bold text-content line-clamp-1 group-hover:text-blue-500 transition-colors">
+          <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
+            {product.name}
+          </Link>
+        </h3>
+
+        <div className="mt-1 flex items-center gap-2">
+          {product.rating !== undefined && product.rating > 0 && (
+            <div className="flex items-center gap-0.5 text-yellow-500 text-[10px] font-bold">
+              <span>{product.rating.toFixed(1)}</span>
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            </div>
+          )}
+          {product.sold_count !== undefined && product.sold_count > 0 && (
+            <span className="text-[10px] text-content/30">
+              Đã bán{" "}
+              {product.sold_count > 1000
+                ? `${(product.sold_count / 1000).toFixed(1)}k`
+                : product.sold_count}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-2 flex items-center justify-between">
+          <div className="flex flex-col">
+            <span className="text-base font-black text-blue-500 tracking-tight">
+              {formatCurrency(sku?.price)}
+            </span>
+            {sku?.original_price && (
+              <span className="text-[10px] text-content/30 line-through">
+                {formatCurrency(sku.original_price)}
+              </span>
+            )}
+          </div>
+
+          <button
+            onClick={handleAddToCart}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-content/20 hover:text-blue-500 hover:bg-blue-500/10 transition-all lg:hidden"
+          >
+            <ShoppingBag size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };

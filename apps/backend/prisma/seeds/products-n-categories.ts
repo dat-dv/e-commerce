@@ -115,6 +115,8 @@ function getAllJsonFiles(dir: string, baseDir: string): string[] {
 }
 
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
+  const isDevSeed = true;
+
   const seedLogsPath = path.join(process.cwd(), `seedlogs-${Date.now()}.txt`);
   fs.writeFileSync(
     seedLogsPath,
@@ -125,18 +127,11 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
   const fileName = process.argv[2];
   let filesToProcess: string[] = [];
 
-  const isDevSeed = false;
   const originalDatasetDir = path.join(__dirname, '../dataset/products');
-  const enrichedDatasetDir = path.join(__dirname, '../dataset/enriched/products');
-
   // Ưu tiên dùng thư mục đã được AI xử lý (enriched)
-  const datasetDir = fs.existsSync(enrichedDatasetDir) ? enrichedDatasetDir : originalDatasetDir;
+  const datasetDir = originalDatasetDir;
 
-  if (datasetDir === enrichedDatasetDir) {
-    console.log('✅ Đang sử dụng dữ liệu ĐÃ ĐƯỢC XỬ LÝ (Enriched) từ thư mục enriched/products');
-  } else {
-    console.log('ℹ️ Đang sử dụng dữ liệu GỐC (Original) từ thư mục products');
-  }
+  console.log('ℹ️ Đang sử dụng dữ liệu GỐC (Original) từ thư mục products');
 
   if (fileName) {
     filesToProcess.push(fileName);
@@ -269,6 +264,9 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
             thumbnail_id: thumbnail.id,
             brand_id: brandId,
             base_price: basePrice,
+            rating: p.ratings && !isNaN(parseFloat(p.ratings)) ? parseFloat(p.ratings) : 0,
+            review_count: p.no_of_ratings ? parseInt(p.no_of_ratings.replace(/[^0-9]/g, '')) || 0 : 0,
+            sold_count: Math.floor(Math.random() * 1000), // Tạm thời random sold_count vì dataset không có
             translations: {
               create: [
                 { language_id: langVi.id, name: p.name_vi, description: p.description_vi },

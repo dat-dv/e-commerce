@@ -1,10 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
+import { ProductCard } from "../../molecules/product-card";
 
 interface RecommendationsProps {
   recommendedProducts: TProduct[];
@@ -37,30 +35,7 @@ export const Recommendations = ({
           </div>
         ) : (
           recommendedProducts.map((p) => (
-            <Link
-              key={p.id}
-              href={APP_ROUTES.PRODUCT_DETAIL(p.slug)}
-              className="group cursor-pointer bg-surface border border-content/[0.05] rounded-xl p-3 shadow-sm hover:shadow-md transition-all block"
-            >
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-content/[0.02] mb-3">
-                <Image
-                  src={
-                    p.image_url ||
-                    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format"
-                  }
-                  alt={p.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-bold text-sm text-content line-clamp-1">
-                {p.name}
-              </h3>
-              <p className="text-sm font-black text-primary mt-1">
-                {Number(p.skus[0]?.price || 0).toLocaleString("vi-VN")}{" "}
-                {p.skus[0]?.unit_price || "VND"}
-              </p>
-            </Link>
+            <ProductCard key={p.id} product={p} />
           ))
         )}
       </div>

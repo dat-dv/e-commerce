@@ -18,6 +18,7 @@ export default async function ProductDetailPage({
 
   const response = await safe(productsUseCase.getProductById.execute(slug));
   const backendProduct = response?.data;
+  console.log(backendProduct);
 
   if (!backendProduct?.id) {
     return <MissingProduct />;

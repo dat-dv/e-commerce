@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 import { Star, Minus, Plus, ShoppingCart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
 
+import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
+
 interface ProductInfoProps {
+  product: TProduct;
+  selectedSku: TSkuDomain;
   name: string;
   originalPrice: number;
   price: number;
@@ -21,35 +25,35 @@ interface ProductInfoProps {
   handleBuyNow: () => void;
 }
 
-export const ProductInfo = (props: ProductInfoProps) => {
-  const {
-    name,
-    originalPrice,
-    price,
-    discountPercent,
-    rating = 0,
-    reviewsCount = 0,
-    attributeGroups,
-    selectedAttributes,
-    setSelectedAttributes,
-    quantity,
-    setQuantity,
-    handleAddToCart,
-    handleBuyNow,
-  } = props;
-
+export const ProductInfo = ({
+  product,
+  selectedSku,
+  name,
+  originalPrice,
+  price,
+  discountPercent,
+  rating = 0,
+  reviewsCount = 0,
+  attributeGroups,
+  selectedAttributes,
+  setSelectedAttributes,
+  quantity,
+  setQuantity,
+  handleAddToCart,
+  handleBuyNow,
+}: ProductInfoProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
-      className="lg:col-span-7 flex flex-col gap-5"
+      className="lg:col-span-8 flex flex-col gap-5"
     >
       {/* Product Title */}
       <h1 className="text-xl font-semibold text-content leading-snug">
         {name}
       </h1>
- 
+
       {/* Rating, Reviews, Sold & Report */}
       <div className="flex items-center justify-between text-sm border-b border-content/[0.05] pb-4">
         <div className="flex items-center gap-4 divide-x divide-content/[0.1]">
@@ -73,7 +77,9 @@ export const ProductInfo = (props: ProductInfoProps) => {
             <span className="text-content/50 text-xs">Reviews</span>
           </div>
           <div className="pl-4 flex items-center gap-1">
-            <span className="font-bold text-content">100k+</span>
+            <span className="font-bold text-content">
+              {product.sold_count || 0}
+            </span>
             <span className="text-content/50 text-xs">Sold</span>
           </div>
         </div>
@@ -154,7 +160,7 @@ export const ProductInfo = (props: ProductInfoProps) => {
           <div className="flex items-center border border-content/[0.1] rounded-lg overflow-hidden h-9">
             <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="px-3 hover:bg-content/[0.05] transition-colors border-r border-content/[0.1]"
+              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-r border-content/[0.1]"
             >
               <Minus size={12} />
             </button>
@@ -163,12 +169,16 @@ export const ProductInfo = (props: ProductInfoProps) => {
             </span>
             <button
               onClick={() => setQuantity(quantity + 1)}
-              className="px-3 hover:bg-content/[0.05] transition-colors border-l border-content/[0.1]"
+              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-l border-content/[0.1]"
             >
               <Plus size={12} />
             </button>
           </div>
-          <span className="text-sm text-content/50">5548 items available</span>
+          <span className="text-sm text-content/50">
+            {selectedSku?.stock !== undefined
+              ? `${selectedSku.stock} items available`
+              : "In Stock"}
+          </span>
         </div>
       </div>
 

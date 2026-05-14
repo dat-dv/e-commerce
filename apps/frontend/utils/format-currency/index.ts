@@ -8,7 +8,7 @@
  */
 export const formatCurrency = (
   amount: number | string | undefined | null,
-  locale = "en-US",
+  locale = "vi-VN",
   currency = "VND",
 ): string => {
   if (amount === undefined || amount === null) return "0 " + currency;

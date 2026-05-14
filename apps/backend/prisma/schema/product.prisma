@@ -7,8 +7,9 @@ model Product {
   seller_id  String? // Ai tạo sản phẩm này (Tạm thời để optional)
   brand_id   String?
   status     Int       @default(0) // 0: DRAFT, 1: ACTIVE, 2: OUT_OF_STOCK
-  sold_count Int       @default(0)
-  rating     Float     @default(0)
+  sold_count   Int       @default(0)
+  review_count Int       @default(0)
+  rating       Float     @default(0)
   created_at DateTime  @default(now())
   updated_at DateTime  @updatedAt
   deleted_at DateTime?

@@ -6,7 +6,7 @@ import { APP_ROUTES } from "@/constants/routes";
 
 export const PromoBanner = () => {
   return (
-    <div className="bg-content text-surface rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+    <div className="bg-zinc-900 dark:bg-zinc-800/50 backdrop-blur-xl text-white rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden border border-white/5">
       {/* Background pattern or glow */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/20 blur-[100px] -z-10" />
 
@@ -14,10 +14,10 @@ export const PromoBanner = () => {
         <span className="text-xs font-bold text-primary tracking-widest uppercase">
           Limited Offer
         </span>
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight leading-tight">
+        <h2 className="text-3xl md:text-4xl font-black tracking-tight leading-tight text-white">
           Get 20% Off Your First Order
         </h2>
-        <p className="text-surface/70 text-sm leading-relaxed">
+        <p className="text-white/70 text-sm leading-relaxed">
           Sign up now and get a discount code on your first purchase. Don&apos;t
           miss out!
         </p>
@@ -32,7 +32,7 @@ export const PromoBanner = () => {
       </div>
 
       {/* Visual element or just clean text */}
-      <div className="text-6xl md:text-8xl font-black opacity-10 select-none">
+      <div className="text-6xl md:text-8xl font-black text-white opacity-10 select-none">
         SALE
       </div>
     </div>

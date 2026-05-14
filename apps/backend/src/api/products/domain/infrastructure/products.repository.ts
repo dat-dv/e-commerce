@@ -246,6 +246,13 @@ export class ProductsRepository implements IProductsRepository {
       orderBy,
       take,
       include: {
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
         translations: {
           where: {
             language: {
@@ -254,6 +261,21 @@ export class ProductsRepository implements IProductsRepository {
           },
         },
         skus: true,
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: {
+                    language: {
+                      code: languageCode,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
 
@@ -518,6 +540,13 @@ export class ProductsRepository implements IProductsRepository {
         orderBy,
         include: {
           thumbnail: true,
+          brand: {
+            include: {
+              translations: {
+                where: { language: { code: languageCode } },
+              },
+            },
+          },
           translations: {
             where: {
               language: {
@@ -526,6 +555,21 @@ export class ProductsRepository implements IProductsRepository {
             },
           },
           skus: true,
+          categories: {
+            include: {
+              category: {
+                include: {
+                  translations: {
+                    where: {
+                      language: {
+                        code: languageCode,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
         },
       },
       page,

@@ -98,6 +98,7 @@ export interface IProduct {
   categories?: IProductCategoryMapping[];
   rating?: number;
   sold_count?: number;
+  review_count?: number;
 }
 
 export interface IReview {

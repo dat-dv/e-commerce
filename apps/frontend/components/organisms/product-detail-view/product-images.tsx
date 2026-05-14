@@ -21,7 +21,7 @@ export const ProductImages = ({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="lg:col-span-5 space-y-4"
+      className="lg:col-span-4 space-y-4"
     >
       {/* Main Image */}
       <div className="relative aspect-square bg-content/[0.02] border border-content/[0.05] rounded-2xl overflow-hidden flex items-center justify-center">
@@ -37,7 +37,7 @@ export const ProductImages = ({
               src={images[selectedImage]}
               alt={name}
               fill
-              className="object-cover"
+              className="object-contain"
               priority
             />
           ) : (
