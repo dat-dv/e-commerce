@@ -23,11 +23,11 @@ export class ProductMapper {
 
         return {
           id: sku.id,
-          price: displayPrice.toLocaleString("en-US") + " VND",
+          price: displayPrice,
           unit_price: displayPrice.toString(),
           original_price:
             strikePrice && displayPrice && strikePrice > displayPrice
-              ? strikePrice.toLocaleString("en-US") + " VND"
+              ? strikePrice
               : undefined,
           discount_percent: discountPercent,
           sold: flashSale?.sold_count,

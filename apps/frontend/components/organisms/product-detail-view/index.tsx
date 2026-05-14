@@ -39,7 +39,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
 
   // Group attributes across all SKUs
   const attributeGroups: { [key: string]: Set<string> } = {};
-  product.skus.forEach((sku) => {
+
+  product.skus.forEach((sku, idx) => {
     sku.attributes?.forEach((attr) => {
       if (!attributeGroups[attr.name]) {
         attributeGroups[attr.name] = new Set();
@@ -132,9 +133,9 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const name =
     product.name ||
     "Tai nghe Bluetooth cổ điển Q86 không dây, hiệu ứng âm thanh nổi hifi, micrô tích hợp, cuộc gọi thoại độ phân giải cao";
-  const price = Number(selectedSku.price) || 0;
-  const originalPrice = Number(selectedSku.original_price) || 0;
-  const discountPercent = Number(selectedSku?.discount_percent) || 0;
+  const price = selectedSku.price || 0;
+  const originalPrice = selectedSku.original_price || 0;
+  const discountPercent = selectedSku.discount_percent || 0;
 
   const user = useAuthStore((s) => s.user);
   const router = useRouter();

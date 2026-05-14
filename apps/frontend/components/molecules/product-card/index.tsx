@@ -4,7 +4,9 @@ import React from "react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
-import { ShoppingBag, Eye } from "lucide-react";
+import { Eye, ShoppingBag } from "lucide-react";
+import { formatCurrency } from "@/utils/format-currency";
+import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
@@ -44,16 +46,15 @@ export const ProductCard = ({ product }: { product: Product }) => {
       return;
     }
 
-    const priceNumber = parseFloat(
-      (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
-    );
+    const priceNumber = sku.price;
+
     addItem(
       {
         id: sku?.id || `sku-${product.id}`,
         product_id: String(product.id),
         sku_id: sku?.id || `sku-${product.id}`,
         name: product.name,
-        price: isNaN(priceNumber) ? 0 : priceNumber,
+        price: priceNumber,
         image_url: product.image_url || sku?.image_url || null,
         attributes: product.category,
       },
@@ -125,11 +126,11 @@ export const ProductCard = ({ product }: { product: Product }) => {
         <div className="flex items-center justify-between mt-1.5">
           <div className="flex flex-col">
             <span className="text-sm font-black text-blue-500">
-              {sku?.price}
+              {formatCurrency(sku?.price)}
             </span>
             {sku?.original_price && (
               <span className="text-xs text-content/30 line-through mt-0.5">
-                {sku.original_price}
+                {formatCurrency(sku.original_price)}
               </span>
             )}
           </div>

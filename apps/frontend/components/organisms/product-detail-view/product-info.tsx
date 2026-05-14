@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star, Minus, Plus, ShoppingCart } from "lucide-react";
+import { formatCurrency } from "@/utils/format-currency";
 
 interface ProductInfoProps {
   name: string;
@@ -70,15 +71,19 @@ export const ProductInfo = ({
 
       {/* Price Box - Shopee Style */}
       <div className="bg-content/[0.02] p-4 rounded-xl flex items-center gap-4">
-        <span className="text-content/40 line-through text-base">
-          {originalPrice.toLocaleString("vi-VN")}₫
-        </span>
+        {originalPrice > price && (
+          <span className="text-content/40 line-through text-base">
+            {formatCurrency(originalPrice)}
+          </span>
+        )}
         <span className="text-3xl font-bold text-primary">
-          {price.toLocaleString("vi-VN")}₫
+          {formatCurrency(price)}
         </span>
-        <span className="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-lg">
-          -{discountPercent}%
-        </span>
+        {originalPrice > price && discountPercent > 0 && (
+          <span className="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-lg">
+            -{discountPercent}%
+          </span>
+        )}
       </div>
 
       {/* Dynamic Options */}

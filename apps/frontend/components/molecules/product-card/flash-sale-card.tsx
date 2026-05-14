@@ -4,7 +4,9 @@ import React from "react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
-import { ShoppingBag, Eye } from "lucide-react";
+import { Eye, ShoppingBag } from "lucide-react";
+import { formatCurrency } from "@/utils/format-currency";
+import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
@@ -66,12 +68,8 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
   };
 
   // Calculate discount percentage
-  const currentPriceNum = parseFloat(
-    (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
-  );
-  const oldPriceNum = sku?.original_price
-    ? parseFloat(sku.original_price.replace(/[^0-9.-]+/g, ""))
-    : 0;
+  const currentPriceNum = sku?.price || 0;
+  const oldPriceNum = sku?.original_price || 0;
 
   const discountPercent =
     oldPriceNum > 0 ? Math.round((1 - currentPriceNum / oldPriceNum) * 100) : 0;
@@ -135,10 +133,12 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
         </h3>
 
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-black text-red-500">{sku?.price}</span>
+          <span className="text-sm font-black text-red-500">
+            {formatCurrency(sku?.price)}
+          </span>
           {sku?.original_price && (
             <span className="text-xs text-content/40 line-through">
-              {sku?.original_price}
+              {formatCurrency(sku?.original_price)}
             </span>
           )}
         </div>

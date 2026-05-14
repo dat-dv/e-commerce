@@ -14,9 +14,6 @@ export const BrandInfo = () => {
           </p>
         </div>
       </div>
-      <button className="px-4 py-2 rounded-xl border border-content/[0.05] text-sm font-semibold hover:bg-content/[0.03] transition-colors">
-        View Store
-      </button>
     </div>
   );
 };

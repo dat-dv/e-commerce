@@ -1,8 +1,8 @@
 export interface TSkuDomain {
   id: string;
-  price: string;
+  price: number;
   unit_price: string;
-  original_price?: string;
+  original_price?: number;
   discount_percent?: number;
   sold?: number;
   total?: number;
