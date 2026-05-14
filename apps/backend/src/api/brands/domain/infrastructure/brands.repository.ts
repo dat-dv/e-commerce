@@ -106,7 +106,7 @@ export class BrandsRepository implements IBrandsRepository {
   }
 
   async getBrandProducts(slug: string, page = 1, limit = 20, languageCode = 'en'): Promise<PaginatedResult<any>> {
-    console.log(`🔍 [Backend] Đang lấy sản phẩm cho Brand: "${slug}"`);
+    console.log(`🔍 [Backend] Fetching products for Brand: "${slug}"`);
     try {
       const result = await this.paginationService.paginate(
         this.prisma.product,
@@ -118,10 +118,10 @@ export class BrandsRepository implements IBrandsRepository {
         page,
         limit,
       );
-      console.log(`✅ [Backend] Lấy thành công ${result.items.length} sản phẩm cho Brand: "${slug}"`);
+      console.log(`✅ [Backend] Successfully fetched ${result.items.length} products for Brand: "${slug}"`);
       return result;
     } catch (error) {
-      console.error(`❌ [Backend] Lỗi nghiêm trọng tại getBrandProducts cho slug="${slug}":`, error);
+      console.error(`❌ [Backend] Critical error in getBrandProducts for slug="${slug}":`, error);
       throw error;
     }
   }

@@ -15,6 +15,7 @@ interface ProductInfoProps {
   quantity: number;
   setQuantity: (q: number) => void;
   handleAddToCart: () => void;
+  handleBuyNow: () => void;
 }
 
 export const ProductInfo = ({
@@ -28,6 +29,7 @@ export const ProductInfo = ({
   quantity,
   setQuantity,
   handleAddToCart,
+  handleBuyNow,
 }: ProductInfoProps) => {
   return (
     <motion.div
@@ -54,15 +56,15 @@ export const ProductInfo = ({
           </div>
           <div className="pl-4 flex items-center gap-1">
             <span className="font-bold text-content">250</span>
-            <span className="text-content/50 text-xs">Đánh giá</span>
+            <span className="text-content/50 text-xs">Reviews</span>
           </div>
           <div className="pl-4 flex items-center gap-1">
             <span className="font-bold text-content">100k+</span>
-            <span className="text-content/50 text-xs">Đã bán</span>
+            <span className="text-content/50 text-xs">Sold</span>
           </div>
         </div>
         <button className="text-content/40 hover:text-content text-xs font-medium transition-colors">
-          Tố cáo
+          Report
         </button>
       </div>
 
@@ -128,7 +130,7 @@ export const ProductInfo = ({
       {/* Quantity & Stock */}
       <div className="flex flex-col gap-3">
         <span className="text-sm font-medium text-content/60 w-24">
-          Số lượng
+          Quantity
         </span>
         <div className="flex items-center gap-4">
           <div className="flex items-center border border-content/[0.1] rounded-lg overflow-hidden h-9">
@@ -148,7 +150,7 @@ export const ProductInfo = ({
               <Plus size={12} />
             </button>
           </div>
-          <span className="text-sm text-content/50">5548 sản phẩm có sẵn</span>
+          <span className="text-sm text-content/50">5548 items available</span>
         </div>
       </div>
 
@@ -161,14 +163,15 @@ export const ProductInfo = ({
           className="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary py-3.5 rounded-xl font-semibold transition-colors border border-primary/20"
         >
           <ShoppingCart size={18} />
-          Thêm vào giỏ hàng
+          Add to Cart
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
+          onClick={handleBuyNow}
           className="flex-1 bg-primary hover:bg-primary/90 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/10"
         >
-          Mua ngay
+          Buy Now
         </motion.button>
       </div>
     </motion.div>

@@ -32,9 +32,9 @@ export default async function BrandDetailPage({
   params,
 }: BrandDetailPageProps) {
   const { slug } = await params;
-  console.log(`🔍 [BrandDetail] Đang truy cập slug thực tế: ${slug}`);
+  console.log(`🔍 [BrandDetail] Accessing slug: ${slug}`);
 
-  const [brandResult, productsResult] = await allSafe([
+  const [brandResult, productsResult] = await Promise.all([
     brandsUseCase.getBrandBySlug.execute(slug),
     brandsUseCase.getBrandProducts.execute(slug, 1, 20),
   ]);

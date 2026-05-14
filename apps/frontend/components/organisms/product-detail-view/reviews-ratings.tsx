@@ -17,9 +17,7 @@ export const ReviewsRatings = ({
     <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 space-y-6 shadow-sm">
       <div className="flex flex-col md:flex-row justify-between gap-4 items-baseline">
         <div>
-          <h2 className="text-lg font-bold text-content">
-            Đánh giá từ khách hàng
-          </h2>
+          <h2 className="text-lg font-bold text-content">Customer Reviews</h2>
           <div className="flex items-center gap-2 mt-1">
             <div className="flex text-amber-400">
               {[...Array(5)].map((_, i) => (
@@ -27,13 +25,13 @@ export const ReviewsRatings = ({
               ))}
             </div>
             <span className="text-sm font-bold text-content">4.8 / 5</span>
-            <span className="text-sm text-content/50">(256 đánh giá)</span>
+            <span className="text-sm text-content/50">(256 reviews)</span>
           </div>
         </div>
 
         {/* Review Filters */}
         <div className="flex flex-wrap gap-2">
-          {["Tất cả", "5 Sao", "4 Sao", "Có hình ảnh"].map((filter, index) => (
+          {["All", "5 Stars", "4 Stars", "With Images"].map((filter, index) => (
             <button
               key={index}
               className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
@@ -60,7 +58,7 @@ export const ReviewsRatings = ({
           ))
         ) : reviews.length === 0 ? (
           <div className="col-span-full text-center text-content/50 py-8">
-            Chưa có đánh giá nào
+            No reviews yet
           </div>
         ) : (
           reviews.map((review) => (
@@ -68,7 +66,7 @@ export const ReviewsRatings = ({
               <div className="flex items-center justify-between">
                 <div>
                   <span className="font-bold text-content text-sm">
-                    {review.user?.name || "Người dùng ẩn danh"}
+                    {review.user?.name || "Anonymous User"}
                   </span>
                   <div className="flex text-amber-400 mt-0.5">
                     {[...Array(review.rating)].map((_, i) => (
@@ -77,13 +75,13 @@ export const ReviewsRatings = ({
                   </div>
                 </div>
                 <span className="text-xs text-content/30">
-                  {new Date(review.created_at).toLocaleDateString("vi-VN")}
+                  {new Date(review.created_at).toLocaleDateString("en-US")}
                 </span>
               </div>
               <p className="text-sm text-content/70">{review.comment}</p>
               <button className="flex items-center gap-1.5 text-xs text-content/40 hover:text-content transition-colors w-fit">
                 <ThumbsUp size={12} />
-                <span>Hữu ích</span>
+                <span>Helpful</span>
               </button>
             </div>
           ))

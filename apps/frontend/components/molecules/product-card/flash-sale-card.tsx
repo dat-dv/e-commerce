@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import { ShoppingBag, Eye } from "lucide-react";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { CALLBACK_URL_KEY } from "@/constants/routes";
 
 export interface FlashSaleProduct {
   id: string;
@@ -29,8 +33,18 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
   const addItem = useCartStore((s) => s.addItem);
   const sku = product.skus[0];
 
+  const user = useAuthStore((s) => s.user);
+  const router = useRouter();
+
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigating to product detail
+
+    if (!user) {
+      toast.info("Please sign in to perform this action");
+      const callbackUrl = encodeURIComponent(window.location.pathname);
+      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
+      return;
+    }
 
     const priceNumber = parseFloat(
       (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
@@ -48,6 +62,7 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
       },
       1,
     );
+    toast.success("Added to cart");
   };
 
   // Calculate discount percentage

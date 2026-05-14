@@ -41,7 +41,7 @@ const useLogin = () => {
       const response = await authUseCase.login.execute(payload);
       setUser(response.data);
       const callbackUrl = searchParams.get(CALLBACK_URL_KEY) || APP_ROUTES.HOME;
-      router.push(callbackUrl);
+      router.replace(callbackUrl);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Login failed";
       toast.error(errorMessage || "Login Failed");

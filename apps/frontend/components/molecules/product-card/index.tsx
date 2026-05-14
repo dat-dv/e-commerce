@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import { ShoppingBag, Eye } from "lucide-react";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { CALLBACK_URL_KEY } from "@/constants/routes";
 
 export interface Product {
   id: string;
@@ -25,12 +29,21 @@ export interface Product {
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const addItem = useCartStore((s) => s.addItem);
-  const sku = product.skus?.[0];
+  const sku = product?.skus?.[0];
 
-  if (!sku) return null;
+  const user = useAuthStore((s) => s.user);
+  const router = useRouter();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
+
+    if (!user) {
+      toast.info("Please sign in to perform this action");
+      const callbackUrl = encodeURIComponent(window.location.pathname);
+      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
+      return;
+    }
+
     const priceNumber = parseFloat(
       (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
     );
@@ -46,6 +59,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
       },
       1,
     );
+    toast.success("Added to cart");
   };
 
   return (
@@ -83,14 +97,14 @@ export const ProductCard = ({ product }: { product: Product }) => {
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
             className="p-3 bg-white text-black rounded-full hover:bg-white/90 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center"
-            title="Xem chi tiết"
+            title="View Details"
           >
             <Eye size={20} />
           </Link>
           <button
             onClick={handleAddToCart}
             className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75 flex items-center justify-center"
-            title="Thêm vào giỏ"
+            title="Add to Cart"
           >
             <ShoppingBag size={20} />
           </button>

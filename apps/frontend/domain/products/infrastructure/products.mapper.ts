@@ -2,7 +2,7 @@ import { TProduct, TSkuDomain } from "../types/products.model";
 import { IProduct } from "@ecommerce/shared";
 
 export class ProductMapper {
-  static toDomain(dto: IProduct, lang: string = "vi"): TProduct {
+  static toDomain(dto: IProduct, lang: string = "en"): TProduct {
     const translation =
       dto.translations?.find((t) => t.language_id === lang) ||
       dto.translations?.[0];
@@ -23,11 +23,11 @@ export class ProductMapper {
 
         return {
           id: sku.id,
-          price: displayPrice.toLocaleString("vi-VN") + " ₫",
+          price: displayPrice.toLocaleString("en-US") + " VND",
           unit_price: displayPrice.toString(),
           original_price:
             strikePrice && displayPrice && strikePrice > displayPrice
-              ? strikePrice.toLocaleString("vi-VN") + " ₫"
+              ? strikePrice.toLocaleString("en-US") + " VND"
               : undefined,
           discount_percent: discountPercent,
           sold: flashSale?.sold_count,

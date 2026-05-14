@@ -12,18 +12,18 @@ export const DescriptionCategory = ({ category }: DescriptionCategoryProps) => {
       <div className="lg:col-span-8">
         <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-bold text-content mb-4">
-            Mô tả sản phẩm
+            Product Description
           </h2>
           <div className="text-content/70 text-sm leading-relaxed space-y-4">
             <p>
-              Đây là phần mô tả chi tiết cho sản phẩm. Hiện tại dữ liệu đang
-              được cập nhật. Sản phẩm mang lại trải nghiệm tuyệt vời với thiết
-              kế hiện đại và chất liệu cao cấp.
+              This is the detailed description for the product. Data is
+              currently being updated. This product provides an excellent
+              experience with its modern design and high-quality materials.
             </p>
             <ul className="list-disc list-inside space-y-1">
-              <li>Thiết kế tinh tế, sang trọng.</li>
-              <li>Chất lượng hoàn thiện cao cấp.</li>
-              <li>Bảo hành chính hãng 12 tháng.</li>
+              <li>Exquisite and luxurious design.</li>
+              <li>High-quality finishing.</li>
+              <li>12-month official warranty.</li>
             </ul>
           </div>
         </div>
@@ -31,10 +31,10 @@ export const DescriptionCategory = ({ category }: DescriptionCategoryProps) => {
 
       <div className="lg:col-span-4">
         <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 shadow-sm h-fit">
-          <h2 className="text-lg font-bold text-content mb-4">Danh mục</h2>
+          <h2 className="text-lg font-bold text-content mb-4">Category</h2>
           <div className="flex items-center gap-2">
             <span className="px-3 py-1.5 bg-content/[0.03] text-content/70 text-xs font-bold rounded-lg border border-content/[0.05]">
-              {category || "Chưa phân loại"}
+              {category || "Uncategorized"}
             </span>
           </div>
         </div>

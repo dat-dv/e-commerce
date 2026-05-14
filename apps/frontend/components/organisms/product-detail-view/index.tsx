@@ -1,6 +1,10 @@
 "use client";
 
 import { useCartStore } from "@/hooks/cart/use-cart-store";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { useState, useEffect } from "react";
 import { TProduct, TReview } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
@@ -132,7 +136,19 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const originalPrice = Number(selectedSku.original_price) || 0;
   const discountPercent = Number(selectedSku?.discount_percent) || 0;
 
+  const user = useAuthStore((s) => s.user);
+  const router = useRouter();
+
   const handleAddToCart = () => {
+    if (!user) {
+      toast.info("Please sign in to perform this action", {
+        toastId: "auth-required",
+      });
+      const callbackUrl = encodeURIComponent(window.location.pathname);
+      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
+      return;
+    }
+
     if (!selectedSku) return;
 
     addItem(
@@ -149,6 +165,19 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
       },
       quantity,
     );
+    toast.success("Added to cart successfully");
+  };
+
+  const handleBuyNow = () => {
+    if (!user) {
+      toast.info("Please sign in to buy items");
+      const callbackUrl = encodeURIComponent(window.location.pathname);
+      router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
+      return;
+    }
+
+    handleAddToCart();
+    router.push(APP_ROUTES.CART);
   };
 
   return (
@@ -173,6 +202,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           quantity={quantity}
           setQuantity={setQuantity}
           handleAddToCart={handleAddToCart}
+          handleBuyNow={handleBuyNow}
         />
       </div>
 

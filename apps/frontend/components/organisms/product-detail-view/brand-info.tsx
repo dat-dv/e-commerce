@@ -8,14 +8,14 @@ export const BrandInfo = () => {
           Logo
         </div>
         <div>
-          <h3 className="font-bold text-content">Thương hiệu</h3>
+          <h3 className="font-bold text-content">Official Brand</h3>
           <p className="text-xs text-content/50">
-            Các sản phẩm chính hãng từ thương hiệu này
+            Authentic products from this brand
           </p>
         </div>
       </div>
       <button className="px-4 py-2 rounded-xl border border-content/[0.05] text-sm font-semibold hover:bg-content/[0.03] transition-colors">
-        Xem shop
+        View Store
       </button>
     </div>
   );
