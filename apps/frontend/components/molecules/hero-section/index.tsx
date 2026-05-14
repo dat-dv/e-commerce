@@ -5,61 +5,75 @@ import { AnimationContainer, AnimationItem } from "@/components/atoms/animate";
 import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
-import { Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-content/[0.02] border-b border-content/[0.05]">
-      <AppContainer className="relative py-16 md:py-24">
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px] -z-10" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] -z-10" />
+    <section className="relative overflow-hidden bg-surface min-h-[500px] flex items-center border-b border-content/[0.03]">
+      {/* 1. Ambient Light */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10 translate-x-1/4 -translate-y-1/4" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] -z-10 -translate-x-1/4 translate-y-1/4" />
 
-        <AnimationContainer className="max-w-2xl text-left">
+      {/* 2. Floating Watermark & Textures */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[80px] md:text-[140px] font-black text-content opacity-[0.02] select-none pointer-events-none tracking-tighter w-full text-center">
+        DISCOVER
+      </div>
+      <div
+        className="absolute inset-0 z-0 opacity-[0.015] pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(var(--color-content) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <AppContainer className="relative z-10 py-16 md:py-24 w-full">
+        <AnimationContainer className="max-w-3xl text-left flex flex-col items-start gap-5">
           <AnimationItem>
-            <span className="text-xs font-bold text-primary tracking-widest uppercase mb-3 block">
-              Summer 2026
-            </span>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6">
-              Upgrade Your Desk. <br />
-              <span className="text-primary">Simplify Your Life.</span>
+            <div className="flex items-center gap-4 mb-2">
+              <div className="h-[1px] w-8 bg-primary/30" />
+              <span className="text-[10px] font-bold text-primary tracking-[0.5em] uppercase">
+                New Arrivals
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-[1] uppercase text-content">
+              Elevate{" "}
+              <span className="italic font-light text-content/30">Your</span>{" "}
+              <br />
+              Workspace.
             </h1>
-            <p className="text-lg opacity-70 leading-relaxed font-medium mb-8 max-w-lg">
-              We find and curate the best tech and workspace gear. Simple,
-              functional, and built to last.
+          </AnimationItem>
+
+          <AnimationItem>
+            <p className="text-lg md:text-xl text-content/40 leading-relaxed font-light max-w-xl">
+              Find exactly what you need with our curated collection of tech and
+              workspace essentials, designed to simplify your everyday life.
             </p>
           </AnimationItem>
 
-          <AnimationItem className="flex flex-col sm:flex-row gap-4">
-            <Button
-              href={APP_ROUTES.SIGN_IN}
-              variant="primary"
-              size="lg"
-              className="rounded-xl px-8 text-sm font-bold shadow-lg shadow-primary/25"
-            >
-              Start Shopping
-            </Button>
-            <Button
-              href={APP_ROUTES.PRODUCTS}
-              variant="ghost"
-              size="lg"
-              className="rounded-xl px-8 text-sm font-bold border border-content/10"
-            >
-              Explore Collections
-            </Button>
+          <AnimationItem className="flex flex-col sm:flex-row gap-5 pt-4">
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                href={APP_ROUTES.SIGN_IN}
+                variant="primary"
+                size="lg"
+                className="rounded-xl px-10 text-sm font-bold shadow-2xl shadow-primary/20"
+              >
+                Start Shopping
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                href={APP_ROUTES.PRODUCTS}
+                variant="ghost"
+                size="lg"
+                className="rounded-xl px-10 text-sm font-bold border border-content/[0.08] hover:bg-content/[0.02]"
+              >
+                Explore Collections
+              </Button>
+            </motion.div>
           </AnimationItem>
         </AnimationContainer>
-
-        <div className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 flex-col gap-4 max-w-sm">
-          <div className="bg-surface/80 backdrop-blur-xl border border-content/[0.05] p-6 rounded-2xl shadow-xl shadow-black/[0.02]">
-            <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-              <Zap className="w-5 h-5 text-primary" />
-            </div>
-            <h3 className="font-bold text-content mb-1">Next-Day Delivery</h3>
-            <p className="text-xs text-content/60">
-              Order today, get it tomorrow. Available in all major cities.
-            </p>
-          </div>
-        </div>
       </AppContainer>
     </section>
   );

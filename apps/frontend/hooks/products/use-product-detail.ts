@@ -44,6 +44,7 @@ export const useProductDetail = (product: TProduct) => {
       product.skus[0].attributes.forEach((attr) => {
         initialAttrs[attr.name] = attr.value;
       });
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedAttributes(initialAttrs);
     }
   }, [product.skus]);
