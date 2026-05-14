@@ -26,57 +26,52 @@ export const CategoriesContent = ({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="flex flex-col gap-10"
+          className="flex flex-col gap-12"
         >
           {/* Premium Banner */}
-          <div className="relative h-[240px] rounded-[32px] overflow-hidden bg-gradient-to-br from-primary/30 via-secondary/20 to-transparent flex items-center px-12 group">
-            <div className="absolute inset-0 bg-white/40 backdrop-blur-sm -z-10" />
+          <div className="relative h-[280px] rounded-[3rem] overflow-hidden bg-surface/50 backdrop-blur-xl border border-content/5 flex items-center px-16 group">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
 
-            {/* Decorative glowing blobs */}
-            <div className="absolute -top-20 -right-20 w-60 h-60 bg-primary/30 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-secondary/30 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700" />
-
-            <div className="relative z-10 max-w-lg">
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 block">
-                Category
+            <div className="relative z-10 max-w-xl">
+              <span className="text-[10px] font-black text-primary uppercase tracking-[0.5em] mb-4 block">
+                Curation Index
               </span>
-              <h1 className="text-4xl font-bold text-neutral-800 mb-3 capitalize">
-                {title}
+              <h1 className="text-5xl md:text-6xl font-black text-content tracking-tighter leading-none mb-4 uppercase">
+                {title} <span className="italic font-light opacity-20">Collection</span>
               </h1>
-              <p className="text-neutral-600 text-lg leading-relaxed">
+              <p className="text-content/40 text-lg leading-relaxed italic font-light">
                 {description}
               </p>
             </div>
 
             {/* Visual accent */}
-            <div className="ml-auto relative hidden md:block">
-              <div className="w-24 h-24 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-500 border border-white/50">
-                <span className="text-4xl">✨</span>
-              </div>
-              <div className="w-16 h-16 rounded-xl bg-primary/10 backdrop-blur-md shadow-md flex items-center justify-center absolute -bottom-4 -left-4 transform -rotate-12 group-hover:rotate-0 transition-transform duration-500 delay-75 border border-white/20">
-                <span className="text-2xl">🏷️</span>
+            <div className="ml-auto relative hidden lg:block pr-8">
+              <div className="w-32 h-32 rounded-3xl bg-content/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-700 border border-content/5">
+                <span className="text-5xl opacity-40 group-hover:opacity-100 transition-opacity">✨</span>
               </div>
             </div>
           </div>
 
           {/* Subcategories Section */}
           <div>
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-10 border-b border-content/[0.05] pb-6 px-4">
               <div>
-                <h3 className="text-2xl font-bold text-neutral-800 mb-1">
-                  Explore Categories
+                <h3 className="text-2xl font-black text-content uppercase tracking-tight mb-1">
+                  Discover <span className="italic font-light opacity-30">Series</span>
                 </h3>
-                <p className="text-neutral-500 text-sm">
-                  Find exactly what you are looking for
+                <p className="text-[10px] uppercase tracking-[0.3em] font-black text-content/20">
+                  Refined hardware selection
                 </p>
               </div>
-              <div className="text-sm text-neutral-400 font-medium">
-                {categories.length} Categories
+              <div className="text-[11px] font-black uppercase tracking-widest text-content/30 bg-content/[0.03] px-5 py-2 rounded-full border border-content/[0.05]">
+                {categories.length} Units
               </div>
             </div>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
               variants={{
                 hidden: { opacity: 0 },
                 show: {

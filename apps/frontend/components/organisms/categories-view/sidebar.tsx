@@ -24,27 +24,25 @@ export const CategoriesSidebar = ({
   );
 
   return (
-    <div className="w-[300px] shrink-0 sticky top-24 h-[calc(100vh-120px)] overflow-y-auto bg-gradient-to-b from-white/80 to-neutral-50/80 backdrop-blur-xl border border-neutral-200/60 rounded-3xl p-6 shadow-xl shadow-neutral-100/50 flex flex-col gap-6">
+    <div className="w-[300px] shrink-0 sticky top-24 h-[calc(100vh-120px)] overflow-y-auto bg-surface/80 backdrop-blur-xl border border-content/10 rounded-3xl p-6 shadow-xl shadow-content/5 flex flex-col gap-6">
       <div>
-        <h2 className="text-xl font-bold mb-4 px-2 text-neutral-800">
-          Categories
-        </h2>
+        <h2 className="text-xl font-bold mb-4 px-2 text-content">Categories</h2>
         <Input
           placeholder="Search categories..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="bg-white/50"
+          className="bg-surface/50"
         />
       </div>
 
-      <div className="flex flex-col gap-2 overflow-y-auto flex-1">
+      <div className="flex flex-col gap-2 overflow-y-auto flex-1 scrollbar-hide">
         <button
           onClick={() => setActiveId("all")}
           className={cn(
             "flex items-center gap-3 px-5 py-3.5 rounded-xl transition-all duration-300 text-left relative group",
             activeId === "all"
-              ? "text-primary font-semibold"
-              : "text-neutral-600 hover:text-neutral-900",
+              ? "text-primary font-bold"
+              : "text-content/40 hover:text-content",
           )}
         >
           {activeId === "all" && (
@@ -59,10 +57,12 @@ export const CategoriesSidebar = ({
               "w-1.5 h-1.5 rounded-full transition-all duration-300",
               activeId === "all"
                 ? "bg-primary scale-100"
-                : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-neutral-300",
+                : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-content/20",
             )}
           />
-          <span className="truncate capitalize">All Categories</span>
+          <span className="truncate capitalize text-sm font-black uppercase tracking-widest">
+            All Categories
+          </span>
         </button>
 
         {filteredCategories.map((category) => {
@@ -74,8 +74,8 @@ export const CategoriesSidebar = ({
               className={cn(
                 "flex items-center gap-3 px-5 py-3.5 rounded-xl transition-all duration-300 text-left relative group",
                 isActive
-                  ? "text-primary font-semibold"
-                  : "text-neutral-600 hover:text-neutral-900",
+                  ? "text-primary font-bold"
+                  : "text-content/40 hover:text-content",
               )}
             >
               {isActive && (
@@ -90,15 +90,17 @@ export const CategoriesSidebar = ({
                   "w-1.5 h-1.5 rounded-full transition-all duration-300",
                   isActive
                     ? "bg-primary scale-100"
-                    : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-neutral-300",
+                    : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-content/20",
                 )}
               />
-              <span className="truncate capitalize">{category.name}</span>
+              <span className="truncate capitalize text-[11px] font-black uppercase tracking-widest">
+                {category.name}
+              </span>
             </button>
           );
         })}
         {filteredCategories.length === 0 && (
-          <p className="text-sm text-neutral-400 text-center py-4">
+          <p className="text-xs text-content/20 text-center py-8 italic font-light">
             No categories found
           </p>
         )}

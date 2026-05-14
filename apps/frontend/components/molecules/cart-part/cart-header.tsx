@@ -27,13 +27,18 @@ export const CartHeader = ({ itemCount }: CartHeaderProps) => {
       </div>
 
       {/* Main Title */}
-      <div className="flex items-end justify-between mb-8 border-b border-content/[0.05] pb-6">
-        <h1 className="text-4xl md:text-5xl font-black text-content tracking-tighter">
-          Shopping Cart
+      <div className="flex items-end justify-between mb-8 border-b border-content/[0.05] pb-8">
+        <h1 className="text-5xl md:text-7xl font-black text-content tracking-tighter leading-none">
+          SHOPPING <span className="italic font-light opacity-20">BAG</span>
         </h1>
-        <span className="text-[11px] font-black uppercase tracking-[0.2em] text-content/40 bg-content/[0.03] px-4 py-1.5 rounded-full border border-content/[0.05]">
-          {itemCount} Items
-        </span>
+        <div className="flex flex-col items-end gap-2">
+          <span className="text-[9px] font-black uppercase tracking-[0.5em] text-content/30">
+            inventory volume
+          </span>
+          <span className="text-[11px] font-black uppercase tracking-[0.2em] text-content/60 bg-content/[0.03] px-5 py-2 rounded-full border border-content/[0.05]">
+            {itemCount} Items
+          </span>
+        </div>
       </div>
     </>
   );

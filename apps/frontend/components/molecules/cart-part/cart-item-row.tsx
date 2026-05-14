@@ -32,18 +32,20 @@ export const CartItemRow = ({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       className={cn(
-        "bg-white/80 backdrop-blur-sm border rounded-2xl p-4 transition-all hover:shadow-md",
-        isOutOfStock ? "opacity-60 grayscale-[0.5]" : "",
-        isOutOfStock ? "opacity-60 grayscale-[0.5]" : "",
+        "bg-surface/50 backdrop-blur-xl border rounded-[2rem] p-6 transition-all group relative overflow-hidden",
+        isOutOfStock
+          ? "opacity-60 grayscale"
+          : "hover:shadow-2xl hover:shadow-content/5 hover:border-primary/20",
         isSelected
-          ? "border-primary/30 bg-primary/[0.02]"
+          ? "border-primary/40 bg-primary/[0.02] shadow-xl shadow-primary/5"
           : "border-content/[0.05]",
       )}
     >
+      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
       <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
         {/* Checkbox & Product Info */}
         <div className="flex items-start md:items-center gap-3 flex-1 min-w-0">
@@ -99,11 +101,11 @@ export const CartItemRow = ({
 
         {/* Desktop Pricing & Quantity */}
         <div className="hidden md:flex items-center gap-4 w-full md:w-auto">
-          <div className="w-32 text-center font-bold text-content/80">
+          <div className="w-32 text-center font-bold text-content/40 text-sm italic font-light">
             ${item.price.toLocaleString()}
           </div>
 
-          <div className="w-32 flex justify-center">
+          <div className="w-32 flex justify-center scale-90 group-hover:scale-100 transition-transform duration-500">
             <QuantitySelector
               value={item.quantity}
               onChange={onUpdateQuantity}
@@ -111,16 +113,16 @@ export const CartItemRow = ({
             />
           </div>
 
-          <div className="w-32 text-center font-black text-primary">
+          <div className="w-32 text-center text-xl font-black text-content tracking-tighter">
             ${(item.price * item.quantity).toLocaleString()}
           </div>
 
           <div className="w-24 flex justify-center">
             <button
               onClick={onRemove}
-              className="p-2.5 text-content/20 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
+              className="p-4 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-[1rem] transition-all"
             >
-              <Trash2 size={20} />
+              <Trash2 size={18} />
             </button>
           </div>
         </div>

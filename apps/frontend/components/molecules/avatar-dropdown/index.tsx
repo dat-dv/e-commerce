@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut, User } from "lucide-react";
+import { LogOut, User, ShoppingBag } from "lucide-react";
 
 import Avatar from "@/components/atoms/avatar";
 import Button from "@/components/atoms/button";
@@ -58,6 +58,16 @@ const AvatarDropdown = ({
           >
             <User className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
             <span className="text-sm">Profile Settings</span>
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-9 px-2.5 transition-all"
+            href={APP_ROUTES.ORDERS}
+          >
+            <ShoppingBag className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+            <span className="text-sm">My Orders</span>
           </Button>
 
           <Button

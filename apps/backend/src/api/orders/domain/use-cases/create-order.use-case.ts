@@ -195,7 +195,7 @@ export class CreateOrderUseCase {
       const totalAmount = subTotal - discountAmount;
 
       // 3. Tạo đơn hàng
-      return await this.ordersRepository.createOrder({
+      const order = await this.ordersRepository.createOrder({
         user_id: userId,
         total_amount: totalAmount,
         discount_amount: discountAmount,
@@ -208,6 +208,13 @@ export class CreateOrderUseCase {
           flash_sale_id: item.flash_sale_id,
         })),
       });
+
+      // 4. Xóa các cart items đã mua
+      await tx.cartItem.deleteMany({
+        where: { id: { in: cartItemIds } },
+      });
+
+      return order;
     });
   }
 }

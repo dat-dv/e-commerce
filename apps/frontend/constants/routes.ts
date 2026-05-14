@@ -70,5 +70,17 @@ export const API_ROUTES = {
   HOMEPAGE: {
     SECTIONS: "/homepage/sections",
   },
+  ORDERS: {
+    BASE: "/orders",
+    MINE: "/orders",
+    DETAIL: (id: string) => `/orders/${id}`,
+    CANCEL: (id: string) => `/orders/${id}/cancel`,
+    UPDATE_STATUS: (id: string) => `/orders/${id}/status`,
+  },
+  ADDRESSES: {
+    BASE: "/addresses",
+    MINE: "/addresses",
+    DEFAULT: "/addresses/default",
+  },
   CONFIG: "/config",
 } as const;

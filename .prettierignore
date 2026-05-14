@@ -6,3 +6,4 @@ out
 .git
 package-lock.json
 pnpm-lock.yaml
+apps/backend/prisma/dataset

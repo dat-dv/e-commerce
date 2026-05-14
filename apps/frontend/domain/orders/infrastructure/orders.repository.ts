@@ -1,0 +1,47 @@
+import { API_ROUTES } from "@/constants/routes";
+import { ApiResponse, TRequest } from "@/utils/request/request.types";
+import { IOrder } from "../types/order.model";
+import { IOrderDTO, OrderMapper } from "./order.mapper";
+
+export interface IPlaceOrderParams {
+  cartItemIds: string[];
+  shippingAddressId?: string;
+  promoCode?: string;
+}
+
+export interface IOrdersRepository {
+  placeOrder(params: IPlaceOrderParams): Promise<ApiResponse<IOrder>>;
+  getOrders(): Promise<ApiResponse<IOrder[]>>;
+  getOrderDetail(id: string): Promise<ApiResponse<IOrder>>;
+}
+
+export class OrdersRepository implements IOrdersRepository {
+  constructor(private request: TRequest) {}
+
+  async placeOrder(params: IPlaceOrderParams): Promise<ApiResponse<IOrder>> {
+    const response = await this.request.post<IOrderDTO>(API_ROUTES.ORDERS.BASE, params);
+    
+    return {
+      ...response,
+      data: response.data ? OrderMapper.toDomain(response.data) : undefined,
+    } as ApiResponse<IOrder>;
+  }
+
+  async getOrders(): Promise<ApiResponse<IOrder[]>> {
+    const response = await this.request.get<IOrderDTO[]>(API_ROUTES.ORDERS.MINE);
+    
+    return {
+      ...response,
+      data: response.data?.map(OrderMapper.toDomain) || [],
+    } as ApiResponse<IOrder[]>;
+  }
+
+  async getOrderDetail(id: string): Promise<ApiResponse<IOrder>> {
+    const response = await this.request.get<IOrderDTO>(API_ROUTES.ORDERS.DETAIL(id));
+    
+    return {
+      ...response,
+      data: response.data ? OrderMapper.toDomain(response.data) : undefined,
+    } as ApiResponse<IOrder>;
+  }
+}
