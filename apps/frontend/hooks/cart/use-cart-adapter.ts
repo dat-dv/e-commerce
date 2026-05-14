@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { ICartItem } from "@/store/cart-store/cart-store.type";
 import { useCartStore } from "./use-cart-store";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
 export const useCartAdapter = () => {
   const items = useCartStore((s) => s.items);
@@ -33,22 +34,30 @@ export const useCartAdapter = () => {
     }
   }, [setLoading, setItems]);
 
+  const user = useAuthStore((s) => s.user);
+
   const addItem = useCallback(
     async (item: Omit<ICartItem, "quantity">, quantity: number) => {
       try {
-        const response = await cartUseCase.addItem.execute({
-          sku_id: item.sku_id,
-          quantity,
-        });
-        if (response.data) {
-          _addItem(response.data, quantity);
-          toast.success("Added to cart");
+        if (user) {
+          const response = await cartUseCase.addItem.execute({
+            sku_id: item.sku_id,
+            quantity,
+          });
+          if (response.data) {
+            _addItem(response.data, quantity);
+            toast.success("Added to cart");
+          }
+        } else {
+          // Local only for guests
+          _addItem(item as ICartItem, quantity);
+          toast.success("Added to cart (local)");
         }
       } catch (err) {
         toast.error("Failed to add to cart");
       }
     },
-    [_addItem],
+    [_addItem, user],
   );
 
   const removeItem = useCallback(
@@ -56,13 +65,15 @@ export const useCartAdapter = () => {
       const item = items.find((i) => i.sku_id === sku_id);
       if (!item) return;
       try {
-        await cartUseCase.removeItem.execute(item.id);
+        if (user) {
+          await cartUseCase.removeItem.execute(item.id);
+        }
         _removeItem(sku_id);
       } catch (err) {
         toast.error("Failed to remove item");
       }
     },
-    [items, _removeItem],
+    [items, _removeItem, user],
   );
 
   const updateQuantity = useCallback(
@@ -70,13 +81,15 @@ export const useCartAdapter = () => {
       const item = items.find((i) => i.sku_id === sku_id);
       if (!item) return;
       try {
-        await cartUseCase.updateItem.execute({ id: item.id, quantity });
+        if (user) {
+          await cartUseCase.updateItem.execute({ id: item.id, quantity });
+        }
         _updateQuantity(sku_id, quantity);
       } catch (err) {
         toast.error("Failed to update quantity");
       }
     },
-    [items, _updateQuantity],
+    [items, _updateQuantity, user],
   );
 
   const selectedItems = useMemo(
