@@ -8,6 +8,7 @@ CREATE TABLE "new_products" (
     "brand_id" TEXT,
     "status" INTEGER NOT NULL DEFAULT 0,
     "sold_count" INTEGER NOT NULL DEFAULT 0,
+    "review_count" INTEGER NOT NULL DEFAULT 0,
     "rating" REAL NOT NULL DEFAULT 0,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATETIME NOT NULL,
@@ -24,4 +25,3 @@ CREATE UNIQUE INDEX "products_slug_key" ON "products"("slug");
 CREATE UNIQUE INDEX "products_thumbnail_id_key" ON "products"("thumbnail_id");
 PRAGMA foreign_keys=ON;
 PRAGMA defer_foreign_keys=OFF;
-

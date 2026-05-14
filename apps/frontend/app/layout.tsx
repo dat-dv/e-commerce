@@ -8,10 +8,11 @@ import Script from "next/script";
 import AppToast from "@/components/atoms/toast";
 import { AuthProvider } from "@/components/molecules/providers/auth-provider";
 import { ConfigProvider } from "@/components/molecules/providers/config-provider";
-import { CartProvider } from "@/components/molecules/providers/cart-provider";
-import { CartDrawer } from "@/components/organisms/cart/cart-drawer";
+import { CategoriesProvider } from "@/components/molecules/providers/categories-provider";
+import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
+import { safe } from "@/utils/promise";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -68,6 +69,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const categoriesRes = await safe(categoriesUseCase.getTree.execute());
+
+  const categories =
+    categoriesRes?.status === "success" ? categoriesRes.data : [];
+
   return (
     <html
       lang="en"
@@ -91,12 +97,9 @@ export default async function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
         <ConfigProvider>
-          <AuthProvider>
-            <CartProvider>
-              {children}
-              <CartDrawer />
-            </CartProvider>
-          </AuthProvider>
+          <CategoriesProvider initState={{ categories }}>
+            <AuthProvider>{children}</AuthProvider>
+          </CategoriesProvider>
           <AppToast />
         </ConfigProvider>
       </body>

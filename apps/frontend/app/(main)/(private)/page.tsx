@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { HomeView } from "@/components/organisms/home-view";
 import { homepageUseCase } from "@/domain/homepage/use-cases";
 import { ProductsProvider } from "@/components/molecules/providers/products-provider";
-import { headers } from "next/headers";
-import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
 import { allSafe } from "@/utils/promise";
-import NotFound from "../not-found";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -18,7 +16,7 @@ export default async function Home() {
   ]);
 
   if (!sectionsResponse) {
-    return <NotFound />;
+    return notFound();
   }
 
   const productsInitialData = {

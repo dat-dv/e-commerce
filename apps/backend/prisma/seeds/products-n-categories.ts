@@ -115,7 +115,7 @@ function getAllJsonFiles(dir: string, baseDir: string): string[] {
 }
 
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
-  const isDevSeed = true;
+  const isDevSeed = false;
 
   const seedLogsPath = path.join(process.cwd(), `seedlogs-${Date.now()}.txt`);
   fs.writeFileSync(

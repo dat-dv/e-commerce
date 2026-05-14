@@ -10,6 +10,7 @@ import Loading from "@/components/atoms/loading";
 export interface AuthGuardProps {
   children: ReactNode;
 }
+export const ALLOW_SKIP_AUTH_GUARD = [APP_ROUTES.HOME] as string[];
 
 export const AuthGuard = ({ children }: AuthGuardProps) => {
   const store = useContext(AuthContext);
@@ -26,6 +27,8 @@ export const AuthGuard = ({ children }: AuthGuardProps) => {
 
   useEffect(() => {
     if (hasHydrated && !user) {
+      if (ALLOW_SKIP_AUTH_GUARD.includes(pathname)) return;
+
       const search = searchParams.toString();
       const callbackUrl = search ? `${pathname}?${search}` : pathname;
 
@@ -36,6 +39,7 @@ export const AuthGuard = ({ children }: AuthGuardProps) => {
   }, [hasHydrated, user, router, pathname, searchParams]);
 
   if (!hasHydrated || !user) {
+    if (!user && ALLOW_SKIP_AUTH_GUARD.includes(pathname)) return children;
     return (
       <div className="fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center">
         <Loading />
