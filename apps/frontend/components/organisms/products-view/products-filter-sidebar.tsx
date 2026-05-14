@@ -10,12 +10,14 @@ interface ProductsFilterSidebarProps {
   categories: TCategory[];
   onFilterChange: (key: string, value: string | null) => void;
   onCategoryChange: (slug: string) => void;
+  hideCategories?: boolean;
 }
 
 export function ProductsFilterSidebar({
   categories,
   onFilterChange,
   onCategoryChange,
+  hideCategories = false,
 }: ProductsFilterSidebarProps) {
   const searchParams = useSearchParams();
 
@@ -29,7 +31,11 @@ export function ProductsFilterSidebar({
   };
 
   return (
-    <FilterSidebar categories={categories} onCategoryChange={onCategoryChange}>
+    <FilterSidebar
+      categories={categories}
+      onCategoryChange={onCategoryChange}
+      hideCategories={hideCategories}
+    >
       {/* Price Range */}
       <div>
         <h3 className="font-bold text-lg mb-4 text-content">Price Range</h3>

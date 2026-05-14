@@ -63,10 +63,15 @@ export function SearchView({ categories, searchQuery }: SearchViewProps) {
     });
   }, [page, sort, searchQuery, fetchProducts]);
 
+  const shortQuery =
+    searchQuery.length > 30
+      ? searchQuery.substring(0, 30) + "..."
+      : searchQuery;
+
   return (
     <AppContainer size="2xl" className="py-12 md:py-16">
       <ProductsHeader
-        title={searchQuery ? `Results for "${searchQuery}"` : "Search Products"}
+        title={searchQuery ? `Results for "${shortQuery}"` : "Search Products"}
         description={`We found ${total} products matching your criteria.`}
       />
 
@@ -77,6 +82,7 @@ export function SearchView({ categories, searchQuery }: SearchViewProps) {
             categories={categories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
+            hideCategories={true}
           />
         </div>
 
@@ -92,7 +98,10 @@ export function SearchView({ categories, searchQuery }: SearchViewProps) {
           {loading ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {[...Array(8)].map((_, i) => (
-                <div key={i} className="animate-pulse bg-content/[0.03] rounded-2xl h-80"></div>
+                <div
+                  key={i}
+                  className="animate-pulse bg-content/[0.03] rounded-2xl h-80"
+                ></div>
               ))}
             </div>
           ) : products.length > 0 ? (
@@ -109,9 +118,12 @@ export function SearchView({ categories, searchQuery }: SearchViewProps) {
                 <Search className="w-10 h-10 text-content/30" />
               </div>
               <div>
-                <h3 className="text-2xl font-black text-content mb-2 tracking-tight">No results found</h3>
+                <h3 className="text-2xl font-black text-content mb-2 tracking-tight">
+                  No results found
+                </h3>
                 <p className="text-content/50 text-base max-w-md mx-auto">
-                  We couldn't find anything matching "{searchQuery}". Try using different keywords or browsing our categories.
+                  We couldn't find anything matching "{shortQuery}". Try using
+                  different keywords or browsing our categories.
                 </p>
               </div>
             </div>
@@ -137,12 +149,13 @@ export function SearchView({ categories, searchQuery }: SearchViewProps) {
             Curated For You
           </h2>
           <p className="text-content/60 max-w-2xl mx-auto">
-            Discover our premium selection of highly rated products tailored to your aesthetic.
+            Discover our premium selection of highly rated products tailored to
+            your aesthetic.
           </p>
         </div>
-        <Recommendations 
-          recommendedProducts={recommendedProducts} 
-          loadingRecommended={loadingRecommended} 
+        <Recommendations
+          recommendedProducts={recommendedProducts}
+          loadingRecommended={loadingRecommended}
         />
       </div>
     </AppContainer>

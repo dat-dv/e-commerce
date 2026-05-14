@@ -41,7 +41,7 @@ export function GlobalSearch() {
               name="query"
               variant="none"
               placeholder="Search for premium tech & workspace essentials..."
-              className="w-full !h-12 bg-surface !border-solid border border-content/[0.08] hover:border-content/[0.15] focus:border-content/[0.25] focus:shadow-md transition-all rounded-full pl-11 pr-28 text-sm outline-none text-content placeholder:text-content/40 font-medium m-0"
+              className="w-full !h-12 bg-surface !border-solid border border-content/[0.08] hover:border-content/[0.15] focus:border-content/[0.25] focus:shadow-sm transition-all rounded-full pl-11 pr-28 text-sm outline-none text-content placeholder:text-content/40 font-medium m-0"
             />
             <button
               type="submit"

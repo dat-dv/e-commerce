@@ -6,7 +6,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 import AvatarDropdown from "../avatar-dropdown";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Heart } from "lucide-react";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 
 export default function HeaderActions() {
@@ -41,6 +41,12 @@ export default function HeaderActions() {
           </>
         }
       >
+        <button
+          className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
+          title="Yêu thích"
+        >
+          <Heart size={20} />
+        </button>
         <button
           onClick={() => setIsOpen(true)}
           className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"

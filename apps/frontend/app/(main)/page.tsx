@@ -3,7 +3,6 @@ import { HomeView } from "@/components/organisms/home-view";
 import { homepageUseCase } from "@/domain/homepage/use-cases";
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { ProductsProvider } from "@/components/molecules/providers/products-provider";
-import { CategoriesProvider } from "@/components/molecules/providers/categories-provider";
 import { headers } from "next/headers";
 import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
 import { allSafe } from "@/utils/promise";
@@ -47,9 +46,7 @@ export default async function Home() {
 
   return (
     <ProductsProvider initState={productsInitialData}>
-      <CategoriesProvider initState={categoriesInitialData}>
-        <HomeView />
-      </CategoriesProvider>
+      <HomeView />
     </ProductsProvider>
   );
 }
