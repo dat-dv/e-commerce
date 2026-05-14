@@ -1,13 +1,8 @@
-export enum EShippingAddressLabels {
-  HOME = 0,
-  WORK = 1,
-  APARTMENT = 2,
-  OTHER = 3,
-}
+import { AddressLabel } from "@ecommerce/shared";
 
 export const SHIPPING_ADDRESS_LABELS_OPTIONS = [
-  { label: "Home", value: EShippingAddressLabels.HOME },
-  { label: "Work", value: EShippingAddressLabels.WORK },
-  { label: "Apartment", value: EShippingAddressLabels.APARTMENT },
-  { label: "Other", value: EShippingAddressLabels.OTHER },
+  { label: "Home", value: AddressLabel.HOME },
+  { label: "Work", value: AddressLabel.OFFICE },
+  { label: "Apartment", value: AddressLabel.APARTMENT },
+  { label: "Other", value: AddressLabel.OTHER },
 ];

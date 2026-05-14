@@ -1,8 +1,8 @@
-import { EShippingAddressLabels } from "@/constants/shipping-address.constanst";
+import { AddressLabel } from "@ecommerce/shared";
 import * as z from "zod";
 
 export const addressSchema = z.object({
-  label: z.nativeEnum(EShippingAddressLabels, {
+  label: z.nativeEnum(AddressLabel, {
     error: "Label is required",
   }),
   receiver_name: z.string().min(1, "Receiver name is required"),

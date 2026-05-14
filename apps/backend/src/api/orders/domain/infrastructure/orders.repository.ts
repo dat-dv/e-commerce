@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { OrderStatus } from '../entities/order-status.enum';
+import { EOrderStatus } from '../entities/order-status.enum';
 import { ICreateOrderInput, IOrder, IOrderItem } from '@ecommerce/shared';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class OrdersRepository implements IOrdersRepository {
         discount_amount: data.discount_amount,
         shipping_address_id: data.shipping_address_id,
         coupon_id: data.coupon_id,
-        status: OrderStatus.PENDING,
+        status: EOrderStatus.PENDING,
         items: {
           create: data.items.map((item) => ({
             sku_id: item.sku_id,
@@ -53,7 +53,7 @@ export class OrdersRepository implements IOrdersRepository {
   async cancelOrder(id: string, userId: string): Promise<IOrder> {
     const order = await this.prisma.order.update({
       where: { id, user_id: userId },
-      data: { status: OrderStatus.CANCELLED },
+      data: { status: EOrderStatus.CANCELLED },
       include: { items: true },
     });
     return order;

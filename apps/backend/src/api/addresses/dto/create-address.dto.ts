@@ -1,5 +1,5 @@
+import { AddressLabel } from '@ecommerce/shared';
 import { IsString, IsNotEmpty, IsBoolean, IsOptional, IsNumber, IsEnum } from 'class-validator';
-import { AddressLabel } from '../domain/entities/address-label.enum';
 
 export class CreateAddressDto {
   @IsString()
@@ -11,7 +11,7 @@ export class CreateAddressDto {
   receiver_phone: string;
 
   @IsEnum(AddressLabel)
-  label: AddressLabel;
+  label: number;
 
   @IsNumber()
   latitude: number;

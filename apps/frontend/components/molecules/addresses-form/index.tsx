@@ -13,11 +13,9 @@ import {
   AddressFormData,
   AddressFormInput,
 } from "./addresses.schema";
-import {
-  EShippingAddressLabels,
-  SHIPPING_ADDRESS_LABELS_OPTIONS,
-} from "@/constants/shipping-address.constanst";
+import { SHIPPING_ADDRESS_LABELS_OPTIONS } from "@/constants/shipping-address.constanst";
 import { FormMapPicker } from "../form/form-map-picker";
+import { AddressLabel } from "@ecommerce/shared";
 
 interface AddressesFormProps {
   onSubmit: (data: AddressFormData) => Promise<boolean>;
@@ -33,7 +31,7 @@ export const AddressesForm = ({
   const methods = useForm<AddressFormInput>({
     resolver: zodResolver(addressSchema),
     defaultValues: {
-      label: initialData?.label ?? EShippingAddressLabels.HOME,
+      label: initialData?.label ?? AddressLabel.HOME,
       receiver_name: initialData?.receiver_name || "",
       receiver_phone: initialData?.receiver_phone || "",
       latitude: initialData?.latitude ?? 0,

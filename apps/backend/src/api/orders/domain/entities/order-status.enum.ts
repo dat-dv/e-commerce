@@ -1,4 +1,4 @@
-export enum OrderStatus {
+export enum EOrderStatus {
   PENDING = 0,
   CONFIRMED = 1,
   PROCESSING = 2,

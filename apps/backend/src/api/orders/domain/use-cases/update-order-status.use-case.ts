@@ -1,8 +1,9 @@
 import { Injectable, Inject, UnauthorizedException, BadRequestException, NotFoundException } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { OrderStatus } from '../entities/order-status.enum';
+import { EOrderStatus } from '../entities/order-status.enum';
 import { NotificationService } from 'src/api/notifications/notifications.service';
+import { IOrder } from '@ecommerce/shared';
 
 @Injectable()
 export class UpdateOrderStatusUseCase {
@@ -13,7 +14,7 @@ export class UpdateOrderStatusUseCase {
     private readonly notificationService: NotificationService,
   ) {}
 
-  async execute(id: string, newStatus: number, isAdmin = false) {
+  async execute(id: string, newStatus: number, isAdmin = false): Promise<IOrder> {
     if (!isAdmin) {
       throw new UnauthorizedException('Only admins can update order status');
     }
@@ -28,14 +29,14 @@ export class UpdateOrderStatusUseCase {
     }
 
     // 1. Kiểm tra trạng thái hiện tại
-    if (order.status === Number(OrderStatus.DELIVERED) || order.status === Number(OrderStatus.CANCELLED)) {
+    if (order.status === Number(EOrderStatus.DELIVERED) || order.status === Number(EOrderStatus.CANCELLED)) {
       throw new BadRequestException('Cannot update status of a delivered or cancelled order');
     }
 
-    let updatedOrder;
+    let updatedOrder: IOrder;
 
     // 2. Logic hoàn trả hàng nếu chuyển sang CANCELLED hoặc REFUNDED
-    if (newStatus === Number(OrderStatus.CANCELLED) || newStatus === Number(OrderStatus.REFUNDED)) {
+    if (newStatus === Number(EOrderStatus.CANCELLED) || newStatus === Number(EOrderStatus.REFUNDED)) {
       updatedOrder = await this.prisma.$transaction(async (tx) => {
         // Cập nhật trạng thái
         const res = await tx.order.update({
@@ -78,19 +79,19 @@ export class UpdateOrderStatusUseCase {
     let body = `Đơn hàng #${orderId.slice(-6)} của bạn đã thay đổi trạng thái.`;
 
     switch (status) {
-      case Number(OrderStatus.CONFIRMED):
+      case Number(EOrderStatus.CONFIRMED):
         title = 'Đơn hàng đã được xác nhận';
         body = `Đơn hàng #${orderId.slice(-6)} đã được người bán xác nhận.`;
         break;
-      case Number(OrderStatus.SHIPPING):
+      case Number(EOrderStatus.SHIPPING):
         title = 'Đơn hàng đang được giao';
         body = `Đơn hàng #${orderId.slice(-6)} đang trên đường đến với bạn.`;
         break;
-      case Number(OrderStatus.DELIVERED):
+      case Number(EOrderStatus.DELIVERED):
         title = 'Giao hàng thành công';
         body = `Đơn hàng #${orderId.slice(-6)} đã được giao thành công. Chúc bạn trải nghiệm sản phẩm vui vẻ!`;
         break;
-      case Number(OrderStatus.CANCELLED):
+      case Number(EOrderStatus.CANCELLED):
         title = 'Đơn hàng đã bị hủy';
         body = `Đơn hàng #${orderId.slice(-6)} của bạn đã bị hủy.`;
         break;

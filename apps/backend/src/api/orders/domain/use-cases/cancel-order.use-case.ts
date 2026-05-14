@@ -1,7 +1,7 @@
 import { Injectable, Inject, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { OrderStatus } from '../entities/order-status.enum';
+import { EOrderStatus } from '../entities/order-status.enum';
 
 @Injectable()
 export class CancelOrderUseCase {
@@ -25,7 +25,7 @@ export class CancelOrderUseCase {
       throw new ForbiddenException('You do not have permission to cancel this order');
     }
 
-    if (order.status !== Number(OrderStatus.PENDING)) {
+    if (order.status !== Number(EOrderStatus.PENDING)) {
       throw new BadRequestException('Only pending orders can be cancelled');
     }
 
@@ -33,7 +33,7 @@ export class CancelOrderUseCase {
       // 1. Cập nhật trạng thái đơn hàng
       const updatedOrder = await tx.order.update({
         where: { id: orderId },
-        data: { status: OrderStatus.CANCELLED },
+        data: { status: EOrderStatus.CANCELLED },
       });
 
       // 2. Hoàn trả tồn kho

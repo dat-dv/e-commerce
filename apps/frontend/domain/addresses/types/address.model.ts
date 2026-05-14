@@ -1,4 +1,4 @@
-import { EShippingAddressLabels } from "@/constants/shipping-address.constanst";
+import { AddressLabel } from "@ecommerce/shared";
 
 export interface TAddress {
   id: string;
@@ -12,14 +12,14 @@ export interface TAddress {
   postalCode: string;
   latitude: number;
   longitude: number;
-  label: EShippingAddressLabels;
+  label: AddressLabel;
   isDefault: boolean;
 }
 
 export interface TCreateAddressInput {
   receiver_name: string;
   receiver_phone: string;
-  label: EShippingAddressLabels;
+  label: AddressLabel;
   street: string;
   city: string;
   state: string;
