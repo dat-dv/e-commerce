@@ -8,10 +8,11 @@ import { cartUseCase } from "@/domain/cart/use-cases";
 export const CartSync = () => {
   const setItems = useCartStore((s) => s.setItems);
   const setHasHydrated = useCartStore((s) => s.setHasHydrated);
+  const hasHydrated = useCartStore((s) => s._hasHydrated);
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user || hasHydrated) return;
 
     const getCart = async () => {
       const cartRes = await cartUseCase.getCart.execute();
@@ -21,7 +22,7 @@ export const CartSync = () => {
       setHasHydrated(true);
     };
     getCart();
-  }, [setItems, setHasHydrated, user]);
+  }, [setItems, setHasHydrated, user, hasHydrated]);
 
   return null;
 };
