@@ -1,4 +1,4 @@
-import { IFlashSale } from '@ecommerce/shared';
+import { EProductSort, IFlashSale } from '@ecommerce/shared';
 import { IProduct, IReview } from '@ecommerce/shared';
 import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
@@ -37,7 +37,7 @@ export interface IProductsRepository {
     min_price?: number;
     max_price?: number;
     attribute_value_ids?: string[];
-    sort?: string;
+    sort?: EProductSort;
     languageCode?: string;
   }): Promise<PaginatedResult<IProduct>>;
 

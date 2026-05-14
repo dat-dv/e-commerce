@@ -256,12 +256,19 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
           brandId = findBrandIdByProductName(p.name, brandMap);
         }
 
+        const skuPrices = p.skus.map((sku) =>
+          sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000,
+        );
+        const basePrice =
+          skuPrices.length > 0 ? Math.min(...skuPrices) : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
+
         const createdProduct = await prisma.product.create({
           data: {
             slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
             status: ProductStatus.ACTIVE,
             thumbnail_id: thumbnail.id,
             brand_id: brandId,
+            base_price: basePrice,
             translations: {
               create: [
                 { language_id: langVi.id, name: p.name_vi, description: p.description_vi },

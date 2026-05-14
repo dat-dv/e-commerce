@@ -12,6 +12,7 @@ model Product {
   created_at DateTime  @default(now())
   updated_at DateTime  @updatedAt
   deleted_at DateTime?
+  base_price Float  @default(0) // Base price cho các trường hợp hiển thị tổng quan
 
   thumbnail_id String? @unique
   thumbnail    Image?  @relation(fields: [thumbnail_id], references: [id])

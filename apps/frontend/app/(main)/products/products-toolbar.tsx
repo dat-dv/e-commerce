@@ -2,23 +2,33 @@
 
 import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft, ChevronRight, SlidersHorizontal } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  SlidersHorizontal,
+} from "lucide-react";
+import { Dropdown } from "@/components/molecules/dropdown";
+import { EProductSort } from "@ecommerce/shared";
 
 interface ProductsToolbarProps {
   total: number;
   currentPage: number;
   totalPages: number;
+  isLoading?: boolean;
 }
 
 export function ProductsToolbar({
   total,
   currentPage,
   totalPages,
+  isLoading = false,
 }: ProductsToolbarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const currentSort = searchParams.get("sort") || "newest";
+  const currentSort =
+    searchParams.get("sort") || EProductSort.DEFAULT.toString();
 
   const updateSort = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -36,14 +46,18 @@ export function ProductsToolbar({
   };
 
   const sortOptions = [
-    { value: "newest", label: "Newest" },
-    { value: "best_selling", label: "Best Selling" },
-    { value: "price_asc", label: "Price: Low to High" },
-    { value: "price_desc", label: "Price: High to Low" },
+    { value: EProductSort.DEFAULT, label: "Newest" },
+    { value: EProductSort.BUY_MOST, label: "Best Selling" },
+    { value: EProductSort.PRICE_ASC, label: "Price: Low to High" },
+    { value: EProductSort.PRICE_DESC, label: "Price: High to Low" },
   ];
 
+  const currentSortOption =
+    sortOptions.find((opt) => opt.value.toString() === currentSort) ||
+    sortOptions[0];
+
   return (
-    <div className="bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl rounded-2xl p-4 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]">
+    <div className="relative z-30 bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl rounded-2xl p-4 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]">
       {/* Left side: Info & Pagination */}
       <div className="flex items-center justify-between w-full md:w-auto gap-4">
         <div className="text-sm font-medium text-content/70">
@@ -88,21 +102,49 @@ export function ProductsToolbar({
           </span>
         </div>
 
-        <div className="flex flex-1 md:flex-none items-center gap-1 bg-content/[0.03] p-1 rounded-xl border border-content/[0.05]">
-          {sortOptions.map((option) => (
+        <Dropdown
+          trigger={
             <button
-              key={option.value}
-              onClick={() => updateSort(option.value)}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                currentSort === option.value
-                  ? "bg-primary text-white shadow-lg shadow-primary/20"
-                  : "text-content/40 hover:text-content hover:bg-content/5"
-              }`}
+              disabled={isLoading}
+              className="flex items-center gap-3 px-4 py-2.5 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-2xl transition-all group min-w-[180px] justify-between disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {option.label}
+              <span className="text-xs font-bold text-content/70 group-hover:text-content">
+                {isLoading ? "Loading..." : currentSortOption.label}
+              </span>
+              <ChevronDown
+                size={14}
+                className="text-content/30 group-hover:text-content transition-colors"
+              />
             </button>
-          ))}
-        </div>
+          }
+        >
+          <div className="flex flex-col gap-1 min-w-[220px]">
+            <div className="px-3 py-2 mb-1 border-b border-content/[0.05]">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-content/30">
+                Sort Products By
+              </span>
+            </div>
+            {sortOptions.map((option) => (
+              <button
+                key={option.value}
+                onClick={() => updateSort(option.value.toString())}
+                className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-bold transition-all ${
+                  currentSort === option.value.toString()
+                    ? "bg-primary text-white shadow-lg shadow-primary/25"
+                    : "text-content/60 hover:text-content hover:bg-content/5"
+                }`}
+              >
+                {option.label}
+                {currentSort === option.value.toString() && (
+                  <motion.div
+                    layoutId="active-sort"
+                    className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+        </Dropdown>
       </div>
     </div>
   );

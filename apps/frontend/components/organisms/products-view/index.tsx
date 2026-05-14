@@ -12,6 +12,7 @@ import { Search } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Pagination } from "@/components/molecules/pagination";
+import { EProductSort } from "@ecommerce/shared";
 
 interface ProductsViewProps {
   categories: TCategory[];
@@ -61,7 +62,7 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
       category_slug: categorySlug,
       page: page ? parseInt(page) : 1,
       limit: 56,
-      sort: sort || "newest",
+      sort: sort || EProductSort.DEFAULT.toString(),
       search: search || undefined,
     });
   }, [categorySlug, page, sort, search, fetchProducts]);
@@ -130,6 +131,7 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
             total={total}
             currentPage={currentPage}
             totalPages={totalPages}
+            isLoading={loading}
           />
 
           {loading ? (

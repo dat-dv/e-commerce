@@ -3,6 +3,8 @@ import { productsUseCase } from "@/domain/products/use-cases";
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
 import { ProductsView } from "@/components/organisms/products-view";
+import { allSafe } from "@/utils/promise";
+import NotFound from "@/app/not-found";
 
 interface ProductsPageProps {
   params: Promise<{ slug: string }>;
@@ -34,7 +36,7 @@ export default async function CategoryProductsPage({
   const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
   const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;
 
-  const [productsRes, categoriesRes] = await Promise.all([
+  const [productsRes, categoriesRes] = await allSafe([
     productsUseCase.getProducts.execute({
       page,
       limit,
@@ -47,6 +49,10 @@ export default async function CategoryProductsPage({
     }),
     categoriesUseCase.getTree.execute(),
   ]);
+
+  if (!productsRes || !categoriesRes) {
+    return <NotFound />;
+  }
 
   const products =
     productsRes.status === "success" ? productsRes.data?.items || [] : [];

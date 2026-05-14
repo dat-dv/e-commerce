@@ -7,12 +7,14 @@ type TDropdownProps = {
   trigger: ReactNode;
   children: ReactNode;
   align?: "left" | "right";
+  closeOnContentClick?: boolean;
 };
 
 export const Dropdown = ({
   trigger,
   children,
   align = "right",
+  closeOnContentClick = true,
 }: TDropdownProps) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -66,14 +68,22 @@ export const Dropdown = ({
               damping: 30,
             }}
             className={[
-              "absolute mt-3 w-72 z-[100]",
+              "absolute mt-3 w-72 z-[9999]",
               "bg-surface/95 backdrop-blur-3xl",
               "rounded-2xl border border-content/[0.08]",
               "shadow-[0_20px_70px_-10px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_70px_-10px_rgba(0,0,0,0.4)] p-2",
               align === "right" ? "right-0" : "left-0",
             ].join(" ")}
           >
-            {children}
+            <div
+              onClick={() => {
+                if (closeOnContentClick) {
+                  setOpen(false);
+                }
+              }}
+            >
+              {children}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
+import { EProductSort } from '@ecommerce/shared';
 
 @Injectable()
 export class GetProductsUseCase {
@@ -18,7 +19,7 @@ export class GetProductsUseCase {
     min_price?: number;
     max_price?: number;
     attribute_value_ids?: string[];
-    sort?: string;
+    sort?: EProductSort;
     languageCode?: string;
   }) {
     const page = Number(params.page) || 1;

@@ -1,5 +1,6 @@
-import { IsOptional, IsString, IsInt, Min, Max, IsArray } from 'class-validator';
+import { IsOptional, IsString, IsInt, Min, Max, IsArray, IsEnum } from 'class-validator';
 import { Type } from 'class-transformer';
+import { EProductSort } from '@ecommerce/shared';
 
 export class GetProductsDto {
   @IsOptional()
@@ -47,8 +48,9 @@ export class GetProductsDto {
   attribute_value_ids?: string[];
 
   @IsOptional()
-  @IsString()
-  sort?: string; // 'price_asc', 'price_desc', 'newest'
+  @Type(() => Number)
+  @IsEnum(EProductSort)
+  sort?: EProductSort;
 
   @IsOptional()
   @IsString()

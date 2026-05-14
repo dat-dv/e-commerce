@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct, IReview } from '@ecommerce/shared';
+import { IProduct, IReview, EProductSort } from '@ecommerce/shared';
 import { IFlashSale } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
@@ -415,7 +415,7 @@ export class ProductsRepository implements IProductsRepository {
     min_price?: number;
     max_price?: number;
     attribute_value_ids?: string[];
-    sort?: string;
+    sort?: EProductSort;
     languageCode?: string;
   }): Promise<{
     items: IProduct[];
@@ -496,11 +496,19 @@ export class ProductsRepository implements IProductsRepository {
       };
     }
 
-    let orderBy: Prisma.ProductOrderByWithRelationInput = { created_at: 'desc' };
-    if (sort === 'price_asc') {
-      orderBy = { skus: { _count: 'asc' } };
-    } else if (sort === 'price_desc') {
-      orderBy = { skus: { _count: 'desc' } };
+    let orderBy: Prisma.ProductOrderByWithRelationInput;
+    const sortValue: EProductSort = Number(sort) || EProductSort.DEFAULT;
+
+    if (sortValue === EProductSort.PRICE_ASC) {
+      orderBy = { base_price: 'asc' };
+    } else if (sortValue === EProductSort.PRICE_DESC) {
+      orderBy = { base_price: 'desc' };
+    } else if (sortValue === EProductSort.BUY_MOST) {
+      orderBy = { sold_count: 'desc' };
+    } else if (sortValue === EProductSort.BUY_LESS) {
+      orderBy = { sold_count: 'asc' };
+    } else {
+      orderBy = { created_at: 'desc' };
     }
 
     const result = await this.paginationService.paginate<IProduct>(

@@ -8,6 +8,14 @@ export enum EProductStatus {
   OUT_OF_STOCK = 2,
 }
 
+export enum EProductSort {
+  DEFAULT = 0,
+  PRICE_ASC = 1,
+  PRICE_DESC = 2,
+  BUY_MOST = 3,
+  BUY_LESS = 4,
+}
+
 export interface IProductTranslation {
   language_id: string;
   name: string;
