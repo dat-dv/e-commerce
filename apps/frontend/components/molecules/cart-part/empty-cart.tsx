@@ -1,15 +1,10 @@
 "use client";
 
-import React from "react";
 import { ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 
-interface EmptyCartProps {
-  onSeedDummy: () => void;
-}
-
-export const EmptyCart = ({ onSeedDummy }: EmptyCartProps) => {
+export const EmptyCart = () => {
   return (
     <div className="bg-surface/50 border border-content/[0.05] backdrop-blur-3xl rounded-[3rem] p-24 text-center flex flex-col items-center justify-center min-h-[50vh] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-primary/20 blur-xl pointer-events-none" />
@@ -35,12 +30,6 @@ export const EmptyCart = ({ onSeedDummy }: EmptyCartProps) => {
         >
           Explore Now
         </Link>
-        <button
-          onClick={onSeedDummy}
-          className="text-content/30 hover:text-content px-8 py-4 text-[10px] font-black uppercase tracking-[0.4em] transition-all"
-        >
-          Inject Sample Data
-        </button>
       </div>
     </div>
   );

@@ -82,5 +82,10 @@ export const API_ROUTES = {
     MINE: "/addresses",
     DEFAULT: "/addresses/default",
   },
+  CART: {
+    BASE: "/cart",
+    ITEMS: "/cart/items",
+    ITEM: (id: string) => `/cart/items/${id}`,
+  },
   CONFIG: "/config",
 } as const;

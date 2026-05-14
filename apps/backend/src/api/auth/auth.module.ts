@@ -16,8 +16,10 @@ import { IAuthRepository } from './domain/entities/auth.repository.interface';
 import { AuthRepository } from './domain/infrastructure/auth.repository';
 import { TokenService } from '../../shared/services/token/token.service';
 
+import { CartModule } from 'src/api/cart/cart.module';
+
 @Module({
-  imports: [JwtModule, forwardRef(() => UsersModule), MailModule],
+  imports: [JwtModule, forwardRef(() => UsersModule), MailModule, forwardRef(() => CartModule)],
   controllers: [AuthController],
   providers: [
     LoginUseCase,

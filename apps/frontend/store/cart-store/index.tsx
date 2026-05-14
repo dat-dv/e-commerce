@@ -18,6 +18,7 @@ const createCartStoreCreator =
       ...initState,
 
       setHasHydrated: (state) => set({ _hasHydrated: state }),
+      setLoading: (loading) => set({ loading }),
       setIsOpen: (isOpen) => set({ isOpen }),
 
       addItem: (item, quantity) => {
@@ -51,6 +52,7 @@ const createCartStoreCreator =
         set({ items: updatedItems });
       },
 
+      setItems: (items) => set({ items }),
       clearCart: () => set({ items: [], selectedSkuIds: [] }),
 
       toggleSelectItem: (sku_id) => {

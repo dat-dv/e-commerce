@@ -7,9 +7,15 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import { useAddresses } from "@/hooks/addresses/use-addresses";
 
+import {
+  TAddress,
+  TCreateAddressInput,
+} from "@/domain/addresses/types/address.model";
+
 export const useCheckoutAdapter = () => {
   const router = useRouter();
-  const { selectedItems, totalAmount, clearSelection } = useCartAdapter();
+  const { items, selectedItems, totalAmount, clearSelection } =
+    useCartAdapter();
   const selectedSkuIds = useCartStore((s) => s.selectedSkuIds);
 
   const {
@@ -24,8 +30,8 @@ export const useCheckoutAdapter = () => {
   const [placingOrder, setPlacingOrder] = useState(false);
 
   const handleSubmitAddress = async (
-    data: ICreateAddressInput,
-    editingAddress?: IAddress | null,
+    data: TCreateAddressInput,
+    editingAddress?: TAddress | null,
   ) => {
     if (editingAddress) {
       return updateAddress(editingAddress.id, data);
@@ -46,8 +52,13 @@ export const useCheckoutAdapter = () => {
 
     setPlacingOrder(true);
     try {
+      // Map selectedSkuIds to actual CartItem IDs for the backend
+      const cartItemIds = items
+        .filter((item) => selectedSkuIds.includes(item.sku_id))
+        .map((item) => item.id);
+
       const res = await ordersUseCase.placeOrder.execute({
-        cartItemIds: selectedSkuIds,
+        cartItemIds,
         shippingAddressId: selectedAddressId,
       });
 
@@ -67,7 +78,7 @@ export const useCheckoutAdapter = () => {
     } finally {
       setPlacingOrder(false);
     }
-  }, [selectedAddressId, selectedSkuIds, clearSelection, router]);
+  }, [selectedAddressId, selectedSkuIds, items, clearSelection, router]);
 
   return {
     selectedItems,

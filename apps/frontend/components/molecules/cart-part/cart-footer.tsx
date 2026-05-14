@@ -14,10 +14,8 @@ interface CartFooterProps {
 export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
   return (
     <div className="sticky bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-3xl border-t border-content/[0.05] shadow-[0_-10px_40px_rgba(0,0,0,0.03)] z-40 overflow-hidden mt-12 mb-8">
-      {/* Ambient Light Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-primary/30 blur-md pointer-events-none" />
 
-      {/* Voucher Row (Refined) */}
       <div className="bg-primary/[0.1] border-b border-primary/5 px-8 py-3 flex items-center justify-center md:justify-end gap-8 text-xs font-medium">
         <button className="text-content/70 hover:text-primary transition-all flex items-center gap-2 group">
           <Ticket size={14} className="text-primary/60" />

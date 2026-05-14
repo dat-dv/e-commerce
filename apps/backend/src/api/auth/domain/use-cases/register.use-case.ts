@@ -7,12 +7,16 @@ import { EnvVars } from 'src/config/config.validation';
 import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.constant';
 import { TokenService } from 'src/shared/services/token/token.service';
 
+import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
+
 @Injectable()
 export class RegisterUseCase {
   constructor(
     private readonly createUserUseCase: CreateUserUseCase,
     @Inject(IAuthRepository)
     private readonly authRepository: IAuthRepository,
+    @Inject(ICartRepository)
+    private readonly cartRepository: ICartRepository,
     private readonly tokenService: TokenService,
     private readonly configService: ConfigService<EnvVars>,
   ) {}
@@ -23,6 +27,8 @@ export class RegisterUseCase {
       first_name: '',
       last_name: '',
     });
+
+    await this.cartRepository.createCart(user.id);
     const payload = { sub: user.id, email: user.email };
 
     const accessToken = await this.tokenService.generateAccessToken(payload);

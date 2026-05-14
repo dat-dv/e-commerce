@@ -18,12 +18,15 @@ export interface ICartStoreState {
 }
 
 export interface ICartStoreActions {
+  // Actions
   addItem: (item: Omit<ICartItem, "quantity">, quantity: number) => void;
   removeItem: (sku_id: string) => void;
   updateQuantity: (sku_id: string, quantity: number) => void;
+  setItems: (items: ICartItem[]) => void;
   clearCart: () => void;
   setIsOpen: (isOpen: boolean) => void;
   setHasHydrated: (state: boolean) => void;
+  setLoading: (loading: boolean) => void;
 
   // Selection Actions
   toggleSelectItem: (sku_id: string) => void;

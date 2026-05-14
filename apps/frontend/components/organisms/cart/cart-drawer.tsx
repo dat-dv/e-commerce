@@ -13,8 +13,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
-import Button from "@/components/atoms/button";
-import { cn } from "@/utils/cn";
 
 export const CartDrawer = () => {
   const { items, removeItem, updateQuantity, totalAmount, setIsOpen, isOpen } =

@@ -1,0 +1,55 @@
+import { TCartItem, ICart } from "../types/cart.model";
+
+export interface ICartItemDTO {
+  id: string;
+  sku_id: string;
+  quantity: number;
+  sku: {
+    id: string;
+    product_id: string;
+    price: number;
+    original_price?: number;
+    product: {
+      id: string;
+      translations: Array<{
+        name: string;
+      }>;
+      thumbnail_url?: string;
+    };
+    flash_sales: Array<{
+      sale_price: number;
+    }>;
+  };
+}
+
+export interface ICartDTO {
+  id: string;
+  user_id: string;
+  items: ICartItemDTO[];
+}
+
+export class CartMapper {
+  static toDomainItem(dto: ICartItemDTO): TCartItem {
+    const flashSalePrice = dto.sku.flash_sales[0]?.sale_price;
+    const price = flashSalePrice ?? dto.sku.price;
+
+    return {
+      id: dto.id,
+      product_id: dto.sku.product_id,
+      sku_id: dto.sku_id,
+      name: dto.sku.product.translations[0]?.name || "Unnamed Product",
+      price: price,
+      quantity: dto.quantity,
+      image_url: dto.sku.product.thumbnail_url || null,
+      attributes: "", // TODO: Fetch SKU attributes if needed
+    };
+  }
+
+  static toDomain(dto: ICartDTO): ICart {
+    return {
+      id: dto.id,
+      user_id: dto.user_id,
+      items: dto.items.map(this.toDomainItem),
+    };
+  }
+}

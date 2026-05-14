@@ -43,10 +43,10 @@ export class GetCartUseCase {
     });
 
     if (!cartData) {
-      return await this.cartRepository.createCart(userId);
+      const newCart = await this.cartRepository.createCart(userId);
+      return { ...newCart, items: [] };
     }
 
-    // Convert Decimals to Numbers for SKU prices
     return {
       ...cartData,
       items: cartData.items.map((item) => ({
