@@ -1,5 +1,6 @@
 import { IProduct } from './product';
 import { IProductCategory } from './product-category';
+import { IBrand } from './brand';
 
 export enum EHomepageSectionType {
   FLASH_SALE = 'flash_sale',
@@ -30,26 +31,6 @@ export interface IHomepageSection {
   translations?: IHomepageSectionTranslation[];
   created_at: Date;
   updated_at: Date;
-}
-
-export interface IBrand {
-  id: string;
-  slug: string;
-  logo_url?: string | null;
-  banner_url?: string | null;
-  website_url?: string | null;
-  is_verified: boolean;
-  is_featured: boolean;
-  order: number;
-  name?: string; // from translation
-  description?: string | null;
-  description_en?: string | null;
-  description_vi?: string | null;
-  story_en?: string | null;
-  story_vi?: string | null;
-  founded_year?: number | null;
-  headquarters?: string | null;
-  product_count?: number;
 }
 
 export interface IHomepageSectionResponse {

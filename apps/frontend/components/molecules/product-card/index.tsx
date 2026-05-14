@@ -6,7 +6,6 @@ import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
-import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
@@ -14,22 +13,13 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { CALLBACK_URL_KEY } from "@/constants/routes";
 
-export interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  category: string;
-  image_url?: string;
-  skus: {
-    id: string;
-    price: string;
-    original_price?: string;
-    discount_percent?: number;
-    image_url?: string;
-  }[];
+import { TProduct } from "@/domain/products/types/products.model";
+
+interface ProductCardProps {
+  product: TProduct;
 }
 
-export const ProductCard = ({ product }: { product: Product }) => {
+export const ProductCard = ({ product }: ProductCardProps) => {
   const addItem = useCartStore((s) => s.addItem);
   const sku = product?.skus?.[0];
 
@@ -38,10 +28,12 @@ export const ProductCard = ({ product }: { product: Product }) => {
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (!user) {
-      toast.info("Please sign in to perform this action");
-      const callbackUrl = encodeURIComponent(window.location.pathname);
+      toast.info("Please sign in to add items to cart");
+      const productDetailUrl = APP_ROUTES.PRODUCT_DETAIL(product.slug);
+      const callbackUrl = encodeURIComponent(productDetailUrl);
       router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
       return;
     }
@@ -55,7 +47,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
         sku_id: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: priceNumber,
-        image_url: product.image_url || sku?.image_url || null,
+        image_url: product.image_url || sku?.image_url || "",
         attributes: product.category,
       },
       1,

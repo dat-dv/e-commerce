@@ -38,7 +38,7 @@ export const CategoriesSection = ({
       <SectionHeader
         title={title}
         href={APP_ROUTES.CATEGORIES}
-        icon={Sparkles}
+        icon={<Sparkles className="w-5 h-5 text-purple-500" />}
         lang={lang}
       />
 

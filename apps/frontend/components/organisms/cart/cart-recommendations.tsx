@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ProductCard, Product } from "@/components/molecules/product-card";
+import { ProductCard } from "@/components/molecules/product-card";
+import { TProduct } from "@/domain/products/types/products.model";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
 
 export default function CartRecommendations() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<TProduct[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

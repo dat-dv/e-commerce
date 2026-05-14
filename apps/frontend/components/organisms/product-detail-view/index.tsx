@@ -29,6 +29,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   }>({});
 
   const [reviews, setReviews] = useState<TReview[]>([]);
+  const [totalReviews, setTotalReviews] = useState(0);
   const [similarProducts, setSimilarProducts] = useState<TProduct[]>([]);
   const [recommendedProducts, setRecommendedProducts] = useState<TProduct[]>(
     [],
@@ -78,6 +79,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         );
         if (response.data) {
           setReviews(response.data.items);
+          setTotalReviews(response.data.meta.total);
         }
       } catch (error) {
         console.error("Failed to fetch reviews:", error);
@@ -197,6 +199,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           originalPrice={originalPrice}
           price={price}
           discountPercent={discountPercent}
+          rating={product.rating}
+          reviewsCount={totalReviews}
           attributeGroups={attributeGroups}
           selectedAttributes={selectedAttributes}
           setSelectedAttributes={setSelectedAttributes}
@@ -208,13 +212,22 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
       </div>
 
       {/* SECTION 2: BRAND INFO */}
-      <BrandInfo />
+      <BrandInfo brand={product.brand} />
 
-      {/* SECTION 3: DESCRIPTION & CATEGORY */}
-      <DescriptionCategory category={product.category} />
+      {/* SECTION 3: DESCRIPTION & CATEGORY MERGED */}
+      <DescriptionCategory
+        name={name}
+        category={product.category}
+        description={product.description}
+      />
 
       {/* SECTION 4: REVIEWS & RATINGS */}
-      <ReviewsRatings reviews={reviews} loadingReviews={loadingReviews} />
+      <ReviewsRatings
+        reviews={reviews}
+        loadingReviews={loadingReviews}
+        averageRating={product.rating}
+        totalReviews={totalReviews}
+      />
 
       {/* SECTION 5: SIMILAR PRODUCTS */}
       <SimilarProducts

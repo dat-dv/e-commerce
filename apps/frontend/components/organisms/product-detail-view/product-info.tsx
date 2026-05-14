@@ -10,6 +10,8 @@ interface ProductInfoProps {
   originalPrice: number;
   price: number;
   discountPercent: number;
+  rating?: number;
+  reviewsCount?: number;
   attributeGroups: Record<string, Set<string>>;
   selectedAttributes: Record<string, string>;
   setSelectedAttributes: (attrs: Record<string, string>) => void;
@@ -19,19 +21,23 @@ interface ProductInfoProps {
   handleBuyNow: () => void;
 }
 
-export const ProductInfo = ({
-  name,
-  originalPrice,
-  price,
-  discountPercent,
-  attributeGroups,
-  selectedAttributes,
-  setSelectedAttributes,
-  quantity,
-  setQuantity,
-  handleAddToCart,
-  handleBuyNow,
-}: ProductInfoProps) => {
+export const ProductInfo = (props: ProductInfoProps) => {
+  const {
+    name,
+    originalPrice,
+    price,
+    discountPercent,
+    rating = 0,
+    reviewsCount = 0,
+    attributeGroups,
+    selectedAttributes,
+    setSelectedAttributes,
+    quantity,
+    setQuantity,
+    handleAddToCart,
+    handleBuyNow,
+  } = props;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,20 +49,27 @@ export const ProductInfo = ({
       <h1 className="text-xl font-semibold text-content leading-snug">
         {name}
       </h1>
-
+ 
       {/* Rating, Reviews, Sold & Report */}
       <div className="flex items-center justify-between text-sm border-b border-content/[0.05] pb-4">
         <div className="flex items-center gap-4 divide-x divide-content/[0.1]">
           <div className="flex items-center gap-1">
-            <span className="font-bold text-primary text-base">4.7</span>
+            <span className="font-bold text-primary text-base">
+              {rating.toFixed(1)}
+            </span>
             <div className="flex text-primary">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} fill="currentColor" />
+                <Star
+                  key={i}
+                  size={14}
+                  fill={i < Math.floor(rating) ? "currentColor" : "none"}
+                  className={i < Math.floor(rating) ? "" : "text-primary/20"}
+                />
               ))}
             </div>
           </div>
           <div className="pl-4 flex items-center gap-1">
-            <span className="font-bold text-content">250</span>
+            <span className="font-bold text-content">{reviewsCount}</span>
             <span className="text-content/50 text-xs">Reviews</span>
           </div>
           <div className="pl-4 flex items-center gap-1">

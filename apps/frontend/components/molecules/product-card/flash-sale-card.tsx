@@ -6,32 +6,15 @@ import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
-import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
 import Image from "next/image";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { CALLBACK_URL_KEY } from "@/constants/routes";
+import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 
-export interface FlashSaleProduct {
-  id: string;
-  slug: string;
-  name: string;
-  category: string;
-  image_url?: string;
-  skus: {
-    id: string;
-    price: string;
-    original_price?: string;
-    discount_percent?: number;
-    sold?: number;
-    total?: number;
-    image_url?: string;
-  }[];
-}
-
-export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
+export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
   const addItem = useCartStore((s) => s.addItem);
   const sku = product.skus[0];
 
@@ -42,15 +25,14 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
     e.preventDefault(); // Prevent navigating to product detail
 
     if (!user) {
-      toast.info("Please sign in to perform this action");
-      const callbackUrl = encodeURIComponent(window.location.pathname);
+      toast.info("Please sign in to add items to cart");
+      const productDetailUrl = APP_ROUTES.PRODUCT_DETAIL(product.slug);
+      const callbackUrl = encodeURIComponent(productDetailUrl);
       router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
       return;
     }
 
-    const priceNumber = parseFloat(
-      (sku?.price || "0").replace(/[^0-9.-]+/g, ""),
-    );
+    const priceNumber = sku?.price || 0;
 
     addItem(
       {
@@ -59,7 +41,7 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
         sku_id: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: isNaN(priceNumber) ? 0 : priceNumber,
-        image_url: product.image_url || sku?.image_url || null,
+        image_url: product.image_url || sku?.image_url || "",
         attributes: "Flash Sale",
       },
       1,
@@ -67,7 +49,6 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
     toast.success("Added to cart");
   };
 
-  // Calculate discount percentage
   const currentPriceNum = sku?.price || 0;
   const oldPriceNum = sku?.original_price || 0;
 
@@ -75,7 +56,7 @@ export const FlashSaleCard = ({ product }: { product: FlashSaleProduct }) => {
     oldPriceNum > 0 ? Math.round((1 - currentPriceNum / oldPriceNum) * 100) : 0;
 
   const soldCount = sku?.sold || 0;
-  const totalCount = sku?.total || 1; // Avoid division by zero
+  const totalCount = sku?.total || 1;
 
   return (
     <motion.div

@@ -33,6 +33,7 @@ export interface TUser {
   date_of_birth?: string | null;
   avatar_url?: string | null;
   gender?: EGender | null;
+  phone_number?: string | null;
 }
 
 export interface TAuthState {

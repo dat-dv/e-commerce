@@ -1,60 +1,36 @@
-"use client";
-
-import { APP_ROUTES } from "@/constants/routes";
-import { Flame } from "lucide-react";
-import { SectionHeader } from "../section-header";
+import React from "react";
+import { Zap } from "lucide-react";
 import { FlashSaleCard } from "../product-card/flash-sale-card";
-
-interface FlashSaleProduct {
-  id: string;
-  slug: string;
-  name: string;
-  category: string;
-  image_url?: string;
-  skus: {
-    id: string;
-    price: string;
-    original_price?: string;
-    discount_percent?: number;
-    sold?: number;
-    total?: number;
-    image_url?: string;
-  }[];
-}
+import { SectionHeader } from "../section-header";
+import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 
 interface FlashSaleProps {
-  products: FlashSaleProduct[];
+  products: TFlashSaleProduct[];
 }
 
 export const FlashSale = ({ products }: FlashSaleProps) => {
+  if (!products || products.length === 0) return null;
+
+  // Lấy thời gian kết thúc từ SKU đầu tiên của sản phẩm đầu tiên
+  const firstSku = products[0]?.skus?.[0];
+  const endTime = firstSku?.flash_sale_end
+    ? new Date(firstSku.flash_sale_end)
+    : undefined;
+
   return (
-    <div className="bg-surface border border-content/[0.05] rounded-3xl p-6 flex flex-col gap-6">
+    <section className="space-y-6">
       <SectionHeader
         title="Flash Sale"
-        href={APP_ROUTES.FLASH_SALE}
-        icon={Flame}
-        lang="en"
-      >
-        <div className="flex items-center gap-1.5">
-          <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-            01
-          </span>
-          <span className="text-content font-bold">:</span>
-          <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-            23
-          </span>
-          <span className="text-content font-bold">:</span>
-          <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-            45
-          </span>
-        </div>
-      </SectionHeader>
+        icon={<Zap className="text-primary fill-primary" size={20} />}
+        href="#"
+        countdown={endTime}
+      />
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {products.map((product) => (
           <FlashSaleCard key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };

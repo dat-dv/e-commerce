@@ -7,11 +7,11 @@ export class BrandMapper {
       id: dto.id,
       name: dto.name || "No Name",
       slug: dto.slug,
-      logo_url: dto.logo_url || "",
+      logo_url: dto.logo_url || dto.logo?.url || "",
       banner_url: dto.banner_url || "",
-      description: dto.description || "",
-      story: dto.story_vi || dto.story_en || "", // Fallback to either language
-      product_count: dto.product_count,
+      description: dto.description || dto.description_en || "",
+      story: dto.story_vi || dto.story_en || "",
+      product_count: dto.product_count || 0,
     };
   }
 }

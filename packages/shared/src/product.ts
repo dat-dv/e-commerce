@@ -1,5 +1,6 @@
 import { IImage } from './image';
 import { IProductCategory } from './product-category';
+import { IBrand } from './brand';
 
 export enum EProductStatus {
   DRAFT = 0,
@@ -40,6 +41,8 @@ export interface ISkuAttributeValue {
   attribute_value?: IAttributeValue;
 }
 
+import { IFlashSale } from './flash-sale';
+
 export interface ISkuFlashSale {
   id: string;
   flash_sale_id: string;
@@ -47,6 +50,7 @@ export interface ISkuFlashSale {
   sale_price: number;
   stock: number;
   sold_count: number;
+  flash_sale?: IFlashSale;
 }
 
 export interface ISku {
@@ -82,12 +86,10 @@ export interface IProduct {
   translations?: IProductTranslation[];
   skus?: ISku[];
   thumbnail?: IImage | null;
+  brand?: IBrand | null;
   categories?: IProductCategoryMapping[];
-}
-
-export interface IProductBrand {
-  id: string;
-  name: string;
+  rating?: number;
+  sold_count?: number;
 }
 
 export interface IReview {

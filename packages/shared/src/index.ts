@@ -1,4 +1,5 @@
 export * from './image';
+export * from './brand';
 export * from './product';
 export * from './flash-sale';
 export * from './user';

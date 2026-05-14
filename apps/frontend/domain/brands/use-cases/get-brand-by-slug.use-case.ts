@@ -5,7 +5,7 @@ import { IBrandsRepository } from "../types/brands.repository";
 export class GetBrandBySlugUseCase {
   constructor(private brandsRepository: IBrandsRepository) {}
 
-  async execute(slug: string): Promise<ApiResponse<TBrand>> {
+  async execute(slug: string): Promise<ApiResponse<TBrand | undefined>> {
     return this.brandsRepository.getBrandBySlug(slug);
   }
 }

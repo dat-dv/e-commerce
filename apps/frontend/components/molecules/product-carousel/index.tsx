@@ -3,14 +3,15 @@
 import React from "react";
 import { Carousel, CarouselItem } from "@/components/molecules/carousel";
 import { LucideIcon } from "lucide-react";
-import { ProductCard, Product } from "@/components/molecules/product-card";
+import { ProductCard } from "@/components/molecules/product-card";
+import { TProduct } from "@/domain/products/types/products.model";
 import { APP_ROUTES } from "@/constants/routes";
 import { SectionHeader } from "../section-header";
 
 interface ProductCarouselProps {
   title: string;
   icon: LucideIcon;
-  products: Product[] | Product[][]; // Support both flat array (1 row) and array of arrays (2 rows)
+  products: TProduct[] | TProduct[][]; // Support both flat array (1 row) and array of arrays (2 rows)
   rows: 1 | 2;
 }
 
@@ -25,13 +26,13 @@ export const ProductCarousel = ({
       <SectionHeader
         title={title}
         href={APP_ROUTES.PRODUCTS}
-        icon={Icon}
+        icon={<Icon className="w-5 h-5 text-purple-500" />}
         lang="en"
       />
 
       <Carousel options={{ align: "start" }}>
         {rows === 1
-          ? (products as Product[]).map((product) => (
+          ? (products as TProduct[]).map((product) => (
               <CarouselItem
                 key={product.id}
                 className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]"
@@ -39,7 +40,7 @@ export const ProductCarousel = ({
                 <ProductCard product={product} />
               </CarouselItem>
             ))
-          : (products as Product[][]).map((column, index) => (
+          : (products as TProduct[][]).map((column, index) => (
               <CarouselItem
                 key={index}
                 className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]"
