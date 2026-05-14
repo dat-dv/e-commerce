@@ -10,24 +10,28 @@ import { SectionHeader } from "../section-header";
 
 interface ProductCarouselProps {
   title: string;
+  href?: string;
   icon: LucideIcon;
   products: TProduct[] | TProduct[][]; // Support both flat array (1 row) and array of arrays (2 rows)
   rows: 1 | 2;
+  lang?: string;
 }
 
 export const ProductCarousel = ({
   title,
+  href,
   icon: Icon,
   products,
   rows,
+  lang,
 }: ProductCarouselProps) => {
   return (
     <div className="flex flex-col gap-6">
       <SectionHeader
         title={title}
-        href={APP_ROUTES.PRODUCTS}
+        href={href || APP_ROUTES.PRODUCTS}
         icon={<Icon className="w-5 h-5 text-purple-500" />}
-        lang="en"
+        lang={lang}
       />
 
       <Carousel options={{ align: "start" }}>

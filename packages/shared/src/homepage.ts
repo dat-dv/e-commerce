@@ -34,12 +34,12 @@ export interface IHomepageSection {
 }
 
 export interface IHomepageSectionResponse {
-  category: {
+  section: {
     id: string;
     title: string;
     type: EHomepageSectionType;
     categories?: IProductCategory[];
   };
   data: IProduct[];
-  brands?: IBrand[]; // populated only when type === TOP_BRANDS
+  brands?: IBrand[];
 }

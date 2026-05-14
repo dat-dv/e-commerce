@@ -2,7 +2,7 @@
 
 import { Injectable, Inject } from '@nestjs/common';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { EHomepageSectionType, IHomepageSection, IHomepageSectionResponse, IProduct, IBrand } from '@ecommerce/shared';
+import { EHomepageSectionType, IHomepageSectionResponse, IProduct, IBrand } from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IBrandsRepository } from 'src/api/brands/domain/entities/brands.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -82,7 +82,7 @@ export class GetHomepageSectionsUseCase {
         const title = translation?.title || '';
 
         return {
-          category: {
+          section: {
             id: section.id,
             title: title,
             type: section.type,

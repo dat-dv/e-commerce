@@ -20,11 +20,10 @@ export interface TBrand {
 }
 
 export interface THomepageSection {
-  category: {
+  section: {
     id: string;
     title: string;
     type: string;
-    slug?: string;
     categories?: THomepageSectionCategory[];
   };
   data: TProduct[];

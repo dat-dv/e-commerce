@@ -9,9 +9,9 @@ interface SectionHeaderProps {
   title: string;
   href?: string;
   icon?: React.ReactNode;
-  lang?: string;
   children?: React.ReactNode;
   countdown?: Date;
+  lang?: string;
 }
 
 export const SectionHeader = ({

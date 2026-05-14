@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/utils/cn";
 import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -13,11 +14,17 @@ interface FeatureItem {
 
 interface FeatureGridProps {
   items: FeatureItem[];
+  classNames?: string;
 }
 
-export const FeatureGrid = ({ items }: FeatureGridProps) => {
+export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
   return (
-    <div className="grid grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
+    <div
+      className={cn(
+        "grid grid-cols-3 md:grid-cols-4 gap-4 justify-items-center",
+        classNames,
+      )}
+    >
       {items.map((item) => (
         <Link
           key={item.name}

@@ -37,9 +37,9 @@ export function TopBrandsHeader() {
             alt="brand watermark"
             className="absolute w-64 grayscale"
             initial={{
-              x: Math.random() * 1000 - 500,
-              y: Math.random() * 500 - 250,
-              rotate: Math.random() * 45 - 22,
+              x: ((i * 149) % 1000) - 500,
+              y: ((i * 73) % 500) - 250,
+              rotate: ((i * 31) % 45) - 22,
             }}
             animate={{
               y: [0, -40, 0],

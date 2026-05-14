@@ -8,9 +8,10 @@ import { ProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { TCategory } from "@/domain/categories/types/categories.model";
-import { Search, Star } from "lucide-react";
+import { Search } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { Pagination } from "@/components/molecules/pagination";
 
 interface ProductsViewProps {
   categories: TCategory[];
@@ -36,7 +37,9 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
     } else {
       params.delete(key);
     }
-    params.set("page", "1");
+    if (key !== "page") {
+      params.set("page", "1");
+    }
     router.push(`${window.location.pathname}?${params.toString()}`);
   };
 
@@ -81,12 +84,35 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
   const activeCategory = categorySlug
     ? findTopLevelCategoryForSlug(categories, categorySlug)
     : null;
+
+  // Lấy tên category đang active để hiển thị lên Header
+  const getActiveCategoryTitle = (
+    cats: TCategory[],
+    slug: string,
+  ): string | null => {
+    for (const cat of cats) {
+      if (cat.slug === slug) return cat.name;
+      if (cat.children) {
+        const found = getActiveCategoryTitle(cat.children, slug);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
+
+  const categoryTitle = categorySlug
+    ? getActiveCategoryTitle(categories, categorySlug)
+    : "Our Products";
+
   // Nếu đang ở một category cụ thể, chỉ hiển thị tree của category đó
   const displayCategories = activeCategory ? [activeCategory] : categories;
 
   return (
     <AppContainer size="2xl" className="py-16">
-      <ProductsHeader />
+      <ProductsHeader
+        title={categoryTitle || "Our Products"}
+        description={`Explore our finest selection of ${categoryTitle || "premium products"}. Handpicked for quality and style.`}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar */}
@@ -120,6 +146,17 @@ export function ProductsView({ categories, categorySlug }: ProductsViewProps) {
             <div className="text-center py-16 bg-surface/80 border border-content/[0.05] backdrop-blur-md rounded-xl shadow-sm flex flex-col items-center gap-3">
               <Search className="w-8 h-8 text-content/20" />
               <p className="text-content/50 text-sm">No products found.</p>
+            </div>
+          )}
+
+          {/* Pagination Section */}
+          {!loading && totalPages > 1 && (
+            <div className="mt-12">
+              <Pagination
+                currentPage={page ? parseInt(page) : 1}
+                totalPages={totalPages}
+                onPageChange={(p) => updateFilter("page", p.toString())}
+              />
             </div>
           )}
         </div>
