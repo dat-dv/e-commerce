@@ -60,6 +60,15 @@ export interface IUser {
   addresses?: IAddress[];
   phones?: IUserPhone[];
 
-  // custom field 
+  // custom field
+  avatar_url?: string;
+}
+
+import { User, Role, Image, ShippingAddress } from "./generate/index";
+
+export interface IUserProfileResponse extends User {
+  role: Role | null;
+  avatar: Image | null;
+  default_address: ShippingAddress | null;
   avatar_url?: string;
 }

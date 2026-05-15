@@ -6,6 +6,12 @@ generator client {
   moduleFormat = "cjs"
 }
 
+generator shared {
+  provider     = "prisma-client"
+  output       = "../../../../packages/shared/src/generate"
+  moduleFormat = "esm"
+}
+
 datasource db {
   provider = "sqlite"
 }
