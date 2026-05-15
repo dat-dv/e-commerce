@@ -27,3 +27,9 @@ export const variantDisabled: Record<InputVariant, string> = {
   underline: "border-content/10",
   none: "",
 };
+
+export const variantActive: Record<InputVariant, string> = {
+  outline: "border-primary ring-1 ring-primary/20 shadow-sm shadow-primary/5",
+  underline: "border-primary",
+  none: "",
+};

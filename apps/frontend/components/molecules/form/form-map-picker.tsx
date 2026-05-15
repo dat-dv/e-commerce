@@ -90,14 +90,14 @@ export const FormMapPicker = ({
       <div
         onClick={() => !disabled && setMapOpen(true)}
         className={cn(
-          "p-3 border rounded-xl cursor-pointer flex justify-between items-center",
+          "h-10 px-4 border rounded-xl cursor-pointer flex justify-between items-center transition-all duration-300",
           displayValue
-            ? "border-primary/20 bg-primary/5"
-            : "border-content/10 bg-white",
-          disabled && "cursor-not-allowed opacity-50",
+            ? "border-primary/40 bg-primary/5 shadow-sm shadow-primary/5"
+            : "border-content/10 bg-white/5 backdrop-blur-xl",
+          disabled && "cursor-not-allowed opacity-50 shadow-none",
         )}
       >
-        <div className="flex items-center gap-2 max-w-[80%]">
+        <div className="flex items-center gap-3 max-w-[80%]">
           <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
           <span
             className={cn(

@@ -65,7 +65,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
 
             <div
               className={cn(
-                "flex items-center border rounded-2xl h-12 transition-all focus-within:ring-2 focus-within:ring-primary/20",
+                "flex items-center border rounded-2xl transition-all focus-within:ring-2 focus-within:ring-primary/20",
                 rest.disabled
                   ? "border-content/10 bg-content/5 shadow-none"
                   : error
@@ -136,7 +136,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                 placeholder="912345678"
                 value={number}
                 onChange={handleNumberChange}
-                className="flex-1 h-full bg-transparent border-none outline-none focus:outline-none px-4 text-base font-semibold disabled:cursor-not-allowed"
+                className="flex-1 h-full bg-transparent border-none outline-none focus:outline-none px-4 text-inherit font-semibold disabled:cursor-not-allowed placeholder:font-normal placeholder:opacity-50"
               />
             </div>
 

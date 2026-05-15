@@ -38,7 +38,7 @@ export const RequireProfileInfoForm = ({
     defaultValues: {
       first_name: user?.first_name || "",
       last_name: user?.last_name || "",
-      dob: user?.date_of_birth ? String(user.date_of_birth) : "",
+      dob: user?.date_of_birth ? String(user.date_of_birth) : "2000-01-01",
       gender: user?.gender ?? undefined,
     },
   });
@@ -48,7 +48,7 @@ export const RequireProfileInfoForm = ({
       methods.reset({
         first_name: user?.first_name || "",
         last_name: user?.last_name || "",
-        dob: user?.date_of_birth ? String(user.date_of_birth) : "",
+        dob: user?.date_of_birth ? String(user.date_of_birth) : "2000-01-01",
         gender: user?.gender ?? undefined,
       });
     }

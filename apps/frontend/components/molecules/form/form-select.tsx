@@ -9,6 +9,7 @@ import {
   variantBase,
   variantNormal,
   variantDisabled,
+  variantActive,
 } from "@/components/atoms/input/input.styles";
 import { InputVariant } from "@/components/atoms/input/input.types";
 
@@ -61,7 +62,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                       disabled
                         ? variantDisabled[variant]
                         : variantNormal[variant],
-                      open && "border-primary ring-1 ring-primary/20",
+                      open && variantActive[variant],
                       className,
                     )}
                   >
@@ -73,7 +74,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                           ?.label || ""
                       }
                       placeholder="Select..."
-                      className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content font-semibold"
+                      className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content font-medium"
                     />
                     <ChevronDown className="w-4 h-4 ml-2 opacity-50" />
                   </MenuButton>

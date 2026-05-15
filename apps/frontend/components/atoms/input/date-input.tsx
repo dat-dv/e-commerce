@@ -11,6 +11,7 @@ import {
   variantDisabled,
   variantError,
   variantNormal,
+  variantActive,
 } from "./input.styles";
 import { InputVariant } from "./input.types";
 interface CustomInputProps {
@@ -47,7 +48,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             isDisabled && "cursor-not-allowed opacity-70",
             variantBase[variant as keyof typeof variantBase],
             isCalendarOpen
-              ? "border-primary ring-2 ring-primary/20"
+              ? variantActive[variant as keyof typeof variantActive]
               : stateStyle,
             className,
           )}
