@@ -32,6 +32,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         sku_id: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: priceNumber,
+        original_price: sku?.original_price,
+        discount_percent: sku?.discount_percent,
         image_url: product.image_url || sku?.image_url || "",
         attributes: product.category,
       },

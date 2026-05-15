@@ -8,6 +8,25 @@ export enum EOrderStatus {
   REFUNDED = 6,
 }
 
+export interface IOrderItemSnapshot {
+  sku: {
+    id: string;
+    sku_code: string;
+    price: number;
+    original_price: number | null;
+    image_url: string | null;
+    unit_price: string | null;
+    product: {
+      id: string;
+      slug: string;
+      name: string;
+      thumbnail_url: string | null;
+      base_price: number;
+      rating: number;
+    };
+  };
+}
+
 export interface IOrderItem {
   id: string;
   order_id: string;
@@ -15,6 +34,8 @@ export interface IOrderItem {
   flash_sale_id?: string | null;
   quantity: number;
   price: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  snapshot?: any;
 }
 
 export interface ICreateOrderItemInput {
@@ -22,6 +43,8 @@ export interface ICreateOrderItemInput {
   quantity: number;
   price: number;
   flash_sale_id?: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  snapshot?: any;
 }
 
 export interface IOrder {

@@ -40,6 +40,11 @@ export class CartMapper {
       sku_id: dto.sku_id,
       name: dto.sku?.product?.translations?.[0]?.name || "Unnamed Product",
       price: price,
+      original_price: dto.sku?.original_price || dto.sku?.price,
+      discount_percent:
+        dto.sku?.original_price && dto.sku.original_price > price
+          ? Math.round((1 - price / dto.sku.original_price) * 100)
+          : null,
       quantity: dto.quantity,
       image_url: dto.sku?.product?.thumbnail_url || null,
       attributes: "", // TODO: Fetch SKU attributes if needed

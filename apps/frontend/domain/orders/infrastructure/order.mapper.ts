@@ -1,30 +1,12 @@
 import { IOrder, IOrderItem } from "../types/order.model";
-import { ProductMapper } from "@/domain/products/infrastructure/products.mapper";
-import { IProduct } from "@ecommerce/shared";
+import {
+  IOrder as IOrderDTO,
+  IOrderItem as IOrderItemDTO,
+  IOrderItemSnapshot,
+} from "@ecommerce/shared";
 
-export interface IOrderItemDTO {
-  id: string;
-  sku_id: string;
-  quantity: number;
-  price: number;
-  flash_sale_id?: string;
-  sku?: {
-    id: string;
-    sku_code: string;
-    image_url?: string;
-    product?: IProduct;
-  };
-}
-
-export interface IOrderDTO {
-  id: string;
-  status: number;
-  total_amount: number;
-  discount_amount: number;
-  items: IOrderItemDTO[];
-  created_at: string;
-  updated_at: string;
-}
+/** Re-exported so dependants can import `IOrderDTO` from this file without depending on @ecommerce/shared directly. */
+export type { IOrderDTO };
 
 export class OrderMapper {
   static toDomain(dto: IOrderDTO): IOrder {
@@ -33,26 +15,40 @@ export class OrderMapper {
       status: dto.status,
       totalAmount: dto.total_amount,
       discountAmount: dto.discount_amount,
-      items: dto.items?.map(OrderMapper.toOrderItemDomain) || [],
+      items:
+        dto.items?.map((item) => OrderMapper.toOrderItemDomain(item)) || [],
       createdAt: new Date(dto.created_at),
       updatedAt: new Date(dto.updated_at),
     };
   }
 
-  private static toOrderItemDomain(dto: IOrderItemDTO): IOrderItem {
+  static toOrderItemDomain(dto: IOrderItemDTO): IOrderItem {
+    // snapshot carries point-in-time data captured at purchase — always prefer over live relation
+    const snap = dto.snapshot as IOrderItemSnapshot | null | undefined;
+    const skuSnap = snap?.sku;
+
     return {
       id: dto.id,
       skuId: dto.sku_id,
       quantity: dto.quantity,
       price: dto.price,
-      flashSaleId: dto.flash_sale_id,
-      sku: dto.sku
+      originalPrice: skuSnap?.original_price ?? undefined,
+      flashSaleId: dto.flash_sale_id ?? undefined,
+      sku: skuSnap
         ? {
-            id: dto.sku.id,
-            skuCode: dto.sku.sku_code,
-            imageUrl: dto.sku.image_url,
-            product: dto.sku.product
-              ? ProductMapper.toDomain(dto.sku.product)
+            id: skuSnap.id,
+            skuCode: skuSnap.sku_code,
+            imageUrl:
+              skuSnap.image_url || skuSnap.product?.thumbnail_url || undefined,
+            product: skuSnap.product
+              ? {
+                  id: skuSnap.product.id,
+                  slug: skuSnap.product.slug,
+                  name: skuSnap.product.name,
+                  thumbnailUrl: skuSnap.product.thumbnail_url ?? undefined,
+                  basePrice: skuSnap.product.base_price,
+                  rating: skuSnap.product.rating,
+                }
               : undefined,
           }
         : undefined,

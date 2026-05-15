@@ -1,16 +1,24 @@
-import { TProduct } from "@/domain/product/types/product.model";
+export interface IOrderItemSkuProduct {
+  id: string;
+  slug: string;
+  name: string;
+  thumbnailUrl?: string;
+  basePrice: number;
+  rating: number;
+}
 
 export interface IOrderItem {
   id: string;
   skuId: string;
   quantity: number;
   price: number;
+  originalPrice?: number;
   flashSaleId?: string;
   sku?: {
     id: string;
     skuCode: string;
     imageUrl?: string;
-    product?: TProduct;
+    product?: IOrderItemSkuProduct;
   };
 }
 

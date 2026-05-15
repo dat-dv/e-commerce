@@ -21,6 +21,7 @@ export class GetOrderUseCase {
                 product: {
                   include: {
                     thumbnail: true,
+                    translations: true,
                   },
                 },
               },

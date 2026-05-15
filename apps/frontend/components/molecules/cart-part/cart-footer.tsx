@@ -5,6 +5,7 @@ import { Ticket, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
+import { formatCurrency } from "@/utils/format-currency";
 
 interface CartFooterProps {
   selectedCount: number;
@@ -35,7 +36,7 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
               Order subtotal
             </div>
             <div className="text-4xl md:text-5xl font-bold text-content tracking-tighter leading-none">
-              ${totalAmount.toLocaleString()}
+              {formatCurrency(totalAmount)}
             </div>
           </div>
 

@@ -11,6 +11,7 @@ import createSuccessResponse from 'src/common/respomse';
 import type { Request } from 'express';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
+import { OrderResponseDto } from './dto/order-response.dto';
 
 @Controller('orders')
 @UseGuards(AuthGuard)
@@ -27,21 +28,21 @@ export class OrdersController {
   async createOrder(@Body() body: CreateOrderDto, @Req() req: Request) {
     const userId = req.user.sub;
     const result = await this.createOrderUseCase.execute(userId, body);
-    return createSuccessResponse(result);
+    return createSuccessResponse(OrderResponseDto.toDto(result));
   }
 
   @Get()
   async getUserOrders(@Req() req: Request) {
     const userId = req.user.sub;
     const result = await this.getUserOrdersUseCase.execute(userId);
-    return createSuccessResponse(result);
+    return createSuccessResponse(OrderResponseDto.toDtos(result));
   }
 
   @Get(':id')
   async getOrder(@Param('id') id: string, @Req() req: Request) {
     const userId = req.user.sub;
     const result = await this.getOrderUseCase.execute(id, userId, false);
-    return createSuccessResponse(result);
+    return createSuccessResponse(OrderResponseDto.toDto(result));
   }
 
   @Put(':id/status')

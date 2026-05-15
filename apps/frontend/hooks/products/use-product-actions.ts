@@ -35,6 +35,8 @@ export const useProductActions = (
         sku_id: selectedSku.id,
         name: product.name,
         price: selectedSku.price || 0,
+        original_price: selectedSku.original_price,
+        discount_percent: selectedSku.discount_percent,
         image_url: imageUrl || product.image_url || "",
         attributes: Object.entries(selectedAttributes)
           .map(([key, value]) => `${key}: ${value}`)

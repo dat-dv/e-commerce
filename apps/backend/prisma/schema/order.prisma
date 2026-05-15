@@ -26,6 +26,7 @@ model OrderItem {
   flash_sale_id String? // ID của FlashSaleProduct nếu là hàng flash sale
   quantity      Int
   price         Float // Lưu giá lúc mua
+  snapshot      Json?   // Snapshot dữ liệu sản phẩm tại thời điểm mua (JSON)
 
   order Order @relation(fields: [order_id], references: [id], onDelete: Cascade)
   sku   Sku   @relation(fields: [sku_id], references: [id])

@@ -3,12 +3,16 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
+import { IOrderItemSnapshot } from '@ecommerce/shared';
+import { Prisma } from 'generated/prisma/client';
+import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';
 
 interface IOrderItemInput {
   sku_id: string;
   quantity: number;
   price: number;
   flash_sale_id?: string;
+  snapshot?: IOrderItemSnapshot;
 }
 
 @Injectable()
@@ -75,12 +79,19 @@ export class CreateOrderUseCase {
               },
             },
             include: {
-              sku: true,
+              sku: {
+                include: {
+                  product: {
+                    include: { thumbnail: true, translations: true },
+                  },
+                },
+              },
             },
           });
 
           let finalPrice = 0;
           let flashSaleId: string | undefined = undefined;
+          let snapshot: IOrderItemSnapshot | undefined = undefined;
 
           if (flashSaleProduct) {
             // Handle flash sale inventory locking
@@ -97,6 +108,9 @@ export class CreateOrderUseCase {
 
             finalPrice = flashSaleProduct.sale_price;
             flashSaleId = flashSaleProduct.id;
+
+            // Serialize only FE-relevant fields — avoids persisting stock, timestamps, etc.
+            snapshot = OrderItemSnapshotTransformer.serialize(flashSaleProduct.sku);
 
             // Decrement flash sale pool
             await tx.flashSaleProduct.update({
@@ -116,6 +130,11 @@ export class CreateOrderUseCase {
             // Fallback to standard pricing and inventory when no flash sale is applicable
             const sku = await tx.sku.findUnique({
               where: { id: cartItem.sku_id },
+              include: {
+                product: {
+                  include: { thumbnail: true, translations: true },
+                },
+              },
             });
 
             if (!sku) {
@@ -127,6 +146,9 @@ export class CreateOrderUseCase {
             }
 
             finalPrice = sku.price;
+
+            // Serialize only FE-relevant fields — avoids persisting stock, timestamps, etc.
+            snapshot = OrderItemSnapshotTransformer.serialize(sku);
 
             // Lock inventory at the standard SKU level
             await tx.sku.update({
@@ -141,6 +163,7 @@ export class CreateOrderUseCase {
             quantity: cartItem.quantity,
             price: finalPrice,
             flash_sale_id: flashSaleId,
+            snapshot,
           });
         }
 
@@ -212,6 +235,8 @@ export class CreateOrderUseCase {
                 quantity: item.quantity,
                 price: item.price,
                 flash_sale_id: item.flash_sale_id,
+                // Cast is safe: IOrderItemSnapshot is a plain JSON-serializable object
+                snapshot: item.snapshot as Prisma.InputJsonValue | undefined,
               })),
             },
           },

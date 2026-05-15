@@ -4,6 +4,8 @@ export interface TCartItem {
   sku_id: string;
   name: string;
   price: number;
+  original_price?: number | null;
+  discount_percent?: number | null;
   quantity: number;
   image_url?: string | null;
   attributes?: string;

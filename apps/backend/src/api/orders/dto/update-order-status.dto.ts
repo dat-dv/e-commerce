@@ -4,5 +4,5 @@ import { EOrderStatus } from '../domain/entities/order-status.enum';
 export class UpdateOrderStatusDto {
   @IsNotEmpty()
   @IsEnum(EOrderStatus)
-  status: EOrderStatus;
+  status: number;
 }

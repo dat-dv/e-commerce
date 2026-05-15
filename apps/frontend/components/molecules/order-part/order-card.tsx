@@ -9,6 +9,9 @@ import { MessageSquare, Store, Truck } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 
+import { APP_ROUTES } from "@/constants/routes";
+import Link from "next/link";
+
 interface OrderCardProps {
   order: IOrder;
 }
@@ -64,45 +67,79 @@ export const OrderCard = ({ order }: OrderCardProps) => {
 
       {/* Items */}
       <div className="divide-y divide-gray-50">
-        {order.items.map((item) => (
-          <div key={item.id} className="p-4 flex gap-4">
-            <div className="relative w-20 h-20 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0 border border-gray-100">
-              {item.sku?.imageUrl ? (
-                <Image
-                  src={item.sku.imageUrl}
-                  alt={item.sku.product?.name || "Product"}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  <Store className="w-8 h-8" />
+        {order.items.map((item) => {
+          const productSlug = item.sku?.product?.slug;
+          const itemContent = (
+            <div className="p-4 flex gap-4 transition-colors hover:bg-gray-50/50">
+              <div className="relative w-20 h-20 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0 border border-gray-100">
+                {item.sku?.imageUrl ? (
+                  <Image
+                    src={item.sku.imageUrl}
+                    alt={item.sku.product?.name || "Product"}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    <Store className="w-8 h-8" />
+                  </div>
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-medium text-gray-900 line-clamp-2 leading-relaxed">
+                  {item.sku?.product?.name || "Product Name"}
+                </h3>
+                <p className="mt-1 text-xs text-gray-500">
+                  Variant: {item.sku?.skuCode || "Default"}
+                </p>
+                <div className="mt-2 flex items-center justify-between">
+                  <span className="text-sm text-gray-700">
+                    x{item.quantity}
+                  </span>
+                  <div className="flex flex-col items-end">
+                    <span className="text-sm font-semibold text-primary">
+                      {formatCurrency(item.price)}
+                    </span>
+                    {item.originalPrice && item.originalPrice > item.price && (
+                      <span className="text-[10px] text-gray-400 line-through">
+                        {formatCurrency(item.originalPrice)}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              )}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="text-sm font-medium text-gray-900 line-clamp-2 leading-relaxed">
-                {item.sku?.product?.name || "Product Name"}
-              </h3>
-              <p className="mt-1 text-xs text-gray-500">
-                Variant: {item.sku?.skuCode || "Default"}
-              </p>
-              <div className="mt-2 flex items-center justify-between">
-                <span className="text-sm text-gray-700">x{item.quantity}</span>
-                <span className="text-sm font-medium text-primary">
-                  {formatCurrency(item.price)}
-                </span>
               </div>
             </div>
-          </div>
-        ))}
+          );
+
+          return productSlug ? (
+            <Link
+              key={item.id}
+              href={APP_ROUTES.PRODUCT_DETAIL(productSlug)}
+              className="block"
+            >
+              {itemContent}
+            </Link>
+          ) : (
+            <div key={item.id}>{itemContent}</div>
+          );
+        })}
       </div>
 
       {/* Footer */}
       <div className="px-4 py-4 bg-gray-50/30 border-t border-gray-50">
-        <div className="flex flex-col items-end gap-4">
+        <div className="flex flex-col items-end gap-2">
+          {order.discountAmount > 0 && (
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-gray-500">Giảm giá:</span>
+              <span className="text-rose-500">
+                -{formatCurrency(order.discountAmount)}
+              </span>
+            </div>
+          )}
           <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-600">Order Total:</span>
+            <span className="text-sm font-medium text-gray-700">
+              Thành tiền:
+            </span>
             <span className="text-xl font-bold text-primary">
               {formatCurrency(order.totalAmount)}
             </span>

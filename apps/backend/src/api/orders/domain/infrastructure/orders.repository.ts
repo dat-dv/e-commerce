@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
-import { ICreateOrderInput, IOrder, IOrderItem } from '@ecommerce/shared';
+import { ICreateOrderInput, IOrder } from '@ecommerce/shared';
+import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
 export class OrdersRepository implements IOrdersRepository {
@@ -23,6 +24,7 @@ export class OrdersRepository implements IOrdersRepository {
             quantity: item.quantity,
             price: item.price,
             flash_sale_id: item.flash_sale_id,
+            snapshot: item.snapshot as Prisma.InputJsonValue | undefined,
           })),
         },
       },

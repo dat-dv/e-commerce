@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
 import { cn } from "@/utils/cn";
 import Button from "@/components/atoms/button";
+import { formatCurrency } from "@/utils/format-currency";
 
 interface OrderSummaryProps {
   totalAmount: number;
@@ -58,7 +59,7 @@ export const OrderSummary = ({
             <div className="flex justify-between text-sm text-content/60">
               <span className="capitalize">Subtotal</span>
               <span className="text-content font-medium">
-                ${totalAmount.toLocaleString()}
+                {formatCurrency(totalAmount)}
               </span>
             </div>
             <div className="flex justify-between text-sm text-content/60">
@@ -90,7 +91,7 @@ export const OrderSummary = ({
                   Grand Total
                 </span>
                 <span className="text-3xl font-bold tracking-tight">
-                  ${totalAmount.toLocaleString()}
+                  {formatCurrency(totalAmount)}
                 </span>
               </div>
             </div>

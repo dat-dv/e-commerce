@@ -16,6 +16,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
+import { formatCurrency } from "@/utils/format-currency";
 
 const DISABLED_EDIT_ROUTES: string[] = [APP_ROUTES.CHECKOUT];
 
@@ -131,8 +132,16 @@ export const CartDrawer = () => {
 
                         <div className="mt-auto flex items-end justify-between">
                           <div className="space-y-3">
-                            <div className="text-lg font-black text-content tracking-tighter">
-                              ${(item.price || 0).toLocaleString()}
+                            <div className="flex items-center gap-2">
+                              <div className="text-lg font-black text-content tracking-tighter">
+                                {formatCurrency(item.price || 0)}
+                              </div>
+                              {item.original_price &&
+                                item.original_price > item.price && (
+                                  <span className="text-[10px] text-content/30 line-through font-medium">
+                                    {formatCurrency(item.original_price)}
+                                  </span>
+                                )}
                             </div>
 
                             {/* Modern Quantity Control */}
@@ -182,17 +191,15 @@ export const CartDrawer = () => {
               <div className="p-6 bg-content/[0.02] border-t border-content/10 relative">
                 <div className="flex items-end justify-between mb-6">
                   <div className="space-y-1">
-                    <span className="text-[9px] uppercase tracking-[0.3em] font-black text-content/30 block">
+                    <span className="text-xs font-medium text-content/40 block">
                       Total Sum
                     </span>
-                    <div className="text-2xl font-black tracking-tighter text-primary leading-none">
-                      ${subtotal.toLocaleString()}
+                    <div className="text-2xl font-bold tracking-tight text-primary leading-none">
+                      {formatCurrency(subtotal)}
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-green-500">
-                      FREE SHIPPING
-                    </div>
+                    <div className="text-xs font-semibold">FREE SHIPPING</div>
                   </div>
                 </div>
 
@@ -205,17 +212,17 @@ export const CartDrawer = () => {
                       <Link
                         href={APP_ROUTES.CHECKOUT}
                         onClick={() => setIsOpen(false)}
-                        className="w-full h-14 flex items-center justify-center bg-content text-surface rounded-xl font-black text-xs uppercase tracking-[0.3em] shadow-xl shadow-content/20 hover:bg-primary hover:text-primary-foreground transition-all group"
+                        className="w-full h-14 flex items-center justify-center bg-content text-surface rounded-xl font-bold text-sm tracking-tight shadow-xl shadow-content/10 hover:bg-primary hover:text-primary-foreground transition-all group"
                       >
                         Begin Checkout
                         <ChevronRight
-                          size={16}
+                          size={18}
                           className="ml-2 group-hover:translate-x-1 transition-transform"
                         />
                       </Link>
                     </motion.div>
                   ) : (
-                    <div className="w-full h-14 flex items-center justify-center bg-content/[0.05] text-content/40 rounded-xl font-black text-[9px] uppercase tracking-[0.4em] border border-content/10 italic">
+                    <div className="w-full h-14 flex items-center justify-center bg-content/[0.05] text-content/40 rounded-xl font-medium text-sm border border-content/10">
                       Finalizing Order
                     </div>
                   )}
@@ -223,7 +230,7 @@ export const CartDrawer = () => {
                   <Link
                     href={APP_ROUTES.CART}
                     onClick={() => setIsOpen(false)}
-                    className="w-full block text-center text-[10px] uppercase tracking-[0.2em] font-black text-content/30 hover:text-content transition-colors pt-1"
+                    className="w-full block text-center text-xs font-medium text-content/40 hover:text-primary transition-colors py-2"
                   >
                     View Full Details
                   </Link>

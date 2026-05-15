@@ -10,6 +10,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { Checkbox } from "./checkbox";
 import { QuantitySelector } from "./quantity-selector";
+import { formatCurrency } from "@/utils/format-currency";
 
 interface CartItemRowProps {
   item: TCartItem;
@@ -100,7 +101,7 @@ export const CartItemRow = ({
 
         <div className="hidden md:flex items-center gap-4 w-full md:w-auto">
           <div className="w-32 text-center font-bold text-content/40 text-sm italic font-light">
-            ${item.price.toLocaleString()}
+            {formatCurrency(item.price)}
           </div>
 
           <div className="w-32 flex justify-center scale-90 group-hover:scale-100 transition-transform duration-500">
@@ -112,7 +113,7 @@ export const CartItemRow = ({
           </div>
 
           <div className="w-32 text-center text-xl font-black text-content tracking-tighter">
-            ${(item.price * item.quantity).toLocaleString()}
+            {formatCurrency(item.price * item.quantity)}
           </div>
 
           <div className="w-24 flex justify-center">
