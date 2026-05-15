@@ -45,7 +45,7 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async updateUserProfile(id: string, updateData: IUpdateUserRequest): Promise<User> {
-    const { phone_number, phone_code, avatar_url, ...userData } = updateData;
+    const { phone_number, phone_code, avatar_url, date_of_birth, ...userData } = updateData;
     const isUpdatePhone = !!(phone_number && phone_code);
 
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
@@ -74,6 +74,7 @@ export class UsersRepository implements IUsersRepository {
         where: { id },
         data: {
           ...userData,
+          ...(date_of_birth && { date_of_birth: new Date(date_of_birth) }),
           ...(avatar_url && {
             avatar: {
               connect: {
