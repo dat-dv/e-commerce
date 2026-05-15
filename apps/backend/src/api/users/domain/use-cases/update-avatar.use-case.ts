@@ -33,7 +33,7 @@ export class UpdateAvatarUseCase {
 
     const image = await this.uploadImageUseCase.execute(file);
 
-    const updatedUser = await this.usersRepository.update(id, { avatar_id: image.id });
+    const updatedUser = await this.usersRepository.updateUserProfile(id, { avatar_id: image.id });
 
     if (oldAvatarPublicId) {
       try {

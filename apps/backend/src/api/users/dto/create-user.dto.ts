@@ -9,10 +9,4 @@ export class CreateUserDto {
 
   @IsString()
   confirm_password: string;
-
-  @IsString()
-  first_name: string;
-
-  @IsString()
-  last_name: string;
 }

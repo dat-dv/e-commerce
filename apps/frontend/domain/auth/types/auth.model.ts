@@ -1,3 +1,5 @@
+import { IUserPhone } from "@ecommerce/shared";
+
 export interface TAuthRequest {
   email: string;
   password: string;
@@ -33,7 +35,7 @@ export interface TUser {
   date_of_birth?: string | null;
   avatar_url?: string | null;
   gender?: EGender | null;
-  phone_number?: string | null;
+  phone?: IUserPhone;
 }
 
 export interface TAuthState {

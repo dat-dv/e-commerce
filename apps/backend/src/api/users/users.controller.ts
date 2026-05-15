@@ -26,7 +26,9 @@ import { GetUsersDto } from './dto/get-users.dto';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ApiConsumes, ApiBody } from '@nestjs/swagger';
+import { ApiConsumes, ApiBody, ApiOperation } from '@nestjs/swagger';
+import { UploadImageUseCase } from '../upload/domain/use-cases/upload-image.use-case';
+import { IImage } from '@ecommerce/shared';
 
 @UseGuards(AuthGuard)
 @Controller('users')
@@ -38,12 +40,29 @@ export class UsersController {
     private readonly findOneUserUseCase: FindOneUserUseCase,
     private readonly removeUserUseCase: RemoveUserUseCase,
     private readonly updateAvatarUseCase: UpdateAvatarUseCase,
+    private readonly uploadImageUseCase: UploadImageUseCase,
   ) {}
 
   @UseGuards(AuthGuard)
+  @UseInterceptors(FileInterceptor('image'))
+  @ApiConsumes('multipart/form-data')
+  @ApiOperation({ summary: 'Upload an image' })
   @Patch('profile')
-  async updateProfile(@Req() req: Express.Request, @Body() dto: UpdateUserDto) {
-    const res = await this.updateUserUseCase.execute(req.user.sub, dto);
+  async updateProfile(
+    @Req() req: Express.Request,
+    @UploadedFile() image: Express.Multer.File,
+    @Body() dto: UpdateUserDto,
+  ) {
+    let avatar: IImage | null = null;
+    if (image) {
+      avatar = await this.uploadImageUseCase.execute(image);
+    }
+
+    const res = await this.updateUserUseCase.execute(req.user.sub, {
+      ...dto,
+      ...(avatar?.url ? { avatar_url: avatar.url } : {}),
+    });
+
     return createSuccessResponse(res);
   }
 

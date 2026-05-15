@@ -46,6 +46,7 @@ export const API_ROUTES = {
   },
   USERS: {
     PROFILE: "/users/profile",
+    UPLOAD_AVATAR: (userId: string) => `/users/${userId}/avatar`,
   },
   PRODUCTS: {
     BASE: "/products",

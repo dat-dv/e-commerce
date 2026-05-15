@@ -1,14 +1,14 @@
 import { UseCase } from "@/utils/use-case";
 
-import { TUser } from "../types/auth.model";
-import { IAuthRepository } from "../types/auth.repository";
+import { TUser } from "../../auth/types/auth.model";
 import { ApiResponse } from "@/utils/request/request.types";
+import { IUsersRepository } from "../interface/users.repository";
 
 export class UpdateProfileUseCase extends UseCase<
   Partial<TUser>,
   Promise<ApiResponse<TUser>>
 > {
-  constructor(private repository: IAuthRepository) {
+  constructor(private repository: IUsersRepository) {
     super();
   }
 

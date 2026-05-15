@@ -17,7 +17,7 @@ interface CountryOption {
 }
 
 interface FormPhoneInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  name: string;
+  name: string; // object name root (e.g. "phone")
   label?: string;
   countries?: CountryOption[];
   disabledSelected?: boolean;
@@ -38,21 +38,26 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
       name={name}
       control={control}
       render={({ field: { value, onChange }, fieldState: { error } }) => {
-        const valStr = value || "";
-        const country =
-          countries.find((c) => valStr.startsWith(c.dialCode)) || countries[0];
+        const phoneCode = value?.phoneCode || "+84";
+        const phoneNumber = value?.phoneNumber || "";
 
-        const number = valStr.startsWith(country.dialCode)
-          ? valStr.slice(country.dialCode.length)
-          : valStr;
+        const country =
+          countries.find((c) => c.dialCode === phoneCode) || countries[0];
 
         const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           const num = e.target.value.replace(/[^0-9]/g, "");
-          onChange(country.dialCode + num);
+
+          onChange({
+            phoneCode,
+            phoneNumber: num,
+          });
         };
 
         const handleCountryChange = (dialCode: string) => {
-          onChange(dialCode + number);
+          onChange({
+            phoneCode: dialCode,
+            phoneNumber,
+          });
         };
 
         return (
@@ -67,18 +72,19 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
               className={cn(
                 "flex items-center border rounded-2xl transition-all focus-within:ring-2 focus-within:ring-primary/20",
                 rest.disabled
-                  ? "border-content/10 bg-content/5 shadow-none"
+                  ? "border-content/10 bg-content/5"
                   : error
-                    ? "border-red-500 focus-within:border-red-500 bg-surface/50"
-                    : "border-content/[0.08] focus-within:border-primary bg-surface/50",
+                    ? "border-red-500 bg-surface/50"
+                    : "border-content/[0.08] bg-surface/50",
                 className,
               )}
             >
+              {/* COUNTRY SELECT */}
               <Menu as="div" className="relative inline-block text-left">
                 <MenuButton
                   disabled={rest.disabled}
                   className={cn(
-                    "flex items-center gap-1 px-3 h-full border-r border-content/[0.08] hover:bg-content/[0.02]",
+                    "flex items-center gap-1 px-3 h-full border-r border-content/[0.08]",
                     rest.disabled
                       ? "cursor-not-allowed opacity-50"
                       : "cursor-pointer",
@@ -88,66 +94,62 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                   <span className="text-sm font-medium text-content/80">
                     {country.dialCode}
                   </span>
-                  <ChevronDown size={14} className="text-content/50" />
+                  <ChevronDown size={14} />
                 </MenuButton>
-                <MenuItems
-                  anchor="bottom start"
-                  className="z-[100] mt-1 w-56 origin-top-left rounded-xl bg-surface border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden"
-                >
-                  <div className="py-1 max-h-60 overflow-y-auto">
-                    {countries.map((c) => {
-                      const isOptionDisabled =
-                        c.disabled ||
-                        (disabledSelected && country.code === c.code);
-                      return (
-                        <MenuItem key={c.code} disabled={isOptionDisabled}>
-                          {({ active, disabled }) => (
-                            <div
-                              onClick={() =>
-                                !disabled && handleCountryChange(c.dialCode)
-                              }
-                              className={cn(
-                                "flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors",
-                                active ? "bg-content/[0.04]" : "",
-                                disabled && "opacity-50 cursor-not-allowed",
-                              )}
-                            >
-                              <span className="text-xl">{c.flag}</span>
-                              <div className="flex flex-col">
-                                <span className="text-sm font-medium text-content/80">
-                                  {c.name}
-                                </span>
-                                <span className="text-xs text-content/50">
-                                  {c.dialCode}
-                                </span>
+
+                <MenuItems className="z-[100] mt-1 w-56 rounded-xl bg-surface border shadow-2xl max-h-60 overflow-y-auto">
+                  {countries.map((c) => {
+                    const isDisabled =
+                      c.disabled ||
+                      (disabledSelected && country.code === c.code);
+
+                    return (
+                      <MenuItem key={c.code} disabled={isDisabled}>
+                        {({ active, disabled }) => (
+                          <div
+                            onClick={() =>
+                              !disabled && handleCountryChange(c.dialCode)
+                            }
+                            className={cn(
+                              "flex items-center gap-3 px-4 py-2 cursor-pointer",
+                              active && "bg-content/[0.04]",
+                              disabled && "opacity-50",
+                            )}
+                          >
+                            <span className="text-xl">{c.flag}</span>
+                            <div>
+                              <div className="text-sm">{c.name}</div>
+                              <div className="text-xs text-content/50">
+                                {c.dialCode}
                               </div>
                             </div>
-                          )}
-                        </MenuItem>
-                      );
-                    })}
-                  </div>
+                          </div>
+                        )}
+                      </MenuItem>
+                    );
+                  })}
                 </MenuItems>
               </Menu>
 
+              {/* INPUT */}
               <input
                 {...rest}
                 type="tel"
-                placeholder="912345678"
-                value={number}
+                value={phoneNumber}
                 onChange={handleNumberChange}
-                className="flex-1 h-full bg-transparent border-none outline-none focus:outline-none px-4 text-inherit font-normal disabled:cursor-not-allowed placeholder:opacity-50"
+                placeholder="912345678"
+                className="flex-1 bg-transparent outline-none px-4"
               />
             </div>
 
-            <AnimatePresence mode="wait">
+            {/* ERROR */}
+            <AnimatePresence>
               {error && (
                 <motion.span
-                  role="alert"
-                  initial={{ opacity: 0, height: 0, y: -5 }}
-                  animate={{ opacity: 1, height: "auto", y: 0 }}
-                  exit={{ opacity: 0, height: 0, y: -5 }}
-                  className="text-[11px] font-bold text-red-500 tracking-tight ml-1 overflow-hidden block mt-0.5"
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="text-[11px] text-red-500 ml-1"
                 >
                   {error.message}
                 </motion.span>

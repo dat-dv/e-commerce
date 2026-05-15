@@ -3,8 +3,8 @@ import { IUser } from '@ecommerce/shared';
 
 export interface IUsersRepository {
   findById(id: string): Promise<IUser | null>;
-  findByEmail(email: string): Promise<IUser | null>;
-  update(id: string, data: Partial<IUser>): Promise<IUser>;
+  findByEmail(email: string, withSalt?: boolean): Promise<IUser | null>;
+  updateUserProfile(id: string, data: Partial<IUser>): Promise<IUser>;
   updatePassword(id: string, passwordRaw: string): Promise<IUser>;
   create(data: { email: string; password?: string; first_name?: string; last_name?: string }): Promise<IUser>;
   findAll(page: number, limit: number): Promise<PaginatedResult<IUser>>;
@@ -12,7 +12,7 @@ export interface IUsersRepository {
   getUserAvatarPublicId(userId: string): Promise<string | null>;
   addUserPhone(
     userId: string,
-    data: { phone: string; phone_code: string; is_verified: boolean; is_default: boolean },
+    data: { phone_number: string; phone_code: string; is_verified: boolean; is_default: boolean },
   ): Promise<boolean>;
 }
 

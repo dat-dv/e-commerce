@@ -7,7 +7,7 @@ export class VerifyPhoneDto {
 
   @IsString()
   @IsNotEmpty()
-  phone: string;
+  phone_number: string;
 
   @IsString()
   @IsNotEmpty()

@@ -14,6 +14,6 @@ export class RemoveUserUseCase {
       throw new BadRequestException('User not found');
     }
 
-    return this.usersRepository.update(id, { deleted_at: new Date() });
+    return this.usersRepository.updateUserProfile(id, { deleted_at: new Date() });
   }
 }

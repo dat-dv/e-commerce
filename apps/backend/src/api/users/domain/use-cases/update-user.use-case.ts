@@ -10,18 +10,11 @@ export class UpdateUserUseCase {
     private readonly usersRepository: IUsersRepository,
   ) {}
 
-  async execute(requestingUserId: string, dto: UpdateUserDto): Promise<IUser> {
-    const id = dto.id;
-    const user = await this.usersRepository.findById(id);
-    if (!user) {
-      throw new BadRequestException('User not found');
-    }
-
+  async execute(requestingUserId: string, dto: UpdateUserDto & { avatar_url?: string }): Promise<IUser> {
     const permissions = await this.usersRepository.getUserPermissions(requestingUserId);
-
-    this.checkOwnershipOrPermission(id, requestingUserId, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
-
-    return this.usersRepository.update(id, dto);
+    this.checkOwnershipOrPermission(dto.id, requestingUserId, permissions, 'UPDATE:OWN_USER', 'UPDATE:ANY_USER');
+    const user = await this.usersRepository.updateUserProfile(dto.id, dto);
+    return user;
   }
 
   private checkOwnershipOrPermission(

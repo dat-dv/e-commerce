@@ -10,6 +10,7 @@ import { FindOneUserUseCase } from './domain/use-cases/find-one-user.use-case';
 import { RemoveUserUseCase } from './domain/use-cases/remove-user.use-case';
 import { IUsersRepository } from './domain/entities/users.repository.interface';
 import { UsersRepository } from './domain/infrastructure/users.repository';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
 @Module({
   imports: [forwardRef(() => AuthModule), UploadModule],

@@ -11,3 +11,4 @@ export * from "./product-category";
 export * from "./auth";
 export * from "./order";
 export * from "./homepage";
+export * from "./prettify";

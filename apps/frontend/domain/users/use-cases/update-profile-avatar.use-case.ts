@@ -1,0 +1,23 @@
+import { UseCase } from "@/utils/use-case";
+
+import { ApiResponse } from "@/utils/request/request.types";
+import { IUsersRepository } from "../interface/users.repository";
+
+export class UpdateProfileAvatarUseCase extends UseCase<
+  { avatar: File; userId: string },
+  Promise<ApiResponse<string>>
+> {
+  constructor(private repository: IUsersRepository) {
+    super();
+  }
+
+  async execute({
+    avatar,
+    userId,
+  }: {
+    avatar: File;
+    userId: string;
+  }): Promise<ApiResponse<string>> {
+    return this.repository.uploadAvatar(avatar, userId);
+  }
+}

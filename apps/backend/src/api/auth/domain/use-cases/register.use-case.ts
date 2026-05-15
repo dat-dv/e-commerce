@@ -18,15 +18,10 @@ export class RegisterUseCase {
     @Inject(ICartRepository)
     private readonly cartRepository: ICartRepository,
     private readonly tokenService: TokenService,
-    private readonly configService: ConfigService<EnvVars>,
   ) {}
 
   async execute(dto: RegisterDto) {
-    const user = await this.createUserUseCase.execute({
-      ...dto,
-      first_name: '',
-      last_name: '',
-    });
+    const user = await this.createUserUseCase.execute(dto);
 
     await this.cartRepository.createCart(user.id);
     const payload = { sub: user.id, email: user.email };

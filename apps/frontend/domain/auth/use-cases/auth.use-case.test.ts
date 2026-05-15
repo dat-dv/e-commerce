@@ -6,10 +6,12 @@ import { IAuthRepository } from "../types/auth.repository";
 import { FetchMeUseCase } from "./fetch-me.use-case";
 import { LoginUseCase } from "./login.use-case";
 import { RegisterUseCase } from "./register.use-case";
-import { UpdateProfileUseCase } from "./update-profile.use-case";
+import { UpdateProfileUseCase } from "../../users/use-cases/update-profile.use-case";
+import { IUsersRepository } from "@/domain/users/interface/users.repository";
 
 describe("Auth Use Cases", () => {
   let mockRepo: IAuthRepository;
+  let userRepoMock: IUsersRepository;
 
   const mockUser: TUser = {
     id: "user-123",
@@ -28,6 +30,11 @@ describe("Auth Use Cases", () => {
       forgotPassword: vi.fn(),
       resetPassword: vi.fn(),
       changePassword: vi.fn(),
+    };
+
+    userRepoMock = {
+      uploadAvatar: vi.fn(),
+      updateProfile: vi.fn(),
     };
   });
 
@@ -97,7 +104,7 @@ describe("Auth Use Cases", () => {
 
   describe("UpdateProfileUseCase", () => {
     it("should update partial profile successfully", async () => {
-      const useCase = new UpdateProfileUseCase(mockRepo);
+      const useCase = new UpdateProfileUseCase(userRepoMock);
       const patch = { first_name: "Updated Name" };
       const mockResponse = {
         status: "success" as const,

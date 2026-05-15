@@ -2,7 +2,7 @@
 
 model UserPhone {
   id          String   @id @default(cuid())
-  phone       String   @unique
+  phone_number       String   @unique
   phone_code  String
   is_verified Boolean  @default(false)
   is_default  Boolean  @default(false)

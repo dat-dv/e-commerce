@@ -1,10 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IUser, Gender } from '@ecommerce/shared';
+import { IUser } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
+import { UpdateUserDto } from '../../dto/update-user.dto';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -16,69 +17,102 @@ export class UsersRepository implements IUsersRepository {
   async findById(id: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { id },
-      include: { role: true, avatar: true },
+      include: {
+        role: true,
+        avatar: true,
+        phones: {
+          where: {
+            is_default: true,
+          },
+        },
+      },
     });
 
     if (!prismaUser) return null;
-    return prismaUser;
-  }
-
-  async findByEmail(email: string): Promise<IUser | null> {
-    const prismaUser = await this.prisma.user.findUnique({
-      where: { email },
-      include: { role: true },
-    });
-
-    if (!prismaUser) return null;
+    const { avatar, password, salt, phones, ...rest } = prismaUser;
     return {
-      id: prismaUser.id,
-      first_name: prismaUser.first_name,
-      last_name: prismaUser.last_name,
-      email: prismaUser.email,
-      date_of_birth: prismaUser.date_of_birth,
-      gender: prismaUser.gender,
-      avatar_id: prismaUser.avatar_id,
-      password: prismaUser.password,
-      salt: prismaUser.salt,
-      created_at: prismaUser.created_at,
-      updated_at: prismaUser.updated_at,
-      deleted_at: prismaUser.deleted_at,
-      role_id: prismaUser.role_id,
-      role_name: prismaUser.role?.role_name ?? null,
+      ...rest,
+      phone: phones?.[0],
+      avatar_url: avatar?.url,
     };
   }
 
-  async update(id: string, data: Partial<Omit<IUser, 'addresses' | 'phones'>>): Promise<IUser> {
-    let updateData = { ...data };
-
-    if (data.password) {
-      const salt = crypto.randomBytes(16).toString('hex');
-      const hashedPassword = crypto.pbkdf2Sync(data.password, salt, 1000, 64, 'sha512').toString('hex');
-      updateData = {
-        ...updateData,
-        password: hashedPassword,
-        salt,
-      };
-    }
-
-    const prismaUser = await this.prisma.user.update({
-      where: { id },
-      data: updateData,
+  async findByEmail(email: string, withSalt?: boolean): Promise<IUser | null> {
+    const prismaUser = await this.prisma.user.findUnique({
+      where: { email },
+      include: {
+        role: true,
+        avatar: true,
+        phones: {
+          where: {
+            is_default: true,
+          },
+        },
+      },
     });
 
+    if (!prismaUser) return null;
+    const { avatar, password, salt, phones, ...rest } = prismaUser;
     return {
-      id: prismaUser.id,
-      first_name: prismaUser.first_name,
-      last_name: prismaUser.last_name,
-      email: prismaUser.email,
-      date_of_birth: prismaUser.date_of_birth,
-      gender: prismaUser.gender,
-      avatar_id: prismaUser.avatar_id,
-      password: prismaUser.password,
-      created_at: prismaUser.created_at,
-      updated_at: prismaUser.updated_at,
-      deleted_at: prismaUser.deleted_at,
-      role_id: prismaUser.role_id,
+      ...rest,
+      avatar_url: avatar?.url,
+      phone: phones?.[0],
+      ...(withSalt ? { password, salt } : {}),
+    };
+  }
+  async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUser> {
+    const { phone_number, phone_code, avatar_url, ...userData } = updateData;
+    const isUpdatePhone = phone_number && phone_code;
+    // Wrap everything in an interactive transaction
+    const updatedUser = await this.prisma.$transaction(async (tx) => {
+      if (isUpdatePhone) {
+        await tx.userPhone.updateMany({
+          where: {
+            user_id: id,
+            is_default: true,
+          },
+          data: {
+            is_default: false,
+          },
+        });
+
+        // Create the new default phone
+        await tx.userPhone.create({
+          data: {
+            user_id: id,
+            phone_number,
+            phone_code,
+            is_default: true,
+          },
+        });
+      }
+
+      // 2. Update the user profile and fetch the final state
+      return tx.user.update({
+        where: { id },
+        data: {
+          ...userData,
+          ...(avatar_url && {
+            avatar: {
+              connect: {
+                id: avatar_url,
+              },
+            },
+          }),
+        },
+        include: {
+          avatar: true,
+          phones: true,
+        },
+      });
+    });
+
+    const { avatar, password, salt, phones, ...rest } = updatedUser;
+
+    return {
+      ...rest,
+      avatar_url: avatar?.url,
+      phone: phones?.[0],
     };
   }
 
@@ -101,34 +135,22 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async create(data: { email: string; first_name: string; last_name: string; password: string }): Promise<IUser> {
-    const salt = crypto.randomBytes(16).toString('hex');
-    const hashedPassword = crypto.pbkdf2Sync(data.password, salt, 1000, 64, 'sha512').toString('hex');
+    const newSalt = crypto.randomBytes(16).toString('hex');
+    const hashedPassword = crypto.pbkdf2Sync(data.password, newSalt, 1000, 64, 'sha512').toString('hex');
 
     const user = await this.prisma.user.create({
       data: {
         ...data,
         password: hashedPassword,
-        salt,
+        salt: newSalt,
         role: {
           connect: { role_name: ROLE_USER },
         },
       },
+      include: { role: true, avatar: true },
     });
-
-    return {
-      id: user.id,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      email: user.email,
-      date_of_birth: user.date_of_birth,
-      gender: user.gender,
-      avatar_id: user.avatar_id,
-      password: user.password,
-      created_at: user.created_at,
-      updated_at: user.updated_at,
-      deleted_at: user.deleted_at,
-      role_id: user.role_id,
-    };
+    const { avatar, password, salt, ...rest } = user;
+    return { ...rest, avatar_url: avatar?.url };
   }
 
   async findAll(page: number, limit: number) {
@@ -176,12 +198,12 @@ export class UsersRepository implements IUsersRepository {
 
   async addUserPhone(
     userId: string,
-    data: { phone: string; phone_code: string; is_verified: boolean; is_default: boolean },
+    data: { phone_number: string; phone_code: string; is_verified: boolean; is_default: boolean },
   ): Promise<boolean> {
     await this.prisma.userPhone.create({
       data: {
         user_id: userId,
-        phone: data.phone,
+        phone_number: data.phone_number,
         phone_code: data.phone_code,
         is_default: data.is_default,
         is_verified: data.is_verified,

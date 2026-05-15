@@ -33,7 +33,7 @@ export interface IAddress {
 
 export interface IUserPhone {
   id: string;
-  phone: string;
+  phone_number: string;
   phone_code?: string | null;
   is_verified: boolean;
   is_default: boolean;
@@ -59,4 +59,7 @@ export interface IUser {
   role_name?: string | null;
   addresses?: IAddress[];
   phones?: IUserPhone[];
+
+  // custom field 
+  avatar_url?: string;
 }

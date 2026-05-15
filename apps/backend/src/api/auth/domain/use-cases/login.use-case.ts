@@ -17,7 +17,7 @@ export class LoginUseCase {
   ) {}
 
   async execute(dto: LoginDto) {
-    const user = await this.usersRepository.findByEmail(dto.email);
+    const user = await this.usersRepository.findByEmail(dto.email, true);
 
     if (!user || user.deleted_at) {
       throw new BadRequestException('Invalid credentials');

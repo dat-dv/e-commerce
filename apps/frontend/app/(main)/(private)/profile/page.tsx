@@ -1,11 +1,22 @@
-import type { Metadata } from "next";
-import { ProfileForm } from "@/components/molecules/profile-form";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Profile",
-  description: "Manage your personal profile and account details with ease.",
-};
+import { ProfileForm } from "@/components/molecules/profile-form";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
+import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
 
 export default function ProfilePage() {
-  return <ProfileForm />;
+  const user = useAuthStore((state) => state.user);
+  const { updateProfile, loading: isUpdating } = useUpdateProfile();
+  const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
+
+  return (
+    <ProfileForm
+      user={user}
+      updateProfile={updateProfile}
+      uploadAvatar={uploadAvatar}
+      isLoading={isUpdating}
+      isUploading={isUploading}
+    />
+  );
 }

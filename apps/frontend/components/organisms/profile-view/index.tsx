@@ -3,8 +3,15 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import { Bell, User, ShoppingBag, ShoppingCart } from "lucide-react";
 import { ProfileForm } from "../../molecules/profile-form";
 import Link from "next/link";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
+import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
 
 export const ProfileView = () => {
+  const user = useAuthStore((state) => state.user);
+  const { updateProfile, loading: isUpdating } = useUpdateProfile();
+  const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
+
   const sidebarContent = (
     <div className="space-y-6">
       {/* Account Section */}
@@ -88,7 +95,13 @@ export const ProfileView = () => {
     <div className="min-h-[calc(100vh-80px)] pt-10 bg-gradient-to-b from-surface to-transparent">
       <SidebarLayout header={null} sidebar={sidebarContent}>
         <AnimationContainer className="space-y-12">
-          <ProfileForm />
+          <ProfileForm
+            user={user}
+            updateProfile={updateProfile}
+            uploadAvatar={uploadAvatar}
+            isLoading={isUpdating}
+            isUploading={isUploading}
+          />
         </AnimationContainer>
       </SidebarLayout>
     </div>
