@@ -27,6 +27,7 @@ export const useProfile = () => {
       dob: String(user?.date_of_birth || ""),
       avatarUrl: user?.avatar_url || "",
       phoneNumber: user?.phone_number || "",
+      gender: user?.gender ?? undefined,
     },
   });
 
@@ -38,6 +39,7 @@ export const useProfile = () => {
         dob: String(user.date_of_birth || ""),
         avatarUrl: user?.avatar_url || "",
         phoneNumber: user.phone_number || "",
+        gender: user.gender ?? undefined,
       });
     }
   }, [user, methods]);
@@ -53,9 +55,16 @@ export const useProfile = () => {
         last_name: data.last_name,
         first_name: data.first_name,
         avatar_url: data.avatarUrl,
+        phone_number: data.phoneNumber,
+        gender: data.gender,
       });
 
-      setUser(response.data);
+      if (response.status === "success" && response.data) {
+        setUser(response.data);
+        toast.success("Profile updated successfully!");
+      } else {
+        throw new Error(response.message || "Update failed");
+      }
       setIsEditing(false);
     } catch (err: unknown) {
       toast.error((err as Error).message || "Update failed", {
@@ -79,6 +88,7 @@ export const useProfile = () => {
         dob: String(user.date_of_birth || ""),
         avatarUrl: user?.avatar_url || "",
         phoneNumber: user.phone_number || "",
+        gender: user.gender ?? undefined,
       });
     }
     setIsEditing(false);

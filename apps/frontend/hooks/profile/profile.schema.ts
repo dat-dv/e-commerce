@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { EGender } from "@/domain/auth/types/auth.model";
 
 export const profileSchema = z.object({
   first_name: z.string().min(1, { message: "First name is required" }),
@@ -13,6 +14,7 @@ export const profileSchema = z.object({
     .url({ message: "Invalid URL" })
     .optional()
     .or(z.literal("")),
+  gender: z.nativeEnum(EGender).optional().nullable(),
   phoneNumber: z
     .string()
     .min(1, { message: "Phone number is required" })

@@ -3,6 +3,9 @@ import { IUser } from "@ecommerce/shared";
 
 export const UserMapper = {
   toDomain(dto: IUser): TUser {
+    const defaultPhone =
+      dto.phones?.find((p) => p.is_default) ?? dto.phones?.[0];
+
     return {
       id: dto.id,
       first_name: dto.first_name || "",
@@ -12,6 +15,9 @@ export const UserMapper = {
         ? new Date(dto.date_of_birth).toISOString()
         : "",
       avatar_id: dto.avatar_id || "",
+      avatar_url: (dto as IUser & { avatar_url?: string }).avatar_url ?? null,
+      phone_number: defaultPhone?.phone ?? null,
+      gender: dto.gender ?? null,
       password: dto.password,
       created_at: dto.created_at ? new Date(dto.created_at).toISOString() : "",
       updated_at: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
@@ -30,17 +36,10 @@ export const UserMapper = {
       dto.date_of_birth = new Date(user.date_of_birth);
     }
     if (user.avatar_id) dto.avatar_id = user.avatar_id;
-    if (user.created_at) {
-      dto.created_at = new Date(user.created_at);
-    }
-    if (user.updated_at) {
-      dto.updated_at = new Date(user.updated_at);
-    }
-    if (user.deleted_at) {
-      dto.deleted_at = new Date(user.deleted_at);
-    }
-
-    if (user.role_id) dto.role_id = user.role_id;
+    if (user.avatar_url !== undefined) dto.avatar_url = user.avatar_url | "";
+    if (user.phone_number !== undefined) dto.phone_number = user.phone_number;
+    if (user.gender !== undefined && user.gender !== null)
+      dto.gender = user.gender;
     return dto;
   },
 };

@@ -16,26 +16,11 @@ export class UsersRepository implements IUsersRepository {
   async findById(id: string): Promise<IUser | null> {
     const prismaUser = await this.prisma.user.findUnique({
       where: { id },
-      include: { role: true },
+      include: { role: true, avatar: true },
     });
 
     if (!prismaUser) return null;
-    return {
-      id: prismaUser.id,
-      first_name: prismaUser.first_name,
-      last_name: prismaUser.last_name,
-      email: prismaUser.email,
-      date_of_birth: prismaUser.date_of_birth,
-      gender: prismaUser.gender,
-      avatar_id: prismaUser.avatar_id,
-      password: prismaUser.password,
-      salt: prismaUser.salt,
-      created_at: prismaUser.created_at,
-      updated_at: prismaUser.updated_at,
-      deleted_at: prismaUser.deleted_at,
-      role_id: prismaUser.role_id,
-      role_name: prismaUser.role?.role_name ?? null,
-    };
+    return prismaUser;
   }
 
   async findByEmail(email: string): Promise<IUser | null> {
