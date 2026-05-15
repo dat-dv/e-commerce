@@ -1,7 +1,9 @@
-import { IPermission, IPaginatedResult, ICreatePermissionRequest, IUpdatePermissionRequest } from '@ecommerce/shared';
+import type { IPermission, IPaginatedResult } from '@ecommerce/shared';
+import { CreatePermissionDto } from '../../dto/create-permission.dto';
+import { UpdatePermissionDto } from '../../dto/update-permission.dto';
 
 export interface IPermissionsRepository {
-  create(data: ICreatePermissionRequest): Promise<IPermission>;
+  create(data: CreatePermissionDto): Promise<IPermission>;
 
   findAll(page: number, limit: number): Promise<IPaginatedResult<IPermission>>;
 
@@ -9,7 +11,7 @@ export interface IPermissionsRepository {
 
   findByName(name: string): Promise<IPermission | null>;
 
-  update(id: string, data: IUpdatePermissionRequest): Promise<IPermission>;
+  update(id: string, data: UpdatePermissionDto): Promise<IPermission>;
 
   delete(id: string): Promise<IPermission>;
 

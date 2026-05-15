@@ -7,49 +7,8 @@ import { GetReviewsUseCase } from './domain/use-cases/get-reviews.use-case';
 import { DeleteReviewUseCase } from './domain/use-cases/delete-review.use-case';
 import { IApiResponse, IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
-import { IsNotEmpty, IsString, IsOptional, IsNumber, Min, Max, IsArray } from 'class-validator';
-
-class CreateReviewDto {
-  @IsNotEmpty()
-  @IsString()
-  product_id: string;
-
-  @IsNotEmpty()
-  @IsString()
-  sku_id: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  @Min(1)
-  @Max(5)
-  rating: number;
-
-  @IsOptional()
-  @IsString()
-  comment?: string;
-
-  @IsOptional()
-  @IsArray()
-  @IsString({ each: true })
-  images?: string[];
-}
-
-class UpdateReviewDto {
-  @IsOptional()
-  @IsNumber()
-  @Min(1)
-  @Max(5)
-  rating?: number;
-
-  @IsOptional()
-  @IsString()
-  comment?: string;
-
-  @IsOptional()
-  @IsArray()
-  @IsString({ each: true })
-  images?: string[];
-}
+import { CreateReviewDto } from './dto/create-review.dto';
+import { UpdateReviewDto } from './dto/update-review.dto';
 
 @Controller('reviews')
 export class ReviewsController {

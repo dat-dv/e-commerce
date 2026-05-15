@@ -3,16 +3,8 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from '../../../../../generated/prisma/client';
-import { EOrderStatus, IPaginatedResult, IOrderResponse, IGetUserOrdersRequest } from '@ecommerce/shared';
-
-interface ICreateOrderInput {
-  user_id: string;
-  total_amount: number;
-  discount_amount?: number;
-  shipping_address_id?: string;
-  coupon_id?: string;
-  items: { sku_id: string; quantity: number; price: number; flash_sale_id?: string; snapshot?: unknown }[];
-}
+import { EOrderStatus, IPaginatedResult, IOrderResponse } from '@ecommerce/shared';
+import { CreateOrderInputDto, GetUserOrdersDto } from '../../dto/create-order-input.dto';
 
 @Injectable()
 export class OrdersRepository implements IOrdersRepository {
@@ -21,7 +13,23 @@ export class OrdersRepository implements IOrdersRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async createOrder(data: ICreateOrderInput): Promise<IOrderResponse> {
+  private readonly ORDER_INCLUDE = {
+    items: {
+      include: {
+        sku: {
+          include: {
+            product: {
+              include: {
+                translations: true,
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
+  async createOrder(data: CreateOrderInputDto): Promise<IOrderResponse> {
     return this.prisma.order.create({
       data: {
         user_id: data.user_id,
@@ -40,46 +48,18 @@ export class OrdersRepository implements IOrdersRepository {
           })),
         },
       },
-      include: {
-        items: {
-          include: {
-            sku: {
-              include: {
-                product: {
-                  include: {
-                    translations: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.ORDER_INCLUDE,
     });
   }
 
   async findById(id: string): Promise<IOrderResponse | null> {
     return this.prisma.order.findUnique({
       where: { id },
-      include: {
-        items: {
-          include: {
-            sku: {
-              include: {
-                product: {
-                  include: {
-                    translations: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.ORDER_INCLUDE,
     });
   }
 
-  async getUserOrders(userId: string, params: IGetUserOrdersRequest): Promise<IPaginatedResult<IOrderResponse>> {
+  async getUserOrders(userId: string, params?: GetUserOrdersDto): Promise<IPaginatedResult<IOrderResponse>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;
 
@@ -91,21 +71,7 @@ export class OrdersRepository implements IOrdersRepository {
           ...(params?.status && params.status.length > 0 && { status: { in: params.status } }),
         },
         orderBy: { created_at: 'desc' },
-        include: {
-          items: {
-            include: {
-              sku: {
-                include: {
-                  product: {
-                    include: {
-                      translations: true,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
+        include: this.ORDER_INCLUDE,
       },
       page,
       limit,
@@ -118,7 +84,7 @@ export class OrdersRepository implements IOrdersRepository {
     return this.prisma.order.update({
       where: { id },
       data: { status },
-      include: { items: true },
+      include: this.ORDER_INCLUDE,
     });
   }
 
@@ -126,7 +92,7 @@ export class OrdersRepository implements IOrdersRepository {
     return this.prisma.order.update({
       where: { id, user_id: userId },
       data: { status: EOrderStatus.CANCELLED },
-      include: { items: true },
+      include: this.ORDER_INCLUDE,
     });
   }
 }

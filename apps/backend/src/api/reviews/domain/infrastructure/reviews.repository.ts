@@ -2,56 +2,66 @@ import { Injectable } from '@nestjs/common';
 import { IReviewsRepository } from '../entities/reviews.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
+import { CreateReviewInputDto } from '../../dto/create-review-input.dto';
+import { UpdateReviewDto } from '../../dto/update-review.dto';
 
 @Injectable()
 export class ReviewsRepository implements IReviewsRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(data: {
-    product_id: string;
-    sku_id: string;
-    user_id: string;
-    rating: number;
-    comment?: string;
-    images?: string[];
-  }): Promise<IReviewResponse> {
+  private readonly REVIEW_INCLUDE = {
+    user: {
+      include: {
+        avatar: true,
+      },
+    },
+  };
+
+  async create(data: CreateReviewInputDto): Promise<IReviewResponse> {
     return this.prisma.review.create({
       data: {
         ...data,
         images: data.images,
       },
+      include: this.REVIEW_INCLUDE,
     });
   }
 
-  async update(id: string, data: { rating?: number; comment?: string; images?: string[] }): Promise<IReviewResponse> {
+  async update(id: string, data: UpdateReviewDto): Promise<IReviewResponse> {
     return this.prisma.review.update({
       where: { id },
       data: {
         ...data,
         images: data.images,
       },
+      include: this.REVIEW_INCLUDE,
     });
   }
 
   async findAll(): Promise<IReviewListResponse> {
-    return this.prisma.review.findMany();
+    return this.prisma.review.findMany({
+      include: this.REVIEW_INCLUDE,
+    });
   }
 
   async findByProduct(productId: string): Promise<IReviewListResponse> {
     return this.prisma.review.findMany({
       where: { product_id: productId },
+      include: this.REVIEW_INCLUDE,
     });
   }
 
   async delete(id: string): Promise<IReviewResponse> {
     return this.prisma.review.delete({
       where: { id },
+      include: this.REVIEW_INCLUDE,
     });
   }
 
   async findById(id: string): Promise<IReviewResponse | null> {
     return this.prisma.review.findUnique({
       where: { id },
+      include: this.REVIEW_INCLUDE,
     });
   }
 

@@ -1,6 +1,3 @@
-import { EOrderStatus } from "./order.types";
-
-
 export interface ICreateOrderRequest {
   cartItemIds: string[];
   shippingAddressId?: string;
@@ -8,11 +5,7 @@ export interface ICreateOrderRequest {
 }
 
 export interface IGetUserOrdersRequest {
-  status?: EOrderStatus[];
+  status?: number[];
   page?: number;
   limit?: number;
-}
-
-export interface IUpdateOrderStatusRequest {
-  status: EOrderStatus;
 }

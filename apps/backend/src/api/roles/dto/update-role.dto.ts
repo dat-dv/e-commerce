@@ -11,4 +11,8 @@ export class UpdateRoleDto implements IUpdateRoleRequest {
   @IsOptional()
   @MaxLength(255, { message: 'Description must not exceed 255 characters' })
   description?: string;
+
+  @IsOptional()
+  @IsString({ each: true })
+  permissions?: string[];
 }

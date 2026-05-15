@@ -1,15 +1,10 @@
 import type { IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
+import { CreateReviewInputDto } from '../../dto/create-review-input.dto';
+import { UpdateReviewDto } from '../../dto/update-review.dto';
 
 export interface IReviewsRepository {
-  create(data: {
-    product_id: string;
-    sku_id: string;
-    user_id: string;
-    rating: number;
-    comment?: string;
-    images?: string[];
-  }): Promise<IReviewResponse>;
-  update(id: string, data: { rating?: number; comment?: string; images?: string[] }): Promise<IReviewResponse>;
+  create(data: CreateReviewInputDto): Promise<IReviewResponse>;
+  update(id: string, data: UpdateReviewDto): Promise<IReviewResponse>;
   findAll(): Promise<IReviewListResponse>;
   findByProduct(productId: string): Promise<IReviewListResponse>;
   delete(id: string): Promise<IReviewResponse>;
