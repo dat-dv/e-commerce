@@ -7,6 +7,7 @@ import { UpdatePermissionDto } from './dto/update-permission.dto';
 import { GetPermissionsDto } from './dto/get-permissions.dto';
 import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { IApiResponse, IPermissionResponse, IPermissionListResponse } from '@ecommerce/shared';
 
 @Controller('permissions')
 @UseGuards(AuthGuard)
@@ -19,25 +20,28 @@ export class PermissionsController {
   ) {}
 
   @Get()
-  async findAll(@Query() getPermissionsDto: GetPermissionsDto) {
+  async findAll(@Query() getPermissionsDto: GetPermissionsDto): Promise<IApiResponse<IPermissionListResponse>> {
     const res = await this.findAllPermissionsUseCase.execute(getPermissionsDto.page, getPermissionsDto.limit);
     return createSuccessResponse(res);
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string): Promise<IApiResponse<IPermissionResponse | null>> {
     const res = await this.findOnePermissionUseCase.execute(id);
     return createSuccessResponse(res);
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updatePermissionDto: UpdatePermissionDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updatePermissionDto: UpdatePermissionDto,
+  ): Promise<IApiResponse<IPermissionResponse>> {
     const res = await this.updatePermissionUseCase.execute(id, updatePermissionDto);
     return createSuccessResponse(res);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string): Promise<IApiResponse<IPermissionResponse>> {
     const res = await this.removePermissionUseCase.execute(id);
     return createSuccessResponse(res);
   }

@@ -12,6 +12,8 @@ export * from "./auth";
 export * from "./order";
 export * from "./homepage";
 export * from "./address";
+export * from "./review";
+export * from "./notification";
 export * from "./prettify";
 export * from "./generate/browser";
 export * from "./paginate";

@@ -1,4 +1,5 @@
-import { ProductCategory, IPaginatedResult } from "../index";
+import type { ProductCategory } from "../generate/browser";
+import type { IPaginatedResult } from "../paginate";
 
 export type ICategoryResponse = ProductCategory;
 

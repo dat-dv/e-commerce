@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IReviewsRepository } from '../entities/reviews.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class ReviewsRepository implements IReviewsRepository {
@@ -13,7 +14,7 @@ export class ReviewsRepository implements IReviewsRepository {
     rating: number;
     comment?: string;
     images?: string[];
-  }) {
+  }): Promise<IReviewResponse> {
     return this.prisma.review.create({
       data: {
         ...data,
@@ -22,7 +23,7 @@ export class ReviewsRepository implements IReviewsRepository {
     });
   }
 
-  async update(id: string, data: { rating?: number; comment?: string; images?: string[] }) {
+  async update(id: string, data: { rating?: number; comment?: string; images?: string[] }): Promise<IReviewResponse> {
     return this.prisma.review.update({
       where: { id },
       data: {
@@ -32,23 +33,23 @@ export class ReviewsRepository implements IReviewsRepository {
     });
   }
 
-  async findAll() {
+  async findAll(): Promise<IReviewListResponse> {
     return this.prisma.review.findMany();
   }
 
-  async findByProduct(productId: string) {
+  async findByProduct(productId: string): Promise<IReviewListResponse> {
     return this.prisma.review.findMany({
       where: { product_id: productId },
     });
   }
 
-  async delete(id: string) {
+  async delete(id: string): Promise<IReviewResponse> {
     return this.prisma.review.delete({
       where: { id },
     });
   }
 
-  async findById(id: string) {
+  async findById(id: string): Promise<IReviewResponse | null> {
     return this.prisma.review.findUnique({
       where: { id },
     });

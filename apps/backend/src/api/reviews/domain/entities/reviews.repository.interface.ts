@@ -1,4 +1,4 @@
-import { Review } from 'generated/prisma/client';
+import type { IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
 
 export interface IReviewsRepository {
   create(data: {
@@ -8,12 +8,12 @@ export interface IReviewsRepository {
     rating: number;
     comment?: string;
     images?: string[];
-  }): Promise<Review>;
-  update(id: string, data: { rating?: number; comment?: string; images?: string[] }): Promise<Review>;
-  findAll(): Promise<Review[]>;
-  findByProduct(productId: string): Promise<Review[]>;
-  delete(id: string): Promise<Review>;
-  findById(id: string): Promise<Review | null>;
+  }): Promise<IReviewResponse>;
+  update(id: string, data: { rating?: number; comment?: string; images?: string[] }): Promise<IReviewResponse>;
+  findAll(): Promise<IReviewListResponse>;
+  findByProduct(productId: string): Promise<IReviewListResponse>;
+  delete(id: string): Promise<IReviewResponse>;
+  findById(id: string): Promise<IReviewResponse | null>;
   isUserAdmin(userId: string): Promise<boolean>;
   hasPermission(userId: string, permissionName: string): Promise<boolean>;
 }

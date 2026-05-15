@@ -1,4 +1,5 @@
-import { Brand, Product, IPaginatedResult } from "../index";
+import type { Brand, Product } from "../generate/browser";
+import type { IPaginatedResult } from "../paginate";
 
 export type IBrandResponse = Brand;
 

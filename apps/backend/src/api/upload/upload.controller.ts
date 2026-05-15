@@ -15,6 +15,7 @@ import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
 import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';
+import { IApiResponse, IImageResponse } from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
 
 @ApiTags('Upload')
@@ -46,7 +47,7 @@ export class UploadController {
   })
   @ApiResponse({ status: 201, description: 'File uploaded successfully' })
   @ApiResponse({ status: 400, description: 'Bad request (invalid file type or size)' })
-  async uploadImage(@UploadedFile() file: Express.Multer.File) {
+  async uploadImage(@UploadedFile() file: Express.Multer.File): Promise<IApiResponse<IImageResponse>> {
     if (!file) {
       throw new BadRequestException('No file uploaded');
     }
@@ -75,7 +76,7 @@ export class UploadController {
   @ApiOperation({ summary: 'Delete an image' })
   @ApiResponse({ status: 200, description: 'File deleted successfully' })
   @ApiResponse({ status: 400, description: 'Bad request (invalid file type or size)' })
-  async deleteImage(@Param('publicId') publicId: string) {
+  async deleteImage(@Param('publicId') publicId: string): Promise<IApiResponse<boolean>> {
     if (!publicId) {
       throw new BadRequestException('No publicId provided');
     }

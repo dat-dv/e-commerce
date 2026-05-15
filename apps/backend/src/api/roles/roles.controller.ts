@@ -11,6 +11,7 @@ import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
+import { IApiResponse, IRoleResponse, IRoleListResponse } from '@ecommerce/shared';
 
 @Controller('roles')
 @UseGuards(AuthGuard, PermissionsGuard)
@@ -25,35 +26,35 @@ export class RolesController {
 
   @Post()
   @Permissions('CREATE:ROLE')
-  async create(@Body() createRoleDto: CreateRoleDto) {
+  async create(@Body() createRoleDto: CreateRoleDto): Promise<IApiResponse<IRoleResponse>> {
     const res = await this.createRoleUseCase.execute(createRoleDto);
     return createSuccessResponse(res);
   }
 
   @Get()
   @Permissions('LIST:ROLE')
-  async findAll(@Query() getRolesDto: GetRolesDto) {
+  async findAll(@Query() getRolesDto: GetRolesDto): Promise<IApiResponse<IRoleListResponse>> {
     const res = await this.findAllRolesUseCase.execute(getRolesDto.page, getRolesDto.limit);
     return createSuccessResponse(res);
   }
 
   @Get(':id')
   @Permissions('DETAIL:ROLE')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string): Promise<IApiResponse<IRoleResponse | null>> {
     const res = await this.findOneRoleUseCase.execute(id);
     return createSuccessResponse(res);
   }
 
   @Patch(':id')
   @Permissions('UPDATE:ROLE')
-  async update(@Param('id') id: string, @Body() updateRoleDto: UpdateRoleDto) {
+  async update(@Param('id') id: string, @Body() updateRoleDto: UpdateRoleDto): Promise<IApiResponse<IRoleResponse>> {
     const res = await this.updateRoleUseCase.execute(id, updateRoleDto);
     return createSuccessResponse(res);
   }
 
   @Delete(':id')
   @Permissions('DELETE:ROLE')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string): Promise<IApiResponse<IRoleResponse>> {
     const res = await this.removeRoleUseCase.execute(id);
     return createSuccessResponse(res);
   }

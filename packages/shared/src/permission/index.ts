@@ -1,1 +1,2 @@
-export * from "./permission.types";
+export * from "./permission.response";
+export * from "./role.response";
