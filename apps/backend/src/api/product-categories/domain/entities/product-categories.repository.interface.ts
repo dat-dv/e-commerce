@@ -1,13 +1,13 @@
-import type { ICategoryResponse, IPaginatedResult } from '@ecommerce/shared';
+import { ICategoryResponse, IPaginatedResult } from '@ecommerce/shared';
+import { CreateCategoryDto } from '../../dto/create-product-category.dto';
+import { UpdateCategoryDto } from '../../dto/update-product-category.dto';
+import { GetCategoriesDto } from '../../dto/get-categories.dto';
 
 export interface IProductCategoriesRepository {
-  create(data: { name: string; slug: string; description?: string }): Promise<ICategoryResponse>;
-  update(id: string, data: { name?: string; slug?: string; description?: string }): Promise<ICategoryResponse>;
-  findMany(params?: { page?: number; limit?: number; level?: number }): Promise<IPaginatedResult<ICategoryResponse>>;
-  findGroups(
-    languageCode?: string,
-    params?: { page?: number; limit?: number },
-  ): Promise<IPaginatedResult<ICategoryResponse>>;
+  create(data: CreateCategoryDto): Promise<ICategoryResponse>;
+  update(id: string, data: UpdateCategoryDto): Promise<ICategoryResponse>;
+  findMany(params?: GetCategoriesDto): Promise<IPaginatedResult<ICategoryResponse>>;
+  findGroups(languageCode?: string, params?: GetCategoriesDto): Promise<IPaginatedResult<ICategoryResponse>>;
   findById(id: string, languageCode?: string): Promise<ICategoryResponse | null>;
   findTree(languageCode?: string): Promise<ICategoryResponse[]>;
   findTreeBySlug(slug: string, languageCode?: string): Promise<ICategoryResponse | null>;

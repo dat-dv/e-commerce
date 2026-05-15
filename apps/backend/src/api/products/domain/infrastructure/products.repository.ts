@@ -1,15 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import {
-  IPaginatedResult,
-  IGetProductsParams,
-  IProductResponse,
-  IFlashSaleResponse,
-  Review as IReviewResponse,
-} from '@ecommerce/shared';
+import { IPaginatedResult, IProductResponse, IFlashSaleResponse, Review as IReviewResponse } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from '../../../../../generated/prisma/client';
+import { GetProductsDto } from '../../dto/get-products.dto';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -18,97 +13,61 @@ export class ProductsRepository implements IProductsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async findById(id: string, languageCode = 'en'): Promise<IProductResponse | null> {
-    return this.prisma.product.findUnique({
-      where: { id },
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
+  private getProductInclude(languageCode: string) {
+    return {
+      thumbnail: true,
+      brand: {
+        include: {
+          translations: {
+            where: { language: { code: languageCode } },
           },
         },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: { language: { code: languageCode } },
-                },
+      },
+      categories: {
+        include: {
+          category: {
+            include: {
+              translations: {
+                where: { language: { code: languageCode } },
               },
             },
           },
         },
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
+      },
+      translations: {
+        where: {
+          language: {
+            code: languageCode,
           },
         },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
+      },
+      skus: {
+        include: {
+          sku_attribute_values: {
+            include: {
+              attribute_value: {
+                include: {
+                  attribute: true,
                 },
               },
             },
           },
         },
       },
+    };
+  }
+
+  async findById(id: string, languageCode = 'en'): Promise<IProductResponse | null> {
+    return this.prisma.product.findUnique({
+      where: { id },
+      include: this.getProductInclude(languageCode),
     });
   }
 
   async findBySlug(slug: string, languageCode = 'en'): Promise<IProductResponse | null> {
     const product = await this.prisma.product.findUnique({
       where: { slug },
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
-          },
-        },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: { language: { code: languageCode } },
-                },
-              },
-            },
-          },
-        },
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getProductInclude(languageCode),
     });
 
     if (!product) {
@@ -224,51 +183,7 @@ export class ProductsRepository implements IProductsRepository {
       },
       orderBy,
       take,
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
-          },
-        },
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: {
-                    language: {
-                      code: languageCode,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getProductInclude(languageCode),
     });
   }
 
@@ -285,51 +200,7 @@ export class ProductsRepository implements IProductsRepository {
 
     return this.prisma.product.findMany({
       where: { id: { in: productIds } },
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
-          },
-        },
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: {
-                    language: {
-                      code: languageCode,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getProductInclude(languageCode),
     });
   }
 
@@ -346,47 +217,7 @@ export class ProductsRepository implements IProductsRepository {
       },
       take: take,
       orderBy: { created_at: 'desc' },
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
-          },
-        },
-        translations: {
-          where: { language: { code: languageCode } },
-        },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: {
-                    language: {
-                      code: languageCode,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getProductInclude(languageCode),
     });
   }
 
@@ -395,47 +226,7 @@ export class ProductsRepository implements IProductsRepository {
       where: { deleted_at: null, status: 1 },
       orderBy: { created_at: 'desc' },
       take,
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
-          },
-        },
-        translations: {
-          where: { language: { code: languageCode } },
-        },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: {
-                    language: {
-                      code: languageCode,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getProductInclude(languageCode),
     });
   }
 
@@ -463,12 +254,10 @@ export class ProductsRepository implements IProductsRepository {
     return ids;
   }
 
-  async findPaginated(
-    params: IGetProductsParams & { page: number; limit: number },
-  ): Promise<IPaginatedResult<IProductResponse>> {
+  async findPaginated(params: GetProductsDto): Promise<IPaginatedResult<IProductResponse>> {
     const {
-      page,
-      limit,
+      page = 1,
+      limit = 10,
       search,
       category_id,
       category_slug,
@@ -476,7 +265,7 @@ export class ProductsRepository implements IProductsRepository {
       min_price,
       max_price,
       attribute_value_ids,
-      languageCode = 'en',
+      languageCode = 'vi',
     } = params;
 
     const where: Prisma.ProductWhereInput = {
@@ -541,51 +330,7 @@ export class ProductsRepository implements IProductsRepository {
       {
         where,
         orderBy,
-        include: {
-          thumbnail: true,
-          brand: {
-            include: {
-              translations: {
-                where: { language: { code: languageCode } },
-              },
-            },
-          },
-          translations: {
-            where: {
-              language: {
-                code: languageCode,
-              },
-            },
-          },
-          skus: {
-            include: {
-              sku_attribute_values: {
-                include: {
-                  attribute_value: {
-                    include: {
-                      attribute: true,
-                    },
-                  },
-                },
-              },
-            },
-          },
-          categories: {
-            include: {
-              category: {
-                include: {
-                  translations: {
-                    where: {
-                      language: {
-                        code: languageCode,
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
+        include: this.getProductInclude(languageCode),
       },
       page,
       limit,
@@ -624,47 +369,7 @@ export class ProductsRepository implements IProductsRepository {
         status: 1,
       },
       take: limit,
-      include: {
-        thumbnail: true,
-        brand: {
-          include: {
-            translations: {
-              where: { language: { code: languageCode } },
-            },
-          },
-        },
-        translations: {
-          where: { language: { code: languageCode } },
-        },
-        skus: {
-          include: {
-            sku_attribute_values: {
-              include: {
-                attribute_value: {
-                  include: {
-                    attribute: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        categories: {
-          include: {
-            category: {
-              include: {
-                translations: {
-                  where: {
-                    language: {
-                      code: languageCode,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getProductInclude(languageCode),
     });
   }
 

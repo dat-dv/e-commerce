@@ -1,9 +1,9 @@
 import { IsOptional, IsString, IsInt, Min, Max, IsArray, IsEnum } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { EProductSort } from '@ecommerce/shared';
+import { IGetProductsParams, EProductSort } from '@ecommerce/shared';
 
-export class GetProductsDto {
+export class GetProductsDto implements IGetProductsParams {
   @IsOptional()
   @Type(() => Number)
   @IsInt()

@@ -2,6 +2,8 @@ import { Injectable, Inject, BadRequestException } from '@nestjs/common';
 import { ICartRepository } from '../entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 
+import { UpdateCartItemDto } from '../../dto/cart.dto';
+
 @Injectable()
 export class UpdateCartItemUseCase {
   constructor(
@@ -10,8 +12,8 @@ export class UpdateCartItemUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(itemId: string, quantity: number) {
-    if (quantity <= 0) {
+  async execute(itemId: string, data: UpdateCartItemDto) {
+    if (data.quantity <= 0) {
       return this.cartRepository.removeItem(itemId);
     }
 
@@ -28,10 +30,10 @@ export class UpdateCartItemUseCase {
     }
 
     // 2. Kiểm tra tồn kho
-    if (quantity > cartItem.sku.stock) {
+    if (data.quantity > cartItem.sku.stock) {
       throw new BadRequestException(`Requested quantity exceeds available stock (Stock: ${cartItem.sku.stock})`);
     }
 
-    return this.cartRepository.updateItem(itemId, quantity);
+    return this.cartRepository.updateItem(itemId, data);
   }
 }

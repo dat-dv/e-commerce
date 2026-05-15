@@ -1,4 +1,5 @@
-import { IProductResponse, IPaginatedResult, Review, IGetProductsParams, IFlashSaleResponse } from '@ecommerce/shared';
+import { IProductResponse, IPaginatedResult, Review, IFlashSaleResponse } from '@ecommerce/shared';
+import { GetProductsDto } from '../../dto/get-products.dto';
 
 export interface IProductsRepository {
   findById(id: string, languageCode?: string): Promise<IProductResponse | null>;
@@ -16,7 +17,7 @@ export interface IProductsRepository {
   getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProductResponse[]>;
   getSuperDeals(take?: number, languageCode?: string): Promise<IProductResponse[]>;
   getNewArrivals(take?: number, languageCode?: string): Promise<IProductResponse[]>;
-  findPaginated(params: IGetProductsParams): Promise<IPaginatedResult<IProductResponse>>;
+  findPaginated(params: GetProductsDto): Promise<IPaginatedResult<IProductResponse>>;
   getProductReviews(productId: string, page?: number, limit?: number): Promise<IPaginatedResult<Review>>;
   getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProductResponse[]>;
   getProductCategories(productId: string): Promise<string[] | null>;

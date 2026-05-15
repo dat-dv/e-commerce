@@ -3,6 +3,9 @@ import { IProductCategoriesRepository } from '../entities/product-categories.rep
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { ICategoryResponse, IPaginatedResult } from '@ecommerce/shared';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { CreateCategoryDto } from '../../dto/create-product-category.dto';
+import { UpdateCategoryDto } from '../../dto/update-product-category.dto';
+import { GetCategoriesDto } from '../../dto/get-categories.dto';
 
 @Injectable()
 export class ProductCategoriesRepository implements IProductCategoriesRepository {
@@ -11,26 +14,68 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(data: { name: string; slug: string; description?: string }): Promise<ICategoryResponse> {
+  private getCategoryInclude(languageCode: string) {
+    return {
+      translations: {
+        where: {
+          language: {
+            code: languageCode,
+          },
+        },
+      },
+      children: {
+        include: {
+          translations: {
+            where: {
+              language: {
+                code: languageCode,
+              },
+            },
+          },
+        },
+      },
+    };
+  }
+
+  async create(data: CreateCategoryDto): Promise<ICategoryResponse> {
+    const { translations, ...rest } = data;
     return this.prisma.productCategory.create({
-      data,
+      data: {
+        ...rest,
+        translations: {
+          create: translations.map((t) => ({
+            name: t.name,
+            description: t.description,
+            language: { connect: { id: t.language_id } },
+          })),
+        },
+      },
       include: { translations: true, children: true },
     });
   }
 
-  async update(id: string, data: { name?: string; slug?: string; description?: string }): Promise<ICategoryResponse> {
+  async update(id: string, data: UpdateCategoryDto): Promise<ICategoryResponse> {
+    const { translations, ...rest } = data;
     return this.prisma.productCategory.update({
       where: { id },
-      data,
+      data: {
+        ...rest,
+        ...(translations && {
+          translations: {
+            deleteMany: {},
+            create: translations.map((t) => ({
+              name: t.name,
+              description: t.description,
+              language: { connect: { id: t.language_id } },
+            })),
+          },
+        }),
+      },
       include: { translations: true, children: true },
     });
   }
 
-  async findMany(params?: {
-    page?: number;
-    limit?: number;
-    level?: number;
-  }): Promise<IPaginatedResult<ICategoryResponse>> {
+  async findMany(params?: GetCategoriesDto): Promise<IPaginatedResult<ICategoryResponse>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;
 
@@ -49,7 +94,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
 
   async findGroups(
     languageCode: string = 'vi',
-    params?: { page?: number; limit?: number },
+    params?: GetCategoriesDto,
   ): Promise<IPaginatedResult<ICategoryResponse>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;
@@ -60,16 +105,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
         where: {
           parent_id: null,
         },
-        include: {
-          translations: {
-            where: {
-              language: {
-                code: languageCode,
-              },
-            },
-          },
-          children: true,
-        },
+        include: this.getCategoryInclude(languageCode),
       },
       page,
       limit,
@@ -81,26 +117,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
   async findById(id: string, languageCode: string = 'vi'): Promise<ICategoryResponse | null> {
     return this.prisma.productCategory.findUnique({
       where: { id },
-      include: {
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        children: {
-          include: {
-            translations: {
-              where: {
-                language: {
-                  code: languageCode,
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getCategoryInclude(languageCode),
     });
   }
 
@@ -109,52 +126,14 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
       where: {
         parent_id: null,
       },
-      include: {
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        children: {
-          include: {
-            translations: {
-              where: {
-                language: {
-                  code: languageCode,
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getCategoryInclude(languageCode),
     });
   }
 
   async findTreeBySlug(slug: string, languageCode: string = 'vi'): Promise<ICategoryResponse | null> {
     return this.prisma.productCategory.findUnique({
       where: { slug },
-      include: {
-        translations: {
-          where: {
-            language: {
-              code: languageCode,
-            },
-          },
-        },
-        children: {
-          include: {
-            translations: {
-              where: {
-                language: {
-                  code: languageCode,
-                },
-              },
-            },
-          },
-        },
-      },
+      include: this.getCategoryInclude(languageCode),
     });
   }
 

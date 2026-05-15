@@ -1,6 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
 
+import { CreateCategoryDto } from '../../dto/create-product-category.dto';
+
 @Injectable()
 export class CreateProductCategoryUseCase {
   constructor(
@@ -8,7 +10,7 @@ export class CreateProductCategoryUseCase {
     private readonly categoriesRepository: IProductCategoriesRepository,
   ) {}
 
-  async execute(data: { name: string; slug: string; description?: string }) {
+  async execute(data: CreateCategoryDto) {
     return this.categoriesRepository.create(data);
   }
 }
