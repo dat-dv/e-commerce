@@ -44,53 +44,37 @@ export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex justify-between items-start gap-4 mb-1">
-                <h4 className="font-bold text-base text-content line-clamp-1 group-hover:text-primary transition-colors">
+              <div className="flex justify-between items-start gap-4 mb-2">
+                <h4 className="font-bold text-sm text-content truncate">
                   {item.name}
                 </h4>
-                <div className="text-lg font-black text-content tracking-tighter shrink-0">
+                <div className="text-base font-black text-content tracking-tighter shrink-0">
                   {formatCurrency(item.price * item.quantity)}
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-content/30 italic">
-                  {item.attributes || "Standard Edition"}
-                </span>
-                {item.original_price && item.original_price > item.price && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold text-red-500 bg-red-500/10 px-2 py-0.5 rounded-md uppercase tracking-widest">
-                      -
-                      {Math.round((1 - item.price / item.original_price) * 100)}
-                      % OFF
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-3 py-1 bg-content/[0.03] rounded-lg border border-content/5">
-                  <span className="text-[9px] font-bold text-content/40 uppercase tracking-widest">
-                    Qty
-                  </span>
-                  <span className="text-xs font-black">{item.quantity}</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-[11px] font-medium text-content/40">
+                  <span>{item.attributes || "Standard"}</span>
+                  <span className="w-1 h-1 rounded-full bg-content/10" />
+                  <span className="text-content/60">Qty: {item.quantity}</span>
                 </div>
 
-                <div className="h-4 w-[1px] bg-content/10" />
-
-                <div className="flex items-center gap-2">
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[9px] font-bold text-content/40 uppercase tracking-widest">
-                        Unit Price
-                      </span>
-                      <span className="text-xs font-bold text-primary">
-                        {formatCurrency(item.price)}
-                      </span>
-                    </div>
+                <div className="flex items-center gap-3">
+                  {item.original_price && item.original_price > item.price && (
+                    <span className="text-[10px] font-bold text-red-500 bg-red-500/5 px-1.5 py-0.5 rounded">
+                      -
+                      {Math.round((1 - item.price / item.original_price) * 100)}
+                      %
+                    </span>
+                  )}
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-[11px] font-semibold text-content/60">
+                      {formatCurrency(item.price)}
+                    </span>
                     {item.original_price &&
                       item.original_price > item.price && (
-                        <span className="text-[10px] text-content/20 line-through font-medium ml-12">
+                        <span className="text-[10px] text-content/20 line-through">
                           {formatCurrency(item.original_price)}
                         </span>
                       )}
