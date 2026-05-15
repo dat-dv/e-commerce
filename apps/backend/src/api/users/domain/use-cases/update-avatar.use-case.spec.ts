@@ -4,7 +4,7 @@ import { IUsersRepository } from '../entities/users.repository.interface';
 import { UploadImageUseCase } from 'src/api/upload/domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from 'src/api/upload/domain/use-cases/delete-image.use-case';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { User, EGender } from '@ecommerce/shared';
+import { IUserResponse, EGender } from '@ecommerce/shared';
 
 describe('UpdateAvatarUseCase', () => {
   let useCase: UpdateAvatarUseCase;
@@ -62,7 +62,7 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -86,7 +86,7 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should upload avatar and update user', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -119,7 +119,7 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should delete old avatar if exists', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',

@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UpdateUserUseCase } from './update-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { User, EGender } from '@ecommerce/shared';
+import { IUserResponse, EGender } from '@ecommerce/shared';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 
 describe('UpdateUserUseCase', () => {
@@ -40,7 +40,7 @@ describe('UpdateUserUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -64,7 +64,7 @@ describe('UpdateUserUseCase', () => {
   });
 
   it('should update user', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',

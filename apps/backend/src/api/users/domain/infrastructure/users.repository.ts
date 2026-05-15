@@ -4,7 +4,7 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
-import { User, Prisma } from '../../../../../generated/prisma/client';
+import { Prisma } from '../../../../../generated/prisma/client';
 import { IUserResponse, IPaginatedResult, IUpdateUserRequest, ICreateUserRequest } from '@ecommerce/shared';
 
 @Injectable()
@@ -112,7 +112,7 @@ export class UsersRepository implements IUsersRepository {
     });
   }
 
-  async create(data: { email: string; password?: string; first_name?: string; last_name?: string }): Promise<User> {
+  async create(data: ICreateUserRequest): Promise<IUserResponse> {
     const newSalt = crypto.randomBytes(16).toString('hex');
     const hashedPassword = data.password
       ? crypto.pbkdf2Sync(data.password, newSalt, 1000, 64, 'sha512').toString('hex')

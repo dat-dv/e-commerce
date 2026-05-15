@@ -1,4 +1,3 @@
-export * from "../generate/browser";
 
 export enum EGender {
   MALE = 0,

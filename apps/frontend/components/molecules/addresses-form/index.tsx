@@ -31,7 +31,7 @@ export const AddressesForm = ({
   const methods = useForm<AddressFormInput>({
     resolver: zodResolver(addressSchema),
     defaultValues: {
-      label: initialData?.label ?? AddressLabel.HOME,
+      label: initialData?.label ?? EAddressLabel.HOME,
       receiver_name: initialData?.receiver_name || "",
       receiver_phone: initialData?.receiver_phone || "",
       latitude: initialData?.latitude ?? 0,

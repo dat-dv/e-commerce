@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IPaginatedResult } from '@ecommerce/shared';
+import { IBrandResponse, IPaginatedResult } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Brand, Product } from '../../../../../generated/prisma/client';
@@ -12,7 +12,7 @@ export class BrandsRepository implements IBrandsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async getTopBrands(page: number, limit: number, languageCode = 'vi'): Promise<IPaginatedResult<Brand>> {
+  async getTopBrands(page: number, limit: number, languageCode = 'vi'): Promise<IPaginatedResult<IBrandResponse>> {
     const result = await this.paginationService.paginate(
       this.prisma.brand,
       {
@@ -29,7 +29,7 @@ export class BrandsRepository implements IBrandsRepository {
     return result;
   }
 
-  async getBrandBySlug(slug: string, languageCode = 'vi'): Promise<Brand | null> {
+  async getBrandBySlug(slug: string, languageCode = 'vi'): Promise<IBrandResponse | null> {
     return this.prisma.brand.findUnique({
       where: { slug },
       include: {
@@ -45,7 +45,7 @@ export class BrandsRepository implements IBrandsRepository {
     page: number,
     limit: number,
     languageCode = 'vi',
-  ): Promise<{ brand: Brand; products: Product[]; meta: any }> {
+  ): Promise<import('@ecommerce/shared').IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
       return {

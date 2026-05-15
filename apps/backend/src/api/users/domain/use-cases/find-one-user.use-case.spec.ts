@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { FindOneUserUseCase } from './find-one-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { User, EGender } from '@ecommerce/shared';
+import { IUserResponse, EGender } from '@ecommerce/shared';
 
 describe('FindOneUserUseCase', () => {
   let useCase: FindOneUserUseCase;
@@ -35,7 +35,7 @@ describe('FindOneUserUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -57,7 +57,7 @@ describe('FindOneUserUseCase', () => {
   });
 
   it('should return user if has permission', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',

@@ -1,4 +1,4 @@
-import { FlashSale, FlashSaleTimeSlot, FlashSaleProduct, Sku } from "../index";
+import type { FlashSale, FlashSaleTimeSlot, FlashSaleProduct, Sku } from "../generate/browser";
 
 export interface IFlashSaleProduct extends FlashSaleProduct {
   sku?: Sku;

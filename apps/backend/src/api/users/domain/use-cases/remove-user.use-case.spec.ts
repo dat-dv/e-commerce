@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RemoveUserUseCase } from './remove-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException } from '@nestjs/common';
-import { User, EGender } from '@ecommerce/shared';
+import { IUserResponse, EGender } from '@ecommerce/shared';
 
 describe('RemoveUserUseCase', () => {
   let useCase: RemoveUserUseCase;
@@ -35,7 +35,7 @@ describe('RemoveUserUseCase', () => {
   });
 
   it('should soft delete user', async () => {
-    const user: User = {
+    const user: IUserResponse = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',

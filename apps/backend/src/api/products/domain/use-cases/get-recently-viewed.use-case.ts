@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { Product } from '@ecommerce/shared';
+import { IProductResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class GetRecentlyViewedUseCase {
@@ -9,7 +9,7 @@ export class GetRecentlyViewedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(userId: string, limit = 10, languageCode = 'vi'): Promise<Product[]> {
+  async execute(userId: string, limit = 10, languageCode = 'vi'): Promise<IProductResponse[]> {
     return this.productsRepository.getRecentlyViewed(userId, limit, languageCode);
   }
 }

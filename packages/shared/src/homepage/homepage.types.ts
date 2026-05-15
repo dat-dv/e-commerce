@@ -1,4 +1,4 @@
-import { HomepageSection, HomepageSectionTranslation, ProductCategory } from "../index";
+import type { HomepageSection, HomepageSectionTranslation, ProductCategory } from "../generate/browser";
 
 export enum EHomepageSectionType {
   FLASH_SALE = "flash_sale",
