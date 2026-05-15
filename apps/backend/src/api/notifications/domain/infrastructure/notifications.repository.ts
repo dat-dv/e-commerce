@@ -2,16 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { INotificationsRepository } from '../entities/notifications.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { INotificationTokenResponse } from '@ecommerce/shared';
+import { SaveTokenDto } from '../../dto/save-token.dto';
 
 @Injectable()
 export class NotificationsRepository implements INotificationsRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async saveToken(userId: string, token: string, deviceType?: string): Promise<INotificationTokenResponse> {
+  async saveToken(userId: string, data: SaveTokenDto): Promise<INotificationTokenResponse> {
     return this.prisma.notificationToken.upsert({
-      where: { token },
-      update: { user_id: userId, device_type: deviceType },
-      create: { user_id: userId, token, device_type: deviceType },
+      where: { token: data.token },
+      update: { user_id: userId, device_type: data.deviceType },
+      create: { user_id: userId, token: data.token, device_type: data.deviceType },
     });
   }
 

@@ -1,4 +1,4 @@
-import type { IHomepageSection } from '@ecommerce/shared';
+import { IHomepageSection } from '@ecommerce/shared';
 
 export interface IHomepageSectionRepository {
   findAllEnabled(isLoggedIn?: boolean): Promise<IHomepageSection[]>;

@@ -1,5 +1,6 @@
-import { Injectable, Inject, UnauthorizedException } from '@nestjs/common';
+import { Injectable, Inject, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { IReviewsRepository } from '../entities/reviews.repository.interface';
+import { UpdateReviewDto } from '../../dto/update-review.dto';
 
 @Injectable()
 export class UpdateReviewUseCase {
@@ -8,19 +9,17 @@ export class UpdateReviewUseCase {
     private readonly reviewsRepository: IReviewsRepository,
   ) {}
 
-  async execute(id: string, userId: string, data: { rating?: number; comment?: string; images?: string[] }) {
+  async execute(id: string, userId: string, dto: UpdateReviewDto) {
     const review = await this.reviewsRepository.findById(id);
+
     if (!review) {
-      throw new Error('Review not found');
+      throw new NotFoundException('Review not found');
     }
 
-    const hasUpdatePermission = await this.reviewsRepository.hasPermission(userId, 'UPDATE:REVIEW');
-    const isOwner = review.user_id === userId;
-
-    // Check if user is owner or has permission
-    if (!isOwner && !hasUpdatePermission) {
-      throw new UnauthorizedException('You are not allowed to update this review');
+    if (review.user_id !== userId) {
+      throw new ForbiddenException('You do not have permission to update this review');
     }
-    return this.reviewsRepository.update(id, data);
+
+    return this.reviewsRepository.update(id, dto);
   }
 }

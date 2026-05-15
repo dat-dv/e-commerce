@@ -11,31 +11,29 @@ export class BrandsRepository implements IBrandsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
+  private getBrandInclude(languageCode: string) {
+    return {
+      translations: {
+        where: { language: { code: languageCode } },
+      },
+    };
+  }
+
   async getTopBrands(page: number, limit: number, languageCode = 'vi'): Promise<IPaginatedResult<IBrandResponse>> {
-    const result = await this.paginationService.paginate(
+    return this.paginationService.paginate(
       this.prisma.brand,
       {
-        include: {
-          translations: {
-            where: { language: { code: languageCode } },
-          },
-        },
+        include: this.getBrandInclude(languageCode),
       },
       page,
       limit,
     );
-
-    return result;
   }
 
   async getBrandBySlug(slug: string, languageCode = 'vi'): Promise<IBrandResponse | null> {
     return this.prisma.brand.findUnique({
       where: { slug },
-      include: {
-        translations: {
-          where: { language: { code: languageCode } },
-        },
-      },
+      include: this.getBrandInclude(languageCode),
     });
   }
 

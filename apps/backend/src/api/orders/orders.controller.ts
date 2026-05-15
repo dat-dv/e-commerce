@@ -11,6 +11,7 @@ import createSuccessResponse from 'src/common/respomse';
 import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/shared';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
+import { GetOrdersDto } from './dto/get-orders.dto';
 import type { RequestWithUser } from 'src/shared/types/request.type';
 
 @Controller('orders')
@@ -34,24 +35,10 @@ export class OrdersController {
   @Get()
   async getUserOrders(
     @Req() req: RequestWithUser,
-    @Query('status') status?: string | string[],
-    @Query('page') page?: string,
-    @Query('limit') limit?: string,
+    @Query() query: GetOrdersDto,
   ): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
     const userId = req.user.sub;
-
-    // Convert status to number array if provided
-    let statusArr: number[] | undefined = undefined;
-    if (status) {
-      statusArr = (Array.isArray(status) ? status : status.split(',')).map((s) => parseInt(s, 10));
-    }
-
-    const result = await this.getUserOrdersUseCase.execute(userId, {
-      status: statusArr,
-      page: page ? parseInt(page, 10) : undefined,
-      limit: limit ? parseInt(limit, 10) : undefined,
-    });
-
+    const result = await this.getUserOrdersUseCase.execute(userId, query);
     return createSuccessResponse(result);
   }
 
@@ -69,7 +56,7 @@ export class OrdersController {
     @Param('id') id: string,
     @Body() body: UpdateOrderStatusDto,
   ): Promise<IApiResponse<IOrderResponse>> {
-    const result = await this.updateOrderStatusUseCase.execute(id, body.status, true);
+    const result = await this.updateOrderStatusUseCase.execute(id, body, true);
     return createSuccessResponse(result);
   }
 

@@ -7,6 +7,9 @@ import { ROLE_USER } from 'src/common/constants/roles.constant';
 import { Prisma } from '../../../../../generated/prisma/client';
 import { IUserResponse, IPaginatedResult, IUpdateUserRequest, ICreateUserRequest } from '@ecommerce/shared';
 
+import { UpdateUserDto } from '../../dto/update-user.dto';
+import { CreateUserDto } from '../../dto/create-user.dto';
+
 @Injectable()
 export class UsersRepository implements IUsersRepository {
   constructor(
@@ -14,37 +17,31 @@ export class UsersRepository implements IUsersRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
+  private readonly USER_INCLUDE = {
+    role: true,
+    avatar: true,
+    phones: {
+      where: {
+        is_default: true,
+      },
+    },
+  };
+
   async findById(id: string): Promise<IUserResponse | null> {
     return this.prisma.user.findUnique({
       where: { id },
-      include: {
-        role: true,
-        avatar: true,
-        phones: {
-          where: {
-            is_default: true,
-          },
-        },
-      },
+      include: this.USER_INCLUDE,
     });
   }
 
   async findByEmail(email: string): Promise<IUserResponse | null> {
     return this.prisma.user.findUnique({
       where: { email },
-      include: {
-        role: true,
-        avatar: true,
-        phones: {
-          where: {
-            is_default: true,
-          },
-        },
-      },
+      include: this.USER_INCLUDE,
     });
   }
 
-  async updateUserProfile(id: string, updateData: IUpdateUserRequest): Promise<IUserResponse> {
+  async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse> {
     const { phone_number, phone_code, avatar_url, date_of_birth, ...userData } = updateData;
     const isUpdatePhone = !!(phone_number && phone_code);
 
@@ -83,13 +80,7 @@ export class UsersRepository implements IUsersRepository {
             },
           }),
         },
-        include: {
-          role: true,
-          avatar: true,
-          phones: {
-            where: { is_default: true },
-          },
-        },
+        include: this.USER_INCLUDE,
       });
     });
   }
@@ -104,30 +95,30 @@ export class UsersRepository implements IUsersRepository {
         password: hashedPassword,
         salt,
       },
-      include: {
-        role: true,
-        avatar: true,
-        phones: { where: { is_default: true } },
-      },
+      include: this.USER_INCLUDE,
     });
   }
 
-  async create(data: ICreateUserRequest): Promise<IUserResponse> {
+  async create(data: CreateUserDto): Promise<IUserResponse> {
     const newSalt = crypto.randomBytes(16).toString('hex');
     const hashedPassword = data.password
       ? crypto.pbkdf2Sync(data.password, newSalt, 1000, 64, 'sha512').toString('hex')
       : undefined;
 
+    // Confirm password is not a database field
+
+    const { confirm_password, ...dbData } = data;
+
     return this.prisma.user.create({
       data: {
-        ...data,
+        ...dbData,
         password: hashedPassword || '',
         salt: hashedPassword ? newSalt : '',
         role: {
           connect: { role_name: ROLE_USER },
         },
       },
-      include: { role: true, avatar: true, phones: { where: { is_default: true } } },
+      include: this.USER_INCLUDE,
     });
   }
 
@@ -136,11 +127,7 @@ export class UsersRepository implements IUsersRepository {
       this.prisma.user,
       {
         where: { deleted_at: null },
-        include: {
-          role: true,
-          avatar: true,
-          phones: { where: { is_default: true } },
-        },
+        include: this.USER_INCLUDE,
       },
       page,
       limit,

@@ -1,7 +1,8 @@
 import { INotificationTokenResponse } from '@ecommerce/shared';
+import { SaveTokenDto } from '../../dto/save-token.dto';
 
 export interface INotificationsRepository {
-  saveToken(userId: string, token: string, deviceType?: string): Promise<INotificationTokenResponse>;
+  saveToken(userId: string, data: SaveTokenDto): Promise<INotificationTokenResponse>;
   getUserTokens(userId: string): Promise<string[]>;
   removeToken(token: string): Promise<void>;
 }

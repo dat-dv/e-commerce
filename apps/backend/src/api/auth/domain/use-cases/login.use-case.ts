@@ -19,7 +19,7 @@ export class LoginUseCase {
   ) {}
 
   async execute(dto: LoginDto): Promise<{ user: ILoginResponse; accessToken: string; refreshToken: string }> {
-    const user = await this.usersRepository.findByEmail(dto.email, true);
+    const user = await this.usersRepository.findByEmail(dto.email);
 
     if (!user || user.deleted_at) {
       throw new BadRequestException('Invalid credentials');
@@ -47,6 +47,8 @@ export class LoginUseCase {
 
     const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
     await this.authRepository.saveRefreshToken(refreshToken, user.id, expiresAt);
+
+    // Bóc tách để loại bỏ các trường nhạy cảm
 
     const { password, salt, ...userResponse } = user;
 

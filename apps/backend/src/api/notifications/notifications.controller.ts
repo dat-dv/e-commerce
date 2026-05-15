@@ -21,7 +21,7 @@ export class NotificationsController {
     @Body() dto: SaveTokenDto,
   ): Promise<IApiResponse<INotificationTokenResponse>> {
     const userId = req.user.sub;
-    const result = await this.notificationsRepository.saveToken(userId, dto.token, dto.deviceType);
+    const result = await this.notificationsRepository.saveToken(userId, dto);
     return createSuccessResponse(result);
   }
 }

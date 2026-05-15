@@ -4,6 +4,7 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { IOrderResponse } from '@ecommerce/shared';
+import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
 
 @Injectable()
 export class UpdateOrderStatusUseCase {
@@ -14,7 +15,8 @@ export class UpdateOrderStatusUseCase {
     private readonly notificationService: NotificationService,
   ) {}
 
-  async execute(id: string, newStatus: number, isAdmin = false): Promise<IOrderResponse> {
+  async execute(id: string, dto: UpdateOrderStatusDto, isAdmin = false): Promise<IOrderResponse> {
+    const newStatus = dto.status;
     if (!isAdmin) {
       throw new UnauthorizedException('Only admins can update order status');
     }

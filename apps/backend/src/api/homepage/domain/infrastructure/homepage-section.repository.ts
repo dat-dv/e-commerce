@@ -21,11 +21,7 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
             translations: true,
           },
         },
-        translations: {
-          include: {
-            language: true,
-          },
-        },
+        translations: true,
       },
     });
   }

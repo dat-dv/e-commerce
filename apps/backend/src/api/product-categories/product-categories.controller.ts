@@ -13,6 +13,7 @@ import { GetProductCategoryTreeBySlugUseCase } from './domain/use-cases/get-prod
 import createSuccessResponse from 'src/common/respomse';
 import { CreateCategoryDto } from './dto/create-product-category.dto';
 import { UpdateCategoryDto } from './dto/update-product-category.dto';
+import { GetCategoriesDto } from './dto/get-categories.dto';
 import { IApiResponse, ICategoryResponse, ICategoryListResponse, ICategoryTreeResponse } from '@ecommerce/shared';
 
 @Controller('product-categories')
@@ -48,14 +49,8 @@ export class ProductCategoriesController {
   }
 
   @Get()
-  async getAllCategories(
-    @Query() query: { page?: string; limit?: string; level?: string },
-  ): Promise<IApiResponse<ICategoryListResponse>> {
-    const result = await this.getAllCategoriesUseCase.execute({
-      page: query.page ? parseInt(query.page) : undefined,
-      limit: query.limit ? parseInt(query.limit) : undefined,
-      level: query.level ? parseInt(query.level) : undefined,
-    });
+  async getAllCategories(@Query() query: GetCategoriesDto): Promise<IApiResponse<ICategoryListResponse>> {
+    const result = await this.getAllCategoriesUseCase.execute(query);
     return createSuccessResponse(result);
   }
 

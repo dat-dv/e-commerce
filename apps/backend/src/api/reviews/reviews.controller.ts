@@ -26,7 +26,7 @@ export class ReviewsController {
     @Req() req: RequestWithUser,
   ): Promise<IApiResponse<IReviewResponse>> {
     const userId = req.user.sub;
-    const result = await this.createReviewUseCase.execute({ ...body, user_id: userId });
+    const result = await this.createReviewUseCase.execute(userId, body);
     return createSuccessResponse(result);
   }
 

@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { IAddressesRepository } from '../entities/addresses.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { ICreateAddressInput, IUpdateAddressInput, IAddressResponse } from '@ecommerce/shared';
+import { IAddressResponse } from '@ecommerce/shared';
+import { CreateAddressDto } from '../../dto/create-address.dto';
+import { UpdateAddressDto } from '../../dto/update-address.dto';
 
 @Injectable()
 export class AddressesRepository implements IAddressesRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(userId: string, data: ICreateAddressInput): Promise<IAddressResponse> {
+  async create(userId: string, data: CreateAddressDto): Promise<IAddressResponse> {
     const address = await this.prisma.shippingAddress.create({
       data: {
         ...data,
@@ -32,7 +34,7 @@ export class AddressesRepository implements IAddressesRepository {
     return address;
   }
 
-  async update(id: string, data: IUpdateAddressInput): Promise<IAddressResponse> {
+  async update(id: string, data: UpdateAddressDto): Promise<IAddressResponse> {
     const address = await this.prisma.shippingAddress.update({
       where: { id },
       data,

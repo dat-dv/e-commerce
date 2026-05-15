@@ -58,7 +58,7 @@ export class GetHomepageSectionsUseCase {
             data = Array.from(productMap.values());
           }
         } else if (sectionType === EHomepageSectionType.PRODUCT_CAROUSEL) {
-          const categorySlug = section.categories?.[0]?.slug;
+          const categorySlug = section?.categories?.[0]?.slug;
           if (categorySlug) {
             data = await this.productsRepo.findMany({
               category_slug: categorySlug,

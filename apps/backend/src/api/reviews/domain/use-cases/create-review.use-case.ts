@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IReviewsRepository } from '../entities/reviews.repository.interface';
+import { CreateReviewDto } from '../../dto/create-review.dto';
 
 @Injectable()
 export class CreateReviewUseCase {
@@ -8,17 +9,13 @@ export class CreateReviewUseCase {
     private readonly reviewsRepository: IReviewsRepository,
   ) {}
 
-  async execute(data: {
-    product_id: string;
-    sku_id: string;
-    user_id: string;
-    rating: number;
-    comment?: string;
-    images?: string[];
-  }) {
+  async execute(userId: string, dto: CreateReviewDto) {
     // TODO: Kiểm tra xem người dùng đã mua sản phẩm này chưa (đơn hàng phải ở trạng thái DELIVERED).
     // Nếu chưa mua hoặc chưa nhận hàng thì không được đánh giá.
 
-    return this.reviewsRepository.create(data);
+    return this.reviewsRepository.create({
+      ...dto,
+      user_id: userId,
+    });
   }
 }
