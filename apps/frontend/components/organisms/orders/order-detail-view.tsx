@@ -60,7 +60,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent pb-20">
+    <div className="min-h-screen bg-transparent">
       <div className="sticky top-0 z-50 bg-surface/80 backdrop-blur-2xl border-b border-content/[0.05] shadow-sm">
         <div className="container mx-auto px-4 py-6 max-w-4xl flex items-center gap-6">
           <Link

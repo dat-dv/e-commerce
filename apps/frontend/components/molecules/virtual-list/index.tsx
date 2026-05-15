@@ -69,7 +69,7 @@ export function VirtualList<T extends { id?: string | number }>({
       {/* Infinite Scroll Trigger Sentinel */}
       <div
         ref={sentinelRef}
-        className="py-12 flex flex-col items-center justify-center"
+        className="flex flex-col items-center justify-center"
       >
         {loadingMore ? (
           <div className="flex flex-col items-center gap-4">

@@ -23,12 +23,22 @@ export interface IOrderItem {
   };
 }
 
+export interface IShippingAddress {
+  fullName: string;
+  phone: string;
+  street: string;
+  ward: string;
+  district: string;
+  city: string;
+}
+
 export interface IOrder {
   id: string;
   status: number;
   totalAmount: number;
   discountAmount: number;
   items: IOrderItem[];
+  shippingAddress?: IShippingAddress;
   createdAt: Date;
   updatedAt: Date;
 }
