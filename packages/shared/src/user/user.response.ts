@@ -1,4 +1,4 @@
-import { User, Role, Image, ShippingAddress } from "../generate/index";
+import { User, Role, Image, ShippingAddress } from "../generate/browser";
 import { IAddress, IUserPhone } from "./user.types";
 
 export interface IUserProfileResponse extends User {
