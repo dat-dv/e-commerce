@@ -16,9 +16,12 @@ export class CreateUserUseCase {
       throw new BadRequestException('Email already exists');
     }
 
-    return this.usersRepository.create({
+    const user = await this.usersRepository.create({
       email: dto.email,
       password: dto.password,
     });
+
+    const { password, salt, ...userResponse } = user;
+    return userResponse;
   }
 }

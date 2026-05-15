@@ -1,10 +1,16 @@
-import { User, IPaginatedResult } from "../index";
+import { User, IPaginatedResult, Role, Image, UserPhone } from "../index";
 
-export type IUserProfileResponse = User;
+export interface IUserResponse extends User {
+  role?: Role | null;
+  avatar?: Image | null;
+  phones?: UserPhone[];
+}
+
+export type IUserProfileResponse = Omit<IUserResponse, "password" | "salt">;
 
 export interface IUpdateProfileResponse {
   success: boolean;
-  user: User;
+  user: IUserProfileResponse;
 }
 
-export type IGetUsersResponse = IPaginatedResult<User>;
+export type IGetUsersResponse = IPaginatedResult<IUserProfileResponse>;

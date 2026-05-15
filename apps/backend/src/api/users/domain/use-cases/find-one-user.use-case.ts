@@ -24,7 +24,8 @@ export class FindOneUserUseCase {
       throw new BadRequestException('User not found');
     }
 
-    return user;
+    const { password, salt, ...userResponse } = user;
+    return userResponse;
   }
 
   private checkOwnershipOrPermission(

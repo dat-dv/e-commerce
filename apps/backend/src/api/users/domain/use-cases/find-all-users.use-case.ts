@@ -10,6 +10,10 @@ export class FindAllUsersUseCase {
   ) {}
 
   async execute(page: number, limit: number): Promise<IGetUsersResponse> {
-    return this.usersRepository.findAll(page, limit);
+    const result = await this.usersRepository.findAll(page, limit);
+    return {
+      ...result,
+      items: result.items.map(({ password, salt, ...user }) => user),
+    };
   }
 }

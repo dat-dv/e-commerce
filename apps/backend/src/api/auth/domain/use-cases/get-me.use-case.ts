@@ -14,6 +14,7 @@ export class GetMeUseCase {
     if (!user || user.deleted_at) {
       throw new BadRequestException('User not found');
     }
+    // Logic remains identical, but now 'user' is typed as IUserResponse
     const { password, salt, ...userResponse } = user;
     return userResponse;
   }

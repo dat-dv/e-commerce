@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IPaginatedResult, IUpdateUserRequest } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
 import { User, Prisma } from '../../../../../generated/prisma/client';
+import { IUserResponse, IPaginatedResult, IUpdateUserRequest, ICreateUserRequest } from '@ecommerce/shared';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -14,7 +14,7 @@ export class UsersRepository implements IUsersRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async findById(id: string): Promise<User | null> {
+  async findById(id: string): Promise<IUserResponse | null> {
     return this.prisma.user.findUnique({
       where: { id },
       include: {
@@ -29,7 +29,7 @@ export class UsersRepository implements IUsersRepository {
     });
   }
 
-  async findByEmail(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<IUserResponse | null> {
     return this.prisma.user.findUnique({
       where: { email },
       include: {
@@ -44,7 +44,7 @@ export class UsersRepository implements IUsersRepository {
     });
   }
 
-  async updateUserProfile(id: string, updateData: IUpdateUserRequest): Promise<User> {
+  async updateUserProfile(id: string, updateData: IUpdateUserRequest): Promise<IUserResponse> {
     const { phone_number, phone_code, avatar_url, date_of_birth, ...userData } = updateData;
     const isUpdatePhone = !!(phone_number && phone_code);
 
@@ -94,7 +94,7 @@ export class UsersRepository implements IUsersRepository {
     });
   }
 
-  async updatePassword(id: string, passwordRaw: string): Promise<User> {
+  async updatePassword(id: string, passwordRaw: string): Promise<IUserResponse> {
     const salt = crypto.randomBytes(16).toString('hex');
     const hashedPassword = crypto.pbkdf2Sync(passwordRaw, salt, 1000, 64, 'sha512').toString('hex');
 
@@ -131,7 +131,7 @@ export class UsersRepository implements IUsersRepository {
     });
   }
 
-  async findAll(page: number, limit: number): Promise<IPaginatedResult<User>> {
+  async findAll(page: number, limit: number): Promise<IPaginatedResult<IUserResponse>> {
     const result = await this.paginationService.paginate(
       this.prisma.user,
       {
