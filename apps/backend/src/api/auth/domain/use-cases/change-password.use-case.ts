@@ -19,7 +19,7 @@ export class ChangePasswordUseCase {
       throw new BadRequestException('Current password does not match');
     }
 
-    await this.usersRepository.update(user.id, { password: dto.new_password });
+    await this.usersRepository.updatePassword(user.id, dto.new_password);
 
     return { success: true };
   }

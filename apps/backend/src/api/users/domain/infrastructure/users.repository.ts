@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { IUser, Gender } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
@@ -80,6 +80,24 @@ export class UsersRepository implements IUsersRepository {
       deleted_at: prismaUser.deleted_at,
       role_id: prismaUser.role_id,
     };
+  }
+
+  async updatePassword(id: string, passwordRaw: string): Promise<IUser> {
+    const salt = crypto.randomBytes(16).toString('hex');
+    const hashedPassword = crypto.pbkdf2Sync(passwordRaw, salt, 1000, 64, 'sha512').toString('hex');
+    const user = await this.findById(id);
+    if (!user) {
+      throw new BadRequestException('User not found');
+    }
+    const prismaUser = await this.prisma.user.update({
+      where: { id },
+      data: {
+        password: hashedPassword,
+        salt,
+      },
+    });
+
+    return prismaUser;
   }
 
   async create(data: { email: string; first_name: string; last_name: string; password: string }): Promise<IUser> {

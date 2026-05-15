@@ -19,7 +19,7 @@ export class ResetPasswordUseCase {
         throw new BadRequestException('User not found');
       }
 
-      await this.usersRepository.update(user.id, { password: dto.new_password });
+      await this.usersRepository.updatePassword(user.id, dto.new_password);
 
       return { success: true };
     } catch (error) {
