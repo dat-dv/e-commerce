@@ -1,10 +1,10 @@
-import { ShippingAddress, ICreateAddressInput, IUpdateAddressInput } from '@ecommerce/shared';
+import { IAddressResponse, ICreateAddressInput, IUpdateAddressInput } from '@ecommerce/shared';
 
 export interface IAddressesRepository {
-  create(userId: string, data: ICreateAddressInput): Promise<ShippingAddress>;
-  findAll(userId: string): Promise<ShippingAddress[]>;
-  findById(id: string): Promise<ShippingAddress | null>;
-  update(id: string, data: IUpdateAddressInput): Promise<ShippingAddress>;
+  create(userId: string, data: ICreateAddressInput): Promise<IAddressResponse>;
+  findAll(userId: string): Promise<IAddressResponse[]>;
+  findById(id: string): Promise<IAddressResponse | null>;
+  update(id: string, data: IUpdateAddressInput): Promise<IAddressResponse>;
   delete(id: string): Promise<void>;
   unsetOthersDefault(userId: string, excludeId: string): Promise<void>;
 }

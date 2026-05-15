@@ -1,4 +1,4 @@
-import { Cart, CartItem } from "../index";
+import type { Cart, CartItem } from "../generate/browser";
 import { ISkuResponse } from "../product/product.response";
 
 export interface ICartItemResponse extends CartItem {

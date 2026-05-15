@@ -1,6 +1,5 @@
-import {
+import type {
   Product,
-  IPaginatedResult,
   ProductTranslation,
   Sku,
   Image,
@@ -8,7 +7,8 @@ import {
   ProductCategoryMapping,
   FlashSale,
   FlashSaleProduct,
-} from "../index";
+} from "../generate/browser";
+import type { IPaginatedResult } from "../paginate";
 
 export interface ISkuResponse extends Sku {
   flash_sales?: FlashSaleProduct[];

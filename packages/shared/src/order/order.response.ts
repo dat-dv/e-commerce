@@ -1,8 +1,17 @@
-import { Order, IPaginatedResult } from "../index";
+import type { Order, OrderItem, ShippingAddress } from "../generate/browser";
+import type { IPaginatedResult } from "../paginate";
 
-export type IOrderResponse = Order;
+export interface IOrderItemResponse extends OrderItem {
+  // item_snapshot contains the JSON data of the product at order time
+  // already defined as IOrderItemSnapshot in order.types.ts
+}
 
-export type IOrderListResponse = IPaginatedResult<Order>;
+export interface IOrderResponse extends Order {
+  items?: IOrderItemResponse[];
+  shipping_address?: ShippingAddress | null;
+}
+
+export type IOrderListResponse = IPaginatedResult<IOrderResponse>;
 
 export interface ICancelOrderResponse {
   success: boolean;

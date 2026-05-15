@@ -1,4 +1,4 @@
-import { Order, IPaginatedResult, IGetUserOrdersRequest } from '@ecommerce/shared';
+import { IOrderResponse, IPaginatedResult, IGetUserOrdersRequest } from '@ecommerce/shared';
 
 interface ICreateOrderInput {
   user_id: string;
@@ -10,11 +10,11 @@ interface ICreateOrderInput {
 }
 
 export interface IOrdersRepository {
-  createOrder(data: ICreateOrderInput): Promise<Order>;
-  getUserOrders(userId: string, params?: IGetUserOrdersRequest): Promise<IPaginatedResult<Order>>;
-  findById(id: string): Promise<Order | null>;
-  updateStatus(id: string, status: number): Promise<Order>;
-  cancelOrder(id: string, userId: string): Promise<Order>;
+  createOrder(data: ICreateOrderInput): Promise<IOrderResponse>;
+  getUserOrders(userId: string, params?: IGetUserOrdersRequest): Promise<IPaginatedResult<IOrderResponse>>;
+  findById(id: string): Promise<IOrderResponse | null>;
+  updateStatus(id: string, status: number): Promise<IOrderResponse>;
+  cancelOrder(id: string, userId: string): Promise<IOrderResponse>;
 }
 
 export const IOrdersRepository = Symbol('IOrdersRepository');

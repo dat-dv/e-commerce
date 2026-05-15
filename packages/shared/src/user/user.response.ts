@@ -1,4 +1,5 @@
-import { User, IPaginatedResult, Role, Image, UserPhone } from "../index";
+import type { User, Role, Image, UserPhone } from "../generate/browser";
+import type { IPaginatedResult } from "../paginate";
 
 export interface IUserResponse extends User {
   role?: Role | null;

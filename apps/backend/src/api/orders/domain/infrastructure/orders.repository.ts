@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Order, Prisma } from '../../../../../generated/prisma/client';
-import { EOrderStatus, IPaginatedResult } from '@ecommerce/shared';
+import { Prisma } from '../../../../../generated/prisma/client';
+import { EOrderStatus, IPaginatedResult, IOrderResponse, IGetUserOrdersRequest } from '@ecommerce/shared';
 
 interface ICreateOrderInput {
   user_id: string;
@@ -21,7 +21,7 @@ export class OrdersRepository implements IOrdersRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async createOrder(data: ICreateOrderInput): Promise<Order> {
+  async createOrder(data: ICreateOrderInput): Promise<IOrderResponse> {
     return this.prisma.order.create({
       data: {
         user_id: data.user_id,
@@ -58,7 +58,7 @@ export class OrdersRepository implements IOrdersRepository {
     });
   }
 
-  async findById(id: string): Promise<Order | null> {
+  async findById(id: string): Promise<IOrderResponse | null> {
     return this.prisma.order.findUnique({
       where: { id },
       include: {
@@ -79,10 +79,7 @@ export class OrdersRepository implements IOrdersRepository {
     });
   }
 
-  async getUserOrders(
-    userId: string,
-    params?: { status?: number[]; page?: number; limit?: number },
-  ): Promise<IPaginatedResult<Order>> {
+  async getUserOrders(userId: string, params: IGetUserOrdersRequest): Promise<IPaginatedResult<IOrderResponse>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;
 
@@ -117,7 +114,7 @@ export class OrdersRepository implements IOrdersRepository {
     return result;
   }
 
-  async updateStatus(id: string, status: number): Promise<Order> {
+  async updateStatus(id: string, status: number): Promise<IOrderResponse> {
     return this.prisma.order.update({
       where: { id },
       data: { status },
@@ -125,7 +122,7 @@ export class OrdersRepository implements IOrdersRepository {
     });
   }
 
-  async cancelOrder(id: string, userId: string): Promise<Order> {
+  async cancelOrder(id: string, userId: string): Promise<IOrderResponse> {
     return this.prisma.order.update({
       where: { id, user_id: userId },
       data: { status: EOrderStatus.CANCELLED },

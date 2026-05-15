@@ -1,4 +1,4 @@
-export * from "../generate/browser";
+
 
 export enum EOrderStatus {
   PENDING = 0,
