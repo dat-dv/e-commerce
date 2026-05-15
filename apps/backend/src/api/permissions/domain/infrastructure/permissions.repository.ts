@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { IPermissionsRepository } from '../entities/permissions.repository.interface';
-import { IPermission, IPaginatedResult } from '@ecommerce/shared';
+import { IPermission, IPaginatedResult, ICreatePermissionRequest, IUpdatePermissionRequest } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
 export class PermissionsRepository implements IPermissionsRepository {
@@ -12,7 +11,7 @@ export class PermissionsRepository implements IPermissionsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(data: Prisma.PermissionCreateInput): Promise<IPermission> {
+  async create(data: ICreatePermissionRequest): Promise<IPermission> {
     return this.prisma.permission.create({
       data,
     });
@@ -35,7 +34,7 @@ export class PermissionsRepository implements IPermissionsRepository {
     });
   }
 
-  async update(id: string, data: Prisma.PermissionUpdateInput): Promise<IPermission> {
+  async update(id: string, data: IUpdatePermissionRequest): Promise<IPermission> {
     return this.prisma.permission.update({
       where: { id },
       data,

@@ -1,3 +1,4 @@
+import type { RequestWithUser } from 'src/shared/types/request.type';
 import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
@@ -21,7 +22,6 @@ import {
   Review,
 } from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
-import type { Request } from 'express';
 
 @Controller('products')
 export class ProductsController {
@@ -43,22 +43,32 @@ export class ProductsController {
   }
 
   @Get('recommended')
-  async getRecommended(@Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
-    const result = await this.getRecommendedUseCase.execute(12); // Tạm thời chưa truyền lang
+  async getRecommended(
+    @Req() req: RequestWithUser,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IProductResponse[]>> {
+    const userId = req.user?.sub;
+    const result = await this.getRecommendedUseCase.execute(12, userId, lang);
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('based-on-interest')
-  async getBasedOnInterest(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
+  async getBasedOnInterest(
+    @Req() req: RequestWithUser,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IProductResponse[]>> {
     const userId = req.user?.sub;
-    const result = await this.getInterestBasedUseCase.execute(12, userId); // Tạm thời chưa truyền lang
+    const result = await this.getInterestBasedUseCase.execute(12, userId, lang);
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('recently-viewed')
-  async getRecentlyViewed(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
+  async getRecentlyViewed(
+    @Req() req: RequestWithUser,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IProductResponse[]>> {
     const userId = req.user?.sub;
     const result = await this.getRecentlyViewedUseCase.execute(userId, 10, lang);
     return createSuccessResponse(result);
@@ -74,7 +84,7 @@ export class ProductsController {
   @Get(':slug')
   async getProductDetail(
     @Param('slug') slug: string,
-    @Req() req: Request,
+    @Req() req: RequestWithUser,
     @Language() lang: string,
   ): Promise<IApiResponse<IProductDetailResponse>> {
     const userId = req.user?.sub;

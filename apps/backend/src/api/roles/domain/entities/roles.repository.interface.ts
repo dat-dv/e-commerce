@@ -1,8 +1,7 @@
-import type { IRoleResponse, IPaginatedResult } from '@ecommerce/shared';
-import { Prisma } from 'generated/prisma/client';
+import type { IRoleResponse, IPaginatedResult, ICreateRoleRequest, IUpdateRoleRequest } from '@ecommerce/shared';
 
 export interface IRolesRepository {
-  create(data: Prisma.RoleCreateInput): Promise<IRoleResponse>;
+  create(data: ICreateRoleRequest): Promise<IRoleResponse>;
 
   findAll(page: number, limit: number): Promise<IPaginatedResult<IRoleResponse>>;
 
@@ -10,7 +9,7 @@ export interface IRolesRepository {
 
   findByName(name: string): Promise<IRoleResponse | null>;
 
-  update(id: string, data: Prisma.RoleUpdateInput): Promise<IRoleResponse>;
+  update(id: string, data: IUpdateRoleRequest): Promise<IRoleResponse>;
 
   delete(id: string): Promise<IRoleResponse>;
 

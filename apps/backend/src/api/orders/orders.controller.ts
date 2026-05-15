@@ -8,10 +8,10 @@ import { GetUserOrdersUseCase } from './domain/use-cases/get-user-orders.use-cas
 import { UpdateOrderStatusUseCase } from './domain/use-cases/update-order-status.use-case';
 import { CancelOrderUseCase } from './domain/use-cases/cancel-order.use-case';
 import createSuccessResponse from 'src/common/respomse';
-import type { Request } from 'express';
 import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/shared';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
+import type { RequestWithUser } from 'src/shared/types/request.type';
 
 @Controller('orders')
 @UseGuards(AuthGuard)
@@ -25,7 +25,7 @@ export class OrdersController {
   ) {}
 
   @Post()
-  async createOrder(@Body() body: CreateOrderDto, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
+  async createOrder(@Body() body: CreateOrderDto, @Req() req: RequestWithUser): Promise<IApiResponse<IOrderResponse>> {
     const userId = req.user.sub;
     const result = await this.createOrderUseCase.execute(userId, body);
     return createSuccessResponse(result);
@@ -33,7 +33,7 @@ export class OrdersController {
 
   @Get()
   async getUserOrders(
-    @Req() req: Request,
+    @Req() req: RequestWithUser,
     @Query('status') status?: string | string[],
     @Query('page') page?: string,
     @Query('limit') limit?: string,
@@ -56,7 +56,7 @@ export class OrdersController {
   }
 
   @Get(':id')
-  async getOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse | null>> {
+  async getOrder(@Param('id') id: string, @Req() req: RequestWithUser): Promise<IApiResponse<IOrderResponse | null>> {
     const userId = req.user.sub;
     const result = await this.getOrderUseCase.execute(id, userId, false);
     return createSuccessResponse(result);
@@ -74,7 +74,7 @@ export class OrdersController {
   }
 
   @Post(':id/cancel')
-  async cancelOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
+  async cancelOrder(@Param('id') id: string, @Req() req: RequestWithUser): Promise<IApiResponse<IOrderResponse>> {
     const userId = req.user.sub;
     const result = await this.cancelOrderUseCase.execute(id, userId);
     return createSuccessResponse(result);

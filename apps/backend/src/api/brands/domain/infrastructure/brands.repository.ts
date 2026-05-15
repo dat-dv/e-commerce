@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrandResponse, IPaginatedResult } from '@ecommerce/shared';
+import { IBrandResponse, IPaginatedResult, IBrandProductsResponse } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Brand, Product } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class BrandsRepository implements IBrandsRepository {
@@ -45,11 +44,11 @@ export class BrandsRepository implements IBrandsRepository {
     page: number,
     limit: number,
     languageCode = 'vi',
-  ): Promise<import('@ecommerce/shared').IBrandProductsResponse> {
+  ): Promise<IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
       return {
-        brand: {} as Brand,
+        brand: {} as IBrandResponse,
         products: [],
         meta: { total: 0, page, limit, totalPages: 0 },
       };

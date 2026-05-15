@@ -1,8 +1,7 @@
-import { IPermission, IPaginatedResult } from '@ecommerce/shared';
-import { Prisma } from 'generated/prisma/client';
+import { IPermission, IPaginatedResult, ICreatePermissionRequest, IUpdatePermissionRequest } from '@ecommerce/shared';
 
 export interface IPermissionsRepository {
-  create(data: Prisma.PermissionCreateInput): Promise<IPermission>;
+  create(data: ICreatePermissionRequest): Promise<IPermission>;
 
   findAll(page: number, limit: number): Promise<IPaginatedResult<IPermission>>;
 
@@ -10,7 +9,7 @@ export interface IPermissionsRepository {
 
   findByName(name: string): Promise<IPermission | null>;
 
-  update(id: string, data: Prisma.PermissionUpdateInput): Promise<IPermission>;
+  update(id: string, data: IUpdatePermissionRequest): Promise<IPermission>;
 
   delete(id: string): Promise<IPermission>;
 

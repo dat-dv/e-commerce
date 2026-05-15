@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin';
 import { ConfigService } from '@nestjs/config';
 import { Bucket } from '@google-cloud/storage';
 import { StorageService } from './storage.service';
-import type { Image } from 'generated/prisma/client';
+import type { IImageResponse, IUploadResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class FirebaseService extends StorageService implements OnModuleInit {
@@ -48,10 +48,7 @@ export class FirebaseService extends StorageService implements OnModuleInit {
     }
   }
 
-  async uploadImage(
-    file: Express.Multer.File,
-    location: string,
-  ): Promise<Omit<Image, 'id' | 'created_at' | 'updated_at'>> {
+  async uploadImage(file: Express.Multer.File, location: string): Promise<IUploadResponse> {
     if (!this.bucket) {
       throw new Error('Firebase Storage is not initialized');
     }

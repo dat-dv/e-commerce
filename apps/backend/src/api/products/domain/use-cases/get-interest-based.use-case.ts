@@ -9,7 +9,7 @@ export class GetInterestBasedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(take: number, userId?: string): Promise<IProductResponse[]> {
+  async execute(take: number, userId?: string, languageCode = 'vi'): Promise<IProductResponse[]> {
     let basedOnInterest: IProductResponse[] = [];
 
     if (userId) {
@@ -19,6 +19,7 @@ export class GetInterestBasedUseCase {
           category_id: topCategoryId,
           orderBy: { sold_count: 'desc' },
           take: take,
+          languageCode,
         });
       }
     }
@@ -27,6 +28,7 @@ export class GetInterestBasedUseCase {
       basedOnInterest = await this.productsRepository.findMany({
         orderBy: { created_at: 'desc' },
         take: take,
+        languageCode,
       });
     }
 

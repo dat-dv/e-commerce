@@ -3,7 +3,7 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
-import { IOrderItemSnapshot } from '@ecommerce/shared';
+import { IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
 import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';
 
@@ -25,7 +25,10 @@ export class CreateOrderUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(userId: string, data: { cartItemIds: string[]; shippingAddressId?: string; promoCode?: string }) {
+  async execute(
+    userId: string,
+    data: { cartItemIds: string[]; shippingAddressId?: string; promoCode?: string },
+  ): Promise<IOrderResponse> {
     const { cartItemIds, shippingAddressId, promoCode } = data;
 
     // Prioritize provided shipping address or fallback to default to ensure deliverability

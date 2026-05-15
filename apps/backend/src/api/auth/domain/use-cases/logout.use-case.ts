@@ -8,10 +8,10 @@ export class LogoutUseCase {
     private readonly authRepository: IAuthRepository,
   ) {}
 
-  async execute(refreshToken: string | undefined) {
+  async execute(refreshToken: string | undefined): Promise<boolean> {
     if (refreshToken) {
       await this.authRepository.removeRefreshToken(refreshToken);
     }
-    return { success: true };
+    return true;
   }
 }

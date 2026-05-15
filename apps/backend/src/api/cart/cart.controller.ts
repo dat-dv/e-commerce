@@ -1,3 +1,4 @@
+import type { RequestWithUser } from 'src/shared/types/request.type';
 import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { GetCartUseCase } from './domain/use-cases/get-cart.use-case';
@@ -5,7 +6,6 @@ import { AddToCartUseCase } from './domain/use-cases/add-to-cart.use-case';
 import { UpdateCartItemUseCase } from './domain/use-cases/update-cart-item.use-case';
 import { RemoveFromCartUseCase } from './domain/use-cases/remove-from-cart.use-case';
 import createSuccessResponse from 'src/common/respomse';
-import type { Request } from 'express';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AddToCartDto, UpdateCartItemDto } from './dto/cart.dto';
@@ -25,7 +25,7 @@ export class CartController {
   @Get()
   @ApiOperation({ summary: 'Get current user cart' })
   @ApiResponse({ status: 200, description: 'Return cart data' })
-  async getCart(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<ICartResponse | null>> {
+  async getCart(@Req() req: RequestWithUser, @Language() lang: string): Promise<IApiResponse<ICartResponse | null>> {
     const userId = req.user.sub;
     const result = await this.getCartUseCase.execute(userId, lang);
     return createSuccessResponse(result);
@@ -35,7 +35,7 @@ export class CartController {
   @ApiOperation({ summary: 'Add item to cart' })
   @ApiBody({ type: AddToCartDto })
   @ApiResponse({ status: 201, description: 'Item added successfully' })
-  async addItem(@Body() body: AddToCartDto, @Req() req: Request): Promise<IApiResponse<ICartResponse | null>> {
+  async addItem(@Body() body: AddToCartDto, @Req() req: RequestWithUser): Promise<IApiResponse<ICartResponse | null>> {
     const userId = req.user.sub;
     const result = await this.addToCartUseCase.execute(userId, body.sku_id, body.quantity);
     return createSuccessResponse(result);

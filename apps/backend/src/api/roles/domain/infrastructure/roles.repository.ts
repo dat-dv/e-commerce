@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { IRolesRepository } from '../entities/roles.repository.interface';
-import { IRoleResponse, IPaginatedResult } from '@ecommerce/shared';
+import { IRoleResponse, IPaginatedResult, ICreateRoleRequest, IUpdateRoleRequest } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
 export class RolesRepository implements IRolesRepository {
@@ -12,39 +11,68 @@ export class RolesRepository implements IRolesRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(data: Prisma.RoleCreateInput): Promise<IRoleResponse> {
+  private readonly ROLE_INCLUDE = {
+    permissions: {
+      include: {
+        permission: true,
+      },
+    },
+  };
+
+  async create(data: ICreateRoleRequest): Promise<IRoleResponse> {
     return this.prisma.role.create({
-      data,
+      data: {
+        role_name: data.role_name,
+        description: data.description,
+        permissions: {
+          create: data.permissions?.map((permission) => ({
+            permission: { connect: { id: permission } },
+          })),
+        },
+      },
+      include: this.ROLE_INCLUDE,
     });
   }
 
   async findAll(page: number, limit: number): Promise<IPaginatedResult<IRoleResponse>> {
-    const result = await this.paginationService.paginate(this.prisma.role, {}, page, limit);
+    const result = await this.paginationService.paginate(this.prisma.role, { include: this.ROLE_INCLUDE }, page, limit);
     return result;
   }
 
   async findById(id: string): Promise<IRoleResponse | null> {
     return this.prisma.role.findUnique({
       where: { id },
+      include: this.ROLE_INCLUDE,
     });
   }
 
   async findByName(name: string): Promise<IRoleResponse | null> {
     return this.prisma.role.findUnique({
       where: { role_name: name },
+      include: this.ROLE_INCLUDE,
     });
   }
 
-  async update(id: string, data: Prisma.RoleUpdateInput): Promise<IRoleResponse> {
+  async update(id: string, data: IUpdateRoleRequest): Promise<IRoleResponse> {
     return this.prisma.role.update({
       where: { id },
-      data,
+      data: {
+        role_name: data.role_name,
+        description: data.description,
+        permissions: {
+          create: data.permissions?.map((permission) => ({
+            permission: { connect: { id: permission } },
+          })),
+        },
+      },
+      include: this.ROLE_INCLUDE,
     });
   }
 
   async delete(id: string): Promise<IRoleResponse> {
     return this.prisma.role.delete({
       where: { id },
+      include: this.ROLE_INCLUDE,
     });
   }
 

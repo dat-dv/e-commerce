@@ -1,15 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import {
-  IHomepageSectionRepository,
-  HomepageSectionWithDetails,
-} from '../entities/homepage-section.repository.interface';
+import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
+import { IHomepageSection } from '@ecommerce/shared';
 
 @Injectable()
 export class HomepageSectionRepository implements IHomepageSectionRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAllEnabled(isLoggedIn: boolean = false): Promise<HomepageSectionWithDetails[]> {
+  async findAllEnabled(isLoggedIn: boolean = false): Promise<IHomepageSection[]> {
     return this.prisma.homepageSection.findMany({
       where: {
         is_enabled: true,

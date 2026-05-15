@@ -1,3 +1,4 @@
+import type { RequestWithUser } from 'src/shared/types/request.type';
 import { Controller, Post, Body, Res, Req, UnauthorizedException, Get, UseGuards } from '@nestjs/common';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
@@ -18,13 +19,7 @@ import { VerifyPhoneUseCase } from './domain/use-cases/verify-phone.use-case';
 import { ChangePasswordUseCase } from './domain/use-cases/change-password.use-case';
 import { AuthGuard } from './guards/auth.guard';
 import { ConfigService } from '@nestjs/config';
-import {
-  IApiResponse,
-  IAuthMeResponse,
-  ILoginResponse,
-  IRegisterResponse,
-  IUserProfileResponse,
-} from '@ecommerce/shared';
+import { IApiResponse, IAuthMeResponse, ILoginResponse, IRegisterResponse } from '@ecommerce/shared';
 import { EnvVars } from 'src/config/config.validation';
 
 @Controller('auth')
@@ -44,14 +39,14 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Get('me')
-  async me(@Req() req: express.Request): Promise<IApiResponse<IAuthMeResponse>> {
+  async me(@Req() req: RequestWithUser): Promise<IApiResponse<IAuthMeResponse>> {
     const user = await this.getMeUseCase.execute(req.user.sub);
     return createSuccessResponse(user);
   }
 
   @UseGuards(AuthGuard)
   @Post('change-password')
-  async changePassword(@Req() req: express.Request, @Body() dto: ChangePasswordDto) {
+  async changePassword(@Req() req: RequestWithUser, @Body() dto: ChangePasswordDto): Promise<IApiResponse<boolean>> {
     const result = await this.changePasswordUseCase.execute(req.user.sub, dto);
     return createSuccessResponse(result);
   }
@@ -79,27 +74,30 @@ export class AuthController {
   }
 
   @Post('forgot-password')
-  async forgotPassword(@Body() dto: ForgotPasswordDto) {
+  async forgotPassword(@Body() dto: ForgotPasswordDto): Promise<IApiResponse<{ success: boolean }>> {
     const result = await this.forgotPasswordUseCase.execute(dto);
     return createSuccessResponse(result);
   }
 
   @Post('reset-password')
-  async resetPassword(@Body() dto: ResetPasswordDto) {
+  async resetPassword(@Body() dto: ResetPasswordDto): Promise<IApiResponse<{ success: boolean }>> {
     const result = await this.resetPasswordUseCase.execute(dto);
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Post('verify-phone')
-  async verifyPhone(@Req() req: express.Request, @Body() dto: VerifyPhoneDto) {
+  async verifyPhone(@Req() req: RequestWithUser, @Body() dto: VerifyPhoneDto): Promise<IApiResponse<boolean>> {
     const userId = req.user.sub;
     const result = await this.verifyPhoneUseCase.execute(userId, dto);
     return createSuccessResponse(result);
   }
 
   @Post('logout')
-  async logout(@Req() req: Express.Request, @Res({ passthrough: true }) res: express.Response) {
+  async logout(
+    @Req() req: RequestWithUser,
+    @Res({ passthrough: true }) res: express.Response,
+  ): Promise<IApiResponse<boolean>> {
     const refreshToken = req.cookies['refresh_token'];
     const result = await this.logoutUseCase.execute(refreshToken);
     res.clearCookie('access_token');
@@ -108,7 +106,10 @@ export class AuthController {
   }
 
   @Post('refresh-token')
-  async refreshToken(@Req() req: Express.Request, @Res({ passthrough: true }) res: express.Response) {
+  async refreshToken(
+    @Req() req: RequestWithUser,
+    @Res({ passthrough: true }) res: express.Response,
+  ): Promise<IApiResponse<boolean>> {
     try {
       const refreshToken = req.cookies.refresh_token;
       const result = await this.refreshTokenUseCase.execute(refreshToken);

@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { v2 as cloudinary } from 'cloudinary';
 import { ConfigService } from '@nestjs/config';
 import { StorageService } from './storage.service';
-import type { Image } from 'generated/prisma/client';
+import type { IImageResponse, IUploadResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class CloudinaryService extends StorageService {
@@ -15,10 +15,7 @@ export class CloudinaryService extends StorageService {
     });
   }
 
-  async uploadImage(
-    file: Express.Multer.File,
-    location: string,
-  ): Promise<Omit<Image, 'id' | 'created_at' | 'updated_at'>> {
+  async uploadImage(file: Express.Multer.File, location: string): Promise<IUploadResponse> {
     return new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {

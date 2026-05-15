@@ -1,19 +1,15 @@
 import { Injectable, Inject } from '@nestjs/common';
-import {
-  IHomepageSectionRepository,
-  HomepageSectionWithDetails,
-} from '../entities/homepage-section.repository.interface';
+import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
 import {
   EHomepageSectionType,
   IHomepageSectionResponse,
   IProductResponse,
   IHomepageSection,
-  Brand,
+  IBrandResponse,
 } from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IBrandsRepository } from 'src/api/brands/domain/entities/brands.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { Prisma } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class GetHomepageSectionsUseCase {
@@ -34,7 +30,7 @@ export class GetHomepageSectionsUseCase {
     const results = await Promise.all(
       sections.map(async (section): Promise<IHomepageSectionResponse> => {
         let data: IProductResponse[] = [];
-        let brands: Brand[] | undefined;
+        let brands: IBrandResponse[] | undefined;
 
         const sectionType = section.type as unknown as EHomepageSectionType;
 

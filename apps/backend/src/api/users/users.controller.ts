@@ -1,3 +1,4 @@
+import type { RequestWithUser } from 'src/shared/types/request.type';
 import {
   Controller,
   Get,
@@ -49,7 +50,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Upload an image' })
   @Patch('profile')
   async updateProfile(
-    @Req() req: Express.Request,
+    @Req() req: RequestWithUser,
     @UploadedFile() image: Express.Multer.File,
     @Body() dto: UpdateUserDto,
   ): Promise<IApiResponse<IUserProfileResponse>> {
@@ -83,7 +84,7 @@ export class UsersController {
   }
 
   @Get(':id')
-  async findOne(@Req() req: Express.Request, @Param('id') id: string): Promise<IApiResponse<IUserProfileResponse>> {
+  async findOne(@Req() req: RequestWithUser, @Param('id') id: string): Promise<IApiResponse<IUserProfileResponse>> {
     const res = await this.findOneUserUseCase.execute(id, req.user.sub);
     return createSuccessResponse(res);
   }
@@ -102,7 +103,11 @@ export class UsersController {
       },
     },
   })
-  async uploadAvatar(@Req() req: Express.Request, @Param('id') id: string, @UploadedFile() file: Express.Multer.File) {
+  async uploadAvatar(
+    @Req() req: RequestWithUser,
+    @Param('id') id: string,
+    @UploadedFile() file: Express.Multer.File,
+  ): Promise<IApiResponse<IUserProfileResponse>> {
     const res = await this.updateAvatarUseCase.execute(id, req.user.sub, file);
     return createSuccessResponse(res);
   }
@@ -110,7 +115,7 @@ export class UsersController {
   @Delete(':id')
   @UseGuards(PermissionsGuard)
   @Permissions('DELETE:USER')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string): Promise<IApiResponse<boolean>> {
     const res = await this.removeUserUseCase.execute(id);
     return createSuccessResponse(res);
   }

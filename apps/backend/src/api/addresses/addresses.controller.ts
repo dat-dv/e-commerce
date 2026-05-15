@@ -8,7 +8,7 @@ import { CreateAddressDto } from './dto/create-address.dto';
 import { UpdateAddressDto } from './dto/update-address.dto';
 import { IApiResponse, IAddressResponse } from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
-import type { Request } from 'express';
+import type { RequestWithUser } from 'src/shared/types/request.type';
 
 @Controller('addresses')
 @UseGuards(AuthGuard)
@@ -21,14 +21,14 @@ export class AddressesController {
   ) {}
 
   @Post()
-  async create(@Req() req: Request, @Body() dto: CreateAddressDto): Promise<IApiResponse<IAddressResponse>> {
+  async create(@Req() req: RequestWithUser, @Body() dto: CreateAddressDto): Promise<IApiResponse<IAddressResponse>> {
     const userId = req.user.sub;
     const result = await this.createAddressUseCase.execute(userId, dto);
     return createSuccessResponse(result);
   }
 
   @Get()
-  async findAll(@Req() req: Request): Promise<IApiResponse<IAddressResponse[]>> {
+  async findAll(@Req() req: RequestWithUser): Promise<IApiResponse<IAddressResponse[]>> {
     const userId = req.user.sub;
     const result = await this.getAddressesUseCase.execute(userId);
     return createSuccessResponse(result);
@@ -37,7 +37,7 @@ export class AddressesController {
   @Patch(':id')
   async update(
     @Param('id') id: string,
-    @Req() req: Request,
+    @Req() req: RequestWithUser,
     @Body() dto: UpdateAddressDto,
   ): Promise<IApiResponse<IAddressResponse>> {
     const userId = req.user.sub;
@@ -46,7 +46,7 @@ export class AddressesController {
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: string, @Req() req: Request) {
+  async delete(@Param('id') id: string, @Req() req: RequestWithUser): Promise<IApiResponse<boolean>> {
     const userId = req.user.sub;
     await this.deleteAddressUseCase.execute(id, userId);
     return createSuccessResponse(true);

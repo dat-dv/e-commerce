@@ -1,13 +1,14 @@
-import type { Brand, Product } from "../generate/browser";
+import type { Brand } from "../generate/browser";
+import type { IProductResponse } from "../product/product.response";
 import type { IPaginatedResult } from "../paginate";
 
 export type IBrandResponse = Brand;
 
-export type IBrandListResponse = IPaginatedResult<Brand>;
+export type IBrandListResponse = IPaginatedResult<IBrandResponse>;
 
 export interface IBrandProductsResponse {
-  brand: Brand;
-  products: Product[];
+  brand: IBrandResponse;
+  products: IProductResponse[];
   meta: {
     total: number;
     page: number;
