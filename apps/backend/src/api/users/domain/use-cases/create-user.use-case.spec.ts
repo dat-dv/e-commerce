@@ -35,8 +35,6 @@ describe('CreateUserUseCase', () => {
       email: 'test@example.com',
       password: 'password',
       confirm_password: 'password',
-      first_name: 'Test',
-      last_name: 'User',
     };
 
     await expect(useCase.execute(dto)).rejects.toThrow(BadRequestException);
@@ -50,16 +48,12 @@ describe('CreateUserUseCase', () => {
       email: 'test@example.com',
       password: 'password',
       confirm_password: 'password',
-      first_name: 'Test',
-      last_name: 'User',
     };
 
     const result = await useCase.execute(dto);
 
     expect(mockUsersRepository.create).toHaveBeenCalledWith({
       email: dto.email,
-      first_name: dto.first_name,
-      last_name: dto.last_name,
       password: dto.password,
     });
     expect(result.id).toBe('1');

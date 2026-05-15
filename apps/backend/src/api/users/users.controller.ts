@@ -28,7 +28,7 @@ import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiConsumes, ApiBody, ApiOperation } from '@nestjs/swagger';
 import { UploadImageUseCase } from '../upload/domain/use-cases/upload-image.use-case';
-import { IImage } from '@ecommerce/shared';
+import { IApiResponse, IImage, IUserProfileResponse, IGetUsersResponse } from '@ecommerce/shared';
 
 @UseGuards(AuthGuard)
 @Controller('users')
@@ -52,7 +52,7 @@ export class UsersController {
     @Req() req: Express.Request,
     @UploadedFile() image: Express.Multer.File,
     @Body() dto: UpdateUserDto,
-  ) {
+  ): Promise<IApiResponse<IUserProfileResponse>> {
     let avatar: IImage | null = null;
     if (image) {
       avatar = await this.uploadImageUseCase.execute(image);
@@ -69,7 +69,7 @@ export class UsersController {
   @Post()
   @UseGuards(PermissionsGuard)
   @Permissions('CREATE:USER')
-  async create(@Body() dto: CreateUserDto) {
+  async create(@Body() dto: CreateUserDto): Promise<IApiResponse<IUserProfileResponse>> {
     const res = await this.createUserUseCase.execute(dto);
     return createSuccessResponse(res);
   }
@@ -77,13 +77,13 @@ export class UsersController {
   @Get()
   @UseGuards(PermissionsGuard)
   @Permissions('LIST:USER')
-  async findAll(@Query() paginationDto: GetUsersDto) {
+  async findAll(@Query() paginationDto: GetUsersDto): Promise<IApiResponse<IGetUsersResponse>> {
     const res = await this.findAllUsersUseCase.execute(paginationDto.page, paginationDto.limit);
     return createSuccessResponse(res);
   }
 
   @Get(':id')
-  async findOne(@Req() req: Express.Request, @Param('id') id: string) {
+  async findOne(@Req() req: Express.Request, @Param('id') id: string): Promise<IApiResponse<IUserProfileResponse>> {
     const res = await this.findOneUserUseCase.execute(id, req.user.sub);
     return createSuccessResponse(res);
   }

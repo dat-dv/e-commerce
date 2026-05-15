@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { IProductCategory } from '@ecommerce/shared';
-import { PaginationService, PaginatedResult } from 'src/shared/services/pagination/pagination.service';
+import { IPaginatedResult } from '@ecommerce/shared';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { ProductCategory } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class ProductCategoriesRepository implements IProductCategoriesRepository {
@@ -11,16 +12,18 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     private readonly paginationService: PaginationService,
   ) {}
 
-  async create(data: { name: string; slug: string; description?: string }): Promise<IProductCategory> {
+  async create(data: { name: string; slug: string; description?: string }): Promise<ProductCategory> {
     return this.prisma.productCategory.create({
       data,
+      include: { translations: true, children: true },
     });
   }
 
-  async update(id: string, data: { name?: string; slug?: string; description?: string }): Promise<IProductCategory> {
+  async update(id: string, data: { name?: string; slug?: string; description?: string }): Promise<ProductCategory> {
     return this.prisma.productCategory.update({
       where: { id },
       data,
+      include: { translations: true, children: true },
     });
   }
 
@@ -28,29 +31,31 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     page?: number;
     limit?: number;
     level?: number;
-  }): Promise<PaginatedResult<IProductCategory>> {
+  }): Promise<IPaginatedResult<ProductCategory>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;
 
-    return this.paginationService.paginate<IProductCategory>(
+    const result = await this.paginationService.paginate(
       this.prisma.productCategory,
       {
         where: { level: params?.level },
-        include: { translations: true },
+        include: { translations: true, children: true },
       },
       page,
       limit,
     );
+
+    return result;
   }
 
   async findGroups(
     languageCode: string = 'vi',
     params?: { page?: number; limit?: number },
-  ): Promise<PaginatedResult<IProductCategory>> {
+  ): Promise<IPaginatedResult<ProductCategory>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;
 
-    return this.paginationService.paginate<IProductCategory>(
+    const result = await this.paginationService.paginate(
       this.prisma.productCategory,
       {
         where: {
@@ -64,15 +69,18 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
               },
             },
           },
+          children: true,
         },
       },
       page,
       limit,
     );
+
+    return result;
   }
 
-  async findById(id: string, languageCode: string = 'vi'): Promise<IProductCategory | null> {
-    const result = await this.prisma.productCategory.findUnique({
+  async findById(id: string, languageCode: string = 'vi'): Promise<ProductCategory | null> {
+    return this.prisma.productCategory.findUnique({
       where: { id },
       include: {
         translations: {
@@ -95,13 +103,12 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
         },
       },
     });
-    return result;
   }
 
-  async findTree(languageCode: string = 'vi'): Promise<IProductCategory[]> {
+  async findTree(languageCode: string = 'vi'): Promise<ProductCategory[]> {
     return this.prisma.productCategory.findMany({
       where: {
-        parent_id: null, // Chỉ lấy các danh mục gốc
+        parent_id: null,
       },
       include: {
         translations: {
@@ -126,7 +133,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     });
   }
 
-  async findTreeBySlug(slug: string, languageCode: string = 'vi'): Promise<IProductCategory | null> {
+  async findTreeBySlug(slug: string, languageCode: string = 'vi'): Promise<ProductCategory | null> {
     return this.prisma.productCategory.findUnique({
       where: { slug },
       include: {
@@ -152,9 +159,10 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     });
   }
 
-  async delete(id: string): Promise<IProductCategory> {
+  async delete(id: string): Promise<ProductCategory> {
     return this.prisma.productCategory.delete({
       where: { id },
+      include: { translations: true, children: true },
     });
   }
 }

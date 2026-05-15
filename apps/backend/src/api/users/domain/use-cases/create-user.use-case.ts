@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException, Inject } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { CreateUserDto } from '../../dto/create-user.dto';
-import { IUser } from '@ecommerce/shared';
+import { IUserProfileResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class CreateUserUseCase {
@@ -10,7 +10,7 @@ export class CreateUserUseCase {
     private readonly usersRepository: IUsersRepository,
   ) {}
 
-  async execute(dto: CreateUserDto): Promise<IUser> {
+  async execute(dto: CreateUserDto): Promise<IUserProfileResponse> {
     const existingUser = await this.usersRepository.findByEmail(dto.email);
     if (existingUser) {
       throw new BadRequestException('Email already exists');

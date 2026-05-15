@@ -15,7 +15,7 @@ import {
 } from "./addresses.schema";
 import { SHIPPING_ADDRESS_LABELS_OPTIONS } from "@/constants/shipping-address.constanst";
 import { FormMapPicker } from "../form/form-map-picker";
-import { AddressLabel } from "@ecommerce/shared";
+import { EAddressLabel } from "@ecommerce/shared";
 
 interface AddressesFormProps {
   onSubmit: (data: AddressFormData) => Promise<boolean>;

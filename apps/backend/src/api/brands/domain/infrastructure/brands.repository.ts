@@ -1,29 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrand } from '@ecommerce/shared';
+import { IPaginatedResult } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import {
-  PaginationService,
-  PaginatedResult,
-  PrismaModelDelegate,
-} from 'src/shared/services/pagination/pagination.service';
-interface IBrandFromPrisma {
-  id: string;
-  slug: string;
-  logo_url: string | null;
-  banner_url: string | null;
-  website_url: string | null;
-  founded_year: number | null;
-  headquarters: string | null;
-  is_verified: boolean;
-  is_featured: boolean;
-  order: number;
-  translations: {
-    name: string;
-    description: string | null;
-    story: string | null;
-  }[];
-}
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { Brand, Product } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class BrandsRepository implements IBrandsRepository {
@@ -32,17 +12,13 @@ export class BrandsRepository implements IBrandsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async getTopBrands(page = 1, limit = 10, languageCode = 'en'): Promise<PaginatedResult<IBrand>> {
-    const result = await this.paginationService.paginate<IBrandFromPrisma>(
+  async getTopBrands(page: number, limit: number, languageCode = 'vi'): Promise<IPaginatedResult<Brand>> {
+    const result = await this.paginationService.paginate(
       this.prisma.brand,
       {
-        where: { is_featured: true },
-        orderBy: { order: 'asc' },
         include: {
           translations: {
-            where: {
-              language: { code: languageCode },
-            },
+            where: { language: { code: languageCode } },
           },
         },
       },
@@ -50,79 +26,55 @@ export class BrandsRepository implements IBrandsRepository {
       limit,
     );
 
-    return {
-      ...result,
-      items: result.items.map((brand): IBrand => {
-        const translation = brand.translations?.[0];
-        return {
-          id: brand.id,
-          slug: brand.slug,
-          logo_url: brand.logo_url,
-          banner_url: brand.banner_url,
-          website_url: brand.website_url,
-          is_verified: brand.is_verified,
-          is_featured: brand.is_featured,
-          order: brand.order,
-          name: translation?.name || brand.slug,
-          description: translation?.description,
-          story_vi: translation?.story, // simplistic mapping for now
-          founded_year: brand.founded_year,
-          headquarters: brand.headquarters,
-        };
-      }),
-    };
+    return result;
   }
 
-  async getBrandBySlug(slug: string, languageCode = 'en'): Promise<IBrand | null> {
-    const brand = await this.prisma.brand.findUnique({
+  async getBrandBySlug(slug: string, languageCode = 'vi'): Promise<Brand | null> {
+    return this.prisma.brand.findUnique({
       where: { slug },
       include: {
         translations: {
-          where: {
-            language: { code: languageCode },
-          },
+          where: { language: { code: languageCode } },
         },
       },
     });
-
-    if (!brand) return null;
-
-    const translation = brand.translations?.[0];
-    return {
-      id: brand.id,
-      slug: brand.slug,
-      logo_url: brand.logo_url,
-      banner_url: brand.banner_url,
-      website_url: brand.website_url,
-      is_verified: brand.is_verified,
-      is_featured: brand.is_featured,
-      order: brand.order,
-      name: translation?.name || brand.slug,
-      description: translation?.description,
-      story_vi: translation?.story,
-      founded_year: brand.founded_year,
-      headquarters: brand.headquarters,
-    };
   }
 
-  async getBrandProducts(slug: string, page = 1, limit = 20, languageCode = 'en'): Promise<PaginatedResult<any>> {
-    console.log(`🔍 [Backend] Fetching products for Brand: "${slug}"`);
-    try {
-      const result = await this.paginationService.paginate(
-        this.prisma.product,
-        {
-          where: {
-            brand: { slug },
-          },
-        },
-        page,
-        limit,
-      );
-      console.log(`✅ [Backend] Successfully fetched ${result.items.length} products for Brand: "${slug}"`);
-      return result;
-    } catch (error) {
-      console.error(`❌ [Backend] Critical error in getBrandProducts for slug="${slug}":`, error);
-      throw error;
+  async getBrandProducts(
+    slug: string,
+    page: number,
+    limit: number,
+    languageCode = 'vi',
+  ): Promise<{ brand: Brand; products: Product[]; meta: any }> {
+    const brand = await this.getBrandBySlug(slug, languageCode);
+    if (!brand) {
+      return {
+        brand: {} as Brand,
+        products: [],
+        meta: { total: 0, page, limit, totalPages: 0 },
+      };
     }
+
+    const productsResult = await this.paginationService.paginate(
+      this.prisma.product,
+      {
+        where: { brand_id: brand.id, deleted_at: null },
+        include: {
+          translations: {
+            where: { language: { code: languageCode } },
+          },
+          skus: true,
+          thumbnail: true,
+        },
+      },
+      page,
+      limit,
+    );
+
+    return {
+      brand,
+      products: productsResult.items,
+      meta: productsResult.meta,
+    };
   }
 }

@@ -6,7 +6,7 @@ import { IAuthRepository } from '../entities/auth.repository.interface';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { UnauthorizedException, BadRequestException } from '@nestjs/common';
-import { IUser } from '@ecommerce/shared';
+import { User, EGender } from '@ecommerce/shared';
 
 describe('LoginUseCase', () => {
   let useCase: LoginUseCase;
@@ -62,13 +62,20 @@ describe('LoginUseCase', () => {
   });
 
   it('should throw UnauthorizedException if password incorrect', async () => {
-    const user: IUser = {
+    const user: User = {
       id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
       avatar_id: null,
       password: 'correct-password',
+      role_id: '1',
+      created_at: new Date(),
+      updated_at: new Date(),
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
+      deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
 
@@ -78,13 +85,20 @@ describe('LoginUseCase', () => {
   });
 
   it('should login successfully and return tokens', async () => {
-    const user: IUser = {
+    const user: User = {
       id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
       avatar_id: null,
       password: 'password',
+      role_id: '1',
+      created_at: new Date(),
+      updated_at: new Date(),
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
+      deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
     mockTokenService.generateAccessToken.mockResolvedValue('at');

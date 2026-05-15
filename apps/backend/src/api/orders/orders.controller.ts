@@ -11,7 +11,6 @@ import createSuccessResponse from 'src/common/respomse';
 import type { Request } from 'express';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
-import { OrderResponseDto } from './dto/order-response.dto';
 
 @Controller('orders')
 @UseGuards(AuthGuard)
@@ -28,7 +27,7 @@ export class OrdersController {
   async createOrder(@Body() body: CreateOrderDto, @Req() req: Request) {
     const userId = req.user.sub;
     const result = await this.createOrderUseCase.execute(userId, body);
-    return createSuccessResponse(OrderResponseDto.toDto(result));
+    return createSuccessResponse(result);
   }
 
   @Get()
@@ -46,23 +45,20 @@ export class OrdersController {
       statusArr = (Array.isArray(status) ? status : status.split(',')).map((s) => parseInt(s, 10));
     }
 
-    const { items, meta } = await this.getUserOrdersUseCase.execute(userId, {
+    const result = await this.getUserOrdersUseCase.execute(userId, {
       status: statusArr,
       page: page ? parseInt(page, 10) : undefined,
       limit: limit ? parseInt(limit, 10) : undefined,
     });
 
-    return createSuccessResponse({
-      items: OrderResponseDto.toDtos(items),
-      meta,
-    });
+    return createSuccessResponse(result);
   }
 
   @Get(':id')
   async getOrder(@Param('id') id: string, @Req() req: Request) {
     const userId = req.user.sub;
     const result = await this.getOrderUseCase.execute(id, userId, false);
-    return createSuccessResponse(OrderResponseDto.toDto(result));
+    return createSuccessResponse(result);
   }
 
   @Put(':id/status')

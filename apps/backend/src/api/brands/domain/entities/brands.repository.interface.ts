@@ -1,10 +1,11 @@
-import { IBrand } from '@ecommerce/shared';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
+import { Brand, IPaginatedResult, Product, IBrandProductsResponse } from '@ecommerce/shared';
 
 export interface IBrandsRepository {
-  getTopBrands(page: number, limit: number, languageCode?: string): Promise<PaginatedResult<IBrand>>;
-  getBrandBySlug(slug: string, languageCode?: string): Promise<IBrand | null>;
-  getBrandProducts(slug: string, page: number, limit: number, languageCode?: string): Promise<PaginatedResult<any>>;
+  getTopBrands(page: number, limit: number, languageCode?: string): Promise<IPaginatedResult<Brand>>;
+
+  getBrandBySlug(slug: string, languageCode?: string): Promise<Brand | null>;
+
+  getBrandProducts(slug: string, page: number, limit: number, languageCode?: string): Promise<IBrandProductsResponse>;
 }
 
 export const IBrandsRepository = Symbol('IBrandsRepository');

@@ -1,11 +1,17 @@
-// src/api/homepage/domain/use-cases/get-homepage-sections.use-case.ts
-
 import { Injectable, Inject } from '@nestjs/common';
-import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { EHomepageSectionType, IHomepageSectionResponse, IProduct, IBrand } from '@ecommerce/shared';
+import {
+  IHomepageSectionRepository,
+  HomepageSectionWithDetails,
+} from '../entities/homepage-section.repository.interface';
+import { EHomepageSectionType, IHomepageSectionResponse, Product, IHomepageSection, Brand } from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IBrandsRepository } from 'src/api/brands/domain/entities/brands.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { Prisma } from '../../../../../generated/prisma/client';
+
+type ProductWithSkus = Prisma.ProductGetPayload<{
+  include: { translations: true; skus: true };
+}>;
 
 @Injectable()
 export class GetHomepageSectionsUseCase {
@@ -25,34 +31,41 @@ export class GetHomepageSectionsUseCase {
 
     const results = await Promise.all(
       sections.map(async (section): Promise<IHomepageSectionResponse> => {
-        let products: IProduct[] = [];
-        let brands: IBrand[] | undefined;
+        let data: Product[] = [];
+        let brands: Brand[] | undefined;
 
-        if (section.type === EHomepageSectionType.FLASH_SALE) {
+        const sectionType = section.type as unknown as EHomepageSectionType;
+
+        if (sectionType === EHomepageSectionType.FLASH_SALE) {
           const flashSale = await this.productsRepo.getActiveFlashSale(languageCode);
-          const flashSaleProducts = flashSale?.products || [];
-
-          products = flashSaleProducts.reduce((acc: IProduct[], p) => {
-            const product = p.sku?.product;
-            if (product) {
-              acc.push({
-                ...product,
-                skus: (product.skus || []).map((sku) => (sku.id === p.sku_id ? { ...sku, flash_sales: [p] } : sku)),
-              });
+          if (flashSale) {
+            // Nghiệp vụ: Lồng dữ liệu Flash Sale vào SKU của Product, gom nhóm theo product ID
+            const productMap = new Map<string, ProductWithSkus>();
+            for (const p of flashSale.products) {
+              const prod = p.sku.product;
+              if (!productMap.has(prod.id)) {
+                productMap.set(prod.id, { ...prod, skus: [...prod.skus] });
+              }
+              const mappedProd = productMap.get(prod.id);
+              if (mappedProd && mappedProd?.skus) {
+                mappedProd.skus = mappedProd.skus.map((sku) =>
+                  sku.id === p.sku_id ? { ...sku, flash_sales: [p] } : sku,
+                );
+              }
             }
-            return acc;
-          }, []);
-        } else if (section.type === EHomepageSectionType.PRODUCT_CAROUSEL) {
+            data = Array.from(productMap.values());
+          }
+        } else if (sectionType === EHomepageSectionType.PRODUCT_CAROUSEL) {
           const categorySlug = section.categories?.[0]?.slug;
           if (categorySlug) {
-            products = await this.productsRepo.findMany({
+            data = await this.productsRepo.findMany({
               category_slug: categorySlug,
               orderBy: { created_at: 'desc' },
               take: 12,
               languageCode,
             });
           }
-        } else if (section.type === EHomepageSectionType.RECOMMENDS) {
+        } else if (sectionType === EHomepageSectionType.RECOMMENDS) {
           if (userId) {
             const favCats = await this.prisma.userFavoriteCategory.findMany({
               where: { user_id: userId },
@@ -60,7 +73,7 @@ export class GetHomepageSectionsUseCase {
               take: 1,
             });
             if (favCats.length > 0) {
-              products = await this.productsRepo.findMany({
+              data = await this.productsRepo.findMany({
                 category_id: favCats[0].category_id,
                 orderBy: { created_at: 'desc' },
                 take: 12,
@@ -68,27 +81,15 @@ export class GetHomepageSectionsUseCase {
               });
             }
           }
-        } else if (section.type === EHomepageSectionType.RECENT_VIEW) {
+        } else if (sectionType === EHomepageSectionType.RECENT_VIEW) {
           if (userId) {
-            products = await this.productsRepo.getRecentlyViewed(userId, 12, languageCode);
+            data = await this.productsRepo.getRecentlyViewed(userId, 12, languageCode);
           }
-        } else if (section.type === EHomepageSectionType.NEW_ARRIVALS) {
-          products = await this.productsRepo.getNewArrivals(12, languageCode);
-        } else if (section.type === EHomepageSectionType.SUPER_DEALS) {
-          products = await this.productsRepo.getSuperDeals(12, languageCode);
         }
-        const translation =
-          section.translations?.find((t) => t.language?.code === languageCode) || section.translations?.[0];
-        const title = translation?.title || '';
 
         return {
-          section: {
-            id: section.id,
-            title: title,
-            type: section.type,
-            categories: section.categories,
-          },
-          data: products,
+          section,
+          data,
           brands,
         };
       }),

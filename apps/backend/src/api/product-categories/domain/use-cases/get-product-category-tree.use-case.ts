@@ -5,10 +5,10 @@ import { IProductCategoriesRepository } from '../entities/product-categories.rep
 export class GetProductCategoryTreeUseCase {
   constructor(
     @Inject(IProductCategoriesRepository)
-    private readonly categoriesRepository: IProductCategoriesRepository,
+    private readonly categoryRepository: IProductCategoriesRepository,
   ) {}
 
-  async execute(languageCode: string = 'vi') {
-    return this.categoriesRepository.findTree(languageCode);
+  async execute(languageCode = 'vi') {
+    return this.categoryRepository.findTree(languageCode);
   }
 }

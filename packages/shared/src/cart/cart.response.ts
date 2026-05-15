@@ -1,11 +1,12 @@
-import { ICart, ICartItem } from "./cart.types";
+import { Cart, CartItem } from "../index";
 
+export type ICartResponse = Cart;
 
-export type ICartResponse = ICart;
+export type ICartItemResponse = CartItem;
 
-export type IAddToCartResponse = ICart;
+export type IAddToCartResponse = Cart;
 
-export type IUpdateCartItemResponse = ICartItem;
+export type IUpdateCartItemResponse = CartItem;
 
 export interface IRemoveFromCartResponse {
   success: boolean;

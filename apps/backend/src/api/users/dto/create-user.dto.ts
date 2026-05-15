@@ -1,10 +1,12 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString, IsOptional, MinLength } from 'class-validator';
+import { ICreateUserRequest } from '@ecommerce/shared';
 
-export class CreateUserDto {
+export class CreateUserDto implements ICreateUserRequest {
   @IsEmail()
   email: string;
 
   @IsString()
+  @MinLength(6)
   password: string;
 
   @IsString()

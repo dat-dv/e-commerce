@@ -2,19 +2,19 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RemoveUserUseCase } from './remove-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException } from '@nestjs/common';
-import { IUser } from '@ecommerce/shared';
+import { User, EGender } from '@ecommerce/shared';
 
 describe('RemoveUserUseCase', () => {
   let useCase: RemoveUserUseCase;
   let mockUsersRepository: {
     findById: jest.Mock;
-    update: jest.Mock;
+    remove: jest.Mock;
   };
 
   beforeEach(async () => {
     mockUsersRepository = {
       findById: jest.fn(),
-      update: jest.fn(),
+      remove: jest.fn(),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -35,7 +35,7 @@ describe('RemoveUserUseCase', () => {
   });
 
   it('should soft delete user', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -46,16 +46,15 @@ describe('RemoveUserUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
-    mockUsersRepository.update.mockResolvedValue({ ...user, deleted_at: new Date() });
+    mockUsersRepository.remove.mockResolvedValue(undefined);
 
     await useCase.execute('user-1');
 
-    expect(mockUsersRepository.update).toHaveBeenCalledWith(
-      'user-1',
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      expect.objectContaining({ deleted_at: expect.any(Date) }),
-    );
+    expect(mockUsersRepository.remove).toHaveBeenCalledWith('user-1');
   });
 });

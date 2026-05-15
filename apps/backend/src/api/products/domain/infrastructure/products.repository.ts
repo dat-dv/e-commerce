@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct, IReview, EProductSort } from '@ecommerce/shared';
-import { IFlashSale } from '@ecommerce/shared';
+import { IProductsRepository, FlashSaleWithProducts } from '../entities/products.repository.interface';
+import { IPaginatedResult, IGetProductsParams } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { PaginatedResult, PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Prisma } from 'generated/prisma/client';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { Product, Review, Prisma } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -13,8 +12,8 @@ export class ProductsRepository implements IProductsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async findById(id: string, languageCode = 'en'): Promise<IProduct | null> {
-    const product = await this.prisma.product.findUnique({
+  async findById(id: string, languageCode = 'en'): Promise<Product | null> {
+    return this.prisma.product.findUnique({
       where: { id },
       include: {
         thumbnail: true,
@@ -58,20 +57,9 @@ export class ProductsRepository implements IProductsRepository {
         },
       },
     });
-
-    if (!product) return null;
-
-    return {
-      ...product,
-      skus: product.skus?.map((sku) => ({
-        ...sku,
-        price: Number(sku.price),
-        original_price: sku.original_price ? Number(sku.original_price) : null,
-      })),
-    };
   }
 
-  async findBySlug(slug: string, languageCode = 'en'): Promise<IProduct | null> {
+  async findBySlug(slug: string, languageCode = 'en'): Promise<Product | null> {
     const product = await this.prisma.product.findUnique({
       where: { slug },
       include: {
@@ -168,9 +156,9 @@ export class ProductsRepository implements IProductsRepository {
     return product?.categories[0]?.category_id || null;
   }
 
-  async getActiveFlashSale(languageCode = 'en'): Promise<IFlashSale | null> {
+  async getActiveFlashSale(languageCode = 'en'): Promise<FlashSaleWithProducts | null> {
     const now = new Date();
-    const flashSale = await this.prisma.flashSale.findFirst({
+    return this.prisma.flashSale.findFirst({
       where: {
         start_time: { lte: now },
         end_time: { gte: now },
@@ -197,21 +185,6 @@ export class ProductsRepository implements IProductsRepository {
         },
       },
     });
-
-    if (!flashSale) return null;
-
-    return {
-      ...flashSale,
-      products: flashSale.products.map((p) => ({
-        ...p,
-        sale_price: Number(p.sale_price),
-        sku: {
-          ...p.sku,
-          price: Number(p.sku.price),
-          original_price: p.sku.original_price ? Number(p.sku.original_price) : null,
-        },
-      })),
-    };
   }
 
   async findMany(params: {
@@ -220,10 +193,10 @@ export class ProductsRepository implements IProductsRepository {
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
-  }): Promise<IProduct[]> {
+  }): Promise<Product[]> {
     const { category_id, category_slug, orderBy, take, languageCode = 'en' } = params;
 
-    const products = await this.prisma.product.findMany({
+    return this.prisma.product.findMany({
       where: {
         ...(category_id && {
           categories: {
@@ -246,6 +219,7 @@ export class ProductsRepository implements IProductsRepository {
       orderBy,
       take,
       include: {
+        thumbnail: true,
         brand: {
           include: {
             translations: {
@@ -260,7 +234,19 @@ export class ProductsRepository implements IProductsRepository {
             },
           },
         },
-        skus: true,
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
         categories: {
           include: {
             category: {
@@ -278,18 +264,9 @@ export class ProductsRepository implements IProductsRepository {
         },
       },
     });
-
-    return products.map((p) => ({
-      ...p,
-      skus: p.skus?.map((sku) => ({
-        ...sku,
-        price: Number(sku.price),
-        original_price: sku.original_price ? Number(sku.original_price) : null,
-      })),
-    }));
   }
 
-  async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<IProduct[]> {
+  async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<Product[]> {
     const whereHistory = { user_id: userId };
     const history = await this.prisma.userBrowsingHistory.findMany({
       where: whereHistory,
@@ -300,9 +277,17 @@ export class ProductsRepository implements IProductsRepository {
       (id): id is string => typeof id === 'string',
     );
 
-    const fetchedProducts = await this.prisma.product.findMany({
+    return this.prisma.product.findMany({
       where: { id: { in: productIds } },
       include: {
+        thumbnail: true,
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
         translations: {
           where: {
             language: {
@@ -310,29 +295,40 @@ export class ProductsRepository implements IProductsRepository {
             },
           },
         },
-        skus: true,
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: {
+                    language: {
+                      code: languageCode,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
-
-    const productMap = new Map(
-      fetchedProducts.map((p) => [
-        p.id,
-        {
-          ...p,
-          skus: p.skus?.map((sku) => ({
-            ...sku,
-            price: Number(sku.price),
-            original_price: sku.original_price ? Number(sku.original_price) : null,
-          })),
-        },
-      ]),
-    );
-
-    return productIds.map((id) => productMap.get(id)).filter((p) => p !== undefined);
   }
 
-  async getSuperDeals(take = 12, languageCode = 'en'): Promise<IProduct[]> {
-    const candidates = await this.prisma.product.findMany({
+  async getSuperDeals(take = 12, languageCode = 'en'): Promise<Product[]> {
+    return this.prisma.product.findMany({
       where: {
         deleted_at: null,
         status: 1,
@@ -342,65 +338,99 @@ export class ProductsRepository implements IProductsRepository {
           },
         },
       },
-      take: take * 5, // over-fetch; sort + slice below
+      take: take,
       orderBy: { created_at: 'desc' },
       include: {
         thumbnail: true,
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
         translations: {
           where: { language: { code: languageCode } },
         },
-        skus: true,
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: {
+                    language: {
+                      code: languageCode,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
-
-    // Sort by best discount % across any SKU
-    const withDiscount = candidates
-      .map((p) => {
-        const bestDiscount = p.skus.reduce((max, sku) => {
-          if (!sku.original_price || sku.original_price <= sku.price) return max;
-          const pct = ((sku.original_price - sku.price) / sku.original_price) * 100;
-          return pct > max ? pct : max;
-        }, 0);
-        return { product: p, bestDiscount };
-      })
-      .filter((x) => x.bestDiscount > 0)
-      .sort((a, b) => b.bestDiscount - a.bestDiscount)
-      .slice(0, take)
-      .map(({ product: p }) => ({
-        ...p,
-        skus: p.skus.map((sku) => ({
-          ...sku,
-          price: Number(sku.price),
-          original_price: sku.original_price ? Number(sku.original_price) : null,
-        })),
-      }));
-
-    return withDiscount;
   }
 
-  /** New Arrivals: most recently created active products. */
-  async getNewArrivals(take = 12, languageCode = 'en'): Promise<IProduct[]> {
-    const products = await this.prisma.product.findMany({
+  async getNewArrivals(take = 12, languageCode = 'en'): Promise<Product[]> {
+    return this.prisma.product.findMany({
       where: { deleted_at: null, status: 1 },
       orderBy: { created_at: 'desc' },
       take,
       include: {
         thumbnail: true,
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
         translations: {
           where: { language: { code: languageCode } },
         },
-        skus: true,
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: {
+                    language: {
+                      code: languageCode,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
-
-    return products.map((p) => ({
-      ...p,
-      skus: p.skus.map((sku) => ({
-        ...sku,
-        price: Number(sku.price),
-        original_price: sku.original_price ? Number(sku.original_price) : null,
-      })),
-    }));
   }
 
   private async getDescendantCategoryIds(categorySlug: string): Promise<string[]> {
@@ -427,27 +457,9 @@ export class ProductsRepository implements IProductsRepository {
     return ids;
   }
 
-  async findPaginated(params: {
-    page: number;
-    limit: number;
-    search?: string;
-    category_id?: string;
-    category_slug?: string;
-    brand_id?: string;
-    min_price?: number;
-    max_price?: number;
-    attribute_value_ids?: string[];
-    sort?: EProductSort;
-    languageCode?: string;
-  }): Promise<{
-    items: IProduct[];
-    meta: {
-      total: number;
-      page: number;
-      limit: number;
-      totalPages: number;
-    };
-  }> {
+  async findPaginated(
+    params: IGetProductsParams & { page: number; limit: number },
+  ): Promise<IPaginatedResult<Product>> {
     const {
       page,
       limit,
@@ -458,10 +470,8 @@ export class ProductsRepository implements IProductsRepository {
       min_price,
       max_price,
       attribute_value_ids,
-      sort,
       languageCode = 'en',
     } = params;
-    const skip = (page - 1) * limit;
 
     const where: Prisma.ProductWhereInput = {
       deleted_at: null,
@@ -518,22 +528,9 @@ export class ProductsRepository implements IProductsRepository {
       };
     }
 
-    let orderBy: Prisma.ProductOrderByWithRelationInput;
-    const sortValue: EProductSort = Number(sort) || EProductSort.DEFAULT;
+    const orderBy: Prisma.ProductOrderByWithRelationInput = { created_at: 'desc' };
 
-    if (sortValue === EProductSort.PRICE_ASC) {
-      orderBy = { base_price: 'asc' };
-    } else if (sortValue === EProductSort.PRICE_DESC) {
-      orderBy = { base_price: 'desc' };
-    } else if (sortValue === EProductSort.BUY_MOST) {
-      orderBy = { sold_count: 'desc' };
-    } else if (sortValue === EProductSort.BUY_LESS) {
-      orderBy = { sold_count: 'asc' };
-    } else {
-      orderBy = { created_at: 'desc' };
-    }
-
-    const result = await this.paginationService.paginate<IProduct>(
+    const result = await this.paginationService.paginate(
       this.prisma.product,
       {
         where,
@@ -554,7 +551,19 @@ export class ProductsRepository implements IProductsRepository {
               },
             },
           },
-          skus: true,
+          skus: {
+            include: {
+              sku_attribute_values: {
+                include: {
+                  attribute_value: {
+                    include: {
+                      attribute: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
           categories: {
             include: {
               category: {
@@ -579,8 +588,8 @@ export class ProductsRepository implements IProductsRepository {
     return result;
   }
 
-  async getProductReviews(productId: string, page = 1, limit = 10): Promise<PaginatedResult<IReview>> {
-    const result = await this.paginationService.paginate<IReview>(
+  async getProductReviews(productId: string, page = 1, limit = 10): Promise<IPaginatedResult<Review>> {
+    const result = await this.paginationService.paginate(
       this.prisma.review,
       {
         where: { product_id: productId },
@@ -595,11 +604,12 @@ export class ProductsRepository implements IProductsRepository {
       page,
       limit,
     );
+
     return result;
   }
 
-  async getSimilarProducts(categoryId: string, limit = 4, languageCode = 'en'): Promise<IProduct[]> {
-    const products = await this.prisma.product.findMany({
+  async getSimilarProducts(categoryId: string, limit = 4, languageCode = 'en'): Promise<Product[]> {
+    return this.prisma.product.findMany({
       where: {
         categories: {
           some: { category_id: categoryId },
@@ -609,12 +619,60 @@ export class ProductsRepository implements IProductsRepository {
       },
       take: limit,
       include: {
+        thumbnail: true,
+        brand: {
+          include: {
+            translations: {
+              where: { language: { code: languageCode } },
+            },
+          },
+        },
         translations: {
           where: { language: { code: languageCode } },
         },
-        skus: true,
+        skus: {
+          include: {
+            sku_attribute_values: {
+              include: {
+                attribute_value: {
+                  include: {
+                    attribute: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        categories: {
+          include: {
+            category: {
+              include: {
+                translations: {
+                  where: {
+                    language: {
+                      code: languageCode,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
-    return products;
+  }
+
+  async getProductCategories(productId: string): Promise<string[] | null> {
+    const product = await this.prisma.product.findUnique({
+      where: { id: productId },
+      select: {
+        categories: {
+          select: { category_id: true },
+        },
+      },
+    });
+
+    if (!product) return null;
+    return product.categories.map((c) => c.category_id);
   }
 }

@@ -1,49 +1,42 @@
-import { EProductSort, IFlashSale } from '@ecommerce/shared';
-import { IProduct, IReview } from '@ecommerce/shared';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
+import { Product, IPaginatedResult, Review, IGetProductsParams } from '@ecommerce/shared';
+import { Prisma } from '../../../../../generated/prisma/client';
+
+export type FlashSaleWithProducts = Prisma.FlashSaleGetPayload<{
+  include: {
+    products: {
+      include: {
+        sku: {
+          include: {
+            product: {
+              include: { translations: true; skus: true };
+            };
+          };
+        };
+      };
+    };
+  };
+}>;
 
 export interface IProductsRepository {
-  findById(id: string, languageCode?: string): Promise<IProduct | null>;
-
-  findBySlug(slug: string, languageCode?: string): Promise<IProduct | null>;
-
+  findById(id: string, languageCode?: string): Promise<Product | null>;
+  findBySlug(slug: string, languageCode?: string): Promise<Product | null>;
   recordView(userId: string, productId: string): Promise<void>;
-
+  getUserTopCategory(userId: string): Promise<string | null>;
+  getActiveFlashSale(languageCode?: string): Promise<FlashSaleWithProducts | null>;
   findMany(params: {
     category_id?: string;
     category_slug?: string;
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
-  }): Promise<IProduct[]>;
-
-  getUserTopCategory(userId: string): Promise<string | null>;
-
-  getActiveFlashSale(languageCode?: string): Promise<IFlashSale | null>;
-
-  getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProduct[]>;
-
-  getSuperDeals(take: number, languageCode?: string): Promise<IProduct[]>;
-
-  getNewArrivals(take: number, languageCode?: string): Promise<IProduct[]>;
-
-  findPaginated(params: {
-    page: number;
-    limit: number;
-    search?: string;
-    category_id?: string;
-    category_slug?: string;
-    brand_id?: string;
-    min_price?: number;
-    max_price?: number;
-    attribute_value_ids?: string[];
-    sort?: EProductSort;
-    languageCode?: string;
-  }): Promise<PaginatedResult<IProduct>>;
-
-  getProductReviews(productId: string, page?: number, limit?: number): Promise<PaginatedResult<IReview>>;
-
-  getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProduct[]>;
+  }): Promise<Product[]>;
+  getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<Product[]>;
+  getSuperDeals(take?: number, languageCode?: string): Promise<Product[]>;
+  getNewArrivals(take?: number, languageCode?: string): Promise<Product[]>;
+  findPaginated(params: IGetProductsParams): Promise<IPaginatedResult<Product>>;
+  getProductReviews(productId: string, page?: number, limit?: number): Promise<IPaginatedResult<Review>>;
+  getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<Product[]>;
+  getProductCategories(productId: string): Promise<string[] | null>;
 }
 
 export const IProductsRepository = Symbol('IProductsRepository');

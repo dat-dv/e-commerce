@@ -6,6 +6,8 @@ import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.cons
 import { TokenService } from 'src/shared/services/token/token.service';
 import * as crypto from 'crypto';
 
+import { ILoginResponse } from '@ecommerce/shared';
+
 @Injectable()
 export class LoginUseCase {
   constructor(
@@ -16,7 +18,7 @@ export class LoginUseCase {
     private readonly tokenService: TokenService,
   ) {}
 
-  async execute(dto: LoginDto) {
+  async execute(dto: LoginDto): Promise<{ user: ILoginResponse; accessToken: string; refreshToken: string }> {
     const user = await this.usersRepository.findByEmail(dto.email, true);
 
     if (!user || user.deleted_at) {

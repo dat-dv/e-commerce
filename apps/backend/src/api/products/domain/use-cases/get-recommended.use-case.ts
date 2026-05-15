@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct } from '@ecommerce/shared';
+import { Product } from '@ecommerce/shared';
 
 @Injectable()
 export class GetRecommendedUseCase {
@@ -9,7 +9,7 @@ export class GetRecommendedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(limit: number): Promise<IProduct[]> {
+  async execute(limit: number): Promise<Product[]> {
     return this.productsRepository.findMany({
       orderBy: { created_at: 'desc' },
       take: limit,

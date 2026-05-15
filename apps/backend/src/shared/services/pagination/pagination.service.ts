@@ -1,42 +1,46 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { Injectable } from '@nestjs/common';
-
-export interface PaginatedResult<T> {
-  items: T[];
-  meta: {
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
-  };
-}
-
-export interface PrismaModelDelegate {
-  findMany(args?: any): Promise<any[]>;
-  count(args?: any): Promise<number>;
-}
 
 @Injectable()
 export class PaginationService {
-  async paginate<T>(
-    prismaModel: PrismaModelDelegate,
-    queryArgs: Record<string, unknown> = {},
-    page: number = 1,
-    limit: number = 10,
-  ): Promise<PaginatedResult<T>> {
+  async paginate<
+    TDelegate extends {
+      findMany: (...args: any[]) => any;
+      count?: (...args: any[]) => any;
+    },
+    TArgs extends Parameters<TDelegate['findMany']>[0],
+    TResult extends Awaited<ReturnType<TDelegate['findMany']>>,
+  >(
+    model: TDelegate,
+    args: TArgs,
+    page = 1,
+    limit = 10,
+  ): Promise<{
+    items: TResult;
+    meta: {
+      total: number;
+      page: number;
+      limit: number;
+      totalPages: number;
+    };
+  }> {
     const skip = (page - 1) * limit;
-    const take = limit;
 
-    const [data, total] = await Promise.all([
-      prismaModel.findMany({
-        ...queryArgs,
+    const [items, total] = await Promise.all([
+      model.findMany({
+        ...args,
         skip,
-        take,
+        take: limit,
       }),
-      prismaModel.count({ where: queryArgs.where as Record<string, unknown> }),
+      model?.count?.({
+        where: (args as any)?.where,
+      }) ?? 0,
     ]);
 
     return {
-      items: data as T[],
+      items,
       meta: {
         total,
         page,

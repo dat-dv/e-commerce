@@ -4,7 +4,7 @@ import { IUsersRepository } from '../entities/users.repository.interface';
 import { UploadImageUseCase } from 'src/api/upload/domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from 'src/api/upload/domain/use-cases/delete-image.use-case';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { IUser } from '@ecommerce/shared';
+import { User, EGender } from '@ecommerce/shared';
 
 describe('UpdateAvatarUseCase', () => {
   let useCase: UpdateAvatarUseCase;
@@ -62,7 +62,7 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -73,6 +73,9 @@ describe('UpdateAvatarUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
@@ -83,7 +86,7 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should upload avatar and update user', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -94,6 +97,9 @@ describe('UpdateAvatarUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     const image = { id: 'img-1', url: 'http://example.com/avatar.jpg' };
 
@@ -113,7 +119,7 @@ describe('UpdateAvatarUseCase', () => {
   });
 
   it('should delete old avatar if exists', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -124,6 +130,9 @@ describe('UpdateAvatarUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     const image = { id: 'new-img-1', url: 'http://example.com/new-avatar.jpg' };
 

@@ -1,20 +1,4 @@
-import { ShippingAddress } from 'generated/prisma/client';
-
-export interface ICreateAddressInput {
-  receiver_name: string;
-  receiver_phone: string;
-  label: number;
-  latitude: number;
-  longitude: number;
-  street: string;
-  city: string;
-  state: string;
-  country: string;
-  postal_code: string;
-  is_default?: boolean;
-}
-
-export type IUpdateAddressInput = Partial<ICreateAddressInput>;
+import { ShippingAddress, ICreateAddressInput, IUpdateAddressInput } from '@ecommerce/shared';
 
 export interface IAddressesRepository {
   create(userId: string, data: ICreateAddressInput): Promise<ShippingAddress>;

@@ -1,7 +1,8 @@
 import { IsString, MinLength } from 'class-validator';
 import { Match } from 'src/common/decorators/match.decorator';
+import { IResetPasswordRequest } from '@ecommerce/shared';
 
-export class ResetPasswordDto {
+export class ResetPasswordDto implements IResetPasswordRequest {
   @IsString()
   token: string;
 

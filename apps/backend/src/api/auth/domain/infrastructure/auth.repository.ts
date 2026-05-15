@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { IRefreshToken } from '@ecommerce/shared';
+import { RefreshToken } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class AuthRepository implements IAuthRepository {
@@ -17,13 +17,13 @@ export class AuthRepository implements IAuthRepository {
     });
   }
 
-  async removeRefreshToken(token: string): Promise<IRefreshToken | null> {
+  async removeRefreshToken(token: string): Promise<RefreshToken | null> {
     return await this.prisma.refreshToken.delete({
       where: { token },
     });
   }
 
-  async findRefreshToken(token: string): Promise<IRefreshToken | null> {
+  async findRefreshToken(token: string): Promise<RefreshToken | null> {
     return this.prisma.refreshToken.findFirst({
       where: { token },
     });

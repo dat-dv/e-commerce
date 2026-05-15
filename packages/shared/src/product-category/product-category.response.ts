@@ -1,13 +1,7 @@
-import { IProductCategory } from "./product-category.types";
+import { ProductCategory, IPaginatedResult } from "../index";
 
+export type ICategoryResponse = ProductCategory;
 
-export type ICategoryResponse = IProductCategory;
+export type ICategoryListResponse = IPaginatedResult<ProductCategory>;
 
-export type ICategoryTreeResponse = IProductCategory[];
-
-export interface ICategoryListResponse {
-  data: IProductCategory[];
-  total: number;
-  page: number;
-  limit: number;
-}
+export type ICategoryTreeResponse = ProductCategory[];

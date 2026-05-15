@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, ForbiddenException, Inject } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IUser } from '@ecommerce/shared';
+import { IUserProfileResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class FindOneUserUseCase {
@@ -9,7 +9,7 @@ export class FindOneUserUseCase {
     private readonly usersRepository: IUsersRepository,
   ) {}
 
-  async execute(id: string, requestingUserId: string): Promise<IUser> {
+  async execute(id: string, requestingUserId: string): Promise<IUserProfileResponse> {
     const requestingUser = await this.usersRepository.findById(requestingUserId);
     if (!requestingUser) {
       throw new BadRequestException('Requesting user not found');

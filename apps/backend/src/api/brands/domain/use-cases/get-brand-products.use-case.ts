@@ -1,6 +1,5 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()
 export class GetBrandProductsUseCase {
@@ -9,7 +8,7 @@ export class GetBrandProductsUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, page: number, limit: number, languageCode?: string): Promise<PaginatedResult<any>> {
+  async execute(slug: string, page = 1, limit = 10, languageCode = 'vi') {
     return this.brandsRepository.getBrandProducts(slug, page, limit, languageCode);
   }
 }

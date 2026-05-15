@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, Inject } from '@nestjs/common';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
-import { IUser } from '@ecommerce/shared';
+import { IAuthMeResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class GetMeUseCase {
@@ -9,7 +9,7 @@ export class GetMeUseCase {
     private readonly usersRepository: IUsersRepository,
   ) {}
 
-  async execute(userId: string): Promise<IUser> {
+  async execute(userId: string): Promise<IAuthMeResponse> {
     const user = await this.usersRepository.findById(userId);
     if (!user || user.deleted_at) {
       throw new BadRequestException('User not found');

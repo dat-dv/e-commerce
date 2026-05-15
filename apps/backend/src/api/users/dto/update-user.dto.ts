@@ -1,56 +1,37 @@
-import { IUser, Gender, Prettify } from '@ecommerce/shared';
-import { Type } from 'class-transformer';
-import { IsString, IsOptional, IsDate, IsEnum } from 'class-validator';
+import { IsString, IsOptional, IsEnum, MinLength, IsDateString } from 'class-validator';
+import { IUpdateUserRequest, EGender } from '@ecommerce/shared';
 
-export class UpdateUserDto implements Omit<
-  IUser,
-  'created_at' | 'updated_at' | 'deleted_at' | 'role_id' | 'avatar_id' | 'email'
-> {
+export class UpdateUserDto implements IUpdateUserRequest {
   @IsString()
-  id: string;
-
   @IsOptional()
-  @IsString()
   first_name?: string;
 
-  @IsOptional()
   @IsString()
+  @IsOptional()
   last_name?: string;
 
-  @IsOptional()
   @IsString()
+  @IsOptional()
+  @MinLength(6)
   password?: string;
 
+  @IsDateString()
   @IsOptional()
-  @Type(() => Date)
-  @IsDate()
-  date_of_birth?: Date;
+  date_of_birth?: string;
 
+  @IsEnum(EGender)
   @IsOptional()
-  @IsEnum(Gender)
-  @Type(() => Number)
   gender?: number;
 
-  @IsOptional()
   @IsString()
+  @IsOptional()
   avatar_url?: string;
 
-  @IsOptional()
   @IsString()
+  @IsOptional()
   phone_number?: string;
 
+  @IsString()
   @IsOptional()
-  @IsString()
   phone_code?: string;
-}
-
-export class UpdatePasswordDto {
-  @IsString()
-  oldPassword: string;
-
-  @IsString()
-  new_password: string;
-
-  @IsString()
-  confirm_password: string;
 }

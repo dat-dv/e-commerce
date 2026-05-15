@@ -1,7 +1,7 @@
-import { AddressLabel } from '@ecommerce/shared';
+import { EAddressLabel, ICreateAddressInput } from '@ecommerce/shared';
 import { IsString, IsNotEmpty, IsBoolean, IsOptional, IsNumber, IsEnum } from 'class-validator';
 
-export class CreateAddressDto {
+export class CreateAddressDto implements ICreateAddressInput {
   @IsString()
   @IsNotEmpty()
   receiver_name: string;
@@ -10,7 +10,7 @@ export class CreateAddressDto {
   @IsNotEmpty()
   receiver_phone: string;
 
-  @IsEnum(AddressLabel)
+  @IsEnum(EAddressLabel)
   label: number;
 
   @IsNumber()

@@ -1,52 +1,140 @@
 import { Injectable } from '@nestjs/common';
-import { ICartRepository } from '../entities/cart.repository.interface';
+import { ICartRepository, CartWithItems } from '../entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { CartItem } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class CartRepository implements ICartRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getCart(userId: string) {
-    return await this.prisma.cart.findUnique({
+  async getCart(userId: string, languageCode = 'vi'): Promise<CartWithItems | null> {
+    return this.prisma.cart.findUnique({
       where: { user_id: userId },
-      include: { items: true },
+      include: {
+        items: {
+          include: {
+            sku: {
+              include: {
+                product: {
+                  include: {
+                    translations: {
+                      where: { language: { code: languageCode } },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     });
   }
 
-  async createCart(userId: string) {
-    return await this.prisma.cart.create({
+  async createCart(userId: string, languageCode = 'vi'): Promise<CartWithItems> {
+    return this.prisma.cart.create({
       data: { user_id: userId },
+      include: {
+        items: {
+          include: {
+            sku: {
+              include: {
+                product: {
+                  include: {
+                    translations: {
+                      where: { language: { code: languageCode } },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     });
   }
 
-  async addItem(cartId: string, skuId: string, quantity: number) {
-    return await this.prisma.cartItem.create({
+  async upsertCart(userId: string, languageCode = 'vi'): Promise<CartWithItems> {
+    return this.prisma.cart.upsert({
+      where: { user_id: userId },
+      update: {},
+      create: { user_id: userId },
+      include: {
+        items: {
+          include: {
+            sku: {
+              include: {
+                product: {
+                  include: {
+                    translations: {
+                      where: { language: { code: languageCode } },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+  async addItem(cartId: string, skuId: string, quantity: number): Promise<CartItem> {
+    return this.prisma.cartItem.create({
       data: { cart_id: cartId, sku_id: skuId, quantity },
+      include: { sku: true },
     });
   }
 
-  async updateItem(itemId: string, quantity: number) {
-    return await this.prisma.cartItem.update({
+  async upsertItem(cartId: string, skuId: string, quantity: number): Promise<CartItem> {
+    return this.prisma.cartItem.upsert({
+      where: {
+        cart_id_sku_id: {
+          cart_id: cartId,
+          sku_id: skuId,
+        },
+      },
+      update: {
+        quantity: { increment: quantity },
+      },
+      create: {
+        cart_id: cartId,
+        sku_id: skuId,
+        quantity,
+      },
+      include: { sku: true },
+    });
+  }
+
+  async updateItem(itemId: string, quantity: number): Promise<CartItem> {
+    return this.prisma.cartItem.update({
       where: { id: itemId },
       data: { quantity },
+      include: { sku: true },
     });
   }
 
-  async removeItem(itemId: string) {
-    return await this.prisma.cartItem.delete({
+  async removeItem(itemId: string): Promise<CartItem> {
+    return this.prisma.cartItem.delete({
       where: { id: itemId },
+      include: { sku: true },
     });
   }
 
-  async findItemById(itemId: string) {
-    return await this.prisma.cartItem.findUnique({
+  async findItemById(itemId: string): Promise<CartItem | null> {
+    return this.prisma.cartItem.findUnique({
       where: { id: itemId },
+      include: { sku: true },
     });
   }
 
-  async findItem(cartId: string, skuId: string) {
-    return await this.prisma.cartItem.findUnique({
-      where: { cart_id_sku_id: { cart_id: cartId, sku_id: skuId } },
+  async findItem(cartId: string, skuId: string): Promise<CartItem | null> {
+    return this.prisma.cartItem.findUnique({
+      where: {
+        cart_id_sku_id: {
+          cart_id: cartId,
+          sku_id: skuId,
+        },
+      },
+      include: { sku: true },
     });
   }
 }

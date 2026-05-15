@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query, NotFoundException } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
@@ -13,6 +13,7 @@ import { GetProductCategoryTreeBySlugUseCase } from './domain/use-cases/get-prod
 import createSuccessResponse from 'src/common/respomse';
 import { CreateCategoryDto } from './dto/create-product-category.dto';
 import { UpdateCategoryDto } from './dto/update-product-category.dto';
+import { IApiResponse, ICategoryResponse, ICategoryListResponse, ICategoryTreeResponse } from '@ecommerce/shared';
 
 @Controller('product-categories')
 export class ProductCategoriesController {
@@ -30,7 +31,7 @@ export class ProductCategoriesController {
   @UseGuards(PermissionsGuard)
   @Permissions('CREATE:CATEGORY')
   @Post()
-  async createCategory(@Body() body: CreateCategoryDto) {
+  async createCategory(@Body() body: CreateCategoryDto): Promise<IApiResponse<ICategoryResponse>> {
     const result = await this.createCategoryUseCase.execute(body);
     return createSuccessResponse(result);
   }
@@ -38,13 +39,18 @@ export class ProductCategoriesController {
   @UseGuards(PermissionsGuard)
   @Permissions('UPDATE:CATEGORY')
   @Put(':id')
-  async updateCategory(@Param('id') id: string, @Body() body: UpdateCategoryDto) {
+  async updateCategory(
+    @Param('id') id: string,
+    @Body() body: UpdateCategoryDto,
+  ): Promise<IApiResponse<ICategoryResponse>> {
     const result = await this.updateCategoryUseCase.execute(id, body);
     return createSuccessResponse(result);
   }
 
   @Get()
-  async getAllCategories(@Query() query: { page?: string; limit?: string; level?: string }) {
+  async getAllCategories(
+    @Query() query: { page?: string; limit?: string; level?: string },
+  ): Promise<IApiResponse<ICategoryListResponse>> {
     const result = await this.getAllCategoriesUseCase.execute({
       page: query.page ? parseInt(query.page) : undefined,
       limit: query.limit ? parseInt(query.limit) : undefined,
@@ -54,33 +60,35 @@ export class ProductCategoriesController {
   }
 
   @Get('groups')
-  async getGroups(@Language() lang: string) {
+  async getGroups(@Language() lang: string): Promise<IApiResponse<ICategoryListResponse>> {
     const result = await this.getGroupsUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 
   @Get('tree')
-  async getTree(@Language() lang: string) {
+  async getTree(@Language() lang: string): Promise<IApiResponse<ICategoryTreeResponse>> {
     const result = await this.getTreeUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 
   @Get('tree/:slug')
-  async getTreeBySlug(@Param('slug') slug: string, @Language() lang: string) {
+  async getTreeBySlug(@Param('slug') slug: string, @Language() lang: string): Promise<IApiResponse<ICategoryResponse>> {
     const result = await this.getTreeBySlugUseCase.execute(lang, slug);
+    if (!result) throw new NotFoundException('Category not found');
     return createSuccessResponse(result);
   }
 
   @Get(':id')
-  async getById(@Param('id') id: string, @Language() lang: string) {
+  async getById(@Param('id') id: string, @Language() lang: string): Promise<IApiResponse<ICategoryResponse>> {
     const result = await this.getByIdUseCase.execute(id, lang);
+    if (!result) throw new NotFoundException('Category not found');
     return createSuccessResponse(result);
   }
 
   @UseGuards(PermissionsGuard)
   @Permissions('DELETE:CATEGORY')
   @Delete(':id')
-  async deleteCategory(@Param('id') id: string) {
+  async deleteCategory(@Param('id') id: string): Promise<IApiResponse<ICategoryResponse>> {
     const result = await this.deleteCategoryUseCase.execute(id);
     return createSuccessResponse(result);
   }

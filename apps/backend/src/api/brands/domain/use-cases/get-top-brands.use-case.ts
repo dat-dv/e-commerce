@@ -1,7 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrand } from '@ecommerce/shared';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 @Injectable()
 export class GetTopBrandsUseCase {
@@ -10,7 +8,7 @@ export class GetTopBrandsUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(page = 1, limit = 10, languageCode = 'vi'): Promise<PaginatedResult<IBrand>> {
+  async execute(page = 1, limit = 10, languageCode = 'vi') {
     return this.brandsRepository.getTopBrands(page, limit, languageCode);
   }
 }

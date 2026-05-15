@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UpdateUserUseCase } from './update-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { IUser } from '@ecommerce/shared';
+import { User, EGender } from '@ecommerce/shared';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 
 describe('UpdateUserUseCase', () => {
@@ -34,13 +34,13 @@ describe('UpdateUserUseCase', () => {
   it('should throw BadRequestException if user not found', async () => {
     mockUsersRepository.findById.mockResolvedValue(null);
 
-    const dto: UpdateUserDto = { first_name: 'Updated', id: 'user-1', date_of_birth: new Date() };
+    const dto: UpdateUserDto = { first_name: 'Updated', date_of_birth: '1990-01-01' };
 
     await expect(useCase.execute('user-1', dto)).rejects.toThrow(BadRequestException);
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -51,17 +51,20 @@ describe('UpdateUserUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
 
-    const dto: UpdateUserDto = { first_name: 'Updated', id: 'user-1', date_of_birth: new Date() };
+    const dto: UpdateUserDto = { first_name: 'Updated', date_of_birth: '1990-01-01' };
 
     await expect(useCase.execute('user-1', dto)).rejects.toThrow(ForbiddenException);
   });
 
   it('should update user', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -72,12 +75,15 @@ describe('UpdateUserUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue(['UPDATE:OWN_USER']);
     mockUsersRepository.update.mockResolvedValue({ ...user, first_name: 'Updated' });
 
-    const dto: UpdateUserDto = { first_name: 'Updated', id: 'user-1', date_of_birth: new Date() };
+    const dto: UpdateUserDto = { first_name: 'Updated', date_of_birth: '1990-01-01' };
 
     const result = await useCase.execute('user-1', dto);
 

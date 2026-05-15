@@ -1,32 +1,10 @@
-import { ISku } from "../product/product.types";
+import { FlashSale, FlashSaleTimeSlot, FlashSaleProduct, Sku } from "../index";
 
-export interface IFlashSaleTimeSlot {
-  id: string;
-  name: string;
-  start_hour: number;
-  start_minute: number;
-  end_hour: number;
-  end_minute: number;
-  is_active: boolean;
+export interface IFlashSaleProduct extends FlashSaleProduct {
+  sku?: Sku;
 }
 
-export interface IFlashSaleProduct {
-  id: string;
-  flash_sale_id: string;
-  sku_id: string;
-  sale_price: number;
-  sold_count: number;
-  stock: number;
-  order_limit: number;
-  sku?: ISku;
-}
-
-export interface IFlashSale {
-  id: string;
-  name: string;
-  start_time: Date;
-  end_time: Date;
-  time_slot_id?: string | null;
-  time_slot?: IFlashSaleTimeSlot | null;
+export interface IFlashSale extends FlashSale {
+  time_slot?: FlashSaleTimeSlot | null;
   products: IFlashSaleProduct[];
 }

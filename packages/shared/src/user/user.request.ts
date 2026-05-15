@@ -2,20 +2,22 @@ import { EGender } from "./user.types";
 
 export interface ICreateUserRequest {
   email: string;
-  password: string;
-  confirm_password: string;
+  password?: string;
+  confirm_password?: string;
+  first_name?: string;
+  last_name?: string;
 }
 
 export interface IUpdateUserRequest {
-  id: string;
   first_name?: string;
   last_name?: string;
   password?: string;
-  date_of_birth?: Date;
+  date_of_birth?: string;
   gender?: EGender;
   avatar_url?: string;
   phone_number?: string;
   phone_code?: string;
+  deleted_at?: Date;
 }
 
 export interface IGetUsersRequest {
@@ -23,6 +25,9 @@ export interface IGetUsersRequest {
   limit?: number;
 }
 
-export interface IUpdateAvatarRequest {
-  avatar: any; // Multipart file
+export interface IAddUserPhoneRequest {
+  phone_number: string;
+  phone_code: string;
+  is_verified: boolean;
+  is_default: boolean;
 }

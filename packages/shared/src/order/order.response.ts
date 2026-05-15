@@ -1,17 +1,8 @@
-import { IOrder } from "./order.types";
+import { Order, IPaginatedResult } from "../index";
 
+export type IOrderResponse = Order;
 
-export type IOrderResponse = IOrder;
-
-export interface IOrderListResponse {
-  items: IOrder[];
-  meta: {
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
-  };
-}
+export type IOrderListResponse = IPaginatedResult<Order>;
 
 export interface ICancelOrderResponse {
   success: boolean;

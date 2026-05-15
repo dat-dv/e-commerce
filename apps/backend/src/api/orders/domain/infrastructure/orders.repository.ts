@@ -1,16 +1,28 @@
 import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { EOrderStatus } from '../entities/order-status.enum';
-import { ICreateOrderInput, IOrder } from '@ecommerce/shared';
-import { Prisma } from 'generated/prisma/client';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { Order, Prisma } from '../../../../../generated/prisma/client';
+import { EOrderStatus, IPaginatedResult } from '@ecommerce/shared';
+
+interface ICreateOrderInput {
+  user_id: string;
+  total_amount: number;
+  discount_amount?: number;
+  shipping_address_id?: string;
+  coupon_id?: string;
+  items: { sku_id: string; quantity: number; price: number; flash_sale_id?: string; snapshot?: unknown }[];
+}
 
 @Injectable()
 export class OrdersRepository implements IOrdersRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly paginationService: PaginationService,
+  ) {}
 
-  async createOrder(data: ICreateOrderInput): Promise<IOrder> {
-    const order = await this.prisma.order.create({
+  async createOrder(data: ICreateOrderInput): Promise<Order> {
+    return this.prisma.order.create({
       data: {
         user_id: data.user_id,
         total_amount: data.total_amount,
@@ -28,36 +40,96 @@ export class OrdersRepository implements IOrdersRepository {
           })),
         },
       },
-      include: { items: true },
+      include: {
+        items: {
+          include: {
+            sku: {
+              include: {
+                product: {
+                  include: {
+                    translations: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     });
-
-    return order;
   }
 
-  async getUserOrders(userId: string): Promise<IOrder[]> {
-    const orders = await this.prisma.order.findMany({
-      where: { user_id: userId },
-      orderBy: { created_at: 'desc' },
-      include: { items: true },
+  async findById(id: string): Promise<Order | null> {
+    return this.prisma.order.findUnique({
+      where: { id },
+      include: {
+        items: {
+          include: {
+            sku: {
+              include: {
+                product: {
+                  include: {
+                    translations: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     });
-    return orders;
   }
 
-  async updateStatus(id: string, status: number): Promise<IOrder> {
-    const order = await this.prisma.order.update({
+  async getUserOrders(
+    userId: string,
+    params?: { status?: number[]; page?: number; limit?: number },
+  ): Promise<IPaginatedResult<Order>> {
+    const page = params?.page || 1;
+    const limit = params?.limit || 10;
+
+    const result = await this.paginationService.paginate(
+      this.prisma.order,
+      {
+        where: {
+          user_id: userId,
+          ...(params?.status && params.status.length > 0 && { status: { in: params.status } }),
+        },
+        orderBy: { created_at: 'desc' },
+        include: {
+          items: {
+            include: {
+              sku: {
+                include: {
+                  product: {
+                    include: {
+                      translations: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      page,
+      limit,
+    );
+
+    return result;
+  }
+
+  async updateStatus(id: string, status: number): Promise<Order> {
+    return this.prisma.order.update({
       where: { id },
       data: { status },
       include: { items: true },
     });
-    return order;
   }
 
-  async cancelOrder(id: string, userId: string): Promise<IOrder> {
-    const order = await this.prisma.order.update({
+  async cancelOrder(id: string, userId: string): Promise<Order> {
+    return this.prisma.order.update({
       where: { id, user_id: userId },
       data: { status: EOrderStatus.CANCELLED },
       include: { items: true },
     });
-    return order;
   }
 }

@@ -1,11 +1,11 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { IUsersRepository } from '../entities/users.repository.interface';
-import { IUser } from '@ecommerce/shared';
+import { IPaginatedResult, IUpdateUserRequest } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import * as crypto from 'crypto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
-import { UpdateUserDto } from '../../dto/update-user.dto';
+import { User, Prisma } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -14,8 +14,8 @@ export class UsersRepository implements IUsersRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async findById(id: string): Promise<IUser | null> {
-    const prismaUser = await this.prisma.user.findUnique({
+  async findById(id: string): Promise<User | null> {
+    return this.prisma.user.findUnique({
       where: { id },
       include: {
         role: true,
@@ -27,18 +27,10 @@ export class UsersRepository implements IUsersRepository {
         },
       },
     });
-
-    if (!prismaUser) return null;
-    const { avatar, password, salt, phones, ...rest } = prismaUser;
-    return {
-      ...rest,
-      phone: phones?.[0],
-      avatar_url: avatar?.url,
-    };
   }
 
-  async findByEmail(email: string, withSalt?: boolean): Promise<IUser | null> {
-    const prismaUser = await this.prisma.user.findUnique({
+  async findByEmail(email: string): Promise<User | null> {
+    return this.prisma.user.findUnique({
       where: { email },
       include: {
         role: true,
@@ -50,21 +42,13 @@ export class UsersRepository implements IUsersRepository {
         },
       },
     });
-
-    if (!prismaUser) return null;
-    const { avatar, password, salt, phones, ...rest } = prismaUser;
-    return {
-      ...rest,
-      avatar_url: avatar?.url,
-      phone: phones?.[0],
-      ...(withSalt ? { password, salt } : {}),
-    };
   }
-  async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUser> {
+
+  async updateUserProfile(id: string, updateData: IUpdateUserRequest): Promise<User> {
     const { phone_number, phone_code, avatar_url, ...userData } = updateData;
-    const isUpdatePhone = phone_number && phone_code;
-    // Wrap everything in an interactive transaction
-    const updatedUser = await this.prisma.$transaction(async (tx) => {
+    const isUpdatePhone = !!(phone_number && phone_code);
+
+    return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       if (isUpdatePhone) {
         await tx.userPhone.updateMany({
           where: {
@@ -76,18 +60,16 @@ export class UsersRepository implements IUsersRepository {
           },
         });
 
-        // Create the new default phone
         await tx.userPhone.create({
           data: {
             user_id: id,
-            phone_number,
-            phone_code,
+            phone_number: phone_number || '',
+            phone_code: phone_code || '',
             is_default: true,
           },
         });
       }
 
-      // 2. Update the user profile and fetch the final state
       return tx.user.update({
         where: { id },
         data: {
@@ -101,63 +83,63 @@ export class UsersRepository implements IUsersRepository {
           }),
         },
         include: {
+          role: true,
           avatar: true,
-          phones: true,
+          phones: {
+            where: { is_default: true },
+          },
         },
       });
     });
-
-    const { avatar, password, salt, phones, ...rest } = updatedUser;
-
-    return {
-      ...rest,
-      avatar_url: avatar?.url,
-      phone: phones?.[0],
-    };
   }
 
-  async updatePassword(id: string, passwordRaw: string): Promise<IUser> {
+  async updatePassword(id: string, passwordRaw: string): Promise<User> {
     const salt = crypto.randomBytes(16).toString('hex');
     const hashedPassword = crypto.pbkdf2Sync(passwordRaw, salt, 1000, 64, 'sha512').toString('hex');
-    const user = await this.findById(id);
-    if (!user) {
-      throw new BadRequestException('User not found');
-    }
-    const prismaUser = await this.prisma.user.update({
+
+    return this.prisma.user.update({
       where: { id },
       data: {
         password: hashedPassword,
         salt,
       },
+      include: {
+        role: true,
+        avatar: true,
+        phones: { where: { is_default: true } },
+      },
     });
-
-    return prismaUser;
   }
 
-  async create(data: { email: string; first_name: string; last_name: string; password: string }): Promise<IUser> {
+  async create(data: { email: string; password?: string; first_name?: string; last_name?: string }): Promise<User> {
     const newSalt = crypto.randomBytes(16).toString('hex');
-    const hashedPassword = crypto.pbkdf2Sync(data.password, newSalt, 1000, 64, 'sha512').toString('hex');
+    const hashedPassword = data.password
+      ? crypto.pbkdf2Sync(data.password, newSalt, 1000, 64, 'sha512').toString('hex')
+      : undefined;
 
-    const user = await this.prisma.user.create({
+    return this.prisma.user.create({
       data: {
         ...data,
-        password: hashedPassword,
-        salt: newSalt,
+        password: hashedPassword || '',
+        salt: hashedPassword ? newSalt : '',
         role: {
           connect: { role_name: ROLE_USER },
         },
       },
-      include: { role: true, avatar: true },
+      include: { role: true, avatar: true, phones: { where: { is_default: true } } },
     });
-    const { avatar, password, salt, ...rest } = user;
-    return { ...rest, avatar_url: avatar?.url };
   }
 
-  async findAll(page: number, limit: number) {
-    const result = await this.paginationService.paginate<IUser>(
+  async findAll(page: number, limit: number): Promise<IPaginatedResult<User>> {
+    const result = await this.paginationService.paginate(
       this.prisma.user,
       {
         where: { deleted_at: null },
+        include: {
+          role: true,
+          avatar: true,
+          phones: { where: { is_default: true } },
+        },
       },
       page,
       limit,
@@ -182,7 +164,9 @@ export class UsersRepository implements IUsersRepository {
       },
     });
 
-    return user?.role?.permissions.map((p) => p.permission.permission_name) || [];
+    if (!user?.role) return [];
+
+    return user.role.permissions.map((p) => p.permission.permission_name);
   }
 
   async getUserAvatarPublicId(userId: string): Promise<string | null> {
@@ -213,5 +197,12 @@ export class UsersRepository implements IUsersRepository {
     });
 
     return true;
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.prisma.user.update({
+      where: { id },
+      data: { deleted_at: new Date() },
+    });
   }
 }

@@ -1,8 +1,8 @@
-import { AddressLabel } from "@ecommerce/shared";
+import { EAddressLabel } from "@ecommerce/shared";
 
 export const SHIPPING_ADDRESS_LABELS_OPTIONS = [
-  { label: "Home", value: AddressLabel.HOME },
-  { label: "Work", value: AddressLabel.OFFICE },
-  { label: "Apartment", value: AddressLabel.APARTMENT },
-  { label: "Other", value: AddressLabel.OTHER },
+  { label: "Home", value: EAddressLabel.HOME },
+  { label: "Work", value: EAddressLabel.OFFICE },
+  { label: "Apartment", value: EAddressLabel.APARTMENT },
+  { label: "Other", value: EAddressLabel.OTHER },
 ];

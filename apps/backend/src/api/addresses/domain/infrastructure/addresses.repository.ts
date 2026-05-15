@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import {
-  IAddressesRepository,
-  ICreateAddressInput,
-  IUpdateAddressInput,
-} from '../entities/addresses.repository.interface';
+import { IAddressesRepository } from '../entities/addresses.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { ShippingAddress } from 'generated/prisma/client';
+import { ShippingAddress } from '../../../../../generated/prisma/client';
+import { ICreateAddressInput, IUpdateAddressInput } from '@ecommerce/shared';
 
 @Injectable()
 export class AddressesRepository implements IAddressesRepository {

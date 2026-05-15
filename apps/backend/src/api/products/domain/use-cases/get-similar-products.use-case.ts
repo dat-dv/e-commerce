@@ -9,15 +9,17 @@ export class GetSimilarProductsUseCase {
   ) {}
 
   async execute(productId: string, limit = 4, languageCode = 'vi') {
-    const product = await this.productsRepository.findById(productId, languageCode);
-    if (!product) {
+    const categoryIds = await this.productsRepository.getProductCategories(productId);
+
+    if (categoryIds === null) {
       throw new NotFoundException('Product not found');
     }
 
-    const categoryId = product.categories?.[0]?.category_id;
-    if (!categoryId) {
+    if (categoryIds.length === 0) {
       return [];
     }
+
+    const categoryId = categoryIds[0];
 
     return this.productsRepository.getSimilarProducts(categoryId, limit, languageCode);
   }

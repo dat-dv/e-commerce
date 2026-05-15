@@ -1,7 +1,8 @@
 import { IsString, MinLength } from 'class-validator';
 import { Match } from 'src/common/decorators/match.decorator';
+import { IChangePasswordRequest } from '@ecommerce/shared';
 
-export class ChangePasswordDto {
+export class ChangePasswordDto implements IChangePasswordRequest {
   @IsString()
   old_password: string;
 

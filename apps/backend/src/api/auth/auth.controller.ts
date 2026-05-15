@@ -18,6 +18,13 @@ import { VerifyPhoneUseCase } from './domain/use-cases/verify-phone.use-case';
 import { ChangePasswordUseCase } from './domain/use-cases/change-password.use-case';
 import { AuthGuard } from './guards/auth.guard';
 import { ConfigService } from '@nestjs/config';
+import {
+  IApiResponse,
+  IAuthMeResponse,
+  ILoginResponse,
+  IRegisterResponse,
+  IUserProfileResponse,
+} from '@ecommerce/shared';
 import { EnvVars } from 'src/config/config.validation';
 
 @Controller('auth')
@@ -37,7 +44,7 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Get('me')
-  async me(@Req() req: express.Request) {
+  async me(@Req() req: express.Request): Promise<IApiResponse<IAuthMeResponse>> {
     const user = await this.getMeUseCase.execute(req.user.sub);
     return createSuccessResponse(user);
   }
@@ -50,7 +57,10 @@ export class AuthController {
   }
 
   @Post('login')
-  async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: express.Response) {
+  async login(
+    @Body() dto: LoginDto,
+    @Res({ passthrough: true }) res: express.Response,
+  ): Promise<IApiResponse<ILoginResponse>> {
     const result = await this.loginUseCase.execute(dto);
     this.setAccessTokenCookies(result.accessToken, res);
     this.setRefreshTokenCookies(result.refreshToken, res);
@@ -58,7 +68,10 @@ export class AuthController {
   }
 
   @Post('register')
-  async register(@Body() dto: RegisterDto, @Res({ passthrough: true }) res: express.Response) {
+  async register(
+    @Body() dto: RegisterDto,
+    @Res({ passthrough: true }) res: express.Response,
+  ): Promise<IApiResponse<IRegisterResponse>> {
     const result = await this.registerUseCase.execute(dto);
     this.setAccessTokenCookies(result.accessToken, res);
     this.setRefreshTokenCookies(result.refreshToken, res);

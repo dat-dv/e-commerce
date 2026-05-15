@@ -1,11 +1,10 @@
-import { IPermission } from '@ecommerce/shared';
+import { IPermission, IPaginatedResult } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 export interface IPermissionsRepository {
   create(data: Prisma.PermissionCreateInput): Promise<IPermission>;
 
-  findAll(page: number, limit: number): Promise<PaginatedResult<IPermission>>;
+  findAll(page: number, limit: number): Promise<IPaginatedResult<IPermission>>;
 
   findById(id: string): Promise<IPermission | null>;
 

@@ -1,7 +1,8 @@
 import { IsEmail, IsString, MinLength } from 'class-validator';
 import { Match } from 'src/common/decorators/match.decorator';
+import { IRegisterRequest } from '@ecommerce/shared';
 
-export class RegisterDto {
+export class RegisterDto implements IRegisterRequest {
   @IsEmail()
   email: string;
 

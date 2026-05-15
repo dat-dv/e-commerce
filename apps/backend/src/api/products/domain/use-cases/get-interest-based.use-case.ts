@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct } from '@ecommerce/shared';
+import { Product } from '@ecommerce/shared';
 
 @Injectable()
 export class GetInterestBasedUseCase {
@@ -9,8 +9,8 @@ export class GetInterestBasedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(take: number, userId?: string): Promise<IProduct[]> {
-    let basedOnInterest: IProduct[] = [];
+  async execute(take: number, userId?: string): Promise<Product[]> {
+    let basedOnInterest: Product[] = [];
 
     if (userId) {
       const topCategoryId = await this.productsRepository.getUserTopCategory(userId);

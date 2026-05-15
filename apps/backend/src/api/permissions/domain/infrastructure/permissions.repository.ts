@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IPermissionsRepository } from '../entities/permissions.repository.interface';
-import { IPermission } from '@ecommerce/shared';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
+import { IPermission, IPaginatedResult } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from 'generated/prisma/client';
@@ -19,8 +18,9 @@ export class PermissionsRepository implements IPermissionsRepository {
     });
   }
 
-  async findAll(page: number, limit: number): Promise<PaginatedResult<IPermission>> {
-    return this.paginationService.paginate<IPermission>(this.prisma.permission, {}, page, limit);
+  async findAll(page: number, limit: number): Promise<IPaginatedResult<IPermission>> {
+    const result = await this.paginationService.paginate(this.prisma.permission, {}, page, limit);
+    return result;
   }
 
   async findById(id: string): Promise<IPermission | null> {

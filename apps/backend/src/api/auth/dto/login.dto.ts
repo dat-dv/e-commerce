@@ -1,6 +1,7 @@
 import { IsEmail, IsString, MinLength } from 'class-validator';
+import { ILoginRequest } from '@ecommerce/shared';
 
-export class LoginDto {
+export class LoginDto implements ILoginRequest {
   @IsEmail()
   email: string;
 

@@ -1,19 +1,18 @@
-import { IRole } from '@ecommerce/shared';
+import { Role, IPaginatedResult } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
-import { PaginatedResult } from 'src/shared/services/pagination/pagination.service';
 
 export interface IRolesRepository {
-  create(data: Prisma.RoleCreateInput): Promise<IRole>;
+  create(data: Prisma.RoleCreateInput): Promise<Role>;
 
-  findAll(page: number, limit: number): Promise<PaginatedResult<IRole>>;
+  findAll(page: number, limit: number): Promise<IPaginatedResult<Role>>;
 
-  findById(id: string): Promise<IRole | null>;
+  findById(id: string): Promise<Role | null>;
 
-  findByName(name: string): Promise<IRole | null>;
+  findByName(name: string): Promise<Role | null>;
 
-  update(id: string, data: Prisma.RoleUpdateInput): Promise<IRole>;
+  update(id: string, data: Prisma.RoleUpdateInput): Promise<Role>;
 
-  delete(id: string): Promise<IRole>;
+  delete(id: string): Promise<Role>;
 
   countUsersWithRole(roleId: string): Promise<number>;
 }

@@ -3,7 +3,7 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
 import { NotificationService } from 'src/api/notifications/notifications.service';
-import { IOrder } from '@ecommerce/shared';
+import { Order } from 'generated/prisma/client';
 
 @Injectable()
 export class UpdateOrderStatusUseCase {
@@ -14,7 +14,7 @@ export class UpdateOrderStatusUseCase {
     private readonly notificationService: NotificationService,
   ) {}
 
-  async execute(id: string, newStatus: number, isAdmin = false): Promise<IOrder> {
+  async execute(id: string, newStatus: number, isAdmin = false): Promise<Order> {
     if (!isAdmin) {
       throw new UnauthorizedException('Only admins can update order status');
     }
@@ -33,7 +33,7 @@ export class UpdateOrderStatusUseCase {
       throw new BadRequestException('Cannot update status of a delivered or cancelled order');
     }
 
-    let updatedOrder: IOrder;
+    let updatedOrder: Order;
 
     // 2. Logic hoàn trả hàng nếu chuyển sang CANCELLED hoặc REFUNDED
     if (newStatus === Number(EOrderStatus.CANCELLED) || newStatus === Number(EOrderStatus.REFUNDED)) {

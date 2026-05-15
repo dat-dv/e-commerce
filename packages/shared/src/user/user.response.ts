@@ -1,22 +1,10 @@
-import { User, Role, Image, ShippingAddress } from "../generate/browser";
-import { IAddress, IUserPhone } from "./user.types";
+import { User, IPaginatedResult } from "../index";
 
-export interface IUserProfileResponse extends User {
-  role: Role | null;
-  avatar: Image | null;
-  default_phone: IUserPhone | null;
-}
+export type IUserProfileResponse = User;
 
-export type IUpdateUserResponse = IUserProfileResponse;
-
-export interface IDeleteUserResponse {
-  id: string;
+export interface IUpdateProfileResponse {
   success: boolean;
+  user: User;
 }
 
-export interface IGetUsersResponse {
-  data: IUserProfileResponse[];
-  total: number;
-  page: number;
-  limit: number;
-}
+export type IGetUsersResponse = IPaginatedResult<User>;

@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { FindOneUserUseCase } from './find-one-user.use-case';
 import { IUsersRepository } from '../entities/users.repository.interface';
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { IUser } from '@ecommerce/shared';
+import { User, EGender } from '@ecommerce/shared';
 
 describe('FindOneUserUseCase', () => {
   let useCase: FindOneUserUseCase;
@@ -35,7 +35,7 @@ describe('FindOneUserUseCase', () => {
   });
 
   it('should throw ForbiddenException if user does not have permission', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -46,6 +46,9 @@ describe('FindOneUserUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
@@ -54,7 +57,7 @@ describe('FindOneUserUseCase', () => {
   });
 
   it('should return user if has permission', async () => {
-    const user: IUser = {
+    const user: User = {
       id: 'user-1',
       first_name: 'Test',
       last_name: 'User',
@@ -65,6 +68,9 @@ describe('FindOneUserUseCase', () => {
       updated_at: new Date(),
       deleted_at: null,
       role_id: null,
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue(['DETAIL:OWN_USER']);

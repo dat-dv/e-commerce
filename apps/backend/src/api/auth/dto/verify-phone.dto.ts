@@ -1,6 +1,7 @@
 import { IsString, IsNotEmpty } from 'class-validator';
+import { IVerifyPhoneRequest } from '@ecommerce/shared';
 
-export class VerifyPhoneDto {
+export class VerifyPhoneDto implements IVerifyPhoneRequest {
   @IsString()
   @IsNotEmpty()
   token: string;

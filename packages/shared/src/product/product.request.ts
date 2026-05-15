@@ -1,7 +1,6 @@
 import { EProductSort } from "./product.types";
 
-
-export interface IGetProductsRequest {
+export interface IGetProductsParams {
   page?: number;
   limit?: number;
   search?: string;
@@ -13,9 +12,4 @@ export interface IGetProductsRequest {
   attribute_value_ids?: string[];
   sort?: EProductSort;
   languageCode?: string;
-}
-
-export interface IGetProductReviewsRequest {
-  page?: number;
-  limit?: number;
 }

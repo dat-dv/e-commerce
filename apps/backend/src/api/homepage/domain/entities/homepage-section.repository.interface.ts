@@ -1,9 +1,22 @@
-// src/api/homepage/domain/entities/homepage-section.repository.interface.ts
+import { HomepageSection, Prisma } from '../../../../../generated/prisma/client';
 
-import { IHomepageSection } from '@ecommerce/shared';
+export type HomepageSectionWithDetails = Prisma.HomepageSectionGetPayload<{
+  include: {
+    categories: {
+      include: {
+        translations: true;
+      };
+    };
+    translations: {
+      include: {
+        language: true;
+      };
+    };
+  };
+}>;
 
 export interface IHomepageSectionRepository {
-  findAllEnabled(isLoggedIn?: boolean): Promise<IHomepageSection[]>;
+  findAllEnabled(isLoggedIn?: boolean): Promise<HomepageSectionWithDetails[]>;
 }
 
 export const IHomepageSectionRepository = Symbol('IHomepageSectionRepository');

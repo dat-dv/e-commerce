@@ -1,18 +1,7 @@
-import { IProduct, IReview } from "./product.types";
+import { Product, IPaginatedResult } from "../index";
 
+export type IProductResponse = Product;
 
-export interface IProductDetailResponse extends IProduct {}
+export type IProductDetailResponse = Product;
 
-export interface IProductListResponse {
-  data: IProduct[];
-  total: number;
-  page: number;
-  limit: number;
-}
-
-export interface IReviewListResponse {
-  data: IReview[];
-  total: number;
-  page: number;
-  limit: number;
-}
+export type IProductListResponse = IPaginatedResult<Product>;

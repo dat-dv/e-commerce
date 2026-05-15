@@ -4,7 +4,7 @@ import { TokenService } from 'src/shared/services/token/token.service';
 import { CreateUserUseCase } from 'src/api/users/domain/use-cases/create-user.use-case';
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { ConfigService } from '@nestjs/config';
-import { IUser } from '@ecommerce/shared';
+import { User, EGender } from '@ecommerce/shared';
 
 describe('RegisterUseCase', () => {
   let useCase: RegisterUseCase;
@@ -53,13 +53,20 @@ describe('RegisterUseCase', () => {
   });
 
   it('should register successfully and return tokens', async () => {
-    const user: IUser = {
+    const user: User = {
       id: '1',
       first_name: 'Test',
       last_name: 'User',
       email: 'test@example.com',
       avatar_id: null,
       password: 'password',
+      role_id: '1',
+      created_at: new Date(),
+      updated_at: new Date(),
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      salt: 'salt',
+      deleted_at: null,
     };
     mockCreateUserUseCase.execute.mockResolvedValue(user);
     mockTokenService.generateAccessToken.mockResolvedValue('at');

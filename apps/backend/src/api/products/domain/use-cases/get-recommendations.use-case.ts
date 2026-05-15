@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProduct } from '@ecommerce/shared';
+import { Product } from '@ecommerce/shared';
 
 @Injectable()
 export class GetRecommendationsUseCase {
@@ -15,7 +15,7 @@ export class GetRecommendationsUseCase {
       take: 24,
     });
 
-    let basedOnInterest: IProduct[] = [];
+    let basedOnInterest: Product[] = [];
 
     if (userId) {
       const topCategoryId = await this.productsRepository.getUserTopCategory(userId);
