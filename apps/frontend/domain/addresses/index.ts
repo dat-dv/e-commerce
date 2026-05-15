@@ -6,6 +6,10 @@ import {
 } from "./use-cases/get-addresses.use-case";
 import { CreateAddressUseCase } from "./use-cases/create-address.use-case";
 import { UpdateAddressUseCase } from "./use-cases/update-address.use-case";
+import {
+  DeleteAddressUseCase,
+  SetDefaultAddressUseCase,
+} from "./use-cases/delete-address.use-case";
 
 const repo = new AddressesRepository(appRequest);
 
@@ -14,4 +18,6 @@ export const addressesUseCase = {
   getDefaultAddress: new GetDefaultAddressUseCase(repo),
   createAddress: new CreateAddressUseCase(repo),
   updateAddress: new UpdateAddressUseCase(repo),
+  deleteAddress: new DeleteAddressUseCase(repo),
+  setDefaultAddress: new SetDefaultAddressUseCase(repo),
 };

@@ -11,6 +11,8 @@ export interface IAddressesRepository {
     id: string,
     data: Partial<TCreateAddressInput>,
   ): Promise<ApiResponse<TAddress>>;
+  deleteAddress(id: string): Promise<ApiResponse<void>>;
+  setDefaultAddress(id: string): Promise<ApiResponse<TAddress>>;
 }
 
 export class AddressesRepository implements IAddressesRepository {
@@ -56,6 +58,20 @@ export class AddressesRepository implements IAddressesRepository {
     const response = await this.request.patch<IAddressDTO>(
       `${API_ROUTES.ADDRESSES.BASE}/${id}`,
       data,
+    );
+    return {
+      ...response,
+      data: response.data ? AddressMapper.toDomain(response.data) : undefined,
+    } as ApiResponse<TAddress>;
+  }
+  async deleteAddress(id: string): Promise<ApiResponse<void>> {
+    return this.request.delete<void>(`${API_ROUTES.ADDRESSES.BASE}/${id}`);
+  }
+
+  async setDefaultAddress(id: string): Promise<ApiResponse<TAddress>> {
+    const response = await this.request.patch<IAddressDTO>(
+      `${API_ROUTES.ADDRESSES.BASE}/${id}`,
+      { is_default: true },
     );
     return {
       ...response,

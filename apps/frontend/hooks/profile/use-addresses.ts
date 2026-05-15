@@ -1,51 +1,51 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
+"use client";
 
-export interface Address {
-  id: string;
-  label: string;
-  receiverName: string;
-  receiverPhone: string;
-  street: string;
-  city: string;
-  state: string;
-  country: string;
-  postalCode: string;
-  latitude: number;
-  longitude: number;
-  detailAddress: string;
-  isDefault: boolean;
-}
+import { useState, useEffect, useCallback } from "react";
+import { toast } from "react-toastify";
+import { addressesUseCase } from "@/domain/addresses";
+import {
+  TAddress,
+  TCreateAddressInput,
+} from "@/domain/addresses/types/address.model";
+
+export type { TAddress as Address };
 
 export const useAddresses = () => {
-  const [addresses, setAddresses] = useState<Address[]>([]);
+  const [addresses, setAddresses] = useState<TAddress[]>([]);
+  const [loading, setLoading] = useState(true);
   const [adding, setAdding] = useState(false);
-  const [deletingId, setDeletingId] = useState<string | null>(null);
-  const [settingDefaultId, setSettingDefaultId] = useState<string | null>(null);
+  const [mutatingId, setMutatingId] = useState<string | null>(null);
 
-  const addAddress = async (newAddress: Omit<Address, "id">) => {
+  const fetchAddresses = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await addressesUseCase.getAddresses.execute();
+      if (response.status === "success" && response.data) {
+        setAddresses(response.data);
+      }
+    } catch {
+      toast.error("Failed to load addresses.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchAddresses();
+  }, [fetchAddresses]);
+
+  const addAddress = async (data: TCreateAddressInput): Promise<boolean> => {
     setAdding(true);
     try {
-      // Mock API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      const addressWithId = {
-        ...newAddress,
-        id: Math.random().toString(36).substr(2, 9),
-      };
-
-      if (addressWithId.isDefault) {
-        setAddresses(
-          addresses
-            .map((a) => ({ ...a, isDefault: false }))
-            .concat(addressWithId),
-        );
-      } else {
-        setAddresses([...addresses, addressWithId]);
+      const response = await addressesUseCase.createAddress.execute(data);
+      if (response.status === "success") {
+        await fetchAddresses();
+        toast.success("Address added successfully!");
+        return true;
       }
-
-      toast.success("Address added successfully!");
-      return true;
-    } catch (error) {
+      throw new Error(response.message);
+    } catch {
       toast.error("Failed to add address.");
       return false;
     } finally {
@@ -54,46 +54,49 @@ export const useAddresses = () => {
   };
 
   const deleteAddress = async (id: string) => {
-    setDeletingId(id);
+    setMutatingId(id);
     try {
-      // Mock API call
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      setAddresses(addresses.filter((addr) => addr.id !== id));
-      toast.success("Address deleted successfully!");
-    } catch (error) {
+      const response = await addressesUseCase.deleteAddress.execute(id);
+      if (response.status === "success") {
+        setAddresses((prev) => prev.filter((a) => a.id !== id));
+        toast.success("Address removed.");
+      } else {
+        throw new Error(response.message);
+      }
+    } catch {
       toast.error("Failed to delete address.");
     } finally {
-      setDeletingId(null);
+      setMutatingId(null);
     }
   };
 
   const setDefaultAddress = async (id: string) => {
-    setSettingDefaultId(id);
+    setMutatingId(id);
     try {
-      // Mock API call
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      setAddresses(
-        addresses.map((addr) => ({
-          ...addr,
-          isDefault: addr.id === id,
-        })),
-      );
-      toast.success("Default address updated!");
-    } catch (error) {
-      toast.error("Failed to update default address.");
+      const response = await addressesUseCase.setDefaultAddress.execute(id);
+      if (response.status === "success") {
+        setAddresses((prev) =>
+          prev.map((a) => ({ ...a, isDefault: a.id === id })),
+        );
+        toast.success("Default address updated.");
+      } else {
+        throw new Error(response.message);
+      }
+    } catch {
+      toast.error("Failed to set default address.");
     } finally {
-      setSettingDefaultId(null);
+      setMutatingId(null);
     }
   };
 
   return {
     addresses,
+    loading,
+    adding,
+    mutatingId,
     addAddress,
     deleteAddress,
     setDefaultAddress,
-    adding,
-    deletingId,
-    settingDefaultId,
-    loading: adding || !!deletingId || !!settingDefaultId,
+    refresh: fetchAddresses,
   };
 };
