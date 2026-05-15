@@ -16,7 +16,6 @@ export interface IProductCategory {
   is_active: boolean;
   created_at: Date;
   updated_at: Date;
-
   translations?: IProductCategoryTranslation[];
   children?: IProductCategory[];
 }

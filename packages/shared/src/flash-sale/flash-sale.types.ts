@@ -1,4 +1,4 @@
-import { IProduct, ISku } from "./product";
+import { ISku } from "../product/product.types";
 
 export interface IFlashSaleTimeSlot {
   id: string;

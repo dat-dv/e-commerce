@@ -1,6 +1,7 @@
-import { IImage } from "./image";
-import { IProductCategory } from "./product-category";
-import { IBrand } from "./brand";
+import { IImage } from "../image";
+import { IProductCategory } from "../product-category";
+import { IBrand } from "../brand";
+import { IFlashSale } from "../flash-sale";
 
 export enum EProductStatus {
   DRAFT = 0,
@@ -49,8 +50,6 @@ export interface ISkuAttributeValue {
   attribute_value?: IAttributeValue;
 }
 
-import { IFlashSale } from "./flash-sale";
-
 export interface ISkuFlashSale {
   id: string;
   flash_sale_id: string;
@@ -70,8 +69,8 @@ export interface ISku {
   stock: number;
   image_url?: string | null;
   sku_attribute_values?: ISkuAttributeValue[];
-  flash_sales?: ISkuFlashSale[]; // Quan hệ từ FlashSaleProduct
-  product?: IProduct; // Quan hệ ngược về Product
+  flash_sales?: ISkuFlashSale[];
+  product?: IProduct;
 }
 
 export interface IProductCategoryMapping {
@@ -90,7 +89,6 @@ export interface IProduct {
   created_at: Date;
   updated_at: Date;
   deleted_at?: Date | null;
-
   translations?: IProductTranslation[];
   skus?: ISku[];
   thumbnail?: IImage | null;

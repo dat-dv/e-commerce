@@ -1,4 +1,4 @@
-import { ISku } from "./product";
+import { ISku } from "../product/product.types";
 
 export interface ICartItem {
   id: string;

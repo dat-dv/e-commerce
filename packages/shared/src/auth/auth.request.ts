@@ -1,6 +1,3 @@
-/**
- * Authentication Request Interfaces (Synced with Backend DTOs)
- */
 
 export interface ILoginRequest {
   email: string;

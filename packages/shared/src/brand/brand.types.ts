@@ -1,4 +1,4 @@
-import { IImage } from "./image";
+import { IImage } from "../image";
 
 export interface IBrandTranslation {
   language_id: string;
@@ -10,7 +10,7 @@ export interface IBrandTranslation {
 export interface IBrand {
   id: string;
   slug: string;
-  name?: string; // from translation
+  name?: string;
   logo_url?: string | null;
   banner_url?: string | null;
   website_url?: string | null;

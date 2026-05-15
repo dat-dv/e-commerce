@@ -1,6 +1,4 @@
-import { IProduct } from "./product";
-import { IProductCategory } from "./product-category";
-import { IBrand } from "./brand";
+import { IProductCategory } from "../product-category/product-category.types";
 
 export enum EHomepageSectionType {
   FLASH_SALE = "flash_sale",
@@ -31,15 +29,4 @@ export interface IHomepageSection {
   translations?: IHomepageSectionTranslation[];
   created_at: Date;
   updated_at: Date;
-}
-
-export interface IHomepageSectionResponse {
-  section: {
-    id: string;
-    title: string;
-    type: EHomepageSectionType;
-    categories?: IProductCategory[];
-  };
-  data: IProduct[];
-  brands?: IBrand[];
 }

@@ -12,4 +12,4 @@ export * from "./auth";
 export * from "./order";
 export * from "./homepage";
 export * from "./prettify";
-export * from "./generate/index";
+export * from "./generate/browser";
