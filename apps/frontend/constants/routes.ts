@@ -17,6 +17,7 @@ export const APP_ROUTES = {
   CART: "/cart",
   CHECKOUT: "/checkout",
   ORDERS: "/orders",
+  ORDER_DETAIL: (id: string) => `/orders/${id}`,
   PRODUCTS: "/products",
   SEARCH: "/search",
   SETTINGS: "/settings",

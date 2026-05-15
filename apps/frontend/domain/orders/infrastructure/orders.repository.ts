@@ -21,6 +21,7 @@ export interface IOrdersRepository {
     limit?: number;
   }): Promise<ApiResponse<IOrder[]>>;
   getOrderDetail(id: string): Promise<ApiResponse<IOrder>>;
+  cancelOrder(id: string): Promise<ApiResponse<IOrder>>;
 }
 
 export class OrdersRepository implements IOrdersRepository {
@@ -58,6 +59,18 @@ export class OrdersRepository implements IOrdersRepository {
   async getOrderDetail(id: string): Promise<ApiResponse<IOrder>> {
     const response = await this.request.get<IOrderDTO>(
       API_ROUTES.ORDERS.DETAIL(id),
+    );
+
+    return {
+      ...response,
+      data: response.data ? OrderMapper.toDomain(response.data) : undefined,
+    } as ApiResponse<IOrder>;
+  }
+
+  async cancelOrder(id: string): Promise<ApiResponse<IOrder>> {
+    const response = await this.request.post<IOrderDTO>(
+      API_ROUTES.ORDERS.CANCEL(id),
+      {},
     );
 
     return {

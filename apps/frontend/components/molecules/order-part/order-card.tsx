@@ -14,9 +14,10 @@ import Link from "next/link";
 
 interface OrderCardProps {
   order: IOrder;
+  onCancelOrder?: (id: string) => void;
 }
 
-export const OrderCard = ({ order }: OrderCardProps) => {
+export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
   const status = ORDER_STATUS_CONFIG[order.status] || {
     label: "Unknown",
     color: "text-content/40 bg-content/5",
@@ -32,9 +33,12 @@ export const OrderCard = ({ order }: OrderCardProps) => {
       <div className="px-5 py-3 flex items-center justify-between border-b border-content/[0.05] bg-content/[0.02]">
         <div className="flex items-center gap-4">
           <div className="flex flex-col">
-            <span className="font-bold text-content text-xs uppercase tracking-wider">
+            <Link
+              href={APP_ROUTES.ORDER_DETAIL(order.id)}
+              className="font-bold text-content text-xs uppercase tracking-wider hover:text-primary hover:underline transition-all"
+            >
               Order #{order.id.slice(-8).toUpperCase()}
-            </span>
+            </Link>
             <span className="text-[10px] font-medium text-content/30 uppercase tracking-tight">
               {new Date(order.createdAt).toLocaleDateString("en-US", {
                 month: "short",
@@ -152,6 +156,17 @@ export const OrderCard = ({ order }: OrderCardProps) => {
           </div>
 
           <div className="flex gap-3">
+            {order.status === EOrderStatus.PENDING && (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  onCancelOrder?.(order.id);
+                }}
+                className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-red-500 border border-red-500/20 rounded-lg hover:bg-red-500/10 transition-all active:scale-95"
+              >
+                Cancel Order
+              </button>
+            )}
             {order.status === EOrderStatus.DELIVERED && (
               <>
                 <button className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-surface bg-content rounded-lg hover:bg-primary transition-all active:scale-95">
