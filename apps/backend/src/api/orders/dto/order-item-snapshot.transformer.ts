@@ -7,6 +7,14 @@ export interface ISkuSnapshotInput {
   original_price: number | null;
   image_url: string | null;
   unit_price: string | null;
+  sku_attribute_values?: {
+    attribute_value: {
+      value: string;
+      attribute: {
+        name: string;
+      };
+    };
+  }[];
   product: {
     id: string;
     slug: string;
@@ -22,6 +30,10 @@ export class OrderItemSnapshotTransformer {
     const nameTranslation =
       sku.product.translations.find((t) => t.language_id === preferredLanguage) ?? sku.product.translations[0];
 
+    const attributes = sku.sku_attribute_values
+      ?.map((av) => `${av.attribute_value.attribute.name}: ${av.attribute_value.value}`)
+      .join(', ');
+
     return {
       sku: {
         id: sku.id,
@@ -30,6 +42,7 @@ export class OrderItemSnapshotTransformer {
         original_price: sku.original_price,
         image_url: sku.image_url,
         unit_price: sku.unit_price,
+        attributes: attributes ?? null,
         product: {
           id: sku.product.id,
           slug: sku.product.slug,

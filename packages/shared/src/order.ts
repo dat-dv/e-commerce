@@ -16,6 +16,7 @@ export interface IOrderItemSnapshot {
     original_price: number | null;
     image_url: string | null;
     unit_price: string | null;
+    attributes: string | null;
     product: {
       id: string;
       slug: string;

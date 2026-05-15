@@ -12,8 +12,8 @@ export class PlaceOrderUseCase {
 
 export class GetOrdersUseCase {
   constructor(private ordersRepository: IOrdersRepository) {}
-  async execute() {
-    return this.ordersRepository.getOrders();
+  async execute(params?: { status?: number[]; page?: number; limit?: number }) {
+    return this.ordersRepository.getOrders(params);
   }
 }
 

@@ -2,8 +2,8 @@ import { OrdersView } from "@/components/organisms/orders/orders-view";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Đơn mua | E-commerce Premium",
-  description: "Quản lý lịch sử mua hàng và trạng thái đơn hàng của bạn.",
+  title: "Order History | Luxury E-commerce",
+  description: "Manage your purchase history and track your order status.",
 };
 
 export default function OrdersPage() {

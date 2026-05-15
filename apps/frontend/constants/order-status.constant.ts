@@ -6,31 +6,31 @@ export const ORDER_STATUS_CONFIG: Record<
 > = {
   [EOrderStatus.PENDING]: {
     label: "Pending",
-    color: "text-amber-600 bg-amber-50",
+    color: "text-amber-500 bg-amber-500/10",
   },
   [EOrderStatus.CONFIRMED]: {
     label: "Confirmed",
-    color: "text-blue-600 bg-blue-50",
+    color: "text-blue-500 bg-blue-500/10",
   },
   [EOrderStatus.PROCESSING]: {
     label: "Processing",
-    color: "text-indigo-600 bg-indigo-50",
+    color: "text-indigo-500 bg-indigo-500/10",
   },
   [EOrderStatus.SHIPPING]: {
     label: "Shipping",
-    color: "text-sky-600 bg-sky-50",
+    color: "text-sky-500 bg-sky-500/10",
   },
   [EOrderStatus.DELIVERED]: {
     label: "Completed",
-    color: "text-emerald-600 bg-emerald-50",
+    color: "text-emerald-500 bg-emerald-500/10",
   },
   [EOrderStatus.CANCELLED]: {
     label: "Cancelled",
-    color: "text-gray-500 bg-gray-50",
+    color: "text-content/40 bg-content/10",
   },
   [EOrderStatus.REFUNDED]: {
     label: "Returned/Refunded",
-    color: "text-rose-600 bg-rose-50",
+    color: "text-rose-500 bg-rose-500/10",
   },
 };
 

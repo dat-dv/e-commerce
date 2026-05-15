@@ -59,7 +59,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             ref={inputRef}
             disabled={isDisabled}
             readOnly={true}
-            className="w-full bg-transparent border-none outline-none focus:outline-none z-10 font-semibold cursor-pointer py-1"
+            className="w-full bg-transparent border-none outline-none focus:outline-none z-10 font-normal cursor-pointer py-1"
             placeholder="DD/MM/YYYY"
           />
           <div className="ml-auto text-content/30 hover:text-content/60 transition-colors cursor-pointer z-10">
@@ -102,7 +102,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
                 rest.onChange?.(event);
               }
             }}
-            customInput={<CustomInput />}
+            customInput={<CustomInput ref={ref} />}
             dateFormat="dd/MM/yyyy"
             maxDate={rest.maxDate}
             minDate={rest.minDate}

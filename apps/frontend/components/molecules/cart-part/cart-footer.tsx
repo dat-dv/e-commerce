@@ -28,14 +28,28 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
         </button>
       </div>
 
-      <div className="container mx-auto max-w-7xl px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-8 relative">
-        <div className="flex items-center gap-10"></div>
-        <div className="flex items-center gap-12 w-full md:w-auto justify-between md:justify-end">
-          <div className="text-right">
-            <div className="text-xs font-medium text-content/40 mb-1">
-              Order subtotal
+      <div className="container mx-auto max-w-7xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6 relative">
+        <div className="flex items-center gap-10">
+          <div className="hidden md:block">
+            <div className="text-[10px] font-bold text-content/30 uppercase tracking-[0.2em] mb-1">
+              Cart Summary
             </div>
-            <div className="text-4xl md:text-5xl font-bold text-content tracking-tighter leading-none">
+            <div className="flex items-center gap-4 text-xs font-medium text-content/60">
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                {selectedCount} Items Selected
+              </span>
+              <span className="w-px h-3 bg-content/10" />
+              <span className="text-green-500">Free Standard Shipping</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-8 w-full md:w-auto justify-between md:justify-end">
+          <div className="text-right">
+            <div className="text-[10px] font-bold text-content/30 uppercase tracking-widest mb-1">
+              Subtotal
+            </div>
+            <div className="text-2xl md:text-3xl font-black text-content tracking-tighter leading-none">
               {formatCurrency(totalAmount)}
             </div>
           </div>
@@ -43,14 +57,18 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
           <Link
             href={selectedCount > 0 ? APP_ROUTES.CHECKOUT : "#"}
             className={cn(
-              "px-16 h-16 flex items-center justify-center rounded-2xl font-bold text-sm transition-all relative overflow-hidden group",
+              "px-10 h-12 flex items-center justify-center rounded-xl font-bold text-xs uppercase tracking-widest transition-all relative overflow-hidden group",
               selectedCount > 0
-                ? "bg-primary text-surface shadow-xl shadow-primary/20 hover:opacity-90 active:scale-[0.98]"
+                ? "bg-primary text-surface shadow-lg shadow-primary/20 hover:opacity-90 active:scale-[0.98]"
                 : "bg-content/[0.05] text-content/20 cursor-not-allowed",
             )}
             onClick={(e) => selectedCount === 0 && e.preventDefault()}
           >
             Checkout
+            <ChevronRight
+              size={14}
+              className="ml-2 group-hover:translate-x-1 transition-transform"
+            />
           </Link>
         </div>
       </div>

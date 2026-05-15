@@ -13,6 +13,7 @@ export interface IOrderItem {
   quantity: number;
   price: number;
   originalPrice?: number;
+  attributes?: string;
   flashSaleId?: string;
   sku?: {
     id: string;

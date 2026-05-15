@@ -36,12 +36,10 @@ export const CartItemRow = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       className={cn(
-        "bg-surface/50 backdrop-blur-xl border rounded-[2rem] p-6 transition-all group relative overflow-hidden",
-        isOutOfStock
-          ? "opacity-60 grayscale"
-          : "hover:shadow-2xl hover:shadow-content/5 hover:border-primary/20",
+        "bg-surface/50 backdrop-blur-xl border rounded-xl p-4 transition-all group relative overflow-hidden",
+        isOutOfStock ? "opacity-60 grayscale" : "hover:border-primary/20",
         isSelected
-          ? "border-primary/40 bg-primary/[0.02] shadow-xl shadow-primary/5"
+          ? "border-primary/40 bg-primary/[0.02] shadow-sm shadow-primary/5"
           : "border-content/[0.05]",
       )}
     >
@@ -119,9 +117,9 @@ export const CartItemRow = ({
           <div className="w-24 flex justify-center">
             <button
               onClick={onRemove}
-              className="p-4 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-[1rem] transition-all"
+              className="p-3 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-lg transition-all"
             >
-              <Trash2 size={18} />
+              <Trash2 size={16} />
             </button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UseGuards, Get, Put, Param, Req } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Put, Param, Req, Query } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
@@ -32,10 +32,30 @@ export class OrdersController {
   }
 
   @Get()
-  async getUserOrders(@Req() req: Request) {
+  async getUserOrders(
+    @Req() req: Request,
+    @Query('status') status?: string | string[],
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
     const userId = req.user.sub;
-    const result = await this.getUserOrdersUseCase.execute(userId);
-    return createSuccessResponse(OrderResponseDto.toDtos(result));
+
+    // Convert status to number array if provided
+    let statusArr: number[] | undefined = undefined;
+    if (status) {
+      statusArr = (Array.isArray(status) ? status : status.split(',')).map((s) => parseInt(s, 10));
+    }
+
+    const { items, meta } = await this.getUserOrdersUseCase.execute(userId, {
+      status: statusArr,
+      page: page ? parseInt(page, 10) : undefined,
+      limit: limit ? parseInt(limit, 10) : undefined,
+    });
+
+    return createSuccessResponse({
+      items: OrderResponseDto.toDtos(items),
+      meta,
+    });
   }
 
   @Get(':id')

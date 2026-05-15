@@ -27,10 +27,10 @@ export const OrderSummary = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-8 rounded-[2.5rem] bg-surface border border-content/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] relative overflow-hidden"
+        className="p-8 rounded-[2.5rem] bg-surface/90 backdrop-blur-3xl border border-content/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] relative overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/[0.02] blur-[60px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/[0.03] blur-[60px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-8 opacity-60">
@@ -42,7 +42,7 @@ export const OrderSummary = ({
 
           {/* Recipient Summary */}
           {recipientName && (
-            <div className="mb-8 pb-6 border-b border-content/5">
+            <div className="mb-8 pb-6 border-b border-content/[0.08]">
               <div className="text-[10px] font-bold text-content/30 uppercase tracking-wider mb-2">
                 Shipping To
               </div>
@@ -64,7 +64,7 @@ export const OrderSummary = ({
             </div>
             <div className="flex justify-between text-sm text-content/60">
               <span className="capitalize">Shipping fee</span>
-              <span className="text-green-600 font-medium tracking-wide">
+              <span className="text-green-500 font-bold tracking-wide">
                 FREE
               </span>
             </div>

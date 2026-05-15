@@ -84,6 +84,13 @@ export class CreateOrderUseCase {
                   product: {
                     include: { thumbnail: true, translations: true },
                   },
+                  sku_attribute_values: {
+                    include: {
+                      attribute_value: {
+                        include: { attribute: true },
+                      },
+                    },
+                  },
                 },
               },
             },
@@ -133,6 +140,13 @@ export class CreateOrderUseCase {
               include: {
                 product: {
                   include: { thumbnail: true, translations: true },
+                },
+                sku_attribute_values: {
+                  include: {
+                    attribute_value: {
+                      include: { attribute: true },
+                    },
+                  },
                 },
               },
             });

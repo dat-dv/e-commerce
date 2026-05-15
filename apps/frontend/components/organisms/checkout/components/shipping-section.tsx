@@ -68,10 +68,10 @@ export const ShippingSection = ({
                 whileTap={{ scale: 0.995 }}
                 onClick={() => setSelectedAddressId(address.id)}
                 className={cn(
-                  "px-5 py-3.5 rounded-xl border transition-all cursor-pointer flex items-center gap-4",
+                  "px-5 py-3.5 rounded-xl border transition-all cursor-pointer flex items-center gap-4 group",
                   isSelected
-                    ? "border-primary bg-primary/[0.03] shadow-sm shadow-primary/5"
-                    : "border-content/5 hover:border-content/20 bg-surface/30",
+                    ? "border-primary bg-primary/[0.05] shadow-sm shadow-primary/5"
+                    : "border-content/5 hover:border-content/10 bg-content/[0.01] hover:bg-content/[0.03]",
                 )}
               >
                 {/* Selection Indicator */}
@@ -98,7 +98,7 @@ export const ShippingSection = ({
                         {address.phone || "No Phone"}
                       </span>
                     </div>
-                    <div className="text-content/50 text-sm truncate font-medium flex-1">
+                    <div className="text-content/50 text-sm truncate font-normal flex-1">
                       {fullAddress}
                     </div>
                   </div>
@@ -106,7 +106,7 @@ export const ShippingSection = ({
 
                 <div className="flex items-center gap-2 justify-end">
                   {address.isDefault && (
-                    <span className="shrink-0 text-[8px] font-bold px-2 py-0.5 bg-primary/5 text-primary/60 rounded-md uppercase tracking-tighter border border-primary/10">
+                    <span className="shrink-0 text-[9px] font-bold px-2 py-0.5 bg-primary/10 text-primary rounded-md uppercase tracking-tighter border border-primary/20">
                       Default
                     </span>
                   )}

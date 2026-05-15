@@ -33,6 +33,7 @@ export class OrderMapper {
       quantity: dto.quantity,
       price: dto.price,
       originalPrice: skuSnap?.original_price ?? undefined,
+      attributes: skuSnap?.attributes ?? undefined,
       flashSaleId: dto.flash_sale_id ?? undefined,
       sku: skuSnap
         ? {

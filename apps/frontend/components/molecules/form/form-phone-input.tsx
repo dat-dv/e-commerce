@@ -136,7 +136,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                 placeholder="912345678"
                 value={number}
                 onChange={handleNumberChange}
-                className="flex-1 h-full bg-transparent border-none outline-none focus:outline-none px-4 text-inherit font-semibold disabled:cursor-not-allowed placeholder:font-normal placeholder:opacity-50"
+                className="flex-1 h-full bg-transparent border-none outline-none focus:outline-none px-4 text-inherit font-normal disabled:cursor-not-allowed placeholder:opacity-50"
               />
             </div>
 

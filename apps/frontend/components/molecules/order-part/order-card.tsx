@@ -19,44 +19,48 @@ interface OrderCardProps {
 export const OrderCard = ({ order }: OrderCardProps) => {
   const status = ORDER_STATUS_CONFIG[order.status] || {
     label: "Unknown",
-    color: "text-gray-500 bg-gray-50",
+    color: "text-content/40 bg-content/5",
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-4 hover:shadow-md transition-shadow duration-300"
+      className="bg-surface/40 backdrop-blur-md rounded-xl border border-content/[0.05] overflow-hidden transition-all duration-300 hover:border-primary/20 shadow-sm"
     >
       {/* Header */}
-      <div className="px-4 py-3 flex items-center justify-between border-b border-gray-50 bg-gray-50/30">
-        <div className="flex items-center gap-3">
+      <div className="px-5 py-3 flex items-center justify-between border-b border-content/[0.05] bg-content/[0.02]">
+        <div className="flex items-center gap-4">
           <div className="flex flex-col">
-            <span className="font-semibold text-gray-800 text-sm">
+            <span className="font-bold text-content text-xs uppercase tracking-wider">
               Order #{order.id.slice(-8).toUpperCase()}
             </span>
-            <span className="text-xs text-gray-500">
-              {new Date(order.createdAt).toLocaleDateString()}
+            <span className="text-[10px] font-medium text-content/30 uppercase tracking-tight">
+              {new Date(order.createdAt).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
             </span>
           </div>
           <button
             disabled
-            className="flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-400 bg-gray-50 rounded cursor-not-allowed border border-gray-100"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-1 text-[10px] font-bold uppercase tracking-tighter text-content/20 bg-content/[0.02] rounded-md border border-content/[0.05]"
           >
             <MessageSquare className="w-3 h-3" />
-            Chat (Incoming)
+            Support
           </button>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           {order.status === EOrderStatus.SHIPPING && (
-            <div className="flex items-center gap-1 text-xs text-sky-600 border-r border-gray-200 pr-2 mr-2">
+            <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold text-primary uppercase tracking-wider border-r border-content/[0.05] pr-4">
               <Truck className="w-3.5 h-3.5" />
-              <span>Shipping</span>
+              <span>In Transit</span>
             </div>
           )}
           <span
             className={cn(
-              "px-2 py-1 text-xs font-semibold rounded",
+              "px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full",
               status.color,
             )}
           >
@@ -66,46 +70,46 @@ export const OrderCard = ({ order }: OrderCardProps) => {
       </div>
 
       {/* Items */}
-      <div className="divide-y divide-gray-50">
+      <div className="divide-y divide-content/[0.05]">
         {order.items.map((item) => {
           const productSlug = item.sku?.product?.slug;
           const itemContent = (
-            <div className="p-4 flex gap-4 transition-colors hover:bg-gray-50/50">
-              <div className="relative w-20 h-20 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0 border border-gray-100">
+            <div className="p-5 flex gap-5 transition-colors hover:bg-content/[0.02]">
+              <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-content/[0.05] bg-content/[0.02]">
                 {item.sku?.imageUrl ? (
                   <Image
                     src={item.sku.imageUrl}
                     alt={item.sku.product?.name || "Product"}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform group-hover:scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    <Store className="w-8 h-8" />
+                  <div className="w-full h-full flex items-center justify-center text-content/10">
+                    <Store className="w-6 h-6" />
                   </div>
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-medium text-gray-900 line-clamp-2 leading-relaxed">
-                  {item.sku?.product?.name || "Product Name"}
-                </h3>
-                <p className="mt-1 text-xs text-gray-500">
-                  Variant: {item.sku?.skuCode || "Default"}
+                <div className="flex justify-between items-start gap-4">
+                  <h3 className="text-xs font-bold text-content line-clamp-1 leading-tight group-hover:text-primary transition-colors">
+                    {item.sku?.product?.name || "Product Name"}
+                  </h3>
+                  <div className="text-sm font-black text-content tracking-tighter shrink-0">
+                    {formatCurrency(item.price)}
+                  </div>
+                </div>
+                <p className="mt-1 text-[10px] font-medium text-content/30 uppercase tracking-tight">
+                  {item.attributes || `Code: ${item.sku?.skuCode || "Default"}`}
                 </p>
                 <div className="mt-2 flex items-center justify-between">
-                  <span className="text-sm text-gray-700">
-                    x{item.quantity}
-                  </span>
-                  <div className="flex flex-col items-end">
-                    <span className="text-sm font-semibold text-primary">
-                      {formatCurrency(item.price)}
-                    </span>
-                    {item.originalPrice && item.originalPrice > item.price && (
-                      <span className="text-[10px] text-gray-400 line-through">
-                        {formatCurrency(item.originalPrice)}
-                      </span>
-                    )}
+                  <div className="text-[10px] font-bold text-content/40 bg-content/[0.05] px-1.5 py-0.5 rounded">
+                    Quantity: {item.quantity}
                   </div>
+                  {item.originalPrice && item.originalPrice > item.price && (
+                    <span className="text-[10px] text-content/20 line-through">
+                      {formatCurrency(item.originalPrice)}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -115,7 +119,7 @@ export const OrderCard = ({ order }: OrderCardProps) => {
             <Link
               key={item.id}
               href={APP_ROUTES.PRODUCT_DETAIL(productSlug)}
-              className="block"
+              className="block group"
             >
               {itemContent}
             </Link>
@@ -126,33 +130,35 @@ export const OrderCard = ({ order }: OrderCardProps) => {
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-4 bg-gray-50/30 border-t border-gray-50">
-        <div className="flex flex-col items-end gap-2">
-          {order.discountAmount > 0 && (
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-gray-500">Giảm giá:</span>
-              <span className="text-rose-500">
-                -{formatCurrency(order.discountAmount)}
+      <div className="px-5 py-4 bg-content/[0.01] border-t border-content/[0.05]">
+        <div className="flex flex-col items-end gap-3">
+          <div className="flex flex-col items-end gap-1">
+            {order.discountAmount > 0 && (
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-tight">
+                <span className="text-content/30">Savings:</span>
+                <span className="text-red-500">
+                  -{formatCurrency(order.discountAmount)}
+                </span>
+              </div>
+            )}
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] font-bold text-content/40 uppercase tracking-widest">
+                Total Amount
+              </span>
+              <span className="text-2xl font-black text-content tracking-tighter">
+                {formatCurrency(order.totalAmount)}
               </span>
             </div>
-          )}
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-700">
-              Thành tiền:
-            </span>
-            <span className="text-xl font-bold text-primary">
-              {formatCurrency(order.totalAmount)}
-            </span>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {order.status === EOrderStatus.DELIVERED && (
               <>
-                <button className="px-6 py-2 text-sm font-semibold text-white bg-primary rounded-md shadow-sm hover:bg-primary/90 transition-all active:scale-95">
-                  Review
+                <button className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-surface bg-content rounded-lg hover:bg-primary transition-all active:scale-95">
+                  Review Product
                 </button>
-                <button className="px-4 py-2 text-sm font-medium text-gray-700 border border-gray-200 rounded-md hover:bg-white transition-colors">
-                  Buy Again
+                <button className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-content/60 border border-content/[0.1] rounded-lg hover:bg-content/[0.05] transition-all">
+                  Order Again
                 </button>
               </>
             )}

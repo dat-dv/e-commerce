@@ -1,5 +1,9 @@
 import { API_ROUTES } from "@/constants/routes";
-import { ApiResponse, TRequest } from "@/utils/request/request.types";
+import {
+  ApiResponse,
+  IPaginationMeta,
+  TRequest,
+} from "@/utils/request/request.types";
 import { IOrder } from "../types/order.model";
 import { IOrderDTO, OrderMapper } from "./order.mapper";
 
@@ -11,7 +15,11 @@ export interface IPlaceOrderParams {
 
 export interface IOrdersRepository {
   placeOrder(params: IPlaceOrderParams): Promise<ApiResponse<IOrder>>;
-  getOrders(): Promise<ApiResponse<IOrder[]>>;
+  getOrders(params?: {
+    status?: number[];
+    page?: number;
+    limit?: number;
+  }): Promise<ApiResponse<IOrder[]>>;
   getOrderDetail(id: string): Promise<ApiResponse<IOrder>>;
 }
 
@@ -30,14 +38,20 @@ export class OrdersRepository implements IOrdersRepository {
     } as ApiResponse<IOrder>;
   }
 
-  async getOrders(): Promise<ApiResponse<IOrder[]>> {
-    const response = await this.request.get<IOrderDTO[]>(
-      API_ROUTES.ORDERS.MINE,
-    );
+  async getOrders(params?: {
+    status?: number[];
+    page?: number;
+    limit?: number;
+  }): Promise<ApiResponse<IOrder[]>> {
+    const response = await this.request.get<{
+      items: IOrderDTO[];
+      meta: IPaginationMeta;
+    }>(API_ROUTES.ORDERS.MINE, { params });
 
     return {
       ...response,
-      data: response.data?.map(OrderMapper.toDomain) || [],
+      data: response.data?.items?.map(OrderMapper.toDomain) || [],
+      meta: response.data?.meta,
     } as ApiResponse<IOrder[]>;
   }
 

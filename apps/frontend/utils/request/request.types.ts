@@ -4,7 +4,7 @@ export type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 export interface IRequestOptions extends RequestInit {
   responseType?: ResponseType;
   skipAutoRefresh?: boolean;
-  params?: Record<string, string | number | boolean | string[]>;
+  params?: Record<string, string | number | boolean | string[] | number[]>;
 }
 
 export interface IRequestParams {
@@ -59,6 +59,7 @@ export interface ApiListResponse<T> {
 
 export interface ApiResponse<T> {
   data: T;
+  meta?: IPaginationMeta;
   message?: string;
   timestamp?: string;
   status: "success" | "fail";

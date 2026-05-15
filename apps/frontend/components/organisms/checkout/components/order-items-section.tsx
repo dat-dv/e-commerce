@@ -27,9 +27,9 @@ export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
             key={item.sku_id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-6 rounded-[2rem] bg-surface/30 backdrop-blur-sm border border-content/5 flex items-center gap-6 group hover:bg-surface/50 transition-all"
+            className="p-6 rounded-[2rem] bg-surface/40 backdrop-blur-md border border-content/[0.05] flex items-center gap-6 group hover:bg-surface/60 transition-all shadow-sm"
           >
-            <div className="relative w-24 h-28 rounded-xl overflow-hidden bg-content/[0.02] border border-content/5 flex-shrink-0">
+            <div className="relative w-24 h-28 rounded-xl overflow-hidden bg-content/[0.02] border border-content/[0.08] flex-shrink-0">
               {item.image_url ? (
                 <Image
                   src={item.image_url}
@@ -56,13 +56,13 @@ export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-[11px] font-medium text-content/40">
                   <span>{item.attributes || "Standard"}</span>
-                  <span className="w-1 h-1 rounded-full bg-content/10" />
+                  <span className="w-1 h-1 rounded-full bg-content/20" />
                   <span className="text-content/60">Qty: {item.quantity}</span>
                 </div>
 
                 <div className="flex items-center gap-3">
                   {item.original_price && item.original_price > item.price && (
-                    <span className="text-[10px] font-bold text-red-500 bg-red-500/5 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-red-400 bg-red-400/10 px-1.5 py-0.5 rounded">
                       -
                       {Math.round((1 - item.price / item.original_price) * 100)}
                       %

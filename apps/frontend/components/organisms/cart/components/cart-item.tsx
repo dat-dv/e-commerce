@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
+import { Trash2, Minus, Plus } from "lucide-react";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
 import { APP_ROUTES } from "@/constants/routes";
@@ -64,7 +64,7 @@ export const CartItem = ({
               {item.attributes || "Standard"}
             </span>
             {item.discount_percent && (
-              <span className="text-[10px] font-bold text-red-500/40">
+              <span className="text-[10px] font-bold text-red-400 bg-red-400/10 px-1 rounded">
                 -{item.discount_percent}%
               </span>
             )}

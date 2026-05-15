@@ -2,10 +2,10 @@ import { InputVariant } from "./input.types";
 
 export const variantBase: Record<InputVariant, string> = {
   outline:
-    "h-12 rounded-2xl border bg-white/5 backdrop-blur-xl px-4 text-base font-semibold",
+    "h-12 rounded-2xl border bg-white/5 backdrop-blur-xl px-4 text-base font-normal",
   underline:
-    "rounded-none border-b bg-transparent py-2 px-0 text-base font-semibold",
-  none: "h-10 border-none bg-transparent p-0 focus:ring-0",
+    "rounded-none border-b bg-transparent py-2 px-0 text-base font-normal",
+  none: "h-10 border-none bg-transparent p-0 focus:ring-0 font-normal",
 };
 
 export const variantError: Record<InputVariant, string> = {

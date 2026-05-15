@@ -11,7 +11,7 @@ interface OrderTabsProps {
 
 export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
   return (
-    <div className="sticky top-0 z-10 w-full overflow-x-auto bg-white/80 backdrop-blur-md border-b border-gray-100 scrollbar-hide">
+    <div className="sticky top-0 z-10 w-full overflow-x-auto bg-transparent border-b border-content/[0.05] scrollbar-hide">
       <div className="flex min-w-max px-4 container mx-auto max-w-6xl">
         {ORDER_TABS.map((tab) => {
           const isActive = activeTab === tab.value;
@@ -20,8 +20,10 @@ export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
               key={tab.label}
               onClick={() => onTabChange(tab.value)}
               className={cn(
-                "relative px-6 py-4 text-sm font-medium transition-colors duration-200",
-                isActive ? "text-primary" : "text-gray-500 hover:text-gray-900",
+                "relative px-8 py-5 text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300",
+                isActive
+                  ? "text-primary"
+                  : "text-content/50 hover:text-content hover:bg-content/[0.02]",
               )}
             >
               <span className="relative z-10">{tab.label}</span>
