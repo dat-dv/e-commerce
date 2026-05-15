@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { IProductsRepository, FlashSaleWithProducts } from '../entities/products.repository.interface';
-import { IPaginatedResult, IGetProductsParams } from '@ecommerce/shared';
+import { IProductsRepository } from '../entities/products.repository.interface';
+import {
+  IPaginatedResult,
+  IGetProductsParams,
+  IProductResponse,
+  IFlashSaleResponse,
+  Review as IReviewResponse,
+} from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { Product, Review, Prisma } from '../../../../../generated/prisma/client';
+import { Prisma } from '../../../../../generated/prisma/client';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -12,7 +18,7 @@ export class ProductsRepository implements IProductsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  async findById(id: string, languageCode = 'en'): Promise<Product | null> {
+  async findById(id: string, languageCode = 'en'): Promise<IProductResponse | null> {
     return this.prisma.product.findUnique({
       where: { id },
       include: {
@@ -59,7 +65,7 @@ export class ProductsRepository implements IProductsRepository {
     });
   }
 
-  async findBySlug(slug: string, languageCode = 'en'): Promise<Product | null> {
+  async findBySlug(slug: string, languageCode = 'en'): Promise<IProductResponse | null> {
     const product = await this.prisma.product.findUnique({
       where: { slug },
       include: {
@@ -156,7 +162,7 @@ export class ProductsRepository implements IProductsRepository {
     return product?.categories[0]?.category_id || null;
   }
 
-  async getActiveFlashSale(languageCode = 'en'): Promise<FlashSaleWithProducts | null> {
+  async getActiveFlashSale(languageCode = 'en'): Promise<IFlashSaleResponse | null> {
     const now = new Date();
     return this.prisma.flashSale.findFirst({
       where: {
@@ -193,7 +199,7 @@ export class ProductsRepository implements IProductsRepository {
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
-  }): Promise<Product[]> {
+  }): Promise<IProductResponse[]> {
     const { category_id, category_slug, orderBy, take, languageCode = 'en' } = params;
 
     return this.prisma.product.findMany({
@@ -266,7 +272,7 @@ export class ProductsRepository implements IProductsRepository {
     });
   }
 
-  async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<Product[]> {
+  async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<IProductResponse[]> {
     const whereHistory = { user_id: userId };
     const history = await this.prisma.userBrowsingHistory.findMany({
       where: whereHistory,
@@ -327,7 +333,7 @@ export class ProductsRepository implements IProductsRepository {
     });
   }
 
-  async getSuperDeals(take = 12, languageCode = 'en'): Promise<Product[]> {
+  async getSuperDeals(take = 12, languageCode = 'en'): Promise<IProductResponse[]> {
     return this.prisma.product.findMany({
       where: {
         deleted_at: null,
@@ -384,7 +390,7 @@ export class ProductsRepository implements IProductsRepository {
     });
   }
 
-  async getNewArrivals(take = 12, languageCode = 'en'): Promise<Product[]> {
+  async getNewArrivals(take = 12, languageCode = 'en'): Promise<IProductResponse[]> {
     return this.prisma.product.findMany({
       where: { deleted_at: null, status: 1 },
       orderBy: { created_at: 'desc' },
@@ -459,7 +465,7 @@ export class ProductsRepository implements IProductsRepository {
 
   async findPaginated(
     params: IGetProductsParams & { page: number; limit: number },
-  ): Promise<IPaginatedResult<Product>> {
+  ): Promise<IPaginatedResult<IProductResponse>> {
     const {
       page,
       limit,
@@ -588,7 +594,7 @@ export class ProductsRepository implements IProductsRepository {
     return result;
   }
 
-  async getProductReviews(productId: string, page = 1, limit = 10): Promise<IPaginatedResult<Review>> {
+  async getProductReviews(productId: string, page = 1, limit = 10): Promise<IPaginatedResult<IReviewResponse>> {
     const result = await this.paginationService.paginate(
       this.prisma.review,
       {
@@ -608,7 +614,7 @@ export class ProductsRepository implements IProductsRepository {
     return result;
   }
 
-  async getSimilarProducts(categoryId: string, limit = 4, languageCode = 'en'): Promise<Product[]> {
+  async getSimilarProducts(categoryId: string, limit = 4, languageCode = 'en'): Promise<IProductResponse[]> {
     return this.prisma.product.findMany({
       where: {
         categories: {

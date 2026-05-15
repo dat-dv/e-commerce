@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { ICartRepository } from '../entities/cart.repository.interface';
+import { ICartResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class GetCartUseCase {
@@ -8,7 +9,7 @@ export class GetCartUseCase {
     private readonly cartRepository: ICartRepository,
   ) {}
 
-  async execute(userId: string, languageCode = 'vi') {
+  async execute(userId: string, languageCode = 'vi'): Promise<ICartResponse> {
     return this.cartRepository.upsertCart(userId, languageCode);
   }
 }

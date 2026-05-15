@@ -3,15 +3,17 @@ import {
   IHomepageSectionRepository,
   HomepageSectionWithDetails,
 } from '../entities/homepage-section.repository.interface';
-import { EHomepageSectionType, IHomepageSectionResponse, Product, IHomepageSection, Brand } from '@ecommerce/shared';
+import {
+  EHomepageSectionType,
+  IHomepageSectionResponse,
+  IProductResponse,
+  IHomepageSection,
+  Brand,
+} from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
 import { IBrandsRepository } from 'src/api/brands/domain/entities/brands.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
-
-type ProductWithSkus = Prisma.ProductGetPayload<{
-  include: { translations: true; skus: true };
-}>;
 
 @Injectable()
 export class GetHomepageSectionsUseCase {
@@ -31,7 +33,7 @@ export class GetHomepageSectionsUseCase {
 
     const results = await Promise.all(
       sections.map(async (section): Promise<IHomepageSectionResponse> => {
-        let data: Product[] = [];
+        let data: IProductResponse[] = [];
         let brands: Brand[] | undefined;
 
         const sectionType = section.type as unknown as EHomepageSectionType;
@@ -40,11 +42,15 @@ export class GetHomepageSectionsUseCase {
           const flashSale = await this.productsRepo.getActiveFlashSale(languageCode);
           if (flashSale) {
             // Nghiệp vụ: Lồng dữ liệu Flash Sale vào SKU của Product, gom nhóm theo product ID
-            const productMap = new Map<string, ProductWithSkus>();
+            const productMap = new Map<string, IProductResponse>();
             for (const p of flashSale.products) {
               const prod = p.sku.product;
               if (!productMap.has(prod.id)) {
-                productMap.set(prod.id, { ...prod, skus: [...prod.skus] });
+                productMap.set(prod.id, {
+                  ...prod,
+                  skus: [...(prod.skus || [])],
+                  translations: [...(prod.translations || [])],
+                });
               }
               const mappedProd = productMap.get(prod.id);
               if (mappedProd && mappedProd?.skus) {

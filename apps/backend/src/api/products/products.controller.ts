@@ -11,6 +11,15 @@ import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.u
 import { GetProductReviewsUseCase } from './domain/use-cases/get-product-reviews.use-case';
 import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
 import { GetProductsDto } from './dto/get-products.dto';
+import {
+  IApiResponse,
+  IProductResponse,
+  IProductListResponse,
+  IFlashSaleResponse,
+  IProductDetailResponse,
+  IPaginatedResult,
+  Review,
+} from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
 import type { Request } from 'express';
 
@@ -28,20 +37,20 @@ export class ProductsController {
   ) {}
 
   @Get()
-  async getProducts(@Query() query: GetProductsDto) {
+  async getProducts(@Query() query: GetProductsDto): Promise<IApiResponse<IProductListResponse>> {
     const result = await this.getProductsUseCase.execute(query);
     return createSuccessResponse(result);
   }
 
   @Get('recommended')
-  async getRecommended(@Language() lang: string) {
+  async getRecommended(@Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
     const result = await this.getRecommendedUseCase.execute(12); // Tạm thời chưa truyền lang
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('based-on-interest')
-  async getBasedOnInterest(@Req() req: Request, @Language() lang: string) {
+  async getBasedOnInterest(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
     const userId = req.user?.sub;
     const result = await this.getInterestBasedUseCase.execute(12, userId); // Tạm thời chưa truyền lang
     return createSuccessResponse(result);
@@ -49,21 +58,25 @@ export class ProductsController {
 
   @UseGuards(AuthGuard)
   @Get('recently-viewed')
-  async getRecentlyViewed(@Req() req: Request, @Language() lang: string) {
+  async getRecentlyViewed(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
     const userId = req.user?.sub;
     const result = await this.getRecentlyViewedUseCase.execute(userId, 10, lang);
     return createSuccessResponse(result);
   }
 
   @Get('flash-sale')
-  async getFlashSale(@Language() lang: string) {
+  async getFlashSale(@Language() lang: string): Promise<IApiResponse<IFlashSaleResponse | null>> {
     const result = await this.getFlashSaleUseCase.execute(lang);
     return createSuccessResponse(result);
   }
 
   @UseGuards(OptionalAuthGuard)
   @Get(':slug')
-  async getProductDetail(@Param('slug') slug: string, @Req() req: Request, @Language() lang: string) {
+  async getProductDetail(
+    @Param('slug') slug: string,
+    @Req() req: Request,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IProductDetailResponse>> {
     const userId = req.user?.sub;
     const result = await this.getProductDetailUseCase.execute(slug, lang, userId);
     return createSuccessResponse(result);
@@ -74,7 +87,7 @@ export class ProductsController {
     @Param('id') id: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
-  ) {
+  ): Promise<IApiResponse<IPaginatedResult<Review>>> {
     const result = await this.getProductReviewsUseCase.execute(id, page, limit);
     return createSuccessResponse(result);
   }
@@ -84,7 +97,7 @@ export class ProductsController {
     @Param('id') id: string,
     @Query('limit', new DefaultValuePipe(4), ParseIntPipe) limit: number,
     @Language() lang: string,
-  ) {
+  ): Promise<IApiResponse<IProductResponse[]>> {
     const result = await this.getSimilarProductsUseCase.execute(id, limit, lang);
     return createSuccessResponse(result);
   }

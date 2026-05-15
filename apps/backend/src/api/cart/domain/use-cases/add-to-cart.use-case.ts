@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { ICartRepository } from '../entities/cart.repository.interface';
+import { ICartResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class AddToCartUseCase {
@@ -8,7 +9,7 @@ export class AddToCartUseCase {
     private readonly cartRepository: ICartRepository,
   ) {}
 
-  async execute(userId: string, skuId: string, quantity: number) {
+  async execute(userId: string, skuId: string, quantity: number): Promise<ICartResponse | null> {
     // 1. Tìm hoặc tạo giỏ hàng (sử dụng upsert để đảm bảo atomic operation)
     const cart = await this.cartRepository.upsertCart(userId);
 

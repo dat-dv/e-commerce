@@ -1,5 +1,6 @@
 import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
+import { IProductDetailResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class GetProductDetailUseCase {
@@ -8,7 +9,7 @@ export class GetProductDetailUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(slug: string, languageCode = 'vi', userId?: string) {
+  async execute(slug: string, languageCode = 'vi', userId?: string): Promise<IProductDetailResponse> {
     const product = await this.productsRepository.findBySlug(slug, languageCode);
 
     if (!product) {

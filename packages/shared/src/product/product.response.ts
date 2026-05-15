@@ -1,7 +1,35 @@
-import { Product, IPaginatedResult } from "../index";
+import {
+  Product,
+  IPaginatedResult,
+  ProductTranslation,
+  Sku,
+  Image,
+  Brand,
+  ProductCategoryMapping,
+  FlashSale,
+  FlashSaleProduct,
+} from "../index";
 
-export type IProductResponse = Product;
+export interface ISkuResponse extends Sku {
+  flash_sales?: FlashSaleProduct[];
+}
 
-export type IProductDetailResponse = Product;
+export interface IProductResponse extends Product {
+  translations?: ProductTranslation[];
+  thumbnail?: Image | null;
+  brand?: Brand | null;
+  categories?: ProductCategoryMapping[];
+  skus?: ISkuResponse[];
+}
 
-export type IProductListResponse = IPaginatedResult<Product>;
+export type IProductDetailResponse = IProductResponse;
+
+export type IProductListResponse = IPaginatedResult<IProductResponse>;
+
+export interface IFlashSaleResponse extends FlashSale {
+  products: (FlashSaleProduct & {
+    sku: ISkuResponse & {
+      product: IProductResponse;
+    };
+  })[];
+}

@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { ICartRepository, CartWithItems } from '../entities/cart.repository.interface';
+import { ICartRepository } from '../entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { CartItem } from '../../../../../generated/prisma/client';
+import { ICartResponse, ICartItemResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class CartRepository implements ICartRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getCart(userId: string, languageCode = 'vi'): Promise<CartWithItems | null> {
+  async getCart(userId: string, languageCode = 'vi'): Promise<ICartResponse | null> {
     return this.prisma.cart.findUnique({
       where: { user_id: userId },
       include: {
@@ -30,7 +30,7 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async createCart(userId: string, languageCode = 'vi'): Promise<CartWithItems> {
+  async createCart(userId: string, languageCode = 'vi'): Promise<ICartResponse> {
     return this.prisma.cart.create({
       data: { user_id: userId },
       include: {
@@ -53,7 +53,7 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async upsertCart(userId: string, languageCode = 'vi'): Promise<CartWithItems> {
+  async upsertCart(userId: string, languageCode = 'vi'): Promise<ICartResponse> {
     return this.prisma.cart.upsert({
       where: { user_id: userId },
       update: {},
@@ -77,14 +77,14 @@ export class CartRepository implements ICartRepository {
       },
     });
   }
-  async addItem(cartId: string, skuId: string, quantity: number): Promise<CartItem> {
+  async addItem(cartId: string, skuId: string, quantity: number): Promise<ICartItemResponse> {
     return this.prisma.cartItem.create({
       data: { cart_id: cartId, sku_id: skuId, quantity },
       include: { sku: true },
     });
   }
 
-  async upsertItem(cartId: string, skuId: string, quantity: number): Promise<CartItem> {
+  async upsertItem(cartId: string, skuId: string, quantity: number): Promise<ICartItemResponse> {
     return this.prisma.cartItem.upsert({
       where: {
         cart_id_sku_id: {
@@ -104,7 +104,7 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async updateItem(itemId: string, quantity: number): Promise<CartItem> {
+  async updateItem(itemId: string, quantity: number): Promise<ICartItemResponse> {
     return this.prisma.cartItem.update({
       where: { id: itemId },
       data: { quantity },
@@ -112,21 +112,21 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async removeItem(itemId: string): Promise<CartItem> {
+  async removeItem(itemId: string): Promise<ICartItemResponse> {
     return this.prisma.cartItem.delete({
       where: { id: itemId },
       include: { sku: true },
     });
   }
 
-  async findItemById(itemId: string): Promise<CartItem | null> {
+  async findItemById(itemId: string): Promise<ICartItemResponse | null> {
     return this.prisma.cartItem.findUnique({
       where: { id: itemId },
       include: { sku: true },
     });
   }
 
-  async findItem(cartId: string, skuId: string): Promise<CartItem | null> {
+  async findItem(cartId: string, skuId: string): Promise<ICartItemResponse | null> {
     return this.prisma.cartItem.findUnique({
       where: {
         cart_id_sku_id: {

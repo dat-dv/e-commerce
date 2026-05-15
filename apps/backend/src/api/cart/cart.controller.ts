@@ -9,9 +9,7 @@ import type { Request } from 'express';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AddToCartDto, UpdateCartItemDto } from './dto/cart.dto';
-import { IApiResponse } from '@ecommerce/shared';
-import { CartWithItems } from './domain/entities/cart.repository.interface';
-import { CartItem } from '../../../generated/prisma/client';
+import { IApiResponse, ICartResponse, ICartItemResponse } from '@ecommerce/shared';
 
 @ApiTags('Cart')
 @Controller('cart')
@@ -27,7 +25,7 @@ export class CartController {
   @Get()
   @ApiOperation({ summary: 'Get current user cart' })
   @ApiResponse({ status: 200, description: 'Return cart data' })
-  async getCart(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<CartWithItems | null>> {
+  async getCart(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<ICartResponse | null>> {
     const userId = req.user.sub;
     const result = await this.getCartUseCase.execute(userId, lang);
     return createSuccessResponse(result);
@@ -37,7 +35,7 @@ export class CartController {
   @ApiOperation({ summary: 'Add item to cart' })
   @ApiBody({ type: AddToCartDto })
   @ApiResponse({ status: 201, description: 'Item added successfully' })
-  async addItem(@Body() body: AddToCartDto, @Req() req: Request): Promise<IApiResponse<CartWithItems | null>> {
+  async addItem(@Body() body: AddToCartDto, @Req() req: Request): Promise<IApiResponse<ICartResponse | null>> {
     const userId = req.user.sub;
     const result = await this.addToCartUseCase.execute(userId, body.sku_id, body.quantity);
     return createSuccessResponse(result);
@@ -47,7 +45,7 @@ export class CartController {
   @ApiOperation({ summary: 'Update cart item quantity' })
   @ApiBody({ type: UpdateCartItemDto })
   @ApiResponse({ status: 200, description: 'Item updated successfully' })
-  async updateItem(@Param('id') id: string, @Body() body: UpdateCartItemDto): Promise<IApiResponse<CartItem>> {
+  async updateItem(@Param('id') id: string, @Body() body: UpdateCartItemDto): Promise<IApiResponse<ICartItemResponse>> {
     const result = await this.updateCartItemUseCase.execute(id, body.quantity);
     return createSuccessResponse(result);
   }
@@ -55,7 +53,7 @@ export class CartController {
   @Delete('items/:id')
   @ApiOperation({ summary: 'Remove item from cart' })
   @ApiResponse({ status: 200, description: 'Item removed successfully' })
-  async removeItem(@Param('id') id: string): Promise<IApiResponse<CartItem | null>> {
+  async removeItem(@Param('id') id: string): Promise<IApiResponse<ICartItemResponse | null>> {
     const result = await this.removeFromCartUseCase.execute(id);
     return createSuccessResponse(result);
   }

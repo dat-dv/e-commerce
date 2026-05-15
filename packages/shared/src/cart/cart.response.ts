@@ -1,12 +1,17 @@
 import { Cart, CartItem } from "../index";
+import { ISkuResponse } from "../product/product.response";
 
-export type ICartResponse = Cart;
+export interface ICartItemResponse extends CartItem {
+  sku?: ISkuResponse;
+}
 
-export type ICartItemResponse = CartItem;
+export interface ICartResponse extends Cart {
+  items?: ICartItemResponse[];
+}
 
-export type IAddToCartResponse = Cart;
+export type IAddToCartResponse = ICartResponse;
 
-export type IUpdateCartItemResponse = CartItem;
+export type IUpdateCartItemResponse = ICartItemResponse;
 
 export interface IRemoveFromCartResponse {
   success: boolean;
