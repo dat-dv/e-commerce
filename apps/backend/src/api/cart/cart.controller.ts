@@ -35,9 +35,13 @@ export class CartController {
   @ApiOperation({ summary: 'Add item to cart' })
   @ApiBody({ type: AddToCartDto })
   @ApiResponse({ status: 201, description: 'Item added successfully' })
-  async addItem(@Body() body: AddToCartDto, @Req() req: RequestWithUser): Promise<IApiResponse<ICartResponse | null>> {
+  async addItem(
+    @Body() body: AddToCartDto,
+    @Req() req: RequestWithUser,
+    @Language() lang: string,
+  ): Promise<IApiResponse<ICartItemResponse>> {
     const userId = req.user.sub;
-    const result = await this.addToCartUseCase.execute(userId, body);
+    const result = await this.addToCartUseCase.execute(userId, body, lang);
     return createSuccessResponse(result);
   }
 

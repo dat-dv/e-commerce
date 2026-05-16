@@ -5,9 +5,9 @@ export interface ICartRepository {
   getCart(userId: string, languageCode?: string): Promise<ICartResponse | null>;
   createCart(userId: string, languageCode?: string): Promise<ICartResponse>;
   upsertCart(userId: string, languageCode?: string): Promise<ICartResponse>;
-  addItem(cartId: string, data: AddToCartDto): Promise<ICartItemResponse>;
-  upsertItem(cartId: string, data: AddToCartDto): Promise<ICartItemResponse>;
-  updateItem(itemId: string, data: UpdateCartItemDto): Promise<ICartItemResponse>;
+  addItem(cartId: string, data: AddToCartDto, languageCode?: string): Promise<ICartItemResponse>;
+  upsertItem(cartId: string, data: AddToCartDto, languageCode?: string): Promise<ICartItemResponse>;
+  updateItem(itemId: string, data: UpdateCartItemDto, languageCode?: string): Promise<ICartItemResponse>;
   removeItem(itemId: string): Promise<ICartItemResponse>;
   findItemById(itemId: string): Promise<ICartItemResponse | null>;
   findItem(cartId: string, skuId: string): Promise<ICartItemResponse | null>;

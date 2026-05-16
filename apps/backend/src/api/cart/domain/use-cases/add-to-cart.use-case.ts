@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { ICartRepository } from '../entities/cart.repository.interface';
-import { ICartResponse } from '@ecommerce/shared';
-
+import { ICartItemResponse } from '@ecommerce/shared';
 import { AddToCartDto } from '../../dto/cart.dto';
 
 @Injectable()
@@ -11,14 +10,12 @@ export class AddToCartUseCase {
     private readonly cartRepository: ICartRepository,
   ) {}
 
-  async execute(userId: string, data: AddToCartDto): Promise<ICartResponse | null> {
+  async execute(userId: string, data: AddToCartDto, lang = 'vi'): Promise<ICartItemResponse> {
     // 1. Tìm hoặc tạo giỏ hàng (sử dụng upsert để đảm bảo atomic operation)
-    const cart = await this.cartRepository.upsertCart(userId);
+    const cart = await this.cartRepository.upsertCart(userId, lang);
 
-    // 2. Thêm hoặc cập nhật số lượng item (sử dụng upsert)
-    await this.cartRepository.upsertItem(cart.id, data);
+    const cartItem = await this.cartRepository.upsertItem(cart.id, data, lang);
 
-    // Trả về giỏ hàng mới nhất
-    return this.cartRepository.getCart(userId);
+    return cartItem;
   }
 }

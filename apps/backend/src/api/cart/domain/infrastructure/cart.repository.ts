@@ -51,18 +51,43 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async addItem(cartId: string, data: AddToCartDto): Promise<ICartItemResponse> {
+  private getCartItemInclude(languageCode: string) {
+    return {
+      sku: {
+        include: {
+          product: {
+            include: {
+              thumbnail: true,
+              translations: {
+                where: { language: { code: languageCode } },
+              },
+            },
+          },
+          flash_sales: {
+            where: {
+              flash_sale: {
+                start_time: { lte: new Date() },
+                end_time: { gte: new Date() },
+              },
+            },
+          },
+        },
+      },
+    };
+  }
+
+  async addItem(cartId: string, data: AddToCartDto, languageCode = 'vi'): Promise<ICartItemResponse> {
     return this.prisma.cartItem.create({
       data: {
         cart_id: cartId,
         sku_id: data.sku_id,
         quantity: data.quantity,
       },
-      include: { sku: true },
+      include: this.getCartItemInclude(languageCode),
     });
   }
 
-  async upsertItem(cartId: string, data: AddToCartDto): Promise<ICartItemResponse> {
+  async upsertItem(cartId: string, data: AddToCartDto, languageCode = 'vi'): Promise<ICartItemResponse> {
     return this.prisma.cartItem.upsert({
       where: {
         cart_id_sku_id: {
@@ -78,15 +103,15 @@ export class CartRepository implements ICartRepository {
         sku_id: data.sku_id,
         quantity: data.quantity,
       },
-      include: { sku: true },
+      include: this.getCartItemInclude(languageCode),
     });
   }
 
-  async updateItem(itemId: string, data: UpdateCartItemDto): Promise<ICartItemResponse> {
+  async updateItem(itemId: string, data: UpdateCartItemDto, languageCode = 'vi'): Promise<ICartItemResponse> {
     return this.prisma.cartItem.update({
       where: { id: itemId },
       data: { quantity: data.quantity },
-      include: { sku: true },
+      include: this.getCartItemInclude(languageCode),
     });
   }
 
