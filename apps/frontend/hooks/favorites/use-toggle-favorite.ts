@@ -21,7 +21,9 @@ export const useToggleFavorite = (
       }
 
       if (!userId) {
-        toast.error("Please login to add to wishlist");
+        toast.info("Please sign in to add items to your wishlist", {
+          toastId: "auth-required",
+        });
         return;
       }
 
@@ -38,10 +40,6 @@ export const useToggleFavorite = (
             response.data.isFavorited
               ? "Added to wishlist"
               : "Removed from wishlist",
-            {
-              position: "bottom-right",
-              autoClose: 2000,
-            },
           );
         }
       } catch (error) {

@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/molecules/product-card";
 import { TProduct } from "@/domain/products/types/products.model";
 import { APP_ROUTES } from "@/constants/routes";
 import { SectionHeader } from "../section-header";
+import { PRODUCT_CAROUSEL_ITEM_CLASS } from "../carousel/carousel.constants";
 
 interface ProductCarouselProps {
   title: string;
@@ -39,16 +40,13 @@ export const ProductCarousel = ({
           ? (products as TProduct[]).map((product) => (
               <CarouselItem
                 key={product.id}
-                className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]"
+                className={PRODUCT_CAROUSEL_ITEM_CLASS}
               >
                 <ProductCard product={product} />
               </CarouselItem>
             ))
           : (products as TProduct[][]).map((column, index) => (
-              <CarouselItem
-                key={index}
-                className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]"
-              >
+              <CarouselItem key={index} className={PRODUCT_CAROUSEL_ITEM_CLASS}>
                 <div className="flex flex-col gap-6">
                   {column.map((product) => (
                     <ProductCard key={product.id} product={product} />

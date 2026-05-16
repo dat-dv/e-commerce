@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { TProduct } from "@/domain/products/types/products.model";
+import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useSimilarProducts } from "./use-similar-products";
 import { useRecommendedProducts } from "./use-recommended-products";
 import { useProductReviews } from "./use-product-reviews";
@@ -11,11 +11,21 @@ export const useProductDetail = (product: TProduct) => {
     Record<string, string>
   >({});
   const [selectedImage, setSelectedImage] = useState(0);
+  const fallbackSku = useMemo<TSkuDomain>(
+    () => ({
+      id: "",
+      price: 0,
+      unitPrice: "0",
+      attributes: [],
+      stock: 0,
+    }),
+    [],
+  );
 
   // 1. Group attributes across all SKUs
   const attributeGroups = useMemo(() => {
     const groups: Record<string, Set<string>> = {};
-    product.skus.forEach((sku) => {
+    product.skus?.forEach((sku) => {
       sku.attributes?.forEach((attr) => {
         if (!groups[attr.name]) {
           groups[attr.name] = new Set();
@@ -29,17 +39,19 @@ export const useProductDetail = (product: TProduct) => {
   // 2. Find selected SKU based on attributes
   const selectedSku = useMemo(() => {
     return (
-      product.skus.find((sku) => {
+      product.skus?.find((sku) => {
         return sku.attributes?.every(
           (attr) => selectedAttributes[attr.name] === attr.value,
         );
-      }) || product.skus[0]
+      }) ||
+      product.skus?.[0] ||
+      fallbackSku
     );
-  }, [product.skus, selectedAttributes]);
+  }, [fallbackSku, product.skus, selectedAttributes]);
 
   // 3. Initialize selected attributes from first SKU
   useEffect(() => {
-    if (product.skus[0]?.attributes) {
+    if (product.skus?.[0]?.attributes) {
       const initialAttrs: Record<string, string> = {};
       product.skus[0].attributes.forEach((attr) => {
         initialAttrs[attr.name] = attr.value;
@@ -53,9 +65,10 @@ export const useProductDetail = (product: TProduct) => {
   const images = useMemo(() => {
     return Array.from(
       new Set(
-        [product.imageUrl, ...product.skus.map((sku) => sku.imageUrl)].filter(
-          (img): img is string => !!img && typeof img === "string",
-        ),
+        [
+          product.imageUrl,
+          ...(product.skus || []).map((sku) => sku.imageUrl),
+        ].filter((img): img is string => !!img && typeof img === "string"),
       ),
     );
   }, [product.imageUrl, product.skus]);

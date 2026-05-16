@@ -206,7 +206,8 @@ export const ProductInfo = ({
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={handleAddToCart}
-          className="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary py-3.5 rounded-xl font-semibold transition-colors border border-primary/20"
+          disabled={!selectedSku.id}
+          className="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary py-3.5 rounded-xl font-semibold transition-colors border border-primary/20 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary/10"
         >
           <ShoppingCart size={18} />
           Add to Cart
@@ -215,7 +216,8 @@ export const ProductInfo = ({
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={handleBuyNow}
-          className="flex-1 bg-primary hover:bg-primary/90 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/10"
+          disabled={!selectedSku.id}
+          className="flex-1 bg-primary hover:bg-primary/90 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/10 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary"
         >
           Buy Now
         </motion.button>

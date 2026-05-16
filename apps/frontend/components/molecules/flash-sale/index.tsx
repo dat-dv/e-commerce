@@ -4,6 +4,7 @@ import { FlashSaleCard } from "../product-card/flash-sale-card";
 import { SectionHeader } from "../section-header";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 import { Carousel, CarouselItem } from "../carousel";
+import { PRODUCT_CAROUSEL_ITEM_CLASS } from "../carousel/carousel.constants";
 import { APP_ROUTES } from "@/constants/routes";
 
 interface FlashSaleProps {
@@ -33,7 +34,7 @@ export const FlashSale = ({ products }: FlashSaleProps) => {
         {previewProducts.map((product) => (
           <CarouselItem
             key={product.id}
-            className="flex-[0_0_78%] sm:flex-[0_0_48%] md:flex-[0_0_32%] lg:flex-[0_0_24%]"
+            className={PRODUCT_CAROUSEL_ITEM_CLASS}
           >
             <FlashSaleCard product={product} />
           </CarouselItem>

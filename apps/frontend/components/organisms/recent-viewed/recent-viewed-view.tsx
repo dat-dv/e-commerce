@@ -1,0 +1,76 @@
+"use client";
+
+import Link from "next/link";
+import { Eye, ShoppingBag } from "lucide-react";
+import { motion } from "framer-motion";
+
+import AppContainer from "@/components/atoms/app-container";
+import { ProductCard } from "@/components/molecules/product-card";
+import { APP_ROUTES } from "@/constants/routes";
+import { useRecentViewedProducts } from "@/hooks/products/use-recent-viewed-products";
+
+export const RecentViewedView = () => {
+  const { recentViewedProducts, loading } = useRecentViewedProducts();
+
+  return (
+    <AppContainer size="2xl" className="py-14">
+      <div className="mb-10 flex flex-col gap-3">
+        <div className="flex items-center gap-2 text-primary">
+          <Eye size={18} />
+          <span className="text-xs font-black uppercase tracking-[0.25em]">
+            History
+          </span>
+        </div>
+        <div>
+          <h1 className="text-3xl font-black tracking-tight text-content">
+            Recently Viewed
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm text-content/50">
+            Products you opened recently, kept here so you can continue where
+            you left off.
+          </p>
+        </div>
+      </div>
+
+      {loading ? (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <div
+              key={index}
+              className="aspect-[3/4] animate-pulse rounded-2xl border border-content/[0.05] bg-content/[0.03]"
+            />
+          ))}
+        </div>
+      ) : recentViewedProducts.length > 0 ? (
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+        >
+          {recentViewedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </motion.div>
+      ) : (
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-content/10 bg-surface/50 px-6 py-20 text-center">
+          <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-content/5 text-content/30">
+            <Eye size={28} />
+          </div>
+          <h2 className="text-xl font-black text-content">
+            No recently viewed products
+          </h2>
+          <p className="mt-2 max-w-sm text-sm text-content/50">
+            Open a few product pages and they will appear here.
+          </p>
+          <Link
+            href={APP_ROUTES.PRODUCTS}
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-bold text-surface transition-transform active:scale-95"
+          >
+            <ShoppingBag size={16} />
+            Browse products
+          </Link>
+        </div>
+      )}
+    </AppContainer>
+  );
+};

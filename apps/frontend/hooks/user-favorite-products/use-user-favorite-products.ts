@@ -14,7 +14,9 @@ export const useUserFavoriteProducts = (
 
   const toggleFavorite = async (productId: string) => {
     if (!user) {
-      toast.info("Please login to add products to your favorites");
+      toast.info("Please sign in to add items to your wishlist", {
+        toastId: "auth-required",
+      });
       return;
     }
 
@@ -34,11 +36,6 @@ export const useUserFavoriteProducts = (
           response.data.isFavorited
             ? "Added to favorites"
             : "Removed from favorites",
-          {
-            autoClose: 2000,
-            hideProgressBar: true,
-            position: "bottom-right",
-          },
         );
       }
     } catch (error) {

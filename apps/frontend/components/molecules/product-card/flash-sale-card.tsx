@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
-import { motion } from "framer-motion";
 import { Eye, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
 import Image from "next/image";
@@ -70,11 +69,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
     (product.category !== "General" ? product.category : "Flash Sale");
 
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      className="group relative flex flex-col bg-content/[0.02] border border-red-500/10 rounded-2xl p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5"
-    >
+    <div className="group relative flex h-full flex-col bg-content/[0.02] border border-red-500/10 rounded-2xl p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5">
       {/* Image Section */}
       <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
         {product.imageUrl ? (
@@ -171,6 +166,6 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
