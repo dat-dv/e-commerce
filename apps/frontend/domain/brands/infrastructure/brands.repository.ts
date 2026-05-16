@@ -22,7 +22,6 @@ export class BrandsRepository implements IBrandsRepository {
       `${API_ROUTES.BRAND.TOP}`,
       { params: { page, limit } },
     );
-
     return {
       ...response,
       data: {
