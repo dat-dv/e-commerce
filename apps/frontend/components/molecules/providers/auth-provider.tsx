@@ -30,10 +30,10 @@ export const AuthProvider = ({ children, initState }: AuthProviderProps) => {
   const [store] = useState(() =>
     createUserStore({
       ...initState,
-      _hasHydrated: initState ? true : false,
+      hasHydrated: initState ? true : false,
     }),
   );
-  const hasHydrated = useStore(store, (s) => s._hasHydrated);
+  const hasHydrated = useStore(store, (s) => s.hasHydrated);
   const user = useStore(store, (s) => s.user);
   const hasCheckedAuthRef = useRef(false);
 

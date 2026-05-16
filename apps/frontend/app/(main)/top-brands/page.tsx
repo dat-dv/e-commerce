@@ -21,12 +21,12 @@ export default async function TopBrandsPage() {
 
   if (brands.length === 0) {
     brands = [
-      { id: "1", name: "Nike", slug: "nike", product_count: 120 },
-      { id: "2", name: "Adidas", slug: "adidas", product_count: 85 },
-      { id: "3", name: "Apple", slug: "apple", product_count: 45 },
-      { id: "4", name: "Samsung", slug: "samsung", product_count: 60 },
-      { id: "5", name: "Sony", slug: "sony", product_count: 30 },
-      { id: "6", name: "LG", slug: "lg", product_count: 25 },
+      { id: "1", name: "Nike", slug: "nike", productCount: 120 },
+      { id: "2", name: "Adidas", slug: "adidas", productCount: 85 },
+      { id: "3", name: "Apple", slug: "apple", productCount: 45 },
+      { id: "4", name: "Samsung", slug: "samsung", productCount: 60 },
+      { id: "5", name: "Sony", slug: "sony", productCount: 30 },
+      { id: "6", name: "LG", slug: "lg", productCount: 25 },
     ];
   }
 

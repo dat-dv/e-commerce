@@ -63,7 +63,7 @@ export function BrandStory({ brand }: BrandStoryProps) {
         <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-content/10">
           <img
             src={
-              brand.banner_url ||
+              brand.bannerUrl ||
               "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop"
             }
             className="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000"

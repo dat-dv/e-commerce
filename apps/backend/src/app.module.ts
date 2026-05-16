@@ -15,6 +15,7 @@ import { AddressesModule } from './api/addresses/addresses.module';
 import { NotificationsModule } from './api/notifications/notifications.module';
 import { HomepageModule } from './api/homepage/homepage.module';
 import { BrandsModule } from './api/brands/brands.module';
+import { UserFavoriteProductsModule } from './api/user-favorite-products/user-favorite-products.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { BrandsModule } from './api/brands/brands.module';
     NotificationsModule,
     HomepageModule,
     BrandsModule,
+    UserFavoriteProductsModule,
   ],
   controllers: [],
   providers: [],

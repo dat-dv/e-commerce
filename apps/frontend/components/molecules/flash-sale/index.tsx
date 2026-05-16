@@ -13,8 +13,8 @@ export const FlashSale = ({ products }: FlashSaleProps) => {
 
   // Lấy thời gian kết thúc từ SKU đầu tiên của sản phẩm đầu tiên
   const firstSku = products[0]?.skus?.[0];
-  const endTime = firstSku?.flash_sale_end
-    ? new Date(firstSku.flash_sale_end)
+  const endTime = firstSku?.flashSaleEnd
+    ? new Date(firstSku.flashSaleEnd)
     : undefined;
 
   return (

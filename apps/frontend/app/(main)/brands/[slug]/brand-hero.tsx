@@ -25,9 +25,9 @@ export function BrandHero({ brand }: BrandHeroProps) {
     >
       {/* Background Banner with Parallax */}
       <motion.div style={{ y: y1, scale }} className="absolute inset-0 z-0">
-        {brand.banner_url ? (
+        {brand.bannerUrl ? (
           <Image
-            src={brand.banner_url}
+            src={brand.bannerUrl}
             alt={brand.name}
             fill
             className="object-cover"
@@ -43,10 +43,10 @@ export function BrandHero({ brand }: BrandHeroProps) {
         style={{ opacity }}
         className="relative z-10 flex flex-col items-center gap-12"
       >
-        {brand.logo_url && imgError && (
+        {brand.logoUrl && !imgError && (
           <div className="relative w-40 h-40 md:w-56 md:h-56 p-8 rounded-[4rem] bg-background/30 backdrop-blur-3xl border border-content/10 shadow-2xl flex items-center justify-center">
             <Image
-              src={brand.logo_url}
+              src={brand.logoUrl}
               alt={brand.name}
               fill
               className="object-contain drop-shadow-2xl"

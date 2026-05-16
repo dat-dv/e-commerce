@@ -386,4 +386,14 @@ export class ProductsRepository implements IProductsRepository {
     if (!product) return null;
     return product.categories.map((c) => c.category_id);
   }
+
+  async isFavorited(userId: string, productId: string): Promise<boolean> {
+    const count = await this.prisma.userFavoriteProduct.count({
+      where: {
+        user_id: userId,
+        product_id: productId,
+      },
+    });
+    return count > 0;
+  }
 }

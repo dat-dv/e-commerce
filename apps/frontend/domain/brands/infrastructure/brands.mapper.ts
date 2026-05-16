@@ -7,11 +7,11 @@ export class BrandMapper {
 
     return {
       id: brand.id,
-      name: translation?.name || brand.name || "No Name",
+      name: translation?.name || "No Name",
       slug: brand.slug,
       logoUrl: brand.logo?.url || brand.logo_url || "",
       bannerUrl: brand.banner_url || "",
-      description: translation?.description || brand.description || "",
+      description: translation?.description || "",
       story: brand.story_en || "",
       productCount: brand.product_count || 0,
     };

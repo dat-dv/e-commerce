@@ -86,6 +86,7 @@ export const ModelName = {
   ShippingAddress: 'ShippingAddress',
   User: 'User',
   UserFavoriteCategory: 'UserFavoriteCategory',
+  UserFavoriteProduct: 'UserFavoriteProduct',
   UserPhone: 'UserPhone'
 } as const
 
@@ -546,6 +547,15 @@ export const UserFavoriteCategoryScalarFieldEnum = {
 } as const
 
 export type UserFavoriteCategoryScalarFieldEnum = (typeof UserFavoriteCategoryScalarFieldEnum)[keyof typeof UserFavoriteCategoryScalarFieldEnum]
+
+
+export const UserFavoriteProductScalarFieldEnum = {
+  user_id: 'user_id',
+  product_id: 'product_id',
+  created_at: 'created_at'
+} as const
+
+export type UserFavoriteProductScalarFieldEnum = (typeof UserFavoriteProductScalarFieldEnum)[keyof typeof UserFavoriteProductScalarFieldEnum]
 
 
 export const UserPhoneScalarFieldEnum = {

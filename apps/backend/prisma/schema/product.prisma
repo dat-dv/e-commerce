@@ -29,6 +29,7 @@ model Product {
   // Relations from other tables that still reference Product
   view_history UserBrowsingHistory[]
   reviews      Review[]
+  favorited_by_users UserFavoriteProduct[]
 
   @@map("products")
 }

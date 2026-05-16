@@ -26,6 +26,7 @@ model User {
   notification_tokens   NotificationToken[]
   notifications         Notification[]
   favorite_categories   UserFavoriteCategory[]
+  favorite_products     UserFavoriteProduct[]
 
   role_id String?
   role    Role?   @relation(fields: [role_id], references: [id])

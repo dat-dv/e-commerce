@@ -10,11 +10,16 @@ import { ReviewsRatings } from "./reviews-ratings";
 import { SimilarProducts } from "./similar-products";
 import { Recommendations } from "./recommendations";
 
+import { useUserFavoriteProducts } from "@/hooks/user-favorite-products/use-user-favorite-products";
+
 export interface ProductDetailProps {
   product: TProduct;
 }
 
 export default function ProductDetailClient({ product }: ProductDetailProps) {
+  const { isFavorited, toggleFavorite } = useUserFavoriteProducts(
+    product.isFavorited,
+  );
   const {
     quantity,
     setQuantity,
@@ -68,6 +73,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           setQuantity={setQuantity}
           handleAddToCart={handleAddToCart}
           handleBuyNow={handleBuyNow}
+          isFavorited={isFavorited}
+          onToggleFavorite={() => toggleFavorite(product.id)}
         />
       </div>
 

@@ -5,7 +5,6 @@ export * from "./flash-sale";
 export * from "./user";
 export * from "./cart";
 
-
 export * from "./permission";
 export * from "./product-category";
 export * from "./auth";
@@ -17,3 +16,4 @@ export * from "./notification";
 export * from "./prettify";
 export * from "./generate/browser";
 export * from "./paginate";
+export * from "./user-favorite-products";

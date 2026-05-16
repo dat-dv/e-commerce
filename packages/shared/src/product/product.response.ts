@@ -37,6 +37,7 @@ export interface IProductResponse extends Product {
     };
   })[];
   skus?: ISkuResponse[];
+  is_favorited?: boolean;
 }
 
 export type IProductDetailResponse = IProductResponse;

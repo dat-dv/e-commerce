@@ -15,6 +15,8 @@ export interface TOrderItem {
   quantity: number;
   price: number;
   flashSaleId: string | null;
+  originalPrice?: number | null;
+  attributes?: string;
   snapshot: IOrderItemSnapshot | null;
   // Virtual field mapped from snapshot for UI convenience
   sku?: {

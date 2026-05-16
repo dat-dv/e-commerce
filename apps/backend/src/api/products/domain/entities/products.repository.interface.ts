@@ -21,6 +21,7 @@ export interface IProductsRepository {
   getProductReviews(productId: string, page?: number, limit?: number): Promise<IPaginatedResult<Review>>;
   getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProductResponse[]>;
   getProductCategories(productId: string): Promise<string[] | null>;
+  isFavorited(userId: string, productId: string): Promise<boolean>;
 }
 
 export const IProductsRepository = Symbol('IProductsRepository');

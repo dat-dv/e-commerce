@@ -16,7 +16,7 @@ export interface TCartStoreState {
   selectedSkuIds: string[];
   loading: boolean;
   isOpen: boolean;
-  _hasHydrated: boolean;
+  hasHydrated: boolean;
 
   // Derived state (Calculated on every change)
   subtotal: number;

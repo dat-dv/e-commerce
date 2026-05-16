@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Minus, Plus, ShoppingCart } from "lucide-react";
+import { Star, Minus, Plus, ShoppingCart, Heart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
 
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
@@ -22,6 +22,8 @@ interface ProductInfoProps {
   setQuantity: (q: number) => void;
   handleAddToCart: () => void;
   handleBuyNow: () => void;
+  isFavorited?: boolean;
+  onToggleFavorite?: () => void;
 }
 
 export const ProductInfo = ({
@@ -40,6 +42,8 @@ export const ProductInfo = ({
   setQuantity,
   handleAddToCart,
   handleBuyNow,
+  isFavorited = false,
+  onToggleFavorite,
 }: ProductInfoProps) => {
   const isDiscounted = originalPrice > price;
   const hasValidDiscountPercent = isDiscounted && discountPercent > 0;
@@ -214,6 +218,22 @@ export const ProductInfo = ({
           className="flex-1 bg-primary hover:bg-primary/90 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/10"
         >
           Buy Now
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={onToggleFavorite}
+          className={`flex items-center justify-center w-12 h-12 rounded-xl border transition-all ${
+            isFavorited
+              ? "bg-red-50 border-red-100 text-red-500 shadow-sm shadow-red-500/10"
+              : "bg-content/[0.02] border-content/[0.08] text-content/40 hover:text-red-400 hover:border-red-100 hover:bg-red-50/30"
+          }`}
+        >
+          <Heart
+            size={20}
+            fill={isFavorited ? "currentColor" : "none"}
+            className={isFavorited ? "animate-pulse-slow" : ""}
+          />
         </motion.button>
       </div>
     </motion.div>

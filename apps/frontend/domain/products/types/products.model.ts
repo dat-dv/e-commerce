@@ -33,6 +33,7 @@ export interface TProduct {
   reviewCount?: number;
   rating?: number;
   brand?: TBrand;
+  isFavorited?: boolean;
 }
 
 export type TFlashSaleProduct = TProduct;

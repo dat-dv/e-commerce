@@ -419,6 +419,7 @@ export const ModelName = {
   ShippingAddress: 'ShippingAddress',
   User: 'User',
   UserFavoriteCategory: 'UserFavoriteCategory',
+  UserFavoriteProduct: 'UserFavoriteProduct',
   UserPhone: 'UserPhone'
 } as const
 
@@ -435,7 +436,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "homepageSection" | "homepageSectionTranslation" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userPhone"
+    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "homepageSection" | "homepageSectionTranslation" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3029,6 +3030,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    UserFavoriteProduct: {
+      payload: Prisma.$UserFavoriteProductPayload<ExtArgs>
+      fields: Prisma.UserFavoriteProductFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UserFavoriteProductFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UserFavoriteProductFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>
+        }
+        findFirst: {
+          args: Prisma.UserFavoriteProductFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UserFavoriteProductFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>
+        }
+        findMany: {
+          args: Prisma.UserFavoriteProductFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>[]
+        }
+        create: {
+          args: Prisma.UserFavoriteProductCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>
+        }
+        createMany: {
+          args: Prisma.UserFavoriteProductCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UserFavoriteProductCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>[]
+        }
+        delete: {
+          args: Prisma.UserFavoriteProductDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>
+        }
+        update: {
+          args: Prisma.UserFavoriteProductUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>
+        }
+        deleteMany: {
+          args: Prisma.UserFavoriteProductDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UserFavoriteProductUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserFavoriteProductUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>[]
+        }
+        upsert: {
+          args: Prisma.UserFavoriteProductUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFavoriteProductPayload>
+        }
+        aggregate: {
+          args: Prisma.UserFavoriteProductAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserFavoriteProduct>
+        }
+        groupBy: {
+          args: Prisma.UserFavoriteProductGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserFavoriteProductGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UserFavoriteProductCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserFavoriteProductCountAggregateOutputType> | number
+        }
+      }
+    }
     UserPhone: {
       payload: Prisma.$UserPhonePayload<ExtArgs>
       fields: Prisma.UserPhoneFieldRefs
@@ -3585,6 +3660,15 @@ export const UserFavoriteCategoryScalarFieldEnum = {
 export type UserFavoriteCategoryScalarFieldEnum = (typeof UserFavoriteCategoryScalarFieldEnum)[keyof typeof UserFavoriteCategoryScalarFieldEnum]
 
 
+export const UserFavoriteProductScalarFieldEnum = {
+  user_id: 'user_id',
+  product_id: 'product_id',
+  created_at: 'created_at'
+} as const
+
+export type UserFavoriteProductScalarFieldEnum = (typeof UserFavoriteProductScalarFieldEnum)[keyof typeof UserFavoriteProductScalarFieldEnum]
+
+
 export const UserPhoneScalarFieldEnum = {
   id: 'id',
   phone_number: 'phone_number',
@@ -3839,6 +3923,7 @@ export type GlobalOmitConfig = {
   shippingAddress?: Prisma.ShippingAddressOmit
   user?: Prisma.UserOmit
   userFavoriteCategory?: Prisma.UserFavoriteCategoryOmit
+  userFavoriteProduct?: Prisma.UserFavoriteProductOmit
   userPhone?: Prisma.UserPhoneOmit
 }
 

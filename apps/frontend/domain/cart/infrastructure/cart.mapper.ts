@@ -20,7 +20,7 @@ export class CartMapper {
           ? Math.round((1 - price / sku.original_price) * 100)
           : null,
       quantity: dto.quantity,
-      imageUrl: sku?.product?.thumbnail_url || null,
+      imageUrl: sku?.product?.thumbnail?.url || null,
       attributes: "", // TODO: Fetch SKU attributes if needed
     };
   }

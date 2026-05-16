@@ -23,7 +23,7 @@ export const AuthGuard = ({ children }: AuthGuardProps) => {
   }
 
   const user = useStore(store, (s) => s.user);
-  const hasHydrated = useStore(store, (s) => s._hasHydrated);
+  const hasHydrated = useStore(store, (s) => s.hasHydrated);
 
   useEffect(() => {
     if (hasHydrated && !user) {

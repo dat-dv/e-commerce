@@ -44,9 +44,8 @@ export class ProductMapper {
               const attrVal = sav.attribute_value;
               const attr = attrVal?.attribute;
 
-              const attrName = attr?.translations?.[0]?.name || attr?.name;
-              const valName =
-                attrVal?.translations?.[0]?.value || attrVal?.value;
+              const attrName = attr?.name;
+              const valName = attrVal?.value;
 
               return {
                 name: attrName || "Unknown",
@@ -72,16 +71,16 @@ export class ProductMapper {
         ? {
             id: brand.id,
             slug: brand.slug,
-            name: brandTranslation?.name || brand.name || "No Name",
+            name: brandTranslation?.name || "No Name",
             logoUrl: brand.logo?.url || brand.logo_url || "",
-            description:
-              brandTranslation?.description || brand.description || "",
+            description: brandTranslation?.description || "",
           }
         : undefined,
       skus,
       rating: dto.rating,
       soldCount: dto.sold_count,
       reviewCount: dto.review_count,
+      isFavorited: dto.is_favorited,
     };
   }
 }

@@ -193,6 +193,11 @@ export type User = Prisma.UserModel
  */
 export type UserFavoriteCategory = Prisma.UserFavoriteCategoryModel
 /**
+ * Model UserFavoriteProduct
+ * 
+ */
+export type UserFavoriteProduct = Prisma.UserFavoriteProductModel
+/**
  * Model UserPhone
  * 
  */

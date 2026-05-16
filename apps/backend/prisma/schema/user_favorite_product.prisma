@@ -1,0 +1,13 @@
+// prisma/schema/user_favorite_product.prisma
+
+model UserFavoriteProduct {
+  user_id    String
+  product_id String
+  created_at DateTime @default(now())
+
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
+
+  @@id([user_id, product_id])
+  @@map("user_favorite_products")
+}

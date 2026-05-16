@@ -40,11 +40,11 @@ const createCartStoreCreator =
       selectedSkuIds: initialSelectedIds,
       loading: false,
       isOpen: false,
-      _hasHydrated: false,
+      hasHydrated: false,
       ...initState,
       ...computeCartDerived(initialItems, initialSelectedIds),
 
-      setHasHydrated: (state) => set({ _hasHydrated: state }),
+      setHasHydrated: (state) => set({ hasHydrated: state }),
       setLoading: (loading) => set({ loading }),
       setIsOpen: (isOpen) => set({ isOpen }),
 

@@ -1,12 +1,15 @@
 import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { IProductDetailResponse } from '@ecommerce/shared';
+import { IUserFavoriteProductsRepository } from 'src/api/user-favorite-products/domain/entities/user-favorite-products.repository.interface';
 
 @Injectable()
 export class GetProductDetailUseCase {
   constructor(
     @Inject(IProductsRepository)
     private readonly productsRepository: IProductsRepository,
+    @Inject(IUserFavoriteProductsRepository)
+    private readonly userFavoriteProductsRepository: IUserFavoriteProductsRepository,
   ) {}
 
   async execute(slug: string, languageCode = 'vi', userId?: string): Promise<IProductDetailResponse> {
@@ -19,8 +22,9 @@ export class GetProductDetailUseCase {
     if (userId) {
       try {
         await this.productsRepository.recordView(userId, product.id);
+        product.is_favorited = await this.userFavoriteProductsRepository.isFavorited(userId, product.id);
       } catch (error) {
-        console.error('Failed to record product view:', error);
+        console.error('Failed to record product view or check favorite:', error);
       }
     }
 
