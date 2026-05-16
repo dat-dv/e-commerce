@@ -8,7 +8,7 @@
   "scripts": {
     "man": "node scripts/man.js",
     "predev": "npm run build -w @ecommerce/shared",
-    "dev:be": "npm run start:dev -w apps/backend",
+    "dev:be": "npm run start:dev:app -w apps/backend",
     "build:be": "npm run build -w apps/backend",
     "test:be": "npm run test -w apps/backend",
     "lint:be": "npm run lint -w apps/backend",
