@@ -5,7 +5,7 @@ model Notification {
   user_id     String
   title       String
   content     String
-  type        String   // e.g., 'ORDER', 'PROMO', 'SYSTEM'
+  type        Int      // 0: ORDER, 1: PROMO, 2: SYSTEM, 3: SOCIAL
   link        String?  // Optional link to redirect
   is_read     Boolean  @default(false)
   metadata    String?  // JSON string for extra data like orderId

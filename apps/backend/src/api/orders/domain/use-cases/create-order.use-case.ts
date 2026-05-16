@@ -3,7 +3,7 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
-import { IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
+import { ENotificationType, IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
 import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';
 import { NotificationService } from 'src/api/notifications/notifications.service';
@@ -278,9 +278,9 @@ export class CreateOrderUseCase {
       userId,
       'Đặt hàng thành công',
       `Đơn hàng #${order.id.slice(-6).toUpperCase()} của bạn đã được tiếp nhận.`,
+      ENotificationType.ORDER,
       {
         orderId: order.id,
-        type: 'ORDER_CREATED',
         link: `/orders/${order.id}`,
       },
     );

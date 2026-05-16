@@ -3,7 +3,7 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
 import { NotificationService } from 'src/api/notifications/notifications.service';
-import { IOrderResponse } from '@ecommerce/shared';
+import { ENotificationType, IOrderResponse } from '@ecommerce/shared';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
 
 @Injectable()
@@ -71,7 +71,7 @@ export class UpdateOrderStatusUseCase {
     }
 
     // 4. Gửi thông báo cho khách hàng
-    this.sendNotification(order.user_id, newStatus, id);
+    await this.sendNotification(order.user_id, newStatus, id);
 
     return updatedOrder;
   }
@@ -99,9 +99,8 @@ export class UpdateOrderStatusUseCase {
         break;
     }
 
-    await this.notificationService.sendToUser(userId, title, body, {
+    await this.notificationService.sendToUser(userId, title, body, ENotificationType.ORDER, {
       orderId: orderId,
-      type: 'ORDER_STATUS_CHANGE',
     });
   }
 }

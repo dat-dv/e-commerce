@@ -1,6 +1,7 @@
 import { Injectable, Inject, Logger } from '@nestjs/common';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
+import { ENotificationType } from '@ecommerce/shared';
 
 @Injectable()
 export class NotificationService {
@@ -12,7 +13,13 @@ export class NotificationService {
     private readonly notificationsRepository: INotificationsRepository,
   ) {}
 
-  async sendToUser(userId: string, title: string, body: string, data?: Record<string, string>) {
+  async sendToUser(
+    userId: string,
+    title: string,
+    body: string,
+    type: ENotificationType = ENotificationType.SYSTEM,
+    data?: Record<string, string>,
+  ) {
     const tokens = await this.notificationsRepository.getUserTokens(userId);
 
     if (tokens.length === 0) {
@@ -28,18 +35,20 @@ export class NotificationService {
 
     const message = {
       notification: { title, body },
-      data: data || {},
+      data: {
+        ...data,
+        type: type.toString(),
+      },
       tokens: tokens,
     };
 
     try {
-      // Save to database history
       await this.notificationsRepository.createNotification(userId, {
         title,
         content: body,
-        type: data?.type || 'SYSTEM',
+        type: type,
         link: data?.link,
-        metadata: data,
+        metadata: data ? JSON.stringify(data) : undefined,
       });
 
       const response = await messaging.sendEachForMulticast(message);

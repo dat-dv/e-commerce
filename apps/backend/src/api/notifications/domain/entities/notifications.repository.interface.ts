@@ -12,7 +12,7 @@ export interface INotificationsRepository {
   markAllAsRead(userId: string): Promise<void>;
   createNotification(
     userId: string,
-    data: { title: string; content: string; type: string; link?: string; metadata?: any },
+    data: { title: string; content: string; type: number; link?: string; metadata?: any },
   ): Promise<INotificationResponse>;
 }
 

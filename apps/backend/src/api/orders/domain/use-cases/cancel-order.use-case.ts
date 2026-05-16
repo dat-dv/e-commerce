@@ -3,6 +3,7 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
 import { NotificationService } from 'src/api/notifications/notifications.service';
+import { ENotificationType } from '@ecommerce/shared';
 
 @Injectable()
 export class CancelOrderUseCase {
@@ -65,9 +66,9 @@ export class CancelOrderUseCase {
       userId,
       'Đơn hàng đã bị hủy',
       `Đơn hàng #${orderId.slice(-6).toUpperCase()} đã được hủy thành công.`,
+      ENotificationType.ORDER,
       {
         orderId: orderId,
-        type: 'ORDER_CANCELLED',
       },
     );
 

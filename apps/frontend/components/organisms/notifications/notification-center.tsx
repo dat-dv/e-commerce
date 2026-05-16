@@ -1,29 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
-import { Bell, Clock, Package, Info, Zap, X } from "lucide-react";
+import { useState } from "react";
+import { Bell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
-import { formatDistanceToNow } from "date-fns";
 import { cn } from "@/utils/cn";
-import { INotification } from "@/domain/notifications/types/notification";
 import Link from "next/link";
+
+import { NotificationItem } from "./notification-item";
 
 export const NotificationCenter = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { notifications, unreadCount, markAsRead, markAllAsRead, loading } =
     useNotifications();
-
-  const getIcon = (type: string) => {
-    switch (type) {
-      case "ORDER":
-        return <Package size={14} className="text-blue-500" />;
-      case "PROMO":
-        return <Zap size={14} className="text-orange-500" />;
-      default:
-        return <Info size={14} className="text-gray-500" />;
-    }
-  };
 
   return (
     <div className="relative">
@@ -62,7 +51,7 @@ export const NotificationCenter = () => {
                 {unreadCount > 0 && (
                   <button
                     onClick={markAllAsRead}
-                    className="text-[10px] font-bold text-primary hover:underline uppercase tracking-widest"
+                    className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors"
                   >
                     Mark all as read
                   </button>
@@ -75,7 +64,7 @@ export const NotificationCenter = () => {
                     Loading updates...
                   </div>
                 ) : notifications.length > 0 ? (
-                  <div className="divide-y divide-content/[0.03]">
+                  <div className="">
                     {notifications.map((notif) => (
                       <NotificationItem
                         key={notif.id}
@@ -96,84 +85,21 @@ export const NotificationCenter = () => {
                 )}
               </div>
 
-              <div className="p-3 border-t border-content/[0.05] bg-content/[0.01]">
+              <div className="p-4 border-t border-content/[0.05] bg-content/[0.01]">
                 <Link
                   href="/notifications"
-                  className="block text-center text-[10px] font-bold text-content/40 hover:text-content transition-colors uppercase tracking-[0.2em]"
+                  className="group flex items-center justify-center gap-2 text-[12px] font-semibold text-content/50 hover:text-primary transition-all duration-300"
                 >
                   View all notifications
+                  <div className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300">
+                    <div className="h-[1px] w-4 bg-primary" />
+                  </div>
                 </Link>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-    </div>
-  );
-};
-
-const NotificationItem = ({
-  notif,
-  onRead,
-}: {
-  notif: INotification;
-  onRead: () => void;
-}) => {
-  const getIcon = (type: string) => {
-    switch (type) {
-      case "ORDER":
-        return <Package size={14} className="text-blue-500" />;
-      case "PROMO":
-        return <Zap size={14} className="text-orange-500" />;
-      default:
-        return <Info size={14} className="text-gray-500" />;
-    }
-  };
-
-  return (
-    <div
-      className={cn(
-        "p-4 flex gap-4 transition-colors relative group cursor-pointer hover:bg-content/[0.02]",
-        !notif.isRead && "bg-primary/[0.02]",
-      )}
-      onClick={() => !notif.isRead && onRead()}
-    >
-      <div
-        className={cn(
-          "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border border-content/[0.05]",
-          notif.isRead
-            ? "bg-content/[0.02]"
-            : "bg-primary/10 border-primary/20",
-        )}
-      >
-        {getIcon(notif.type)}
-      </div>
-
-      <div className="flex-1 min-w-0">
-        <div className="flex justify-between items-start">
-          <h4
-            className={cn(
-              "text-xs font-bold text-content",
-              !notif.isRead && "text-primary",
-            )}
-          >
-            {notif.title}
-          </h4>
-          <span className="text-[9px] text-content/30 flex items-center gap-1">
-            <Clock size={8} />
-            {formatDistanceToNow(new Date(notif.createdAt), {
-              addSuffix: true,
-            })}
-          </span>
-        </div>
-        <p className="mt-1 text-[11px] text-content/60 line-clamp-2 leading-relaxed">
-          {notif.content}
-        </p>
-      </div>
-
-      {!notif.isRead && (
-        <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-primary rounded-full" />
-      )}
     </div>
   );
 };
