@@ -21,6 +21,8 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
                 src={brand.logoUrl}
                 alt={brand.name}
                 fill
+                unoptimized
+                sizes="(max-width: 768px) 80px, 96px"
                 className="object-contain"
               />
             </div>

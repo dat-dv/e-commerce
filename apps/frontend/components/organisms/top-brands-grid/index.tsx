@@ -84,6 +84,7 @@ const BrandCard = ({
                 src={brand.bannerUrl}
                 alt={brand.name}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover opacity-[0.15] grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-transparent" />
@@ -107,6 +108,8 @@ const BrandCard = ({
                     src={brand.logoUrl}
                     alt={brand.name}
                     fill
+                    unoptimized
+                    sizes="56px"
                     className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
                     onError={() => setImgError(true)}
                   />

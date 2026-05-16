@@ -37,6 +37,7 @@ export const ProductImages = ({
               src={images[selectedImage]}
               alt={name}
               fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-contain"
               priority
             />
@@ -65,6 +66,7 @@ export const ProductImages = ({
                 src={img}
                 alt={`${name} thumbnail ${index + 1}`}
                 fill
+                sizes="80px"
                 className="object-cover"
               />
             </div>

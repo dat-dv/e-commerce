@@ -192,6 +192,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                       src={item.sku.imageUrl}
                       alt={item.sku.product?.name || "Product"}
                       fill
+                      sizes="96px"
                       className="object-cover"
                     />
                   )}

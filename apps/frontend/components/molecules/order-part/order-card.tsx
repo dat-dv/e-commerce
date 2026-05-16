@@ -85,6 +85,7 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
                     src={item.sku.imageUrl}
                     alt={item.sku.product?.name || "Product"}
                     fill
+                    sizes="64px"
                     className="object-cover transition-transform group-hover:scale-110"
                   />
                 ) : (

@@ -58,6 +58,7 @@ export const CartItemRow = ({
                 src={item.imageUrl}
                 alt={item.name}
                 fill
+                sizes="80px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
