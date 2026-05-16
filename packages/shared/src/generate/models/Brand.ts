@@ -39,6 +39,8 @@ export type BrandSumAggregateOutputType = {
 export type BrandMinAggregateOutputType = {
   id: string | null
   slug: string | null
+  logo_id: string | null
+  banner_id: string | null
   logo_url: string | null
   banner_url: string | null
   website_url: string | null
@@ -54,6 +56,8 @@ export type BrandMinAggregateOutputType = {
 export type BrandMaxAggregateOutputType = {
   id: string | null
   slug: string | null
+  logo_id: string | null
+  banner_id: string | null
   logo_url: string | null
   banner_url: string | null
   website_url: string | null
@@ -69,6 +73,8 @@ export type BrandMaxAggregateOutputType = {
 export type BrandCountAggregateOutputType = {
   id: number
   slug: number
+  logo_id: number
+  banner_id: number
   logo_url: number
   banner_url: number
   website_url: number
@@ -96,6 +102,8 @@ export type BrandSumAggregateInputType = {
 export type BrandMinAggregateInputType = {
   id?: true
   slug?: true
+  logo_id?: true
+  banner_id?: true
   logo_url?: true
   banner_url?: true
   website_url?: true
@@ -111,6 +119,8 @@ export type BrandMinAggregateInputType = {
 export type BrandMaxAggregateInputType = {
   id?: true
   slug?: true
+  logo_id?: true
+  banner_id?: true
   logo_url?: true
   banner_url?: true
   website_url?: true
@@ -126,6 +136,8 @@ export type BrandMaxAggregateInputType = {
 export type BrandCountAggregateInputType = {
   id?: true
   slug?: true
+  logo_id?: true
+  banner_id?: true
   logo_url?: true
   banner_url?: true
   website_url?: true
@@ -228,6 +240,8 @@ export type BrandGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type BrandGroupByOutputType = {
   id: string
   slug: string
+  logo_id: string | null
+  banner_id: string | null
   logo_url: string | null
   banner_url: string | null
   website_url: string | null
@@ -266,6 +280,8 @@ export type BrandWhereInput = {
   NOT?: Prisma.BrandWhereInput | Prisma.BrandWhereInput[]
   id?: Prisma.StringFilter<"Brand"> | string
   slug?: Prisma.StringFilter<"Brand"> | string
+  logo_id?: Prisma.StringNullableFilter<"Brand"> | string | null
+  banner_id?: Prisma.StringNullableFilter<"Brand"> | string | null
   logo_url?: Prisma.StringNullableFilter<"Brand"> | string | null
   banner_url?: Prisma.StringNullableFilter<"Brand"> | string | null
   website_url?: Prisma.StringNullableFilter<"Brand"> | string | null
@@ -276,6 +292,8 @@ export type BrandWhereInput = {
   order?: Prisma.IntFilter<"Brand"> | number
   created_at?: Prisma.DateTimeFilter<"Brand"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Brand"> | Date | string
+  logo?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
+  banner?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
   translations?: Prisma.BrandTranslationListRelationFilter
   products?: Prisma.ProductListRelationFilter
 }
@@ -283,6 +301,8 @@ export type BrandWhereInput = {
 export type BrandOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  logo_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  banner_id?: Prisma.SortOrderInput | Prisma.SortOrder
   logo_url?: Prisma.SortOrderInput | Prisma.SortOrder
   banner_url?: Prisma.SortOrderInput | Prisma.SortOrder
   website_url?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -293,6 +313,8 @@ export type BrandOrderByWithRelationInput = {
   order?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  logo?: Prisma.ImageOrderByWithRelationInput
+  banner?: Prisma.ImageOrderByWithRelationInput
   translations?: Prisma.BrandTranslationOrderByRelationAggregateInput
   products?: Prisma.ProductOrderByRelationAggregateInput
 }
@@ -300,6 +322,8 @@ export type BrandOrderByWithRelationInput = {
 export type BrandWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   slug?: string
+  logo_id?: string
+  banner_id?: string
   AND?: Prisma.BrandWhereInput | Prisma.BrandWhereInput[]
   OR?: Prisma.BrandWhereInput[]
   NOT?: Prisma.BrandWhereInput | Prisma.BrandWhereInput[]
@@ -313,13 +337,17 @@ export type BrandWhereUniqueInput = Prisma.AtLeast<{
   order?: Prisma.IntFilter<"Brand"> | number
   created_at?: Prisma.DateTimeFilter<"Brand"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Brand"> | Date | string
+  logo?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
+  banner?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
   translations?: Prisma.BrandTranslationListRelationFilter
   products?: Prisma.ProductListRelationFilter
-}, "id" | "slug">
+}, "id" | "slug" | "logo_id" | "banner_id">
 
 export type BrandOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  logo_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  banner_id?: Prisma.SortOrderInput | Prisma.SortOrder
   logo_url?: Prisma.SortOrderInput | Prisma.SortOrder
   banner_url?: Prisma.SortOrderInput | Prisma.SortOrder
   website_url?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -343,6 +371,8 @@ export type BrandScalarWhereWithAggregatesInput = {
   NOT?: Prisma.BrandScalarWhereWithAggregatesInput | Prisma.BrandScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Brand"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Brand"> | string
+  logo_id?: Prisma.StringNullableWithAggregatesFilter<"Brand"> | string | null
+  banner_id?: Prisma.StringNullableWithAggregatesFilter<"Brand"> | string | null
   logo_url?: Prisma.StringNullableWithAggregatesFilter<"Brand"> | string | null
   banner_url?: Prisma.StringNullableWithAggregatesFilter<"Brand"> | string | null
   website_url?: Prisma.StringNullableWithAggregatesFilter<"Brand"> | string | null
@@ -368,6 +398,8 @@ export type BrandCreateInput = {
   order?: number
   created_at?: Date | string
   updated_at?: Date | string
+  logo?: Prisma.ImageCreateNestedOneWithoutBrand_logoInput
+  banner?: Prisma.ImageCreateNestedOneWithoutBrand_bannerInput
   translations?: Prisma.BrandTranslationCreateNestedManyWithoutBrandInput
   products?: Prisma.ProductCreateNestedManyWithoutBrandInput
 }
@@ -375,6 +407,8 @@ export type BrandCreateInput = {
 export type BrandUncheckedCreateInput = {
   id?: string
   slug: string
+  logo_id?: string | null
+  banner_id?: string | null
   logo_url?: string | null
   banner_url?: string | null
   website_url?: string | null
@@ -402,6 +436,8 @@ export type BrandUpdateInput = {
   order?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  logo?: Prisma.ImageUpdateOneWithoutBrand_logoNestedInput
+  banner?: Prisma.ImageUpdateOneWithoutBrand_bannerNestedInput
   translations?: Prisma.BrandTranslationUpdateManyWithoutBrandNestedInput
   products?: Prisma.ProductUpdateManyWithoutBrandNestedInput
 }
@@ -409,6 +445,8 @@ export type BrandUpdateInput = {
 export type BrandUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -426,6 +464,8 @@ export type BrandUncheckedUpdateInput = {
 export type BrandCreateManyInput = {
   id?: string
   slug: string
+  logo_id?: string | null
+  banner_id?: string | null
   logo_url?: string | null
   banner_url?: string | null
   website_url?: string | null
@@ -456,6 +496,8 @@ export type BrandUpdateManyMutationInput = {
 export type BrandUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -471,6 +513,8 @@ export type BrandUncheckedUpdateManyInput = {
 export type BrandCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  logo_id?: Prisma.SortOrder
+  banner_id?: Prisma.SortOrder
   logo_url?: Prisma.SortOrder
   banner_url?: Prisma.SortOrder
   website_url?: Prisma.SortOrder
@@ -491,6 +535,8 @@ export type BrandAvgOrderByAggregateInput = {
 export type BrandMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  logo_id?: Prisma.SortOrder
+  banner_id?: Prisma.SortOrder
   logo_url?: Prisma.SortOrder
   banner_url?: Prisma.SortOrder
   website_url?: Prisma.SortOrder
@@ -506,6 +552,8 @@ export type BrandMaxOrderByAggregateInput = {
 export type BrandMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  logo_id?: Prisma.SortOrder
+  banner_id?: Prisma.SortOrder
   logo_url?: Prisma.SortOrder
   banner_url?: Prisma.SortOrder
   website_url?: Prisma.SortOrder
@@ -575,6 +623,70 @@ export type BrandUpdateOneRequiredWithoutTranslationsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.BrandUpdateToOneWithWhereWithoutTranslationsInput, Prisma.BrandUpdateWithoutTranslationsInput>, Prisma.BrandUncheckedUpdateWithoutTranslationsInput>
 }
 
+export type BrandCreateNestedOneWithoutLogoInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutLogoInput, Prisma.BrandUncheckedCreateWithoutLogoInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutLogoInput
+  connect?: Prisma.BrandWhereUniqueInput
+}
+
+export type BrandCreateNestedOneWithoutBannerInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutBannerInput, Prisma.BrandUncheckedCreateWithoutBannerInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutBannerInput
+  connect?: Prisma.BrandWhereUniqueInput
+}
+
+export type BrandUncheckedCreateNestedOneWithoutLogoInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutLogoInput, Prisma.BrandUncheckedCreateWithoutLogoInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutLogoInput
+  connect?: Prisma.BrandWhereUniqueInput
+}
+
+export type BrandUncheckedCreateNestedOneWithoutBannerInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutBannerInput, Prisma.BrandUncheckedCreateWithoutBannerInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutBannerInput
+  connect?: Prisma.BrandWhereUniqueInput
+}
+
+export type BrandUpdateOneWithoutLogoNestedInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutLogoInput, Prisma.BrandUncheckedCreateWithoutLogoInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutLogoInput
+  upsert?: Prisma.BrandUpsertWithoutLogoInput
+  disconnect?: Prisma.BrandWhereInput | boolean
+  delete?: Prisma.BrandWhereInput | boolean
+  connect?: Prisma.BrandWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BrandUpdateToOneWithWhereWithoutLogoInput, Prisma.BrandUpdateWithoutLogoInput>, Prisma.BrandUncheckedUpdateWithoutLogoInput>
+}
+
+export type BrandUpdateOneWithoutBannerNestedInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutBannerInput, Prisma.BrandUncheckedCreateWithoutBannerInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutBannerInput
+  upsert?: Prisma.BrandUpsertWithoutBannerInput
+  disconnect?: Prisma.BrandWhereInput | boolean
+  delete?: Prisma.BrandWhereInput | boolean
+  connect?: Prisma.BrandWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BrandUpdateToOneWithWhereWithoutBannerInput, Prisma.BrandUpdateWithoutBannerInput>, Prisma.BrandUncheckedUpdateWithoutBannerInput>
+}
+
+export type BrandUncheckedUpdateOneWithoutLogoNestedInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutLogoInput, Prisma.BrandUncheckedCreateWithoutLogoInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutLogoInput
+  upsert?: Prisma.BrandUpsertWithoutLogoInput
+  disconnect?: Prisma.BrandWhereInput | boolean
+  delete?: Prisma.BrandWhereInput | boolean
+  connect?: Prisma.BrandWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BrandUpdateToOneWithWhereWithoutLogoInput, Prisma.BrandUpdateWithoutLogoInput>, Prisma.BrandUncheckedUpdateWithoutLogoInput>
+}
+
+export type BrandUncheckedUpdateOneWithoutBannerNestedInput = {
+  create?: Prisma.XOR<Prisma.BrandCreateWithoutBannerInput, Prisma.BrandUncheckedCreateWithoutBannerInput>
+  connectOrCreate?: Prisma.BrandCreateOrConnectWithoutBannerInput
+  upsert?: Prisma.BrandUpsertWithoutBannerInput
+  disconnect?: Prisma.BrandWhereInput | boolean
+  delete?: Prisma.BrandWhereInput | boolean
+  connect?: Prisma.BrandWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BrandUpdateToOneWithWhereWithoutBannerInput, Prisma.BrandUpdateWithoutBannerInput>, Prisma.BrandUncheckedUpdateWithoutBannerInput>
+}
+
 export type BrandCreateNestedOneWithoutProductsInput = {
   create?: Prisma.XOR<Prisma.BrandCreateWithoutProductsInput, Prisma.BrandUncheckedCreateWithoutProductsInput>
   connectOrCreate?: Prisma.BrandCreateOrConnectWithoutProductsInput
@@ -604,12 +716,16 @@ export type BrandCreateWithoutTranslationsInput = {
   order?: number
   created_at?: Date | string
   updated_at?: Date | string
+  logo?: Prisma.ImageCreateNestedOneWithoutBrand_logoInput
+  banner?: Prisma.ImageCreateNestedOneWithoutBrand_bannerInput
   products?: Prisma.ProductCreateNestedManyWithoutBrandInput
 }
 
 export type BrandUncheckedCreateWithoutTranslationsInput = {
   id?: string
   slug: string
+  logo_id?: string | null
+  banner_id?: string | null
   logo_url?: string | null
   banner_url?: string | null
   website_url?: string | null
@@ -652,10 +768,123 @@ export type BrandUpdateWithoutTranslationsInput = {
   order?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  logo?: Prisma.ImageUpdateOneWithoutBrand_logoNestedInput
+  banner?: Prisma.ImageUpdateOneWithoutBrand_bannerNestedInput
   products?: Prisma.ProductUpdateManyWithoutBrandNestedInput
 }
 
 export type BrandUncheckedUpdateWithoutTranslationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  founded_year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  order?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  products?: Prisma.ProductUncheckedUpdateManyWithoutBrandNestedInput
+}
+
+export type BrandCreateWithoutLogoInput = {
+  id?: string
+  slug: string
+  logo_url?: string | null
+  banner_url?: string | null
+  website_url?: string | null
+  founded_year?: number | null
+  headquarters?: string | null
+  is_verified?: boolean
+  is_featured?: boolean
+  order?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  banner?: Prisma.ImageCreateNestedOneWithoutBrand_bannerInput
+  translations?: Prisma.BrandTranslationCreateNestedManyWithoutBrandInput
+  products?: Prisma.ProductCreateNestedManyWithoutBrandInput
+}
+
+export type BrandUncheckedCreateWithoutLogoInput = {
+  id?: string
+  slug: string
+  banner_id?: string | null
+  logo_url?: string | null
+  banner_url?: string | null
+  website_url?: string | null
+  founded_year?: number | null
+  headquarters?: string | null
+  is_verified?: boolean
+  is_featured?: boolean
+  order?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  translations?: Prisma.BrandTranslationUncheckedCreateNestedManyWithoutBrandInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutBrandInput
+}
+
+export type BrandCreateOrConnectWithoutLogoInput = {
+  where: Prisma.BrandWhereUniqueInput
+  create: Prisma.XOR<Prisma.BrandCreateWithoutLogoInput, Prisma.BrandUncheckedCreateWithoutLogoInput>
+}
+
+export type BrandCreateWithoutBannerInput = {
+  id?: string
+  slug: string
+  logo_url?: string | null
+  banner_url?: string | null
+  website_url?: string | null
+  founded_year?: number | null
+  headquarters?: string | null
+  is_verified?: boolean
+  is_featured?: boolean
+  order?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  logo?: Prisma.ImageCreateNestedOneWithoutBrand_logoInput
+  translations?: Prisma.BrandTranslationCreateNestedManyWithoutBrandInput
+  products?: Prisma.ProductCreateNestedManyWithoutBrandInput
+}
+
+export type BrandUncheckedCreateWithoutBannerInput = {
+  id?: string
+  slug: string
+  logo_id?: string | null
+  logo_url?: string | null
+  banner_url?: string | null
+  website_url?: string | null
+  founded_year?: number | null
+  headquarters?: string | null
+  is_verified?: boolean
+  is_featured?: boolean
+  order?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  translations?: Prisma.BrandTranslationUncheckedCreateNestedManyWithoutBrandInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutBrandInput
+}
+
+export type BrandCreateOrConnectWithoutBannerInput = {
+  where: Prisma.BrandWhereUniqueInput
+  create: Prisma.XOR<Prisma.BrandCreateWithoutBannerInput, Prisma.BrandUncheckedCreateWithoutBannerInput>
+}
+
+export type BrandUpsertWithoutLogoInput = {
+  update: Prisma.XOR<Prisma.BrandUpdateWithoutLogoInput, Prisma.BrandUncheckedUpdateWithoutLogoInput>
+  create: Prisma.XOR<Prisma.BrandCreateWithoutLogoInput, Prisma.BrandUncheckedCreateWithoutLogoInput>
+  where?: Prisma.BrandWhereInput
+}
+
+export type BrandUpdateToOneWithWhereWithoutLogoInput = {
+  where?: Prisma.BrandWhereInput
+  data: Prisma.XOR<Prisma.BrandUpdateWithoutLogoInput, Prisma.BrandUncheckedUpdateWithoutLogoInput>
+}
+
+export type BrandUpdateWithoutLogoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -668,6 +897,73 @@ export type BrandUncheckedUpdateWithoutTranslationsInput = {
   order?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.ImageUpdateOneWithoutBrand_bannerNestedInput
+  translations?: Prisma.BrandTranslationUpdateManyWithoutBrandNestedInput
+  products?: Prisma.ProductUpdateManyWithoutBrandNestedInput
+}
+
+export type BrandUncheckedUpdateWithoutLogoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  banner_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  founded_year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  order?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  translations?: Prisma.BrandTranslationUncheckedUpdateManyWithoutBrandNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutBrandNestedInput
+}
+
+export type BrandUpsertWithoutBannerInput = {
+  update: Prisma.XOR<Prisma.BrandUpdateWithoutBannerInput, Prisma.BrandUncheckedUpdateWithoutBannerInput>
+  create: Prisma.XOR<Prisma.BrandCreateWithoutBannerInput, Prisma.BrandUncheckedCreateWithoutBannerInput>
+  where?: Prisma.BrandWhereInput
+}
+
+export type BrandUpdateToOneWithWhereWithoutBannerInput = {
+  where?: Prisma.BrandWhereInput
+  data: Prisma.XOR<Prisma.BrandUpdateWithoutBannerInput, Prisma.BrandUncheckedUpdateWithoutBannerInput>
+}
+
+export type BrandUpdateWithoutBannerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  founded_year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  order?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  logo?: Prisma.ImageUpdateOneWithoutBrand_logoNestedInput
+  translations?: Prisma.BrandTranslationUpdateManyWithoutBrandNestedInput
+  products?: Prisma.ProductUpdateManyWithoutBrandNestedInput
+}
+
+export type BrandUncheckedUpdateWithoutBannerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  founded_year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  order?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  translations?: Prisma.BrandTranslationUncheckedUpdateManyWithoutBrandNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutBrandNestedInput
 }
 
@@ -684,12 +980,16 @@ export type BrandCreateWithoutProductsInput = {
   order?: number
   created_at?: Date | string
   updated_at?: Date | string
+  logo?: Prisma.ImageCreateNestedOneWithoutBrand_logoInput
+  banner?: Prisma.ImageCreateNestedOneWithoutBrand_bannerInput
   translations?: Prisma.BrandTranslationCreateNestedManyWithoutBrandInput
 }
 
 export type BrandUncheckedCreateWithoutProductsInput = {
   id?: string
   slug: string
+  logo_id?: string | null
+  banner_id?: string | null
   logo_url?: string | null
   banner_url?: string | null
   website_url?: string | null
@@ -732,12 +1032,16 @@ export type BrandUpdateWithoutProductsInput = {
   order?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  logo?: Prisma.ImageUpdateOneWithoutBrand_logoNestedInput
+  banner?: Prisma.ImageUpdateOneWithoutBrand_bannerNestedInput
   translations?: Prisma.BrandTranslationUpdateManyWithoutBrandNestedInput
 }
 
 export type BrandUncheckedUpdateWithoutProductsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  logo_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  banner_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -794,6 +1098,8 @@ export type BrandCountOutputTypeCountProductsArgs<ExtArgs extends runtime.Types.
 export type BrandSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   slug?: boolean
+  logo_id?: boolean
+  banner_id?: boolean
   logo_url?: boolean
   banner_url?: boolean
   website_url?: boolean
@@ -804,6 +1110,8 @@ export type BrandSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  logo?: boolean | Prisma.Brand$logoArgs<ExtArgs>
+  banner?: boolean | Prisma.Brand$bannerArgs<ExtArgs>
   translations?: boolean | Prisma.Brand$translationsArgs<ExtArgs>
   products?: boolean | Prisma.Brand$productsArgs<ExtArgs>
   _count?: boolean | Prisma.BrandCountOutputTypeDefaultArgs<ExtArgs>
@@ -812,6 +1120,8 @@ export type BrandSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type BrandSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   slug?: boolean
+  logo_id?: boolean
+  banner_id?: boolean
   logo_url?: boolean
   banner_url?: boolean
   website_url?: boolean
@@ -822,11 +1132,15 @@ export type BrandSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  logo?: boolean | Prisma.Brand$logoArgs<ExtArgs>
+  banner?: boolean | Prisma.Brand$bannerArgs<ExtArgs>
 }, ExtArgs["result"]["brand"]>
 
 export type BrandSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   slug?: boolean
+  logo_id?: boolean
+  banner_id?: boolean
   logo_url?: boolean
   banner_url?: boolean
   website_url?: boolean
@@ -837,11 +1151,15 @@ export type BrandSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  logo?: boolean | Prisma.Brand$logoArgs<ExtArgs>
+  banner?: boolean | Prisma.Brand$bannerArgs<ExtArgs>
 }, ExtArgs["result"]["brand"]>
 
 export type BrandSelectScalar = {
   id?: boolean
   slug?: boolean
+  logo_id?: boolean
+  banner_id?: boolean
   logo_url?: boolean
   banner_url?: boolean
   website_url?: boolean
@@ -854,24 +1172,36 @@ export type BrandSelectScalar = {
   updated_at?: boolean
 }
 
-export type BrandOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "logo_url" | "banner_url" | "website_url" | "founded_year" | "headquarters" | "is_verified" | "is_featured" | "order" | "created_at" | "updated_at", ExtArgs["result"]["brand"]>
+export type BrandOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "logo_id" | "banner_id" | "logo_url" | "banner_url" | "website_url" | "founded_year" | "headquarters" | "is_verified" | "is_featured" | "order" | "created_at" | "updated_at", ExtArgs["result"]["brand"]>
 export type BrandInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  logo?: boolean | Prisma.Brand$logoArgs<ExtArgs>
+  banner?: boolean | Prisma.Brand$bannerArgs<ExtArgs>
   translations?: boolean | Prisma.Brand$translationsArgs<ExtArgs>
   products?: boolean | Prisma.Brand$productsArgs<ExtArgs>
   _count?: boolean | Prisma.BrandCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type BrandIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type BrandIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type BrandIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  logo?: boolean | Prisma.Brand$logoArgs<ExtArgs>
+  banner?: boolean | Prisma.Brand$bannerArgs<ExtArgs>
+}
+export type BrandIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  logo?: boolean | Prisma.Brand$logoArgs<ExtArgs>
+  banner?: boolean | Prisma.Brand$bannerArgs<ExtArgs>
+}
 
 export type $BrandPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Brand"
   objects: {
+    logo: Prisma.$ImagePayload<ExtArgs> | null
+    banner: Prisma.$ImagePayload<ExtArgs> | null
     translations: Prisma.$BrandTranslationPayload<ExtArgs>[]
     products: Prisma.$ProductPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     slug: string
+    logo_id: string | null
+    banner_id: string | null
     logo_url: string | null
     banner_url: string | null
     website_url: string | null
@@ -1276,6 +1606,8 @@ readonly fields: BrandFieldRefs;
  */
 export interface Prisma__BrandClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  logo<T extends Prisma.Brand$logoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Brand$logoArgs<ExtArgs>>): Prisma.Prisma__ImageClient<runtime.Types.Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  banner<T extends Prisma.Brand$bannerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Brand$bannerArgs<ExtArgs>>): Prisma.Prisma__ImageClient<runtime.Types.Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   translations<T extends Prisma.Brand$translationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Brand$translationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BrandTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   products<T extends Prisma.Brand$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Brand$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1309,6 +1641,8 @@ export interface Prisma__BrandClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface BrandFieldRefs {
   readonly id: Prisma.FieldRef<"Brand", 'String'>
   readonly slug: Prisma.FieldRef<"Brand", 'String'>
+  readonly logo_id: Prisma.FieldRef<"Brand", 'String'>
+  readonly banner_id: Prisma.FieldRef<"Brand", 'String'>
   readonly logo_url: Prisma.FieldRef<"Brand", 'String'>
   readonly banner_url: Prisma.FieldRef<"Brand", 'String'>
   readonly website_url: Prisma.FieldRef<"Brand", 'String'>
@@ -1571,6 +1905,10 @@ export type BrandCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * The data used to create many Brands.
    */
   data: Prisma.BrandCreateManyInput | Prisma.BrandCreateManyInput[]
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BrandIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1641,6 +1979,10 @@ export type BrandUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * Limit how many Brands to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BrandIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1707,6 +2049,44 @@ export type BrandDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Limit how many Brands to delete.
    */
   limit?: number
+}
+
+/**
+ * Brand.logo
+ */
+export type Brand$logoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Image
+   */
+  select?: Prisma.ImageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Image
+   */
+  omit?: Prisma.ImageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ImageInclude<ExtArgs> | null
+  where?: Prisma.ImageWhereInput
+}
+
+/**
+ * Brand.banner
+ */
+export type Brand$bannerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Image
+   */
+  select?: Prisma.ImageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Image
+   */
+  omit?: Prisma.ImageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ImageInclude<ExtArgs> | null
+  where?: Prisma.ImageWhereInput
 }
 
 /**

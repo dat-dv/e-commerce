@@ -27,7 +27,7 @@ export class HomepageRepository implements IHomepageRepository {
               slug: c.slug,
               level: c.level,
               order: c.order,
-              name: (c as ICategoryResponse).translations?.[0]?.name || c.slug,
+              name: c.category?.translations?.[0]?.name || c.slug,
             })),
           },
           data: item.data?.map((p) => ProductMapper.toDomain(p)) || [],

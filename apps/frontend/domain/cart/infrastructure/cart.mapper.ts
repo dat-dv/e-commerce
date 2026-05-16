@@ -1,22 +1,10 @@
 import { TCart } from "../types/cart.model";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
-import {
-  ICartResponse,
-  ICartItemResponse,
-  ISkuResponse,
-  IProductResponse,
-} from "@ecommerce/shared";
-
-// Extended type to handle product relation within SKU
-type ISkuWithProduct = ISkuResponse & {
-  product?: IProductResponse & {
-    thumbnail_url?: string;
-  };
-};
+import { ICartResponse, ICartItemResponse } from "@ecommerce/shared";
 
 export class CartMapper {
   static toDomainItem(dto: ICartItemResponse): TCartItem {
-    const sku = dto.sku as ISkuWithProduct | undefined;
+    const sku = dto.sku;
     const flashSalePrice = sku?.flash_sales?.[0]?.sale_price;
     const price = flashSalePrice ?? sku?.price ?? 0;
 

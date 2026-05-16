@@ -19,6 +19,7 @@ import { CartProvider } from "@/components/molecules/providers/cart-provider";
 import { CartDrawer } from "@/components/organisms/cart/cart-drawer";
 import { addressesUseCase } from "@/domain/addresses";
 import { cartUseCase } from "@/domain/cart/use-cases";
+import { NotificationProvider } from "@/components/providers/notification-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -111,12 +112,16 @@ export default async function RootLayout({
         <ConfigProvider initState={{ language: language || "en" }}>
           <CategoriesProvider initState={{ categories }}>
             <AuthProvider>
-              <CartProvider initState={initialCartState?.data?.items || []}>
-                <AddressProvider initState={initialAddressesState?.data || []}>
-                  {children}
-                  <CartDrawer />
-                </AddressProvider>
-              </CartProvider>
+              <NotificationProvider>
+                <CartProvider initState={initialCartState?.data?.items || []}>
+                  <AddressProvider
+                    initState={initialAddressesState?.data || []}
+                  >
+                    {children}
+                    <CartDrawer />
+                  </AddressProvider>
+                </CartProvider>
+              </NotificationProvider>
             </AuthProvider>
           </CategoriesProvider>
           <AppToast />

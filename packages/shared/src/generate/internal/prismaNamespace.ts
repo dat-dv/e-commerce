@@ -3092,6 +3092,8 @@ export type SkuAttributeValueScalarFieldEnum = (typeof SkuAttributeValueScalarFi
 export const BrandScalarFieldEnum = {
   id: 'id',
   slug: 'slug',
+  logo_id: 'logo_id',
+  banner_id: 'banner_id',
   logo_url: 'logo_url',
   banner_url: 'banner_url',
   website_url: 'website_url',

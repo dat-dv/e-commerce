@@ -1,20 +1,8 @@
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { IBrandResponse } from "@ecommerce/shared";
 
-type IBrandWithRelations = IBrandResponse & {
-  name?: string;
-  logo_url?: string | null;
-  banner_url?: string | null;
-  description?: string | null;
-  translations?: { name: string; description: string }[];
-  logo?: { url: string };
-  story_en?: string;
-  product_count?: number;
-};
-
 export class BrandMapper {
-  static toDomain(dto: IBrandResponse): TBrand {
-    const brand = dto as IBrandWithRelations;
+  static toDomain(brand: IBrandResponse): TBrand {
     const translation = brand.translations?.[0];
 
     return {

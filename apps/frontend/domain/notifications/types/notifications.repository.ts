@@ -1,0 +1,13 @@
+import { ApiResponse } from "@/utils/request/request.types";
+import { INotificationTokenResponse } from "@ecommerce/shared";
+
+export type TSaveTokenRequest = {
+  token: string;
+  device_type?: string;
+};
+
+export interface INotificationsRepository {
+  saveToken(
+    data: TSaveTokenRequest,
+  ): Promise<ApiResponse<INotificationTokenResponse>>;
+}

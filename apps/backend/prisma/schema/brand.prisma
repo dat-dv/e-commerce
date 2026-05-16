@@ -1,8 +1,12 @@
 model Brand {
   id             String   @id @default(cuid())
   slug           String   @unique
-  logo_url       String?
-  banner_url     String?
+  logo_id        String?  @unique
+  logo           Image?   @relation("BrandLogo", fields: [logo_id], references: [id])
+  banner_id      String?  @unique
+  banner         Image?   @relation("BrandBanner", fields: [banner_id], references: [id])
+  logo_url       String?  // fallback or legacy
+  banner_url     String?  // fallback or legacy
   website_url    String?
   founded_year   Int?
   headquarters   String?

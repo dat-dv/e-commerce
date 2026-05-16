@@ -63,19 +63,41 @@ export async function seedBrands(prisma: PrismaClient) {
     story: string | null;
   }
 
-  const brandsToCreate: BrandCreateInput[] = [];
+  const brandsToCreate: any[] = [];
   const translationsToCreate: BrandTranslationCreateInput[] = [];
+  const imagesToCreate: any[] = [];
   const brandMap: Record<string, string> = {};
   const usedSlugs = new Set<string>();
 
   // --- PHASE 1: Seed Top Brands (Dữ liệu chất lượng cao) ---
   TOP_BRANDS_DATA.forEach((brand, index) => {
     const brandId = createId();
+    const logoId = brand.logo ? createId() : null;
+    const bannerId = brand.banner ? createId() : null;
+
+    if (logoId) {
+      imagesToCreate.push({
+        id: logoId,
+        url: brand.logo,
+        public_id: `brands/logo/${brand.slug}`,
+      });
+    }
+
+    if (bannerId) {
+      imagesToCreate.push({
+        id: bannerId,
+        url: brand.banner,
+        public_id: `brands/banner/${brand.slug}`,
+      });
+    }
+
     usedSlugs.add(brand.slug);
 
     brandsToCreate.push({
       id: brandId,
       slug: brand.slug,
+      logo_id: logoId,
+      banner_id: bannerId,
       logo_url: brand.logo,
       banner_url: brand.banner,
       website_url: brand.website || null,
@@ -162,6 +184,7 @@ export async function seedBrands(prisma: PrismaClient) {
   });
 
   // Bulk Insert
+  await prisma.image.createMany({ data: imagesToCreate });
   await prisma.brand.createMany({ data: brandsToCreate });
   await prisma.brandTranslation.createMany({ data: translationsToCreate });
 

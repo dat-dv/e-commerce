@@ -1,8 +1,14 @@
-import type { Brand } from "../generate/browser";
+import type { Brand, BrandTranslation, Image } from "../generate/browser";
 import type { IProductResponse } from "../product/product.response";
 import type { IPaginatedResult } from "../paginate";
 
-export type IBrandResponse = Brand;
+export interface IBrandResponse extends Brand {
+  translations?: BrandTranslation[];
+  logo?: Image | null;
+  banner?: Image | null;
+  product_count?: number;
+  story_en?: string;
+}
 
 export type IBrandListResponse = IPaginatedResult<IBrandResponse>;
 

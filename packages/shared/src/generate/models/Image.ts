@@ -259,6 +259,8 @@ export type ImageWhereInput = {
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   product?: Prisma.XOR<Prisma.ProductNullableScalarRelationFilter, Prisma.ProductWhereInput> | null
   category?: Prisma.XOR<Prisma.ProductCategoryNullableScalarRelationFilter, Prisma.ProductCategoryWhereInput> | null
+  brand_logo?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
+  brand_banner?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
 }
 
 export type ImageOrderByWithRelationInput = {
@@ -274,6 +276,8 @@ export type ImageOrderByWithRelationInput = {
   user?: Prisma.UserOrderByWithRelationInput
   product?: Prisma.ProductOrderByWithRelationInput
   category?: Prisma.ProductCategoryOrderByWithRelationInput
+  brand_logo?: Prisma.BrandOrderByWithRelationInput
+  brand_banner?: Prisma.BrandOrderByWithRelationInput
 }
 
 export type ImageWhereUniqueInput = Prisma.AtLeast<{
@@ -292,6 +296,8 @@ export type ImageWhereUniqueInput = Prisma.AtLeast<{
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   product?: Prisma.XOR<Prisma.ProductNullableScalarRelationFilter, Prisma.ProductWhereInput> | null
   category?: Prisma.XOR<Prisma.ProductCategoryNullableScalarRelationFilter, Prisma.ProductCategoryWhereInput> | null
+  brand_logo?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
+  brand_banner?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
 }, "id">
 
 export type ImageOrderByWithAggregationInput = {
@@ -339,6 +345,8 @@ export type ImageCreateInput = {
   user?: Prisma.UserCreateNestedOneWithoutAvatarInput
   product?: Prisma.ProductCreateNestedOneWithoutThumbnailInput
   category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
 }
 
 export type ImageUncheckedCreateInput = {
@@ -354,6 +362,8 @@ export type ImageUncheckedCreateInput = {
   user?: Prisma.UserUncheckedCreateNestedOneWithoutAvatarInput
   product?: Prisma.ProductUncheckedCreateNestedOneWithoutThumbnailInput
   category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
 }
 
 export type ImageUpdateInput = {
@@ -369,6 +379,8 @@ export type ImageUpdateInput = {
   user?: Prisma.UserUpdateOneWithoutAvatarNestedInput
   product?: Prisma.ProductUpdateOneWithoutThumbnailNestedInput
   category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageUncheckedUpdateInput = {
@@ -384,6 +396,8 @@ export type ImageUncheckedUpdateInput = {
   user?: Prisma.UserUncheckedUpdateOneWithoutAvatarNestedInput
   product?: Prisma.ProductUncheckedUpdateOneWithoutThumbnailNestedInput
   category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageCreateManyInput = {
@@ -475,6 +489,38 @@ export type ImageSumOrderByAggregateInput = {
   bytes?: Prisma.SortOrder
 }
 
+export type ImageCreateNestedOneWithoutBrand_logoInput = {
+  create?: Prisma.XOR<Prisma.ImageCreateWithoutBrand_logoInput, Prisma.ImageUncheckedCreateWithoutBrand_logoInput>
+  connectOrCreate?: Prisma.ImageCreateOrConnectWithoutBrand_logoInput
+  connect?: Prisma.ImageWhereUniqueInput
+}
+
+export type ImageCreateNestedOneWithoutBrand_bannerInput = {
+  create?: Prisma.XOR<Prisma.ImageCreateWithoutBrand_bannerInput, Prisma.ImageUncheckedCreateWithoutBrand_bannerInput>
+  connectOrCreate?: Prisma.ImageCreateOrConnectWithoutBrand_bannerInput
+  connect?: Prisma.ImageWhereUniqueInput
+}
+
+export type ImageUpdateOneWithoutBrand_logoNestedInput = {
+  create?: Prisma.XOR<Prisma.ImageCreateWithoutBrand_logoInput, Prisma.ImageUncheckedCreateWithoutBrand_logoInput>
+  connectOrCreate?: Prisma.ImageCreateOrConnectWithoutBrand_logoInput
+  upsert?: Prisma.ImageUpsertWithoutBrand_logoInput
+  disconnect?: Prisma.ImageWhereInput | boolean
+  delete?: Prisma.ImageWhereInput | boolean
+  connect?: Prisma.ImageWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ImageUpdateToOneWithWhereWithoutBrand_logoInput, Prisma.ImageUpdateWithoutBrand_logoInput>, Prisma.ImageUncheckedUpdateWithoutBrand_logoInput>
+}
+
+export type ImageUpdateOneWithoutBrand_bannerNestedInput = {
+  create?: Prisma.XOR<Prisma.ImageCreateWithoutBrand_bannerInput, Prisma.ImageUncheckedCreateWithoutBrand_bannerInput>
+  connectOrCreate?: Prisma.ImageCreateOrConnectWithoutBrand_bannerInput
+  upsert?: Prisma.ImageUpsertWithoutBrand_bannerInput
+  disconnect?: Prisma.ImageWhereInput | boolean
+  delete?: Prisma.ImageWhereInput | boolean
+  connect?: Prisma.ImageWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ImageUpdateToOneWithWhereWithoutBrand_bannerInput, Prisma.ImageUpdateWithoutBrand_bannerInput>, Prisma.ImageUncheckedUpdateWithoutBrand_bannerInput>
+}
+
 export type ImageCreateNestedOneWithoutCategoryInput = {
   create?: Prisma.XOR<Prisma.ImageCreateWithoutCategoryInput, Prisma.ImageUncheckedCreateWithoutCategoryInput>
   connectOrCreate?: Prisma.ImageCreateOrConnectWithoutCategoryInput
@@ -523,6 +569,166 @@ export type ImageUpdateOneWithoutUserNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ImageUpdateToOneWithWhereWithoutUserInput, Prisma.ImageUpdateWithoutUserInput>, Prisma.ImageUncheckedUpdateWithoutUserInput>
 }
 
+export type ImageCreateWithoutBrand_logoInput = {
+  id?: string
+  url: string
+  public_id: string
+  width?: number | null
+  height?: number | null
+  format?: string | null
+  bytes?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user?: Prisma.UserCreateNestedOneWithoutAvatarInput
+  product?: Prisma.ProductCreateNestedOneWithoutThumbnailInput
+  category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
+  brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
+}
+
+export type ImageUncheckedCreateWithoutBrand_logoInput = {
+  id?: string
+  url: string
+  public_id: string
+  width?: number | null
+  height?: number | null
+  format?: string | null
+  bytes?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user?: Prisma.UserUncheckedCreateNestedOneWithoutAvatarInput
+  product?: Prisma.ProductUncheckedCreateNestedOneWithoutThumbnailInput
+  category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
+  brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
+}
+
+export type ImageCreateOrConnectWithoutBrand_logoInput = {
+  where: Prisma.ImageWhereUniqueInput
+  create: Prisma.XOR<Prisma.ImageCreateWithoutBrand_logoInput, Prisma.ImageUncheckedCreateWithoutBrand_logoInput>
+}
+
+export type ImageCreateWithoutBrand_bannerInput = {
+  id?: string
+  url: string
+  public_id: string
+  width?: number | null
+  height?: number | null
+  format?: string | null
+  bytes?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user?: Prisma.UserCreateNestedOneWithoutAvatarInput
+  product?: Prisma.ProductCreateNestedOneWithoutThumbnailInput
+  category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
+}
+
+export type ImageUncheckedCreateWithoutBrand_bannerInput = {
+  id?: string
+  url: string
+  public_id: string
+  width?: number | null
+  height?: number | null
+  format?: string | null
+  bytes?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user?: Prisma.UserUncheckedCreateNestedOneWithoutAvatarInput
+  product?: Prisma.ProductUncheckedCreateNestedOneWithoutThumbnailInput
+  category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
+}
+
+export type ImageCreateOrConnectWithoutBrand_bannerInput = {
+  where: Prisma.ImageWhereUniqueInput
+  create: Prisma.XOR<Prisma.ImageCreateWithoutBrand_bannerInput, Prisma.ImageUncheckedCreateWithoutBrand_bannerInput>
+}
+
+export type ImageUpsertWithoutBrand_logoInput = {
+  update: Prisma.XOR<Prisma.ImageUpdateWithoutBrand_logoInput, Prisma.ImageUncheckedUpdateWithoutBrand_logoInput>
+  create: Prisma.XOR<Prisma.ImageCreateWithoutBrand_logoInput, Prisma.ImageUncheckedCreateWithoutBrand_logoInput>
+  where?: Prisma.ImageWhereInput
+}
+
+export type ImageUpdateToOneWithWhereWithoutBrand_logoInput = {
+  where?: Prisma.ImageWhereInput
+  data: Prisma.XOR<Prisma.ImageUpdateWithoutBrand_logoInput, Prisma.ImageUncheckedUpdateWithoutBrand_logoInput>
+}
+
+export type ImageUpdateWithoutBrand_logoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  public_id?: Prisma.StringFieldUpdateOperationsInput | string
+  width?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  format?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneWithoutAvatarNestedInput
+  product?: Prisma.ProductUpdateOneWithoutThumbnailNestedInput
+  category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
+  brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
+}
+
+export type ImageUncheckedUpdateWithoutBrand_logoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  public_id?: Prisma.StringFieldUpdateOperationsInput | string
+  width?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  format?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUncheckedUpdateOneWithoutAvatarNestedInput
+  product?: Prisma.ProductUncheckedUpdateOneWithoutThumbnailNestedInput
+  category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
+  brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
+}
+
+export type ImageUpsertWithoutBrand_bannerInput = {
+  update: Prisma.XOR<Prisma.ImageUpdateWithoutBrand_bannerInput, Prisma.ImageUncheckedUpdateWithoutBrand_bannerInput>
+  create: Prisma.XOR<Prisma.ImageCreateWithoutBrand_bannerInput, Prisma.ImageUncheckedCreateWithoutBrand_bannerInput>
+  where?: Prisma.ImageWhereInput
+}
+
+export type ImageUpdateToOneWithWhereWithoutBrand_bannerInput = {
+  where?: Prisma.ImageWhereInput
+  data: Prisma.XOR<Prisma.ImageUpdateWithoutBrand_bannerInput, Prisma.ImageUncheckedUpdateWithoutBrand_bannerInput>
+}
+
+export type ImageUpdateWithoutBrand_bannerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  public_id?: Prisma.StringFieldUpdateOperationsInput | string
+  width?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  format?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneWithoutAvatarNestedInput
+  product?: Prisma.ProductUpdateOneWithoutThumbnailNestedInput
+  category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
+}
+
+export type ImageUncheckedUpdateWithoutBrand_bannerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  public_id?: Prisma.StringFieldUpdateOperationsInput | string
+  width?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  format?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUncheckedUpdateOneWithoutAvatarNestedInput
+  product?: Prisma.ProductUncheckedUpdateOneWithoutThumbnailNestedInput
+  category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
+}
+
 export type ImageCreateWithoutCategoryInput = {
   id?: string
   url: string
@@ -535,6 +741,8 @@ export type ImageCreateWithoutCategoryInput = {
   updated_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutAvatarInput
   product?: Prisma.ProductCreateNestedOneWithoutThumbnailInput
+  brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
 }
 
 export type ImageUncheckedCreateWithoutCategoryInput = {
@@ -549,6 +757,8 @@ export type ImageUncheckedCreateWithoutCategoryInput = {
   updated_at?: Date | string
   user?: Prisma.UserUncheckedCreateNestedOneWithoutAvatarInput
   product?: Prisma.ProductUncheckedCreateNestedOneWithoutThumbnailInput
+  brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
 }
 
 export type ImageCreateOrConnectWithoutCategoryInput = {
@@ -579,6 +789,8 @@ export type ImageUpdateWithoutCategoryInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutAvatarNestedInput
   product?: Prisma.ProductUpdateOneWithoutThumbnailNestedInput
+  brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutCategoryInput = {
@@ -593,6 +805,8 @@ export type ImageUncheckedUpdateWithoutCategoryInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUncheckedUpdateOneWithoutAvatarNestedInput
   product?: Prisma.ProductUncheckedUpdateOneWithoutThumbnailNestedInput
+  brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageCreateWithoutProductInput = {
@@ -607,6 +821,8 @@ export type ImageCreateWithoutProductInput = {
   updated_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutAvatarInput
   category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
 }
 
 export type ImageUncheckedCreateWithoutProductInput = {
@@ -621,6 +837,8 @@ export type ImageUncheckedCreateWithoutProductInput = {
   updated_at?: Date | string
   user?: Prisma.UserUncheckedCreateNestedOneWithoutAvatarInput
   category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
 }
 
 export type ImageCreateOrConnectWithoutProductInput = {
@@ -651,6 +869,8 @@ export type ImageUpdateWithoutProductInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutAvatarNestedInput
   category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutProductInput = {
@@ -665,6 +885,8 @@ export type ImageUncheckedUpdateWithoutProductInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUncheckedUpdateOneWithoutAvatarNestedInput
   category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageCreateWithoutUserInput = {
@@ -679,6 +901,8 @@ export type ImageCreateWithoutUserInput = {
   updated_at?: Date | string
   product?: Prisma.ProductCreateNestedOneWithoutThumbnailInput
   category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
 }
 
 export type ImageUncheckedCreateWithoutUserInput = {
@@ -693,6 +917,8 @@ export type ImageUncheckedCreateWithoutUserInput = {
   updated_at?: Date | string
   product?: Prisma.ProductUncheckedCreateNestedOneWithoutThumbnailInput
   category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
 }
 
 export type ImageCreateOrConnectWithoutUserInput = {
@@ -723,6 +949,8 @@ export type ImageUpdateWithoutUserInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   product?: Prisma.ProductUpdateOneWithoutThumbnailNestedInput
   category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutUserInput = {
@@ -737,6 +965,8 @@ export type ImageUncheckedUpdateWithoutUserInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   product?: Prisma.ProductUncheckedUpdateOneWithoutThumbnailNestedInput
   category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
 }
 
 
@@ -754,6 +984,8 @@ export type ImageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   user?: boolean | Prisma.Image$userArgs<ExtArgs>
   product?: boolean | Prisma.Image$productArgs<ExtArgs>
   category?: boolean | Prisma.Image$categoryArgs<ExtArgs>
+  brand_logo?: boolean | Prisma.Image$brand_logoArgs<ExtArgs>
+  brand_banner?: boolean | Prisma.Image$brand_bannerArgs<ExtArgs>
 }, ExtArgs["result"]["image"]>
 
 export type ImageSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -797,6 +1029,8 @@ export type ImageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   user?: boolean | Prisma.Image$userArgs<ExtArgs>
   product?: boolean | Prisma.Image$productArgs<ExtArgs>
   category?: boolean | Prisma.Image$categoryArgs<ExtArgs>
+  brand_logo?: boolean | Prisma.Image$brand_logoArgs<ExtArgs>
+  brand_banner?: boolean | Prisma.Image$brand_bannerArgs<ExtArgs>
 }
 export type ImageIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 export type ImageIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -807,6 +1041,8 @@ export type $ImagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     user: Prisma.$UserPayload<ExtArgs> | null
     product: Prisma.$ProductPayload<ExtArgs> | null
     category: Prisma.$ProductCategoryPayload<ExtArgs> | null
+    brand_logo: Prisma.$BrandPayload<ExtArgs> | null
+    brand_banner: Prisma.$BrandPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1215,6 +1451,8 @@ export interface Prisma__ImageClient<T, Null = never, ExtArgs extends runtime.Ty
   user<T extends Prisma.Image$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   product<T extends Prisma.Image$productArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$productArgs<ExtArgs>>): Prisma.Prisma__ProductClient<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   category<T extends Prisma.Image$categoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$categoryArgs<ExtArgs>>): Prisma.Prisma__ProductCategoryClient<runtime.Types.Result.GetResult<Prisma.$ProductCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  brand_logo<T extends Prisma.Image$brand_logoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$brand_logoArgs<ExtArgs>>): Prisma.Prisma__BrandClient<runtime.Types.Result.GetResult<Prisma.$BrandPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  brand_banner<T extends Prisma.Image$brand_bannerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$brand_bannerArgs<ExtArgs>>): Prisma.Prisma__BrandClient<runtime.Types.Result.GetResult<Prisma.$BrandPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1698,6 +1936,44 @@ export type Image$categoryArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   include?: Prisma.ProductCategoryInclude<ExtArgs> | null
   where?: Prisma.ProductCategoryWhereInput
+}
+
+/**
+ * Image.brand_logo
+ */
+export type Image$brand_logoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Brand
+   */
+  select?: Prisma.BrandSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Brand
+   */
+  omit?: Prisma.BrandOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BrandInclude<ExtArgs> | null
+  where?: Prisma.BrandWhereInput
+}
+
+/**
+ * Image.brand_banner
+ */
+export type Image$brand_bannerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Brand
+   */
+  select?: Prisma.BrandSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Brand
+   */
+  omit?: Prisma.BrandOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BrandInclude<ExtArgs> | null
+  where?: Prisma.BrandWhereInput
 }
 
 /**
