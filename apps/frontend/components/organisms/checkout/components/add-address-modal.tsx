@@ -29,7 +29,29 @@ export const AddAddressModal = ({
   const initialData: Partial<AddressFormInput> | undefined = editingAddress
     ? {
         receiverName: editingAddress.name,
-        receiverPhone: editingAddress.phone,
+        receiverPhone: (() => {
+          const phone = editingAddress.phone || "";
+          const country = [
+            { dialCode: "+84" },
+            { dialCode: "+66" },
+            { dialCode: "+65" },
+            { dialCode: "+60" },
+            { dialCode: "+62" },
+            { dialCode: "+63" },
+            { dialCode: "+673" },
+            { dialCode: "+855" },
+            { dialCode: "+856" },
+            { dialCode: "+95" },
+          ].find((c) => phone.startsWith(c.dialCode));
+
+          if (country) {
+            return {
+              phoneCode: country.dialCode,
+              phoneNumber: phone.slice(country.dialCode.length),
+            };
+          }
+          return { phoneCode: "+84", phoneNumber: phone };
+        })(),
         label: editingAddress.label,
         state: editingAddress.province,
         city: editingAddress.district,

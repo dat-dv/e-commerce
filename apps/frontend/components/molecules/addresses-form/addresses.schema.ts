@@ -6,7 +6,10 @@ export const addressSchema = z.object({
     error: "Label is required",
   }),
   receiverName: z.string().min(1, "Receiver name is required"),
-  receiverPhone: z.string().min(1, "Receiver phone is required"),
+  receiverPhone: z.object({
+    phoneCode: z.string(),
+    phoneNumber: z.string().min(1, "Receiver phone is required"),
+  }),
   latitude: z.number().refine((val) => val !== 0, "Map location is required"),
   longitude: z.number().refine((val) => val !== 0, "Map location is required"),
   street: z.string().min(1, "Street is required"),

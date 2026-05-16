@@ -8,19 +8,16 @@ import AppForm from "@/components/molecules/form/app-form";
 import Button from "@/components/atoms/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  addressSchema,
-  AddressFormData,
-  AddressFormInput,
-} from "./addresses.schema";
+import { addressSchema, AddressFormData } from "./addresses.schema";
 import { SHIPPING_ADDRESS_LABELS_OPTIONS } from "@/constants/shipping-address.constanst";
 import { FormMapPicker } from "../form/form-map-picker";
 import { EAddressLabel } from "@ecommerce/shared";
+import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 
 interface AddressesFormProps {
-  onSubmit: (data: AddressFormData) => Promise<boolean>;
+  onSubmit: (data: TCreateAddressInput) => Promise<boolean>;
   loading: boolean;
-  initialData?: Partial<AddressFormInput>;
+  initialData?: Partial<AddressFormData>;
 }
 
 export const AddressesForm = ({
@@ -28,12 +25,15 @@ export const AddressesForm = ({
   loading,
   initialData,
 }: AddressesFormProps) => {
-  const methods = useForm<AddressFormInput>({
+  const methods = useForm<AddressFormData>({
     resolver: zodResolver(addressSchema),
     defaultValues: {
       label: initialData?.label ?? EAddressLabel.HOME,
       receiverName: initialData?.receiverName || "",
-      receiverPhone: initialData?.receiverPhone || "",
+      receiverPhone: initialData?.receiverPhone || {
+        phoneCode: "+84",
+        phoneNumber: "",
+      },
       latitude: initialData?.latitude || 0,
       longitude: initialData?.longitude || 0,
       street: initialData?.street || "",
@@ -46,7 +46,12 @@ export const AddressesForm = ({
   });
 
   const handleFormSubmit = async (data: AddressFormData) => {
-    const success = await onSubmit(data);
+    const formattedData: TCreateAddressInput = {
+      ...data,
+      receiverPhone: `${data.receiverPhone.phoneCode}${data.receiverPhone.phoneNumber}`,
+    };
+
+    const success = await onSubmit(formattedData);
     if (success) {
       methods.reset();
     }
@@ -57,7 +62,7 @@ export const AddressesForm = ({
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <FormInput
-            name="receiver_name"
+            name="receiverName"
             label="Receiver Name"
             placeholder="John Doe"
             variant="outline"
@@ -65,7 +70,7 @@ export const AddressesForm = ({
             disabled={loading}
           />
           <FormPhoneInput
-            name="receiver_phone"
+            name="receiverPhone"
             label="Receiver Phone"
             disabled={loading}
             className="h-10 text-sm rounded-xl"
@@ -126,7 +131,7 @@ export const AddressesForm = ({
             disabled={loading}
           />
           <FormInput
-            name="postal_code"
+            name="postalCode"
             label="Postal Code"
             placeholder="Postal Code"
             variant="outline"
