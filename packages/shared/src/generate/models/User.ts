@@ -290,6 +290,7 @@ export type UserWhereInput = {
   browsing_history?: Prisma.UserBrowsingHistoryListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
   notification_tokens?: Prisma.NotificationTokenListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
   favorite_categories?: Prisma.UserFavoriteCategoryListRelationFilter
   role?: Prisma.XOR<Prisma.RoleNullableScalarRelationFilter, Prisma.RoleWhereInput> | null
 }
@@ -318,6 +319,7 @@ export type UserOrderByWithRelationInput = {
   browsing_history?: Prisma.UserBrowsingHistoryOrderByRelationAggregateInput
   reviews?: Prisma.ReviewOrderByRelationAggregateInput
   notification_tokens?: Prisma.NotificationTokenOrderByRelationAggregateInput
+  notifications?: Prisma.NotificationOrderByRelationAggregateInput
   favorite_categories?: Prisma.UserFavoriteCategoryOrderByRelationAggregateInput
   role?: Prisma.RoleOrderByWithRelationInput
 }
@@ -349,6 +351,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   browsing_history?: Prisma.UserBrowsingHistoryListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
   notification_tokens?: Prisma.NotificationTokenListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
   favorite_categories?: Prisma.UserFavoriteCategoryListRelationFilter
   role?: Prisma.XOR<Prisma.RoleNullableScalarRelationFilter, Prisma.RoleWhereInput> | null
 }, "id" | "email" | "avatar_id">
@@ -415,6 +418,7 @@ export type UserCreateInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -442,6 +446,7 @@ export type UserUncheckedCreateInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -467,6 +472,7 @@ export type UserUpdateInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -494,6 +500,7 @@ export type UserUncheckedUpdateInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -679,6 +686,20 @@ export type UserUncheckedUpdateOneWithoutAvatarNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAvatarInput, Prisma.UserUpdateWithoutAvatarInput>, Prisma.UserUncheckedUpdateWithoutAvatarInput>
 }
 
+export type UserCreateNestedOneWithoutNotificationsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutNotificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationsInput
+  upsert?: Prisma.UserUpsertWithoutNotificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutNotificationsInput, Prisma.UserUpdateWithoutNotificationsInput>, Prisma.UserUncheckedUpdateWithoutNotificationsInput>
+}
+
 export type UserCreateNestedOneWithoutNotification_tokensInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutNotification_tokensInput, Prisma.UserUncheckedCreateWithoutNotification_tokensInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotification_tokensInput
@@ -854,6 +875,7 @@ export type UserCreateWithoutBrowsing_historyInput = {
   orders?: Prisma.OrderCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -880,6 +902,7 @@ export type UserUncheckedCreateWithoutBrowsing_historyInput = {
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -920,6 +943,7 @@ export type UserUpdateWithoutBrowsing_historyInput = {
   orders?: Prisma.OrderUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -946,6 +970,7 @@ export type UserUncheckedUpdateWithoutBrowsing_historyInput = {
   orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -970,6 +995,7 @@ export type UserCreateWithoutCartInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -996,6 +1022,7 @@ export type UserUncheckedCreateWithoutCartInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1036,6 +1063,7 @@ export type UserUpdateWithoutCartInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1062,6 +1090,7 @@ export type UserUncheckedUpdateWithoutCartInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1086,6 +1115,7 @@ export type UserCreateWithoutAvatarInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1112,6 +1142,7 @@ export type UserUncheckedCreateWithoutAvatarInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1152,6 +1183,7 @@ export type UserUpdateWithoutAvatarInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1165,6 +1197,127 @@ export type UserUncheckedUpdateWithoutAvatarInput = {
   salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+  shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
+  password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
+  cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
+  browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutNotificationsInput = {
+  id?: string
+  first_name?: string | null
+  last_name?: string | null
+  email: string
+  password: string
+  salt?: string | null
+  date_of_birth?: Date | string | null
+  gender?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  deleted_at?: Date | string | null
+  avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
+  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+  shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
+  password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
+  cart?: Prisma.CartCreateNestedOneWithoutUserInput
+  orders?: Prisma.OrderCreateNestedManyWithoutUserInput
+  browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
+  role?: Prisma.RoleCreateNestedOneWithoutUsersInput
+}
+
+export type UserUncheckedCreateWithoutNotificationsInput = {
+  id?: string
+  first_name?: string | null
+  last_name?: string | null
+  email: string
+  password: string
+  salt?: string | null
+  date_of_birth?: Date | string | null
+  gender?: number | null
+  avatar_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  deleted_at?: Date | string | null
+  role_id?: string | null
+  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+  shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
+  password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
+  cart?: Prisma.CartUncheckedCreateNestedOneWithoutUserInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutUserInput
+  browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutNotificationsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+}
+
+export type UserUpsertWithoutNotificationsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutNotificationsInput, Prisma.UserUncheckedUpdateWithoutNotificationsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutNotificationsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutNotificationsInput, Prisma.UserUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type UserUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  first_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
+  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+  shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
+  password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
+  cart?: Prisma.CartUpdateOneWithoutUserNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutUserNestedInput
+  browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
+}
+
+export type UserUncheckedUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  first_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  avatar_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1202,6 +1355,7 @@ export type UserCreateWithoutNotification_tokensInput = {
   orders?: Prisma.OrderCreateNestedManyWithoutUserInput
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1228,6 +1382,7 @@ export type UserUncheckedCreateWithoutNotification_tokensInput = {
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutUserInput
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1268,6 +1423,7 @@ export type UserUpdateWithoutNotification_tokensInput = {
   orders?: Prisma.OrderUpdateManyWithoutUserNestedInput
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1294,6 +1450,7 @@ export type UserUncheckedUpdateWithoutNotification_tokensInput = {
   orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1318,6 +1475,7 @@ export type UserCreateWithoutOrdersInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1344,6 +1502,7 @@ export type UserUncheckedCreateWithoutOrdersInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1384,6 +1543,7 @@ export type UserUpdateWithoutOrdersInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1410,6 +1570,7 @@ export type UserUncheckedUpdateWithoutOrdersInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1434,6 +1595,7 @@ export type UserCreateWithoutPassword_reset_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1460,6 +1622,7 @@ export type UserUncheckedCreateWithoutPassword_reset_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1500,6 +1663,7 @@ export type UserUpdateWithoutPassword_reset_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1526,6 +1690,7 @@ export type UserUncheckedUpdateWithoutPassword_reset_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1550,6 +1715,7 @@ export type UserCreateWithoutRefresh_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1576,6 +1742,7 @@ export type UserUncheckedCreateWithoutRefresh_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1616,6 +1783,7 @@ export type UserUpdateWithoutRefresh_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1642,6 +1810,7 @@ export type UserUncheckedUpdateWithoutRefresh_tokensInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1666,6 +1835,7 @@ export type UserCreateWithoutReviewsInput = {
   orders?: Prisma.OrderCreateNestedManyWithoutUserInput
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1692,6 +1862,7 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutUserInput
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1732,6 +1903,7 @@ export type UserUpdateWithoutReviewsInput = {
   orders?: Prisma.OrderUpdateManyWithoutUserNestedInput
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1758,6 +1930,7 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1783,6 +1956,7 @@ export type UserCreateWithoutRoleInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
 }
 
@@ -1808,6 +1982,7 @@ export type UserUncheckedCreateWithoutRoleInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1876,6 +2051,7 @@ export type UserCreateWithoutShipping_addressesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -1902,6 +2078,7 @@ export type UserUncheckedCreateWithoutShipping_addressesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1942,6 +2119,7 @@ export type UserUpdateWithoutShipping_addressesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -1968,6 +2146,7 @@ export type UserUncheckedUpdateWithoutShipping_addressesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1993,6 +2172,7 @@ export type UserCreateWithoutFavorite_categoriesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -2019,6 +2199,7 @@ export type UserUncheckedCreateWithoutFavorite_categoriesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFavorite_categoriesInput = {
@@ -2059,6 +2240,7 @@ export type UserUpdateWithoutFavorite_categoriesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2085,6 +2267,7 @@ export type UserUncheckedUpdateWithoutFavorite_categoriesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPhonesInput = {
@@ -2108,6 +2291,7 @@ export type UserCreateWithoutPhonesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
@@ -2134,6 +2318,7 @@ export type UserUncheckedCreateWithoutPhonesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
   notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -2174,6 +2359,7 @@ export type UserUpdateWithoutPhonesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
@@ -2200,6 +2386,7 @@ export type UserUncheckedUpdateWithoutPhonesInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -2240,6 +2427,7 @@ export type UserUpdateWithoutRoleInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
 }
 
@@ -2265,6 +2453,7 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -2297,6 +2486,7 @@ export type UserCountOutputType = {
   browsing_history: number
   reviews: number
   notification_tokens: number
+  notifications: number
   favorite_categories: number
 }
 
@@ -2309,6 +2499,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   browsing_history?: boolean | UserCountOutputTypeCountBrowsing_historyArgs
   reviews?: boolean | UserCountOutputTypeCountReviewsArgs
   notification_tokens?: boolean | UserCountOutputTypeCountNotification_tokensArgs
+  notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
   favorite_categories?: boolean | UserCountOutputTypeCountFavorite_categoriesArgs
 }
 
@@ -2381,6 +2572,13 @@ export type UserCountOutputTypeCountNotification_tokensArgs<ExtArgs extends runt
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountFavorite_categoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.UserFavoriteCategoryWhereInput
 }
@@ -2410,6 +2608,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   browsing_history?: boolean | Prisma.User$browsing_historyArgs<ExtArgs>
   reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   notification_tokens?: boolean | Prisma.User$notification_tokensArgs<ExtArgs>
+  notifications?: boolean | Prisma.User$notificationsArgs<ExtArgs>
   favorite_categories?: boolean | Prisma.User$favorite_categoriesArgs<ExtArgs>
   role?: boolean | Prisma.User$roleArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2479,6 +2678,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   browsing_history?: boolean | Prisma.User$browsing_historyArgs<ExtArgs>
   reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   notification_tokens?: boolean | Prisma.User$notification_tokensArgs<ExtArgs>
+  notifications?: boolean | Prisma.User$notificationsArgs<ExtArgs>
   favorite_categories?: boolean | Prisma.User$favorite_categoriesArgs<ExtArgs>
   role?: boolean | Prisma.User$roleArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2505,6 +2705,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     browsing_history: Prisma.$UserBrowsingHistoryPayload<ExtArgs>[]
     reviews: Prisma.$ReviewPayload<ExtArgs>[]
     notification_tokens: Prisma.$NotificationTokenPayload<ExtArgs>[]
+    notifications: Prisma.$NotificationPayload<ExtArgs>[]
     favorite_categories: Prisma.$UserFavoriteCategoryPayload<ExtArgs>[]
     role: Prisma.$RolePayload<ExtArgs> | null
   }
@@ -2926,6 +3127,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   browsing_history<T extends Prisma.User$browsing_historyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$browsing_historyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserBrowsingHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   reviews<T extends Prisma.User$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   notification_tokens<T extends Prisma.User$notification_tokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$notification_tokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notifications<T extends Prisma.User$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   favorite_categories<T extends Prisma.User$favorite_categoriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$favorite_categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserFavoriteCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   role<T extends Prisma.User$roleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$roleArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
@@ -3596,6 +3798,30 @@ export type User$notification_tokensArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.NotificationTokenScalarFieldEnum | Prisma.NotificationTokenScalarFieldEnum[]
+}
+
+/**
+ * User.notifications
+ */
+export type User$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Notification
+   */
+  select?: Prisma.NotificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Notification
+   */
+  omit?: Prisma.NotificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationInclude<ExtArgs> | null
+  where?: Prisma.NotificationWhereInput
+  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
 }
 
 /**

@@ -9,10 +9,8 @@ import type {
   SkuAttributeValue,
   AttributeValue,
   Attribute,
-  AttributeTranslation,
-  AttributeValueTranslation,
-  Category,
-  CategoryTranslation,
+  ProductCategory,
+  ProductCategoryTranslation,
 } from "../generate/browser";
 import type { IPaginatedResult } from "../paginate";
 import type { IBrandResponse } from "../brand/brand.response";
@@ -23,13 +21,9 @@ export interface ISkuResponse extends Sku {
   })[];
   sku_attribute_values?: (SkuAttributeValue & {
     attribute_value?: AttributeValue & {
-      translations?: AttributeValueTranslation[];
-      attribute?: Attribute & {
-        translations?: AttributeTranslation[];
-      };
+      attribute?: Attribute;
     };
   })[];
-  image_url?: string;
   product?: IProductResponse;
 }
 
@@ -38,14 +32,11 @@ export interface IProductResponse extends Product {
   thumbnail?: Image | null;
   brand?: IBrandResponse | null;
   categories?: (ProductCategoryMapping & {
-    category?: Category & {
-      translations?: CategoryTranslation[];
+    category?: ProductCategory & {
+      translations?: ProductCategoryTranslation[];
     };
   })[];
   skus?: ISkuResponse[];
-  rating?: number;
-  sold_count?: number;
-  review_count?: number;
 }
 
 export type IProductDetailResponse = IProductResponse;

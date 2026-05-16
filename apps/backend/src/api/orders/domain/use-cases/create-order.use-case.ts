@@ -6,6 +6,7 @@ import { EOrderStatus } from '../entities/order-status.enum';
 import { IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
 import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';
+import { NotificationService } from 'src/api/notifications/notifications.service';
 
 interface IOrderItemInput {
   sku_id: string;
@@ -23,6 +24,7 @@ export class CreateOrderUseCase {
     @Inject(ICartRepository)
     private readonly cartRepository: ICartRepository,
     private readonly prisma: PrismaService,
+    private readonly notificationService: NotificationService,
   ) {}
 
   async execute(
@@ -63,7 +65,7 @@ export class CreateOrderUseCase {
     }
 
     // Set a 10s timeout to accommodate complex orders and prevent P2028 errors in high-latency environments
-    return await this.prisma.$transaction(
+    const order = await this.prisma.$transaction(
       async (tx) => {
         const now = new Date();
         let subTotal = 0;
@@ -271,5 +273,18 @@ export class CreateOrderUseCase {
         timeout: 10000,
       },
     );
+
+    await this.notificationService.sendToUser(
+      userId,
+      'Đặt hàng thành công',
+      `Đơn hàng #${order.id.slice(-6).toUpperCase()} của bạn đã được tiếp nhận.`,
+      {
+        orderId: order.id,
+        type: 'ORDER_CREATED',
+        link: `/orders/${order.id}`,
+      },
+    );
+
+    return order;
   }
 }

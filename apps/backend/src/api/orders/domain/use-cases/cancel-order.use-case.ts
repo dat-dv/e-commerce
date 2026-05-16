@@ -2,6 +2,7 @@ import { Injectable, Inject, BadRequestException, NotFoundException, ForbiddenEx
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { EOrderStatus } from '../entities/order-status.enum';
+import { NotificationService } from 'src/api/notifications/notifications.service';
 
 @Injectable()
 export class CancelOrderUseCase {
@@ -9,6 +10,7 @@ export class CancelOrderUseCase {
     @Inject(IOrdersRepository)
     private readonly ordersRepository: IOrdersRepository,
     private readonly prisma: PrismaService,
+    private readonly notificationService: NotificationService,
   ) {}
 
   async execute(orderId: string, userId: string) {
@@ -29,7 +31,7 @@ export class CancelOrderUseCase {
       throw new BadRequestException('Only pending orders can be cancelled');
     }
 
-    return await this.prisma.$transaction(async (tx) => {
+    const result = await this.prisma.$transaction(async (tx) => {
       // 1. Cập nhật trạng thái đơn hàng
       const updatedOrder = await tx.order.update({
         where: { id: orderId },
@@ -58,5 +60,17 @@ export class CancelOrderUseCase {
 
       return updatedOrder;
     });
+
+    await this.notificationService.sendToUser(
+      userId,
+      'Đơn hàng đã bị hủy',
+      `Đơn hàng #${orderId.slice(-6).toUpperCase()} đã được hủy thành công.`,
+      {
+        orderId: orderId,
+        type: 'ORDER_CANCELLED',
+      },
+    );
+
+    return result;
   }
 }

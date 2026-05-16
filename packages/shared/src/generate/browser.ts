@@ -118,6 +118,11 @@ export type ProductTranslation = Prisma.ProductTranslationModel
  */
 export type ProductCategoryTranslation = Prisma.ProductCategoryTranslationModel
 /**
+ * Model Notification
+ * 
+ */
+export type Notification = Prisma.NotificationModel
+/**
  * Model NotificationToken
  * 
  */

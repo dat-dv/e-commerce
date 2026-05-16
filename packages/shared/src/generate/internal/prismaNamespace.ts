@@ -404,6 +404,7 @@ export const ModelName = {
   Language: 'Language',
   ProductTranslation: 'ProductTranslation',
   ProductCategoryTranslation: 'ProductCategoryTranslation',
+  Notification: 'Notification',
   NotificationToken: 'NotificationToken',
   Order: 'Order',
   OrderItem: 'OrderItem',
@@ -434,7 +435,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "homepageSection" | "homepageSectionTranslation" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userPhone"
+    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "homepageSection" | "homepageSectionTranslation" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userPhone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1918,6 +1919,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Notification: {
+      payload: Prisma.$NotificationPayload<ExtArgs>
+      fields: Prisma.NotificationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.NotificationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.NotificationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>
+        }
+        findFirst: {
+          args: Prisma.NotificationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.NotificationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>
+        }
+        findMany: {
+          args: Prisma.NotificationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+        }
+        create: {
+          args: Prisma.NotificationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>
+        }
+        createMany: {
+          args: Prisma.NotificationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.NotificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+        }
+        delete: {
+          args: Prisma.NotificationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>
+        }
+        update: {
+          args: Prisma.NotificationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>
+        }
+        deleteMany: {
+          args: Prisma.NotificationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.NotificationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.NotificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+        }
+        upsert: {
+          args: Prisma.NotificationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationPayload>
+        }
+        aggregate: {
+          args: Prisma.NotificationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateNotification>
+        }
+        groupBy: {
+          args: Prisma.NotificationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NotificationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.NotificationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NotificationCountAggregateOutputType> | number
+        }
+      }
+    }
     NotificationToken: {
       payload: Prisma.$NotificationTokenPayload<ExtArgs>
       fields: Prisma.NotificationTokenFieldRefs
@@ -3302,6 +3377,22 @@ export const ProductCategoryTranslationScalarFieldEnum = {
 export type ProductCategoryTranslationScalarFieldEnum = (typeof ProductCategoryTranslationScalarFieldEnum)[keyof typeof ProductCategoryTranslationScalarFieldEnum]
 
 
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  title: 'title',
+  content: 'content',
+  type: 'type',
+  link: 'link',
+  is_read: 'is_read',
+  metadata: 'metadata',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
 export const NotificationTokenScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
@@ -3733,6 +3824,7 @@ export type GlobalOmitConfig = {
   language?: Prisma.LanguageOmit
   productTranslation?: Prisma.ProductTranslationOmit
   productCategoryTranslation?: Prisma.ProductCategoryTranslationOmit
+  notification?: Prisma.NotificationOmit
   notificationToken?: Prisma.NotificationTokenOmit
   order?: Prisma.OrderOmit
   orderItem?: Prisma.OrderItemOmit

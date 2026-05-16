@@ -1,5 +1,8 @@
 import { ApiResponse } from "@/utils/request/request.types";
-import { INotificationTokenResponse } from "@ecommerce/shared";
+import {
+  INotificationTokenResponse,
+  INotificationResponse,
+} from "@ecommerce/shared";
 
 export type TSaveTokenRequest = {
   token: string;
@@ -10,4 +13,7 @@ export interface INotificationsRepository {
   saveToken(
     data: TSaveTokenRequest,
   ): Promise<ApiResponse<INotificationTokenResponse>>;
+  getNotifications(): Promise<ApiResponse<INotificationResponse[]>>;
+  markAsRead(id: string): Promise<ApiResponse<INotificationResponse>>;
+  markAllAsRead(): Promise<ApiResponse<void>>;
 }

@@ -24,6 +24,7 @@ model User {
   browsing_history      UserBrowsingHistory[]
   reviews               Review[]
   notification_tokens   NotificationToken[]
+  notifications         Notification[]
   favorite_categories   UserFavoriteCategory[]
 
   role_id String?

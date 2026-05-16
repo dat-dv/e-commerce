@@ -29,4 +29,41 @@ export class NotificationsRepository implements INotificationsRepository {
       where: { token },
     });
   }
+
+  async getNotifications(userId: string) {
+    return this.prisma.notification.findMany({
+      where: { user_id: userId },
+      orderBy: { created_at: 'desc' },
+    });
+  }
+
+  async markAsRead(userId: string, notificationId: string) {
+    return this.prisma.notification.update({
+      where: { id: notificationId, user_id: userId },
+      data: { is_read: true },
+    });
+  }
+
+  async markAllAsRead(userId: string) {
+    await this.prisma.notification.updateMany({
+      where: { user_id: userId, is_read: false },
+      data: { is_read: true },
+    });
+  }
+
+  async createNotification(
+    userId: string,
+    data: { title: string; content: string; type: string; link?: string; metadata?: any },
+  ) {
+    return this.prisma.notification.create({
+      data: {
+        user_id: userId,
+        title: data.title,
+        content: data.content,
+        type: data.type,
+        link: data.link,
+        metadata: data.metadata ? JSON.stringify(data.metadata) : null,
+      },
+    });
+  }
 }

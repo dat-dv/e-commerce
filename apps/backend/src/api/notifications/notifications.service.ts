@@ -33,6 +33,15 @@ export class NotificationService {
     };
 
     try {
+      // Save to database history
+      await this.notificationsRepository.createNotification(userId, {
+        title,
+        content: body,
+        type: data?.type || 'SYSTEM',
+        link: data?.link,
+        metadata: data,
+      });
+
       const response = await messaging.sendEachForMulticast(message);
       this.logger.log(`Successfully sent ${response.successCount} notifications to user ${userId}`);
 

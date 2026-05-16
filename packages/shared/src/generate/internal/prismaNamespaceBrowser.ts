@@ -71,6 +71,7 @@ export const ModelName = {
   Language: 'Language',
   ProductTranslation: 'ProductTranslation',
   ProductCategoryTranslation: 'ProductCategoryTranslation',
+  Notification: 'Notification',
   NotificationToken: 'NotificationToken',
   Order: 'Order',
   OrderItem: 'OrderItem',
@@ -337,6 +338,22 @@ export const ProductCategoryTranslationScalarFieldEnum = {
 } as const
 
 export type ProductCategoryTranslationScalarFieldEnum = (typeof ProductCategoryTranslationScalarFieldEnum)[keyof typeof ProductCategoryTranslationScalarFieldEnum]
+
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  title: 'title',
+  content: 'content',
+  type: 'type',
+  link: 'link',
+  is_read: 'is_read',
+  metadata: 'metadata',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
 
 
 export const NotificationTokenScalarFieldEnum = {
