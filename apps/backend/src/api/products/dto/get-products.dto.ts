@@ -57,4 +57,8 @@ export class GetProductsDto implements IGetProductsParams {
   @IsOptional()
   @IsString()
   languageCode?: string = 'vi';
+
+  @IsOptional()
+  @IsString()
+  userId?: string;
 }

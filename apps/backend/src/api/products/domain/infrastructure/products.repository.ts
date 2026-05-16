@@ -121,9 +121,9 @@ export class ProductsRepository implements IProductsRepository {
     return product?.categories[0]?.category_id || null;
   }
 
-  async getActiveFlashSale(languageCode = 'en'): Promise<IFlashSaleResponse | null> {
+  async getActiveFlashSale(languageCode = 'en', userId?: string): Promise<IFlashSaleResponse | null> {
     const now = new Date();
-    return this.prisma.flashSale.findFirst({
+    const flashSale = await this.prisma.flashSale.findFirst({
       where: {
         start_time: { lte: now },
         end_time: { gte: now },
@@ -142,6 +142,16 @@ export class ProductsRepository implements IProductsRepository {
                         },
                       },
                     },
+                    favorited_by_users: userId
+                      ? {
+                          where: {
+                            user_id: userId,
+                          },
+                          select: {
+                            product_id: true,
+                          },
+                        }
+                      : false,
                   },
                 },
               },
@@ -150,6 +160,45 @@ export class ProductsRepository implements IProductsRepository {
         },
       },
     });
+
+    if (!flashSale || !userId) return flashSale;
+
+    flashSale.products.map((p) => {
+      return {
+        ...p,
+        sku: {
+          ...p.sku,
+          product: {
+            ...p.sku.product,
+            is_favorited: p.sku.product.favorited_by_users?.length > 0,
+          },
+        },
+      };
+    });
+
+    return flashSale;
+  }
+
+  private async attachFavoriteStatus(products: IProductResponse[], userId?: string): Promise<IProductResponse[]> {
+    if (!userId || products.length === 0) {
+      return products.map((p) => ({ ...p, is_favorited: false }));
+    }
+
+    const productIds = products.map((p) => p.id);
+    const favorites = await this.prisma.userFavoriteProduct.findMany({
+      where: {
+        user_id: userId,
+        product_id: { in: productIds },
+      },
+      select: { product_id: true },
+    });
+
+    const favoriteSet = new Set(favorites.map((f) => f.product_id));
+
+    return products.map((p) => ({
+      ...p,
+      is_favorited: favoriteSet.has(p.id),
+    }));
   }
 
   async findMany(params: {
@@ -158,10 +207,11 @@ export class ProductsRepository implements IProductsRepository {
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
+    userId?: string;
   }): Promise<IProductResponse[]> {
-    const { category_id, category_slug, orderBy, take, languageCode = 'en' } = params;
+    const { category_id, category_slug, orderBy, take, languageCode = 'en', userId } = params;
 
-    return this.prisma.product.findMany({
+    const products = await this.prisma.product.findMany({
       where: {
         ...(category_id && {
           categories: {
@@ -185,6 +235,8 @@ export class ProductsRepository implements IProductsRepository {
       take,
       include: this.getProductInclude(languageCode),
     });
+
+    return this.attachFavoriteStatus(products, userId);
   }
 
   async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<IProductResponse[]> {
@@ -198,14 +250,16 @@ export class ProductsRepository implements IProductsRepository {
       (id): id is string => typeof id === 'string',
     );
 
-    return this.prisma.product.findMany({
+    const products = await this.prisma.product.findMany({
       where: { id: { in: productIds } },
       include: this.getProductInclude(languageCode),
     });
+
+    return this.attachFavoriteStatus(products, userId);
   }
 
-  async getSuperDeals(take = 12, languageCode = 'en'): Promise<IProductResponse[]> {
-    return this.prisma.product.findMany({
+  async getSuperDeals(take = 12, languageCode = 'en', userId?: string): Promise<IProductResponse[]> {
+    const products = await this.prisma.product.findMany({
       where: {
         deleted_at: null,
         status: 1,
@@ -219,15 +273,19 @@ export class ProductsRepository implements IProductsRepository {
       orderBy: { created_at: 'desc' },
       include: this.getProductInclude(languageCode),
     });
+
+    return this.attachFavoriteStatus(products, userId);
   }
 
-  async getNewArrivals(take = 12, languageCode = 'en'): Promise<IProductResponse[]> {
-    return this.prisma.product.findMany({
+  async getNewArrivals(take = 12, languageCode = 'en', userId?: string): Promise<IProductResponse[]> {
+    const products = await this.prisma.product.findMany({
       where: { deleted_at: null, status: 1 },
       orderBy: { created_at: 'desc' },
       take,
       include: this.getProductInclude(languageCode),
     });
+
+    return this.attachFavoriteStatus(products, userId);
   }
 
   private async getDescendantCategoryIds(categorySlug: string): Promise<string[]> {
@@ -266,6 +324,7 @@ export class ProductsRepository implements IProductsRepository {
       max_price,
       attribute_value_ids,
       languageCode = 'vi',
+      userId,
     } = params;
 
     const where: Prisma.ProductWhereInput = {
@@ -336,6 +395,8 @@ export class ProductsRepository implements IProductsRepository {
       limit,
     );
 
+    result.items = await this.attachFavoriteStatus(result.items, userId);
+
     return result;
   }
 
@@ -359,8 +420,13 @@ export class ProductsRepository implements IProductsRepository {
     return result;
   }
 
-  async getSimilarProducts(categoryId: string, limit = 4, languageCode = 'en'): Promise<IProductResponse[]> {
-    return this.prisma.product.findMany({
+  async getSimilarProducts(
+    categoryId: string,
+    limit = 4,
+    languageCode = 'en',
+    userId?: string,
+  ): Promise<IProductResponse[]> {
+    const products = await this.prisma.product.findMany({
       where: {
         categories: {
           some: { category_id: categoryId },
@@ -371,6 +437,8 @@ export class ProductsRepository implements IProductsRepository {
       take: limit,
       include: this.getProductInclude(languageCode),
     });
+
+    return this.attachFavoriteStatus(products, userId);
   }
 
   async getProductCategories(productId: string): Promise<string[] | null> {

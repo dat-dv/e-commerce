@@ -35,7 +35,7 @@ export class GetHomepageSectionsUseCase {
         const sectionType = section.type as unknown as EHomepageSectionType;
 
         if (sectionType === EHomepageSectionType.FLASH_SALE) {
-          const flashSale = await this.productsRepo.getActiveFlashSale(languageCode);
+          const flashSale = await this.productsRepo.getActiveFlashSale(languageCode, userId);
           if (flashSale) {
             // Nghiệp vụ: Lồng dữ liệu Flash Sale vào SKU của Product, gom nhóm theo product ID
             const productMap = new Map<string, IProductResponse>();
@@ -65,6 +65,7 @@ export class GetHomepageSectionsUseCase {
               orderBy: { created_at: 'desc' },
               take: 12,
               languageCode,
+              userId,
             });
           }
         } else if (sectionType === EHomepageSectionType.RECOMMENDS) {
@@ -80,6 +81,7 @@ export class GetHomepageSectionsUseCase {
                 orderBy: { created_at: 'desc' },
                 take: 12,
                 languageCode,
+                userId,
               });
             }
           }

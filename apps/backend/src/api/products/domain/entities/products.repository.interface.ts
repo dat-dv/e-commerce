@@ -6,17 +6,18 @@ export interface IProductsRepository {
   findBySlug(slug: string, languageCode?: string): Promise<IProductResponse | null>;
   recordView(userId: string, productId: string): Promise<void>;
   getUserTopCategory(userId: string): Promise<string | null>;
-  getActiveFlashSale(languageCode?: string): Promise<IFlashSaleResponse | null>;
+  getActiveFlashSale(languageCode?: string, userId?: string): Promise<IFlashSaleResponse | null>;
   findMany(params: {
     category_id?: string;
     category_slug?: string;
     orderBy?: Record<string, 'asc' | 'desc'>;
     take?: number;
     languageCode?: string;
+    userId?: string;
   }): Promise<IProductResponse[]>;
   getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProductResponse[]>;
-  getSuperDeals(take?: number, languageCode?: string): Promise<IProductResponse[]>;
-  getNewArrivals(take?: number, languageCode?: string): Promise<IProductResponse[]>;
+  getSuperDeals(take?: number, languageCode?: string, userId?: string): Promise<IProductResponse[]>;
+  getNewArrivals(take?: number, languageCode?: string, userId?: string): Promise<IProductResponse[]>;
   findPaginated(params: GetProductsDto): Promise<IPaginatedResult<IProductResponse>>;
   getProductReviews(productId: string, page?: number, limit?: number): Promise<IPaginatedResult<Review>>;
   getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProductResponse[]>;

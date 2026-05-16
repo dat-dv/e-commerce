@@ -7,9 +7,10 @@ import { HomepageSectionRepository } from './domain/infrastructure/homepage-sect
 import { IHomepageSectionRepository } from './domain/entities/homepage-section.repository.interface';
 import { ProductsModule } from 'src/api/products/products.module';
 import { BrandsModule } from '../brands/brands.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
-  imports: [ProductsModule, BrandsModule],
+  imports: [ProductsModule, BrandsModule, AuthModule],
   controllers: [HomepageController],
   providers: [
     GetHomepageSectionsUseCase,
