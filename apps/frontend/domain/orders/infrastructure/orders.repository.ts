@@ -35,9 +35,15 @@ export class OrdersRepository implements IOrdersRepository {
   }
 
   async getOrders(params?: TGetOrdersRequest): Promise<ApiResponse<TOrder[]>> {
+    const queryParams = { ...params };
+    if (Array.isArray(queryParams.status)) {
+      (queryParams as unknown as { status: string }).status =
+        queryParams.status.join(",");
+    }
+
     const response = await this.request.get<IOrderListResponse>(
       API_ROUTES.ORDERS.MINE,
-      { params },
+      { params: queryParams },
     );
 
     return {

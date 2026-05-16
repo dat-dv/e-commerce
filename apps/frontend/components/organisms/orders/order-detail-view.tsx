@@ -22,12 +22,12 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   if (loading) {
     return (
       <div className="min-h-screen bg-transparent flex flex-col items-center justify-center">
-        <div className="relative w-16 h-16">
+        <div className="relative w-12 h-12">
           <div className="absolute inset-0 border-4 border-primary/5 rounded-full" />
           <div className="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin" />
         </div>
-        <div className="mt-8 text-[10px] uppercase tracking-[0.3em] font-black text-content/20 animate-pulse">
-          Loading Masterpiece...
+        <div className="mt-6 text-xs font-semibold text-content/30 animate-pulse">
+          Loading...
         </div>
       </div>
     );
@@ -37,18 +37,18 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
     return (
       <div className="min-h-screen bg-transparent flex flex-col items-center justify-center">
         <AlertCircle className="w-16 h-16 text-red-500/50 mb-6" />
-        <h1 className="text-2xl font-black text-content tracking-tighter uppercase mb-4">
+        <h1 className="text-2xl font-bold text-content tracking-tight mb-4">
           Order Not Found
         </h1>
-        <p className="text-content/40 text-xs font-medium mb-8 max-w-sm text-center">
-          We could not locate this acquisition. It may have been removed or the
-          ID is incorrect.
+        <p className="text-content/40 text-sm font-medium mb-8 max-w-sm text-center">
+          We could not locate this order. It may have been removed or the ID is
+          incorrect.
         </p>
         <Link
           href={APP_ROUTES.ORDERS}
-          className="px-8 py-3 bg-content text-surface text-[10px] uppercase tracking-[0.3em] font-black rounded-lg hover:-translate-y-1 transition-all"
+          className="px-8 py-3 bg-content text-surface text-sm font-semibold rounded-xl hover:-translate-y-1 transition-all shadow-lg shadow-black/10"
         >
-          Return to History
+          Return to Orders
         </Link>
       </div>
     );
@@ -61,19 +61,19 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
 
   return (
     <div className="min-h-screen bg-transparent">
-      <div className="sticky top-0 z-50 bg-surface/80 backdrop-blur-2xl border-b border-content/[0.05] shadow-sm">
+      <div className="bg-surface/80 backdrop-blur-2xl border-b border-content/[0.05]">
         <div className="container mx-auto px-4 py-6 max-w-4xl flex items-center gap-6">
           <Link
             href={APP_ROUTES.ORDERS}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-content/[0.05] transition-colors"
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-content/[0.05] transition-colors border border-content/[0.05]"
           >
             <ArrowLeft className="w-5 h-5 text-content/60" />
           </Link>
           <div>
-            <h1 className="text-xl font-black text-content tracking-tighter uppercase">
+            <h1 className="text-xl font-bold text-content tracking-tight">
               Order #{order.id.slice(-8).toUpperCase()}
             </h1>
-            <p className="text-[10px] text-content/40 mt-1 font-bold uppercase tracking-widest">
+            <p className="text-xs text-content/40 mt-1 font-medium">
               {new Date(order.createdAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
@@ -84,7 +84,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           <div className="ml-auto">
             <span
               className={cn(
-                "px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-full",
+                "px-4 py-1.5 text-xs font-bold rounded-full",
                 status.color,
               )}
             >
@@ -101,12 +101,12 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {/* Shipping Info */}
-          <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6">
+          <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                 <Truck className="w-4 h-4" />
               </div>
-              <h2 className="text-xs font-black uppercase tracking-widest text-content">
+              <h2 className="text-sm font-bold text-content">
                 Delivery Details
               </h2>
             </div>
@@ -126,12 +126,12 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           </div>
 
           {/* Payment Info */}
-          <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6">
+          <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                 <CreditCard className="w-4 h-4" />
               </div>
-              <h2 className="text-xs font-black uppercase tracking-widest text-content">
+              <h2 className="text-sm font-bold text-content">
                 Payment Summary
               </h2>
             </div>
@@ -156,10 +156,8 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 </div>
               )}
               <div className="pt-4 border-t border-content/[0.05] flex justify-between items-center">
-                <span className="text-xs font-black uppercase tracking-widest text-content">
-                  Total
-                </span>
-                <span className="text-2xl font-black text-content tracking-tighter">
+                <span className="text-sm font-bold text-content">Total</span>
+                <span className="text-3xl font-black text-content tracking-tight">
                   {formatCurrency(order.totalAmount)}
                 </span>
               </div>
@@ -172,12 +170,12 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] overflow-hidden"
+          className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] overflow-hidden shadow-sm"
         >
           <div className="px-6 py-4 border-b border-content/[0.05] bg-content/[0.02] flex items-center gap-3">
             <Package className="w-4 h-4 text-content/40" />
-            <h2 className="text-xs font-black uppercase tracking-widest text-content">
-              Acquisitions ({order.items.length})
+            <h2 className="text-sm font-bold text-content">
+              Order Items ({order.items.length})
             </h2>
           </div>
           <div className="divide-y divide-content/[0.05]">
@@ -186,7 +184,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 key={item.id}
                 className="p-6 flex gap-6 hover:bg-content/[0.02] transition-colors"
               >
-                <div className="relative w-24 h-24 rounded-xl border border-content/[0.05] bg-content/[0.02] overflow-hidden shrink-0">
+                <div className="relative w-24 h-24 rounded-2xl border border-content/[0.05] bg-content/[0.02] overflow-hidden shrink-0 shadow-sm">
                   {item.sku?.imageUrl && (
                     <Image
                       src={item.sku.imageUrl}
@@ -199,19 +197,19 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
                   <div className="flex justify-between items-start gap-4">
-                    <h3 className="text-sm font-bold text-content leading-tight">
+                    <h3 className="text-base font-bold text-content leading-tight">
                       {item.sku?.product?.name || "Unknown Product"}
                     </h3>
-                    <div className="text-base font-black text-content tracking-tighter shrink-0">
+                    <div className="text-lg font-black text-content tracking-tight shrink-0">
                       {formatCurrency(item.price)}
                     </div>
                   </div>
-                  <p className="mt-2 text-[10px] font-bold text-content/40 uppercase tracking-widest">
+                  <p className="mt-2 text-xs font-medium text-content/40">
                     {item.snapshot?.sku.attributes || `SKU: ${item.skuId}`}
                   </p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-content/[0.05] rounded-md text-content/60">
-                      Qty: {item.quantity}
+                    <span className="text-xs font-semibold px-3 py-1 bg-content/[0.05] rounded-full text-content/60">
+                      {item.quantity} unit{item.quantity > 1 ? "s" : ""}
                     </span>
                     <span className="text-sm font-bold text-content/60">
                       {formatCurrency(item.price * item.quantity)}

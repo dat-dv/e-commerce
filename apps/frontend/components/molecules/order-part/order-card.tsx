@@ -30,16 +30,16 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
       className="bg-surface/40 backdrop-blur-md rounded-xl border border-content/[0.05] overflow-hidden transition-all duration-300 hover:border-primary/20 shadow-sm"
     >
       {/* Header */}
-      <div className="px-5 py-3 flex items-center justify-between border-b border-content/[0.05] bg-content/[0.02]">
+      <div className="px-5 py-4 flex items-center justify-between border-b border-content/[0.05] bg-content/[0.02]">
         <div className="flex items-center gap-4">
           <div className="flex flex-col">
             <Link
               href={APP_ROUTES.ORDER_DETAIL(order.id)}
-              className="font-bold text-content text-xs uppercase tracking-wider hover:text-primary hover:underline transition-all"
+              className="font-bold text-content text-sm hover:text-primary transition-all"
             >
               Order #{order.id.slice(-8).toUpperCase()}
             </Link>
-            <span className="text-[10px] font-medium text-content/30 uppercase tracking-tight">
+            <span className="text-xs font-medium text-content/40">
               {new Date(order.createdAt).toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
@@ -49,22 +49,22 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
           </div>
           <button
             disabled
-            className="hidden sm:flex items-center gap-1.5 px-2 py-1 text-[10px] font-bold uppercase tracking-tighter text-content/20 bg-content/[0.02] rounded-md border border-content/[0.05]"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-content/40 bg-content/[0.03] rounded-full border border-content/[0.05]"
           >
-            <MessageSquare className="w-3 h-3" />
-            Support
+            <MessageSquare className="w-3.5 h-3.5" />
+            Need help?
           </button>
         </div>
         <div className="flex items-center gap-4">
           {order.status === EOrderStatus.SHIPPING && (
-            <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold text-primary uppercase tracking-wider border-r border-content/[0.05] pr-4">
-              <Truck className="w-3.5 h-3.5" />
-              <span>In Transit</span>
+            <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-primary border-r border-content/[0.05] pr-4">
+              <Truck className="w-4 h-4" />
+              <span>Shipping</span>
             </div>
           )}
           <span
             className={cn(
-              "px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full",
+              "px-3 py-1 text-[11px] font-bold rounded-full",
               status.color,
             )}
           >
@@ -79,13 +79,13 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
           const productSlug = item.sku?.product?.slug;
           const itemContent = (
             <div className="p-5 flex gap-5 transition-colors hover:bg-content/[0.02]">
-              <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-content/[0.05] bg-content/[0.02]">
+              <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-content/[0.05] bg-content/[0.02]">
                 {item.sku?.imageUrl ? (
                   <Image
                     src={item.sku.imageUrl}
                     alt={item.sku.product?.name || "Product"}
                     fill
-                    sizes="64px"
+                    sizes="80px"
                     className="object-cover transition-transform group-hover:scale-110"
                   />
                 ) : (
@@ -96,22 +96,22 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-start gap-4">
-                  <h3 className="text-xs font-bold text-content line-clamp-1 leading-tight group-hover:text-primary transition-colors">
+                  <h3 className="text-sm font-bold text-content line-clamp-1 leading-tight group-hover:text-primary transition-colors">
                     {item.sku?.product?.name || "Product Name"}
                   </h3>
-                  <div className="text-sm font-black text-content tracking-tighter shrink-0">
+                  <div className="text-base font-bold text-content tracking-tight shrink-0">
                     {formatCurrency(item.price)}
                   </div>
                 </div>
-                <p className="mt-1 text-[10px] font-medium text-content/30 uppercase tracking-tight">
+                <p className="mt-1 text-xs font-medium text-content/40">
                   {item.attributes || `Code: ${item.sku?.skuCode || "Default"}`}
                 </p>
                 <div className="mt-2 flex items-center justify-between">
-                  <div className="text-[10px] font-bold text-content/40 bg-content/[0.05] px-1.5 py-0.5 rounded">
-                    Quantity: {item.quantity}
+                  <div className="text-[11px] font-semibold text-content/50 bg-content/[0.05] px-2 py-0.5 rounded-full">
+                    {item.quantity} unit{item.quantity > 1 ? "s" : ""}
                   </div>
                   {item.originalPrice && item.originalPrice > item.price && (
-                    <span className="text-[10px] text-content/20 line-through">
+                    <span className="text-xs text-content/30 line-through">
                       {formatCurrency(item.originalPrice)}
                     </span>
                   )}
@@ -135,22 +135,20 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
       </div>
 
       {/* Footer */}
-      <div className="px-5 py-4 bg-content/[0.01] border-t border-content/[0.05]">
-        <div className="flex flex-col items-end gap-3">
+      <div className="px-5 py-5 bg-content/[0.01] border-t border-content/[0.05]">
+        <div className="flex flex-col items-end gap-4">
           <div className="flex flex-col items-end gap-1">
             {order.discountAmount > 0 && (
-              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-tight">
-                <span className="text-content/30">Savings:</span>
+              <div className="flex items-center gap-2 text-xs font-medium">
+                <span className="text-content/30">Discount:</span>
                 <span className="text-red-500">
                   -{formatCurrency(order.discountAmount)}
                 </span>
               </div>
             )}
             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-bold text-content/40 uppercase tracking-widest">
-                Total Amount
-              </span>
-              <span className="text-2xl font-black text-content tracking-tighter">
+              <span className="text-sm font-medium text-content/40">Total</span>
+              <span className="text-3xl font-black text-content tracking-tight">
                 {formatCurrency(order.totalAmount)}
               </span>
             </div>
@@ -163,18 +161,18 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
                   e.preventDefault();
                   onCancelOrder?.(order.id);
                 }}
-                className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-red-500 border border-red-500/20 rounded-lg hover:bg-red-500/10 transition-all active:scale-95"
+                className="px-6 py-2.5 text-sm font-semibold text-red-500 border border-red-500/20 rounded-xl hover:bg-red-500/10 transition-all active:scale-95"
               >
-                Cancel Order
+                Cancel
               </button>
             )}
             {order.status === EOrderStatus.DELIVERED && (
               <>
-                <button className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-surface bg-content rounded-lg hover:bg-primary transition-all active:scale-95">
-                  Review Product
+                <button className="px-6 py-2.5 text-sm font-semibold text-surface bg-content rounded-xl hover:bg-primary transition-all active:scale-95">
+                  Review
                 </button>
-                <button className="px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-content/60 border border-content/[0.1] rounded-lg hover:bg-content/[0.05] transition-all">
-                  Order Again
+                <button className="px-6 py-2.5 text-sm font-semibold text-content/60 border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all active:scale-95">
+                  Reorder
                 </button>
               </>
             )}

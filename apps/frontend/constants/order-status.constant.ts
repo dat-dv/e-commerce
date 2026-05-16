@@ -17,11 +17,11 @@ export const ORDER_STATUS_CONFIG: Record<
     color: "text-indigo-500 bg-indigo-500/10",
   },
   [EOrderStatus.SHIPPING]: {
-    label: "Shipping",
+    label: "In Transit",
     color: "text-sky-500 bg-sky-500/10",
   },
   [EOrderStatus.DELIVERED]: {
-    label: "Completed",
+    label: "Delivered",
     color: "text-emerald-500 bg-emerald-500/10",
   },
   [EOrderStatus.CANCELLED]: {
@@ -29,25 +29,25 @@ export const ORDER_STATUS_CONFIG: Record<
     color: "text-content/40 bg-content/10",
   },
   [EOrderStatus.REFUNDED]: {
-    label: "Returned/Refunded",
+    label: "Returned",
     color: "text-rose-500 bg-rose-500/10",
   },
 };
 
 export const ORDER_TABS = [
-  { label: "All", value: "all" },
+  { label: "Overview", value: "all" },
   {
-    label: "Processing",
+    label: "In Progress",
     value: [
       EOrderStatus.PENDING,
       EOrderStatus.CONFIRMED,
       EOrderStatus.PROCESSING,
     ],
   },
-  { label: "Shipping", value: [EOrderStatus.SHIPPING] },
-  { label: "Completed", value: [EOrderStatus.DELIVERED] },
+  { label: "In Transit", value: [EOrderStatus.SHIPPING] },
+  { label: "Delivered", value: [EOrderStatus.DELIVERED] },
   {
-    label: "Cancelled",
+    label: "Closed",
     value: [EOrderStatus.CANCELLED, EOrderStatus.REFUNDED],
   },
 ] as const;

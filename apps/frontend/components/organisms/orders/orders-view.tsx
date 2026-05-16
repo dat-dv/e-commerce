@@ -28,8 +28,8 @@ export const OrdersView = () => {
     ORDER_TABS.find((tab) => tab.value === activeTab)?.label || "All";
 
   const emptyStateMessage =
-    activeTabLabel === "All"
-      ? "Your luxury acquisition history is currently silent. Discover our latest masterpieces."
+    activeTabLabel === "Overview"
+      ? "Your order history is empty. Start exploring our collection."
       : `You have no ${activeTabLabel.toLowerCase()} orders at the moment.`;
 
   const handleConfirmCancel = async () => {

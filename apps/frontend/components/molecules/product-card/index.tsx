@@ -73,9 +73,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             className="object-contain transition-transform duration-500"
           />
         ) : (
-          <div className="text-content/20 text-[10px] font-bold uppercase tracking-widest text-center">
-            No Image
-          </div>
+          <div className="text-content/20 text-xs font-semibold">No Image</div>
         )}
 
         {/* Action Overlay */}
@@ -88,7 +86,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </Link>
           <button
             onClick={handleAddToCart}
-            className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-all"
+            className="w-10 h-10 bg-primary text-surface rounded-full flex items-center justify-center hover:opacity-90 transition-all"
           >
             <ShoppingBag size={18} />
           </button>
@@ -96,7 +94,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* Badges */}
         {hasDiscount && (
-          <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10 shadow-lg shadow-red-500/20">
+          <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10">
             {discountLabel}
           </div>
         )}
@@ -105,7 +103,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       {/* Info Section */}
       <div className="mt-3 flex flex-col flex-grow">
         {badgeText && (
-          <span className="text-[10px] text-content/60 font-bold uppercase tracking-widest truncate">
+          <span className="text-[10px] text-content/40 font-bold truncate">
             {badgeText}
           </span>
         )}

@@ -35,22 +35,18 @@ export const CategoriesContent = ({
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
 
             <div className="relative z-10 max-w-xl">
-              <span className="text-[10px] font-black text-primary uppercase tracking-[0.5em] mb-4 block">
-                Curation Index
-              </span>
-              <h1 className="text-5xl md:text-6xl font-black text-content tracking-tighter leading-none mb-4 uppercase">
-                {title}{" "}
-                <span className="italic font-light opacity-20">Collection</span>
+              <h1 className="capitalize text-4xl md:text-5xl font-bold text-content tracking-tight leading-tight mb-4">
+                {title}
               </h1>
-              <p className="text-content/40 text-lg leading-relaxed italic font-light">
+              <p className="text-content/50 text-lg leading-relaxed font-medium">
                 {description}
               </p>
             </div>
 
             {/* Visual accent */}
             <div className="ml-auto relative hidden lg:block pr-8">
-              <div className="w-32 h-32 rounded-3xl bg-content/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-700 border border-content/5">
-                <span className="text-5xl opacity-40 group-hover:opacity-100 transition-opacity">
+              <div className="w-24 h-24 rounded-2xl bg-content/[0.02] backdrop-blur-md flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-700 border border-content/5">
+                <span className="text-4xl opacity-30 group-hover:opacity-100 transition-opacity">
                   ✨
                 </span>
               </div>
@@ -59,18 +55,14 @@ export const CategoriesContent = ({
 
           {/* Subcategories Section */}
           <div>
-            <div className="flex items-center justify-between mb-10 border-b border-content/[0.05] pb-6 px-4">
+            <div className="flex items-center justify-between mb-8 border-b border-content/[0.05] pb-6 px-4">
               <div>
-                <h3 className="text-2xl font-black text-content uppercase tracking-tight mb-1">
-                  Discover{" "}
-                  <span className="italic font-light opacity-30">Series</span>
+                <h3 className="text-xl font-bold text-content tracking-tight">
+                  Discover Categories
                 </h3>
-                <p className="text-[10px] uppercase tracking-[0.3em] font-black text-content/20">
-                  Refined hardware selection
-                </p>
               </div>
-              <div className="text-[11px] font-black uppercase tracking-widest text-content/30 bg-content/[0.03] px-5 py-2 rounded-full border border-content/[0.05]">
-                {categories.length} Units
+              <div className="text-xs font-bold text-content/40 bg-content/[0.03] px-4 py-1.5 rounded-full border border-content/[0.05]">
+                {categories.length} Categories
               </div>
             </div>
 

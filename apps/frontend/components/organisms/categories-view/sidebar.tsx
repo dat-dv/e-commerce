@@ -24,7 +24,7 @@ export const CategoriesSidebar = ({
   );
 
   return (
-    <div className="w-[300px] shrink-0 sticky top-24 h-[calc(100vh-120px)] overflow-y-auto bg-surface/80 backdrop-blur-xl border border-content/10 rounded-3xl p-6 shadow-xl shadow-content/5 flex flex-col gap-6">
+    <div className="w-[300px] shrink-0 sticky top-24 h-[calc(100vh-120px)] overflow-y-auto bg-surface/80 backdrop-blur-xl border border-content/10 rounded-3xl py-6 p-4 shadow-xl shadow-content/5 flex flex-col gap-6">
       <div>
         <h2 className="text-xl font-bold mb-4 px-2 text-content">Categories</h2>
         <Input
@@ -60,7 +60,7 @@ export const CategoriesSidebar = ({
                 : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-content/20",
             )}
           />
-          <span className="truncate capitalize text-sm font-black uppercase tracking-widest">
+          <span className="truncate capitalize text-sm font-semibold">
             All Categories
           </span>
         </button>
@@ -72,7 +72,7 @@ export const CategoriesSidebar = ({
               key={category.id}
               onClick={() => setActiveId(category.id)}
               className={cn(
-                "flex items-center gap-3 px-5 py-3.5 rounded-xl transition-all duration-300 text-left relative group",
+                "flex items-center gap-3 px-3 py-3.5 rounded-xl transition-all duration-300 text-left relative group",
                 isActive
                   ? "text-primary font-bold"
                   : "text-content/40 hover:text-content",
@@ -93,7 +93,7 @@ export const CategoriesSidebar = ({
                     : "bg-transparent scale-0 group-hover:scale-100 group-hover:bg-content/20",
                 )}
               />
-              <span className="truncate capitalize text-[11px] font-black uppercase tracking-widest">
+              <span className="truncate capitalize text-sm font-semibold">
                 {category.name}
               </span>
             </button>
