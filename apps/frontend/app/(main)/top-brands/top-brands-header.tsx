@@ -77,13 +77,6 @@ export function TopBrandsHeader() {
         <div className="relative p-16 md:p-24 overflow-hidden">
           <div className="flex flex-col items-center text-center gap-10">
             <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-center gap-4 mb-2">
-                <div className="h-[1px] w-8 bg-primary/30" />
-                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-primary">
-                  Defined Quality
-                </span>
-                <div className="h-[1px] w-8 bg-primary/30" />
-              </div>
               <h1 className="text-7xl md:text-9xl font-black tracking-[-0.06em] text-content leading-none uppercase">
                 Top{" "}
                 <span className="italic font-light text-content/30">
