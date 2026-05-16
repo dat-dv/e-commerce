@@ -22,7 +22,10 @@ export const useAddToCart = () => {
 
       try {
         if (user) {
-          _addOrUpdateItem(item, nextQuantity);
+          const itemToUpdate = existingItem
+            ? { ...item, id: existingItem.id }
+            : item;
+          _addOrUpdateItem(itemToUpdate, nextQuantity);
 
           const response = await cartUseCase.addItem.execute({
             skuId: item.skuId,

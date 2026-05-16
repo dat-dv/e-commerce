@@ -9,12 +9,14 @@ import React from "react";
 
 export const useFCM = () => {
   const user = useAuthStore((s) => s.user);
+  const isInitialized = React.useRef(false);
 
   useEffect(() => {
-    const setupFCM = async () => {
-      if (!user) return;
+    if (!user || isInitialized.current) return;
 
+    const setupFCM = async () => {
       try {
+        isInitialized.current = true;
         const messaging = await getFirebaseMessaging();
         if (!messaging) return;
 
@@ -68,6 +70,7 @@ export const useFCM = () => {
         });
       } catch (error) {
         console.error("Error setting up FCM:", error);
+        isInitialized.current = false;
       }
     };
 

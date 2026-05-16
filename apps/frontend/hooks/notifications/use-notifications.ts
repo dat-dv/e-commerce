@@ -1,35 +1,51 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
-import { INotification } from "@/domain/notifications/types/notification";
+import { useNotificationStore } from "@/store/notification-store";
 
 export const useNotifications = () => {
-  const [notifications, setNotifications] = useState<INotification[]>([]);
-  const [loading, setLoading] = useState(false);
+  const {
+    notifications,
+    loading,
+    hasLoaded,
+    setNotifications,
+    setLoading,
+    markAsRead: storeMarkAsRead,
+    markAllAsRead: storeMarkAllAsRead,
+  } = useNotificationStore();
+
+  const isFetching = useRef(false);
+
   const [searchQuery, setSearchQuery] = useState("");
   const user = useAuthStore((s) => s.user);
 
-  const fetchNotifications = useCallback(async () => {
-    if (!user) return;
-    setLoading(true);
-    try {
-      const response = await notificationsUseCase.getNotifications();
-      if (response.data) {
-        setNotifications(response.data);
+  const fetchNotifications = useCallback(
+    async (force = false) => {
+      if (!user) return;
+      if (isFetching.current) return;
+      if (hasLoaded && !force) return;
+
+      isFetching.current = true;
+      setLoading(true);
+      try {
+        const response = await notificationsUseCase.getNotifications();
+        if (response.data) {
+          setNotifications(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching notifications:", error);
+      } finally {
+        setLoading(false);
+        isFetching.ref = false;
       }
-    } catch (error) {
-      console.error("Error fetching notifications:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, [user]);
+    },
+    [user, hasLoaded, setLoading, setNotifications],
+  );
 
   const markAsRead = async (id: string) => {
     try {
+      storeMarkAsRead(id); // Optimistic update
       await notificationsUseCase.markAsRead(id);
-      setNotifications((prev) =>
-        prev.map((n) => (n.id === id ? { ...n, isRead: true } : n)),
-      );
     } catch (error) {
       console.error("Error marking notification as read:", error);
     }
@@ -37,15 +53,14 @@ export const useNotifications = () => {
 
   const markAllAsRead = async () => {
     try {
+      storeMarkAllAsRead(); // Optimistic update
       await notificationsUseCase.markAllAsRead();
-      setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
     } catch (error) {
       console.error("Error marking all as read:", error);
     }
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchNotifications();
   }, [fetchNotifications]);
 
@@ -64,7 +79,7 @@ export const useNotifications = () => {
     notifications: filteredNotifications,
     unreadCount,
     loading,
-    refresh: fetchNotifications,
+    refresh: () => fetchNotifications(true),
     markAsRead,
     markAllAsRead,
     setSearch: setSearchQuery,

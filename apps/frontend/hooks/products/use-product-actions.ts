@@ -30,7 +30,7 @@ export const useProductActions = (
 
     addItem(
       {
-        id: selectedSku.id,
+        id: "",
         productId: String(product.id),
         skuId: selectedSku.id,
         name: product.name,

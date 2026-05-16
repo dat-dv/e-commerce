@@ -53,10 +53,14 @@ export const useCheckoutAdapter = () => {
 
     setPlacingOrder(true);
     try {
-      // Map selectedSkuIds to actual CartItem IDs for the backend
-      const cartItemIds = items
-        .filter((item) => selectedSkuIds.includes(item.skuId))
-        .map((item) => item.id);
+      const cartItemIds = Array.from(
+        new Set(
+          items
+            .filter((item) => selectedSkuIds.includes(item.skuId))
+            .map((item) => item.id)
+            .filter((id) => !!id),
+        ),
+      );
 
       const res = await ordersUseCase.placeOrder.execute({
         cartItemIds,
