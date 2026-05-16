@@ -24,7 +24,7 @@ export const useFavorites = () => {
         const response =
           await userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
             targetPage,
-            20,
+            12,
           );
 
         if (response.status === "success" && response.data) {

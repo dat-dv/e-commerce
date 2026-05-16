@@ -29,7 +29,7 @@ export function VirtualGrid<T>({
   endText = "All items loaded",
   gridClassName = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
   itemClassName = "",
-  triggerMargin = "400px",
+  triggerMargin = "100px",
 }: VirtualGridProps<T>) {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sentinelRef, { margin: triggerMargin });
