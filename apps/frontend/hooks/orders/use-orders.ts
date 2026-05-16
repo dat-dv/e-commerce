@@ -5,14 +5,14 @@ import { TOrder } from "@/domain/orders/types/order.model";
 import { useAuthStore } from "../auth/use-auth-store";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { toast } from "react-toastify";
-
+import { ORDER_TABS } from "@/constants/order-status.constant";
 export const useOrders = () => {
   const [orders, setOrders] = useState<TOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [activeTabState, setActiveTabState] = useState<
     readonly number[] | "all"
-  >("all");
+  >(ORDER_TABS[1].value);
   const [meta, setMeta] = useState<IPaginationMeta | null>(null);
   const [page, setPage] = useState(1);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -34,7 +34,7 @@ export const useOrders = () => {
           status:
             activeTabState === "all" ? undefined : (activeTabState as number[]),
           page: targetPage,
-          limit: 10,
+          limit: 20,
         });
 
         if (response.status === "success" && response.data) {

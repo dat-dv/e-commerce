@@ -5,27 +5,16 @@ import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
 
 export interface VirtualListProps<T> {
-  /** Array of data items to render */
   data: T[];
-  /** Function to render each item */
   renderItem: (item: T, index: number) => React.ReactNode;
-  /** Optional key extractor function. If not provided, falls back to id or index */
   keyExtractor?: (item: T, index: number) => string | number;
-  /** Whether a background fetch is currently loading more data */
   loadingMore: boolean;
-  /** Whether there is more data to load */
   hasMore: boolean;
-  /** Callback triggered when the sentinel comes into view */
   onLoadMore: () => void;
-  /** Text to display when loading more items */
   loadingText?: string;
-  /** Text to display when all items have been loaded */
   endText?: string;
-  /** Wrapper class name */
   className?: string;
-  /** Item wrapper class name */
   itemClassName?: string;
-  /** The margin around the sentinel before it triggers a load */
   triggerMargin?: UseInViewOptions["margin"];
 }
 
@@ -40,19 +29,37 @@ export function VirtualList<T extends { id?: string | number }>({
   endText = "End of list",
   className = "space-y-8",
   itemClassName = "pb-8",
-  triggerMargin = "400px",
+  triggerMargin = "300px", // Standard list margin
 }: VirtualListProps<T>) {
   const sentinelRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sentinelRef, { margin: triggerMargin });
+  const isInView = useInView(sentinelRef, {
+    margin: triggerMargin,
+  });
+
+  const lastTriggerTime = useRef<number>(0);
 
   useEffect(() => {
-    if (isInView && hasMore && !loadingMore) {
-      onLoadMore();
+    let timer: NodeJS.Timeout;
+
+    const now = Date.now();
+    const timeSinceLastTrigger = now - lastTriggerTime.current;
+
+    if (isInView && hasMore && !loadingMore && data.length > 0) {
+      const waitTime = Math.max(500, 800 - timeSinceLastTrigger);
+
+      timer = setTimeout(() => {
+        if (isInView && !loadingMore) {
+          lastTriggerTime.current = Date.now();
+          onLoadMore();
+        }
+      }, waitTime);
     }
-  }, [isInView, hasMore, loadingMore, onLoadMore]);
+
+    return () => clearTimeout(timer);
+  }, [isInView, hasMore, loadingMore, onLoadMore, data.length]);
 
   return (
-    <div className={className}>
+    <div className={className} style={{ overflowAnchor: "none" }}>
       <WindowVirtualizer>
         {data.map((item, index) => {
           const key = keyExtractor
@@ -69,26 +76,27 @@ export function VirtualList<T extends { id?: string | number }>({
       {/* Infinite Scroll Trigger Sentinel */}
       <div
         ref={sentinelRef}
-        className="flex flex-col items-center justify-center"
+        className="flex flex-col items-center justify-center pt-12"
+        style={{ overflowAnchor: "none" }}
       >
         {loadingMore ? (
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-8 h-8 border-2 border-primary/10 border-t-primary rounded-full animate-spin" />
-            <span className="text-[9px] uppercase tracking-[0.4em] font-black text-content/20">
+          <div className="flex flex-col items-center gap-3 py-6">
+            <div className="w-5 h-5 border-2 border-primary/10 border-t-primary rounded-full animate-spin" />
+            <span className="text-sm font-medium text-content/50">
               {loadingText}
             </span>
           </div>
         ) : hasMore ? (
-          <div className="h-20" />
-        ) : (
-          <div className="py-8 flex items-center gap-4 text-content/10">
-            <div className="h-[1px] w-12 bg-current" />
-            <span className="text-[9px] uppercase tracking-[0.5em] font-black">
+          <div className="h-12" />
+        ) : data.length > 0 ? (
+          <div className="py-6 flex items-center gap-4 w-full px-4">
+            <div className="h-px flex-1 bg-content/[0.05]" />
+            <span className="text-sm font-medium text-content/40 whitespace-nowrap">
               {endText}
             </span>
-            <div className="h-[1px] w-12 bg-current" />
+            <div className="h-px flex-1 bg-content/[0.05]" />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
