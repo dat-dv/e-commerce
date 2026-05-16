@@ -11,5 +11,5 @@ export interface IUserFavoriteProductsRepository {
   getUserFavoriteProducts(
     page: number,
     limit: number,
-  ): Promise<ApiResponse<ApiListResponse<TUserFavoriteProductItem>>>;
+  ): Promise<ApiResponse<TUserFavoriteProductItem[]>>;
 }

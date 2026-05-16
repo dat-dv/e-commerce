@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
 
-export interface VirtualListProps<T> {
+export interface VirtualListProps<T extends { id?: string | number }> {
   data: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
   keyExtractor?: (item: T, index: number) => string | number;

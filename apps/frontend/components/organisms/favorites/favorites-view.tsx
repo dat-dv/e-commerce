@@ -14,7 +14,7 @@ export const FavoritesView = () => {
 
   return (
     <div className="min-h-screen bg-transparent selection:bg-primary/20">
-      <FavoritesBanner count={favoriteProps.favorites.length} />
+      <FavoritesBanner count={favoriteProps.meta.total} />
 
       <main className="container mx-auto px-4 pb-32 max-w-7xl">
         {/* Favorites Section */}

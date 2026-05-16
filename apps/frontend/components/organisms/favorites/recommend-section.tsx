@@ -10,7 +10,7 @@ const RecommendedSection = ({
   products: TProduct[];
   loading: boolean;
 }) => (
-  <section className="pt-24 border-t border-content/[0.03]">
+  <section className="pt-12 border-t border-content/[0.03]">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
       <div className="space-y-2">
         <div className="flex items-center gap-2 text-primary">

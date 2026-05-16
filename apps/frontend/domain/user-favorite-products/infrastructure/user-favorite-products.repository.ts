@@ -33,7 +33,7 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
   async getUserFavoriteProducts(
     page: number,
     limit: number,
-  ): Promise<ApiResponse<ApiListResponse<TUserFavoriteProductItem>>> {
+  ): Promise<ApiResponse<TUserFavoriteProductItem[]>> {
     const res = await this.request.get<
       ApiListResponse<IUserFavoriteProductResponse>
     >("/user-favorite-products", {
@@ -42,12 +42,11 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
 
     return {
       ...res,
-      data: {
-        ...res.data,
-        items: res.data.items.map((item) =>
+      data:
+        res.data?.items?.map((item) =>
           UserFavoriteProductsMapper.toDomain(item),
-        ),
-      },
-    };
+        ) || [],
+      meta: res.data?.meta,
+    } as ApiResponse<TUserFavoriteProductItem[]>;
   }
 }

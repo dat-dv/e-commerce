@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
 
-export interface VirtualGridProps<T> {
+export interface VirtualGridProps<T extends { id?: string | number }> {
   data: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
   keyExtractor?: (item: T, index: number) => string | number;
@@ -78,7 +78,7 @@ export function VirtualGrid<T extends { id?: string | number }>({
               const actualIndex = rowIndex * 4 + index;
               const key = keyExtractor
                 ? keyExtractor(item, actualIndex)
-                : (item.id ?? actualIndex);
+                : (item?.id ?? actualIndex);
               return (
                 <div key={key} className={itemClassName}>
                   {renderItem(item, actualIndex)}

@@ -4,12 +4,20 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { useAuthStore } from "../auth/use-auth-store";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
+import { IPaginationMeta } from "@/utils/request/request.types";
 
 export const useFavorites = () => {
   const [favorites, setFavorites] = useState<TUserFavoriteProductItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
+  const [meta, setMeta] = useState<IPaginationMeta>({
+    limit: 24,
+    page: 1,
+    totalPages: 1,
+    total: 0,
+  });
 
   const isFetch = useRef(false);
 
@@ -20,26 +28,30 @@ export const useFavorites = () => {
       if (!userId) return;
 
       try {
-        setLoading(true);
+        if (append) setLoadingMore(true);
+        else setLoading(true);
+
         const response =
           await userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
             targetPage,
-            12,
+            24, // Increased limit for better grid filling
           );
 
         if (response.status === "success" && response.data) {
-          if (append) {
-            setFavorites((prev) => [...prev, ...response.data!.items]);
-          } else {
-            setFavorites(response.data.items);
+          setFavorites((prev) =>
+            append ? [...prev, ...response.data] : response.data,
+          );
+          if (response.meta) {
+            setMeta(response.meta);
+            setHasMore(response.meta.page < response.meta.totalPages);
+            setPage(response.meta.page);
           }
-          setHasMore(response.data.meta.page < response.data.meta.totalPages);
-          setPage(response.data.meta.page);
         }
       } catch (error) {
         console.error("Failed to fetch favorites:", error);
       } finally {
         setLoading(false);
+        setLoadingMore(false);
       }
     },
     [userId],
@@ -80,8 +92,10 @@ export const useFavorites = () => {
   return {
     favorites,
     loading,
+    loadingMore,
     page,
     hasMore,
+    meta,
     fetchFavorites,
     fetchMore,
     toggleFavorite,
