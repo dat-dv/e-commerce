@@ -1,14 +1,58 @@
 import { TProduct, TSkuDomain } from "../types/products.model";
-import { IProduct } from "@ecommerce/shared";
+import {
+  IProductResponse,
+  ISkuResponse,
+  IBrandResponse,
+  ICategoryResponse,
+} from "@ecommerce/shared";
+
+// Extended types to handle relations not explicitly defined in base DTOs
+type IBrandWithRelations = IBrandResponse & {
+  name?: string;
+  logo_url?: string | null;
+  banner_url?: string | null;
+  description?: string | null;
+  translations?: { name: string; description: string }[];
+  logo?: { url: string };
+};
+
+type ISkuWithRelations = ISkuResponse & {
+  product?: IProductResponse;
+  sku_attribute_values?: {
+    attribute_value: {
+      value: string;
+      translations?: { value: string }[];
+      attribute: {
+        name: string;
+        translations?: { name: string }[];
+      };
+    };
+  }[];
+  image_url?: string;
+};
+
+type IFlashSaleWithRelations = {
+  sale_price: number;
+  sold_count: number;
+  stock: number;
+  flash_sale: {
+    start_time: string | Date;
+    end_time: string | Date;
+  };
+};
 
 export class ProductMapper {
-  static toDomain(dto: IProduct): TProduct {
+  static toDomain(dto: IProductResponse): TProduct {
     const translation = dto.translations?.[0];
-    const brandTranslation = dto.brand?.translations?.[0];
+    const brand = dto.brand as IBrandWithRelations | undefined;
+    const brandTranslation = brand?.translations?.[0];
 
     const skus: TSkuDomain[] =
-      dto.skus?.map((sku) => {
-        const flashSale = sku.flash_sales?.[0];
+      dto.skus?.map((skuDto: ISkuResponse) => {
+        const sku = skuDto as ISkuWithRelations;
+        const flashSale = sku.flash_sales?.[0] as
+          | IFlashSaleWithRelations
+          | undefined;
         const salePrice = flashSale?.sale_price;
         const regularPrice = sku.price;
 
@@ -51,7 +95,9 @@ export class ProductMapper {
         };
       }) || [];
 
-    const categoryMapping = dto.categories?.[0];
+    const categoryMapping = dto.categories?.[0] as
+      | { category: ICategoryResponse }
+      | undefined;
     const categoryName =
       categoryMapping?.category?.translations?.[0]?.name ||
       categoryMapping?.category?.slug;
@@ -63,14 +109,14 @@ export class ProductMapper {
       description: translation?.description || "",
       category: categoryName || "General",
       imageUrl: dto.thumbnail?.url || skus[0]?.imageUrl || "",
-      brand: dto.brand
+      brand: brand
         ? {
-            id: dto.brand.id,
-            slug: dto.brand.slug,
-            name: brandTranslation?.name || dto.brand.name || "No Name",
-            logoUrl: dto.brand.logo?.url || dto.brand.logo_url || "",
+            id: brand.id,
+            slug: brand.slug,
+            name: brandTranslation?.name || brand.name || "No Name",
+            logoUrl: brand.logo?.url || brand.logo_url || "",
             description:
-              brandTranslation?.description || dto.brand.description || "",
+              brandTranslation?.description || brand.description || "",
           }
         : undefined,
       skus,

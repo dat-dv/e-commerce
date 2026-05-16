@@ -3,8 +3,8 @@ import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import { THomepageSection } from "../types/homepage.model";
 import { IHomepageRepository } from "../types/homepage.repository.interface";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
-import { BrandMapper } from "../../products/infrastructure/brands.mapper";
-import { IHomepageSectionResponse } from "@ecommerce/shared";
+import { BrandMapper } from "../../brands/infrastructure/brands.mapper";
+import { IHomepageSectionResponse, ICategoryResponse } from "@ecommerce/shared";
 
 export class HomepageRepository implements IHomepageRepository {
   constructor(private request: TRequest) {}
@@ -18,15 +18,16 @@ export class HomepageRepository implements IHomepageRepository {
       ...response,
       data:
         response.data?.map((item) => ({
-          ...item,
           section: {
-            ...item.section,
+            id: item.section.id,
+            title: item.section.translations?.[0]?.title || "",
+            type: item.section.type,
             categories: item.section.categories?.map((c) => ({
               id: c.id,
               slug: c.slug,
               level: c.level,
               order: c.order,
-              name: c.translations?.[0]?.name,
+              name: (c as ICategoryResponse).translations?.[0]?.name || c.slug,
             })),
           },
           data: item.data?.map((p) => ProductMapper.toDomain(p)) || [],

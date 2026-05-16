@@ -9,13 +9,18 @@ export class ReviewMapper {
       userId: dto.user_id,
       user: {
         id: dto.user?.id || "",
-        name: dto.user?.name || "Anonymous",
-        avatarUrl: dto.user?.avatar_url || undefined,
+        name: dto.user
+          ? `${dto.user.first_name || ""} ${dto.user.last_name || ""}`.trim()
+          : "Anonymous",
+        avatarUrl: dto.user?.avatar?.url || undefined,
       },
       rating: dto.rating,
       comment: dto.comment || undefined,
-      images: dto.images || [],
-      createdAt: dto.created_at,
+      images: (dto.images as unknown as string[]) || [],
+      createdAt:
+        dto.created_at instanceof Date
+          ? dto.created_at.toISOString()
+          : String(dto.created_at),
     };
   }
 }
