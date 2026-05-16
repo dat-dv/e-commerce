@@ -11,6 +11,8 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
       product: {
         include: {
           thumbnail: true,
+          skus: true,
+          brand: true,
           translations: {
             where: { language: { code: languageCode } },
           },

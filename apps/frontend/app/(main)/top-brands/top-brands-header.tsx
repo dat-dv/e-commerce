@@ -93,7 +93,7 @@ export function TopBrandsHeader() {
             </div>
 
             <p className="text-xl md:text-2xl text-content/60 max-w-2xl font-light leading-relaxed tracking-tight">
-              Explore the world's most{" "}
+              Explore the world&apos;s most{" "}
               <span className="text-content font-bold underline underline-offset-8 decoration-primary/20">
                 iconic technology
               </span>{" "}

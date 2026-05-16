@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Eye, ShoppingBag } from "lucide-react";
+import { Eye, ShoppingBag, Heart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
 import Image from "next/image";
 import { APP_ROUTES } from "@/constants/routes";
@@ -11,12 +11,23 @@ import { TProduct } from "@/domain/products/types/products.model";
 
 interface ProductCardProps {
   product: TProduct;
+  showFavoriteButton?: boolean;
 }
 
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
+import { useToggleFavorite } from "@/hooks/favorites/use-toggle-favorite";
+import { cn } from "@/utils/cn";
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({
+  product,
+  showFavoriteButton = true,
+}: ProductCardProps) => {
   const addItem = useAddToCart();
+  const {
+    isFavorited,
+    toggle: toggleFavorite,
+    loading: favoriteLoading,
+  } = useToggleFavorite(product.id, product.isFavorited);
   const sku = product?.skus?.[0];
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -86,17 +97,41 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </Link>
           <button
             onClick={handleAddToCart}
-            className="w-10 h-10 bg-primary text-surface rounded-full flex items-center justify-center hover:opacity-90 transition-all"
+            className="w-10 h-10 bg-primary text-surface rounded-full flex items-center justify-center hover:opacity-90 transition-all shadow-lg active:scale-90"
           >
             <ShoppingBag size={18} />
           </button>
         </div>
 
         {/* Badges */}
-        {hasDiscount && (
-          <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10">
-            {discountLabel}
-          </div>
+        <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
+          {hasDiscount && (
+            <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-lg shadow-red-500/20">
+              {discountLabel}
+            </div>
+          )}
+        </div>
+
+        {/* Favorite Button */}
+        {showFavoriteButton && (
+          <button
+            onClick={toggleFavorite}
+            disabled={favoriteLoading}
+            className={cn(
+              "absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 z-10 shadow-lg active:scale-75",
+              isFavorited
+                ? "bg-red-500 text-white shadow-red-500/20"
+                : "bg-surface/80 backdrop-blur-md text-content/40 hover:text-red-500 shadow-black/5",
+            )}
+          >
+            <Heart
+              size={16}
+              className={cn(
+                "transition-transform",
+                isFavorited && "fill-current",
+              )}
+            />
+          </button>
         )}
       </div>
 
@@ -108,7 +143,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         )}
 
-        <h3 className="mt-1 text-sm font-bold text-content line-clamp-1 group-hover:text-blue-500 transition-colors">
+        <h3 className="mt-1 text-sm font-bold text-content line-clamp-1 group-hover:text-primary transition-colors">
           <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
             {product.name}
           </Link>
@@ -139,13 +174,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
         </div>
 
-        <div className="mt-2 flex items-center justify-between">
+        <div className="mt-auto pt-3 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-base font-black text-blue-500 tracking-tight">
+            <span className="text-base font-black text-primary tracking-tight">
               {displayPrice}
             </span>
             {sku?.originalPrice && (
-              <span className="text-[10px] text-content/30 line-through">
+              <span className="text-[10px] text-content/20 line-through font-medium">
                 {displayOriginalPrice}
               </span>
             )}
@@ -153,9 +188,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <button
             onClick={handleAddToCart}
-            className="w-8 h-8 rounded-full flex items-center justify-center text-content/20 hover:text-blue-500 hover:bg-blue-500/10 transition-all lg:hidden"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-content/20 hover:text-primary hover:bg-primary/10 transition-all lg:hidden border border-content/5"
           >
-            <ShoppingBag size={16} />
+            <ShoppingBag size={18} />
           </button>
         </div>
       </div>

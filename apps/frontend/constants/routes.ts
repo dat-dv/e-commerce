@@ -30,6 +30,7 @@ export const APP_ROUTES = {
   BRAND_DETAIL: (slug: string) => `/brands/${slug}`,
   NEW_ARRIVALS: "/new-arrivals",
   FLASH_SALE: "/flash-sale",
+  FAVORITES: "/favorites",
 } as const;
 
 /** @description API endpoint paths */

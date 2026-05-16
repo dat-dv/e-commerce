@@ -9,6 +9,7 @@ import AvatarDropdown from "../avatar-dropdown";
 import { ShoppingBag, Heart } from "lucide-react";
 import { useCart } from "@/hooks/cart/use-cart";
 import { NotificationCenter } from "@/components/organisms/notifications/notification-center";
+import Link from "next/link";
 
 export default function HeaderActions() {
   const user = useAuthStore((store) => store.user);
@@ -40,12 +41,13 @@ export default function HeaderActions() {
         }
       >
         <NotificationCenter />
-        <button
+        <Link
+          href={APP_ROUTES.FAVORITES}
           className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
           title="Yêu thích"
         >
           <Heart size={20} />
-        </button>
+        </Link>
         <button
           onClick={() => setIsOpen(true)}
           className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
