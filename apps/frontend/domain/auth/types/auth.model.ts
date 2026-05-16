@@ -1,4 +1,4 @@
-import { IUserPhone } from "@ecommerce/shared";
+import { EGender } from "@ecommerce/shared";
 
 export interface TAuthRequest {
   email: string;
@@ -15,27 +15,28 @@ export interface TResetPasswordRequest {
   confirm_password: string;
 }
 
-export enum EGender {
-  MALE = 0,
-  FEMALE = 1,
-  OTHER = 2,
-}
-
 export interface TUser {
   id: string;
-  first_name?: string;
-  last_name?: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   password?: string;
-  avatar_id?: string | null;
-  created_at?: string | null;
-  updated_at?: string | null;
-  deleted_at?: string | null;
-  role_id?: string | null;
-  date_of_birth?: string | null;
-  avatar_url?: string | null;
+  avatarId?: string | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+  deletedAt?: string | null;
+  roleId?: string | null;
+  dateOfBirth?: string | null;
+  avatarUrl?: string | null;
   gender?: EGender | null;
-  phone?: IUserPhone;
+  phones?: TUserPhone[];
+}
+
+export interface TUserPhone {
+  id: string;
+  phoneNumber: string;
+  phoneCode: string;
+  isDefault: boolean;
 }
 
 export interface TAuthState {

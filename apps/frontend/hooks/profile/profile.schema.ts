@@ -1,5 +1,5 @@
+import { EGender } from "@ecommerce/shared";
 import { z } from "zod";
-import { EGender } from "@/domain/auth/types/auth.model";
 
 const aseanCodes = [
   "+84",
@@ -44,14 +44,16 @@ export const phoneSchema = z
   );
 
 export const profileSchema = z.object({
-  first_name: z.string().min(1, { message: "First name is required" }),
-  last_name: z.string().min(1, { message: "Last name is required" }),
-  dob: z.string().datetime().optional().nullable(),
+  firstName: z.string().min(1, { message: "First name is required" }),
+  lastName: z.string().min(1, { message: "Last name is required" }),
+  email: z.string().email().optional(),
+  dateOfBirth: z.string().datetime().optional().nullable(),
   avatarUrl: z
     .string()
     .url({ message: "Invalid URL" })
     .optional()
     .or(z.literal("")),
+  avatarId: z.string().optional().nullable(),
   gender: z.nativeEnum(EGender).optional().nullable(),
   phone: phoneSchema,
 });

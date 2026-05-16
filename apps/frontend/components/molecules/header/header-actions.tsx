@@ -57,9 +57,9 @@ export default function HeaderActions() {
           )}
         </button>
         <AvatarDropdown
-          name={`${user?.first_name || ""} ${user?.last_name || ""}`}
+          name={`${user?.firstName || ""} ${user?.lastName || ""}`}
           email={user?.email || ""}
-          avatarUrl={user?.avatar_url || ""}
+          avatarUrl={user?.avatarUrl || ""}
           handleClickLogout={handleClickLogout}
         />
       </ProtectedSection>

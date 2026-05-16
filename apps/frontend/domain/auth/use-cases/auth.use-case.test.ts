@@ -15,8 +15,8 @@ describe("Auth Use Cases", () => {
 
   const mockUser: TUser = {
     id: "user-123",
-    first_name: "John",
-    last_name: "Doe",
+    firstName: "John",
+    lastName: "Doe",
     email: "john@example.com",
   };
 
@@ -105,17 +105,17 @@ describe("Auth Use Cases", () => {
   describe("UpdateProfileUseCase", () => {
     it("should update partial profile successfully", async () => {
       const useCase = new UpdateProfileUseCase(userRepoMock);
-      const patch = { first_name: "Updated Name" };
+      const patch = { id: "user-123", firstName: "Updated Name" };
       const mockResponse = {
         status: "success" as const,
-        data: { ...mockUser, first_name: "Updated Name" },
+        data: { ...mockUser, firstName: "Updated Name" },
       };
-      vi.mocked(mockRepo.updateProfile).mockResolvedValue(mockResponse);
+      vi.mocked(userRepoMock.updateProfile).mockResolvedValue(mockResponse);
 
       const result = await useCase.execute(patch);
 
-      expect(result.data.first_name).toBe("Updated Name");
-      expect(mockRepo.updateProfile).toHaveBeenCalledWith(
+      expect(result.data.firstName).toBe("Updated Name");
+      expect(userRepoMock.updateProfile).toHaveBeenCalledWith(
         expect.objectContaining(patch),
       );
     });

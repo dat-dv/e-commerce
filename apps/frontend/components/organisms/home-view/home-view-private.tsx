@@ -24,7 +24,7 @@ export const HomepagePrivate = () => {
       <AppContainer className="flex flex-col gap-12 pt-10">
         {/* 1. Welcome Banner */}
         <WelcomeBanner
-          userName={`${user?.first_name || ""} ${user?.last_name || ""}`}
+          userName={`${user?.firstName || ""} ${user?.lastName || ""}`}
           cartCount={3}
           orderCount={1}
         />

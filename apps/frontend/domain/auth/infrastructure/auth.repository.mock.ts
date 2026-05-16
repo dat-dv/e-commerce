@@ -8,9 +8,10 @@ import {
   TUser,
   TResetPasswordRequest,
 } from "../types/auth.model";
+import { TUpdateUserInput } from "../../users/types/user.model";
 import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
-import { IUser } from "@ecommerce/shared";
+import { IUserResponse } from "@ecommerce/shared";
 
 export class MockAuthRepository implements IAuthRepository {
   getSession(): boolean {
@@ -19,7 +20,7 @@ export class MockAuthRepository implements IAuthRepository {
   async logout(): Promise<ApiResponse<void>> {
     throw new Error("Method not implemented.");
   }
-  private static MOCK_USER: IUser = {
+  private static MOCK_USER: IUserResponse = {
     id: "1",
     first_name: "John",
     last_name: "Doe",
@@ -28,6 +29,23 @@ export class MockAuthRepository implements IAuthRepository {
     date_of_birth: new Date("1990-03-20"),
     created_at: new Date(),
     updated_at: new Date(),
+    password: "hashed_password",
+    salt: "salt",
+    role_id: "user_role_id",
+    gender: 0,
+    deleted_at: null,
+    phones: [
+      {
+        id: "phone_1",
+        phone_number: "123456789",
+        phone_code: "+84",
+        is_default: true,
+        is_verified: true,
+        user_id: "1",
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ],
   };
 
   async login(request: TAuthRequest): Promise<ApiResponse<TUser>> {
@@ -63,18 +81,29 @@ export class MockAuthRepository implements IAuthRepository {
     };
   }
 
-  async updateProfile(data: Partial<TUser>): Promise<ApiResponse<TUser>> {
+  async updateProfile(data: TUpdateUserInput): Promise<ApiResponse<TUser>> {
     await delay(1000);
 
     MockAuthRepository.MOCK_USER = {
       ...MockAuthRepository.MOCK_USER,
-      first_name: data.first_name || MockAuthRepository.MOCK_USER.first_name,
-      last_name: data.last_name || MockAuthRepository.MOCK_USER.last_name,
-      email: data.email || MockAuthRepository.MOCK_USER.email,
-      date_of_birth: data.date_of_birth
-        ? new Date(data.date_of_birth)
+      first_name: data.firstName || MockAuthRepository.MOCK_USER.first_name,
+      last_name: data.lastName || MockAuthRepository.MOCK_USER.last_name,
+      email: MockAuthRepository.MOCK_USER.email,
+      date_of_birth: data.dateOfBirth
+        ? new Date(data.dateOfBirth)
         : MockAuthRepository.MOCK_USER.date_of_birth,
-      avatar_id: data.avatar_id || MockAuthRepository.MOCK_USER.avatar_id,
+      avatar_id: MockAuthRepository.MOCK_USER.avatar_id,
+      phones: [
+        {
+          ...MockAuthRepository.MOCK_USER.phones![0],
+          phone_number:
+            data.phoneNumber ||
+            MockAuthRepository.MOCK_USER.phones![0].phone_number,
+          phone_code:
+            data.phoneCode ||
+            MockAuthRepository.MOCK_USER.phones![0].phone_code,
+        },
+      ],
     };
 
     return {

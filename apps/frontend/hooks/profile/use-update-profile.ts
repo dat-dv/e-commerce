@@ -1,9 +1,8 @@
 import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import { authUseCase } from "@/domain/auth/use-cases";
-import { TUser } from "@/domain/auth/types/auth.model";
 import { useAuthStore } from "../auth/use-auth-store";
-import { TUpdateUserProfileInput } from "@/domain/users/infrastructure/user.model";
+import { TUpdateUserInput } from "@/domain/users/types/user.model";
 
 export const useUpdateProfile = () => {
   const [loading, setLoading] = useState(false);
@@ -11,27 +10,37 @@ export const useUpdateProfile = () => {
   const setUser = useAuthStore((state) => state.setUser);
 
   const updateProfile = useCallback(
-    async (data: TUpdateUserProfileInput) => {
+    async (data: TUpdateUserInput) => {
       setLoading(true);
+      const previousUser = user;
       try {
+        // Optimistic Update
         setUser({
           ...user,
           ...data,
-        });
-        const response = await authUseCase.updateProfile.execute({
-          ...data,
-          id: user?.id,
+          phones: [
+            {
+              ...(user?.phones?.[0] || { id: "", isDefault: true }),
+              phoneNumber:
+                data.phoneNumber || user?.phones?.[0]?.phoneNumber || "",
+              phoneCode: data.phoneCode || user?.phones?.[0]?.phoneCode || "",
+            },
+          ],
         });
 
-        if (response.status === "success") {
+        const response = await authUseCase.updateProfile.execute(data);
+
+        if (response.status === "success" && response.data) {
+          setUser(response.data);
           toast.success("Profile updated successfully!");
           return true;
         } else {
+          setUser(previousUser);
           toast.error("Failed to update profile.");
           return false;
         }
       } catch {
-        setUser(user);
+        setUser(previousUser);
         toast.error("Failed to update profile. Please try again.");
         return false;
       } finally {

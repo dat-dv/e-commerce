@@ -9,16 +9,16 @@ const RequireProfileInfoModal = () => {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const logout = useAuthStore((state) => state.logout);
-  const show =
-    user && (!user.first_name || !user.last_name || !user.date_of_birth);
+  const show = user && (!user.firstName || !user.lastName || !user.dateOfBirth);
 
   const onSubmit = async (data: TRequireProfileInfoSchema) => {
     try {
+      if (!user?.id) return;
       const res = await authUseCase.updateProfile.execute({
-        first_name: data.first_name,
-        last_name: data.last_name,
-        date_of_birth: data.dob,
-        id: user?.id,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        dateOfBirth: data.dateOfBirth,
+        id: user.id,
       });
       const updatedUser = res.data;
 

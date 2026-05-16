@@ -17,7 +17,7 @@ export function useUpLoadProfileAvatar() {
         userId: user.id,
       });
       if (response.status === "success" && response.data) {
-        setUser({ ...user, avatar_url: response.data });
+        setUser({ ...user, avatarUrl: response.data });
         toast.success("Avatar updated successfully!");
       } else {
         throw new Error(response.message || "Update failed");

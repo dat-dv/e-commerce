@@ -23,9 +23,9 @@ export const RequireProfileInfoForm = ({
 }: {
   onSubmit: (data: TRequireProfileInfoSchema) => void;
   logout: () => void;
-  user: Pick<TUser, "first_name" | "last_name" | "date_of_birth" | "gender">;
+  user: Pick<TUser, "firstName" | "lastName" | "dateOfBirth" | "gender">;
 }) => {
-  const requireFields = ["first_name", "last_name", "date_of_birth", "gender"];
+  const requireFields = ["firstName", "lastName", "dateOfBirth", "gender"];
   const show =
     !!user &&
     requireFields.every((field) => {
@@ -36,9 +36,9 @@ export const RequireProfileInfoForm = ({
   const methods = useForm<TRequireProfileInfoSchema>({
     resolver: zodResolver(requireProfileInfoSchema),
     defaultValues: {
-      first_name: user?.first_name || "",
-      last_name: user?.last_name || "",
-      dob: user?.date_of_birth ? String(user.date_of_birth) : "2000-01-01",
+      firstName: user?.firstName || "",
+      lastName: user?.lastName || "",
+      dateOfBirth: user?.dateOfBirth ? String(user.dateOfBirth) : "2000-01-01",
       gender: user?.gender ?? undefined,
     },
   });
@@ -46,9 +46,11 @@ export const RequireProfileInfoForm = ({
   useEffect(() => {
     if (show) {
       methods.reset({
-        first_name: user?.first_name || "",
-        last_name: user?.last_name || "",
-        dob: user?.date_of_birth ? String(user.date_of_birth) : "2000-01-01",
+        firstName: user?.firstName || "",
+        lastName: user?.lastName || "",
+        dateOfBirth: user?.dateOfBirth
+          ? String(user.dateOfBirth)
+          : "2000-01-01",
         gender: user?.gender ?? undefined,
       });
     }
@@ -58,19 +60,19 @@ export const RequireProfileInfoForm = ({
     <AppForm methods={methods} onSubmit={onSubmit}>
       <div className="space-y-4">
         <FormInput
-          name="first_name"
+          name="firstName"
           label="First Name"
           placeholder="Enter first name"
           variant="underline"
         />
         <FormInput
-          name="last_name"
+          name="lastName"
           label="Last Name"
           placeholder="Enter last name"
           variant="underline"
         />
         <FormDateInput
-          name="dob"
+          name="dateOfBirth"
           label="Date of Birth"
           placeholder="dd/mm/yyyy"
           variant="underline"

@@ -17,13 +17,13 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { GENDER_OPTIONS } from "@/constants/gender.constant";
-import { TUpdateUserProfileInput } from "@/domain/users/infrastructure/user.model";
+import { TUpdateUserInput } from "@/domain/users/types/user.model";
 
 interface IProfileFormProps {
   user: Partial<TUser> | null;
   isLoading?: boolean;
   isUploading?: boolean;
-  updateProfile: (user: TUpdateUserProfileInput) => Promise<boolean | void>;
+  updateProfile: (user: TUpdateUserInput) => Promise<boolean | void>;
   uploadAvatar: (avatar: File) => Promise<boolean | void>;
 }
 
@@ -36,19 +36,21 @@ export const ProfileForm = ({
 }: IProfileFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const avatarRef = useRef(user?.avatar_id);
+  const avatarRef = useRef(user?.avatarId);
   const methods = useForm<ProfileSchema>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      first_name: user?.first_name || "",
-      last_name: user?.last_name || "",
-      dob: String(user?.date_of_birth || ""),
-      avatarUrl: user?.avatar_url || "",
+      firstName: user?.firstName || "",
+      lastName: user?.lastName || "",
+      dateOfBirth: String(user?.dateOfBirth || ""),
+      avatarUrl: user?.avatarUrl || "",
       phone: {
-        phoneCode: user?.phone?.phone_code?.slice(0, 3) || "",
-        phoneNumber: user?.phone?.phone_number || "",
+        phoneCode: user?.phones?.[0]?.phoneCode?.slice(0, 3) || "",
+        phoneNumber: user?.phones?.[0]?.phoneNumber || "",
       },
-      gender: user?.gender ?? undefined,
+      email: user?.email || "",
+      avatarId: user?.avatarId || "",
+      gender: user?.gender === null ? undefined : user?.gender,
     },
   });
 
@@ -57,15 +59,17 @@ export const ProfileForm = ({
   useEffect(() => {
     if (user) {
       methods.reset({
-        first_name: user.first_name || "",
-        last_name: user.last_name || "",
-        dob: String(user.date_of_birth || ""),
-        avatarUrl: user?.avatar_url || "",
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        dateOfBirth: String(user.dateOfBirth || ""),
+        avatarUrl: user?.avatarUrl || "",
         phone: {
-          phoneCode: user?.phone?.phone_code?.slice(0, 3) || "",
-          phoneNumber: user?.phone?.phone_number || "",
+          phoneCode: user?.phones?.[0]?.phoneCode?.slice(0, 3) || "",
+          phoneNumber: user?.phones?.[0]?.phoneNumber || "",
         },
-        gender: user.gender ?? undefined,
+        email: user.email || "",
+        avatarId: user.avatarId || "",
+        gender: user.gender === null ? undefined : user.gender,
       });
     }
   }, [user, methods]);
@@ -76,28 +80,30 @@ export const ProfileForm = ({
 
   const disableEdit = () => {
     if (user) {
-      avatarRef.current = user.avatar_id;
+      avatarRef.current = user.avatarId;
       methods.reset({
-        first_name: user.first_name || "",
-        last_name: user.last_name || "",
-        dob: String(user.date_of_birth || ""),
-        avatarUrl: user?.avatar_url || "",
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        dateOfBirth: String(user.dateOfBirth || ""),
+        avatarUrl: user?.avatarUrl || "",
         phone: {
-          phoneCode: user?.phone?.phone_code?.slice(0, 3) || "",
-          phoneNumber: user?.phone?.phone_number || "",
+          phoneCode: user?.phones?.[0]?.phoneCode?.slice(0, 3) || "",
+          phoneNumber: user?.phones?.[0]?.phoneNumber || "",
         },
-        gender: user.gender ?? undefined,
+        email: user.email || "",
+        avatarId: user.avatarId || "",
+        gender: user.gender === null ? undefined : user.gender,
       });
     }
     setIsEditing(false);
   };
 
-  const watchedFirstName = methods.watch("first_name");
-  const watchedLastName = methods.watch("last_name");
+  const watchedFirstName = methods.watch("firstName");
+  const watchedLastName = methods.watch("lastName");
 
   const fullName =
     `${watchedFirstName || ""} ${watchedLastName || ""}`.trim() ||
-    `${user?.first_name || ""} ${user?.last_name || ""}`.trim() ||
+    `${user?.firstName || ""} ${user?.lastName || ""}`.trim() ||
     "Your Name";
 
   const isFormDisabled = isLoading || isUploading || !isEditing;
@@ -120,12 +126,12 @@ export const ProfileForm = ({
 
     const success = await updateProfile({
       id: user?.id || "",
-      first_name: data.first_name,
-      last_name: data.last_name,
-      date_of_birth: data.dob,
-      phone_number: data.phone?.phoneNumber || "",
-      gender: data.gender,
-      phone_code: data.phone?.phoneCode || "",
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dateOfBirth: data.dateOfBirth || "",
+      phoneNumber: data.phone?.phoneNumber || "",
+      gender: data.gender ?? undefined,
+      phoneCode: data.phone?.phoneCode || "",
     });
 
     if (success) {
@@ -167,7 +173,7 @@ export const ProfileForm = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormInput
               variant="outline"
-              name="first_name"
+              name="firstName"
               label="First Name"
               placeholder="Your First Name"
               disabled={isFormDisabled}
@@ -175,11 +181,19 @@ export const ProfileForm = ({
             />
             <FormInput
               variant="outline"
-              name="last_name"
+              name="lastName"
               label="Last Name"
               placeholder="Your Last Name"
               disabled={isFormDisabled}
               className="h-10 text-sm rounded-xl"
+            />
+            <FormInput
+              variant="outline"
+              name="email"
+              label="Email Address"
+              placeholder="Your Email"
+              disabled={true} // Email is read-only in profile
+              className="h-10 text-sm rounded-xl opacity-60"
             />
             <FormPhoneInput
               name="phone"
@@ -189,21 +203,20 @@ export const ProfileForm = ({
             />
             <FormDateInput
               variant="outline"
-              name="dob"
+              name="dateOfBirth"
               label="Date of Birth"
               placeholder="dd/mm/yyyy"
               disabled={isFormDisabled}
               className="h-10 text-sm rounded-xl"
             />
+            <FormSelect
+              name="gender"
+              label="Gender"
+              disabled={isFormDisabled}
+              options={GENDER_OPTIONS}
+              className="h-10 text-sm rounded-xl"
+            />
           </div>
-
-          <FormSelect
-            name="gender"
-            label="Gender"
-            disabled={isFormDisabled}
-            options={GENDER_OPTIONS}
-            className="h-10 text-sm rounded-xl"
-          />
 
           <AnimationItem className="flex flex-wrap items-center justify-end gap-4 pt-6">
             {isEditing ? (

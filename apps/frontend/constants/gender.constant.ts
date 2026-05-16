@@ -1,4 +1,4 @@
-import { EGender } from "@/domain/auth/types/auth.model";
+import { EGender } from "@ecommerce/shared";
 
 export const GENDER_OPTIONS: { label: string; value: EGender }[] = [
   { label: "Male", value: EGender.MALE },
