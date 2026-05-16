@@ -26,7 +26,7 @@ export const CategoryMegaMenu = ({
         onClick={toggleMenu}
         className={cn(
           "relative text-sm font-bold transition-all flex items-center gap-1.5 h-full px-2",
-          isActive ? "text-primary" : "text-content/60 hover:text-content/90",
+          isActive ? "text-primary" : "text-content/80 hover:text-content",
         )}
       >
         <span className="relative">{label}</span>

@@ -9,7 +9,7 @@ export class GetCartUseCase {
     private readonly cartRepository: ICartRepository,
   ) {}
 
-  async execute(userId: string, languageCode = 'vi'): Promise<ICartResponse> {
-    return this.cartRepository.upsertCart(userId, languageCode);
+  async execute(userId: string, languageCode = 'vi'): Promise<ICartResponse | null> {
+    return this.cartRepository.getCart(userId, languageCode);
   }
 }

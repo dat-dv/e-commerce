@@ -23,6 +23,8 @@ export class BrandsRepository implements IBrandsRepository {
     return this.paginationService.paginate(
       this.prisma.brand,
       {
+        where: { is_featured: true },
+        orderBy: { order: 'asc' },
         include: this.getBrandInclude(languageCode),
       },
       page,

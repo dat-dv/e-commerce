@@ -18,15 +18,10 @@ export class BrandsRepository implements IBrandsRepository {
     page = 1,
     limit = 10,
   ): Promise<ApiResponse<ApiListResponse<TBrand>>> {
-    const response = await this.request.get<{
-      items: IBrandResponse[];
-      meta: {
-        total: number;
-        page: number;
-        limit: number;
-        totalPages: number;
-      };
-    }>(`${API_ROUTES.BRAND.TOP}`, { params: { page, limit } });
+    const response = await this.request.get<ApiListResponse<IBrandResponse>>(
+      `${API_ROUTES.BRAND.TOP}`,
+      { params: { page, limit } },
+    );
 
     return {
       ...response,

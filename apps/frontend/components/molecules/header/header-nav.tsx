@@ -33,9 +33,7 @@ const HeaderNav = () => {
             href={link.href}
             className={cn(
               "relative text-sm font-bold transition-all hover:text-primary flex items-center gap-1.5",
-              isActive
-                ? "text-primary"
-                : "text-content/60 hover:text-content/90",
+              isActive ? "text-primary" : "text-content/80 hover:text-content",
             )}
           >
             {link.label}
