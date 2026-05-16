@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import { INotificationResponse } from "@ecommerce/shared";
+
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 
+import { INotification } from "@/domain/notifications/types/notification";
+
 export const useNotifications = () => {
-  const [notifications, setNotifications] = useState<INotificationResponse[]>(
-    [],
-  );
+  const [notifications, setNotifications] = useState<INotification[]>([]);
   const [loading, setLoading] = useState(false);
   const user = useAuthStore((s) => s.user);
 
@@ -29,7 +29,7 @@ export const useNotifications = () => {
     try {
       await notificationsUseCase.markAsRead(id);
       setNotifications((prev) =>
-        prev.map((n) => (n.id === id ? { ...n, is_read: true } : n)),
+        prev.map((n) => (n.id === id ? { ...n, isRead: true } : n)),
       );
     } catch (error) {
       console.error("Error marking notification as read:", error);
@@ -39,7 +39,7 @@ export const useNotifications = () => {
   const markAllAsRead = async () => {
     try {
       await notificationsUseCase.markAllAsRead();
-      setNotifications((prev) => prev.map((n) => ({ ...n, is_read: true })));
+      setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
     } catch (error) {
       console.error("Error marking all as read:", error);
     }
@@ -50,7 +50,7 @@ export const useNotifications = () => {
     fetchNotifications();
   }, [fetchNotifications]);
 
-  const unreadCount = notifications.filter((n) => !n.is_read).length;
+  const unreadCount = notifications.filter((n) => !n.isRead).length;
 
   return {
     notifications,

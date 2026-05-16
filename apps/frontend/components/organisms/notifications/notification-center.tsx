@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { Bell, Check, Clock, Package, Info, Zap, X } from "lucide-react";
+import { Bell, Clock, Package, Info, Zap, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { formatDistanceToNow } from "date-fns";
 import { cn } from "@/utils/cn";
-import { INotificationResponse } from "@ecommerce/shared";
+import { INotification } from "@/domain/notifications/types/notification";
 import Link from "next/link";
 
 export const NotificationCenter = () => {
@@ -116,7 +116,7 @@ const NotificationItem = ({
   notif,
   onRead,
 }: {
-  notif: INotificationResponse;
+  notif: INotification;
   onRead: () => void;
 }) => {
   const getIcon = (type: string) => {
@@ -134,14 +134,14 @@ const NotificationItem = ({
     <div
       className={cn(
         "p-4 flex gap-4 transition-colors relative group cursor-pointer hover:bg-content/[0.02]",
-        !notif.is_read && "bg-primary/[0.02]",
+        !notif.isRead && "bg-primary/[0.02]",
       )}
-      onClick={() => !notif.is_read && onRead()}
+      onClick={() => !notif.isRead && onRead()}
     >
       <div
         className={cn(
           "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border border-content/[0.05]",
-          notif.is_read
+          notif.isRead
             ? "bg-content/[0.02]"
             : "bg-primary/10 border-primary/20",
         )}
@@ -154,14 +154,14 @@ const NotificationItem = ({
           <h4
             className={cn(
               "text-xs font-bold text-content",
-              !notif.is_read && "text-primary",
+              !notif.isRead && "text-primary",
             )}
           >
             {notif.title}
           </h4>
           <span className="text-[9px] text-content/30 flex items-center gap-1">
             <Clock size={8} />
-            {formatDistanceToNow(new Date(notif.created_at), {
+            {formatDistanceToNow(new Date(notif.createdAt), {
               addSuffix: true,
             })}
           </span>
@@ -171,7 +171,7 @@ const NotificationItem = ({
         </p>
       </div>
 
-      {!notif.is_read && (
+      {!notif.isRead && (
         <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-primary rounded-full" />
       )}
     </div>

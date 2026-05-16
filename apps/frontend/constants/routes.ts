@@ -89,5 +89,11 @@ export const API_ROUTES = {
     ITEMS: "/cart/items",
     ITEM: (id: string) => `/cart/items/${id}`,
   },
+  NOTIFICATIONS: {
+    BASE: "/notifications",
+    TOKENS: "/notifications/tokens",
+    MARK_AS_READ: (id: string) => `/notifications/${id}/read`,
+    MARK_ALL_AS_READ: "/notifications/read-all",
+  },
   CONFIG: "/config",
 } as const;
