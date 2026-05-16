@@ -44,21 +44,24 @@ export const NotificationsView = () => {
         {/* Content Area */}
         <div className="grid grid-cols-1 gap-6">
           {/* Filters & Search */}
-          <div className="flex flex-col sm:flex-row gap-4 p-2 rounded-2xl bg-content/[0.02] border border-content/[0.05]">
-            <div className="relative flex-1 group">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="relative flex-1 group w-full">
               <Search
                 size={16}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-content/20 group-focus-within:text-primary transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-content/30 group-focus-within:text-primary transition-colors pointer-events-none z-10"
               />
               <input
                 type="text"
                 placeholder="Search notifications..."
-                className="w-full bg-transparent border-0 focus:ring-0 text-sm pl-11 pr-4 py-2 text-content placeholder:text-content/20"
+                className="w-full h-12 bg-surface border border-content/[0.08] hover:border-content/[0.15] focus:border-content/[0.25] transition-all rounded-full pl-11 pr-24 text-sm outline-none text-content placeholder:text-content/30 font-medium shadow-sm shadow-content/[0.02]"
               />
+              <button className="absolute right-1.5 top-1.5 bottom-1.5 px-5 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full text-[10px] font-bold transition-all z-10 uppercase tracking-wider">
+                Find
+              </button>
             </div>
-            <div className="flex items-center gap-2 px-2">
-              <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface border border-content/[0.05] text-[11px] font-bold text-content/60 hover:text-content transition-all shadow-sm">
-                <Filter size={12} />
+            <div className="flex items-center gap-2 shrink-0">
+              <button className="flex items-center gap-2 h-12 px-6 rounded-full bg-surface border border-content/[0.08] text-[11px] font-bold text-content/60 hover:text-content hover:border-content/[0.2] transition-all shadow-sm shadow-content/[0.02]">
+                <Filter size={14} />
                 All Types
               </button>
             </div>
