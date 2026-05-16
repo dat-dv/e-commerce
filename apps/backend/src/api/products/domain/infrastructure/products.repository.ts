@@ -135,13 +135,7 @@ export class ProductsRepository implements IProductsRepository {
               include: {
                 product: {
                   include: {
-                    translations: {
-                      where: {
-                        language: {
-                          code: languageCode,
-                        },
-                      },
-                    },
+                    ...this.getProductInclude(languageCode),
                     favorited_by_users: userId
                       ? {
                           where: {
@@ -161,22 +155,36 @@ export class ProductsRepository implements IProductsRepository {
       },
     });
 
-    if (!flashSale || !userId) return flashSale;
+    if (!flashSale) return null;
 
-    flashSale.products.map((p) => {
+    const products = flashSale.products.map((p) => {
+      const flashSaleSku = {
+        ...p.sku,
+        flash_sales: [
+          {
+            ...p,
+            flash_sale: flashSale,
+          },
+        ],
+      };
+
       return {
         ...p,
         sku: {
-          ...p.sku,
+          ...flashSaleSku,
           product: {
             ...p.sku.product,
-            is_favorited: p.sku.product.favorited_by_users?.length > 0,
+            skus: [flashSaleSku],
+            is_favorited: userId ? p.sku.product.favorited_by_users?.length > 0 : false,
           },
         },
       };
     });
 
-    return flashSale;
+    return {
+      ...flashSale,
+      products,
+    };
   }
 
   private async attachFavoriteStatus(products: IProductResponse[], userId?: string): Promise<IProductResponse[]> {

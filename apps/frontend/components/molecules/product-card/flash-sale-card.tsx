@@ -65,72 +65,71 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
 
   const hasOriginalPrice = !!sku?.originalPrice;
 
+  const badgeText =
+    product.brand?.name ||
+    (product.category !== "General" ? product.category : "Flash Sale");
+
   return (
     <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group bg-content/[0.02] border border-content/[0.05] rounded-2xl overflow-hidden flex flex-col gap-3 p-3 hover:border-content/[0.1] transition-colors shadow-lg shadow-black/5"
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      className="group relative flex flex-col bg-content/[0.02] border border-red-500/10 rounded-2xl p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5"
     >
-      {/* Image */}
-      <div className="relative aspect-square bg-content/[0.02] border border-content/[0.05] rounded-xl overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-tr from-content/[0.03] to-transparent" />
-
+      {/* Image Section */}
+      <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
         {product.imageUrl ? (
           <Image
             src={product.imageUrl}
             alt={product.name}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 50vw, 20vw"
+            className="object-contain transition-transform duration-500"
           />
         ) : (
-          <span className="text-content/20 text-xs font-medium">
-            Product Image
-          </span>
+          <div className="text-content/20 text-xs font-semibold">No Image</div>
         )}
 
-        {/* Discount Badge */}
-        <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-lg z-10 shadow-lg shadow-red-500/20">
-          -{discountPercent}%
+        {/* Badges */}
+        <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
+          <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-lg shadow-red-500/20">
+            -{discountPercent}%
+          </div>
         </div>
 
-        {/* Action Buttons on Hover */}
+        <div className="absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-red-500 backdrop-blur-md">
+          Sale
+        </div>
+
+        {/* Action Overlay */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
-            className="p-3 bg-white text-black rounded-full hover:bg-white/90 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center"
+            className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:bg-white/90 transition-all"
             title="View Details"
           >
-            <Eye size={20} />
+            <Eye size={18} />
           </Link>
           <button
             onClick={handleAddToCart}
-            className="p-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75 flex items-center justify-center"
+            className="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-all shadow-lg active:scale-90"
             title="Add to Cart"
           >
-            <ShoppingBag size={20} />
+            <ShoppingBag size={18} />
           </button>
         </div>
       </div>
 
-      {/* Info */}
-      <div className="flex flex-col gap-1 px-1 py-1">
-        <h3 className="text-sm font-bold text-content hover:text-primary transition-colors line-clamp-1">
+      {/* Info Section */}
+      <div className="mt-3 flex flex-col flex-grow">
+        <span className="text-[10px] text-content/40 font-bold truncate">
+          {badgeText}
+        </span>
+
+        <h3 className="mt-1 text-sm font-bold text-content line-clamp-1 group-hover:text-red-500 transition-colors">
           <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
             {product.name}
           </Link>
         </h3>
-
-        <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-black text-red-500">
-            {displayPrice}
-          </span>
-          {hasOriginalPrice && (
-            <span className="text-xs text-content/40 line-through">
-              {displayOriginalPrice}
-            </span>
-          )}
-        </div>
 
         {/* Progress Bar */}
         <div className="mt-2">
@@ -150,6 +149,26 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
               Left {stockLeft}
             </span>
           </div>
+        </div>
+
+        <div className="mt-auto pt-3 flex items-center justify-between">
+          <div className="flex flex-col">
+            <span className="text-base font-black text-red-500 tracking-tight">
+              {displayPrice}
+            </span>
+            {hasOriginalPrice && (
+              <span className="text-[10px] text-content/20 line-through font-medium">
+                {displayOriginalPrice}
+              </span>
+            )}
+          </div>
+
+          <button
+            onClick={handleAddToCart}
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-red-500 hover:bg-red-500/10 transition-all lg:hidden border border-red-500/10"
+          >
+            <ShoppingBag size={18} />
+          </button>
         </div>
       </div>
     </motion.div>

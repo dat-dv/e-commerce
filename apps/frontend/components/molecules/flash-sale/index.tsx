@@ -3,6 +3,8 @@ import { Zap } from "lucide-react";
 import { FlashSaleCard } from "../product-card/flash-sale-card";
 import { SectionHeader } from "../section-header";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
+import { Carousel, CarouselItem } from "../carousel";
+import { APP_ROUTES } from "@/constants/routes";
 
 interface FlashSaleProps {
   products: TFlashSaleProduct[];
@@ -16,21 +18,27 @@ export const FlashSale = ({ products }: FlashSaleProps) => {
   const endTime = firstSku?.flashSaleEnd
     ? new Date(firstSku.flashSaleEnd)
     : undefined;
+  const previewProducts = products;
 
   return (
     <section className="space-y-6">
       <SectionHeader
         title="Flash Sale"
         icon={<Zap className="text-primary fill-primary" size={20} />}
-        href="#"
+        href={APP_ROUTES.FLASH_SALE}
         countdown={endTime}
       />
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        {products.map((product) => (
-          <FlashSaleCard key={product.id} product={product} />
+      <Carousel options={{ align: "start", containScroll: "trimSnaps" }}>
+        {previewProducts.map((product) => (
+          <CarouselItem
+            key={product.id}
+            className="flex-[0_0_78%] sm:flex-[0_0_48%] md:flex-[0_0_32%] lg:flex-[0_0_24%]"
+          >
+            <FlashSaleCard product={product} />
+          </CarouselItem>
         ))}
-      </div>
+      </Carousel>
     </section>
   );
 };
