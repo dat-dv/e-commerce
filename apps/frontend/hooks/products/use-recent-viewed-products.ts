@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useProductsStore } from "@/hooks/products/use-products-store";
 
-export const useRecentViewedProducts = () => {
+export const useRecentViewedProducts = (autoFetch = false) => {
+  const didFetchRef = useRef(false);
   const recentViewedProducts = useProductsStore(
     (state) => state.recentViewedProducts,
   );
@@ -27,6 +28,15 @@ export const useRecentViewedProducts = () => {
       setLoading(false);
     }
   }, [setLoading, setRecentViewedProducts]);
+
+  useEffect(() => {
+    if (!autoFetch || didFetchRef.current || recentViewedProducts.length > 0) {
+      return;
+    }
+
+    didFetchRef.current = true;
+    fetchRecentViewedProducts();
+  }, [autoFetch, fetchRecentViewedProducts, recentViewedProducts.length]);
 
   return {
     recentViewedProducts,

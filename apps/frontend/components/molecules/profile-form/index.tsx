@@ -54,8 +54,6 @@ export const ProfileForm = ({
     },
   });
 
-  console.log("methods", methods.watch(), user);
-
   useEffect(() => {
     if (user) {
       methods.reset({
@@ -112,8 +110,6 @@ export const ProfileForm = ({
   if (!user) return null;
 
   const handleSave = async (data: ProfileSchema) => {
-    console.log("🚀 ~ ProfileForm ~ handleSave ~ data:", data);
-
     const finalAvatarUrl = data.avatarUrl;
 
     if (finalAvatarUrl && finalAvatarUrl.startsWith("data:image")) {
@@ -140,14 +136,7 @@ export const ProfileForm = ({
   };
 
   return (
-    <AppForm
-      data-testid="profile-form"
-      methods={methods}
-      onSubmit={handleSave}
-      onError={(errors) => {
-        console.log("🚀 ~ ProfileForm ~ onError ~ errors:", errors);
-      }}
-    >
+    <AppForm data-testid="profile-form" methods={methods} onSubmit={handleSave}>
       <div className="space-y-12">
         {/* Form Fields Section */}
         <div className="bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl space-y-6">
