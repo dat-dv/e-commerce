@@ -4,7 +4,7 @@ import { TCart } from "./cart.model";
 
 export interface ICartRepository {
   getCart(): Promise<ApiResponse<TCart>>;
-  addItem(sku_id: string, quantity: number): Promise<ApiResponse<TCartItem>>;
+  addItem(skuId: string, quantity: number): Promise<ApiResponse<TCartItem>>;
   updateItem(id: string, quantity: number): Promise<ApiResponse<TCartItem>>;
   removeItem(id: string): Promise<ApiResponse<void>>;
 }

@@ -1,14 +1,4 @@
-import {
-  IOrdersRepository,
-  IPlaceOrderParams,
-} from "../infrastructure/orders.repository";
-
-export class PlaceOrderUseCase {
-  constructor(private ordersRepository: IOrdersRepository) {}
-  async execute(params: IPlaceOrderParams) {
-    return this.ordersRepository.placeOrder(params);
-  }
-}
+import { IOrdersRepository } from "../infrastructure/orders.repository";
 
 export class GetOrdersUseCase {
   constructor(private ordersRepository: IOrdersRepository) {}

@@ -1,40 +1,42 @@
-import { IOrder, IOrderItem } from "../types/order.model";
+import { TOrder, TOrderItem, TShippingAddress } from "../types/order.model";
 import {
-  IOrder as IOrderDTO,
-  IOrderItem as IOrderItemDTO,
+  IOrderResponse,
+  IOrderItemResponse,
   IOrderItemSnapshot,
+  ShippingAddress as ShippingAddressDTO,
 } from "@ecommerce/shared";
 
-/** Re-exported so dependants can import `IOrderDTO` from this file without depending on @ecommerce/shared directly. */
-export type { IOrderDTO };
-
 export class OrderMapper {
-  static toDomain(dto: IOrderDTO): IOrder {
+  static toDomain(dto: IOrderResponse): TOrder {
     return {
       id: dto.id,
+      userId: dto.user_id,
       status: dto.status,
       totalAmount: dto.total_amount,
       discountAmount: dto.discount_amount,
+      shippingAddressId: dto.shipping_address_id,
+      couponId: dto.coupon_id,
+      createdAt: dto.created_at ? new Date(dto.created_at).toISOString() : "",
+      updatedAt: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
       items:
         dto.items?.map((item) => OrderMapper.toOrderItemDomain(item)) || [],
-      createdAt: new Date(dto.created_at),
-      updatedAt: new Date(dto.updated_at),
+      shippingAddress: dto.shipping_address
+        ? OrderMapper.toShippingAddressDomain(dto.shipping_address)
+        : null,
     };
   }
 
-  static toOrderItemDomain(dto: IOrderItemDTO): IOrderItem {
-    // snapshot carries point-in-time data captured at purchase — always prefer over live relation
-    const snap = dto.snapshot as IOrderItemSnapshot | null | undefined;
-    const skuSnap = snap?.sku;
+  static toOrderItemDomain(dto: IOrderItemResponse): TOrderItem {
+    const snapshot = (dto.snapshot as unknown as IOrderItemSnapshot) || null;
+    const skuSnap = snapshot?.sku;
 
     return {
       id: dto.id,
       skuId: dto.sku_id,
       quantity: dto.quantity,
       price: dto.price,
-      originalPrice: skuSnap?.original_price ?? undefined,
-      attributes: skuSnap?.attributes ?? undefined,
-      flashSaleId: dto.flash_sale_id ?? undefined,
+      flashSaleId: dto.flash_sale_id,
+      snapshot,
       sku: skuSnap
         ? {
             id: skuSnap.id,
@@ -53,6 +55,26 @@ export class OrderMapper {
               : undefined,
           }
         : undefined,
+    };
+  }
+
+  static toShippingAddressDomain(dto: ShippingAddressDTO): TShippingAddress {
+    return {
+      id: dto.id,
+      receiverName: dto.receiver_name,
+      receiverPhone: dto.receiver_phone,
+      label: dto.label,
+      latitude: dto.latitude,
+      longitude: dto.longitude,
+      street: dto.street,
+      city: dto.city,
+      state: dto.state,
+      country: dto.country,
+      postalCode: dto.postal_code,
+      isDefault: dto.is_default,
+      userId: dto.user_id,
+      createdAt: dto.created_at ? new Date(dto.created_at).toISOString() : "",
+      updatedAt: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
     };
   }
 }

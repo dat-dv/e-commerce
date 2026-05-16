@@ -16,7 +16,7 @@ export const useAddToCart = () => {
 
   return useCallback(
     async (item: Omit<TCartItem, "quantity">, quantity: number) => {
-      const existingItem = currentItems.find((i) => i.sku_id === item.sku_id);
+      const existingItem = currentItems.find((i) => i.skuId === item.skuId);
       const previousQuantity = existingItem?.quantity || 0;
       const nextQuantity = previousQuantity + quantity;
 
@@ -25,7 +25,7 @@ export const useAddToCart = () => {
           _addOrUpdateItem(item, nextQuantity);
 
           const response = await cartUseCase.addItem.execute({
-            sku_id: item.sku_id,
+            sku_id: item.skuId,
             quantity,
           });
 

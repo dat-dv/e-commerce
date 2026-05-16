@@ -1,4 +1,6 @@
-export interface IOrderItemSkuProduct {
+import { EOrderStatus, IOrderItemSnapshot } from "@ecommerce/shared";
+
+export interface TOrderItemSkuProduct {
   id: string;
   slug: string;
   name: string;
@@ -7,38 +9,50 @@ export interface IOrderItemSkuProduct {
   rating: number;
 }
 
-export interface IOrderItem {
+export interface TOrderItem {
   id: string;
   skuId: string;
   quantity: number;
   price: number;
-  originalPrice?: number;
-  attributes?: string;
-  flashSaleId?: string;
+  flashSaleId: string | null;
+  snapshot: IOrderItemSnapshot | null;
+  // Virtual field mapped from snapshot for UI convenience
   sku?: {
     id: string;
     skuCode: string;
     imageUrl?: string;
-    product?: IOrderItemSkuProduct;
+    product?: TOrderItemSkuProduct;
   };
 }
 
-export interface IShippingAddress {
-  fullName: string;
-  phone: string;
+export interface TShippingAddress {
+  id: string;
+  receiverName: string;
+  receiverPhone: string;
+  label: number;
+  latitude: number;
+  longitude: number;
   street: string;
-  ward: string;
-  district: string;
   city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  isDefault: boolean;
+  userId: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
-export interface IOrder {
+export interface TOrder {
   id: string;
-  status: number;
+  userId: string;
+  status: EOrderStatus;
   totalAmount: number;
   discountAmount: number;
-  items: IOrderItem[];
-  shippingAddress?: IShippingAddress;
-  createdAt: Date;
-  updatedAt: Date;
+  shippingAddressId: string | null;
+  couponId: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: TOrderItem[];
+  shippingAddress?: TShippingAddress | null;
 }

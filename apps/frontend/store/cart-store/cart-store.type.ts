@@ -1,13 +1,13 @@
 export interface TCartItem {
   id: string;
-  product_id: string;
-  sku_id: string;
+  productId: string;
+  skuId: string;
   name: string;
   price: number;
-  original_price?: number | null;
-  discount_percent?: number | null;
+  originalPrice?: number | null;
+  discountPercent?: number | null;
   quantity: number;
-  image_url?: string | null;
+  imageUrl?: string | null;
   attributes?: string;
 }
 
@@ -29,8 +29,8 @@ export interface TCartStoreState {
 export interface TCartStoreActions {
   // Actions
   addItem: (item: Omit<TCartItem, "quantity">, quantity: number) => void;
-  removeItem: (sku_id: string) => void;
-  updateQuantity: (sku_id: string, quantity: number) => void;
+  removeItem: (skuId: string) => void;
+  updateQuantity: (skuId: string, quantity: number) => void;
   setItems: (items: TCartItem[]) => void;
   clearCart: () => void;
   setIsOpen: (isOpen: boolean) => void;
@@ -38,8 +38,8 @@ export interface TCartStoreActions {
   setLoading: (loading: boolean) => void;
 
   // Selection Actions
-  toggleSelectItem: (sku_id: string) => void;
-  selectItems: (sku_ids: string[]) => void;
+  toggleSelectItem: (skuId: string) => void;
+  selectItems: (skuIds: string[]) => void;
   selectAll: () => void;
   clearSelection: () => void;
   addOrUpdateItem: (

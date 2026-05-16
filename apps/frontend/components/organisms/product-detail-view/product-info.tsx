@@ -92,7 +92,7 @@ export const ProductInfo = ({
 
           <div className="flex items-center gap-1">
             <span className="font-bold text-content">
-              {product.sold_count || 0}
+              {product.soldCount || 0}
             </span>
             <span className="text-content/50 text-xs">Sold</span>
           </div>

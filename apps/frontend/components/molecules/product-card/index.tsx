@@ -28,13 +28,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     addItem(
       {
         id: sku?.id || `sku-${product.id}`,
-        product_id: String(product.id),
-        sku_id: sku?.id || `sku-${product.id}`,
+        productId: String(product.id),
+        skuId: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: priceNumber,
-        original_price: sku?.original_price,
-        discount_percent: sku?.discount_percent,
-        image_url: product.image_url || sku?.image_url || "",
+        originalPrice: sku?.originalPrice,
+        discountPercent: sku?.discountPercent,
+        imageUrl: product.imageUrl || sku?.imageUrl || "",
         attributes: product.category,
       },
       1,
@@ -49,9 +49,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     <div className="group relative flex flex-col bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
       {/* Image Section */}
       <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
-        {product.image_url ? (
+        {product.imageUrl ? (
           <Image
-            src={product.image_url}
+            src={product.imageUrl}
             alt={product.name}
             fill
             sizes="(max-width: 768px) 50vw, 20vw"
@@ -80,9 +80,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         {/* Badges */}
-        {sku?.discount_percent && (
+        {sku?.discountPercent && (
           <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10 shadow-lg shadow-red-500/20">
-            -{sku.discount_percent}%
+            -{sku.discountPercent}%
           </div>
         )}
       </div>
@@ -119,12 +119,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               </svg>
             </div>
           )}
-          {product.sold_count !== undefined && product.sold_count > 0 && (
+          {product.soldCount !== undefined && product.soldCount > 0 && (
             <span className="text-[10px] text-content/30">
               Đã bán{" "}
-              {product.sold_count > 1000
-                ? `${(product.sold_count / 1000).toFixed(1)}k`
-                : product.sold_count}
+              {product.soldCount > 1000
+                ? `${(product.soldCount / 1000).toFixed(1)}k`
+                : product.soldCount}
             </span>
           )}
         </div>
@@ -134,9 +134,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <span className="text-base font-black text-blue-500 tracking-tight">
               {formatCurrency(sku?.price)}
             </span>
-            {sku?.original_price && (
+            {sku?.originalPrice && (
               <span className="text-[10px] text-content/30 line-through">
-                {formatCurrency(sku.original_price)}
+                {formatCurrency(sku.originalPrice)}
               </span>
             )}
           </div>

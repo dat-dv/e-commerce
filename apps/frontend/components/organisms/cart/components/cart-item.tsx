@@ -35,7 +35,7 @@ export const CartItem = ({
       {/* Balanced Image */}
       <div className="relative w-14 h-18 rounded-lg overflow-hidden bg-content/[0.02] border border-content/5 shrink-0">
         <Image
-          src={item.image_url || ""}
+          src={item.imageUrl || ""}
           alt={item.name}
           fill
           className="object-cover"
@@ -47,7 +47,7 @@ export const CartItem = ({
         <div className="flex justify-between items-start gap-2">
           <h4 className="text-xs font-medium text-content leading-tight truncate flex-1">
             <Link
-              href={APP_ROUTES.PRODUCT_DETAIL(item.product_id)}
+              href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}
               onClick={onCloseDrawer}
             >
               {item.name}
@@ -63,9 +63,9 @@ export const CartItem = ({
             <span className="text-[10px] font-medium text-content/30 truncate max-w-[80px]">
               {item.attributes || "Standard"}
             </span>
-            {item.discount_percent && (
+            {item.discountPercent && (
               <span className="text-[10px] font-bold text-red-400 bg-red-400/10 px-1 rounded">
-                -{item.discount_percent}%
+                -{item.discountPercent}%
               </span>
             )}
           </div>

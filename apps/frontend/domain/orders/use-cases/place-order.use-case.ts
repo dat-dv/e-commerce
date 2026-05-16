@@ -1,12 +1,12 @@
 import {
   IOrdersRepository,
-  IPlaceOrderParams,
+  TPlaceOrderInput,
 } from "../infrastructure/orders.repository";
 
 export class PlaceOrderUseCase {
   constructor(private ordersRepository: IOrdersRepository) {}
 
-  async execute(params: IPlaceOrderParams) {
+  async execute(params: TPlaceOrderInput) {
     return this.ordersRepository.placeOrder(params);
   }
 }

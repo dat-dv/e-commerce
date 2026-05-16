@@ -7,7 +7,7 @@ import { PUBLIC_ENV } from "@/config/public.env.config";
 import { TCartItem, TCartStore, TCartStoreState } from "./cart-store.type";
 
 const computeCartDerived = (items: TCartItem[], selectedSkuIds: string[]) => {
-  const selectedItems = items.filter((i) => selectedSkuIds.includes(i.sku_id));
+  const selectedItems = items.filter((i) => selectedSkuIds.includes(i.skuId));
   const totalAmount = selectedItems.reduce(
     (acc, item) => acc + (item.price || 0) * item.quantity,
     0,
@@ -51,7 +51,7 @@ const createCartStoreCreator =
       addItem: (item, quantity) => {
         const { items, selectedSkuIds } = get();
         const existingItemIndex = items.findIndex(
-          (i) => i.sku_id === item.sku_id,
+          (i) => i.skuId === item.skuId,
         );
 
         let newItems = [...items];
@@ -65,11 +65,11 @@ const createCartStoreCreator =
 
           if (newItems[existingItemIndex].quantity <= 0) {
             newItems.splice(existingItemIndex, 1);
-            newSelectedIds = newSelectedIds.filter((id) => id !== item.sku_id);
+            newSelectedIds = newSelectedIds.filter((id) => id !== item.skuId);
           }
         } else if (quantity > 0) {
           newItems = [...items, { ...item, quantity }];
-          newSelectedIds = [...selectedSkuIds, item.sku_id];
+          newSelectedIds = [...selectedSkuIds, item.skuId];
         }
 
         set({
@@ -79,10 +79,10 @@ const createCartStoreCreator =
         });
       },
 
-      removeItem: (sku_id) => {
+      removeItem: (skuId) => {
         const { items, selectedSkuIds } = get();
-        const newItems = items.filter((i) => i.sku_id !== sku_id);
-        const newSelectedIds = selectedSkuIds.filter((id) => id !== sku_id);
+        const newItems = items.filter((i) => i.skuId !== skuId);
+        const newSelectedIds = selectedSkuIds.filter((id) => id !== skuId);
 
         set({
           items: newItems,
@@ -91,10 +91,10 @@ const createCartStoreCreator =
         });
       },
 
-      updateQuantity: (sku_id, quantity) => {
+      updateQuantity: (skuId, quantity) => {
         const { items, selectedSkuIds } = get();
         const newItems = items.map((i) =>
-          i.sku_id === sku_id ? { ...i, quantity } : i,
+          i.skuId === skuId ? { ...i, quantity } : i,
         );
         set({
           items: newItems,
@@ -117,11 +117,11 @@ const createCartStoreCreator =
           ...computeCartDerived([], []),
         }),
 
-      toggleSelectItem: (sku_id) => {
+      toggleSelectItem: (skuId) => {
         const { items, selectedSkuIds } = get();
-        const next = selectedSkuIds.includes(sku_id)
-          ? selectedSkuIds.filter((id) => id !== sku_id)
-          : [...selectedSkuIds, sku_id];
+        const next = selectedSkuIds.includes(skuId)
+          ? selectedSkuIds.filter((id) => id !== skuId)
+          : [...selectedSkuIds, skuId];
 
         set({
           selectedSkuIds: next,
@@ -129,17 +129,17 @@ const createCartStoreCreator =
         });
       },
 
-      selectItems: (sku_ids) => {
+      selectItems: (skuIds) => {
         const { items } = get();
         set({
-          selectedSkuIds: sku_ids,
-          ...computeCartDerived(items, sku_ids),
+          selectedSkuIds: skuIds,
+          ...computeCartDerived(items, skuIds),
         });
       },
 
       selectAll: () => {
         const { items } = get();
-        const next = items.map((i) => i.sku_id);
+        const next = items.map((i) => i.skuId);
         set({
           selectedSkuIds: next,
           ...computeCartDerived(items, next),
@@ -159,13 +159,13 @@ const createCartStoreCreator =
         let newSelectedIds = [...selectedSkuIds];
 
         const existingItemIndex = newItems.findIndex(
-          (i) => i.sku_id === item.sku_id,
+          (i) => i.skuId === item.skuId,
         );
 
         if (existingItemIndex !== -1) {
           if (quantity <= 0) {
             newItems.splice(existingItemIndex, 1);
-            newSelectedIds = newSelectedIds.filter((id) => id !== item.sku_id);
+            newSelectedIds = newSelectedIds.filter((id) => id !== item.skuId);
           } else {
             newItems[existingItemIndex] = {
               ...newItems[existingItemIndex],
@@ -175,7 +175,7 @@ const createCartStoreCreator =
           }
         } else if (quantity > 0) {
           newItems.push({ ...item, quantity });
-          newSelectedIds.push(item.sku_id);
+          newSelectedIds.push(item.skuId);
         }
 
         set({

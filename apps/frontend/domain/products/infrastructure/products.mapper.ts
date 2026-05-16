@@ -23,17 +23,17 @@ export class ProductMapper {
         return {
           id: sku.id,
           price: displayPrice,
-          unit_price: displayPrice.toString(),
-          original_price:
+          unitPrice: displayPrice.toString(),
+          originalPrice:
             strikePrice && displayPrice && strikePrice > displayPrice
               ? strikePrice
               : undefined,
-          discount_percent: discountPercent,
+          discountPercent: discountPercent,
           sold: flashSale?.sold_count,
           total: flashSale?.stock,
-          flash_sale_start: flashSale?.flash_sale?.start_time?.toString(),
-          flash_sale_end: flashSale?.flash_sale?.end_time?.toString(),
-          image_url: sku.image_url || undefined,
+          flashSaleStart: flashSale?.flash_sale?.start_time?.toString(),
+          flashSaleEnd: flashSale?.flash_sale?.end_time?.toString(),
+          imageUrl: sku.image_url || undefined,
           attributes:
             sku.sku_attribute_values?.map((sav) => {
               const attrVal = sav.attribute_value;
@@ -62,21 +62,21 @@ export class ProductMapper {
       name: translation?.name || "No Name",
       description: translation?.description || "",
       category: categoryName || "General",
-      image_url: dto.thumbnail?.url || skus[0]?.image_url || "",
+      imageUrl: dto.thumbnail?.url || skus[0]?.imageUrl || "",
       brand: dto.brand
         ? {
             id: dto.brand.id,
             slug: dto.brand.slug,
             name: brandTranslation?.name || dto.brand.name || "No Name",
-            logo_url: dto.brand.logo?.url || dto.brand.logo_url || "",
+            logoUrl: dto.brand.logo?.url || dto.brand.logo_url || "",
             description:
               brandTranslation?.description || dto.brand.description || "",
           }
         : undefined,
       skus,
       rating: dto.rating,
-      sold_count: dto.sold_count,
-      review_count: dto.review_count,
+      soldCount: dto.sold_count,
+      reviewCount: dto.review_count,
     };
   }
 }

@@ -10,6 +10,7 @@ interface OrderItemsSectionProps {
 }
 
 export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
+  console.log("items", items);
   return (
     <section>
       <div className="flex items-center gap-4 mb-8">
@@ -24,15 +25,15 @@ export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
       <div className="space-y-4">
         {items.map((item) => (
           <motion.div
-            key={item.sku_id}
+            key={item.skuId}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="p-6 rounded-[2rem] bg-surface/40 backdrop-blur-md border border-content/[0.05] flex items-center gap-6 group hover:bg-surface/60 transition-all shadow-sm"
           >
             <div className="relative w-24 h-28 rounded-xl overflow-hidden bg-content/[0.02] border border-content/[0.08] flex-shrink-0">
-              {item.image_url ? (
+              {item.imageUrl ? (
                 <Image
-                  src={item.image_url}
+                  src={item.imageUrl}
                   alt={item.name}
                   fill
                   className="object-cover"
@@ -61,10 +62,9 @@ export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  {item.original_price && item.original_price > item.price && (
+                  {item.originalPrice && item.originalPrice > item.price && (
                     <span className="text-[10px] font-bold text-red-400 bg-red-400/10 px-1.5 py-0.5 rounded">
-                      -
-                      {Math.round((1 - item.price / item.original_price) * 100)}
+                      -{Math.round((1 - item.price / item.originalPrice) * 100)}
                       %
                     </span>
                   )}
@@ -72,12 +72,11 @@ export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
                     <span className="text-[11px] font-semibold text-content/60">
                       {formatCurrency(item.price)}
                     </span>
-                    {item.original_price &&
-                      item.original_price > item.price && (
-                        <span className="text-[10px] text-content/20 line-through">
-                          {formatCurrency(item.original_price)}
-                        </span>
-                      )}
+                    {item.originalPrice && item.originalPrice > item.price && (
+                      <span className="text-[10px] text-content/20 line-through">
+                        {formatCurrency(item.originalPrice)}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

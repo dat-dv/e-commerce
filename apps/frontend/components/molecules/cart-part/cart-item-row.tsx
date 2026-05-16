@@ -50,12 +50,12 @@ export const CartItemRow = ({
           <Checkbox checked={isSelected} onCheckedChange={onToggleSelect} />
 
           <Link
-            href={APP_ROUTES.PRODUCT_DETAIL(item.product_id)}
+            href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}
             className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-content/[0.05] bg-content/[0.02]"
           >
-            {item.image_url ? (
+            {item.imageUrl ? (
               <Image
-                src={item.image_url}
+                src={item.imageUrl}
                 alt={item.name}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -69,7 +69,7 @@ export const CartItemRow = ({
 
           <div className="flex-1 min-w-0">
             <h3 className="font-bold text-content text-sm md:text-base line-clamp-2 hover:text-primary transition-colors">
-              <Link href={APP_ROUTES.PRODUCT_DETAIL(item.product_id)}>
+              <Link href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}>
                 {item.name}
               </Link>
             </h3>

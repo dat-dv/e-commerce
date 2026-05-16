@@ -1,7 +1,7 @@
 import { appRequest } from "@/utils/request/request";
 import { OrdersRepository } from "./infrastructure/orders.repository";
+import { PlaceOrderUseCase } from "./use-cases/place-order.use-case";
 import {
-  PlaceOrderUseCase,
   GetOrdersUseCase,
   GetOrderDetailUseCase,
 } from "./use-cases/get-orders.use-case";

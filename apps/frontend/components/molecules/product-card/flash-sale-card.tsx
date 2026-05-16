@@ -37,11 +37,11 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
     addItem(
       {
         id: sku?.id || `sku-${product.id}`,
-        product_id: String(product.id),
-        sku_id: sku?.id || `sku-${product.id}`,
+        productId: String(product.id),
+        skuId: sku?.id || `sku-${product.id}`,
         name: product.name,
         price: isNaN(priceNumber) ? 0 : priceNumber,
-        image_url: product.image_url || sku?.image_url || "",
+        imageUrl: product.imageUrl || sku?.imageUrl || "",
         attributes: "Flash Sale",
       },
       1,
@@ -50,7 +50,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
   };
 
   const currentPriceNum = sku?.price || 0;
-  const oldPriceNum = sku?.original_price || 0;
+  const oldPriceNum = sku?.originalPrice || 0;
 
   const discountPercent =
     oldPriceNum > 0 ? Math.round((1 - currentPriceNum / oldPriceNum) * 100) : 0;
@@ -68,9 +68,9 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
       <div className="relative aspect-square bg-content/[0.02] border border-content/[0.05] rounded-xl overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-tr from-content/[0.03] to-transparent" />
 
-        {product.image_url ? (
+        {product.imageUrl ? (
           <Image
-            src={product.image_url}
+            src={product.imageUrl}
             alt={product.name}
             fill
             className="object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -117,9 +117,9 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           <span className="text-sm font-black text-red-500">
             {formatCurrency(sku?.price)}
           </span>
-          {sku?.original_price && (
+          {sku?.originalPrice && (
             <span className="text-xs text-content/40 line-through">
-              {formatCurrency(sku?.original_price)}
+              {formatCurrency(sku?.originalPrice)}
             </span>
           )}
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { EOrderStatus } from "@ecommerce/shared";
-import { IOrder } from "@/domain/orders/types/order.model";
+import { TOrder } from "@/domain/orders/types/order.model";
 import Image from "next/image";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
@@ -13,7 +13,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import Link from "next/link";
 
 interface OrderCardProps {
-  order: IOrder;
+  order: TOrder;
   onCancelOrder?: (id: string) => void;
 }
 

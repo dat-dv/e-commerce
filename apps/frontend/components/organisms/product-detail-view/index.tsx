@@ -38,8 +38,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
 
   const name = product.name;
   const price = selectedSku.price || 0;
-  const originalPrice = selectedSku.original_price || 0;
-  const discountPercent = selectedSku.discount_percent || 0;
+  const originalPrice = selectedSku.originalPrice || 0;
+  const discountPercent = selectedSku.discountPercent || 0;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl space-y-12">

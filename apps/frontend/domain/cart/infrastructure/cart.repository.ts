@@ -3,13 +3,16 @@ import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import { ICartRepository } from "../types/cart.repository";
 import { TCart } from "../types/cart.model";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
-import { CartMapper, ICartDTO, ICartItemDTO } from "./cart.mapper";
+import { CartMapper } from "./cart.mapper";
+import { ICartResponse, ICartItemResponse } from "@ecommerce/shared";
 
 export class CartRepository implements ICartRepository {
   constructor(private request: TRequest) {}
 
   async getCart(): Promise<ApiResponse<TCart>> {
-    const response = await this.request.get<ICartDTO>(API_ROUTES.CART.BASE);
+    const response = await this.request.get<ICartResponse>(
+      API_ROUTES.CART.BASE,
+    );
     return {
       ...response,
       data: response.data ? CartMapper.toDomain(response.data) : undefined,
@@ -17,13 +20,13 @@ export class CartRepository implements ICartRepository {
   }
 
   async addItem(
-    sku_id: string,
+    skuId: string,
     quantity: number,
   ): Promise<ApiResponse<TCartItem>> {
-    const response = await this.request.post<ICartItemDTO>(
+    const response = await this.request.post<ICartItemResponse>(
       API_ROUTES.CART.ITEMS,
       {
-        sku_id,
+        sku_id: skuId,
         quantity,
       },
     );
@@ -37,7 +40,7 @@ export class CartRepository implements ICartRepository {
     id: string,
     quantity: number,
   ): Promise<ApiResponse<TCartItem>> {
-    const response = await this.request.put<ICartItemDTO>(
+    const response = await this.request.put<ICartItemResponse>(
       API_ROUTES.CART.ITEM(id),
       {
         quantity,
