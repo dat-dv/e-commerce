@@ -3,7 +3,8 @@ import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import { APP_ROUTES } from "@/constants/routes";
 import { useFavorites } from "@/hooks/favorites/use-favorites";
 import { motion } from "framer-motion";
-import { Heart, Link, ShoppingBag } from "lucide-react";
+import NextLink from "next/link";
+import { Heart, ShoppingBag } from "lucide-react";
 
 const FavoritesGrid = ({
   favorites,
@@ -32,7 +33,7 @@ const FavoritesGrid = ({
           The items you love deserve a place here. Start exploring our latest
           collections.
         </p>
-        <Link
+        <NextLink
           href={APP_ROUTES.HOME}
           className="group relative px-10 py-4 bg-content text-surface text-sm font-black rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
         >
@@ -41,7 +42,7 @@ const FavoritesGrid = ({
             START EXPLORING
           </span>
           <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-        </Link>
+        </NextLink>
       </motion.div>
     );
   }

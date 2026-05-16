@@ -6,7 +6,6 @@ import { useAddresses } from "@/hooks/profile/use-addresses";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import Button from "@/components/atoms/button";
 import { AddressesForm } from "@/components/molecules/addresses-form";
-import { AddressFormData } from "@/components/molecules/addresses-form/addresses.schema";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
 
@@ -22,22 +21,10 @@ export const AddressesView = () => {
   } = useAddresses();
   const [showForm, setShowForm] = useState(false);
 
-  const handleAddAddress = async (data: AddressFormData): Promise<boolean> => {
-    const payload: TCreateAddressInput = {
-      label: data.label,
-      receiverName: data.receiverName,
-      receiverPhone: data.receiverPhone,
-      street: data.street,
-      city: data.city,
-      state: data.state,
-      country: data.country,
-      postalCode: data.postalCode,
-      latitude: data.latitude,
-      longitude: data.longitude,
-      isDefault: data.isDefault,
-    };
-
-    const success = await addAddress(payload);
+  const handleAddAddress = async (
+    data: TCreateAddressInput,
+  ): Promise<boolean> => {
+    const success = await addAddress(data);
     if (success) setShowForm(false);
     return success;
   };

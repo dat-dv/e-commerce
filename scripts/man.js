@@ -1,6 +1,6 @@
 console.log("AVAILABLE COMMANDS IN MONOREPO:");
 console.log("-----------------------------------");
-console.log("npm run dev        - Start Backend, Frontend, and Shared watcher");
+console.log("npm run dev        - Build Shared once, then start Backend and Frontend");
 console.log("npm run dev:shared - Start Shared package watcher only");
 console.log("-----------------------------------");
 console.log("npm run dev:be     - Start Backend only");

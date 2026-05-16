@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-const FlashSaleView = () => {
+const FlashSaleList = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -42,4 +42,4 @@ const FlashSaleView = () => {
   );
 };
 
-export default FlashSaleView;
+export default FlashSaleList;

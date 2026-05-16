@@ -1,12 +1,12 @@
-import React from "react";
 import { FlashSaleHeader } from "./flash-sale-header";
 import AppContainer from "@/components/atoms/app-container";
+import FlashSaleList from "./flash-sale-list";
 
 const FlashSaleView = () => {
   return (
     <AppContainer>
       <FlashSaleHeader />
-      <FlashSaleView />
+      <FlashSaleList />
     </AppContainer>
   );
 };

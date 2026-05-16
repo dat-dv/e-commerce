@@ -1,7 +1,7 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
-import { TBrand } from "@/domain/products/types/products.model";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";

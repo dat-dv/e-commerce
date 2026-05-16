@@ -1,7 +1,8 @@
 import { ProductCard } from "@/components/molecules/product-card";
 import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
-import { Sparkles, Link } from "lucide-react";
+import NextLink from "next/link";
+import { Sparkles } from "lucide-react";
 
 const RecommendedSection = ({
   products,
@@ -23,13 +24,13 @@ const RecommendedSection = ({
           Recommended for You
         </h2>
       </div>
-      <Link
+      <NextLink
         href={APP_ROUTES.HOME}
         className="text-sm font-bold text-content/40 hover:text-primary transition-colors flex items-center gap-2"
       >
         VIEW ALL COLLECTIONS
         <div className="w-1 h-1 rounded-full bg-primary" />
-      </Link>
+      </NextLink>
     </div>
 
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

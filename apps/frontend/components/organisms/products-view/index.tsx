@@ -14,7 +14,6 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Pagination } from "@/components/molecules/pagination";
 import { EProductSort } from "@ecommerce/shared";
 
-import { useRecommendedProducts } from "@/hooks/products/use-recommended-products";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 
 interface ProductsViewProps {

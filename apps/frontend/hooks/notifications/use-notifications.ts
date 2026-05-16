@@ -36,7 +36,7 @@ export const useNotifications = () => {
         console.error("Error fetching notifications:", error);
       } finally {
         setLoading(false);
-        isFetching.ref = false;
+        isFetching.current = false;
       }
     },
     [user, hasLoaded, setLoading, setNotifications],
