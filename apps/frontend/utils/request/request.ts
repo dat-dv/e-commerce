@@ -14,6 +14,8 @@ const forwardClientRequest = async <T>(
   const headers: Record<string, string> = {
     ...((options?.headers as Record<string, string>) || {}),
   };
+  headers["Accept-Language"] =
+    headers["Accept-Language"] ?? getLanguageSubdomain();
 
   if (isServer) {
     try {

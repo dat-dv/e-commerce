@@ -7,7 +7,7 @@ import { IHomepageSection } from '@ecommerce/shared';
 export class HomepageSectionRepository implements IHomepageSectionRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAllEnabled(isLoggedIn: boolean = false): Promise<IHomepageSection[]> {
+  async findAllEnabled(languageCode = 'vi', isLoggedIn: boolean = false): Promise<IHomepageSection[]> {
     return this.prisma.homepageSection.findMany({
       where: {
         is_enabled: true,
@@ -18,10 +18,14 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
         categories: {
           orderBy: { order: 'asc' },
           include: {
-            translations: true,
+            translations: {
+              where: { language: { code: languageCode } },
+            },
           },
         },
-        translations: true,
+        translations: {
+          where: { language: { code: languageCode } },
+        },
       },
     });
   }

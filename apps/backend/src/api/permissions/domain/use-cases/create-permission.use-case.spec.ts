@@ -5,6 +5,7 @@ import { BadRequestException } from '@nestjs/common';
 
 describe('CreatePermissionUseCase', () => {
   let useCase: CreatePermissionUseCase;
+  const createPermissionDto = { permission_name: 'TEST', module: 'test' };
 
   const mockPermissionsRepository = {
     findByName: jest.fn(),
@@ -28,7 +29,7 @@ describe('CreatePermissionUseCase', () => {
   it('should throw BadRequestException if permission name exists', async () => {
     mockPermissionsRepository.findByName.mockResolvedValue({ permission_id: '1', permission_name: 'TEST' });
 
-    await expect(useCase.execute({ permission_name: 'TEST' })).rejects.toThrow(BadRequestException);
+    await expect(useCase.execute(createPermissionDto)).rejects.toThrow(BadRequestException);
   });
 
   it('should create permission successfully', async () => {
@@ -36,9 +37,9 @@ describe('CreatePermissionUseCase', () => {
     mockPermissionsRepository.findByName.mockResolvedValue(null);
     mockPermissionsRepository.create.mockResolvedValue(mockPermission);
 
-    const result = await useCase.execute({ permission_name: 'TEST' });
+    const result = await useCase.execute(createPermissionDto);
 
     expect(result).toBe(mockPermission);
-    expect(mockPermissionsRepository.create).toHaveBeenCalledWith({ permission_name: 'TEST' });
+    expect(mockPermissionsRepository.create).toHaveBeenCalledWith(createPermissionDto);
   });
 });

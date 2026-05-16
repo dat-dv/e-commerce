@@ -4,7 +4,7 @@ import { THomepageSection } from "../types/homepage.model";
 import { IHomepageRepository } from "../types/homepage.repository.interface";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
 import { BrandMapper } from "../../brands/infrastructure/brands.mapper";
-import { IHomepageSectionResponse, ICategoryResponse } from "@ecommerce/shared";
+import { IHomepageSectionResponse } from "@ecommerce/shared";
 
 export class HomepageRepository implements IHomepageRepository {
   constructor(private request: TRequest) {}

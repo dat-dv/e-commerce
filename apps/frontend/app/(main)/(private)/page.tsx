@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HomeView } from "@/components/organisms/home-view";
 import { homepageUseCase } from "@/domain/homepage/use-cases";
 import { ProductsProvider } from "@/components/molecules/providers/products-provider";
-import { allSafe } from "@/utils/promise";
+import { safe } from "@/utils/promise";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -11,9 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const [sectionsResponse] = await allSafe([
-    homepageUseCase.getSections.execute(),
-  ]);
+  const sectionsResponse = await safe(homepageUseCase.getSections.execute());
 
   if (!sectionsResponse) {
     return notFound();
