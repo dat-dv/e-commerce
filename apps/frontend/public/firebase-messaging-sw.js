@@ -6,10 +6,13 @@ importScripts(
 );
 
 firebase.initializeApp({
-  apiKey: true, // Not strictly required for SW if messagingSenderId is present
+  apiKey: "AIzaSyA9fVWwIPuodNyt-xNiZHYUKNpEv-cxtp8",
+  authDomain: "e-comerce-495a8.firebaseapp.com",
   projectId: "e-comerce-495a8",
+  storageBucket: "e-comerce-495a8.firebasestorage.app",
   messagingSenderId: "814058272737",
   appId: "1:814058272737:web:e35debd8ddab820ddcc4a0",
+  measurementId: "G-E731HHJZ3H",
 });
 
 const messaging = firebase.messaging();
