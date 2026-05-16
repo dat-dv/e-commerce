@@ -12,11 +12,11 @@ export interface TBrand {
   id: string;
   name: string;
   slug: string;
-  logo_url?: string;
-  banner_url?: string;
+  logoUrl?: string;
+  bannerUrl?: string;
   description?: string;
   story?: string;
-  product_count?: number;
+  productCount?: number;
 }
 
 export interface THomepageSection {

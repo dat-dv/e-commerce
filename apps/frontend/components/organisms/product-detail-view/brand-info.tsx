@@ -14,18 +14,19 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
   return (
     <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 flex items-center justify-between shadow-sm">
       <div className="flex items-center gap-4">
-        <div className="w-14 h-14 rounded-full bg-content/[0.05] flex items-center justify-center overflow-hidden border border-content/[0.05]">
-          {brand.logo_url ? (
-            <Image
-              src={brand.logo_url}
-              alt={brand.name}
-              width={56}
-              height={56}
-              className="object-cover"
-            />
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden bg-content/[0.02] border border-content/[0.05] flex items-center justify-center p-2">
+          {brand.logoUrl ? (
+            <div className="relative w-full h-full">
+              <Image
+                src={brand.logoUrl}
+                alt={brand.name}
+                fill
+                className="object-contain"
+              />
+            </div>
           ) : (
-            <span className="text-lg font-bold text-content/40">
-              {brand.name.charAt(0).toUpperCase()}
+            <span className="text-2xl font-bold text-content/10 uppercase">
+              {brand.name.charAt(0)}
             </span>
           )}
         </div>

@@ -18,8 +18,8 @@ export const CartProvider = ({ children, initState }: CartProviderProps) => {
   const [store] = useState(() =>
     createCartStore({
       items: initState || [],
-      selectedSkuIds: initState?.map((item) => item.sku_id) || [],
-      _hasHydrated: initState ? true : false,
+      selectedSkuIds: initState?.map((item) => item.skuId) || [],
+      hasHydrated: initState ? true : false,
     }),
   );
 

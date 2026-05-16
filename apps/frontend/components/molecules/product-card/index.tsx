@@ -45,6 +45,21 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     product.brand?.name ||
     (product.category !== "General" ? product.category : "");
 
+  const hasDiscount = !!sku?.discountPercent;
+  const discountLabel = `-${sku?.discountPercent}%`;
+
+  const hasRating = product.rating !== undefined && product.rating > 0;
+  const formattedRating = product.rating?.toFixed(1);
+
+  const hasSoldCount = product.soldCount !== undefined && product.soldCount > 0;
+  const formattedSoldCount =
+    product.soldCount && product.soldCount > 1000
+      ? `${(product.soldCount / 1000).toFixed(1)}k`
+      : product.soldCount;
+
+  const displayPrice = formatCurrency(sku?.price);
+  const displayOriginalPrice = formatCurrency(sku?.originalPrice);
+
   return (
     <div className="group relative flex flex-col bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
       {/* Image Section */}
@@ -80,9 +95,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         {/* Badges */}
-        {sku?.discountPercent && (
+        {hasDiscount && (
           <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10 shadow-lg shadow-red-500/20">
-            -{sku.discountPercent}%
+            {discountLabel}
           </div>
         )}
       </div>
@@ -102,9 +117,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </h3>
 
         <div className="mt-1 flex items-center gap-2">
-          {product.rating !== undefined && product.rating > 0 && (
+          {hasRating && (
             <div className="flex items-center gap-0.5 text-yellow-500 text-[10px] font-bold">
-              <span>{product.rating.toFixed(1)}</span>
+              <span>{formattedRating}</span>
               <svg
                 width="10"
                 height="10"
@@ -119,12 +134,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               </svg>
             </div>
           )}
-          {product.soldCount !== undefined && product.soldCount > 0 && (
+          {hasSoldCount && (
             <span className="text-[10px] text-content/30">
-              Đã bán{" "}
-              {product.soldCount > 1000
-                ? `${(product.soldCount / 1000).toFixed(1)}k`
-                : product.soldCount}
+              Đã bán {formattedSoldCount}
             </span>
           )}
         </div>
@@ -132,11 +144,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="mt-2 flex items-center justify-between">
           <div className="flex flex-col">
             <span className="text-base font-black text-blue-500 tracking-tight">
-              {formatCurrency(sku?.price)}
+              {displayPrice}
             </span>
             {sku?.originalPrice && (
               <span className="text-[10px] text-content/30 line-through">
-                {formatCurrency(sku.originalPrice)}
+                {displayOriginalPrice}
               </span>
             )}
           </div>

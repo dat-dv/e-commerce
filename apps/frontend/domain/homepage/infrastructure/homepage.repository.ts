@@ -3,6 +3,7 @@ import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import { THomepageSection } from "../types/homepage.model";
 import { IHomepageRepository } from "../types/homepage.repository.interface";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
+import { BrandMapper } from "../../products/infrastructure/brands.mapper";
 import { IHomepageSectionResponse } from "@ecommerce/shared";
 
 export class HomepageRepository implements IHomepageRepository {
@@ -29,13 +30,7 @@ export class HomepageRepository implements IHomepageRepository {
             })),
           },
           data: item.data?.map((p) => ProductMapper.toDomain(p)) || [],
-          brands: item.brands?.map((b) => ({
-            id: b.id,
-            name: b.name || "No Name",
-            slug: b.slug,
-            logo_url: b.logo_url || undefined,
-            product_count: b.product_count,
-          })),
+          brands: item.brands?.map((b) => BrandMapper.toDomain(b)),
         })) || [],
     };
   }

@@ -1,5 +1,5 @@
-import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { IBrandResponse } from "@/domain/homepage/types/homepage.response";
+import { TBrand } from "../../homepage/types/homepage.model";
+import { IBrandResponse } from "../../homepage/types/homepage.response";
 
 export class BrandMapper {
   static toDomain(dto: IBrandResponse): TBrand {
@@ -7,8 +7,11 @@ export class BrandMapper {
       id: dto.id,
       name: dto.name,
       slug: dto.slug,
-      logo_url: dto.logo_url,
-      product_count: dto.product_count,
+      logoUrl: dto.logo_url,
+      bannerUrl: dto.banner_url,
+      story: dto.story,
+      description: dto.description,
+      productCount: dto.product_count,
     };
   }
 }

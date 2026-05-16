@@ -6,8 +6,9 @@ import {
 } from "@/utils/request/request.types";
 import { TProduct, TReview } from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
-import { IProduct } from "@ecommerce/shared";
+import { IProduct, IReviewResponse } from "@ecommerce/shared";
 import { ProductMapper } from "./products.mapper";
+import { ReviewMapper } from "./reviews.mapper";
 
 export class ProductsRepository implements IProductsRepository {
   constructor(private request: TRequest) {}
@@ -111,11 +112,22 @@ export class ProductsRepository implements IProductsRepository {
     page = 1,
     limit = 10,
   ): Promise<ApiResponse<ApiListResponse<TReview>>> {
-    const response = await this.request.get<ApiListResponse<TReview>>(
+    const response = await this.request.get<ApiListResponse<IReviewResponse>>(
       API_ROUTES.PRODUCTS.REVIEWS(id),
       { params: { page, limit } },
     );
-    return response;
+
+    return {
+      ...response,
+      data: response.data
+        ? {
+            items: response.data.items.map((item) =>
+              ReviewMapper.toDomain(item),
+            ),
+            meta: response.data.meta,
+          }
+        : undefined,
+    } as ApiResponse<ApiListResponse<TReview>>;
   }
 
   async getSimilarProducts(

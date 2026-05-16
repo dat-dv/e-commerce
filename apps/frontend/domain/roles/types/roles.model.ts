@@ -1,7 +1,7 @@
 export interface TRole {
   id: string;
-  role_name: string;
+  roleName: string;
   description?: string | null;
-  created_at: string | Date;
-  updated_at: string | Date;
+  createdAt: string | Date;
+  updatedAt: string | Date;
 }

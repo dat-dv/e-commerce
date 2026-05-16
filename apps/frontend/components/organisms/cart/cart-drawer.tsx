@@ -25,6 +25,9 @@ export const CartDrawer = () => {
 
   const handleClose = () => setIsOpen(false);
 
+  const isEmpty = items.length === 0;
+  const shouldShowFooter = items.length > 0;
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -51,7 +54,7 @@ export const CartDrawer = () => {
 
             {/* Scrollable Item List */}
             <div className="flex-1 overflow-y-auto px-6 py-2 scrollbar-hide">
-              {items.length === 0 ? (
+              {isEmpty ? (
                 <div className="flex flex-col items-center justify-center h-full text-center py-20">
                   <div className="w-20 h-20 rounded-full bg-content/[0.02] flex items-center justify-center mb-6 border border-content/5">
                     <ShoppingBag size={32} className="text-content/10" />
@@ -67,7 +70,7 @@ export const CartDrawer = () => {
                 <div className="space-y-3">
                   {items.map((item) => (
                     <CartItem
-                      key={item.sku_id}
+                      key={item.skuId}
                       item={item}
                       isCheckoutPage={isCheckoutPage}
                       onAdd={addItem}
@@ -80,7 +83,7 @@ export const CartDrawer = () => {
             </div>
 
             {/* Footer Section */}
-            {items.length > 0 && (
+            {shouldShowFooter && (
               <CartDrawerFooter
                 subtotal={subtotal}
                 isCheckoutPage={isCheckoutPage}

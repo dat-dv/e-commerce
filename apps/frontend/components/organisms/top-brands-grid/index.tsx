@@ -78,10 +78,10 @@ const BrandCard = ({
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
-          {brand.banner_url ? (
+          {brand.bannerUrl ? (
             <div className="relative w-full h-full">
               <Image
-                src={brand.banner_url}
+                src={brand.bannerUrl}
                 alt={brand.name}
                 fill
                 className="object-cover opacity-[0.15] grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-1000 group-hover:scale-110"
@@ -101,10 +101,10 @@ const BrandCard = ({
               whileHover={{ rotate: -5, scale: 1.1 }}
               className="w-14 h-14 p-3 rounded-2xl bg-background shadow-2xl flex items-center justify-center border border-content/[0.03]"
             >
-              {brand.logo_url && !imgError ? (
+              {brand.logoUrl && !imgError ? (
                 <div className="relative w-full h-full">
                   <Image
-                    src={brand.logo_url}
+                    src={brand.logoUrl}
                     alt={brand.name}
                     fill
                     className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
@@ -120,7 +120,7 @@ const BrandCard = ({
 
             <div className="px-3 py-1 rounded-full bg-content/[0.03] border border-content/[0.05] backdrop-blur-md">
               <span className="text-[10px] font-bold text-content/40 uppercase tracking-widest">
-                {brand.product_count || 0} Products
+                {brand.productCount || 0} Products
               </span>
             </div>
           </div>

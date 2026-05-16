@@ -19,6 +19,14 @@ export const ReviewsRatings = ({
 }: ReviewsRatingsProps) => {
   const [activeFilter, setActiveFilter] = useState("All");
 
+  const filters = ["All", "5 Stars", "4 Stars", "With Images"];
+  const isEmpty = !loadingReviews && reviews.length === 0;
+  const hasReviews = reviews.length > 0;
+  const formattedAverageRating = averageRating.toFixed(1);
+  const ratingFloor = Math.floor(averageRating);
+
+  const shouldShowPagination = totalReviews > reviews.length;
+
   return (
     <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 space-y-6 shadow-sm">
       <div className="flex flex-col md:flex-row justify-between gap-4 items-baseline">
@@ -30,15 +38,13 @@ export const ReviewsRatings = ({
                 <Star
                   key={i}
                   size={14}
-                  fill={i < Math.floor(averageRating) ? "currentColor" : "none"}
-                  className={
-                    i < Math.floor(averageRating) ? "" : "text-content/20"
-                  }
+                  fill={i < ratingFloor ? "currentColor" : "none"}
+                  className={i < ratingFloor ? "" : "text-content/20"}
                 />
               ))}
             </div>
             <span className="text-sm font-bold text-content">
-              {averageRating.toFixed(1)} / 5
+              {formattedAverageRating} / 5
             </span>
             <span className="text-sm text-content/50">
               ({totalReviews} reviews)
@@ -48,7 +54,7 @@ export const ReviewsRatings = ({
 
         {/* Review Filters */}
         <div className="flex flex-wrap gap-2">
-          {["All", "5 Stars", "4 Stars", "With Images"].map((filter) => (
+          {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
@@ -74,7 +80,7 @@ export const ReviewsRatings = ({
               <div className="h-3 bg-content/[0.05] rounded w-2/3"></div>
             </div>
           ))
-        ) : reviews.length === 0 ? (
+        ) : isEmpty ? (
           <div className="col-span-full text-center text-content/50 py-8">
             No reviews yet
           </div>
@@ -98,23 +104,17 @@ export const ReviewsRatings = ({
                   </div>
                 </div>
                 <span className="text-xs text-content/30">
-                  {new Date(review.created_at).toLocaleDateString("en-US")}
+                  {new Date(review.createdAt).toLocaleDateString("en-US")}
                 </span>
               </div>
               <p className="text-sm text-content/70">{review.comment}</p>
-              {false && (
-                <button className="flex items-center gap-1.5 text-xs text-content/40 hover:text-content transition-colors w-fit">
-                  <ThumbsUp size={12} />
-                  <span>Helpful</span>
-                </button>
-              )}
             </div>
           ))
         )}
       </div>
 
       {/* Pagination */}
-      {totalReviews > reviews.length && (
+      {shouldShowPagination && (
         <div className="flex justify-center gap-2 pt-2">
           <button className="p-1.5 rounded-lg border border-content/[0.05] opacity-50 cursor-not-allowed">
             <ChevronLeft size={14} />

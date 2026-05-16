@@ -24,11 +24,15 @@ export default function CartView() {
   const { removeItem } = useRemoveFromCart();
   const updateQuantity = useUpdateCartQuantity();
 
+  const isEmpty = items.length === 0;
+  const itemCount = items.length;
+  const selectedCount = selectedSkuIds.length;
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <CartHeader itemCount={items.length} />
+      <CartHeader itemCount={itemCount} />
 
-      {items.length === 0 ? (
+      {isEmpty ? (
         <div className="space-y-12">
           <EmptyCart />
           <CartRecommendations />
@@ -44,10 +48,10 @@ export default function CartView() {
             <AnimatePresence mode="popLayout">
               {items.map((item) => (
                 <CartItemRow
-                  key={item.sku_id}
+                  key={item.skuId}
                   item={item}
-                  isSelected={selectedSkuIds.includes(item.sku_id)}
-                  onToggleSelect={() => toggleSelectItem(item.sku_id)}
+                  isSelected={selectedSkuIds.includes(item.skuId)}
+                  onToggleSelect={() => toggleSelectItem(item.skuId)}
                   onRemove={() => removeItem(item)}
                   onUpdateQuantity={(val) => updateQuantity(item, val)}
                 />
@@ -55,10 +59,7 @@ export default function CartView() {
             </AnimatePresence>
           </div>
 
-          <CartFooter
-            selectedCount={selectedSkuIds.length}
-            totalAmount={totalAmount}
-          />
+          <CartFooter selectedCount={selectedCount} totalAmount={totalAmount} />
 
           <CartRecommendations />
         </div>

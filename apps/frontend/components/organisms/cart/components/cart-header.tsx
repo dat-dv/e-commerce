@@ -14,7 +14,7 @@ export const CartHeader = ({ count, onClose }: CartHeaderProps) => {
       <div className="flex items-center gap-2">
         <h2 className="text-base font-semibold text-content">Shopping Cart</h2>
         <span className="text-sm font-medium text-content/30">
-          ({count} items)
+          ({count} {count <= 1 ? "item" : "items"})
         </span>
       </div>
       <button

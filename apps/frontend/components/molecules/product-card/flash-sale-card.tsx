@@ -57,6 +57,13 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
 
   const soldCount = sku?.sold || 0;
   const totalCount = sku?.total || 1;
+  const stockLeft = Math.max(0, totalCount - soldCount);
+  const progressWidth = `${(soldCount / totalCount) * 100}%`;
+
+  const displayPrice = formatCurrency(sku?.price);
+  const displayOriginalPrice = formatCurrency(sku?.originalPrice);
+
+  const hasOriginalPrice = !!sku?.originalPrice;
 
   return (
     <motion.div
@@ -115,11 +122,11 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
 
         <div className="flex items-center gap-2 mt-1">
           <span className="text-sm font-black text-red-500">
-            {formatCurrency(sku?.price)}
+            {displayPrice}
           </span>
-          {sku?.originalPrice && (
+          {hasOriginalPrice && (
             <span className="text-xs text-content/40 line-through">
-              {formatCurrency(sku?.originalPrice)}
+              {displayOriginalPrice}
             </span>
           )}
         </div>
@@ -130,7 +137,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
             <div
               className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full"
               style={{
-                width: `${(soldCount / totalCount) * 100}%`,
+                width: progressWidth,
               }}
             />
           </div>
@@ -139,7 +146,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
               Sold {soldCount}
             </span>
             <span className="text-[10px] font-bold text-content/40">
-              Left {Math.max(0, totalCount - soldCount)}
+              Left {stockLeft}
             </span>
           </div>
         </div>
