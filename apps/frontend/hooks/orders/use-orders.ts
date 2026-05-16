@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ordersUseCase } from "@/domain/orders";
-import { IOrder } from "@/domain/orders/types/order.model";
+import { TOrder } from "@/domain/orders/types/order.model";
 import { useAuthStore } from "../auth/use-auth-store";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { toast } from "react-toastify";
 
 export const useOrders = () => {
-  const [orders, setOrders] = useState<IOrder[]>([]);
+  const [orders, setOrders] = useState<TOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [activeTabState, setActiveTabState] = useState<

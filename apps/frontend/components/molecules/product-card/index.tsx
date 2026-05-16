@@ -27,9 +27,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
     addItem(
       {
-        id: sku?.id || `sku-${product.id}`,
+        id: sku?.id || "",
         productId: String(product.id),
-        skuId: sku?.id || `sku-${product.id}`,
+        skuId: sku?.id || "",
         name: product.name,
         price: priceNumber,
         originalPrice: sku?.originalPrice,

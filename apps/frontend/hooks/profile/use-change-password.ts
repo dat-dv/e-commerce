@@ -10,9 +10,9 @@ export const useChangePassword = () => {
     setLoading(true);
     try {
       const response = await authUseCase.changePassword.execute({
-        old_password: data.currentPassword,
-        new_password: data.newPassword,
-        confirm_password: data.confirmPassword,
+        oldPassword: data.currentPassword,
+        newPassword: data.newPassword,
+        confirmPassword: data.confirmPassword,
       });
 
       if (response.data.success) {

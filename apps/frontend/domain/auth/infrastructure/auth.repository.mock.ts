@@ -128,9 +128,9 @@ export class MockAuthRepository implements IAuthRepository {
   }
 
   async changePassword(request: {
-    old_password: string;
-    new_password: string;
-    confirm_password: string;
+    oldPassword: string;
+    newPassword: string;
+    confirmPassword: string;
   }): Promise<ApiResponse<{ success: boolean }>> {
     await delay(500);
     return { data: { success: true }, status: "success" };

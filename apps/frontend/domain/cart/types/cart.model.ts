@@ -5,3 +5,13 @@ export interface TCart {
   userId: string;
   items: TCartItem[];
 }
+
+export interface TAddToCartRequest {
+  skuId: string;
+  quantity: number;
+}
+
+export interface TUpdateCartItemRequest {
+  id: string;
+  quantity: number;
+}

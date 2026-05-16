@@ -1,4 +1,4 @@
-import { EAddressLabel } from "@ecommerce/shared";
+import type { EAddressLabel } from "@ecommerce/shared";
 
 export interface TAddress {
   id: string;
@@ -17,15 +17,15 @@ export interface TAddress {
 }
 
 export interface TCreateAddressInput {
-  receiver_name: string;
-  receiver_phone: string;
+  receiverName: string;
+  receiverPhone: string;
   label: EAddressLabel;
   street: string;
   city: string;
   state: string;
   country: string;
-  postal_code: string;
+  postalCode: string;
   latitude: number;
   longitude: number;
-  is_default: boolean;
+  isDefault: boolean;
 }

@@ -25,7 +25,7 @@ export const useAddToCart = () => {
           _addOrUpdateItem(item, nextQuantity);
 
           const response = await cartUseCase.addItem.execute({
-            sku_id: item.skuId,
+            skuId: item.skuId,
             quantity,
           });
 

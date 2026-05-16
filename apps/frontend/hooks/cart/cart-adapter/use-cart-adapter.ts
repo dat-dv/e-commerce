@@ -31,8 +31,8 @@ export const useCartAdapter = () => {
   );
 
   const removeItem = useCallback(
-    async (sku_id: string) => {
-      const item = items.find((i) => i.sku_id === sku_id);
+    async (skuId: string) => {
+      const item = items.find((i) => i.skuId === skuId);
       if (!item) return;
       await _removeItem(item);
     },
@@ -40,8 +40,8 @@ export const useCartAdapter = () => {
   );
 
   const updateQuantity = useCallback(
-    async (sku_id: string, quantity: number) => {
-      const item = items.find((i) => i.sku_id === sku_id);
+    async (skuId: string, quantity: number) => {
+      const item = items.find((i) => i.skuId === skuId);
       if (!item) return;
       await _updateQuantity(item, quantity);
     },
@@ -53,7 +53,7 @@ export const useCartAdapter = () => {
   }, [_clearCart, items]);
 
   const selectedItems = useMemo(
-    () => items.filter((item) => selectedSkuIds.includes(item.sku_id)),
+    () => items.filter((item) => selectedSkuIds.includes(item.skuId)),
     [items, selectedSkuIds],
   );
 

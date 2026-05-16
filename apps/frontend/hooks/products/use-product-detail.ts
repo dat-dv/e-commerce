@@ -53,12 +53,12 @@ export const useProductDetail = (product: TProduct) => {
   const images = useMemo(() => {
     return Array.from(
       new Set(
-        [product.image_url, ...product.skus.map((sku) => sku.image_url)].filter(
+        [product.imageUrl, ...product.skus.map((sku) => sku.imageUrl)].filter(
           (img): img is string => !!img && typeof img === "string",
         ),
       ),
     );
-  }, [product.image_url, product.skus]);
+  }, [product.imageUrl, product.skus]);
 
   // 5. Fetch related data using adapter hooks
   const { reviews, totalReviews, loadingReviews } = useProductReviews(

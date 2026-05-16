@@ -11,8 +11,29 @@ export interface TRegisterRequest extends TAuthRequest {
 
 export interface TResetPasswordRequest {
   token: string;
-  new_password: string;
-  confirm_password: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+export interface TForgotPasswordRequest {
+  email?: string;
+  phone?: string;
+}
+
+export interface TChangePasswordRequest {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+export interface TUpdateProfileRequest {
+  firstName?: string;
+  lastName?: string;
+  dateOfBirth?: string;
+  gender?: EGender;
+  avatarId?: string;
+  phoneNumber?: string;
+  phoneCode?: string;
 }
 
 export interface TUser {

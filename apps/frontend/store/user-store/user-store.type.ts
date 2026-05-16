@@ -5,7 +5,7 @@ export interface IAuthStore extends IAuthStoreState, IAuthStoreHandler {}
 export interface IAuthStoreState {
   user: Partial<TUser> | null;
   loading: boolean;
-  _hasHydrated: boolean;
+  hasHydrated: boolean;
 }
 
 export interface IAuthStoreHandler {

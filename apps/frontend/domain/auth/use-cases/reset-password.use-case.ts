@@ -24,8 +24,8 @@ export class ResetPasswordUseCase extends UseCase<
     });
     return this.repository.resetPassword({
       token: request.token,
-      new_password: validated.password,
-      confirm_password: validated.confirmPassword,
+      newPassword: validated.password,
+      confirmPassword: validated.confirmPassword,
     });
   }
 }

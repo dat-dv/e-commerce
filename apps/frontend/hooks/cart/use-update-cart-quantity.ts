@@ -13,7 +13,7 @@ export const useUpdateCartQuantity = () => {
   return useCallback(
     async (item: TCartItem, quantity: number) => {
       // Get fresh state to know what to revert to
-      const existingItem = currentItems.find((i) => i.sku_id === item.sku_id);
+      const existingItem = currentItems.find((i) => i.skuId === item.skuId);
       const previousQuantity = existingItem?.quantity || item.quantity;
 
       try {

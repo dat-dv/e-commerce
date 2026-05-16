@@ -13,7 +13,7 @@ export const useRemoveFromCart = () => {
   const removeItem = useCallback(
     async (item: TCartItem) => {
       try {
-        _removeItem(item.sku_id);
+        _removeItem(item.skuId);
 
         if (user) {
           await cartUseCase.removeItem.execute(item.id);
@@ -31,7 +31,7 @@ export const useRemoveFromCart = () => {
       const previousItems = [...items];
       try {
         // Optimistic remove all
-        items.forEach((item) => _removeItem(item.sku_id));
+        items.forEach((item) => _removeItem(item.skuId));
 
         if (user) {
           await Promise.all(

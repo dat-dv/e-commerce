@@ -55,7 +55,7 @@ export const useCheckoutAdapter = () => {
     try {
       // Map selectedSkuIds to actual CartItem IDs for the backend
       const cartItemIds = items
-        .filter((item) => selectedSkuIds.includes(item.sku_id))
+        .filter((item) => selectedSkuIds.includes(item.skuId))
         .map((item) => item.id);
 
       const res = await ordersUseCase.placeOrder.execute({

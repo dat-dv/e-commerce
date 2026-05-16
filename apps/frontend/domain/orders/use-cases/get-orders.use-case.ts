@@ -1,8 +1,9 @@
 import { IOrdersRepository } from "../infrastructure/orders.repository";
+import { TGetOrdersRequest } from "../types/order.model";
 
 export class GetOrdersUseCase {
   constructor(private ordersRepository: IOrdersRepository) {}
-  async execute(params?: { status?: number[]; page?: number; limit?: number }) {
+  async execute(params?: TGetOrdersRequest) {
     return this.ordersRepository.getOrders(params);
   }
 }

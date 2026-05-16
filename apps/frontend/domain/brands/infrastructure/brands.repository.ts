@@ -4,12 +4,11 @@ import {
   ApiListResponse,
 } from "@/utils/request/request.types";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { IBrand } from "@ecommerce/shared";
+import { IBrandResponse, IProductResponse } from "@ecommerce/shared";
 import { IBrandsRepository } from "../types/brands.repository";
 import { BrandMapper } from "./brands.mapper";
 import { API_ROUTES } from "@/constants/routes";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
-import { IProduct } from "@ecommerce/shared";
 import { TProduct } from "@/domain/products/types/products.model";
 
 export class BrandsRepository implements IBrandsRepository {
@@ -20,7 +19,7 @@ export class BrandsRepository implements IBrandsRepository {
     limit = 10,
   ): Promise<ApiResponse<ApiListResponse<TBrand>>> {
     const response = await this.request.get<{
-      items: IBrand[];
+      items: IBrandResponse[];
       meta: {
         total: number;
         page: number;
@@ -39,7 +38,7 @@ export class BrandsRepository implements IBrandsRepository {
   }
 
   async getBrandBySlug(slug: string): Promise<ApiResponse<TBrand | undefined>> {
-    const response = await this.request.get<IBrand>(
+    const response = await this.request.get<IBrandResponse>(
       API_ROUTES.BRAND.DETAIL(slug),
     );
 
@@ -55,7 +54,7 @@ export class BrandsRepository implements IBrandsRepository {
     limit = 20,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
     const response = await this.request.get<{
-      items: IProduct[];
+      items: IProductResponse[];
       meta: {
         total: number;
         page: number;

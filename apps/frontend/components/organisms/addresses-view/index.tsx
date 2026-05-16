@@ -25,16 +25,16 @@ export const AddressesView = () => {
   const handleAddAddress = async (data: AddressFormData): Promise<boolean> => {
     const payload: TCreateAddressInput = {
       label: data.label,
-      receiver_name: data.receiver_name,
-      receiver_phone: data.receiver_phone,
+      receiverName: data.receiverName,
+      receiverPhone: data.receiverPhone,
       street: data.street,
       city: data.city,
       state: data.state,
       country: data.country,
-      postal_code: data.postal_code,
+      postalCode: data.postalCode,
       latitude: data.latitude,
       longitude: data.longitude,
-      is_default: data.is_default,
+      isDefault: data.isDefault,
     };
 
     const success = await addAddress(payload);

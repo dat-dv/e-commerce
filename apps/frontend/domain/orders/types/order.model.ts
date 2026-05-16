@@ -56,3 +56,14 @@ export interface TOrder {
   items: TOrderItem[];
   shippingAddress?: TShippingAddress | null;
 }
+
+export type TPlaceOrderRequest = {
+  cartItemIds: string[];
+  shippingAddressId: string;
+};
+
+export type TGetOrdersRequest = {
+  status?: number[];
+  page?: number;
+  limit?: number;
+};

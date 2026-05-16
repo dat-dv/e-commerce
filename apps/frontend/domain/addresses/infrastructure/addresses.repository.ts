@@ -41,9 +41,10 @@ export class AddressesRepository implements IAddressesRepository {
   async createAddress(
     data: TCreateAddressInput,
   ): Promise<ApiResponse<TAddress>> {
+    const dto = AddressMapper.toCreateDTO(data);
     const response = await this.request.post<IAddressDTO>(
       API_ROUTES.ADDRESSES.BASE,
-      data,
+      dto,
     );
     return {
       ...response,
@@ -55,9 +56,10 @@ export class AddressesRepository implements IAddressesRepository {
     id: string,
     data: Partial<TCreateAddressInput>,
   ): Promise<ApiResponse<TAddress>> {
+    const dto = AddressMapper.toUpdateDTO(data);
     const response = await this.request.patch<IAddressDTO>(
       `${API_ROUTES.ADDRESSES.BASE}/${id}`,
-      data,
+      dto,
     );
     return {
       ...response,

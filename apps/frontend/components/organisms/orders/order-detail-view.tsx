@@ -112,15 +112,15 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
             </div>
             <div className="space-y-4 text-sm font-medium text-content/60">
               <p className="text-content font-bold">
-                {order.shippingAddress?.fullName || "N/A"}
+                {order.shippingAddress?.receiverName || "N/A"}
               </p>
-              <p>{order.shippingAddress?.phone || "N/A"}</p>
+              <p>{order.shippingAddress?.receiverPhone || "N/A"}</p>
               <p className="leading-relaxed">
                 {order.shippingAddress?.street}
                 <br />
-                {order.shippingAddress?.ward}, {order.shippingAddress?.district}
+                {order.shippingAddress?.city}, {order.shippingAddress?.state}
                 <br />
-                {order.shippingAddress?.city}
+                {order.shippingAddress?.country}
               </p>
             </div>
           </div>
@@ -206,7 +206,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                     </div>
                   </div>
                   <p className="mt-2 text-[10px] font-bold text-content/40 uppercase tracking-widest">
-                    {item.attributes || `SKU: ${item.sku?.skuCode}`}
+                    {item.snapshot?.sku.attributes || `SKU: ${item.skuId}`}
                   </p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-content/[0.05] rounded-md text-content/60">

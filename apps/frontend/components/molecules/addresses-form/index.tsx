@@ -32,16 +32,16 @@ export const AddressesForm = ({
     resolver: zodResolver(addressSchema),
     defaultValues: {
       label: initialData?.label ?? EAddressLabel.HOME,
-      receiver_name: initialData?.receiver_name || "",
-      receiver_phone: initialData?.receiver_phone || "",
-      latitude: initialData?.latitude ?? 0,
-      longitude: initialData?.longitude ?? 0,
+      receiverName: initialData?.receiverName || "",
+      receiverPhone: initialData?.receiverPhone || "",
+      latitude: initialData?.latitude || 0,
+      longitude: initialData?.longitude || 0,
       street: initialData?.street || "",
       city: initialData?.city || "",
       state: initialData?.state || "",
-      country: initialData?.country || "",
-      postal_code: initialData?.postal_code || "",
-      is_default: initialData?.is_default ?? false,
+      country: initialData?.country || "Vietnam",
+      postalCode: initialData?.postalCode || "",
+      isDefault: initialData?.isDefault ?? false,
     },
   });
 
@@ -138,12 +138,11 @@ export const AddressesForm = ({
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
-            id="is_default"
-            {...methods.register("is_default")}
-            className="rounded border-content/20 text-primary focus:ring-primary"
-            disabled={loading}
+            id="isDefault"
+            {...methods.register("isDefault")}
+            className="w-4 h-4 rounded border-content/10 text-primary focus:ring-primary/20"
           />
-          <label htmlFor="is_default" className="text-sm text-content/80">
+          <label htmlFor="isDefault" className="text-sm text-content/80">
             Set as default address
           </label>
         </div>

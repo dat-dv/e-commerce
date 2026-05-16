@@ -1,12 +1,12 @@
-import { IProduct, ISku } from "@ecommerce/shared";
+import { IProductResponse, ISkuResponse } from "@ecommerce/shared";
 
-export interface IHomepageSku extends ISku {
+export interface IHomepageSku extends ISkuResponse {
   sale_price?: number;
   sold?: number;
   total?: number;
 }
 
-export interface IHomepageProduct extends Omit<IProduct, "skus"> {
+export interface IHomepageProduct extends Omit<IProductResponse, "skus"> {
   skus: IHomepageSku[];
 }
 

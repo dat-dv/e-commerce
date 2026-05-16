@@ -31,13 +31,13 @@ export const useProductActions = (
     addItem(
       {
         id: selectedSku.id,
-        product_id: product.id,
-        sku_id: selectedSku.id,
+        productId: String(product.id),
+        skuId: selectedSku.id,
         name: product.name,
         price: selectedSku.price || 0,
-        original_price: selectedSku.original_price,
-        discount_percent: selectedSku.discount_percent,
-        image_url: imageUrl || product.image_url || "",
+        originalPrice: selectedSku.originalPrice,
+        discountPercent: selectedSku.discountPercent,
+        imageUrl: imageUrl || product.imageUrl || "",
         attributes: Object.entries(selectedAttributes)
           .map(([key, value]) => `${key}: ${value}`)
           .join(", "),

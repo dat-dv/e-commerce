@@ -1,7 +1,11 @@
 import { API_ROUTES } from "@/constants/routes";
 import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import { ICartRepository } from "../types/cart.repository";
-import { TCart } from "../types/cart.model";
+import {
+  TCart,
+  TAddToCartRequest,
+  TUpdateCartItemRequest,
+} from "../types/cart.model";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { CartMapper } from "./cart.mapper";
 import { ICartResponse, ICartItemResponse } from "@ecommerce/shared";
@@ -19,15 +23,12 @@ export class CartRepository implements ICartRepository {
     } as ApiResponse<TCart>;
   }
 
-  async addItem(
-    skuId: string,
-    quantity: number,
-  ): Promise<ApiResponse<TCartItem>> {
+  async addItem(request: TAddToCartRequest): Promise<ApiResponse<TCartItem>> {
     const response = await this.request.post<ICartItemResponse>(
       API_ROUTES.CART.ITEMS,
       {
-        sku_id: skuId,
-        quantity,
+        sku_id: request.skuId,
+        quantity: request.quantity,
       },
     );
     return {
@@ -37,13 +38,12 @@ export class CartRepository implements ICartRepository {
   }
 
   async updateItem(
-    id: string,
-    quantity: number,
+    request: TUpdateCartItemRequest,
   ): Promise<ApiResponse<TCartItem>> {
     const response = await this.request.put<ICartItemResponse>(
-      API_ROUTES.CART.ITEM(id),
+      API_ROUTES.CART.ITEM(request.id),
       {
-        quantity,
+        quantity: request.quantity,
       },
     );
     return {

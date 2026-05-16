@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { ordersUseCase } from "@/domain/orders";
-import { IOrder } from "@/domain/orders/types/order.model";
+import { TOrder } from "@/domain/orders/types/order.model";
 import { toast } from "react-toastify";
 
 export const useOrderDetail = (orderId: string) => {
-  const [order, setOrder] = useState<IOrder | null>(null);
+  const [order, setOrder] = useState<TOrder | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 

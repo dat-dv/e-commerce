@@ -4,9 +4,13 @@ import {
   TRequest,
   ApiListResponse,
 } from "@/utils/request/request.types";
-import { TProduct, TReview } from "../types/products.model";
+import {
+  TProduct,
+  TReview,
+  TGetProductsRequest,
+} from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
-import { IProduct, IReviewResponse } from "@ecommerce/shared";
+import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
 import { ProductMapper } from "./products.mapper";
 import { ReviewMapper } from "./reviews.mapper";
 
@@ -14,7 +18,7 @@ export class ProductsRepository implements IProductsRepository {
   constructor(private request: TRequest) {}
 
   async getRecommended(): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProduct[]>(
+    const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.RECOMMENDED,
     );
     return {
@@ -24,7 +28,7 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async getBasedOnInterest(): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProduct[]>(
+    const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.BASED_ON_INTEREST,
     );
     return {
@@ -34,7 +38,7 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async getRecentlyViewed(): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProduct[]>(
+    const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.RECENTLY_VIEWED,
     );
     return {
@@ -44,7 +48,7 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async getFlashSale(): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProduct[]>(
+    const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.FLASH_SALE,
     );
     return {
@@ -54,7 +58,7 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async getProductBySlug(slug: string): Promise<ApiResponse<TProduct | null>> {
-    const response = await this.request.get<IProduct>(
+    const response = await this.request.get<IProductResponse>(
       API_ROUTES.PRODUCTS.DETAIL_BY_SLUG(slug),
     );
     return {
@@ -63,21 +67,11 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async getProducts(params?: {
-    page?: number;
-    limit?: number;
-    search?: string;
-    category_id?: string;
-    category_slug?: string;
-    brand_id?: string;
-    min_price?: number;
-    max_price?: number;
-    attribute_value_ids?: string[];
-    sort?: string;
-    languageCode?: string;
-  }): Promise<ApiResponse<ApiListResponse<TProduct>>> {
+  async getProducts(
+    params?: TGetProductsRequest,
+  ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
     const response = await this.request.get<{
-      items: IProduct[];
+      items: IProductResponse[];
       meta: {
         total: number;
         page: number;
@@ -134,7 +128,7 @@ export class ProductsRepository implements IProductsRepository {
     id: string,
     limit = 4,
   ): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProduct[]>(
+    const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.SIMILAR(id),
       { params: { limit } },
     );

@@ -12,11 +12,11 @@ const createAuthStoreCreator =
     const state: IAuthStore = {
       user: null,
       loading: false,
-      _hasHydrated: false,
+      hasHydrated: false,
       ...initState,
       setLoading: (loading: boolean) => set({ loading }),
       setUser: (user) => set({ user }),
-      setHasHydrated: (state) => set({ _hasHydrated: state }),
+      setHasHydrated: (state) => set({ hasHydrated: state }),
       logout: () => {
         set({ user: null });
       },

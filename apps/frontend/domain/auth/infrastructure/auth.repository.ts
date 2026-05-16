@@ -6,16 +6,17 @@ import {
   TRegisterRequest,
   TUser,
   TResetPasswordRequest,
+  TUpdateProfileRequest,
 } from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
-import { IUser } from "@ecommerce/shared";
+import { IUserResponse } from "@ecommerce/shared";
 
 export class AuthRepository implements IAuthRepository {
   constructor(private request: TRequest) {}
 
   async login(request: TAuthRequest): Promise<ApiResponse<TUser>> {
-    const response = await this.request.post<IUser>(
+    const response = await this.request.post<IUserResponse>(
       API_ROUTES.AUTH.LOGIN,
       request,
     );
@@ -35,16 +36,18 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async fetchMe(): Promise<ApiResponse<TUser>> {
-    const response = await this.request.get<IUser>(API_ROUTES.AUTH.ME);
+    const response = await this.request.get<IUserResponse>(API_ROUTES.AUTH.ME);
     return {
       ...response,
       data: UserMapper.toDomain(response.data),
     };
   }
 
-  async updateProfile(data: Partial<TUser>): Promise<ApiResponse<TUser>> {
+  async updateProfile(
+    data: TUpdateProfileRequest,
+  ): Promise<ApiResponse<TUser>> {
     const userDto = UserMapper.toDTO(data);
-    const response = await this.request.patch<IUser>(
+    const response = await this.request.patch<IUserResponse>(
       API_ROUTES.USERS.PROFILE,
       userDto,
     );
@@ -68,14 +71,24 @@ export class AuthRepository implements IAuthRepository {
   async resetPassword(
     request: TResetPasswordRequest,
   ): Promise<ApiResponse<void>> {
-    return this.request.post(API_ROUTES.AUTH.RESET_PASSWORD, request);
+    const payload = {
+      token: request.token,
+      new_password: request.newPassword,
+      confirm_password: request.confirmPassword,
+    };
+    return this.request.post(API_ROUTES.AUTH.RESET_PASSWORD, payload);
   }
 
   async changePassword(request: {
-    old_password: string;
-    new_password: string;
-    confirm_password: string;
+    oldPassword: string;
+    newPassword: string;
+    confirmPassword: string;
   }): Promise<ApiResponse<{ success: boolean }>> {
-    return this.request.post(API_ROUTES.AUTH.CHANGE_PASSWORD, request);
+    const payload = {
+      old_password: request.oldPassword,
+      new_password: request.newPassword,
+      confirm_password: request.confirmPassword,
+    };
+    return this.request.post(API_ROUTES.AUTH.CHANGE_PASSWORD, payload);
   }
 }

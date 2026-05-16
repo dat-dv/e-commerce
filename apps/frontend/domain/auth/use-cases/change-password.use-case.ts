@@ -3,7 +3,7 @@ import { IAuthRepository } from "../types/auth.repository";
 import { ApiResponse } from "@/utils/request/request.types";
 
 export class ChangePasswordUseCase extends UseCase<
-  { old_password: string; new_password: string; confirm_password: string },
+  { oldPassword: string; newPassword: string; confirmPassword: string },
   Promise<ApiResponse<{ success: boolean }>>
 > {
   constructor(private repository: IAuthRepository) {
@@ -11,9 +11,9 @@ export class ChangePasswordUseCase extends UseCase<
   }
 
   async execute(request: {
-    old_password: string;
-    new_password: string;
-    confirm_password: string;
+    oldPassword: string;
+    newPassword: string;
+    confirmPassword: string;
   }): Promise<ApiResponse<{ success: boolean }>> {
     return this.repository.changePassword(request);
   }
