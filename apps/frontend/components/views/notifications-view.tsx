@@ -8,8 +8,14 @@ import { NotificationHeader } from "../organisms/notifications/parts/notificatio
 import { NotificationList } from "../organisms/notifications/parts/notification-list";
 
 export const NotificationsView = () => {
-  const { notifications, unreadCount, markAsRead, markAllAsRead, loading } =
-    useNotifications();
+  const {
+    notifications,
+    unreadCount,
+    markAsRead,
+    markAllAsRead,
+    loading,
+    setSearch,
+  } = useNotifications();
 
   return (
     <div className="container max-w-4xl mx-auto py-16 px-4 min-h-[90vh]">
@@ -24,7 +30,7 @@ export const NotificationsView = () => {
         />
 
         <div className="grid grid-cols-1 gap-8">
-          <NotificationFilters />
+          <NotificationFilters onSearch={setSearch} />
 
           <NotificationList
             notifications={notifications}

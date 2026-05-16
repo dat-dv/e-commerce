@@ -1,13 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
-
 import { INotification } from "@/domain/notifications/types/notification";
 
 export const useNotifications = () => {
   const [notifications, setNotifications] = useState<INotification[]>([]);
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const user = useAuthStore((s) => s.user);
 
   const fetchNotifications = useCallback(async () => {
@@ -50,14 +49,24 @@ export const useNotifications = () => {
     fetchNotifications();
   }, [fetchNotifications]);
 
+  const filteredNotifications = notifications.filter((n) => {
+    if (!searchQuery) return true;
+    const lowerQuery = searchQuery.toLowerCase();
+    return (
+      n.title.toLowerCase().includes(lowerQuery) ||
+      n.content.toLowerCase().includes(lowerQuery)
+    );
+  });
+
   const unreadCount = notifications.filter((n) => !n.isRead).length;
 
   return {
-    notifications,
+    notifications: filteredNotifications,
     unreadCount,
     loading,
     refresh: fetchNotifications,
     markAsRead,
     markAllAsRead,
+    setSearch: setSearchQuery,
   };
 };
