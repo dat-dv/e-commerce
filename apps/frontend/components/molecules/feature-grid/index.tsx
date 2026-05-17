@@ -1,15 +1,16 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface FeatureItem {
   name: string;
   desc: string;
   icon: LucideIcon;
-  color: string;
+  color?: string;
   href?: string;
+  badge?: string;
 }
 
 interface FeatureGridProps {
@@ -19,31 +20,47 @@ interface FeatureGridProps {
 
 export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
   return (
-    <div
-      className={cn(
-        "grid grid-cols-3 md:grid-cols-4 gap-4 justify-items-center",
-        classNames,
-      )}
-    >
-      {items.map((item) => (
-        <Link
-          key={item.name}
-          href={item?.href || "#"}
-          className="w-full bg-content/[0.02] border border-content/[0.05] rounded-2xl p-4 flex flex-col items-center gap-4 hover:bg-content/[0.04] hover:border-content/[0.1] hover:translate-y-[-2px] transition-all duration-300 group text-center"
-        >
-          <div className="w-10 h-10 rounded-xl bg-content/[0.03] flex items-center justify-center group-hover:bg-content/[0.05] transition-colors">
-            <item.icon
-              className={`w-5 h-5 ${item.color} group-hover:scale-110 transition-transform`}
+    <nav className={cn("grid grid-cols-2 gap-3 md:grid-cols-4", classNames)}>
+      {items.map((item) => {
+        const Icon = item.icon;
+
+        return (
+          <Link
+            key={item.name}
+            href={item.href || "#"}
+            className="group flex items-center justify-between gap-3 rounded-2xl border border-content/[0.05] bg-surface/50 px-4 py-3 transition-all duration-300 hover:border-primary/20 hover:bg-primary/[0.04]"
+          >
+            <div className="flex min-w-0 items-center gap-3">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-content/[0.04] text-content/45 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                <Icon size={18} strokeWidth={2.2} />
+              </div>
+
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h3 className="truncate text-sm font-black text-content transition-colors group-hover:text-primary">
+                    {item.name}
+                  </h3>
+
+                  {item.badge && (
+                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.12em] text-primary">
+                      {item.badge}
+                    </span>
+                  )}
+                </div>
+
+                <p className="mt-0.5 truncate text-xs font-medium text-content/35">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+
+            <ArrowRight
+              size={15}
+              className="shrink-0 text-content/20 transition-all group-hover:translate-x-0.5 group-hover:text-primary"
             />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-content group-hover:text-primary transition-colors">
-              {item.name}
-            </h3>
-            <p className="text-xs text-content/40 mt-0.5">{item.desc}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
+          </Link>
+        );
+      })}
+    </nav>
   );
 };
