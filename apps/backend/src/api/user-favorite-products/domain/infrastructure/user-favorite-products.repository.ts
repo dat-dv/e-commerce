@@ -2,7 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { IUserFavoriteProductsRepository } from '../entities/user-favorite-products.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
-import { IUserFavoriteProductResponse, IToggleUserFavoriteProductResponse, IPaginatedResult } from '@ecommerce/shared';
+import {
+  IUserFavoriteProductResponse,
+  IToggleUserFavoriteProductResponse,
+  IPaginatedResult,
+  Prisma,
+} from '@ecommerce/shared';
 
 @Injectable()
 export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepository {
@@ -18,7 +23,7 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
           },
         },
       },
-    };
+    } satisfies Prisma.UserFavoriteProductInclude;
   }
 
   constructor(
@@ -65,15 +70,27 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
     limit = 10,
     languageCode = 'vi',
   ): Promise<IPaginatedResult<IUserFavoriteProductResponse>> {
-    return this.paginationService.paginate(
-      this.prisma.userFavoriteProduct,
-      {
-        where: { user_id: userId },
-        include: this.getUserFavoriteProductsInclude(languageCode),
-        orderBy: { created_at: 'desc' },
-      },
-      page,
-      limit,
-    );
+    const args = {
+      where: { user_id: userId },
+      include: this.getUserFavoriteProductsInclude(languageCode),
+      orderBy: { created_at: 'desc' },
+    } satisfies Prisma.UserFavoriteProductFindManyArgs;
+
+    const result = await this.paginationService.paginate<
+      typeof args,
+      Prisma.UserFavoriteProductGetPayload<typeof args>[]
+    >(this.prisma.userFavoriteProduct, args, page, limit);
+
+    const mappedItems = result.items.map((item) => {
+      if (item.product) {
+        Object.assign(item.product, { is_favorited: true });
+      }
+      return item;
+    });
+
+    return {
+      ...result,
+      items: mappedItems,
+    };
   }
 }

@@ -10,11 +10,17 @@ import { ProductMapper } from "../../products/infrastructure/products.mapper";
 
 export class UserFavoriteProductsMapper {
   static toDomain(dto: IUserFavoriteProductResponse): TUserFavoriteProductItem {
+    const product = dto.product
+      ? ProductMapper.toDomain(dto.product)
+      : undefined;
+    if (product) {
+      product.isFavorited = true;
+    }
     return {
       userId: dto.user_id,
       productId: dto.product_id,
       createdAt: dto.created_at.toString(),
-      product: dto.product ? ProductMapper.toDomain(dto.product) : undefined,
+      product,
     };
   }
 

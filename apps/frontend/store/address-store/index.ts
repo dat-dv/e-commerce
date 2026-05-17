@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import { createJSONStorage, devtools, persist } from "zustand/middleware";
+import { devtools } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 
 import { PUBLIC_ENV } from "@/config/public.env.config";

@@ -27,6 +27,7 @@ export class UserFavoriteProductsController {
   }
 
   @Get()
+  @UseGuards(AuthGuard)
   async getUserFavoriteProducts(
     @Req() req: RequestWithUser,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,

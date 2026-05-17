@@ -5,20 +5,34 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PaginationService {
+  /**
+   * Paginates database queries using a simplified, user-driven type inference approach.
+   *
+   * Why: Prisma's complex delegate return types make it difficult for deep generic structures to automatic-infer relation fields (such as 'include' or 'select' payloads) without dropping them down to scalar-only types. By accepting the args and items type parameter directly, we let TypeScript infer from call-site argument typing (e.g. satisfies / explicit types) while maintaining robust, type-safe joined results.
+   *
+   * @param model Prisma delegate model containing findMany and count operations.
+   * @param args Arguments passed to the findMany operation.
+   * @param page Target page number (1-indexed).
+   * @param limit Maximum items to retrieve per page.
+   */
   async paginate<
-    TDelegate extends {
-      findMany: (...args: any[]) => any;
-      count?: (...args: any[]) => any;
-    },
-    TArgs extends Parameters<TDelegate['findMany']>[0],
-    TResult extends Awaited<ReturnType<TDelegate['findMany']>>,
+    TArgs = any,
+    TItems = unknown,
+    TModel extends {
+      findMany: (args: any) => Promise<any>;
+      count: (args: any) => Promise<number>;
+    } = any,
   >(
-    model: TDelegate,
+    model: TModel,
     args: TArgs,
     page = 1,
     limit = 10,
   ): Promise<{
-    items: TResult;
+    items: unknown extends TItems
+      ? TModel extends { findMany: (args: any) => Promise<infer TDefaultItems> }
+        ? TDefaultItems
+        : any
+      : TItems;
     meta: {
       total: number;
       page: number;
@@ -34,9 +48,9 @@ export class PaginationService {
         skip,
         take: limit,
       }),
-      model?.count?.({
+      model.count({
         where: (args as any)?.where,
-      }) ?? 0,
+      }),
     ]);
 
     return {
