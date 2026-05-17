@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ApiPaginatedResponse,
   IPaginationMeta,
@@ -26,6 +26,26 @@ export const usePagination = <T>({
   const [loadingMore, setLoadingMore] = useState(false);
 
   const hasMore = meta.page < meta.totalPages;
+  const metaRef = useRef(meta);
+  const loadingRef = useRef(loading);
+  const loadingMoreRef = useRef(loadingMore);
+  const hasMoreRef = useRef(hasMore);
+
+  useEffect(() => {
+    metaRef.current = meta;
+  }, [meta]);
+
+  useEffect(() => {
+    loadingRef.current = loading;
+  }, [loading]);
+
+  useEffect(() => {
+    loadingMoreRef.current = loadingMore;
+  }, [loadingMore]);
+
+  useEffect(() => {
+    hasMoreRef.current = hasMore;
+  }, [hasMore]);
 
   const appendItems = useCallback(
     (nextItems: T[]) => {
@@ -45,13 +65,15 @@ export const usePagination = <T>({
   );
 
   const loadMore = useCallback(async () => {
-    if (loadingMore || !hasMore) return;
+    if (loadingMoreRef.current || !hasMoreRef.current) return;
 
+    loadingMoreRef.current = true;
     setLoadingMore(true);
     try {
+      const currentMeta = metaRef.current;
       const response = await fetchPage({
-        page: meta.page + 1,
-        limit: meta.limit,
+        page: currentMeta.page + 1,
+        limit: currentMeta.limit,
       });
 
       if (response.status !== "success") return;
@@ -59,19 +81,22 @@ export const usePagination = <T>({
       appendItems(response.data.items);
       setMeta(response.data.meta);
     } finally {
+      loadingMoreRef.current = false;
       setLoadingMore(false);
     }
-  }, [appendItems, fetchPage, hasMore, loadingMore, meta.limit, meta.page]);
+  }, [appendItems, fetchPage]);
 
   const loadPage = useCallback(
     async (page: number) => {
-      if (loading) return;
+      if (loadingRef.current) return;
 
+      loadingRef.current = true;
       setLoading(true);
       try {
+        const currentMeta = metaRef.current;
         const response = await fetchPage({
           page,
-          limit: meta.limit,
+          limit: currentMeta.limit,
         });
 
         if (response.status !== "success") return;
@@ -79,10 +104,11 @@ export const usePagination = <T>({
         setItems(response.data.items);
         setMeta(response.data.meta);
       } finally {
+        loadingRef.current = false;
         setLoading(false);
       }
     },
-    [fetchPage, loading, meta.limit],
+    [fetchPage],
   );
 
   const totalPages = useMemo(

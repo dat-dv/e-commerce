@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useSimilarProducts } from "./use-similar-products";
-import { useRecommendedProducts } from "./use-recommended-products";
 import { useProductReviews } from "./use-product-reviews";
 import { useProductActions } from "./use-product-actions";
 
@@ -78,8 +77,6 @@ export const useProductDetail = (product: TProduct) => {
     product.id,
   );
   const { similarProducts, loadingSimilar } = useSimilarProducts(product.id);
-  const { recommendedProducts, isLoading: loadingRecommended } =
-    useRecommendedProducts();
 
   // 6. Action handlers
   const { handleAddToCart, handleBuyNow } = useProductActions(
@@ -110,8 +107,6 @@ export const useProductDetail = (product: TProduct) => {
     loadingReviews,
     similarProducts,
     loadingSimilar,
-    recommendedProducts,
-    loadingRecommended,
 
     // Actions
     handleAddToCart,

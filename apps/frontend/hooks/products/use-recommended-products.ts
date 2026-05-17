@@ -27,11 +27,11 @@ export const useRecommendedProducts = () => {
       fetchPage: fetchRecommendedPage,
       getItemKey: (product) => product.id,
     });
+  const fetchRecommendedProducts = useCallback(() => loadPage(1), [loadPage]);
 
   useEffect(() => {
-    loadPage(1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchRecommendedProducts();
+  }, [fetchRecommendedProducts]);
 
   return {
     recommendedProducts: items,
@@ -39,7 +39,7 @@ export const useRecommendedProducts = () => {
     page: meta.page,
     hasMore,
     total: meta.total,
-    fetchRecommendedProducts: () => loadPage(1),
+    fetchRecommendedProducts,
     fetchMore: loadMore,
   };
 };

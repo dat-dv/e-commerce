@@ -27,6 +27,7 @@ export const useLoadRecentViewedProducts = () => {
       fetchPage: fetchRecentViewedPage,
       getItemKey: (product) => product.id,
     });
+  const fetchRecentViewedProducts = useCallback(() => loadPage(1), [loadPage]);
 
   return {
     recentViewedProducts: items,
@@ -35,7 +36,7 @@ export const useLoadRecentViewedProducts = () => {
     page: meta.page,
     hasMore,
     total: meta.total,
-    fetchRecentViewedProducts: () => loadPage(1),
+    fetchRecentViewedProducts,
     fetchMore: loadMore,
   };
 };
