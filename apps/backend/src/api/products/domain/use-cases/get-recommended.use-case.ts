@@ -12,14 +12,14 @@ export class GetRecommendedUseCase {
   async execute(
     page = 1,
     limit = 15,
-    userId?: string,
+    user_id?: string,
     languageCode = 'vi',
   ): Promise<IPaginatedResult<IProductResponse>> {
     return this.productsRepository.findPaginated({
       page,
       limit,
       languageCode,
-      userId,
+      user_id,
     });
   }
 }

@@ -1,15 +1,5 @@
 import type { RequestWithUser } from 'src/shared/types/request.type';
-import {
-  Controller,
-  Get,
-  Param,
-  Query,
-  Req,
-  UseGuards,
-  DefaultValuePipe,
-  ParseIntPipe,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { OptionalAuthGuard } from '../auth/guards/optional-auth.guard';
@@ -45,9 +35,17 @@ export class ProductsController {
     private readonly getSimilarProductsUseCase: GetSimilarProductsUseCase,
   ) {}
 
+  @UseGuards(OptionalAuthGuard)
   @Get()
-  async getProducts(@Query() query: GetProductsDto): Promise<IApiResponse<IProductListResponse>> {
-    const result = await this.getProductsUseCase.execute(query);
+  async getProducts(
+    @Req() req: RequestWithUser,
+    @Query() query: GetProductsDto,
+  ): Promise<IApiResponse<IProductListResponse>> {
+    const user_id = req.user?.sub;
+    const result = await this.getProductsUseCase.execute({
+      ...query,
+      user_id,
+    });
     return createSuccessResponse(result);
   }
 

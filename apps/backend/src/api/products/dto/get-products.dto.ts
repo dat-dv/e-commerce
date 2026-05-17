@@ -67,5 +67,5 @@ export class GetProductsDto implements IGetProductsParams {
 
   @IsOptional()
   @IsString()
-  userId?: string;
+  user_id?: string;
 }

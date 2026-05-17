@@ -474,7 +474,7 @@ export class ProductsRepository implements IProductsRepository {
       attribute_value_ids,
       sort,
       languageCode = 'vi',
-      userId,
+      user_id,
     } = params;
 
     const where: Prisma.ProductWhereInput = {
@@ -558,7 +558,7 @@ export class ProductsRepository implements IProductsRepository {
       limit,
     );
 
-    result.items = await this.attachFavoriteStatus(result.items, userId);
+    result.items = await this.attachFavoriteStatus(result.items, user_id);
 
     return result;
   }

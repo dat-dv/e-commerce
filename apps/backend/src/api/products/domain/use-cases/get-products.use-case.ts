@@ -18,6 +18,8 @@ export class GetProductsUseCase {
     brand_id?: string;
     min_price?: number;
     max_price?: number;
+    rating?: number;
+    user_id?: string;
     attribute_value_ids?: string[];
     sort?: EProductSort;
     languageCode?: string;
@@ -34,6 +36,8 @@ export class GetProductsUseCase {
       brand_id: params.brand_id,
       min_price: params.min_price,
       max_price: params.max_price,
+      rating: params.rating,
+      user_id: params.user_id,
       attribute_value_ids: params.attribute_value_ids,
       sort: params.sort,
       languageCode: params.languageCode,
