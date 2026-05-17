@@ -8,7 +8,7 @@ export const refreshState = {
   failedQueue: [] as QueueItem[],
 };
 
-export const processQueue = (error: unknown) => {
+export const processQueue = (error: unknown): void => {
   refreshState.failedQueue.forEach((prom) => {
     if (error) {
       prom.reject(error);

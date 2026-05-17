@@ -80,6 +80,8 @@ export const usePagination = <T>({
 
       appendItems(response.data.items);
       setMeta(response.data.meta);
+    } catch (error) {
+      console.log("Pagination loadMore error:", error);
     } finally {
       loadingMoreRef.current = false;
       setLoadingMore(false);
@@ -103,6 +105,8 @@ export const usePagination = <T>({
 
         setItems(response.data.items);
         setMeta(response.data.meta);
+      } catch (error) {
+        console.log("Pagination loadPage error:", error);
       } finally {
         loadingRef.current = false;
         setLoading(false);

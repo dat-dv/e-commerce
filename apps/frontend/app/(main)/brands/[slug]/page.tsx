@@ -2,7 +2,7 @@ import { BrandDetailView } from "@/components/organisms/brand-detail-view";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { allSafe } from "@/utils/promise";
+import { allSafe, safe } from "@/utils/promise";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 
 interface IBrandDetailPageProps {
@@ -19,7 +19,8 @@ export async function generateMetadata({
   params,
 }: IBrandDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const { data: brand } = await brandsUseCase.getBrandBySlug.execute(slug);
+  const brandResult = await safe(brandsUseCase.getBrandBySlug.execute(slug));
+  const brand = brandResult?.data;
 
   if (!brand) return { title: "Brand Not Found" };
 

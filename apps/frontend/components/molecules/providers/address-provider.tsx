@@ -7,6 +7,7 @@ import { createAddressStore } from "@/store/address-store";
 import { addressesUseCase } from "@/domain/addresses";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { TAddress } from "@/domain/addresses/types/address.model";
+import { safe } from "@/utils/promise";
 
 export type AddressStore = ReturnType<typeof createAddressStore>;
 export const AddressContext = createContext<AddressStore | null>(null);
@@ -32,7 +33,7 @@ export const AddressProvider = ({
   useEffect(() => {
     if (!user || hasHydrated) return;
     const getAddresses = async () => {
-      const res = await addressesUseCase.getAddresses.execute();
+      const res = await safe(addressesUseCase.getAddresses.execute());
       const initialAddresses = res?.data || [];
       const setAddresses = store.getState().setAddresses;
       const setHasHydrated = store.getState().setHasHydrated;
