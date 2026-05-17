@@ -4,11 +4,15 @@ import { useState, useCallback } from "react";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 import { toast } from "react-toastify";
+import { useFavoritesStore } from "./use-favorites-store";
 
 export const useToggleFavorite = (
   productId: string,
   initialIsFavorited: boolean = false,
 ) => {
+  const addFavorite = useFavoritesStore((state) => state.addFavorite);
+  const removeFavorite = useFavoritesStore((state) => state.removeFavorite);
+
   const [isFavorited, setIsFavorited] = useState(initialIsFavorited);
   const [loading, setLoading] = useState(false);
   const userId = useAuthStore((s) => s.user?.id);
@@ -35,11 +39,22 @@ export const useToggleFavorite = (
           );
 
         if (response.status === "success") {
-          setIsFavorited(response.data.isFavorited);
+          const nextState = response.data.isFavorited;
+          setIsFavorited(nextState);
+
+          // Synchronize global FavoritesStore
+          if (nextState) {
+            addFavorite({
+              userId: userId || "",
+              productId,
+              createdAt: new Date().toISOString(),
+            });
+          } else {
+            removeFavorite(productId);
+          }
+
           toast.success(
-            response.data.isFavorited
-              ? "Added to wishlist"
-              : "Removed from wishlist",
+            nextState ? "Added to wishlist" : "Removed from wishlist",
           );
         }
       } catch (error) {
@@ -49,7 +64,7 @@ export const useToggleFavorite = (
         setLoading(false);
       }
     },
-    [productId, userId],
+    [productId, userId, addFavorite, removeFavorite],
   );
 
   return { isFavorited, loading, toggle };

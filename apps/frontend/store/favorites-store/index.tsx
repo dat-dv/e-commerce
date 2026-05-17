@@ -20,6 +20,24 @@ const createFavoritesStoreCreator =
         set((state) => ({
           favorites: [...state.favorites, ...favorites],
         })),
+      addFavorite: (favorite) =>
+        set((state) => {
+          const alreadyExists = state.favorites.some(
+            (fav) => fav.productId === favorite.productId,
+          );
+          if (alreadyExists) return {};
+          return {
+            favorites: [favorite, ...state.favorites],
+            total: state.total + 1,
+          };
+        }),
+      removeFavorite: (productId) =>
+        set((state) => ({
+          favorites: state.favorites.filter(
+            (fav) => fav.productId !== productId,
+          ),
+          total: Math.max(0, state.total - 1),
+        })),
       setLoading: (loading) => set({ loading }),
       setLoadingMore: (loadingMore) => set({ loadingMore }),
       setPage: (page) => set({ page }),

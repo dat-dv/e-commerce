@@ -12,6 +12,8 @@ export interface IFavoritesStoreState {
 export interface IFavoritesStore extends IFavoritesStoreState {
   setFavorites: (favorites: TUserFavoriteProductItem[]) => void;
   appendFavorites: (favorites: TUserFavoriteProductItem[]) => void;
+  addFavorite: (favorite: TUserFavoriteProductItem) => void;
+  removeFavorite: (productId: string) => void;
   setLoading: (loading: boolean) => void;
   setLoadingMore: (loadingMore: boolean) => void;
   setPage: (page: number) => void;
