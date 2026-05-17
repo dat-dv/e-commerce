@@ -10,7 +10,7 @@ import { Settings } from "lucide-react";
 import { GlobalSearch } from "@/components/organisms/global-search";
 import { CategoryMegaMenuContentWrapper } from "../categories-dropdown";
 
-import { useClickOutside } from "@/hooks/ui/use-click-outside";
+import { useClickOutside } from "@/hooks/use-click-outside";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useRef } from "react";
 
