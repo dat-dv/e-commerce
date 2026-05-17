@@ -3,8 +3,6 @@
 import { X } from "lucide-react";
 import { EProductSort } from "@ecommerce/shared";
 
-type FilterKey = "sort" | "min_price" | "max_price" | "rating" | "search";
-
 export interface AppliedFilters {
   search?: string;
   sort?: string;
@@ -13,9 +11,9 @@ export interface AppliedFilters {
   rating?: number;
 }
 
-interface AppliedFiltersBarProps {
+interface AppliedFiltersBarProps<T extends string = string> {
   filters: AppliedFilters;
-  onClearFilter: (key: FilterKey) => void;
+  onClearFilter: (key: T) => void;
   onResetFilters: () => void;
 }
 
@@ -26,30 +24,30 @@ const sortLabels: Record<string, string> = {
   [EProductSort.PRICE_DESC]: "Price High to Low",
 };
 
-export function AppliedFiltersBar({
+export function AppliedFiltersBar<T extends string = string>({
   filters,
   onClearFilter,
   onResetFilters,
-}: AppliedFiltersBarProps) {
-  const chips: { key: FilterKey; label: string }[] = [];
+}: AppliedFiltersBarProps<T>) {
+  const chips: { key: T; label: string }[] = [];
 
   if (filters.search) {
-    chips.push({ key: "search", label: `Search: ${filters.search}` });
+    chips.push({ key: "search" as T, label: `Search: ${filters.search}` });
   }
   if (filters.sort && filters.sort !== EProductSort.DEFAULT.toString()) {
     chips.push({
-      key: "sort",
+      key: "sort" as T,
       label: `Sort: ${sortLabels[filters.sort] || filters.sort}`,
     });
   }
   if (filters.min_price !== undefined) {
-    chips.push({ key: "min_price", label: `Min: ${filters.min_price}` });
+    chips.push({ key: "min_price" as T, label: `Min: ${filters.min_price}` });
   }
   if (filters.max_price !== undefined) {
-    chips.push({ key: "max_price", label: `Max: ${filters.max_price}` });
+    chips.push({ key: "max_price" as T, label: `Max: ${filters.max_price}` });
   }
   if (filters.rating !== undefined) {
-    chips.push({ key: "rating", label: `${filters.rating}+ Stars` });
+    chips.push({ key: "rating" as T, label: `${filters.rating}+ Stars` });
   }
 
   if (chips.length === 0) return null;

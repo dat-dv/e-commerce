@@ -50,7 +50,7 @@ export function ProductsCatalog<T extends string = string>({
         onSortChange={onSortChange}
       />
       {appliedFilters && onClearFilter && onResetFilters && (
-        <AppliedFiltersBar
+        <AppliedFiltersBar<T>
           filters={appliedFilters}
           onClearFilter={onClearFilter}
           onResetFilters={onResetFilters}
