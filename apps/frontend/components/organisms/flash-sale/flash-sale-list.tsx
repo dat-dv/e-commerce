@@ -1,43 +1,91 @@
 "use client";
-import { motion } from "framer-motion";
 
-const FlashSaleList = () => {
+import { useCallback, useMemo, useState, useTransition } from "react";
+import { Flame } from "lucide-react";
+import { motion } from "framer-motion";
+import { FlashSaleCard } from "@/components/molecules/product-card/flash-sale-card";
+import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
+import { TProduct } from "@/domain/products/types/products.model";
+import { productsUseCase } from "@/domain/products/use-cases";
+import { IPaginationMeta } from "@/utils/request/request.types";
+import EmptyState from "@/components/molecules/empty-space";
+
+interface FlashSaleListProps {
+  products: TProduct[];
+  meta: IPaginationMeta;
+}
+
+const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
+  const [items, setItems] = useState(products);
+  const [pageMeta, setPageMeta] = useState(meta);
+  const [isPending, startTransition] = useTransition();
+
+  const hasMore = pageMeta.page < pageMeta.totalPages;
+
+  const loadMore = useCallback(() => {
+    if (isPending || !hasMore) return;
+
+    startTransition(async () => {
+      const nextPage = pageMeta.page + 1;
+      const response = await productsUseCase.getFlashSale.execute({
+        page: nextPage,
+        limit: pageMeta.limit,
+      });
+
+      if (response.status !== "success") return;
+
+      setItems((currentItems) => [
+        ...currentItems,
+        ...response.data.items.filter(
+          (nextItem) =>
+            !currentItems.some((currentItem) => currentItem.id === nextItem.id),
+        ),
+      ]);
+      setPageMeta(response.data.meta);
+    });
+  }, [hasMore, isPending, pageMeta.limit, pageMeta.page]);
+
+  const totalPagesText = useMemo(
+    () => Math.max(pageMeta.totalPages, 1),
+    [pageMeta.totalPages],
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
-      className="relative z-20 w-full"
+      className="relative z-20 w-full py-10"
     >
-      <div className="flex flex-col items-center justify-center min-h-[40vh] text-center gap-12">
-        <div className="w-full p-12 rounded-[2.5rem] bg-content/[0.02] border border-content/[0.05] backdrop-blur-3xl relative overflow-hidden group">
-          {/* Decorative element */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 blur-[80px] -translate-y-1/2 translate-x-1/2" />
+      {items.length > 0 ? (
+        <div className="space-y-8">
+          <ListingSectionHeader
+            eyebrow="Live Deals"
+            title={`${pageMeta.total} flash sale products`}
+            icon={<Flame size={18} className="fill-red-500 text-red-500" />}
+            meta={`Page ${pageMeta.page} of ${totalPagesText}`}
+          />
 
-          <div className="relative z-10 flex flex-col items-center gap-8">
-            <div className="flex flex-col gap-3">
-              <h2 className="text-2xl md:text-3xl font-black text-content uppercase tracking-tight">
-                Synchronizing Deals
-              </h2>
-              <p className="text-content/40 font-medium max-w-md mx-auto">
-                The next batch of high-performance offers is being prepared.
-                Stay synchronized.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-[4/5] rounded-3xl bg-content/[0.03] border border-content/[0.05] animate-pulse relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-content/[0.02] to-transparent" />
-                </div>
-              ))}
-            </div>
-          </div>
+          <VirtualGrid
+            data={items}
+            renderItem={(product) => <FlashSaleCard product={product} />}
+            keyExtractor={(product) => product.id}
+            loadingMore={isPending}
+            hasMore={hasMore}
+            onLoadMore={loadMore}
+            loadingText="Loading more deals..."
+            endText="All flash sale products loaded"
+            gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
+            itemClassName="min-w-0"
+          />
         </div>
-      </div>
+      ) : (
+        <EmptyState
+          title="No flash sale products found"
+          description="There are no flash sale products available at the moment."
+        />
+      )}
     </motion.div>
   );
 };

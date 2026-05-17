@@ -120,7 +120,7 @@ export function VirtualGrid<T>({
           </div>
         ) : hasMore ? (
           <div className="h-12" />
-        ) : data.length > 0 ? (
+        ) : data.length > 0 && endText ? (
           <div className="py-6 flex items-center gap-4 w-full px-4">
             <div className="h-px flex-1 bg-content/[0.05]" />
 

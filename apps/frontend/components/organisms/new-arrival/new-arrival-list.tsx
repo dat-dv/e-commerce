@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 
 const NewArrivalList = () => {
   return (
@@ -10,16 +12,12 @@ const NewArrivalList = () => {
       transition={{ delay: 0.2 }}
       className="py-8"
     >
-      {/* Section header */}
-      <div className="flex items-center justify-between mb-10">
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.4em] font-bold text-content/30 mb-2">
-            Collection
-          </p>
-          <h2 className="text-2xl font-black text-content tracking-tight">
-            Latest Products
-          </h2>
-        </div>
+      <div className="mb-10">
+        <ListingSectionHeader
+          eyebrow="Collection"
+          title="Latest Products"
+          icon={<Sparkles size={18} className="text-primary" />}
+        />
       </div>
 
       {/* Skeleton product grid */}
