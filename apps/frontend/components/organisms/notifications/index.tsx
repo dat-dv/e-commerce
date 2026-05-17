@@ -9,6 +9,7 @@ import { NotificationHeader } from "./parts/notification-header";
 import { NotificationList } from "./parts/notification-list";
 import { NotificationPageHeader } from "./parts/notification-page-header";
 import { NotificationSummary } from "./parts/notification-summary";
+import { useLoadOnce } from "@/hooks/use-load-once";
 
 export const NotificationsView = () => {
   const {
@@ -18,7 +19,10 @@ export const NotificationsView = () => {
     markAllAsRead,
     loading,
     setSearch,
+    refresh,
   } = useNotifications();
+
+  useLoadOnce(refresh);
 
   const totalCount = notifications.length;
 

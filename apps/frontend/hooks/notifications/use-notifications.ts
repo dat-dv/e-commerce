@@ -60,10 +60,6 @@ export const useNotifications = () => {
     }
   };
 
-  useEffect(() => {
-    fetchNotifications();
-  }, [fetchNotifications]);
-
   const filteredNotifications = notifications.filter((n) => {
     if (!searchQuery) return true;
     const lowerQuery = searchQuery.toLowerCase();
