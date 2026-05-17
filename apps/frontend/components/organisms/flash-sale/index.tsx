@@ -11,12 +11,10 @@ interface FlashSaleViewProps {
 
 const FlashSaleView = ({ products, meta }: FlashSaleViewProps) => {
   return (
-    <>
+    <AppContainer>
       <FlashSaleHeader />
-      <AppContainer>
-        <FlashSaleList products={products} meta={meta} />
-      </AppContainer>
-    </>
+      <FlashSaleList products={products} meta={meta} />
+    </AppContainer>
   );
 };
 

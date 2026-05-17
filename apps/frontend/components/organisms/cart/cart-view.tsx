@@ -14,7 +14,7 @@ import { CartItemRow } from "../../molecules/cart-part/cart-item-row";
 import { CartFooter } from "../../molecules/cart-part/cart-footer";
 import { EmptyCart } from "../../molecules/cart-part/empty-cart";
 
-export function CartView() {
+export default function CartView() {
   const {
     items,
     selectedSkuIds,

@@ -8,6 +8,7 @@ import { seedHomepageSections } from './homepage-sections';
 import { seedBrands } from './brands';
 import { updateTopBrands } from './update-top-brands';
 import { seedFlashSales } from './flash-sale';
+import { seedNotifications } from './notifications';
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
@@ -24,6 +25,8 @@ async function cleanDatabase() {
   await prisma.cart.deleteMany({});
   await prisma.orderItem.deleteMany({});
   await prisma.order.deleteMany({});
+  await prisma.notificationToken.deleteMany({});
+  await prisma.notification.deleteMany({});
   await prisma.featuredCategory.deleteMany({});
   await prisma.userFavoriteCategory.deleteMany({});
   await prisma.userBrowsingHistory.deleteMany({});
@@ -68,6 +71,9 @@ async function main() {
 
   // --- Phase 4: Promotions ---
   await seedFlashSales(prisma);
+
+  // --- Phase 5: Notifications ---
+  await seedNotifications(prisma);
 
   console.log('🚀 Seed dữ liệu hoàn tất!');
 }

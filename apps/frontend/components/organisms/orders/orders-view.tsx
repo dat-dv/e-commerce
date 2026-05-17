@@ -47,9 +47,8 @@ export const OrdersView = () => {
 
   return (
     <>
-      <OrderHeader />
-
       <AppContainer>
+        <OrderHeader />
         <div className="-mt-6 pb-6">
           <OrderTabs activeTab={activeTab} onTabChange={setActiveTab} />
         </div>

@@ -63,35 +63,32 @@ export function SearchView({ searchQuery }: SearchViewProps) {
       : searchQuery;
 
   return (
-    <>
+    <AppContainer size="2xl" className="py-12 md:py-16">
       <ProductsHeader
         title={searchQuery ? `Results for "${shortQuery}"` : "Search Products"}
         description={`We found ${total} products matching your criteria.`}
       />
-      <AppContainer size="2xl" className="py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-24">
-          <SearchSidebar
-            categories={categories}
-            onFilterChange={updateFilter}
-            onCategoryChange={navigateToCategory}
-          />
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-24">
+        <SearchSidebar
+          categories={categories}
+          onFilterChange={updateFilter}
+          onCategoryChange={navigateToCategory}
+        />
 
-          <SearchProductList
-            products={products}
-            total={total}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            loading={loading}
-            pageStr={page}
-            shortQuery={shortQuery}
-          />
-        </div>
-
-        {/* Discovery Sections */}
-        <div className="pt-24 border-t border-content/[0.05]">
-          <DiscoveryCarouselSection />
-        </div>
-      </AppContainer>
-    </>
+        <SearchProductList
+          products={products}
+          total={total}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          loading={loading}
+          pageStr={page}
+          shortQuery={shortQuery}
+        />
+      </div>
+      {/* Discovery Sections */}
+      <div className="pt-24 border-t border-content/[0.05]">
+        <DiscoveryCarouselSection />
+      </div>
+    </AppContainer>
   );
 }

@@ -32,39 +32,33 @@ export const NotificationsView = () => {
   const totalCount = total || notifications.length;
 
   return (
-    <>
+    <AppContainer>
       <NotificationPageHeader unreadCount={unreadCount} />
+      <NotificationSummary totalCount={totalCount} unreadCount={unreadCount} />
 
-      <AppContainer>
-        <NotificationSummary
-          totalCount={totalCount}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col gap-8"
+      >
+        <NotificationHeader
           unreadCount={unreadCount}
+          onMarkAllAsRead={markAllAsRead}
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col gap-8"
-        >
-          <NotificationHeader
-            unreadCount={unreadCount}
-            onMarkAllAsRead={markAllAsRead}
+        <div className="grid grid-cols-1 gap-8">
+          <NotificationFilters onSearch={setSearch} />
+
+          <NotificationList
+            notifications={notifications}
+            loading={loading}
+            loadingMore={loadingMore}
+            hasMore={hasMore}
+            onMarkAsRead={markAsRead}
+            onLoadMore={loadMore}
           />
-
-          <div className="grid grid-cols-1 gap-8">
-            <NotificationFilters onSearch={setSearch} />
-
-            <NotificationList
-              notifications={notifications}
-              loading={loading}
-              loadingMore={loadingMore}
-              hasMore={hasMore}
-              onMarkAsRead={markAsRead}
-              onLoadMore={loadMore}
-            />
-          </div>
-        </motion.div>
-      </AppContainer>
-    </>
+        </div>
+      </motion.div>
+    </AppContainer>
   );
 };

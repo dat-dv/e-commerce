@@ -9,12 +9,10 @@ interface TopBrandsViewProps {
 
 const TopBrandsView = ({ brands }: TopBrandsViewProps) => {
   return (
-    <>
+    <AppContainer>
       <TopBrandsHeader />
-      <AppContainer>
-        <TopBrandsGrid brands={brands} />
-      </AppContainer>
-    </>
+      <TopBrandsGrid brands={brands} />
+    </AppContainer>
   );
 };
 
