@@ -6,7 +6,7 @@ import { APP_ROUTES } from "@/constants/routes";
 
 export const EmptyCart = () => {
   return (
-    <div className="bg-surface/50 border border-content/[0.05] backdrop-blur-3xl rounded-[3rem] p-24 text-center flex flex-col items-center justify-center min-h-[50vh] relative overflow-hidden">
+    <div className="bg-surface/50 border border-content/[0.05] backdrop-blur-3xl rounded-[2rem] p-24 text-center flex flex-col items-center justify-center min-h-[50vh] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-primary/20 blur-xl pointer-events-none" />
 
       <div className="bg-content/[0.02] p-8 rounded-full mb-10 border border-content/5 relative group">

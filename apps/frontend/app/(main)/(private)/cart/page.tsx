@@ -1,4 +1,4 @@
-import CartView from "@/components/organisms/cart/cart-view";
+import { CartView } from "@/components/organisms/cart";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
