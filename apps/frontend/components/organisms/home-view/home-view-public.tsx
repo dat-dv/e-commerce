@@ -12,8 +12,14 @@ import { DynamicSections } from "./dynamic-sections";
 import { useConfig } from "@/hooks/config/use-config";
 import HomeWelcomeSection from "@/components/molecules/welcome-banner";
 import { JoinUs } from "@/components/molecules/join-us";
+import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
+import { TProduct } from "@/domain/products/types/products.model";
 
-export const HomepagePublic = () => {
+interface HomepagePublicProps {
+  flashSaleProducts: TProduct[];
+}
+
+export const HomepagePublic = ({ flashSaleProducts }: HomepagePublicProps) => {
   const sections = useProductsStore((state) => state.sections);
   const { treeCategories: categories } = useCategories();
   const { language: lang } = useConfig();
@@ -29,6 +35,8 @@ export const HomepagePublic = () => {
 
         {/* Categories Section */}
         <CategoriesCarousel categories={categories} lang={lang} />
+
+        <FlashSaleCarousel products={flashSaleProducts} />
 
         {/* 3. Dynamic Backend Sections */}
         <DynamicSections sections={sections} />

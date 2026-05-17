@@ -13,8 +13,16 @@ import { useCategories } from "@/hooks/categories/use-homepage-categories";
 import { DynamicSections } from "./dynamic-sections";
 import { useConfig } from "@/hooks/config/use-config";
 import DiscoverySections from "../discovery-sections";
+import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
+import { TProduct } from "@/domain/products/types/products.model";
 
-export const HomepagePrivate = () => {
+interface HomepagePrivateProps {
+  flashSaleProducts: TProduct[];
+}
+
+export const HomepagePrivate = ({
+  flashSaleProducts,
+}: HomepagePrivateProps) => {
   const user = useAuthStore((state) => state.user);
   const sections = useProductsStore((state) => state.sections);
   const { treeCategories: categories } = useCategories();
@@ -31,6 +39,8 @@ export const HomepagePrivate = () => {
         <FeatureGrid items={FEATURE_ITEMS} />
         {/* Categories Section */}
         <CategoriesCarousel categories={categories} lang={lang} />
+
+        <FlashSaleCarousel products={flashSaleProducts} />
 
         {/* 3. Dynamic Backend Sections */}
         <DynamicSections sections={sections} />

@@ -8,11 +8,9 @@ const createProductsStoreCreator =
   (initState?: Partial<IProductsStoreState>): StateCreator<IProductsStore> =>
   (set, _get, _store) => {
     const state: IProductsStore = {
-      flashSaleProducts: [],
       sections: [],
       loading: false,
       ...initState,
-      setFlashSaleProducts: (products) => set({ flashSaleProducts: products }),
       setSections: (sections) => set({ sections }),
       setLoading: (loading) => set({ loading }),
       hydrate: (data) => set((state) => ({ ...state, ...data })),
