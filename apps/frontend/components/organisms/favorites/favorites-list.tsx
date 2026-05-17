@@ -7,11 +7,12 @@ import EmptyState from "@/components/molecules/empty-space";
 const FavoritesGrid = ({
   favorites,
   loading,
+  loadingMore,
   hasMore,
   fetchMore,
 }: Pick<
   ReturnType<typeof useFavorites>,
-  "favorites" | "loading" | "hasMore" | "fetchMore"
+  "favorites" | "loading" | "loadingMore" | "hasMore" | "fetchMore"
 >) => {
   if (!loading && favorites.length === 0) {
     return (
@@ -26,7 +27,7 @@ const FavoritesGrid = ({
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <VirtualGrid
         data={favorites}
-        loadingMore={loading}
+        loadingMore={loadingMore}
         hasMore={hasMore}
         onLoadMore={fetchMore}
         renderItem={(fav) => (

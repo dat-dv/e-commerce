@@ -8,13 +8,16 @@ import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
 } from "@/constants/pagination.constant";
+import { IPaginationMeta } from "@/utils/request/request.types";
 
 const LIMIT = PAGINATION_LIMITS.FAVORITES;
 
 export const useFavorites = ({
   initialItems = [],
+  initialMeta = createInitialPaginationMeta(LIMIT),
 }: {
   initialItems?: TUserFavoriteProductItem[];
+  initialMeta?: IPaginationMeta;
 } = {}) => {
   const fetchFavoritesPage = useCallback(
     (params: { page: number; limit: number }) =>
@@ -30,11 +33,12 @@ export const useFavorites = ({
     meta,
     hasMore,
     loading,
+    loadingMore,
     loadPage,
     loadMore: fetchMore,
   } = usePagination<TUserFavoriteProductItem>({
     initialItems: initialItems,
-    initialMeta: createInitialPaginationMeta(LIMIT),
+    initialMeta,
     fetchPage: fetchFavoritesPage,
     getItemKey: (item) => item.productId,
   });
@@ -63,6 +67,7 @@ export const useFavorites = ({
   return {
     favorites,
     loading,
+    loadingMore,
     page: meta.page,
     hasMore,
     meta,

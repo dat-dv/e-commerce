@@ -6,12 +6,24 @@ import FavoritesGrid from "./favorites-list";
 import FavoritesBanner from "./favorite-banner";
 import AppContainer from "@/components/atoms/app-container";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
-import { useLoadOnce } from "@/hooks/use-load-once";
+import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
+import { IPaginationMeta } from "@/utils/request/request.types";
 
-export const FavoritesView = () => {
-  const { fetchFavorites, favorites, loading, hasMore, fetchMore, meta } =
-    useFavorites();
-  useLoadOnce(fetchFavorites);
+interface FavoritesViewProps {
+  initialItems: TUserFavoriteProductItem[];
+  initialMeta: IPaginationMeta;
+}
+
+export const FavoritesView = ({
+  initialItems,
+  initialMeta,
+}: FavoritesViewProps) => {
+  const { favorites, loading, loadingMore, hasMore, fetchMore, meta } =
+    useFavorites({
+      initialItems,
+      initialMeta,
+    });
+
   return (
     <AppContainer>
       <FavoritesBanner count={meta.total} />
@@ -19,6 +31,7 @@ export const FavoritesView = () => {
         <FavoritesGrid
           favorites={favorites}
           loading={loading}
+          loadingMore={loadingMore}
           hasMore={hasMore}
           fetchMore={fetchMore}
         />
