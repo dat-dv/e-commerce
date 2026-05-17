@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Eye, ShoppingBag } from "lucide-react";
-import { motion } from "framer-motion";
 
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
