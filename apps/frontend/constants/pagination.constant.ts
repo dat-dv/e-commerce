@@ -4,6 +4,7 @@ export const PAGINATION_LIMITS = {
   DEFAULT: 16,
   PRODUCTS: 24,
   FAVORITES: 24,
+  CATEGORIES: 48,
   BRANDS: 48,
 } as const;
 

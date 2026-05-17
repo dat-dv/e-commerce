@@ -4,6 +4,7 @@ import { ProductsPageProvider } from "@/components/molecules/providers/products-
 import { ProductsView } from "@/components/organisms/products-view";
 import { allSafe } from "@/utils/promise";
 import NotFound from "@/app/not-found";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 
 interface ProductsPageProps {
   params: Promise<{ slug: string }>;
@@ -28,7 +29,7 @@ export default async function CategoryProductsPage({
   const sp = await searchParams;
 
   const page = sp.page ? parseInt(sp.page as string) : 1;
-  const limit = 56;
+  const limit = PAGINATION_LIMITS.CATEGORIES;
   const brand_id = sp.brand_id as string;
   const sort = sp.sort as string;
   const search = sp.search as string;

@@ -1,20 +1,17 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductCard } from "@/components/molecules/product-card";
 import { ProductsHeader } from "@/app/(main)/products/products-header";
 import { ProductsFilterSidebar } from "./products-filter-sidebar";
-import { ListingProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { TCategory } from "@/domain/categories/types/categories.model";
-import { Search } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Pagination } from "@/components/molecules/pagination";
 import { EProductSort } from "@ecommerce/shared";
-
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { ProductsCatalog } from "./products-catalog";
 
 interface ProductsViewProps {
   categorySlug: string;
@@ -63,7 +60,7 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
     fetchProducts({
       category_slug: categorySlug,
       page: page ? parseInt(page) : 1,
-      limit: 56,
+      limit: PAGINATION_LIMITS.CATEGORIES,
       sort: sort || EProductSort.DEFAULT.toString(),
       search: search || undefined,
     });
@@ -128,42 +125,15 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
         </div>
 
         {/* Products Area */}
-        <div className="lg:col-span-3">
-          <ListingProductsToolbar
-            total={total}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            isLoading={loading}
-          />
-
-          {loading ? (
-            <div className="text-center py-12">Loading...</div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
-
-          {products.length === 0 && !loading && (
-            <div className="text-center py-16 bg-surface/80 border border-content/[0.05] backdrop-blur-md rounded-xl shadow-sm flex flex-col items-center gap-3">
-              <Search className="w-8 h-8 text-content/20" />
-              <p className="text-content/50 text-sm">No products found.</p>
-            </div>
-          )}
-
-          {/* Pagination Section */}
-          {!loading && totalPages > 1 && (
-            <div className="mt-12">
-              <Pagination
-                currentPage={page ? parseInt(page) : 1}
-                totalPages={totalPages}
-                onPageChange={(p) => updateFilter("page", p.toString())}
-              />
-            </div>
-          )}
-        </div>
+        <ProductsCatalog
+          products={products}
+          total={total}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          loading={loading}
+          pageStr={page}
+          categoryTitle={categoryTitle || "Our Products"}
+        />
       </div>
     </AppContainer>
   );
