@@ -45,16 +45,13 @@ export const DynamicSections = ({ sections }: DynamicSectionsProps) => {
       {sections.map((sectionItem) => {
         const { type, title, categories, id } = sectionItem.section;
         const slug = categories?.[0]?.slug;
-
-        // 1. Flash Sale Section
-        if (
+        const isShowFlashSale =
           type === HOMEPAGE_SECTION_TYPES.FLASH_SALE &&
-          sectionItem.data.length > 0
-        ) {
+          sectionItem.data.length > 0;
+
+        if (isShowFlashSale) {
           return <FlashSale key={id} products={sectionItem.data} />;
         }
-
-        // 2. Standard Carousel Sections
         if (sectionItem.data.length > 0) {
           const targetHref = getSectionHref(type, slug);
 

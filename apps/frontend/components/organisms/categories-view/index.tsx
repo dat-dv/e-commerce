@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import AppContainer from "@/components/atoms/app-container";
-import { CategoriesSidebar } from "./sidebar";
 import { CategoriesContent } from "./content";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { CategoriesSidebar } from "@/components/molecules/caterogies-sidebar";
 
 export const CategoriesView = () => {
   const categoriesTree = useCategoriesStore((s) => s.categories);

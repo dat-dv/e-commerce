@@ -2,7 +2,7 @@
 
 import AppContainer from "@/components/atoms/app-container";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
-import { CategoriesSection } from "@/components/molecules/categories-section";
+import { CategoriesCarousel } from "@/components/molecules/categories-carousel";
 import { WelcomeBanner } from "@/components/molecules/welcome-banner";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
@@ -32,7 +32,7 @@ export const HomepagePrivate = () => {
         <FeatureGrid items={FEATURE_ITEMS} />
 
         {/* Categories Section */}
-        <CategoriesSection categories={categories} lang={lang} />
+        <CategoriesCarousel categories={categories} lang={lang} />
 
         {/* 3. Dynamic Backend Sections */}
         <DynamicSections sections={sections} />

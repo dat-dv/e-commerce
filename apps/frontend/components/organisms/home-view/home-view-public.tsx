@@ -4,7 +4,7 @@ import AppContainer from "@/components/atoms/app-container";
 import { HeroSection } from "@/components/molecules/hero-section";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { PromoBanner } from "@/components/molecules/promo-banner";
-import { CategoriesSection } from "@/components/molecules/categories-section";
+import { CategoriesCarousel } from "@/components/molecules/categories-carousel";
 
 import { FEATURE_ITEMS } from "@/constants/homepage";
 
@@ -32,7 +32,7 @@ export const HomepagePublic = () => {
         />
 
         {/* Categories Section */}
-        <CategoriesSection categories={categories} lang={lang} />
+        <CategoriesCarousel categories={categories} lang={lang} />
 
         {/* 3. Dynamic Backend Sections */}
         <DynamicSections sections={sections} />

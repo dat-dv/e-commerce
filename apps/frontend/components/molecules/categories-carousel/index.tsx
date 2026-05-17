@@ -13,7 +13,7 @@ interface ICategory {
   name: string;
 }
 
-interface CategoriesSectionProps {
+interface CategoriesCarouselProps {
   categories?: ICategory[];
   lang?: string;
   onLoadMore?: () => void;
@@ -21,11 +21,11 @@ interface CategoriesSectionProps {
   current?: number;
 }
 
-export const CategoriesSection = ({
+export const CategoriesCarousel = ({
   categories = [],
   lang = "vi",
   onLoadMore,
-}: CategoriesSectionProps) => {
+}: CategoriesCarouselProps) => {
   const title = lang === "vi" ? "Danh Mục" : "Categories";
 
   const chunkedCategories = [];
