@@ -4,8 +4,6 @@ import type { ICategoryResponse } from "../product-category/product-category.res
 export enum EHomepageSectionType {
   FLASH_SALE = "flash_sale",
   PRODUCT_CAROUSEL = "product_carousel",
-  RECOMMENDS = "recommends",
-  RECENT_VIEW = "recent_view",
 }
 
 export interface IHomepageSection extends Omit<HomepageSection, "created_at" | "updated_at"> {

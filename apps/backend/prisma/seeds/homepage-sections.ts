@@ -85,18 +85,6 @@ export async function seedHomepageSections(prisma: PrismaClient) {
       },
     },
     {
-      type: 'recommends',
-      order: 3,
-      is_enabled: true,
-      require_login: true,
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Gợi ý riêng cho bạn' },
-          { language_id: langEn.id, title: 'Recommended for You' },
-        ],
-      },
-    },
-    {
       type: 'product_carousel',
       order: 4,
       is_enabled: true,
@@ -106,18 +94,6 @@ export async function seedHomepageSections(prisma: PrismaClient) {
         create: [
           { language_id: langVi.id, title: 'Xu hướng Thời trang' },
           { language_id: langEn.id, title: 'Fashion Trends' },
-        ],
-      },
-    },
-    {
-      type: 'recent_view',
-      order: 5,
-      is_enabled: true,
-      require_login: true,
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Sản phẩm bạn vừa xem' },
-          { language_id: langEn.id, title: 'Recently Viewed' },
         ],
       },
     },

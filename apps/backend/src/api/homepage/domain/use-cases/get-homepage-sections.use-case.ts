@@ -2,7 +2,6 @@ import { Injectable, Inject } from '@nestjs/common';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
 import { EHomepageSectionType, IHomepageSectionResponse, IProductResponse } from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 
 @Injectable()
 export class GetHomepageSectionsUseCase {
@@ -11,63 +10,52 @@ export class GetHomepageSectionsUseCase {
     private readonly homepageSectionRepo: IHomepageSectionRepository,
     @Inject(IProductsRepository)
     private readonly productsRepo: IProductsRepository,
-    private readonly prisma: PrismaService,
   ) {}
 
   async execute(languageCode = 'en', userId?: string): Promise<IHomepageSectionResponse[]> {
     const isLoggedIn = !!userId;
     const sections = await this.homepageSectionRepo.findAllEnabled(languageCode, isLoggedIn);
+    const supportedSectionTypes = new Set<string>([
+      EHomepageSectionType.FLASH_SALE,
+      EHomepageSectionType.PRODUCT_CAROUSEL,
+    ]);
 
     const results = await Promise.all(
-      sections.map(async (section): Promise<IHomepageSectionResponse> => {
-        let data: IProductResponse[] = [];
+      sections
+        .filter((section) => supportedSectionTypes.has(section.type))
+        .map(async (section): Promise<IHomepageSectionResponse> => {
+          let data: IProductResponse[] = [];
 
-        const sectionType = section.type as EHomepageSectionType;
+          const sectionType = section.type as EHomepageSectionType;
 
-        if (sectionType === EHomepageSectionType.FLASH_SALE) {
-          const flashSale = await this.productsRepo.getActiveFlashSale(languageCode, userId);
-          if (flashSale) {
-            // Nghiệp vụ: Lồng dữ liệu Flash Sale vào SKU của Product, gom nhóm theo product ID
-            const productMap = new Map<string, IProductResponse>();
-            for (const p of flashSale.products) {
-              const prod = p.sku.product;
-              if (!productMap.has(prod.id)) {
-                productMap.set(prod.id, {
-                  ...prod,
-                  skus: [...(prod.skus || [])],
-                  translations: [...(prod.translations || [])],
-                });
+          if (sectionType === EHomepageSectionType.FLASH_SALE) {
+            const flashSale = await this.productsRepo.getActiveFlashSale(languageCode, userId);
+            if (flashSale) {
+              // Nghiệp vụ: Lồng dữ liệu Flash Sale vào SKU của Product, gom nhóm theo product ID
+              const productMap = new Map<string, IProductResponse>();
+              for (const p of flashSale.products) {
+                const prod = p.sku.product;
+                if (!productMap.has(prod.id)) {
+                  productMap.set(prod.id, {
+                    ...prod,
+                    skus: [...(prod.skus || [])],
+                    translations: [...(prod.translations || [])],
+                  });
+                }
+                const mappedProd = productMap.get(prod.id);
+                if (mappedProd && mappedProd?.skus) {
+                  mappedProd.skus = mappedProd.skus.map((sku) =>
+                    sku.id === p.sku_id ? { ...sku, flash_sales: [p] } : sku,
+                  );
+                }
               }
-              const mappedProd = productMap.get(prod.id);
-              if (mappedProd && mappedProd?.skus) {
-                mappedProd.skus = mappedProd.skus.map((sku) =>
-                  sku.id === p.sku_id ? { ...sku, flash_sales: [p] } : sku,
-                );
-              }
+              data = Array.from(productMap.values());
             }
-            data = Array.from(productMap.values());
-          }
-        } else if (sectionType === EHomepageSectionType.PRODUCT_CAROUSEL) {
-          const categorySlug = section?.categories?.[0]?.slug;
-          if (categorySlug) {
-            data = await this.productsRepo.findMany({
-              category_slug: categorySlug,
-              orderBy: { created_at: 'desc' },
-              take: 12,
-              languageCode,
-              userId,
-            });
-          }
-        } else if (sectionType === EHomepageSectionType.RECOMMENDS) {
-          if (userId) {
-            const favCats = await this.prisma.userFavoriteCategory.findMany({
-              where: { user_id: userId },
-              orderBy: { score: 'desc' },
-              take: 1,
-            });
-            if (favCats.length > 0) {
+          } else if (sectionType === EHomepageSectionType.PRODUCT_CAROUSEL) {
+            const categorySlug = section?.categories?.[0]?.slug;
+            if (categorySlug) {
               data = await this.productsRepo.findMany({
-                category_id: favCats[0].category_id,
+                category_slug: categorySlug,
                 orderBy: { created_at: 'desc' },
                 take: 12,
                 languageCode,
@@ -75,17 +63,12 @@ export class GetHomepageSectionsUseCase {
               });
             }
           }
-        } else if (sectionType === EHomepageSectionType.RECENT_VIEW) {
-          if (userId) {
-            data = await this.productsRepo.getRecentlyViewed(userId, 12, languageCode);
-          }
-        }
 
-        return {
-          section,
-          data,
-        };
-      }),
+          return {
+            section,
+            data,
+          };
+        }),
     );
 
     return results;

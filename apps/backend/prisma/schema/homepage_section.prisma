@@ -2,7 +2,7 @@
 
 model HomepageSection {
   id            String   @id @default(cuid())
-  type          String // e.g., 'flash_sale', 'product thuộc category', 'recommends', 'recent view' 
+  type          String // e.g., 'flash_sale', 'product_carousel'
   order         Int      @default(0)
   is_enabled    Boolean  @default(true)
   require_login Boolean  @default(false)

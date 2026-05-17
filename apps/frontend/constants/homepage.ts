@@ -4,8 +4,6 @@ import { APP_ROUTES } from "@/constants/routes";
 export const HOMEPAGE_SECTION_TYPES = {
   FLASH_SALE: "flash_sale",
   PRODUCT_CAROUSEL: "product_carousel",
-  RECOMMENDS: "recommends",
-  RECENT_VIEW: "recent_view",
 } as const;
 
 export type HomepageSectionType =

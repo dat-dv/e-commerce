@@ -1,15 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Zap,
-  Sparkles,
-  Laptop,
-  Home,
-  Heart,
-  Eye,
-  LucideIcon,
-} from "lucide-react";
+import { Zap, Sparkles, Laptop, Home, Heart, LucideIcon } from "lucide-react";
 import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
@@ -23,8 +15,6 @@ interface DynamicSectionsProps {
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
   [HOMEPAGE_SECTION_TYPES.FLASH_SALE]: Zap,
-  [HOMEPAGE_SECTION_TYPES.RECOMMENDS]: Sparkles,
-  [HOMEPAGE_SECTION_TYPES.RECENT_VIEW]: Eye,
   electronics: Laptop,
   "tv-audio-cameras": Laptop,
   "toys-baby-products": Sparkles,
@@ -35,8 +25,6 @@ const SECTION_ICONS: Record<string, LucideIcon> = {
 
 const getIcon = (type: string, slug?: string) => {
   if (type === HOMEPAGE_SECTION_TYPES.FLASH_SALE) return Zap;
-  if (type === HOMEPAGE_SECTION_TYPES.RECOMMENDS) return Sparkles;
-  if (type === HOMEPAGE_SECTION_TYPES.RECENT_VIEW) return Eye;
   return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
 };
 
