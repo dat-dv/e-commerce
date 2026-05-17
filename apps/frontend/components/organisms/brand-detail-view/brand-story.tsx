@@ -10,7 +10,7 @@ export function BrandStory({ brand }: BrandStoryProps) {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
       {/* Title Side */}
-      <div className="lg:col-span-5 flex flex-col gap-8 sticky top-32">
+      <div className="lg:col-span-5 flex flex-col gap-8">
         <div className="flex items-center gap-4">
           <div className="h-[1px] w-12 bg-primary" />
           <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary">
@@ -43,9 +43,8 @@ export function BrandStory({ brand }: BrandStoryProps) {
             </span>
             <p className="text-content/70 leading-relaxed font-medium">
               Established with a vision to redefine the boundaries of technology
-              and lifestyle,
-              {brand.name} has consistently delivered excellence across its
-              global portfolio.
+              and lifestyle, {brand.name} has consistently delivered excellence
+              across its global portfolio.
             </p>
           </div>
           <div className="flex flex-col gap-4">
@@ -54,8 +53,8 @@ export function BrandStory({ brand }: BrandStoryProps) {
             </span>
             <p className="text-content/70 leading-relaxed font-medium">
               At the core of {brand.name} lies a commitment to precision
-              engineering and a deep understanding of the modern consumer
-              &apos;s evolving needs.
+              engineering and a deep understanding of the modern consumer&apos;s
+              evolving needs.
             </p>
           </div>
         </div>
@@ -80,10 +79,9 @@ export function BrandStory({ brand }: BrandStoryProps) {
         <div className="flex flex-col gap-6">
           <p className="text-content/60 text-lg leading-relaxed">
             From its humble beginnings to its current status as a global leader,{" "}
-            {brand.name}
-            continues to push the limits of what&apos;s possible, merging
-            aesthetics with high-performance functionality in every product they
-            create.
+            {brand.name} continues to push the limits of what&apos;s possible,
+            merging aesthetics with high-performance functionality in every
+            product they create.
           </p>
         </div>
       </div>

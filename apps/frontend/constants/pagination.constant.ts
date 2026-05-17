@@ -1,10 +1,8 @@
 import { IPaginationMeta } from "@/utils/request/request.types";
 
 export const PAGINATION_LIMITS = {
-  DEFAULT: 15,
+  DEFAULT: 16,
   FAVORITES: 24,
-  RECENT_VIEWED: 15,
-  RECOMMENDED: 15,
 } as const;
 
 export const createInitialPaginationMeta = (

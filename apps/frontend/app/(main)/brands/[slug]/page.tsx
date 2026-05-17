@@ -1,13 +1,11 @@
-import AppContainer from "@/components/atoms/app-container";
+import { BrandDetailView } from "@/components/organisms/brand-detail-view";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { BrandHero } from "./brand-hero";
-import { BrandStory } from "./brand-story";
-import { BrandProductListSection } from "./brand-product-list";
 import { allSafe } from "@/utils/promise";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 
-interface BrandDetailPageProps {
+interface IBrandDetailPageProps {
   params: Promise<{
     slug: string;
   }>;
@@ -18,7 +16,7 @@ interface BrandDetailPageProps {
 
 export async function generateMetadata({
   params,
-}: BrandDetailPageProps): Promise<Metadata> {
+}: IBrandDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const { data: brand } = await brandsUseCase.getBrandBySlug.execute(slug);
 
@@ -33,16 +31,18 @@ export async function generateMetadata({
 export default async function BrandDetailPage({
   params,
   searchParams,
-}: BrandDetailPageProps) {
+}: IBrandDetailPageProps) {
   const { slug } = await params;
   const { page: pageStr } = await searchParams;
   const currentPage = pageStr ? Math.max(1, parseInt(pageStr, 10)) : 1;
 
-  console.log(`🔍 [BrandDetail] Accessing slug: ${slug}, page: ${currentPage}`);
-
   const [brandResult, productsResult] = await allSafe([
     brandsUseCase.getBrandBySlug.execute(slug),
-    brandsUseCase.getBrandProducts.execute(slug, currentPage, 20),
+    brandsUseCase.getBrandProducts.execute(
+      slug,
+      currentPage,
+      PAGINATION_LIMITS.DEFAULT,
+    ),
   ]);
 
   if (!brandResult?.data || !productsResult?.data) notFound();
@@ -51,21 +51,11 @@ export default async function BrandDetailPage({
   const productsData = productsResult.data;
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      {/* Hero Section */}
-      <BrandHero brand={brand} />
-      <AppContainer className="py-20 flex flex-col gap-32">
-        {/* Story Section */}
-        <BrandStory brand={brand} />
-
-        {/* Product Collection with interactive pagination */}
-        <BrandProductListSection
-          brand={brand}
-          products={productsData.items}
-          currentPage={currentPage}
-          totalPages={productsData.meta.totalPages}
-        />
-      </AppContainer>
-    </div>
+    <BrandDetailView
+      brand={brand}
+      products={productsData.items}
+      currentPage={currentPage}
+      totalPages={productsData.meta.totalPages}
+    />
   );
 }

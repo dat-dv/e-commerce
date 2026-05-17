@@ -9,7 +9,7 @@ import {
   createInitialPaginationMeta,
 } from "@/constants/pagination.constant";
 
-const LIMIT = PAGINATION_LIMITS.RECENT_VIEWED;
+const LIMIT = PAGINATION_LIMITS.DEFAULT;
 const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
 export const useLoadRecentViewedProducts = ({

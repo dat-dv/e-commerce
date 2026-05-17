@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { cn } from "@/utils/cn";
 
 const getPaginationRange = (currentPage: number, totalPages: number) => {
@@ -99,15 +99,40 @@ const PaginationArrow = ({
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  onPageChange: (page: number) => void;
+  onPageChange?: (page: number) => void;
+  queryParam?: string;
+  scroll?: boolean;
 }
 
+/**
+ * Pagination
+ *
+ * Why: Renders dynamic page-navigation selectors. Supporting both manual callbacks
+ * and automated query-parameter routing (queryParam) completely removes duplicated URL parsing
+ * and router pushing across views.
+ */
 export const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
+  queryParam,
+  scroll = false,
 }: PaginationProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
   if (totalPages <= 1) return null;
+
+  const handlePageSelect = (page: number) => {
+    if (queryParam) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(queryParam, page.toString());
+      router.push(`${pathname}?${params.toString()}`, { scroll });
+    } else if (onPageChange) {
+      onPageChange(page);
+    }
+  };
 
   const pages = getPaginationRange(currentPage, totalPages);
 
@@ -116,7 +141,7 @@ export const Pagination = ({
       <PaginationArrow
         direction="left"
         disabled={currentPage === 1}
-        onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+        onClick={() => handlePageSelect(Math.max(1, currentPage - 1))}
       />
 
       <div className="flex items-center gap-2">
@@ -125,7 +150,7 @@ export const Pagination = ({
             key={i}
             page={p}
             active={currentPage === p}
-            onClick={onPageChange}
+            onClick={handlePageSelect}
           />
         ))}
       </div>
@@ -133,7 +158,7 @@ export const Pagination = ({
       <PaginationArrow
         direction="right"
         disabled={currentPage === totalPages}
-        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+        onClick={() => handlePageSelect(Math.min(totalPages, currentPage + 1))}
       />
     </div>
   );

@@ -9,6 +9,12 @@ interface BrandHeroProps {
   brand: TBrand;
 }
 
+/**
+ * BrandHero
+ *
+ * Why: Renders the highly aesthetic hero banner for the brand page. It utilizes framer-motion scroll-linked
+ * transformations to create a fluid, hardware-accelerated parallax movement and fade animation on scroll.
+ */
 export function BrandHero({ brand }: BrandHeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
@@ -31,6 +37,7 @@ export function BrandHero({ brand }: BrandHeroProps) {
             alt={brand.name}
             fill
             className="object-cover"
+            priority
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-500/20" />
