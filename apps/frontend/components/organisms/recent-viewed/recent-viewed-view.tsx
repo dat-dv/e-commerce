@@ -10,13 +10,21 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { useEffect } from "react";
 
+import { VirtualGrid } from "@/components/molecules/virtual-grid";
+
 export const RecentViewedView = () => {
-  const { recentViewedProducts, loading, fetchRecentViewedProducts } =
-    useLoadRecentViewedProducts();
+  const {
+    recentViewedProducts,
+    loading,
+    loadingMore,
+    hasMore,
+    fetchMore,
+    fetchRecentViewedProducts,
+  } = useLoadRecentViewedProducts();
 
   useEffect(() => {
-    // fetchRecentViewedProducts();
-  }, []);
+    fetchRecentViewedProducts();
+  }, [fetchRecentViewedProducts]);
 
   return (
     <AppContainer size="2xl" className="py-14">
@@ -48,15 +56,19 @@ export const RecentViewedView = () => {
           ))}
         </div>
       ) : recentViewedProducts.length > 0 ? (
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
-        >
-          {recentViewedProducts.map((product) => (
+        <VirtualGrid
+          data={recentViewedProducts}
+          loadingMore={loadingMore}
+          hasMore={hasMore}
+          onLoadMore={fetchMore}
+          gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+          renderItem={(product) => (
             <ProductCard key={product.id} product={product} />
-          ))}
-        </motion.div>
+          )}
+          keyExtractor={(product) => product.id}
+          loadingText="Retrieving more history..."
+          endText="You've reached the end of your viewing history"
+        />
       ) : (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-content/10 bg-surface/50 px-6 py-20 text-center">
           <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-content/5 text-content/30">

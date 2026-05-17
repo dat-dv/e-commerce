@@ -3,6 +3,7 @@ import {
   ApiResponse,
   TRequest,
   ApiListResponse,
+  ApiPaginatedResponse,
 } from "@/utils/request/request.types";
 import {
   TProduct,
@@ -17,9 +18,13 @@ import { ReviewMapper } from "./reviews.mapper";
 export class ProductsRepository implements IProductsRepository {
   constructor(private request: TRequest) {}
 
-  async getRecommended(): Promise<ApiResponse<TProduct[]>> {
+  async getRecommended(params?: {
+    page?: number;
+    limit?: number;
+  }): Promise<ApiResponse<TProduct[]>> {
     const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.RECOMMENDED,
+      { params },
     );
     return {
       ...response,
@@ -37,9 +42,13 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async getRecentlyViewed(): Promise<ApiResponse<TProduct[]>> {
+  async getRecentlyViewed(params?: {
+    page?: number;
+    limit?: number;
+  }): Promise<ApiResponse<TProduct[]>> {
     const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.RECENTLY_VIEWED,
+      { params },
     );
     return {
       ...response,
@@ -69,7 +78,7 @@ export class ProductsRepository implements IProductsRepository {
 
   async getProducts(
     params?: TGetProductsRequest,
-  ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
+  ): Promise<ApiPaginatedResponse<TProduct>> {
     const response = await this.request.get<{
       items: IProductResponse[];
       meta: {
@@ -105,7 +114,7 @@ export class ProductsRepository implements IProductsRepository {
     id: string,
     page = 1,
     limit = 10,
-  ): Promise<ApiResponse<ApiListResponse<TReview>>> {
+  ): Promise<ApiPaginatedResponse<TReview>> {
     const response = await this.request.get<ApiListResponse<IReviewResponse>>(
       API_ROUTES.PRODUCTS.REVIEWS(id),
       { params: { page, limit } },
@@ -121,7 +130,7 @@ export class ProductsRepository implements IProductsRepository {
             meta: response.data.meta,
           }
         : undefined,
-    } as ApiResponse<ApiListResponse<TReview>>;
+    } as ApiPaginatedResponse<TReview>;
   }
 
   async getSimilarProducts(

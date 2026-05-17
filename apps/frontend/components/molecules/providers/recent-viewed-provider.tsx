@@ -14,10 +14,6 @@ export interface RecentViewedProviderProps {
   initState?: Partial<IRecentViewedStoreState>;
 }
 
-/**
- * RecentViewedProvider isolates state hydration and context scoping for
- * recently viewed products.
- */
 export const RecentViewedProvider = ({
   children,
   initState,

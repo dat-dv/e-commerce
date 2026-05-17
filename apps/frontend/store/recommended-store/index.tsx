@@ -3,28 +3,28 @@ import { devtools } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import {
-  IRecentViewedStore,
-  IRecentViewedStoreState,
-} from "./recent-viewed-store.type";
+  IRecommendedStore,
+  IRecommendedStoreState,
+} from "./recommended-store.type";
 
-const createRecentViewedStoreCreator =
+const createRecommendedStoreCreator =
   (
-    initState?: Partial<IRecentViewedStoreState>,
-  ): StateCreator<IRecentViewedStore> =>
+    initState?: Partial<IRecommendedStoreState>,
+  ): StateCreator<IRecommendedStore> =>
   (set, _get, _store) => {
-    const state: IRecentViewedStore = {
-      recentViewedProducts: [],
+    const state: IRecommendedStore = {
+      recommendedProducts: [],
       loading: false,
       loadingMore: false,
       page: 1,
       total: 0,
       hasMore: true,
       ...initState,
-      setRecentViewedProducts: (products) =>
-        set({ recentViewedProducts: products }),
-      appendRecentViewedProducts: (products) =>
+      setRecommendedProducts: (products) =>
+        set({ recommendedProducts: products }),
+      appendRecommendedProducts: (products) =>
         set((state) => ({
-          recentViewedProducts: [...state.recentViewedProducts, ...products],
+          recommendedProducts: [...state.recommendedProducts, ...products],
         })),
       setLoading: (loading) => set({ loading }),
       setLoadingMore: (loadingMore) => set({ loadingMore }),
@@ -37,12 +37,12 @@ const createRecentViewedStoreCreator =
     return state;
   };
 
-export const createRecentViewedStore = (
-  initState?: Partial<IRecentViewedStoreState>,
+export const createRecommendedStore = (
+  initState?: Partial<IRecommendedStoreState>,
 ) =>
-  createStore<IRecentViewedStore>()(
-    devtools(createRecentViewedStoreCreator(initState), {
-      name: "RecentViewedStore",
+  createStore<IRecommendedStore>()(
+    devtools(createRecommendedStoreCreator(initState), {
+      name: "RecommendedStore",
       enabled: PUBLIC_ENV.IS_DEBUG,
     }),
   );

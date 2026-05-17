@@ -1,7 +1,7 @@
 import { TProduct } from "@/domain/products/types/products.model";
 
-export interface IRecentViewedStoreState {
-  recentViewedProducts: TProduct[];
+export interface IRecommendedStoreState {
+  recommendedProducts: TProduct[];
   page: number;
   total: number;
   hasMore: boolean;
@@ -9,15 +9,15 @@ export interface IRecentViewedStoreState {
   loadingMore: boolean;
 }
 
-export interface IRecentViewedStore extends IRecentViewedStoreState {
-  setRecentViewedProducts: (products: TProduct[]) => void;
+export interface IRecommendedStore extends IRecommendedStoreState {
+  setRecommendedProducts: (products: TProduct[]) => void;
 
-  appendRecentViewedProducts: (products: TProduct[]) => void;
+  appendRecommendedProducts: (products: TProduct[]) => void;
 
   setLoading: (loading: boolean) => void;
   setLoadingMore: (loadingMore: boolean) => void;
   setPage: (page: number) => void;
   setTotal: (total: number) => void;
   setHasMore: (hasMore: boolean) => void;
-  hydrate: (data: Partial<IRecentViewedStoreState>) => void;
+  hydrate: (data: Partial<IRecommendedStoreState>) => void;
 }

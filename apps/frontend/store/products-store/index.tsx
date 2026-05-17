@@ -9,13 +9,10 @@ const createProductsStoreCreator =
   (set, _get, _store) => {
     const state: IProductsStore = {
       flashSaleProducts: [],
-      recommendedProducts: [],
       sections: [],
       loading: false,
       ...initState,
       setFlashSaleProducts: (products) => set({ flashSaleProducts: products }),
-      setRecommendedProducts: (products) =>
-        set({ recommendedProducts: products }),
       setSections: (sections) => set({ sections }),
       setLoading: (loading) => set({ loading }),
       hydrate: (data) => set((state) => ({ ...state, ...data })),

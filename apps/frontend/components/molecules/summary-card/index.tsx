@@ -1,19 +1,10 @@
 interface SummaryCardProps {
   label: string;
-  /**
-   * The value displayed inside the card.
-   * Can be a number (e.g. item counts) or a pre-formatted string (e.g. localized currency).
-   */
   value: string | number;
   icon: React.ElementType;
   active?: boolean;
 }
 
-/**
- * SummaryCard renders an elegant key performance indicator or status block.
- * It is separated from specific business domains to serve as a general-purpose
- * atomic presentation molecule for dashboard metrics, counts, and financial summaries.
- */
 const SummaryCard = ({
   label,
   value,

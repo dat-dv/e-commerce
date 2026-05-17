@@ -6,13 +6,6 @@ export interface UseIntersectionObserverProps extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
 }
 
-/**
- * useIntersectionObserver detects when a target DOM node enters or exits the browser viewport.
- * It uses the highly performant browser IntersectionObserver API to avoid scrolling event overhead.
- *
- * @param options configuration for thresholds, margins, and visibility freezing behavior
- * @returns a tuple containing the element ref callback and a boolean indicating intersection state
- */
 export function useIntersectionObserver<T = Element>({
   threshold = 0.1,
   root = null,

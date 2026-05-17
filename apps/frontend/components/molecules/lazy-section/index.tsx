@@ -11,18 +11,6 @@ interface ILazySectionProps {
   className?: string;
 }
 
-/**
- * LazyProductSection is a generic viewport boundary wrapper.
- * Why: Decouples component fetching and resource loading from specific pages.
- * By wrapping any expensive component (like a product carousel, category grid, or maps)
- * inside LazyProductSection, we defer its mount/rendering lifecycle until it scrolls
- * close to the user's viewport.
- *
- * @example
- * <LazyProductSection placeholder={<CarouselSkeleton />}>
- *   <HeavyProductCarousel sectionId={id} />
- * </LazyProductSection>
- */
 export const LazySection = ({
   children,
   placeholder = null,

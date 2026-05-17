@@ -68,6 +68,8 @@ export interface ApiResponse<T> {
   status: "success" | "fail";
 }
 
+export type ApiPaginatedResponse<T> = ApiResponse<ApiListResponse<T>>;
+
 export interface ApiErrorResponse {
   message: string;
   code?: string;
