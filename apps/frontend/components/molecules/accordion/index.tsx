@@ -13,9 +13,9 @@ export default function Accordion({
 }: AccordionProps) {
   return (
     <details
-      className={`group border border-content/5 rounded-2xl bg-surface shadow-sm hover:shadow-md transition-shadow ${className}`}
+      className={`group border border-content/12 rounded-xl bg-surface hover:shadow-md transition-shadow ${className}`}
     >
-      <summary className="p-6 text-base font-bold text-content cursor-pointer list-none flex justify-between items-center select-none">
+      <summary className="px-6 py-[18px] text-base font-bold text-content cursor-pointer list-none flex justify-between items-center select-none">
         <span className="group-hover:text-primary transition-colors">
           {title}
         </span>

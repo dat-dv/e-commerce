@@ -1,159 +1,152 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import SidebarLayout from "@/components/molecules/sidebar-layout";
+import AppContainer from "@/components/atoms/app-container";
+import Accordion from "@/components/molecules/accordion";
+import HelpSupportCard from "@/components/molecules/help-support-card";
+import HelpTopicNav, {
+  getHelpTopicId,
+} from "@/components/molecules/help-topic-nav";
+import helpData from "@/app/(main)/(localized)/_data/help.json";
+import { useAppConfig } from "@/hooks/config/use-config-store";
 import Fuse from "fuse.js";
+import {
+  AlertTriangle,
+  Clock,
+  MapPin,
+  PackageSearch,
+  Search,
+} from "lucide-react";
+import React, { useMemo, useState } from "react";
 import ShippingHeader from "./shipping-header";
-import ShippingSidebar from "./shipping-sidebar";
-import ShippingList from "./shipping-list";
-
-interface FAQItem {
-  q: string;
-  a: string;
-}
 
 interface ShippingTopic {
   name: string;
-  faqs: FAQItem[];
+  icon: string;
+  faqs: Array<{ q: string; a: string }>;
 }
 
-const SHIPPING_TOPICS: ShippingTopic[] = [
-  {
-    name: "Shipping Methods",
-    faqs: [
-      {
-        q: "Can I choose the shipping courier?",
-        a: "Currently, we automatically select the best courier for your area to ensure the fastest delivery.",
-      },
-      {
-        q: "Do you offer express shipping?",
-        a: "Yes, express shipping is available for selected areas. You can choose it during checkout.",
-      },
-    ],
-  },
-  {
-    name: "Order Tracking",
-    faqs: [
-      {
-        q: "How do I track my order?",
-        a: 'You can track your order in the "My Orders" section by clicking on the order to see its status. The shipper will contact you when the order is being delivered.',
-      },
-      {
-        q: "Why is my tracking status not updating?",
-        a: "It may take up to 24 hours for the courier to update the tracking status after pickup.",
-      },
-    ],
-  },
-  {
-    name: "Shipping Fees",
-    faqs: [
-      {
-        q: "How do I calculate shipping fees?",
-        a: "Shipping fees are calculated automatically based on the distance from the seller and the weight of the items.",
-      },
-      {
-        q: "How can I get free shipping?",
-        a: "You can use free shipping vouchers or purchase from shops that offer free shipping promotions.",
-      },
-    ],
-  },
-  {
-    name: "Delivery Times",
-    faqs: [
-      {
-        q: "How long does shipping take?",
-        a: "Standard shipping usually takes 2-5 business days depending on your location.",
-      },
-      {
-        q: "What if I am not home when the shipper arrives?",
-        a: "The shipper will attempt to contact you. If unsuccessful, they will try again the next day. Maximum 3 attempts.",
-      },
-    ],
-  },
-  {
-    name: "Lost Packages",
-    faqs: [
-      {
-        q: "What happens if my package is lost?",
-        a: "If your package is lost in transit, please contact support and we will investigate with the courier.",
-      },
-      {
-        q: "What should I do if the package is damaged?",
-        a: "Do not accept the package if it is heavily damaged. Take a photo and contact support immediately.",
-      },
-    ],
-  },
-  {
-    name: "International Shipping",
-    faqs: [
-      {
-        q: "Do you ship internationally?",
-        a: "Currently, we only ship within the country. International shipping is not supported yet.",
-      },
-    ],
-  },
-];
+const iconMap = {
+  "alert-triangle": AlertTriangle,
+  clock: Clock,
+  "map-pin": MapPin,
+  "package-search": PackageSearch,
+};
+
+type IconName = keyof typeof iconMap;
 
 export const HelpShippingView = (): React.ReactElement => {
+  const language = useAppConfig((state) => state.language);
+  const lang = language === "vi" ? "vi" : "en";
+  const t = helpData.shipping[lang];
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return SHIPPING_TOPICS;
-    }
+    if (!searchQuery.trim()) return t.topics;
 
-    const searchableFaqs = SHIPPING_TOPICS.flatMap((topic) =>
-      topic.faqs.map((faq) => ({
-        topicName: topic.name,
-        q: faq.q,
-        a: faq.a,
-      })),
+    const searchableFaqs = t.topics.flatMap((topic) =>
+      topic.faqs.map((faq) => ({ ...faq, topicName: topic.name })),
     );
 
     const fuse = new Fuse(searchableFaqs, {
-      keys: [
-        { name: "q", weight: 0.6 },
-        { name: "a", weight: 0.3 },
-        { name: "topicName", weight: 0.1 },
-      ],
-      threshold: 0.4,
+      keys: ["q", "a", "topicName"],
+      threshold: 0.35,
       ignoreLocation: true,
     });
 
-    const matchedFaqs = fuse.search(searchQuery).map((r) => r.item);
-
-    const topicGroups: Record<string, FAQItem[]> = {};
-    matchedFaqs.forEach((faq) => {
-      if (!topicGroups[faq.topicName]) {
-        topicGroups[faq.topicName] = [];
-      }
-      topicGroups[faq.topicName].push({ q: faq.q, a: faq.a });
+    const grouped = new Map<string, ShippingTopic["faqs"]>();
+    fuse.search(searchQuery).forEach(({ item }) => {
+      grouped.set(item.topicName, [
+        ...(grouped.get(item.topicName) ?? []),
+        { q: item.q, a: item.a },
+      ]);
     });
 
-    return SHIPPING_TOPICS.map((topic) => ({
-      name: topic.name,
-      faqs: topicGroups[topic.name] || [],
-    })).filter((topic) => topic.faqs.length > 0);
-  }, [searchQuery]);
-
-  const tocItems = useMemo(() => {
-    return filteredTopics.map((topic) => ({
-      id: topic.name.toLowerCase().replace(/\s+/g, "-"),
-      title: topic.name,
-    }));
-  }, [filteredTopics]);
+    return t.topics
+      .map((topic) => ({
+        ...topic,
+        faqs: grouped.get(topic.name) ?? [],
+      }))
+      .filter((topic) => topic.faqs.length > 0);
+  }, [searchQuery, t.topics]);
 
   return (
-    <SidebarLayout
-      header={<ShippingHeader />}
-      sidebar={<ShippingSidebar tocItems={tocItems} />}
-    >
-      <ShippingList
-        filteredTopics={filteredTopics}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
-    </SidebarLayout>
+    <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <ShippingHeader />
+      <AppContainer size="2xl" className="py-10 sm:py-14">
+        <section className="grid gap-10 lg:grid-cols-[280px_1fr]">
+          <aside className="self-start lg:top-32">
+            <HelpSupportCard
+              title={t.contactTitle}
+              description={t.contactDesc}
+              ctaLabel={t.contactCta}
+              showCta
+            />
+
+            <HelpTopicNav topics={t.topics.map((topic) => topic.name)} />
+          </aside>
+
+          <main className="min-w-0">
+            <div className="relative">
+              <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
+              <label htmlFor="help-shipping-search" className="sr-only">
+                {t.search}
+              </label>
+              <input
+                id="help-shipping-search"
+                name="help-shipping-search"
+                type="search"
+                autoComplete="off"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder={t.search}
+                className="h-12 w-full rounded-xl border border-content/10 bg-surface px-12 text-sm font-medium shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+              />
+            </div>
+
+            <div className="mt-8 space-y-8">
+              {filteredTopics.map((topic) => {
+                const Icon = iconMap[topic.icon as IconName];
+                return (
+                  <section
+                    key={topic.name}
+                    id={getHelpTopicId(topic.name)}
+                    className="scroll-mt-28"
+                  >
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                        <Icon className="size-5" />
+                      </span>
+                      <h2 className="text-xl font-black text-content">
+                        {topic.name}
+                      </h2>
+                    </div>
+                    <div className="space-y-3">
+                      {topic.faqs.map((faq) => (
+                        <Accordion key={faq.q} title={faq.q}>
+                          {faq.a}
+                        </Accordion>
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+
+            {!filteredTopics.length && (
+              <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
+                {t.empty}
+              </div>
+            )}
+
+            <HelpSupportCard
+              title={t.contactTitle}
+              description={t.contactDesc}
+              className="mt-10 p-6"
+            />
+          </main>
+        </section>
+      </AppContainer>
+    </div>
   );
 };
 

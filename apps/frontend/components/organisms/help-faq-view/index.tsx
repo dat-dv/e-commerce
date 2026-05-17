@@ -1,150 +1,153 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import SidebarLayout from "@/components/molecules/sidebar-layout";
+import AppContainer from "@/components/atoms/app-container";
+import Accordion from "@/components/molecules/accordion";
+import HelpSupportCard from "@/components/molecules/help-support-card";
+import HelpTopicNav, {
+  getHelpTopicId,
+} from "@/components/molecules/help-topic-nav";
+import helpData from "@/app/(main)/(localized)/_data/help.json";
+import { useAppConfig } from "@/hooks/config/use-config-store";
 import Fuse from "fuse.js";
+import {
+  CreditCard,
+  PackageCheck,
+  RotateCcw,
+  Search,
+  ShieldCheck,
+  Truck,
+} from "lucide-react";
+import React, { useMemo, useState } from "react";
 import FAQHeader from "./faq-header";
-import FAQSidebar from "./faq-sidebar";
-import FAQList from "./faq-list";
 
 interface FAQItem {
   q: string;
   a: string;
 }
 
-interface FAQTopic {
-  name: string;
-  faqs: FAQItem[];
-}
+const iconMap = {
+  "credit-card": CreditCard,
+  "package-check": PackageCheck,
+  "rotate-ccw": RotateCcw,
+  "shield-check": ShieldCheck,
+  truck: Truck,
+};
 
-const FAQ_TOPICS: FAQTopic[] = [
-  {
-    name: "General",
-    faqs: [
-      {
-        q: "[Fraud Alert] Shopping safely on Shop.Hub",
-        a: "Always check the seller ratings and never share your password or OTP.",
-      },
-      {
-        q: "[Service] How to contact Shop.Hub Customer Service",
-        a: "Go to Help Center > Contact Us or use the live chat feature.",
-      },
-    ],
-  },
-  {
-    name: "Account & Security",
-    faqs: [
-      {
-        q: "How do I reset my password?",
-        a: 'Go to the Sign In page and click on "Forgot Password". Follow the instructions sent to your email.',
-      },
-      {
-        q: "How do I change my email address?",
-        a: "Go to Profile Settings > Account to update your email address.",
-      },
-    ],
-  },
-  {
-    name: "Payments",
-    faqs: [
-      {
-        q: "What payment methods are supported?",
-        a: "We support credit/debit cards, bank transfers, and Cash on Delivery (CoD).",
-      },
-      {
-        q: "How do I use a voucher?",
-        a: "Enter the voucher code at the checkout page before making payment.",
-      },
-    ],
-  },
-  {
-    name: "Shipping & Delivery",
-    faqs: [
-      {
-        q: "How do I track my order?",
-        a: 'You can track your order in the "My Orders" section by clicking on the order to see its status. The shipper will contact you when the order is being delivered.',
-      },
-      {
-        q: "How can I change my shipping address?",
-        a: "You can change your shipping address before the order is shipped. Contact support immediately.",
-      },
-    ],
-  },
-  {
-    name: "Returns & Refunds",
-    faqs: [
-      {
-        q: "What is the return policy?",
-        a: "We offer a 30-day return policy for most items. Items must be in original condition.",
-      },
-      {
-        q: "How long does a refund take?",
-        a: "Refunds usually take 3-5 business days to process after the return is approved.",
-      },
-    ],
-  },
-];
+type IconName = keyof typeof iconMap;
 
 export function HelpFAQView(): React.ReactElement {
+  const language = useAppConfig((state) => state.language);
+  const lang = language === "vi" ? "vi" : "en";
+  const t = helpData.faq[lang];
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return FAQ_TOPICS;
-    }
+    if (!searchQuery.trim()) return t.topics;
 
-    const searchableFaqs = FAQ_TOPICS.flatMap((topic) =>
-      topic.faqs.map((faq) => ({
-        topicName: topic.name,
-        q: faq.q,
-        a: faq.a,
-      })),
+    const searchableFaqs = t.topics.flatMap((topic) =>
+      topic.faqs.map((faq) => ({ ...faq, topicName: topic.name })),
     );
 
     const fuse = new Fuse(searchableFaqs, {
-      keys: [
-        { name: "q", weight: 0.6 },
-        { name: "a", weight: 0.3 },
-        { name: "topicName", weight: 0.1 },
-      ],
-      threshold: 0.4,
+      keys: ["q", "a", "topicName"],
+      threshold: 0.35,
       ignoreLocation: true,
     });
 
-    const matchedFaqs = fuse.search(searchQuery).map((r) => r.item);
-
-    const topicGroups: Record<string, FAQItem[]> = {};
-    matchedFaqs.forEach((faq) => {
-      if (!topicGroups[faq.topicName]) {
-        topicGroups[faq.topicName] = [];
-      }
-      topicGroups[faq.topicName].push({ q: faq.q, a: faq.a });
+    const grouped = new Map<string, FAQItem[]>();
+    fuse.search(searchQuery).forEach(({ item }) => {
+      grouped.set(item.topicName, [
+        ...(grouped.get(item.topicName) ?? []),
+        { q: item.q, a: item.a },
+      ]);
     });
 
-    return FAQ_TOPICS.map((topic) => ({
-      name: topic.name,
-      faqs: topicGroups[topic.name] || [],
-    })).filter((topic) => topic.faqs.length > 0);
-  }, [searchQuery]);
-
-  const tocItems = useMemo(() => {
-    return filteredTopics.map((topic) => ({
-      id: topic.name.toLowerCase().replace(/\s+/g, "-"),
-      title: topic.name,
-    }));
-  }, [filteredTopics]);
+    return t.topics
+      .map((topic) => ({
+        ...topic,
+        faqs: grouped.get(topic.name) ?? [],
+      }))
+      .filter((topic) => topic.faqs.length > 0);
+  }, [searchQuery, t.topics]);
 
   return (
-    <SidebarLayout
-      header={<FAQHeader />}
-      sidebar={<FAQSidebar tocItems={tocItems} />}
-    >
-      <FAQList
-        filteredTopics={filteredTopics}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
-    </SidebarLayout>
+    <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <FAQHeader />
+      <AppContainer size="2xl" className="py-10 sm:py-14">
+        <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
+          <aside className="self-start lg:top-32">
+            <HelpSupportCard
+              title={t.contactTitle}
+              description={t.contactDesc}
+              ctaLabel={t.contactCta}
+              showCta
+            />
+
+            <HelpTopicNav topics={t.topics.map((topic) => topic.name)} />
+          </aside>
+
+          <main className="min-w-0">
+            <div className="relative">
+              <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
+              <label htmlFor="help-faq-search" className="sr-only">
+                {t.search}
+              </label>
+              <input
+                id="help-faq-search"
+                name="help-faq-search"
+                type="search"
+                autoComplete="off"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder={t.search}
+                className="h-12 w-full rounded-xl border border-content/10 bg-surface px-12 text-sm font-medium shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+              />
+            </div>
+
+            <div className="mt-8 space-y-8">
+              {filteredTopics.map((topic) => {
+                const Icon = iconMap[topic.icon as IconName];
+                return (
+                  <section
+                    key={topic.name}
+                    id={getHelpTopicId(topic.name)}
+                    className="scroll-mt-28"
+                  >
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                        <Icon className="size-5" />
+                      </span>
+                      <h2 className="text-xl font-black text-content">
+                        {topic.name}
+                      </h2>
+                    </div>
+                    <div className="space-y-3">
+                      {topic.faqs.map((faq) => (
+                        <Accordion key={faq.q} title={faq.q}>
+                          {faq.a}
+                        </Accordion>
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+
+            {!filteredTopics.length && (
+              <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
+                {t.empty}
+              </div>
+            )}
+
+            <HelpSupportCard
+              title={t.contactTitle}
+              description={t.contactDesc}
+              className="mt-10 p-6"
+            />
+          </main>
+        </div>
+      </AppContainer>
+    </div>
   );
 }
 
