@@ -8,6 +8,10 @@ export const useLoadRecentViewedProducts = () => {
   const recentViewedProducts = useRecentViewedStore(
     (state) => state.recentViewedProducts,
   );
+  const page = useRecentViewedStore((state) => state.page);
+  const total = useRecentViewedStore((state) => state.total);
+  const hasMore = useRecentViewedStore((state) => state.hasMore);
+
   const loading = useRecentViewedStore((state) => state.loading);
   const setLoading = useRecentViewedStore((state) => state.setLoading);
   const setRecentViewedProducts = useRecentViewedStore(
@@ -15,6 +19,7 @@ export const useLoadRecentViewedProducts = () => {
   );
 
   const fetchRecentViewedProducts = useCallback(async () => {
+    // TODO : paginate with page, limit, total, hasMore
     setLoading(true);
     try {
       const response = await productsUseCase.getRecentlyViewed.execute();

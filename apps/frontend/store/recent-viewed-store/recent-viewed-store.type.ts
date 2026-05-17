@@ -2,6 +2,9 @@ import { TProduct } from "@/domain/products/types/products.model";
 
 export interface IRecentViewedStoreState {
   recentViewedProducts: TProduct[];
+  page: number;
+  total: number;
+  hasMore: boolean;
   loading: boolean;
 }
 

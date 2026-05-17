@@ -15,6 +15,9 @@ const createRecentViewedStoreCreator =
     const state: IRecentViewedStore = {
       recentViewedProducts: [],
       loading: false,
+      page: 1,
+      total: 0,
+      hasMore: true,
       ...initState,
       setRecentViewedProducts: (products) =>
         set({ recentViewedProducts: products }),
