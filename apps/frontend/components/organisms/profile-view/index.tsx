@@ -1,109 +1,39 @@
-import { AnimationContainer } from "@/components/atoms/animate";
-import SidebarLayout from "@/components/molecules/sidebar-layout";
-import { Bell, User, ShoppingBag, ShoppingCart } from "lucide-react";
-import { ProfileForm } from "../../molecules/profile-form";
-import Link from "next/link";
+"use client";
+
+import { Clock, Heart, Sparkles } from "lucide-react";
+
+import { ProfileForm } from "@/components/molecules/profile-form";
+import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useFavorites } from "@/hooks/favorites/use-favorites";
+import { useRecentViewedProducts } from "@/hooks/products/use-recent-viewed-products";
+import { useRecommendedProducts } from "@/hooks/products/use-recommended-products";
 import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
 import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
+import { ProductListPreview } from "@/components/molecules/product-preview-list";
 
 export const ProfileView = () => {
   const user = useAuthStore((state) => state.user);
   const { updateProfile, loading: isUpdating } = useUpdateProfile();
   const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
+  const { favorites, loading: loadingFavorites } = useFavorites();
+  const { recentViewedProducts, loading: loadingRecent } =
+    useRecentViewedProducts(true);
+  const { recommendedProducts, loadingRecommended } = useRecommendedProducts();
 
-  const sidebarContent = (
-    <div className="space-y-6">
-      {/* Account Section */}
-      <div>
-        <h3 className="font-bold text-content mb-3 flex items-center gap-2">
-          <User className="w-5 h-5 text-content/60" />
-          My Account
-        </h3>
-        <ul className="space-y-2 ml-7">
-          <li>
-            <Link
-              href="/profile"
-              className="text-primary font-medium flex items-center gap-2"
-            >
-              Profile
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/profile/bank"
-              className="text-content/60 hover:text-content font-medium flex items-center gap-2"
-            >
-              Bank Account
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/profile/address"
-              className="text-content/60 hover:text-content font-medium flex items-center gap-2"
-            >
-              Addresses
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/profile/password"
-              className="text-content/60 hover:text-content font-medium flex items-center gap-2"
-            >
-              Change Password
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Notifications */}
-      <div>
-        <Link
-          href="/notifications"
-          className="font-bold text-content flex items-center gap-2 hover:text-primary transition-colors"
-        >
-          <Bell className="w-5 h-5 text-content/60" />
-          Notifications
-        </Link>
-      </div>
-
-      {/* Purchase History */}
-      <div>
-        <Link
-          href="/orders"
-          className="font-bold text-content flex items-center gap-2 hover:text-primary transition-colors"
-        >
-          <ShoppingBag className="w-5 h-5 text-content/60" />
-          My Purchases
-        </Link>
-      </div>
-
-      {/* Cart */}
-      <div>
-        <Link
-          href="/cart"
-          className="font-bold text-content flex items-center gap-2 hover:text-primary transition-colors"
-        >
-          <ShoppingCart className="w-5 h-5 text-content/60" />
-          My Cart
-        </Link>
-      </div>
-    </div>
-  );
+  const favoriteProducts = favorites
+    .map((favorite) => favorite.product)
+    .filter((product): product is NonNullable<typeof product> => !!product);
 
   return (
-    <div className="min-h-[calc(100vh-80px)] pt-10 bg-gradient-to-b from-surface to-transparent">
-      <SidebarLayout header={null} sidebar={sidebarContent}>
-        <AnimationContainer className="space-y-12">
-          <ProfileForm
-            user={user}
-            updateProfile={updateProfile}
-            uploadAvatar={uploadAvatar}
-            isLoading={isUpdating}
-            isUploading={isUploading}
-          />
-        </AnimationContainer>
-      </SidebarLayout>
+    <div className="space-y-6">
+      <ProfileForm
+        user={user}
+        updateProfile={updateProfile}
+        uploadAvatar={uploadAvatar}
+        isLoading={isUpdating}
+        isUploading={isUploading}
+      />
     </div>
   );
 };

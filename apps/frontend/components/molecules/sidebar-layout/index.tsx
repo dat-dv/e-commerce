@@ -13,25 +13,19 @@ export default function SidebarLayout({
   children,
 }: SidebarLayoutProps) {
   return (
-    <AppContainer
-      size="2xl"
-      className="py-12 animate-in fade-in slide-in-from-bottom-6 duration-700"
-    >
-      {/* Header */}
+    <div className="pt-4 pb-12">
       <div className="mb-12">{header}</div>
+      <AppContainer size="2xl">
+        <div className="flex flex-col lg:flex-row gap-10">
+          {/* Sidebar */}
+          <aside className="w-full lg:w-[280px] shrink-0">
+            <div className="lg:sticky lg:top-48">{sidebar}</div>
+          </aside>
 
-      {/* 2-Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Sidebar (Left) */}
-        <div className="lg:col-span-1">
-          <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-4 space-y-6 scrollbar-thin scrollbar-thumb-content/10 scrollbar-track-transparent">
-            {sidebar}
-          </div>
+          {/* Content */}
+          <main className="flex-1 min-w-0">{children}</main>
         </div>
-
-        {/* Main Content (Right) */}
-        <div className="lg:col-span-3">{children}</div>
-      </div>
-    </AppContainer>
+      </AppContainer>
+    </div>
   );
 }

@@ -10,7 +10,7 @@ import {
   Eye,
   LucideIcon,
 } from "lucide-react";
-import { FlashSale } from "@/components/molecules/flash-sale";
+import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 import { THomepageSection } from "@/domain/homepage/types/homepage.model";
@@ -50,7 +50,7 @@ export const DynamicSections = ({ sections }: DynamicSectionsProps) => {
           sectionItem.data.length > 0;
 
         if (isShowFlashSale) {
-          return <FlashSale key={id} products={sectionItem.data} />;
+          return <FlashSaleCarousel key={id} products={sectionItem.data} />;
         }
         if (sectionItem.data.length > 0) {
           const targetHref = getSectionHref(type, slug);
