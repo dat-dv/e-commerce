@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
-import { IHomepageSection } from '@ecommerce/shared';
+import { IHomepageFeaturedCategory } from '@ecommerce/shared';
 
 @Injectable()
 export class HomepageSectionRepository implements IHomepageSectionRepository {
@@ -12,29 +12,26 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
     isLoggedIn?: boolean;
     page?: number;
     limit?: number;
-  }): Promise<IHomepageSection[]> {
-    const { languageCode = 'vi', isLoggedIn = false, page = 1, limit = 10 } = params || {};
+  }): Promise<IHomepageFeaturedCategory[]> {
+    const { languageCode = 'vi', page = 1, limit = 10 } = params || {};
 
-    return this.prisma.homepageSection.findMany({
+    return this.prisma.featuredCategory.findMany({
       where: {
-        is_enabled: true,
-        type: 'product_carousel',
-        ...(isLoggedIn ? {} : { require_login: false }),
+        is_active: true,
+        category: {
+          is_active: true,
+        },
       },
       orderBy: { order: 'asc' },
       skip: (page - 1) * limit,
       take: limit,
       include: {
-        categories: {
-          orderBy: { order: 'asc' },
+        category: {
           include: {
             translations: {
               where: { language: { code: languageCode } },
             },
           },
-        },
-        translations: {
-          where: { language: { code: languageCode } },
         },
       },
     });

@@ -9,8 +9,6 @@ model Language {
   category_translations ProductCategoryTranslation[]
   brand_translations    BrandTranslation[]
 
-  homepage_section_translations HomepageSectionTranslation[]
-
   @@map("languages")
 }
 

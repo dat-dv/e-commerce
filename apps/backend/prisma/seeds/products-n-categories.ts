@@ -108,6 +108,66 @@ function getAllJsonFiles(dir: string, baseDir: string): string[] {
   return results;
 }
 
+const CATEGORY_TRANSLATIONS_VI: Record<string, string> = {
+  'home & kitchen': 'Nhà cửa & Nhà bếp',
+  'home, kitchen, pets': 'Nhà cửa & Nhà bếp',
+  appliances: 'Thiết bị gia dụng',
+  'car & motorbike': 'Ô tô & Xe máy',
+  'sports & fitness': 'Thể thao & Thể hình',
+  'grocery & gourmet foods': 'Thực phẩm & Bách hóa',
+  'pet supplies': 'Đồ dùng thú cưng',
+  stores: 'Cửa hàng',
+  electronics: 'Thiết bị điện tử',
+  'toys & baby products': 'Đồ chơi & Mẹ bé',
+  "kids' fashion": 'Thời trang trẻ em',
+  'bags & luggage': 'Túi xách & Hành lý',
+  "women's shoes": 'Giày nữ',
+  'beauty & health': 'Làm đẹp & Sức khỏe',
+  'tv, audio & cameras': 'Tivi & Thiết bị âm thanh',
+  'industrial supplies': 'Thiết bị công nghiệp',
+  music: 'Âm nhạc',
+  'amazon fashion': 'Thời trang Amazon',
+};
+
+const SUB_CATEGORY_TRANSLATIONS_VI: Record<string, string> = {
+  smartphones: 'Điện thoại thông minh',
+  laptops: 'Máy tính xách tay',
+  accessories: 'Phụ kiện',
+  'baby products': 'Sản phẩm em bé',
+  'beauty & grooming': 'Làm đẹp & Chăm sóc',
+  'sports, fitness & outdoors': 'Thể thao & Dã ngoại',
+  backpacks: 'Ba lô',
+  running: 'Chạy bộ',
+  'refurbished & open box': 'Hàng đổi trả & Trưng bày',
+  'baby bath, skin & grooming': 'Tắm & Chăm sóc da em bé',
+  'baby fashion': 'Thời trang em bé',
+  badminton: 'Cầu lông',
+  ballerinas: 'Giày búp bê',
+  'camping & hiking': 'Cắm trại & Dã ngoại',
+  'car & bike care': 'Chăm sóc ô tô & xe máy',
+  'car accessories': 'Phụ kiện ô tô',
+  'car electronics': 'Thiết bị điện tử ô tô',
+  'car parts': 'Phụ tùng ô tô',
+  'dog supplies': 'Đồ dùng cho chó',
+  'fashion sales & deals': 'Khuyến mãi thời trang',
+  'fashion sandals': 'Sandal thời trang',
+  furniture: 'Nội thất',
+  'garden & outdoors': 'Sân vườn & Ngoài trời',
+  'home decor': 'Trang trí nhà cửa',
+  'home furnishing': 'Đồ gỗ nội thất',
+  'home improvement': 'Cải thiện nhà cửa',
+  'kitchen & dining': 'Nhà bếp & Phòng ăn',
+  'kitchen storage & containers': 'Hộp & Hũ đựng thực phẩm',
+  televisions: 'Tivi',
+  'toys & games': 'Đồ chơi & Trò chơi',
+  'travel accessories': 'Phụ kiện du lịch',
+  'travel duffles': 'Túi du lịch duffle',
+  wallets: 'Ví nam nữ',
+  'washing machines': 'Máy giặt',
+  "women's fashion": 'Thời trang nữ',
+  yoga: 'Yoga',
+};
+
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
   const isDevSeed = false;
 
@@ -198,8 +258,14 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
 
       try {
         // 1. Tạo Category (Main & Sub) trước để lấy ID
-        const mainCategorySlug = slugify(p.main_category);
-        const subCategorySlug = slugify(p.sub_category);
+        let normalizedMainCategory = p.main_category;
+        if (normalizedMainCategory.toLowerCase() === 'home, kitchen, pets') {
+          normalizedMainCategory = 'Home & Kitchen';
+        }
+
+        const mainCategorySlug = slugify(normalizedMainCategory);
+        const mainCatVi = CATEGORY_TRANSLATIONS_VI[normalizedMainCategory.toLowerCase()] || normalizedMainCategory;
+        const mainCatEn = normalizedMainCategory;
 
         const mainCategory = await prisma.productCategory.upsert({
           where: { slug: mainCategorySlug },
@@ -209,12 +275,17 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
             level: 1,
             translations: {
               create: [
-                { language_id: langVi.id, name: p.main_category },
-                { language_id: langEn.id, name: p.main_category },
+                { language_id: langVi.id, name: mainCatVi },
+                { language_id: langEn.id, name: mainCatEn },
               ],
             },
           },
         });
+
+        const normalizedSubCategory = p.sub_category;
+        const subCategorySlug = slugify(normalizedSubCategory);
+        const subCatVi = SUB_CATEGORY_TRANSLATIONS_VI[normalizedSubCategory.toLowerCase()] || normalizedSubCategory;
+        const subCatEn = normalizedSubCategory;
 
         const subCategory = await prisma.productCategory.upsert({
           where: { slug: subCategorySlug },
@@ -225,8 +296,8 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
             parent_id: mainCategory.id,
             translations: {
               create: [
-                { language_id: langVi.id, name: p.sub_category },
-                { language_id: langEn.id, name: p.sub_category },
+                { language_id: langVi.id, name: subCatVi },
+                { language_id: langEn.id, name: subCatEn },
               ],
             },
           },

@@ -1,0 +1,14 @@
+// prisma/schema/featured_category.prisma
+
+model FeaturedCategory {
+  id          String   @id @default(cuid())
+  category_id String   @unique
+  order       Int      @default(0)
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  category    ProductCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+
+  @@map("featured_categories")
+}

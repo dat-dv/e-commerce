@@ -1,4 +1,4 @@
-import { IHomepageSection } from '@ecommerce/shared';
+import { IHomepageFeaturedCategory } from '@ecommerce/shared';
 
 export interface IHomepageSectionRepository {
   findAllEnabled(params?: {
@@ -6,7 +6,7 @@ export interface IHomepageSectionRepository {
     isLoggedIn?: boolean;
     page?: number;
     limit?: number;
-  }): Promise<IHomepageSection[]>;
+  }): Promise<IHomepageFeaturedCategory[]>;
 }
 
 export const IHomepageSectionRepository = Symbol('IHomepageSectionRepository');

@@ -29,7 +29,6 @@ export const HomepagePrivate = () => {
         />
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
-
         {/* Categories Section */}
         <CategoriesCarousel categories={categories} lang={lang} />
 

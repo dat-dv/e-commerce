@@ -13,8 +13,7 @@ model ProductCategory {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  homepage_section_id String?
-  homepage_section    HomepageSection? @relation(fields: [homepage_section_id], references: [id])
+  featured_category   FeaturedCategory?
 
   parent   ProductCategory?  @relation("CategoryTree", fields: [parent_id], references: [id])
   children ProductCategory[] @relation("CategoryTree")

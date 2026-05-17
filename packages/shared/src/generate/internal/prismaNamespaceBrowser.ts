@@ -62,11 +62,10 @@ export const ModelName = {
   ProductCategory: 'ProductCategory',
   ProductCategoryMapping: 'ProductCategoryMapping',
   Coupon: 'Coupon',
+  FeaturedCategory: 'FeaturedCategory',
   FlashSaleTimeSlot: 'FlashSaleTimeSlot',
   FlashSale: 'FlashSale',
   FlashSaleProduct: 'FlashSaleProduct',
-  HomepageSection: 'HomepageSection',
-  HomepageSectionTranslation: 'HomepageSectionTranslation',
   Image: 'Image',
   Language: 'Language',
   ProductTranslation: 'ProductTranslation',
@@ -199,8 +198,7 @@ export const ProductCategoryScalarFieldEnum = {
   order: 'order',
   is_active: 'is_active',
   created_at: 'created_at',
-  updated_at: 'updated_at',
-  homepage_section_id: 'homepage_section_id'
+  updated_at: 'updated_at'
 } as const
 
 export type ProductCategoryScalarFieldEnum = (typeof ProductCategoryScalarFieldEnum)[keyof typeof ProductCategoryScalarFieldEnum]
@@ -231,6 +229,18 @@ export const CouponScalarFieldEnum = {
 } as const
 
 export type CouponScalarFieldEnum = (typeof CouponScalarFieldEnum)[keyof typeof CouponScalarFieldEnum]
+
+
+export const FeaturedCategoryScalarFieldEnum = {
+  id: 'id',
+  category_id: 'category_id',
+  order: 'order',
+  is_active: 'is_active',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type FeaturedCategoryScalarFieldEnum = (typeof FeaturedCategoryScalarFieldEnum)[keyof typeof FeaturedCategoryScalarFieldEnum]
 
 
 export const FlashSaleTimeSlotScalarFieldEnum = {
@@ -270,29 +280,6 @@ export const FlashSaleProductScalarFieldEnum = {
 } as const
 
 export type FlashSaleProductScalarFieldEnum = (typeof FlashSaleProductScalarFieldEnum)[keyof typeof FlashSaleProductScalarFieldEnum]
-
-
-export const HomepageSectionScalarFieldEnum = {
-  id: 'id',
-  type: 'type',
-  order: 'order',
-  is_enabled: 'is_enabled',
-  require_login: 'require_login',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type HomepageSectionScalarFieldEnum = (typeof HomepageSectionScalarFieldEnum)[keyof typeof HomepageSectionScalarFieldEnum]
-
-
-export const HomepageSectionTranslationScalarFieldEnum = {
-  id: 'id',
-  homepage_section_id: 'homepage_section_id',
-  language_id: 'language_id',
-  title: 'title'
-} as const
-
-export type HomepageSectionTranslationScalarFieldEnum = (typeof HomepageSectionTranslationScalarFieldEnum)[keyof typeof HomepageSectionTranslationScalarFieldEnum]
 
 
 export const ImageScalarFieldEnum = {

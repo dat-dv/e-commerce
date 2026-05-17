@@ -1,166 +1,63 @@
-import { Prisma } from 'generated/prisma/client';
 import { PrismaClient } from '../../generated/prisma/client';
 
 export async function seedHomepageSections(prisma: PrismaClient) {
-  console.log('🏠 Seeding homepage sections...');
+  console.log('🌟 Seeding featured categories on homepage...');
 
-  await prisma.homepageSection.deleteMany({});
+  await prisma.featuredCategory.deleteMany({});
 
-  const langVi = await prisma.language.findUnique({ where: { code: 'vi' } });
-  const langEn = await prisma.language.findUnique({ where: { code: 'en' } });
+  const categories = [
+    // High traffic / high conversion
+    { slug: 'electronics', order: 1 },
+    { slug: 'tv-audio-cameras', order: 2 },
 
-  if (!langVi || !langEn) {
-    console.error('Languages vi, en not found, skipping homepage sections seed');
-    return;
-  }
+    // Fashion
+    { slug: 'womens-shoes', order: 3 },
+    { slug: 'bags-luggage', order: 4 },
 
-  // Lấy vài category để link
-  const techCat = await prisma.productCategory.findUnique({ where: { slug: 'electronics' } });
-  const fashionCat = await prisma.productCategory.findUnique({ where: { slug: 'amazon-fashion' } });
-  const homeCat = await prisma.productCategory.findUnique({ where: { slug: 'home-kitchen' } });
-  const babyCat = await prisma.productCategory.findUnique({ where: { slug: 'baby-products' } });
-  const sportsCat = await prisma.productCategory.findUnique({ where: { slug: 'sports-fitness-and-outdoors' } });
-  const beautyCat = await prisma.productCategory.findUnique({ where: { slug: 'beauty-and-grooming' } });
+    // Home
+    { slug: 'home-kitchen', order: 5 },
 
-  const sections: Prisma.HomepageSectionCreateInput[] = [
-    {
-      type: 'flash_sale',
-      order: 1,
-      is_enabled: true,
-      require_login: false,
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Flash Sale Công Nghệ' },
-          { language_id: langEn.id, title: 'Tech Flash Sale' },
-        ],
-      },
-    },
-    {
-      type: 'product_carousel',
-      order: 3,
-      is_enabled: true,
-      require_login: false,
-      categories: { connect: techCat ? [{ id: techCat.id }] : [] },
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Top Hot Công Nghệ' },
-          { language_id: langEn.id, title: 'Top Tech Deals' },
-        ],
-      },
-    },
-    {
-      type: 'super_deals',
-      order: 2,
-      is_enabled: true,
-      require_login: false,
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Siêu Ưu Đãi' },
-          { language_id: langEn.id, title: 'Super Deals' },
-        ],
-      },
-    },
-    {
-      type: 'top_brands',
-      order: 4,
-      is_enabled: true,
-      require_login: false,
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Thương Hiệu Nổi Bật' },
-          { language_id: langEn.id, title: 'Top Brands' },
-        ],
-      },
-    },
-    {
-      type: 'new_arrivals',
-      order: 5,
-      is_enabled: true,
-      require_login: false,
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Hàng Mới Về' },
-          { language_id: langEn.id, title: 'New Arrivals' },
-        ],
-      },
-    },
-    {
-      type: 'product_carousel',
-      order: 4,
-      is_enabled: true,
-      require_login: false,
-      categories: { connect: fashionCat ? [{ id: fashionCat.id }] : [] },
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Xu hướng Thời trang' },
-          { language_id: langEn.id, title: 'Fashion Trends' },
-        ],
-      },
-    },
-    {
-      type: 'product_carousel',
-      order: 6,
-      is_enabled: true,
-      require_login: false,
-      categories: { connect: homeCat ? [{ id: homeCat.id }] : [] },
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Nhà cửa & Đời sống' },
-          { language_id: langEn.id, title: 'Home & Living' },
-        ],
-      },
-    },
-    {
-      type: 'product_carousel',
-      order: 7,
-      is_enabled: true,
-      require_login: false,
-      categories: { connect: babyCat ? [{ id: babyCat.id }] : [] },
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Mẹ và Bé' },
-          { language_id: langEn.id, title: 'Baby & Kids' },
-        ],
-      },
-    },
-    {
-      type: 'product_carousel',
-      order: 8,
-      is_enabled: true,
-      require_login: false,
-      categories: { connect: sportsCat ? [{ id: sportsCat.id }] : [] },
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Thể thao & Dã ngoại' },
-          { language_id: langEn.id, title: 'Sports & Outdoors' },
-        ],
-      },
-    },
-    {
-      type: 'product_carousel',
-      order: 10,
-      is_enabled: true,
-      require_login: false,
-      categories: { connect: beautyCat ? [{ id: beautyCat.id }] : [] },
-      translations: {
-        create: [
-          { language_id: langVi.id, title: 'Làm đẹp & Chăm sóc' },
-          { language_id: langEn.id, title: 'Beauty & Grooming' },
-        ],
-      },
-    },
+    // Beauty
+    { slug: 'beauty-health', order: 6 },
+
+    // Sports
+    { slug: 'sports-fitness', order: 7 },
+
+    // Grocery
+    { slug: 'grocery-gourmet-foods', order: 8 },
+
+    // Baby / Kids
+    { slug: 'toys-baby-products', order: 9 },
+    { slug: 'kids-fashion', order: 10 },
+
+    // Automotive
+    { slug: 'car-motorbike', order: 11 },
+
+    // Pets
+    { slug: 'pet-supplies', order: 12 },
+
+    // Lifestyle / extra
+    { slug: 'music', order: 13 },
+
+    // B2B / low CTR
+    { slug: 'industrial-supplies', order: 14 },
+
+    // Misc / campaigns
+    { slug: 'stores', order: 15 },
   ];
 
-  // Map other orders forward
-  sections.forEach((s) => {
-    if (s.order !== undefined && s.order > 5 && s.order < 10) {
-      s.order += 4;
+  for (const cat of categories) {
+    const dbCat = await prisma.productCategory.findUnique({ where: { slug: cat.slug } });
+    if (dbCat) {
+      await prisma.featuredCategory.create({
+        data: {
+          category_id: dbCat.id,
+          order: cat.order,
+          is_active: true,
+        },
+      });
     }
-  });
-
-  for (const s of sections) {
-    await prisma.homepageSection.create({ data: s });
   }
 
-  console.log(`✅ Created ${sections.length} homepage sections.`);
+  console.log(`✅ Seeding of ${categories.length} featured categories completed.`);
 }

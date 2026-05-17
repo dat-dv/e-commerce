@@ -46,7 +46,6 @@ export type ProductCategoryMinAggregateOutputType = {
   is_active: boolean | null
   created_at: Date | null
   updated_at: Date | null
-  homepage_section_id: string | null
 }
 
 export type ProductCategoryMaxAggregateOutputType = {
@@ -59,7 +58,6 @@ export type ProductCategoryMaxAggregateOutputType = {
   is_active: boolean | null
   created_at: Date | null
   updated_at: Date | null
-  homepage_section_id: string | null
 }
 
 export type ProductCategoryCountAggregateOutputType = {
@@ -72,7 +70,6 @@ export type ProductCategoryCountAggregateOutputType = {
   is_active: number
   created_at: number
   updated_at: number
-  homepage_section_id: number
   _all: number
 }
 
@@ -97,7 +94,6 @@ export type ProductCategoryMinAggregateInputType = {
   is_active?: true
   created_at?: true
   updated_at?: true
-  homepage_section_id?: true
 }
 
 export type ProductCategoryMaxAggregateInputType = {
@@ -110,7 +106,6 @@ export type ProductCategoryMaxAggregateInputType = {
   is_active?: true
   created_at?: true
   updated_at?: true
-  homepage_section_id?: true
 }
 
 export type ProductCategoryCountAggregateInputType = {
@@ -123,7 +118,6 @@ export type ProductCategoryCountAggregateInputType = {
   is_active?: true
   created_at?: true
   updated_at?: true
-  homepage_section_id?: true
   _all?: true
 }
 
@@ -223,7 +217,6 @@ export type ProductCategoryGroupByOutputType = {
   is_active: boolean
   created_at: Date
   updated_at: Date
-  homepage_section_id: string | null
   _count: ProductCategoryCountAggregateOutputType | null
   _avg: ProductCategoryAvgAggregateOutputType | null
   _sum: ProductCategorySumAggregateOutputType | null
@@ -259,8 +252,7 @@ export type ProductCategoryWhereInput = {
   is_active?: Prisma.BoolFilter<"ProductCategory"> | boolean
   created_at?: Prisma.DateTimeFilter<"ProductCategory"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"ProductCategory"> | Date | string
-  homepage_section_id?: Prisma.StringNullableFilter<"ProductCategory"> | string | null
-  homepage_section?: Prisma.XOR<Prisma.HomepageSectionNullableScalarRelationFilter, Prisma.HomepageSectionWhereInput> | null
+  featured_category?: Prisma.XOR<Prisma.FeaturedCategoryNullableScalarRelationFilter, Prisma.FeaturedCategoryWhereInput> | null
   parent?: Prisma.XOR<Prisma.ProductCategoryNullableScalarRelationFilter, Prisma.ProductCategoryWhereInput> | null
   children?: Prisma.ProductCategoryListRelationFilter
   image?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
@@ -279,8 +271,7 @@ export type ProductCategoryOrderByWithRelationInput = {
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  homepage_section_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  homepage_section?: Prisma.HomepageSectionOrderByWithRelationInput
+  featured_category?: Prisma.FeaturedCategoryOrderByWithRelationInput
   parent?: Prisma.ProductCategoryOrderByWithRelationInput
   children?: Prisma.ProductCategoryOrderByRelationAggregateInput
   image?: Prisma.ImageOrderByWithRelationInput
@@ -302,8 +293,7 @@ export type ProductCategoryWhereUniqueInput = Prisma.AtLeast<{
   is_active?: Prisma.BoolFilter<"ProductCategory"> | boolean
   created_at?: Prisma.DateTimeFilter<"ProductCategory"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"ProductCategory"> | Date | string
-  homepage_section_id?: Prisma.StringNullableFilter<"ProductCategory"> | string | null
-  homepage_section?: Prisma.XOR<Prisma.HomepageSectionNullableScalarRelationFilter, Prisma.HomepageSectionWhereInput> | null
+  featured_category?: Prisma.XOR<Prisma.FeaturedCategoryNullableScalarRelationFilter, Prisma.FeaturedCategoryWhereInput> | null
   parent?: Prisma.XOR<Prisma.ProductCategoryNullableScalarRelationFilter, Prisma.ProductCategoryWhereInput> | null
   children?: Prisma.ProductCategoryListRelationFilter
   image?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
@@ -322,7 +312,6 @@ export type ProductCategoryOrderByWithAggregationInput = {
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  homepage_section_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProductCategoryCountOrderByAggregateInput
   _avg?: Prisma.ProductCategoryAvgOrderByAggregateInput
   _max?: Prisma.ProductCategoryMaxOrderByAggregateInput
@@ -343,7 +332,6 @@ export type ProductCategoryScalarWhereWithAggregatesInput = {
   is_active?: Prisma.BoolWithAggregatesFilter<"ProductCategory"> | boolean
   created_at?: Prisma.DateTimeWithAggregatesFilter<"ProductCategory"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"ProductCategory"> | Date | string
-  homepage_section_id?: Prisma.StringNullableWithAggregatesFilter<"ProductCategory"> | string | null
 }
 
 export type ProductCategoryCreateInput = {
@@ -354,7 +342,7 @@ export type ProductCategoryCreateInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   parent?: Prisma.ProductCategoryCreateNestedOneWithoutChildrenInput
   children?: Prisma.ProductCategoryCreateNestedManyWithoutParentInput
   image?: Prisma.ImageCreateNestedOneWithoutCategoryInput
@@ -373,7 +361,7 @@ export type ProductCategoryUncheckedCreateInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutParentInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedCreateNestedManyWithoutCategoryInput
   translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutCategoryInput
@@ -388,7 +376,7 @@ export type ProductCategoryUpdateInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
   children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
   image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
@@ -407,7 +395,7 @@ export type ProductCategoryUncheckedUpdateInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
   translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
@@ -424,7 +412,6 @@ export type ProductCategoryCreateManyInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
 }
 
 export type ProductCategoryUpdateManyMutationInput = {
@@ -447,7 +434,6 @@ export type ProductCategoryUncheckedUpdateManyInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProductCategoryNullableScalarRelationFilter = {
@@ -475,7 +461,6 @@ export type ProductCategoryCountOrderByAggregateInput = {
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  homepage_section_id?: Prisma.SortOrder
 }
 
 export type ProductCategoryAvgOrderByAggregateInput = {
@@ -493,7 +478,6 @@ export type ProductCategoryMaxOrderByAggregateInput = {
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  homepage_section_id?: Prisma.SortOrder
 }
 
 export type ProductCategoryMinOrderByAggregateInput = {
@@ -506,7 +490,6 @@ export type ProductCategoryMinOrderByAggregateInput = {
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  homepage_section_id?: Prisma.SortOrder
 }
 
 export type ProductCategorySumOrderByAggregateInput = {
@@ -591,46 +574,18 @@ export type ProductCategoryUpdateOneRequiredWithoutProduct_categoriesNestedInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProductCategoryUpdateToOneWithWhereWithoutProduct_categoriesInput, Prisma.ProductCategoryUpdateWithoutProduct_categoriesInput>, Prisma.ProductCategoryUncheckedUpdateWithoutProduct_categoriesInput>
 }
 
-export type ProductCategoryCreateNestedManyWithoutHomepage_sectionInput = {
-  create?: Prisma.XOR<Prisma.ProductCategoryCreateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput> | Prisma.ProductCategoryCreateWithoutHomepage_sectionInput[] | Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput[]
-  connectOrCreate?: Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput | Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput[]
-  createMany?: Prisma.ProductCategoryCreateManyHomepage_sectionInputEnvelope
-  connect?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
+export type ProductCategoryCreateNestedOneWithoutFeatured_categoryInput = {
+  create?: Prisma.XOR<Prisma.ProductCategoryCreateWithoutFeatured_categoryInput, Prisma.ProductCategoryUncheckedCreateWithoutFeatured_categoryInput>
+  connectOrCreate?: Prisma.ProductCategoryCreateOrConnectWithoutFeatured_categoryInput
+  connect?: Prisma.ProductCategoryWhereUniqueInput
 }
 
-export type ProductCategoryUncheckedCreateNestedManyWithoutHomepage_sectionInput = {
-  create?: Prisma.XOR<Prisma.ProductCategoryCreateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput> | Prisma.ProductCategoryCreateWithoutHomepage_sectionInput[] | Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput[]
-  connectOrCreate?: Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput | Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput[]
-  createMany?: Prisma.ProductCategoryCreateManyHomepage_sectionInputEnvelope
-  connect?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-}
-
-export type ProductCategoryUpdateManyWithoutHomepage_sectionNestedInput = {
-  create?: Prisma.XOR<Prisma.ProductCategoryCreateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput> | Prisma.ProductCategoryCreateWithoutHomepage_sectionInput[] | Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput[]
-  connectOrCreate?: Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput | Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput[]
-  upsert?: Prisma.ProductCategoryUpsertWithWhereUniqueWithoutHomepage_sectionInput | Prisma.ProductCategoryUpsertWithWhereUniqueWithoutHomepage_sectionInput[]
-  createMany?: Prisma.ProductCategoryCreateManyHomepage_sectionInputEnvelope
-  set?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  disconnect?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  delete?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  connect?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  update?: Prisma.ProductCategoryUpdateWithWhereUniqueWithoutHomepage_sectionInput | Prisma.ProductCategoryUpdateWithWhereUniqueWithoutHomepage_sectionInput[]
-  updateMany?: Prisma.ProductCategoryUpdateManyWithWhereWithoutHomepage_sectionInput | Prisma.ProductCategoryUpdateManyWithWhereWithoutHomepage_sectionInput[]
-  deleteMany?: Prisma.ProductCategoryScalarWhereInput | Prisma.ProductCategoryScalarWhereInput[]
-}
-
-export type ProductCategoryUncheckedUpdateManyWithoutHomepage_sectionNestedInput = {
-  create?: Prisma.XOR<Prisma.ProductCategoryCreateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput> | Prisma.ProductCategoryCreateWithoutHomepage_sectionInput[] | Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput[]
-  connectOrCreate?: Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput | Prisma.ProductCategoryCreateOrConnectWithoutHomepage_sectionInput[]
-  upsert?: Prisma.ProductCategoryUpsertWithWhereUniqueWithoutHomepage_sectionInput | Prisma.ProductCategoryUpsertWithWhereUniqueWithoutHomepage_sectionInput[]
-  createMany?: Prisma.ProductCategoryCreateManyHomepage_sectionInputEnvelope
-  set?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  disconnect?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  delete?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  connect?: Prisma.ProductCategoryWhereUniqueInput | Prisma.ProductCategoryWhereUniqueInput[]
-  update?: Prisma.ProductCategoryUpdateWithWhereUniqueWithoutHomepage_sectionInput | Prisma.ProductCategoryUpdateWithWhereUniqueWithoutHomepage_sectionInput[]
-  updateMany?: Prisma.ProductCategoryUpdateManyWithWhereWithoutHomepage_sectionInput | Prisma.ProductCategoryUpdateManyWithWhereWithoutHomepage_sectionInput[]
-  deleteMany?: Prisma.ProductCategoryScalarWhereInput | Prisma.ProductCategoryScalarWhereInput[]
+export type ProductCategoryUpdateOneRequiredWithoutFeatured_categoryNestedInput = {
+  create?: Prisma.XOR<Prisma.ProductCategoryCreateWithoutFeatured_categoryInput, Prisma.ProductCategoryUncheckedCreateWithoutFeatured_categoryInput>
+  connectOrCreate?: Prisma.ProductCategoryCreateOrConnectWithoutFeatured_categoryInput
+  upsert?: Prisma.ProductCategoryUpsertWithoutFeatured_categoryInput
+  connect?: Prisma.ProductCategoryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProductCategoryUpdateToOneWithWhereWithoutFeatured_categoryInput, Prisma.ProductCategoryUpdateWithoutFeatured_categoryInput>, Prisma.ProductCategoryUncheckedUpdateWithoutFeatured_categoryInput>
 }
 
 export type ProductCategoryCreateNestedOneWithoutImageInput = {
@@ -701,7 +656,7 @@ export type ProductCategoryCreateWithoutChildrenInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   parent?: Prisma.ProductCategoryCreateNestedOneWithoutChildrenInput
   image?: Prisma.ImageCreateNestedOneWithoutCategoryInput
   product_categories?: Prisma.ProductCategoryMappingCreateNestedManyWithoutCategoryInput
@@ -719,7 +674,7 @@ export type ProductCategoryUncheckedCreateWithoutChildrenInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedCreateNestedManyWithoutCategoryInput
   translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutCategoryInput
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutCategoryInput
@@ -738,7 +693,7 @@ export type ProductCategoryCreateWithoutParentInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryCreateNestedManyWithoutParentInput
   image?: Prisma.ImageCreateNestedOneWithoutCategoryInput
   product_categories?: Prisma.ProductCategoryMappingCreateNestedManyWithoutCategoryInput
@@ -755,7 +710,7 @@ export type ProductCategoryUncheckedCreateWithoutParentInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutParentInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedCreateNestedManyWithoutCategoryInput
   translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutCategoryInput
@@ -790,7 +745,7 @@ export type ProductCategoryUpdateWithoutChildrenInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
   image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
   product_categories?: Prisma.ProductCategoryMappingUpdateManyWithoutCategoryNestedInput
@@ -808,7 +763,7 @@ export type ProductCategoryUncheckedUpdateWithoutChildrenInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
   translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutCategoryNestedInput
@@ -843,7 +798,6 @@ export type ProductCategoryScalarWhereInput = {
   is_active?: Prisma.BoolFilter<"ProductCategory"> | boolean
   created_at?: Prisma.DateTimeFilter<"ProductCategory"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"ProductCategory"> | Date | string
-  homepage_section_id?: Prisma.StringNullableFilter<"ProductCategory"> | string | null
 }
 
 export type ProductCategoryCreateWithoutProduct_categoriesInput = {
@@ -854,7 +808,7 @@ export type ProductCategoryCreateWithoutProduct_categoriesInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   parent?: Prisma.ProductCategoryCreateNestedOneWithoutChildrenInput
   children?: Prisma.ProductCategoryCreateNestedManyWithoutParentInput
   image?: Prisma.ImageCreateNestedOneWithoutCategoryInput
@@ -872,7 +826,7 @@ export type ProductCategoryUncheckedCreateWithoutProduct_categoriesInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutParentInput
   translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutCategoryInput
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutCategoryInput
@@ -902,7 +856,7 @@ export type ProductCategoryUpdateWithoutProduct_categoriesInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
   children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
   image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
@@ -920,13 +874,13 @@ export type ProductCategoryUncheckedUpdateWithoutProduct_categoriesInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
   translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutCategoryNestedInput
 }
 
-export type ProductCategoryCreateWithoutHomepage_sectionInput = {
+export type ProductCategoryCreateWithoutFeatured_categoryInput = {
   id?: string
   slug: string
   level?: number
@@ -942,7 +896,7 @@ export type ProductCategoryCreateWithoutHomepage_sectionInput = {
   favorited_by_users?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutCategoryInput
 }
 
-export type ProductCategoryUncheckedCreateWithoutHomepage_sectionInput = {
+export type ProductCategoryUncheckedCreateWithoutFeatured_categoryInput = {
   id?: string
   slug: string
   image_id?: string | null
@@ -958,29 +912,52 @@ export type ProductCategoryUncheckedCreateWithoutHomepage_sectionInput = {
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutCategoryInput
 }
 
-export type ProductCategoryCreateOrConnectWithoutHomepage_sectionInput = {
+export type ProductCategoryCreateOrConnectWithoutFeatured_categoryInput = {
   where: Prisma.ProductCategoryWhereUniqueInput
-  create: Prisma.XOR<Prisma.ProductCategoryCreateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput>
+  create: Prisma.XOR<Prisma.ProductCategoryCreateWithoutFeatured_categoryInput, Prisma.ProductCategoryUncheckedCreateWithoutFeatured_categoryInput>
 }
 
-export type ProductCategoryCreateManyHomepage_sectionInputEnvelope = {
-  data: Prisma.ProductCategoryCreateManyHomepage_sectionInput | Prisma.ProductCategoryCreateManyHomepage_sectionInput[]
+export type ProductCategoryUpsertWithoutFeatured_categoryInput = {
+  update: Prisma.XOR<Prisma.ProductCategoryUpdateWithoutFeatured_categoryInput, Prisma.ProductCategoryUncheckedUpdateWithoutFeatured_categoryInput>
+  create: Prisma.XOR<Prisma.ProductCategoryCreateWithoutFeatured_categoryInput, Prisma.ProductCategoryUncheckedCreateWithoutFeatured_categoryInput>
+  where?: Prisma.ProductCategoryWhereInput
 }
 
-export type ProductCategoryUpsertWithWhereUniqueWithoutHomepage_sectionInput = {
-  where: Prisma.ProductCategoryWhereUniqueInput
-  update: Prisma.XOR<Prisma.ProductCategoryUpdateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedUpdateWithoutHomepage_sectionInput>
-  create: Prisma.XOR<Prisma.ProductCategoryCreateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedCreateWithoutHomepage_sectionInput>
+export type ProductCategoryUpdateToOneWithWhereWithoutFeatured_categoryInput = {
+  where?: Prisma.ProductCategoryWhereInput
+  data: Prisma.XOR<Prisma.ProductCategoryUpdateWithoutFeatured_categoryInput, Prisma.ProductCategoryUncheckedUpdateWithoutFeatured_categoryInput>
 }
 
-export type ProductCategoryUpdateWithWhereUniqueWithoutHomepage_sectionInput = {
-  where: Prisma.ProductCategoryWhereUniqueInput
-  data: Prisma.XOR<Prisma.ProductCategoryUpdateWithoutHomepage_sectionInput, Prisma.ProductCategoryUncheckedUpdateWithoutHomepage_sectionInput>
+export type ProductCategoryUpdateWithoutFeatured_categoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  order?: Prisma.IntFieldUpdateOperationsInput | number
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
+  image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
+  product_categories?: Prisma.ProductCategoryMappingUpdateManyWithoutCategoryNestedInput
+  translations?: Prisma.ProductCategoryTranslationUpdateManyWithoutCategoryNestedInput
+  favorited_by_users?: Prisma.UserFavoriteCategoryUpdateManyWithoutCategoryNestedInput
 }
 
-export type ProductCategoryUpdateManyWithWhereWithoutHomepage_sectionInput = {
-  where: Prisma.ProductCategoryScalarWhereInput
-  data: Prisma.XOR<Prisma.ProductCategoryUpdateManyMutationInput, Prisma.ProductCategoryUncheckedUpdateManyWithoutHomepage_sectionInput>
+export type ProductCategoryUncheckedUpdateWithoutFeatured_categoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  image_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  parent_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  order?: Prisma.IntFieldUpdateOperationsInput | number
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
+  product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
+  translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
+  favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutCategoryNestedInput
 }
 
 export type ProductCategoryCreateWithoutImageInput = {
@@ -991,7 +968,7 @@ export type ProductCategoryCreateWithoutImageInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   parent?: Prisma.ProductCategoryCreateNestedOneWithoutChildrenInput
   children?: Prisma.ProductCategoryCreateNestedManyWithoutParentInput
   product_categories?: Prisma.ProductCategoryMappingCreateNestedManyWithoutCategoryInput
@@ -1008,7 +985,7 @@ export type ProductCategoryUncheckedCreateWithoutImageInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutParentInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedCreateNestedManyWithoutCategoryInput
   translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutCategoryInput
@@ -1039,7 +1016,7 @@ export type ProductCategoryUpdateWithoutImageInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
   children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
   product_categories?: Prisma.ProductCategoryMappingUpdateManyWithoutCategoryNestedInput
@@ -1056,7 +1033,7 @@ export type ProductCategoryUncheckedUpdateWithoutImageInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
   translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
@@ -1071,7 +1048,7 @@ export type ProductCategoryCreateWithoutTranslationsInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   parent?: Prisma.ProductCategoryCreateNestedOneWithoutChildrenInput
   children?: Prisma.ProductCategoryCreateNestedManyWithoutParentInput
   image?: Prisma.ImageCreateNestedOneWithoutCategoryInput
@@ -1089,7 +1066,7 @@ export type ProductCategoryUncheckedCreateWithoutTranslationsInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutParentInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedCreateNestedManyWithoutCategoryInput
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutCategoryInput
@@ -1119,7 +1096,7 @@ export type ProductCategoryUpdateWithoutTranslationsInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
   children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
   image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
@@ -1137,7 +1114,7 @@ export type ProductCategoryUncheckedUpdateWithoutTranslationsInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
   favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutCategoryNestedInput
@@ -1151,7 +1128,7 @@ export type ProductCategoryCreateWithoutFavorited_by_usersInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section?: Prisma.HomepageSectionCreateNestedOneWithoutCategoriesInput
+  featured_category?: Prisma.FeaturedCategoryCreateNestedOneWithoutCategoryInput
   parent?: Prisma.ProductCategoryCreateNestedOneWithoutChildrenInput
   children?: Prisma.ProductCategoryCreateNestedManyWithoutParentInput
   image?: Prisma.ImageCreateNestedOneWithoutCategoryInput
@@ -1169,7 +1146,7 @@ export type ProductCategoryUncheckedCreateWithoutFavorited_by_usersInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedCreateNestedOneWithoutCategoryInput
   children?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutParentInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedCreateNestedManyWithoutCategoryInput
   translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutCategoryInput
@@ -1199,7 +1176,7 @@ export type ProductCategoryUpdateWithoutFavorited_by_usersInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
   children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
   image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
@@ -1217,7 +1194,7 @@ export type ProductCategoryUncheckedUpdateWithoutFavorited_by_usersInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
   translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
@@ -1232,7 +1209,6 @@ export type ProductCategoryCreateManyParentInput = {
   is_active?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  homepage_section_id?: string | null
 }
 
 export type ProductCategoryUpdateWithoutParentInput = {
@@ -1243,7 +1219,7 @@ export type ProductCategoryUpdateWithoutParentInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section?: Prisma.HomepageSectionUpdateOneWithoutCategoriesNestedInput
+  featured_category?: Prisma.FeaturedCategoryUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
   image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
   product_categories?: Prisma.ProductCategoryMappingUpdateManyWithoutCategoryNestedInput
@@ -1260,7 +1236,7 @@ export type ProductCategoryUncheckedUpdateWithoutParentInput = {
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  featured_category?: Prisma.FeaturedCategoryUncheckedUpdateOneWithoutCategoryNestedInput
   children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
   product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
   translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
@@ -1271,63 +1247,6 @@ export type ProductCategoryUncheckedUpdateManyWithoutParentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   image_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  level?: Prisma.IntFieldUpdateOperationsInput | number
-  order?: Prisma.IntFieldUpdateOperationsInput | number
-  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  homepage_section_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type ProductCategoryCreateManyHomepage_sectionInput = {
-  id?: string
-  slug: string
-  image_id?: string | null
-  parent_id?: string | null
-  level?: number
-  order?: number
-  is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
-}
-
-export type ProductCategoryUpdateWithoutHomepage_sectionInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
-  level?: Prisma.IntFieldUpdateOperationsInput | number
-  order?: Prisma.IntFieldUpdateOperationsInput | number
-  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  parent?: Prisma.ProductCategoryUpdateOneWithoutChildrenNestedInput
-  children?: Prisma.ProductCategoryUpdateManyWithoutParentNestedInput
-  image?: Prisma.ImageUpdateOneWithoutCategoryNestedInput
-  product_categories?: Prisma.ProductCategoryMappingUpdateManyWithoutCategoryNestedInput
-  translations?: Prisma.ProductCategoryTranslationUpdateManyWithoutCategoryNestedInput
-  favorited_by_users?: Prisma.UserFavoriteCategoryUpdateManyWithoutCategoryNestedInput
-}
-
-export type ProductCategoryUncheckedUpdateWithoutHomepage_sectionInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
-  image_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parent_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  level?: Prisma.IntFieldUpdateOperationsInput | number
-  order?: Prisma.IntFieldUpdateOperationsInput | number
-  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  children?: Prisma.ProductCategoryUncheckedUpdateManyWithoutParentNestedInput
-  product_categories?: Prisma.ProductCategoryMappingUncheckedUpdateManyWithoutCategoryNestedInput
-  translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutCategoryNestedInput
-  favorited_by_users?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutCategoryNestedInput
-}
-
-export type ProductCategoryUncheckedUpdateManyWithoutHomepage_sectionInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
-  image_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parent_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   level?: Prisma.IntFieldUpdateOperationsInput | number
   order?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1403,8 +1322,7 @@ export type ProductCategorySelect<ExtArgs extends runtime.Types.Extensions.Inter
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
-  homepage_section_id?: boolean
-  homepage_section?: boolean | Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>
+  featured_category?: boolean | Prisma.ProductCategory$featured_categoryArgs<ExtArgs>
   parent?: boolean | Prisma.ProductCategory$parentArgs<ExtArgs>
   children?: boolean | Prisma.ProductCategory$childrenArgs<ExtArgs>
   image?: boolean | Prisma.ProductCategory$imageArgs<ExtArgs>
@@ -1424,8 +1342,6 @@ export type ProductCategorySelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
-  homepage_section_id?: boolean
-  homepage_section?: boolean | Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>
   parent?: boolean | Prisma.ProductCategory$parentArgs<ExtArgs>
   image?: boolean | Prisma.ProductCategory$imageArgs<ExtArgs>
 }, ExtArgs["result"]["productCategory"]>
@@ -1440,8 +1356,6 @@ export type ProductCategorySelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
-  homepage_section_id?: boolean
-  homepage_section?: boolean | Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>
   parent?: boolean | Prisma.ProductCategory$parentArgs<ExtArgs>
   image?: boolean | Prisma.ProductCategory$imageArgs<ExtArgs>
 }, ExtArgs["result"]["productCategory"]>
@@ -1456,12 +1370,11 @@ export type ProductCategorySelectScalar = {
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
-  homepage_section_id?: boolean
 }
 
-export type ProductCategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "image_id" | "parent_id" | "level" | "order" | "is_active" | "created_at" | "updated_at" | "homepage_section_id", ExtArgs["result"]["productCategory"]>
+export type ProductCategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "image_id" | "parent_id" | "level" | "order" | "is_active" | "created_at" | "updated_at", ExtArgs["result"]["productCategory"]>
 export type ProductCategoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  homepage_section?: boolean | Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>
+  featured_category?: boolean | Prisma.ProductCategory$featured_categoryArgs<ExtArgs>
   parent?: boolean | Prisma.ProductCategory$parentArgs<ExtArgs>
   children?: boolean | Prisma.ProductCategory$childrenArgs<ExtArgs>
   image?: boolean | Prisma.ProductCategory$imageArgs<ExtArgs>
@@ -1471,12 +1384,10 @@ export type ProductCategoryInclude<ExtArgs extends runtime.Types.Extensions.Inte
   _count?: boolean | Prisma.ProductCategoryCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProductCategoryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  homepage_section?: boolean | Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>
   parent?: boolean | Prisma.ProductCategory$parentArgs<ExtArgs>
   image?: boolean | Prisma.ProductCategory$imageArgs<ExtArgs>
 }
 export type ProductCategoryIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  homepage_section?: boolean | Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>
   parent?: boolean | Prisma.ProductCategory$parentArgs<ExtArgs>
   image?: boolean | Prisma.ProductCategory$imageArgs<ExtArgs>
 }
@@ -1484,7 +1395,7 @@ export type ProductCategoryIncludeUpdateManyAndReturn<ExtArgs extends runtime.Ty
 export type $ProductCategoryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ProductCategory"
   objects: {
-    homepage_section: Prisma.$HomepageSectionPayload<ExtArgs> | null
+    featured_category: Prisma.$FeaturedCategoryPayload<ExtArgs> | null
     parent: Prisma.$ProductCategoryPayload<ExtArgs> | null
     children: Prisma.$ProductCategoryPayload<ExtArgs>[]
     image: Prisma.$ImagePayload<ExtArgs> | null
@@ -1502,7 +1413,6 @@ export type $ProductCategoryPayload<ExtArgs extends runtime.Types.Extensions.Int
     is_active: boolean
     created_at: Date
     updated_at: Date
-    homepage_section_id: string | null
   }, ExtArgs["result"]["productCategory"]>
   composites: {}
 }
@@ -1897,7 +1807,7 @@ readonly fields: ProductCategoryFieldRefs;
  */
 export interface Prisma__ProductCategoryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  homepage_section<T extends Prisma.ProductCategory$homepage_sectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductCategory$homepage_sectionArgs<ExtArgs>>): Prisma.Prisma__HomepageSectionClient<runtime.Types.Result.GetResult<Prisma.$HomepageSectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  featured_category<T extends Prisma.ProductCategory$featured_categoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductCategory$featured_categoryArgs<ExtArgs>>): Prisma.Prisma__FeaturedCategoryClient<runtime.Types.Result.GetResult<Prisma.$FeaturedCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   parent<T extends Prisma.ProductCategory$parentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductCategory$parentArgs<ExtArgs>>): Prisma.Prisma__ProductCategoryClient<runtime.Types.Result.GetResult<Prisma.$ProductCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   children<T extends Prisma.ProductCategory$childrenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductCategory$childrenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   image<T extends Prisma.ProductCategory$imageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductCategory$imageArgs<ExtArgs>>): Prisma.Prisma__ImageClient<runtime.Types.Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -1942,7 +1852,6 @@ export interface ProductCategoryFieldRefs {
   readonly is_active: Prisma.FieldRef<"ProductCategory", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"ProductCategory", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"ProductCategory", 'DateTime'>
-  readonly homepage_section_id: Prisma.FieldRef<"ProductCategory", 'String'>
 }
     
 
@@ -2342,22 +2251,22 @@ export type ProductCategoryDeleteManyArgs<ExtArgs extends runtime.Types.Extensio
 }
 
 /**
- * ProductCategory.homepage_section
+ * ProductCategory.featured_category
  */
-export type ProductCategory$homepage_sectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProductCategory$featured_categoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the HomepageSection
+   * Select specific fields to fetch from the FeaturedCategory
    */
-  select?: Prisma.HomepageSectionSelect<ExtArgs> | null
+  select?: Prisma.FeaturedCategorySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the HomepageSection
+   * Omit specific fields from the FeaturedCategory
    */
-  omit?: Prisma.HomepageSectionOmit<ExtArgs> | null
+  omit?: Prisma.FeaturedCategoryOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.HomepageSectionInclude<ExtArgs> | null
-  where?: Prisma.HomepageSectionWhereInput
+  include?: Prisma.FeaturedCategoryInclude<ExtArgs> | null
+  where?: Prisma.FeaturedCategoryWhereInput
 }
 
 /**

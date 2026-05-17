@@ -169,7 +169,6 @@ export type LanguageWhereInput = {
   translations?: Prisma.ProductTranslationListRelationFilter
   category_translations?: Prisma.ProductCategoryTranslationListRelationFilter
   brand_translations?: Prisma.BrandTranslationListRelationFilter
-  homepage_section_translations?: Prisma.HomepageSectionTranslationListRelationFilter
 }
 
 export type LanguageOrderByWithRelationInput = {
@@ -179,7 +178,6 @@ export type LanguageOrderByWithRelationInput = {
   translations?: Prisma.ProductTranslationOrderByRelationAggregateInput
   category_translations?: Prisma.ProductCategoryTranslationOrderByRelationAggregateInput
   brand_translations?: Prisma.BrandTranslationOrderByRelationAggregateInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationOrderByRelationAggregateInput
 }
 
 export type LanguageWhereUniqueInput = Prisma.AtLeast<{
@@ -192,7 +190,6 @@ export type LanguageWhereUniqueInput = Prisma.AtLeast<{
   translations?: Prisma.ProductTranslationListRelationFilter
   category_translations?: Prisma.ProductCategoryTranslationListRelationFilter
   brand_translations?: Prisma.BrandTranslationListRelationFilter
-  homepage_section_translations?: Prisma.HomepageSectionTranslationListRelationFilter
 }, "id" | "code">
 
 export type LanguageOrderByWithAggregationInput = {
@@ -220,7 +217,6 @@ export type LanguageCreateInput = {
   translations?: Prisma.ProductTranslationCreateNestedManyWithoutLanguageInput
   category_translations?: Prisma.ProductCategoryTranslationCreateNestedManyWithoutLanguageInput
   brand_translations?: Prisma.BrandTranslationCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageUncheckedCreateInput = {
@@ -230,7 +226,6 @@ export type LanguageUncheckedCreateInput = {
   translations?: Prisma.ProductTranslationUncheckedCreateNestedManyWithoutLanguageInput
   category_translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutLanguageInput
   brand_translations?: Prisma.BrandTranslationUncheckedCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageUpdateInput = {
@@ -240,7 +235,6 @@ export type LanguageUpdateInput = {
   translations?: Prisma.ProductTranslationUpdateManyWithoutLanguageNestedInput
   category_translations?: Prisma.ProductCategoryTranslationUpdateManyWithoutLanguageNestedInput
   brand_translations?: Prisma.BrandTranslationUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageUncheckedUpdateInput = {
@@ -250,7 +244,6 @@ export type LanguageUncheckedUpdateInput = {
   translations?: Prisma.ProductTranslationUncheckedUpdateManyWithoutLanguageNestedInput
   category_translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutLanguageNestedInput
   brand_translations?: Prisma.BrandTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageCreateManyInput = {
@@ -308,20 +301,6 @@ export type LanguageUpdateOneRequiredWithoutBrand_translationsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.LanguageUpdateToOneWithWhereWithoutBrand_translationsInput, Prisma.LanguageUpdateWithoutBrand_translationsInput>, Prisma.LanguageUncheckedUpdateWithoutBrand_translationsInput>
 }
 
-export type LanguageCreateNestedOneWithoutHomepage_section_translationsInput = {
-  create?: Prisma.XOR<Prisma.LanguageCreateWithoutHomepage_section_translationsInput, Prisma.LanguageUncheckedCreateWithoutHomepage_section_translationsInput>
-  connectOrCreate?: Prisma.LanguageCreateOrConnectWithoutHomepage_section_translationsInput
-  connect?: Prisma.LanguageWhereUniqueInput
-}
-
-export type LanguageUpdateOneRequiredWithoutHomepage_section_translationsNestedInput = {
-  create?: Prisma.XOR<Prisma.LanguageCreateWithoutHomepage_section_translationsInput, Prisma.LanguageUncheckedCreateWithoutHomepage_section_translationsInput>
-  connectOrCreate?: Prisma.LanguageCreateOrConnectWithoutHomepage_section_translationsInput
-  upsert?: Prisma.LanguageUpsertWithoutHomepage_section_translationsInput
-  connect?: Prisma.LanguageWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.LanguageUpdateToOneWithWhereWithoutHomepage_section_translationsInput, Prisma.LanguageUpdateWithoutHomepage_section_translationsInput>, Prisma.LanguageUncheckedUpdateWithoutHomepage_section_translationsInput>
-}
-
 export type LanguageCreateNestedOneWithoutTranslationsInput = {
   create?: Prisma.XOR<Prisma.LanguageCreateWithoutTranslationsInput, Prisma.LanguageUncheckedCreateWithoutTranslationsInput>
   connectOrCreate?: Prisma.LanguageCreateOrConnectWithoutTranslationsInput
@@ -356,7 +335,6 @@ export type LanguageCreateWithoutBrand_translationsInput = {
   name: string
   translations?: Prisma.ProductTranslationCreateNestedManyWithoutLanguageInput
   category_translations?: Prisma.ProductCategoryTranslationCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageUncheckedCreateWithoutBrand_translationsInput = {
@@ -365,7 +343,6 @@ export type LanguageUncheckedCreateWithoutBrand_translationsInput = {
   name: string
   translations?: Prisma.ProductTranslationUncheckedCreateNestedManyWithoutLanguageInput
   category_translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageCreateOrConnectWithoutBrand_translationsInput = {
@@ -390,7 +367,6 @@ export type LanguageUpdateWithoutBrand_translationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   translations?: Prisma.ProductTranslationUpdateManyWithoutLanguageNestedInput
   category_translations?: Prisma.ProductCategoryTranslationUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageUncheckedUpdateWithoutBrand_translationsInput = {
@@ -399,59 +375,6 @@ export type LanguageUncheckedUpdateWithoutBrand_translationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   translations?: Prisma.ProductTranslationUncheckedUpdateManyWithoutLanguageNestedInput
   category_translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-}
-
-export type LanguageCreateWithoutHomepage_section_translationsInput = {
-  id?: string
-  code: string
-  name: string
-  translations?: Prisma.ProductTranslationCreateNestedManyWithoutLanguageInput
-  category_translations?: Prisma.ProductCategoryTranslationCreateNestedManyWithoutLanguageInput
-  brand_translations?: Prisma.BrandTranslationCreateNestedManyWithoutLanguageInput
-}
-
-export type LanguageUncheckedCreateWithoutHomepage_section_translationsInput = {
-  id?: string
-  code: string
-  name: string
-  translations?: Prisma.ProductTranslationUncheckedCreateNestedManyWithoutLanguageInput
-  category_translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutLanguageInput
-  brand_translations?: Prisma.BrandTranslationUncheckedCreateNestedManyWithoutLanguageInput
-}
-
-export type LanguageCreateOrConnectWithoutHomepage_section_translationsInput = {
-  where: Prisma.LanguageWhereUniqueInput
-  create: Prisma.XOR<Prisma.LanguageCreateWithoutHomepage_section_translationsInput, Prisma.LanguageUncheckedCreateWithoutHomepage_section_translationsInput>
-}
-
-export type LanguageUpsertWithoutHomepage_section_translationsInput = {
-  update: Prisma.XOR<Prisma.LanguageUpdateWithoutHomepage_section_translationsInput, Prisma.LanguageUncheckedUpdateWithoutHomepage_section_translationsInput>
-  create: Prisma.XOR<Prisma.LanguageCreateWithoutHomepage_section_translationsInput, Prisma.LanguageUncheckedCreateWithoutHomepage_section_translationsInput>
-  where?: Prisma.LanguageWhereInput
-}
-
-export type LanguageUpdateToOneWithWhereWithoutHomepage_section_translationsInput = {
-  where?: Prisma.LanguageWhereInput
-  data: Prisma.XOR<Prisma.LanguageUpdateWithoutHomepage_section_translationsInput, Prisma.LanguageUncheckedUpdateWithoutHomepage_section_translationsInput>
-}
-
-export type LanguageUpdateWithoutHomepage_section_translationsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  code?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  translations?: Prisma.ProductTranslationUpdateManyWithoutLanguageNestedInput
-  category_translations?: Prisma.ProductCategoryTranslationUpdateManyWithoutLanguageNestedInput
-  brand_translations?: Prisma.BrandTranslationUpdateManyWithoutLanguageNestedInput
-}
-
-export type LanguageUncheckedUpdateWithoutHomepage_section_translationsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  code?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  translations?: Prisma.ProductTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-  category_translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-  brand_translations?: Prisma.BrandTranslationUncheckedUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageCreateWithoutTranslationsInput = {
@@ -460,7 +383,6 @@ export type LanguageCreateWithoutTranslationsInput = {
   name: string
   category_translations?: Prisma.ProductCategoryTranslationCreateNestedManyWithoutLanguageInput
   brand_translations?: Prisma.BrandTranslationCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageUncheckedCreateWithoutTranslationsInput = {
@@ -469,7 +391,6 @@ export type LanguageUncheckedCreateWithoutTranslationsInput = {
   name: string
   category_translations?: Prisma.ProductCategoryTranslationUncheckedCreateNestedManyWithoutLanguageInput
   brand_translations?: Prisma.BrandTranslationUncheckedCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageCreateOrConnectWithoutTranslationsInput = {
@@ -494,7 +415,6 @@ export type LanguageUpdateWithoutTranslationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   category_translations?: Prisma.ProductCategoryTranslationUpdateManyWithoutLanguageNestedInput
   brand_translations?: Prisma.BrandTranslationUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageUncheckedUpdateWithoutTranslationsInput = {
@@ -503,7 +423,6 @@ export type LanguageUncheckedUpdateWithoutTranslationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   category_translations?: Prisma.ProductCategoryTranslationUncheckedUpdateManyWithoutLanguageNestedInput
   brand_translations?: Prisma.BrandTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageCreateWithoutCategory_translationsInput = {
@@ -512,7 +431,6 @@ export type LanguageCreateWithoutCategory_translationsInput = {
   name: string
   translations?: Prisma.ProductTranslationCreateNestedManyWithoutLanguageInput
   brand_translations?: Prisma.BrandTranslationCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageUncheckedCreateWithoutCategory_translationsInput = {
@@ -521,7 +439,6 @@ export type LanguageUncheckedCreateWithoutCategory_translationsInput = {
   name: string
   translations?: Prisma.ProductTranslationUncheckedCreateNestedManyWithoutLanguageInput
   brand_translations?: Prisma.BrandTranslationUncheckedCreateNestedManyWithoutLanguageInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedCreateNestedManyWithoutLanguageInput
 }
 
 export type LanguageCreateOrConnectWithoutCategory_translationsInput = {
@@ -546,7 +463,6 @@ export type LanguageUpdateWithoutCategory_translationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   translations?: Prisma.ProductTranslationUpdateManyWithoutLanguageNestedInput
   brand_translations?: Prisma.BrandTranslationUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUpdateManyWithoutLanguageNestedInput
 }
 
 export type LanguageUncheckedUpdateWithoutCategory_translationsInput = {
@@ -555,7 +471,6 @@ export type LanguageUncheckedUpdateWithoutCategory_translationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   translations?: Prisma.ProductTranslationUncheckedUpdateManyWithoutLanguageNestedInput
   brand_translations?: Prisma.BrandTranslationUncheckedUpdateManyWithoutLanguageNestedInput
-  homepage_section_translations?: Prisma.HomepageSectionTranslationUncheckedUpdateManyWithoutLanguageNestedInput
 }
 
 
@@ -567,14 +482,12 @@ export type LanguageCountOutputType = {
   translations: number
   category_translations: number
   brand_translations: number
-  homepage_section_translations: number
 }
 
 export type LanguageCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   translations?: boolean | LanguageCountOutputTypeCountTranslationsArgs
   category_translations?: boolean | LanguageCountOutputTypeCountCategory_translationsArgs
   brand_translations?: boolean | LanguageCountOutputTypeCountBrand_translationsArgs
-  homepage_section_translations?: boolean | LanguageCountOutputTypeCountHomepage_section_translationsArgs
 }
 
 /**
@@ -608,13 +521,6 @@ export type LanguageCountOutputTypeCountBrand_translationsArgs<ExtArgs extends r
   where?: Prisma.BrandTranslationWhereInput
 }
 
-/**
- * LanguageCountOutputType without action
- */
-export type LanguageCountOutputTypeCountHomepage_section_translationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.HomepageSectionTranslationWhereInput
-}
-
 
 export type LanguageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -623,7 +529,6 @@ export type LanguageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   translations?: boolean | Prisma.Language$translationsArgs<ExtArgs>
   category_translations?: boolean | Prisma.Language$category_translationsArgs<ExtArgs>
   brand_translations?: boolean | Prisma.Language$brand_translationsArgs<ExtArgs>
-  homepage_section_translations?: boolean | Prisma.Language$homepage_section_translationsArgs<ExtArgs>
   _count?: boolean | Prisma.LanguageCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["language"]>
 
@@ -650,7 +555,6 @@ export type LanguageInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   translations?: boolean | Prisma.Language$translationsArgs<ExtArgs>
   category_translations?: boolean | Prisma.Language$category_translationsArgs<ExtArgs>
   brand_translations?: boolean | Prisma.Language$brand_translationsArgs<ExtArgs>
-  homepage_section_translations?: boolean | Prisma.Language$homepage_section_translationsArgs<ExtArgs>
   _count?: boolean | Prisma.LanguageCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type LanguageIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -662,7 +566,6 @@ export type $LanguagePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     translations: Prisma.$ProductTranslationPayload<ExtArgs>[]
     category_translations: Prisma.$ProductCategoryTranslationPayload<ExtArgs>[]
     brand_translations: Prisma.$BrandTranslationPayload<ExtArgs>[]
-    homepage_section_translations: Prisma.$HomepageSectionTranslationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1065,7 +968,6 @@ export interface Prisma__LanguageClient<T, Null = never, ExtArgs extends runtime
   translations<T extends Prisma.Language$translationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Language$translationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   category_translations<T extends Prisma.Language$category_translationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Language$category_translationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductCategoryTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   brand_translations<T extends Prisma.Language$brand_translationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Language$brand_translationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BrandTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  homepage_section_translations<T extends Prisma.Language$homepage_section_translationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Language$homepage_section_translationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HomepageSectionTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1558,30 +1460,6 @@ export type Language$brand_translationsArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.BrandTranslationScalarFieldEnum | Prisma.BrandTranslationScalarFieldEnum[]
-}
-
-/**
- * Language.homepage_section_translations
- */
-export type Language$homepage_section_translationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the HomepageSectionTranslation
-   */
-  select?: Prisma.HomepageSectionTranslationSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the HomepageSectionTranslation
-   */
-  omit?: Prisma.HomepageSectionTranslationOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.HomepageSectionTranslationInclude<ExtArgs> | null
-  where?: Prisma.HomepageSectionTranslationWhereInput
-  orderBy?: Prisma.HomepageSectionTranslationOrderByWithRelationInput | Prisma.HomepageSectionTranslationOrderByWithRelationInput[]
-  cursor?: Prisma.HomepageSectionTranslationWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.HomepageSectionTranslationScalarFieldEnum | Prisma.HomepageSectionTranslationScalarFieldEnum[]
 }
 
 /**

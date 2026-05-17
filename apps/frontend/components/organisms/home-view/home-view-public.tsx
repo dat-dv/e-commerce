@@ -26,10 +26,7 @@ export const HomepagePublic = () => {
       {/* Wrapping the rest in ONE AppContainer */}
       <AppContainer className="flex flex-col gap-12">
         {/* 2. Feature Cards Grid */}
-        <FeatureGrid
-          items={FEATURE_ITEMS}
-          classNames="px-2 justify-items-center"
-        />
+        <FeatureGrid items={FEATURE_ITEMS} />
 
         {/* Categories Section */}
         <CategoriesCarousel categories={categories} lang={lang} />

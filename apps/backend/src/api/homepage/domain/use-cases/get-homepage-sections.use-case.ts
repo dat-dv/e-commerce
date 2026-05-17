@@ -19,33 +19,42 @@ export class GetHomepageSectionsUseCase {
     limit?: number;
   }): Promise<IHomepageSectionResponse[]> {
     const { languageCode = 'en', userId, page = 1, limit = 10 } = params || {};
-    const isLoggedIn = !!userId;
-    const sections = await this.homepageSectionRepo.findAllEnabled({
+    const featuredCategories = await this.homepageSectionRepo.findAllEnabled({
       languageCode,
-      isLoggedIn,
+      isLoggedIn: !!userId,
       page,
       limit,
     });
 
     return Promise.all(
-      sections.map(async (section): Promise<IHomepageSectionResponse> => {
+      featuredCategories.map(async (featuredCategory): Promise<IHomepageSectionResponse> => {
         let data: IHomepageSectionResponse['data'] = [];
-        const type = section.type as EHomepageSectionType;
-        if (type === EHomepageSectionType.PRODUCT_CAROUSEL) {
-          const categorySlug = section.categories?.[0]?.slug;
-          if (categorySlug) {
-            data = await this.productsRepo.findMany({
-              category_slug: categorySlug,
-              orderBy: { created_at: 'desc' },
-              take: 12,
-              languageCode,
-              userId,
-            });
-          }
+        const category = featuredCategory.category;
+
+        if (category?.slug) {
+          data = await this.productsRepo.findMany({
+            category_slug: category.slug,
+            orderBy: { created_at: 'desc' },
+            take: 12,
+            languageCode,
+            userId,
+          });
         }
 
         return {
-          section,
+          section: {
+            id: featuredCategory.id,
+            type: EHomepageSectionType.PRODUCT_CAROUSEL,
+            order: featuredCategory.order,
+            is_enabled: featuredCategory.is_active,
+            require_login: false,
+            created_at: featuredCategory.created_at,
+            updated_at: featuredCategory.updated_at,
+            categories: category ? [category] : [],
+            translations: category?.translations?.map((translation) => ({
+              title: translation.name,
+            })),
+          },
           data,
         };
       }),

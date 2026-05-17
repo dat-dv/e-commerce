@@ -395,11 +395,10 @@ export const ModelName = {
   ProductCategory: 'ProductCategory',
   ProductCategoryMapping: 'ProductCategoryMapping',
   Coupon: 'Coupon',
+  FeaturedCategory: 'FeaturedCategory',
   FlashSaleTimeSlot: 'FlashSaleTimeSlot',
   FlashSale: 'FlashSale',
   FlashSaleProduct: 'FlashSaleProduct',
-  HomepageSection: 'HomepageSection',
-  HomepageSectionTranslation: 'HomepageSectionTranslation',
   Image: 'Image',
   Language: 'Language',
   ProductTranslation: 'ProductTranslation',
@@ -436,7 +435,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "homepageSection" | "homepageSectionTranslation" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
+    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1254,6 +1253,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    FeaturedCategory: {
+      payload: Prisma.$FeaturedCategoryPayload<ExtArgs>
+      fields: Prisma.FeaturedCategoryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FeaturedCategoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FeaturedCategoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>
+        }
+        findFirst: {
+          args: Prisma.FeaturedCategoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FeaturedCategoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>
+        }
+        findMany: {
+          args: Prisma.FeaturedCategoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>[]
+        }
+        create: {
+          args: Prisma.FeaturedCategoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>
+        }
+        createMany: {
+          args: Prisma.FeaturedCategoryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FeaturedCategoryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>[]
+        }
+        delete: {
+          args: Prisma.FeaturedCategoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>
+        }
+        update: {
+          args: Prisma.FeaturedCategoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>
+        }
+        deleteMany: {
+          args: Prisma.FeaturedCategoryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FeaturedCategoryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FeaturedCategoryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>[]
+        }
+        upsert: {
+          args: Prisma.FeaturedCategoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FeaturedCategoryPayload>
+        }
+        aggregate: {
+          args: Prisma.FeaturedCategoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFeaturedCategory>
+        }
+        groupBy: {
+          args: Prisma.FeaturedCategoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FeaturedCategoryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FeaturedCategoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FeaturedCategoryCountAggregateOutputType> | number
+        }
+      }
+    }
     FlashSaleTimeSlot: {
       payload: Prisma.$FlashSaleTimeSlotPayload<ExtArgs>
       fields: Prisma.FlashSaleTimeSlotFieldRefs
@@ -1473,154 +1546,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.FlashSaleProductCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.FlashSaleProductCountAggregateOutputType> | number
-        }
-      }
-    }
-    HomepageSection: {
-      payload: Prisma.$HomepageSectionPayload<ExtArgs>
-      fields: Prisma.HomepageSectionFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.HomepageSectionFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.HomepageSectionFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>
-        }
-        findFirst: {
-          args: Prisma.HomepageSectionFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.HomepageSectionFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>
-        }
-        findMany: {
-          args: Prisma.HomepageSectionFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>[]
-        }
-        create: {
-          args: Prisma.HomepageSectionCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>
-        }
-        createMany: {
-          args: Prisma.HomepageSectionCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.HomepageSectionCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>[]
-        }
-        delete: {
-          args: Prisma.HomepageSectionDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>
-        }
-        update: {
-          args: Prisma.HomepageSectionUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>
-        }
-        deleteMany: {
-          args: Prisma.HomepageSectionDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.HomepageSectionUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.HomepageSectionUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>[]
-        }
-        upsert: {
-          args: Prisma.HomepageSectionUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionPayload>
-        }
-        aggregate: {
-          args: Prisma.HomepageSectionAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateHomepageSection>
-        }
-        groupBy: {
-          args: Prisma.HomepageSectionGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.HomepageSectionGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.HomepageSectionCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.HomepageSectionCountAggregateOutputType> | number
-        }
-      }
-    }
-    HomepageSectionTranslation: {
-      payload: Prisma.$HomepageSectionTranslationPayload<ExtArgs>
-      fields: Prisma.HomepageSectionTranslationFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.HomepageSectionTranslationFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.HomepageSectionTranslationFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>
-        }
-        findFirst: {
-          args: Prisma.HomepageSectionTranslationFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.HomepageSectionTranslationFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>
-        }
-        findMany: {
-          args: Prisma.HomepageSectionTranslationFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>[]
-        }
-        create: {
-          args: Prisma.HomepageSectionTranslationCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>
-        }
-        createMany: {
-          args: Prisma.HomepageSectionTranslationCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.HomepageSectionTranslationCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>[]
-        }
-        delete: {
-          args: Prisma.HomepageSectionTranslationDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>
-        }
-        update: {
-          args: Prisma.HomepageSectionTranslationUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>
-        }
-        deleteMany: {
-          args: Prisma.HomepageSectionTranslationDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.HomepageSectionTranslationUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.HomepageSectionTranslationUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>[]
-        }
-        upsert: {
-          args: Prisma.HomepageSectionTranslationUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$HomepageSectionTranslationPayload>
-        }
-        aggregate: {
-          args: Prisma.HomepageSectionTranslationAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateHomepageSectionTranslation>
-        }
-        groupBy: {
-          args: Prisma.HomepageSectionTranslationGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.HomepageSectionTranslationGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.HomepageSectionTranslationCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.HomepageSectionTranslationCountAggregateOutputType> | number
         }
       }
     }
@@ -3310,8 +3235,7 @@ export const ProductCategoryScalarFieldEnum = {
   order: 'order',
   is_active: 'is_active',
   created_at: 'created_at',
-  updated_at: 'updated_at',
-  homepage_section_id: 'homepage_section_id'
+  updated_at: 'updated_at'
 } as const
 
 export type ProductCategoryScalarFieldEnum = (typeof ProductCategoryScalarFieldEnum)[keyof typeof ProductCategoryScalarFieldEnum]
@@ -3342,6 +3266,18 @@ export const CouponScalarFieldEnum = {
 } as const
 
 export type CouponScalarFieldEnum = (typeof CouponScalarFieldEnum)[keyof typeof CouponScalarFieldEnum]
+
+
+export const FeaturedCategoryScalarFieldEnum = {
+  id: 'id',
+  category_id: 'category_id',
+  order: 'order',
+  is_active: 'is_active',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type FeaturedCategoryScalarFieldEnum = (typeof FeaturedCategoryScalarFieldEnum)[keyof typeof FeaturedCategoryScalarFieldEnum]
 
 
 export const FlashSaleTimeSlotScalarFieldEnum = {
@@ -3381,29 +3317,6 @@ export const FlashSaleProductScalarFieldEnum = {
 } as const
 
 export type FlashSaleProductScalarFieldEnum = (typeof FlashSaleProductScalarFieldEnum)[keyof typeof FlashSaleProductScalarFieldEnum]
-
-
-export const HomepageSectionScalarFieldEnum = {
-  id: 'id',
-  type: 'type',
-  order: 'order',
-  is_enabled: 'is_enabled',
-  require_login: 'require_login',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type HomepageSectionScalarFieldEnum = (typeof HomepageSectionScalarFieldEnum)[keyof typeof HomepageSectionScalarFieldEnum]
-
-
-export const HomepageSectionTranslationScalarFieldEnum = {
-  id: 'id',
-  homepage_section_id: 'homepage_section_id',
-  language_id: 'language_id',
-  title: 'title'
-} as const
-
-export type HomepageSectionTranslationScalarFieldEnum = (typeof HomepageSectionTranslationScalarFieldEnum)[keyof typeof HomepageSectionTranslationScalarFieldEnum]
 
 
 export const ImageScalarFieldEnum = {
@@ -3899,11 +3812,10 @@ export type GlobalOmitConfig = {
   productCategory?: Prisma.ProductCategoryOmit
   productCategoryMapping?: Prisma.ProductCategoryMappingOmit
   coupon?: Prisma.CouponOmit
+  featuredCategory?: Prisma.FeaturedCategoryOmit
   flashSaleTimeSlot?: Prisma.FlashSaleTimeSlotOmit
   flashSale?: Prisma.FlashSaleOmit
   flashSaleProduct?: Prisma.FlashSaleProductOmit
-  homepageSection?: Prisma.HomepageSectionOmit
-  homepageSectionTranslation?: Prisma.HomepageSectionTranslationOmit
   image?: Prisma.ImageOmit
   language?: Prisma.LanguageOmit
   productTranslation?: Prisma.ProductTranslationOmit

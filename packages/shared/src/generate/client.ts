@@ -97,6 +97,11 @@ export type ProductCategoryMapping = Prisma.ProductCategoryMappingModel
  */
 export type Coupon = Prisma.CouponModel
 /**
+ * Model FeaturedCategory
+ * 
+ */
+export type FeaturedCategory = Prisma.FeaturedCategoryModel
+/**
  * Model FlashSaleTimeSlot
  * 
  */
@@ -111,16 +116,6 @@ export type FlashSale = Prisma.FlashSaleModel
  * 
  */
 export type FlashSaleProduct = Prisma.FlashSaleProductModel
-/**
- * Model HomepageSection
- * 
- */
-export type HomepageSection = Prisma.HomepageSectionModel
-/**
- * Model HomepageSectionTranslation
- * 
- */
-export type HomepageSectionTranslation = Prisma.HomepageSectionTranslationModel
 /**
  * Model Image
  * 
