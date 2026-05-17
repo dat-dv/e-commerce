@@ -2,12 +2,6 @@ import type { Metadata } from "next";
 import TermsView from "@/components/organisms/terms-view";
 import termsData from "../../_data/terms.json";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return [{ locale: "vi" }, { locale: "en" }];
-}
-
 export const metadata: Metadata = {
   title: "Terms of Service",
 };

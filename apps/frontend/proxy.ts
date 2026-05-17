@@ -2,11 +2,17 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getLanguageSubdomain } from "./utils/sub-domain/extract-sub-domain";
 
-const SSG_LOCALIZED_PAGES = ["/terms", "/privacy"];
+const SSG_LOCALIZED_PAGES = [
+  "/terms",
+  "/privacy",
+  "/help",
+  "/help/faq",
+  "/help/shipping",
+  "/help/contact",
+];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
-  // Normalize trailing slash before resolving the locale-specific static route.
   const cleanPathname = url.pathname.replace(/\/$/, "");
 
   if (SSG_LOCALIZED_PAGES.includes(cleanPathname)) {
@@ -21,5 +27,12 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/terms", "/privacy"],
+  matcher: [
+    "/terms",
+    "/privacy",
+    "/help",
+    "/help/faq",
+    "/help/shipping",
+    "/help/contact",
+  ],
 };

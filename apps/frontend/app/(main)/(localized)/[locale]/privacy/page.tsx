@@ -2,12 +2,6 @@ import type { Metadata } from "next";
 import PrivacyView from "@/components/organisms/privacy-view";
 import privacyData from "../../_data/privacy.json";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return [{ locale: "vi" }, { locale: "en" }];
-}
-
 export const metadata: Metadata = {
   title: "Privacy Policy",
 };
