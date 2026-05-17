@@ -32,7 +32,7 @@ export const FavoriteSection = () => {
         href={APP_ROUTES.FAVORITES}
         icon={Heart}
         products={products}
-        rows={1}
+        rows={2}
         lang={language}
       />
     </div>

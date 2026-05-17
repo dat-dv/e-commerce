@@ -69,7 +69,7 @@ export const Carousel = ({ children, options, loadMore }: CarouselProps) => {
   return (
     <div className="relative">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6">{children}</div>
+        <div className="flex gap-6 items-stretch">{children}</div>
       </div>
 
       {/* Controls */}
@@ -103,6 +103,10 @@ export const CarouselItem = ({
   className?: string;
 }) => {
   return (
-    <div className={`flex-[0_0_auto] min-w-0 ${className}`}>{children}</div>
+    <div
+      className={`flex-[0_0_auto] min-w-0 flex flex-col items-stretch ${className}`}
+    >
+      {children}
+    </div>
   );
 };

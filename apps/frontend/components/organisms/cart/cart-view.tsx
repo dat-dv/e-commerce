@@ -5,7 +5,7 @@ import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
 import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";
 import { AnimatePresence } from "framer-motion";
-import { DiscoverySections } from "@/components/organisms/discovery-sections";
+import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { CartPageHeader } from "./cart-page-header";
 import { CartSummary } from "./cart-summary";
 
@@ -74,7 +74,7 @@ export default function CartView() {
           </div>
         )}
 
-        <DiscoverySections />
+        <DiscoveryCarouselSection />
       </AppContainer>
     </>
   );

@@ -12,7 +12,7 @@ import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useCategories } from "@/hooks/categories/use-homepage-categories";
 import { DynamicCarouselSection } from "./dynamic-carousel-section";
 import { useConfig } from "@/hooks/config/use-config";
-import DiscoverySections from "../discovery-sections";
+import DiscoveryCarouselSection from "../discovery-sections";
 import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
 import { TProduct } from "@/domain/products/types/products.model";
 
@@ -45,7 +45,7 @@ export const HomepagePrivate = ({
         {/* 3. Dynamic Backend Sections */}
         <DynamicCarouselSection sections={sections} />
 
-        <DiscoverySections />
+        <DiscoveryCarouselSection />
       </AppContainer>
     </div>
   );

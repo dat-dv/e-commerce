@@ -9,7 +9,7 @@ import { BrandInfo } from "./brand-info";
 import { DescriptionCategory } from "./description-category";
 import { ReviewsRatings } from "./reviews-ratings";
 import { SimilarProducts } from "./similar-products";
-import { DiscoverySections } from "@/components/organisms/discovery-sections";
+import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 
 import { useUserFavoriteProducts } from "@/hooks/user-favorite-products/use-user-favorite-products";
 
@@ -102,7 +102,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
       />
 
       {/* SECTION 6: DISCOVERY SECTIONS */}
-      <DiscoverySections />
+      <DiscoveryCarouselSection />
     </AppContainer>
   );
 }

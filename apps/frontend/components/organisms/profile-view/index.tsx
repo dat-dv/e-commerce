@@ -4,7 +4,7 @@ import { ProfileForm } from "@/components/molecules/profile-form";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
 import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
-import { DiscoverySections } from "@/components/organisms/discovery-sections";
+import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 
 export const ProfileView = () => {
   const user = useAuthStore((state) => state.user);
@@ -20,7 +20,7 @@ export const ProfileView = () => {
         isLoading={isUpdating}
         isUploading={isUploading}
       />
-      <DiscoverySections />
+      <DiscoveryCarouselSection />
     </div>
   );
 };

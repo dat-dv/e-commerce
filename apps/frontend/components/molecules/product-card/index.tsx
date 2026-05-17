@@ -72,7 +72,7 @@ export const ProductCard = ({
   const displayOriginalPrice = formatCurrency(sku?.originalPrice);
 
   return (
-    <div className="group relative flex flex-col bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
+    <div className="group relative flex flex-col h-full flex-1 bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
       {/* Image Section */}
       <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
         {product.imageUrl ? (

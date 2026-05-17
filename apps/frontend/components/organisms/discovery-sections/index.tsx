@@ -6,11 +6,13 @@ import RecentViewedSection from "./recent-viewed-section";
 import RecommendedSection from "./recommend-section";
 import FavoriteSection from "./favorite-section";
 
-export interface DiscoverySectionsProps {
+export interface IDiscoveryCarouselSectionProps {
   exclude?: Array<"recent-viewed" | "favorites" | "recommended">;
 }
 
-export const DiscoverySections = ({ exclude = [] }: DiscoverySectionsProps) => {
+export const DiscoveryCarouselSection = ({
+  exclude = [],
+}: IDiscoveryCarouselSectionProps) => {
   const showRecentViewed = !exclude.includes("recent-viewed");
   const showFavorites = !exclude.includes("favorites");
   const showRecommended = !exclude.includes("recommended");
@@ -41,4 +43,4 @@ export const DiscoverySections = ({ exclude = [] }: DiscoverySectionsProps) => {
   );
 };
 
-export default DiscoverySections;
+export default DiscoveryCarouselSection;

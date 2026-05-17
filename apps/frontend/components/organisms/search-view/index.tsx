@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Pagination } from "@/components/molecules/pagination";
 import { EProductSort } from "@ecommerce/shared";
-import { DiscoverySections } from "@/components/organisms/discovery-sections";
+import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 
 interface SearchViewProps {
@@ -140,7 +140,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
 
       {/* Discovery Sections */}
       <div className="pt-24 border-t border-content/[0.05]">
-        <DiscoverySections />
+        <DiscoveryCarouselSection />
       </div>
     </AppContainer>
   );
