@@ -18,6 +18,7 @@ import { AddressProvider } from "@/components/molecules/providers/address-provid
 import { CartProvider } from "@/components/molecules/providers/cart-provider";
 import { RecentViewedProvider } from "@/components/molecules/providers/recent-viewed-provider";
 import { RecommendedProvider } from "@/components/molecules/providers/recommended-provider";
+import { FavoritesProvider } from "@/components/molecules/providers/favorites-provider";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { addressesUseCase } from "@/domain/addresses";
 import { cartUseCase } from "@/domain/cart/use-cases";
@@ -121,8 +122,10 @@ export default async function RootLayout({
                   >
                     <RecentViewedProvider>
                       <RecommendedProvider>
-                        {children}
-                        <CartDrawer />
+                        <FavoritesProvider>
+                          {children}
+                          <CartDrawer />
+                        </FavoritesProvider>
                       </RecommendedProvider>
                     </RecentViewedProvider>
                   </AddressProvider>

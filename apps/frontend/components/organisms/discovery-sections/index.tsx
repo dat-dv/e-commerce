@@ -3,6 +3,7 @@
 import React from "react";
 import LazySection from "@/components/molecules/lazy-section";
 import RecentViewedSection from "./recent-viewed-section";
+import RecommendedSection from "./recommend-section";
 
 export const DiscoverySections = () => {
   return (
@@ -10,6 +11,10 @@ export const DiscoverySections = () => {
       {/* 1. Recently Viewed Products Section */}
       <LazySection>
         <RecentViewedSection />
+      </LazySection>
+
+      <LazySection>
+        <RecommendedSection />
       </LazySection>
 
       {/* Other sections can be added here seamlessly, e.g.:
