@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/utils/cn";
-import { CategoryMegaMenu } from "./category-mega-menu";
+import { CategoryHeaderNav } from "./category-header-nav";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
 
 const HeaderNav = () => {
@@ -19,7 +19,7 @@ const HeaderNav = () => {
 
         if (link.dropdown) {
           return (
-            <CategoryMegaMenu
+            <CategoryHeaderNav
               key={link.href}
               label={link.label}
               isActive={isActive}

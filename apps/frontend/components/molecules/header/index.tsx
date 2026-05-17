@@ -8,7 +8,7 @@ import HeaderLogo from "./header-logo";
 import HeaderNav from "./header-nav";
 import { Settings } from "lucide-react";
 import { GlobalSearch } from "@/components/organisms/global-search";
-import { CategoryMegaMenuContentWrapper } from "./category-mega-menu-content";
+import { CategoryMegaMenuContentWrapper } from "../categories-dropdown";
 
 import { useClickOutside } from "@/hooks/ui/use-click-outside";
 import { useHeaderStore } from "@/hooks/config/use-header-store";

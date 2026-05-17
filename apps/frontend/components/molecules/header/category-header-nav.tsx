@@ -5,15 +5,15 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 
-interface CategoryMegaMenuProps {
+interface CategoryHeaderNavProps {
   label: string;
   isActive: boolean;
 }
 
-export const CategoryMegaMenu = ({
+export const CategoryHeaderNav = ({
   label,
   isActive,
-}: CategoryMegaMenuProps) => {
+}: CategoryHeaderNavProps) => {
   const { isOpenCategory, setIsOpenCategory } = useHeaderStore();
 
   const toggleMenu = () => {
