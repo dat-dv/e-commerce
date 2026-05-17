@@ -64,6 +64,12 @@ export const RecentViewedView = () => {
           keyExtractor={(product) => product.id}
           loadingText="Retrieving more history..."
           endText="You've reached the end of your viewing history"
+          columns={{
+            base: 2,
+            sm: 3,
+            md: 4,
+            lg: 5,
+          }}
         />
       ) : (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-content/10 bg-surface/50 px-6 py-20 text-center">

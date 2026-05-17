@@ -65,6 +65,12 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
             gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
             itemClassName="min-w-0"
             rowClassName="mb-4"
+            columns={{
+              base: 2,
+              sm: 3,
+              md: 4,
+              lg: 5,
+            }}
           />
         </div>
       ) : (

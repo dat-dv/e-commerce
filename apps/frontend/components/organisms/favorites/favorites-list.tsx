@@ -40,6 +40,12 @@ const FavoritesGrid = ({
         keyExtractor={(fav) => fav.productId}
         loadingText="Discovering more..."
         endText="You've seen everything in your wishlist"
+        columns={{
+          base: 2,
+          sm: 3,
+          md: 4,
+          lg: 5,
+        }}
       />
     </motion.div>
   );

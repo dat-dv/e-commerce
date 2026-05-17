@@ -9,9 +9,17 @@ export const metadata: Metadata = {
   description: "Grab the best deals before they are gone!",
 };
 
+import {
+  PAGINATION_LIMITS,
+  createInitialPaginationMeta,
+} from "@/constants/pagination.constant";
+
 export default async function FlashSalePage() {
   const flashSaleResponse = await safe(
-    productsUseCase.getFlashSale.execute({ page: 1, limit: 24 }),
+    productsUseCase.getFlashSale.execute({
+      page: 1,
+      limit: PAGINATION_LIMITS.PRODUCTS,
+    }),
   );
 
   if (!flashSaleResponse) {
@@ -23,12 +31,7 @@ export default async function FlashSalePage() {
   const meta =
     flashSaleResponse.status === "success"
       ? flashSaleResponse.data.meta
-      : {
-          total: 0,
-          page: 1,
-          limit: 24,
-          totalPages: 0,
-        };
+      : createInitialPaginationMeta(PAGINATION_LIMITS.PRODUCTS);
 
   return <FlashSaleView products={products} meta={meta} />;
 }

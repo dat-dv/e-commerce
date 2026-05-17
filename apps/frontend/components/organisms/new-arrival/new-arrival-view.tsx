@@ -1,12 +1,21 @@
 import { FreshArrivalsHeader } from "./new-arrivale-header";
 import AppContainer from "@/components/atoms/app-container";
 import NewArrivalList from "./new-arrival-list";
+import { TProduct } from "@/domain/products/types/products.model";
+import { IPaginationMeta } from "@/utils/request/request.types";
+import DiscoveryCarouselSection from "../discovery-sections";
 
-const NewArrivalView = () => {
+interface NewArrivalViewProps {
+  products: TProduct[];
+  meta: IPaginationMeta;
+}
+
+const NewArrivalView = ({ products, meta }: NewArrivalViewProps) => {
   return (
     <AppContainer>
       <FreshArrivalsHeader />
-      <NewArrivalList />
+      <NewArrivalList products={products} meta={meta} />
+      <DiscoveryCarouselSection />
     </AppContainer>
   );
 };

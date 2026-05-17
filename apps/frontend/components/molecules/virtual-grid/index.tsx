@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
 
@@ -19,6 +19,53 @@ const getVirtualItemId = <T,>(item: T): string | number | undefined => {
     : undefined;
 };
 
+export interface VirtualGridColumns {
+  base: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+}
+
+// Helper hook to dynamically resolve columns based on responsive config and window width
+function useResponsiveColumns(columns: VirtualGridColumns): number {
+  const [cols, setCols] = useState(columns.base);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const getColsFromConfig = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1280 && columns.xl !== undefined) {
+        return columns.xl;
+      }
+      if (width >= 1024 && columns.lg !== undefined) {
+        return columns.lg;
+      }
+      if (width >= 768 && columns.md !== undefined) {
+        return columns.md;
+      }
+      if (width >= 640 && columns.sm !== undefined) {
+        return columns.sm;
+      }
+      return columns.base;
+    };
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCols(getColsFromConfig());
+
+    const handleResize = () => {
+      setCols(getColsFromConfig());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [columns]);
+
+  return cols;
+}
+
 export interface VirtualGridProps<T> {
   data: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
@@ -32,6 +79,7 @@ export interface VirtualGridProps<T> {
   itemClassName?: string;
   rowClassName?: string;
   triggerMargin?: UseInViewOptions["margin"];
+  columns?: VirtualGridColumns;
 }
 
 export function VirtualGrid<T>({
@@ -47,11 +95,14 @@ export function VirtualGrid<T>({
   itemClassName = "",
   rowClassName = "pb-6 last:pb-0",
   triggerMargin = "200px", // Reduced margin to avoid double-triggering in grids
+  columns = { base: 2, md: 3, lg: 4 },
 }: VirtualGridProps<T>) {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sentinelRef, {
     margin: triggerMargin,
   });
+
+  const itemsPerRow = useResponsiveColumns(columns);
 
   // Use a ref to track the last time we triggered a load
   const lastTriggerTime = useRef<number>(0);
@@ -80,11 +131,11 @@ export function VirtualGrid<T>({
 
   const rows = useMemo(() => {
     const rows = [];
-    for (let i = 0; i < data.length; i += 4) {
-      rows.push(data.slice(i, i + 4));
+    for (let i = 0; i < data.length; i += itemsPerRow) {
+      rows.push(data.slice(i, i + itemsPerRow));
     }
     return rows;
-  }, [data]);
+  }, [data, itemsPerRow]);
 
   return (
     <div className="flex flex-col" style={{ overflowAnchor: "none" }}>
@@ -95,7 +146,7 @@ export function VirtualGrid<T>({
             className={`mb-4 ${gridClassName} ${rowClassName}`}
           >
             {row.map((item, index) => {
-              const actualIndex = rowIndex * 4 + index;
+              const actualIndex = rowIndex * itemsPerRow + index;
               const key = keyExtractor
                 ? keyExtractor(item, actualIndex)
                 : (getVirtualItemId(item) ?? actualIndex);
