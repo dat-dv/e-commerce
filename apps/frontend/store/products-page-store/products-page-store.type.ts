@@ -10,6 +10,7 @@ export interface IProductsPageState {
   sort: string;
   min_price?: number;
   max_price?: number;
+  rating?: number;
   search?: string;
 }
 
@@ -24,10 +25,14 @@ export interface IProductsPageActions {
     filters: Partial<
       Pick<
         IProductsPageState,
-        "category_id" | "sort" | "min_price" | "max_price" | "search"
+        "category_id" | "sort" | "min_price" | "max_price" | "rating" | "search"
       >
     >,
   ) => void;
+  clearFilter: (
+    key: "sort" | "min_price" | "max_price" | "rating" | "search",
+  ) => void;
+  resetFilters: () => void;
   setLoading: (loading: boolean) => void;
   hydrate: (data: Partial<IProductsPageState>) => void;
 }

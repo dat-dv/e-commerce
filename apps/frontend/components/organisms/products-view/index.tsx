@@ -121,6 +121,10 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
             categories={displayCategories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
+            minPriceValue={searchParams.get("min_price") || ""}
+            maxPriceValue={searchParams.get("max_price") || ""}
+            ratingValue={searchParams.get("rating") || ""}
+            activeSlug={activeCategory?.slug || ""}
           />
         </div>
 

@@ -1,20 +1,71 @@
 import type { Metadata } from "next";
-import { productsUseCase } from "@/domain/products/use-cases";
-import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
-import { ProductsView } from "@/components/organisms/products-view";
-import { allSafe } from "@/utils/promise";
+
 import NotFound from "@/app/not-found";
+import { CategoryProductsProvider } from "@/components/molecules/providers/category-products-provider";
+import { CategoryDetailView } from "@/components/organisms/category-detail-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { productsUseCase } from "@/domain/products/use-cases";
+import { allSafe } from "@/utils/promise";
+
+import { EProductSort } from "@ecommerce/shared";
 
 interface ProductsPageProps {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
+
+const DEFAULT_SORT = EProductSort.DEFAULT.toString();
+
+const getStringParam = (
+  value: string | string[] | undefined,
+): string | undefined => {
+  if (Array.isArray(value)) {
+    return value[0];
+  }
+
+  return value;
+};
+
+const getNumberParam = (
+  value: string | string[] | undefined,
+): number | undefined => {
+  const raw = getStringParam(value);
+
+  if (!raw) {
+    return undefined;
+  }
+
+  const parsed = Number(raw);
+
+  return Number.isFinite(parsed) ? parsed : undefined;
+};
+
+const parseCategoryProductsQuery = (
+  searchParams: Record<string, string | string[] | undefined>,
+) => {
+  return {
+    page: getNumberParam(searchParams.page) ?? 1,
+    limit: PAGINATION_LIMITS.CATEGORIES,
+
+    brand_id: getStringParam(searchParams.brand_id),
+
+    sort: getStringParam(searchParams.sort) ?? DEFAULT_SORT,
+
+    search: getStringParam(searchParams.search),
+
+    min_price: getNumberParam(searchParams.min_price),
+
+    max_price: getNumberParam(searchParams.max_price),
+
+    rating: getNumberParam(searchParams.rating),
+  };
+};
 
 export async function generateMetadata({
   params,
 }: ProductsPageProps): Promise<Metadata> {
   const { slug } = await params;
+
   return {
     title: `Products - ${slug}`,
     description: `Explore our collection of products in ${slug}.`,
@@ -25,27 +76,14 @@ export default async function CategoryProductsPage({
   params,
   searchParams,
 }: ProductsPageProps) {
-  const { slug } = await params;
-  const sp = await searchParams;
+  const [{ slug }, rawSearchParams] = await Promise.all([params, searchParams]);
 
-  const page = sp.page ? parseInt(sp.page as string) : 1;
-  const limit = PAGINATION_LIMITS.CATEGORIES;
-  const brand_id = sp.brand_id as string;
-  const sort = sp.sort as string;
-  const search = sp.search as string;
-  const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
-  const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;
+  const query = parseCategoryProductsQuery(rawSearchParams);
 
   const [productsRes] = await allSafe([
     productsUseCase.getProducts.execute({
-      page,
-      limit,
+      ...query,
       category_slug: slug,
-      brand_id,
-      sort,
-      min_price,
-      max_price,
-      search,
     }),
   ]);
 
@@ -53,28 +91,29 @@ export default async function CategoryProductsPage({
     return <NotFound />;
   }
 
-  const products =
-    productsRes.status === "success" ? productsRes.data?.items || [] : [];
-  const total =
-    productsRes.status === "success" ? productsRes.data?.meta.total || 0 : 0;
+  const isSuccess = productsRes.status === "success";
+
+  const products = isSuccess ? (productsRes.data?.items ?? []) : [];
+
+  const meta = isSuccess ? productsRes.data?.meta : undefined;
 
   return (
-    <ProductsPageProvider
+    <CategoryProductsProvider
       initState={{
         products,
-        total,
-        currentPage: page,
-        totalPages:
-          productsRes.status === "success"
-            ? productsRes.data?.meta.totalPages || 1
-            : 1,
-        sort: sort || "newest",
-        search,
-        min_price,
-        max_price,
+        total: meta?.total ?? 0,
+        currentPage: query.page,
+        totalPages: meta?.totalPages ?? 1,
+
+        sort: query.sort as unknown as EProductSort,
+        search: query.search,
+
+        min_price: query.min_price,
+        max_price: query.max_price,
+        rating: query.rating,
       }}
     >
-      <ProductsView categorySlug={slug} />
-    </ProductsPageProvider>
+      <CategoryDetailView categorySlug={slug} />
+    </CategoryProductsProvider>
   );
 }

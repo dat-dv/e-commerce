@@ -12,6 +12,7 @@ export class GetProductsUseCase {
     brand_id?: string;
     min_price?: number;
     max_price?: number;
+    rating?: number;
     attribute_value_ids?: string[];
     sort?: string;
     languageCode?: string;

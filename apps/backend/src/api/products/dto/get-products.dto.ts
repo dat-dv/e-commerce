@@ -44,6 +44,13 @@ export class GetProductsDto implements IGetProductsParams {
   max_price?: number;
 
   @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(5)
+  rating?: number;
+
+  @IsOptional()
   @IsArray()
   @IsString({ each: true })
   attribute_value_ids?: string[];

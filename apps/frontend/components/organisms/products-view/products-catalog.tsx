@@ -6,6 +6,9 @@ import EmptyState from "@/components/molecules/empty-space";
 import { Pagination } from "@/components/molecules/pagination";
 import { Search } from "lucide-react";
 import { TProduct } from "@/domain/products/types/products.model";
+import { AppliedFilters, AppliedFiltersBar } from "./applied-filters-bar";
+
+type FilterKey = "sort" | "min_price" | "max_price" | "rating" | "search";
 
 interface ProductsCatalogProps {
   products: TProduct[];
@@ -15,6 +18,10 @@ interface ProductsCatalogProps {
   loading: boolean;
   pageStr: string | null;
   categoryTitle: string;
+  appliedFilters?: AppliedFilters;
+  onClearFilter?: (key: FilterKey) => void;
+  onResetFilters?: () => void;
+  onPageChange?: (page: number) => void;
 }
 
 export function ProductsCatalog({
@@ -25,6 +32,10 @@ export function ProductsCatalog({
   loading,
   pageStr,
   categoryTitle,
+  appliedFilters,
+  onClearFilter,
+  onResetFilters,
+  onPageChange,
 }: ProductsCatalogProps) {
   const hasProducts = products.length > 0;
 
@@ -36,6 +47,13 @@ export function ProductsCatalog({
         totalPages={totalPages}
         isLoading={loading}
       />
+      {appliedFilters && onClearFilter && onResetFilters && (
+        <AppliedFiltersBar
+          filters={appliedFilters}
+          onClearFilter={onClearFilter}
+          onResetFilters={onResetFilters}
+        />
+      )}
 
       {hasProducts || loading ? (
         <div className="flex flex-col gap-12">

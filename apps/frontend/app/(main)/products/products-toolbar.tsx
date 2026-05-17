@@ -109,7 +109,7 @@ export function ListingProductsToolbar({
               className="flex items-center gap-3 px-3.5 py-2 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-xl transition-all group min-w-[160px] justify-between disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span className="text-[11px] font-bold text-content/70 group-hover:text-content">
-                {isLoading ? "Loading..." : currentSortOption.label}
+                {currentSortOption.label}
               </span>
               <ChevronDown
                 size={12}

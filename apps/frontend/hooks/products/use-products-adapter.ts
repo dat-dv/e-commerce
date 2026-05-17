@@ -6,6 +6,7 @@ export const useProductsAdapter = () => {
   const { setProducts, setLoading, setPage } = useProductsPageStore(
     (state) => state,
   );
+  const setFilters = useProductsPageStore((state) => state.setFilters);
 
   const fetchProducts = useCallback(
     async (params: {
@@ -14,6 +15,9 @@ export const useProductsAdapter = () => {
       limit?: number;
       sort?: string;
       search?: string;
+      min_price?: number;
+      max_price?: number;
+      rating?: number;
     }) => {
       setLoading(true);
       try {
@@ -24,6 +28,13 @@ export const useProductsAdapter = () => {
           listData.meta.total,
           listData.meta.totalPages,
         );
+        setFilters({
+          sort: params.sort,
+          search: params.search,
+          min_price: params.min_price,
+          max_price: params.max_price,
+          rating: params.rating,
+        });
         if (params.page) {
           setPage(params.page);
         }
@@ -33,7 +44,7 @@ export const useProductsAdapter = () => {
         setLoading(false);
       }
     },
-    [setProducts, setLoading, setPage],
+    [setProducts, setLoading, setPage, setFilters],
   );
 
   return { fetchProducts };
