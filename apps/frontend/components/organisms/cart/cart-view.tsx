@@ -34,7 +34,7 @@ export default function CartView() {
     <>
       <CartPageHeader itemCount={itemCount} />
 
-      <AppContainer size="xl" className="pb-12">
+      <AppContainer>
         <CartSummary
           itemCount={itemCount}
           selectedCount={selectedCount}
