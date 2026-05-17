@@ -1,0 +1,39 @@
+// prisma/schema/help_contact_submission.prisma
+
+model HelpContactSubmission {
+  id            String    @id @default(cuid())
+  user_id       String?
+  contact_name  String?
+  contact_email String? // Required by migration check when contact_phone is empty
+  contact_phone String? // Required by migration check when contact_email is empty
+  subject       String
+  message       String
+  status        Int       @default(0) // 0: OPEN, 1: IN_PROGRESS, 2: RESOLVED, 3: CLOSED
+  source        String?   @default("help_contact")
+  metadata      Json?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  resolved_at   DateTime?
+
+  user        User?                         @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  attachments HelpContactSubmissionImage[]
+
+  @@index([user_id])
+  @@index([status, created_at])
+  @@index([contact_email])
+  @@map("help_contact_submissions")
+}
+
+model HelpContactSubmissionImage {
+  id         String   @id @default(cuid())
+  submission_id String
+  image_id   String
+  created_at DateTime @default(now())
+
+  submission HelpContactSubmission @relation(fields: [submission_id], references: [id], onDelete: Cascade)
+  image      Image                 @relation(fields: [image_id], references: [id], onDelete: Cascade)
+
+  @@unique([submission_id, image_id])
+  @@index([image_id])
+  @@map("help_contact_submission_images")
+}

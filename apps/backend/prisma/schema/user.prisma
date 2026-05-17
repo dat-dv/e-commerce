@@ -15,18 +15,19 @@ model User {
   updated_at    DateTime  @updatedAt
   deleted_at    DateTime?
 
-  refresh_tokens         RefreshToken[]
-  shipping_addresses     ShippingAddress[]
-  password_reset_tokens PasswordResetToken[]
-  phones                UserPhone[]
-  cart                  Cart?
-  orders                Order[]
-  browsing_history      UserBrowsingHistory[]
-  reviews               Review[]
-  notification_tokens   NotificationToken[]
-  notifications         Notification[]
-  favorite_categories   UserFavoriteCategory[]
-  favorite_products     UserFavoriteProduct[]
+  refresh_tokens           RefreshToken[]
+  shipping_addresses       ShippingAddress[]
+  password_reset_tokens    PasswordResetToken[]
+  phones                   UserPhone[]
+  cart                     Cart?
+  orders                   Order[]
+  browsing_history         UserBrowsingHistory[]
+  reviews                  Review[]
+  notification_tokens      NotificationToken[]
+  notifications            Notification[]
+  favorite_categories      UserFavoriteCategory[]
+  favorite_products        UserFavoriteProduct[]
+  help_contact_submissions HelpContactSubmission[]
 
   role_id String?
   role    Role?   @relation(fields: [role_id], references: [id])
