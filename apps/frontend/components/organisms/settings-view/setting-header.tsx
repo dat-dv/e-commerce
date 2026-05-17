@@ -15,9 +15,9 @@ const SettingsHeader = () => {
   return (
     <AppContainer>
       <AnimatedPageHeader
-        title="Account"
+        title="Page"
         highlight="Settings"
-        description="Manage your account preferences, security, and personalize your experience."
+        description="Adjust language, dark mode, colors, and interface preferences to match your personal style."
         icons={SETTINGS_ICONS}
       />
     </AppContainer>
