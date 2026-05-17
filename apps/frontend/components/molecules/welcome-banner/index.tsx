@@ -46,10 +46,6 @@ export default function HomeWelcomeSection({
 
       <div className="relative z-10 mx-auto flex min-h-[320px] w-full max-w-7xl items-center px-6 py-14">
         <div className="max-w-3xl">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-primary/80">
-            Welcome Back
-          </p>
-
           <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-[-0.05em] leading-none text-content uppercase">
             Hello{" "}
             <span className="italic font-light text-content/30">{name}</span>

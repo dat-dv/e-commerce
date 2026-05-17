@@ -10,15 +10,12 @@ const createProductsStoreCreator =
     const state: IProductsStore = {
       flashSaleProducts: [],
       recommendedProducts: [],
-      recentViewedProducts: [],
       sections: [],
       loading: false,
       ...initState,
       setFlashSaleProducts: (products) => set({ flashSaleProducts: products }),
       setRecommendedProducts: (products) =>
         set({ recommendedProducts: products }),
-      setRecentViewedProducts: (products) =>
-        set({ recentViewedProducts: products }),
       setSections: (sections) => set({ sections }),
       setLoading: (loading) => set({ loading }),
       hydrate: (data) => set((state) => ({ ...state, ...data })),

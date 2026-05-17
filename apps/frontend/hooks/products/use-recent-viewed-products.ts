@@ -1,18 +1,16 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
-
+import { useCallback } from "react";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { useProductsStore } from "@/hooks/products/use-products-store";
+import { useRecentViewedStore } from "@/hooks/products/use-recent-viewed-store";
 
-export const useRecentViewedProducts = (autoFetch = false) => {
-  const didFetchRef = useRef(false);
-  const recentViewedProducts = useProductsStore(
+export const useRecentViewedProducts = () => {
+  const recentViewedProducts = useRecentViewedStore(
     (state) => state.recentViewedProducts,
   );
-  const loading = useProductsStore((state) => state.loading);
-  const setLoading = useProductsStore((state) => state.setLoading);
-  const setRecentViewedProducts = useProductsStore(
+  const loading = useRecentViewedStore((state) => state.loading);
+  const setLoading = useRecentViewedStore((state) => state.setLoading);
+  const setRecentViewedProducts = useRecentViewedStore(
     (state) => state.setRecentViewedProducts,
   );
 
@@ -28,15 +26,6 @@ export const useRecentViewedProducts = (autoFetch = false) => {
       setLoading(false);
     }
   }, [setLoading, setRecentViewedProducts]);
-
-  useEffect(() => {
-    if (!autoFetch || didFetchRef.current || recentViewedProducts.length > 0) {
-      return;
-    }
-
-    didFetchRef.current = true;
-    fetchRecentViewedProducts();
-  }, [autoFetch, fetchRecentViewedProducts, recentViewedProducts.length]);
 
   return {
     recentViewedProducts,

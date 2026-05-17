@@ -16,14 +16,9 @@ export const ProfileView = () => {
   const user = useAuthStore((state) => state.user);
   const { updateProfile, loading: isUpdating } = useUpdateProfile();
   const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
-  const { favorites, loading: loadingFavorites } = useFavorites();
-  const { recentViewedProducts, loading: loadingRecent } =
-    useRecentViewedProducts(true);
-  const { recommendedProducts, loadingRecommended } = useRecommendedProducts();
-
-  const favoriteProducts = favorites
-    .map((favorite) => favorite.product)
-    .filter((product): product is NonNullable<typeof product> => !!product);
+  const { favorites } = useFavorites();
+  const { recentViewedProducts } = useRecentViewedProducts();
+  const { recommendedProducts } = useRecommendedProducts();
 
   return (
     <div className="space-y-6">

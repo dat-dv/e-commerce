@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { ProductsProvider } from "@/components/molecules/providers/products-provider";
+import { RecentViewedProvider } from "@/components/molecules/providers/recent-viewed-provider";
 import { RecentViewedView } from "@/components/organisms/recent-viewed/recent-viewed-view";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { safe } from "@/utils/promise";
@@ -14,13 +14,14 @@ export default async function RecentViewedPage() {
   const response = await safe(productsUseCase.getRecentlyViewed.execute());
 
   return (
-    <ProductsProvider
+    <RecentViewedProvider
       initState={{
         recentViewedProducts:
           response?.status === "success" ? response.data || [] : [],
+        loading: false,
       }}
     >
       <RecentViewedView />
-    </ProductsProvider>
+    </RecentViewedProvider>
   );
 }
