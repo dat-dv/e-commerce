@@ -2,9 +2,9 @@
 
 import { useCallback } from "react";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { useRecentViewedStore } from "@/hooks/products/use-recent-viewed-store";
+import { useRecentViewedStore } from "@/hooks/products/recent-viewed/use-recent-viewed-store";
 
-export const useRecentViewedProducts = () => {
+export const useLoadRecentViewedProducts = () => {
   const recentViewedProducts = useRecentViewedStore(
     (state) => state.recentViewedProducts,
   );

@@ -11,17 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default async function RecentViewedPage() {
-  const response = await safe(productsUseCase.getRecentlyViewed.execute());
-
-  return (
-    <RecentViewedProvider
-      initState={{
-        recentViewedProducts:
-          response?.status === "success" ? response.data || [] : [],
-        loading: false,
-      }}
-    >
-      <RecentViewedView />
-    </RecentViewedProvider>
-  );
+  return <RecentViewedView />;
 }

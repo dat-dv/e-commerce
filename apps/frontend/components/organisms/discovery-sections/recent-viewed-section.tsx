@@ -2,14 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
-import { useRecentViewedProducts } from "@/hooks/products/use-recent-viewed-products";
+import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { RecentViewedSectionSkeleton } from "./skeletons";
 
 export const RecentViewedSection = () => {
   const { recentViewedProducts, fetchRecentViewedProducts } =
-    useRecentViewedProducts();
+    useLoadRecentViewedProducts();
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {

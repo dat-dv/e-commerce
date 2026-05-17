@@ -7,10 +7,16 @@ import { motion } from "framer-motion";
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
 import { APP_ROUTES } from "@/constants/routes";
-import { useRecentViewedProducts } from "@/hooks/products/use-recent-viewed-products";
+import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
+import { useEffect } from "react";
 
 export const RecentViewedView = () => {
-  const { recentViewedProducts, loading } = useRecentViewedProducts();
+  const { recentViewedProducts, loading, fetchRecentViewedProducts } =
+    useLoadRecentViewedProducts();
+
+  useEffect(() => {
+    // fetchRecentViewedProducts();
+  }, []);
 
   return (
     <AppContainer size="2xl" className="py-14">

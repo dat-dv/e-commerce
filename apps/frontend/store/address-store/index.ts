@@ -11,10 +11,10 @@ const createAddressStoreCreator =
     addresses: [],
     selectedAddressId: null,
     loading: false,
-    _hasHydrated: false,
+    hasHydrated: false,
     ...initState,
 
-    setHasHydrated: (state) => set({ _hasHydrated: state }),
+    setHasHydrated: (state) => set({ hasHydrated: state }),
     setAddresses: (addresses) => {
       const { selectedAddressId } = get();
       const newState: Partial<IAddressStore> = { addresses };
@@ -33,21 +33,19 @@ const createAddressStoreCreator =
       const { addresses, selectedAddressId } = get();
       return addresses.find((a) => a.id === selectedAddressId);
     },
+    resetStore: () =>
+      set({
+        addresses: [],
+        selectedAddressId: null,
+        loading: false,
+        hasHydrated: false,
+      }),
   });
 
 export const createAddressStore = (initState?: Partial<IAddressStoreState>) =>
   createStore<IAddressStore>()(
-    devtools(
-      persist(createAddressStoreCreator(initState), {
-        name: "AddressStore",
-        storage: createJSONStorage(() => localStorage),
-        onRehydrateStorage: () => (state) => {
-          state?.setHasHydrated(true);
-        },
-      }),
-      {
-        name: "AddressStore",
-        enabled: PUBLIC_ENV.IS_DEBUG,
-      },
-    ),
+    devtools(createAddressStoreCreator(initState), {
+      name: "AddressStore",
+      enabled: PUBLIC_ENV.IS_DEBUG,
+    }),
   );

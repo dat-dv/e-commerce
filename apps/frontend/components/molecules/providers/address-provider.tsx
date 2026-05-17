@@ -23,10 +23,10 @@ export const AddressProvider = ({
   const [store] = useState(() =>
     createAddressStore({
       addresses: initState || [],
-      _hasHydrated: initState ? true : false,
+      hasHydrated: initState ? true : false,
     }),
   );
-  const hasHydrated = useStore(store, (s) => s._hasHydrated);
+  const hasHydrated = useStore(store, (s) => s.hasHydrated);
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {

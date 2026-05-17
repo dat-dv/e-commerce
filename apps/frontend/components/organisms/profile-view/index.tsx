@@ -6,7 +6,7 @@ import { ProfileForm } from "@/components/molecules/profile-form";
 import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useFavorites } from "@/hooks/favorites/use-favorites";
-import { useRecentViewedProducts } from "@/hooks/products/use-recent-viewed-products";
+import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { useRecommendedProducts } from "@/hooks/products/use-recommended-products";
 import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
 import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
@@ -17,7 +17,7 @@ export const ProfileView = () => {
   const { updateProfile, loading: isUpdating } = useUpdateProfile();
   const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
   const { favorites } = useFavorites();
-  const { recentViewedProducts } = useRecentViewedProducts();
+  const { recentViewedProducts } = useLoadRecentViewedProducts();
   const { recommendedProducts } = useRecommendedProducts();
 
   return (

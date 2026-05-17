@@ -4,7 +4,7 @@ export interface IAddressStoreState {
   addresses: TAddress[];
   selectedAddressId: string | null;
   loading: boolean;
-  _hasHydrated: boolean;
+  hasHydrated: boolean;
 }
 
 export interface IAddressStoreActions {
@@ -13,6 +13,7 @@ export interface IAddressStoreActions {
   setLoading: (loading: boolean) => void;
   setHasHydrated: (state: boolean) => void;
   getSelectedAddress: () => TAddress | undefined;
+  resetStore: () => void;
 }
 
 export type IAddressStore = IAddressStoreState & IAddressStoreActions;
