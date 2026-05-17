@@ -30,6 +30,7 @@ export interface VirtualGridProps<T> {
   endText?: string;
   gridClassName?: string;
   itemClassName?: string;
+  rowClassName?: string;
   triggerMargin?: UseInViewOptions["margin"];
 }
 
@@ -44,6 +45,7 @@ export function VirtualGrid<T>({
   endText = "All items loaded",
   gridClassName = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
   itemClassName = "",
+  rowClassName = "pb-6 last:pb-0",
   triggerMargin = "200px", // Reduced margin to avoid double-triggering in grids
 }: VirtualGridProps<T>) {
   const sentinelRef = useRef<HTMLDivElement>(null);
@@ -88,7 +90,10 @@ export function VirtualGrid<T>({
     <div className="flex flex-col" style={{ overflowAnchor: "none" }}>
       <WindowVirtualizer>
         {rows.map((row, rowIndex) => (
-          <div key={`row-${rowIndex}`} className={gridClassName}>
+          <div
+            key={`row-${rowIndex}`}
+            className={`${gridClassName} ${rowClassName}`}
+          >
             {row.map((item, index) => {
               const actualIndex = rowIndex * 4 + index;
               const key = keyExtractor

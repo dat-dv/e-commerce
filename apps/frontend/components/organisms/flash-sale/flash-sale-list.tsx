@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState, useTransition } from "react";
+import { useCallback } from "react";
 import { Flame } from "lucide-react";
 import { motion } from "framer-motion";
 import { FlashSaleCard } from "@/components/molecules/product-card/flash-sale-card";
@@ -10,6 +10,7 @@ import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import EmptyState from "@/components/molecules/empty-space";
+import { usePagination } from "@/hooks/use-pagination";
 
 interface FlashSaleListProps {
   products: TProduct[];
@@ -17,39 +18,24 @@ interface FlashSaleListProps {
 }
 
 const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
-  const [items, setItems] = useState(products);
-  const [pageMeta, setPageMeta] = useState(meta);
-  const [isPending, startTransition] = useTransition();
-
-  const hasMore = pageMeta.page < pageMeta.totalPages;
-
-  const loadMore = useCallback(() => {
-    if (isPending || !hasMore) return;
-
-    startTransition(async () => {
-      const nextPage = pageMeta.page + 1;
-      const response = await productsUseCase.getFlashSale.execute({
-        page: nextPage,
-        limit: pageMeta.limit,
-      });
-
-      if (response.status !== "success") return;
-
-      setItems((currentItems) => [
-        ...currentItems,
-        ...response.data.items.filter(
-          (nextItem) =>
-            !currentItems.some((currentItem) => currentItem.id === nextItem.id),
-        ),
-      ]);
-      setPageMeta(response.data.meta);
-    });
-  }, [hasMore, isPending, pageMeta.limit, pageMeta.page]);
-
-  const totalPagesText = useMemo(
-    () => Math.max(pageMeta.totalPages, 1),
-    [pageMeta.totalPages],
+  const fetchFlashSalePage = useCallback(
+    (params: { page: number; limit: number }) =>
+      productsUseCase.getFlashSale.execute(params),
+    [],
   );
+  const {
+    items,
+    meta: pageMeta,
+    totalPages,
+    hasMore,
+    loadingMore,
+    loadMore,
+  } = usePagination({
+    initialItems: products,
+    initialMeta: meta,
+    fetchPage: fetchFlashSalePage,
+    getItemKey: (product) => product.id,
+  });
 
   return (
     <motion.div
@@ -64,20 +50,21 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
             eyebrow="Live Deals"
             title={`${pageMeta.total} flash sale products`}
             icon={<Flame size={18} className="fill-red-500 text-red-500" />}
-            meta={`Page ${pageMeta.page} of ${totalPagesText}`}
+            meta={`Page ${pageMeta.page} of ${totalPages}`}
           />
 
           <VirtualGrid
             data={items}
             renderItem={(product) => <FlashSaleCard product={product} />}
             keyExtractor={(product) => product.id}
-            loadingMore={isPending}
+            loadingMore={loadingMore}
             hasMore={hasMore}
             onLoadMore={loadMore}
             loadingText="Loading more deals..."
             endText="All flash sale products loaded"
             gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
             itemClassName="min-w-0"
+            rowClassName="mb-4"
           />
         </div>
       ) : (

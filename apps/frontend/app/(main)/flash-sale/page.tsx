@@ -9,19 +9,9 @@ export const metadata: Metadata = {
   description: "Grab the best deals before they are gone!",
 };
 
-interface FlashSalePageProps {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}
-
-export default async function FlashSalePage({
-  searchParams,
-}: FlashSalePageProps) {
-  const sp = await searchParams;
-  const page = sp.page ? parseInt(sp.page as string) : 1;
-  const limit = 24;
-
+export default async function FlashSalePage() {
   const flashSaleResponse = await safe(
-    productsUseCase.getFlashSale.execute({ page, limit }),
+    productsUseCase.getFlashSale.execute({ page: 1, limit: 24 }),
   );
 
   if (!flashSaleResponse) {
@@ -35,8 +25,8 @@ export default async function FlashSalePage({
       ? flashSaleResponse.data.meta
       : {
           total: 0,
-          page,
-          limit,
+          page: 1,
+          limit: 24,
           totalPages: 0,
         };
 
