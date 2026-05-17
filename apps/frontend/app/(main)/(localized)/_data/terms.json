@@ -1,62 +1,222 @@
 {
   "en": {
     "title": "Terms of Service",
-    "description": "Please read these terms of service carefully before using our features and platform.",
+    "description": "These terms explain how customers use Shop.Hub to browse products, place orders, manage accounts, and buy directly from our online store.",
     "sections": [
       {
-        "id": "introduction",
-        "title": "1. Introduction",
+        "id": "overview",
+        "title": "1. Overview",
         "paragraphs": [
-          "1.1. Welcome to the Shop.Hub E-Commerce platform via website or mobile application (\"Shop.Hub Site\" or \"Shop.Hub Platform\"). Before using the Shop.Hub Site or creating a Shop.Hub account (\"Account\"), please read the following Terms of Service carefully and the Operation Regulations of the Shop.Hub E-Commerce Platform to understand your legal rights and obligations with respect to Shop.Hub and its affiliates and subsidiaries.",
-          "1.2. The Services include an online platform service connecting consumers to provide business opportunities between buyers (\"Buyers\") and sellers (\"Sellers\"). The actual sales contract is directly between the Buyer and the Seller.",
-          "1.3. Before becoming a User of the Shop.Hub Site, you must read and accept all the terms and conditions defined in, and referenced to, this Terms of Service and the Privacy Policy.",
-          "1.4. Shop.Hub reserves the right to change, modify, suspend or terminate all or any part of the Shop.Hub Site or Services at any time in accordance with legal regulations.",
-          "1.5. Shop.Hub reserves the right to refuse requests to open an Account or your access to the Shop.Hub Site or Services in accordance with legal regulations and the Terms of Service."
+          "1.1. Shop.Hub provides an online store where customers can discover products sold by Shop.Hub, manage shopping carts, place orders, receive order updates, save favorite items, and use account features related to shopping activity.",
+          "1.2. By accessing Shop.Hub, creating an account, or placing an order, you agree to follow these Terms of Service and any policies referenced from the checkout, account, shipping, return, or privacy pages.",
+          "1.3. These terms apply to all visitors and registered customers. Some features, such as checkout, order history, saved addresses, favorites, and notifications, may require an account.",
+          "1.4. Shop.Hub may update these terms when platform features, legal requirements, or operating policies change. Continued use of the platform after an update means you accept the revised terms."
+        ]
+      },
+      {
+        "id": "accounts",
+        "title": "2. Accounts and Security",
+        "paragraphs": [
+          "2.1. You are responsible for providing accurate account information, including your name, contact details, delivery addresses, and any information required to complete an order.",
+          "2.2. You are responsible for keeping your login credentials secure and for activities performed through your account unless the activity is caused by a platform security issue.",
+          "2.3. Shop.Hub may request additional profile information before allowing checkout or other account actions when that information is required for delivery, fraud prevention, support, or legal compliance.",
+          "2.4. Shop.Hub may limit, suspend, or close an account that appears to be used for fraud, abuse, unauthorized access, payment misuse, repeated policy violations, or activity that disrupts the platform."
+        ]
+      },
+      {
+        "id": "products",
+        "title": "3. Product Information",
+        "paragraphs": [
+          "3.1. Shop.Hub aims to show product names, descriptions, images, categories, brand information, prices, discounts, stock status, ratings, and related product details as clearly as possible.",
+          "3.2. Product images and descriptions are provided for shopping reference. Minor differences in packaging, color, accessories, or manufacturer presentation may occur because of product batch updates, manufacturer changes, or screen display settings.",
+          "3.3. Prices, discounts, vouchers, flash sale availability, and stock quantities may change before checkout. The final order summary shown at checkout controls the price and quantity submitted with your order.",
+          "3.4. If a product is listed with an obvious error, unavailable inventory, incorrect price, or unsupported shipping condition, Shop.Hub may cancel or adjust the affected order and notify you through the available contact channels."
+        ]
+      },
+      {
+        "id": "orders",
+        "title": "4. Orders and Checkout",
+        "paragraphs": [
+          "4.1. Adding a product to your cart or favorites does not reserve the item or guarantee the displayed price. An order is created only after you complete checkout and receive an order confirmation.",
+          "4.2. You are responsible for reviewing product selections, quantities, shipping address, contact details, vouchers, payment method, and order total before submitting checkout.",
+          "4.3. Shop.Hub may reject, cancel, or hold an order when payment cannot be verified, delivery information is incomplete, inventory is unavailable, fraud is suspected, or the order violates store policies.",
+          "4.4. Order status, cancellation eligibility, delivery updates, and support messages may be shown in your account, sent by email, or sent through platform notifications when available."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "5. Payments, Vouchers, and Promotions",
+        "paragraphs": [
+          "5.1. Supported payment methods are displayed during checkout. Payment authorization, settlement, refunds, and transaction security may be handled by payment partners subject to their own terms.",
+          "5.2. Vouchers, coupons, free-shipping offers, flash sale prices, and other promotions may have eligibility rules, usage limits, expiration times, minimum order values, category restrictions, or account restrictions.",
+          "5.3. Shop.Hub may refuse or reverse promotional benefits that are applied because of technical errors, suspicious activity, duplicated use, resale behavior, or violation of promotion rules.",
+          "5.4. Taxes, shipping fees, handling fees, or other applicable charges will be shown where required before order submission."
+        ]
+      },
+      {
+        "id": "shipping",
+        "title": "6. Shipping and Delivery",
+        "paragraphs": [
+          "6.1. Delivery estimates are provided for planning purposes and may change because of address accuracy, carrier capacity, weather, holidays, customs, inventory processing, or other operational conditions.",
+          "6.2. You must provide a reachable phone number and complete delivery address. Failed delivery caused by incorrect or unreachable information may result in delay, cancellation, or additional shipping attempts.",
+          "6.3. Risk of loss or damage generally transfers according to the delivery confirmation and applicable consumer protection rules. If an item arrives damaged, incomplete, or materially different from the order, contact support promptly with supporting evidence.",
+          "6.4. Some products may be restricted by location, size, weight, stock source, carrier rules, or legal requirements."
+        ]
+      },
+      {
+        "id": "returns",
+        "title": "7. Cancellations, Returns, and Refunds",
+        "paragraphs": [
+          "7.1. Cancellation, return, exchange, and refund eligibility depends on product type, order status, Shop.Hub's return policy, payment method, and applicable consumer protection requirements.",
+          "7.2. Returned products may need to be unused, complete, and returned with original packaging, accessories, gifts, manuals, invoices, or other included items unless the return is caused by defect, damage, or incorrect fulfillment.",
+          "7.3. Refund timing may vary by payment method, bank, wallet provider, promotion type, and inspection result. Shipping fees, vouchers, or partial discounts may be handled according to the applicable policy for the order.",
+          "7.4. Shop.Hub may reject return or refund requests involving abuse, altered products, missing items, false claims, late submissions, or conditions outside the stated return policy."
+        ]
+      },
+      {
+        "id": "user-conduct",
+        "title": "8. User Conduct",
+        "paragraphs": [
+          "8.1. You agree not to misuse Shop.Hub, interfere with platform operations, access systems without authorization, scrape protected data, submit fraudulent orders, abuse vouchers, manipulate reviews, or impersonate another person.",
+          "8.2. Reviews, messages, profile information, and other content you submit must not include illegal content, harassment, hate speech, spam, misleading claims, malware, personal data of others, or content that violates third-party rights.",
+          "8.3. Shop.Hub may moderate, remove, limit, or report content or activity that violates these terms, harms users, creates security risk, or conflicts with applicable law."
         ]
       },
       {
         "id": "privacy",
-        "title": "2. Privacy",
+        "title": "9. Privacy and Notifications",
         "paragraphs": [
-          "2.1. Shop.Hub takes your privacy seriously. To protect user rights, Shop.Hub provides a Privacy Policy to explain in detail Shop.Hub's privacy practices. Please refer to the Privacy Policy to know how Shop.Hub collects and uses information related to the Account and/or use of the Services of the User."
+          "9.1. Shop.Hub collects and uses account, order, browsing, device, notification, and support information as described in the Privacy Policy.",
+          "9.2. Platform notifications, email, SMS, push notifications, or in-account messages may be used for order updates, security alerts, account activity, support responses, promotional offers, and service announcements.",
+          "9.3. You can manage some communication preferences through account settings, browser permissions, or device settings. Transactional and security messages may still be sent when needed to operate the service."
         ]
       },
       {
         "id": "liability",
-        "title": "3. Limitation of Liability",
+        "title": "10. Service Availability and Liability",
         "paragraphs": [
-          "3.1. Shop.Hub grants the User the appropriate right to access and use the Services in accordance with the terms and conditions defined in this Terms of Service. All Content, trademarks, service marks, trade names, logos and other exclusive intellectual property displayed on the Shop.Hub Site are owned by Shop.Hub and third-party owners (if any)."
+          "10.1. Shop.Hub works to keep the platform reliable, but access may be interrupted by maintenance, network issues, third-party service failures, security events, or changes to platform features.",
+          "10.2. To the extent permitted by law, Shop.Hub is not responsible for indirect, incidental, punitive, or consequential losses arising from use of the platform, delayed delivery, unavailable products, third-party services, or user misuse.",
+          "10.3. Nothing in these terms limits rights that cannot be excluded under applicable consumer protection law."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Support",
+        "paragraphs": [
+          "11.1. If you have questions about these terms, an order, a payment, a return, your account, or a platform issue, contact Shop.Hub support through the help or contact page.",
+          "11.2. When contacting support, provide enough information to identify the issue, such as order number, product name, account email or phone number, screenshots, photos, and a clear description of the problem."
         ]
       }
     ]
   },
   "vi": {
     "title": "Điều khoản Dịch vụ",
-    "description": "Vui lòng đọc kỹ các điều khoản dịch vụ này trước khi sử dụng các tính năng và nền tảng của chúng tôi.",
+    "description": "Các điều khoản này giải thích cách khách hàng sử dụng Shop.Hub để xem sản phẩm, đặt hàng, quản lý tài khoản và mua hàng trực tiếp từ cửa hàng trực tuyến của chúng tôi.",
     "sections": [
       {
-        "id": "introduction",
-        "title": "1. Giới thiệu",
+        "id": "overview",
+        "title": "1. Tổng quan",
         "paragraphs": [
-          "1.1. Chào mừng bạn đến với sàn giao dịch thương mại điện tử Shop.Hub qua website hoặc ứng dụng di động (\"Trang web Shop.Hub\" hoặc \"Nền tảng Shop.Hub\"). Trước khi sử dụng Trang web Shop.Hub hoặc tạo tài khoản Shop.Hub (\"Tài khoản\"), vui lòng đọc kỹ Điều khoản Dịch vụ sau và Quy chế hoạt động của Sàn giao dịch thương mại điện tử Shop.Hub để hiểu rõ quyền lợi và nghĩa vụ pháp lý của mình đối với Shop.Hub và các công ty liên kết, công ty con của Shop.Hub.",
-          "1.2. Các Dịch vụ bao gồm dịch vụ nền tảng trực tuyến kết nối người tiêu dùng để tạo cơ hội kinh doanh giữa người mua (\"Người mua\") và người bán (\"Người bán\"). Hợp đồng mua bán thực tế là trực tiếp giữa Người mua và Người bán.",
-          "1.3. Trước khi trở thành Người dùng của Trang web Shop.Hub, bạn phải đọc và chấp nhận tất cả các điều khoản và điều kiện được định nghĩa trong, và dẫn chiếu đến, Điều khoản Dịch vụ này và Chính sách Bảo mật.",
-          "1.4. Shop.Hub bảo lưu quyền thay đổi, chỉnh sửa, tạm ngưng hoặc chấm dứt toàn bộ hoặc bất kỳ phần nào của Trang web hoặc Dịch vụ Shop.Hub vào bất kỳ lúc nào theo quy định của pháp luật.",
-          "1.5. Shop.Hub bảo lưu quyền từ chối yêu cầu mở Tài khoản hoặc quyền truy cập của bạn vào Trang web hoặc Dịch vụ Shop.Hub theo quy định của pháp luật và Điều khoản Dịch vụ."
+          "1.1. Shop.Hub cung cấp cửa hàng trực tuyến để khách hàng tìm kiếm sản phẩm do Shop.Hub bán, quản lý giỏ hàng, đặt hàng, nhận cập nhật đơn hàng, lưu sản phẩm yêu thích và sử dụng các tính năng tài khoản liên quan đến hoạt động mua sắm.",
+          "1.2. Khi truy cập Shop.Hub, tạo tài khoản hoặc đặt hàng, bạn đồng ý tuân thủ Điều khoản Dịch vụ này và các chính sách được dẫn chiếu từ trang thanh toán, tài khoản, giao hàng, đổi trả hoặc quyền riêng tư.",
+          "1.3. Các điều khoản này áp dụng cho tất cả khách truy cập và khách hàng đã đăng ký. Một số tính năng như thanh toán, lịch sử đơn hàng, địa chỉ đã lưu, sản phẩm yêu thích và thông báo có thể yêu cầu tài khoản.",
+          "1.4. Shop.Hub có thể cập nhật các điều khoản này khi tính năng nền tảng, yêu cầu pháp lý hoặc chính sách vận hành thay đổi. Việc tiếp tục sử dụng nền tảng sau khi cập nhật đồng nghĩa với việc bạn chấp nhận điều khoản mới."
+        ]
+      },
+      {
+        "id": "accounts",
+        "title": "2. Tài khoản và bảo mật",
+        "paragraphs": [
+          "2.1. Bạn chịu trách nhiệm cung cấp thông tin tài khoản chính xác, bao gồm họ tên, thông tin liên hệ, địa chỉ giao hàng và các thông tin cần thiết để hoàn tất đơn hàng.",
+          "2.2. Bạn chịu trách nhiệm bảo mật thông tin đăng nhập và các hoạt động được thực hiện qua tài khoản của mình, trừ khi hoạt động đó phát sinh từ sự cố bảo mật của nền tảng.",
+          "2.3. Shop.Hub có thể yêu cầu bổ sung thông tin hồ sơ trước khi cho phép thanh toán hoặc thực hiện một số thao tác tài khoản khi thông tin đó cần cho giao hàng, phòng chống gian lận, hỗ trợ hoặc tuân thủ pháp luật.",
+          "2.4. Shop.Hub có thể giới hạn, tạm ngưng hoặc đóng tài khoản có dấu hiệu gian lận, lạm dụng, truy cập trái phép, lạm dụng thanh toán, vi phạm chính sách nhiều lần hoặc gây ảnh hưởng đến hoạt động nền tảng."
+        ]
+      },
+      {
+        "id": "products",
+        "title": "3. Thông tin sản phẩm",
+        "paragraphs": [
+          "3.1. Shop.Hub cố gắng hiển thị rõ ràng tên sản phẩm, mô tả, hình ảnh, danh mục, thông tin thương hiệu, giá bán, khuyến mãi, tình trạng tồn kho, đánh giá và các chi tiết liên quan.",
+          "3.2. Hình ảnh và mô tả sản phẩm được cung cấp để tham khảo khi mua sắm. Có thể có khác biệt nhỏ về bao bì, màu sắc, phụ kiện hoặc cách trình bày của nhà sản xuất do cập nhật lô hàng, thay đổi từ nhà sản xuất hoặc thiết lập màn hình.",
+          "3.3. Giá, khuyến mãi, voucher, flash sale và số lượng tồn kho có thể thay đổi trước khi thanh toán. Tóm tắt đơn hàng cuối cùng tại bước thanh toán là thông tin được dùng để gửi đơn hàng.",
+          "3.4. Nếu sản phẩm có lỗi hiển thị rõ ràng, hết hàng, sai giá hoặc không đáp ứng điều kiện giao hàng, Shop.Hub có thể hủy hoặc điều chỉnh đơn hàng bị ảnh hưởng và thông báo cho bạn qua kênh liên hệ phù hợp."
+        ]
+      },
+      {
+        "id": "orders",
+        "title": "4. Đơn hàng và thanh toán",
+        "paragraphs": [
+          "4.1. Việc thêm sản phẩm vào giỏ hàng hoặc danh sách yêu thích không giữ hàng và không đảm bảo giá hiển thị. Đơn hàng chỉ được tạo sau khi bạn hoàn tất thanh toán và nhận xác nhận đơn hàng.",
+          "4.2. Bạn chịu trách nhiệm kiểm tra sản phẩm, số lượng, địa chỉ giao hàng, thông tin liên hệ, voucher, phương thức thanh toán và tổng tiền trước khi gửi đơn hàng.",
+          "4.3. Shop.Hub có thể từ chối, hủy hoặc tạm giữ đơn hàng khi không xác minh được thanh toán, thông tin giao hàng chưa đầy đủ, hàng không còn, nghi ngờ gian lận hoặc đơn hàng vi phạm chính sách cửa hàng.",
+          "4.4. Trạng thái đơn hàng, điều kiện hủy, cập nhật giao hàng và phản hồi hỗ trợ có thể được hiển thị trong tài khoản, gửi qua email hoặc gửi qua thông báo nền tảng khi khả dụng."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "5. Thanh toán, voucher và khuyến mãi",
+        "paragraphs": [
+          "5.1. Các phương thức thanh toán được hỗ trợ sẽ hiển thị tại bước thanh toán. Việc ủy quyền, ghi nhận, hoàn tiền và bảo mật giao dịch có thể do đối tác thanh toán xử lý theo điều khoản riêng của họ.",
+          "5.2. Voucher, mã giảm giá, miễn phí vận chuyển, giá flash sale và các chương trình khuyến mãi khác có thể có điều kiện áp dụng, giới hạn lượt dùng, thời hạn, giá trị đơn hàng tối thiểu, giới hạn danh mục hoặc giới hạn tài khoản.",
+          "5.3. Shop.Hub có thể từ chối hoặc thu hồi ưu đãi được áp dụng do lỗi kỹ thuật, hoạt động đáng ngờ, sử dụng trùng lặp, hành vi mua đi bán lại hoặc vi phạm điều kiện khuyến mãi.",
+          "5.4. Thuế, phí vận chuyển, phí xử lý hoặc các khoản phí áp dụng khác sẽ được hiển thị khi cần thiết trước khi gửi đơn hàng."
+        ]
+      },
+      {
+        "id": "shipping",
+        "title": "6. Giao hàng",
+        "paragraphs": [
+          "6.1. Thời gian giao hàng dự kiến chỉ nhằm mục đích tham khảo và có thể thay đổi do độ chính xác của địa chỉ, năng lực đơn vị vận chuyển, thời tiết, ngày lễ, hải quan, xử lý tồn kho hoặc điều kiện vận hành khác.",
+          "6.2. Bạn cần cung cấp số điện thoại có thể liên hệ và địa chỉ giao hàng đầy đủ. Việc giao hàng thất bại do thông tin sai hoặc không liên hệ được có thể dẫn đến chậm giao, hủy đơn hoặc phát sinh lần giao bổ sung.",
+          "6.3. Rủi ro mất mát hoặc hư hỏng thường được xác định theo xác nhận giao hàng và quy định bảo vệ người tiêu dùng áp dụng. Nếu hàng bị hư hỏng, thiếu hoặc khác đáng kể so với đơn hàng, hãy liên hệ hỗ trợ sớm kèm bằng chứng phù hợp.",
+          "6.4. Một số sản phẩm có thể bị giới hạn theo địa điểm, kích thước, trọng lượng, nguồn hàng, quy định của đơn vị vận chuyển hoặc yêu cầu pháp lý."
+        ]
+      },
+      {
+        "id": "returns",
+        "title": "7. Hủy đơn, đổi trả và hoàn tiền",
+        "paragraphs": [
+          "7.1. Điều kiện hủy đơn, đổi trả, đổi sản phẩm và hoàn tiền phụ thuộc vào loại sản phẩm, trạng thái đơn hàng, chính sách đổi trả của Shop.Hub, phương thức thanh toán và yêu cầu bảo vệ người tiêu dùng áp dụng.",
+          "7.2. Sản phẩm đổi trả có thể cần chưa qua sử dụng, còn đầy đủ và được gửi lại cùng bao bì gốc, phụ kiện, quà tặng, hướng dẫn, hóa đơn hoặc các vật phẩm đi kèm, trừ trường hợp đổi trả do lỗi, hư hỏng hoặc giao sai.",
+          "7.3. Thời gian hoàn tiền có thể khác nhau tùy phương thức thanh toán, ngân hàng, ví điện tử, loại khuyến mãi và kết quả kiểm tra. Phí vận chuyển, voucher hoặc ưu đãi một phần sẽ được xử lý theo chính sách áp dụng cho đơn hàng.",
+          "7.4. Shop.Hub có thể từ chối yêu cầu đổi trả hoặc hoàn tiền có dấu hiệu lạm dụng, sản phẩm bị thay đổi, thiếu hàng, khai báo sai, gửi yêu cầu quá hạn hoặc không đáp ứng chính sách đổi trả."
+        ]
+      },
+      {
+        "id": "user-conduct",
+        "title": "8. Hành vi người dùng",
+        "paragraphs": [
+          "8.1. Bạn đồng ý không lạm dụng Shop.Hub, can thiệp hoạt động nền tảng, truy cập trái phép hệ thống, thu thập dữ liệu được bảo vệ, tạo đơn hàng gian lận, lạm dụng voucher, thao túng đánh giá hoặc mạo danh người khác.",
+          "8.2. Đánh giá, tin nhắn, thông tin hồ sơ và nội dung khác do bạn gửi không được chứa nội dung bất hợp pháp, quấy rối, thù ghét, spam, thông tin gây hiểu lầm, mã độc, dữ liệu cá nhân của người khác hoặc nội dung vi phạm quyền của bên thứ ba.",
+          "8.3. Shop.Hub có thể kiểm duyệt, gỡ bỏ, giới hạn hoặc báo cáo nội dung hay hoạt động vi phạm điều khoản này, gây hại cho người dùng, tạo rủi ro bảo mật hoặc trái với pháp luật áp dụng."
         ]
       },
       {
         "id": "privacy",
-        "title": "2. Quyền riêng tư",
+        "title": "9. Quyền riêng tư và thông báo",
         "paragraphs": [
-          "2.1. Shop.Hub coi trọng quyền riêng tư của bạn. Để bảo vệ quyền lợi người dùng, Shop.Hub cung cấp Chính sách Bảo mật để giải thích chi tiết các hoạt động bảo mật của Shop.Hub. Vui lòng tham khảo Chính sách Bảo mật để biết cách Shop.Hub thu thập và sử dụng thông tin liên quan đến Tài khoản và/hoặc việc sử dụng Dịch vụ của Người dùng."
+          "9.1. Shop.Hub thu thập và sử dụng thông tin tài khoản, đơn hàng, lịch sử duyệt, thiết bị, thông báo và hỗ trợ như được mô tả trong Chính sách Quyền riêng tư.",
+          "9.2. Thông báo nền tảng, email, SMS, push notification hoặc tin nhắn trong tài khoản có thể được dùng cho cập nhật đơn hàng, cảnh báo bảo mật, hoạt động tài khoản, phản hồi hỗ trợ, ưu đãi khuyến mãi và thông báo dịch vụ.",
+          "9.3. Bạn có thể quản lý một số tùy chọn liên lạc qua cài đặt tài khoản, quyền trình duyệt hoặc cài đặt thiết bị. Các tin nhắn giao dịch và bảo mật vẫn có thể được gửi khi cần để vận hành dịch vụ."
         ]
       },
       {
         "id": "liability",
-        "title": "3. Giới hạn trách nhiệm",
+        "title": "10. Tính khả dụng và trách nhiệm",
         "paragraphs": [
-          "3.1. Shop.Hub cấp cho Người dùng quyền truy cập và sử dụng Dịch vụ phù hợp theo các điều khoản và điều kiện được định nghĩa trong Điều khoản Dịch vụ này. Tất cả Nội dung, nhãn hiệu hàng hóa, nhãn hiệu dịch vụ, tên thương mại, logo và tài sản trí tuệ độc quyền khác hiển thị trên Trang web Shop.Hub đều thuộc sở hữu của Shop.Hub và các chủ sở hữu bên thứ ba (nếu có)."
+          "10.1. Shop.Hub cố gắng duy trì nền tảng ổn định, nhưng việc truy cập có thể bị gián đoạn do bảo trì, sự cố mạng, lỗi dịch vụ bên thứ ba, sự kiện bảo mật hoặc thay đổi tính năng nền tảng.",
+          "10.2. Trong phạm vi pháp luật cho phép, Shop.Hub không chịu trách nhiệm đối với thiệt hại gián tiếp, ngẫu nhiên, mang tính phạt hoặc hệ quả phát sinh từ việc sử dụng nền tảng, giao hàng chậm, sản phẩm không còn, dịch vụ bên thứ ba hoặc việc người dùng sử dụng sai mục đích.",
+          "10.3. Không nội dung nào trong điều khoản này giới hạn các quyền không thể bị loại trừ theo pháp luật bảo vệ người tiêu dùng áp dụng."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Hỗ trợ",
+        "paragraphs": [
+          "11.1. Nếu bạn có câu hỏi về điều khoản này, đơn hàng, thanh toán, đổi trả, tài khoản hoặc sự cố nền tảng, hãy liên hệ bộ phận hỗ trợ của Shop.Hub qua trang trợ giúp hoặc liên hệ.",
+          "11.2. Khi liên hệ hỗ trợ, hãy cung cấp đủ thông tin để xác định vấn đề, chẳng hạn mã đơn hàng, tên sản phẩm, email hoặc số điện thoại tài khoản, ảnh chụp màn hình, hình ảnh và mô tả rõ ràng."
         ]
       }
     ]
