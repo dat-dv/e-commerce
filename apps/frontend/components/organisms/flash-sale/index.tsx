@@ -3,6 +3,7 @@ import AppContainer from "@/components/atoms/app-container";
 import FlashSaleList from "./flash-sale-list";
 import { TProduct } from "@/domain/products/types/products.model";
 import { IPaginationMeta } from "@/utils/request/request.types";
+import DiscoveryCarouselSection from "../discovery-sections";
 
 interface FlashSaleViewProps {
   products: TProduct[];
@@ -14,6 +15,7 @@ const FlashSaleView = ({ products, meta }: FlashSaleViewProps) => {
     <AppContainer>
       <FlashSaleHeader />
       <FlashSaleList products={products} meta={meta} />
+      <DiscoveryCarouselSection />
     </AppContainer>
   );
 };
