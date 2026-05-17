@@ -18,7 +18,7 @@ export class OptionalAuthGuard implements CanActivate {
       return true;
     }
 
-    const token = request.cookies['access_token'];
+    const token = request.cookies?.['access_token'];
 
     if (token) {
       try {

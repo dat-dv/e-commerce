@@ -13,6 +13,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { UploadImageUseCase } from './domain/use-cases/upload-image.use-case';
 import { DeleteImageUseCase } from './domain/use-cases/delete-image.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
+import { OptionalAuthGuard } from 'src/api/auth/guards/optional-auth.guard';
 import { ApiConsumes, ApiBody, ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UPLOAD_MAX_SIZE, UPLOAD_ALLOWED_TYPES } from 'src/common/constants/upload.constant';
 import { IApiResponse, IImageResponse } from '@ecommerce/shared';
@@ -20,7 +21,6 @@ import createSuccessResponse from 'src/common/respomse';
 
 @ApiTags('Upload')
 @Controller('upload')
-@UseGuards(AuthGuard) // Yêu cầu đăng nhập mới được upload
 export class UploadController {
   private readonly logger = new Logger(UploadController.name);
   constructor(
@@ -29,6 +29,7 @@ export class UploadController {
   ) {}
 
   @Post('image')
+  @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
   @ApiConsumes('multipart/form-data')
   @ApiOperation({ summary: 'Upload an image' })
@@ -48,6 +49,33 @@ export class UploadController {
   @ApiResponse({ status: 201, description: 'File uploaded successfully' })
   @ApiResponse({ status: 400, description: 'Bad request (invalid file type or size)' })
   async uploadImage(@UploadedFile() file: Express.Multer.File): Promise<IApiResponse<IImageResponse>> {
+    return this.upload(file);
+  }
+
+  @Post('help-contact-image')
+  @UseInterceptors(FileInterceptor('image'))
+  @ApiConsumes('multipart/form-data')
+  @ApiOperation({ summary: 'Upload an image for a help contact submission' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        image: {
+          type: 'string',
+          format: 'binary',
+          description: 'The image file to upload',
+        },
+      },
+      required: ['image'],
+    },
+  })
+  @ApiResponse({ status: 201, description: 'File uploaded successfully' })
+  @ApiResponse({ status: 400, description: 'Bad request (invalid file type or size)' })
+  async uploadHelpContactImage(@UploadedFile() file: Express.Multer.File): Promise<IApiResponse<IImageResponse>> {
+    return this.upload(file);
+  }
+
+  private async upload(file: Express.Multer.File): Promise<IApiResponse<IImageResponse>> {
     if (!file) {
       throw new BadRequestException('No file uploaded');
     }
@@ -73,6 +101,7 @@ export class UploadController {
   }
 
   @Delete('image/:publicId')
+  @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Delete an image' })
   @ApiResponse({ status: 200, description: 'File deleted successfully' })
   @ApiResponse({ status: 400, description: 'Bad request (invalid file type or size)' })
