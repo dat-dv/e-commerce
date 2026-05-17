@@ -3,78 +3,62 @@
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { motion, AnimatePresence } from "framer-motion";
 import { CategoryCard } from "@/components/molecules/category-card";
+import { Grid2X2 } from "lucide-react";
 
 interface CategoriesContentProps {
-  title: string;
-  description: string;
   categories: TCategory[];
   activeId: string;
 }
 
 export const CategoriesContent = ({
-  title,
-  description,
   categories,
   activeId,
 }: CategoriesContentProps) => {
   return (
-    <div className="flex-1 min-w-0">
+    <div className="min-w-0 flex-1">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeId}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="flex flex-col gap-12"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="flex flex-col gap-6"
         >
-          {/* Premium Banner */}
-          <div className="relative h-[280px] rounded-[3rem] overflow-hidden bg-surface/50 backdrop-blur-xl border border-content/5 flex items-center px-16 group">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
-
-            <div className="relative z-10 max-w-xl">
-              <h1 className="capitalize text-4xl md:text-5xl font-bold text-content tracking-tight leading-tight mb-4">
-                {title}
-              </h1>
-              <p className="text-content/50 text-lg leading-relaxed font-medium">
-                {description}
-              </p>
-            </div>
-
-            {/* Visual accent */}
-            <div className="ml-auto relative hidden lg:block pr-8">
-              <div className="w-24 h-24 rounded-2xl bg-content/[0.02] backdrop-blur-md flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-700 border border-content/5">
-                <span className="text-4xl opacity-30 group-hover:opacity-100 transition-opacity">
-                  ✨
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Subcategories Section */}
-          <div>
-            <div className="flex items-center justify-between mb-8 border-b border-content/[0.05] pb-6 px-4">
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 border-b border-content/[0.04] pb-5 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <h3 className="text-xl font-bold text-content tracking-tight">
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex size-9 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Grid2X2 size={16} strokeWidth={2.2} />
+                  </div>
+
+                  <span className="text-xs font-black uppercase tracking-[0.18em] text-primary/80">
+                    Browse
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-black tracking-tight text-content">
                   Discover Categories
                 </h3>
+
+                <p className="mt-1 text-sm font-medium text-content/40">
+                  Explore collections and find what fits your needs.
+                </p>
               </div>
-              <div className="text-xs font-bold text-content/40 bg-content/[0.03] px-4 py-1.5 rounded-full border border-content/[0.05]">
-                {categories.length} Categories
+
+              <div className="w-fit rounded-full border border-content/[0.05] bg-content/[0.02] px-4 py-2 text-xs font-bold text-content/40">
+                {categories.length} categories
               </div>
             </div>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
               variants={{
                 hidden: { opacity: 0 },
                 show: {
                   opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1,
-                  },
+                  transition: { staggerChildren: 0.06 },
                 },
               }}
               initial="hidden"
@@ -84,7 +68,7 @@ export const CategoriesContent = ({
                 <motion.div
                   key={child.id}
                   variants={{
-                    hidden: { opacity: 0, y: 20 },
+                    hidden: { opacity: 0, y: 14 },
                     show: { opacity: 1, y: 0 },
                   }}
                 >

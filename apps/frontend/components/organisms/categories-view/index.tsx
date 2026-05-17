@@ -5,6 +5,8 @@ import AppContainer from "@/components/atoms/app-container";
 import { CategoriesContent } from "./content";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { CategoriesSidebar } from "@/components/molecules/caterogies-sidebar";
+import CategoryHeader from "./categories-header";
+import SidebarLayout from "@/components/molecules/sidebar-layout";
 
 export const CategoriesView = () => {
   const categoriesTree = useCategoriesStore((s) => s.categories);
@@ -21,18 +23,17 @@ export const CategoriesView = () => {
     : categoriesTree;
 
   return (
-    <AppContainer className="py-10 flex gap-8">
-      <CategoriesSidebar
-        categories={categoriesTree}
-        activeId={activeId}
-        setActiveId={setActiveId}
-      />
-      <CategoriesContent
-        title={title}
-        description={description}
-        categories={categories}
-        activeId={activeId}
-      />
-    </AppContainer>
+    <SidebarLayout
+      sidebar={
+        <CategoriesSidebar
+          categories={categoriesTree}
+          activeId={activeId}
+          setActiveId={setActiveId}
+        />
+      }
+      header={<CategoryHeader title={title} description={description} />}
+    >
+      <CategoriesContent categories={categories} activeId={activeId} />
+    </SidebarLayout>
   );
 };

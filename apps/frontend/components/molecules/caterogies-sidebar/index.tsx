@@ -1,5 +1,6 @@
 "use client";
 
+import Fuse from "fuse.js";
 import { useMemo, useState } from "react";
 import { Search, Grid2X2 } from "lucide-react";
 
@@ -19,14 +20,19 @@ export const CategoriesSidebar = ({
   setActiveId,
 }: CategoriesSidebarProps) => {
   const [search, setSearch] = useState("");
+
   const filteredCategories = useMemo(() => {
-    const keyword = search.trim().toLowerCase();
+    const keyword = search.trim();
 
     if (!keyword) return categories;
 
-    return categories.filter((category) =>
-      category.name.toLowerCase().includes(keyword),
-    );
+    const fuse = new Fuse(categories, {
+      keys: ["name", "children.name"],
+      threshold: 0.35,
+      ignoreLocation: true,
+    });
+
+    return fuse.search(keyword).map((result) => result.item);
   }, [categories, search]);
 
   return (
