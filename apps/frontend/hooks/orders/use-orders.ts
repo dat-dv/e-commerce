@@ -5,14 +5,14 @@ import { TOrder } from "@/domain/orders/types/order.model";
 import { useAuthStore } from "../auth/use-auth-store";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { toast } from "react-toastify";
-import { ORDER_TABS } from "@/constants/order-status.constant";
+import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 export const useOrders = () => {
   const [orders, setOrders] = useState<TOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [activeTabState, setActiveTabState] = useState<
-    readonly number[] | "all"
-  >(ORDER_TABS[1].value);
+  const [activeTabState, setActiveTabState] = useState<OrderTabValue>(
+    ORDER_TABS[1].value,
+  );
   const [meta, setMeta] = useState<IPaginationMeta | null>(null);
   const [page, setPage] = useState(1);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -31,8 +31,7 @@ export const useOrders = () => {
 
       try {
         const response = await ordersUseCase.getOrders.execute({
-          status:
-            activeTabState === "all" ? undefined : (activeTabState as number[]),
+          status: activeTabState === "all" ? undefined : [...activeTabState],
           page: targetPage,
           limit: 20,
         });
@@ -70,7 +69,7 @@ export const useOrders = () => {
     fetchOrders(nextPage, true);
   }, [loading, loadingMore, meta, page, fetchOrders]);
 
-  const setActiveTab = useCallback((tab: readonly number[] | "all") => {
+  const setActiveTab = useCallback((tab: OrderTabValue) => {
     setPage(1);
     setActiveTabState(tab);
   }, []);

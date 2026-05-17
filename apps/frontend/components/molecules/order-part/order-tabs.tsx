@@ -2,17 +2,17 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
-import { ORDER_TABS } from "@/constants/order-status.constant";
+import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 
 interface OrderTabsProps {
-  activeTab: readonly number[] | "all";
-  onTabChange: (value: readonly number[] | "all") => void;
+  activeTab: OrderTabValue;
+  onTabChange: (value: OrderTabValue) => void;
 }
 
 export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
   return (
     <div className="w-full overflow-x-auto bg-transparent border-b border-content/[0.05] scrollbar-hide">
-      <div className="flex min-w-max px-4 container mx-auto max-w-6xl">
+      <div className="flex min-w-max container mx-auto">
         {ORDER_TABS.map((tab) => {
           const isActive = activeTab === tab.value;
           return (

@@ -8,6 +8,11 @@ interface HomeWelcomeSectionProps {
   name?: string;
 }
 
+/**
+ * HomeWelcomeSection serves as the premium greeting banner on the private homepage.
+ * It establishes a welcoming ambient atmosphere utilizing modern typography and floating animations,
+ * helping users transition smoothly into their shopping journey.
+ */
 export default function HomeWelcomeSection({
   name = "Dat",
 }: HomeWelcomeSectionProps) {

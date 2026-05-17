@@ -51,3 +51,5 @@ export const ORDER_TABS = [
     value: [EOrderStatus.CANCELLED, EOrderStatus.REFUNDED],
   },
 ] as const;
+
+export type OrderTabValue = (typeof ORDER_TABS)[number]["value"];

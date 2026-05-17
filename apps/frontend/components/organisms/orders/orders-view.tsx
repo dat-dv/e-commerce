@@ -55,7 +55,7 @@ export const OrdersView = () => {
         </div>
         <AnimatePresence mode="wait">
           {orders.length === 0 ? (
-            <OrderEmptyState message={emptyStateMessage} />
+            <OrderEmptyState type={activeTab} />
           ) : (
             <motion.div
               key="list"
