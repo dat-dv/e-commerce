@@ -4,7 +4,7 @@ import {
   ApiListResponse,
 } from "@/utils/request/request.types";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { IBrandResponse, IProductResponse } from "@ecommerce/shared";
+import { IBrandResponse, IBrandProductsResponse } from "@ecommerce/shared";
 import { IBrandsRepository } from "../types/brands.repository";
 import { BrandMapper } from "./brands.mapper";
 import { API_ROUTES } from "@/constants/routes";
@@ -47,23 +47,16 @@ export class BrandsRepository implements IBrandsRepository {
     page = 1,
     limit = 20,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
-    const response = await this.request.get<{
-      items: IProductResponse[];
-      meta: {
-        total: number;
-        page: number;
-        limit: number;
-        totalPages: number;
-      };
-    }>(`${API_ROUTES.BRAND.DETAIL(slug)}/products`, {
-      params: { page, limit },
-    });
+    const response = await this.request.get<IBrandProductsResponse>(
+      `${API_ROUTES.BRAND.DETAIL(slug)}/products`,
+      { params: { page, limit } },
+    );
 
     return {
       ...response,
       data: response.data
         ? {
-            items: response.data.items.map((item) =>
+            items: (response.data.products || []).map((item) =>
               ProductMapper.toDomain(item),
             ),
             meta: response.data.meta,
