@@ -21,12 +21,12 @@ export const HomepagePrivate = () => {
   const { language: lang } = useConfig();
 
   return (
-    <div className="flex flex-col gap-12 pb-20" data-testid="private-home">
-      <AppContainer className="flex flex-col gap-12 pt-10">
-        {/* 1. Welcome Banner */}
-        <HomeWelcomeSection
-          name={`${user?.firstName || ""} ${user?.lastName || ""}`}
-        />
+    <div className="flex flex-col pb-10" data-testid="private-home">
+      {/* 1. Welcome Banner */}
+      <HomeWelcomeSection
+        name={`${user?.firstName || ""} ${user?.lastName || ""}`}
+      />
+      <AppContainer className="flex flex-col gap-10 pt-10">
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
         {/* Categories Section */}

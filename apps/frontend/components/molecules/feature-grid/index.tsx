@@ -28,7 +28,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
           <Link
             key={item.name}
             href={item.href || "#"}
-            className="group flex items-center justify-between gap-3 rounded-2xl border border-content/[0.05] bg-surface/50 px-4 py-3 transition-all duration-300 hover:border-primary/20 hover:bg-primary/[0.04]"
+            className="group flex items-center justify-between gap-2 rounded-2xl border border-content/10 bg-surface/50 px-4 py-[14px] transition-all duration-300 hover:border-primary/20 hover:bg-primary/[0.04]"
           >
             <div className="flex min-w-0 items-center gap-3">
               <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-content/[0.04] text-content/45 transition-colors group-hover:bg-primary/10 group-hover:text-primary">

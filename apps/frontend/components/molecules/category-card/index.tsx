@@ -27,7 +27,7 @@ export const CategoryCard = ({
   return (
     <Link
       href={href}
-      className="group relative h-32 bg-content/[0.02] border border-content/[0.05] hover:border-content/[0.1] rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden w-full"
+      className="group relative h-32 border border-content/10 rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden w-full"
     >
       <div
         className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-current to-transparent opacity-[0.02] group-hover:opacity-[0.08] blur-2xl transition-opacity ${color}`}
