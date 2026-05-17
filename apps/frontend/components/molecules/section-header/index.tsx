@@ -25,13 +25,13 @@ export const SectionHeader = ({
         <div className="flex items-center gap-3">
           {href ? (
             <Link href={href} className="w-fit">
-              <h2 className="text-xl font-bold text-content flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+              <h2 className="capitalize text-xl font-bold text-content flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
                 {icon}
                 {title}
               </h2>
             </Link>
           ) : (
-            <h2 className="text-xl font-bold text-content flex items-center gap-2">
+            <h2 className="capitalize text-xl font-bold text-content flex items-center gap-2">
               {icon}
               {title}
             </h2>

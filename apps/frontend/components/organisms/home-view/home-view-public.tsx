@@ -1,9 +1,8 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { HeroSection } from "@/components/molecules/hero-section";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
-import { PromoBanner } from "@/components/molecules/promo-banner";
+import { JoinUs } from "@/components/molecules/join-us";
 import { CategoriesCarousel } from "@/components/molecules/categories-carousel";
 
 import { FEATURE_ITEMS } from "@/constants/homepage";
@@ -12,6 +11,7 @@ import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useCategories } from "@/hooks/categories/use-homepage-categories";
 import { DynamicSections } from "./dynamic-sections";
 import { useConfig } from "@/hooks/config/use-config";
+import HomeWelcomeSection from "@/components/molecules/welcome-banner";
 
 export const HomepagePublic = () => {
   const sections = useProductsStore((state) => state.sections);
@@ -21,8 +21,7 @@ export const HomepagePublic = () => {
   return (
     <div className="flex flex-col gap-12 pb-20" data-testid="public-home">
       {/* 1. Hero Banner Section */}
-      <HeroSection />
-
+      <HomeWelcomeSection />
       {/* Wrapping the rest in ONE AppContainer */}
       <AppContainer className="flex flex-col gap-12">
         {/* 2. Feature Cards Grid */}
@@ -35,7 +34,7 @@ export const HomepagePublic = () => {
         <DynamicSections sections={sections} />
 
         {/* 4. Promotional Banner */}
-        <PromoBanner />
+        <JoinUs />
       </AppContainer>
     </div>
   );
