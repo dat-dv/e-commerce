@@ -7,6 +7,12 @@ export interface IProductsRepository {
   recordView(userId: string, productId: string): Promise<void>;
   getUserTopCategory(userId: string): Promise<string | null>;
   getActiveFlashSale(languageCode?: string, userId?: string): Promise<IFlashSaleResponse | null>;
+  getActiveFlashSaleProductsPaginated(params: {
+    page?: number;
+    limit?: number;
+    languageCode?: string;
+    userId?: string;
+  }): Promise<IPaginatedResult<IProductResponse>>;
   findMany(params: {
     category_id?: string;
     category_slug?: string;

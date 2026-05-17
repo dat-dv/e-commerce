@@ -16,7 +16,6 @@ import {
   IApiResponse,
   IProductResponse,
   IProductListResponse,
-  IFlashSaleResponse,
   IProductDetailResponse,
   IPaginatedResult,
   Review,
@@ -74,9 +73,16 @@ export class ProductsController {
     return createSuccessResponse(result);
   }
 
+  @UseGuards(OptionalAuthGuard)
   @Get('flash-sale')
-  async getFlashSale(@Language() lang: string): Promise<IApiResponse<IFlashSaleResponse | null>> {
-    const result = await this.getFlashSaleUseCase.execute(lang);
+  async getFlashSale(
+    @Req() req: RequestWithUser,
+    @Language() lang: string,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(12), ParseIntPipe) limit: number,
+  ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
+    const userId = req.user?.sub;
+    const result = await this.getFlashSaleUseCase.execute(lang, userId, page, limit);
     return createSuccessResponse(result);
   }
 

@@ -56,13 +56,37 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async getFlashSale(): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProductResponse[]>(
-      API_ROUTES.PRODUCTS.FLASH_SALE,
-    );
+  async getFlashSale(params?: {
+    page?: number;
+    limit?: number;
+  }): Promise<ApiPaginatedResponse<TProduct>> {
+    const response = await this.request.get<{
+      items: IProductResponse[];
+      meta: {
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+      };
+    }>(API_ROUTES.PRODUCTS.FLASH_SALE, { params });
     return {
       ...response,
-      data: response.data?.map((item) => ProductMapper.toDomain(item)) || [],
+      data: response.data
+        ? {
+            items: response.data.items.map((item) =>
+              ProductMapper.toDomain(item),
+            ),
+            meta: response.data.meta,
+          }
+        : {
+            items: [],
+            meta: {
+              total: 0,
+              page: params?.page || 1,
+              limit: params?.limit || 12,
+              totalPages: 0,
+            },
+          },
     };
   }
 

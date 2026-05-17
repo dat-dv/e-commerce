@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IFlashSaleResponse } from '@ecommerce/shared';
+import { IPaginatedResult, IProductResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class GetFlashSaleUseCase {
@@ -9,13 +9,17 @@ export class GetFlashSaleUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(languageCode = 'vi'): Promise<IFlashSaleResponse | null> {
-    const flashSale = await this.productsRepository.getActiveFlashSale();
-
-    if (!flashSale) {
-      return null;
-    }
-
-    return flashSale;
+  async execute(
+    languageCode = 'vi',
+    userId?: string,
+    page = 1,
+    limit = 12,
+  ): Promise<IPaginatedResult<IProductResponse>> {
+    return this.productsRepository.getActiveFlashSaleProductsPaginated({
+      page,
+      limit,
+      languageCode,
+      userId,
+    });
   }
 }

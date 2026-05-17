@@ -17,7 +17,10 @@ export interface IProductsRepository {
     limit?: number;
   }): Promise<ApiResponse<TProduct[]>>;
 
-  getFlashSale(): Promise<ApiResponse<TProduct[]>>;
+  getFlashSale(params?: {
+    page?: number;
+    limit?: number;
+  }): Promise<ApiPaginatedResponse<TProduct>>;
 
   getProductBySlug(slug: string): Promise<ApiResponse<TProduct | null>>;
 

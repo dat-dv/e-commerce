@@ -7,13 +7,23 @@ import { IHomepageSection } from '@ecommerce/shared';
 export class HomepageSectionRepository implements IHomepageSectionRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAllEnabled(languageCode = 'vi', isLoggedIn: boolean = false): Promise<IHomepageSection[]> {
+  async findAllEnabled(params?: {
+    languageCode?: string;
+    isLoggedIn?: boolean;
+    page?: number;
+    limit?: number;
+  }): Promise<IHomepageSection[]> {
+    const { languageCode = 'vi', isLoggedIn = false, page = 1, limit = 10 } = params || {};
+
     return this.prisma.homepageSection.findMany({
       where: {
         is_enabled: true,
+        type: 'product_carousel',
         ...(isLoggedIn ? {} : { require_login: false }),
       },
       orderBy: { order: 'asc' },
+      skip: (page - 1) * limit,
+      take: limit,
       include: {
         categories: {
           orderBy: { order: 'asc' },

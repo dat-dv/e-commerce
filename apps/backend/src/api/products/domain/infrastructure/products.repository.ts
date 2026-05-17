@@ -187,6 +187,89 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
+  async getActiveFlashSaleProductsPaginated(params: {
+    page?: number;
+    limit?: number;
+    languageCode?: string;
+    userId?: string;
+  }): Promise<IPaginatedResult<IProductResponse>> {
+    const { page = 1, limit = 12, languageCode = 'en', userId } = params;
+    const now = new Date();
+    const flashSale = await this.prisma.flashSale.findFirst({
+      where: {
+        start_time: { lte: now },
+        end_time: { gte: now },
+      },
+    });
+
+    if (!flashSale) {
+      return {
+        items: [],
+        meta: {
+          total: 0,
+          page,
+          limit,
+          totalPages: 0,
+        },
+      };
+    }
+
+    const skip = (page - 1) * limit;
+    const [items, total] = await Promise.all([
+      this.prisma.flashSaleProduct.findMany({
+        where: { flash_sale_id: flashSale.id },
+        skip,
+        take: limit,
+        include: {
+          sku: {
+            include: {
+              product: {
+                include: {
+                  ...this.getProductInclude(languageCode),
+                  favorited_by_users: userId
+                    ? {
+                        where: {
+                          user_id: userId,
+                        },
+                        select: {
+                          product_id: true,
+                        },
+                      }
+                    : false,
+                },
+              },
+            },
+          },
+          flash_sale: true,
+        },
+      }),
+      this.prisma.flashSaleProduct.count({
+        where: { flash_sale_id: flashSale.id },
+      }),
+    ]);
+
+    return {
+      items: items.map((flashSaleProduct) => {
+        const flashSaleSku = {
+          ...flashSaleProduct.sku,
+          flash_sales: [flashSaleProduct],
+        };
+
+        return {
+          ...flashSaleProduct.sku.product,
+          skus: [flashSaleSku],
+          is_favorited: userId ? flashSaleProduct.sku.product.favorited_by_users?.length > 0 : false,
+        };
+      }),
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
+  }
+
   private async attachFavoriteStatus(products: IProductResponse[], userId?: string): Promise<IProductResponse[]> {
     if (!userId || products.length === 0) {
       return products.map((p) => ({ ...p, is_favorited: false }));
