@@ -3,7 +3,9 @@
 import AppContainer from "@/components/atoms/app-container";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { CategoriesCarousel } from "@/components/molecules/categories-carousel";
-import { WelcomeBanner } from "@/components/molecules/welcome-banner";
+import HomeWelcomeSection, {
+  WelcomeBanner,
+} from "@/components/molecules/welcome-banner";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
 import { FEATURE_ITEMS } from "@/constants/homepage";
@@ -23,7 +25,7 @@ export const HomepagePrivate = () => {
     <div className="flex flex-col gap-12 pb-20" data-testid="private-home">
       <AppContainer className="flex flex-col gap-12 pt-10">
         {/* 1. Welcome Banner */}
-        <WelcomeBanner
+        <HomeWelcomeSection
           userName={`${user?.firstName || ""} ${user?.lastName || ""}`}
           cartCount={3}
           orderCount={1}

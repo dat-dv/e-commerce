@@ -4,10 +4,12 @@ import FlashSaleList from "./flash-sale-list";
 
 const FlashSaleView = () => {
   return (
-    <AppContainer>
+    <>
       <FlashSaleHeader />
-      <FlashSaleList />
-    </AppContainer>
+      <AppContainer>
+        <FlashSaleList />
+      </AppContainer>
+    </>
   );
 };
 

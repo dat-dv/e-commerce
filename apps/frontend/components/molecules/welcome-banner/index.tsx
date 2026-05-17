@@ -1,93 +1,81 @@
 "use client";
 
-import React from "react";
-import { Sparkles, ShoppingCart, Package } from "lucide-react";
 import Link from "next/link";
-import { APP_ROUTES } from "@/constants/routes";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-interface WelcomeBannerProps {
-  userName: string;
-  cartCount: number;
-  orderCount: number;
+interface HomeWelcomeSectionProps {
+  name?: string;
 }
 
-export const WelcomeBanner = ({
-  userName,
-  cartCount,
-  orderCount,
-}: WelcomeBannerProps) => {
+export default function HomeWelcomeSection({
+  name = "Dat",
+}: HomeWelcomeSectionProps) {
   return (
-    <div className="glass bg-surface/60 backdrop-blur-xl border border-content/10 rounded-3xl p-6 md:p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl shadow-black/[0.02] relative overflow-hidden">
-      {/* Decorative Gradient Background */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 via-purple-500/5 to-transparent -z-10" />
-      <div className="absolute -top-20 -left-20 w-60 h-60 bg-primary/5 rounded-full blur-3xl -z-10" />
+    <section className="relative overflow-hidden border-b border-content/[0.03]">
+      {/* Ambient Glow */}
+      <div className="absolute top-0 right-0 h-[280px] w-[280px] rounded-full bg-primary/10 blur-[120px]" />
 
-      {/* Left: Greeting & Message */}
-      <div className="flex flex-col md:flex-row items-center gap-6 w-full lg:w-auto">
-        {/* Avatar */}
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-primary/20 flex-shrink-0">
-          {userName.charAt(0).toUpperCase()}
-        </div>
+      {/* Watermark */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <span className="text-[70px] md:text-[120px] font-black tracking-[-0.08em] text-content/[0.02] uppercase select-none">
+          Welcome
+        </span>
+      </div>
 
-        <div className="space-y-1 text-center md:text-left">
-          <span className="text-xs font-bold text-primary tracking-widest uppercase flex items-center gap-1.5 justify-center md:justify-start">
-            <Sparkles className="w-3.5 h-3.5" />
-            Member
-          </span>
-          <h1 className="text-3xl font-black tracking-tight leading-tight text-content">
-            Hello,{" "}
-            <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-              {userName}
-            </span>
-            !
-          </h1>
-          <p className="text-sm text-content/60 font-medium">
-            {"Welcome back to your personalized shopping experience."}
+      {/* Floating Icon */}
+      <motion.div
+        className="pointer-events-none absolute right-[10%] top-[20%] text-content/[0.04]"
+        animate={{
+          y: [-8, 8, -8],
+          rotate: [-8, 8, -8],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <Sparkles size={100} strokeWidth={1} />
+      </motion.div>
+
+      <div className="relative z-10 mx-auto flex min-h-[320px] w-full max-w-7xl items-center px-6 py-14">
+        <div className="max-w-3xl">
+          <p className="text-xs font-black uppercase tracking-[0.24em] text-primary/80">
+            Welcome Back
           </p>
+
+          <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-[-0.05em] leading-none text-content uppercase">
+            Hello{" "}
+            <span className="italic font-light text-content/30">{name}</span>
+          </h1>
+
+          <p className="mt-5 max-w-2xl text-base md:text-lg font-medium leading-relaxed tracking-tight text-content/50">
+            Continue discovering premium products, exclusive collections, and
+            curated experiences designed for your everyday lifestyle.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/products"
+              className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-7 py-3 text-sm font-bold text-white transition-all hover:scale-[1.02]"
+            >
+              Continue Shopping
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+
+            <Link
+              href="/orders"
+              className="inline-flex items-center justify-center rounded-2xl border border-content/[0.08] px-7 py-3 text-sm font-bold text-content/70 transition-all hover:bg-content/[0.03] hover:text-content"
+            >
+              View Orders
+            </Link>
+          </div>
         </div>
       </div>
-
-      {/* Right: Quick Stats & Call to Action */}
-      <div className="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto justify-between lg:justify-end">
-        {/* Quick Stats (Clean and integrated with links) */}
-        <div className="flex items-center gap-8">
-          <Link
-            href={APP_ROUTES.CART}
-            className="flex items-center gap-3 group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-content/[0.03] border border-content/[0.05] flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
-              <ShoppingCart className="w-4 h-4 text-content/60 group-hover:text-primary transition-colors" />
-            </div>
-            <div>
-              <p className="text-xs text-content/40 font-bold uppercase tracking-wider">
-                In Cart
-              </p>
-              <p className="text-lg font-black text-content group-hover:text-primary transition-colors">
-                {cartCount} Items
-              </p>
-            </div>
-          </Link>
-
-          <Link
-            href={APP_ROUTES.ORDERS}
-            className="flex items-center gap-3 group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-content/[0.03] border border-content/[0.05] flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
-              <Package className="w-4 h-4 text-content/60 group-hover:text-primary transition-colors" />
-            </div>
-            <div>
-              <p className="text-xs text-content/40 font-bold uppercase tracking-wider">
-                Orders
-              </p>
-              <p className="text-lg font-black text-content group-hover:text-primary transition-colors">
-                {orderCount} Active
-              </p>
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
+    </section>
   );
-};
-
-export default WelcomeBanner;
+}

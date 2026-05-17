@@ -10,6 +10,7 @@ import { OrderEmptyState } from "@/components/molecules/order-part/order-empty-s
 import { ConfirmCancelModal } from "@/components/molecules/order-part/confirm-cancel-modal";
 import { VirtualList } from "@/components/molecules/virtual-list";
 import AppContainer from "@/components/atoms/app-container";
+import { OrderTabs } from "@/components/molecules/order-part/order-tabs";
 
 export const OrdersView = () => {
   const [confirmCancelId, setConfirmCancelId] = useState<string | null>(null);
@@ -45,10 +46,13 @@ export const OrdersView = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent">
-      <OrderHeader activeTab={activeTab} onTabChange={setActiveTab} />
+    <>
+      <OrderHeader />
 
       <AppContainer>
+        <div className="-mt-6 pb-6">
+          <OrderTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        </div>
         <AnimatePresence mode="wait">
           {orders.length === 0 ? (
             <OrderEmptyState message={emptyStateMessage} />
@@ -89,6 +93,6 @@ export const OrdersView = () => {
         onClose={() => setConfirmCancelId(null)}
         onConfirm={handleConfirmCancel}
       />
-    </div>
+    </>
   );
 };
