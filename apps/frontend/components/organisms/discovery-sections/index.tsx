@@ -5,7 +5,6 @@ import LazySection from "@/components/molecules/lazy-section";
 import RecentViewedSection from "./recent-viewed-section";
 import RecommendedSection from "./recommend-section";
 import FavoriteSection from "./favorite-section";
-import { useConfig } from "@/hooks/config/use-config";
 
 export interface DiscoverySectionsProps {
   exclude?: Array<"recent-viewed" | "favorites" | "recommended">;

@@ -1,19 +1,22 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { TProduct } from "@/domain/products/types/products.model";
 import { usePagination } from "@/hooks/use-pagination";
+import {
+  PAGINATION_LIMITS,
+  createInitialPaginationMeta,
+} from "@/constants/pagination.constant";
 
-const LIMIT = 15;
-const INITIAL_META = {
-  total: 0,
-  page: 0,
-  limit: LIMIT,
-  totalPages: 1,
-};
+const LIMIT = PAGINATION_LIMITS.RECOMMENDED;
+const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
-export const useRecommendedProducts = () => {
+export const useRecommendedProducts = ({
+  initialItems = [],
+}: {
+  initialItems?: TProduct[];
+} = {}) => {
   const fetchRecommendedPage = useCallback(
     (params: { page: number; limit: number }) =>
       productsUseCase.getRecommended.execute(params),
@@ -22,16 +25,13 @@ export const useRecommendedProducts = () => {
 
   const { items, meta, hasMore, loading, loadPage, loadMore } =
     usePagination<TProduct>({
-      initialItems: [],
+      initialItems: initialItems,
       initialMeta: INITIAL_META,
       fetchPage: fetchRecommendedPage,
       getItemKey: (product) => product.id,
     });
-  const fetchRecommendedProducts = useCallback(() => loadPage(1), [loadPage]);
 
-  useEffect(() => {
-    fetchRecommendedProducts();
-  }, [fetchRecommendedProducts]);
+  const fetchRecommendedProducts = useCallback(() => loadPage(1), [loadPage]);
 
   return {
     recommendedProducts: items,

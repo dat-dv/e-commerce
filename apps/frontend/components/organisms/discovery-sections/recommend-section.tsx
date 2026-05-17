@@ -7,6 +7,7 @@ import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { RecentViewedSectionSkeleton } from "./skeletons";
 import { TProduct } from "@/domain/products/types/products.model";
 import { useConfig } from "@/hooks/config/use-config";
+import { useLoadOnce } from "@/hooks/use-load-once";
 
 export interface RecommendedSectionProps {
   products?: TProduct[];
@@ -17,11 +18,13 @@ export const RecommendedSection = ({
   products: propProducts,
   loading: propLoading,
 }: RecommendedSectionProps) => {
-  const hookState = useRecommendedProducts();
+  const { fetchRecommendedProducts, recommendedProducts, isLoading } =
+    useRecommendedProducts({ initialItems: propProducts ?? [] });
   const { language } = useConfig();
+  const { loading: isInitialLoading } = useLoadOnce(fetchRecommendedProducts);
 
-  const products = propProducts ?? hookState.recommendedProducts;
-  const loading = propLoading ?? hookState.isLoading;
+  const products = propProducts ?? recommendedProducts;
+  const loading = propLoading || isInitialLoading;
 
   if (loading && (!products || products.length === 0)) {
     return <RecentViewedSectionSkeleton />;

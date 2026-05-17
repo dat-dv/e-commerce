@@ -1,79 +1,45 @@
 "use client";
 
-import { useCallback, useContext } from "react";
+import { useCallback } from "react";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
-import { useFavoritesStore } from "./use-favorites-store";
-import { FavoritesContext } from "@/components/molecules/providers/favorites-provider";
+import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
+import { usePagination } from "@/hooks/use-pagination";
+import {
+  PAGINATION_LIMITS,
+  createInitialPaginationMeta,
+} from "@/constants/pagination.constant";
 
-const LIMIT = 24;
+const LIMIT = PAGINATION_LIMITS.FAVORITES;
 
-export const useFavorites = () => {
-  const store = useContext(FavoritesContext);
-  if (!store) {
-    throw new Error("Missing FavoritesProvider");
-  }
-
-  const favorites = useFavoritesStore((state) => state.favorites);
-  const page = useFavoritesStore((state) => state.page);
-  const total = useFavoritesStore((state) => state.total);
-  const hasMore = useFavoritesStore((state) => state.hasMore);
-
-  const loading = useFavoritesStore((state) => state.loading);
-  const setLoading = useFavoritesStore((state) => state.setLoading);
-
-  const setFavorites = useFavoritesStore((state) => state.setFavorites);
-  const appendFavorites = useFavoritesStore((state) => state.appendFavorites);
-  const setPage = useFavoritesStore((state) => state.setPage);
-  const setTotal = useFavoritesStore((state) => state.setTotal);
-  const setHasMore = useFavoritesStore((state) => state.setHasMore);
-
-  const _fetchFavorites = useCallback(
-    async (targetPage: number) => {
-      setLoading(true);
-
-      try {
-        const response =
-          await userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
-            targetPage,
-            LIMIT,
-          );
-
-        if (response.status === "success" && response.data) {
-          if (response.meta) {
-            setPage(response.meta.page);
-            setTotal(response.meta.total);
-            setHasMore(response.meta.page < response.meta.totalPages);
-          } else {
-            setPage(targetPage);
-            setHasMore(response.data.length >= LIMIT);
-          }
-
-          return response.data;
-        }
-      } catch (error) {
-        console.error("Failed to fetch favorites:", error);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [setLoading, setPage, setTotal, setHasMore],
+export const useFavorites = ({
+  initialItems = [],
+}: {
+  initialItems?: TUserFavoriteProductItem[];
+} = {}) => {
+  const fetchFavoritesPage = useCallback(
+    (params: { page: number; limit: number }) =>
+      userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
+        params.page,
+        params.limit,
+      ),
+    [],
   );
 
-  const fetchFavorites = useCallback(async () => {
-    const data = await _fetchFavorites(1);
-    if (data) {
-      setFavorites(data);
-    }
-  }, [_fetchFavorites, setFavorites]);
+  const {
+    items: favorites,
+    meta,
+    hasMore,
+    loading,
+    loadPage,
+    loadMore: fetchMore,
+  } = usePagination<TUserFavoriteProductItem>({
+    initialItems: initialItems,
+    initialMeta: createInitialPaginationMeta(LIMIT),
+    fetchPage: fetchFavoritesPage,
+    getItemKey: (item) => item.productId,
+  });
 
-  const fetchMore = useCallback(async () => {
-    if (hasMore && !loading) {
-      const data = await _fetchFavorites(page + 1);
-      if (data) {
-        appendFavorites(data);
-      }
-    }
-  }, [_fetchFavorites, hasMore, loading, page, appendFavorites]);
+  const fetchFavorites = useCallback(() => loadPage(1), [loadPage]);
 
   const toggleFavorite = useCallback(
     async (productId: string) => {
@@ -83,7 +49,7 @@ export const useFavorites = () => {
             productId,
           );
         if (response.status === "success") {
-          _fetchFavorites(1);
+          loadPage(1);
         }
         return response;
       } catch (error) {
@@ -91,20 +57,13 @@ export const useFavorites = () => {
         throw error;
       }
     },
-    [_fetchFavorites],
+    [loadPage],
   );
-
-  const meta = {
-    limit: LIMIT,
-    page,
-    totalPages: Math.ceil(total / LIMIT) || 1,
-    total,
-  };
 
   return {
     favorites,
     loading,
-    page,
+    page: meta.page,
     hasMore,
     meta,
     fetchFavorites,

@@ -6,22 +6,21 @@ import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { RecentViewedSectionSkeleton } from "./skeletons";
 import { useConfig } from "@/hooks/config/use-config";
+import { useLoadOnce } from "@/hooks/use-load-once";
+import { TProduct } from "@/domain/products/types/products.model";
 
 export const FavoriteSection = () => {
-  const hookState = useFavorites();
+  const { favorites, loading, fetchFavorites } = useFavorites();
   const { language } = useConfig();
+  const { loading: initialLoading } = useLoadOnce(fetchFavorites);
+  const products = favorites
+    .map((favorite) => favorite.product)
+    .filter((product): product is TProduct => Boolean(product));
 
-  const loading = hookState.loading;
-
-  const products = hookState.favorites
-    .map((fav) => fav.product!)
-    .filter(Boolean);
-
-  if (loading && products.length === 0) {
+  if ((loading || initialLoading) && products.length === 0) {
     return <RecentViewedSectionSkeleton />;
   }
 
-  // Render nothing if not loading and empty
   if (products.length === 0) {
     return null;
   }

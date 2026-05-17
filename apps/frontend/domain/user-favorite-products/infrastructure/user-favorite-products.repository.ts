@@ -3,6 +3,7 @@ import {
   ApiResponse,
   TRequest,
   ApiListResponse,
+  ApiPaginatedResponse,
 } from "@/utils/request/request.types";
 import {
   TUserFavoriteProductItem,
@@ -13,6 +14,7 @@ import {
   IUserFavoriteProductResponse,
   IToggleUserFavoriteProductResponse as IToggleDTO,
 } from "@ecommerce/shared";
+import { mapPaginatedData } from "@/utils/request/pagination";
 
 export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepository {
   constructor(private request: TRequest) {}
@@ -33,20 +35,23 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
   async getUserFavoriteProducts(
     page: number,
     limit: number,
-  ): Promise<ApiResponse<TUserFavoriteProductItem[]>> {
-    const res = await this.request.get<
+  ): Promise<ApiPaginatedResponse<TUserFavoriteProductItem>> {
+    const response = await this.request.get<
       ApiListResponse<IUserFavoriteProductResponse>
     >("/user-favorite-products", {
       params: { page, limit },
     });
 
     return {
-      ...res,
-      data:
-        res.data?.items?.map((item) =>
-          UserFavoriteProductsMapper.toDomain(item),
-        ) || [],
-      meta: res.data?.meta,
-    } as ApiResponse<TUserFavoriteProductItem[]>;
+      ...response,
+      data: mapPaginatedData(
+        response.data,
+        UserFavoriteProductsMapper.toDomain,
+        {
+          page,
+          limit,
+        },
+      ),
+    };
   }
 }

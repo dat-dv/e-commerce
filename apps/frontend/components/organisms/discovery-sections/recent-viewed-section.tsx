@@ -1,43 +1,47 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Eye } from "lucide-react";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { RecentViewedSectionSkeleton } from "./skeletons";
 import { useConfig } from "@/hooks/config/use-config";
+import { useLoadOnce } from "@/hooks/use-load-once";
 
-export const RecentViewedSection = () => {
-  const { recentViewedProducts, fetchRecentViewedProducts } =
-    useLoadRecentViewedProducts();
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+import { TProduct } from "@/domain/products/types/products.model";
+
+export interface RecentViewedSectionProps {
+  products?: TProduct[];
+  loading?: boolean;
+}
+
+export const RecentViewedSection = ({
+  products: propProducts,
+  loading: propLoading,
+}: RecentViewedSectionProps) => {
+  const {
+    recentViewedProducts,
+    fetchRecentViewedProducts,
+    loading: hookLoading,
+  } = useLoadRecentViewedProducts({ initialItems: propProducts ?? [] });
+  const { loading: initialLoading } = useLoadOnce(fetchRecentViewedProducts);
 
   const { language } = useConfig();
-  useEffect(() => {
-    const triggerFetch = async () => {
-      try {
-        await fetchRecentViewedProducts();
-      } catch (error) {
-        console.error("Failed to load recent viewed products:", error);
-      } finally {
-        setIsInitialLoad(false);
-      }
-    };
-    triggerFetch();
-  }, [fetchRecentViewedProducts]);
+
+  const products = propProducts ?? recentViewedProducts;
+  const loading = propLoading || hookLoading || initialLoading;
 
   // 1. Fallback Preview: If we have cached products in store, render them immediately.
-  const hasCachedProducts =
-    recentViewedProducts && recentViewedProducts.length > 0;
+  const hasCachedProducts = products && products.length > 0;
 
   // 2. Loading State: If we have no cached products and we are still loading for the first time.
-  if (!hasCachedProducts && isInitialLoad) {
+  if (!hasCachedProducts && loading) {
     return <RecentViewedSectionSkeleton />;
   }
 
   // 3. Empty State: If we are not loading anymore and there are no products, render nothing.
-  if (!hasCachedProducts && !isInitialLoad) {
+  if (!hasCachedProducts && !loading) {
     return null;
   }
 
@@ -47,7 +51,7 @@ export const RecentViewedSection = () => {
         title="Recently Viewed"
         href={APP_ROUTES.RECENTLY_VIEWED}
         icon={Eye}
-        products={recentViewedProducts}
+        products={products}
         rows={1}
         lang={language}
       />

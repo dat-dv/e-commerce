@@ -7,7 +7,7 @@ import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
 import { APP_ROUTES } from "@/constants/routes";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
-import { useEffect } from "react";
+import { useLoadOnce } from "@/hooks/use-load-once";
 
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
 
@@ -20,10 +20,7 @@ export const RecentViewedView = () => {
     fetchMore,
     fetchRecentViewedProducts,
   } = useLoadRecentViewedProducts();
-
-  useEffect(() => {
-    fetchRecentViewedProducts();
-  }, [fetchRecentViewedProducts]);
+  useLoadOnce(fetchRecentViewedProducts);
 
   return (
     <AppContainer size="2xl" className="py-14">

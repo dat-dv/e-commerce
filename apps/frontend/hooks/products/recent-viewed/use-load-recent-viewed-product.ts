@@ -4,16 +4,19 @@ import { useCallback } from "react";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { TProduct } from "@/domain/products/types/products.model";
 import { usePagination } from "@/hooks/use-pagination";
+import {
+  PAGINATION_LIMITS,
+  createInitialPaginationMeta,
+} from "@/constants/pagination.constant";
 
-const LIMIT = 15;
-const INITIAL_META = {
-  total: 0,
-  page: 0,
-  limit: LIMIT,
-  totalPages: 1,
-};
+const LIMIT = PAGINATION_LIMITS.RECENT_VIEWED;
+const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
-export const useLoadRecentViewedProducts = () => {
+export const useLoadRecentViewedProducts = ({
+  initialItems = [],
+}: {
+  initialItems?: TProduct[];
+} = {}) => {
   const fetchRecentViewedPage = useCallback(
     (params: { page: number; limit: number }) =>
       productsUseCase.getRecentlyViewed.execute(params),
@@ -22,7 +25,7 @@ export const useLoadRecentViewedProducts = () => {
 
   const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
     usePagination<TProduct>({
-      initialItems: [],
+      initialItems: initialItems,
       initialMeta: INITIAL_META,
       fetchPage: fetchRecentViewedPage,
       getItemKey: (product) => product.id,

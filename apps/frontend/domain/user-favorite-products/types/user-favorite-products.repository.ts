@@ -1,4 +1,7 @@
-import { ApiResponse, ApiListResponse } from "@/utils/request/request.types";
+import {
+  ApiResponse,
+  ApiPaginatedResponse,
+} from "@/utils/request/request.types";
 import {
   TUserFavoriteProductItem,
   TUserFavoriteProductToggleResponse,
@@ -11,5 +14,5 @@ export interface IUserFavoriteProductsRepository {
   getUserFavoriteProducts(
     page: number,
     limit: number,
-  ): Promise<ApiResponse<TUserFavoriteProductItem[]>>;
+  ): Promise<ApiPaginatedResponse<TUserFavoriteProductItem>>;
 }
