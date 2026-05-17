@@ -6,9 +6,9 @@ import { TCategory } from "@/domain/categories/types/categories.model";
 import { Search, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
-interface ProductsFilterSidebarProps {
+interface ProductsFilterSidebarProps<T extends string = string> {
   categories: TCategory[];
-  onFilterChange: (key: string, value: string | null) => void;
+  onFilterChange: (key: T, value: string | null) => void;
   onCategoryChange: (slug: string) => void;
   hideCategories?: boolean;
   searchPlaceholder?: string;
@@ -20,7 +20,7 @@ interface ProductsFilterSidebarProps {
   activeSlug?: string;
 }
 
-export function ProductsFilterSidebar({
+export function ProductsFilterSidebar<T extends string = string>({
   categories,
   onFilterChange,
   onCategoryChange,
@@ -32,7 +32,7 @@ export function ProductsFilterSidebar({
   maxPriceValue = "",
   ratingValue = "",
   activeSlug = "",
-}: ProductsFilterSidebarProps) {
+}: ProductsFilterSidebarProps<T>) {
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const [minPrice, setMinPrice] = useState(minPriceValue);
   const [maxPrice, setMaxPrice] = useState(maxPriceValue);
@@ -50,16 +50,16 @@ export function ProductsFilterSidebar({
 
   const handleRatingClick = (rating: number) => {
     if (ratingValue === String(rating)) {
-      onFilterChange("rating", null); // Toggle off
+      onFilterChange("rating" as T, null); // Toggle off
     } else {
-      onFilterChange("rating", String(rating));
+      onFilterChange("rating" as T, String(rating));
     }
   };
 
   const applyPriceRange = () => {
     if (onFilterChange) {
-      onFilterChange("min_price", minPrice || null);
-      onFilterChange("max_price", maxPrice || null);
+      onFilterChange("min_price" as T, minPrice || null);
+      onFilterChange("max_price" as T, maxPrice || null);
     }
   };
 

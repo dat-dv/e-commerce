@@ -8,9 +8,7 @@ import { Search } from "lucide-react";
 import { TProduct } from "@/domain/products/types/products.model";
 import { AppliedFilters, AppliedFiltersBar } from "./applied-filters-bar";
 
-type FilterKey = "sort" | "min_price" | "max_price" | "rating" | "search";
-
-interface ProductsCatalogProps {
+interface ProductsCatalogProps<T extends string = string> {
   products: TProduct[];
   total: number;
   currentPage: number;
@@ -19,12 +17,13 @@ interface ProductsCatalogProps {
   pageStr: string | null;
   categoryTitle: string;
   appliedFilters?: AppliedFilters;
-  onClearFilter?: (key: FilterKey) => void;
+  onClearFilter?: (key: T) => void;
   onResetFilters?: () => void;
   onPageChange?: (page: number) => void;
+  onSortChange?: (sort: string) => void;
 }
 
-export function ProductsCatalog({
+export function ProductsCatalog<T extends string = string>({
   products,
   total,
   currentPage,
@@ -36,7 +35,8 @@ export function ProductsCatalog({
   onClearFilter,
   onResetFilters,
   onPageChange,
-}: ProductsCatalogProps) {
+  onSortChange,
+}: ProductsCatalogProps<T>) {
   const hasProducts = products.length > 0;
 
   return (
@@ -46,6 +46,8 @@ export function ProductsCatalog({
         currentPage={currentPage}
         totalPages={totalPages}
         isLoading={loading}
+        onPageChange={onPageChange}
+        onSortChange={onSortChange}
       />
       {appliedFilters && onClearFilter && onResetFilters && (
         <AppliedFiltersBar
@@ -68,7 +70,8 @@ export function ProductsCatalog({
               <Pagination
                 currentPage={pageStr ? parseInt(pageStr) : 1}
                 totalPages={totalPages}
-                queryParam="page"
+                queryParam={onPageChange ? undefined : "page"}
+                onPageChange={onPageChange}
               />
             </div>
           )}

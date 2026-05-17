@@ -16,6 +16,8 @@ interface IListingProductsToolbarProps {
   currentPage: number;
   totalPages: number;
   isLoading?: boolean;
+  onPageChange?: (page: number) => void;
+  onSortChange?: (sort: string) => void;
 }
 
 export function ListingProductsToolbar({
@@ -23,6 +25,8 @@ export function ListingProductsToolbar({
   currentPage,
   totalPages,
   isLoading = false,
+  onPageChange,
+  onSortChange,
 }: IListingProductsToolbarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -31,6 +35,10 @@ export function ListingProductsToolbar({
     searchParams.get("sort") || EProductSort.DEFAULT.toString();
 
   const updateSort = (value: string) => {
+    if (onSortChange) {
+      onSortChange(value);
+      return;
+    }
     const params = new URLSearchParams(searchParams.toString());
     params.set("sort", value);
     params.set("page", "1");
@@ -39,6 +47,10 @@ export function ListingProductsToolbar({
   };
 
   const updatePage = (newPage: number) => {
+    if (onPageChange) {
+      onPageChange(newPage);
+      return;
+    }
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", newPage.toString());
     const path = window.location.pathname;

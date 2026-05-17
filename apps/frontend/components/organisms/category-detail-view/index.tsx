@@ -10,6 +10,7 @@ import { useCategoryProductsStore } from "@/hooks/categories/use-category-produc
 import { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useShallow } from "zustand/react/shallow";
+import { CategoryProductsFilterKey } from "@/store/category-products-store/category-products-store.type";
 
 interface CategoryDetailViewProps {
   categorySlug: string;
@@ -64,7 +65,10 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
   const displayCategories = topCategory ? [topCategory] : categories;
   const categoryTitle = activeCategory?.name || "Products";
 
-  const updateFilter = (key: string, value: string | null) => {
+  const updateFilter = (
+    key: CategoryProductsFilterKey,
+    value: string | null,
+  ) => {
     const parsedValue =
       value && NUMERIC_FILTER_KEYS.includes(key)
         ? Number(value)
@@ -101,7 +105,7 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
         <div className="lg:col-span-1">
-          <ProductsFilterSidebar
+          <ProductsFilterSidebar<CategoryProductsFilterKey>
             categories={displayCategories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
@@ -119,7 +123,7 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
           />
         </div>
 
-        <ProductsCatalog
+        <ProductsCatalog<CategoryProductsFilterKey>
           products={products}
           total={total}
           currentPage={currentPage}
@@ -137,6 +141,7 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
           onPageChange={changePage}
+          onSortChange={(value) => updateFilter("sort", value)}
         />
       </div>
     </AppContainer>
