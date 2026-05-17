@@ -18,9 +18,9 @@ export default function Footer() {
     {
       title: "Categories",
       links: [
-        { label: "All Products", href: APP_ROUTES.PRODUCTS },
+        { label: "All Products", href: APP_ROUTES.SEARCH },
         { label: "Featured", href: APP_ROUTES.PRODUCTS }, // Hardcoded to products as in original
-        { label: "New Arrivals", href: APP_ROUTES.PRODUCTS }, // Hardcoded to products as in original
+        { label: "New Arrivals", href: APP_ROUTES.NEW_ARRIVALS }, // Hardcoded to products as in original
       ],
     },
     {
