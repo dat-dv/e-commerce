@@ -2,7 +2,6 @@ import type { RequestWithUser } from 'src/shared/types/request.type';
 import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
-import { OptionalAuthGuard } from '../auth/guards/optional-auth.guard';
 import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
 import { GetInterestBasedUseCase } from './domain/use-cases/get-interest-based.use-case';
 import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed.use-case';
@@ -35,7 +34,6 @@ export class ProductsController {
     private readonly getSimilarProductsUseCase: GetSimilarProductsUseCase,
   ) {}
 
-  @UseGuards(OptionalAuthGuard)
   @Get()
   async getProducts(
     @Req() req: RequestWithUser,
@@ -49,7 +47,6 @@ export class ProductsController {
     return createSuccessResponse(result);
   }
 
-  @UseGuards(OptionalAuthGuard)
   @Get('recommended')
   async getRecommended(
     @Req() req: RequestWithUser,
@@ -86,7 +83,6 @@ export class ProductsController {
     return createSuccessResponse(result);
   }
 
-  @UseGuards(OptionalAuthGuard)
   @Get('flash-sale')
   async getFlashSale(
     @Req() req: RequestWithUser,
@@ -99,7 +95,6 @@ export class ProductsController {
     return createSuccessResponse(result);
   }
 
-  @UseGuards(OptionalAuthGuard)
   @Get(':slug')
   async getProductDetail(
     @Param('slug') slug: string,

@@ -15,6 +15,8 @@ import { ChangePasswordUseCase } from './domain/use-cases/change-password.use-ca
 import { IAuthRepository } from './domain/entities/auth.repository.interface';
 import { AuthRepository } from './domain/infrastructure/auth.repository';
 import { TokenService } from '../../shared/services/token/token.service';
+import { APP_GUARD } from '@nestjs/core';
+import { OptionalAuthGuard } from './guards/optional-auth.guard';
 
 import { CartModule } from 'src/api/cart/cart.module';
 
@@ -35,6 +37,10 @@ import { CartModule } from 'src/api/cart/cart.module';
     {
       provide: IAuthRepository,
       useClass: AuthRepository,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: OptionalAuthGuard,
     },
   ],
   exports: [
