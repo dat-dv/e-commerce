@@ -34,6 +34,7 @@ export const FavoriteSection = () => {
         icon={Heart}
         products={products}
         rows={1}
+        lang={language}
       />
     </div>
   );
