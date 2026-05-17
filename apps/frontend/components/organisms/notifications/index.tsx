@@ -7,7 +7,6 @@ import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { NotificationFilters } from "./parts/notification-filters";
 import { NotificationHeader } from "./parts/notification-header";
 import { NotificationList } from "./parts/notification-list";
-import { NotificationLoadMore } from "./parts/notification-load-more";
 import { NotificationPageHeader } from "./parts/notification-page-header";
 import { NotificationSummary } from "./parts/notification-summary";
 
@@ -27,7 +26,7 @@ export const NotificationsView = () => {
     <>
       <NotificationPageHeader unreadCount={unreadCount} />
 
-      <AppContainer size="lg" className="min-h-[70vh] pb-16">
+      <AppContainer>
         <NotificationSummary
           totalCount={totalCount}
           unreadCount={unreadCount}
@@ -51,8 +50,6 @@ export const NotificationsView = () => {
               loading={loading}
               onMarkAsRead={markAsRead}
             />
-
-            <NotificationLoadMore show={notifications.length > 0 && !loading} />
           </div>
         </motion.div>
       </AppContainer>

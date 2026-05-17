@@ -24,7 +24,7 @@ export default function ProfileSidebarSection() {
     },
     {
       type: "link",
-      href: "/profile/notifications",
+      href: "/notifications",
       label: "Notifications",
       icon: Bell,
     },

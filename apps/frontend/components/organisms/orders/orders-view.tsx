@@ -9,6 +9,7 @@ import { OrderCard } from "@/components/molecules/order-part/order-card";
 import { OrderEmptyState } from "@/components/molecules/order-part/order-empty-state";
 import { ConfirmCancelModal } from "@/components/molecules/order-part/confirm-cancel-modal";
 import { VirtualList } from "@/components/molecules/virtual-list";
+import AppContainer from "@/components/atoms/app-container";
 
 export const OrdersView = () => {
   const [confirmCancelId, setConfirmCancelId] = useState<string | null>(null);
@@ -45,45 +46,42 @@ export const OrdersView = () => {
 
   return (
     <div className="min-h-screen bg-transparent">
-      {/* Premium Sticky Header */}
       <OrderHeader activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="flex flex-col">
-          <AnimatePresence mode="wait">
-            {orders.length === 0 ? (
-              <OrderEmptyState message={emptyStateMessage} />
-            ) : (
-              <motion.div
-                key="list"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <VirtualList
-                  data={orders}
-                  loadingMore={loadingMore}
-                  hasMore={hasMore}
-                  onLoadMore={loadMore}
-                  renderItem={(order) => (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <OrderCard
-                        order={order}
-                        onCancelOrder={(id) => setConfirmCancelId(id)}
-                      />
-                    </motion.div>
-                  )}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
+      <AppContainer>
+        <AnimatePresence mode="wait">
+          {orders.length === 0 ? (
+            <OrderEmptyState message={emptyStateMessage} />
+          ) : (
+            <motion.div
+              key="list"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VirtualList
+                data={orders}
+                loadingMore={loadingMore}
+                hasMore={hasMore}
+                onLoadMore={loadMore}
+                renderItem={(order) => (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <OrderCard
+                      order={order}
+                      onCancelOrder={(id) => setConfirmCancelId(id)}
+                    />
+                  </motion.div>
+                )}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </AppContainer>
 
       <ConfirmCancelModal
         isOpen={!!confirmCancelId}

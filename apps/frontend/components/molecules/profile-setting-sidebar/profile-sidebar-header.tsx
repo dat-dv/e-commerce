@@ -9,8 +9,8 @@ const PROFILE_ICONS = [User, Settings, ShieldCheck, Sparkles];
 const ProfileSettingsSidebarHeader = () => {
   return (
     <AnimatedPageHeader
-      title="Your"
-      highlight="Account"
+      title="Profile"
+      highlight="Settings"
       description="Manage your profile and jump back into the products you care about."
       icons={PROFILE_ICONS}
     />

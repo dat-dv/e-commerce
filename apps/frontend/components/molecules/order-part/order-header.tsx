@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { OrderTabs } from "./order-tabs";
+import AnimatedPageHeader from "../page-header-animation";
+import { PackageCheck, Receipt, ShoppingBag, Truck } from "lucide-react";
 
 interface OrderHeaderProps {
   activeTab: readonly number[] | "all";
@@ -10,21 +11,17 @@ interface OrderHeaderProps {
 
 export const OrderHeader = ({ activeTab, onTabChange }: OrderHeaderProps) => {
   return (
-    <div className="bg-transparent border-b border-content/[0.05]">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-4xl font-black text-content tracking-tight">
-            My Orders
-          </h1>
-        </motion.div>
-      </div>
+    <div className="border-b border-content/[0.03]">
+      <AnimatedPageHeader
+        title="My"
+        highlight="Orders"
+        description="Track your purchases, review order status, and manage everything you’ve bought."
+        icons={[PackageCheck, ShoppingBag, Truck, Receipt]}
+      />
 
-      {/* Integrated Tabs */}
-      <OrderTabs activeTab={activeTab} onTabChange={onTabChange} />
+      <div className="-mt-6 pb-6">
+        <OrderTabs activeTab={activeTab} onTabChange={onTabChange} />
+      </div>
     </div>
   );
 };
