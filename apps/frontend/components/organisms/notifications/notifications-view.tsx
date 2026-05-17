@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Bell, CheckCheck, Filter, Search } from "lucide-react";
+import { CheckCheck, Filter, Search } from "lucide-react";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { NotificationItem } from "@/components/organisms/notifications/notification-item";
 

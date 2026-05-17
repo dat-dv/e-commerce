@@ -1,11 +1,15 @@
 "use client";
 
-import React from "react";
+import AppContainer from "@/components/atoms/app-container";
 import { motion } from "framer-motion";
+
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { NotificationFilters } from "../organisms/notifications/parts/notification-filters";
 import { NotificationHeader } from "../organisms/notifications/parts/notification-header";
 import { NotificationList } from "../organisms/notifications/parts/notification-list";
+import { NotificationLoadMore } from "../organisms/notifications/parts/notification-load-more";
+import { NotificationPageHeader } from "../organisms/notifications/parts/notification-page-header";
+import { NotificationSummary } from "../organisms/notifications/parts/notification-summary";
 
 export const NotificationsView = () => {
   const {
@@ -17,36 +21,41 @@ export const NotificationsView = () => {
     setSearch,
   } = useNotifications();
 
+  const totalCount = notifications.length;
+
   return (
-    <div className="container max-w-4xl mx-auto py-16 px-4 min-h-[90vh]">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex flex-col gap-10"
-      >
-        <NotificationHeader
+    <>
+      <NotificationPageHeader unreadCount={unreadCount} />
+
+      <AppContainer size="lg" className="min-h-[70vh] pb-16">
+        <NotificationSummary
+          totalCount={totalCount}
           unreadCount={unreadCount}
-          onMarkAllAsRead={markAllAsRead}
         />
 
-        <div className="grid grid-cols-1 gap-8">
-          <NotificationFilters onSearch={setSearch} />
-
-          <NotificationList
-            notifications={notifications}
-            loading={loading}
-            onMarkAsRead={markAsRead}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-col gap-8"
+        >
+          <NotificationHeader
+            unreadCount={unreadCount}
+            onMarkAllAsRead={markAllAsRead}
           />
 
-          {notifications.length > 0 && !loading && (
-            <div className="flex justify-center pt-4">
-              <button className="text-[10px] font-black text-content/30 hover:text-primary transition-all duration-300 uppercase tracking-[0.3em] py-3 px-10 rounded-full border border-content/[0.08] hover:border-primary/20 hover:bg-primary/5 bg-surface/50 shadow-sm active:scale-95">
-                Load more activity
-              </button>
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </div>
+          <div className="grid grid-cols-1 gap-8">
+            <NotificationFilters onSearch={setSearch} />
+
+            <NotificationList
+              notifications={notifications}
+              loading={loading}
+              onMarkAsRead={markAsRead}
+            />
+
+            <NotificationLoadMore show={notifications.length > 0 && !loading} />
+          </div>
+        </motion.div>
+      </AppContainer>
+    </>
   );
 };

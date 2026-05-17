@@ -1,12 +1,14 @@
 "use client";
 
+import AppContainer from "@/components/atoms/app-container";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
 import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";
 import { AnimatePresence } from "framer-motion";
 import CartRecommendations from "./cart-recommendations";
+import { CartPageHeader } from "./cart-page-header";
+import { CartSummary } from "./cart-summary";
 
-import { CartHeader } from "../../molecules/cart-part/cart-header";
 import { CartTableHead } from "../../molecules/cart-part/cart-table-head";
 import { CartItemRow } from "../../molecules/cart-part/cart-item-row";
 import { CartFooter } from "../../molecules/cart-part/cart-footer";
@@ -29,41 +31,52 @@ export default function CartView() {
   const selectedCount = selectedSkuIds.length;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <CartHeader itemCount={itemCount} />
+    <>
+      <CartPageHeader itemCount={itemCount} />
 
-      {isEmpty ? (
-        <div className="space-y-12">
-          <EmptyCart />
-          <CartRecommendations />
-        </div>
-      ) : (
-        <div className="space-y-6">
-          <CartTableHead
-            isAllSelected={isAllSelected}
-            onToggleSelectAll={handleToggleSelectAll}
-          />
+      <AppContainer size="xl" className="pb-12">
+        <CartSummary
+          itemCount={itemCount}
+          selectedCount={selectedCount}
+          totalAmount={totalAmount}
+        />
 
-          <div className="space-y-4">
-            <AnimatePresence mode="popLayout">
-              {items.map((item) => (
-                <CartItemRow
-                  key={item.skuId}
-                  item={item}
-                  isSelected={selectedSkuIds.includes(item.skuId)}
-                  onToggleSelect={() => toggleSelectItem(item.skuId)}
-                  onRemove={() => removeItem(item)}
-                  onUpdateQuantity={(val) => updateQuantity(item, val)}
-                />
-              ))}
-            </AnimatePresence>
+        {isEmpty ? (
+          <div className="space-y-12">
+            <EmptyCart />
+            <CartRecommendations />
           </div>
+        ) : (
+          <div className="space-y-6">
+            <CartTableHead
+              isAllSelected={isAllSelected}
+              onToggleSelectAll={handleToggleSelectAll}
+            />
 
-          <CartFooter selectedCount={selectedCount} totalAmount={totalAmount} />
+            <div className="space-y-4">
+              <AnimatePresence mode="popLayout">
+                {items.map((item) => (
+                  <CartItemRow
+                    key={item.skuId}
+                    item={item}
+                    isSelected={selectedSkuIds.includes(item.skuId)}
+                    onToggleSelect={() => toggleSelectItem(item.skuId)}
+                    onRemove={() => removeItem(item)}
+                    onUpdateQuantity={(val) => updateQuantity(item, val)}
+                  />
+                ))}
+              </AnimatePresence>
+            </div>
 
-          <CartRecommendations />
-        </div>
-      )}
-    </div>
+            <CartFooter
+              selectedCount={selectedCount}
+              totalAmount={totalAmount}
+            />
+
+            <CartRecommendations />
+          </div>
+        )}
+      </AppContainer>
+    </>
   );
 }

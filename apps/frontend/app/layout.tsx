@@ -16,7 +16,7 @@ import { allSafe } from "@/utils/promise";
 import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
 import { AddressProvider } from "@/components/molecules/providers/address-provider";
 import { CartProvider } from "@/components/molecules/providers/cart-provider";
-import { CartDrawer } from "@/components/organisms/cart/cart-drawer";
+import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { addressesUseCase } from "@/domain/addresses";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { NotificationProvider } from "@/components/providers/notification-provider";

@@ -9,9 +9,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
 
-import { CartHeader } from "./components/cart-header";
-import { CartItem } from "./components/cart-item";
-import { CartDrawerFooter } from "./components/cart-drawer-footer";
+import { CartHeader } from "./cart-drawer-header";
+import { CartItem } from "./cart-drawer-item";
+import { CartDrawerFooter } from "./cart-drawer-footer";
 
 const DISABLED_EDIT_ROUTES: string[] = [APP_ROUTES.CHECKOUT];
 
