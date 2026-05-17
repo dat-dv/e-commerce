@@ -28,6 +28,7 @@ export function HelpHeader({
           highlight="CENTER"
           description="Hello, how can we help you today? Search our database or browse categories below."
           icons={[HelpCircle, LifeBuoy, Search, MessageSquare, Settings]}
+          center={true}
         />
       </AppContainer>
 

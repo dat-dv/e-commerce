@@ -10,6 +10,7 @@ interface AnimatedPageHeaderProps {
   description?: string;
   icons: LucideIcon[];
   rightContent?: ReactNode;
+  center?: boolean;
 }
 
 export function AnimatedPageHeader({
@@ -18,6 +19,7 @@ export function AnimatedPageHeader({
   description,
   icons,
   rightContent,
+  center = false,
 }: AnimatedPageHeaderProps) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -80,8 +82,20 @@ export function AnimatedPageHeader({
       />
 
       <div className="relative z-20 w-full">
-        <div className="flex flex-col items-center justify-between gap-6 py-10 text-center md:flex-row md:items-end md:text-left">
-          <div className="flex flex-col items-center gap-5 md:items-start">
+        <div
+          className={
+            center
+              ? "flex flex-col items-center gap-6 py-10 text-center"
+              : "flex flex-col items-center justify-between gap-6 py-10 text-center md:flex-row md:items-end md:text-left"
+          }
+        >
+          <div
+            className={
+              center
+                ? "flex flex-col items-center gap-5"
+                : "flex flex-col items-center gap-5 md:items-start"
+            }
+          >
             <h1 className="text-5xl md:text-7xl font-black tracking-[-0.05em] text-content leading-none uppercase">
               {title}{" "}
               {highlight && (
@@ -92,7 +106,13 @@ export function AnimatedPageHeader({
             </h1>
 
             {description && (
-              <p className="text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight">
+              <p
+                className={
+                  center
+                    ? "text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight text-center"
+                    : "text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight"
+                }
+              >
                 {description}
               </p>
             )}
