@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
-import { IProductResponse } from '@ecommerce/shared';
+import { IPaginatedResult, IProductResponse } from '@ecommerce/shared';
 
 @Injectable()
 export class GetRecommendedUseCase {
@@ -9,11 +9,17 @@ export class GetRecommendedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(limit: number, userId?: string, languageCode = 'vi'): Promise<IProductResponse[]> {
-    return this.productsRepository.findMany({
-      orderBy: { created_at: 'desc' },
-      take: limit,
+  async execute(
+    page = 1,
+    limit = 15,
+    userId?: string,
+    languageCode = 'vi',
+  ): Promise<IPaginatedResult<IProductResponse>> {
+    return this.productsRepository.findPaginated({
+      page,
+      limit,
       languageCode,
+      userId,
     });
   }
 }

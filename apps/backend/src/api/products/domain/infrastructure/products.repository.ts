@@ -349,6 +349,57 @@ export class ProductsRepository implements IProductsRepository {
     return this.attachFavoriteStatus(products, userId);
   }
 
+  async getRecentlyViewedPaginated(params: {
+    userId: string;
+    page?: number;
+    limit?: number;
+    languageCode?: string;
+  }): Promise<IPaginatedResult<IProductResponse>> {
+    const { userId, page = 1, limit = 10, languageCode = 'en' } = params;
+    const history = await this.prisma.userBrowsingHistory.findMany({
+      where: { user_id: userId },
+      orderBy: { viewed_at: 'desc' },
+      select: { product_id: true },
+    });
+    const productIds = [...new Set(history.map((h) => h.product_id))].filter(
+      (id): id is string => typeof id === 'string',
+    );
+    const total = productIds.length;
+    const paginatedIds = productIds.slice((page - 1) * limit, page * limit);
+
+    if (paginatedIds.length === 0) {
+      return {
+        items: [],
+        meta: {
+          total,
+          page,
+          limit,
+          totalPages: Math.ceil(total / limit),
+        },
+      };
+    }
+
+    const products = await this.prisma.product.findMany({
+      where: { id: { in: paginatedIds } },
+      include: this.getProductInclude(languageCode),
+    });
+    const productMap = new Map(products.map((product) => [product.id, product]));
+    const orderedProducts = paginatedIds.flatMap((id) => {
+      const product = productMap.get(id);
+      return product ? [product] : [];
+    });
+
+    return {
+      items: await this.attachFavoriteStatus(orderedProducts, userId),
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
+  }
+
   async getSuperDeals(take = 12, languageCode = 'en', userId?: string): Promise<IProductResponse[]> {
     const products = await this.prisma.product.findMany({
       where: {

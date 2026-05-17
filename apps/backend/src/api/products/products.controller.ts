@@ -1,5 +1,15 @@
 import type { RequestWithUser } from 'src/shared/types/request.type';
-import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Query,
+  Req,
+  UseGuards,
+  DefaultValuePipe,
+  ParseIntPipe,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { OptionalAuthGuard } from '../auth/guards/optional-auth.guard';
@@ -41,13 +51,16 @@ export class ProductsController {
     return createSuccessResponse(result);
   }
 
+  @UseGuards(OptionalAuthGuard)
   @Get('recommended')
   async getRecommended(
     @Req() req: RequestWithUser,
     @Language() lang: string,
-  ): Promise<IApiResponse<IProductResponse[]>> {
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(15), ParseIntPipe) limit: number,
+  ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
     const userId = req.user?.sub;
-    const result = await this.getRecommendedUseCase.execute(12, userId, lang);
+    const result = await this.getRecommendedUseCase.execute(page, limit, userId, lang);
     return createSuccessResponse(result);
   }
 
@@ -67,9 +80,11 @@ export class ProductsController {
   async getRecentlyViewed(
     @Req() req: RequestWithUser,
     @Language() lang: string,
-  ): Promise<IApiResponse<IProductResponse[]>> {
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(15), ParseIntPipe) limit: number,
+  ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
     const userId = req.user?.sub;
-    const result = await this.getRecentlyViewedUseCase.execute(userId, 10, lang);
+    const result = await this.getRecentlyViewedUseCase.execute(userId, page, limit, lang);
     return createSuccessResponse(result);
   }
 

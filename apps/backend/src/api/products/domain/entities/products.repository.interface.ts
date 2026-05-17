@@ -22,6 +22,12 @@ export interface IProductsRepository {
     userId?: string;
   }): Promise<IProductResponse[]>;
   getRecentlyViewed(userId: string, take?: number, languageCode?: string): Promise<IProductResponse[]>;
+  getRecentlyViewedPaginated(params: {
+    userId: string;
+    page?: number;
+    limit?: number;
+    languageCode?: string;
+  }): Promise<IPaginatedResult<IProductResponse>>;
   getSuperDeals(take?: number, languageCode?: string, userId?: string): Promise<IProductResponse[]>;
   getNewArrivals(take?: number, languageCode?: string, userId?: string): Promise<IProductResponse[]>;
   findPaginated(params: GetProductsDto): Promise<IPaginatedResult<IProductResponse>>;
