@@ -2,7 +2,6 @@ import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from
 import { Request } from 'express';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { TAccessTokenPayload } from '../auth.types';
 
 @Injectable()
@@ -10,7 +9,6 @@ export class AuthGuard implements CanActivate {
   constructor(
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
-    private readonly prisma: PrismaService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
