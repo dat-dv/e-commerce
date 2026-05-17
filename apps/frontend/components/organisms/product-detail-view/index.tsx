@@ -1,5 +1,6 @@
 "use client";
 
+import AppContainer from "@/components/atoms/app-container";
 import { useProductDetail } from "@/hooks/products/use-product-detail";
 import { TProduct } from "@/domain/products/types/products.model";
 import { ProductImages } from "./product-images";
@@ -47,7 +48,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const discountPercent = selectedSku?.discountPercent || 0;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl space-y-12">
+    <AppContainer className="py-8 space-y-12">
       {/* SECTION 1: TOP GRID (Image & Info) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-surface border border-content/[0.05] rounded-3xl p-6 shadow-sm">
         <ProductImages
@@ -107,6 +108,6 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         recommendedProducts={recommendedProducts}
         loadingRecommended={loadingRecommended}
       />
-    </div>
+    </AppContainer>
   );
 }

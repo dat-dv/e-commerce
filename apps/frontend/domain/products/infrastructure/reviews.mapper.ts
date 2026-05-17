@@ -3,6 +3,10 @@ import { IReviewResponse } from "@ecommerce/shared";
 
 export class ReviewMapper {
   static toDomain(dto: IReviewResponse): TReview {
+    const images = Array.isArray(dto.images)
+      ? dto.images.filter((image): image is string => typeof image === "string")
+      : [];
+
     return {
       id: dto.id,
       productId: dto.product_id,
@@ -16,7 +20,7 @@ export class ReviewMapper {
       },
       rating: dto.rating,
       comment: dto.comment || undefined,
-      images: (dto.images as unknown as string[]) || [],
+      images,
       createdAt:
         dto.created_at instanceof Date
           ? dto.created_at.toISOString()

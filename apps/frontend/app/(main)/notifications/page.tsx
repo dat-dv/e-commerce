@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { NotificationsView } from "@/components/views/notifications-view";
+import { NotificationsView } from "@/components/organisms/notifications";
 
 export const metadata: Metadata = {
   title: "Notifications | Antigravity E-commerce",

@@ -4,12 +4,12 @@ import AppContainer from "@/components/atoms/app-container";
 import { motion } from "framer-motion";
 
 import { useNotifications } from "@/hooks/notifications/use-notifications";
-import { NotificationFilters } from "../organisms/notifications/parts/notification-filters";
-import { NotificationHeader } from "../organisms/notifications/parts/notification-header";
-import { NotificationList } from "../organisms/notifications/parts/notification-list";
-import { NotificationLoadMore } from "../organisms/notifications/parts/notification-load-more";
-import { NotificationPageHeader } from "../organisms/notifications/parts/notification-page-header";
-import { NotificationSummary } from "../organisms/notifications/parts/notification-summary";
+import { NotificationFilters } from "./parts/notification-filters";
+import { NotificationHeader } from "./parts/notification-header";
+import { NotificationList } from "./parts/notification-list";
+import { NotificationLoadMore } from "./parts/notification-load-more";
+import { NotificationPageHeader } from "./parts/notification-page-header";
+import { NotificationSummary } from "./parts/notification-summary";
 
 export const NotificationsView = () => {
   const {
