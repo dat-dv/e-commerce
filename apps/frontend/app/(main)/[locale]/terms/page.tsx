@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import TermsView from "@/components/organisms/terms-view";
-import termsData from "../terms.json";
+import termsData from "./terms.json";
 
 export const dynamicParams = false;
 
