@@ -3,6 +3,7 @@ import { IPaginationMeta } from "@/utils/request/request.types";
 export const PAGINATION_LIMITS = {
   DEFAULT: 16,
   FAVORITES: 24,
+  BRANDS: 48,
 } as const;
 
 export const createInitialPaginationMeta = (
