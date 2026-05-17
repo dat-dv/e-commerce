@@ -5,9 +5,11 @@ import { useFavorites } from "@/hooks/favorites/use-favorites";
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { RecentViewedSectionSkeleton } from "./skeletons";
+import { useConfig } from "@/hooks/config/use-config";
 
 export const FavoriteSection = () => {
   const hookState = useFavorites();
+  const { language } = useConfig();
 
   const loading = hookState.loading;
 

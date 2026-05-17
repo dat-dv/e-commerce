@@ -12,8 +12,7 @@ import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Pagination } from "@/components/molecules/pagination";
 import { EProductSort } from "@ecommerce/shared";
-import { Recommendations } from "@/components/organisms/product-detail-view/recommendations";
-import { useRecommendedProducts } from "@/hooks/products/use-recommended-products";
+import { DiscoverySections } from "@/components/organisms/discovery-sections";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 
 interface SearchViewProps {
@@ -28,8 +27,6 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   const { fetchProducts } = useProductsAdapter();
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  const { recommendedProducts, isLoading } = useRecommendedProducts();
 
   const page = searchParams.get("page");
   const sort = searchParams.get("sort");
@@ -141,21 +138,9 @@ export function SearchView({ searchQuery }: SearchViewProps) {
         </div>
       </div>
 
-      {/* Recommended Section at bottom */}
+      {/* Discovery Sections */}
       <div className="pt-24 border-t border-content/[0.05]">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-content mb-4">
-            Curated For You
-          </h2>
-          <p className="text-content/60 max-w-2xl mx-auto">
-            Discover our premium selection of highly rated products tailored to
-            your aesthetic.
-          </p>
-        </div>
-        <Recommendations
-          recommendedProducts={recommendedProducts}
-          loadingRecommended={isLoading}
-        />
+        <DiscoverySections />
       </div>
     </AppContainer>
   );

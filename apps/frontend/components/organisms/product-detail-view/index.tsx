@@ -9,7 +9,7 @@ import { BrandInfo } from "./brand-info";
 import { DescriptionCategory } from "./description-category";
 import { ReviewsRatings } from "./reviews-ratings";
 import { SimilarProducts } from "./similar-products";
-import { Recommendations } from "./recommendations";
+import { DiscoverySections } from "@/components/organisms/discovery-sections";
 
 import { useUserFavoriteProducts } from "@/hooks/user-favorite-products/use-user-favorite-products";
 
@@ -36,8 +36,6 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     loadingReviews,
     similarProducts,
     loadingSimilar,
-    recommendedProducts,
-    loadingRecommended,
     handleAddToCart,
     handleBuyNow,
   } = useProductDetail(product);
@@ -103,11 +101,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         loadingSimilar={loadingSimilar}
       />
 
-      {/* SECTION 6: RECOMMENDATIONS */}
-      <Recommendations
-        recommendedProducts={recommendedProducts}
-        loadingRecommended={loadingRecommended}
-      />
+      {/* SECTION 6: DISCOVERY SECTIONS */}
+      <DiscoverySections />
     </AppContainer>
   );
 }

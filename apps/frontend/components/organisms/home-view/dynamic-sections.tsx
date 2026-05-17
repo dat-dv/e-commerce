@@ -15,6 +15,7 @@ import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
 import { THomepageSection } from "@/domain/homepage/types/homepage.model";
 import { getSectionHref } from "@/utils/homepage";
+import { useConfig } from "@/hooks/config/use-config";
 
 interface DynamicSectionsProps {
   sections: THomepageSection[];
@@ -40,6 +41,7 @@ const getIcon = (type: string, slug?: string) => {
 };
 
 export const DynamicSections = ({ sections }: DynamicSectionsProps) => {
+  const { language } = useConfig();
   return (
     <>
       {sections.map((sectionItem) => {
@@ -63,6 +65,7 @@ export const DynamicSections = ({ sections }: DynamicSectionsProps) => {
               icon={getIcon(type, slug)}
               products={sectionItem.data}
               rows={1}
+              lang={language}
             />
           );
         }

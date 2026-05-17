@@ -6,6 +6,7 @@ import { useRecommendedProducts } from "@/hooks/products/use-recommended-product
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { RecentViewedSectionSkeleton } from "./skeletons";
 import { TProduct } from "@/domain/products/types/products.model";
+import { useConfig } from "@/hooks/config/use-config";
 
 export interface RecommendedSectionProps {
   products?: TProduct[];
@@ -17,6 +18,7 @@ export const RecommendedSection = ({
   loading: propLoading,
 }: RecommendedSectionProps) => {
   const hookState = useRecommendedProducts();
+  const { language } = useConfig();
 
   const products = propProducts ?? hookState.recommendedProducts;
   const loading = propLoading ?? hookState.isLoading;
@@ -36,6 +38,7 @@ export const RecommendedSection = ({
         icon={Sparkles}
         products={products}
         rows={1}
+        lang={language}
       />
     </div>
   );

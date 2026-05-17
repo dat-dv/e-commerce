@@ -5,7 +5,7 @@ import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
 import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";
 import { AnimatePresence } from "framer-motion";
-import CartRecommendations from "./cart-recommendations";
+import { DiscoverySections } from "@/components/organisms/discovery-sections";
 import { CartPageHeader } from "./cart-page-header";
 import { CartSummary } from "./cart-summary";
 
@@ -44,7 +44,6 @@ export default function CartView() {
         {isEmpty ? (
           <div className="space-y-12">
             <EmptyCart />
-            <CartRecommendations />
           </div>
         ) : (
           <div className="space-y-6">
@@ -72,10 +71,10 @@ export default function CartView() {
               selectedCount={selectedCount}
               totalAmount={totalAmount}
             />
-
-            <CartRecommendations />
           </div>
         )}
+
+        <DiscoverySections />
       </AppContainer>
     </>
   );

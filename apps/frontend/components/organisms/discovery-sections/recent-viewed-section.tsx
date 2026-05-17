@@ -6,12 +6,14 @@ import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { RecentViewedSectionSkeleton } from "./skeletons";
+import { useConfig } from "@/hooks/config/use-config";
 
 export const RecentViewedSection = () => {
   const { recentViewedProducts, fetchRecentViewedProducts } =
     useLoadRecentViewedProducts();
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
+  const { language } = useConfig();
   useEffect(() => {
     const triggerFetch = async () => {
       try {
@@ -47,6 +49,7 @@ export const RecentViewedSection = () => {
         icon={Eye}
         products={recentViewedProducts}
         rows={1}
+        lang={language}
       />
     </div>
   );

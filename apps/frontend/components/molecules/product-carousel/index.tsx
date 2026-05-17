@@ -15,7 +15,7 @@ interface ProductCarouselProps {
   icon: LucideIcon;
   products: TProduct[] | TProduct[][]; // Support both flat array (1 row) and array of arrays (2 rows)
   rows: 1 | 2;
-  lang?: string;
+  lang: string;
 }
 
 export const ProductCarousel = ({
