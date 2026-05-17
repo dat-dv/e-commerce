@@ -4,6 +4,7 @@ import { allSafe } from "@/utils/promise";
 import NotFound from "@/app/not-found";
 import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
 import { SearchView } from "@/components/organisms/search-view";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 
 interface SearchPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -23,7 +24,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const sp = await searchParams;
   const query = (sp.search as string) || (sp.q as string) || "";
   const page = sp.page ? parseInt(sp.page as string) : 1;
-  const limit = 24;
+  const limit = PAGINATION_LIMITS.PRODUCTS;
   const sort = sp.sort as string;
   const min_price = sp.min_price ? parseInt(sp.min_price as string) : undefined;
   const max_price = sp.max_price ? parseInt(sp.max_price as string) : undefined;

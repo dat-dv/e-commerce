@@ -1,19 +1,17 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductCard } from "@/components/molecules/product-card";
 import { ProductsHeader } from "@/app/(main)/products/products-header";
-import { ProductsFilterSidebar } from "@/components/organisms/products-view/products-filter-sidebar";
-import { ListingProductsToolbar } from "@/app/(main)/products/products-toolbar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
-import { Search } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Pagination } from "@/components/molecules/pagination";
 import { EProductSort } from "@ecommerce/shared";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { SearchSidebar } from "./search-sidebar";
+import { SearchProductList } from "./search-product-list";
 
 interface SearchViewProps {
   searchQuery: string;
@@ -53,7 +51,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
 
     fetchProducts({
       page: page ? parseInt(page) : 1,
-      limit: 24,
+      limit: PAGINATION_LIMITS.PRODUCTS,
       sort: sort || EProductSort.DEFAULT.toString(),
       search: searchQuery || undefined,
     });
@@ -65,83 +63,35 @@ export function SearchView({ searchQuery }: SearchViewProps) {
       : searchQuery;
 
   return (
-    <AppContainer size="2xl" className="py-12 md:py-16">
+    <>
       <ProductsHeader
         title={searchQuery ? `Results for "${shortQuery}"` : "Search Products"}
         description={`We found ${total} products matching your criteria.`}
       />
-
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-24">
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <ProductsFilterSidebar
+      <AppContainer size="2xl" className="py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-24">
+          <SearchSidebar
             categories={categories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
-            hideCategories={true}
           />
-        </div>
 
-        {/* Products Area */}
-        <div className="lg:col-span-3">
-          <ListingProductsToolbar
+          <SearchProductList
+            products={products}
             total={total}
             currentPage={currentPage}
             totalPages={totalPages}
-            isLoading={loading}
+            loading={loading}
+            pageStr={page}
+            shortQuery={shortQuery}
           />
-
-          {loading ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="animate-pulse bg-content/[0.03] rounded-2xl h-80"
-                ></div>
-              ))}
-            </div>
-          ) : products.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          ) : null}
-
-          {products.length === 0 && !loading && (
-            <div className="text-center py-24 bg-content/[0.02] border border-content/[0.05] rounded-[2rem] flex flex-col items-center gap-4">
-              <div className="w-20 h-20 bg-content/[0.05] rounded-full flex items-center justify-center">
-                <Search className="w-10 h-10 text-content/30" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-black text-content mb-2 tracking-tight">
-                  No results found
-                </h3>
-                <p className="text-content/50 text-base max-w-md mx-auto">
-                  {`We couldn't find anything matching "${shortQuery}". Try using
-                  different keywords or browsing our categories.`}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Pagination Section */}
-          {!loading && totalPages > 1 && (
-            <div className="mt-16 flex justify-center border-t border-content/[0.05] pt-8">
-              <Pagination
-                currentPage={page ? parseInt(page) : 1}
-                totalPages={totalPages}
-                onPageChange={(p) => updateFilter("page", p.toString())}
-              />
-            </div>
-          )}
         </div>
-      </div>
 
-      {/* Discovery Sections */}
-      <div className="pt-24 border-t border-content/[0.05]">
-        <DiscoveryCarouselSection />
-      </div>
-    </AppContainer>
+        {/* Discovery Sections */}
+        <div className="pt-24 border-t border-content/[0.05]">
+          <DiscoveryCarouselSection />
+        </div>
+      </AppContainer>
+    </>
   );
 }
