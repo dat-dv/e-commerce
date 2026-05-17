@@ -10,7 +10,7 @@ import { FEATURE_ITEMS } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useCategories } from "@/hooks/categories/use-homepage-categories";
-import { DynamicSections } from "./dynamic-sections";
+import { DynamicCarouselSection } from "./dynamic-carousel-section";
 import { useConfig } from "@/hooks/config/use-config";
 import DiscoverySections from "../discovery-sections";
 import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
@@ -43,7 +43,7 @@ export const HomepagePrivate = ({
         <FlashSaleCarousel products={flashSaleProducts} />
 
         {/* 3. Dynamic Backend Sections */}
-        <DynamicSections sections={sections} />
+        <DynamicCarouselSection sections={sections} />
 
         <DiscoverySections />
       </AppContainer>

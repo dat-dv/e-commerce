@@ -8,7 +8,7 @@ import { FEATURE_ITEMS } from "@/constants/homepage";
 
 import { useProductsStore } from "@/hooks/products/use-products-store";
 import { useCategories } from "@/hooks/categories/use-homepage-categories";
-import { DynamicSections } from "./dynamic-sections";
+import { DynamicCarouselSection } from "./dynamic-carousel-section";
 import { useConfig } from "@/hooks/config/use-config";
 import HomeWelcomeSection from "@/components/molecules/welcome-banner";
 import { JoinUs } from "@/components/molecules/join-us";
@@ -39,7 +39,7 @@ export const HomepagePublic = ({ flashSaleProducts }: HomepagePublicProps) => {
         <FlashSaleCarousel products={flashSaleProducts} />
 
         {/* 3. Dynamic Backend Sections */}
-        <DynamicSections sections={sections} />
+        <DynamicCarouselSection sections={sections} />
 
         {/* 4. Promotional Banner */}
         <JoinUs />

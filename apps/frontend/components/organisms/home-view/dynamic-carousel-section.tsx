@@ -28,7 +28,7 @@ const getIcon = (type: string, slug?: string) => {
   return SECTION_ICONS[slug || ""] || SECTION_ICONS.default;
 };
 
-export const DynamicSections = ({ sections }: DynamicSectionsProps) => {
+export const DynamicCarouselSection = ({ sections }: DynamicSectionsProps) => {
   const { language } = useConfig();
   return (
     <>
