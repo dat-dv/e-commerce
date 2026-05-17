@@ -80,7 +80,10 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
               )}
             >
               {/* COUNTRY SELECT */}
-              <Menu as="div" className="relative inline-block text-left">
+              <Menu
+                as="div"
+                className="relative z-50 inline-block h-full text-left"
+              >
                 <MenuButton
                   disabled={rest.disabled}
                   className={cn(
@@ -97,7 +100,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                   <ChevronDown size={14} />
                 </MenuButton>
 
-                <MenuItems className="z-[100] mt-1 w-56 rounded-xl bg-surface border shadow-2xl max-h-60 overflow-y-auto">
+                <MenuItems className="absolute left-0 top-full z-[9999] mt-1 w-56 rounded-xl bg-surface border border-content/10 shadow-2xl max-h-60 overflow-y-auto">
                   {countries.map((c) => {
                     const isDisabled =
                       c.disabled ||

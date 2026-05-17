@@ -97,5 +97,11 @@ export const API_ROUTES = {
     MARK_AS_READ: (id: string) => `/notifications/${id}/read`,
     MARK_ALL_AS_READ: "/notifications/read-all",
   },
+  UPLOAD: {
+    HELP_CONTACT_IMAGE: "/upload/help-contact-image",
+  },
+  HELP_CONTACT_SUBMISSIONS: {
+    BASE: "/help-contact-submissions",
+  },
   CONFIG: "/config",
 } as const;

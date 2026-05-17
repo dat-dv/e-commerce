@@ -39,8 +39,8 @@ export default function ContactPage() {
         </div>
 
         {/* Direct Contact Info & Support */}
-        <div className="flex flex-col gap-6 h-full">
-          <div className="border border-content/5 rounded-2xl p-8 bg-surface shadow-sm flex-1">
+        <div className="flex flex-col gap-6 self-start">
+          <div className="border border-content/5 rounded-2xl p-8 bg-surface shadow-sm">
             <h3 className="text-lg font-bold text-content mb-2">
               Direct Contact
             </h3>
@@ -57,7 +57,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="border border-content/5 rounded-2xl p-8 bg-surface shadow-sm flex-1">
+          <div className="border border-content/5 rounded-2xl p-8 bg-surface shadow-sm">
             <h3 className="text-lg font-bold text-content mb-2">
               Need Support?
             </h3>
