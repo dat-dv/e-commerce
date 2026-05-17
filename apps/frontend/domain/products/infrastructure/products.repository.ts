@@ -14,6 +14,7 @@ import { IProductsRepository } from "../types/products.repository";
 import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
 import { ProductMapper } from "./products.mapper";
 import { ReviewMapper } from "./reviews.mapper";
+import { mapPaginatedData } from "@/utils/request/pagination";
 
 export class ProductsRepository implements IProductsRepository {
   constructor(private request: TRequest) {}
@@ -21,14 +22,14 @@ export class ProductsRepository implements IProductsRepository {
   async getRecommended(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProductResponse[]>(
+  }): Promise<ApiPaginatedResponse<TProduct>> {
+    const response = await this.request.get<ApiListResponse<IProductResponse>>(
       API_ROUTES.PRODUCTS.RECOMMENDED,
       { params },
     );
     return {
       ...response,
-      data: response.data?.map((item) => ProductMapper.toDomain(item)) || [],
+      data: mapPaginatedData(response.data, ProductMapper.toDomain, params),
     };
   }
 
@@ -45,14 +46,14 @@ export class ProductsRepository implements IProductsRepository {
   async getRecentlyViewed(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<TProduct[]>> {
-    const response = await this.request.get<IProductResponse[]>(
+  }): Promise<ApiPaginatedResponse<TProduct>> {
+    const response = await this.request.get<ApiListResponse<IProductResponse>>(
       API_ROUTES.PRODUCTS.RECENTLY_VIEWED,
       { params },
     );
     return {
       ...response,
-      data: response.data?.map((item) => ProductMapper.toDomain(item)) || [],
+      data: mapPaginatedData(response.data, ProductMapper.toDomain, params),
     };
   }
 
@@ -71,22 +72,10 @@ export class ProductsRepository implements IProductsRepository {
     }>(API_ROUTES.PRODUCTS.FLASH_SALE, { params });
     return {
       ...response,
-      data: response.data
-        ? {
-            items: response.data.items.map((item) =>
-              ProductMapper.toDomain(item),
-            ),
-            meta: response.data.meta,
-          }
-        : {
-            items: [],
-            meta: {
-              total: 0,
-              page: params?.page || 1,
-              limit: params?.limit || 12,
-              totalPages: 0,
-            },
-          },
+      data: mapPaginatedData(response.data, ProductMapper.toDomain, {
+        page: params?.page,
+        limit: params?.limit || 12,
+      }),
     };
   }
 
@@ -115,22 +104,7 @@ export class ProductsRepository implements IProductsRepository {
 
     return {
       ...response,
-      data: response.data
-        ? {
-            items: response.data.items.map((item) =>
-              ProductMapper.toDomain(item),
-            ),
-            meta: response.data.meta,
-          }
-        : {
-            items: [],
-            meta: {
-              total: 0,
-              page: params?.page || 1,
-              limit: params?.limit || 10,
-              totalPages: 0,
-            },
-          },
+      data: mapPaginatedData(response.data, ProductMapper.toDomain, params),
     };
   }
 
@@ -146,15 +120,11 @@ export class ProductsRepository implements IProductsRepository {
 
     return {
       ...response,
-      data: response.data
-        ? {
-            items: response.data.items.map((item) =>
-              ReviewMapper.toDomain(item),
-            ),
-            meta: response.data.meta,
-          }
-        : undefined,
-    } as ApiPaginatedResponse<TReview>;
+      data: mapPaginatedData(response.data, ReviewMapper.toDomain, {
+        page,
+        limit,
+      }),
+    };
   }
 
   async getSimilarProducts(

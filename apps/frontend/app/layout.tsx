@@ -16,8 +16,6 @@ import { allSafe } from "@/utils/promise";
 import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
 import { AddressProvider } from "@/components/molecules/providers/address-provider";
 import { CartProvider } from "@/components/molecules/providers/cart-provider";
-import { RecentViewedProvider } from "@/components/molecules/providers/recent-viewed-provider";
-import { RecommendedProvider } from "@/components/molecules/providers/recommended-provider";
 import { FavoritesProvider } from "@/components/molecules/providers/favorites-provider";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { addressesUseCase } from "@/domain/addresses";
@@ -120,14 +118,10 @@ export default async function RootLayout({
                   <AddressProvider
                     initState={initialAddressesState?.data || []}
                   >
-                    <RecentViewedProvider>
-                      <RecommendedProvider>
-                        <FavoritesProvider>
-                          {children}
-                          <CartDrawer />
-                        </FavoritesProvider>
-                      </RecommendedProvider>
-                    </RecentViewedProvider>
+                    <FavoritesProvider>
+                      {children}
+                      <CartDrawer />
+                    </FavoritesProvider>
                   </AddressProvider>
                 </CartProvider>
               </NotificationProvider>

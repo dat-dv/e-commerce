@@ -8,14 +8,14 @@ export interface IProductsRepository {
   getRecommended(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<TProduct[]>>;
+  }): Promise<ApiPaginatedResponse<TProduct>>;
 
   getBasedOnInterest(): Promise<ApiResponse<TProduct[]>>;
 
   getRecentlyViewed(params?: {
     page?: number;
     limit?: number;
-  }): Promise<ApiResponse<TProduct[]>>;
+  }): Promise<ApiPaginatedResponse<TProduct>>;
 
   getFlashSale(params?: {
     page?: number;

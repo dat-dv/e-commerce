@@ -22,6 +22,7 @@ export const usePagination = <T>({
 }: UsePaginationParams<T>) => {
   const [items, setItems] = useState(initialItems);
   const [meta, setMeta] = useState(initialMeta);
+  const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
 
   const hasMore = meta.page < meta.totalPages;
@@ -62,6 +63,28 @@ export const usePagination = <T>({
     }
   }, [appendItems, fetchPage, hasMore, loadingMore, meta.limit, meta.page]);
 
+  const loadPage = useCallback(
+    async (page: number) => {
+      if (loading) return;
+
+      setLoading(true);
+      try {
+        const response = await fetchPage({
+          page,
+          limit: meta.limit,
+        });
+
+        if (response.status !== "success") return;
+
+        setItems(response.data.items);
+        setMeta(response.data.meta);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [fetchPage, loading, meta.limit],
+  );
+
   const totalPages = useMemo(
     () => Math.max(meta.totalPages, 1),
     [meta.totalPages],
@@ -72,7 +95,9 @@ export const usePagination = <T>({
     meta,
     totalPages,
     hasMore,
+    loading,
     loadingMore,
+    loadPage,
     loadMore,
   };
 };
