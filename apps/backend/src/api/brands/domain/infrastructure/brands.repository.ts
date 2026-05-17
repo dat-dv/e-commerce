@@ -19,17 +19,44 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
+  private getBrandIncludeWithProductCount(languageCode: string) {
+    return {
+      ...this.getBrandInclude(languageCode),
+      _count: {
+        select: {
+          products: {
+            where: { deleted_at: null },
+          },
+        },
+      },
+    };
+  }
+
+  private toBrandResponseWithProductCount(brand: IBrandResponse & { _count?: { products?: number } }): IBrandResponse {
+    const { _count, ...rest } = brand;
+
+    return {
+      ...rest,
+      product_count: _count?.products ?? 0,
+    };
+  }
+
   async getTopBrands(page: number, limit: number, languageCode = 'vi'): Promise<IPaginatedResult<IBrandResponse>> {
-    return this.paginationService.paginate(
+    const result = await this.paginationService.paginate(
       this.prisma.brand,
       {
         where: { is_featured: true },
         orderBy: { order: 'asc' },
-        include: this.getBrandInclude(languageCode),
+        include: this.getBrandIncludeWithProductCount(languageCode),
       },
       page,
       limit,
     );
+
+    return {
+      ...result,
+      items: result.items.map((brand) => this.toBrandResponseWithProductCount(brand)),
+    };
   }
 
   async getBrandBySlug(slug: string, languageCode = 'vi'): Promise<IBrandResponse | null> {
