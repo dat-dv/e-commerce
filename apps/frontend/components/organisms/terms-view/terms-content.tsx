@@ -2,166 +2,48 @@
 
 import React from "react";
 
-interface TermsContentProps {
-  isVi: boolean;
+interface StaticPageSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
 }
 
-export function TermsContent({ isVi }: TermsContentProps): React.ReactElement {
-  if (isVi) {
-    return (
-      <div className="space-y-12 text-content/80 leading-relaxed text-sm sm:text-base">
-        <section id="introduction" className="scroll-mt-24">
-          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
-            <span className="w-1 h-5 bg-primary rounded-full"></span>
-            1. GIỚI THIỆU
-          </h2>
-          <div className="space-y-3">
-            <p>
-              {`1.1. Chào mừng bạn đến với sàn giao dịch thương mại điện tử
-              Shop.Hub qua website hoặc ứng dụng di động ("Trang web Shop.Hub"
-              hoặc "Nền tảng Shop.Hub"). Trước khi sử dụng Trang web Shop.Hub
-              hoặc tạo tài khoản Shop.Hub ("Tài khoản"), vui lòng đọc kỹ Điều
-              khoản Dịch vụ sau và Quy chế hoạt động của Sàn giao dịch thương
-              mại điện tử Shop.Hub để hiểu rõ quyền lợi và nghĩa vụ pháp lý của
-              mình đối với Shop.Hub và các công ty liên kết, công ty con của
-              Shop.Hub.`}
-            </p>
-            <p>
-              {`1.2. Các Dịch vụ bao gồm dịch vụ nền tảng trực tuyến kết nối người
-              tiêu dùng để tạo cơ hội kinh doanh giữa người mua ("Người mua") và
-              người bán ("Người bán"). Hợp đồng mua bán thực tế là trực tiếp
-              giữa Người mua và Người bán.`}
-            </p>
-            <p>
-              1.3. Trước khi trở thành Người dùng của Trang web Shop.Hub, bạn
-              phải đọc và chấp nhận tất cả các điều khoản và điều kiện được định
-              nghĩa trong, và dẫn chiếu đến, Điều khoản Dịch vụ này và Chính
-              sách Bảo mật.
-            </p>
-            <p>
-              1.4. Shop.Hub bảo lưu quyền thay đổi, chỉnh sửa, tạm ngưng hoặc
-              chấm dứt toàn bộ hoặc bất kỳ phần nào của Trang web hoặc Dịch vụ
-              Shop.Hub vào bất kỳ lúc nào theo quy định của pháp luật.
-            </p>
-            <p>
-              1.5. Shop.Hub bảo lưu quyền từ chối yêu cầu mở Tài khoản hoặc
-              quyền truy cập của bạn vào Trang web hoặc Dịch vụ Shop.Hub theo
-              quy định của pháp luật và Điều khoản Dịch vụ.
-            </p>
-          </div>
-        </section>
+interface TermsContentProps {
+  sections: StaticPageSection[];
+  lang: "en" | "vi";
+}
 
-        <section id="privacy" className="scroll-mt-24">
-          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
-            <span className="w-1 h-5 bg-primary rounded-full"></span>
-            2. QUYỀN RIÊNG TƯ
-          </h2>
-          <div className="space-y-3">
-            <p>
-              2.1. Shop.Hub coi trọng quyền riêng tư của bạn. Để bảo vệ quyền
-              lợi người dùng, Shop.Hub cung cấp Chính sách Bảo mật để giải thích
-              chi tiết các hoạt động bảo mật của Shop.Hub. Vui lòng tham khảo
-              Chính sách Bảo mật để biết cách Shop.Hub thu thập và sử dụng thông
-              tin liên quan đến Tài khoản và/hoặc việc sử dụng Dịch vụ của Người
-              dùng.
-            </p>
-          </div>
-        </section>
-
-        <section id="liability" className="scroll-mt-24">
-          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
-            <span className="w-1 h-5 bg-primary rounded-full"></span>
-            3. GIỚI HẠN TRÁCH NHIỆM
-          </h2>
-          <div className="space-y-3">
-            <p>
-              3.1. Shop.Hub cấp cho Người dùng quyền truy cập và sử dụng Dịch vụ
-              phù hợp theo các điều khoản và điều kiện được định nghĩa trong
-              Điều khoản Dịch vụ này. Tất cả Nội dung, nhãn hiệu hàng hóa, nhãn
-              hiệu dịch vụ, tên thương mại, logo và tài sản trí tuệ độc quyền
-              khác hiển thị trên Trang web Shop.Hub đều thuộc sở hữu của
-              Shop.Hub và các chủ sở hữu bên thứ ba (nếu có).
-            </p>
-          </div>
-        </section>
-      </div>
-    );
-  }
-
+export function TermsContent({
+  sections,
+}: TermsContentProps): React.ReactElement {
   return (
     <div className="space-y-12 text-content/80 leading-relaxed text-sm sm:text-base">
-      <section id="introduction" className="scroll-mt-24">
-        <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
-          <span className="w-1 h-5 bg-primary rounded-full"></span>
-          1. INTRODUCTION
-        </h2>
-        <div className="space-y-3">
-          <p>
-            1.1. Welcome to the Shop.Hub E-Commerce platform via website or
-            mobile application (&quot;Shop.Hub Site&quot; or &quot;Shop.Hub
-            Platform&quot;). Before using the Shop.Hub Site or creating a
-            Shop.Hub account (&quot;Account&quot;), please read the following
-            Terms of Service carefully and the Operation Regulations of the
-            Shop.Hub E-Commerce Platform to understand your legal rights and
-            obligations with respect to Shop.Hub and its affiliates and
-            subsidiaries.
-          </p>
-          <p>
-            1.2. The Services include an online platform service connecting
-            consumers to provide business opportunities between buyers
-            (&quot;Buyers&quot;) and sellers (&quot;Sellers&quot;). The actual
-            sales contract is directly between the Buyer and the Seller.
-          </p>
-          <p>
-            1.3. Before becoming a User of the Shop.Hub Site, you must read and
-            accept all the terms and conditions defined in, and referenced to,
-            this Terms of Service and the Privacy Policy.
-          </p>
-          <p>
-            1.4. Shop.Hub reserves the right to change, modify, suspend or
-            terminate all or any part of the Shop.Hub Site or Services at any
-            time in accordance with legal regulations.
-          </p>
-          <p>
-            1.5. Shop.Hub reserves the right to refuse requests to open an
-            Account or your access to the Shop.Hub Site or Services in
-            accordance with legal regulations and the Terms of Service.
-          </p>
-        </div>
-      </section>
+      {sections.map((section) => (
+        <section key={section.id} id={section.id} className="scroll-mt-24">
+          <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-primary rounded-full"></span>
+            {section.title.toUpperCase()}
+          </h2>
+          <div className="space-y-3">
+            {section.paragraphs.map((paragraph, index) => {
+              const isListItem = !/^\d+\.\d+/.test(paragraph.trim());
 
-      <section id="privacy" className="scroll-mt-24">
-        <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
-          <span className="w-1 h-5 bg-primary rounded-full"></span>
-          2. PRIVACY
-        </h2>
-        <div className="space-y-3">
-          <p>
-            2.1. Shop.Hub takes your privacy seriously. To protect user rights,
-            Shop.Hub provides a Privacy Policy to explain in detail
-            Shop.Hub&apos;s privacy practices. Please refer to the Privacy
-            Policy to know how Shop.Hub collects and uses information related to
-            the Account and/or use of the Services of the User.
-          </p>
-        </div>
-      </section>
+              if (isListItem && index > 0) {
+                return (
+                  <ul
+                    key={index}
+                    className="list-disc pl-5 space-y-1 text-content/70"
+                  >
+                    <li>{paragraph}</li>
+                  </ul>
+                );
+              }
 
-      <section id="liability" className="scroll-mt-24">
-        <h2 className="text-2xl font-bold text-content mb-4 flex items-center gap-2">
-          <span className="w-1 h-5 bg-primary rounded-full"></span>
-          3. LIMITATION OF LIABILITY
-        </h2>
-        <div className="space-y-3">
-          <p>
-            3.1. Shop.Hub grants the User the appropriate right to access and
-            use the Services in accordance with the terms and conditions defined
-            in this Terms of Service. All Content, trademarks, service marks,
-            trade names, logos and other exclusive intellectual property
-            displayed on the Shop.Hub Site are owned by Shop.Hub and third-party
-            owners (if any).
-          </p>
-        </div>
-      </section>
+              return <p key={index}>{paragraph}</p>;
+            })}
+          </div>
+        </section>
+      ))}
     </div>
   );
 }

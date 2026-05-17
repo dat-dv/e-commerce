@@ -6,23 +6,26 @@ import { Lock, Eye, Shield, KeyRound, LockKeyhole } from "lucide-react";
 import AppContainer from "@/components/atoms/app-container";
 
 interface PrivacyHeaderProps {
-  isVi: boolean;
+  title: string;
+  description: string;
 }
 
 export function PrivacyHeader({
-  isVi,
+  title,
+  description,
 }: PrivacyHeaderProps): React.ReactElement {
+  const words = title.split(" ");
+  const isVi = title.toLowerCase().includes("chính");
+  const highlight = isVi ? words.slice(-2).join(" ") : words.pop() || "";
+  const mainTitle = isVi ? words.slice(0, -2).join(" ") : words.join(" ");
+
   return (
     <div className="mb-6">
       <AppContainer>
         <AnimatedPageHeader
-          title={isVi ? "CHÍNH SÁCH" : "PRIVACY"}
-          highlight={isVi ? "BẢO MẬT" : "POLICY"}
-          description={
-            isVi
-              ? "Chúng tôi cam kết bảo vệ thông tin cá nhân và dữ liệu riêng tư của bạn."
-              : "We are committed to protecting your personal information and privacy data."
-          }
+          title={mainTitle}
+          highlight={highlight}
+          description={description}
           icons={[Lock, Eye, Shield, KeyRound, LockKeyhole]}
           center={true}
         />

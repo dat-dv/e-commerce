@@ -2,37 +2,46 @@
 
 import React, { useMemo } from "react";
 import SidebarLayout from "@/components/molecules/sidebar-layout";
-import { useConfig } from "@/hooks/config/use-config";
 import PrivacyHeader from "./privacy-header";
 import PrivacySidebar from "./privacy-sidebar";
 import PrivacyContent from "./privacy-content";
 
-const SECTIONS_EN = [
-  { id: "introduction", title: "1. Introduction" },
-  { id: "when-collect", title: "2. When will we collect data?" },
-  { id: "what-collect", title: "3. What data will we collect?" },
-];
+interface StaticPageSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+}
 
-const SECTIONS_VI = [
-  { id: "introduction", title: "1. Giới thiệu" },
-  { id: "when-collect", title: "2. Khi nào thu thập dữ liệu?" },
-  { id: "what-collect", title: "3. Dữ liệu nào được thu thập?" },
-];
+interface StaticPageData {
+  title: string;
+  description: string;
+  sections: StaticPageSection[];
+}
 
-export function PrivacyView(): React.ReactElement {
-  const { language } = useConfig();
-  const isVi = language === "vi";
+interface PrivacyViewProps {
+  data: StaticPageData;
+  lang: "en" | "vi";
+}
 
+export function PrivacyView({
+  data,
+  lang,
+}: PrivacyViewProps): React.ReactElement {
   const sections = useMemo(() => {
-    return isVi ? SECTIONS_VI : SECTIONS_EN;
-  }, [isVi]);
+    return data.sections.map((section) => ({
+      id: section.id,
+      title: section.title,
+    }));
+  }, [data.sections]);
 
   return (
     <SidebarLayout
-      header={<PrivacyHeader isVi={isVi} />}
-      sidebar={<PrivacySidebar sections={sections} isVi={isVi} />}
+      header={
+        <PrivacyHeader title={data.title} description={data.description} />
+      }
+      sidebar={<PrivacySidebar sections={sections} lang={lang} />}
     >
-      <PrivacyContent isVi={isVi} />
+      <PrivacyContent sections={data.sections} lang={lang} />
     </SidebarLayout>
   );
 }
