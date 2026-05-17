@@ -71,6 +71,7 @@ export class BrandsRepository implements IBrandsRepository {
     page: number,
     limit: number,
     languageCode = 'vi',
+    search?: string,
   ): Promise<IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
@@ -81,10 +82,26 @@ export class BrandsRepository implements IBrandsRepository {
       };
     }
 
+    const trimmedSearch = search?.trim();
+    const where = {
+      brand_id: brand.id,
+      deleted_at: null,
+      ...(trimmedSearch
+        ? {
+            translations: {
+              some: {
+                language: { code: languageCode },
+                OR: [{ name: { contains: trimmedSearch } }, { description: { contains: trimmedSearch } }],
+              },
+            },
+          }
+        : {}),
+    };
+
     const productsResult = await this.paginationService.paginate(
       this.prisma.product,
       {
-        where: { brand_id: brand.id, deleted_at: null },
+        where,
         include: {
           translations: {
             where: { language: { code: languageCode } },

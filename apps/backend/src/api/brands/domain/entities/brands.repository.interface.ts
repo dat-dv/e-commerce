@@ -5,7 +5,13 @@ export interface IBrandsRepository {
 
   getBrandBySlug(slug: string, languageCode?: string): Promise<IBrandResponse | null>;
 
-  getBrandProducts(slug: string, page: number, limit: number, languageCode?: string): Promise<IBrandProductsResponse>;
+  getBrandProducts(
+    slug: string,
+    page: number,
+    limit: number,
+    languageCode?: string,
+    search?: string,
+  ): Promise<IBrandProductsResponse>;
 }
 
 export const IBrandsRepository = Symbol('IBrandsRepository');

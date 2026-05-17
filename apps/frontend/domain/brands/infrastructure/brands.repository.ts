@@ -46,10 +46,11 @@ export class BrandsRepository implements IBrandsRepository {
     slug: string,
     page = 1,
     limit = 20,
+    search?: string,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
     const response = await this.request.get<IBrandProductsResponse>(
       `${API_ROUTES.BRAND.DETAIL(slug)}/products`,
-      { params: { page, limit } },
+      { params: { page, limit, q: search || undefined } },
     );
 
     return {

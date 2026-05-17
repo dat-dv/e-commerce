@@ -14,5 +14,6 @@ export interface IBrandsRepository {
     slug: string,
     page?: number,
     limit?: number,
+    search?: string,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>>;
 }
