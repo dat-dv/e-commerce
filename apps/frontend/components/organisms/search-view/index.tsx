@@ -29,7 +29,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const { recommendedProducts, loadingRecommended } = useRecommendedProducts();
+  const { recommendedProducts, isLoading } = useRecommendedProducts();
 
   const page = searchParams.get("page");
   const sort = searchParams.get("sort");
@@ -154,7 +154,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
         </div>
         <Recommendations
           recommendedProducts={recommendedProducts}
-          loadingRecommended={loadingRecommended}
+          loadingRecommended={isLoading}
         />
       </div>
     </AppContainer>

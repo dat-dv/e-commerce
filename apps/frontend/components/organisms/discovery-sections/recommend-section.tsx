@@ -19,7 +19,7 @@ export const RecommendedSection = ({
   const hookState = useRecommendedProducts();
 
   const products = propProducts ?? hookState.recommendedProducts;
-  const loading = propLoading ?? hookState.loadingRecommended;
+  const loading = propLoading ?? hookState.isLoading;
 
   if (loading && (!products || products.length === 0)) {
     return <RecentViewedSectionSkeleton />;

@@ -10,7 +10,6 @@ const createFavoritesStoreCreator =
     const state: IFavoritesStore = {
       favorites: [],
       loading: false,
-      loadingMore: false,
       page: 1,
       total: 0,
       hasMore: true,
@@ -39,7 +38,6 @@ const createFavoritesStoreCreator =
           total: Math.max(0, state.total - 1),
         })),
       setLoading: (loading) => set({ loading }),
-      setLoadingMore: (loadingMore) => set({ loadingMore }),
       setPage: (page) => set({ page }),
       setTotal: (total) => set({ total }),
       setHasMore: (hasMore) => set({ hasMore }),

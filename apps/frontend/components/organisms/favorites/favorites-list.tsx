@@ -9,7 +9,6 @@ import { Heart, ShoppingBag } from "lucide-react";
 const FavoritesGrid = ({
   favorites,
   loading,
-  loadingMore,
   hasMore,
   fetchMore,
 }: ReturnType<typeof useFavorites>) => {
@@ -55,7 +54,7 @@ const FavoritesGrid = ({
     >
       <VirtualGrid
         data={favorites}
-        loadingMore={loadingMore}
+        loadingMore={loading}
         hasMore={hasMore}
         onLoadMore={fetchMore}
         renderItem={(fav) => (

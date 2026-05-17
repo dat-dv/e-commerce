@@ -6,7 +6,6 @@ export interface IFavoritesStoreState {
   total: number;
   hasMore: boolean;
   loading: boolean;
-  loadingMore: boolean;
 }
 
 export interface IFavoritesStore extends IFavoritesStoreState {
@@ -15,7 +14,6 @@ export interface IFavoritesStore extends IFavoritesStoreState {
   addFavorite: (favorite: TUserFavoriteProductItem) => void;
   removeFavorite: (productId: string) => void;
   setLoading: (loading: boolean) => void;
-  setLoadingMore: (loadingMore: boolean) => void;
   setPage: (page: number) => void;
   setTotal: (total: number) => void;
   setHasMore: (hasMore: boolean) => void;

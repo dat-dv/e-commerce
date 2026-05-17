@@ -6,7 +6,6 @@ export interface IRecentViewedStoreState {
   total: number;
   hasMore: boolean;
   loading: boolean;
-  loadingMore: boolean;
 }
 
 export interface IRecentViewedStore extends IRecentViewedStoreState {
@@ -15,7 +14,6 @@ export interface IRecentViewedStore extends IRecentViewedStoreState {
   appendRecentViewedProducts: (products: TProduct[]) => void;
 
   setLoading: (loading: boolean) => void;
-  setLoadingMore: (loadingMore: boolean) => void;
   setPage: (page: number) => void;
   setTotal: (total: number) => void;
   setHasMore: (hasMore: boolean) => void;

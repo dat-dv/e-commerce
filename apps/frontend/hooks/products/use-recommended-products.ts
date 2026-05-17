@@ -1,18 +1,12 @@
 "use client";
 
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useRecommendedStore } from "./recommended/use-recommended-store";
-import { RecommendedContext } from "@/components/molecules/providers/recommended-provider";
 
 const LIMIT = 15;
 
 export const useRecommendedProducts = () => {
-  const store = useContext(RecommendedContext);
-  if (!store) {
-    throw new Error("Missing RecommendedProvider");
-  }
-
   const recommendedProducts = useRecommendedStore(
     (state) => state.recommendedProducts,
   );
@@ -20,12 +14,8 @@ export const useRecommendedProducts = () => {
   const total = useRecommendedStore((state) => state.total);
   const hasMore = useRecommendedStore((state) => state.hasMore);
 
-  const loadingRecommended = useRecommendedStore((state) => state.loading);
+  const isLoading = useRecommendedStore((state) => state.loading);
   const setLoading = useRecommendedStore((state) => state.setLoading);
-  const loadingMoreRecommended = useRecommendedStore(
-    (state) => state.loadingMore,
-  );
-  const setLoadingMore = useRecommendedStore((state) => state.setLoadingMore);
 
   const setRecommendedProducts = useRecommendedStore(
     (state) => state.setRecommendedProducts,
@@ -37,10 +27,9 @@ export const useRecommendedProducts = () => {
   const setHasMore = useRecommendedStore((state) => state.setHasMore);
 
   const fetchRecommendedProducts = useCallback(async () => {
-    // Avoid double concurrent initialization calls
-    if (store.getState().loading) return;
-
+    if (isLoading) return;
     setLoading(true);
+    setPage(1);
     try {
       const response = await productsUseCase.getRecommended.execute({
         page: 1,
@@ -57,20 +46,15 @@ export const useRecommendedProducts = () => {
     } finally {
       setLoading(false);
     }
-  }, [store, setLoading, setRecommendedProducts, setPage, setHasMore]);
+  }, [isLoading, setLoading, setRecommendedProducts, setPage, setHasMore]);
 
   const fetchMore = useCallback(async () => {
-    const currentState = store.getState();
-    if (
-      currentState.loading ||
-      currentState.loadingMore ||
-      !currentState.hasMore
-    ) {
+    if (isLoading || !hasMore) {
       return;
     }
 
-    setLoadingMore(true);
-    const nextPage = currentState.page + 1;
+    setLoading(true);
+    const nextPage = page + 1;
 
     try {
       const response = await productsUseCase.getRecommended.execute({
@@ -90,25 +74,21 @@ export const useRecommendedProducts = () => {
     } catch (error) {
       console.error("Failed to load more recommended products:", error);
     } finally {
-      setLoadingMore(false);
-    }
-  }, [store, setLoadingMore, appendRecommendedProducts, setPage, setHasMore]);
-
-  // Proactively fetch initial recommendations on mount if not yet hydrated
-  useEffect(() => {
-    if (recommendedProducts.length === 0 && !loadingRecommended) {
-      fetchRecommendedProducts();
+      setLoading(false);
     }
   }, [
-    fetchRecommendedProducts,
-    recommendedProducts.length,
-    loadingRecommended,
+    isLoading,
+    hasMore,
+    setLoading,
+    page,
+    setHasMore,
+    appendRecommendedProducts,
+    setPage,
   ]);
 
   return {
     recommendedProducts,
-    loadingRecommended,
-    loadingMoreRecommended,
+    isLoading,
     page,
     hasMore,
     total,

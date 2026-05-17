@@ -1,18 +1,12 @@
 "use client";
 
-import { useCallback, useContext, useEffect } from "react";
-import { useAuthStore } from "../auth/use-auth-store";
+import { useCallback, useContext } from "react";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { useFavoritesStore } from "./use-favorites-store";
 import { FavoritesContext } from "@/components/molecules/providers/favorites-provider";
 
 const LIMIT = 24;
 
-/**
- * Custom hook to load and manage favorite products with pagination support.
- * Why: Orchestrates state selection and async fetch boundaries using a scoped vanilla Zustand store,
- * allowing synchronized list rendering and preventing concurrent duplicate requests.
- */
 export const useFavorites = () => {
   const store = useContext(FavoritesContext);
   if (!store) {
@@ -26,8 +20,6 @@ export const useFavorites = () => {
 
   const loading = useFavoritesStore((state) => state.loading);
   const setLoading = useFavoritesStore((state) => state.setLoading);
-  const loadingMore = useFavoritesStore((state) => state.loadingMore);
-  const setLoadingMore = useFavoritesStore((state) => state.setLoadingMore);
 
   const setFavorites = useFavoritesStore((state) => state.setFavorites);
   const appendFavorites = useFavoritesStore((state) => state.appendFavorites);
@@ -35,19 +27,9 @@ export const useFavorites = () => {
   const setTotal = useFavoritesStore((state) => state.setTotal);
   const setHasMore = useFavoritesStore((state) => state.setHasMore);
 
-  const userId = useAuthStore((s) => s.user?.id);
-
-  /**
-   * Initializes and fetches a specific page of favorites.
-   * Why: Resets pagination state and fetches favorites from the backend repository.
-   */
-  const fetchFavorites = useCallback(
-    async (targetPage: number, append = false) => {
-      if (!userId) return;
-      if (store.getState().loading) return;
-
-      if (append) setLoadingMore(true);
-      else setLoading(true);
+  const _fetchFavorites = useCallback(
+    async (targetPage: number) => {
+      setLoading(true);
 
       try {
         const response =
@@ -57,12 +39,6 @@ export const useFavorites = () => {
           );
 
         if (response.status === "success" && response.data) {
-          if (append) {
-            appendFavorites(response.data);
-          } else {
-            setFavorites(response.data);
-          }
-
           if (response.meta) {
             setPage(response.meta.page);
             setTotal(response.meta.total);
@@ -71,48 +47,34 @@ export const useFavorites = () => {
             setPage(targetPage);
             setHasMore(response.data.length >= LIMIT);
           }
+
+          return response.data;
         }
       } catch (error) {
         console.error("Failed to fetch favorites:", error);
       } finally {
         setLoading(false);
-        setLoadingMore(false);
       }
     },
-    [
-      userId,
-      store,
-      appendFavorites,
-      setFavorites,
-      setLoading,
-      setLoadingMore,
-      setPage,
-      setTotal,
-      setHasMore,
-    ],
+    [setLoading, setPage, setTotal, setHasMore],
   );
 
-  /**
-   * Fetches the next page of favorites.
-   * Why: Enables premium infinite scroll listing by expanding pagination request boundaries on the FE.
-   */
-  const fetchMore = useCallback(() => {
-    if (hasMore && !loading && !loadingMore) {
-      fetchFavorites(page + 1, true);
+  const fetchFavorites = useCallback(async () => {
+    const data = await _fetchFavorites(1);
+    if (data) {
+      setFavorites(data);
     }
-  }, [fetchFavorites, hasMore, loading, loadingMore, page]);
+  }, [_fetchFavorites, setFavorites]);
 
-  // Initial load when mounting
-  useEffect(() => {
-    if (favorites.length === 0 && !loading) {
-      fetchFavorites(1);
+  const fetchMore = useCallback(async () => {
+    if (hasMore && !loading) {
+      const data = await _fetchFavorites(page + 1);
+      if (data) {
+        appendFavorites(data);
+      }
     }
-  }, [fetchFavorites, favorites.length, loading]);
+  }, [_fetchFavorites, hasMore, loading, page, appendFavorites]);
 
-  /**
-   * Toggles the favorite status of a product.
-   * Why: Safely performs toggle and updates the store synchronously.
-   */
   const toggleFavorite = useCallback(
     async (productId: string) => {
       try {
@@ -121,8 +83,7 @@ export const useFavorites = () => {
             productId,
           );
         if (response.status === "success") {
-          // Refresh favorites list to page 1 to synchronize across all consumers
-          fetchFavorites(1);
+          _fetchFavorites(1);
         }
         return response;
       } catch (error) {
@@ -130,10 +91,9 @@ export const useFavorites = () => {
         throw error;
       }
     },
-    [fetchFavorites],
+    [_fetchFavorites],
   );
 
-  // Virtual meta for exact backwards-compatibility with profile and favorites grid
   const meta = {
     limit: LIMIT,
     page,
@@ -144,7 +104,6 @@ export const useFavorites = () => {
   return {
     favorites,
     loading,
-    loadingMore,
     page,
     hasMore,
     meta,

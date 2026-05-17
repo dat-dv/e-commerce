@@ -15,7 +15,6 @@ const createRecommendedStoreCreator =
     const state: IRecommendedStore = {
       recommendedProducts: [],
       loading: false,
-      loadingMore: false,
       page: 1,
       total: 0,
       hasMore: true,
@@ -27,7 +26,6 @@ const createRecommendedStoreCreator =
           recommendedProducts: [...state.recommendedProducts, ...products],
         })),
       setLoading: (loading) => set({ loading }),
-      setLoadingMore: (loadingMore) => set({ loadingMore }),
       setPage: (page) => set({ page }),
       setTotal: (total) => set({ total }),
       setHasMore: (hasMore) => set({ hasMore }),

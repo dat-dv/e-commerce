@@ -78,7 +78,8 @@ export const useProductDetail = (product: TProduct) => {
     product.id,
   );
   const { similarProducts, loadingSimilar } = useSimilarProducts(product.id);
-  const { recommendedProducts, loadingRecommended } = useRecommendedProducts();
+  const { recommendedProducts, isLoading: loadingRecommended } =
+    useRecommendedProducts();
 
   // 6. Action handlers
   const { handleAddToCart, handleBuyNow } = useProductActions(

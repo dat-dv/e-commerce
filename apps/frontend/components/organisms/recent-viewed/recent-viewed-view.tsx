@@ -16,7 +16,6 @@ export const RecentViewedView = () => {
   const {
     recentViewedProducts,
     loading,
-    loadingMore,
     hasMore,
     fetchMore,
     fetchRecentViewedProducts,
@@ -58,7 +57,7 @@ export const RecentViewedView = () => {
       ) : recentViewedProducts.length > 0 ? (
         <VirtualGrid
           data={recentViewedProducts}
-          loadingMore={loadingMore}
+          loadingMore={loading}
           hasMore={hasMore}
           onLoadMore={fetchMore}
           gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"

@@ -6,7 +6,6 @@ export interface IRecommendedStoreState {
   total: number;
   hasMore: boolean;
   loading: boolean;
-  loadingMore: boolean;
 }
 
 export interface IRecommendedStore extends IRecommendedStoreState {
@@ -15,7 +14,6 @@ export interface IRecommendedStore extends IRecommendedStoreState {
   appendRecommendedProducts: (products: TProduct[]) => void;
 
   setLoading: (loading: boolean) => void;
-  setLoadingMore: (loadingMore: boolean) => void;
   setPage: (page: number) => void;
   setTotal: (total: number) => void;
   setHasMore: (hasMore: boolean) => void;

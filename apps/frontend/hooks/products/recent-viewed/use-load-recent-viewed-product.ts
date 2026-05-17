@@ -16,8 +16,6 @@ export const useLoadRecentViewedProducts = () => {
 
   const loading = useRecentViewedStore((state) => state.loading);
   const setLoading = useRecentViewedStore((state) => state.setLoading);
-  const loadingMore = useRecentViewedStore((state) => state.loadingMore);
-  const setLoadingMore = useRecentViewedStore((state) => state.setLoadingMore);
 
   const setRecentViewedProducts = useRecentViewedStore(
     (state) => state.setRecentViewedProducts,
@@ -49,11 +47,11 @@ export const useLoadRecentViewedProducts = () => {
   }, [setLoading, setRecentViewedProducts, setPage, setHasMore]);
 
   const fetchMore = useCallback(async () => {
-    if (loading || loadingMore || !hasMore) {
+    if (loading || !hasMore) {
       return;
     }
 
-    setLoadingMore(true);
+    setLoading(true);
     const nextPage = page + 1;
 
     try {
@@ -73,15 +71,14 @@ export const useLoadRecentViewedProducts = () => {
     } catch (error) {
       console.error("Failed to load more recently viewed products:", error);
     } finally {
-      setLoadingMore(false);
+      setLoading(false);
     }
   }, [
     loading,
-    loadingMore,
     hasMore,
     page,
     appendRecentViewedProducts,
-    setLoadingMore,
+    setLoading,
     setPage,
     setHasMore,
   ]);
@@ -89,7 +86,6 @@ export const useLoadRecentViewedProducts = () => {
   return {
     recentViewedProducts,
     loading,
-    loadingMore,
     page,
     hasMore,
     total,
