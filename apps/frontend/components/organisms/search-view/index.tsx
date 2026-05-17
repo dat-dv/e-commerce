@@ -86,9 +86,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
         />
       </div>
       {/* Discovery Sections */}
-      <div className="pt-24 border-t border-content/[0.05]">
-        <DiscoveryCarouselSection />
-      </div>
+      <DiscoveryCarouselSection />
     </AppContainer>
   );
 }

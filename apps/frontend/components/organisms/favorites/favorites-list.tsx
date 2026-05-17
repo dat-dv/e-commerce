@@ -1,10 +1,7 @@
 import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
-import { APP_ROUTES } from "@/constants/routes";
 import { useFavorites } from "@/hooks/favorites/use-favorites";
 import { motion } from "framer-motion";
-import NextLink from "next/link";
-import { Heart, ShoppingBag } from "lucide-react";
 import EmptyState from "@/components/molecules/empty-space";
 
 const FavoritesGrid = ({
@@ -12,7 +9,10 @@ const FavoritesGrid = ({
   loading,
   hasMore,
   fetchMore,
-}: ReturnType<typeof useFavorites>) => {
+}: Pick<
+  ReturnType<typeof useFavorites>,
+  "favorites" | "loading" | "hasMore" | "fetchMore"
+>) => {
   if (!loading && favorites.length === 0) {
     return (
       <EmptyState
@@ -23,11 +23,7 @@ const FavoritesGrid = ({
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="py-12"
-    >
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <VirtualGrid
         data={favorites}
         loadingMore={loading}

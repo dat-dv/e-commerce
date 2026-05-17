@@ -6,18 +6,23 @@ import FavoritesGrid from "./favorites-list";
 import FavoritesBanner from "./favorite-banner";
 import AppContainer from "@/components/atoms/app-container";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
+import { useLoadOnce } from "@/hooks/use-load-once";
 
 export const FavoritesView = () => {
-  const favoriteProps = useFavorites();
-
+  const { fetchFavorites, favorites, loading, hasMore, fetchMore, meta } =
+    useFavorites();
+  useLoadOnce(fetchFavorites);
   return (
     <AppContainer>
-      <FavoritesBanner count={favoriteProps.meta.total} />
-      <div className="space-y-24 pb-24">
-        <FavoritesGrid {...favoriteProps} />
-        <div className="pt-12 border-t border-content/[0.05]">
-          <DiscoveryCarouselSection exclude={["favorites"]} />
-        </div>
+      <FavoritesBanner count={meta.total} />
+      <div className="space-y-24">
+        <FavoritesGrid
+          favorites={favorites}
+          loading={loading}
+          hasMore={hasMore}
+          fetchMore={fetchMore}
+        />
+        <DiscoveryCarouselSection exclude={["favorites"]} />
       </div>
     </AppContainer>
   );

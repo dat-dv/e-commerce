@@ -92,7 +92,7 @@ export function VirtualGrid<T>({
         {rows.map((row, rowIndex) => (
           <div
             key={`row-${rowIndex}`}
-            className={`${gridClassName} ${rowClassName}`}
+            className={`mb-4 ${gridClassName} ${rowClassName}`}
           >
             {row.map((item, index) => {
               const actualIndex = rowIndex * 4 + index;
