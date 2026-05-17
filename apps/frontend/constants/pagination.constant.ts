@@ -6,6 +6,7 @@ export const PAGINATION_LIMITS = {
   FAVORITES: 24,
   CATEGORIES: 48,
   BRANDS: 48,
+  NOTIFICATIONS: 15,
 } as const;
 
 export const createInitialPaginationMeta = (

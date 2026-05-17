@@ -1,4 +1,7 @@
-import { ApiResponse } from "@/utils/request/request.types";
+import {
+  ApiPaginatedResponse,
+  ApiResponse,
+} from "@/utils/request/request.types";
 import { INotificationTokenResponse } from "@ecommerce/shared";
 import { INotification } from "./notification";
 
@@ -11,7 +14,10 @@ export interface INotificationsRepository {
   saveToken(
     data: TSaveTokenRequest,
   ): Promise<ApiResponse<INotificationTokenResponse>>;
-  getNotifications(): Promise<ApiResponse<INotification[]>>;
+  getNotifications(params?: {
+    page?: number;
+    limit?: number;
+  }): Promise<ApiPaginatedResponse<INotification>>;
   markAsRead(id: string): Promise<ApiResponse<INotification>>;
   markAllAsRead(): Promise<ApiResponse<void>>;
 }

@@ -8,11 +8,21 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 
 import { NotificationItem } from "./notification-item";
+import { useLoadOnce } from "@/hooks/use-load-once";
 
 export const NotificationCenter = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { notifications, unreadCount, markAsRead, markAllAsRead, loading } =
-    useNotifications();
+  const {
+    notifications,
+    unreadCount,
+    markAsRead,
+    markAllAsRead,
+    loading,
+    refresh,
+    canLoad,
+  } = useNotifications();
+
+  useLoadOnce(refresh, canLoad);
 
   return (
     <div className="relative">

@@ -18,13 +18,18 @@ export const NotificationsView = () => {
     markAsRead,
     markAllAsRead,
     loading,
+    loadingMore,
+    hasMore,
+    loadMore,
     setSearch,
     refresh,
+    total,
+    canLoad,
   } = useNotifications();
 
-  useLoadOnce(refresh);
+  useLoadOnce(refresh, canLoad);
 
-  const totalCount = notifications.length;
+  const totalCount = total || notifications.length;
 
   return (
     <>
@@ -52,7 +57,10 @@ export const NotificationsView = () => {
             <NotificationList
               notifications={notifications}
               loading={loading}
+              loadingMore={loadingMore}
+              hasMore={hasMore}
               onMarkAsRead={markAsRead}
+              onLoadMore={loadMore}
             />
           </div>
         </motion.div>

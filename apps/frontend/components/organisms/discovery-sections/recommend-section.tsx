@@ -18,7 +18,7 @@ export const RecommendedSection = ({
   products: propProducts,
   loading: propLoading,
 }: RecommendedSectionProps) => {
-  const { fetchRecommendedProducts, recommendedProducts, isLoading } =
+  const { fetchRecommendedProducts, recommendedProducts } =
     useRecommendedProducts({ initialItems: propProducts ?? [] });
   const { language } = useConfig();
   const { loading: isInitialLoading } = useLoadOnce(fetchRecommendedProducts);

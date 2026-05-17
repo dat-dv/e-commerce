@@ -2,20 +2,26 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Bell } from "lucide-react";
 import { INotification } from "@/domain/notifications/types/notification";
 import { NotificationItem } from "../notification-item";
+import { VirtualList } from "@/components/molecules/virtual-list";
 
 interface NotificationListProps {
   notifications: INotification[];
   loading: boolean;
+  loadingMore: boolean;
+  hasMore: boolean;
   onMarkAsRead: (id: string) => void;
+  onLoadMore: () => void;
 }
 
 export const NotificationList = ({
   notifications,
   loading,
+  loadingMore,
+  hasMore,
   onMarkAsRead,
+  onLoadMore,
 }: NotificationListProps) => {
   if (loading) {
     return (
@@ -46,13 +52,21 @@ export const NotificationList = ({
 
   return (
     <div className="bg-surface rounded-2xl border border-content/[0.08] shadow-2xl shadow-content/[0.02] overflow-hidden">
-      <div className="divide-y divide-content/[0.03]">
-        {notifications.map((notif, index) => (
+      <VirtualList
+        data={notifications}
+        loadingMore={loadingMore}
+        hasMore={hasMore}
+        onLoadMore={onLoadMore}
+        keyExtractor={(notification) => notification.id}
+        className="divide-y divide-content/[0.03]"
+        itemClassName=""
+        loadingText="Loading more notifications..."
+        endText="End of notifications"
+        renderItem={(notif, index) => (
           <motion.div
-            key={notif.id}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.05 }}
+            transition={{ delay: Math.min(index, 8) * 0.04 }}
           >
             <NotificationItem
               notif={notif}
@@ -60,8 +74,8 @@ export const NotificationList = ({
               className="p-6 hover:bg-primary/[0.01] transition-all duration-300"
             />
           </motion.div>
-        ))}
-      </div>
+        )}
+      />
     </div>
   );
 };

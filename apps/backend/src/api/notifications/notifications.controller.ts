@@ -1,5 +1,5 @@
 import type { RequestWithUser } from 'src/shared/types/request.type';
-import { Controller, Post, Body, UseGuards, Req, Get, Patch, Param } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Req, Get, Patch, Param, Query } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
 import { SaveTokenDto } from './dto/save-token.dto';
@@ -26,9 +26,33 @@ export class NotificationsController {
   }
 
   @Get()
-  async getNotifications(@Req() req: RequestWithUser): Promise<IApiResponse<INotificationResponse[]>> {
+  async getNotifications(
+    @Req() req: RequestWithUser,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ): Promise<IApiResponse<any>> {
     const userId = req.user.sub;
     const result = await this.notificationsRepository.getNotifications(userId);
+
+    const pageNum = page ? parseInt(page) : undefined;
+    const limitNum = limit ? parseInt(limit) : undefined;
+
+    if (pageNum !== undefined && limitNum !== undefined) {
+      const skip = (pageNum - 1) * limitNum;
+      const paginatedItems = result.slice(skip, skip + limitNum);
+      const total = result.length;
+
+      return createSuccessResponse({
+        items: paginatedItems,
+        meta: {
+          total,
+          page: pageNum,
+          limit: limitNum,
+          totalPages: Math.ceil(total / limitNum),
+        },
+      });
+    }
+
     return createSuccessResponse(result);
   }
 

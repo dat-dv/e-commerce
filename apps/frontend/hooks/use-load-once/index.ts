@@ -2,12 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export const useLoadOnce = (loader: () => Promise<void> | void) => {
+export const useLoadOnce = (
+  loader: () => Promise<void> | void,
+  enabled = true,
+) => {
   const loadedRef = useRef(false);
 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (!enabled) return;
     if (loadedRef.current) return;
 
     loadedRef.current = true;
@@ -31,7 +35,7 @@ export const useLoadOnce = (loader: () => Promise<void> | void) => {
     return () => {
       active = false;
     };
-  }, [loader]);
+  }, [enabled, loader]);
 
   return { loading };
 };

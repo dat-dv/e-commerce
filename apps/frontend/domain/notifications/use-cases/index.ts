@@ -7,7 +7,8 @@ const notificationsRepository = new NotificationsRepository(appRequest);
 export const notificationsUseCase = {
   saveToken: (data: TSaveTokenRequest) =>
     notificationsRepository.saveToken(data),
-  getNotifications: () => notificationsRepository.getNotifications(),
+  getNotifications: (params?: { page?: number; limit?: number }) =>
+    notificationsRepository.getNotifications(params),
   markAsRead: (id: string) => notificationsRepository.markAsRead(id),
   markAllAsRead: () => notificationsRepository.markAllAsRead(),
 };

@@ -1,50 +1,69 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 import { useNotificationStore } from "@/store/notification-store";
+import { INotification } from "@/domain/notifications/types/notification";
+import { usePagination } from "@/hooks/use-pagination";
+import {
+  PAGINATION_LIMITS,
+  createInitialPaginationMeta,
+} from "@/constants/pagination.constant";
+import { createEmptyPaginatedData } from "@/utils/request/pagination";
+
+const LIMIT = PAGINATION_LIMITS.NOTIFICATIONS;
+const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
 export const useNotifications = () => {
-  const {
-    notifications,
-    loading,
-    hasLoaded,
-    setNotifications,
-    setLoading,
-    markAsRead: storeMarkAsRead,
-    markAllAsRead: storeMarkAllAsRead,
-  } = useNotificationStore();
-
-  const isFetching = useRef(false);
+  const setGlobalNotifications = useNotificationStore(
+    (state) => state.setNotifications,
+  );
+  const storeMarkAsRead = useNotificationStore((state) => state.markAsRead);
+  const storeMarkAllAsRead = useNotificationStore(
+    (state) => state.markAllAsRead,
+  );
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [readIds, setReadIds] = useState<Set<string>>(() => new Set());
+  const [isAllRead, setIsAllRead] = useState(false);
+
   const user = useAuthStore((s) => s.user);
 
-  const fetchNotifications = useCallback(
-    async (force = false) => {
-      if (!user) return;
-      if (isFetching.current) return;
-      if (hasLoaded && !force) return;
-
-      isFetching.current = true;
-      setLoading(true);
-      try {
-        const response = await notificationsUseCase.getNotifications();
-        if (response.data) {
-          setNotifications(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching notifications:", error);
-      } finally {
-        setLoading(false);
-        isFetching.current = false;
+  const fetchNotificationsPage = useCallback(
+    async (params: { page: number; limit: number }) => {
+      if (!user) {
+        return {
+          status: "success" as const,
+          data: createEmptyPaginatedData<INotification>(params),
+        };
       }
+
+      return notificationsUseCase.getNotifications(params);
     },
-    [user, hasLoaded, setLoading, setNotifications],
+    [user],
   );
+
+  const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
+    usePagination<INotification>({
+      initialItems: [],
+      initialMeta: INITIAL_META,
+      fetchPage: fetchNotificationsPage,
+      getItemKey: (notification) => notification.id,
+    });
+
+  useEffect(() => {
+    if (meta.page === 1) {
+      setGlobalNotifications(items);
+    }
+  }, [items, meta.page, setGlobalNotifications]);
 
   const markAsRead = async (id: string) => {
     try {
-      storeMarkAsRead(id); // Optimistic update
+      storeMarkAsRead(id);
+      setReadIds((prev) => {
+        const next = new Set(prev);
+        next.add(id);
+        return next;
+      });
       await notificationsUseCase.markAsRead(id);
     } catch (error) {
       console.error("Error marking notification as read:", error);
@@ -53,19 +72,36 @@ export const useNotifications = () => {
 
   const markAllAsRead = async () => {
     try {
-      storeMarkAllAsRead(); // Optimistic update
+      storeMarkAllAsRead();
+      setIsAllRead(true);
       await notificationsUseCase.markAllAsRead();
     } catch (error) {
       console.error("Error marking all as read:", error);
     }
   };
 
-  const filteredNotifications = notifications.filter((n) => {
+  const refresh = useCallback(async () => {
+    setReadIds(new Set());
+    setIsAllRead(false);
+    await loadPage(1);
+  }, [loadPage]);
+
+  const notifications = useMemo(
+    () =>
+      items.map((notification) =>
+        isAllRead || readIds.has(notification.id)
+          ? { ...notification, isRead: true }
+          : notification,
+      ),
+    [isAllRead, items, readIds],
+  );
+
+  const filteredNotifications = notifications.filter((notification) => {
     if (!searchQuery) return true;
     const lowerQuery = searchQuery.toLowerCase();
     return (
-      n.title.toLowerCase().includes(lowerQuery) ||
-      n.content.toLowerCase().includes(lowerQuery)
+      notification.title.toLowerCase().includes(lowerQuery) ||
+      notification.content.toLowerCase().includes(lowerQuery)
     );
   });
 
@@ -75,9 +111,14 @@ export const useNotifications = () => {
     notifications: filteredNotifications,
     unreadCount,
     loading,
-    refresh: () => fetchNotifications(true),
+    loadingMore,
+    hasMore,
+    loadMore,
+    refresh,
     markAsRead,
     markAllAsRead,
     setSearch: setSearchQuery,
+    total: meta.total,
+    canLoad: Boolean(user),
   };
 };
