@@ -24,7 +24,7 @@ describe("ThemeSwitcher Molecule", () => {
       setDarkMode: vi.fn(),
       toggleDarkMode: vi.fn(),
       language: "vi",
-      setLanguage: vi.fn(),
+      changeLanguage: vi.fn(),
     });
 
     render(<ThemeSwitcher />);
@@ -42,7 +42,7 @@ describe("ThemeSwitcher Molecule", () => {
       setDarkMode: vi.fn(),
       toggleDarkMode: vi.fn(),
       language: "vi",
-      setLanguage: vi.fn(),
+      changeLanguage: vi.fn(),
     });
 
     render(<ThemeSwitcher />);
@@ -60,7 +60,7 @@ describe("ThemeSwitcher Molecule", () => {
       setDarkMode: vi.fn(),
       toggleDarkMode,
       language: "vi",
-      setLanguage: vi.fn(),
+      changeLanguage: vi.fn(),
     });
 
     render(<ThemeSwitcher />);

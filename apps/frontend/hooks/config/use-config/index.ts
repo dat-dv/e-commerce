@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import { ETheme } from "@/constants/theme.constanst";
 
 import { useAppConfig } from "../use-config-store";
-import { language } from "@/constants/countries";
+import { ELanguage } from "@/store/config/config.types";
 
 export const useConfig = () => {
   const theme = useAppConfig((s) => s.theme);
@@ -39,6 +39,26 @@ export const useConfig = () => {
     [setDarkModeStore],
   );
 
+  const changeLanguage = useCallback((newLang: ELanguage) => {
+    if (language === newLang) return;
+
+    const url = new URL(window.location.href);
+    const hostParts = url.hostname.split(".");
+    if (
+      hostParts.length >= 2 &&
+      (hostParts[0].length <= 3 || hostParts[0] === "www")
+    ) {
+      hostParts[0] = newLang;
+    } else {
+      hostParts.unshift(newLang);
+    }
+
+    url.hostname = hostParts.join(".");
+    setLanguage(newLang);
+
+    window.location.href = url.toString();
+  }, []);
+
   return {
     theme,
     isDarkMode,
@@ -46,6 +66,6 @@ export const useConfig = () => {
     toggleDarkMode,
     setDarkMode,
     language,
-    setLanguage,
+    changeLanguage,
   };
 };
