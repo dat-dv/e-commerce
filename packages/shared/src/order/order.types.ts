@@ -1,5 +1,3 @@
-
-
 export enum EOrderStatus {
   PENDING = 0,
   CONFIRMED = 1,
@@ -10,6 +8,11 @@ export enum EOrderStatus {
   REFUNDED = 6,
 }
 
+export enum EOrderSortBy {
+  CREATED_AT = "created_at",
+  TOTAL_AMOUNT = "total_amount",
+  STATUS = "status",
+}
 export interface IOrderItemSnapshot {
   sku: {
     id: string;

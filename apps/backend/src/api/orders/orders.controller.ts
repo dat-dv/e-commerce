@@ -5,6 +5,7 @@ import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { CreateOrderUseCase } from './domain/use-cases/create-order.use-case';
 import { GetOrderUseCase } from './domain/use-cases/get-order.use-case';
 import { GetUserOrdersUseCase } from './domain/use-cases/get-user-orders.use-case';
+import { GetAllOrdersUseCase } from './domain/use-cases/get-all-orders.use-case';
 import { UpdateOrderStatusUseCase } from './domain/use-cases/update-order-status.use-case';
 import { CancelOrderUseCase } from './domain/use-cases/cancel-order.use-case';
 import createSuccessResponse from 'src/common/respomse';
@@ -12,6 +13,7 @@ import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/share
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 import { GetOrdersDto } from './dto/get-orders.dto';
+import { GetAllOrdersDto } from './dto/get-all-orders.dto';
 import type { Request } from 'express';
 
 @Controller('orders')
@@ -21,6 +23,7 @@ export class OrdersController {
     private readonly createOrderUseCase: CreateOrderUseCase,
     private readonly getOrderUseCase: GetOrderUseCase,
     private readonly getUserOrdersUseCase: GetUserOrdersUseCase,
+    private readonly getAllOrdersUseCase: GetAllOrdersUseCase,
     private readonly updateOrderStatusUseCase: UpdateOrderStatusUseCase,
     private readonly cancelOrderUseCase: CancelOrderUseCase,
   ) {}
@@ -39,6 +42,14 @@ export class OrdersController {
   ): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
     const userId = req.user.sub;
     const result = await this.getUserOrdersUseCase.execute(userId, query);
+    return createSuccessResponse(result);
+  }
+
+  @Get('all')
+  @UseGuards(PermissionsGuard)
+  @Permissions('LIST:ANY_ORDER')
+  async getAllOrders(@Query() query: GetAllOrdersDto): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
+    const result = await this.getAllOrdersUseCase.execute(query);
     return createSuccessResponse(result);
   }
 

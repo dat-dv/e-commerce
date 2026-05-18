@@ -1,4 +1,4 @@
-import { ICreateOrderRequest, IOrderItemSnapshot } from '@ecommerce/shared';
+import { IOrderItemSnapshot, EOrderSortBy, ESortValue } from '@ecommerce/shared';
 
 export class CreateOrderInputDto {
   user_id: string;
@@ -19,4 +19,14 @@ export class GetUserOrdersDto {
   status?: number[];
   page?: number;
   limit?: number;
+}
+
+export class GetAllOrdersInputDto {
+  status?: number[];
+  page?: number;
+  limit?: number;
+  search?: string;
+  sort_by?: EOrderSortBy;
+  sort_order?: ESortValue;
+  user_id?: string;
 }

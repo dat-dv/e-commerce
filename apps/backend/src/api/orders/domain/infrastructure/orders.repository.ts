@@ -3,8 +3,8 @@ import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from '../../../../../generated/prisma/client';
-import { EOrderStatus, IPaginatedResult, IOrderResponse } from '@ecommerce/shared';
-import { CreateOrderInputDto, GetUserOrdersDto } from '../../dto/create-order-input.dto';
+import { EOrderStatus, IPaginatedResult, IOrderResponse, EOrderSortBy, ESortValue } from '@ecommerce/shared';
+import { CreateOrderInputDto, GetUserOrdersDto, GetAllOrdersInputDto } from '../../dto/create-order-input.dto';
 
 @Injectable()
 export class OrdersRepository implements IOrdersRepository {
@@ -78,6 +78,60 @@ export class OrdersRepository implements IOrdersRepository {
     );
 
     return result;
+  }
+
+  async getAllOrders(params?: GetAllOrdersInputDto): Promise<IPaginatedResult<IOrderResponse>> {
+    const page = params?.page || 1;
+    const limit = params?.limit || 10;
+
+    const sortBy: EOrderSortBy = params?.sort_by || EOrderSortBy.CREATED_AT;
+    const sortOrder: ESortValue = params?.sort_order || ESortValue.DESC;
+
+    const where: Prisma.OrderWhereInput = {};
+
+    if (params?.status && params.status.length > 0) {
+      where.status = { in: params.status };
+    }
+
+    if (params?.user_id) {
+      where.user_id = params.user_id;
+    }
+
+    if (params?.search) {
+      where.OR = [
+        { id: { contains: params.search } },
+        {
+          user: {
+            OR: [
+              { email: { contains: params.search } },
+              { first_name: { contains: params.search } },
+              { last_name: { contains: params.search } },
+            ],
+          },
+        },
+      ];
+    }
+
+    return this.paginationService.paginate(
+      this.prisma.order,
+      {
+        where,
+        orderBy: { [sortBy]: sortOrder },
+        include: {
+          ...this.ORDER_INCLUDE,
+          user: {
+            select: {
+              id: true,
+              email: true,
+              first_name: true,
+              last_name: true,
+            },
+          },
+        },
+      },
+      page,
+      limit,
+    );
   }
 
   async updateStatus(id: string, status: number): Promise<IOrderResponse> {

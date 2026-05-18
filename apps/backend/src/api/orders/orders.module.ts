@@ -3,6 +3,7 @@ import { OrdersController } from './orders.controller';
 import { CreateOrderUseCase } from './domain/use-cases/create-order.use-case';
 import { GetOrderUseCase } from './domain/use-cases/get-order.use-case';
 import { GetUserOrdersUseCase } from './domain/use-cases/get-user-orders.use-case';
+import { GetAllOrdersUseCase } from './domain/use-cases/get-all-orders.use-case';
 import { UpdateOrderStatusUseCase } from './domain/use-cases/update-order-status.use-case';
 import { CancelOrderUseCase } from './domain/use-cases/cancel-order.use-case';
 import { IOrdersRepository } from './domain/entities/orders.repository.interface';
@@ -17,6 +18,7 @@ import { CartModule } from 'src/api/cart/cart.module';
     CreateOrderUseCase,
     GetOrderUseCase,
     GetUserOrdersUseCase,
+    GetAllOrdersUseCase,
     UpdateOrderStatusUseCase,
     CancelOrderUseCase,
     {
@@ -28,6 +30,7 @@ import { CartModule } from 'src/api/cart/cart.module';
     CreateOrderUseCase,
     GetOrderUseCase,
     GetUserOrdersUseCase,
+    GetAllOrdersUseCase,
     UpdateOrderStatusUseCase,
     CancelOrderUseCase,
     IOrdersRepository,

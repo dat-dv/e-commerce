@@ -9,8 +9,16 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    }
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./dist": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./dist/*": "./dist/*"
   },
   "scripts": {
     "build": "tsup",

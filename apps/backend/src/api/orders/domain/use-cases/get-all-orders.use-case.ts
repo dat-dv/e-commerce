@@ -1,19 +1,23 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
-import { GetOrdersDto } from '../../dto/get-orders.dto';
+import { GetAllOrdersDto } from '../../dto/get-all-orders.dto';
 
 @Injectable()
-export class GetUserOrdersUseCase {
+export class GetAllOrdersUseCase {
   constructor(
     @Inject(IOrdersRepository)
     private readonly ordersRepository: IOrdersRepository,
   ) {}
 
-  async execute(userId: string, dto: GetOrdersDto) {
-    return this.ordersRepository.getUserOrders(userId, {
+  async execute(dto: GetAllOrdersDto) {
+    return this.ordersRepository.getAllOrders({
       status: dto.status,
       page: dto.page,
       limit: dto.limit,
+      search: dto.search,
+      sort_by: dto.sort_by,
+      sort_order: dto.sort_order,
+      user_id: dto.user_id,
     });
   }
 }
