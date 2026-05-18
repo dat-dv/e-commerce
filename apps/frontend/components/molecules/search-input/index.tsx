@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Search, Loader2, X } from "lucide-react";
 import { cn } from "@/utils/cn";
 
 export interface SearchInputProps {
   value: string;
-  onChange: (value: string) => void;
   onSearch?: (value: string) => void;
   placeholder?: string;
   loading?: boolean;

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ApiPaginatedResponse,
   IPaginationMeta,
@@ -118,11 +118,15 @@ export const usePaginationWithSSRData = <
       setError(null);
 
       try {
+        const nextLimit =
+          Number(overrideParams?.limit ?? clientQueryParamsRef.current.limit) ||
+          1;
+
         const response = await fetchPage(
           buildParams(
             {
               page: nextPage,
-              limit: Number(clientQueryParams.limit) || 1,
+              limit: nextLimit,
             },
             overrideParams,
           ),
@@ -149,7 +153,7 @@ export const usePaginationWithSSRData = <
         }
       }
     },
-    [buildParams, fetchPage, clientQueryParams, update],
+    [buildParams, fetchPage, update],
   );
 
   const loadMore = useCallback(

@@ -22,8 +22,10 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
   const {
     items: brandItems,
     loadingMore,
+    loading,
     hasMore,
     loadMore,
+    loadPage,
     clientQueryParams,
     update,
   } = usePaginationWithSSRData<
@@ -58,15 +60,16 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
       <div className="relative mx-auto w-full max-w-2xl">
         <SearchInput
           value={clientQueryParams.search}
-          onChange={(value) => {
-            update({
-              search: value,
-            });
-          }}
+          loading={loading}
           onSearch={(value) => {
-            update({
+            const nextParams = {
+              page: 1,
+              limit: meta.limit,
               search: value,
-            });
+            };
+
+            update(nextParams);
+            void loadPage(1, nextParams, { syncQuery: false });
           }}
           placeholder="Search brands by name..."
         />
