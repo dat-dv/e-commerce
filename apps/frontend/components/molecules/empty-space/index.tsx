@@ -13,6 +13,7 @@ interface EmptyStateProps {
   icon?: LucideIcon;
   actionLabel?: string;
   actionHref?: string;
+  children?: React.ReactNode;
   className?: string;
   delay?: number;
 }
@@ -23,6 +24,7 @@ export const EmptyState = ({
   icon: Icon = PackageOpen,
   actionLabel,
   actionHref,
+  children,
   className,
   delay = 0.2,
 }: EmptyStateProps) => {
@@ -76,6 +78,8 @@ export const EmptyState = ({
             <span>{actionLabel}</span>
           </Link>
         )}
+
+        {children}
       </div>
     </motion.div>
   );

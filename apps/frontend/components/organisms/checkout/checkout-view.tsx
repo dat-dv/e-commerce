@@ -3,11 +3,11 @@
 import React from "react";
 import { useCheckoutAdapter } from "@/hooks/checkout/use-checkout-adapter";
 import { useCreateAddress } from "@/hooks/addresses/use-create-address";
-import { CheckoutHeader } from "./components/checkout-header";
-import { ShippingSection } from "./components/shipping-section";
-import { OrderItemsSection } from "./components/order-items-section";
-import { OrderSummary } from "./components/order-summary";
-import { AddAddressModal } from "./components/add-address-modal";
+import { CheckoutHeader } from "./checkout-header";
+import { ShippingSection } from "./shipping-section";
+import { CheckoutList } from "./checkout-list-section";
+import { OrderSummary } from "./order-summary";
+import { AddAddressModal } from "../../molecules/add-address-modal";
 import { TAddress } from "@/domain/addresses/types/address.model";
 
 export const CheckoutView = () => {
@@ -44,7 +44,6 @@ export const CheckoutView = () => {
       <CheckoutHeader />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Left Column: Details */}
         <div className="lg:col-span-8 space-y-16">
           <ShippingSection
             addresses={addresses}
@@ -55,10 +54,9 @@ export const CheckoutView = () => {
             onClickEdit={onClickEdit}
           />
 
-          <OrderItemsSection items={selectedItems} />
+          <CheckoutList items={selectedItems} />
         </div>
 
-        {/* Right Column: Order Summary */}
         <OrderSummary
           totalAmount={totalAmount}
           onPlaceOrder={handlePlaceOrder}

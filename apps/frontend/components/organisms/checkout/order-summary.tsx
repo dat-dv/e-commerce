@@ -5,7 +5,7 @@ import { cn } from "@/utils/cn";
 import Button from "@/components/atoms/button";
 import { formatCurrency } from "@/utils/format-currency";
 
-interface OrderSummaryProps {
+interface IOrderSummaryProps {
   totalAmount: number;
   onPlaceOrder: () => void;
   loading: boolean;
@@ -21,7 +21,7 @@ export const OrderSummary = ({
   isItemsEmpty,
   recipientName,
   recipientPhone,
-}: OrderSummaryProps) => {
+}: IOrderSummaryProps) => {
   return (
     <div className="lg:col-span-4 sticky top-32">
       <motion.div

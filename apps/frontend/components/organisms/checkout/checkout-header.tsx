@@ -1,7 +1,6 @@
-import React from "react";
-import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
+import Link from "next/link";
 
 export const CheckoutHeader = () => {
   return (

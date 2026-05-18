@@ -5,11 +5,11 @@ import Image from "next/image";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
 
-interface OrderItemsSectionProps {
+interface CheckoutListProps {
   items: TCartItem[];
 }
 
-export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
+export const CheckoutList = ({ items }: CheckoutListProps) => {
   return (
     <section>
       <div className="flex items-center gap-4 mb-8">

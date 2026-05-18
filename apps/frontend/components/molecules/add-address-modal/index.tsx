@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import {
