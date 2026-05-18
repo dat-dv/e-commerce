@@ -3,7 +3,7 @@
 import { useCallback } from "react";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { TProduct } from "@/domain/products/types/products.model";
-import { usePagination } from "@/hooks/use-pagination";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
@@ -24,11 +24,11 @@ export const useRecommendedProducts = ({
   );
 
   const { items, meta, hasMore, loading, loadPage, loadMore } =
-    usePagination<TProduct>({
+    usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
       initialItems: initialItems,
       initialMeta: INITIAL_META,
       fetchPage: fetchRecommendedPage,
-      getItemKey: (product) => product.id,
+      getItemKey: (item) => item.id,
     });
 
   const fetchRecommendedProducts = useCallback(() => loadPage(1), [loadPage]);
