@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, Inject } from '@nestjs/common';
 import { IReviewsRepository } from '../entities/reviews.repository.interface';
 import { CreateReviewDto } from '../../dto/create-review.dto';
 
@@ -10,8 +10,17 @@ export class CreateReviewUseCase {
   ) {}
 
   async execute(userId: string, dto: CreateReviewDto) {
-    // TODO: Kiểm tra xem người dùng đã mua sản phẩm này chưa (đơn hàng phải ở trạng thái DELIVERED).
-    // Nếu chưa mua hoặc chưa nhận hàng thì không được đánh giá.
+    const isSkuInProduct = await this.reviewsRepository.isSkuInProduct(dto.product_id, dto.sku_id);
+
+    if (!isSkuInProduct) {
+      throw new BadRequestException('SKU does not belong to the selected product');
+    }
+
+    const hasDeliveredPurchase = await this.reviewsRepository.hasDeliveredPurchase(userId, dto.product_id, dto.sku_id);
+
+    if (!hasDeliveredPurchase) {
+      throw new ForbiddenException('You can only review products from delivered orders');
+    }
 
     return this.reviewsRepository.create({
       ...dto,

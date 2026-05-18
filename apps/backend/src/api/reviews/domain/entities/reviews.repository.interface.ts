@@ -9,6 +9,8 @@ export interface IReviewsRepository {
   findByProduct(productId: string): Promise<IReviewListResponse>;
   delete(id: string): Promise<IReviewResponse>;
   findById(id: string): Promise<IReviewResponse | null>;
+  isSkuInProduct(productId: string, skuId: string): Promise<boolean>;
+  hasDeliveredPurchase(userId: string, productId: string, skuId: string): Promise<boolean>;
   isUserAdmin(userId: string): Promise<boolean>;
   hasPermission(userId: string, permissionName: string): Promise<boolean>;
 }

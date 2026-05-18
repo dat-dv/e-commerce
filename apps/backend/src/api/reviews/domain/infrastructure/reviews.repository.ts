@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IReviewsRepository } from '../entities/reviews.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
+import { EOrderStatus, IReviewResponse, IReviewListResponse } from '@ecommerce/shared';
 import { CreateReviewInputDto } from '../../dto/create-review-input.dto';
 import { UpdateReviewDto } from '../../dto/update-review.dto';
 
@@ -63,6 +63,38 @@ export class ReviewsRepository implements IReviewsRepository {
       where: { id },
       include: this.REVIEW_INCLUDE,
     });
+  }
+
+  async isSkuInProduct(productId: string, skuId: string): Promise<boolean> {
+    const sku = await this.prisma.sku.findFirst({
+      where: {
+        id: skuId,
+        product_id: productId,
+      },
+      select: { id: true },
+    });
+
+    return !!sku;
+  }
+
+  async hasDeliveredPurchase(userId: string, productId: string, skuId: string): Promise<boolean> {
+    const order = await this.prisma.order.findFirst({
+      where: {
+        user_id: userId,
+        status: EOrderStatus.DELIVERED,
+        items: {
+          some: {
+            sku_id: skuId,
+            sku: {
+              product_id: productId,
+            },
+          },
+        },
+      },
+      select: { id: true },
+    });
+
+    return !!order;
   }
 
   async isUserAdmin(userId: string): Promise<boolean> {
