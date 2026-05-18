@@ -1,8 +1,9 @@
 import Button from "@/components/atoms/button";
-import EmptyState from "@/components/molecules/empty-space";
+import AddressCard from "@/components/molecules/address-card";
+import AddressEmptyState from "@/components/molecules/address-empty-state";
+import AddressLoadingCard from "@/components/molecules/address-loading-card";
 import { TAddress } from "@/domain/addresses/types/address.model";
 import { MapPin, Plus } from "lucide-react";
-import { AddressItem } from "./address-item";
 
 interface IShippingSectionProps {
   addresses: TAddress[];
@@ -39,16 +40,6 @@ const ShippingSectionHeader = ({
   </div>
 );
 
-const ShippingAddressLoading = () => (
-  <div className="rounded-2xl border border-content/[0.05] bg-surface/40 p-5">
-    <div className="animate-pulse space-y-3">
-      <div className="h-4 w-1/3 rounded bg-content/[0.06]" />
-      <div className="h-3 w-2/3 rounded bg-content/[0.05]" />
-      <div className="h-3 w-1/2 rounded bg-content/[0.05]" />
-    </div>
-  </div>
-);
-
 export const ShippingSection = ({
   addresses,
   selectedAddressId,
@@ -63,34 +54,24 @@ export const ShippingSection = ({
 
       <div className="flex flex-col gap-2">
         {loading ? (
-          <ShippingAddressLoading />
+          <AddressLoadingCard />
         ) : addresses.length > 0 ? (
           addresses.map((address) => (
-            <AddressItem
+            <AddressCard
               key={address.id}
               address={address}
+              mode="select"
               isSelected={selectedAddressId === address.id}
               onSelect={() => setSelectedAddressId(address.id)}
               onEdit={() => onClickEdit(address)}
             />
           ))
         ) : (
-          <EmptyState
+          <AddressEmptyState
             title="No Addresses Found"
             description="Add a shipping address before placing your order."
-            icon={MapPin}
-            className="rounded-2xl border-dashed bg-surface/20 px-6 py-12"
-            delay={0}
-          >
-            <Button
-              type="button"
-              size="sm"
-              onClick={onAddAddress}
-              className="mt-8 text-[10px] font-black uppercase tracking-widest"
-            >
-              Add New Address
-            </Button>
-          </EmptyState>
+            actionLabel="Add New Address"
+          />
         )}
       </div>
     </section>
