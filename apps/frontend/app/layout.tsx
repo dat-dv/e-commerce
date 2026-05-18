@@ -3,6 +3,7 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import Script from "next/script";
 
 import AppToast from "@/components/atoms/toast";
@@ -21,6 +22,8 @@ import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { addressesUseCase } from "@/domain/addresses";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { NotificationProvider } from "@/components/providers/notification-provider";
+import { isRTL } from "react-aria-components/I18nProvider";
+import { I18nProviderClient } from "@/components/molecules/providers/i18n-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -90,7 +93,8 @@ export default async function RootLayout({
 
   return (
     <html
-      lang="en"
+      lang={language}
+      dir={isRTL(language) ? "rtl" : "ltr"}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
@@ -110,25 +114,27 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
-        <ConfigProvider initState={{ language: language || "en" }}>
-          <CategoriesProvider initState={{ categories }}>
-            <AuthProvider>
-              <NotificationProvider>
-                <CartProvider initState={initialCartState?.data?.items || []}>
-                  <AddressProvider
-                    initState={initialAddressesState?.data || []}
-                  >
-                    <FavoritesProvider>
-                      {children}
-                      <CartDrawer />
-                    </FavoritesProvider>
-                  </AddressProvider>
-                </CartProvider>
-              </NotificationProvider>
-            </AuthProvider>
-          </CategoriesProvider>
-          <AppToast />
-        </ConfigProvider>
+        <I18nProviderClient language={language}>
+          <ConfigProvider initState={{ language: language }}>
+            <CategoriesProvider initState={{ categories }}>
+              <AuthProvider>
+                <NotificationProvider>
+                  <CartProvider initState={initialCartState?.data?.items || []}>
+                    <AddressProvider
+                      initState={initialAddressesState?.data || []}
+                    >
+                      <FavoritesProvider>
+                        {children}
+                        <CartDrawer />
+                      </FavoritesProvider>
+                    </AddressProvider>
+                  </CartProvider>
+                </NotificationProvider>
+              </AuthProvider>
+            </CategoriesProvider>
+            <AppToast />
+          </ConfigProvider>
+        </I18nProviderClient>
       </body>
     </html>
   );
