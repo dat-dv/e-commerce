@@ -14,11 +14,11 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
   }
 
   if (currentPage <= 4) {
-    pages.push(1, 2, 3, 4, 5, "...", totalPages);
+    pages.push(1, 2, 3, 4, 5, "…", totalPages);
   } else if (currentPage >= totalPages - 3) {
     pages.push(
       1,
-      "...",
+      "…",
       totalPages - 4,
       totalPages - 3,
       totalPages - 2,
@@ -28,11 +28,11 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
   } else {
     pages.push(
       1,
-      "...",
+      "…",
       currentPage - 1,
       currentPage,
       currentPage + 1,
-      "...",
+      "…",
       totalPages,
     );
   }
@@ -61,7 +61,7 @@ const PaginationItem = ({
     <button
       onClick={() => onClick(page as number)}
       className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 font-bold text-sm",
+        "flex h-10 w-10 items-center justify-center rounded-xl font-bold text-sm transition-colors duration-300",
         active
           ? "bg-primary text-white shadow-lg shadow-primary/25 scale-110 z-10"
           : "bg-white/5 border border-white/5 text-content/40 hover:bg-white/10 hover:text-content active:scale-90",
@@ -82,16 +82,20 @@ const PaginationArrow = ({
   onClick: () => void;
 }) => {
   const Icon = direction === "left" ? ChevronLeft : ChevronRight;
+  const label =
+    direction === "left" ? "Go to previous page" : "Go to next page";
+
   return (
     <button
       onClick={onClick}
       disabled={disabled}
+      aria-label={label}
       className={cn(
-        "h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-content/10 text-content/60 transition-all hover:bg-white/10 hover:text-content disabled:opacity-30 disabled:cursor-not-allowed",
+        "h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-content/10 text-content/60 transition-colors hover:bg-white/10 hover:text-content disabled:opacity-30 disabled:cursor-not-allowed",
         !disabled && "active:scale-90",
       )}
     >
-      <Icon className="w-5 h-5" />
+      <Icon className="w-5 h-5" aria-hidden />
     </button>
   );
 };
