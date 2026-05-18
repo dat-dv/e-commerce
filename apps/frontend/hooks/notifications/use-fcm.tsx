@@ -13,17 +13,22 @@ export const useFCM = () => {
 
   useEffect(() => {
     if (!user || isInitialized.current) return;
+    if (!PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY) return;
+    if (typeof window === "undefined" || !("Notification" in window)) return;
 
     const setupFCM = async () => {
+      isInitialized.current = true;
+
       try {
-        isInitialized.current = true;
         const messaging = await getFirebaseMessaging();
         if (!messaging) return;
 
         // Request permission
         const permission = await Notification.requestPermission();
         if (permission !== "granted") {
-          console.warn("Notification permission not granted");
+          if (PUBLIC_ENV.IS_DEBUG) {
+            console.warn("Notification permission not granted");
+          }
           return;
         }
 
@@ -33,17 +38,23 @@ export const useFCM = () => {
         });
 
         if (token) {
-          // Save token to backend
-          await notificationsUseCase.saveToken({
-            token,
-            device_type: "web",
-          });
-          console.log("FCM Token saved successfully");
+          try {
+            await notificationsUseCase.saveToken({
+              token,
+              device_type: "web",
+            });
+          } catch (error) {
+            if (PUBLIC_ENV.IS_DEBUG) {
+              console.warn("Failed to save FCM token:", error);
+            }
+          }
         }
 
         // Listen for foreground messages
         onMessage(messaging, (payload) => {
-          console.log("Foreground message received:", payload);
+          if (PUBLIC_ENV.IS_DEBUG) {
+            console.info("Foreground message received:", payload);
+          }
           if (payload.notification) {
             toast.info(
               <div className="flex flex-col gap-1">
@@ -69,8 +80,9 @@ export const useFCM = () => {
           }
         });
       } catch (error) {
-        console.error("Error setting up FCM:", error);
-        isInitialized.current = false;
+        if (PUBLIC_ENV.IS_DEBUG) {
+          console.warn("Error setting up FCM:", error);
+        }
       }
     };
 
