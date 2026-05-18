@@ -4,12 +4,37 @@ import { Package, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
+import EmptyState from "@/components/molecules/empty-space";
+import { APP_ROUTES } from "@/constants/routes";
 
 interface CheckoutListProps {
   items: TCartItem[];
 }
 
 export const CheckoutList = ({ items }: CheckoutListProps) => {
+  if (items.length === 0) {
+    return (
+      <section>
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-10 h-10 rounded-full bg-content text-surface flex items-center justify-center shadow-lg shadow-content/10">
+            <Package size={20} />
+          </div>
+          <h2 className="text-2xl font-black uppercase tracking-tight">
+            Review Items
+          </h2>
+        </div>
+        <EmptyState
+          title="No items selected"
+          description="Please return to your cart or explore our products catalog to select items for checkout."
+          icon={ShoppingBag}
+          actionLabel="Browse Products"
+          actionHref={APP_ROUTES.RECENTLY_VIEWED}
+          className="py-12"
+        />
+      </section>
+    );
+  }
+
   return (
     <section>
       <div className="flex items-center gap-4 mb-8">

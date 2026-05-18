@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useCheckout } from "@/hooks/checkout/use-checkout";
-import { useCreateAddress } from "@/hooks/addresses/use-create-address";
 import { CheckoutHeader } from "./checkout-header";
 import { ShippingSection } from "./shipping-section";
 import { CheckoutList } from "./checkout-list-section";
@@ -13,6 +12,11 @@ import {
   TAddress,
   TCreateAddressInput,
 } from "@/domain/addresses/types/address.model";
+import AppContainer from "@/components/atoms/app-container";
+import Link from "next/link";
+import { ShoppingBag } from "lucide-react";
+import { APP_ROUTES } from "@/constants/routes";
+import EmptyState from "@/components/molecules/empty-space";
 
 export const CheckoutView = () => {
   const {
@@ -24,37 +28,46 @@ export const CheckoutView = () => {
     updateAddress,
   } = useAddresses();
 
-  const handleSubmitAddress = async (
-    data: TCreateAddressInput,
-    editingAddress?: TAddress | null,
-  ) => {
-    if (editingAddress) {
-      return updateAddress(editingAddress.id, data);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [editingAddress, setEditingAddress] = useState<TAddress | null>(null);
+  const [isAddingAddress, setIsAddingAddress] = useState(false);
+
+  const openAddModal = () => {
+    setEditingAddress(null);
+    setIsAddModalOpen(true);
+  };
+
+  const openEditModal = (address: TAddress) => {
+    setEditingAddress(address);
+    setIsAddModalOpen(true);
+  };
+
+  const closeAddModal = () => {
+    setIsAddModalOpen(false);
+    setEditingAddress(null);
+  };
+
+  const handleSubmitAddress = async (data: TCreateAddressInput) => {
+    setIsAddingAddress(true);
+    try {
+      const success = editingAddress
+        ? await updateAddress(editingAddress.id, data)
+        : await addAddress(data);
+
+      if (success) {
+        closeAddModal();
+      }
+      return success;
+    } finally {
+      setIsAddingAddress(false);
     }
-    return addAddress(data);
   };
 
   const { selectedItems, totalAmount, placingOrder, handlePlaceOrder } =
     useCheckout(selectedAddressId);
 
-  const {
-    isOpen: isAddModalOpen,
-    isSubmitting: isAddingAddress,
-    open: openAddModal,
-    openEdit,
-    close: closeAddModal,
-    handleSubmit: onAddAddressSubmit,
-    editingAddress,
-  } = useCreateAddress({
-    onSubmit: handleSubmitAddress,
-  });
-
-  const onClickEdit = (address: TAddress) => {
-    openEdit(address);
-  };
-
   return (
-    <div className="container mx-auto px-4 py-12 max-w-7xl">
+    <AppContainer className="py-12 animate-in fade-in slide-in-from-bottom-6 duration-700">
       <CheckoutHeader />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -65,7 +78,7 @@ export const CheckoutView = () => {
             setSelectedAddressId={setSelectedAddressId}
             loading={loadingAddresses}
             onAddAddress={openAddModal}
-            onClickEdit={onClickEdit}
+            onClickEdit={openEditModal}
           />
 
           <CheckoutList items={selectedItems} />
@@ -88,10 +101,10 @@ export const CheckoutView = () => {
       <AddAddressModal
         isOpen={isAddModalOpen}
         onClose={closeAddModal}
-        onSubmit={onAddAddressSubmit}
+        onSubmit={handleSubmitAddress}
         loading={isAddingAddress}
         editingAddress={editingAddress}
       />
-    </div>
+    </AppContainer>
   );
 };

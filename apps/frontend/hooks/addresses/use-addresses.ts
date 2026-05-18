@@ -29,9 +29,10 @@ export const useAddresses = () => {
   const addAddress = async (data: TCreateAddressInput) => {
     try {
       const res = await addressesUseCase.createAddress.execute(data);
-      if (res.status === "success") {
+      if (res.status === "success" && res.data) {
         toast.success("Address added successfully");
         await fetchAddresses();
+        setSelectedAddressId(res.data.id);
         return true;
       }
       toast.error(res.message || "Failed to add address");
