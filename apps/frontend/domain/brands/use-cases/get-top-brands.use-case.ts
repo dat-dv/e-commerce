@@ -8,7 +8,8 @@ export class GetTopBrandsUseCase {
   async execute(
     page = 1,
     limit = 10,
+    search?: string,
   ): Promise<ApiResponse<ApiListResponse<TBrand>>> {
-    return this.repo.getTopBrands(page, limit);
+    return this.repo.getTopBrands(page, limit, search);
   }
 }

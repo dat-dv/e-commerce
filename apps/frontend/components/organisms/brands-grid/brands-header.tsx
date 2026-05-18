@@ -7,7 +7,7 @@ import {
   MonitorSmartphone,
 } from "lucide-react";
 
-export function TopBrandsHeader() {
+export function BrandsHeader() {
   return (
     <AnimatedPageHeader
       title="Top"
@@ -18,4 +18,4 @@ export function TopBrandsHeader() {
   );
 }
 
-export default TopBrandsHeader;
+export default BrandsHeader;

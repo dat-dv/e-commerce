@@ -23,10 +23,11 @@ export class BrandsRepository implements IBrandsRepository {
   async getTopBrands(
     page = 1,
     limit = 10,
+    search?: string,
   ): Promise<ApiResponse<ApiListResponse<TBrand>>> {
     const response = await this.request.get<ApiListResponse<IBrandResponse>>(
       `${API_ROUTES.BRAND.TOP}`,
-      { params: { page, limit } },
+      { params: { page, limit, q: search || undefined } },
     );
     return {
       ...response,
