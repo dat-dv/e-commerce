@@ -59,7 +59,7 @@ export class UsersController {
       avatar = await this.uploadImageUseCase.execute(image);
     }
 
-    const res = await this.updateUserUseCase.execute(req.user.sub, {
+    const res = await this.updateUserUseCase.execute(req.user?.sub, {
       ...dto,
       ...(avatar?.url ? { avatar_url: avatar.url } : {}),
     });
@@ -85,7 +85,7 @@ export class UsersController {
 
   @Get(':id')
   async findOne(@Req() req: Request, @Param('id') id: string): Promise<IApiResponse<IUserProfileResponse>> {
-    const res = await this.findOneUserUseCase.execute(id, req.user.sub);
+    const res = await this.findOneUserUseCase.execute(id, req.user?.sub);
     return createSuccessResponse(res);
   }
 
@@ -108,7 +108,7 @@ export class UsersController {
     @Param('id') id: string,
     @UploadedFile() file: Express.Multer.File,
   ): Promise<IApiResponse<IUserProfileResponse>> {
-    const res = await this.updateAvatarUseCase.execute(id, req.user.sub, file);
+    const res = await this.updateAvatarUseCase.execute(id, req.user?.sub, file);
     return createSuccessResponse(res);
   }
 

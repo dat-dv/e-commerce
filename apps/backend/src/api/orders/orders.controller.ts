@@ -30,7 +30,7 @@ export class OrdersController {
 
   @Post()
   async createOrder(@Body() body: CreateOrderDto, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.createOrderUseCase.execute(userId, body);
     return createSuccessResponse(result);
   }
@@ -40,7 +40,7 @@ export class OrdersController {
     @Req() req: Request,
     @Query() query: GetOrdersDto,
   ): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.getUserOrdersUseCase.execute(userId, query);
     return createSuccessResponse(result);
   }
@@ -55,7 +55,7 @@ export class OrdersController {
 
   @Get(':id')
   async getOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse | null>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.getOrderUseCase.execute(id, userId, false);
     return createSuccessResponse(result);
   }
@@ -73,7 +73,7 @@ export class OrdersController {
 
   @Post(':id/cancel')
   async cancelOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.cancelOrderUseCase.execute(id, userId);
     return createSuccessResponse(result);
   }

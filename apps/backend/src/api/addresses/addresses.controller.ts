@@ -22,14 +22,14 @@ export class AddressesController {
 
   @Post()
   async create(@Req() req: Request, @Body() dto: CreateAddressDto): Promise<IApiResponse<IAddressResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.createAddressUseCase.execute(userId, dto);
     return createSuccessResponse(result);
   }
 
   @Get()
   async findAll(@Req() req: Request): Promise<IApiResponse<IAddressResponse[]>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.getAddressesUseCase.execute(userId);
     return createSuccessResponse(result);
   }
@@ -40,14 +40,14 @@ export class AddressesController {
     @Req() req: Request,
     @Body() dto: UpdateAddressDto,
   ): Promise<IApiResponse<IAddressResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.updateAddressUseCase.execute(id, userId, dto);
     return createSuccessResponse(result);
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<boolean>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     await this.deleteAddressUseCase.execute(id, userId);
     return createSuccessResponse(true);
   }

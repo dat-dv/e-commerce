@@ -22,7 +22,7 @@ export class NotificationsController {
 
   @Post('tokens')
   async saveToken(@Req() req: Request, @Body() dto: SaveTokenDto): Promise<IApiResponse<INotificationTokenResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.notificationsRepository.saveToken(userId, dto);
     return createSuccessResponse(result);
   }
@@ -33,7 +33,7 @@ export class NotificationsController {
     @Query('page') page?: string,
     @Query('limit') limit?: string,
   ): Promise<IApiResponse<INotificationListResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const pageNum = page ? Number.parseInt(page, 10) : undefined;
     const limitNum = limit ? Number.parseInt(limit, 10) : undefined;
     const result = await this.notificationsRepository.getNotifications(userId, pageNum, limitNum);
@@ -42,14 +42,14 @@ export class NotificationsController {
 
   @Patch(':id/read')
   async markAsRead(@Req() req: Request, @Param('id') id: string): Promise<IApiResponse<INotificationResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.notificationsRepository.markAsRead(userId, id);
     return createSuccessResponse(result);
   }
 
   @Patch('read-all')
   async markAllAsRead(@Req() req: Request): Promise<IApiResponse<void>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     await this.notificationsRepository.markAllAsRead(userId);
     return createSuccessResponse(undefined);
   }

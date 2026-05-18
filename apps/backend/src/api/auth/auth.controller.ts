@@ -40,14 +40,14 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('me')
   async me(@Req() req: Request): Promise<IApiResponse<IAuthMeResponse>> {
-    const user = await this.getMeUseCase.execute(req.user.sub);
+    const user = await this.getMeUseCase.execute(req.user?.sub);
     return createSuccessResponse(user);
   }
 
   @UseGuards(AuthGuard)
   @Post('change-password')
   async changePassword(@Req() req: Request, @Body() dto: ChangePasswordDto): Promise<IApiResponse<boolean>> {
-    const result = await this.changePasswordUseCase.execute(req.user.sub, dto);
+    const result = await this.changePasswordUseCase.execute(req.user?.sub, dto);
     return createSuccessResponse(result);
   }
 
@@ -85,7 +85,7 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Post('verify-phone')
   async verifyPhone(@Req() req: Request, @Body() dto: VerifyPhoneDto): Promise<IApiResponse<boolean>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.verifyPhoneUseCase.execute(userId, dto);
     return createSuccessResponse(result);
   }

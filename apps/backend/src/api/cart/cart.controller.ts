@@ -26,7 +26,7 @@ export class CartController {
   @ApiOperation({ summary: 'Get current user cart' })
   @ApiResponse({ status: 200, description: 'Return cart data' })
   async getCart(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<ICartResponse | null>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.getCartUseCase.execute(userId, lang);
     return createSuccessResponse(result);
   }
@@ -40,7 +40,7 @@ export class CartController {
     @Req() req: Request,
     @Language() lang: string,
   ): Promise<IApiResponse<ICartItemResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.addToCartUseCase.execute(userId, body, lang);
     return createSuccessResponse(result);
   }

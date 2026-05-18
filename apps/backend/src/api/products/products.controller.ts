@@ -52,7 +52,7 @@ export class ProductsController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(15), ParseIntPipe) limit: number,
   ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.getRecommendedUseCase.execute(page, limit, userId, lang);
     return createSuccessResponse(result);
   }
@@ -60,7 +60,7 @@ export class ProductsController {
   @UseGuards(AuthGuard)
   @Get('based-on-interest')
   async getBasedOnInterest(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.getInterestBasedUseCase.execute(12, userId, lang);
     return createSuccessResponse(result);
   }

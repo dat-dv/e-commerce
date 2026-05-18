@@ -22,7 +22,7 @@ export class ReviewsController {
   @UseGuards(AuthGuard)
   @Post()
   async createReview(@Body() body: CreateReviewDto, @Req() req: Request): Promise<IApiResponse<IReviewResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.createReviewUseCase.execute(userId, body);
     return createSuccessResponse(result);
   }
@@ -34,7 +34,7 @@ export class ReviewsController {
     @Body() body: UpdateReviewDto,
     @Req() req: Request,
   ): Promise<IApiResponse<IReviewResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.updateReviewUseCase.execute(id, userId, body);
     return createSuccessResponse(result);
   }
@@ -48,7 +48,7 @@ export class ReviewsController {
   @UseGuards(AuthGuard)
   @Delete(':id')
   async deleteReview(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IReviewResponse>> {
-    const userId = req.user.sub;
+    const userId = req.user?.sub;
     const result = await this.deleteReviewUseCase.execute(id, userId);
     return createSuccessResponse(result);
   }
