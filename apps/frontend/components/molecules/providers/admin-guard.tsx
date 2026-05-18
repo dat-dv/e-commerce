@@ -1,72 +1,24 @@
 "use client";
 
-import { useStore } from "zustand";
-import { ReactNode, useContext, useEffect, useState } from "react";
-import { AuthContext } from "./auth-provider";
+import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { APP_ROUTES } from "@/constants/routes";
-import Loading from "@/components/atoms/loading";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldAlert, ArrowRight } from "lucide-react";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { EDefaultRoleName } from "@ecommerce/shared";
 
 export interface AdminGuardProps {
   children: ReactNode;
 }
 
-/**
- * Guard component that restricts access to Admin role only.
- * Why: Secures administrative routes at the view/component level.
- */
 export const AdminGuard = ({ children }: AdminGuardProps) => {
-  const store = useContext(AuthContext);
+  const user = useAuthStore((s) => s.user);
   const router = useRouter();
-  const [countdown, setCountdown] = useState(5);
+  const isAdmin = user?.roleName === EDefaultRoleName.ADMIN;
 
-  if (!store) {
-    throw new Error("AdminGuard must be used within AuthProvider");
-  }
+  console.log(user);
 
-  const user = useStore(store, (s) => s.user);
-  const hasHydrated = useStore(store, (s) => s.hasHydrated);
-
-  const isAdmin = user?.roleName === "ADMIN";
-
-  useEffect(() => {
-    if (hasHydrated && user && !isAdmin) {
-      const interval = setInterval(() => {
-        setCountdown((prev) => {
-          if (prev <= 1) {
-            clearInterval(interval);
-            router.push(APP_ROUTES.HOME);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }
-  }, [hasHydrated, user, isAdmin, router]);
-
-  // Loading state if authentication state hasn't resolved
-  if (!hasHydrated) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md">
-        <Loading />
-      </div>
-    );
-  }
-
-  // Not authenticated is handled by the outer AuthGuard wrapping (or redirects to sign-in)
-  if (!user) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md">
-        <Loading />
-      </div>
-    );
-  }
-
-  // If authenticated but NOT an admin, display a premium Glassmorphic access denied view with a countdown redirect
   if (!isAdmin) {
     return (
       <div className="relative min-h-screen w-full flex items-center justify-center bg-slate-950 overflow-hidden px-4">
@@ -105,13 +57,6 @@ export const AdminGuard = ({ children }: AdminGuardProps) => {
               <span className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-2">
                 Tự động quay về trang chủ sau
               </span>
-              <div className="flex items-baseline justify-center gap-1">
-                <span className="text-3xl font-extrabold text-white tabular-nums">
-                  {countdown}
-                </span>
-                <span className="text-slate-400 text-sm font-medium">giây</span>
-              </div>
-
               {/* Countdown progress bar */}
               <div className="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden mt-3">
                 <motion.div

@@ -2,7 +2,6 @@
 
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
-import { EOrderStatus } from "@ecommerce/shared";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -12,7 +11,6 @@ import {
   Calendar,
   User,
   ShoppingBag,
-  DollarSign,
   FilterX,
   ChevronLeft,
   ChevronRight,

@@ -85,7 +85,7 @@ export class OrdersRepository implements IOrdersRepository {
     const limit = params?.limit || 10;
 
     const sortBy: EOrderSortBy = params?.sort_by || EOrderSortBy.CREATED_AT;
-    const sortOrder: ESortValue = params?.sort_order || ESortValue.DESC;
+    const sortOrder: Prisma.SortOrder = params?.sort_order ? 'asc' : 'desc';
 
     const where: Prisma.OrderWhereInput = {};
 

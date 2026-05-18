@@ -7,10 +7,6 @@ interface AdminLayoutProps {
   children: ReactNode;
 }
 
-/**
- * Layout specifically for administrative pages.
- * Why: Ensures that all pages nested under /admin are strictly protected by AdminGuard.
- */
 export default function AdminLayout({ children }: AdminLayoutProps) {
   return <AdminGuard>{children}</AdminGuard>;
 }
