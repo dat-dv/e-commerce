@@ -39,21 +39,20 @@ export class CartRepository implements ICartRepository {
 
   async updateItem(
     request: TUpdateCartItemRequest,
-  ): Promise<ApiResponse<TCartItem>> {
-    const response = await this.request.put<ICartItemResponse>(
+  ): Promise<ApiResponse<boolean>> {
+    const response = await this.request.put<boolean>(
       API_ROUTES.CART.ITEM(request.id),
       {
         quantity: request.quantity,
       },
     );
-    return {
-      ...response,
-      data: response.data ? CartMapper.toDomainItem(response.data) : undefined,
-    } as ApiResponse<TCartItem>;
+    return response;
   }
 
-  async removeItem(id: string): Promise<ApiResponse<void>> {
-    const response = await this.request.delete<void>(API_ROUTES.CART.ITEM(id));
+  async removeItem(id: string): Promise<ApiResponse<boolean>> {
+    const response = await this.request.delete<boolean>(
+      API_ROUTES.CART.ITEM(id),
+    );
     return response;
   }
 }

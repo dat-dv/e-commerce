@@ -12,12 +12,17 @@ export class UpdateCartItemUseCase {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(itemId: string, data: UpdateCartItemDto) {
+  async execute(itemId: string, data: UpdateCartItemDto): Promise<boolean> {
     if (data.quantity <= 0) {
-      return this.cartRepository.removeItem(itemId);
+      try {
+        await this.cartRepository.removeItem(itemId);
+        return true;
+      } catch (error) {
+        return true;
+      }
     }
 
-    // 1. Lấy thông tin SKU từ cart item
+    // 1. Fetch the SKU and stock information from the cart item
     const cartItem = await this.prisma.cartItem.findUnique({
       where: { id: itemId },
       include: {
@@ -29,11 +34,12 @@ export class UpdateCartItemUseCase {
       throw new BadRequestException('Cart item not found');
     }
 
-    // 2. Kiểm tra tồn kho
+    // 2. Validate stock constraints
     if (data.quantity > cartItem.sku.stock) {
       throw new BadRequestException(`Requested quantity exceeds available stock (Stock: ${cartItem.sku.stock})`);
     }
 
-    return this.cartRepository.updateItem(itemId, data);
+    await this.cartRepository.updateItem(itemId, data);
+    return true;
   }
 }

@@ -49,7 +49,7 @@ export class CartController {
   @ApiOperation({ summary: 'Update cart item quantity' })
   @ApiBody({ type: UpdateCartItemDto })
   @ApiResponse({ status: 200, description: 'Item updated successfully' })
-  async updateItem(@Param('id') id: string, @Body() body: UpdateCartItemDto): Promise<IApiResponse<ICartItemResponse>> {
+  async updateItem(@Param('id') id: string, @Body() body: UpdateCartItemDto): Promise<IApiResponse<boolean>> {
     const result = await this.updateCartItemUseCase.execute(id, body);
     return createSuccessResponse(result);
   }
@@ -57,7 +57,7 @@ export class CartController {
   @Delete('items/:id')
   @ApiOperation({ summary: 'Remove item from cart' })
   @ApiResponse({ status: 200, description: 'Item removed successfully' })
-  async removeItem(@Param('id') id: string): Promise<IApiResponse<ICartItemResponse | null>> {
+  async removeItem(@Param('id') id: string): Promise<IApiResponse<boolean>> {
     const result = await this.removeFromCartUseCase.execute(id);
     return createSuccessResponse(result);
   }

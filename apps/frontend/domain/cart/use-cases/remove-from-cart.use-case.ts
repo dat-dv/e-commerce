@@ -4,13 +4,13 @@ import { ApiResponse } from "@/utils/request/request.types";
 
 export class RemoveFromCartUseCase extends UseCase<
   string,
-  Promise<ApiResponse<void>>
+  Promise<ApiResponse<boolean>>
 > {
   constructor(private repository: ICartRepository) {
     super();
   }
 
-  async execute(id: string): Promise<ApiResponse<void>> {
+  async execute(id: string): Promise<ApiResponse<boolean>> {
     return this.repository.removeItem(id);
   }
 }
