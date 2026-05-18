@@ -5,40 +5,15 @@ import { useCart } from "@/hooks/cart/use-cart";
 import { ordersUseCase } from "@/domain/orders";
 import { APP_ROUTES } from "@/constants/routes";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
-import { useAddresses } from "@/hooks/addresses/use-addresses";
 import { useLoadCart } from "@/hooks/cart/use-load-cart";
 
-import {
-  TAddress,
-  TCreateAddressInput,
-} from "@/domain/addresses/types/address.model";
-
-export const useCheckoutAdapter = () => {
+export const useCheckout = (selectedAddressId: string | null) => {
   const router = useRouter();
   const { items, selectedItems, totalAmount, clearSelection } = useCart();
   const loadCart = useLoadCart();
   const selectedSkuIds = useCartStore((s) => s.selectedSkuIds);
 
-  const {
-    addresses,
-    loading: loadingAddresses,
-    selectedAddressId,
-    setSelectedAddressId,
-    addAddress,
-    updateAddress,
-  } = useAddresses();
-
   const [placingOrder, setPlacingOrder] = useState(false);
-
-  const handleSubmitAddress = async (
-    data: TCreateAddressInput,
-    editingAddress?: TAddress | null,
-  ) => {
-    if (editingAddress) {
-      return updateAddress(editingAddress.id, data);
-    }
-    return addAddress(data);
-  };
 
   const handlePlaceOrder = useCallback(async () => {
     if (!selectedAddressId) {
@@ -96,12 +71,7 @@ export const useCheckoutAdapter = () => {
   return {
     selectedItems,
     totalAmount,
-    addresses,
-    selectedAddressId,
-    setSelectedAddressId,
-    loading: loadingAddresses,
     placingOrder,
     handlePlaceOrder,
-    handleSubmitAddress,
   };
 };

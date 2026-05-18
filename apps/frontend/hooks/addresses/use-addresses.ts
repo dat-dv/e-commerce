@@ -64,8 +64,15 @@ export const useAddresses = () => {
   useEffect(() => {
     if (addresses.length === 0) {
       fetchAddresses();
+    } else if (!selectedAddressId) {
+      const defaultAddress = addresses.find((addr) => addr.isDefault);
+      if (defaultAddress) {
+        setSelectedAddressId(defaultAddress.id);
+      } else if (addresses.length > 0) {
+        setSelectedAddressId(addresses[0].id);
+      }
     }
-  }, [fetchAddresses, addresses.length]);
+  }, [fetchAddresses, addresses, selectedAddressId, setSelectedAddressId]);
 
   return {
     addresses,

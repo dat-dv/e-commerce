@@ -1,27 +1,41 @@
 "use client";
 
 import React from "react";
-import { useCheckoutAdapter } from "@/hooks/checkout/use-checkout-adapter";
+import { useCheckout } from "@/hooks/checkout/use-checkout";
 import { useCreateAddress } from "@/hooks/addresses/use-create-address";
 import { CheckoutHeader } from "./checkout-header";
 import { ShippingSection } from "./shipping-section";
 import { CheckoutList } from "./checkout-list-section";
 import { OrderSummary } from "./order-summary";
 import { AddAddressModal } from "../../molecules/add-address-modal";
-import { TAddress } from "@/domain/addresses/types/address.model";
+import { useAddresses } from "@/hooks/addresses/use-addresses";
+import {
+  TAddress,
+  TCreateAddressInput,
+} from "@/domain/addresses/types/address.model";
 
 export const CheckoutView = () => {
   const {
-    selectedItems,
-    totalAmount,
     addresses,
+    loading: loadingAddresses,
     selectedAddressId,
     setSelectedAddressId,
-    loading: loadingAddresses,
-    placingOrder,
-    handlePlaceOrder,
-    handleSubmitAddress,
-  } = useCheckoutAdapter();
+    addAddress,
+    updateAddress,
+  } = useAddresses();
+
+  const handleSubmitAddress = async (
+    data: TCreateAddressInput,
+    editingAddress?: TAddress | null,
+  ) => {
+    if (editingAddress) {
+      return updateAddress(editingAddress.id, data);
+    }
+    return addAddress(data);
+  };
+
+  const { selectedItems, totalAmount, placingOrder, handlePlaceOrder } =
+    useCheckout(selectedAddressId);
 
   const {
     isOpen: isAddModalOpen,
