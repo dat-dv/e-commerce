@@ -23,6 +23,7 @@ import { TOrder } from "@/domain/orders/types/order.model";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
 import { cn } from "@/utils/cn";
 import type { Key } from "react-aria-components";
+import { EOrderStatus } from "@ecommerce/shared";
 
 const STATUS_OPTIONS = Object.entries(ORDER_STATUS_CONFIG).map(
   ([value, config]) => ({
@@ -589,6 +590,37 @@ function OrderPreview({
   );
 }
 
+function isStatusTransitionAllowed(current: number, target: number): boolean {
+  if (current === target) return true;
+
+  if (current === EOrderStatus.CANCELLED || current === EOrderStatus.REFUNDED) {
+    return false;
+  }
+
+  switch (current) {
+    case EOrderStatus.PENDING:
+      return (
+        target === EOrderStatus.CONFIRMED || target === EOrderStatus.CANCELLED
+      );
+    case EOrderStatus.CONFIRMED:
+      return (
+        target === EOrderStatus.PROCESSING || target === EOrderStatus.CANCELLED
+      );
+    case EOrderStatus.PROCESSING:
+      return (
+        target === EOrderStatus.SHIPPING || target === EOrderStatus.CANCELLED
+      );
+    case EOrderStatus.SHIPPING:
+      return (
+        target === EOrderStatus.DELIVERED || target === EOrderStatus.REFUNDED
+      );
+    case EOrderStatus.DELIVERED:
+      return target === EOrderStatus.REFUNDED;
+    default:
+      return false;
+  }
+}
+
 function StatusDropdown({
   orderId,
   status,
@@ -657,13 +689,19 @@ function StatusDropdown({
       <button
         ref={triggerRef}
         type="button"
-        disabled={disabled}
+        disabled={
+          disabled ||
+          status === EOrderStatus.CANCELLED ||
+          status === EOrderStatus.REFUNDED
+        }
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
           "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
           statusConfig.color,
-          disabled
-            ? "opacity-50 cursor-not-allowed"
+          disabled ||
+            status === EOrderStatus.CANCELLED ||
+            status === EOrderStatus.REFUNDED
+            ? "opacity-65 cursor-not-allowed"
             : "cursor-pointer hover:scale-[1.03] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-transparent",
           fullWidth &&
             "w-full h-10 px-3 justify-between bg-surface border border-content/10 rounded-md",
@@ -675,7 +713,8 @@ function StatusDropdown({
         </div>
         {disabled ? (
           <RefreshCw className="size-3 animate-spin opacity-60 shrink-0" />
-        ) : (
+        ) : status === EOrderStatus.CANCELLED ||
+          status === EOrderStatus.REFUNDED ? null : (
           <ChevronDown
             className={cn(
               "size-3 opacity-60 transition-transform duration-200 shrink-0",
@@ -705,20 +744,28 @@ function StatusDropdown({
               {STATUS_OPTIONS.map((option) => {
                 const config = getStatusConfig(option.value);
                 const isSelected = option.value === status;
+                const isAllowed = isStatusTransitionAllowed(
+                  status,
+                  option.value,
+                );
 
                 return (
                   <button
                     key={option.value}
                     type="button"
+                    disabled={!isAllowed}
                     onClick={() => {
+                      if (!isAllowed) return;
                       onStatusUpdate(orderId, option.value);
                       setIsOpen(false);
                     }}
                     className={cn(
-                      "w-full text-left flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all duration-150 hover:bg-content/[0.04]",
-                      isSelected
-                        ? "text-primary bg-primary/[0.05]"
-                        : "text-content/75 hover:text-content",
+                      "w-full text-left flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all duration-150",
+                      !isAllowed
+                        ? "text-content/30 cursor-not-allowed opacity-50 bg-transparent"
+                        : isSelected
+                          ? "text-primary bg-primary/[0.05]"
+                          : "text-content/75 hover:text-content hover:bg-content/[0.04]",
                     )}
                   >
                     <div className="flex items-center gap-2 min-w-0">
