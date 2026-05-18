@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useState } from "react";
 
 type ExtraParams = Record<string, unknown>;
 
@@ -13,7 +13,7 @@ export const useClientSearchParams = <T extends ExtraParams>({
   pathname,
   searchParams,
 }: TUseSearchParamsOptions<T>) => {
-  const params = useMemo(() => searchParams, [searchParams]);
+  const [params, setParams] = useState<T>(() => searchParams);
 
   const navigate = useCallback(
     (nextParams: URLSearchParams) => {
@@ -53,6 +53,7 @@ export const useClientSearchParams = <T extends ExtraParams>({
       });
 
       navigate(current);
+      setParams((prev) => ({ ...prev, ...values }));
     },
     [navigate, params, toURLSearchParams],
   );
@@ -73,6 +74,7 @@ export const useClientSearchParams = <T extends ExtraParams>({
 
       if (keepKeys.length === 0) {
         navigate(new URLSearchParams());
+        setParams({} as T);
         return;
       }
 
@@ -89,6 +91,17 @@ export const useClientSearchParams = <T extends ExtraParams>({
       });
 
       navigate(next);
+      setParams((prev) => {
+        const keptParams: ExtraParams = {};
+
+        keepKeys.forEach((key) => {
+          if (keep[key]) {
+            keptParams[key] = prev[key];
+          }
+        });
+
+        return keptParams as T;
+      });
     },
     [navigate, params],
   );

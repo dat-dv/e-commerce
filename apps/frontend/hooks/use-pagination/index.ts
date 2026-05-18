@@ -57,7 +57,7 @@ export const usePaginationWithSSRData = <
   });
 
   const metaRef = useRef(meta);
-  const paramsRef = useRef(params);
+  const clientQueryParamsRef = useRef(clientQueryParams);
   const loadingRef = useRef(false);
   const loadingMoreRef = useRef(false);
 
@@ -74,7 +74,7 @@ export const usePaginationWithSSRData = <
       overrideParams?: Partial<TParams>,
     ): PaginationParams & TParams => {
       return {
-        ...(paramsRef.current ?? {}),
+        ...clientQueryParamsRef.current,
         ...(overrideParams ?? {}),
         ...paginationParams,
       } as PaginationParams & TParams;
@@ -131,6 +131,7 @@ export const usePaginationWithSSRData = <
         if (response.status !== "success") return;
 
         setItems(response.data.items);
+        metaRef.current = response.data.meta;
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
@@ -181,6 +182,7 @@ export const usePaginationWithSSRData = <
         if (response.status !== "success") return;
 
         appendItems(response.data.items);
+        metaRef.current = response.data.meta;
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
@@ -208,6 +210,7 @@ export const usePaginationWithSSRData = <
       const nextMeta = next?.meta ?? initialMeta;
 
       setItems(nextItems);
+      metaRef.current = nextMeta;
       setMeta(nextMeta);
       setError(null);
       setLoading(false);
