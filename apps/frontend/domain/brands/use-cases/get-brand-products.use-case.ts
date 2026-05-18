@@ -10,7 +10,14 @@ export class GetBrandProductsUseCase {
     page?: number,
     limit?: number,
     search?: string,
+    category?: string,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
-    return this.brandsRepository.getBrandProducts(slug, page, limit, search);
+    return this.brandsRepository.getBrandProducts(
+      slug,
+      page,
+      limit,
+      search,
+      category,
+    );
   }
 }

@@ -72,6 +72,7 @@ export class BrandsRepository implements IBrandsRepository {
     limit: number,
     languageCode = 'vi',
     search?: string,
+    category?: string,
   ): Promise<IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
@@ -83,6 +84,7 @@ export class BrandsRepository implements IBrandsRepository {
     }
 
     const trimmedSearch = search?.trim();
+    const trimmedCategory = category?.trim();
     const where = {
       brand_id: brand.id,
       deleted_at: null,
@@ -92,6 +94,17 @@ export class BrandsRepository implements IBrandsRepository {
               some: {
                 language: { code: languageCode },
                 OR: [{ name: { contains: trimmedSearch } }, { description: { contains: trimmedSearch } }],
+              },
+            },
+          }
+        : {}),
+      ...(trimmedCategory
+        ? {
+            categories: {
+              some: {
+                category: {
+                  slug: trimmedCategory,
+                },
               },
             },
           }

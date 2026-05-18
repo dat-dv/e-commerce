@@ -17,6 +17,7 @@ export interface IBrandsRepository {
     limit: number,
     languageCode?: string,
     search?: string,
+    category?: string,
   ): Promise<IBrandProductsResponse>;
 
   getBrandCategoryTree(slug: string, languageCode?: string): Promise<ICategoryResponse[]>;

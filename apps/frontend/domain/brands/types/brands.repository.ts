@@ -16,6 +16,7 @@ export interface IBrandsRepository {
     page?: number,
     limit?: number,
     search?: string,
+    category?: string,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>>;
 
   getBrandCategoryTree(slug: string): Promise<ApiResponse<TCategory[]>>;

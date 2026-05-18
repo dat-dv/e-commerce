@@ -59,6 +59,14 @@ export class CancelOrderUseCase {
         }
       }
 
+      // 3. Hoàn trả lượt sử dụng mã giảm giá nếu có
+      if (order.coupon_id) {
+        await tx.coupon.update({
+          where: { id: order.coupon_id },
+          data: { used_count: { decrement: 1 } },
+        });
+      }
+
       return updatedOrder;
     });
 

@@ -57,10 +57,11 @@ export class BrandsController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(20), ParseIntPipe) limit: number,
     @Query('q') search: string | undefined,
+    @Query('category') category: string | undefined,
     @Language() lang: string,
   ): Promise<IApiResponse<IBrandProductsResponse>> {
     const parsedLimit = Math.min(50, limit);
-    const result = await this.getBrandProductsUseCase.execute(slug, page, parsedLimit, lang, search);
+    const result = await this.getBrandProductsUseCase.execute(slug, page, parsedLimit, lang, search, category);
     return createSuccessResponse(result);
   }
 }

@@ -8,7 +8,7 @@ export class GetBrandProductsUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, page = 1, limit = 10, languageCode = 'vi', search?: string) {
-    return this.brandsRepository.getBrandProducts(slug, page, limit, languageCode, search);
+  async execute(slug: string, page = 1, limit = 10, languageCode = 'vi', search?: string, category?: string) {
+    return this.brandsRepository.getBrandProducts(slug, page, limit, languageCode, search, category);
   }
 }
