@@ -264,7 +264,10 @@ export class CreateOrderUseCase {
 
         // Evict purchased items from the cart to synchronize session state
         await tx.cartItem.deleteMany({
-          where: { id: { in: cartItemIds } },
+          where: {
+            id: { in: cartItemIds },
+            cart: { user_id: userId },
+          },
         });
 
         return order;
