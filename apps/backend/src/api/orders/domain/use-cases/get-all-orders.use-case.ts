@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
-import { GetAllOrdersDto } from '../../dto/get-all-orders.dto';
+import { GetOrdersByAdminDto } from '../../dto/get-all-orders.dto';
 
 @Injectable()
 export class GetAllOrdersUseCase {
@@ -9,7 +9,7 @@ export class GetAllOrdersUseCase {
     private readonly ordersRepository: IOrdersRepository,
   ) {}
 
-  async execute(dto: GetAllOrdersDto) {
+  async execute(dto: GetOrdersByAdminDto) {
     return this.ordersRepository.getAllOrders({
       status: dto.status,
       page: dto.page,

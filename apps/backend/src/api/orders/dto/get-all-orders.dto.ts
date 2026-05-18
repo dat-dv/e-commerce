@@ -2,9 +2,9 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 import { IsArray, IsEnum, IsInt, IsNotEmpty, IsOptional, IsString, Max, Min } from 'class-validator';
 
-import { EOrderSortBy, EOrderStatus, ESortValue, IGetAllOrdersRequest } from '@ecommerce/shared';
+import { EOrderSortBy, EOrderStatus, ESortValue, IGetOrdersByAdminRequest } from '@ecommerce/shared';
 
-export class GetAllOrdersDto implements IGetAllOrdersRequest {
+export class GetOrdersByAdminDto implements IGetOrdersByAdminRequest {
   @ApiPropertyOptional({
     default: 1,
     minimum: 1,

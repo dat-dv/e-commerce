@@ -13,7 +13,7 @@ import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/share
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 import { GetOrdersDto } from './dto/get-orders.dto';
-import { GetAllOrdersDto } from './dto/get-all-orders.dto';
+import { GetOrdersByAdminDto } from './dto/get-all-orders.dto';
 import type { Request } from 'express';
 
 @Controller('orders')
@@ -48,7 +48,7 @@ export class OrdersController {
   @Get('all')
   @UseGuards(PermissionsGuard)
   @Permissions('LIST:ANY_ORDER')
-  async getAllOrders(@Query() query: GetAllOrdersDto): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
+  async getOrdersByAdmin(@Query() query: GetOrdersByAdminDto): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
     const result = await this.getAllOrdersUseCase.execute(query);
     return createSuccessResponse(result);
   }

@@ -2,7 +2,7 @@ import { Injectable, Inject, BadRequestException } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { EOrderStatus } from '../entities/order-status.enum';
+import { EOrderStatus } from '@ecommerce/shared';
 import { ENotificationType, IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
 import { Prisma } from 'generated/prisma/client';
 import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';

@@ -1,7 +1,7 @@
 import { Injectable, Inject, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { EOrderStatus } from '../entities/order-status.enum';
+import { EOrderStatus } from '@ecommerce/shared';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { ENotificationType } from '@ecommerce/shared';
 

@@ -1,10 +1,10 @@
 import { Injectable, Inject, UnauthorizedException, BadRequestException, NotFoundException } from '@nestjs/common';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { EOrderStatus } from '../entities/order-status.enum';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { ENotificationType, IOrderResponse } from '@ecommerce/shared';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
+import { EOrderStatus } from '@ecommerce/shared';
 
 @Injectable()
 export class UpdateOrderStatusUseCase {

@@ -7,13 +7,13 @@ export interface ICreateOrderRequest {
   promoCode?: string;
 }
 
-export interface IGetUserOrdersRequest {
+export interface IGetOrderByUserRequest {
   status?: number[];
   page?: number;
   limit?: number;
 }
 
-export interface IGetAllOrdersRequest {
+export interface IGetOrdersByAdminRequest {
   status?: EOrderStatus[];
   page?: number;
   limit?: number;
