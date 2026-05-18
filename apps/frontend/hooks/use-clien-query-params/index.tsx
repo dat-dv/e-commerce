@@ -7,16 +7,19 @@ type ExtraParams = Record<string, unknown>;
 interface TUseSearchParamsOptions<T extends ExtraParams> {
   pathname?: string;
   searchParams: T;
+  mask?: boolean;
 }
 
 export const useClientSearchParams = <T extends ExtraParams>({
   pathname,
   searchParams,
+  mask = true,
 }: TUseSearchParamsOptions<T>) => {
   const [params, setParams] = useState<T>(() => searchParams);
 
   const navigate = useCallback(
     (nextParams: URLSearchParams) => {
+      if (mask) return;
       const queryString = nextParams.toString();
 
       const nextUrl = queryString
@@ -25,7 +28,7 @@ export const useClientSearchParams = <T extends ExtraParams>({
 
       window.history.replaceState(null, "", nextUrl);
     },
-    [pathname],
+    [pathname, mask],
   );
 
   const toURLSearchParams = useCallback((values: T) => {

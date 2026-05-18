@@ -138,7 +138,7 @@ export function VirtualGrid<T>({
   }, [data, itemsPerRow]);
 
   return (
-    <div className="flex flex-col" style={{ overflowAnchor: "none" }}>
+    <div className="flex flex-col">
       <WindowVirtualizer>
         {rows.map((row, rowIndex) => (
           <div
