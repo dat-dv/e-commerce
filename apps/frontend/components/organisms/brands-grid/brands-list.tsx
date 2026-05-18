@@ -1,44 +1,25 @@
 "use client";
 
-import { useCallback } from "react";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { BrandCard } from "@/components/molecules/brrand-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
-import { usePagination } from "@/hooks/use-pagination";
-import { brandsUseCase } from "@/domain/brands/use-cases";
-import { IPaginationMeta } from "@/utils/request/request.types";
 
 interface IBrandListGridProps {
   brands: TBrand[];
-  meta: IPaginationMeta;
-  searchQuery?: string;
+  loadingMore: boolean;
+  hasMore: boolean;
+  loadMore: () => void;
 }
 
 const BrandListGrid = ({
   brands,
-  meta,
-  searchQuery = "",
+  loadingMore,
+  hasMore,
+  loadMore,
 }: IBrandListGridProps) => {
-  const fetchBrandsPage = useCallback(
-    (params: { page: number; limit: number }) =>
-      brandsUseCase.getTopBrands.execute(
-        params.page,
-        params.limit,
-        searchQuery || undefined,
-      ),
-    [searchQuery],
-  );
-
-  const { items, loadingMore, hasMore, loadMore } = usePagination({
-    initialItems: brands,
-    initialMeta: meta,
-    fetchPage: fetchBrandsPage,
-    getItemKey: (brand) => brand.id,
-  });
-
   return (
     <VirtualGrid<TBrand>
-      data={items}
+      data={brands}
       gridClassName="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]"
       itemClassName="h-full"
       columns={{ base: 1, md: 4 }}

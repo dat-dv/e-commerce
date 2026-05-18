@@ -3,7 +3,7 @@
 import { useCallback } from "react";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
-import { usePagination } from "@/hooks/use-pagination";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
@@ -36,7 +36,10 @@ export const useFavorites = ({
     loadingMore,
     loadPage,
     loadMore: fetchMore,
-  } = usePagination<TUserFavoriteProductItem>({
+  } = usePaginationWithSSRData<
+    TUserFavoriteProductItem,
+    { page: number; limit: number }
+  >({
     initialItems: initialItems,
     initialMeta,
     fetchPage: fetchFavoritesPage,

@@ -1,36 +1,29 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState, useCallback, useTransition, useEffect } from "react";
+import { useCallback, useMemo, useState } from "react";
 
-export const useBrandsFilter = (initialSearchQuery: string = "") => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [searchValue, setSearchValue] = useState(initialSearchQuery);
-  const [isPending, startTransition] = useTransition();
+export const useBrandsFilter = ({
+  search = "",
+  page,
+  limit,
+  ...otherParams
+}: {
+  search?: string;
+  page: number;
+  limit: number;
+  [key: string]: unknown;
+}) => {
+  const [searchValue, setSearchValue] = useState(search);
+  const [submittedSearch, setSubmittedSearch] = useState(search);
 
-  // Sync state if initialSearchQuery prop changes (e.g. back navigation)
-  useEffect(() => {
-    if (initialSearchQuery !== searchValue) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSearchValue(initialSearchQuery);
-    }
-  }, [initialSearchQuery, searchValue]);
-
-  // Handle instant, silent URL query parameter update on every keystroke
-  const handleSearchChange = useCallback((value: string) => {
-    setSearchValue(value);
-
-    if (typeof window === "undefined") return;
-
+  const updateUrl = useCallback((value: string) => {
     const params = new URLSearchParams(window.location.search);
     const trimmed = value.trim();
-    if (trimmed) {
-      params.set("q", trimmed);
-    } else {
-      params.delete("q");
-    }
+
+    if (trimmed) params.set("q", trimmed);
+    else params.delete("q");
+
+    params.delete("page");
 
     const nextUrl = params.toString()
       ? `${window.location.pathname}?${params.toString()}`
@@ -39,27 +32,61 @@ export const useBrandsFilter = (initialSearchQuery: string = "") => {
     window.history.replaceState(null, "", nextUrl);
   }, []);
 
-  const handleSearchSubmit = useCallback(
+  const handleSearchChange = useCallback(
     (value: string) => {
-      const params = new URLSearchParams(window.location.search);
-      const trimmed = value.trim();
-      if (trimmed) {
-        params.set("q", trimmed);
-      } else {
-        params.delete("q");
-      }
-
-      startTransition(() => {
-        router.push(`${pathname}?${params.toString()}`, { scroll: false });
-      });
+      setSearchValue(value);
+      updateUrl(value);
     },
-    [pathname, router],
+    [updateUrl],
+  );
+
+  const handleSearchSubmit = useCallback(
+    (value = searchValue) => {
+      const trimmed = value.trim();
+
+      setSubmittedSearch(trimmed);
+      updateUrl(trimmed);
+    },
+    [searchValue, updateUrl],
+  );
+
+  const updateParams = useCallback(
+    (updates: Record<string, string | number | boolean | null | undefined>) => {
+      const params = new URLSearchParams(window.location.search);
+
+      Object.entries(updates).forEach(([key, value]) => {
+        if (value === undefined || value === null || value === "") {
+          params.delete(key);
+        } else {
+          params.set(key, String(value));
+        }
+      });
+
+      const nextUrl = params.toString()
+        ? `${window.location.pathname}?${params.toString()}`
+        : window.location.pathname;
+
+      window.history.replaceState(null, "", nextUrl);
+    },
+    [],
+  );
+
+  const params = useMemo(
+    () => ({
+      ...otherParams,
+      page,
+      limit,
+      search: submittedSearch || undefined,
+    }),
+    [page, limit, submittedSearch, otherParams],
   );
 
   return {
     searchValue,
     setSearchValue: handleSearchChange,
+    submittedSearch,
     handleSearchSubmit,
-    isPending,
+    params,
+    updateParams,
   };
 };

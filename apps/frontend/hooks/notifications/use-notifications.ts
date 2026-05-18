@@ -3,7 +3,7 @@ import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 import { useNotificationStore } from "@/store/notification-store";
 import { INotification } from "@/domain/notifications/types/notification";
-import { usePagination } from "@/hooks/use-pagination";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
@@ -14,9 +14,10 @@ const LIMIT = PAGINATION_LIMITS.NOTIFICATIONS;
 const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
 export const useNotifications = () => {
-  const setGlobalNotifications = useNotificationStore(
+  const setNotifications = useNotificationStore(
     (state) => state.setNotifications,
   );
+
   const storeMarkAsRead = useNotificationStore((state) => state.markAsRead);
   const storeMarkAllAsRead = useNotificationStore(
     (state) => state.markAllAsRead,
@@ -43,18 +44,18 @@ export const useNotifications = () => {
   );
 
   const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
-    usePagination<INotification>({
+    usePaginationWithSSRData<INotification, { page: number; limit: number }>({
       initialItems: [],
       initialMeta: INITIAL_META,
       fetchPage: fetchNotificationsPage,
-      getItemKey: (notification) => notification.id,
+      getItemKey: (item) => item.id,
     });
 
   useEffect(() => {
     if (meta.page === 1) {
-      setGlobalNotifications(items);
+      setNotifications(items);
     }
-  }, [items, meta.page, setGlobalNotifications]);
+  }, [items, meta.page, setNotifications]);
 
   const markAsRead = async (id: string) => {
     try {

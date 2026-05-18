@@ -1,61 +1,94 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import {
   ApiPaginatedResponse,
   IPaginationMeta,
 } from "@/utils/request/request.types";
+import { useClientSearchParams } from "../use-clien-query-params";
 
-interface UsePaginationParams<T> {
+type PaginationParams = {
+  page: number;
+  limit: number;
+};
+
+type ExtraParams = Record<string, unknown>;
+
+type LoadPageOptions = {
+  firstLoad?: boolean;
+  syncQuery?: boolean;
+};
+
+interface UsePaginationParams<T, TParams extends ExtraParams = ExtraParams> {
   initialItems: T[];
   initialMeta: IPaginationMeta;
-  fetchPage: (params: {
-    page: number;
-    limit: number;
-  }) => Promise<ApiPaginatedResponse<T>>;
+  params?: TParams;
+  pathname?: string;
+  fetchPage: (
+    params: PaginationParams & TParams,
+  ) => Promise<ApiPaginatedResponse<T>>;
   getItemKey?: (item: T) => string | number;
 }
 
-export const usePagination = <T>({
+export const usePaginationWithSSRData = <
+  T,
+  TParams extends ExtraParams = ExtraParams,
+>({
   initialItems,
   initialMeta,
+  params,
+  pathname,
   fetchPage,
   getItemKey,
-}: UsePaginationParams<T>) => {
-  const [items, setItems] = useState(initialItems);
-  const [meta, setMeta] = useState(initialMeta);
+}: UsePaginationParams<T, TParams>) => {
+  const [items, setItems] = useState<T[]>(() => initialItems);
+  const [meta, setMeta] = useState<IPaginationMeta>(() => initialMeta);
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const hasMore = meta.page < meta.totalPages;
+  const queryParams = useMemo(() => (params ?? {}) as TParams, [params]);
+
+  const {
+    clear,
+    params: clientQueryParams,
+    update,
+  } = useClientSearchParams<TParams>({
+    searchParams: queryParams,
+    pathname,
+  });
+
   const metaRef = useRef(meta);
-  const loadingRef = useRef(loading);
-  const loadingMoreRef = useRef(loadingMore);
-  const hasMoreRef = useRef(hasMore);
+  const paramsRef = useRef(params);
+  const loadingRef = useRef(false);
+  const loadingMoreRef = useRef(false);
 
-  useEffect(() => {
-    metaRef.current = meta;
-  }, [meta]);
+  const hasMore = meta.page < meta.totalPages;
 
-  useEffect(() => {
-    loadingRef.current = loading;
-  }, [loading]);
+  const totalPages = useMemo(
+    () => Math.max(meta.totalPages, 1),
+    [meta.totalPages],
+  );
 
-  useEffect(() => {
-    loadingMoreRef.current = loadingMore;
-  }, [loadingMore]);
-
-  useEffect(() => {
-    hasMoreRef.current = hasMore;
-  }, [hasMore]);
+  const buildParams = useCallback(
+    (
+      paginationParams: PaginationParams,
+      overrideParams?: Partial<TParams>,
+    ): PaginationParams & TParams => {
+      return {
+        ...(paramsRef.current ?? {}),
+        ...(overrideParams ?? {}),
+        ...paginationParams,
+      } as PaginationParams & TParams;
+    },
+    [],
+  );
 
   const appendItems = useCallback(
     (nextItems: T[]) => {
       setItems((currentItems) => {
-        if (!getItemKey) {
-          return [...currentItems, ...nextItems];
-        }
+        if (!getItemKey) return [...currentItems, ...nextItems];
 
         const currentKeys = new Set(currentItems.map(getItemKey));
+
         return [
           ...currentItems,
           ...nextItems.filter((item) => !currentKeys.has(getItemKey(item))),
@@ -65,77 +98,145 @@ export const usePagination = <T>({
     [getItemKey],
   );
 
-  const loadMore = useCallback(async () => {
-    if (loadingMoreRef.current || !hasMoreRef.current) return;
-
-    loadingMoreRef.current = true;
-    setLoadingMore(true);
-    setError(null);
-    try {
-      const currentMeta = metaRef.current;
-      const response = await fetchPage({
-        page: currentMeta.page + 1,
-        limit: currentMeta.limit,
-      });
-
-      if (response.status !== "success") return;
-
-      appendItems(response.data.items);
-      setMeta(response.data.meta);
-    } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "Failed to load more items",
-      );
-    } finally {
-      loadingMoreRef.current = false;
-      setLoadingMore(false);
-    }
-  }, [appendItems, fetchPage]);
-
   const loadPage = useCallback(
-    async (page: number) => {
+    async (
+      nextPage: number,
+      overrideParams?: Partial<TParams>,
+      options: LoadPageOptions = {},
+    ) => {
       if (loadingRef.current) return;
 
+      const isFirstLoad = options.firstLoad ?? false;
+      const shouldSyncQuery = options.syncQuery ?? true;
+
       loadingRef.current = true;
-      setLoading(true);
+
+      if (!isFirstLoad) {
+        setLoading(true);
+      }
+
       setError(null);
+
       try {
-        const currentMeta = metaRef.current;
-        const response = await fetchPage({
-          page,
-          limit: currentMeta.limit,
-        });
+        const response = await fetchPage(
+          buildParams(
+            {
+              page: nextPage,
+              limit: Number(clientQueryParams.limit) || 1,
+            },
+            overrideParams,
+          ),
+        );
 
         if (response.status !== "success") return;
 
         setItems(response.data.items);
         setMeta(response.data.meta);
+
+        if (shouldSyncQuery) {
+          update((response.data.meta || {}) as unknown as TParams);
+        }
       } catch (error) {
         setError(
           error instanceof Error ? error.message : "Failed to load page",
         );
       } finally {
         loadingRef.current = false;
-        setLoading(false);
+
+        if (!isFirstLoad) {
+          setLoading(false);
+        }
       }
     },
-    [fetchPage],
+    [buildParams, fetchPage, clientQueryParams, update],
   );
 
-  const totalPages = useMemo(
-    () => Math.max(meta.totalPages, 1),
-    [meta.totalPages],
+  const loadMore = useCallback(
+    async (
+      overrideParams?: Partial<TParams>,
+      options: Pick<LoadPageOptions, "syncQuery"> = {},
+    ) => {
+      const currentMeta = metaRef.current;
+      const currentHasMore = currentMeta.page < currentMeta.totalPages;
+
+      if (loadingMoreRef.current || !currentHasMore) return;
+
+      const shouldSyncQuery = options.syncQuery ?? true;
+
+      loadingMoreRef.current = true;
+      setLoadingMore(true);
+      setError(null);
+
+      try {
+        const response = await fetchPage(
+          buildParams(
+            {
+              page: currentMeta.page + 1,
+              limit: currentMeta.limit,
+            },
+            overrideParams,
+          ),
+        );
+
+        if (response.status !== "success") return;
+
+        appendItems(response.data.items);
+        setMeta(response.data.meta);
+
+        if (shouldSyncQuery) {
+          update((response.data.meta || {}) as unknown as TParams);
+        }
+      } catch (error) {
+        setError(
+          error instanceof Error ? error.message : "Failed to load more items",
+        );
+      } finally {
+        loadingMoreRef.current = false;
+        setLoadingMore(false);
+      }
+    },
+    [appendItems, buildParams, fetchPage, update],
+  );
+
+  const reset = useCallback(
+    (next?: {
+      items?: T[];
+      meta?: IPaginationMeta;
+      keepQuery?: Record<string, boolean>;
+    }) => {
+      const nextItems = next?.items ?? initialItems;
+      const nextMeta = next?.meta ?? initialMeta;
+
+      setItems(nextItems);
+      setMeta(nextMeta);
+      setError(null);
+      setLoading(false);
+      setLoadingMore(false);
+
+      loadingRef.current = false;
+      loadingMoreRef.current = false;
+
+      clear(next?.keepQuery);
+    },
+    [initialItems, initialMeta, clear],
   );
 
   return {
     items,
     meta,
+
     totalPages,
     hasMore,
+
     loading,
     loadingMore,
     error,
+
     loadPage,
     loadMore,
+    reset,
+
+    clientQueryParams,
+    update,
   };
 };

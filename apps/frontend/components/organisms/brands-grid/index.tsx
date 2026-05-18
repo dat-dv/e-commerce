@@ -9,7 +9,8 @@ import { IPaginationMeta } from "@/utils/request/request.types";
 import DiscoveryCarouselSection from "../discovery-sections";
 import { EmptyState } from "@/components/molecules/empty-space";
 import { SearchInput } from "@/components/molecules/search-input";
-import { useBrandsFilter } from "@/hooks/brands/use-brands-filter";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { brandsUseCase } from "@/domain/brands/use-cases";
 
 interface TopBrandsViewProps {
   brands: TBrand[];
@@ -18,8 +19,36 @@ interface TopBrandsViewProps {
 }
 
 const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
-  const { searchValue, setSearchValue, handleSearchSubmit, isPending } =
-    useBrandsFilter(searchQuery);
+  const {
+    items: brandItems,
+    loadingMore,
+    hasMore,
+    loadMore,
+    clientQueryParams,
+    update,
+  } = usePaginationWithSSRData<
+    TBrand,
+    {
+      page: number;
+      limit: number;
+      search: string;
+    }
+  >({
+    initialItems: brands,
+    initialMeta: meta,
+    params: {
+      page: meta.page,
+      limit: meta.limit,
+      search: searchQuery,
+    },
+    fetchPage: (params) =>
+      brandsUseCase.getTopBrands.execute(
+        params.page,
+        params.limit,
+        params.search,
+      ),
+    getItemKey: (brand) => brand.id,
+  });
 
   return (
     <AppContainer className="flex flex-col gap-12 py-12">
@@ -28,21 +57,33 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
       {/* Premium Search Bar Container */}
       <div className="relative mx-auto w-full max-w-2xl">
         <SearchInput
-          value={searchValue}
-          onChange={setSearchValue}
-          onSearch={handleSearchSubmit}
+          value={clientQueryParams.search}
+          onChange={(value) => {
+            update({
+              search: value,
+            });
+          }}
+          onSearch={(value) => {
+            update({
+              search: value,
+            });
+          }}
           placeholder="Search brands by name..."
-          loading={isPending}
         />
       </div>
 
       {/* Brands Grid Section */}
-      {brands.length > 0 ? (
-        <BrandListGrid brands={brands} meta={meta} searchQuery={searchQuery} />
+      {brandItems.length > 0 ? (
+        <BrandListGrid
+          brands={brandItems}
+          loadingMore={loadingMore}
+          hasMore={hasMore}
+          loadMore={loadMore}
+        />
       ) : (
         <EmptyState
           title="No brands found"
-          description={`We couldn't find any brands matching "${searchValue}". Try adjusting your search query.`}
+          description={`We couldn't find any brands matching "${clientQueryParams.search}". Try adjusting your search query.`}
           icon={Search}
         />
       )}
