@@ -7,7 +7,7 @@ import { ProductImages } from "./product-images";
 import { ProductInfo } from "./product-info";
 import { BrandInfo } from "./brand-info";
 import { DescriptionCategory } from "./description-category";
-import { ReviewsRatings } from "./reviews-ratings";
+import { ReviewsRatings } from "../../molecules/review-rating";
 import { SimilarProducts } from "./similar-products";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 
