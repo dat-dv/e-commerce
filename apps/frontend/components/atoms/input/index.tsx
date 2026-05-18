@@ -14,14 +14,23 @@ import PasswordEye from "./password-eye";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { id, label, error, className, variant = "outline", maxCount, ...rest },
+    {
+      id,
+      label,
+      error,
+      className,
+      variant = "outline",
+      maxCount,
+      value,
+      ...rest
+    },
     ref,
   ) => {
     const isPassword = rest.type === "password";
     const [showPassword, setShowPassword] = useState(false);
     const isDisabled = rest.disabled;
 
-    const valueLength = String(rest.value ?? "").length;
+    const valueLength = String(value ?? "").length;
     const isNearlyFull = maxCount && valueLength >= maxCount * 0.8;
     const isOverLimit = maxCount && valueLength > maxCount;
 
@@ -59,7 +68,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-describedby={error ? `${id}-error` : undefined}
             maxLength={maxCount}
             {...rest}
-            value={rest.value ?? ""}
+            value={value}
             type={isPassword && showPassword ? "text" : rest.type || "text"}
           />
 
