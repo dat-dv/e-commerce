@@ -8,6 +8,7 @@ import { GetProductByIdUseCase } from "./get-product-by-id.use-case";
 import { GetProductsUseCase } from "./get-products.use-case";
 import { GetProductReviewsUseCase } from "./get-product-reviews.use-case";
 import { GetSimilarProductsUseCase } from "./get-similar-products.use-case";
+import { CreateReviewUseCase } from "./create-review.use-case";
 
 const repo = new ProductsRepository(appRequest);
 
@@ -19,5 +20,6 @@ export const productsUseCase = {
   getProductById: new GetProductByIdUseCase(repo),
   getProducts: new GetProductsUseCase(repo),
   getProductReviews: new GetProductReviewsUseCase(repo),
+  createReview: new CreateReviewUseCase(repo),
   getSimilarProducts: new GetSimilarProductsUseCase(repo),
 };

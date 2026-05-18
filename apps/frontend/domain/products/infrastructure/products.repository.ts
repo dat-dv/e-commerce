@@ -10,6 +10,7 @@ import {
   TReview,
   TGetProductsRequest,
   TGetProductReviewsRequest,
+  TCreateReviewRequest,
 } from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
 import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
@@ -126,6 +127,26 @@ export class ProductsRepository implements IProductsRepository {
         page,
         limit,
       }),
+    };
+  }
+
+  async createReview(
+    data: TCreateReviewRequest,
+  ): Promise<ApiResponse<TReview>> {
+    const response = await this.request.post<IReviewResponse>(
+      API_ROUTES.REVIEWS.BASE,
+      {
+        product_id: data.productId,
+        sku_id: data.skuId,
+        rating: data.rating,
+        comment: data.comment,
+        images: data.images,
+      },
+    );
+
+    return {
+      ...response,
+      data: ReviewMapper.toDomain(response.data),
     };
   }
 

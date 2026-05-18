@@ -5,26 +5,35 @@ import {
   TGetProductReviewsRequest,
   TReview,
 } from "@/domain/products/types/products.model";
+import type { useSubmitProductReview } from "@/hooks/products/use-submit-product-review";
+import { ReviewApiError } from "./review-api-error";
 import { ReviewFilterTabs } from "./review-filter-tabs";
 import { ReviewList } from "./review-list";
 import { ReviewRatingSummary } from "./review-rating-summary";
+import { ReviewSubmitForm } from "./review-submit-form";
 
 interface ReviewsRatingsProps {
   reviews: TReview[];
   loadingReviews: boolean;
+  reviewError: string | null;
   averageRating?: number;
   totalReviews?: number;
+  reviewForm: ReturnType<typeof useSubmitProductReview>;
   activeFilter: TGetProductReviewsRequest;
   onFilterChange: (filter: TGetProductReviewsRequest) => void;
+  onRetryReviews: () => void;
 }
 
 export const ReviewsRatings = ({
   reviews,
   loadingReviews,
+  reviewError,
   averageRating = 0,
   totalReviews = 0,
+  reviewForm,
   activeFilter,
   onFilterChange,
+  onRetryReviews,
 }: ReviewsRatingsProps) => {
   const currentPage = activeFilter.page ?? 1;
   const limit = activeFilter.limit ?? 10;
@@ -51,9 +60,21 @@ export const ReviewsRatings = ({
         />
       </div>
 
-      <ReviewList reviews={reviews} loadingReviews={loadingReviews} />
+      <ReviewSubmitForm
+        methods={reviewForm.methods}
+        isAuthenticated={reviewForm.isAuthenticated}
+        isSubmitting={reviewForm.isSubmittingReview}
+        error={reviewForm.submitReviewError}
+        onSubmit={reviewForm.submitReview}
+      />
 
-      {totalPages > 1 && !loadingReviews && (
+      {reviewError ? (
+        <ReviewApiError message={reviewError} onRetry={onRetryReviews} />
+      ) : (
+        <ReviewList reviews={reviews} loadingReviews={loadingReviews} />
+      )}
+
+      {totalPages > 1 && !loadingReviews && !reviewError && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

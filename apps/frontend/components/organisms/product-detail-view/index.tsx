@@ -34,6 +34,9 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     reviews,
     totalReviews,
     loadingReviews,
+    reviewError,
+    refetchReviews,
+    reviewForm,
     reviewFilter,
     setReviewFilter,
     similarProducts,
@@ -95,6 +98,9 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         loadingReviews={loadingReviews}
         averageRating={product.rating}
         totalReviews={totalReviews}
+        reviewError={reviewError}
+        onRetryReviews={refetchReviews}
+        reviewForm={reviewForm}
         activeFilter={reviewFilter}
         onFilterChange={setReviewFilter}
       />

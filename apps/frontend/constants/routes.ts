@@ -60,6 +60,9 @@ export const API_ROUTES = {
     REVIEWS: (id: string) => `/products/${id}/reviews`,
     SIMILAR: (id: string) => `/products/${id}/similar`,
   },
+  REVIEWS: {
+    BASE: "/reviews",
+  },
   PRODUCT_CATEGORIES: {
     BASE: "/product-categories",
     TREE: "/product-categories/tree",

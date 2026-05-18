@@ -63,6 +63,14 @@ export type TGetProductReviewsRequest = {
   sort?: TReviewSort;
 };
 
+export type TCreateReviewRequest = {
+  productId: string;
+  skuId: string;
+  rating: number;
+  comment?: string;
+  images?: string[];
+};
+
 export type TGetProductsRequest = {
   page?: number;
   limit?: number;

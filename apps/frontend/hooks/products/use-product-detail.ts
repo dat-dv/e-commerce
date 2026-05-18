@@ -7,6 +7,7 @@ import {
 import { useSimilarProducts } from "./use-similar-products";
 import { useProductReviews } from "./use-product-reviews";
 import { useProductActions } from "./use-product-actions";
+import { useSubmitProductReview } from "./use-submit-product-review";
 
 export const useProductDetail = (product: TProduct) => {
   const [quantity, setQuantity] = useState(1);
@@ -82,11 +83,22 @@ export const useProductDetail = (product: TProduct) => {
   }, [product.imageUrl, product.skus]);
 
   // 5. Fetch related data using adapter hooks
-  const { reviews, totalReviews, loadingReviews } = useProductReviews(
-    product.id,
-    reviewFilter,
-  );
+  const { reviews, totalReviews, loadingReviews, reviewError, refetchReviews } =
+    useProductReviews(product.id, reviewFilter);
   const { similarProducts, loadingSimilar } = useSimilarProducts(product.id);
+
+  const reviewForm = useSubmitProductReview({
+    productId: product.id,
+    skuId: selectedSku.id,
+    onSubmitted: () => {
+      setReviewFilter((current) => ({
+        ...current,
+        page: 1,
+        sort: "newest",
+      }));
+      refetchReviews();
+    },
+  });
 
   // 6. Action handlers
   const { handleAddToCart, handleBuyNow } = useProductActions(
@@ -115,6 +127,9 @@ export const useProductDetail = (product: TProduct) => {
     reviews,
     totalReviews,
     loadingReviews,
+    reviewError,
+    refetchReviews,
+    reviewForm,
     reviewFilter,
     setReviewFilter,
     similarProducts,

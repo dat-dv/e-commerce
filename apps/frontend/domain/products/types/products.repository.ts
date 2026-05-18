@@ -7,6 +7,7 @@ import {
   TReview,
   TGetProductsRequest,
   TGetProductReviewsRequest,
+  TCreateReviewRequest,
 } from "./products.model";
 
 export interface IProductsRepository {
@@ -37,6 +38,8 @@ export interface IProductsRepository {
     id: string,
     params?: TGetProductReviewsRequest,
   ): Promise<ApiPaginatedResponse<TReview>>;
+
+  createReview(data: TCreateReviewRequest): Promise<ApiResponse<TReview>>;
 
   getSimilarProducts(
     id: string,
