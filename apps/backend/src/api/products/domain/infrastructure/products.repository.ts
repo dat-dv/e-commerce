@@ -6,13 +6,12 @@ import {
   IProductResponse,
   IFlashSaleResponse,
   Review as IReviewResponse,
-  EReviewSort,
 } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from '../../../../../generated/prisma/client';
 import { GetProductsDto } from '../../dto/get-products.dto';
-import { GetProductReviewsDto } from '../../dto/get-product-reviews.dto';
+import { GetProductReviewsDto, PRODUCT_REVIEW_SORT } from '../../dto/get-product-reviews.dto';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -569,7 +568,7 @@ export class ProductsRepository implements IProductsRepository {
     productId: string,
     params: GetProductReviewsDto = {},
   ): Promise<IPaginatedResult<IReviewResponse>> {
-    const { page = 1, limit = 10, rating, has_images, sort = EReviewSort.NEWEST } = params;
+    const { page = 1, limit = 10, rating, has_images, sort = PRODUCT_REVIEW_SORT.NEWEST } = params;
     const where: Prisma.ReviewWhereInput = {
       product_id: productId,
       ...(rating && { rating }),
@@ -581,11 +580,11 @@ export class ProductsRepository implements IProductsRepository {
       }),
     };
     const orderBy: Prisma.ReviewOrderByWithRelationInput =
-      sort === EReviewSort.OLDEST
+      sort === PRODUCT_REVIEW_SORT.OLDEST
         ? { created_at: 'asc' }
-        : sort === EReviewSort.RATING_DESC
+        : sort === PRODUCT_REVIEW_SORT.RATING_DESC
           ? { rating: 'desc' }
-          : sort === EReviewSort.RATING_ASC
+          : sort === PRODUCT_REVIEW_SORT.RATING_ASC
             ? { rating: 'asc' }
             : { created_at: 'desc' };
 

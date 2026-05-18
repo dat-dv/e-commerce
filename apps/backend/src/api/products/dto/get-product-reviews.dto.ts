@@ -1,8 +1,16 @@
-import { EReviewSort, IGetProductReviewsParams } from '@ecommerce/shared';
 import { Transform, Type } from 'class-transformer';
 import { IsBoolean, IsEnum, IsInt, IsOptional, Max, Min } from 'class-validator';
 
-export class GetProductReviewsDto implements IGetProductReviewsParams {
+export const PRODUCT_REVIEW_SORT = {
+  NEWEST: 'newest',
+  OLDEST: 'oldest',
+  RATING_DESC: 'rating_desc',
+  RATING_ASC: 'rating_asc',
+} as const;
+
+type ProductReviewSort = (typeof PRODUCT_REVIEW_SORT)[keyof typeof PRODUCT_REVIEW_SORT];
+
+export class GetProductReviewsDto {
   @IsOptional()
   @Type(() => Number)
   @IsInt()
@@ -33,6 +41,6 @@ export class GetProductReviewsDto implements IGetProductReviewsParams {
   has_images?: boolean;
 
   @IsOptional()
-  @IsEnum(EReviewSort)
-  sort?: EReviewSort = EReviewSort.NEWEST;
+  @IsEnum(PRODUCT_REVIEW_SORT)
+  sort?: ProductReviewSort = PRODUCT_REVIEW_SORT.NEWEST;
 }
