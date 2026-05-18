@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Search } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
+import { useRouter } from "next/navigation";
 
 export default function MissingProduct() {
   const suggestedRoutes = [
@@ -12,6 +13,9 @@ export default function MissingProduct() {
     { label: "View shopping cart", href: APP_ROUTES.CART },
     { label: "Back to homepage", href: APP_ROUTES.HOME },
   ];
+
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] p-6">
       <motion.div
@@ -61,7 +65,7 @@ export default function MissingProduct() {
             Continue Shopping
           </Button>
           <Button
-            onClick={() => window.history.back()}
+            onClick={() => router.back()}
             variant="ghost"
             size="md"
             className="flex-1"

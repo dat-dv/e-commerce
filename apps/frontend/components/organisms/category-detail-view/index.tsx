@@ -5,20 +5,28 @@ import { ProductsHeader } from "@/app/(main)/products/products-header";
 import { ProductsFilterSidebar } from "@/components/organisms/products-view/products-filter-sidebar";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
-import { useCategoryProductsAdapter } from "@/hooks/categories/use-category-products-adapter";
-import { useCategoryProductsStore } from "@/hooks/categories/use-category-products-store";
 import { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useShallow } from "zustand/react/shallow";
-import { CategoryProductsFilterKey } from "@/store/category-products-store/category-products-store.type";
+import {
+  useCategoryProductsFilter,
+  CategoryProductsFilterKey,
+} from "@/hooks/categories/use-category-products-filter";
+import { TProduct } from "@/domain/products/types/products.model";
 
 interface CategoryDetailViewProps {
   categorySlug: string;
+  products: TProduct[];
+  totalProducts: number;
+  totalPages: number;
 }
 
-const NUMERIC_FILTER_KEYS = ["min_price", "max_price", "rating"];
-
-export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
+export function CategoryDetailView({
+  categorySlug,
+  products,
+  totalProducts,
+  totalPages,
+}: CategoryDetailViewProps) {
   const router = useRouter();
 
   const { categories, getCategoryNavigationContext } = useCategoriesStore(
@@ -29,33 +37,18 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
   );
 
   const {
-    products,
-    total,
-    currentPage,
-    totalPages,
-    loading,
-    filterSearch,
-    filterSort,
     filterMinPrice,
     filterMaxPrice,
     filterRating,
-  } = useCategoryProductsStore(
-    useShallow((state) => ({
-      products: state.products,
-      total: state.total,
-      currentPage: state.currentPage,
-      totalPages: state.totalPages,
-      loading: state.loading,
-      filterSearch: state.search,
-      filterSort: state.sort,
-      filterMinPrice: state.min_price,
-      filterMaxPrice: state.max_price,
-      filterRating: state.rating,
-    })),
-  );
-
-  const { applyFilters, changePage, clearFilter, resetFilters } =
-    useCategoryProductsAdapter(categorySlug);
+    filterSort,
+    filterSearch,
+    currentPage,
+    updateFilter,
+    submitSearch,
+    clearFilter,
+    resetFilters,
+    changePage,
+  } = useCategoryProductsFilter();
 
   const { activeCategory, topCategory } = useMemo(
     () => getCategoryNavigationContext(categorySlug),
@@ -64,20 +57,6 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
 
   const displayCategories = topCategory ? [topCategory] : categories;
   const categoryTitle = activeCategory?.name || "Products";
-
-  const updateFilter = (
-    key: CategoryProductsFilterKey,
-    value: string | null,
-  ) => {
-    const parsedValue =
-      value && NUMERIC_FILTER_KEYS.includes(key)
-        ? Number(value)
-        : value || undefined;
-
-    applyFilters({
-      [key]: parsedValue,
-    });
-  };
 
   const navigateToCategory = (slug: string) => {
     const current = new URLSearchParams(window.location.search);
@@ -88,12 +67,6 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
         ? `/categories/${slug}?${queryString}`
         : `/categories/${slug}`,
     );
-  };
-
-  const submitSearch = (value: string) => {
-    applyFilters({
-      search: value.trim() || undefined,
-    });
   };
 
   return (
@@ -112,31 +85,27 @@ export function CategoryDetailView({ categorySlug }: CategoryDetailViewProps) {
             initialSearchValue={filterSearch}
             searchPlaceholder={`Search ${categoryTitle}`}
             onSearchSubmit={submitSearch}
-            minPriceValue={
-              filterMinPrice !== undefined ? String(filterMinPrice) : ""
-            }
-            maxPriceValue={
-              filterMaxPrice !== undefined ? String(filterMaxPrice) : ""
-            }
-            ratingValue={filterRating !== undefined ? String(filterRating) : ""}
+            minPriceValue={filterMinPrice}
+            maxPriceValue={filterMaxPrice}
+            ratingValue={filterRating}
             activeSlug={categorySlug}
           />
         </div>
 
         <ProductsCatalog<CategoryProductsFilterKey>
           products={products}
-          total={total}
+          total={totalProducts}
           currentPage={currentPage}
           totalPages={totalPages}
-          loading={loading}
+          loading={false}
           pageStr={String(currentPage)}
           categoryTitle={categoryTitle}
           appliedFilters={{
             search: filterSearch,
             sort: filterSort ? String(filterSort) : undefined,
-            min_price: filterMinPrice,
-            max_price: filterMaxPrice,
-            rating: filterRating,
+            min_price: filterMinPrice ? Number(filterMinPrice) : undefined,
+            max_price: filterMaxPrice ? Number(filterMaxPrice) : undefined,
+            rating: filterRating ? Number(filterRating) : undefined,
           }}
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}

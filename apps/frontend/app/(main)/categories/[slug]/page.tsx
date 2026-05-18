@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import NotFound from "@/app/not-found";
-import { CategoryProductsProvider } from "@/components/molecules/providers/category-products-provider";
 import { CategoryDetailView } from "@/components/organisms/category-detail-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
@@ -98,22 +97,11 @@ export default async function CategoryProductsPage({
   const meta = isSuccess ? productsRes.data?.meta : undefined;
 
   return (
-    <CategoryProductsProvider
-      initState={{
-        products,
-        total: meta?.total ?? 0,
-        currentPage: query.page,
-        totalPages: meta?.totalPages ?? 1,
-
-        sort: query.sort as unknown as EProductSort,
-        search: query.search,
-
-        min_price: query.min_price,
-        max_price: query.max_price,
-        rating: query.rating,
-      }}
-    >
-      <CategoryDetailView categorySlug={slug} />
-    </CategoryProductsProvider>
+    <CategoryDetailView
+      categorySlug={slug}
+      products={products}
+      totalProducts={meta?.total ?? 0}
+      totalPages={meta?.totalPages ?? 1}
+    />
   );
 }
