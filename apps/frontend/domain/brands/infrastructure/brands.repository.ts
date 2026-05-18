@@ -4,12 +4,18 @@ import {
   ApiListResponse,
 } from "@/utils/request/request.types";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { IBrandResponse, IBrandProductsResponse } from "@ecommerce/shared";
+import {
+  IBrandResponse,
+  IBrandProductsResponse,
+  ICategoryResponse,
+} from "@ecommerce/shared";
 import { IBrandsRepository } from "../types/brands.repository";
 import { BrandMapper } from "./brands.mapper";
 import { API_ROUTES } from "@/constants/routes";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
 import { TProduct } from "@/domain/products/types/products.model";
+import { TCategory } from "@/domain/categories/types/categories.model";
+import { CategoryMapper } from "../../categories/infrastructure/categories.mapper";
 
 export class BrandsRepository implements IBrandsRepository {
   constructor(private request: TRequest) {}
@@ -66,6 +72,17 @@ export class BrandsRepository implements IBrandsRepository {
             items: [],
             meta: { total: 0, page, limit, totalPages: 0 },
           },
+    };
+  }
+
+  async getBrandCategoryTree(slug: string): Promise<ApiResponse<TCategory[]>> {
+    const response = await this.request.get<ICategoryResponse[]>(
+      `${API_ROUTES.BRAND.DETAIL(slug)}/categories`,
+    );
+
+    return {
+      ...response,
+      data: (response.data || []).map((item) => CategoryMapper.toDomain(item)),
     };
   }
 }
