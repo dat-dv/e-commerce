@@ -85,6 +85,7 @@ export class BrandsRepository implements IBrandsRepository {
 
     const trimmedSearch = search?.trim();
     const trimmedCategory = category?.trim();
+    const categoryIds = trimmedCategory ? await this.getDescendantCategoryIds(trimmedCategory) : [];
     const where = {
       brand_id: brand.id,
       deleted_at: null,
@@ -102,9 +103,7 @@ export class BrandsRepository implements IBrandsRepository {
         ? {
             categories: {
               some: {
-                category: {
-                  slug: trimmedCategory,
-                },
+                category_id: { in: categoryIds },
               },
             },
           }
@@ -200,5 +199,29 @@ export class BrandsRepository implements IBrandsRepository {
         })),
       };
     });
+  }
+
+  private async getDescendantCategoryIds(categorySlug: string): Promise<string[]> {
+    const category = await this.prisma.productCategory.findUnique({
+      where: { slug: categorySlug },
+      select: { id: true },
+    });
+
+    if (!category) return [];
+
+    const ids: string[] = [category.id];
+    let currentLevelIds: string[] = [category.id];
+
+    while (currentLevelIds.length > 0) {
+      const children = await this.prisma.productCategory.findMany({
+        where: { parent_id: { in: currentLevelIds } },
+        select: { id: true },
+      });
+
+      currentLevelIds = children.map((c) => c.id);
+      ids.push(...currentLevelIds);
+    }
+
+    return ids;
   }
 }

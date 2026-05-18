@@ -12,6 +12,7 @@ interface IBrandDetailPageProps {
   searchParams: Promise<{
     page?: string;
     q?: string;
+    category?: string;
   }>;
 }
 
@@ -35,7 +36,7 @@ export default async function BrandDetailPage({
   searchParams,
 }: IBrandDetailPageProps) {
   const { slug } = await params;
-  const { page: pageStr, q } = await searchParams;
+  const { page: pageStr, q, category: categorySlug } = await searchParams;
   const currentPage = pageStr ? Math.max(1, parseInt(pageStr, 10)) : 1;
   const searchQuery = q?.trim() || "";
 
@@ -46,6 +47,7 @@ export default async function BrandDetailPage({
       currentPage,
       PAGINATION_LIMITS.DEFAULT,
       searchQuery || undefined,
+      categorySlug || undefined,
     ),
     brandsUseCase.getBrandCategories.execute(slug),
   ]);
@@ -62,8 +64,10 @@ export default async function BrandDetailPage({
       products={productsData.items}
       currentPage={currentPage}
       totalPages={productsData.meta.totalPages}
+      totalProducts={productsData.meta.total}
       searchQuery={searchQuery}
       categories={categories}
+      categorySlug={categorySlug || ""}
     />
   );
 }

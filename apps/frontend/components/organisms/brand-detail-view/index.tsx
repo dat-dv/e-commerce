@@ -12,8 +12,10 @@ interface BrandDetailViewProps {
   products: TProduct[];
   currentPage: number;
   totalPages: number;
+  totalProducts: number;
   searchQuery?: string;
   categories: TCategory[];
+  categorySlug: string;
 }
 
 export function BrandDetailView({
@@ -21,8 +23,10 @@ export function BrandDetailView({
   products,
   currentPage,
   totalPages,
+  totalProducts,
   searchQuery,
   categories,
+  categorySlug,
 }: BrandDetailViewProps) {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -39,7 +43,10 @@ export function BrandDetailView({
           products={products}
           currentPage={currentPage}
           totalPages={totalPages}
+          totalProducts={totalProducts}
           searchQuery={searchQuery}
+          categories={categories}
+          categorySlug={categorySlug}
         />
 
         <DiscoveryCarouselSection />

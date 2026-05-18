@@ -1,20 +1,24 @@
 "use client";
 
-import { Pagination } from "@/components/molecules/pagination";
-import { ProductGrid } from "@/components/molecules/product-grid";
 import { TProduct } from "@/domain/products/types/products.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import EmptyState from "@/components/molecules/empty-space";
-import { Search, X } from "lucide-react";
-import { FormEvent, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { TCategory } from "@/domain/categories/types/categories.model";
+import { ProductsFilterSidebar } from "@/components/organisms/products-view/products-filter-sidebar";
+import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
+import {
+  useBrandProductsFilter,
+  BrandProductsFilterKey,
+} from "@/hooks/brands/use-brand-products-filter";
 
 interface IBrandProductListSection {
   brand: TBrand;
   products: TProduct[];
   currentPage: number;
   totalPages: number;
+  totalProducts: number;
   searchQuery?: string;
+  categories: TCategory[];
+  categorySlug?: string;
 }
 
 export function BrandProductListSection({
@@ -22,40 +26,49 @@ export function BrandProductListSection({
   products,
   currentPage,
   totalPages,
+  totalProducts,
   searchQuery = "",
+  categories,
 }: IBrandProductListSection) {
-  const [query, setQuery] = useState(searchQuery);
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const hasSearch = searchQuery.length > 0;
+  const {
+    filterMinPrice,
+    filterMaxPrice,
+    filterRating,
+    filterSort,
+    categorySlug,
+    updateFilter,
+    navigateToCategory,
+    submitSearch,
+    clearFilter,
+    resetFilters,
+    changePage,
+  } = useBrandProductsFilter();
 
-  const updateSearch = (nextQuery: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    const trimmedQuery = nextQuery.trim();
-
-    if (trimmedQuery) {
-      params.set("q", trimmedQuery);
-    } else {
-      params.delete("q");
+  // Find active category recursively with safety and case-insensitivity
+  const findCategoryBySlug = (
+    cats: TCategory[],
+    slug: string,
+  ): TCategory | undefined => {
+    if (!cats || !slug) return undefined;
+    const targetSlug = slug.toLowerCase().trim();
+    for (const cat of cats) {
+      if (cat.slug.toLowerCase().trim() === targetSlug) {
+        return cat;
+      }
+      if (cat.children && cat.children.length > 0) {
+        const found = findCategoryBySlug(cat.children, slug);
+        if (found) return found;
+      }
     }
-
-    params.set("page", "1");
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    return undefined;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    updateSearch(query);
-  };
-
-  const clearSearch = () => {
-    setQuery("");
-    updateSearch("");
-  };
+  const activeCategory = findCategoryBySlug(categories, categorySlug);
+  const categoryTitle = activeCategory?.name || brand.name;
 
   return (
     <section className="flex flex-col gap-12">
+      {/* Editorial  Banner */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-content/10 pb-12">
         <div className="flex flex-col gap-4">
           <h2 className="text-5xl font-black tracking-tighter text-content uppercase">
@@ -70,61 +83,45 @@ export function BrandProductListSection({
         </p>
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-3 rounded-2xl border border-content/10 bg-surface px-4 py-3 shadow-sm md:flex-row md:items-center"
-      >
-        <div className="flex min-w-0 flex-1 items-center gap-3">
-          <Search size={18} className="shrink-0 text-content/35" />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={`Search ${brand.name} products`}
-            className="min-w-0 flex-1 bg-transparent text-sm font-medium text-content outline-none placeholder:text-content/35"
+      {/* Premium Side-by-Side Filtering Layout (Identical to Category Detail) */}
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <div className="lg:col-span-1">
+          <ProductsFilterSidebar<BrandProductsFilterKey>
+            categories={categories}
+            onFilterChange={updateFilter}
+            onCategoryChange={navigateToCategory}
+            initialSearchValue={searchQuery}
+            searchPlaceholder={`Search ${brand.name}`}
+            onSearchSubmit={submitSearch}
+            minPriceValue={filterMinPrice}
+            maxPriceValue={filterMaxPrice}
+            ratingValue={filterRating}
+            activeSlug={categorySlug}
           />
-          {query ? (
-            <button
-              type="button"
-              onClick={clearSearch}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-content/35 transition-colors hover:bg-content/[0.05] hover:text-content"
-              aria-label="Clear search"
-            >
-              <X size={16} />
-            </button>
-          ) : null}
         </div>
-        <button
-          type="submit"
-          className="h-10 rounded-xl bg-primary px-5 text-xs font-bold uppercase tracking-widest text-white transition-transform active:scale-95"
-        >
-          Search
-        </button>
-      </form>
 
-      {products.length > 0 ? (
-        <div className="flex flex-col gap-12">
-          <ProductGrid products={products} />
-
-          {totalPages > 1 && (
-            <div className="mt-8 flex justify-center">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                queryParam="page"
-              />
-            </div>
-          )}
-        </div>
-      ) : (
-        <EmptyState
-          title={hasSearch ? "No matching products found" : "No products found"}
-          description={
-            hasSearch
-              ? `No ${brand.name} products match "${searchQuery}".`
-              : "No products found in this collection yet."
-          }
+        <ProductsCatalog<BrandProductsFilterKey>
+          products={products}
+          total={totalProducts}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          loading={false}
+          pageStr={String(currentPage)}
+          categoryTitle={categoryTitle}
+          appliedFilters={{
+            search: searchQuery || undefined,
+            sort: filterSort || undefined,
+            min_price: filterMinPrice ? Number(filterMinPrice) : undefined,
+            max_price: filterMaxPrice ? Number(filterMaxPrice) : undefined,
+            rating: filterRating ? Number(filterRating) : undefined,
+            category: activeCategory?.name || undefined,
+          }}
+          onClearFilter={clearFilter}
+          onResetFilters={resetFilters}
+          onPageChange={changePage}
+          onSortChange={(value) => updateFilter("sort", value)}
         />
-      )}
+      </div>
     </section>
   );
 }
