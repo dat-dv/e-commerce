@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import {
   ApiPaginatedResponse,
   IPaginationMeta,
@@ -56,8 +56,6 @@ export const usePaginationWithSSRData = <
     pathname,
   });
 
-  const metaRef = useRef(meta);
-  const clientQueryParamsRef = useRef(clientQueryParams);
   const loadingRef = useRef(false);
   const loadingMoreRef = useRef(false);
 
@@ -74,12 +72,12 @@ export const usePaginationWithSSRData = <
       overrideParams?: Partial<TParams>,
     ): PaginationParams & TParams => {
       return {
-        ...clientQueryParamsRef.current,
+        ...clientQueryParams,
         ...(overrideParams ?? {}),
         ...paginationParams,
       } as PaginationParams & TParams;
     },
-    [],
+    [clientQueryParams],
   );
 
   const appendItems = useCallback(
@@ -119,8 +117,7 @@ export const usePaginationWithSSRData = <
 
       try {
         const nextLimit =
-          Number(overrideParams?.limit ?? clientQueryParamsRef.current.limit) ||
-          1;
+          Number(overrideParams?.limit ?? clientQueryParams.limit) || 1;
 
         const response = await fetchPage(
           buildParams(
@@ -135,7 +132,6 @@ export const usePaginationWithSSRData = <
         if (response.status !== "success") return;
 
         setItems(response.data.items);
-        metaRef.current = response.data.meta;
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
@@ -153,7 +149,7 @@ export const usePaginationWithSSRData = <
         }
       }
     },
-    [buildParams, fetchPage, update],
+    [buildParams, clientQueryParams.limit, fetchPage, update],
   );
 
   const loadMore = useCallback(
@@ -161,10 +157,7 @@ export const usePaginationWithSSRData = <
       overrideParams?: Partial<TParams>,
       options: Pick<LoadPageOptions, "syncQuery"> = {},
     ) => {
-      const currentMeta = metaRef.current;
-      const currentHasMore = currentMeta.page < currentMeta.totalPages;
-
-      if (loadingMoreRef.current || !currentHasMore) return;
+      if (loadingMoreRef.current || !hasMore) return;
 
       const shouldSyncQuery = options.syncQuery ?? true;
 
@@ -176,8 +169,8 @@ export const usePaginationWithSSRData = <
         const response = await fetchPage(
           buildParams(
             {
-              page: currentMeta.page + 1,
-              limit: currentMeta.limit,
+              page: meta.page + 1,
+              limit: meta.limit,
             },
             overrideParams,
           ),
@@ -186,7 +179,6 @@ export const usePaginationWithSSRData = <
         if (response.status !== "success") return;
 
         appendItems(response.data.items);
-        metaRef.current = response.data.meta;
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
@@ -201,7 +193,15 @@ export const usePaginationWithSSRData = <
         setLoadingMore(false);
       }
     },
-    [appendItems, buildParams, fetchPage, update],
+    [
+      appendItems,
+      buildParams,
+      fetchPage,
+      hasMore,
+      meta.limit,
+      meta.page,
+      update,
+    ],
   );
 
   const reset = useCallback(
@@ -214,7 +214,6 @@ export const usePaginationWithSSRData = <
       const nextMeta = next?.meta ?? initialMeta;
 
       setItems(nextItems);
-      metaRef.current = nextMeta;
       setMeta(nextMeta);
       setError(null);
       setLoading(false);

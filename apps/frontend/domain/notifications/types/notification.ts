@@ -1,6 +1,4 @@
-import { ENotificationType } from "@ecommerce/shared";
-
-import { JsonValue } from "@/utils/request/request.types";
+import { ENotificationType, NotificationMetadata } from "@ecommerce/shared";
 
 export interface INotification {
   id: string;
@@ -10,7 +8,7 @@ export interface INotification {
   type: ENotificationType;
   link?: string;
   isRead: boolean;
-  metadata?: Record<string, JsonValue>;
+  metadata?: NotificationMetadata;
   createdAt: string;
   updatedAt: string;
 }

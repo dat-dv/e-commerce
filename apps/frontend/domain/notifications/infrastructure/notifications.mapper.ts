@@ -11,7 +11,7 @@ export class NotificationsMapper {
       type: raw.type,
       link: raw.link || undefined,
       isRead: raw.is_read,
-      metadata: raw.metadata ? JSON.parse(raw.metadata) : undefined,
+      metadata: raw.metadata ?? undefined,
       createdAt: raw.created_at.toString(),
       updatedAt: raw.updated_at.toString(),
     };

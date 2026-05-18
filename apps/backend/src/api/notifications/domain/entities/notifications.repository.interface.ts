@@ -1,7 +1,10 @@
-import { INotificationTokenResponse, INotificationResponse, INotificationListResponse } from '@ecommerce/shared';
+import {
+  INotificationTokenResponse,
+  INotificationResponse,
+  INotificationListResponse,
+  NotificationMetadata,
+} from '@ecommerce/shared';
 import { SaveTokenDto } from '../../dto/save-token.dto';
-
-export type NotificationMetadata = Record<string, string | number | boolean | null>;
 
 export interface CreateNotificationInput {
   title: string;
