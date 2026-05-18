@@ -365,9 +365,22 @@ function OrderResults({
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="block max-w-44 truncate font-mono text-xs text-content/65">
-                        {order.userId}
-                      </span>
+                      {order.user ? (
+                        <div className="flex flex-col">
+                          <span className="font-semibold text-content max-w-44 truncate">
+                            {order.user.firstName || order.user.lastName
+                              ? `${order.user.firstName || ""} ${order.user.lastName || ""}`.trim()
+                              : "No Name"}
+                          </span>
+                          <span className="text-xs text-content/50 max-w-44 truncate">
+                            {order.user.email}
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="block max-w-44 truncate font-mono text-xs text-content/65">
+                          {order.userId}
+                        </span>
+                      )}
                     </td>
                     <td className="px-6 py-4 tabular-nums text-content/65">
                       {dateFormatter.format(new Date(order.createdAt))}
@@ -492,8 +505,16 @@ function OrderCompactCard({
           <dt className="text-xs font-semibold uppercase text-content/45">
             Customer
           </dt>
-          <dd className="mt-1 truncate font-mono text-xs text-content/65">
-            {order.userId}
+          <dd className="mt-1 truncate text-xs text-content/65">
+            {order.user ? (
+              <span className="font-semibold text-content block truncate">
+                {order.user.firstName || order.user.lastName
+                  ? `${order.user.firstName || ""} ${order.user.lastName || ""}`.trim()
+                  : "No Name"}
+              </span>
+            ) : (
+              <span className="font-mono block truncate">{order.userId}</span>
+            )}
           </dd>
         </div>
         <div>

@@ -23,6 +23,14 @@ export class OrderMapper {
       shippingAddress: dto.shipping_address
         ? OrderMapper.toShippingAddressDomain(dto.shipping_address)
         : null,
+      user: dto.user
+        ? {
+            id: dto.user.id,
+            email: dto.user.email,
+            firstName: dto.user.first_name,
+            lastName: dto.user.last_name,
+          }
+        : null,
     };
   }
 

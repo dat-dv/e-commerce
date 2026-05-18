@@ -9,6 +9,12 @@ export interface IOrderItemResponse extends OrderItem {
 export interface IOrderResponse extends Order {
   items?: IOrderItemResponse[];
   shipping_address?: ShippingAddress | null;
+  user?: {
+    id: string;
+    email: string;
+    first_name?: string | null;
+    last_name?: string | null;
+  } | null;
 }
 
 export type IOrderListResponse = IPaginatedResult<IOrderResponse>;

@@ -57,6 +57,12 @@ export interface TOrder {
   updatedAt: string;
   items: TOrderItem[];
   shippingAddress?: TShippingAddress | null;
+  user?: {
+    id: string;
+    email: string;
+    firstName?: string | null;
+    lastName?: string | null;
+  } | null;
 }
 
 export type TPlaceOrderRequest = {
