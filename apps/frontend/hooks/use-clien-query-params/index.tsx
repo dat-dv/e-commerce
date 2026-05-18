@@ -2,7 +2,10 @@
 
 import { useCallback, useState } from "react";
 
-type ExtraParams = Record<string, unknown>;
+type ExtraParams = Record<
+  string,
+  string | number | boolean | null | undefined | object
+>;
 
 interface TUseSearchParamsOptions<T extends ExtraParams> {
   pathname?: string;

@@ -17,8 +17,6 @@ export const AdminGuard = ({ children }: AdminGuardProps) => {
   const router = useRouter();
   const isAdmin = user?.roleName === EDefaultRoleName.ADMIN;
 
-  console.log(user);
-
   if (!isAdmin) {
     return (
       <div className="relative min-h-screen w-full flex items-center justify-center bg-slate-950 overflow-hidden px-4">

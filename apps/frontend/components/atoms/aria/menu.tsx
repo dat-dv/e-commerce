@@ -103,7 +103,7 @@ export function AriaMenuItem({
       isDisabled: disabled,
       onPress: (event) => {
         onClick?.(
-          event as unknown as React.MouseEvent<HTMLButtonElement, MouseEvent>,
+          event as object as React.MouseEvent<HTMLButtonElement, MouseEvent>,
         );
       },
     },

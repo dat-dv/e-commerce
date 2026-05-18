@@ -5,6 +5,7 @@ import { Search, Loader2, X } from "lucide-react";
 import { cn } from "@/utils/cn";
 
 export interface SearchInputProps {
+  id?: string;
   value: string;
   onSearch?: (value: string) => void;
   placeholder?: string;
@@ -15,6 +16,7 @@ export interface SearchInputProps {
 }
 
 export const SearchInput = ({
+  id,
   value,
   onSearch,
   placeholder = "Search...",
@@ -61,6 +63,7 @@ export const SearchInput = ({
       </div>
 
       <input
+        id={id}
         type="text"
         value={localValue}
         onChange={handleChange}

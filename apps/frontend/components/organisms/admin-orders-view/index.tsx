@@ -1,21 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect, useRef, Fragment } from "react";
 import {
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Copy,
   FilterX,
   RefreshCw,
-  Search,
 } from "lucide-react";
 import { toast } from "react-toastify";
+import { AnimatePresence, motion } from "framer-motion";
 import AppContainer from "@/components/atoms/app-container";
 import Loading from "@/components/atoms/loading";
+import Portal from "@/components/atoms/portal";
+import SearchInput from "@/components/molecules/search-input";
+import { parseOrderAttributes } from "@/components/molecules/order-part/order-display.utils";
+import { OrderItemsPanel } from "@/components/molecules/order-part/order-items-panel";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
+import { cn } from "@/utils/cn";
+import type { Key } from "react-aria-components";
 
 const STATUS_OPTIONS = Object.entries(ORDER_STATUS_CONFIG).map(
   ([value, config]) => ({
@@ -37,26 +44,11 @@ const currencyFormatter = new Intl.NumberFormat("vi-VN", {
 
 const numberFormatter = new Intl.NumberFormat("vi-VN");
 
-type AttributeValue = string | number | boolean | null;
-
 const getStatusConfig = (status: number) =>
   ORDER_STATUS_CONFIG[status] || {
     label: "Unknown",
     color: "text-content/50 bg-content/10",
   };
-
-const parseAttributes = (attributes?: string | null) => {
-  if (!attributes) return null;
-
-  try {
-    const parsed = JSON.parse(attributes) as Record<string, AttributeValue>;
-    return Object.entries(parsed)
-      .map(([key, value]) => `${key}: ${String(value)}`)
-      .join(" | ");
-  } catch {
-    return attributes;
-  }
-};
 
 const getOrderPreview = (order: TOrder) => {
   const firstItem = order.items[0];
@@ -65,7 +57,7 @@ const getOrderPreview = (order: TOrder) => {
   return {
     image: snap?.sku?.image_url || "/images/placeholder.png",
     name: snap?.sku?.product?.name || "Product",
-    attributes: parseAttributes(snap?.sku?.attributes),
+    attributes: parseOrderAttributes(snap?.sku?.attributes),
     extraCount: Math.max(order.items.length - 1, 0),
     quantity: order.items.reduce((total, item) => total + item.quantity, 0),
   };
@@ -88,6 +80,9 @@ export function AdminOrdersView() {
   } = useAdminOrders({ initialLimit: 10 });
 
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [expandedOrderIds, setExpandedOrderIds] = useState<Set<Key>>(
+    () => new Set(),
+  );
   const hasFilters = selectedStatuses.length > 0 || search.trim().length > 0;
 
   const totalLabel = useMemo(() => {
@@ -106,20 +101,41 @@ export function AdminOrdersView() {
     setUpdatingId(null);
   };
 
+  const handleExpandedToggle = (orderId: string) => {
+    setExpandedOrderIds((current) => {
+      const next = new Set(current);
+
+      if (next.has(orderId)) {
+        next.delete(orderId);
+      } else {
+        next.add(orderId);
+      }
+
+      return next;
+    });
+  };
+
   return (
-    <main className="min-h-screen bg-surface py-6 text-content">
-      <AppContainer size="2xl" className="flex flex-col gap-6">
-        <header className="flex flex-col gap-4 border-b border-content/10 pb-5 md:flex-row md:items-end md:justify-between">
+    <main className="relative min-h-screen bg-surface py-8 text-content overflow-hidden">
+      {/* Premium background radial glows */}
+      <div className="pointer-events-none absolute -top-40 -right-40 -z-10 size-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -left-40 -z-10 size-96 rounded-full bg-primary/5 blur-3xl" />
+
+      <AppContainer size="2xl" className="flex flex-col gap-8">
+        <header className="flex flex-col gap-4 border-b border-content/[0.08] pb-6 md:flex-row md:items-end md:justify-between">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase text-content/45">
-              Admin
-            </p>
-            <h1 className="mt-1 text-2xl font-bold text-content text-balance">
-              Orders
+            <div className="flex items-center gap-2">
+              <span className="inline-flex size-2 rounded-full bg-primary animate-pulse" />
+              <p className="text-xs font-bold uppercase tracking-wider text-primary/80">
+                Admin Center
+              </p>
+            </div>
+            <h1 className="mt-1 text-3xl font-extrabold text-content tracking-tight">
+              Order Fulfillment
             </h1>
-            <p className="mt-1 text-sm text-content/60">
-              Review orders, filter operational queues, and update fulfillment
-              status.
+            <p className="mt-2 text-sm text-content/50 max-w-xl">
+              Track multi-channel purchases, manage processing operational
+              queues, and update order statuses smoothly.
             </p>
           </div>
 
@@ -127,61 +143,57 @@ export function AdminOrdersView() {
             type="button"
             onClick={refresh}
             disabled={loading}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-content/15 px-3 text-sm font-semibold text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-content/10 bg-surface/50 backdrop-blur-md px-4 text-sm font-semibold text-content transition-all duration-200 hover:bg-content/5 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <RefreshCw
               aria-hidden="true"
-              className={loading ? "size-4 animate-spin" : "size-4"}
+              className={
+                loading
+                  ? "size-4 animate-spin text-primary"
+                  : "size-4 opacity-75"
+              }
             />
-            Refresh
+            Refresh Queues
           </button>
         </header>
 
         <section
           aria-label="Order Filters"
-          className="flex flex-col gap-4 border-b border-content/10 pb-5"
+          className="flex flex-col gap-6 border-b border-content/[0.08] pb-6"
         >
-          <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div className="min-w-0">
               <label
                 htmlFor="admin-order-search"
-                className="mb-1.5 block text-xs font-semibold uppercase text-content/45"
+                className="mb-2.5 block text-xs font-bold uppercase tracking-wider text-content/40"
               >
                 Search Orders
               </label>
-              <div className="relative">
-                <Search
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-content/35"
-                />
-                <input
-                  id="admin-order-search"
-                  name="admin-order-search"
-                  type="search"
-                  autoComplete="off"
-                  placeholder="Order ID, email, customer…"
-                  value={search}
-                  onChange={(event) => handleSearchChange(event.target.value)}
-                  className="h-10 w-full rounded-md border border-content/15 bg-surface pl-9 pr-3 text-sm text-content placeholder:text-content/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                />
-              </div>
+              <SearchInput
+                id="admin-order-search"
+                value={search}
+                onSearch={handleSearchChange}
+                placeholder="Filter by Order ID, customer name or phone..."
+                loading={loading}
+                className="w-full bg-surface/40 border border-content/10 backdrop-blur-md focus-within:border-primary/30"
+              />
             </div>
 
             {hasFilters && (
               <button
                 type="button"
                 onClick={clearFilters}
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-content/15 px-3 text-sm font-semibold text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-transparent bg-rose-500/10 px-4 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-500/20 hover:scale-[1.02] focus-visible:outline-none"
               >
                 <FilterX aria-hidden="true" className="size-4" />
-                Clear Filters
+                Clear Active Filters
               </button>
             )}
           </div>
 
           <fieldset className="min-w-0">
-            <legend className="mb-2 text-xs font-semibold uppercase text-content/45">
-              Status
+            <legend className="mb-2.5 text-xs font-bold uppercase tracking-wider text-content/40">
+              Fulfillment Status Filters
             </legend>
             <div className="flex flex-wrap gap-2">
               {STATUS_OPTIONS.map((status) => {
@@ -192,12 +204,19 @@ export function AdminOrdersView() {
                     type="button"
                     aria-pressed={isSelected}
                     onClick={() => handleStatusFilterToggle(status.value)}
-                    className={
+                    className={cn(
+                      "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
                       isSelected
-                        ? "rounded-md border border-primary bg-primary px-3 py-2 text-xs font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                        : "rounded-md border border-content/15 px-3 py-2 text-xs font-semibold text-content/70 hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                    }
+                        ? "border-transparent bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-2 ring-primary/20"
+                        : "border-content/10 bg-surface/40 backdrop-blur-md text-content/65 hover:bg-content/5 hover:border-content/20",
+                    )}
                   >
+                    <span
+                      className={cn(
+                        "size-1.5 rounded-full bg-current",
+                        isSelected ? "bg-white" : "opacity-60",
+                      )}
+                    />
                     {status.label}
                   </button>
                 );
@@ -231,8 +250,11 @@ export function AdminOrdersView() {
           ) : (
             <OrderResults
               orders={orders}
+              page={page}
               updatingId={updatingId}
+              expandedOrderIds={expandedOrderIds}
               onCopy={copyToClipboard}
+              onExpandedToggle={handleExpandedToggle}
               onStatusUpdate={handleStatusUpdate}
             />
           )}
@@ -279,51 +301,109 @@ function EmptyOrders({
 
 function OrderResults({
   orders,
+  page,
   updatingId,
+  expandedOrderIds,
   onCopy,
+  onExpandedToggle,
   onStatusUpdate,
 }: {
   orders: TOrder[];
+  page: number;
   updatingId: string | null;
+  expandedOrderIds: Set<Key>;
   onCopy: (text: string) => void;
+  onExpandedToggle: (orderId: string) => void;
   onStatusUpdate: (orderId: string, newStatus: number) => void;
 }) {
   return (
     <>
-      <div className="hidden overflow-x-auto rounded-md border border-content/10 lg:block">
-        <table className="min-w-full divide-y divide-content/10 text-sm">
-          <thead className="bg-content/[0.03] text-left text-xs font-semibold uppercase text-content/45">
-            <tr>
-              <th scope="col" className="px-4 py-3">
-                Order
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Item Preview
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Customer
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Date
-              </th>
-              <th scope="col" className="px-4 py-3 text-right">
-                Total
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Status
-              </th>
+      <div className="hidden overflow-x-auto rounded-xl border border-content/[0.06] bg-surface/40 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] lg:block">
+        <table className="w-full border-collapse text-left text-sm text-content">
+          <thead>
+            <tr className="border-b border-content/[0.06] bg-content/[0.02] text-xs font-semibold uppercase tracking-wider text-content/45">
+              <th className="px-6 py-4 text-center w-16">STT</th>
+              <th className="px-6 py-4">Order ID</th>
+              <th className="px-6 py-4">Customer</th>
+              <th className="px-6 py-4">Date</th>
+              <th className="px-6 py-4 text-right">Total</th>
+              <th className="px-6 py-4 text-center">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-content/10">
-            {orders.map((order) => (
-              <OrderTableRow
-                key={order.id}
-                order={order}
-                updatingId={updatingId}
-                onCopy={onCopy}
-                onStatusUpdate={onStatusUpdate}
-              />
-            ))}
+          <tbody className="divide-y divide-content/[0.06]">
+            {orders.map((order, index) => {
+              const isExpanded = expandedOrderIds.has(order.id);
+              const isUpdating = updatingId === order.id;
+
+              return (
+                <Fragment key={order.id}>
+                  <tr
+                    className={cn(
+                      "transition-colors duration-150 hover:bg-content/[0.015] align-middle",
+                      isExpanded && "bg-content/[0.005]",
+                    )}
+                  >
+                    <td className="px-6 py-4 text-center text-content/50 font-medium font-mono text-xs w-16 border-r border-content/[0.03]">
+                      {(page - 1) * 10 + index + 1}
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => onExpandedToggle(order.id)}
+                          className="inline-flex size-6 items-center justify-center rounded-md text-content/50 transition-colors hover:bg-content/5 hover:text-content focus-visible:outline-none"
+                        >
+                          <ChevronRight
+                            aria-hidden="true"
+                            className={cn(
+                              "size-4 transition-transform duration-200",
+                              isExpanded && "rotate-90",
+                            )}
+                          />
+                        </button>
+                        <OrderIdCell orderId={order.id} onCopy={onCopy} />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className="block max-w-44 truncate font-mono text-xs text-content/65">
+                        {order.userId}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 tabular-nums text-content/65">
+                      {dateFormatter.format(new Date(order.createdAt))}
+                    </td>
+                    <td className="px-6 py-4 text-right font-semibold tabular-nums text-content">
+                      {currencyFormatter.format(order.totalAmount)}
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <StatusDropdown
+                        orderId={order.id}
+                        status={order.status}
+                        disabled={isUpdating}
+                        onStatusUpdate={onStatusUpdate}
+                      />
+                    </td>
+                  </tr>
+                  {isExpanded && (
+                    <tr className="bg-content/[0.005]">
+                      <td colSpan={6} className="p-3 bg-content/[0.01]">
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-3 pt-1">
+                            <OrderItemsPanel items={order.items} />
+                          </div>
+                        </motion.div>
+                      </td>
+                    </tr>
+                  )}
+                </Fragment>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -334,7 +414,9 @@ function OrderResults({
             key={order.id}
             order={order}
             updatingId={updatingId}
+            isExpanded={expandedOrderIds.has(order.id)}
             onCopy={onCopy}
+            onExpandedToggle={onExpandedToggle}
             onStatusUpdate={onStatusUpdate}
           />
         ))}
@@ -343,75 +425,26 @@ function OrderResults({
   );
 }
 
-function OrderTableRow({
-  order,
-  updatingId,
-  onCopy,
-  onStatusUpdate,
-}: {
-  order: TOrder;
-  updatingId: string | null;
-  onCopy: (text: string) => void;
-  onStatusUpdate: (orderId: string, newStatus: number) => void;
-}) {
-  const preview = getOrderPreview(order);
-  const status = getStatusConfig(order.status);
-  const isUpdating = updatingId === order.id;
-
-  return (
-    <tr className="align-middle hover:bg-content/[0.025]">
-      <td className="px-4 py-4">
-        <OrderIdCell orderId={order.id} onCopy={onCopy} />
-      </td>
-      <td className="px-4 py-4">
-        <OrderPreview preview={preview} />
-      </td>
-      <td className="px-4 py-4">
-        <span className="block max-w-44 truncate font-mono text-xs text-content/65">
-          {order.userId}
-        </span>
-      </td>
-      <td className="px-4 py-4 tabular-nums text-content/65">
-        {dateFormatter.format(new Date(order.createdAt))}
-      </td>
-      <td className="px-4 py-4 text-right font-semibold tabular-nums text-content">
-        {currencyFormatter.format(order.totalAmount)}
-      </td>
-      <td className="px-4 py-4">
-        <StatusSelect
-          id={`status-${order.id}`}
-          orderId={order.id}
-          status={order.status}
-          disabled={isUpdating}
-          onStatusUpdate={onStatusUpdate}
-        />
-        <span
-          className={`ml-2 inline-flex rounded-full px-2 py-1 text-xs font-semibold ${status.color}`}
-        >
-          {isUpdating ? "Updating…" : status.label}
-        </span>
-      </td>
-    </tr>
-  );
-}
-
 function OrderCompactCard({
   order,
   updatingId,
+  isExpanded,
   onCopy,
+  onExpandedToggle,
   onStatusUpdate,
 }: {
   order: TOrder;
   updatingId: string | null;
+  isExpanded: boolean;
   onCopy: (text: string) => void;
+  onExpandedToggle: (orderId: string) => void;
   onStatusUpdate: (orderId: string, newStatus: number) => void;
 }) {
   const preview = getOrderPreview(order);
-  const status = getStatusConfig(order.status);
   const isUpdating = updatingId === order.id;
 
   return (
-    <article className="rounded-md border border-content/10 p-4">
+    <article className="rounded-xl border border-content/[0.06] bg-surface/40 backdrop-blur-md p-5 shadow-sm hover:shadow-md transition-all duration-200">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase text-content/45">
@@ -419,16 +452,40 @@ function OrderCompactCard({
           </p>
           <OrderIdCell orderId={order.id} onCopy={onCopy} />
         </div>
-        <span
-          className={`shrink-0 rounded-full px-2 py-1 text-xs font-semibold ${status.color}`}
-        >
-          {isUpdating ? "Updating…" : status.label}
-        </span>
+        <StatusDropdown
+          orderId={order.id}
+          status={order.status}
+          disabled={isUpdating}
+          onStatusUpdate={onStatusUpdate}
+        />
       </div>
 
       <div className="mt-4">
         <OrderPreview preview={preview} />
       </div>
+
+      <button
+        type="button"
+        aria-expanded={isExpanded}
+        onClick={() => onExpandedToggle(order.id)}
+        className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-md border border-content/15 text-sm font-semibold text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+      >
+        <ChevronDown
+          aria-hidden="true"
+          className={
+            isExpanded
+              ? "size-4 rotate-180 transition-transform"
+              : "size-4 transition-transform"
+          }
+        />
+        {isExpanded ? "Hide Items" : `Show ${order.items.length} Items`}
+      </button>
+
+      {isExpanded && (
+        <div className="mt-3">
+          <OrderItemsPanel items={order.items} compact />
+        </div>
+      )}
 
       <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
         <div>
@@ -456,17 +513,6 @@ function OrderCompactCard({
           </dd>
         </div>
       </dl>
-
-      <div className="mt-4">
-        <StatusSelect
-          id={`mobile-status-${order.id}`}
-          orderId={order.id}
-          status={order.status}
-          disabled={isUpdating}
-          onStatusUpdate={onStatusUpdate}
-          fullWidth
-        />
-      </div>
     </article>
   );
 }
@@ -522,53 +568,157 @@ function OrderPreview({
   );
 }
 
-function StatusSelect({
-  id,
+function StatusDropdown({
   orderId,
   status,
   disabled,
   fullWidth = false,
   onStatusUpdate,
 }: {
-  id: string;
   orderId: string;
   status: number;
   disabled: boolean;
   fullWidth?: boolean;
   onStatusUpdate: (orderId: string, newStatus: number) => void;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState<{
+    top: number;
+    left: number;
+    width: number;
+  } | null>(null);
+
+  const statusConfig = getStatusConfig(status);
+
+  const updateCoords = () => {
+    if (triggerRef.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      setCoords({
+        top: rect.bottom + window.scrollY + 6,
+        left: rect.left + window.scrollX,
+        width: Math.max(rect.width, 180),
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      updateCoords();
+      window.addEventListener("resize", updateCoords);
+      window.addEventListener("scroll", updateCoords, true);
+    }
+    return () => {
+      window.removeEventListener("resize", updateCoords);
+      window.removeEventListener("scroll", updateCoords, true);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   return (
     <>
-      <label
-        className={
-          fullWidth
-            ? "mb-1.5 block text-xs font-semibold uppercase text-content/45"
-            : "sr-only"
-        }
-        htmlFor={id}
-      >
-        Status
-      </label>
-      <select
-        id={id}
-        name={id}
-        value={status}
+      <button
+        ref={triggerRef}
+        type="button"
         disabled={disabled}
-        onChange={(event) =>
-          onStatusUpdate(orderId, Number(event.target.value))
-        }
-        className={
-          fullWidth
-            ? "h-10 w-full rounded-md border border-content/15 bg-surface px-3 text-sm text-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-50"
-            : "h-9 min-w-36 rounded-md border border-content/15 bg-surface px-2 text-sm text-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-50"
-        }
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={cn(
+          "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+          statusConfig.color,
+          disabled
+            ? "opacity-50 cursor-not-allowed"
+            : "cursor-pointer hover:scale-[1.03] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-transparent",
+          fullWidth &&
+            "w-full h-10 px-3 justify-between bg-surface border border-content/10 rounded-md",
+        )}
       >
-        {STATUS_OPTIONS.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+        <div className="flex items-center gap-1.5 min-w-0">
+          <span className="relative flex size-1.5 shrink-0 rounded-full bg-current" />
+          <span className="truncate">{statusConfig.label}</span>
+        </div>
+        {disabled ? (
+          <RefreshCw className="size-3 animate-spin opacity-60 shrink-0" />
+        ) : (
+          <ChevronDown
+            className={cn(
+              "size-3 opacity-60 transition-transform duration-200 shrink-0",
+              isOpen && "rotate-180",
+            )}
+          />
+        )}
+      </button>
+
+      <AnimatePresence>
+        {isOpen && coords && (
+          <Portal>
+            <motion.div
+              ref={dropdownRef}
+              initial={{ opacity: 0, scale: 0.95, y: -4 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -4 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                top: coords.top,
+                left: coords.left,
+                minWidth: coords.width,
+              }}
+              className="z-[99999] rounded-xl border border-content/[0.08] bg-surface/95 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] flex flex-col gap-1"
+            >
+              {STATUS_OPTIONS.map((option) => {
+                const config = getStatusConfig(option.value);
+                const isSelected = option.value === status;
+
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => {
+                      onStatusUpdate(orderId, option.value);
+                      setIsOpen(false);
+                    }}
+                    className={cn(
+                      "w-full text-left flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all duration-150 hover:bg-content/[0.04]",
+                      isSelected
+                        ? "text-primary bg-primary/[0.05]"
+                        : "text-content/75 hover:text-content",
+                    )}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span
+                        className={cn(
+                          "size-1.5 shrink-0 rounded-full",
+                          isSelected ? "bg-primary" : "bg-content/30",
+                        )}
+                      />
+                      <span className="truncate">{config.label}</span>
+                    </div>
+                    {isSelected && (
+                      <span className="size-1 bg-primary rounded-full shrink-0" />
+                    )}
+                  </button>
+                );
+              })}
+            </motion.div>
+          </Portal>
+        )}
+      </AnimatePresence>
     </>
   );
 }

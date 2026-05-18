@@ -10,7 +10,10 @@ type PaginationParams = {
   limit: number;
 };
 
-type ExtraParams = Record<string, unknown>;
+type ExtraParams = Record<
+  string,
+  string | number | boolean | null | undefined | object
+>;
 
 type LoadPageOptions = {
   firstLoad?: boolean;
@@ -135,7 +138,7 @@ export const usePaginationWithSSRData = <
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
-          update((response.data.meta || {}) as unknown as TParams);
+          update((response.data.meta || {}) as object as TParams);
         }
       } catch (error) {
         setError(
@@ -182,7 +185,7 @@ export const usePaginationWithSSRData = <
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
-          update((response.data.meta || {}) as unknown as TParams);
+          update((response.data.meta || {}) as object as TParams);
         }
       } catch (error) {
         setError(

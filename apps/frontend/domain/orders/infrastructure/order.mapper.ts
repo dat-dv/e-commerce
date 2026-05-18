@@ -27,7 +27,7 @@ export class OrderMapper {
   }
 
   static toOrderItemDomain(dto: IOrderItemResponse): TOrderItem {
-    const snapshot = (dto.snapshot as unknown as IOrderItemSnapshot) || null;
+    const snapshot = (dto.snapshot as object as IOrderItemSnapshot) || null;
     const skuSnap = snapshot?.sku;
 
     return {

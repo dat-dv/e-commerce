@@ -75,7 +75,7 @@ export class GetOrdersByAdminDto implements IGetOrdersByAdminRequest {
   })
   @IsOptional()
   @IsEnum(ESortValue)
-  sort_order: ESortValue = ESortValue.DESC;
+  sort_order: ESortValue;
 
   @ApiPropertyOptional()
   @IsOptional()

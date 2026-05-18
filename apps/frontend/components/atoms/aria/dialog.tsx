@@ -10,6 +10,7 @@ import {
   useOverlay,
   usePreventScroll,
 } from "react-aria";
+import type { HTMLMotionProps } from "framer-motion";
 
 interface AriaDialogContextValue {
   panelProps: React.HTMLAttributes<HTMLDivElement>;
@@ -34,6 +35,29 @@ export function AriaDialog({
   isOpen,
   onClose,
 }: AriaDialogProps) {
+  if (!isOpen) return null;
+
+  return (
+    <OverlayContainer>
+      <AriaDialogContent
+        className={className}
+        isDismissable={isDismissable}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        {children}
+      </AriaDialogContent>
+    </OverlayContainer>
+  );
+}
+
+function AriaDialogContent({
+  children,
+  className,
+  isDismissable,
+  isOpen,
+  onClose,
+}: AriaDialogProps & { isDismissable: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { overlayProps, underlayProps } = useOverlay(
     {
@@ -47,8 +71,6 @@ export function AriaDialog({
   const { dialogProps, titleProps } = useDialog({}, ref);
 
   usePreventScroll({ isDisabled: !isOpen });
-
-  if (!isOpen) return null;
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
     underlayProps.onMouseDown?.(event);
@@ -64,32 +86,35 @@ export function AriaDialog({
   };
 
   return (
-    <OverlayContainer>
-      <div
-        {...underlayProps}
-        className={`${className ?? ""} fixed inset-0`}
-        onMouseDown={handleMouseDown}
-      >
-        <FocusScope contain restoreFocus autoFocus>
-          <AriaDialogContext.Provider
-            value={{
-              panelProps: mergeProps(overlayProps, dialogProps, modalProps),
-              panelRef: ref,
-              titleProps,
-            }}
-          >
-            {children}
-          </AriaDialogContext.Provider>
-        </FocusScope>
-      </div>
-    </OverlayContainer>
+    <div
+      {...underlayProps}
+      className={`${className ?? ""} fixed inset-0`}
+      onMouseDown={handleMouseDown}
+    >
+      <FocusScope contain restoreFocus autoFocus>
+        <AriaDialogContext.Provider
+          value={{
+            panelProps: mergeProps(overlayProps, dialogProps, modalProps),
+            panelRef: ref,
+            titleProps,
+          }}
+        >
+          {children}
+        </AriaDialogContext.Provider>
+      </FocusScope>
+    </div>
   );
 }
 
-interface AriaDialogPanelProps extends React.HTMLAttributes<HTMLDivElement> {
+type MotionDivProps = Pick<
+  HTMLMotionProps<"div">,
+  "animate" | "exit" | "initial" | "transition"
+>;
+
+interface AriaDialogPanelProps
+  extends React.HTMLAttributes<HTMLDivElement>, MotionDivProps {
   // Framer Motion panels need to render as motion.div while keeping aria props.
   as?: React.ElementType;
-  [key: string]: unknown;
 }
 
 export function AriaDialogPanel({

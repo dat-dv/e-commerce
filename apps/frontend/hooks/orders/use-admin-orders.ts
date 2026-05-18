@@ -103,7 +103,7 @@ export const useAdminOrders = ({
         }
         return false;
       } catch (error) {
-        console.error("Failed to update order status:", error);
+        console.log("Failed to update order status:", error);
         toast.error("Cập nhật trạng thái đơn hàng thất bại. Vui lòng thử lại!");
         return false;
       } finally {
