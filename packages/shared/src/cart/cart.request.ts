@@ -1,4 +1,3 @@
-
 export interface IAddToCartRequest {
   sku_id: string;
   quantity: number;

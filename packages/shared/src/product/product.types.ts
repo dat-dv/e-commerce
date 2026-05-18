@@ -1,5 +1,3 @@
-
-
 export enum EProductStatus {
   DRAFT = 0,
   ACTIVE = 1,

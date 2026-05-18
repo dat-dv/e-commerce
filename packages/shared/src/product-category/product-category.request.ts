@@ -1,4 +1,3 @@
-
 export interface ICreateCategoryRequest {
   slug: string;
   parent_id?: string;

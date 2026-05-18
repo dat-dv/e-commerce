@@ -1,4 +1,3 @@
-
 export interface IGetTopBrandsRequest {
   page?: number;
   limit?: number;
