@@ -409,6 +409,8 @@ export const ModelName = {
   NotificationToken: 'NotificationToken',
   Order: 'Order',
   OrderItem: 'OrderItem',
+  OrderReturn: 'OrderReturn',
+  OrderReturnImage: 'OrderReturnImage',
   PasswordResetToken: 'PasswordResetToken',
   Product: 'Product',
   Sku: 'Sku',
@@ -437,7 +439,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "helpContactSubmission" | "helpContactSubmissionImage" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
+    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "helpContactSubmission" | "helpContactSubmissionImage" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "orderReturn" | "orderReturnImage" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2291,6 +2293,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    OrderReturn: {
+      payload: Prisma.$OrderReturnPayload<ExtArgs>
+      fields: Prisma.OrderReturnFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrderReturnFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrderReturnFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>
+        }
+        findFirst: {
+          args: Prisma.OrderReturnFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrderReturnFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>
+        }
+        findMany: {
+          args: Prisma.OrderReturnFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>[]
+        }
+        create: {
+          args: Prisma.OrderReturnCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>
+        }
+        createMany: {
+          args: Prisma.OrderReturnCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrderReturnCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>[]
+        }
+        delete: {
+          args: Prisma.OrderReturnDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>
+        }
+        update: {
+          args: Prisma.OrderReturnUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrderReturnDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrderReturnUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrderReturnUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrderReturnUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnPayload>
+        }
+        aggregate: {
+          args: Prisma.OrderReturnAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrderReturn>
+        }
+        groupBy: {
+          args: Prisma.OrderReturnGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrderReturnGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrderReturnCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrderReturnCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrderReturnImage: {
+      payload: Prisma.$OrderReturnImagePayload<ExtArgs>
+      fields: Prisma.OrderReturnImageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrderReturnImageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrderReturnImageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>
+        }
+        findFirst: {
+          args: Prisma.OrderReturnImageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrderReturnImageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>
+        }
+        findMany: {
+          args: Prisma.OrderReturnImageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>[]
+        }
+        create: {
+          args: Prisma.OrderReturnImageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>
+        }
+        createMany: {
+          args: Prisma.OrderReturnImageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrderReturnImageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>[]
+        }
+        delete: {
+          args: Prisma.OrderReturnImageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>
+        }
+        update: {
+          args: Prisma.OrderReturnImageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>
+        }
+        deleteMany: {
+          args: Prisma.OrderReturnImageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrderReturnImageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrderReturnImageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>[]
+        }
+        upsert: {
+          args: Prisma.OrderReturnImageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrderReturnImagePayload>
+        }
+        aggregate: {
+          args: Prisma.OrderReturnImageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrderReturnImage>
+        }
+        groupBy: {
+          args: Prisma.OrderReturnImageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrderReturnImageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrderReturnImageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrderReturnImageCountAggregateOutputType> | number
+        }
+      }
+    }
     PasswordResetToken: {
       payload: Prisma.$PasswordResetTokenPayload<ExtArgs>
       fields: Prisma.PasswordResetTokenFieldRefs
@@ -3600,6 +3750,30 @@ export const OrderItemScalarFieldEnum = {
 export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
 
 
+export const OrderReturnScalarFieldEnum = {
+  id: 'id',
+  order_id: 'order_id',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  created_by_id: 'created_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type OrderReturnScalarFieldEnum = (typeof OrderReturnScalarFieldEnum)[keyof typeof OrderReturnScalarFieldEnum]
+
+
+export const OrderReturnImageScalarFieldEnum = {
+  id: 'id',
+  order_return_id: 'order_return_id',
+  image_id: 'image_id',
+  created_at: 'created_at'
+} as const
+
+export type OrderReturnImageScalarFieldEnum = (typeof OrderReturnImageScalarFieldEnum)[keyof typeof OrderReturnImageScalarFieldEnum]
+
+
 export const PasswordResetTokenScalarFieldEnum = {
   id: 'id',
   token: 'token',
@@ -4005,6 +4179,8 @@ export type GlobalOmitConfig = {
   notificationToken?: Prisma.NotificationTokenOmit
   order?: Prisma.OrderOmit
   orderItem?: Prisma.OrderItemOmit
+  orderReturn?: Prisma.OrderReturnOmit
+  orderReturnImage?: Prisma.OrderReturnImageOmit
   passwordResetToken?: Prisma.PasswordResetTokenOmit
   product?: Prisma.ProductOmit
   sku?: Prisma.SkuOmit

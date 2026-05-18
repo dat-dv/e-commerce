@@ -76,6 +76,8 @@ export const ModelName = {
   NotificationToken: 'NotificationToken',
   Order: 'Order',
   OrderItem: 'OrderItem',
+  OrderReturn: 'OrderReturn',
+  OrderReturnImage: 'OrderReturnImage',
   PasswordResetToken: 'PasswordResetToken',
   Product: 'Product',
   Sku: 'Sku',
@@ -413,6 +415,30 @@ export const OrderItemScalarFieldEnum = {
 } as const
 
 export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
+
+
+export const OrderReturnScalarFieldEnum = {
+  id: 'id',
+  order_id: 'order_id',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  created_by_id: 'created_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type OrderReturnScalarFieldEnum = (typeof OrderReturnScalarFieldEnum)[keyof typeof OrderReturnScalarFieldEnum]
+
+
+export const OrderReturnImageScalarFieldEnum = {
+  id: 'id',
+  order_return_id: 'order_return_id',
+  image_id: 'image_id',
+  created_at: 'created_at'
+} as const
+
+export type OrderReturnImageScalarFieldEnum = (typeof OrderReturnImageScalarFieldEnum)[keyof typeof OrderReturnImageScalarFieldEnum]
 
 
 export const PasswordResetTokenScalarFieldEnum = {

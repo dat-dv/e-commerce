@@ -33,7 +33,6 @@ export class CancelOrderUseCase {
     }
 
     const result = await this.prisma.$transaction(async (tx) => {
-      // 1. Cập nhật trạng thái đơn hàng
       const updatedOrder = await tx.order.update({
         where: { id: orderId },
         data: { status: EOrderStatus.CANCELLED },

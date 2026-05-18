@@ -28,6 +28,7 @@ model User {
   favorite_categories      UserFavoriteCategory[]
   favorite_products        UserFavoriteProduct[]
   help_contact_submissions HelpContactSubmission[]
+  order_returns            OrderReturn[]
 
   role_id String?
   role    Role?   @relation(fields: [role_id], references: [id])

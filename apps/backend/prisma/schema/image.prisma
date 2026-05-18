@@ -17,6 +17,7 @@ model Image {
   brand_logo   Brand? @relation("BrandLogo")
   brand_banner Brand? @relation("BrandBanner")
   help_contact_submission_images HelpContactSubmissionImage[]
+  order_return_images            OrderReturnImage[]
 
   @@map("images")
 }

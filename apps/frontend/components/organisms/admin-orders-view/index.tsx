@@ -590,35 +590,40 @@ function OrderPreview({
   );
 }
 
-function isStatusTransitionAllowed(current: number, target: number): boolean {
+function isStatusTransitionAllowed(
+  current: EOrderStatus,
+  target: EOrderStatus,
+): boolean {
   if (current === target) return true;
 
-  if (current === EOrderStatus.CANCELLED || current === EOrderStatus.REFUNDED) {
-    return false;
-  }
+  const terminal = [
+    EOrderStatus.CANCELLED,
+    EOrderStatus.RETURNED,
+    EOrderStatus.RETURN_REJECTED,
+  ];
+  if (terminal.includes(current)) return false;
 
-  switch (current) {
-    case EOrderStatus.PENDING:
-      return (
-        target === EOrderStatus.CONFIRMED || target === EOrderStatus.CANCELLED
-      );
-    case EOrderStatus.CONFIRMED:
-      return (
-        target === EOrderStatus.PROCESSING || target === EOrderStatus.CANCELLED
-      );
-    case EOrderStatus.PROCESSING:
-      return (
-        target === EOrderStatus.SHIPPING || target === EOrderStatus.CANCELLED
-      );
-    case EOrderStatus.SHIPPING:
-      return (
-        target === EOrderStatus.DELIVERED || target === EOrderStatus.REFUNDED
-      );
-    case EOrderStatus.DELIVERED:
-      return target === EOrderStatus.REFUNDED;
-    default:
-      return false;
-  }
+  const transitions: Partial<Record<EOrderStatus, EOrderStatus[]>> = {
+    [EOrderStatus.PENDING]: [EOrderStatus.PAID, EOrderStatus.CANCELLED],
+    [EOrderStatus.PAID]: [EOrderStatus.SHIPPING, EOrderStatus.CANCELLED],
+    [EOrderStatus.SHIPPING]: [EOrderStatus.DELIVERED],
+    [EOrderStatus.DELIVERED]: [EOrderStatus.RETURN_REQUESTED],
+    [EOrderStatus.CANCEL_REQUESTED]: [
+      EOrderStatus.CANCEL_PROCESSING,
+      EOrderStatus.CANCELLED,
+    ],
+    [EOrderStatus.CANCEL_PROCESSING]: [EOrderStatus.CANCELLED],
+    [EOrderStatus.RETURN_REQUESTED]: [
+      EOrderStatus.RETURN_PROCESSING,
+      EOrderStatus.RETURN_REJECTED,
+    ],
+    [EOrderStatus.RETURN_PROCESSING]: [
+      EOrderStatus.RETURNED,
+      EOrderStatus.RETURN_REJECTED,
+    ],
+  };
+
+  return transitions[current]?.includes(target) ?? false;
 }
 
 function StatusDropdown({
@@ -629,10 +634,10 @@ function StatusDropdown({
   onStatusUpdate,
 }: {
   orderId: string;
-  status: number;
+  status: EOrderStatus;
   disabled: boolean;
   fullWidth?: boolean;
-  onStatusUpdate: (orderId: string, newStatus: number) => void;
+  onStatusUpdate: (orderId: string, newStatus: EOrderStatus) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -692,7 +697,7 @@ function StatusDropdown({
         disabled={
           disabled ||
           status === EOrderStatus.CANCELLED ||
-          status === EOrderStatus.REFUNDED
+          status === EOrderStatus.RETURNED
         }
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
@@ -700,7 +705,7 @@ function StatusDropdown({
           statusConfig.color,
           disabled ||
             status === EOrderStatus.CANCELLED ||
-            status === EOrderStatus.REFUNDED
+            status === EOrderStatus.RETURNED
             ? "opacity-65 cursor-not-allowed"
             : "cursor-pointer hover:scale-[1.03] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-transparent",
           fullWidth &&
@@ -714,7 +719,7 @@ function StatusDropdown({
         {disabled ? (
           <RefreshCw className="size-3 animate-spin opacity-60 shrink-0" />
         ) : status === EOrderStatus.CANCELLED ||
-          status === EOrderStatus.REFUNDED ? null : (
+          status === EOrderStatus.RETURNED ? null : (
           <ChevronDown
             className={cn(
               "size-3 opacity-60 transition-transform duration-200 shrink-0",

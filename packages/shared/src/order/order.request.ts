@@ -1,4 +1,4 @@
-import { EOrderSortBy, EOrderStatus } from "./order.types";
+import { EOrderSortBy, EOrderStatus, EOrderReturnStatus } from "./order.types";
 import { ESortValue } from "../common";
 
 export interface ICreateOrderRequest {
@@ -8,7 +8,7 @@ export interface ICreateOrderRequest {
 }
 
 export interface IGetOrderByUserRequest {
-  status?: number[];
+  status?: EOrderStatus[];
   page?: number;
   limit?: number;
 }
@@ -21,4 +21,22 @@ export interface IGetOrdersByAdminRequest {
   sort_by?: EOrderSortBy;
   sort_order?: ESortValue;
   user_id?: string;
+}
+
+export interface ICreateOrderReturnRequest {
+  title: string;
+  description?: string;
+  imageIds?: string[];
+}
+
+export interface IGetOrderReturnsRequest {
+  page?: number;
+  limit?: number;
+  status?: EOrderReturnStatus;
+}
+
+export interface IReviewOrderReturnRequest {
+  status: EOrderReturnStatus;
+  reason?: string;
+  note?: string;
 }

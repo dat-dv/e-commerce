@@ -8,12 +8,18 @@ import { GetUserOrdersUseCase } from './domain/use-cases/get-user-orders.use-cas
 import { GetAllOrdersUseCase } from './domain/use-cases/get-all-orders.use-case';
 import { UpdateOrderStatusUseCase } from './domain/use-cases/update-order-status.use-case';
 import { CancelOrderUseCase } from './domain/use-cases/cancel-order.use-case';
+import { CreateOrderReturnUseCase } from './domain/use-cases/create-order-return.use-case';
+import { GetOrderReturnsUseCase } from './domain/use-cases/get-order-returns.use-case';
+import { ReviewOrderReturnUseCase } from './domain/use-cases/review-order-return.use-case';
 import createSuccessResponse from 'src/common/respomse';
 import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/shared';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 import { GetOrdersDto } from './dto/get-orders.dto';
 import { GetOrdersByAdminDto } from './dto/get-all-orders.dto';
+import { CreateOrderReturnDto } from './dto/create-order-return.dto';
+import { ReviewOrderReturnDto } from './dto/review-order-return.dto';
+import { GetOrderReturnsDto } from './dto/get-order-returns.dto';
 import type { Request } from 'express';
 
 @Controller('orders')
@@ -26,6 +32,9 @@ export class OrdersController {
     private readonly getAllOrdersUseCase: GetAllOrdersUseCase,
     private readonly updateOrderStatusUseCase: UpdateOrderStatusUseCase,
     private readonly cancelOrderUseCase: CancelOrderUseCase,
+    private readonly createOrderReturnUseCase: CreateOrderReturnUseCase,
+    private readonly getOrderReturnsUseCase: GetOrderReturnsUseCase,
+    private readonly reviewOrderReturnUseCase: ReviewOrderReturnUseCase,
   ) {}
 
   @Post()
@@ -53,6 +62,15 @@ export class OrdersController {
     return createSuccessResponse(result);
   }
 
+  /** Must be defined before :id to avoid route conflict */
+  @Get('returns/all')
+  @UseGuards(PermissionsGuard)
+  @Permissions('LIST:ANY_ORDER')
+  async getOrderReturns(@Query() query: GetOrderReturnsDto): Promise<IApiResponse<any>> {
+    const result = await this.getOrderReturnsUseCase.execute(query);
+    return createSuccessResponse(result);
+  }
+
   @Get(':id')
   async getOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse | null>> {
     const userId = req.user?.sub;
@@ -75,6 +93,28 @@ export class OrdersController {
   async cancelOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
     const userId = req.user?.sub;
     const result = await this.cancelOrderUseCase.execute(id, userId);
+    return createSuccessResponse(result);
+  }
+
+  @Post(':id/returns')
+  async createReturn(
+    @Param('id') id: string,
+    @Body() body: CreateOrderReturnDto,
+    @Req() req: Request,
+  ): Promise<IApiResponse<any>> {
+    const userId = req.user?.sub;
+    const result = await this.createOrderReturnUseCase.execute(id, userId, body);
+    return createSuccessResponse(result);
+  }
+
+  @Put('returns/:returnId/review')
+  @UseGuards(PermissionsGuard)
+  @Permissions('UPDATE:ORDER')
+  async reviewReturn(
+    @Param('returnId') returnId: string,
+    @Body() body: ReviewOrderReturnDto,
+  ): Promise<IApiResponse<any>> {
+    const result = await this.reviewOrderReturnUseCase.execute(returnId, body);
     return createSuccessResponse(result);
   }
 }

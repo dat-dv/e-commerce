@@ -134,7 +134,7 @@ export class OrdersRepository implements IOrdersRepository {
     );
   }
 
-  async updateStatus(id: string, status: number): Promise<IOrderResponse> {
+  async updateStatus(id: string, status: EOrderStatus): Promise<IOrderResponse> {
     return this.prisma.order.update({
       where: { id },
       data: { status },

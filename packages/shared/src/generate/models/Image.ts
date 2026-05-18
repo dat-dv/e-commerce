@@ -262,6 +262,7 @@ export type ImageWhereInput = {
   brand_logo?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
   brand_banner?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageListRelationFilter
+  order_return_images?: Prisma.OrderReturnImageListRelationFilter
 }
 
 export type ImageOrderByWithRelationInput = {
@@ -280,6 +281,7 @@ export type ImageOrderByWithRelationInput = {
   brand_logo?: Prisma.BrandOrderByWithRelationInput
   brand_banner?: Prisma.BrandOrderByWithRelationInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageOrderByRelationAggregateInput
+  order_return_images?: Prisma.OrderReturnImageOrderByRelationAggregateInput
 }
 
 export type ImageWhereUniqueInput = Prisma.AtLeast<{
@@ -301,6 +303,7 @@ export type ImageWhereUniqueInput = Prisma.AtLeast<{
   brand_logo?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
   brand_banner?: Prisma.XOR<Prisma.BrandNullableScalarRelationFilter, Prisma.BrandWhereInput> | null
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageListRelationFilter
+  order_return_images?: Prisma.OrderReturnImageListRelationFilter
 }, "id">
 
 export type ImageOrderByWithAggregationInput = {
@@ -351,6 +354,7 @@ export type ImageCreateInput = {
   brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateInput = {
@@ -369,6 +373,7 @@ export type ImageUncheckedCreateInput = {
   brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageUpdateInput = {
@@ -387,6 +392,7 @@ export type ImageUpdateInput = {
   brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateInput = {
@@ -405,6 +411,7 @@ export type ImageUncheckedUpdateInput = {
   brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 export type ImageCreateManyInput = {
@@ -563,6 +570,20 @@ export type ImageUpdateOneRequiredWithoutHelp_contact_submission_imagesNestedInp
   update?: Prisma.XOR<Prisma.XOR<Prisma.ImageUpdateToOneWithWhereWithoutHelp_contact_submission_imagesInput, Prisma.ImageUpdateWithoutHelp_contact_submission_imagesInput>, Prisma.ImageUncheckedUpdateWithoutHelp_contact_submission_imagesInput>
 }
 
+export type ImageCreateNestedOneWithoutOrder_return_imagesInput = {
+  create?: Prisma.XOR<Prisma.ImageCreateWithoutOrder_return_imagesInput, Prisma.ImageUncheckedCreateWithoutOrder_return_imagesInput>
+  connectOrCreate?: Prisma.ImageCreateOrConnectWithoutOrder_return_imagesInput
+  connect?: Prisma.ImageWhereUniqueInput
+}
+
+export type ImageUpdateOneRequiredWithoutOrder_return_imagesNestedInput = {
+  create?: Prisma.XOR<Prisma.ImageCreateWithoutOrder_return_imagesInput, Prisma.ImageUncheckedCreateWithoutOrder_return_imagesInput>
+  connectOrCreate?: Prisma.ImageCreateOrConnectWithoutOrder_return_imagesInput
+  upsert?: Prisma.ImageUpsertWithoutOrder_return_imagesInput
+  connect?: Prisma.ImageWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ImageUpdateToOneWithWhereWithoutOrder_return_imagesInput, Prisma.ImageUpdateWithoutOrder_return_imagesInput>, Prisma.ImageUncheckedUpdateWithoutOrder_return_imagesInput>
+}
+
 export type ImageCreateNestedOneWithoutProductInput = {
   create?: Prisma.XOR<Prisma.ImageCreateWithoutProductInput, Prisma.ImageUncheckedCreateWithoutProductInput>
   connectOrCreate?: Prisma.ImageCreateOrConnectWithoutProductInput
@@ -610,6 +631,7 @@ export type ImageCreateWithoutBrand_logoInput = {
   category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
   brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateWithoutBrand_logoInput = {
@@ -627,6 +649,7 @@ export type ImageUncheckedCreateWithoutBrand_logoInput = {
   category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
   brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageCreateOrConnectWithoutBrand_logoInput = {
@@ -649,6 +672,7 @@ export type ImageCreateWithoutBrand_bannerInput = {
   category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
   brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateWithoutBrand_bannerInput = {
@@ -666,6 +690,7 @@ export type ImageUncheckedCreateWithoutBrand_bannerInput = {
   category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
   brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageCreateOrConnectWithoutBrand_bannerInput = {
@@ -699,6 +724,7 @@ export type ImageUpdateWithoutBrand_logoInput = {
   category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
   brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutBrand_logoInput = {
@@ -716,6 +742,7 @@ export type ImageUncheckedUpdateWithoutBrand_logoInput = {
   category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
   brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUpsertWithoutBrand_bannerInput = {
@@ -744,6 +771,7 @@ export type ImageUpdateWithoutBrand_bannerInput = {
   category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
   brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutBrand_bannerInput = {
@@ -761,6 +789,7 @@ export type ImageUncheckedUpdateWithoutBrand_bannerInput = {
   category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
   brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 export type ImageCreateWithoutCategoryInput = {
@@ -778,6 +807,7 @@ export type ImageCreateWithoutCategoryInput = {
   brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateWithoutCategoryInput = {
@@ -795,6 +825,7 @@ export type ImageUncheckedCreateWithoutCategoryInput = {
   brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageCreateOrConnectWithoutCategoryInput = {
@@ -828,6 +859,7 @@ export type ImageUpdateWithoutCategoryInput = {
   brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutCategoryInput = {
@@ -845,6 +877,7 @@ export type ImageUncheckedUpdateWithoutCategoryInput = {
   brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 export type ImageCreateWithoutHelp_contact_submission_imagesInput = {
@@ -862,6 +895,7 @@ export type ImageCreateWithoutHelp_contact_submission_imagesInput = {
   category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
   brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateWithoutHelp_contact_submission_imagesInput = {
@@ -879,6 +913,7 @@ export type ImageUncheckedCreateWithoutHelp_contact_submission_imagesInput = {
   category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
   brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageCreateOrConnectWithoutHelp_contact_submission_imagesInput = {
@@ -912,6 +947,7 @@ export type ImageUpdateWithoutHelp_contact_submission_imagesInput = {
   category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
   brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutHelp_contact_submission_imagesInput = {
@@ -929,6 +965,95 @@ export type ImageUncheckedUpdateWithoutHelp_contact_submission_imagesInput = {
   category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
   brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
+}
+
+export type ImageCreateWithoutOrder_return_imagesInput = {
+  id?: string
+  url: string
+  public_id: string
+  width?: number | null
+  height?: number | null
+  format?: string | null
+  bytes?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user?: Prisma.UserCreateNestedOneWithoutAvatarInput
+  product?: Prisma.ProductCreateNestedOneWithoutThumbnailInput
+  category?: Prisma.ProductCategoryCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
+  help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+}
+
+export type ImageUncheckedCreateWithoutOrder_return_imagesInput = {
+  id?: string
+  url: string
+  public_id: string
+  width?: number | null
+  height?: number | null
+  format?: string | null
+  bytes?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user?: Prisma.UserUncheckedCreateNestedOneWithoutAvatarInput
+  product?: Prisma.ProductUncheckedCreateNestedOneWithoutThumbnailInput
+  category?: Prisma.ProductCategoryUncheckedCreateNestedOneWithoutImageInput
+  brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
+  brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
+  help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+}
+
+export type ImageCreateOrConnectWithoutOrder_return_imagesInput = {
+  where: Prisma.ImageWhereUniqueInput
+  create: Prisma.XOR<Prisma.ImageCreateWithoutOrder_return_imagesInput, Prisma.ImageUncheckedCreateWithoutOrder_return_imagesInput>
+}
+
+export type ImageUpsertWithoutOrder_return_imagesInput = {
+  update: Prisma.XOR<Prisma.ImageUpdateWithoutOrder_return_imagesInput, Prisma.ImageUncheckedUpdateWithoutOrder_return_imagesInput>
+  create: Prisma.XOR<Prisma.ImageCreateWithoutOrder_return_imagesInput, Prisma.ImageUncheckedCreateWithoutOrder_return_imagesInput>
+  where?: Prisma.ImageWhereInput
+}
+
+export type ImageUpdateToOneWithWhereWithoutOrder_return_imagesInput = {
+  where?: Prisma.ImageWhereInput
+  data: Prisma.XOR<Prisma.ImageUpdateWithoutOrder_return_imagesInput, Prisma.ImageUncheckedUpdateWithoutOrder_return_imagesInput>
+}
+
+export type ImageUpdateWithoutOrder_return_imagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  public_id?: Prisma.StringFieldUpdateOperationsInput | string
+  width?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  format?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneWithoutAvatarNestedInput
+  product?: Prisma.ProductUpdateOneWithoutThumbnailNestedInput
+  category?: Prisma.ProductCategoryUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
+  help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+}
+
+export type ImageUncheckedUpdateWithoutOrder_return_imagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  public_id?: Prisma.StringFieldUpdateOperationsInput | string
+  width?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  format?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUncheckedUpdateOneWithoutAvatarNestedInput
+  product?: Prisma.ProductUncheckedUpdateOneWithoutThumbnailNestedInput
+  category?: Prisma.ProductCategoryUncheckedUpdateOneWithoutImageNestedInput
+  brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
+  brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
+  help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 export type ImageCreateWithoutProductInput = {
@@ -946,6 +1071,7 @@ export type ImageCreateWithoutProductInput = {
   brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateWithoutProductInput = {
@@ -963,6 +1089,7 @@ export type ImageUncheckedCreateWithoutProductInput = {
   brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageCreateOrConnectWithoutProductInput = {
@@ -996,6 +1123,7 @@ export type ImageUpdateWithoutProductInput = {
   brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutProductInput = {
@@ -1013,6 +1141,7 @@ export type ImageUncheckedUpdateWithoutProductInput = {
   brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 export type ImageCreateWithoutUserInput = {
@@ -1030,6 +1159,7 @@ export type ImageCreateWithoutUserInput = {
   brand_logo?: Prisma.BrandCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageCreateNestedManyWithoutImageInput
 }
 
 export type ImageUncheckedCreateWithoutUserInput = {
@@ -1047,6 +1177,7 @@ export type ImageUncheckedCreateWithoutUserInput = {
   brand_logo?: Prisma.BrandUncheckedCreateNestedOneWithoutLogoInput
   brand_banner?: Prisma.BrandUncheckedCreateNestedOneWithoutBannerInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedCreateNestedManyWithoutImageInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedCreateNestedManyWithoutImageInput
 }
 
 export type ImageCreateOrConnectWithoutUserInput = {
@@ -1080,6 +1211,7 @@ export type ImageUpdateWithoutUserInput = {
   brand_logo?: Prisma.BrandUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUpdateManyWithoutImageNestedInput
 }
 
 export type ImageUncheckedUpdateWithoutUserInput = {
@@ -1097,6 +1229,7 @@ export type ImageUncheckedUpdateWithoutUserInput = {
   brand_logo?: Prisma.BrandUncheckedUpdateOneWithoutLogoNestedInput
   brand_banner?: Prisma.BrandUncheckedUpdateOneWithoutBannerNestedInput
   help_contact_submission_images?: Prisma.HelpContactSubmissionImageUncheckedUpdateManyWithoutImageNestedInput
+  order_return_images?: Prisma.OrderReturnImageUncheckedUpdateManyWithoutImageNestedInput
 }
 
 
@@ -1106,10 +1239,12 @@ export type ImageUncheckedUpdateWithoutUserInput = {
 
 export type ImageCountOutputType = {
   help_contact_submission_images: number
+  order_return_images: number
 }
 
 export type ImageCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   help_contact_submission_images?: boolean | ImageCountOutputTypeCountHelp_contact_submission_imagesArgs
+  order_return_images?: boolean | ImageCountOutputTypeCountOrder_return_imagesArgs
 }
 
 /**
@@ -1129,6 +1264,13 @@ export type ImageCountOutputTypeCountHelp_contact_submission_imagesArgs<ExtArgs 
   where?: Prisma.HelpContactSubmissionImageWhereInput
 }
 
+/**
+ * ImageCountOutputType without action
+ */
+export type ImageCountOutputTypeCountOrder_return_imagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderReturnImageWhereInput
+}
+
 
 export type ImageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1146,6 +1288,7 @@ export type ImageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   brand_logo?: boolean | Prisma.Image$brand_logoArgs<ExtArgs>
   brand_banner?: boolean | Prisma.Image$brand_bannerArgs<ExtArgs>
   help_contact_submission_images?: boolean | Prisma.Image$help_contact_submission_imagesArgs<ExtArgs>
+  order_return_images?: boolean | Prisma.Image$order_return_imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ImageCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["image"]>
 
@@ -1193,6 +1336,7 @@ export type ImageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   brand_logo?: boolean | Prisma.Image$brand_logoArgs<ExtArgs>
   brand_banner?: boolean | Prisma.Image$brand_bannerArgs<ExtArgs>
   help_contact_submission_images?: boolean | Prisma.Image$help_contact_submission_imagesArgs<ExtArgs>
+  order_return_images?: boolean | Prisma.Image$order_return_imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ImageCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ImageIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1207,6 +1351,7 @@ export type $ImagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     brand_logo: Prisma.$BrandPayload<ExtArgs> | null
     brand_banner: Prisma.$BrandPayload<ExtArgs> | null
     help_contact_submission_images: Prisma.$HelpContactSubmissionImagePayload<ExtArgs>[]
+    order_return_images: Prisma.$OrderReturnImagePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1618,6 +1763,7 @@ export interface Prisma__ImageClient<T, Null = never, ExtArgs extends runtime.Ty
   brand_logo<T extends Prisma.Image$brand_logoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$brand_logoArgs<ExtArgs>>): Prisma.Prisma__BrandClient<runtime.Types.Result.GetResult<Prisma.$BrandPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   brand_banner<T extends Prisma.Image$brand_bannerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$brand_bannerArgs<ExtArgs>>): Prisma.Prisma__BrandClient<runtime.Types.Result.GetResult<Prisma.$BrandPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   help_contact_submission_images<T extends Prisma.Image$help_contact_submission_imagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$help_contact_submission_imagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HelpContactSubmissionImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  order_return_images<T extends Prisma.Image$order_return_imagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Image$order_return_imagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderReturnImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2163,6 +2309,30 @@ export type Image$help_contact_submission_imagesArgs<ExtArgs extends runtime.Typ
   take?: number
   skip?: number
   distinct?: Prisma.HelpContactSubmissionImageScalarFieldEnum | Prisma.HelpContactSubmissionImageScalarFieldEnum[]
+}
+
+/**
+ * Image.order_return_images
+ */
+export type Image$order_return_imagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrderReturnImage
+   */
+  select?: Prisma.OrderReturnImageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrderReturnImage
+   */
+  omit?: Prisma.OrderReturnImageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderReturnImageInclude<ExtArgs> | null
+  where?: Prisma.OrderReturnImageWhereInput
+  orderBy?: Prisma.OrderReturnImageOrderByWithRelationInput | Prisma.OrderReturnImageOrderByWithRelationInput[]
+  cursor?: Prisma.OrderReturnImageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderReturnImageScalarFieldEnum | Prisma.OrderReturnImageScalarFieldEnum[]
 }
 
 /**

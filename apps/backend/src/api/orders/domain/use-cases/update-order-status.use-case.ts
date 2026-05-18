@@ -2,9 +2,14 @@ import { Injectable, Inject, UnauthorizedException, BadRequestException, NotFoun
 import { IOrdersRepository } from '../entities/orders.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { NotificationService } from 'src/api/notifications/notifications.service';
-import { ENotificationType, IOrderResponse } from '@ecommerce/shared';
+import { ENotificationType, IOrderResponse, EOrderStatus } from '@ecommerce/shared';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
-import { EOrderStatus } from '@ecommerce/shared';
+
+/** Terminal statuses that block further transitions */
+const TERMINAL_STATUSES = [EOrderStatus.DELIVERED, EOrderStatus.CANCELLED, EOrderStatus.RETURNED];
+
+/** Statuses that require stock restoration */
+const STOCK_RESTORE_STATUSES = [EOrderStatus.CANCELLED];
 
 @Injectable()
 export class UpdateOrderStatusUseCase {
@@ -30,23 +35,19 @@ export class UpdateOrderStatusUseCase {
       throw new NotFoundException('Order not found');
     }
 
-    // 1. Kiểm tra trạng thái hiện tại
-    if (order.status === Number(EOrderStatus.DELIVERED) || order.status === Number(EOrderStatus.CANCELLED)) {
-      throw new BadRequestException('Cannot update status of a delivered or cancelled order');
+    if (TERMINAL_STATUSES.includes(order.status)) {
+      throw new BadRequestException('Cannot update status of a delivered, cancelled, or returned order');
     }
 
     let updatedOrder: IOrderResponse;
 
-    // 2. Logic hoàn trả hàng nếu chuyển sang CANCELLED hoặc REFUNDED
-    if (newStatus === Number(EOrderStatus.CANCELLED) || newStatus === Number(EOrderStatus.REFUNDED)) {
+    if (STOCK_RESTORE_STATUSES.includes(newStatus)) {
       updatedOrder = await this.prisma.$transaction(async (tx) => {
-        // Cập nhật trạng thái
         const res = await tx.order.update({
           where: { id },
           data: { status: newStatus },
         });
 
-        // Hoàn trả tồn kho
         for (const item of order.items) {
           await tx.sku.update({
             where: { id: item.sku_id },
@@ -66,41 +67,42 @@ export class UpdateOrderStatusUseCase {
         return res;
       });
     } else {
-      // 3. Cập nhật trạng thái thông thường
       updatedOrder = await this.ordersRepository.updateStatus(id, newStatus);
     }
 
-    // 4. Gửi thông báo cho khách hàng
     await this.sendNotification(order.user_id, newStatus, id);
 
     return updatedOrder;
   }
 
-  private async sendNotification(userId: string, status: number, orderId: string) {
-    let title = 'Cập nhật đơn hàng';
-    let body = `Đơn hàng #${orderId.slice(-6)} của bạn đã thay đổi trạng thái.`;
+  private async sendNotification(userId: string, status: EOrderStatus, orderId: string) {
+    const short = orderId.slice(-6).toUpperCase();
+    const map: Partial<Record<EOrderStatus, { title: string; body: string }>> = {
+      [EOrderStatus.PAID]: {
+        title: 'Order confirmed',
+        body: `Order #${short} has been confirmed by the seller.`,
+      },
+      [EOrderStatus.SHIPPING]: {
+        title: 'Order shipped',
+        body: `Order #${short} is on its way to you.`,
+      },
+      [EOrderStatus.DELIVERED]: {
+        title: 'Order delivered',
+        body: `Order #${short} has been delivered. Enjoy your purchase!`,
+      },
+      [EOrderStatus.CANCELLED]: {
+        title: 'Order cancelled',
+        body: `Order #${short} has been cancelled.`,
+      },
+    };
 
-    switch (status) {
-      case Number(EOrderStatus.CONFIRMED):
-        title = 'Đơn hàng đã được xác nhận';
-        body = `Đơn hàng #${orderId.slice(-6)} đã được người bán xác nhận.`;
-        break;
-      case Number(EOrderStatus.SHIPPING):
-        title = 'Đơn hàng đang được giao';
-        body = `Đơn hàng #${orderId.slice(-6)} đang trên đường đến với bạn.`;
-        break;
-      case Number(EOrderStatus.DELIVERED):
-        title = 'Giao hàng thành công';
-        body = `Đơn hàng #${orderId.slice(-6)} đã được giao thành công. Chúc bạn trải nghiệm sản phẩm vui vẻ!`;
-        break;
-      case Number(EOrderStatus.CANCELLED):
-        title = 'Đơn hàng đã bị hủy';
-        body = `Đơn hàng #${orderId.slice(-6)} của bạn đã bị hủy.`;
-        break;
-    }
+    const notification = map[status] ?? {
+      title: 'Order update',
+      body: `Order #${short} status has been updated.`,
+    };
 
-    await this.notificationService.sendToUser(userId, title, body, ENotificationType.ORDER, {
-      orderId: orderId,
+    await this.notificationService.sendToUser(userId, notification.title, notification.body, ENotificationType.ORDER, {
+      orderId,
     });
   }
 }

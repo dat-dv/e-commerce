@@ -6,9 +6,9 @@ export class UpdateOrderStatusDto {
   @ApiProperty({
     description: 'The new order status value',
     enum: EOrderStatus,
-    example: EOrderStatus.CONFIRMED,
+    example: EOrderStatus.PAID,
   })
   @IsNotEmpty()
   @IsEnum(EOrderStatus)
-  status: number;
+  status: EOrderStatus;
 }

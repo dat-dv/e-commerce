@@ -3,7 +3,7 @@
 model Order {
   id                  String   @id @default(cuid())
   user_id             String
-  status              Int      @default(0) // 0: PENDING, 1: CONFIRMED, 2: PROCESSING, 3: SHIPPING, 4: DELIVERED, 5: CANCELLED, 6: REFUNDED
+  status              Int      @default(300)
   total_amount        Float
   discount_amount     Float    @default(0)
   shipping_address_id String?
@@ -11,7 +11,8 @@ model Order {
   created_at          DateTime @default(now())
   updated_at          DateTime @updatedAt
 
-  items           OrderItem[]
+  items          OrderItem[]
+  return_request OrderReturn?
   user            User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
   shipping_address ShippingAddress? @relation(fields: [shipping_address_id], references: [id], onUpdate: NoAction, onDelete: SetNull)
   coupon          Coupon?          @relation(fields: [coupon_id], references: [id], onUpdate: NoAction, onDelete: SetNull)

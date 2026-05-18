@@ -143,6 +143,16 @@ export type Order = Prisma.OrderModel
  */
 export type OrderItem = Prisma.OrderItemModel
 /**
+ * Model OrderReturn
+ * 
+ */
+export type OrderReturn = Prisma.OrderReturnModel
+/**
+ * Model OrderReturnImage
+ * 
+ */
+export type OrderReturnImage = Prisma.OrderReturnImageModel
+/**
  * Model PasswordResetToken
  * 
  */

@@ -1,17 +1,31 @@
 export enum EOrderStatus {
-  PENDING = 0,
-  CONFIRMED = 1,
-  PROCESSING = 2,
-  SHIPPING = 3,
-  DELIVERED = 4,
-  CANCELLED = 5,
-  REFUNDED = 6,
+  PENDING = 300,
+  PAID = 301,
+  SHIPPING = 302,
+  DELIVERED = 303,
+
+  CANCEL_REQUESTED = 304,
+  CANCEL_PROCESSING = 305,
+  CANCELLED = 306,
+
+  RETURN_REQUESTED = 307,
+  RETURN_PROCESSING = 308,
+  RETURNED = 309,
+  RETURN_REJECTED = 310,
 }
 
 export enum EOrderSortBy {
   CREATED_AT = "created_at",
   TOTAL_AMOUNT = "total_amount",
   STATUS = "status",
+}
+
+export enum EOrderReturnStatus {
+  PENDING = 320,
+  PROCESSING = 321,
+  APPROVED = 322,
+  REJECTED = 323,
+  CANCELLED = 324,
 }
 export interface IOrderItemSnapshot {
   sku: {

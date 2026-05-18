@@ -294,6 +294,7 @@ export type UserWhereInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryListRelationFilter
   favorite_products?: Prisma.UserFavoriteProductListRelationFilter
   help_contact_submissions?: Prisma.HelpContactSubmissionListRelationFilter
+  order_returns?: Prisma.OrderReturnListRelationFilter
   role?: Prisma.XOR<Prisma.RoleNullableScalarRelationFilter, Prisma.RoleWhereInput> | null
 }
 
@@ -325,6 +326,7 @@ export type UserOrderByWithRelationInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryOrderByRelationAggregateInput
   favorite_products?: Prisma.UserFavoriteProductOrderByRelationAggregateInput
   help_contact_submissions?: Prisma.HelpContactSubmissionOrderByRelationAggregateInput
+  order_returns?: Prisma.OrderReturnOrderByRelationAggregateInput
   role?: Prisma.RoleOrderByWithRelationInput
 }
 
@@ -359,6 +361,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   favorite_categories?: Prisma.UserFavoriteCategoryListRelationFilter
   favorite_products?: Prisma.UserFavoriteProductListRelationFilter
   help_contact_submissions?: Prisma.HelpContactSubmissionListRelationFilter
+  order_returns?: Prisma.OrderReturnListRelationFilter
   role?: Prisma.XOR<Prisma.RoleNullableScalarRelationFilter, Prisma.RoleWhereInput> | null
 }, "id" | "email" | "avatar_id">
 
@@ -428,6 +431,7 @@ export type UserCreateInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -458,6 +462,7 @@ export type UserUncheckedCreateInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserUpdateInput = {
@@ -486,6 +491,7 @@ export type UserUpdateInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -516,6 +522,7 @@ export type UserUncheckedUpdateInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -758,6 +765,20 @@ export type UserUpdateOneRequiredWithoutOrdersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOrdersInput, Prisma.UserUpdateWithoutOrdersInput>, Prisma.UserUncheckedUpdateWithoutOrdersInput>
 }
 
+export type UserCreateNestedOneWithoutOrder_returnsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOrder_returnsInput, Prisma.UserUncheckedCreateWithoutOrder_returnsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOrder_returnsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutOrder_returnsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOrder_returnsInput, Prisma.UserUncheckedCreateWithoutOrder_returnsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOrder_returnsInput
+  upsert?: Prisma.UserUpsertWithoutOrder_returnsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOrder_returnsInput, Prisma.UserUpdateWithoutOrder_returnsInput>, Prisma.UserUncheckedUpdateWithoutOrder_returnsInput>
+}
+
 export type UserCreateNestedOneWithoutPassword_reset_tokensInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutPassword_reset_tokensInput, Prisma.UserUncheckedCreateWithoutPassword_reset_tokensInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutPassword_reset_tokensInput
@@ -923,6 +944,7 @@ export type UserCreateWithoutBrowsing_historyInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -952,6 +974,7 @@ export type UserUncheckedCreateWithoutBrowsing_historyInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutBrowsing_historyInput = {
@@ -995,6 +1018,7 @@ export type UserUpdateWithoutBrowsing_historyInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1024,6 +1048,7 @@ export type UserUncheckedUpdateWithoutBrowsing_historyInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutCartInput = {
@@ -1051,6 +1076,7 @@ export type UserCreateWithoutCartInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1080,6 +1106,7 @@ export type UserUncheckedCreateWithoutCartInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutCartInput = {
@@ -1123,6 +1150,7 @@ export type UserUpdateWithoutCartInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1152,6 +1180,7 @@ export type UserUncheckedUpdateWithoutCartInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutHelp_contact_submissionsInput = {
@@ -1179,6 +1208,7 @@ export type UserCreateWithoutHelp_contact_submissionsInput = {
   notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1208,6 +1238,7 @@ export type UserUncheckedCreateWithoutHelp_contact_submissionsInput = {
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutHelp_contact_submissionsInput = {
@@ -1251,6 +1282,7 @@ export type UserUpdateWithoutHelp_contact_submissionsInput = {
   notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1280,6 +1312,7 @@ export type UserUncheckedUpdateWithoutHelp_contact_submissionsInput = {
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutAvatarInput = {
@@ -1307,6 +1340,7 @@ export type UserCreateWithoutAvatarInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1336,6 +1370,7 @@ export type UserUncheckedCreateWithoutAvatarInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutAvatarInput = {
@@ -1379,6 +1414,7 @@ export type UserUpdateWithoutAvatarInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1408,6 +1444,7 @@ export type UserUncheckedUpdateWithoutAvatarInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutNotificationsInput = {
@@ -1435,6 +1472,7 @@ export type UserCreateWithoutNotificationsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1464,6 +1502,7 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -1507,6 +1546,7 @@ export type UserUpdateWithoutNotificationsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1536,6 +1576,7 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutNotification_tokensInput = {
@@ -1563,6 +1604,7 @@ export type UserCreateWithoutNotification_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1592,6 +1634,7 @@ export type UserUncheckedCreateWithoutNotification_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutNotification_tokensInput = {
@@ -1635,6 +1678,7 @@ export type UserUpdateWithoutNotification_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1664,6 +1708,7 @@ export type UserUncheckedUpdateWithoutNotification_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutOrdersInput = {
@@ -1691,6 +1736,7 @@ export type UserCreateWithoutOrdersInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1720,6 +1766,7 @@ export type UserUncheckedCreateWithoutOrdersInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutOrdersInput = {
@@ -1763,6 +1810,7 @@ export type UserUpdateWithoutOrdersInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1785,6 +1833,139 @@ export type UserUncheckedUpdateWithoutOrdersInput = {
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
+  browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
+  notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
+  favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
+  help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
+}
+
+export type UserCreateWithoutOrder_returnsInput = {
+  id?: string
+  first_name?: string | null
+  last_name?: string | null
+  email: string
+  password: string
+  salt?: string | null
+  date_of_birth?: Date | string | null
+  gender?: number | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  deleted_at?: Date | string | null
+  avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
+  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+  shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
+  password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
+  cart?: Prisma.CartCreateNestedOneWithoutUserInput
+  orders?: Prisma.OrderCreateNestedManyWithoutUserInput
+  browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
+  notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
+  favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
+  help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  role?: Prisma.RoleCreateNestedOneWithoutUsersInput
+}
+
+export type UserUncheckedCreateWithoutOrder_returnsInput = {
+  id?: string
+  first_name?: string | null
+  last_name?: string | null
+  email: string
+  password: string
+  salt?: string | null
+  date_of_birth?: Date | string | null
+  gender?: number | null
+  avatar_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  deleted_at?: Date | string | null
+  role_id?: string | null
+  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+  shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
+  password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
+  cart?: Prisma.CartUncheckedCreateNestedOneWithoutUserInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutUserInput
+  browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
+  notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
+  favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
+  help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutOrder_returnsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutOrder_returnsInput, Prisma.UserUncheckedCreateWithoutOrder_returnsInput>
+}
+
+export type UserUpsertWithoutOrder_returnsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutOrder_returnsInput, Prisma.UserUncheckedUpdateWithoutOrder_returnsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutOrder_returnsInput, Prisma.UserUncheckedCreateWithoutOrder_returnsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutOrder_returnsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutOrder_returnsInput, Prisma.UserUncheckedUpdateWithoutOrder_returnsInput>
+}
+
+export type UserUpdateWithoutOrder_returnsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  first_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
+  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+  shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
+  password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
+  cart?: Prisma.CartUpdateOneWithoutUserNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutUserNestedInput
+  browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
+  notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
+  favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
+  help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
+}
+
+export type UserUncheckedUpdateWithoutOrder_returnsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  first_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  avatar_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+  shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
+  password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
+  cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
   browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
   notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -1819,6 +2000,7 @@ export type UserCreateWithoutPassword_reset_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1848,6 +2030,7 @@ export type UserUncheckedCreateWithoutPassword_reset_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutPassword_reset_tokensInput = {
@@ -1891,6 +2074,7 @@ export type UserUpdateWithoutPassword_reset_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -1920,6 +2104,7 @@ export type UserUncheckedUpdateWithoutPassword_reset_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutRefresh_tokensInput = {
@@ -1947,6 +2132,7 @@ export type UserCreateWithoutRefresh_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -1976,6 +2162,7 @@ export type UserUncheckedCreateWithoutRefresh_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutRefresh_tokensInput = {
@@ -2019,6 +2206,7 @@ export type UserUpdateWithoutRefresh_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2048,6 +2236,7 @@ export type UserUncheckedUpdateWithoutRefresh_tokensInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutReviewsInput = {
@@ -2075,6 +2264,7 @@ export type UserCreateWithoutReviewsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -2104,6 +2294,7 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutReviewsInput = {
@@ -2147,6 +2338,7 @@ export type UserUpdateWithoutReviewsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2176,6 +2368,7 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutRoleInput = {
@@ -2204,6 +2397,7 @@ export type UserCreateWithoutRoleInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserUncheckedCreateWithoutRoleInput = {
@@ -2232,6 +2426,7 @@ export type UserUncheckedCreateWithoutRoleInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutRoleInput = {
@@ -2303,6 +2498,7 @@ export type UserCreateWithoutShipping_addressesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -2332,6 +2528,7 @@ export type UserUncheckedCreateWithoutShipping_addressesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutShipping_addressesInput = {
@@ -2375,6 +2572,7 @@ export type UserUpdateWithoutShipping_addressesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2404,6 +2602,7 @@ export type UserUncheckedUpdateWithoutShipping_addressesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutFavorite_categoriesInput = {
@@ -2431,6 +2630,7 @@ export type UserCreateWithoutFavorite_categoriesInput = {
   notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -2460,6 +2660,7 @@ export type UserUncheckedCreateWithoutFavorite_categoriesInput = {
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutFavorite_categoriesInput = {
@@ -2503,6 +2704,7 @@ export type UserUpdateWithoutFavorite_categoriesInput = {
   notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2532,6 +2734,7 @@ export type UserUncheckedUpdateWithoutFavorite_categoriesInput = {
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutFavorite_productsInput = {
@@ -2559,6 +2762,7 @@ export type UserCreateWithoutFavorite_productsInput = {
   notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -2588,6 +2792,7 @@ export type UserUncheckedCreateWithoutFavorite_productsInput = {
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutFavorite_productsInput = {
@@ -2631,6 +2836,7 @@ export type UserUpdateWithoutFavorite_productsInput = {
   notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2660,6 +2866,7 @@ export type UserUncheckedUpdateWithoutFavorite_productsInput = {
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateWithoutPhonesInput = {
@@ -2687,6 +2894,7 @@ export type UserCreateWithoutPhonesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
   role?: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
@@ -2716,6 +2924,7 @@ export type UserUncheckedCreateWithoutPhonesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
+  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
 }
 
 export type UserCreateOrConnectWithoutPhonesInput = {
@@ -2759,6 +2968,7 @@ export type UserUpdateWithoutPhonesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
   role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
 }
 
@@ -2788,6 +2998,7 @@ export type UserUncheckedUpdateWithoutPhonesInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserCreateManyRoleInput = {
@@ -2831,6 +3042,7 @@ export type UserUpdateWithoutRoleInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRoleInput = {
@@ -2859,6 +3071,7 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
   favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
   help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
+  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutRoleInput = {
@@ -2894,6 +3107,7 @@ export type UserCountOutputType = {
   favorite_categories: number
   favorite_products: number
   help_contact_submissions: number
+  order_returns: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2909,6 +3123,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   favorite_categories?: boolean | UserCountOutputTypeCountFavorite_categoriesArgs
   favorite_products?: boolean | UserCountOutputTypeCountFavorite_productsArgs
   help_contact_submissions?: boolean | UserCountOutputTypeCountHelp_contact_submissionsArgs
+  order_returns?: boolean | UserCountOutputTypeCountOrder_returnsArgs
 }
 
 /**
@@ -3005,6 +3220,13 @@ export type UserCountOutputTypeCountHelp_contact_submissionsArgs<ExtArgs extends
   where?: Prisma.HelpContactSubmissionWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountOrder_returnsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderReturnWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -3034,6 +3256,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   favorite_categories?: boolean | Prisma.User$favorite_categoriesArgs<ExtArgs>
   favorite_products?: boolean | Prisma.User$favorite_productsArgs<ExtArgs>
   help_contact_submissions?: boolean | Prisma.User$help_contact_submissionsArgs<ExtArgs>
+  order_returns?: boolean | Prisma.User$order_returnsArgs<ExtArgs>
   role?: boolean | Prisma.User$roleArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
@@ -3106,6 +3329,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   favorite_categories?: boolean | Prisma.User$favorite_categoriesArgs<ExtArgs>
   favorite_products?: boolean | Prisma.User$favorite_productsArgs<ExtArgs>
   help_contact_submissions?: boolean | Prisma.User$help_contact_submissionsArgs<ExtArgs>
+  order_returns?: boolean | Prisma.User$order_returnsArgs<ExtArgs>
   role?: boolean | Prisma.User$roleArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -3135,6 +3359,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     favorite_categories: Prisma.$UserFavoriteCategoryPayload<ExtArgs>[]
     favorite_products: Prisma.$UserFavoriteProductPayload<ExtArgs>[]
     help_contact_submissions: Prisma.$HelpContactSubmissionPayload<ExtArgs>[]
+    order_returns: Prisma.$OrderReturnPayload<ExtArgs>[]
     role: Prisma.$RolePayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -3559,6 +3784,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   favorite_categories<T extends Prisma.User$favorite_categoriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$favorite_categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserFavoriteCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   favorite_products<T extends Prisma.User$favorite_productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$favorite_productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserFavoriteProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   help_contact_submissions<T extends Prisma.User$help_contact_submissionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$help_contact_submissionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HelpContactSubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  order_returns<T extends Prisma.User$order_returnsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$order_returnsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderReturnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   role<T extends Prisma.User$roleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$roleArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4324,6 +4550,30 @@ export type User$help_contact_submissionsArgs<ExtArgs extends runtime.Types.Exte
   take?: number
   skip?: number
   distinct?: Prisma.HelpContactSubmissionScalarFieldEnum | Prisma.HelpContactSubmissionScalarFieldEnum[]
+}
+
+/**
+ * User.order_returns
+ */
+export type User$order_returnsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrderReturn
+   */
+  select?: Prisma.OrderReturnSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrderReturn
+   */
+  omit?: Prisma.OrderReturnOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderReturnInclude<ExtArgs> | null
+  where?: Prisma.OrderReturnWhereInput
+  orderBy?: Prisma.OrderReturnOrderByWithRelationInput | Prisma.OrderReturnOrderByWithRelationInput[]
+  cursor?: Prisma.OrderReturnWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderReturnScalarFieldEnum | Prisma.OrderReturnScalarFieldEnum[]
 }
 
 /**

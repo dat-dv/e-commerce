@@ -1,0 +1,33 @@
+// prisma/schema/order_return.prisma
+
+model OrderReturn {
+  id            String            @id @default(cuid())
+  order_id      String            @unique
+  title         String
+  description   String?
+  status        Int               @default(320)
+  created_by_id String
+
+  order         Order             @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  created_by    User              @relation(fields: [created_by_id], references: [id])
+  images        OrderReturnImage[]
+
+  created_at    DateTime          @default(now())
+  updated_at    DateTime          @updatedAt
+
+  @@map("order_returns")
+}
+
+model OrderReturnImage {
+  id              String   @id @default(cuid())
+  order_return_id String
+  image_id        String
+  created_at      DateTime @default(now())
+
+  order_return    OrderReturn @relation(fields: [order_return_id], references: [id], onDelete: Cascade)
+  image           Image       @relation(fields: [image_id], references: [id], onDelete: Cascade)
+
+  @@unique([order_return_id, image_id])
+  @@index([image_id])
+  @@map("order_return_images")
+}
