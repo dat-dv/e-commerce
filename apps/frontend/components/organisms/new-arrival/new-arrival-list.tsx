@@ -34,6 +34,7 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
     totalPages,
     hasMore,
     loadingMore,
+    error,
     loadMore,
   } = usePagination({
     initialItems: products,
@@ -57,6 +58,15 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
             icon={<Sparkles size={18} className="text-primary" />}
             meta={`Page ${pageMeta.page} of ${totalPages}`}
           />
+
+          {error && (
+            <p
+              role="alert"
+              className="rounded-xl border border-red-500/10 bg-red-500/5 px-4 py-3 text-sm font-semibold text-red-500"
+            >
+              {error}
+            </p>
+          )}
 
           <VirtualGrid
             data={items}

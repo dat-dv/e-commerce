@@ -24,6 +24,7 @@ export const usePagination = <T>({
   const [meta, setMeta] = useState(initialMeta);
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const hasMore = meta.page < meta.totalPages;
   const metaRef = useRef(meta);
@@ -69,6 +70,7 @@ export const usePagination = <T>({
 
     loadingMoreRef.current = true;
     setLoadingMore(true);
+    setError(null);
     try {
       const currentMeta = metaRef.current;
       const response = await fetchPage({
@@ -81,7 +83,9 @@ export const usePagination = <T>({
       appendItems(response.data.items);
       setMeta(response.data.meta);
     } catch (error) {
-      console.log("Pagination loadMore error:", error);
+      setError(
+        error instanceof Error ? error.message : "Failed to load more items",
+      );
     } finally {
       loadingMoreRef.current = false;
       setLoadingMore(false);
@@ -94,6 +98,7 @@ export const usePagination = <T>({
 
       loadingRef.current = true;
       setLoading(true);
+      setError(null);
       try {
         const currentMeta = metaRef.current;
         const response = await fetchPage({
@@ -106,7 +111,9 @@ export const usePagination = <T>({
         setItems(response.data.items);
         setMeta(response.data.meta);
       } catch (error) {
-        console.log("Pagination loadPage error:", error);
+        setError(
+          error instanceof Error ? error.message : "Failed to load page",
+        );
       } finally {
         loadingRef.current = false;
         setLoading(false);
@@ -127,6 +134,7 @@ export const usePagination = <T>({
     hasMore,
     loading,
     loadingMore,
+    error,
     loadPage,
     loadMore,
   };

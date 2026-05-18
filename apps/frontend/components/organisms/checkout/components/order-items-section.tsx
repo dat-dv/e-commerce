@@ -10,7 +10,6 @@ interface OrderItemsSectionProps {
 }
 
 export const OrderItemsSection = ({ items }: OrderItemsSectionProps) => {
-  console.log("items", items);
   return (
     <section>
       <div className="flex items-center gap-4 mb-8">
