@@ -2,7 +2,7 @@ import { Controller, Post, Get, Param, UseGuards, Req, Query, DefaultValuePipe, 
 import { UserFavoriteProductsService } from './user-favorite-products.service';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { Language } from 'src/common/decorators/language.decorator';
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 import {
   IApiResponse,
   IUserFavoriteProductResponse,
@@ -18,7 +18,7 @@ export class UserFavoriteProductsController {
 
   @Post('toggle/:productId')
   async toggle(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Param('productId') productId: string,
   ): Promise<IApiResponse<IToggleUserFavoriteProductResponse>> {
     const userId = req.user.sub;
@@ -29,7 +29,7 @@ export class UserFavoriteProductsController {
   @Get()
   @UseGuards(AuthGuard)
   async getUserFavoriteProducts(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
     @Language() lang: string,

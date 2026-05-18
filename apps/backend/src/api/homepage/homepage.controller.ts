@@ -3,7 +3,7 @@ import { GetHomepageSectionsUseCase } from './domain/use-cases/get-homepage-sect
 import createSuccessResponse from 'src/common/respomse';
 import { Language } from 'src/common/decorators/language.decorator';
 import { IApiResponse, IHomepageSectionResponse } from '@ecommerce/shared';
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 
 @Controller('homepage')
 export class HomepageController {
@@ -11,7 +11,7 @@ export class HomepageController {
 
   @Get('sections')
   async getSections(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Language() lang: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,

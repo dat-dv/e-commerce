@@ -1,4 +1,4 @@
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query, Req } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { CreateReviewUseCase } from './domain/use-cases/create-review.use-case';
@@ -21,10 +21,7 @@ export class ReviewsController {
 
   @UseGuards(AuthGuard)
   @Post()
-  async createReview(
-    @Body() body: CreateReviewDto,
-    @Req() req: RequestWithUser,
-  ): Promise<IApiResponse<IReviewResponse>> {
+  async createReview(@Body() body: CreateReviewDto, @Req() req: Request): Promise<IApiResponse<IReviewResponse>> {
     const userId = req.user.sub;
     const result = await this.createReviewUseCase.execute(userId, body);
     return createSuccessResponse(result);
@@ -35,7 +32,7 @@ export class ReviewsController {
   async updateReview(
     @Param('id') id: string,
     @Body() body: UpdateReviewDto,
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
   ): Promise<IApiResponse<IReviewResponse>> {
     const userId = req.user.sub;
     const result = await this.updateReviewUseCase.execute(id, userId, body);
@@ -50,7 +47,7 @@ export class ReviewsController {
 
   @UseGuards(AuthGuard)
   @Delete(':id')
-  async deleteReview(@Param('id') id: string, @Req() req: RequestWithUser): Promise<IApiResponse<IReviewResponse>> {
+  async deleteReview(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IReviewResponse>> {
     const userId = req.user.sub;
     const result = await this.deleteReviewUseCase.execute(id, userId);
     return createSuccessResponse(result);

@@ -1,14 +1,9 @@
-import { Request } from 'express';
+import { TAccessTokenPayload } from 'src/api/auth/auth.types';
 
-export interface RequestWithUser extends Request {
-  user: {
-    sub: string;
-    email: string;
-    role: string;
-    [key: string]: any;
-  };
+export type TAppRequest = Omit<Request, 'cookies'> & {
+  user: TAccessTokenPayload;
   cookies: {
     access_token: string;
     refresh_token: string;
   };
-}
+};

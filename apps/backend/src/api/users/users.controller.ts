@@ -1,4 +1,4 @@
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 import {
   Controller,
   Get,
@@ -50,7 +50,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Upload an image' })
   @Patch('profile')
   async updateProfile(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @UploadedFile() image: Express.Multer.File,
     @Body() dto: UpdateUserDto,
   ): Promise<IApiResponse<IUserProfileResponse>> {
@@ -84,7 +84,7 @@ export class UsersController {
   }
 
   @Get(':id')
-  async findOne(@Req() req: RequestWithUser, @Param('id') id: string): Promise<IApiResponse<IUserProfileResponse>> {
+  async findOne(@Req() req: Request, @Param('id') id: string): Promise<IApiResponse<IUserProfileResponse>> {
     const res = await this.findOneUserUseCase.execute(id, req.user.sub);
     return createSuccessResponse(res);
   }
@@ -104,7 +104,7 @@ export class UsersController {
     },
   })
   async uploadAvatar(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Param('id') id: string,
     @UploadedFile() file: Express.Multer.File,
   ): Promise<IApiResponse<IUserProfileResponse>> {

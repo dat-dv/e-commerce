@@ -1,4 +1,4 @@
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
@@ -36,10 +36,7 @@ export class ProductsController {
   ) {}
 
   @Get()
-  async getProducts(
-    @Req() req: RequestWithUser,
-    @Query() query: GetProductsDto,
-  ): Promise<IApiResponse<IProductListResponse>> {
+  async getProducts(@Req() req: Request, @Query() query: GetProductsDto): Promise<IApiResponse<IProductListResponse>> {
     const user_id = req.user?.sub;
     const result = await this.getProductsUseCase.execute({
       ...query,
@@ -50,23 +47,20 @@ export class ProductsController {
 
   @Get('recommended')
   async getRecommended(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Language() lang: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(15), ParseIntPipe) limit: number,
   ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
-    const userId = req.user?.sub;
+    const userId = req.user.sub;
     const result = await this.getRecommendedUseCase.execute(page, limit, userId, lang);
     return createSuccessResponse(result);
   }
 
   @UseGuards(AuthGuard)
   @Get('based-on-interest')
-  async getBasedOnInterest(
-    @Req() req: RequestWithUser,
-    @Language() lang: string,
-  ): Promise<IApiResponse<IProductResponse[]>> {
-    const userId = req.user?.sub;
+  async getBasedOnInterest(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<IProductResponse[]>> {
+    const userId = req.user.sub;
     const result = await this.getInterestBasedUseCase.execute(12, userId, lang);
     return createSuccessResponse(result);
   }
@@ -74,7 +68,7 @@ export class ProductsController {
   @UseGuards(AuthGuard)
   @Get('recently-viewed')
   async getRecentlyViewed(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Language() lang: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(15), ParseIntPipe) limit: number,
@@ -86,7 +80,7 @@ export class ProductsController {
 
   @Get('flash-sale')
   async getFlashSale(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Language() lang: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(12), ParseIntPipe) limit: number,
@@ -99,7 +93,7 @@ export class ProductsController {
   @Get(':slug')
   async getProductDetail(
     @Param('slug') slug: string,
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Language() lang: string,
   ): Promise<IApiResponse<IProductDetailResponse>> {
     const userId = req.user?.sub;

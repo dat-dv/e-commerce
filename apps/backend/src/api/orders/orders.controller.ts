@@ -12,7 +12,7 @@ import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/share
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 import { GetOrdersDto } from './dto/get-orders.dto';
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 
 @Controller('orders')
 @UseGuards(AuthGuard)
@@ -26,7 +26,7 @@ export class OrdersController {
   ) {}
 
   @Post()
-  async createOrder(@Body() body: CreateOrderDto, @Req() req: RequestWithUser): Promise<IApiResponse<IOrderResponse>> {
+  async createOrder(@Body() body: CreateOrderDto, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
     const userId = req.user.sub;
     const result = await this.createOrderUseCase.execute(userId, body);
     return createSuccessResponse(result);
@@ -34,7 +34,7 @@ export class OrdersController {
 
   @Get()
   async getUserOrders(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Query() query: GetOrdersDto,
   ): Promise<IApiResponse<IPaginatedResult<IOrderResponse>>> {
     const userId = req.user.sub;
@@ -43,7 +43,7 @@ export class OrdersController {
   }
 
   @Get(':id')
-  async getOrder(@Param('id') id: string, @Req() req: RequestWithUser): Promise<IApiResponse<IOrderResponse | null>> {
+  async getOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse | null>> {
     const userId = req.user.sub;
     const result = await this.getOrderUseCase.execute(id, userId, false);
     return createSuccessResponse(result);
@@ -61,7 +61,7 @@ export class OrdersController {
   }
 
   @Post(':id/cancel')
-  async cancelOrder(@Param('id') id: string, @Req() req: RequestWithUser): Promise<IApiResponse<IOrderResponse>> {
+  async cancelOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse>> {
     const userId = req.user.sub;
     const result = await this.cancelOrderUseCase.execute(id, userId);
     return createSuccessResponse(result);

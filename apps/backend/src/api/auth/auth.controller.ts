@@ -1,12 +1,11 @@
-import type { RequestWithUser } from 'src/shared/types/request.type';
-import { Controller, Post, Body, Res, Req, UnauthorizedException, Get, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Res, Req, Get, UseGuards, UnauthorizedException } from '@nestjs/common';
+import type { Request, Response } from 'express';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { VerifyPhoneDto } from './dto/verify-phone.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
-import express from 'express';
 import createSuccessResponse from 'src/common/respomse';
 import { LoginUseCase } from './domain/use-cases/login.use-case';
 import { RegisterUseCase } from './domain/use-cases/register.use-case';
@@ -21,6 +20,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ConfigService } from '@nestjs/config';
 import { IApiResponse, IAuthMeResponse, ILoginResponse, IRegisterResponse } from '@ecommerce/shared';
 import { EnvVars } from 'src/config/config.validation';
+import type { TAppRequest } from 'src/shared/types/request.type';
 
 @Controller('auth')
 export class AuthController {
@@ -39,23 +39,20 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Get('me')
-  async me(@Req() req: RequestWithUser): Promise<IApiResponse<IAuthMeResponse>> {
+  async me(@Req() req: Request): Promise<IApiResponse<IAuthMeResponse>> {
     const user = await this.getMeUseCase.execute(req.user.sub);
     return createSuccessResponse(user);
   }
 
   @UseGuards(AuthGuard)
   @Post('change-password')
-  async changePassword(@Req() req: RequestWithUser, @Body() dto: ChangePasswordDto): Promise<IApiResponse<boolean>> {
+  async changePassword(@Req() req: Request, @Body() dto: ChangePasswordDto): Promise<IApiResponse<boolean>> {
     const result = await this.changePasswordUseCase.execute(req.user.sub, dto);
     return createSuccessResponse(result);
   }
 
   @Post('login')
-  async login(
-    @Body() dto: LoginDto,
-    @Res({ passthrough: true }) res: express.Response,
-  ): Promise<IApiResponse<ILoginResponse>> {
+  async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: Response): Promise<IApiResponse<ILoginResponse>> {
     const result = await this.loginUseCase.execute(dto);
     this.setAccessTokenCookies(result.accessToken, res);
     this.setRefreshTokenCookies(result.refreshToken, res);
@@ -65,7 +62,7 @@ export class AuthController {
   @Post('register')
   async register(
     @Body() dto: RegisterDto,
-    @Res({ passthrough: true }) res: express.Response,
+    @Res({ passthrough: true }) res: Response,
   ): Promise<IApiResponse<IRegisterResponse>> {
     const result = await this.registerUseCase.execute(dto);
     this.setAccessTokenCookies(result.accessToken, res);
@@ -87,18 +84,18 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Post('verify-phone')
-  async verifyPhone(@Req() req: RequestWithUser, @Body() dto: VerifyPhoneDto): Promise<IApiResponse<boolean>> {
+  async verifyPhone(@Req() req: Request, @Body() dto: VerifyPhoneDto): Promise<IApiResponse<boolean>> {
     const userId = req.user.sub;
     const result = await this.verifyPhoneUseCase.execute(userId, dto);
     return createSuccessResponse(result);
   }
 
   @Post('logout')
-  async logout(
-    @Req() req: RequestWithUser,
-    @Res({ passthrough: true }) res: express.Response,
-  ): Promise<IApiResponse<boolean>> {
-    const refreshToken = req.cookies['refresh_token'];
+  async logout(@Req() req: TAppRequest, @Res({ passthrough: true }) res: Response): Promise<IApiResponse<boolean>> {
+    const refreshToken = req.cookies?.refresh_token;
+    if (!refreshToken) {
+      throw new UnauthorizedException('Refresh token not found');
+    }
     const result = await this.logoutUseCase.execute(refreshToken);
     res.clearCookie('access_token');
     res.clearCookie('refresh_token');
@@ -107,11 +104,14 @@ export class AuthController {
 
   @Post('refresh-token')
   async refreshToken(
-    @Req() req: RequestWithUser,
-    @Res({ passthrough: true }) res: express.Response,
+    @Req() req: TAppRequest,
+    @Res({ passthrough: true }) res: Response,
   ): Promise<IApiResponse<boolean>> {
     try {
       const refreshToken = req.cookies.refresh_token;
+      if (!refreshToken) {
+        throw new UnauthorizedException('Refresh token not found');
+      }
       const result = await this.refreshTokenUseCase.execute(refreshToken);
       this.setAccessTokenCookies(result.accessToken, res);
       this.setRefreshTokenCookies(result.refreshToken, res);
@@ -124,7 +124,7 @@ export class AuthController {
     }
   }
 
-  private setAccessTokenCookies(accessToken: string, res: express.Response) {
+  private setAccessTokenCookies(accessToken: string, res: Response) {
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
@@ -133,7 +133,7 @@ export class AuthController {
     });
   }
 
-  private setRefreshTokenCookies(refreshToken: string, res: express.Response) {
+  private setRefreshTokenCookies(refreshToken: string, res: Response) {
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',

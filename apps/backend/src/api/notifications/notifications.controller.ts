@@ -1,4 +1,4 @@
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 import { Controller, Post, Body, UseGuards, Req, Get, Patch, Param, Query } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
@@ -21,10 +21,7 @@ export class NotificationsController {
   ) {}
 
   @Post('tokens')
-  async saveToken(
-    @Req() req: RequestWithUser,
-    @Body() dto: SaveTokenDto,
-  ): Promise<IApiResponse<INotificationTokenResponse>> {
+  async saveToken(@Req() req: Request, @Body() dto: SaveTokenDto): Promise<IApiResponse<INotificationTokenResponse>> {
     const userId = req.user.sub;
     const result = await this.notificationsRepository.saveToken(userId, dto);
     return createSuccessResponse(result);
@@ -32,7 +29,7 @@ export class NotificationsController {
 
   @Get()
   async getNotifications(
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Query('page') page?: string,
     @Query('limit') limit?: string,
   ): Promise<IApiResponse<INotificationListResponse>> {
@@ -44,14 +41,14 @@ export class NotificationsController {
   }
 
   @Patch(':id/read')
-  async markAsRead(@Req() req: RequestWithUser, @Param('id') id: string): Promise<IApiResponse<INotificationResponse>> {
+  async markAsRead(@Req() req: Request, @Param('id') id: string): Promise<IApiResponse<INotificationResponse>> {
     const userId = req.user.sub;
     const result = await this.notificationsRepository.markAsRead(userId, id);
     return createSuccessResponse(result);
   }
 
   @Patch('read-all')
-  async markAllAsRead(@Req() req: RequestWithUser): Promise<IApiResponse<void>> {
+  async markAllAsRead(@Req() req: Request): Promise<IApiResponse<void>> {
     const userId = req.user.sub;
     await this.notificationsRepository.markAllAsRead(userId);
     return createSuccessResponse(undefined);

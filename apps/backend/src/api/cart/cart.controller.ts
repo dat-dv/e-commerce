@@ -1,4 +1,4 @@
-import type { RequestWithUser } from 'src/shared/types/request.type';
+import type { Request } from 'express';
 import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { GetCartUseCase } from './domain/use-cases/get-cart.use-case';
@@ -25,7 +25,7 @@ export class CartController {
   @Get()
   @ApiOperation({ summary: 'Get current user cart' })
   @ApiResponse({ status: 200, description: 'Return cart data' })
-  async getCart(@Req() req: RequestWithUser, @Language() lang: string): Promise<IApiResponse<ICartResponse | null>> {
+  async getCart(@Req() req: Request, @Language() lang: string): Promise<IApiResponse<ICartResponse | null>> {
     const userId = req.user.sub;
     const result = await this.getCartUseCase.execute(userId, lang);
     return createSuccessResponse(result);
@@ -37,7 +37,7 @@ export class CartController {
   @ApiResponse({ status: 201, description: 'Item added successfully' })
   async addItem(
     @Body() body: AddToCartDto,
-    @Req() req: RequestWithUser,
+    @Req() req: Request,
     @Language() lang: string,
   ): Promise<IApiResponse<ICartItemResponse>> {
     const userId = req.user.sub;
