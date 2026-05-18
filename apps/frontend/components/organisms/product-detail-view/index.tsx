@@ -1,8 +1,12 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { useProductDetail } from "@/hooks/products/use-product-detail";
 import { TProduct } from "@/domain/products/types/products.model";
+import { useProductActions } from "@/hooks/products/use-product-actions";
+import { useProductGallery } from "@/hooks/products/use-product-gallery";
+import { useProductReviewSection } from "@/hooks/products/use-product-review-section";
+import { useProductSelection } from "@/hooks/products/use-product-selection";
+import { useSimilarProducts } from "@/hooks/products/use-similar-products";
 import { ProductImages } from "./product-images";
 import { ProductInfo } from "./product-info";
 import { BrandInfo } from "./brand-info";
@@ -26,11 +30,12 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     setQuantity,
     selectedAttributes,
     setSelectedAttributes,
-    selectedImage,
-    setSelectedImage,
     attributeGroups,
     selectedSku,
-    images,
+  } = useProductSelection(product);
+  const { selectedImage, setSelectedImage, images, selectedImageUrl } =
+    useProductGallery(product);
+  const {
     reviews,
     totalReviews,
     loadingReviews,
@@ -39,11 +44,18 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     reviewForm,
     reviewFilter,
     setReviewFilter,
-    similarProducts,
-    loadingSimilar,
-    handleAddToCart,
-    handleBuyNow,
-  } = useProductDetail(product);
+  } = useProductReviewSection({
+    productId: product.id,
+    skuId: selectedSku.id,
+  });
+  const { similarProducts, loadingSimilar } = useSimilarProducts(product.id);
+  const { handleAddToCart, handleBuyNow } = useProductActions(
+    product,
+    selectedSku,
+    selectedAttributes,
+    quantity,
+    selectedImageUrl,
+  );
 
   const name = product.name;
   const price = selectedSku?.price || 0;
