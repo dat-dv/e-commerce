@@ -4,7 +4,12 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
 import { SaveTokenDto } from './dto/save-token.dto';
 import { Inject } from '@nestjs/common';
-import { IApiResponse, INotificationTokenResponse, INotificationResponse } from '@ecommerce/shared';
+import {
+  IApiResponse,
+  INotificationListResponse,
+  INotificationTokenResponse,
+  INotificationResponse,
+} from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
 
 @Controller('notifications')
@@ -30,29 +35,11 @@ export class NotificationsController {
     @Req() req: RequestWithUser,
     @Query('page') page?: string,
     @Query('limit') limit?: string,
-  ): Promise<IApiResponse<any>> {
+  ): Promise<IApiResponse<INotificationListResponse>> {
     const userId = req.user.sub;
-    const result = await this.notificationsRepository.getNotifications(userId);
-
-    const pageNum = page ? parseInt(page) : undefined;
-    const limitNum = limit ? parseInt(limit) : undefined;
-
-    if (pageNum !== undefined && limitNum !== undefined) {
-      const skip = (pageNum - 1) * limitNum;
-      const paginatedItems = result.slice(skip, skip + limitNum);
-      const total = result.length;
-
-      return createSuccessResponse({
-        items: paginatedItems,
-        meta: {
-          total,
-          page: pageNum,
-          limit: limitNum,
-          totalPages: Math.ceil(total / limitNum),
-        },
-      });
-    }
-
+    const pageNum = page ? Number.parseInt(page, 10) : undefined;
+    const limitNum = limit ? Number.parseInt(limit, 10) : undefined;
+    const result = await this.notificationsRepository.getNotifications(userId, pageNum, limitNum);
     return createSuccessResponse(result);
   }
 
