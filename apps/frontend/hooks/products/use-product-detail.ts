@@ -1,5 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
-import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
+import {
+  TGetProductReviewsRequest,
+  TProduct,
+  TSkuDomain,
+} from "@/domain/products/types/products.model";
 import { useSimilarProducts } from "./use-similar-products";
 import { useProductReviews } from "./use-product-reviews";
 import { useProductActions } from "./use-product-actions";
@@ -10,6 +14,11 @@ export const useProductDetail = (product: TProduct) => {
     Record<string, string>
   >({});
   const [selectedImage, setSelectedImage] = useState(0);
+  const [reviewFilter, setReviewFilter] = useState<TGetProductReviewsRequest>({
+    page: 1,
+    limit: 10,
+    sort: "newest",
+  });
   const fallbackSku = useMemo<TSkuDomain>(
     () => ({
       id: "",
@@ -75,6 +84,7 @@ export const useProductDetail = (product: TProduct) => {
   // 5. Fetch related data using adapter hooks
   const { reviews, totalReviews, loadingReviews } = useProductReviews(
     product.id,
+    reviewFilter,
   );
   const { similarProducts, loadingSimilar } = useSimilarProducts(product.id);
 
@@ -105,6 +115,8 @@ export const useProductDetail = (product: TProduct) => {
     reviews,
     totalReviews,
     loadingReviews,
+    reviewFilter,
+    setReviewFilter,
     similarProducts,
     loadingSimilar,
 

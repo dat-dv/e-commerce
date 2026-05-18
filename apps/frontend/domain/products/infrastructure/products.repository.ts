@@ -9,6 +9,7 @@ import {
   TProduct,
   TReview,
   TGetProductsRequest,
+  TGetProductReviewsRequest,
 } from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
 import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
@@ -110,12 +111,13 @@ export class ProductsRepository implements IProductsRepository {
 
   async getProductReviews(
     id: string,
-    page = 1,
-    limit = 10,
+    params: TGetProductReviewsRequest = {},
   ): Promise<ApiPaginatedResponse<TReview>> {
+    const page = params.page ?? 1;
+    const limit = params.limit ?? 10;
     const response = await this.request.get<ApiListResponse<IReviewResponse>>(
       API_ROUTES.PRODUCTS.REVIEWS(id),
-      { params: { page, limit } },
+      { params: { ...params, page, limit } },
     );
 
     return {

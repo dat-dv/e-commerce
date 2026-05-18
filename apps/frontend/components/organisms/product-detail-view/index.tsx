@@ -34,6 +34,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     reviews,
     totalReviews,
     loadingReviews,
+    reviewFilter,
+    setReviewFilter,
     similarProducts,
     loadingSimilar,
     handleAddToCart,
@@ -93,6 +95,8 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         loadingReviews={loadingReviews}
         averageRating={product.rating}
         totalReviews={totalReviews}
+        activeFilter={reviewFilter}
+        onFilterChange={setReviewFilter}
       />
 
       {/* SECTION 5: SIMILAR PRODUCTS */}

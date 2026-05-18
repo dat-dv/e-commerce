@@ -53,6 +53,16 @@ export interface TReview {
   createdAt: string;
 }
 
+export type TReviewSort = "newest" | "oldest" | "rating_desc" | "rating_asc";
+
+export type TGetProductReviewsRequest = {
+  page?: number;
+  limit?: number;
+  rating?: number;
+  has_images?: boolean;
+  sort?: TReviewSort;
+};
+
 export type TGetProductsRequest = {
   page?: number;
   limit?: number;

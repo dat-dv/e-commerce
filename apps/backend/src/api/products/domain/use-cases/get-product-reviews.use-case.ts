@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
+import { GetProductReviewsDto } from '../../dto/get-product-reviews.dto';
 
 @Injectable()
 export class GetProductReviewsUseCase {
@@ -8,7 +9,7 @@ export class GetProductReviewsUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(productId: string, page = 1, limit = 10) {
-    return this.productsRepository.getProductReviews(productId, page, limit);
+  async execute(productId: string, params: GetProductReviewsDto = {}) {
+    return this.productsRepository.getProductReviews(productId, params);
   }
 }

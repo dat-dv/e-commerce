@@ -2,7 +2,12 @@ import {
   ApiResponse,
   ApiPaginatedResponse,
 } from "@/utils/request/request.types";
-import { TProduct, TReview, TGetProductsRequest } from "./products.model";
+import {
+  TProduct,
+  TReview,
+  TGetProductsRequest,
+  TGetProductReviewsRequest,
+} from "./products.model";
 
 export interface IProductsRepository {
   getRecommended(params?: {
@@ -30,8 +35,7 @@ export interface IProductsRepository {
 
   getProductReviews(
     id: string,
-    page?: number,
-    limit?: number,
+    params?: TGetProductReviewsRequest,
   ): Promise<ApiPaginatedResponse<TReview>>;
 
   getSimilarProducts(

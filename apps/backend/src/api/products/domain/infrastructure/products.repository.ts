@@ -6,11 +6,13 @@ import {
   IProductResponse,
   IFlashSaleResponse,
   Review as IReviewResponse,
+  EReviewSort,
 } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { Prisma } from '../../../../../generated/prisma/client';
 import { GetProductsDto } from '../../dto/get-products.dto';
+import { GetProductReviewsDto } from '../../dto/get-product-reviews.dto';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -563,12 +565,35 @@ export class ProductsRepository implements IProductsRepository {
     return result;
   }
 
-  async getProductReviews(productId: string, page = 1, limit = 10): Promise<IPaginatedResult<IReviewResponse>> {
+  async getProductReviews(
+    productId: string,
+    params: GetProductReviewsDto = {},
+  ): Promise<IPaginatedResult<IReviewResponse>> {
+    const { page = 1, limit = 10, rating, has_images, sort = EReviewSort.NEWEST } = params;
+    const where: Prisma.ReviewWhereInput = {
+      product_id: productId,
+      ...(rating && { rating }),
+      ...(has_images === true && {
+        AND: [{ images: { not: Prisma.DbNull } }, { images: { not: [] } }],
+      }),
+      ...(has_images === false && {
+        OR: [{ images: { equals: Prisma.DbNull } }, { images: { equals: [] } }],
+      }),
+    };
+    const orderBy: Prisma.ReviewOrderByWithRelationInput =
+      sort === EReviewSort.OLDEST
+        ? { created_at: 'asc' }
+        : sort === EReviewSort.RATING_DESC
+          ? { rating: 'desc' }
+          : sort === EReviewSort.RATING_ASC
+            ? { rating: 'asc' }
+            : { created_at: 'desc' };
+
     const result = await this.paginationService.paginate(
       this.prisma.review,
       {
-        where: { product_id: productId },
-        orderBy: { created_at: 'desc' },
+        where,
+        orderBy,
         include: {
           user: {
             select: { id: true, first_name: true, last_name: true },

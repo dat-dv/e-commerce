@@ -11,3 +11,18 @@ export interface IUpdateReviewRequest {
   comment?: string;
   images?: string[];
 }
+
+export enum EReviewSort {
+  NEWEST = "newest",
+  OLDEST = "oldest",
+  RATING_DESC = "rating_desc",
+  RATING_ASC = "rating_asc",
+}
+
+export interface IGetProductReviewsParams {
+  page?: number;
+  limit?: number;
+  rating?: number;
+  has_images?: boolean;
+  sort?: EReviewSort;
+}

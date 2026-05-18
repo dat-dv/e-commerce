@@ -1,9 +1,10 @@
 import { IProductsRepository } from "../types/products.repository";
+import { TGetProductReviewsRequest } from "../types/products.model";
 
 export class GetProductReviewsUseCase {
   constructor(private repo: IProductsRepository) {}
 
-  async execute(productId: string, page = 1, limit = 10) {
-    return this.repo.getProductReviews(productId, page, limit);
+  async execute(productId: string, params?: TGetProductReviewsRequest) {
+    return this.repo.getProductReviews(productId, params);
   }
 }

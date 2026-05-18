@@ -11,6 +11,7 @@ import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.u
 import { GetProductReviewsUseCase } from './domain/use-cases/get-product-reviews.use-case';
 import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
 import { GetProductsDto } from './dto/get-products.dto';
+import { GetProductReviewsDto } from './dto/get-product-reviews.dto';
 import {
   IApiResponse,
   IProductResponse,
@@ -109,10 +110,9 @@ export class ProductsController {
   @Get(':id/reviews')
   async getProductReviews(
     @Param('id') id: string,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+    @Query() query: GetProductReviewsDto,
   ): Promise<IApiResponse<IPaginatedResult<Review>>> {
-    const result = await this.getProductReviewsUseCase.execute(id, page, limit);
+    const result = await this.getProductReviewsUseCase.execute(id, query);
     return createSuccessResponse(result);
   }
 

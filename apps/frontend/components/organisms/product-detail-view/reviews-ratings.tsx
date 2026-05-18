@@ -1,27 +1,57 @@
 "use client";
 
-import React, { useState } from "react";
-import { Star, ThumbsUp, ChevronLeft, ChevronRight } from "lucide-react";
-import { TReview } from "@/domain/products/types/products.model";
+import React from "react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  TGetProductReviewsRequest,
+  TReview,
+} from "@/domain/products/types/products.model";
 
 interface ReviewsRatingsProps {
   reviews: TReview[];
   loadingReviews: boolean;
   averageRating?: number;
   totalReviews?: number;
+  activeFilter: TGetProductReviewsRequest;
+  onFilterChange: (filter: TGetProductReviewsRequest) => void;
 }
+
+const reviewFilters: Array<{
+  label: string;
+  value: TGetProductReviewsRequest;
+}> = [
+  { label: "All", value: { page: 1, limit: 10, sort: "newest" } },
+  {
+    label: "5 Stars",
+    value: { page: 1, limit: 10, rating: 5, sort: "newest" },
+  },
+  {
+    label: "4 Stars",
+    value: { page: 1, limit: 10, rating: 4, sort: "newest" },
+  },
+  {
+    label: "With Images",
+    value: { page: 1, limit: 10, has_images: true, sort: "newest" },
+  },
+];
+
+const isSameReviewFilter = (
+  left: TGetProductReviewsRequest,
+  right: TGetProductReviewsRequest,
+) =>
+  (left.rating ?? undefined) === (right.rating ?? undefined) &&
+  (left.has_images ?? undefined) === (right.has_images ?? undefined) &&
+  (left.sort ?? "newest") === (right.sort ?? "newest");
 
 export const ReviewsRatings = ({
   reviews,
   loadingReviews,
   averageRating = 0,
   totalReviews = 0,
+  activeFilter,
+  onFilterChange,
 }: ReviewsRatingsProps) => {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filters = ["All", "5 Stars", "4 Stars", "With Images"];
   const isEmpty = !loadingReviews && reviews.length === 0;
-  const hasReviews = reviews.length > 0;
   const formattedAverageRating = averageRating.toFixed(1);
   const ratingFloor = Math.floor(averageRating);
 
@@ -54,19 +84,22 @@ export const ReviewsRatings = ({
 
         {/* Review Filters */}
         <div className="flex flex-wrap gap-2">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
-                activeFilter === filter
-                  ? "border-primary bg-primary/5 text-primary"
-                  : "border-content/[0.05] hover:border-content/[0.1] text-content/60"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+          {reviewFilters.map((filter) => {
+            const isActive = isSameReviewFilter(activeFilter, filter.value);
+            return (
+              <button
+                key={filter.label}
+                onClick={() => onFilterChange(filter.value)}
+                className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
+                  isActive
+                    ? "border-primary bg-primary/5 text-primary"
+                    : "border-content/[0.05] hover:border-content/[0.1] text-content/60"
+                }`}
+              >
+                {filter.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
