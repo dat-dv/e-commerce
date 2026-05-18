@@ -96,7 +96,9 @@ const requestCreator: TRequestCreator = async <T>({
           })
           .catch((err) => {
             refreshState.isRefreshing = false;
-            processQueue(err);
+            processQueue(
+              err instanceof Error ? err : new Error("Refresh failed"),
+            );
           });
       }
     });

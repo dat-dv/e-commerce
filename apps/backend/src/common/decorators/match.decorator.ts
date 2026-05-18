@@ -9,9 +9,9 @@ export function Match(property: string, validationOptions?: ValidationOptions) {
       constraints: [property],
       options: validationOptions,
       validator: {
-        validate(value: any, args: ValidationArguments) {
+        validate(value: string, args: ValidationArguments) {
           const relatedPropertyName = args.constraints[0] as string;
-          const relatedValue = (args.object as Record<string, unknown>)[relatedPropertyName];
+          const relatedValue = (args.object as Record<string, string>)[relatedPropertyName];
           return value === relatedValue;
         },
       },

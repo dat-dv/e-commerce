@@ -14,6 +14,8 @@ export interface HelpContactSubmissionImageResponse {
   bytes: number | null;
 }
 
+export type HelpContactMetadata = Record<string, string | number | boolean | null> | null;
+
 export interface HelpContactSubmissionResponse {
   id: string;
   user_id: string | null;
@@ -24,7 +26,7 @@ export interface HelpContactSubmissionResponse {
   message: string;
   status: number;
   source: string | null;
-  metadata: unknown;
+  metadata: HelpContactMetadata;
   created_at: Date;
   updated_at: Date;
   resolved_at: Date | null;

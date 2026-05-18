@@ -1,11 +1,12 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
+import { IApiResponse } from '@ecommerce/shared';
 import { Observable, map } from 'rxjs';
 
 @Injectable()
-export class ResponseInterceptor<T> implements NestInterceptor<T, any> {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+export class ResponseInterceptor<T> implements NestInterceptor<T, IApiResponse<T>> {
+  intercept(context: ExecutionContext, next: CallHandler<T>): Observable<IApiResponse<T>> {
     return next.handle().pipe(
-      map((data: unknown) => {
+      map((data: T) => {
         return {
           status: 'success',
           data,

@@ -40,8 +40,9 @@ export const useRegister = () => {
         : APP_ROUTES.SIGN_IN;
 
       router.push(signInUrl);
-    } catch (err: unknown) {
-      const errorMessage = (err as Error).message || "Registration failed";
+    } catch (err) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Registration failed";
       toast.error(errorMessage, { toastId: "auth-error" });
     } finally {
       setLoading(false);

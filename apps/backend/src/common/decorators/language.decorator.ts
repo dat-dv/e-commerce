@@ -4,7 +4,7 @@ import { Request } from 'express';
 const SUPPORT_LANGUAGE = ['en', 'vi'];
 const DEFAULT_LANG = SUPPORT_LANGUAGE[0];
 
-export const Language = createParamDecorator((data: unknown, ctx: ExecutionContext) => {
+export const Language = createParamDecorator((_data: string | undefined, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest<Request>();
 
   const headerLang = request.headers['accept-language'];

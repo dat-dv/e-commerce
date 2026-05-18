@@ -1,6 +1,6 @@
 export interface QueueItem {
   resolve: () => void;
-  reject: (error: unknown) => void;
+  reject: (error: Error) => void;
 }
 
 export const refreshState = {
@@ -8,7 +8,7 @@ export const refreshState = {
   failedQueue: [] as QueueItem[],
 };
 
-export const processQueue = (error: unknown): void => {
+export const processQueue = (error: Error | null): void => {
   refreshState.failedQueue.forEach((prom) => {
     if (error) {
       prom.reject(error);

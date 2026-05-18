@@ -4,12 +4,9 @@ import {
   TReview,
 } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { RequestError } from "@/utils/request/request-creator";
 
-const getReviewErrorMessage = (error: unknown) => {
-  if (error instanceof RequestError) return error.message;
-  if (error instanceof Error) return error.message;
-  return "Reviews could not be loaded. Please try again.";
+const getReviewErrorMessage = (error: Error) => {
+  return error.message || "Reviews could not be loaded. Please try again.";
 };
 
 export const useProductReviews = (
@@ -38,7 +35,13 @@ export const useProductReviews = (
       } catch (error) {
         setReviews([]);
         setTotalReviews(0);
-        setReviewError(getReviewErrorMessage(error));
+        setReviewError(
+          getReviewErrorMessage(
+            error instanceof Error
+              ? error
+              : new Error("Reviews could not be loaded. Please try again."),
+          ),
+        );
       } finally {
         setLoadingReviews(false);
       }

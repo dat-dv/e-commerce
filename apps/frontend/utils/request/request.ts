@@ -1,13 +1,18 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
 
-import { ApiResponse, IRequestOptions, TRequest } from "./request.types";
+import {
+  ApiResponse,
+  IRequestOptions,
+  RequestBody,
+  TRequest,
+} from "./request.types";
 import requestCreator from "./request-creator";
 import { getLanguageSubdomain } from "../sub-domain/extract-sub-domain";
 
 const forwardClientRequest = async <T>(
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
   url: string,
-  body?: unknown,
+  body?: RequestBody,
   options?: IRequestOptions,
 ): Promise<ApiResponse<T>> => {
   const isServer = typeof window === "undefined";
@@ -64,14 +69,23 @@ export const appRequest: TRequest = {
   get: <T>(url: string, options?: IRequestOptions) =>
     forwardClientRequest<T>("GET", url, undefined, options),
 
-  post: <T>(url: string, body: unknown, options?: IRequestOptions) =>
-    forwardClientRequest<T>("POST", url, body, options),
+  post: <T, TBody extends RequestBody = RequestBody>(
+    url: string,
+    body?: TBody,
+    options?: IRequestOptions,
+  ) => forwardClientRequest<T>("POST", url, body, options),
 
-  put: <T>(url: string, body: unknown, options?: IRequestOptions) =>
-    forwardClientRequest<T>("PUT", url, body, options),
+  put: <T, TBody extends RequestBody = RequestBody>(
+    url: string,
+    body?: TBody,
+    options?: IRequestOptions,
+  ) => forwardClientRequest<T>("PUT", url, body, options),
 
-  patch: <T>(url: string, body: unknown, options?: IRequestOptions) =>
-    forwardClientRequest<T>("PATCH", url, body, options),
+  patch: <T, TBody extends RequestBody = RequestBody>(
+    url: string,
+    body?: TBody,
+    options?: IRequestOptions,
+  ) => forwardClientRequest<T>("PATCH", url, body, options),
 
   delete: <T>(url: string, options?: IRequestOptions) =>
     forwardClientRequest<T>("DELETE", url, undefined, options),

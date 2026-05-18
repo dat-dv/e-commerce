@@ -195,7 +195,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
                     e.stopPropagation();
                     const mockEvent = {
                       target: { value: "" },
-                    } as unknown as React.ChangeEvent<HTMLInputElement>;
+                    } as React.ChangeEvent<HTMLInputElement>;
                     rest.onChange?.(mockEvent);
                   }}
                   className="text-red-500 hover:text-red-700 transition-colors"

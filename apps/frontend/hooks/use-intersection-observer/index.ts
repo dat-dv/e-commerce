@@ -6,7 +6,7 @@ export interface UseIntersectionObserverProps extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
 }
 
-export function useIntersectionObserver<T = Element>({
+export function useIntersectionObserver<T extends Element = Element>({
   threshold = 0.1,
   root = null,
   rootMargin = "200px",
@@ -21,7 +21,7 @@ export function useIntersectionObserver<T = Element>({
   };
 
   useEffect(() => {
-    const node = elementRef.current as unknown as Element;
+    const node = elementRef.current;
     const hasIOSupport =
       typeof window !== "undefined" && !!window.IntersectionObserver;
 

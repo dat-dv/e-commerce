@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { INotificationsRepository } from '../entities/notifications.repository.interface';
+import { CreateNotificationInput, INotificationsRepository } from '../entities/notifications.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { ENotificationType, INotificationTokenResponse } from '@ecommerce/shared';
 import { SaveTokenDto } from '../../dto/save-token.dto';
@@ -51,10 +51,7 @@ export class NotificationsRepository implements INotificationsRepository {
     });
   }
 
-  async createNotification(
-    userId: string,
-    data: { title: string; content: string; type: ENotificationType; link?: string; metadata?: any },
-  ) {
+  async createNotification(userId: string, data: CreateNotificationInput) {
     return this.prisma.notification.create({
       data: {
         user_id: userId,

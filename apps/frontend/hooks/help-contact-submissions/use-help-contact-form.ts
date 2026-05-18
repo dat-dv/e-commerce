@@ -1,5 +1,4 @@
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
-import { RequestError } from "@/utils/request/request-creator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -20,10 +19,8 @@ export const HELP_CONTACT_ALLOWED_IMAGE_TYPES = [
   "image/gif",
 ];
 
-const getErrorMessage = (error: unknown) => {
-  if (error instanceof RequestError) return error.message;
-  if (error instanceof Error) return error.message;
-  return "Failed to send message. Please try again.";
+const getErrorMessage = (error: Error) => {
+  return error.message || "Failed to send message. Please try again.";
 };
 
 export const useHelpContactForm = () => {
@@ -138,7 +135,13 @@ export const useHelpContactForm = () => {
       setAttachments([]);
       fileInputRef.current?.blur();
     } catch (error) {
-      toast.error(getErrorMessage(error));
+      toast.error(
+        getErrorMessage(
+          error instanceof Error
+            ? error
+            : new Error("Failed to send message. Please try again."),
+        ),
+      );
     } finally {
       setIsSubmitting(false);
     }

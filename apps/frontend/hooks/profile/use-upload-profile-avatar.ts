@@ -22,8 +22,9 @@ export function useUpLoadProfileAvatar() {
       } else {
         throw new Error(response.message || "Update failed");
       }
-    } catch (err: unknown) {
-      toast.error((err as Error).message || "Update failed", {
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Update failed";
+      toast.error(message, {
         toastId: "profile-error",
       });
     } finally {

@@ -1,9 +1,5 @@
 import { API_ROUTES } from "@/constants/routes";
-import {
-  ApiResponse,
-  IPaginationMeta,
-  TRequest,
-} from "@/utils/request/request.types";
+import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import {
   TOrder,
   TPlaceOrderRequest,
@@ -35,11 +31,12 @@ export class OrdersRepository implements IOrdersRepository {
   }
 
   async getOrders(params?: TGetOrdersRequest): Promise<ApiResponse<TOrder[]>> {
-    const queryParams = { ...params };
-    if (Array.isArray(queryParams.status)) {
-      (queryParams as unknown as { status: string }).status =
-        queryParams.status.join(",");
-    }
+    const queryParams = {
+      ...params,
+      status: Array.isArray(params?.status)
+        ? params.status.join(",")
+        : params?.status,
+    };
 
     const response = await this.request.get<IOrderListResponse>(
       API_ROUTES.ORDERS.MINE,

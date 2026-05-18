@@ -48,7 +48,7 @@ export class NotificationService {
         content: body,
         type: type,
         link: data?.link,
-        metadata: data ? JSON.stringify(data) : undefined,
+        metadata: data,
       });
 
       const response = await messaging.sendEachForMulticast(message);

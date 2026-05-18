@@ -1,16 +1,13 @@
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { RequestError } from "@/utils/request/request-creator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { ReviewSubmitSchema, reviewSubmitSchema } from "./review-submit.schema";
 
-const getSubmitReviewErrorMessage = (error: unknown) => {
-  if (error instanceof RequestError) return error.message;
-  if (error instanceof Error) return error.message;
-  return "Review could not be submitted. Please try again.";
+const getSubmitReviewErrorMessage = (error: Error) => {
+  return error.message || "Review could not be submitted. Please try again.";
 };
 
 type UseSubmitProductReviewParams = {
@@ -68,7 +65,13 @@ export const useSubmitProductReview = ({
       toast.success("Review submitted.");
       onSubmitted?.();
     } catch (error) {
-      setSubmitReviewError(getSubmitReviewErrorMessage(error));
+      setSubmitReviewError(
+        getSubmitReviewErrorMessage(
+          error instanceof Error
+            ? error
+            : new Error("Review could not be submitted. Please try again."),
+        ),
+      );
     } finally {
       setIsSubmittingReview(false);
     }

@@ -1,6 +1,13 @@
 // ==== REQUEST =====
 export type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
+export type JsonPrimitive = string | number | boolean | null;
+export type JsonValue =
+  | JsonPrimitive
+  | JsonValue[]
+  | { [key: string]: JsonValue };
+export type RequestBody = BodyInit | JsonValue | object | null;
+
 export interface IRequestOptions extends RequestInit {
   responseType?: ResponseType;
   skipAutoRefresh?: boolean;
@@ -13,36 +20,36 @@ export interface IRequestOptions extends RequestInit {
 export interface IRequestParams {
   method: Method;
   url: string;
-  body?: unknown;
+  body?: RequestBody;
   options?: IRequestOptions;
 }
 
-export type TRequestCreator = <T = unknown>(
+export type TRequestCreator = <T = JsonValue>(
   params: IRequestParams,
 ) => Promise<ApiResponse<T>>;
 
 export type TRequest = {
-  get: <T = unknown>(
+  get: <T = JsonValue>(
     url: string,
     options?: IRequestOptions,
   ) => Promise<ApiResponse<T>>;
-  post: <T = unknown>(
+  post: <T = JsonValue, TBody extends RequestBody = RequestBody>(
     url: string,
-    body?: unknown,
+    body?: TBody,
     options?: IRequestOptions,
   ) => Promise<ApiResponse<T>>;
-  put: <T = unknown>(
+  put: <T = JsonValue, TBody extends RequestBody = RequestBody>(
     url: string,
-    body?: unknown,
+    body?: TBody,
     options?: IRequestOptions,
   ) => Promise<ApiResponse<T>>;
-  delete: <T = unknown>(
+  delete: <T = JsonValue>(
     url: string,
     options?: IRequestOptions,
   ) => Promise<ApiResponse<T>>;
-  patch: <T = unknown>(
+  patch: <T = JsonValue, TBody extends RequestBody = RequestBody>(
     url: string,
-    body?: unknown,
+    body?: TBody,
     options?: IRequestOptions,
   ) => Promise<ApiResponse<T>>;
 };

@@ -54,38 +54,4 @@ export class OrderItemSnapshotTransformer {
       },
     };
   }
-
-  static deserialize(raw: unknown): IOrderItemSnapshot | null {
-    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
-      return null;
-    }
-
-    const obj = raw as Record<string, unknown>;
-    const sku = obj['sku'];
-
-    if (!sku || typeof sku !== 'object' || Array.isArray(sku)) {
-      return null;
-    }
-
-    const skuObj = sku as Record<string, unknown>;
-    const product = skuObj['product'];
-
-    if (!product || typeof product !== 'object' || Array.isArray(product)) {
-      return null;
-    }
-
-    const productObj = product as Record<string, unknown>;
-
-    // Structural guard: require the minimal fields that the FE depends on
-    if (
-      typeof skuObj['id'] !== 'string' ||
-      typeof skuObj['sku_code'] !== 'string' ||
-      typeof productObj['id'] !== 'string' ||
-      typeof productObj['name'] !== 'string'
-    ) {
-      return null;
-    }
-
-    return raw as unknown as IOrderItemSnapshot;
-  }
 }
