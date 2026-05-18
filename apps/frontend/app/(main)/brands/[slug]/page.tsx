@@ -39,7 +39,7 @@ export default async function BrandDetailPage({
   const currentPage = pageStr ? Math.max(1, parseInt(pageStr, 10)) : 1;
   const searchQuery = q?.trim() || "";
 
-  const [brandResult, productsResult] = await allSafe([
+  const [brandResult, productsResult, categoriesResult] = await allSafe([
     brandsUseCase.getBrandBySlug.execute(slug),
     brandsUseCase.getBrandProducts.execute(
       slug,
@@ -47,12 +47,14 @@ export default async function BrandDetailPage({
       PAGINATION_LIMITS.DEFAULT,
       searchQuery || undefined,
     ),
+    brandsUseCase.getBrandCategories.execute(slug),
   ]);
 
   if (!brandResult?.data || !productsResult?.data) notFound();
 
   const brand = brandResult.data;
   const productsData = productsResult.data;
+  const categories = categoriesResult?.data || [];
 
   return (
     <BrandDetailView
@@ -61,6 +63,7 @@ export default async function BrandDetailPage({
       currentPage={currentPage}
       totalPages={productsData.meta.totalPages}
       searchQuery={searchQuery}
+      categories={categories}
     />
   );
 }
