@@ -41,11 +41,30 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getTopBrands(page: number, limit: number, languageCode = 'vi'): Promise<IPaginatedResult<IBrandResponse>> {
+  async getTopBrands(
+    page: number,
+    limit: number,
+    languageCode = 'vi',
+    search?: string,
+  ): Promise<IPaginatedResult<IBrandResponse>> {
+    const trimmedSearch = search?.trim();
+    const where = {
+      ...(trimmedSearch
+        ? {
+            translations: {
+              some: {
+                language: { code: languageCode },
+                OR: [{ name: { contains: trimmedSearch } }, { description: { contains: trimmedSearch } }],
+              },
+            },
+          }
+        : {}),
+    };
+
     const result = await this.paginationService.paginate(
       this.prisma.brand,
       {
-        where: { is_featured: true },
+        where,
         orderBy: { order: 'asc' },
         include: this.getBrandIncludeWithProductCount(languageCode),
       },

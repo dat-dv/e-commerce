@@ -26,10 +26,11 @@ export class BrandsController {
   async getTopBrands(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+    @Query('q') search: string | undefined,
     @Language() lang: string,
   ): Promise<IApiResponse<IBrandListResponse>> {
     const parsedLimit = Math.min(50, limit);
-    const result = await this.getTopBrandsUseCase.execute(page, parsedLimit, lang);
+    const result = await this.getTopBrandsUseCase.execute(page, parsedLimit, lang, search);
     return createSuccessResponse(result);
   }
 

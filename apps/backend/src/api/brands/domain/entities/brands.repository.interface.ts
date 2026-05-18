@@ -7,7 +7,12 @@ import type {
 } from '@ecommerce/shared';
 
 export interface IBrandsRepository {
-  getTopBrands(page: number, limit: number, languageCode?: string): Promise<IPaginatedResult<IBrandResponse>>;
+  getTopBrands(
+    page: number,
+    limit: number,
+    languageCode?: string,
+    search?: string,
+  ): Promise<IPaginatedResult<IBrandResponse>>;
 
   getBrandBySlug(slug: string, languageCode?: string): Promise<IBrandResponse | null>;
 
