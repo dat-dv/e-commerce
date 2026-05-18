@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrandResponse, IPaginatedResult, IBrandProductsResponse } from '@ecommerce/shared';
+import { IBrandResponse, IPaginatedResult, IBrandProductsResponse, ICategoryResponse } from '@ecommerce/shared';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
@@ -119,5 +119,73 @@ export class BrandsRepository implements IBrandsRepository {
       products: productsResult.items,
       meta: productsResult.meta,
     };
+  }
+
+  async getBrandCategoryTree(slug: string, languageCode = 'vi'): Promise<ICategoryResponse[]> {
+    const brand = await this.getBrandBySlug(slug, languageCode);
+    if (!brand) return [];
+
+    // 1. Get all categories that have active products under this brand (optimized by brand_id index)
+    const categoriesWithProducts = await this.prisma.productCategory.findMany({
+      where: {
+        product_categories: {
+          some: {
+            product: {
+              brand_id: brand.id,
+              deleted_at: null,
+            },
+          },
+        },
+      },
+      include: {
+        translations: {
+          where: { language: { code: languageCode } },
+        },
+      },
+    });
+
+    // 2. We need to collect parent categories for any child category to build a complete tree
+    const categoryIds = new Set<string>();
+    const parentIds = new Set<string>();
+
+    categoriesWithProducts.forEach((cat) => {
+      categoryIds.add(cat.id);
+      if (cat.parent_id) {
+        parentIds.add(cat.parent_id);
+      }
+    });
+
+    // Fetch missing parent categories
+    const missingParentIds = Array.from(parentIds).filter((id) => !categoryIds.has(id));
+    let parentCategories: ICategoryResponse[] = [];
+    if (missingParentIds.length > 0) {
+      parentCategories = await this.prisma.productCategory.findMany({
+        where: {
+          id: { in: missingParentIds },
+        },
+        include: {
+          translations: {
+            where: { language: { code: languageCode } },
+          },
+        },
+      });
+    }
+
+    // Combine both lists
+    const allCategories = [...categoriesWithProducts, ...parentCategories];
+
+    // 3. Build the tree (2 levels deep for display)
+    const rootCategories = allCategories.filter((cat) => !cat.parent_id);
+
+    return rootCategories.map((root) => {
+      const children = allCategories.filter((cat) => cat.parent_id === root.id);
+      return {
+        ...root,
+        children: children.map((child) => ({
+          ...child,
+          children: [],
+        })),
+      };
+    });
   }
 }

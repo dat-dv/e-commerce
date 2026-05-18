@@ -3,8 +3,15 @@ import { Language } from 'src/common/decorators/language.decorator';
 import { GetTopBrandsUseCase } from './domain/use-cases/get-top-brands.use-case';
 import { GetBrandBySlugUseCase } from './domain/use-cases/get-brand-by-slug.use-case';
 import { GetBrandProductsUseCase } from './domain/use-cases/get-brand-products.use-case';
+import { GetBrandCategoryTreeUseCase } from './domain/use-cases/get-brand-category-tree.use-case';
 import createSuccessResponse from 'src/common/respomse';
-import { IApiResponse, IBrandResponse, IBrandListResponse, IBrandProductsResponse } from '@ecommerce/shared';
+import {
+  IApiResponse,
+  IBrandResponse,
+  IBrandListResponse,
+  IBrandProductsResponse,
+  ICategoryResponse,
+} from '@ecommerce/shared';
 
 @Controller('brands')
 export class BrandsController {
@@ -12,6 +19,7 @@ export class BrandsController {
     private readonly getTopBrandsUseCase: GetTopBrandsUseCase,
     private readonly getBrandBySlugUseCase: GetBrandBySlugUseCase,
     private readonly getBrandProductsUseCase: GetBrandProductsUseCase,
+    private readonly getBrandCategoryTreeUseCase: GetBrandCategoryTreeUseCase,
   ) {}
 
   @Get('top')
@@ -31,6 +39,15 @@ export class BrandsController {
     if (!result) {
       throw new NotFoundException(`Brand with slug ${slug} not found`);
     }
+    return createSuccessResponse(result);
+  }
+
+  @Get(':slug/categories')
+  async getBrandCategories(
+    @Param('slug') slug: string,
+    @Language() lang: string,
+  ): Promise<IApiResponse<ICategoryResponse[]>> {
+    const result = await this.getBrandCategoryTreeUseCase.execute(slug, lang);
     return createSuccessResponse(result);
   }
 

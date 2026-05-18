@@ -1,4 +1,10 @@
-import type { IBrandResponse, IPaginatedResult, IProductResponse, IBrandProductsResponse } from '@ecommerce/shared';
+import type {
+  IBrandResponse,
+  IPaginatedResult,
+  IProductResponse,
+  IBrandProductsResponse,
+  ICategoryResponse,
+} from '@ecommerce/shared';
 
 export interface IBrandsRepository {
   getTopBrands(page: number, limit: number, languageCode?: string): Promise<IPaginatedResult<IBrandResponse>>;
@@ -12,6 +18,8 @@ export interface IBrandsRepository {
     languageCode?: string,
     search?: string,
   ): Promise<IBrandProductsResponse>;
+
+  getBrandCategoryTree(slug: string, languageCode?: string): Promise<ICategoryResponse[]>;
 }
 
 export const IBrandsRepository = Symbol('IBrandsRepository');
