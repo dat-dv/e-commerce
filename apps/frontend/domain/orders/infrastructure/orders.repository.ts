@@ -4,6 +4,7 @@ import {
   TOrder,
   TPlaceOrderRequest,
   TGetOrdersRequest,
+  TGetOrdersByAdminRequest,
 } from "../types/order.model";
 import { OrderMapper } from "./order.mapper";
 import { IOrderResponse, IOrderListResponse } from "@ecommerce/shared";
@@ -11,8 +12,15 @@ import { IOrderResponse, IOrderListResponse } from "@ecommerce/shared";
 export interface IOrdersRepository {
   placeOrder(params: TPlaceOrderRequest): Promise<ApiResponse<TOrder>>;
   getOrders(params?: TGetOrdersRequest): Promise<ApiResponse<TOrder[]>>;
+  getOrdersByAdmin(
+    params?: TGetOrdersByAdminRequest,
+  ): Promise<ApiResponse<TOrder[]>>;
   getOrderDetail(id: string): Promise<ApiResponse<TOrder>>;
   cancelOrder(id: string): Promise<ApiResponse<TOrder>>;
+  updateOrderStatusByAdmin(
+    id: string,
+    status: number,
+  ): Promise<ApiResponse<TOrder>>;
 }
 
 export class OrdersRepository implements IOrdersRepository {
@@ -65,6 +73,43 @@ export class OrdersRepository implements IOrdersRepository {
     const response = await this.request.post<IOrderResponse>(
       API_ROUTES.ORDERS.CANCEL(id),
       {},
+    );
+
+    return {
+      ...response,
+      data: response.data ? OrderMapper.toDomain(response.data) : undefined,
+    } as ApiResponse<TOrder>;
+  }
+
+  async getOrdersByAdmin(
+    params?: TGetOrdersByAdminRequest,
+  ): Promise<ApiResponse<TOrder[]>> {
+    const queryParams = {
+      ...params,
+      status: Array.isArray(params?.status)
+        ? params.status.join(",")
+        : params?.status,
+    };
+
+    const response = await this.request.get<IOrderListResponse>(
+      API_ROUTES.ORDERS.ALL,
+      { params: queryParams },
+    );
+
+    return {
+      ...response,
+      data: response.data?.items?.map(OrderMapper.toDomain) || [],
+      meta: response.data?.meta,
+    } as ApiResponse<TOrder[]>;
+  }
+
+  async updateOrderStatusByAdmin(
+    id: string,
+    status: number,
+  ): Promise<ApiResponse<TOrder>> {
+    const response = await this.request.post<IOrderResponse>(
+      API_ROUTES.ORDERS.UPDATE_STATUS(id),
+      { status },
     );
 
     return {

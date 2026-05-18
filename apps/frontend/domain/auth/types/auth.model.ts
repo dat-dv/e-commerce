@@ -47,6 +47,7 @@ export interface TUser {
   updatedAt?: string | null;
   deletedAt?: string | null;
   roleId?: string | null;
+  roleName?: string | null;
   dateOfBirth?: string | null;
   avatarUrl?: string | null;
   gender?: EGender | null;

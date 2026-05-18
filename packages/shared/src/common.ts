@@ -3,3 +3,8 @@ export enum ESortValue {
   ASC = 1,
   DESC = 2,
 }
+
+export enum EDefaultRoleName {
+  ADMIN = "ADMIN",
+  USER = "USER",
+}

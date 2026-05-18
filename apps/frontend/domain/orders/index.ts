@@ -4,6 +4,8 @@ import { PlaceOrderUseCase } from "./use-cases/place-order.use-case";
 import {
   GetOrdersUseCase,
   GetOrderDetailUseCase,
+  GetOrdersByAdminUseCase,
+  UpdateOrderStatusByAdminUseCase,
 } from "./use-cases/get-orders.use-case";
 import { CancelOrderUseCase } from "./use-cases/cancel-order.use-case";
 
@@ -14,4 +16,6 @@ export const ordersUseCase = {
   getOrders: new GetOrdersUseCase(repo),
   getOrderDetail: new GetOrderDetailUseCase(repo),
   cancelOrder: new CancelOrderUseCase(repo),
+  getOrdersByAdmin: new GetOrdersByAdminUseCase(repo),
+  updateOrderStatusByAdmin: new UpdateOrderStatusByAdminUseCase(repo),
 };

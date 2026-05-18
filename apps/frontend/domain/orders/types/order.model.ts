@@ -69,3 +69,10 @@ export type TGetOrdersRequest = {
   page?: number;
   limit?: number;
 };
+
+export type TGetOrdersByAdminRequest = {
+  status?: number[];
+  page?: number;
+  limit?: number;
+  search?: string;
+};

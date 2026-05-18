@@ -27,6 +27,7 @@ export const UserMapper = {
       updatedAt: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
       deletedAt: dto.deleted_at ? new Date(dto.deleted_at).toISOString() : null,
       roleId: dto.role_id,
+      roleName: dto.role?.role_name || null,
     };
   },
   toDTO(user: Partial<TUser>): Partial<IUserResponse> {

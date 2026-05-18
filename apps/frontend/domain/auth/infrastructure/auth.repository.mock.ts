@@ -32,6 +32,13 @@ export class MockAuthRepository implements IAuthRepository {
     password: "hashed_password",
     salt: "salt",
     role_id: "user_role_id",
+    role: {
+      id: "user_role_id",
+      role_name: "ADMIN",
+      description: "Admin Role",
+      created_at: new Date(),
+      updated_at: new Date(),
+    },
     gender: 0,
     deleted_at: null,
     phones: [

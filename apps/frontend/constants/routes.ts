@@ -80,6 +80,7 @@ export const API_ROUTES = {
   ORDERS: {
     BASE: "/orders",
     MINE: "/orders",
+    ALL: "/orders/all",
     DETAIL: (id: string) => `/orders/${id}`,
     CANCEL: (id: string) => `/orders/${id}/cancel`,
     UPDATE_STATUS: (id: string) => `/orders/${id}/status`,
