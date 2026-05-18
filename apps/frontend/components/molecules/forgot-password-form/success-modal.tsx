@@ -1,8 +1,12 @@
 "use client";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
+import {
+  AriaDialog,
+  AriaDialogPanel,
+  AriaDialogTitle,
+} from "@/components/atoms/aria/dialog";
 import React from "react";
 
 interface SuccessModalProps {
@@ -19,17 +23,17 @@ export default function SuccessModal({
   message,
 }: SuccessModalProps) {
   return (
-    <Dialog open={isOpen} onClose={onClose} className="relative z-[9999]">
+    <AriaDialog isOpen={isOpen} onClose={onClose} className="relative z-[9999]">
       <div
         className="fixed inset-0 bg-black/30 backdrop-blur-sm"
         aria-hidden="true"
       />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <DialogPanel className="mx-auto max-w-md w-full rounded-2xl bg-surface p-6 shadow-2xl border border-content/5">
+        <AriaDialogPanel className="mx-auto max-w-md w-full rounded-2xl bg-surface p-6 shadow-2xl border border-content/5">
           <div className="flex justify-between items-center mb-4">
-            <DialogTitle className="text-xl font-bold text-content">
+            <AriaDialogTitle className="text-xl font-bold text-content">
               {title}
-            </DialogTitle>
+            </AriaDialogTitle>
             <button
               onClick={onClose}
               className="text-content/50 hover:text-content"
@@ -48,8 +52,8 @@ export default function SuccessModal({
               Got it
             </Button>
           </div>
-        </DialogPanel>
+        </AriaDialogPanel>
       </div>
-    </Dialog>
+    </AriaDialog>
   );
 }

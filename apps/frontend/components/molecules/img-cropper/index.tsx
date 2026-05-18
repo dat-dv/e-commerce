@@ -1,10 +1,14 @@
 "use client";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { MaximizeIcon, XIcon } from "lucide-react";
 import React, { useCallback, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
 
+import {
+  AriaDialog,
+  AriaDialogPanel,
+  AriaDialogTitle,
+} from "@/components/atoms/aria/dialog";
 import Button from "@/components/atoms/button";
 
 import getCroppedImg from "./get-cropped-img";
@@ -62,14 +66,14 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
   };
 
   return (
-    <Dialog open={true} onClose={onCancel} className="relative z-[100]">
+    <AriaDialog isOpen={true} onClose={onCancel} className="relative z-[100]">
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         aria-hidden="true"
       />
 
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <DialogPanel className="relative w-full max-w-sm max-h-[90vh] overflow-hidden bg-surface border border-content/10 rounded-3xl shadow-2xl flex flex-col">
+        <AriaDialogPanel className="relative w-full max-w-sm max-h-[90vh] overflow-hidden bg-surface border border-content/10 rounded-3xl shadow-2xl flex flex-col">
           {/* Close Button Overlay */}
           <button
             onClick={onCancel}
@@ -104,9 +108,9 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
 
           {/* Controls */}
           <div className="p-6 space-y-6 overflow-y-auto">
-            <DialogTitle className="text-lg font-bold text-content sr-only">
+            <AriaDialogTitle className="text-lg font-bold text-content sr-only">
               Edit Photo
-            </DialogTitle>
+            </AriaDialogTitle>
 
             {/* Zoom Control */}
             <div className="flex items-center gap-4">
@@ -142,9 +146,9 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
               </Button>
             </div>
           </div>
-        </DialogPanel>
+        </AriaDialogPanel>
       </div>
-    </Dialog>
+    </AriaDialog>
   );
 };
 

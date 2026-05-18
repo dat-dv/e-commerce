@@ -1,6 +1,10 @@
 "use client";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import {
+  AriaDialog,
+  AriaDialogPanel,
+  AriaDialogTitle,
+} from "@/components/atoms/aria/dialog";
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import {
   TAddress,
@@ -65,19 +69,19 @@ export const AddAddressModal = ({
 
   const title = editingAddress ? "Edit Address" : "New Address";
   return (
-    <Dialog open={isOpen} onClose={onClose} className="relative z-[100]">
+    <AriaDialog isOpen={isOpen} onClose={onClose} className="relative z-[100]">
       <div
         className="fixed inset-0 bg-content/40 backdrop-blur-md transition-opacity"
         aria-hidden="true"
       />
 
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <DialogPanel className="relative w-full max-w-2xl bg-surface/95 backdrop-blur-3xl rounded-[2.5rem] shadow-2xl border border-content/10 overflow-hidden animate-in zoom-in-95 fade-in duration-200">
+        <AriaDialogPanel className="relative w-full max-w-2xl bg-surface/95 backdrop-blur-3xl rounded-[2.5rem] shadow-2xl border border-content/10 overflow-hidden animate-in zoom-in-95 fade-in duration-200">
           <div className="px-10 py-8 border-b border-content/5 flex justify-between items-center bg-surface/50 backdrop-blur-xl">
             <div>
-              <DialogTitle className="text-2xl font-bold text-content">
+              <AriaDialogTitle className="text-2xl font-bold text-content">
                 {title}
-              </DialogTitle>
+              </AriaDialogTitle>
               <p className="text-xs text-content/40 mt-1">Shipping Details</p>
             </div>
             <Button
@@ -98,8 +102,8 @@ export const AddAddressModal = ({
               key={isOpen ? editingAddress?.id || "new" : "closed"} // Reset form when modal opens with new data
             />
           </div>
-        </DialogPanel>
+        </AriaDialogPanel>
       </div>
-    </Dialog>
+    </AriaDialog>
   );
 };

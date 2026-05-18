@@ -3,8 +3,8 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { ChevronDown } from "lucide-react";
+import { AriaMenu, AriaMenuItem } from "@/components/atoms/aria/menu";
 import { cn } from "@/utils/cn";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { aseanCountries } from "@/constants/countries";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -80,43 +80,46 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
               )}
             >
               {/* COUNTRY SELECT */}
-              <Menu
-                as="div"
-                className="relative z-50 inline-block h-full text-left"
-              >
-                <MenuButton
+              <div className="relative z-50 inline-block h-full text-left">
+                <AriaMenu
                   disabled={rest.disabled}
-                  className={cn(
-                    "flex items-center gap-1 px-3 h-full border-r border-content/[0.08]",
-                    rest.disabled
-                      ? "cursor-not-allowed opacity-50"
-                      : "cursor-pointer",
+                  className="absolute left-0 top-full z-[9999] mt-1 w-56 rounded-xl bg-surface border border-content/10 shadow-2xl max-h-60 overflow-y-auto"
+                  trigger={({ buttonProps }) => (
+                    <button
+                      {...buttonProps}
+                      className={cn(
+                        "flex items-center gap-1 px-3 h-full border-r border-content/[0.08]",
+                        rest.disabled
+                          ? "cursor-not-allowed opacity-50"
+                          : "cursor-pointer",
+                      )}
+                    >
+                      <span className="text-lg">{country.flag}</span>
+                      <span className="text-sm font-medium text-content/80">
+                        {country.dialCode}
+                      </span>
+                      <ChevronDown size={14} />
+                    </button>
                   )}
                 >
-                  <span className="text-lg">{country.flag}</span>
-                  <span className="text-sm font-medium text-content/80">
-                    {country.dialCode}
-                  </span>
-                  <ChevronDown size={14} />
-                </MenuButton>
+                  {({ close }) => (
+                    <>
+                      {countries.map((c) => {
+                        const isDisabled =
+                          c.disabled ||
+                          (disabledSelected && country.code === c.code);
 
-                <MenuItems className="absolute left-0 top-full z-[9999] mt-1 w-56 rounded-xl bg-surface border border-content/10 shadow-2xl max-h-60 overflow-y-auto">
-                  {countries.map((c) => {
-                    const isDisabled =
-                      c.disabled ||
-                      (disabledSelected && country.code === c.code);
-
-                    return (
-                      <MenuItem key={c.code} disabled={isDisabled}>
-                        {({ active, disabled }) => (
-                          <div
-                            onClick={() =>
-                              !disabled && handleCountryChange(c.dialCode)
-                            }
+                        return (
+                          <AriaMenuItem
+                            key={c.code}
+                            disabled={isDisabled}
+                            onClick={() => {
+                              handleCountryChange(c.dialCode);
+                              close();
+                            }}
                             className={cn(
-                              "flex items-center gap-3 px-4 py-2 cursor-pointer",
-                              active && "bg-content/[0.04]",
-                              disabled && "opacity-50",
+                              "flex w-full items-center gap-3 px-4 py-2 cursor-pointer hover:bg-content/[0.04] focus:bg-content/[0.04] focus:outline-none text-left",
+                              isDisabled && "opacity-50",
                             )}
                           >
                             <span className="text-xl">{c.flag}</span>
@@ -126,13 +129,13 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                                 {c.dialCode}
                               </div>
                             </div>
-                          </div>
-                        )}
-                      </MenuItem>
-                    );
-                  })}
-                </MenuItems>
-              </Menu>
+                          </AriaMenuItem>
+                        );
+                      })}
+                    </>
+                  )}
+                </AriaMenu>
+              </div>
 
               {/* INPUT */}
               <input

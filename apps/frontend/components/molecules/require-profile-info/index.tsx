@@ -1,6 +1,10 @@
 "use client";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import {
+  AriaDialog,
+  AriaDialogPanel,
+  AriaDialogTitle,
+} from "@/components/atoms/aria/dialog";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { RequireProfileInfoForm } from "./require-profile-info-form";
 import { TRequireProfileInfoSchema } from "./require-profile-info-form.schema";
@@ -34,17 +38,22 @@ const RequireProfileInfoModal = () => {
   if (!show) return null;
 
   return (
-    <Dialog open onClose={() => {}} className="relative z-[100]">
+    <AriaDialog
+      isOpen
+      onClose={() => {}}
+      isDismissable={false}
+      className="relative z-[100]"
+    >
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         aria-hidden="true"
       />
       <div className="fixed inset-0 flex items-center justify-center p-4 min-w-[420px]">
         {/* Full-screen container to center the panel */}
-        <DialogPanel className="w-full max-w-xl bg-surface rounded-3xl p-8 animate-in zoom-in-95">
-          <DialogTitle className="text-2xl font-bold mb-2">
+        <AriaDialogPanel className="w-full max-w-xl bg-surface rounded-3xl p-8 animate-in zoom-in-95">
+          <AriaDialogTitle className="text-2xl font-bold mb-2">
             Complete Your Profile
-          </DialogTitle>
+          </AriaDialogTitle>
           <p className="text-content/60 mb-6">
             Please provide the missing information to continue.
           </p>
@@ -53,9 +62,9 @@ const RequireProfileInfoModal = () => {
             logout={logout}
             user={user}
           />
-        </DialogPanel>
+        </AriaDialogPanel>
       </div>
-    </Dialog>
+    </AriaDialog>
   );
 };
 

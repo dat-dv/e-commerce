@@ -1,6 +1,10 @@
 "use client";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import {
+  AriaDialog,
+  AriaDialogPanel,
+  AriaDialogTitle,
+} from "@/components/atoms/aria/dialog";
 import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
 import { useState, useEffect } from "react";
@@ -50,17 +54,17 @@ export default function MapPickerModal({
   }, [searchQuery, address, fetchSuggestions]);
 
   return (
-    <Dialog open={isOpen} onClose={onClose} className="relative z-[100]">
+    <AriaDialog isOpen={isOpen} onClose={onClose} className="relative z-[100]">
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         aria-hidden="true"
       />
 
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <DialogPanel className="w-full max-w-2xl bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative">
-          <DialogTitle className="text-2xl font-bold mb-4">
+        <AriaDialogPanel className="w-full max-w-2xl bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative">
+          <AriaDialogTitle className="text-2xl font-bold mb-4">
             Pick Address on Map
-          </DialogTitle>
+          </AriaDialogTitle>
 
           <Button
             variant="ghost"
@@ -127,8 +131,8 @@ export default function MapPickerModal({
               </Button>
             </div>
           </div>
-        </DialogPanel>
+        </AriaDialogPanel>
       </div>
-    </Dialog>
+    </AriaDialog>
   );
 }
