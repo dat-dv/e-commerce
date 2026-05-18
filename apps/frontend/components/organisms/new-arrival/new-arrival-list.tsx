@@ -10,7 +10,7 @@ import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import EmptyState from "@/components/molecules/empty-space";
-import { usePagination } from "@/hooks/use-pagination";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import { EProductSort } from "@ecommerce/shared";
 
 interface NewArrivalListProps {
@@ -36,7 +36,7 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
     loadingMore,
     error,
     loadMore,
-  } = usePagination({
+  } = usePaginationWithSSRData<TProduct>({
     initialItems: products,
     initialMeta: meta,
     fetchPage: fetchNewArrivalsPage,

@@ -10,7 +10,7 @@ import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import EmptyState from "@/components/molecules/empty-space";
-import { usePagination } from "@/hooks/use-pagination";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 
 interface FlashSaleListProps {
   products: TProduct[];
@@ -31,11 +31,11 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
     loadingMore,
     error,
     loadMore,
-  } = usePagination({
+  } = usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
     initialItems: products,
     initialMeta: meta,
     fetchPage: fetchFlashSalePage,
-    getItemKey: (product) => product.id,
+    getItemKey: (item) => item.id,
   });
 
   return (
