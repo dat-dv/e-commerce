@@ -107,7 +107,7 @@ export class OrdersRepository implements IOrdersRepository {
     id: string,
     status: number,
   ): Promise<ApiResponse<TOrder>> {
-    const response = await this.request.post<IOrderResponse>(
+    const response = await this.request.put<IOrderResponse>(
       API_ROUTES.ORDERS.UPDATE_STATUS(id),
       { status },
     );
