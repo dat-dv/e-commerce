@@ -1,0 +1,74 @@
+{
+  "HelpCenter": {
+    "metadata": {
+      "title": "Trung tâm trợ giúp",
+      "description": "Bạn cần hỗ trợ gì hôm nay?"
+    },
+    "shippingMetadata": {
+      "title": "Thông tin giao hàng",
+      "description": "Tìm câu trả lời về vận chuyển, đơn vị giao hàng và chính sách theo dõi đơn."
+    },
+    "faqMetadata": {
+      "title": "Câu hỏi thường gặp",
+      "description": "Tìm câu trả lời cho các câu hỏi thường gặp."
+    },
+    "contactMetadata": {
+      "title": "Liên hệ với chúng tôi",
+      "description": "Liên hệ với đội ngũ hỗ trợ của chúng tôi."
+    },
+    "headers": {
+      "help": {
+        "title": "TRỢ GIÚP",
+        "highlight": "SHOP.HUB",
+        "description": "Bạn cần hỗ trợ gì hôm nay? Tìm nhanh câu trả lời hoặc duyệt các chủ đề bên dưới.",
+        "placeholder": "Nhập từ khóa hoặc tìm bài viết phổ biến...",
+        "clear": "Xóa"
+      },
+      "shipping": {
+        "title": "THÔNG TIN",
+        "highlight": "GIAO HÀNG",
+        "description": "Tìm câu trả lời về vận chuyển, đơn vị giao hàng và chính sách theo dõi đơn."
+      },
+      "faq": {
+        "title": "CÂU HỎI",
+        "highlight": "THƯỜNG GẶP",
+        "description": "Tìm câu trả lời về Shop.Hub, an toàn tài khoản, thanh toán, giao hàng và đổi trả."
+      }
+    },
+    "contact": {
+      "backToHelp": "← Quay lại Trung tâm trợ giúp",
+      "title": "Liên hệ hỗ trợ",
+      "subtitle": "Chúng tôi sẵn sàng hỗ trợ bạn 24/7.",
+      "sendUsAMessage": "Gửi tin nhắn cho chúng tôi",
+      "directContact": "Liên hệ trực tiếp",
+      "directSupportNote": "Đội ngũ của chúng tôi sẵn sàng 24/7 cho các vấn đề khẩn cấp.",
+      "emailLabel": "Email",
+      "phoneLabel": "Số điện thoại",
+      "needSupport": "Cần hỗ trợ?",
+      "needSupportDesc": "Không tìm thấy thông tin bạn cần? Hãy gửi yêu cầu hỗ trợ và chúng tôi sẽ giúp bạn.",
+      "openATicket": "Gửi yêu cầu",
+      "form": {
+        "nameLabel": "Tên",
+        "namePlaceholder": "Tên của bạn",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "phoneLabel": "Số điện thoại",
+        "subjectLabel": "Tiêu đề",
+        "subjectPlaceholder": "Chúng tôi có thể giúp gì cho bạn?",
+        "messageLabel": "Nội dung",
+        "messagePlaceholder": "Mô tả chi tiết vấn đề của bạn...",
+        "attachmentsLabel": "Tệp đính kèm",
+        "uploadLabel": "Tải ảnh lên ({count}/{max})",
+        "sending": "Đang gửi...",
+        "send": "Gửi tin nhắn"
+      },
+      "toasts": {
+        "unsupportedType": "{fileName} không phải định dạng ảnh được hỗ trợ.",
+        "imageTooLarge": "{fileName} vượt quá kích thước tối đa 5MB.",
+        "maxAttachments": "Bạn chỉ có thể đính kèm tối đa {max} ảnh.",
+        "sendSuccess": "Tin nhắn đã được gửi đi. Chúng tôi sẽ phản hồi sớm nhất có thể.",
+        "sendFailed": "Không thể gửi tin nhắn. Vui lòng thử lại sau."
+      }
+    }
+  }
+}

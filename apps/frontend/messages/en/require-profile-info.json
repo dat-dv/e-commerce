@@ -1,0 +1,22 @@
+{
+  "RequireProfileInfoModal": {
+    "title": "Complete Your Profile",
+    "description": "Please provide the missing information to continue.",
+    "form": {
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Enter first name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Enter last name",
+      "dateOfBirthLabel": "Date of Birth",
+      "dateOfBirthPlaceholder": "dd/mm/yyyy",
+      "genderLabel": "Gender",
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "submit": "Save & Continue",
+      "logout": "Logout"
+    }
+  }
+}

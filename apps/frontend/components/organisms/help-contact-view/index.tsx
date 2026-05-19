@@ -4,8 +4,11 @@ import ContactForm from "@/components/molecules/contact-form";
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
+import { useTranslations } from "next-intl";
 
 export function HelpContactView(): React.ReactElement {
+  const t = useTranslations("HelpCenter.contact");
+
   return (
     <AppContainer
       size="2xl"
@@ -16,19 +19,17 @@ export function HelpContactView(): React.ReactElement {
           href={APP_ROUTES.HELP}
           className="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1"
         >
-          ← Back to Help Center
+          {t("backToHelp")}
         </Link>
-        <h1 className="text-3xl font-black mt-2 text-content">Contact Us</h1>
-        <p className="text-content/60 text-sm mt-1">
-          We are here to help you 24/7.
-        </p>
+        <h1 className="text-3xl font-black mt-2 text-content">{t("title")}</h1>
+        <p className="text-content/60 text-sm mt-1">{t("subtitle")}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {/* Contact Form */}
         <div className="md:col-span-2 border border-content/5 rounded-2xl p-8 bg-surface shadow-sm">
           <h2 className="text-xl font-bold text-content mb-6">
-            Send us a message
+            {t("sendUsAMessage")}
           </h2>
           <ContactForm />
         </div>
@@ -37,25 +38,27 @@ export function HelpContactView(): React.ReactElement {
         <div className="flex flex-col gap-6 self-start">
           <div className="border border-content/5 rounded-2xl p-8 bg-surface shadow-sm">
             <h3 className="text-lg font-bold text-content mb-2">
-              Direct Contact
+              {t("directContact")}
             </h3>
             <p className="text-content/60 text-sm mb-4">
-              Our team is available 24/7 for urgent matters.
+              {t("directSupportNote")}
             </p>
             <div className="space-y-2 text-sm text-content/80">
               <p>
-                📧 <span className="font-medium">Email:</span> support@shop.hub
+                📧 <span className="font-medium">{t("emailLabel")}:</span>{" "}
+                support@shop.hub
               </p>
               <p>
-                📞 <span className="font-medium">Phone:</span> +1 (234) 567-890
+                📞 <span className="font-medium">{t("phoneLabel")}:</span> +1
+                (234) 567-890
               </p>
             </div>
           </div>
 
           <HelpSupportCard
-            title="Need Support?"
-            description="Can't find what you need? Open a support ticket and we'll help you."
-            ctaLabel="Open a Ticket"
+            title={t("needSupport")}
+            description={t("needSupportDesc")}
+            ctaLabel={t("openATicket")}
             showCta
             ctaHref={APP_ROUTES.CONTACT}
             className="p-8 rounded-2xl"

@@ -3,7 +3,7 @@
 import React from "react";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import AppContainer from "@/components/atoms/app-container";
-import { useAppConfig } from "@/hooks/config/use-config-store";
+import { useTranslations } from "next-intl";
 import {
   HelpCircle,
   LifeBuoy,
@@ -21,17 +21,12 @@ export function HelpHeader({
   searchQuery,
   setSearchQuery,
 }: HelpHeaderProps): React.ReactElement {
-  const language = useAppConfig((state) => state.language);
-  const isVietnamese = language === "vi";
-  const title = isVietnamese ? "TRỢ GIÚP" : "HELP";
-  const highlight = isVietnamese ? "SHOP.HUB" : "CENTER";
-  const description = isVietnamese
-    ? "Bạn cần hỗ trợ gì hôm nay? Tìm nhanh câu trả lời hoặc duyệt các chủ đề bên dưới."
-    : "Hello, how can we help you today? Search our database or browse categories below.";
-  const placeholder = isVietnamese
-    ? "Nhập từ khóa hoặc tìm bài viết phổ biến..."
-    : "Enter keywords or search popular articles...";
-  const clearLabel = isVietnamese ? "Xóa" : "Clear";
+  const t = useTranslations("HelpCenter.headers.help");
+  const title = t("title");
+  const highlight = t("highlight");
+  const description = t("description");
+  const placeholder = t("placeholder");
+  const clearLabel = t("clear");
 
   return (
     <div className="mb-12">

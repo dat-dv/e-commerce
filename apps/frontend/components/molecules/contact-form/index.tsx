@@ -12,8 +12,12 @@ import {
 import { ImageIcon, Upload, X } from "lucide-react";
 import React from "react";
 import { Controller } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
+  const t = useTranslations("HelpCenter.contact.form");
+  const tValidation = useTranslations("Validation");
+
   const {
     methods,
     attachments,
@@ -29,48 +33,48 @@ export default function ContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <FormInput
           name="contact_name"
-          label="Name"
-          placeholder="Your name"
+          label={t("nameLabel")}
+          placeholder={t("namePlaceholder")}
           maxCount={120}
           className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
         />
         <FormInput
           name="contact_email"
-          label="Email"
+          label={t("emailLabel")}
           type="email"
-          placeholder="you@example.com"
+          placeholder={t("emailPlaceholder")}
           className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
         />
       </div>
 
       <FormPhoneInput
         name="contact_phone"
-        label="Phone"
+        label={t("phoneLabel")}
         disabled={isSubmitting}
         className="h-12 text-sm rounded-xl"
       />
 
       <FormInput
         name="subject"
-        label="Subject"
-        placeholder="How can we help?"
+        label={t("subjectLabel")}
+        placeholder={t("subjectPlaceholder")}
         maxCount={160}
         className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
       />
 
       <div>
         <label className="text-sm font-bold text-content/80 block mb-2">
-          Message
+          {t("messageLabel")}
         </label>
         <Controller
           name="message"
           control={methods.control}
-          rules={{ required: "Message is required" }}
+          rules={{ required: tValidation("messageRequired") }}
           render={({ field, fieldState: { error } }) => (
             <div>
               <textarea
                 {...field}
-                placeholder="Describe your issue in detail..."
+                placeholder={t("messagePlaceholder")}
                 rows={6}
                 maxLength={5000}
                 className="w-full px-5 py-3 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm resize-y min-h-36"
@@ -86,7 +90,7 @@ export default function ContactForm() {
 
       <div>
         <label className="text-sm font-bold text-content/80 block mb-2">
-          Attachments
+          {t("attachmentsLabel")}
         </label>
         <input
           ref={fileInputRef}
@@ -106,7 +110,10 @@ export default function ContactForm() {
         >
           <Upload className="size-5" aria-hidden />
           <span className="text-sm font-bold">
-            Upload images ({attachments.length}/{HELP_CONTACT_MAX_ATTACHMENTS})
+            {t("uploadLabel", {
+              count: attachments.length,
+              max: HELP_CONTACT_MAX_ATTACHMENTS,
+            })}
           </span>
         </Button>
 
@@ -149,7 +156,7 @@ export default function ContactForm() {
         className="w-full h-12 rounded-xl"
         loading={isSubmitting}
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? t("sending") : t("send")}
       </Button>
     </AppForm>
   );

@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import {
   AriaDialog,
   AriaDialogPanel,
@@ -9,7 +11,9 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { RequireProfileInfoForm } from "./require-profile-info-form";
 import { TRequireProfileInfoSchema } from "./require-profile-info-form.schema";
 import { authUseCase } from "@/domain/auth/use-cases";
+
 const RequireProfileInfoModal = () => {
+  const t = useTranslations("RequireProfileInfoModal");
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const logout = useAuthStore((state) => state.logout);
@@ -52,11 +56,9 @@ const RequireProfileInfoModal = () => {
         {/* Full-screen container to center the panel */}
         <AriaDialogPanel className="w-full max-w-xl bg-surface rounded-3xl p-8 animate-in zoom-in-95">
           <AriaDialogTitle className="text-2xl font-bold mb-2">
-            Complete Your Profile
+            {t("title")}
           </AriaDialogTitle>
-          <p className="text-content/60 mb-6">
-            Please provide the missing information to continue.
-          </p>
+          <p className="text-content/60 mb-6">{t("description")}</p>
           <RequireProfileInfoForm
             onSubmit={onSubmit}
             logout={logout}

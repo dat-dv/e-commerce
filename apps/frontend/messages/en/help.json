@@ -1,0 +1,74 @@
+{
+  "HelpCenter": {
+    "metadata": {
+      "title": "Help Center",
+      "description": "How can we help you today?"
+    },
+    "shippingMetadata": {
+      "title": "Shipping Information",
+      "description": "Learn about our shipping policies and tracking."
+    },
+    "faqMetadata": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions."
+    },
+    "contactMetadata": {
+      "title": "Contact Us",
+      "description": "Get in touch with our support team."
+    },
+    "headers": {
+      "help": {
+        "title": "HELP",
+        "highlight": "SHOP.HUB",
+        "description": "Hello, how can we help you today? Search our database or browse categories below.",
+        "placeholder": "Enter keywords or search popular articles...",
+        "clear": "Clear"
+      },
+      "shipping": {
+        "title": "SHIPPING",
+        "highlight": "INFORMATION",
+        "description": "Find answers to questions about shipping, couriers, and delivery tracking policies."
+      },
+      "faq": {
+        "title": "FREQUENTLY",
+        "highlight": "ASKED QUESTIONS",
+        "description": "Find answers to common questions about using Shop.Hub, account safety, and payment processing."
+      }
+    },
+    "contact": {
+      "backToHelp": "← Back to Help Center",
+      "title": "Contact Us",
+      "subtitle": "We are here to help you 24/7.",
+      "sendUsAMessage": "Send us a message",
+      "directContact": "Direct Contact",
+      "directSupportNote": "Our team is available 24/7 for urgent matters.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "needSupport": "Need Support?",
+      "needSupportDesc": "Can't find what you need? Open a support ticket and we'll help you.",
+      "openATicket": "Open a Ticket",
+      "form": {
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "phoneLabel": "Phone",
+        "subjectLabel": "Subject",
+        "subjectPlaceholder": "How can we help?",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Describe your issue in detail...",
+        "attachmentsLabel": "Attachments",
+        "uploadLabel": "Upload images ({count}/{max})",
+        "sending": "Sending...",
+        "send": "Send Message"
+      },
+      "toasts": {
+        "unsupportedType": "{fileName} is not a supported image type.",
+        "imageTooLarge": "{fileName} is larger than 5MB.",
+        "maxAttachments": "You can attach up to {max} images.",
+        "sendSuccess": "Message sent. We will get back to you soon.",
+        "sendFailed": "Failed to send message. Please try again."
+      }
+    }
+  }
+}

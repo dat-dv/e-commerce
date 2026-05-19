@@ -4,7 +4,8 @@ import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import helpData from "@/app/(main)/(localized)/_data/help.json";
 import { APP_ROUTES } from "@/constants/routes";
-import { useAppConfig } from "@/hooks/config/use-config-store";
+import { useLocale } from "next-intl";
+import Link from "next/link";
 import {
   ArrowRight,
   Headphones,
@@ -16,7 +17,6 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
-import Link from "next/link";
 import React, { useMemo, useState } from "react";
 import HelpHeader from "./help-header";
 
@@ -41,8 +41,8 @@ type IconName = keyof typeof iconMap;
 type HrefKey = keyof typeof hrefMap;
 
 export function HelpView(): React.ReactElement {
-  const language = useAppConfig((state) => state.language);
-  const lang = language === "vi" ? "vi" : "en";
+  const locale = useLocale();
+  const lang = locale === "vi" ? "vi" : "en";
   const t = helpData.help[lang];
   const [query, setQuery] = useState("");
 

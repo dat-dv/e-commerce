@@ -1,8 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
 import { FormInput } from "@/components/molecules/form/form-input";
@@ -11,7 +12,7 @@ import { FormSelect } from "@/components/molecules/form/form-select";
 import AppForm from "@/components/molecules/form/app-form";
 import { TUser } from "@/domain/auth/types/auth.model";
 import {
-  requireProfileInfoSchema,
+  getRequireProfileInfoSchema,
   TRequireProfileInfoSchema,
 } from "./require-profile-info-form.schema";
 import { GENDER_OPTIONS } from "@/constants/gender.constant";
@@ -25,6 +26,9 @@ export const RequireProfileInfoForm = ({
   logout: () => void;
   user: Pick<TUser, "firstName" | "lastName" | "dateOfBirth" | "gender">;
 }) => {
+  const t = useTranslations("RequireProfileInfoModal");
+  const tValidation = useTranslations("Validation");
+
   const requireFields = ["firstName", "lastName", "dateOfBirth", "gender"];
   const show =
     !!user &&
@@ -33,8 +37,13 @@ export const RequireProfileInfoForm = ({
       return value === null || value === undefined || value === "";
     });
 
+  const schema = useMemo(
+    () => getRequireProfileInfoSchema((key) => tValidation(key)),
+    [tValidation],
+  );
+
   const methods = useForm<TRequireProfileInfoSchema>({
-    resolver: zodResolver(requireProfileInfoSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       firstName: user?.firstName || "",
       lastName: user?.lastName || "",
@@ -56,33 +65,54 @@ export const RequireProfileInfoForm = ({
     }
   }, [user, methods, show]);
 
+  const translatedGenderOptions = useMemo(() => {
+    const genderKeys: Record<string, string> = {
+      MALE: "male",
+      FEMALE: "female",
+      OTHER: "other",
+    };
+    // EGender can be numeric or string, handle key lookup safely
+    const EGenderMap: Record<number, string> = {
+      [0]: "male",
+      [1]: "female",
+      [2]: "other",
+    };
+    return GENDER_OPTIONS.map((opt) => {
+      const key = EGenderMap[opt.value as number] || "other";
+      return {
+        ...opt,
+        label: t(`form.genders.${key}`),
+      };
+    });
+  }, [t]);
+
   return (
     <AppForm methods={methods} onSubmit={onSubmit}>
       <div className="space-y-4">
         <FormInput
           name="firstName"
-          label="First Name"
-          placeholder="Enter first name"
+          label={t("form.firstNameLabel")}
+          placeholder={t("form.firstNamePlaceholder")}
           variant="underline"
         />
         <FormInput
           name="lastName"
-          label="Last Name"
-          placeholder="Enter last name"
+          label={t("form.lastNameLabel")}
+          placeholder={t("form.lastNamePlaceholder")}
           variant="underline"
         />
         <FormDateInput
           name="dateOfBirth"
-          label="Date of Birth"
-          placeholder="dd/mm/yyyy"
+          label={t("form.dateOfBirthLabel")}
+          placeholder={t("form.dateOfBirthPlaceholder")}
           variant="underline"
           maxDate={new Date()}
         />
         <FormSelect
           name="gender"
-          label="Gender"
+          label={t("form.genderLabel")}
           variant="underline"
-          options={GENDER_OPTIONS}
+          options={translatedGenderOptions}
         />
       </div>
 
@@ -93,7 +123,7 @@ export const RequireProfileInfoForm = ({
           className="w-fit mt-6"
           size="lg"
         >
-          Save & Continue
+          {t("form.submit")}
         </Button>
         <Button
           type="button"
@@ -102,7 +132,7 @@ export const RequireProfileInfoForm = ({
           size="lg"
           onClick={logout}
         >
-          Logout
+          {t("form.logout")}
         </Button>
       </div>
     </AppForm>

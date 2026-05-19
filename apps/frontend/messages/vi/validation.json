@@ -31,6 +31,14 @@
     "cityRequired": "Thành phố/Quận/Huyện không được bỏ trống",
     "stateRequired": "Tỉnh/Thành phố không được bỏ trống",
     "countryRequired": "Quốc gia không được bỏ trống",
-    "postalCodeRequired": "Mã bưu chính không được bỏ trống"
+    "postalCodeRequired": "Mã bưu chính không được bỏ trống",
+    "dateOfBirthRequired": "Ngày sinh không được bỏ trống",
+    "dateOfBirthInvalid": "Ngày sinh không hợp lệ",
+    "genderRequired": "Giới tính không được bỏ trống",
+    "subjectRequired": "Tiêu đề không được bỏ trống",
+    "subjectMax": "Tiêu đề không được dài quá 160 ký tự",
+    "messageRequired": "Nội dung tin nhắn không được bỏ trống",
+    "messageMax": "Nội dung tin nhắn không được dài quá 5000 ký tự",
+    "contactNameMax": "Tên không được dài quá 120 ký tự"
   }
 }

@@ -31,6 +31,14 @@
     "cityRequired": "City is required",
     "stateRequired": "State is required",
     "countryRequired": "Country is required",
-    "postalCodeRequired": "Postal code is required"
+    "postalCodeRequired": "Postal code is required",
+    "dateOfBirthRequired": "Date of birth is required",
+    "dateOfBirthInvalid": "Invalid date of birth",
+    "genderRequired": "Gender is required",
+    "subjectRequired": "Subject is required",
+    "subjectMax": "Subject must be at most 160 characters",
+    "messageRequired": "Message is required",
+    "messageMax": "Message must be at most 5000 characters",
+    "contactNameMax": "Name must be at most 120 characters"
   }
 }

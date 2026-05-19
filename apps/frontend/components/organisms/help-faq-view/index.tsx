@@ -7,7 +7,7 @@ import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
 import helpData from "@/app/(main)/(localized)/_data/help.json";
-import { useAppConfig } from "@/hooks/config/use-config-store";
+import { useLocale } from "next-intl";
 import Fuse from "fuse.js";
 import {
   CreditCard,
@@ -36,8 +36,8 @@ const iconMap = {
 type IconName = keyof typeof iconMap;
 
 export function HelpFAQView(): React.ReactElement {
-  const language = useAppConfig((state) => state.language);
-  const lang = language === "vi" ? "vi" : "en";
+  const locale = useLocale();
+  const lang = locale === "vi" ? "vi" : "en";
   const t = helpData.faq[lang];
   const [searchQuery, setSearchQuery] = useState("");
 

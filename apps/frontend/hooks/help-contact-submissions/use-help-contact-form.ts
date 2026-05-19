@@ -3,11 +3,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 import { helpContactSubmissionsUseCase } from "@/domain/help-contact-submissions/use-cases";
 import {
   HelpContactFormData,
-  helpContactFormSchema,
+  getHelpContactFormSchema,
 } from "./help-contact-form.schema";
 
 export const HELP_CONTACT_MAX_ATTACHMENTS = 6;
@@ -19,15 +20,22 @@ export const HELP_CONTACT_ALLOWED_IMAGE_TYPES = [
   "image/gif",
 ];
 
-const getErrorMessage = (error: Error) => {
-  return error.message || "Failed to send message. Please try again.";
-};
-
 export const useHelpContactForm = () => {
+  const t = useTranslations("HelpCenter.contact.toasts");
+  const tValidation = useTranslations("Validation");
   const user = useAuthStore((state) => state.user);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [attachments, setAttachments] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const getErrorMessage = (error: Error) => {
+    return error.message || t("sendFailed");
+  };
+
+  const schema = useMemo(
+    () => getHelpContactFormSchema((key) => tValidation(key)),
+    [tValidation],
+  );
 
   const defaultValues = useMemo<HelpContactFormData>(() => {
     const contactName = [user?.firstName, user?.lastName]
@@ -48,7 +56,7 @@ export const useHelpContactForm = () => {
   }, [user?.email, user?.firstName, user?.lastName, user?.phones]);
 
   const methods = useForm<HelpContactFormData>({
-    resolver: zodResolver(helpContactFormSchema),
+    resolver: zodResolver(schema),
     defaultValues,
   });
 
@@ -68,12 +76,12 @@ export const useHelpContactForm = () => {
 
     const validFiles = selectedFiles.filter((file) => {
       if (!HELP_CONTACT_ALLOWED_IMAGE_TYPES.includes(file.type)) {
-        toast.error(`${file.name} is not a supported image type.`);
+        toast.error(t("unsupportedType", { fileName: file.name }));
         return false;
       }
 
       if (file.size > HELP_CONTACT_MAX_IMAGE_SIZE) {
-        toast.error(`${file.name} is larger than 5MB.`);
+        toast.error(t("imageTooLarge", { fileName: file.name }));
         return false;
       }
 
@@ -86,9 +94,7 @@ export const useHelpContactForm = () => {
         HELP_CONTACT_MAX_ATTACHMENTS,
       );
       if (current.length + validFiles.length > HELP_CONTACT_MAX_ATTACHMENTS) {
-        toast.info(
-          `You can attach up to ${HELP_CONTACT_MAX_ATTACHMENTS} images.`,
-        );
+        toast.info(t("maxAttachments", { max: HELP_CONTACT_MAX_ATTACHMENTS }));
       }
       return next;
     });
@@ -130,16 +136,14 @@ export const useHelpContactForm = () => {
         imageIds,
       });
 
-      toast.success("Message sent. We will get back to you soon.");
+      toast.success(t("sendSuccess"));
       methods.reset(defaultValues);
       setAttachments([]);
       fileInputRef.current?.blur();
     } catch (error) {
       toast.error(
         getErrorMessage(
-          error instanceof Error
-            ? error
-            : new Error("Failed to send message. Please try again."),
+          error instanceof Error ? error : new Error(t("sendFailed")),
         ),
       );
     } finally {

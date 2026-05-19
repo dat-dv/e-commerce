@@ -26,6 +26,8 @@ export default getRequestConfig(async () => {
     import(`../messages/${locale}/favorites.json`),
     import(`../messages/${locale}/recent-viewed.json`),
     import(`../messages/${locale}/notifications.json`),
+    import(`../messages/${locale}/require-profile-info.json`),
+    import(`../messages/${locale}/help.json`),
   ]);
 
   const messages = res.reduce((acc, item) => {

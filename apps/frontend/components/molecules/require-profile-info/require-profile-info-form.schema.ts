@@ -1,19 +1,24 @@
 import { EGender } from "@ecommerce/shared";
 import { z } from "zod";
 
-export const requireProfileInfoSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  dateOfBirth: z
-    .string()
-    .min(1, "Date of birth is required")
-    .refine((val) => {
-      const date = new Date(val);
-      return !isNaN(date.getTime()) && date < new Date();
-    }, "Invalid date of birth"),
-  gender: z.nativeEnum(EGender, { error: "Gender is required" }),
-});
+export const getRequireProfileInfoSchema = (t: (key: string) => string) =>
+  z.object({
+    firstName: z.string().min(1, t("firstNameRequired")),
+    lastName: z.string().min(1, t("lastNameRequired")),
+    dateOfBirth: z
+      .string()
+      .min(1, t("dateOfBirthRequired"))
+      .refine((val) => {
+        const date = new Date(val);
+        return !isNaN(date.getTime()) && date < new Date();
+      }, t("dateOfBirthInvalid")),
+    gender: z.nativeEnum(EGender, { error: t("genderRequired") }),
+  });
+
+export const requireProfileInfoSchema = getRequireProfileInfoSchema(
+  (key) => key,
+);
 
 export type TRequireProfileInfoSchema = z.infer<
-  typeof requireProfileInfoSchema
+  ReturnType<typeof getRequireProfileInfoSchema>
 >;

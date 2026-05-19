@@ -1,0 +1,22 @@
+{
+  "RequireProfileInfoModal": {
+    "title": "Hoàn tất thông tin cá nhân",
+    "description": "Vui lòng cung cấp các thông tin còn thiếu để tiếp tục.",
+    "form": {
+      "firstNameLabel": "Tên",
+      "firstNamePlaceholder": "Nhập tên",
+      "lastNameLabel": "Họ",
+      "lastNamePlaceholder": "Nhập họ",
+      "dateOfBirthLabel": "Ngày sinh",
+      "dateOfBirthPlaceholder": "ngày/tháng/năm",
+      "genderLabel": "Giới tính",
+      "genders": {
+        "male": "Nam",
+        "female": "Nữ",
+        "other": "Khác"
+      },
+      "submit": "Lưu & Tiếp tục",
+      "logout": "Đăng xuất"
+    }
+  }
+}
