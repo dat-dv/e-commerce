@@ -7,7 +7,7 @@ import {
 } from "@/components/atoms/aria/dialog";
 import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useMapPicker } from "@/hooks/addresses/use-map-picker";
 
@@ -53,20 +53,35 @@ export default function MapPickerModal({
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery, address, fetchSuggestions]);
 
+  const handleConfirmAddress = () => {
+    onPick(address, mapCoords);
+    onClose();
+  };
+
   return (
-    <AriaDialog isOpen={isOpen} onClose={onClose} className="relative z-[100]">
+    <AriaDialog
+      isOpen={isOpen}
+      onClose={onClose}
+      isDismissable={false}
+      className="relative z-[100]"
+    >
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         aria-hidden="true"
       />
 
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <AriaDialogPanel className="w-full max-w-2xl bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative">
+        <AriaDialogPanel
+          onClick={(e) => e.stopPropagation()}
+          onPointerDown={(e) => e.stopPropagation()}
+          className="w-full max-w-2xl bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative"
+        >
           <AriaDialogTitle className="text-2xl font-bold mb-4">
             Pick Address on Map
           </AriaDialogTitle>
 
           <Button
+            type="button"
             variant="ghost"
             size="icon"
             onClick={onClose}
@@ -116,15 +131,13 @@ export default function MapPickerModal({
             </div>
 
             <div className="flex justify-end gap-4">
-              <Button variant="ghost" onClick={onClose}>
+              <Button type="button" variant="ghost" onClick={onClose}>
                 Cancel
               </Button>
               <Button
+                type="button"
                 variant="primary"
-                onClick={() => {
-                  onPick(address, mapCoords);
-                  onClose();
-                }}
+                onClick={handleConfirmAddress}
                 disabled={!address || loading}
               >
                 Confirm Address

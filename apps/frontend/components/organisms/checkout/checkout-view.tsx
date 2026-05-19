@@ -13,10 +13,6 @@ import {
   TCreateAddressInput,
 } from "@/domain/addresses/types/address.model";
 import AppContainer from "@/components/atoms/app-container";
-import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
-import { APP_ROUTES } from "@/constants/routes";
-import EmptyState from "@/components/molecules/empty-space";
 
 export const CheckoutView = () => {
   const {

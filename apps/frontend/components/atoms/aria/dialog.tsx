@@ -73,6 +73,7 @@ function AriaDialogContent({
   usePreventScroll({ isDisabled: !isOpen });
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
     underlayProps.onMouseDown?.(event);
 
     if (

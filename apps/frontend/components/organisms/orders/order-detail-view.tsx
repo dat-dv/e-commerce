@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -7,17 +8,34 @@ import {
   CreditCard,
   Truck,
   AlertCircle,
+  RotateCcw,
 } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { useOrderDetail } from "@/hooks/orders/use-order-detail";
+import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { formatCurrency } from "@/utils/format-currency";
 import { cn } from "@/utils/cn";
 import Image from "next/image";
+import { EOrderStatus } from "@ecommerce/shared";
+import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
 
 export const OrderDetailView = ({ orderId }: { orderId: string }) => {
-  const { order, loading, error } = useOrderDetail(orderId);
+  const [isReturnModalOpen, setIsReturnModalOpen] = useState(false);
+  const { order, loading, error, refresh } = useOrderDetail(orderId);
+  const returnRequest = useOrderReturnRequest({
+    orderId,
+    onSuccess: async () => {
+      setIsReturnModalOpen(false);
+      await refresh();
+    },
+  });
+
+  const closeReturnModal = () => {
+    if (returnRequest.isSubmitting) return;
+    setIsReturnModalOpen(false);
+  };
 
   if (loading) {
     return (
@@ -165,6 +183,32 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           </div>
         </motion.div>
 
+        {order.status === EOrderStatus.DELIVERED && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 }}
+            className="flex flex-col gap-4 rounded-2xl border border-content/[0.05] bg-surface/40 p-6 shadow-sm backdrop-blur-md sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div>
+              <h2 className="text-sm font-bold text-content">
+                Need to return this order?
+              </h2>
+              <p className="mt-1 text-sm font-medium leading-relaxed text-content/50">
+                Submit a reason and clear photos for support review.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsReturnModalOpen(true)}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary"
+            >
+              <RotateCcw className="h-4 w-4" />
+              Request return
+            </button>
+          </motion.div>
+        )}
+
         {/* Order Items */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -221,6 +265,12 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           </div>
         </motion.div>
       </div>
+      <RequestReturnModal
+        isOpen={isReturnModalOpen}
+        isSubmitting={returnRequest.isSubmitting}
+        onClose={closeReturnModal}
+        onSubmit={returnRequest.submitReturnRequest}
+      />
     </div>
   );
 };

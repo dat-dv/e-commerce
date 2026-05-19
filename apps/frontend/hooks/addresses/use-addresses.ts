@@ -7,8 +7,10 @@ import { addressesUseCase } from "@/domain/addresses";
 export const useAddresses = () => {
   const addresses = useAddressStore((s) => s.addresses);
   const loading = useAddressStore((s) => s.loading);
+  const hasHydrated = useAddressStore((s) => s.hasHydrated);
   const setAddresses = useAddressStore((s) => s.setAddresses);
   const setLoading = useAddressStore((s) => s.setLoading);
+  const setHasHydrated = useAddressStore((s) => s.setHasHydrated);
   const selectedAddressId = useAddressStore((s) => s.selectedAddressId);
   const setSelectedAddressId = useAddressStore((s) => s.setSelectedAddressId);
 
@@ -18,13 +20,15 @@ export const useAddresses = () => {
       const res = await addressesUseCase.getAddresses.execute();
       if (res.status === "success") {
         setAddresses(res.data || []);
+        setHasHydrated(true);
       }
     } catch (error) {
       console.error("Failed to fetch addresses:", error);
+      setHasHydrated(true);
     } finally {
       setLoading(false);
     }
-  }, [setAddresses, setLoading]);
+  }, [setAddresses, setHasHydrated, setLoading]);
 
   const addAddress = async (data: TCreateAddressInput) => {
     try {
@@ -63,17 +67,27 @@ export const useAddresses = () => {
   };
 
   useEffect(() => {
-    if (addresses.length === 0) {
+    if (!hasHydrated && !loading) {
       fetchAddresses();
-    } else if (!selectedAddressId) {
+      return;
+    }
+
+    if (addresses.length > 0 && !selectedAddressId) {
       const defaultAddress = addresses.find((addr) => addr.isDefault);
       if (defaultAddress) {
         setSelectedAddressId(defaultAddress.id);
-      } else if (addresses.length > 0) {
+      } else {
         setSelectedAddressId(addresses[0].id);
       }
     }
-  }, [fetchAddresses, addresses, selectedAddressId, setSelectedAddressId]);
+  }, [
+    addresses,
+    fetchAddresses,
+    hasHydrated,
+    loading,
+    selectedAddressId,
+    setSelectedAddressId,
+  ]);
 
   return {
     addresses,

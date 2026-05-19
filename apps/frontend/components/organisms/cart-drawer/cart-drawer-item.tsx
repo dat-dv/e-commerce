@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Trash2, Minus, Plus } from "lucide-react";
+import { Trash2, Minus, Plus, ImageIcon } from "lucide-react";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
 import { APP_ROUTES } from "@/constants/routes";
@@ -24,6 +24,8 @@ export const CartItem = ({
   onRemove,
   onCloseDrawer,
 }: CartItemProps) => {
+  const imageUrl = item.imageUrl;
+
   return (
     <motion.div
       layout
@@ -34,13 +36,19 @@ export const CartItem = ({
     >
       {/* Balanced Image */}
       <div className="relative w-14 h-18 rounded-lg overflow-hidden bg-content/[0.02] border border-content/5 shrink-0">
-        <Image
-          src={item.imageUrl || ""}
-          alt={item.name}
-          fill
-          sizes="56px"
-          className="object-cover"
-        />
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={item.name}
+            fill
+            sizes="56px"
+            className="object-cover"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center text-content/20">
+            <ImageIcon size={18} />
+          </div>
+        )}
       </div>
 
       {/* Content */}

@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ORDER_TABS } from "@/constants/order-status.constant";
 import { useOrders } from "@/hooks/orders/use-orders";
 import { OrderHeader } from "@/components/molecules/order-part/order-header";
 import { OrderCard } from "@/components/molecules/order-part/order-card";
@@ -11,9 +10,12 @@ import { ConfirmCancelModal } from "@/components/molecules/order-part/confirm-ca
 import { VirtualList } from "@/components/molecules/virtual-list";
 import AppContainer from "@/components/atoms/app-container";
 import { OrderTabs } from "@/components/molecules/order-part/order-tabs";
+import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
+import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 
 export const OrdersView = () => {
   const [confirmCancelId, setConfirmCancelId] = useState<string | null>(null);
+  const [returnOrderId, setReturnOrderId] = useState<string | null>(null);
   const [isCancelling, setIsCancelling] = useState(false);
 
   const {
@@ -24,15 +26,16 @@ export const OrdersView = () => {
     loadMore,
     hasMore,
     cancelOrder,
+    refresh,
   } = useOrders();
 
-  const activeTabLabel =
-    ORDER_TABS.find((tab) => tab.value === activeTab)?.label || "All";
-
-  const emptyStateMessage =
-    activeTabLabel === "Overview"
-      ? "Your order history is empty. Start exploring our collection."
-      : `You have no ${activeTabLabel.toLowerCase()} orders at the moment.`;
+  const returnRequest = useOrderReturnRequest({
+    orderId: returnOrderId ?? "",
+    onSuccess: () => {
+      setReturnOrderId(null);
+      refresh();
+    },
+  });
 
   const handleConfirmCancel = async () => {
     if (!confirmCancelId) return;
@@ -77,6 +80,7 @@ export const OrdersView = () => {
                     <OrderCard
                       order={order}
                       onCancelOrder={(id) => setConfirmCancelId(id)}
+                      onRequestReturn={(id) => setReturnOrderId(id)}
                     />
                   </motion.div>
                 )}
@@ -91,6 +95,13 @@ export const OrdersView = () => {
         isCancelling={isCancelling}
         onClose={() => setConfirmCancelId(null)}
         onConfirm={handleConfirmCancel}
+      />
+
+      <RequestReturnModal
+        isOpen={!!returnOrderId}
+        isSubmitting={returnRequest.isSubmitting}
+        onClose={() => setReturnOrderId(null)}
+        onSubmit={returnRequest.submitReturnRequest}
       />
     </>
   );

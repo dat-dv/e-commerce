@@ -85,6 +85,12 @@ export const API_ROUTES = {
     CANCEL: (id: string) => `/orders/${id}/cancel`,
     UPDATE_STATUS: (id: string) => `/orders/${id}/status`,
   },
+  ORDER_RETURNS: {
+    BASE: "/order-returns",
+    CREATE: (orderId: string) => `/order-returns/${orderId}`,
+    CANCEL: (returnId: string) => `/order-returns/${returnId}/cancel`,
+    UPDATE_STATUS: (returnId: string) => `/order-returns/${returnId}/status`,
+  },
   ADDRESSES: {
     BASE: "/addresses",
     MINE: "/addresses",
@@ -102,6 +108,7 @@ export const API_ROUTES = {
     MARK_ALL_AS_READ: "/notifications/read-all",
   },
   UPLOAD: {
+    IMAGE: "/upload/image",
     HELP_CONTACT_IMAGE: "/upload/help-contact-image",
   },
   HELP_CONTACT_SUBMISSIONS: {

@@ -5,7 +5,7 @@ import { TOrder } from "@/domain/orders/types/order.model";
 import Image from "next/image";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
-import { MessageSquare, Store, Truck } from "lucide-react";
+import { MessageSquare, RotateCcw, Store, Truck } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 
@@ -15,9 +15,14 @@ import Link from "next/link";
 interface OrderCardProps {
   order: TOrder;
   onCancelOrder?: (id: string) => void;
+  onRequestReturn?: (id: string) => void;
 }
 
-export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
+export const OrderCard = ({
+  order,
+  onCancelOrder,
+  onRequestReturn,
+}: OrderCardProps) => {
   const status = ORDER_STATUS_CONFIG[order.status] || {
     label: "Unknown",
     color: "text-content/40 bg-content/5",
@@ -154,7 +159,7 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-wrap justify-end gap-3">
             {order.status === EOrderStatus.PENDING && (
               <button
                 onClick={(e) => {
@@ -168,6 +173,16 @@ export const OrderCard = ({ order, onCancelOrder }: OrderCardProps) => {
             )}
             {order.status === EOrderStatus.DELIVERED && (
               <>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onRequestReturn?.(order.id);
+                  }}
+                  className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-content border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all active:scale-95"
+                >
+                  <RotateCcw className="h-4 w-4" />
+                  Request Return
+                </button>
                 <button className="px-6 py-2.5 text-sm font-semibold text-surface bg-content rounded-xl hover:bg-primary transition-all active:scale-95">
                   Review
                 </button>

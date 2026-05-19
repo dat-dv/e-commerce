@@ -1,0 +1,341 @@
+"use client";
+
+import {
+  AriaDialog,
+  AriaDialogPanel,
+  AriaDialogTitle,
+} from "@/components/atoms/aria/dialog";
+import {
+  OrderReturnRequestFormData,
+  orderReturnRequestSchema,
+} from "@/hooks/order-returns/order-return-request.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AnimatePresence, motion } from "framer-motion";
+import { ImageIcon, Upload, X } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { ChangeEvent } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+
+const ORDER_RETURN_MAX_ATTACHMENTS = 6;
+const ORDER_RETURN_MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+const ORDER_RETURN_ALLOWED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+];
+
+interface RequestReturnModalProps {
+  isOpen: boolean;
+  isSubmitting: boolean;
+  onClose: () => void;
+  onSubmit: (
+    data: OrderReturnRequestFormData,
+    attachments: File[],
+  ) => Promise<boolean>;
+}
+
+const AttachmentPreview = ({
+  file,
+  onRemove,
+  disabled,
+}: {
+  file: File;
+  onRemove: () => void;
+  disabled: boolean;
+}) => {
+  const [previewUrl, setPreviewUrl] = useState("");
+
+  useEffect(() => {
+    const url = URL.createObjectURL(file);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPreviewUrl(url);
+    return () => URL.revokeObjectURL(url);
+  }, [file]);
+
+  return (
+    <div className="relative aspect-square overflow-hidden rounded-xl border border-content/[0.08] bg-content/[0.03]">
+      {previewUrl ? (
+        <Image
+          src={previewUrl}
+          alt={file.name}
+          fill
+          sizes="88px"
+          className="object-cover"
+        />
+      ) : (
+        <div className="flex h-full items-center justify-center">
+          <ImageIcon className="h-5 w-5 text-content/30" />
+        </div>
+      )}
+      <button
+        type="button"
+        onClick={onRemove}
+        disabled={disabled}
+        className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-red-500 disabled:opacity-50"
+        aria-label={`Remove ${file.name}`}
+      >
+        <X className="h-4 w-4" />
+      </button>
+    </div>
+  );
+};
+
+export const RequestReturnModal = ({
+  isOpen,
+  isSubmitting,
+  onClose,
+  onSubmit,
+}: RequestReturnModalProps) => {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [attachments, setAttachments] = useState<File[]>([]);
+  const defaultValues = useMemo<OrderReturnRequestFormData>(
+    () => ({
+      title: "",
+      description: "",
+    }),
+    [],
+  );
+
+  const methods = useForm<OrderReturnRequestFormData>({
+    resolver: zodResolver(orderReturnRequestSchema),
+    defaultValues,
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+
+  const resetForm = useCallback(() => {
+    methods.reset(defaultValues);
+    setAttachments([]);
+  }, [defaultValues, methods]);
+
+  const closeModal = useCallback(() => {
+    if (isSubmitting) return;
+    resetForm();
+    onClose();
+  }, [isSubmitting, onClose, resetForm]);
+
+  const handleAttachmentChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const selectedFiles = Array.from(event.target.files ?? []);
+      event.target.value = "";
+
+      if (!selectedFiles.length) return;
+
+      const validFiles = selectedFiles.filter((file) => {
+        if (!ORDER_RETURN_ALLOWED_IMAGE_TYPES.includes(file.type)) {
+          toast.error(`${file.name} is not a supported image type.`);
+          return false;
+        }
+
+        if (file.size > ORDER_RETURN_MAX_IMAGE_SIZE) {
+          toast.error(`${file.name} is larger than 5MB.`);
+          return false;
+        }
+
+        return true;
+      });
+
+      setAttachments((current) => {
+        const next = [...current, ...validFiles].slice(
+          0,
+          ORDER_RETURN_MAX_ATTACHMENTS,
+        );
+        if (current.length + validFiles.length > ORDER_RETURN_MAX_ATTACHMENTS) {
+          toast.info(
+            `You can attach up to ${ORDER_RETURN_MAX_ATTACHMENTS} images.`,
+          );
+        }
+        return next;
+      });
+    },
+    [],
+  );
+
+  const removeAttachment = useCallback((index: number) => {
+    setAttachments((current) => current.filter((_, i) => i !== index));
+  }, []);
+
+  const handleFormSubmit = useCallback(
+    async (data: OrderReturnRequestFormData) => {
+      if (!attachments.length) {
+        toast.error("Attach at least one image for the return request.");
+        return;
+      }
+
+      const isSuccess = await onSubmit(data, attachments);
+      if (isSuccess) {
+        resetForm();
+      }
+    },
+    [attachments, onSubmit, resetForm],
+  );
+
+  return (
+    <AnimatePresence>
+      {isOpen ? (
+        <AriaDialog
+          isOpen={isOpen}
+          onClose={closeModal}
+          className="relative z-[100]"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="fixed inset-0 bg-black/60 backdrop-blur-md" />
+          </motion.div>
+
+          <div className="fixed inset-0 flex w-screen items-center justify-center overflow-y-auto p-4">
+            <AriaDialogPanel
+              as={motion.form}
+              initial={{ opacity: 0, scale: 0.96, y: 18 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 18 }}
+              onSubmit={handleSubmit(handleFormSubmit)}
+              className="my-6 w-full max-w-xl rounded-2xl border border-content/[0.06] bg-surface/90 p-6 shadow-2xl backdrop-blur-2xl"
+            >
+              <div className="mb-5 flex items-start justify-between gap-4">
+                <div>
+                  <AriaDialogTitle
+                    as="h3"
+                    className="text-xl font-bold tracking-tight text-content"
+                  >
+                    Request Return
+                  </AriaDialogTitle>
+                  <p className="mt-1 text-sm font-medium leading-relaxed text-content/55">
+                    Share the reason and attach clear photos so support can
+                    review the order.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  disabled={isSubmitting}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-content/[0.08] text-content/50 transition-colors hover:bg-content/[0.05] disabled:opacity-50"
+                  aria-label="Close return request form"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              <div className="space-y-5">
+                <div>
+                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
+                    Reason
+                  </label>
+                  <input
+                    {...register("title")}
+                    disabled={isSubmitting}
+                    placeholder="Wrong item, damaged package, missing parts..."
+                    className="w-full rounded-xl border border-content/[0.08] bg-content/[0.03] px-4 py-3 text-sm font-medium text-content outline-none transition-colors placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
+                  />
+                  {errors.title ? (
+                    <p className="mt-2 text-xs font-semibold text-red-500">
+                      {errors.title.message}
+                    </p>
+                  ) : null}
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
+                    Details
+                  </label>
+                  <textarea
+                    {...register("description")}
+                    disabled={isSubmitting}
+                    rows={5}
+                    placeholder="Describe the issue, item condition, packaging, and what outcome you expect."
+                    className="w-full resize-none rounded-xl border border-content/[0.08] bg-content/[0.03] px-4 py-3 text-sm font-medium leading-relaxed text-content outline-none transition-colors placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
+                  />
+                  {errors.description ? (
+                    <p className="mt-2 text-xs font-semibold text-red-500">
+                      {errors.description.message}
+                    </p>
+                  ) : null}
+                </div>
+
+                <div>
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <label className="block text-xs font-bold uppercase tracking-wide text-content/45">
+                      Evidence Photos
+                    </label>
+                    <span className="text-xs font-semibold text-content/35">
+                      {attachments.length}/{ORDER_RETURN_MAX_ATTACHMENTS}
+                    </span>
+                  </div>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,image/gif"
+                    multiple
+                    onChange={handleAttachmentChange}
+                    className="hidden"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={
+                      isSubmitting ||
+                      attachments.length >= ORDER_RETURN_MAX_ATTACHMENTS
+                    }
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 transition-colors hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50"
+                  >
+                    <Upload className="h-4 w-4" />
+                    Upload images
+                  </button>
+
+                  {attachments.length ? (
+                    <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
+                      {attachments.map((file, index) => (
+                        <AttachmentPreview
+                          key={`${file.name}-${file.lastModified}`}
+                          file={file}
+                          disabled={isSubmitting}
+                          onRemove={() => removeAttachment(index)}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="mt-2 text-xs font-medium text-content/35">
+                      At least one photo is required.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-7 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  disabled={isSubmitting}
+                  className="rounded-xl border border-content/[0.1] px-5 py-3 text-sm font-semibold text-content transition-colors hover:bg-content/[0.05] disabled:opacity-50"
+                >
+                  Keep Order
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex items-center justify-center rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <span className="h-4 w-4 rounded-full border-2 border-surface/30 border-t-surface animate-spin" />
+                  ) : (
+                    "Submit Request"
+                  )}
+                </button>
+              </div>
+            </AriaDialogPanel>
+          </div>
+        </AriaDialog>
+      ) : null}
+    </AnimatePresence>
+  );
+};
