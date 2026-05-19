@@ -1,4 +1,24 @@
 {
+  "ProfileLayout": {
+    "header": {
+      "title": "Hồ sơ",
+      "highlight": "Cài đặt",
+      "description": "Quản lý hồ sơ và quay lại các sản phẩm bạn quan tâm."
+    },
+    "sidebar": {
+      "accountSettings": "Cài đặt tài khoản",
+      "myAccount": "Tài khoản của tôi",
+      "links": {
+        "profile": "Hồ sơ",
+        "bankAccount": "Ngân hàng",
+        "addresses": "Địa chỉ",
+        "changePassword": "Đổi mật khẩu",
+        "notifications": "Thông báo",
+        "purchases": "Đơn mua",
+        "cart": "Giỏ hàng"
+      }
+    }
+  },
   "ProfileBankPage": {
     "metadata": {
       "title": "Tài khoản ngân hàng - Antigravity",

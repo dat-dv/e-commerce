@@ -1,43 +1,47 @@
+"use client";
+
 import { cn } from "@/utils/cn";
 import { User, Bell, ShoppingBag, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function ProfileSidebarSection() {
+  const t = useTranslations("ProfileLayout.sidebar");
   const pathname = usePathname();
 
   const sidebarItems = [
     {
       type: "header",
-      label: "Account Settings",
+      label: t("accountSettings"),
     },
     {
       type: "group",
-      label: "My Account",
+      label: t("myAccount"),
       icon: User,
       items: [
-        { href: "/profile", label: "Profile" },
-        { href: "/profile/bank", label: "Bank Account" },
-        { href: "/profile/address", label: "Addresses" },
-        { href: "/profile/password", label: "Change Password" },
+        { href: "/profile", label: t("links.profile") },
+        { href: "/profile/bank", label: t("links.bankAccount") },
+        { href: "/profile/address", label: t("links.addresses") },
+        { href: "/profile/password", label: t("links.changePassword") },
       ],
     },
     {
       type: "link",
       href: "/notifications",
-      label: "Notifications",
+      label: t("links.notifications"),
       icon: Bell,
     },
     {
       type: "link",
       href: "/orders",
-      label: "My Purchases",
+      label: t("links.purchases"),
       icon: ShoppingBag,
     },
     {
       type: "link",
       href: "/cart",
-      label: "My Cart",
+      label: t("links.cart"),
       icon: ShoppingCart,
     },
   ];
@@ -61,7 +65,12 @@ export default function ProfileSidebarSection() {
           return (
             <div key={index} className="space-y-1">
               <div className="font-bold text-content mb-2 flex items-center gap-2 px-3 py-2">
-                {Icon && <Icon className="w-5 h-5 text-content/60" />}
+                {Icon && (
+                  <Icon
+                    className="w-5 h-5 text-content/60"
+                    aria-hidden="true"
+                  />
+                )}
                 {item.label}
               </div>
               <ul className="space-y-1 ml-4">
@@ -98,7 +107,12 @@ export default function ProfileSidebarSection() {
                     : "text-content/80 hover:text-primary hover:bg-primary/5",
                 )}
               >
-                {Icon && <Icon className="w-5 h-5 text-content/60" />}
+                {Icon && (
+                  <Icon
+                    className="w-5 h-5 text-content/60"
+                    aria-hidden="true"
+                  />
+                )}
                 {item.label}
               </Link>
             </div>

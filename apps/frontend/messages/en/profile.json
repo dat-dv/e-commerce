@@ -1,4 +1,24 @@
 {
+  "ProfileLayout": {
+    "header": {
+      "title": "Profile",
+      "highlight": "Settings",
+      "description": "Manage your profile and jump back into the products you care about."
+    },
+    "sidebar": {
+      "accountSettings": "Account Settings",
+      "myAccount": "My Account",
+      "links": {
+        "profile": "Profile",
+        "bankAccount": "Bank Account",
+        "addresses": "Addresses",
+        "changePassword": "Change Password",
+        "notifications": "Notifications",
+        "purchases": "My Purchases",
+        "cart": "My Cart"
+      }
+    }
+  },
   "ProfileBankPage": {
     "metadata": {
       "title": "Bank Accounts - Antigravity",
