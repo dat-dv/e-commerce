@@ -1,12 +1,13 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import Input from "@/components/atoms/input";
 import Accordion from "@/components/molecules/accordion";
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
-import { useTranslations } from "next-intl";
+import { getRawI18nValue } from "@/utils/i18n";
 import Fuse from "fuse.js";
 import {
   CreditCard,
@@ -16,8 +17,8 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import React, { useMemo, useState } from "react";
-import { getRawI18nValue } from "@/utils/i18n";
 import FAQHeader from "./faq-header";
 
 interface FAQItem {
@@ -95,18 +96,16 @@ export function HelpFAQView(): React.ReactElement {
           <main className="min-w-0">
             <div className="relative">
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
-              <label htmlFor="help-faq-search" className="sr-only">
-                {tFAQ("search")}
-              </label>
-              <input
+              <Input
                 id="help-faq-search"
                 name="help-faq-search"
                 type="search"
+                aria-label={tFAQ("search")}
                 autoComplete="off"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder={tFAQ("search")}
-                className="h-12 w-full rounded-xl border border-content/10 bg-surface px-12 text-sm font-medium shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                className="rounded-xl bg-surface px-12 text-sm font-medium"
               />
             </div>
 

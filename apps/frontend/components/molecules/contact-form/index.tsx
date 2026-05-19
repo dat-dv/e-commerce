@@ -4,19 +4,17 @@ import Button from "@/components/atoms/button";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
+import { FormTextarea } from "@/components/molecules/form/form-textarea";
 import {
   HELP_CONTACT_ALLOWED_IMAGE_TYPES,
   HELP_CONTACT_MAX_ATTACHMENTS,
   useHelpContactForm,
 } from "@/hooks/help-contact-submissions/use-help-contact-form";
 import { ImageIcon, Upload, X } from "lucide-react";
-import React from "react";
-import { Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
   const t = useTranslations("HelpCenter.contact.form");
-  const tValidation = useTranslations("Validation");
 
   const {
     methods,
@@ -62,31 +60,14 @@ export default function ContactForm() {
         className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
       />
 
-      <div>
-        <label className="text-sm font-bold text-content/80 block mb-2">
-          {t("messageLabel")}
-        </label>
-        <Controller
-          name="message"
-          control={methods.control}
-          rules={{ required: tValidation("messageRequired") }}
-          render={({ field, fieldState: { error } }) => (
-            <div>
-              <textarea
-                {...field}
-                placeholder={t("messagePlaceholder")}
-                rows={6}
-                maxLength={5000}
-                className="w-full px-5 py-3 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm resize-y min-h-36"
-              />
-              <div className="mt-1 flex justify-between gap-3 text-[11px] font-bold text-content/35">
-                <span>{error?.message}</span>
-                <span>{String(field.value ?? "").length}/5000</span>
-              </div>
-            </div>
-          )}
-        />
-      </div>
+      <FormTextarea
+        name="message"
+        label={t("messageLabel")}
+        placeholder={t("messagePlaceholder")}
+        rows={6}
+        maxCount={5000}
+        className="border-2 border-content/5 bg-surface shadow-sm"
+      />
 
       <div>
         <label className="text-sm font-bold text-content/80 block mb-2">
