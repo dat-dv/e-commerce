@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
+import { useTranslations } from "next-intl";
 
 interface OrderTabsProps {
   activeTab: OrderTabValue;
@@ -10,6 +11,27 @@ interface OrderTabsProps {
 }
 
 export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
+  const t = useTranslations("OrdersPage");
+
+  const getTabLabel = (label: string) => {
+    switch (label) {
+      case "Overview":
+        return t("tabs.all");
+      case "In Progress":
+        return t("tabs.inProgress");
+      case "In Transit":
+        return t("tabs.inTransit");
+      case "Delivered":
+        return t("tabs.delivered");
+      case "Returns":
+        return t("tabs.returns");
+      case "Closed":
+        return t("tabs.closed");
+      default:
+        return label;
+    }
+  };
+
   return (
     <div className="w-full overflow-x-auto bg-transparent border-b border-content/[0.05] scrollbar-hide">
       <div className="flex min-w-max container mx-auto">
@@ -26,7 +48,7 @@ export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
                   : "text-content/40 hover:text-content hover:bg-content/[0.02]",
               )}
             >
-              <span className="relative z-10">{tab.label}</span>
+              <span className="relative z-10">{getTabLabel(tab.label)}</span>
               {isActive && (
                 <motion.div
                   layoutId="activeTab"

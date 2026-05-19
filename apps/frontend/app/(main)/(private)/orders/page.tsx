@@ -1,10 +1,13 @@
 import { OrdersView } from "@/components/organisms/orders/orders-view";
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Order History | Luxury E-commerce",
-  description: "Manage your purchase history and track your order status.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("OrdersPage.metadata");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function OrdersPage() {
   return <OrdersView />;

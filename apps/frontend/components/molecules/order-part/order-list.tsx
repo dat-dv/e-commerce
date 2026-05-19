@@ -5,8 +5,10 @@ import { OrderCard } from "./order-card";
 import { OrderTabs } from "./order-tabs";
 import { motion, AnimatePresence } from "framer-motion";
 import { PackageOpen } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export const OrderList = () => {
+  const t = useTranslations("OrdersPage");
   const { orders, loading, activeTab, setActiveTab } = useOrders();
 
   if (loading) {
@@ -38,10 +40,8 @@ export const OrderList = () => {
               className="flex flex-col items-center justify-center py-20 text-gray-400"
             >
               <PackageOpen className="w-16 h-16 mb-4 stroke-[1.5]" />
-              <p className="text-lg font-medium">Chưa có đơn hàng nào</p>
-              <p className="text-sm">
-                Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!
-              </p>
+              <p className="text-lg font-medium">{t("card.noOrders")}</p>
+              <p className="text-sm">{t("card.emptyListDesc")}</p>
             </motion.div>
           )}
         </AnimatePresence>

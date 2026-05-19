@@ -1,0 +1,138 @@
+{
+  "OrdersPage": {
+    "metadata": {
+      "title": "Order History | Luxury E-commerce",
+      "description": "Manage your purchase history and track your order status."
+    },
+    "detailMetadata": {
+      "title": "Order Details | Luxury E-commerce",
+      "description": "View details of your premium order."
+    },
+    "header": {
+      "title": "My",
+      "highlight": "Orders",
+      "description": "Track your purchases, review order status, and manage everything you’ve bought."
+    },
+    "tabs": {
+      "all": "Overview",
+      "inProgress": "In Progress",
+      "inTransit": "In Transit",
+      "delivered": "Delivered",
+      "returns": "Returns",
+      "closed": "Closed"
+    },
+    "emptyState": {
+      "title": "No Orders Yet",
+      "actionLabel": "Start Shopping",
+      "messageOverview": "You haven’t placed any orders yet. Start exploring products and place your first order.",
+      "messageOther": "You have no {tab} orders at the moment."
+    },
+    "card": {
+      "orderNumber": "Order #{id}",
+      "needHelp": "Need help?",
+      "shipping": "Shipping",
+      "units": "{count} {count, plural, =1 {unit} other {units}}",
+      "discount": "Discount:",
+      "total": "Total",
+      "cancel": "Cancel",
+      "requestReturn": "Request Return",
+      "review": "Review",
+      "reorder": "Reorder",
+      "noOrders": "Chưa có đơn hàng nào",
+      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!"
+    },
+    "confirmCancel": {
+      "title": "Cancel Order",
+      "description": "Are you sure you want to cancel this order? This action cannot be undone.",
+      "keep": "No, keep it",
+      "confirm": "Yes, cancel"
+    },
+    "requestReturn": {
+      "title": "Request Return",
+      "description": "Share the reason and attach clear photos so support can review the order.",
+      "reason": "Reason",
+      "reasonPlaceholder": "Wrong item, damaged package, missing parts...",
+      "details": "Details",
+      "detailsPlaceholder": "Describe the issue, item condition, packaging, and what outcome you expect.",
+      "evidence": "Evidence Photos",
+      "upload": "Upload images",
+      "photoRequired": "At least one photo is required.",
+      "keepOrder": "Keep Order",
+      "submit": "Submit Request",
+      "toasts": {
+        "unsupportedImage": "{name} is not a supported image type.",
+        "imageTooLarge": "{name} is larger than 5MB.",
+        "maxImages": "You can attach up to {max} images.",
+        "imageRequired": "Attach at least one image for the return request.",
+        "submitSuccess": "Return request submitted.",
+        "submitError": "Failed to submit return request."
+      }
+    },
+    "detail": {
+      "loading": "Loading...",
+      "notFoundTitle": "Order Not Found",
+      "notFoundDesc": "We could not locate this order. It may have been removed or the ID is incorrect.",
+      "backToOrders": "Return to Orders",
+      "deliveryDetails": "Delivery Details",
+      "paymentSummary": "Payment Summary",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "total": "Total",
+      "returnSectionTitle": "Need to return this order?",
+      "returnSectionDesc": "Submit a reason and clear photos for support review.",
+      "requestReturnBtn": "Request return",
+      "orderItemsTitle": "Order Items ({count})",
+      "noOrderItems": "No order items.",
+      "qty": "Qty",
+      "unit": "Unit",
+      "subtotal": "Subtotal",
+      "orderItemsHeader": "Order Items"
+    }
+  },
+  "AdminOrdersPage": {
+    "header": {
+      "adminCenter": "Admin Center",
+      "title": "Order Fulfillment",
+      "description": "Track multi-channel purchases, manage processing operational queues, and update order statuses smoothly.",
+      "refresh": "Refresh Queues"
+    },
+    "filters": {
+      "searchLabel": "Search Orders",
+      "searchPlaceholder": "Filter by Order ID, customer name or phone...",
+      "clearActive": "Clear Active Filters",
+      "statusLabel": "Fulfillment Status Filters"
+    },
+    "results": {
+      "ordersCount": "{count} {count, plural, =1 {Order} other {Orders}}",
+      "pageInfo": "Page {page} of {totalPages}",
+      "loading": "Loading Orders…",
+      "noOrdersFound": "No Orders Found",
+      "noOrdersDesc": "Adjust the search or status filters to broaden the result set.",
+      "clearFilters": "Clear Filters",
+      "stt": "STT",
+      "orderId": "Order ID",
+      "customer": "Customer",
+      "date": "Date",
+      "total": "Total",
+      "status": "Status",
+      "noName": "No Name",
+      "hideItems": "Hide Items",
+      "showItems": "Show {count} {count, plural, =1 {Item} other {Items}}",
+      "copied": "Order ID copied.",
+      "showingPageOf": "Showing page {page} of {totalPages}"
+    }
+  },
+  "OrderStatus": {
+    "pending": "Pending",
+    "paid": "Confirmed",
+    "shipping": "In Transit",
+    "delivered": "Delivered",
+    "cancelRequested": "Cancel Requested",
+    "cancelProcessing": "Cancelling",
+    "cancelled": "Cancelled",
+    "returnRequested": "Return Requested",
+    "returnProcessing": "Return Processing",
+    "returned": "Returned",
+    "returnRejected": "Return Rejected"
+  }
+}

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { MessageSquare, RotateCcw, Store, Truck } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
+import { useTranslations, useLocale } from "next-intl";
 
 import { APP_ROUTES } from "@/constants/routes";
 import Link from "next/link";
@@ -23,10 +24,42 @@ export const OrderCard = ({
   onCancelOrder,
   onRequestReturn,
 }: OrderCardProps) => {
-  const status = ORDER_STATUS_CONFIG[order.status] || {
-    label: "Unknown",
-    color: "text-content/40 bg-content/5",
+  const t = useTranslations("OrdersPage");
+  const tStatus = useTranslations("OrderStatus");
+  const locale = useLocale();
+
+  const getStatusLabel = (status: EOrderStatus) => {
+    switch (status) {
+      case EOrderStatus.PENDING:
+        return tStatus("pending");
+      case EOrderStatus.PAID:
+        return tStatus("paid");
+      case EOrderStatus.SHIPPING:
+        return tStatus("shipping");
+      case EOrderStatus.DELIVERED:
+        return tStatus("delivered");
+      case EOrderStatus.CANCEL_REQUESTED:
+        return tStatus("cancelRequested");
+      case EOrderStatus.CANCEL_PROCESSING:
+        return tStatus("cancelProcessing");
+      case EOrderStatus.CANCELLED:
+        return tStatus("cancelled");
+      case EOrderStatus.RETURN_REQUESTED:
+        return tStatus("returnRequested");
+      case EOrderStatus.RETURN_PROCESSING:
+        return tStatus("returnProcessing");
+      case EOrderStatus.RETURNED:
+        return tStatus("returned");
+      case EOrderStatus.RETURN_REJECTED:
+        return tStatus("returnRejected");
+      default:
+        return status;
+    }
   };
+
+  const statusColor =
+    ORDER_STATUS_CONFIG[order.status]?.color || "text-content/40 bg-content/5";
+  const statusLabel = getStatusLabel(order.status);
 
   return (
     <motion.div
@@ -42,10 +75,10 @@ export const OrderCard = ({
               href={APP_ROUTES.ORDER_DETAIL(order.id)}
               className="font-bold text-content text-sm hover:text-primary transition-all"
             >
-              Order #{order.id.slice(-8).toUpperCase()}
+              {t("card.orderNumber", { id: order.id.slice(-8).toUpperCase() })}
             </Link>
             <span className="text-xs font-medium text-content/40">
-              {new Date(order.createdAt).toLocaleDateString("en-US", {
+              {new Date(order.createdAt).toLocaleDateString(locale, {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
@@ -57,23 +90,23 @@ export const OrderCard = ({
             className="hidden sm:flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-content/40 bg-content/[0.03] rounded-full border border-content/[0.05]"
           >
             <MessageSquare className="w-3.5 h-3.5" />
-            Need help?
+            {t("card.needHelp")}
           </button>
         </div>
         <div className="flex items-center gap-4">
           {order.status === EOrderStatus.SHIPPING && (
             <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-primary border-r border-content/[0.05] pr-4">
               <Truck className="w-4 h-4" />
-              <span>Shipping</span>
+              <span>{t("card.shipping")}</span>
             </div>
           )}
           <span
             className={cn(
               "px-3 py-1 text-[11px] font-bold rounded-full",
-              status.color,
+              statusColor,
             )}
           >
-            {status.label}
+            {statusLabel}
           </span>
         </div>
       </div>
@@ -113,7 +146,7 @@ export const OrderCard = ({
                 </p>
                 <div className="mt-2 flex items-center justify-between">
                   <div className="text-[11px] font-semibold text-content/50 bg-content/[0.05] px-2 py-0.5 rounded-full">
-                    {item.quantity} unit{item.quantity > 1 ? "s" : ""}
+                    {t("card.units", { count: item.quantity })}
                   </div>
                   {item.originalPrice && item.originalPrice > item.price && (
                     <span className="text-xs text-content/30 line-through">
@@ -145,14 +178,16 @@ export const OrderCard = ({
           <div className="flex flex-col items-end gap-1">
             {order.discountAmount > 0 && (
               <div className="flex items-center gap-2 text-xs font-medium">
-                <span className="text-content/30">Discount:</span>
+                <span className="text-content/30">{t("card.discount")}</span>
                 <span className="text-red-500">
                   -{formatCurrency(order.discountAmount)}
                 </span>
               </div>
             )}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-content/40">Total</span>
+              <span className="text-sm font-medium text-content/40">
+                {t("card.total")}
+              </span>
               <span className="text-3xl font-black text-content tracking-tight">
                 {formatCurrency(order.totalAmount)}
               </span>
@@ -168,7 +203,7 @@ export const OrderCard = ({
                 }}
                 className="px-6 py-2.5 text-sm font-semibold text-red-500 border border-red-500/20 rounded-xl hover:bg-red-500/10 transition-all active:scale-95"
               >
-                Cancel
+                {t("card.cancel")}
               </button>
             )}
             {order.status === EOrderStatus.DELIVERED && (
@@ -181,13 +216,13 @@ export const OrderCard = ({
                   className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-content border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all active:scale-95"
                 >
                   <RotateCcw className="h-4 w-4" />
-                  Request Return
+                  {t("card.requestReturn")}
                 </button>
                 <button className="px-6 py-2.5 text-sm font-semibold text-surface bg-content rounded-xl hover:bg-primary transition-all active:scale-95">
-                  Review
+                  {t("card.review")}
                 </button>
                 <button className="px-6 py-2.5 text-sm font-semibold text-content/60 border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all active:scale-95">
-                  Reorder
+                  {t("card.reorder")}
                 </button>
               </>
             )}

@@ -7,7 +7,7 @@ import {
 } from "@/components/atoms/aria/dialog";
 import {
   OrderReturnRequestFormData,
-  orderReturnRequestSchema,
+  getOrderReturnRequestSchema,
 } from "@/hooks/order-returns/order-return-request.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
@@ -17,6 +17,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 const ORDER_RETURN_MAX_ATTACHMENTS = 6;
 const ORDER_RETURN_MAX_IMAGE_SIZE = 5 * 1024 * 1024;
@@ -89,8 +90,11 @@ export const RequestReturnModal = ({
   onClose,
   onSubmit,
 }: RequestReturnModalProps) => {
+  const t = useTranslations("OrdersPage.requestReturn");
+  const tValidation = useTranslations("Validation");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [attachments, setAttachments] = useState<File[]>([]);
+
   const defaultValues = useMemo<OrderReturnRequestFormData>(
     () => ({
       title: "",
@@ -99,8 +103,13 @@ export const RequestReturnModal = ({
     [],
   );
 
+  const localizedSchema = useMemo(
+    () => getOrderReturnRequestSchema(tValidation),
+    [tValidation],
+  );
+
   const methods = useForm<OrderReturnRequestFormData>({
-    resolver: zodResolver(orderReturnRequestSchema),
+    resolver: zodResolver(localizedSchema),
     defaultValues,
   });
 
@@ -130,12 +139,12 @@ export const RequestReturnModal = ({
 
       const validFiles = selectedFiles.filter((file) => {
         if (!ORDER_RETURN_ALLOWED_IMAGE_TYPES.includes(file.type)) {
-          toast.error(`${file.name} is not a supported image type.`);
+          toast.error(t("toasts.unsupportedImage", { name: file.name }));
           return false;
         }
 
         if (file.size > ORDER_RETURN_MAX_IMAGE_SIZE) {
-          toast.error(`${file.name} is larger than 5MB.`);
+          toast.error(t("toasts.imageTooLarge", { name: file.name }));
           return false;
         }
 
@@ -149,13 +158,13 @@ export const RequestReturnModal = ({
         );
         if (current.length + validFiles.length > ORDER_RETURN_MAX_ATTACHMENTS) {
           toast.info(
-            `You can attach up to ${ORDER_RETURN_MAX_ATTACHMENTS} images.`,
+            t("toasts.maxImages", { max: ORDER_RETURN_MAX_ATTACHMENTS }),
           );
         }
         return next;
       });
     },
-    [],
+    [t],
   );
 
   const removeAttachment = useCallback((index: number) => {
@@ -165,7 +174,7 @@ export const RequestReturnModal = ({
   const handleFormSubmit = useCallback(
     async (data: OrderReturnRequestFormData) => {
       if (!attachments.length) {
-        toast.error("Attach at least one image for the return request.");
+        toast.error(t("toasts.imageRequired"));
         return;
       }
 
@@ -174,7 +183,7 @@ export const RequestReturnModal = ({
         resetForm();
       }
     },
-    [attachments, onSubmit, resetForm],
+    [attachments, onSubmit, resetForm, t],
   );
 
   return (
@@ -208,11 +217,10 @@ export const RequestReturnModal = ({
                     as="h3"
                     className="text-xl font-bold tracking-tight text-content"
                   >
-                    Request Return
+                    {t("title")}
                   </AriaDialogTitle>
                   <p className="mt-1 text-sm font-medium leading-relaxed text-content/55">
-                    Share the reason and attach clear photos so support can
-                    review the order.
+                    {t("description")}
                   </p>
                 </div>
                 <button
@@ -229,12 +237,12 @@ export const RequestReturnModal = ({
               <div className="space-y-5">
                 <div>
                   <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
-                    Reason
+                    {t("reason")}
                   </label>
                   <input
                     {...register("title")}
                     disabled={isSubmitting}
-                    placeholder="Wrong item, damaged package, missing parts..."
+                    placeholder={t("reasonPlaceholder")}
                     className="w-full rounded-xl border border-content/[0.08] bg-content/[0.03] px-4 py-3 text-sm font-medium text-content outline-none transition-colors placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
                   />
                   {errors.title ? (
@@ -246,13 +254,13 @@ export const RequestReturnModal = ({
 
                 <div>
                   <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
-                    Details
+                    {t("details")}
                   </label>
                   <textarea
                     {...register("description")}
                     disabled={isSubmitting}
                     rows={5}
-                    placeholder="Describe the issue, item condition, packaging, and what outcome you expect."
+                    placeholder={t("detailsPlaceholder")}
                     className="w-full resize-none rounded-xl border border-content/[0.08] bg-content/[0.03] px-4 py-3 text-sm font-medium leading-relaxed text-content outline-none transition-colors placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
                   />
                   {errors.description ? (
@@ -265,7 +273,7 @@ export const RequestReturnModal = ({
                 <div>
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <label className="block text-xs font-bold uppercase tracking-wide text-content/45">
-                      Evidence Photos
+                      {t("evidence")}
                     </label>
                     <span className="text-xs font-semibold text-content/35">
                       {attachments.length}/{ORDER_RETURN_MAX_ATTACHMENTS}
@@ -289,7 +297,7 @@ export const RequestReturnModal = ({
                     className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 transition-colors hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50"
                   >
                     <Upload className="h-4 w-4" />
-                    Upload images
+                    {t("upload")}
                   </button>
 
                   {attachments.length ? (
@@ -305,7 +313,7 @@ export const RequestReturnModal = ({
                     </div>
                   ) : (
                     <p className="mt-2 text-xs font-medium text-content/35">
-                      At least one photo is required.
+                      {t("photoRequired")}
                     </p>
                   )}
                 </div>
@@ -318,7 +326,7 @@ export const RequestReturnModal = ({
                   disabled={isSubmitting}
                   className="rounded-xl border border-content/[0.1] px-5 py-3 text-sm font-semibold text-content transition-colors hover:bg-content/[0.05] disabled:opacity-50"
                 >
-                  Keep Order
+                  {t("keepOrder")}
                 </button>
                 <button
                   type="submit"
@@ -328,7 +336,7 @@ export const RequestReturnModal = ({
                   {isSubmitting ? (
                     <span className="h-4 w-4 rounded-full border-2 border-surface/30 border-t-surface animate-spin" />
                   ) : (
-                    "Submit Request"
+                    t("submit")
                   )}
                 </button>
               </div>

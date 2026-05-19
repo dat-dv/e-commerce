@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import React, { useMemo, useState, useEffect, useRef, Fragment } from "react";
+import React, {
+  useMemo,
+  useState,
+  useEffect,
+  useRef,
+  Fragment,
+  useCallback,
+} from "react";
 import {
   ChevronDown,
   ChevronLeft,
@@ -24,32 +31,11 @@ import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
 import { cn } from "@/utils/cn";
 import type { Key } from "react-aria-components";
 import { EOrderStatus } from "@ecommerce/shared";
+import { useTranslations, useLocale } from "next-intl";
 
-const STATUS_OPTIONS = Object.entries(ORDER_STATUS_CONFIG).map(
-  ([value, config]) => ({
-    value: Number(value),
-    label: config.label,
-  }),
+const STATUS_VALUES = Object.keys(ORDER_STATUS_CONFIG).map(
+  (v) => Number(v) as EOrderStatus,
 );
-
-const dateFormatter = new Intl.DateTimeFormat("vi-VN", {
-  dateStyle: "medium",
-  timeStyle: "short",
-});
-
-const currencyFormatter = new Intl.NumberFormat("vi-VN", {
-  style: "currency",
-  currency: "VND",
-  maximumFractionDigits: 0,
-});
-
-const numberFormatter = new Intl.NumberFormat("vi-VN");
-
-const getStatusConfig = (status: number) =>
-  ORDER_STATUS_CONFIG[status] || {
-    label: "Unknown",
-    color: "text-content/50 bg-content/10",
-  };
 
 const getOrderPreview = (order: TOrder) => {
   const firstItem = order.items[0];
@@ -65,6 +51,49 @@ const getOrderPreview = (order: TOrder) => {
 };
 
 export function AdminOrdersView() {
+  const t = useTranslations("AdminOrdersPage");
+  const tStatus = useTranslations("OrderStatus");
+  const locale = useLocale();
+
+  const getStatusLabel = useCallback(
+    (status: number) => {
+      switch (status) {
+        case EOrderStatus.PENDING:
+          return tStatus("pending");
+        case EOrderStatus.PAID:
+          return tStatus("paid");
+        case EOrderStatus.SHIPPING:
+          return tStatus("shipping");
+        case EOrderStatus.DELIVERED:
+          return tStatus("delivered");
+        case EOrderStatus.CANCEL_REQUESTED:
+          return tStatus("cancelRequested");
+        case EOrderStatus.CANCEL_PROCESSING:
+          return tStatus("cancelProcessing");
+        case EOrderStatus.CANCELLED:
+          return tStatus("cancelled");
+        case EOrderStatus.RETURN_REQUESTED:
+          return tStatus("returnRequested");
+        case EOrderStatus.RETURN_PROCESSING:
+          return tStatus("returnProcessing");
+        case EOrderStatus.RETURNED:
+          return tStatus("returned");
+        case EOrderStatus.RETURN_REJECTED:
+          return tStatus("returnRejected");
+        default:
+          return "Unknown";
+      }
+    },
+    [tStatus],
+  );
+
+  const STATUS_OPTIONS = useMemo(() => {
+    return STATUS_VALUES.map((val) => ({
+      value: val,
+      label: getStatusLabel(val),
+    }));
+  }, [getStatusLabel]);
+
   const {
     orders,
     loading,
@@ -86,14 +115,19 @@ export function AdminOrdersView() {
   );
   const hasFilters = selectedStatuses.length > 0 || search.trim().length > 0;
 
+  const numberFormatter = useMemo(
+    () => new Intl.NumberFormat(locale),
+    [locale],
+  );
+
   const totalLabel = useMemo(() => {
-    if (!meta) return "0 Orders";
-    return `${numberFormatter.format(meta.total)} Orders`;
-  }, [meta]);
+    if (!meta) return t("results.ordersCount", { count: 0 });
+    return t("results.ordersCount", { count: meta.total });
+  }, [meta, t]);
 
   const copyToClipboard = async (text: string) => {
     await navigator.clipboard.writeText(text);
-    toast.success("Order ID copied.");
+    toast.success(t("results.copied"));
   };
 
   const handleStatusUpdate = async (orderId: string, newStatus: number) => {
@@ -128,15 +162,14 @@ export function AdminOrdersView() {
             <div className="flex items-center gap-2">
               <span className="inline-flex size-2 rounded-full bg-primary animate-pulse" />
               <p className="text-xs font-bold uppercase tracking-wider text-primary/80">
-                Admin Center
+                {t("header.adminCenter")}
               </p>
             </div>
             <h1 className="mt-1 text-3xl font-extrabold text-content tracking-tight">
-              Order Fulfillment
+              {t("header.title")}
             </h1>
             <p className="mt-2 text-sm text-content/50 max-w-xl">
-              Track multi-channel purchases, manage processing operational
-              queues, and update order statuses smoothly.
+              {t("header.description")}
             </p>
           </div>
 
@@ -154,7 +187,7 @@ export function AdminOrdersView() {
                   : "size-4 opacity-75"
               }
             />
-            Refresh Queues
+            {t("header.refresh")}
           </button>
         </header>
 
@@ -166,15 +199,15 @@ export function AdminOrdersView() {
             <div className="min-w-0">
               <label
                 htmlFor="admin-order-search"
-                className="mb-2.5 block text-xs font-bold uppercase tracking-wider text-content/40"
+                className="mb-2.5 block text-xs font-bold uppercase tracking-wider text-content/45"
               >
-                Search Orders
+                {t("filters.searchLabel")}
               </label>
               <SearchInput
                 id="admin-order-search"
                 value={search}
                 onSearch={handleSearchChange}
-                placeholder="Filter by Order ID, customer name or phone..."
+                placeholder={t("filters.searchPlaceholder")}
                 loading={loading}
                 className="w-full bg-surface/40 border border-content/10 backdrop-blur-md focus-within:border-primary/30"
               />
@@ -187,14 +220,14 @@ export function AdminOrdersView() {
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-transparent bg-rose-500/10 px-4 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-500/20 hover:scale-[1.02] focus-visible:outline-none"
               >
                 <FilterX aria-hidden="true" className="size-4" />
-                Clear Active Filters
+                {t("filters.clearActive")}
               </button>
             )}
           </div>
 
           <fieldset className="min-w-0">
-            <legend className="mb-2.5 text-xs font-bold uppercase tracking-wider text-content/40">
-              Fulfillment Status Filters
+            <legend className="mb-2.5 text-xs font-bold uppercase tracking-wider text-content/45">
+              {t("filters.statusLabel")}
             </legend>
             <div className="flex flex-wrap gap-2">
               {STATUS_OPTIONS.map((status) => {
@@ -231,7 +264,10 @@ export function AdminOrdersView() {
             <p className="text-sm font-semibold text-content">{totalLabel}</p>
             {meta && (
               <p className="text-sm text-content/55">
-                Page {page} of {meta.totalPages || 1}
+                {t("results.pageInfo", {
+                  page,
+                  totalPages: meta.totalPages || 1,
+                })}
               </p>
             )}
           </div>
@@ -240,7 +276,7 @@ export function AdminOrdersView() {
             <div className="flex min-h-60 flex-col items-center justify-center rounded-md border border-content/10">
               <Loading />
               <span className="mt-3 text-sm text-content/55">
-                Loading Orders…
+                {t("results.loading")}
               </span>
             </div>
           ) : orders.length === 0 ? (
@@ -281,11 +317,14 @@ function EmptyOrders({
   hasFilters: boolean;
   onClearFilters: () => void;
 }) {
+  const t = useTranslations("AdminOrdersPage.results");
   return (
     <div className="flex min-h-60 flex-col items-center justify-center rounded-md border border-content/10 px-4 text-center">
-      <h2 className="text-base font-semibold text-content">No Orders Found</h2>
+      <h2 className="text-base font-semibold text-content">
+        {t("noOrdersFound")}
+      </h2>
       <p className="mt-1 max-w-sm text-sm text-content/55">
-        Adjust the search or status filters to broaden the result set.
+        {t("noOrdersDesc")}
       </p>
       {hasFilters && (
         <button
@@ -293,7 +332,7 @@ function EmptyOrders({
           onClick={onClearFilters}
           className="mt-4 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
         >
-          Clear Filters
+          {t("clearFilters")}
         </button>
       )}
     </div>
@@ -317,18 +356,40 @@ function OrderResults({
   onExpandedToggle: (orderId: string) => void;
   onStatusUpdate: (orderId: string, newStatus: number) => void;
 }) {
+  const t = useTranslations("AdminOrdersPage.results");
+  const locale = useLocale();
+
+  const dateFormatter = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale, {
+        dateStyle: "medium",
+        timeStyle: "short",
+      }),
+    [locale],
+  );
+
+  const currencyFormatter = useMemo(
+    () =>
+      new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: "VND",
+        maximumFractionDigits: 0,
+      }),
+    [locale],
+  );
+
   return (
     <>
       <div className="hidden overflow-x-auto rounded-xl border border-content/[0.06] bg-surface/40 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] lg:block">
         <table className="w-full border-collapse text-left text-sm text-content">
           <thead>
             <tr className="border-b border-content/[0.06] bg-content/[0.02] text-xs font-semibold uppercase tracking-wider text-content/45">
-              <th className="px-6 py-4 text-center w-16">STT</th>
-              <th className="px-6 py-4">Order ID</th>
-              <th className="px-6 py-4">Customer</th>
-              <th className="px-6 py-4">Date</th>
-              <th className="px-6 py-4 text-right">Total</th>
-              <th className="px-6 py-4 text-center">Status</th>
+              <th className="px-6 py-4 text-center w-16">{t("stt")}</th>
+              <th className="px-6 py-4">{t("orderId")}</th>
+              <th className="px-6 py-4">{t("customer")}</th>
+              <th className="px-6 py-4">{t("date")}</th>
+              <th className="px-6 py-4 text-right">{t("total")}</th>
+              <th className="px-6 py-4 text-center">{t("status")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-content/[0.06]">
@@ -371,7 +432,7 @@ function OrderResults({
                           <span className="font-semibold text-content max-w-44 truncate">
                             {order.user.firstName || order.user.lastName
                               ? `${order.user.firstName || ""} ${order.user.lastName || ""}`.trim()
-                              : "No Name"}
+                              : t("noName")}
                           </span>
                           <span className="text-xs text-content/50 max-w-44 truncate">
                             {order.user.email}
@@ -454,15 +515,37 @@ function OrderCompactCard({
   onExpandedToggle: (orderId: string) => void;
   onStatusUpdate: (orderId: string, newStatus: number) => void;
 }) {
+  const t = useTranslations("AdminOrdersPage.results");
+  const locale = useLocale();
+
   const preview = getOrderPreview(order);
   const isUpdating = updatingId === order.id;
+
+  const dateFormatter = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale, {
+        dateStyle: "medium",
+        timeStyle: "short",
+      }),
+    [locale],
+  );
+
+  const currencyFormatter = useMemo(
+    () =>
+      new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: "VND",
+        maximumFractionDigits: 0,
+      }),
+    [locale],
+  );
 
   return (
     <article className="rounded-xl border border-content/[0.06] bg-surface/40 backdrop-blur-md p-5 shadow-sm hover:shadow-md transition-all duration-200">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase text-content/45">
-            Order
+            {t("orderId")}
           </p>
           <OrderIdCell orderId={order.id} onCopy={onCopy} />
         </div>
@@ -492,7 +575,9 @@ function OrderCompactCard({
               : "size-4 transition-transform"
           }
         />
-        {isExpanded ? "Hide Items" : `Show ${order.items.length} Items`}
+        {isExpanded
+          ? t("hideItems")
+          : t("showItems", { count: order.items.length })}
       </button>
 
       {isExpanded && (
@@ -504,14 +589,14 @@ function OrderCompactCard({
       <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
         <div>
           <dt className="text-xs font-semibold uppercase text-content/45">
-            Customer
+            {t("customer")}
           </dt>
           <dd className="mt-1 truncate text-xs text-content/65">
             {order.user ? (
               <span className="font-semibold text-content block truncate">
                 {order.user.firstName || order.user.lastName
                   ? `${order.user.firstName || ""} ${order.user.lastName || ""}`.trim()
-                  : "No Name"}
+                  : t("noName")}
               </span>
             ) : (
               <span className="font-mono block truncate">{order.userId}</span>
@@ -520,7 +605,7 @@ function OrderCompactCard({
         </div>
         <div>
           <dt className="text-xs font-semibold uppercase text-content/45">
-            Total
+            {t("total")}
           </dt>
           <dd className="mt-1 font-semibold tabular-nums text-content">
             {currencyFormatter.format(order.totalAmount)}
@@ -528,7 +613,7 @@ function OrderCompactCard({
         </div>
         <div className="col-span-2">
           <dt className="text-xs font-semibold uppercase text-content/45">
-            Date
+            {t("date")}
           </dt>
           <dd className="mt-1 tabular-nums text-content/65">
             {dateFormatter.format(new Date(order.createdAt))}
@@ -568,6 +653,7 @@ function OrderPreview({
 }: {
   preview: ReturnType<typeof getOrderPreview>;
 }) {
+  const t = useTranslations("AdminOrdersPage.results");
   return (
     <div className="flex min-w-0 items-center gap-3 lg:min-w-72">
       <Image
@@ -582,8 +668,8 @@ function OrderPreview({
           {preview.name}
         </p>
         <p className="truncate text-xs text-content/50">
-          {preview.attributes || `${preview.quantity} Items`}
-          {preview.extraCount > 0 && ` +${preview.extraCount} More`}
+          {preview.attributes || t("showItems", { count: preview.quantity })}
+          {preview.extraCount > 0 && ` +${preview.extraCount}`}
         </p>
       </div>
     </div>
@@ -639,6 +725,7 @@ function StatusDropdown({
   fullWidth?: boolean;
   onStatusUpdate: (orderId: string, newStatus: EOrderStatus) => void;
 }) {
+  const tStatus = useTranslations("OrderStatus");
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -648,7 +735,41 @@ function StatusDropdown({
     width: number;
   } | null>(null);
 
-  const statusConfig = getStatusConfig(status);
+  const getStatusLabel = useCallback(
+    (status: number) => {
+      switch (status) {
+        case EOrderStatus.PENDING:
+          return tStatus("pending");
+        case EOrderStatus.PAID:
+          return tStatus("paid");
+        case EOrderStatus.SHIPPING:
+          return tStatus("shipping");
+        case EOrderStatus.DELIVERED:
+          return tStatus("delivered");
+        case EOrderStatus.CANCEL_REQUESTED:
+          return tStatus("cancelRequested");
+        case EOrderStatus.CANCEL_PROCESSING:
+          return tStatus("cancelProcessing");
+        case EOrderStatus.CANCELLED:
+          return tStatus("cancelled");
+        case EOrderStatus.RETURN_REQUESTED:
+          return tStatus("returnRequested");
+        case EOrderStatus.RETURN_PROCESSING:
+          return tStatus("returnProcessing");
+        case EOrderStatus.RETURNED:
+          return tStatus("returned");
+        case EOrderStatus.RETURN_REJECTED:
+          return tStatus("returnRejected");
+        default:
+          return "Unknown";
+      }
+    },
+    [tStatus],
+  );
+
+  const statusColor =
+    ORDER_STATUS_CONFIG[status]?.color || "text-content/50 bg-content/10";
+  const statusLabel = getStatusLabel(status);
 
   const updateCoords = () => {
     if (triggerRef.current) {
@@ -702,7 +823,7 @@ function StatusDropdown({
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
           "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
-          statusConfig.color,
+          statusColor,
           disabled ||
             status === EOrderStatus.CANCELLED ||
             status === EOrderStatus.RETURNED
@@ -714,7 +835,7 @@ function StatusDropdown({
       >
         <div className="flex items-center gap-1.5 min-w-0">
           <span className="relative flex size-1.5 shrink-0 rounded-full bg-current" />
-          <span className="truncate">{statusConfig.label}</span>
+          <span className="truncate">{statusLabel}</span>
         </div>
         {disabled ? (
           <RefreshCw className="size-3 animate-spin opacity-60 shrink-0" />
@@ -746,22 +867,21 @@ function StatusDropdown({
               }}
               className="z-[99999] rounded-xl border border-content/[0.08] bg-surface/95 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] flex flex-col gap-1"
             >
-              {STATUS_OPTIONS.map((option) => {
-                const config = getStatusConfig(option.value);
-                const isSelected = option.value === status;
+              {STATUS_VALUES.map((optionValue) => {
+                const isSelected = optionValue === status;
                 const isAllowed = isStatusTransitionAllowed(
                   status,
-                  option.value,
+                  optionValue,
                 );
 
                 return (
                   <button
-                    key={option.value}
+                    key={optionValue}
                     type="button"
                     disabled={!isAllowed}
                     onClick={() => {
                       if (!isAllowed) return;
-                      onStatusUpdate(orderId, option.value);
+                      onStatusUpdate(orderId, optionValue);
                       setIsOpen(false);
                     }}
                     className={cn(
@@ -780,7 +900,9 @@ function StatusDropdown({
                           isSelected ? "bg-primary" : "bg-content/30",
                         )}
                       />
-                      <span className="truncate">{config.label}</span>
+                      <span className="truncate">
+                        {getStatusLabel(optionValue)}
+                      </span>
                     </div>
                     {isSelected && (
                       <span className="size-1 bg-primary rounded-full shrink-0" />
@@ -807,13 +929,14 @@ function OrdersPagination({
   loading: boolean;
   onPageChange: (page: number) => void;
 }) {
+  const t = useTranslations("AdminOrdersPage.results");
   return (
     <nav
       aria-label="Orders Pagination"
       className="flex flex-col gap-3 border-t border-content/10 pt-5 sm:flex-row sm:items-center sm:justify-between"
     >
       <p className="text-sm text-content/55">
-        Showing page {page} of {totalPages}
+        {t("showingPageOf", { page, totalPages })}
       </p>
 
       <div className="flex items-center gap-2">

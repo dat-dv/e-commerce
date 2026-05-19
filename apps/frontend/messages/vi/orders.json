@@ -1,0 +1,138 @@
+{
+  "OrdersPage": {
+    "metadata": {
+      "title": "Lịch sử mua hàng | Luxury E-commerce",
+      "description": "Quản lý lịch sử mua hàng và theo dõi trạng thái đơn hàng của bạn."
+    },
+    "detailMetadata": {
+      "title": "Chi tiết đơn hàng | Luxury E-commerce",
+      "description": "Xem chi tiết thông tin đơn hàng cao cấp của bạn."
+    },
+    "header": {
+      "title": "Đơn hàng",
+      "highlight": "Của tôi",
+      "description": "Theo dõi các giao dịch mua hàng, kiểm tra trạng thái vận chuyển và quản lý các sản phẩm đã mua."
+    },
+    "tabs": {
+      "all": "Tất cả",
+      "inProgress": "Đang xử lý",
+      "inTransit": "Đang giao",
+      "delivered": "Đã giao",
+      "returns": "Trả hàng",
+      "closed": "Đã đóng"
+    },
+    "emptyState": {
+      "title": "Chưa có đơn hàng nào",
+      "actionLabel": "Bắt đầu mua sắm",
+      "messageOverview": "Bạn chưa thực hiện đơn đặt hàng nào. Hãy khám phá các sản phẩm cao cấp và đặt đơn hàng đầu tiên ngay nhé.",
+      "messageOther": "Hiện tại bạn không có đơn hàng nào trong mục này."
+    },
+    "card": {
+      "orderNumber": "Đơn hàng #{id}",
+      "needHelp": "Cần hỗ trợ?",
+      "shipping": "Đang giao",
+      "units": "{count} sản phẩm",
+      "discount": "Giảm giá:",
+      "total": "Tổng tiền",
+      "cancel": "Hủy đơn",
+      "requestReturn": "Trả hàng",
+      "review": "Đánh giá",
+      "reorder": "Mua lại",
+      "noOrders": "Chưa có đơn hàng nào",
+      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!"
+    },
+    "confirmCancel": {
+      "title": "Hủy đơn hàng",
+      "description": "Bạn có chắc chắn muốn hủy đơn hàng này? Hành động này không thể hoàn tác.",
+      "keep": "Không, giữ lại",
+      "confirm": "Có, hủy đơn"
+    },
+    "requestReturn": {
+      "title": "Yêu cầu trả hàng",
+      "description": "Vui lòng cho biết lý do và đính kèm hình ảnh rõ ràng để chúng tôi xem xét và hỗ trợ.",
+      "reason": "Lý do trả hàng",
+      "reasonPlaceholder": "Giao sai sản phẩm, hư hỏng hộp/đóng gói, thiếu chi tiết...",
+      "details": "Chi tiết sự cố",
+      "detailsPlaceholder": "Mô tả vấn đề gặp phải, tình trạng của sản phẩm, bao bì đóng gói và phương án mong muốn.",
+      "evidence": "Hình ảnh bằng chứng",
+      "upload": "Tải ảnh lên",
+      "photoRequired": "Yêu cầu đính kèm ít nhất một hình ảnh.",
+      "keepOrder": "Giữ đơn hàng",
+      "submit": "Gửi yêu cầu",
+      "toasts": {
+        "unsupportedImage": "Định dạng ảnh {name} không được hỗ trợ.",
+        "imageTooLarge": "Kích thước ảnh {name} vượt quá 5MB.",
+        "maxImages": "Bạn chỉ có thể đính kèm tối đa {max} ảnh.",
+        "imageRequired": "Vui lòng đính kèm ít nhất một hình ảnh bằng chứng.",
+        "submitSuccess": "Yêu cầu trả hàng đã được gửi thành công.",
+        "submitError": "Không thể gửi yêu cầu trả hàng."
+      }
+    },
+    "detail": {
+      "loading": "Đang tải...",
+      "notFoundTitle": "Không tìm thấy đơn hàng",
+      "notFoundDesc": "Chúng tôi không thể tìm thấy thông tin đơn hàng này. Có thể đơn hàng đã bị xóa hoặc mã ID không chính xác.",
+      "backToOrders": "Quay lại danh sách đơn hàng",
+      "deliveryDetails": "Thông tin giao hàng",
+      "paymentSummary": "Chi tiết thanh toán",
+      "subtotal": "Tạm tính",
+      "discount": "Giảm giá",
+      "total": "Tổng tiền",
+      "returnSectionTitle": "Bạn cần trả lại đơn hàng này?",
+      "returnSectionDesc": "Gửi lý do kèm theo ảnh chụp chi tiết để đội ngũ chăm sóc khách hàng hỗ trợ.",
+      "requestReturnBtn": "Yêu cầu trả hàng",
+      "orderItemsTitle": "Sản phẩm đã mua ({count})",
+      "noOrderItems": "Không có sản phẩm nào.",
+      "qty": "SL",
+      "unit": "Đơn giá",
+      "subtotal": "Thành tiền",
+      "orderItemsHeader": "Sản phẩm đã mua"
+    }
+  },
+  "AdminOrdersPage": {
+    "header": {
+      "adminCenter": "Trung tâm quản trị",
+      "title": "Quản lý đơn hàng",
+      "description": "Theo dõi các giao dịch mua hàng đa kênh, xử lý các hàng đợi vận hành và cập nhật trạng thái đơn hàng.",
+      "refresh": "Làm mới danh sách"
+    },
+    "filters": {
+      "searchLabel": "Tìm kiếm đơn hàng",
+      "searchPlaceholder": "Tìm theo Mã đơn hàng, tên khách hàng hoặc số điện thoại...",
+      "clearActive": "Xóa bộ lọc hiện tại",
+      "statusLabel": "Lọc theo trạng thái xử lý"
+    },
+    "results": {
+      "ordersCount": "{count} đơn hàng",
+      "pageInfo": "Trang {page} / {totalPages}",
+      "loading": "Đang tải danh sách...",
+      "noOrdersFound": "Không tìm thấy đơn hàng nào",
+      "noOrdersDesc": "Hãy thay đổi từ khóa tìm kiếm hoặc bộ lọc trạng thái để mở rộng phạm vi hiển thị.",
+      "clearFilters": "Xóa bộ lọc",
+      "stt": "STT",
+      "orderId": "Mã đơn hàng",
+      "customer": "Khách hàng",
+      "date": "Ngày đặt",
+      "total": "Tổng tiền",
+      "status": "Trạng thái",
+      "noName": "Không có tên",
+      "hideItems": "Ẩn chi tiết",
+      "showItems": "Hiển thị {count} sản phẩm",
+      "copied": "Đã sao chép mã đơn hàng.",
+      "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang"
+    }
+  },
+  "OrderStatus": {
+    "pending": "Chờ xử lý",
+    "paid": "Đã xác nhận",
+    "shipping": "Đang vận chuyển",
+    "delivered": "Đã giao hàng",
+    "cancelRequested": "Yêu cầu hủy đơn",
+    "cancelProcessing": "Đang hủy đơn",
+    "cancelled": "Đã hủy đơn",
+    "returnRequested": "Yêu cầu trả hàng",
+    "returnProcessing": "Đang xử lý trả hàng",
+    "returned": "Đã trả hàng",
+    "returnRejected": "Từ chối trả hàng"
+  }
+}

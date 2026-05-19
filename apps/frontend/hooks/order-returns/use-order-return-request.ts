@@ -1,5 +1,6 @@
 import { orderReturnsUseCase } from "@/domain/order-returns";
 import { useCallback, useState } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 
 import { OrderReturnRequestFormData } from "./order-return-request.schema";
@@ -9,14 +10,15 @@ interface UseOrderReturnRequestParams {
   onSuccess?: () => Promise<void> | void;
 }
 
-const getErrorMessage = (error: Error) => {
-  return error.message || "Failed to submit return request.";
+const getErrorMessage = (error: Error, fallback: string) => {
+  return error.message || fallback;
 };
 
 export const useOrderReturnRequest = ({
   orderId,
   onSuccess,
 }: UseOrderReturnRequestParams) => {
+  const t = useTranslations("OrdersPage.requestReturn");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const uploadAttachments = useCallback(async (attachments: File[]) => {
@@ -33,7 +35,7 @@ export const useOrderReturnRequest = ({
       attachments: File[],
     ): Promise<boolean> => {
       if (!attachments.length) {
-        toast.error("Attach at least one image for the return request.");
+        toast.error(t("toasts.imageRequired"));
         return false;
       }
 
@@ -48,15 +50,14 @@ export const useOrderReturnRequest = ({
           imageIds,
         });
 
-        toast.success("Return request submitted.");
+        toast.success(t("toasts.submitSuccess"));
         await onSuccess?.();
         return true;
       } catch (error) {
         toast.error(
           getErrorMessage(
-            error instanceof Error
-              ? error
-              : new Error("Failed to submit return request."),
+            error instanceof Error ? error : new Error(t("toasts.submitError")),
+            t("toasts.submitError"),
           ),
         );
         return false;
@@ -64,7 +65,7 @@ export const useOrderReturnRequest = ({
         setIsSubmitting(false);
       }
     },
-    [onSuccess, orderId, uploadAttachments],
+    [onSuccess, orderId, uploadAttachments, t],
   );
 
   return {

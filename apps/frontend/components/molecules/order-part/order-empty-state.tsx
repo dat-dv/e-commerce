@@ -4,26 +4,50 @@ import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { ShoppingBag } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
 import EmptyState from "../empty-space";
+import { useTranslations } from "next-intl";
 
 interface OrderEmptyStateProps {
   type: OrderTabValue;
 }
 
 export const OrderEmptyState = ({ type }: OrderEmptyStateProps) => {
+  const t = useTranslations("OrdersPage");
+
   const activeTabLabel =
     ORDER_TABS.find((tab) => tab.value === type)?.label || "Overview";
 
+  const getLocalizedTabName = (label: string) => {
+    switch (label) {
+      case "Overview":
+        return t("tabs.all");
+      case "In Progress":
+        return t("tabs.inProgress");
+      case "In Transit":
+        return t("tabs.inTransit");
+      case "Delivered":
+        return t("tabs.delivered");
+      case "Returns":
+        return t("tabs.returns");
+      case "Closed":
+        return t("tabs.closed");
+      default:
+        return label;
+    }
+  };
+
   const message =
     activeTabLabel === "Overview"
-      ? "You haven’t placed any orders yet. Start exploring products and place your first order."
-      : `You have no ${activeTabLabel.toLowerCase()} orders at the moment.`;
+      ? t("emptyState.messageOverview")
+      : t("emptyState.messageOther", {
+          tab: getLocalizedTabName(activeTabLabel).toLowerCase(),
+        });
 
   return (
     <EmptyState
-      title="No Orders Yet"
+      title={t("emptyState.title")}
       description={message}
       icon={ShoppingBag}
-      actionLabel="Start Shopping"
+      actionLabel={t("emptyState.actionLabel")}
       actionHref={APP_ROUTES.PRODUCTS}
     />
   );

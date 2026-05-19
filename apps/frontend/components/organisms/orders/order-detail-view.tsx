@@ -20,8 +20,13 @@ import { cn } from "@/utils/cn";
 import Image from "next/image";
 import { EOrderStatus } from "@ecommerce/shared";
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
+import { useTranslations, useLocale } from "next-intl";
 
 export const OrderDetailView = ({ orderId }: { orderId: string }) => {
+  const t = useTranslations("OrdersPage");
+  const tStatus = useTranslations("OrderStatus");
+  const locale = useLocale();
+
   const [isReturnModalOpen, setIsReturnModalOpen] = useState(false);
   const { order, loading, error, refresh } = useOrderDetail(orderId);
   const returnRequest = useOrderReturnRequest({
@@ -31,6 +36,35 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
       await refresh();
     },
   });
+
+  const getStatusLabel = (status: EOrderStatus) => {
+    switch (status) {
+      case EOrderStatus.PENDING:
+        return tStatus("pending");
+      case EOrderStatus.PAID:
+        return tStatus("paid");
+      case EOrderStatus.SHIPPING:
+        return tStatus("shipping");
+      case EOrderStatus.DELIVERED:
+        return tStatus("delivered");
+      case EOrderStatus.CANCEL_REQUESTED:
+        return tStatus("cancelRequested");
+      case EOrderStatus.CANCEL_PROCESSING:
+        return tStatus("cancelProcessing");
+      case EOrderStatus.CANCELLED:
+        return tStatus("cancelled");
+      case EOrderStatus.RETURN_REQUESTED:
+        return tStatus("returnRequested");
+      case EOrderStatus.RETURN_PROCESSING:
+        return tStatus("returnProcessing");
+      case EOrderStatus.RETURNED:
+        return tStatus("returned");
+      case EOrderStatus.RETURN_REJECTED:
+        return tStatus("returnRejected");
+      default:
+        return status;
+    }
+  };
 
   const closeReturnModal = () => {
     if (returnRequest.isSubmitting) return;
@@ -45,7 +79,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           <div className="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin" />
         </div>
         <div className="mt-6 text-xs font-semibold text-content/30 animate-pulse">
-          Loading...
+          {t("detail.loading")}
         </div>
       </div>
     );
@@ -56,26 +90,24 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
       <div className="min-h-screen bg-transparent flex flex-col items-center justify-center">
         <AlertCircle className="w-16 h-16 text-red-500/50 mb-6" />
         <h1 className="text-2xl font-bold text-content tracking-tight mb-4">
-          Order Not Found
+          {t("detail.notFoundTitle")}
         </h1>
         <p className="text-content/40 text-sm font-medium mb-8 max-w-sm text-center">
-          We could not locate this order. It may have been removed or the ID is
-          incorrect.
+          {t("detail.notFoundDesc")}
         </p>
         <Link
           href={APP_ROUTES.ORDERS}
           className="px-8 py-3 bg-content text-surface text-sm font-semibold rounded-xl hover:-translate-y-1 transition-all shadow-lg shadow-black/10"
         >
-          Return to Orders
+          {t("detail.backToOrders")}
         </Link>
       </div>
     );
   }
 
-  const status = ORDER_STATUS_CONFIG[order.status] || {
-    label: "Unknown",
-    color: "text-content/40 bg-content/5",
-  };
+  const statusColor =
+    ORDER_STATUS_CONFIG[order.status]?.color || "text-content/40 bg-content/5";
+  const statusLabel = getStatusLabel(order.status);
 
   return (
     <div className="min-h-screen bg-transparent">
@@ -89,10 +121,10 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           </Link>
           <div>
             <h1 className="text-xl font-bold text-content tracking-tight">
-              Order #{order.id.slice(-8).toUpperCase()}
+              {t("card.orderNumber", { id: order.id.slice(-8).toUpperCase() })}
             </h1>
             <p className="text-xs text-content/40 mt-1 font-medium">
-              {new Date(order.createdAt).toLocaleDateString("en-US", {
+              {new Date(order.createdAt).toLocaleDateString(locale, {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -103,10 +135,10 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
             <span
               className={cn(
                 "px-4 py-1.5 text-xs font-bold rounded-full",
-                status.color,
+                statusColor,
               )}
             >
-              {status.label}
+              {statusLabel}
             </span>
           </div>
         </div>
@@ -125,7 +157,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 <Truck className="w-4 h-4" />
               </div>
               <h2 className="text-sm font-bold text-content">
-                Delivery Details
+                {t("detail.deliveryDetails")}
               </h2>
             </div>
             <div className="space-y-4 text-sm font-medium text-content/60">
@@ -150,12 +182,14 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 <CreditCard className="w-4 h-4" />
               </div>
               <h2 className="text-sm font-bold text-content">
-                Payment Summary
+                {t("detail.paymentSummary")}
               </h2>
             </div>
             <div className="space-y-4">
               <div className="flex justify-between text-sm">
-                <span className="text-content/60 font-medium">Subtotal</span>
+                <span className="text-content/60 font-medium">
+                  {t("detail.subtotal")}
+                </span>
                 <span className="font-bold text-content">
                   {formatCurrency(
                     order.items.reduce(
@@ -167,14 +201,18 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
               </div>
               {order.discountAmount > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-content/60 font-medium">Discount</span>
+                  <span className="text-content/60 font-medium">
+                    {t("detail.discount")}
+                  </span>
                   <span className="font-bold text-red-500">
                     -{formatCurrency(order.discountAmount)}
                   </span>
                 </div>
               )}
               <div className="pt-4 border-t border-content/[0.05] flex justify-between items-center">
-                <span className="text-sm font-bold text-content">Total</span>
+                <span className="text-sm font-bold text-content">
+                  {t("detail.total")}
+                </span>
                 <span className="text-3xl font-black text-content tracking-tight">
                   {formatCurrency(order.totalAmount)}
                 </span>
@@ -192,10 +230,10 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           >
             <div>
               <h2 className="text-sm font-bold text-content">
-                Need to return this order?
+                {t("detail.returnSectionTitle")}
               </h2>
               <p className="mt-1 text-sm font-medium leading-relaxed text-content/50">
-                Submit a reason and clear photos for support review.
+                {t("detail.returnSectionDesc")}
               </p>
             </div>
             <button
@@ -204,7 +242,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary"
             >
               <RotateCcw className="h-4 w-4" />
-              Request return
+              {t("detail.requestReturnBtn")}
             </button>
           </motion.div>
         )}
@@ -219,7 +257,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           <div className="px-6 py-4 border-b border-content/[0.05] bg-content/[0.02] flex items-center gap-3">
             <Package className="w-4 h-4 text-content/40" />
             <h2 className="text-sm font-bold text-content">
-              Order Items ({order.items.length})
+              {t("detail.orderItemsTitle", { count: order.items.length })}
             </h2>
           </div>
           <div className="divide-y divide-content/[0.05]">
@@ -253,7 +291,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                   </p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-xs font-semibold px-3 py-1 bg-content/[0.05] rounded-full text-content/60">
-                      {item.quantity} unit{item.quantity > 1 ? "s" : ""}
+                      {t("card.units", { count: item.quantity })}
                     </span>
                     <span className="text-sm font-bold text-content/60">
                       {formatCurrency(item.price * item.quantity)}

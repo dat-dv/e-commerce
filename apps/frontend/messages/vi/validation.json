@@ -9,6 +9,10 @@
     "confirmPasswordRequired": "Vui lòng xác nhận mật khẩu",
     "passwordsMustMatch": "Mật khẩu xác nhận không trùng khớp",
     "phoneMin10": "Số điện thoại phải chứa ít nhất 10 số",
-    "emailOrPhoneRequired": "Vui lòng nhập email hoặc số điện thoại"
+    "emailOrPhoneRequired": "Vui lòng nhập email hoặc số điện thoại",
+    "returnReasonMin": "Vui lòng nhập lý do ngắn gọn.",
+    "returnReasonMax": "Lý do không được quá 120 ký tự.",
+    "returnDescriptionMin": "Vui lòng mô tả chi tiết sự cố xảy ra.",
+    "returnDescriptionMax": "Mô tả không được quá 1200 ký tự."
   }
 }

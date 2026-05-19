@@ -6,6 +6,7 @@ import {
   AriaDialogTitle,
 } from "@/components/atoms/aria/dialog";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface ConfirmCancelModalProps {
   isOpen: boolean;
@@ -20,6 +21,8 @@ export const ConfirmCancelModal = ({
   onClose,
   onConfirm,
 }: ConfirmCancelModalProps) => {
+  const t = useTranslations("OrdersPage");
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -49,11 +52,10 @@ export const ConfirmCancelModal = ({
                 as="h3"
                 className="text-xl font-bold text-content tracking-tight mb-2"
               >
-                Cancel Order
+                {t("confirmCancel.title")}
               </AriaDialogTitle>
               <p className="text-content/60 text-sm font-medium mb-8 leading-relaxed">
-                Are you sure you want to cancel this order? This action cannot
-                be undone.
+                {t("confirmCancel.description")}
               </p>
               <div className="flex gap-4">
                 <button
@@ -61,7 +63,7 @@ export const ConfirmCancelModal = ({
                   disabled={isCancelling}
                   className="flex-1 py-3 text-sm font-semibold text-content border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all disabled:opacity-50"
                 >
-                  No, keep it
+                  {t("confirmCancel.keep")}
                 </button>
                 <button
                   onClick={onConfirm}
@@ -71,7 +73,7 @@ export const ConfirmCancelModal = ({
                   {isCancelling ? (
                     <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                   ) : (
-                    "Yes, cancel"
+                    t("confirmCancel.confirm")
                   )}
                 </button>
               </div>

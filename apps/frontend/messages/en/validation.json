@@ -9,6 +9,10 @@
     "confirmPasswordRequired": "Confirm password is required",
     "passwordsMustMatch": "Passwords do not match",
     "phoneMin10": "Phone number must be at least 10 digits",
-    "emailOrPhoneRequired": "Either email or phone is required"
+    "emailOrPhoneRequired": "Either email or phone is required",
+    "returnReasonMin": "Enter a short reason.",
+    "returnReasonMax": "Keep the reason under 120 characters.",
+    "returnDescriptionMin": "Describe what happened.",
+    "returnDescriptionMax": "Keep the description under 1200 characters."
   }
 }
