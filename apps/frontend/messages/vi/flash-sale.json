@@ -1,0 +1,24 @@
+{
+  "FlashSalePage": {
+    "metadata": {
+      "title": "Flash Sale | E-Commerce",
+      "description": "Săn ưu đãi tốt nhất trước khi hết."
+    },
+    "header": {
+      "title": "Flash",
+      "highlight": "Sale",
+      "description": "Công nghệ hiệu năng cao với mức giá hấp dẫn trong thời gian ngắn."
+    },
+    "list": {
+      "eyebrow": "Ưu đãi đang mở",
+      "title": "{total} sản phẩm flash sale",
+      "meta": "Trang {page}/{totalPages}",
+      "loadingMore": "Đang tải thêm ưu đãi...",
+      "end": "Đã tải hết flash sale",
+      "empty": {
+        "title": "Chưa có sản phẩm flash sale",
+        "description": "Hiện chưa có sản phẩm flash sale."
+      }
+    }
+  }
+}

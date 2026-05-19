@@ -3,11 +3,16 @@ import { productsUseCase } from "@/domain/products/use-cases";
 import { safe } from "@/utils/promise";
 import { Metadata } from "next";
 import NotFound from "@/app/not-found";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Flash Sale | E-Commerce",
-  description: "Grab the best deals before they are gone!",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("FlashSalePage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 import {
   PAGINATION_LIMITS,

@@ -20,6 +20,7 @@ export default getRequestConfig(async () => {
     import(`../messages/${locale}/profile.json`),
     import(`../messages/${locale}/vouchers.json`),
     import(`../messages/${locale}/new-arrivals.json`),
+    import(`../messages/${locale}/flash-sale.json`),
   ]);
 
   const messages = res.reduce((acc, item) => {

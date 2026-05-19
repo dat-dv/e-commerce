@@ -11,6 +11,7 @@ import { productsUseCase } from "@/domain/products/use-cases";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import EmptyState from "@/components/molecules/empty-space";
 import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { useTranslations } from "next-intl";
 
 interface FlashSaleListProps {
   products: TProduct[];
@@ -18,6 +19,7 @@ interface FlashSaleListProps {
 }
 
 const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
+  const t = useTranslations("FlashSalePage.list");
   const fetchFlashSalePage = useCallback(
     (params: { page: number; limit: number }) =>
       productsUseCase.getFlashSale.execute(params),
@@ -49,10 +51,16 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
       {items.length > 0 ? (
         <div className="space-y-8">
           <ListingSectionHeader
-            eyebrow="Live Deals"
-            title={`${pageMeta.total} flash sale products`}
-            icon={<Flame size={18} className="fill-red-500 text-red-500" />}
-            meta={`Page ${pageMeta.page} of ${totalPages}`}
+            eyebrow={t("eyebrow")}
+            title={t("title", { total: pageMeta.total })}
+            icon={
+              <Flame
+                size={18}
+                className="fill-red-500 text-red-500"
+                aria-hidden="true"
+              />
+            }
+            meta={t("meta", { page: pageMeta.page, totalPages })}
           />
 
           {error && (
@@ -71,8 +79,8 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
             loadingMore={loadingMore}
             hasMore={hasMore}
             onLoadMore={loadMore}
-            loadingText="Loading more deals..."
-            endText="All flash sale products loaded"
+            loadingText={t("loadingMore")}
+            endText={t("end")}
             gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
             itemClassName="min-w-0"
             rowClassName="mb-4"
@@ -86,8 +94,8 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
         </div>
       ) : (
         <EmptyState
-          title="No flash sale products found"
-          description="There are no flash sale products available at the moment."
+          title={t("empty.title")}
+          description={t("empty.description")}
         />
       )}
     </motion.div>
