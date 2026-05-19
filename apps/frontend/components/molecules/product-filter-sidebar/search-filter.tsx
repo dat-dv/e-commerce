@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import Input from "@/components/atoms/input";
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -40,10 +41,12 @@ export function ProductSearchFilter({
       </h3>
       <div className="flex items-center gap-2 rounded-xl border border-content/10 bg-content/[0.03] px-3 py-2">
         <Search size={16} className="shrink-0 text-content/35" />
-        <input
+        <Input
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
           placeholder={searchPlaceholder}
+          variant="none"
+          size="sm"
           className="min-w-0 flex-1 bg-transparent text-sm font-medium text-content outline-none placeholder:text-content/35"
         />
       </div>

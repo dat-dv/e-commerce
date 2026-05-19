@@ -1,19 +1,20 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import Button from "@/components/atoms/button";
+import AppForm from "@/components/molecules/form/app-form";
+import { FormCheckbox } from "@/components/molecules/form/form-checkbox";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
-import AppForm from "@/components/molecules/form/app-form";
-import Button from "@/components/atoms/button";
-import { useForm } from "react-hook-form";
+import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
+import { EAddressLabel } from "@ecommerce/shared";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getAddressSchema, AddressFormData } from "./addresses.schema";
+import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
+import { useForm } from "react-hook-form";
 import { FormMapPicker } from "../form/form-map-picker";
-import { EAddressLabel } from "@ecommerce/shared";
-import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
+import { AddressFormData, getAddressSchema } from "./addresses.schema";
 
 interface AddressesFormProps {
   onSubmit: (data: TCreateAddressInput) => Promise<boolean>;
@@ -155,17 +156,11 @@ export const AddressesForm = ({
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="isDefault"
-            {...methods.register("isDefault")}
-            className="w-4 h-4 rounded border-content/10 text-primary focus:ring-primary/20"
-          />
-          <label htmlFor="isDefault" className="text-sm text-content/80">
+        <FormCheckbox name="isDefault">
+          <span className="text-sm text-content/80">
             {t("setDefaultCheckbox")}
-          </label>
-        </div>
+          </span>
+        </FormCheckbox>
 
         <Button
           type="submit"

@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import Input from "@/components/atoms/input";
 import { motion } from "framer-motion";
 import { ChevronDown, FolderTree, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -168,10 +169,12 @@ export function CategoryFilterSection({
       <div className="mb-3 flex items-center gap-2 rounded-xl border border-content/[0.08] bg-content/[0.03] px-3 py-2">
         <Search className="h-4 w-4 shrink-0 text-content/30" />
 
-        <input
+        <Input
           value={categoryKeyword}
           onChange={(event) => setCategoryKeyword(event.target.value)}
           placeholder={t("searchCategories")}
+          variant="none"
+          size="sm"
           className="min-w-0 flex-1 bg-transparent text-sm font-medium text-content outline-none placeholder:text-content/35"
         />
 

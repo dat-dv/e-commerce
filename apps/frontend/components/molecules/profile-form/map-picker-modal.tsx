@@ -1,12 +1,13 @@
 "use client";
 
+import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
 } from "@/components/atoms/dialog";
-import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
+import Input from "@/components/atoms/input";
 import { useMapPicker } from "@/hooks/addresses/use-map-picker";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
@@ -90,16 +91,16 @@ export default function MapPickerModal({
 
         <div className="space-y-6 bg-content/5 p-6 rounded-2xl border border-content/10">
           <div>
-            <p className="text-sm font-medium opacity-60 mb-2">
-              {t("searchLabel")}
-            </p>
             <div className="relative mb-4">
-              <input
+              <Input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t("searchPlaceholder")}
-                className="w-full px-4 py-3 bg-surface border border-content/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm hover:border-content/20"
+                label={t("searchLabel")}
+                variant="outline"
+                size="md"
+                className="w-full bg-surface border-content/10 hover:border-content/20 focus:ring-primary/50"
               />
               {suggestions.length > 0 && (
                 <div className="absolute z-[1100] w-full bg-surface/90 backdrop-blur-md border border-content/10 rounded-xl shadow-2xl mt-2 max-h-60 overflow-y-auto">
