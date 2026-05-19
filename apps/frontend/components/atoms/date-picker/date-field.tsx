@@ -18,6 +18,10 @@ import {
 } from "react-aria-components";
 
 import {
+  InputSize,
+  inputSizeClasses,
+} from "@/components/atoms/input/input.sizes";
+import {
   variantActive,
   variantBase,
   variantDisabled,
@@ -32,11 +36,13 @@ export interface IDateInputProps extends Omit<
   "children" | "className"
 > {
   variant?: InputVariant;
+  size?: InputSize;
   className?: string | ((values: DateInputRenderProps) => string);
 }
 
 export function DateInput({
   variant = "outline",
+  size = "lg",
   className,
   ...props
 }: IDateInputProps) {
@@ -47,6 +53,7 @@ export function DateInput({
         cn(
           "w-full flex items-center transition-all font-medium whitespace-nowrap overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
           variantBase[variant],
+          inputSizeClasses[size][variant],
           renderProps.isDisabled
             ? variantDisabled[variant]
             : renderProps.isInvalid
@@ -84,6 +91,7 @@ export interface IDateFieldProps<T extends DateValue> extends Omit<
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
   variant?: InputVariant;
+  size?: InputSize;
   className?: string | ((values: DateFieldRenderProps) => string);
 }
 
@@ -92,6 +100,7 @@ export function DateField<T extends DateValue>({
   description,
   errorMessage,
   variant = "outline",
+  size = "lg",
   className,
   ...props
 }: IDateFieldProps<T>) {
@@ -116,7 +125,7 @@ export function DateField<T extends DateValue>({
             {label}
           </RACLabel>
         )}
-        <DateInput variant={variant} />
+        <DateInput variant={variant} size={size} />
         {description && (
           <RACText slot="description" className="text-xs text-content/65 ml-1">
             {description}

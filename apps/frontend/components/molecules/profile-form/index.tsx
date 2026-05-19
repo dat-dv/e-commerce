@@ -4,23 +4,23 @@ import { AnimationItem } from "@/components/atoms/animate";
 import Button from "@/components/atoms/button";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
-import { FormSelect } from "@/components/molecules/form/form-select";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
+import { FormSelect } from "@/components/molecules/form/form-select";
 import { Pencil } from "lucide-react";
 
-import AppForm from "../form/app-form";
-import FormListenerDirty from "../form/form-listener-dirty";
-import { useTranslations } from "next-intl";
+import { TUser } from "@/domain/auth/types/auth.model";
+import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import {
   getProfileSchema,
   ProfileSchema,
 } from "@/hooks/profile/profile.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useRef, useEffect, useMemo } from "react";
-import { useForm } from "react-hook-form";
-import { TUser } from "@/domain/auth/types/auth.model";
-import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import { EGender } from "@ecommerce/shared";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import AppForm from "../form/app-form";
+import FormListenerDirty from "../form/form-listener-dirty";
 import AvatarWrapper from "./avatar-wapper";
 
 interface IProfileFormProps {
@@ -158,7 +158,7 @@ export const ProfileForm = ({
               label={t("form.firstNameLabel")}
               placeholder={t("form.firstNamePlaceholder")}
               disabled={isFormDisabled}
-              className="h-10 text-sm rounded-xl"
+              size="md"
             />
             <FormInput
               variant="outline"
@@ -166,7 +166,7 @@ export const ProfileForm = ({
               label={t("form.lastNameLabel")}
               placeholder={t("form.lastNamePlaceholder")}
               disabled={isFormDisabled}
-              className="h-10 text-sm rounded-xl"
+              size="md"
             />
             <FormInput
               variant="outline"
@@ -174,13 +174,14 @@ export const ProfileForm = ({
               label={t("form.emailLabel")}
               placeholder={t("form.emailPlaceholder")}
               disabled={true} // Email is read-only in profile
-              className="h-10 text-sm rounded-xl opacity-60"
+              size="md"
+              className="opacity-60"
             />
             <FormPhoneInput
               name="phone"
               label={t("form.phoneLabel")}
               disabled={isFormDisabled}
-              className="h-10 text-sm rounded-xl"
+              size="md"
             />
             <FormDateInput
               variant="outline"
@@ -188,14 +189,14 @@ export const ProfileForm = ({
               label={t("form.dateOfBirthLabel")}
               placeholder={t("form.dateOfBirthPlaceholder")}
               disabled={isFormDisabled}
-              className="h-10 text-sm rounded-xl"
+              size="md"
             />
             <FormSelect
               name="gender"
               label={t("form.genderLabel")}
               disabled={isFormDisabled}
               options={translatedGenderOptions}
-              className="h-10 text-sm rounded-xl"
+              size="md"
             />
           </div>
 

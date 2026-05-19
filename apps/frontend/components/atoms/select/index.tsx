@@ -18,6 +18,10 @@ import {
 } from "react-aria-components";
 
 import {
+  InputSize,
+  inputSizeClasses,
+} from "@/components/atoms/input/input.sizes";
+import {
   variantActive,
   variantBase,
   variantDisabled,
@@ -42,6 +46,7 @@ export interface ISelectProps<T extends object> extends Omit<
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
   variant?: InputVariant;
+  size?: InputSize;
   className?: string | ((values: SelectRenderProps) => string);
   options?: ISelectOption[];
   children?: React.ReactNode | ((item: T) => React.ReactNode);
@@ -53,6 +58,7 @@ export function AppSelect<T extends object>({
   description,
   errorMessage,
   variant = "outline",
+  size = "lg",
   className,
   options,
   children,
@@ -81,6 +87,7 @@ export function AppSelect<T extends object>({
               cn(
                 "w-full flex justify-between items-center transition-all font-medium outline-none select-none cursor-pointer text-left",
                 variantBase[variant],
+                inputSizeClasses[size][variant],
                 isDisabled
                   ? variantDisabled[variant]
                   : isInvalid

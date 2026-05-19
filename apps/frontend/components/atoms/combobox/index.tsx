@@ -24,6 +24,10 @@ import {
   variantError,
   variantNormal,
 } from "@/components/atoms/input/input.styles";
+import {
+  inputSizeClasses,
+  InputSize,
+} from "@/components/atoms/input/input.sizes";
 import { InputVariant } from "@/components/atoms/input/input.types";
 import { cn } from "@/utils/cn";
 
@@ -42,6 +46,7 @@ export interface IComboBoxProps<T extends object> extends Omit<
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
   variant?: InputVariant;
+  size?: InputSize;
   className?: string | ((values: ComboBoxRenderProps) => string);
   options?: IComboBoxOption[];
   children?: React.ReactNode | ((item: T) => React.ReactNode);
@@ -53,6 +58,7 @@ export function AppComboBox<T extends object>({
   description,
   errorMessage,
   variant = "outline",
+  size = "lg",
   className,
   options,
   children,
@@ -83,6 +89,7 @@ export function AppComboBox<T extends object>({
                 cn(
                   "w-full pr-10 transition-all font-medium outline-none select-none text-left bg-transparent",
                   variantBase[variant],
+                  inputSizeClasses[size][variant],
                   isDisabled
                     ? variantDisabled[variant]
                     : isInvalid

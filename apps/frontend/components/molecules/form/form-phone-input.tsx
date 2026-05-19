@@ -1,12 +1,13 @@
 "use client";
 
+import { AriaMenu, AriaMenuItem } from "@/components/atoms/aria/menu";
+import { InputSize } from "@/components/atoms/input/input.sizes";
+import { aseanCountries } from "@/constants/countries";
+import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { ChevronDown } from "lucide-react";
-import { AriaMenu, AriaMenuItem } from "@/components/atoms/aria/menu";
-import { cn } from "@/utils/cn";
-import { aseanCountries } from "@/constants/countries";
-import { AnimatePresence, motion } from "framer-motion";
 
 interface CountryOption {
   name: string;
@@ -16,11 +17,15 @@ interface CountryOption {
   disabled?: boolean;
 }
 
-interface FormPhoneInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  name: string; // object name root (e.g. "phone")
+interface FormPhoneInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "size"
+> {
+  name: string;
   label?: string;
   countries?: CountryOption[];
   disabledSelected?: boolean;
+  size?: InputSize;
 }
 
 export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
@@ -29,6 +34,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
   className,
   countries = aseanCountries as CountryOption[],
   disabledSelected = false,
+  size = "lg",
   ...rest
 }) => {
   const { control } = useFormContext();
@@ -70,7 +76,10 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
 
             <div
               className={cn(
-                "flex items-center border rounded-2xl transition-all focus-within:ring-2 focus-within:ring-primary/20",
+                "flex items-center border transition-all focus-within:ring-2 focus-within:ring-primary/20",
+                size === "sm" && "h-8 rounded-lg text-xs",
+                size === "md" && "h-10 rounded-xl text-sm",
+                size === "lg" && "h-12 rounded-2xl text-base",
                 rest.disabled
                   ? "border-content/10 bg-content/5"
                   : error
@@ -79,7 +88,6 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                 className,
               )}
             >
-              {/* COUNTRY SELECT */}
               <div className="relative z-50 inline-block h-full text-left">
                 <AriaMenu
                   disabled={rest.disabled}
@@ -137,18 +145,16 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                 </AriaMenu>
               </div>
 
-              {/* INPUT */}
               <input
                 {...rest}
                 type="tel"
                 value={phoneNumber}
                 onChange={handleNumberChange}
                 placeholder="912345678"
-                className="flex-1 bg-transparent outline-none px-4"
+                className="flex-1 bg-transparent outline-none px-4 h-full"
               />
             </div>
 
-            {/* ERROR */}
             <AnimatePresence>
               {error && (
                 <motion.span

@@ -9,6 +9,7 @@ import {
   variantError,
   variantNormal,
 } from "./input.styles";
+import { inputSizeClasses } from "./input.sizes";
 import { InputProps } from "./input.types";
 import PasswordEye from "./password-eye";
 
@@ -20,6 +21,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       error,
       className,
       variant = "outline",
+      size = "lg",
       maxCount,
       value,
       ...rest
@@ -59,6 +61,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               "w-full outline-none transition-all duration-300 placeholder:opacity-50",
               isDisabled && "cursor-not-allowed opacity-70",
               variantBase[variant],
+              inputSizeClasses[size][variant],
               stateStyle,
               (isPassword || maxCount) && "pr-12",
               isPassword && maxCount && "pr-20",

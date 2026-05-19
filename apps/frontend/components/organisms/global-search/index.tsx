@@ -1,13 +1,13 @@
 "use client";
 
-import { Search } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { APP_ROUTES } from "@/constants/routes";
 import AppContainer from "@/components/atoms/app-container";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
+import { APP_ROUTES } from "@/constants/routes";
+import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
 
 type SearchFormValues = {
   query: string;

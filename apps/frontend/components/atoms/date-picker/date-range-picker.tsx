@@ -29,6 +29,10 @@ import {
   variantError,
   variantNormal,
 } from "@/components/atoms/input/input.styles";
+import {
+  inputSizeClasses,
+  InputSize,
+} from "@/components/atoms/input/input.sizes";
 import { InputVariant } from "@/components/atoms/input/input.types";
 import { cn } from "@/utils/cn";
 import { DateInput } from "./date-field";
@@ -102,6 +106,7 @@ export interface IDateRangePickerProps<T extends DateValue> extends Omit<
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
   variant?: InputVariant;
+  size?: InputSize;
   className?: string | ((values: DateRangePickerRenderProps) => string);
 }
 
@@ -110,6 +115,7 @@ export function DateRangePicker<T extends DateValue>({
   description,
   errorMessage,
   variant = "outline",
+  size = "lg",
   className,
   ...props
 }: IDateRangePickerProps<T>) {
@@ -140,6 +146,7 @@ export function DateRangePicker<T extends DateValue>({
               className={cn(
                 "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
                 variantBase[variant],
+                inputSizeClasses[size][variant],
                 isDisabled
                   ? variantDisabled[variant]
                   : isInvalid
@@ -153,6 +160,7 @@ export function DateRangePicker<T extends DateValue>({
                 <DateInput
                   slot="start"
                   variant="none"
+                  size={size}
                   className="min-w-[110px]"
                 />
                 <span aria-hidden="true" className="text-content/40 px-1">
@@ -161,6 +169,7 @@ export function DateRangePicker<T extends DateValue>({
                 <DateInput
                   slot="end"
                   variant="none"
+                  size={size}
                   className="min-w-[110px]"
                 />
               </div>

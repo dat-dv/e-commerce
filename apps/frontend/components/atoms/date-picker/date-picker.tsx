@@ -32,6 +32,10 @@ import {
   variantActive,
   variantError,
 } from "@/components/atoms/input/input.styles";
+import {
+  inputSizeClasses,
+  InputSize,
+} from "@/components/atoms/input/input.sizes";
 import { DateInput } from "./date-field";
 
 export type ICalendarProps<T extends DateValue> = AriaCalendarProps<T>;
@@ -90,6 +94,7 @@ export interface IDatePickerProps<T extends DateValue> extends Omit<
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
   variant?: InputVariant;
+  size?: InputSize;
   className?: string | ((values: DatePickerRenderProps) => string);
 }
 
@@ -98,6 +103,7 @@ export function DatePicker<T extends DateValue>({
   description,
   errorMessage,
   variant = "outline",
+  size = "lg",
   className,
   ...props
 }: IDatePickerProps<T>) {
@@ -128,6 +134,7 @@ export function DatePicker<T extends DateValue>({
               className={cn(
                 "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
                 variantBase[variant],
+                inputSizeClasses[size][variant],
                 isDisabled
                   ? variantDisabled[variant]
                   : isInvalid
@@ -139,6 +146,7 @@ export function DatePicker<T extends DateValue>({
             >
               <DateInput
                 variant="none"
+                size={size}
                 className="flex-1 min-w-[120px] h-full"
               />
               <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">

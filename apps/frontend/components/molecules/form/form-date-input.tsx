@@ -1,11 +1,12 @@
 "use client";
 
-import { parseDate } from "@internationalized/date";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+import { parseDate } from "@internationalized/date";
 
 import { DatePicker } from "@/components/atoms/date-picker";
 import { InputVariant } from "@/components/atoms/input/input.types";
+import { InputSize } from "@/components/atoms/input/input.sizes";
 
 export interface IFormDateInputProps {
   name: string;
@@ -16,6 +17,7 @@ export interface IFormDateInputProps {
   disabled?: boolean;
   placeholder?: string;
   className?: string;
+  size?: InputSize;
 }
 
 const getCalendarDate = (val: unknown) => {
@@ -39,6 +41,7 @@ export const FormDateInput: React.FC<IFormDateInputProps> = ({
   minDate,
   disabled,
   className,
+  size,
 }) => {
   const { control } = useFormContext();
 
@@ -63,6 +66,7 @@ export const FormDateInput: React.FC<IFormDateInputProps> = ({
             isDisabled={disabled}
             errorMessage={error?.message}
             className={className}
+            size={size}
           />
         );
       }}
