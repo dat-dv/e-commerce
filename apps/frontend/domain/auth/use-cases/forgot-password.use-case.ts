@@ -1,7 +1,7 @@
 import { UseCase } from "@/utils/use-case";
 import { IAuthRepository } from "../types/auth.repository";
 import { ApiResponse } from "@/utils/request/request.types";
-import { forgotPasswordSchema } from "@/components/molecules/forgot-password-form/forgot-password.schema";
+import { getForgotPasswordSchema } from "@/components/molecules/forgot-password-form/forgot-password.schema";
 
 export class ForgotPasswordUseCase extends UseCase<
   { email?: string; phone?: string },
@@ -15,7 +15,7 @@ export class ForgotPasswordUseCase extends UseCase<
     email?: string;
     phone?: string;
   }): Promise<ApiResponse<void>> {
-    const validated = forgotPasswordSchema.parse(request);
+    const validated = getForgotPasswordSchema((k) => k).parse(request);
     return this.repository.forgotPassword(validated);
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
@@ -8,25 +9,26 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useRegister } from "@/hooks/auth/use-register";
 
 export default function SignUpForm() {
+  const t = useTranslations("RegisterPage");
   const { methods, onSubmit, loading } = useRegister();
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-sm">
       <div className="space-y-1">
         <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-          Create an account
+          {t("title")}
         </h2>
         <p className="text-content/60 font-medium tracking-tight">
-          Join us today to get started with your tasks.
+          {t("description")}
         </p>
       </div>
 
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <Input
           id="email"
-          label="Email"
+          label={t("emailLabel")}
           type="email"
-          placeholder="name@example.com"
+          placeholder={t("emailPlaceholder")}
           {...methods.register("email")}
           autoComplete="email"
           error={methods.formState.errors.email?.message}
@@ -34,9 +36,9 @@ export default function SignUpForm() {
 
         <Input
           id="password"
-          label="Password"
+          label={t("passwordLabel")}
           type="password"
-          placeholder="••••••••"
+          placeholder={t("passwordPlaceholder")}
           {...methods.register("password")}
           autoComplete="new-password"
           error={methods.formState.errors.password?.message}
@@ -44,9 +46,9 @@ export default function SignUpForm() {
 
         <Input
           id="confirmPassword"
-          label="Confirm Password"
+          label={t("confirmPasswordLabel")}
           type="password"
-          placeholder="••••••••"
+          placeholder={t("confirmPasswordPlaceholder")}
           {...methods.register("confirmPassword")}
           autoComplete="new-password"
           error={methods.formState.errors.confirmPassword?.message}
@@ -59,38 +61,38 @@ export default function SignUpForm() {
           className="w-full mt-2 rounded-2xl"
           loading={loading}
         >
-          Create Account
+          {loading ? t("submitting") : t("submit")}
         </Button>
       </form>
 
       <div className="text-center">
         <p className="text-sm opacity-60">
-          Already have an account?{" "}
+          {t("alreadyHaveAccount")}{" "}
           <Button
             variant="ghost"
             size="sm"
             href={APP_ROUTES.SIGN_IN}
             className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100"
           >
-            Sign In
+            {t("loginLink")}
           </Button>
         </p>
       </div>
 
       <p className="text-center text-[11px] opacity-40 leading-relax tracking-tight">
-        By continuing, you agree to our{" "}
+        {t("agreementText")}{" "}
         <Link
           href={APP_ROUTES.TERMS}
           className="underline cursor-pointer hover:text-primary transition-colors"
         >
-          Terms of Service
+          {t("termsOfService")}
         </Link>{" "}
-        and{" "}
+        {t("and")}{" "}
         <Link
           href={APP_ROUTES.PRIVACY}
           className="underline cursor-pointer hover:text-primary transition-colors"
         >
-          Privacy Policy
+          {t("privacyPolicy")}
         </Link>
         .
       </p>

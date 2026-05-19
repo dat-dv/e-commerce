@@ -1,10 +1,13 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export default function AuthLayout({
+export default async function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const t = await getTranslations("AuthLayout");
+
   return (
     <div className="min-h-screen flex bg-surface relative overflow-hidden">
       {/* Left side: branding/visuals - Hidden on mobile */}
@@ -20,7 +23,7 @@ export default function AuthLayout({
             </h1>
           </Link>
           <p className="text-lg font-medium text-content/60 leading-relaxed">
-            The most loved e-commerce platform in Southeast Asia & Taiwan.
+            {t("description")}
           </p>
         </div>
 
@@ -35,7 +38,7 @@ export default function AuthLayout({
             href="/"
             className="text-sm font-medium text-content/60 hover:text-primary transition-colors"
           >
-            ← Back to Home
+            ← {t("backToHome")}
           </Link>
         </div>
         <div className="w-full max-w-md">

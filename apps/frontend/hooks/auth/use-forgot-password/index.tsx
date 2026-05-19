@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 import {
-  forgotPasswordSchema,
+  getForgotPasswordSchema,
   TForgotPasswordSchema,
 } from "@/components/molecules/forgot-password-form/forgot-password.schema";
 import { authUseCase } from "@/domain/auth/use-cases";
@@ -16,12 +17,13 @@ const useForgotPassword = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ title: "", message: "" });
   const [isSent, setIsSent] = useState(false);
+  const t = useTranslations("Validation");
 
   const setLoading = useAuthStore((state) => state.setLoading);
   const isLoading = useAuthStore((state) => state.loading);
 
   const methods = useForm<TForgotPasswordSchema>({
-    resolver: zodResolver(forgotPasswordSchema),
+    resolver: zodResolver(getForgotPasswordSchema(t)),
     defaultValues: {
       email: "",
       phone: "",

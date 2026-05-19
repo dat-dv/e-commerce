@@ -1,15 +1,16 @@
 import { z } from "zod";
 
-export const resetPasswordSchema = z
-  .object({
-    password: z.string().min(8, "Password must be at least 8 characters"),
-    confirmPassword: z
-      .string()
-      .min(8, "Password must be at least 8 characters"),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-  });
+export const getResetPasswordSchema = (t: (key: string) => string) =>
+  z
+    .object({
+      password: z.string().min(8, t("passwordMin8")),
+      confirmPassword: z.string().min(8, t("passwordMin8")),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: t("passwordsMustMatch"),
+      path: ["confirmPassword"],
+    });
 
-export type TResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
+export type TResetPasswordSchema = z.infer<
+  ReturnType<typeof getResetPasswordSchema>
+>;

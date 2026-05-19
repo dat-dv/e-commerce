@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import ResetPasswordForm from "@/components/molecules/reset-password-form";
 
-export const metadata: Metadata = {
-  title: "Reset Password",
-  description: "Enter your new password to access your account.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("ResetPasswordPage");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function ResetPasswordPage() {
   return (

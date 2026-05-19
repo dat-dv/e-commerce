@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 import {
-  resetPasswordSchema,
+  getResetPasswordSchema,
   TResetPasswordSchema,
 } from "@/components/molecules/reset-password-form/reset-password.schema";
 import { authUseCase } from "@/domain/auth/use-cases";
@@ -16,12 +17,13 @@ const useResetPassword = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const t = useTranslations("Validation");
 
   const setLoading = useAuthStore((state) => state.setLoading);
   const isLoading = useAuthStore((state) => state.loading);
 
   const methods = useForm<TResetPasswordSchema>({
-    resolver: zodResolver(resetPasswordSchema),
+    resolver: zodResolver(getResetPasswordSchema(t)),
     defaultValues: {
       password: "",
       confirmPassword: "",

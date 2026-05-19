@@ -1,20 +1,18 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import useResetPassword from "@/hooks/auth/use-reset-password";
-import {
-  resetPasswordSchema,
-  TResetPasswordSchema,
-} from "./reset-password.schema";
+import { TResetPasswordSchema } from "./reset-password.schema";
 import AppForm from "../form/app-form";
 import { FormInput } from "../form/form-input";
 import { FormButton } from "../form/form-button";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
-import { authUseCase } from "@/domain/auth/use-cases";
 
 export default function ResetPasswordForm() {
+  const t = useTranslations("ResetPasswordPage");
   const { handleResetPassword, methods, isLoading, token } = useResetPassword();
 
   if (!token) {
@@ -24,10 +22,8 @@ export default function ResetPasswordForm() {
   return (
     <div className="flex flex-col gap-6 w-full max-w-sm">
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-content">Reset Password</h1>
-        <p className="text-sm opacity-60 mt-1">
-          Enter your new password below.
-        </p>
+        <h1 className="text-2xl font-bold text-content">{t("title")}</h1>
+        <p className="text-sm opacity-60 mt-1">{t("description")}</p>
       </div>
 
       <AppForm<TResetPasswordSchema>
@@ -37,16 +33,16 @@ export default function ResetPasswordForm() {
       >
         <FormInput
           name="password"
-          label="New Password"
-          placeholder="••••••••"
+          label={t("newPasswordLabel")}
+          placeholder={t("newPasswordPlaceholder")}
           type="password"
           autoComplete="new-password"
         />
 
         <FormInput
           name="confirmPassword"
-          label="Confirm New Password"
-          placeholder="••••••••"
+          label={t("confirmNewPasswordLabel")}
+          placeholder={t("confirmNewPasswordPlaceholder")}
           type="password"
           autoComplete="new-password"
         />
@@ -54,23 +50,23 @@ export default function ResetPasswordForm() {
         <FormButton
           type="submit"
           isLoading={isLoading}
-          loadingText="Resetting..."
+          loadingText={t("submitting")}
           className="mt-2"
         >
-          Reset Password
+          {t("submit")}
         </FormButton>
       </AppForm>
 
       <div className="text-center">
         <p className="text-sm opacity-60">
-          Remembered your password?{" "}
+          {t("rememberedPassword")}{" "}
           <Button
             variant="ghost"
             size="sm"
             href={APP_ROUTES.SIGN_IN}
             className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100"
           >
-            Sign In
+            {t("loginLink")}
           </Button>
         </p>
       </div>

@@ -1,13 +1,12 @@
 import { z } from "zod";
 
-export const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, { message: "Email is required" })
-    .email({ message: "Invalid email address" }),
-  password: z
-    .string()
-    .min(6, { message: "Password must be at least 6 characters" }),
-});
+export const getLoginSchema = (t: (key: string) => string) =>
+  z.object({
+    email: z
+      .string()
+      .min(1, { message: t("emailRequired") })
+      .email({ message: t("emailInvalid") }),
+    password: z.string().min(6, { message: t("passwordMin6") }),
+  });
 
-export type LoginSchema = z.infer<typeof loginSchema>;
+export type LoginSchema = z.infer<ReturnType<typeof getLoginSchema>>;

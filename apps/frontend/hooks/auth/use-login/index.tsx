@@ -9,21 +9,23 @@ import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { TAuthRequest } from "@/domain/auth/types/auth.model";
 import { authUseCase } from "@/domain/auth/use-cases";
 
+import { useTranslations } from "next-intl";
 import { useAuthStore } from "../use-auth-store";
-import { LoginSchema, loginSchema } from "./login.schema";
+import { LoginSchema, getLoginSchema } from "./login.schema";
 
 // adapter - react có life cycle riêng nên việc tương tác với các đối tượng khác cần thông qua adapter
 // nhận dữ liệu của react -> chuyển sang cho thằng use case
 const useLogin = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations("Validation");
 
   const setUser = useAuthStore((state) => state.setUser);
   const setLoading = useAuthStore((state) => state.setLoading);
   const isLoading = useAuthStore((state) => state.loading);
 
   const methods = useForm<LoginSchema>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(getLoginSchema(t)),
     defaultValues: {
       email: "",
       password: "",

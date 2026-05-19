@@ -7,19 +7,21 @@ import { toast } from "react-toastify";
 
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { authUseCase } from "@/domain/auth/use-cases";
+import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
-import { RegisterSchema, registerSchema } from "./register.schema";
+import { RegisterSchema, getRegisterSchema } from "./register.schema";
 
 export const useRegister = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations("Validation");
 
   const setLoading = useAuthStore((state) => state.setLoading);
   const loading = useAuthStore((state) => state.loading);
 
   const methods = useForm<RegisterSchema>({
-    resolver: zodResolver(registerSchema),
+    resolver: zodResolver(getRegisterSchema(t)),
     defaultValues: {
       email: "",
       password: "",

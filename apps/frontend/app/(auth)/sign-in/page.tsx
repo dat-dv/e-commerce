@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
-
+import { getTranslations } from "next-intl/server";
 import SignInForm from "@/components/molecules/sign-in-form";
 
-export const metadata: Metadata = {
-  title: "Sign In",
-  description:
-    "Sign in to manage your tasks and experience a premium user experience.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("LoginPage");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function SignInPage() {
   return (
