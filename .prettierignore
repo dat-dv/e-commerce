@@ -9,3 +9,5 @@ pnpm-lock.yaml
 apps/backend/prisma/dataset
 packages/shared/src/generate
 apps/backend/generated
+
+.gemini/*
