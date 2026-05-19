@@ -8,7 +8,7 @@ import { Trash2, ShoppingBag } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { APP_ROUTES } from "@/constants/routes";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
-import { Checkbox } from "./checkbox";
+import { Checkbox } from "@/components/atoms/checkbox";
 import { QuantitySelector } from "./quantity-selector";
 import { formatCurrency } from "@/utils/format-currency";
 import { useTranslations } from "next-intl";

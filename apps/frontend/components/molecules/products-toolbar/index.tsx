@@ -1,15 +1,15 @@
 "use client";
 
+import { AppDropdown } from "@/components/molecules/dropdown";
+import { EProductSort } from "@ecommerce/shared";
 import { motion } from "framer-motion";
-import { useRouter, useSearchParams } from "next/navigation";
 import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
   SlidersHorizontal,
 } from "lucide-react";
-import { Dropdown } from "@/components/molecules/dropdown";
-import { EProductSort } from "@ecommerce/shared";
+import { useRouter, useSearchParams } from "next/navigation";
 import { IListingProductsToolbarProps } from "./products-toolbar.types";
 
 import { useTranslations } from "next-intl";
@@ -113,7 +113,7 @@ export function ListingProductsToolbar({
           </span>
         </div>
 
-        <Dropdown
+        <AppDropdown
           trigger={
             <button
               disabled={isLoading}
@@ -155,7 +155,7 @@ export function ListingProductsToolbar({
               </button>
             ))}
           </div>
-        </Dropdown>
+        </AppDropdown>
       </div>
     </div>
   );

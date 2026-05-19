@@ -4,11 +4,6 @@ import { dummyTranslator } from "@/utils/i18n";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for the support/contact form.
- *
- * @param t - The translation key lookup function
- */
 export const getHelpContactFormSchema = (t: K) =>
   z
     .object({

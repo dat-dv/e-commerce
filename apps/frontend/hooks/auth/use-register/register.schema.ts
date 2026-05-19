@@ -3,11 +3,6 @@ import { z } from "zod";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for user registration.
- *
- * @param t - The translation key lookup function
- */
 export const getRegisterSchema = (t: K) =>
   z
     .object({

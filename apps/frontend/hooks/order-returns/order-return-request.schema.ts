@@ -4,11 +4,6 @@ import { dummyTranslator } from "@/utils/i18n";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for order return requests.
- *
- * @param t - The translation key lookup function
- */
 export const getOrderReturnRequestSchema = (t: K) =>
   z.object({
     title: z

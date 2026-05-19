@@ -4,11 +4,6 @@ import { dummyTranslator } from "@/utils/i18n";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for updating the user's password.
- *
- * @param t - The translation key lookup function
- */
 export const getChangePasswordSchema = (t: K) =>
   z
     .object({

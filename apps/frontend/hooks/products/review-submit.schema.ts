@@ -3,11 +3,6 @@ import { z } from "zod";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for submitting product reviews.
- *
- * @param t - The translation key lookup function
- */
 export const getReviewSubmitSchema = (t: K) =>
   z.object({
     rating: z.number().min(1, t("ratingRequired")).max(5, t("ratingRequired")),

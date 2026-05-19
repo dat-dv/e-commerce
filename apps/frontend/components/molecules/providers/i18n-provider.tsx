@@ -21,22 +21,3 @@ export function I18nProviderClient({
     </NextIntlClientProvider>
   );
 }
-
-/**
- * Usage in server components:
-
-import { getTranslations } from "next-intl/server";
-
-export default async function HomePage() {
-  const t = await getTranslations("HomePage");
-  return <h1>{t("title")}</h1>;
-}
-
-* Usage in client components:
-import { useTranslations } from "next-intl";
-
-export function MyComponent() {
-  const t = useTranslations("HomePage");
-  return <h1>{t("title")}</h1>;
-}
-**/

@@ -1,23 +1,23 @@
 "use client";
 
 import {
-  AriaDialog,
-  AriaDialogPanel,
-  AriaDialogTitle,
+  AppDialog,
+  AppDialogPanel,
+  AppDialogTitle,
 } from "@/components/atoms/aria/dialog";
+import { toast } from "@/components/ui/toast";
 import {
   OrderReturnRequestFormData,
   getOrderReturnRequestSchema,
 } from "@/hooks/order-returns/order-return-request.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { ImageIcon, Upload, X } from "lucide-react";
-import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { ChangeEvent } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "@/components/ui/toast";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import type { ChangeEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
 const ORDER_RETURN_MAX_ATTACHMENTS = 6;
 const ORDER_RETURN_MAX_IMAGE_SIZE = 5 * 1024 * 1024;
@@ -191,36 +191,17 @@ export const RequestReturnModal = ({
   return (
     <AnimatePresence>
       {isOpen ? (
-        <AriaDialog
-          isOpen={isOpen}
-          onClose={closeModal}
-          className="relative z-[100]"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div className="fixed inset-0 bg-black/60 backdrop-blur-md" />
-          </motion.div>
-
-          <div className="fixed inset-0 flex w-screen items-center justify-center overflow-y-auto p-4">
-            <AriaDialogPanel
-              as={motion.form}
-              initial={{ opacity: 0, scale: 0.96, y: 18 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 18 }}
-              onSubmit={handleSubmit(handleFormSubmit)}
-              className="my-6 w-full max-w-xl rounded-2xl border border-content/[0.06] bg-surface/90 p-6 shadow-2xl backdrop-blur-2xl"
-            >
+        <AppDialog isOpen={isOpen} onClose={closeModal}>
+          <AppDialogPanel className="my-6 w-full max-w-xl rounded-2xl border border-content/[0.06] bg-surface/90 p-6 shadow-2xl backdrop-blur-2xl">
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
               <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
-                  <AriaDialogTitle
+                  <AppDialogTitle
                     as="h3"
                     className="text-xl font-bold tracking-tight text-content"
                   >
                     {t("title")}
-                  </AriaDialogTitle>
+                  </AppDialogTitle>
                   <p className="mt-1 text-sm font-medium leading-relaxed text-content/55">
                     {t("description")}
                   </p>
@@ -342,9 +323,9 @@ export const RequestReturnModal = ({
                   )}
                 </button>
               </div>
-            </AriaDialogPanel>
-          </div>
-        </AriaDialog>
+            </form>
+          </AppDialogPanel>
+        </AppDialog>
       ) : null}
     </AnimatePresence>
   );

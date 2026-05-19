@@ -18,11 +18,6 @@ const aseanCodes = [
   "+95",
 ];
 
-/**
- * Generates the validation schema for user phone numbers.
- *
- * @param t - The translation key lookup function
- */
 export const getPhoneSchema = (t: K) =>
   z
     .object({
@@ -53,11 +48,6 @@ export const getPhoneSchema = (t: K) =>
       },
     );
 
-/**
- * Generates the validation schema for user profiles.
- *
- * @param t - The translation key lookup function
- */
 export const getProfileSchema = (t: K) =>
   z.object({
     firstName: z.string().min(1, { message: t("firstNameRequired") }),

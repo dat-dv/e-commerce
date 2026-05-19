@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
-import { Checkbox } from "./checkbox";
+import { Checkbox } from "@/components/atoms/checkbox";
 
 interface CartTableHeadProps {
   isAllSelected: boolean;

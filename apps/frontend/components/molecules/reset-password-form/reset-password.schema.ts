@@ -1,12 +1,6 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-/**
- * Generates the validation schema for password resets.
- *
- * @param t - The translation key lookup function
- */
-
 type K = ReturnType<typeof useTranslations>;
 
 export const getResetPasswordSchema = (t: K) =>

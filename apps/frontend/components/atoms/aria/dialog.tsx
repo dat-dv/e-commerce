@@ -1,26 +1,20 @@
 "use client";
 
-import React, { createContext, useContext, useRef } from "react";
+import React from "react";
 import {
-  FocusScope,
-  mergeProps,
-  OverlayContainer,
-  useDialog,
-  useModal,
-  useOverlay,
-  usePreventScroll,
-} from "react-aria";
-import type { HTMLMotionProps } from "framer-motion";
+  ModalOverlay as RACModalOverlay,
+  Modal as RACModal,
+  Dialog as RACDialog,
+  Heading as RACHeading,
+  type HeadingProps,
+} from "react-aria-components";
+import { motion } from "framer-motion";
+import { cn } from "@/utils/cn";
 
-interface AriaDialogContextValue {
-  panelProps: React.HTMLAttributes<HTMLDivElement>;
-  panelRef: React.RefObject<HTMLDivElement | null>;
-  titleProps: React.HTMLAttributes<HTMLElement>;
-}
+const MotionModalOverlay = motion(RACModalOverlay);
+const MotionModal = motion(RACModal);
 
-const AriaDialogContext = createContext<AriaDialogContextValue | null>(null);
-
-interface AriaDialogProps {
+interface IAppDialogProps {
   children: React.ReactNode;
   className?: string;
   isDismissable?: boolean;
@@ -28,129 +22,76 @@ interface AriaDialogProps {
   onClose: () => void;
 }
 
-export function AriaDialog({
+export function AppDialog({
   children,
   className,
   isDismissable = true,
   isOpen,
   onClose,
-}: AriaDialogProps) {
+}: IAppDialogProps) {
   if (!isOpen) return null;
 
   return (
-    <OverlayContainer>
-      <AriaDialogContent
-        className={className}
-        isDismissable={isDismissable}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        {children}
-      </AriaDialogContent>
-    </OverlayContainer>
-  );
-}
-
-function AriaDialogContent({
-  children,
-  className,
-  isDismissable,
-  isOpen,
-  onClose,
-}: AriaDialogProps & { isDismissable: boolean }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { overlayProps, underlayProps } = useOverlay(
-    {
-      isDismissable,
-      isOpen,
-      onClose,
-    },
-    ref,
-  );
-  const { modalProps } = useModal();
-  const { dialogProps, titleProps } = useDialog({}, ref);
-
-  usePreventScroll({ isDisabled: !isOpen });
-
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-    underlayProps.onMouseDown?.(event);
-
-    if (
-      isDismissable &&
-      event.target instanceof Node &&
-      ref.current &&
-      !ref.current.contains(event.target)
-    ) {
-      onClose();
-    }
-  };
-
-  return (
-    <div
-      {...underlayProps}
-      className={`${className ?? ""} fixed inset-0`}
-      onMouseDown={handleMouseDown}
-    >
-      <FocusScope contain restoreFocus autoFocus>
-        <AriaDialogContext.Provider
-          value={{
-            panelProps: mergeProps(overlayProps, dialogProps, modalProps),
-            panelRef: ref,
-            titleProps,
-          }}
-        >
-          {children}
-        </AriaDialogContext.Provider>
-      </FocusScope>
-    </div>
-  );
-}
-
-type MotionDivProps = Pick<
-  HTMLMotionProps<"div">,
-  "animate" | "exit" | "initial" | "transition"
->;
-
-interface AriaDialogPanelProps
-  extends React.HTMLAttributes<HTMLDivElement>, MotionDivProps {
-  // Framer Motion panels need to render as motion.div while keeping aria props.
-  as?: React.ElementType;
-}
-
-export function AriaDialogPanel({
-  as: Component = "div",
-  children,
-  ...props
-}: AriaDialogPanelProps) {
-  const context = useContext(AriaDialogContext);
-
-  return (
-    <Component
-      {...mergeProps(context?.panelProps ?? {}, props)}
-      ref={context?.panelRef}
+    <MotionModalOverlay
+      isOpen={isOpen}
+      onOpenChange={(open) => !open && onClose()}
+      isDismissable={isDismissable}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className={cn(
+        "fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm",
+        className,
+      )}
     >
       {children}
-    </Component>
+    </MotionModalOverlay>
   );
 }
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-
-interface AriaDialogTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  as?: HeadingTag;
+interface IAppDialogPanelProps {
+  children: React.ReactNode;
+  className?: string;
 }
 
-export function AriaDialogTitle({
+export function AppDialogPanel({ children, className }: IAppDialogPanelProps) {
+  return (
+    <MotionModal
+      initial={{ opacity: 0, scale: 0.95, y: 15 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95, y: 15 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className={cn("outline-none w-full max-w-md", className)}
+    >
+      <RACDialog className="outline-none h-full w-full">{children}</RACDialog>
+    </MotionModal>
+  );
+}
+
+interface IAppDialogTitleProps extends HeadingProps {
+  as?: React.ElementType;
+  children: React.ReactNode;
+}
+
+export function AppDialogTitle({
   as: Component = "h2",
   children,
   ...props
-}: AriaDialogTitleProps) {
-  const context = useContext(AriaDialogContext);
+}: IAppDialogTitleProps) {
+  const levelMap: Record<string, number> = {
+    h1: 1,
+    h2: 2,
+    h3: 3,
+    h4: 4,
+    h5: 5,
+    h6: 6,
+  };
+  const level = typeof Component === "string" ? levelMap[Component] : undefined;
 
   return (
-    <Component {...mergeProps(context?.titleProps ?? {}, props)}>
+    <RACHeading slot="title" level={level} {...props}>
       {children}
-    </Component>
+    </RACHeading>
   );
 }

@@ -3,11 +3,6 @@ import { z } from "zod";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for retrieving forgotten passwords.
- *
- * @param t - The translation key lookup function
- */
 export const getForgotPasswordSchema = (t: K) =>
   z
     .object({

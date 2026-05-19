@@ -587,72 +587,42 @@
           "desc": "Đăng nhập, đặt lại mật khẩu, cập nhật hồ sơ và giữ tài khoản an toàn.",
           "href": "faq",
           "icon": "shield-check",
-          "tags": [
-            "tai khoan",
-            "ho so",
-            "mat khau",
-            "bao mat"
-          ]
+          "tags": ["tai khoan", "ho so", "mat khau", "bao mat"]
         },
         {
           "title": "Giỏ hàng & checkout",
           "desc": "Kiểm tra giỏ hàng, chọn địa chỉ giao, áp dụng voucher và đặt hàng.",
           "href": "faq",
           "icon": "receipt-text",
-          "tags": [
-            "gio hang",
-            "checkout",
-            "dia chi",
-            "voucher"
-          ]
+          "tags": ["gio hang", "checkout", "dia chi", "voucher"]
         },
         {
           "title": "Đơn hàng",
           "desc": "Xem trạng thái, kiểm tra chi tiết đơn và nắm khi nào còn có thể chỉnh sửa.",
           "href": "orders",
           "icon": "package-check",
-          "tags": [
-            "don hang",
-            "trang thai",
-            "huy",
-            "chi tiet"
-          ]
+          "tags": ["don hang", "trang thai", "huy", "chi tiet"]
         },
         {
           "title": "Giao hàng",
           "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và kiện hàng hư hỏng.",
           "href": "shipping",
           "icon": "truck",
-          "tags": [
-            "giao hang",
-            "van chuyen",
-            "tracking",
-            "phi"
-          ]
+          "tags": ["giao hang", "van chuyen", "tracking", "phi"]
         },
         {
           "title": "Thanh toán & voucher",
           "desc": "Phương thức hiển thị tại checkout, điều kiện voucher, lỗi thanh toán và thời gian hoàn tiền.",
           "href": "faq",
           "icon": "receipt-text",
-          "tags": [
-            "thanh toan",
-            "voucher",
-            "hoan tien",
-            "checkout"
-          ]
+          "tags": ["thanh toan", "voucher", "hoan tien", "checkout"]
         },
         {
           "title": "Đổi trả & hoàn tiền",
           "desc": "Điều kiện đổi trả, bằng chứng cần gửi, tình trạng sản phẩm và quy trình hoàn tiền.",
           "href": "faq",
           "icon": "rotate-ccw",
-          "tags": [
-            "doi tra",
-            "hoan tien",
-            "doi hang",
-            "bang chung"
-          ]
+          "tags": ["doi tra", "hoan tien", "doi hang", "bang chung"]
         }
       ],
       "answers": [

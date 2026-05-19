@@ -1,14 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import React, {
-  useMemo,
-  useState,
-  useEffect,
-  useRef,
-  Fragment,
-  useCallback,
-} from "react";
+import AppContainer from "@/components/atoms/app-container";
+import Loading from "@/components/atoms/loading";
+import { AppStatusDropdown } from "@/components/molecules/app-status-dropdown";
+import { parseOrderAttributes } from "@/components/molecules/order-part/order-display.utils";
+import { OrderItemsPanel } from "@/components/molecules/order-part/order-items-panel";
+import SearchInput from "@/components/molecules/search-input";
+import { toast } from "@/components/ui/toast";
+import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
+import { TOrder } from "@/domain/orders/types/order.model";
+import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
+import { cn } from "@/utils/cn";
+import { EOrderStatus } from "@ecommerce/shared";
+import { motion } from "framer-motion";
 import {
   ChevronDown,
   ChevronLeft,
@@ -17,21 +21,10 @@ import {
   FilterX,
   RefreshCw,
 } from "lucide-react";
-import { toast } from "@/components/ui/toast";
-import { AnimatePresence, motion } from "framer-motion";
-import AppContainer from "@/components/atoms/app-container";
-import Loading from "@/components/atoms/loading";
-import Portal from "@/components/atoms/portal";
-import SearchInput from "@/components/molecules/search-input";
-import { parseOrderAttributes } from "@/components/molecules/order-part/order-display.utils";
-import { OrderItemsPanel } from "@/components/molecules/order-part/order-items-panel";
-import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
-import { TOrder } from "@/domain/orders/types/order.model";
-import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
-import { cn } from "@/utils/cn";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
+import { Fragment, useCallback, useMemo, useState } from "react";
 import type { Key } from "react-aria-components";
-import { EOrderStatus } from "@ecommerce/shared";
-import { useTranslations, useLocale } from "next-intl";
 
 const STATUS_VALUES = Object.keys(ORDER_STATUS_CONFIG).map(
   (v) => Number(v) as EOrderStatus,
@@ -445,7 +438,7 @@ function OrderResults({
                       {currencyFormatter.format(order.totalAmount)}
                     </td>
                     <td className="px-6 py-4 text-center">
-                      <StatusDropdown
+                      <AppStatusDropdown
                         orderId={order.id}
                         status={order.status}
                         disabled={isUpdating}
@@ -543,7 +536,7 @@ function OrderCompactCard({
           </p>
           <OrderIdCell orderId={order.id} onCopy={onCopy} />
         </div>
-        <StatusDropdown
+        <AppStatusDropdown
           orderId={order.id}
           status={order.status}
           disabled={isUpdating}
@@ -667,249 +660,6 @@ function OrderPreview({
         </p>
       </div>
     </div>
-  );
-}
-
-function isStatusTransitionAllowed(
-  current: EOrderStatus,
-  target: EOrderStatus,
-): boolean {
-  if (current === target) return true;
-
-  const terminal = [
-    EOrderStatus.CANCELLED,
-    EOrderStatus.RETURNED,
-    EOrderStatus.RETURN_REJECTED,
-  ];
-  if (terminal.includes(current)) return false;
-
-  const transitions: Partial<Record<EOrderStatus, EOrderStatus[]>> = {
-    [EOrderStatus.PENDING]: [EOrderStatus.PAID, EOrderStatus.CANCELLED],
-    [EOrderStatus.PAID]: [EOrderStatus.SHIPPING, EOrderStatus.CANCELLED],
-    [EOrderStatus.SHIPPING]: [EOrderStatus.DELIVERED],
-    [EOrderStatus.DELIVERED]: [EOrderStatus.RETURN_REQUESTED],
-    [EOrderStatus.CANCEL_REQUESTED]: [
-      EOrderStatus.CANCEL_PROCESSING,
-      EOrderStatus.CANCELLED,
-    ],
-    [EOrderStatus.CANCEL_PROCESSING]: [EOrderStatus.CANCELLED],
-    [EOrderStatus.RETURN_REQUESTED]: [
-      EOrderStatus.RETURN_PROCESSING,
-      EOrderStatus.RETURN_REJECTED,
-    ],
-    [EOrderStatus.RETURN_PROCESSING]: [
-      EOrderStatus.RETURNED,
-      EOrderStatus.RETURN_REJECTED,
-    ],
-  };
-
-  return transitions[current]?.includes(target) ?? false;
-}
-
-function StatusDropdown({
-  orderId,
-  status,
-  disabled,
-  fullWidth = false,
-  onStatusUpdate,
-}: {
-  orderId: string;
-  status: EOrderStatus;
-  disabled: boolean;
-  fullWidth?: boolean;
-  onStatusUpdate: (orderId: string, newStatus: EOrderStatus) => void;
-}) {
-  const tStatus = useTranslations("OrderStatus");
-  const tResults = useTranslations("AdminOrdersPage.results");
-  const [isOpen, setIsOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const [coords, setCoords] = useState<{
-    top: number;
-    left: number;
-    width: number;
-  } | null>(null);
-
-  const getStatusLabel = useCallback(
-    (status: number) => {
-      switch (status) {
-        case EOrderStatus.PENDING:
-          return tStatus("pending");
-        case EOrderStatus.PAID:
-          return tStatus("paid");
-        case EOrderStatus.SHIPPING:
-          return tStatus("shipping");
-        case EOrderStatus.DELIVERED:
-          return tStatus("delivered");
-        case EOrderStatus.CANCEL_REQUESTED:
-          return tStatus("cancelRequested");
-        case EOrderStatus.CANCEL_PROCESSING:
-          return tStatus("cancelProcessing");
-        case EOrderStatus.CANCELLED:
-          return tStatus("cancelled");
-        case EOrderStatus.RETURN_REQUESTED:
-          return tStatus("returnRequested");
-        case EOrderStatus.RETURN_PROCESSING:
-          return tStatus("returnProcessing");
-        case EOrderStatus.RETURNED:
-          return tStatus("returned");
-        case EOrderStatus.RETURN_REJECTED:
-          return tStatus("returnRejected");
-        default:
-          return tResults("unknown");
-      }
-    },
-    [tResults, tStatus],
-  );
-
-  const statusColor =
-    ORDER_STATUS_CONFIG[status]?.color || "text-content/50 bg-content/10";
-  const statusLabel = getStatusLabel(status);
-
-  const updateCoords = () => {
-    if (triggerRef.current) {
-      const rect = triggerRef.current.getBoundingClientRect();
-      setCoords({
-        top: rect.bottom + window.scrollY + 6,
-        left: rect.left + window.scrollX,
-        width: Math.max(rect.width, 180),
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (isOpen) {
-      updateCoords();
-      window.addEventListener("resize", updateCoords);
-      window.addEventListener("scroll", updateCoords, true);
-    }
-    return () => {
-      window.removeEventListener("resize", updateCoords);
-      window.removeEventListener("scroll", updateCoords, true);
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        isOpen &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node) &&
-        triggerRef.current &&
-        !triggerRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen]);
-
-  return (
-    <>
-      <button
-        ref={triggerRef}
-        type="button"
-        disabled={
-          disabled ||
-          status === EOrderStatus.CANCELLED ||
-          status === EOrderStatus.RETURNED
-        }
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={cn(
-          "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
-          statusColor,
-          disabled ||
-            status === EOrderStatus.CANCELLED ||
-            status === EOrderStatus.RETURNED
-            ? "opacity-65 cursor-not-allowed"
-            : "cursor-pointer hover:scale-[1.03] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-transparent",
-          fullWidth &&
-            "w-full h-10 px-3 justify-between bg-surface border border-content/10 rounded-md",
-        )}
-      >
-        <div className="flex items-center gap-1.5 min-w-0">
-          <span className="relative flex size-1.5 shrink-0 rounded-full bg-current" />
-          <span className="truncate">{statusLabel}</span>
-        </div>
-        {disabled ? (
-          <RefreshCw className="size-3 animate-spin opacity-60 shrink-0" />
-        ) : status === EOrderStatus.CANCELLED ||
-          status === EOrderStatus.RETURNED ? null : (
-          <ChevronDown
-            className={cn(
-              "size-3 opacity-60 transition-transform duration-200 shrink-0",
-              isOpen && "rotate-180",
-            )}
-          />
-        )}
-      </button>
-
-      <AnimatePresence>
-        {isOpen && coords && (
-          <Portal>
-            <motion.div
-              ref={dropdownRef}
-              initial={{ opacity: 0, scale: 0.95, y: -4 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -4 }}
-              transition={{ duration: 0.15, ease: "easeOut" }}
-              style={{
-                position: "absolute",
-                top: coords.top,
-                left: coords.left,
-                minWidth: coords.width,
-              }}
-              className="z-[99999] rounded-xl border border-content/[0.08] bg-surface/95 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] flex flex-col gap-1"
-            >
-              {STATUS_VALUES.map((optionValue) => {
-                const isSelected = optionValue === status;
-                const isAllowed = isStatusTransitionAllowed(
-                  status,
-                  optionValue,
-                );
-
-                return (
-                  <button
-                    key={optionValue}
-                    type="button"
-                    disabled={!isAllowed}
-                    onClick={() => {
-                      if (!isAllowed) return;
-                      onStatusUpdate(orderId, optionValue);
-                      setIsOpen(false);
-                    }}
-                    className={cn(
-                      "w-full text-left flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all duration-150",
-                      !isAllowed
-                        ? "text-content/30 cursor-not-allowed opacity-50 bg-transparent"
-                        : isSelected
-                          ? "text-primary bg-primary/[0.05]"
-                          : "text-content/75 hover:text-content hover:bg-content/[0.04]",
-                    )}
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span
-                        className={cn(
-                          "size-1.5 shrink-0 rounded-full",
-                          isSelected ? "bg-primary" : "bg-content/30",
-                        )}
-                      />
-                      <span className="truncate">
-                        {getStatusLabel(optionValue)}
-                      </span>
-                    </div>
-                    {isSelected && (
-                      <span className="size-1 bg-primary rounded-full shrink-0" />
-                    )}
-                  </button>
-                );
-              })}
-            </motion.div>
-          </Portal>
-        )}
-      </AnimatePresence>
-    </>
   );
 }
 

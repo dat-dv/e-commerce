@@ -5,11 +5,6 @@ import { dummyTranslator } from "@/utils/i18n";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for shipping addresses.
- *
- * @param t - The translation key lookup function
- */
 export const getAddressSchema = (t: K) =>
   z.object({
     label: z.nativeEnum(EAddressLabel, {

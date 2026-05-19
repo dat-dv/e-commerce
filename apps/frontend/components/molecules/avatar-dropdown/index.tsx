@@ -7,23 +7,26 @@ import Avatar from "@/components/atoms/avatar";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 
-import { Dropdown } from "../dropdown";
+import { AppDropdown } from "../dropdown";
+
+interface IAvatarDropdownProps {
+  name: string;
+  email: string;
+  handleClickLogout: () => void;
+  avatarUrl?: string;
+}
 
 const AvatarDropdown = ({
   name,
   email,
   handleClickLogout,
   avatarUrl,
-}: {
-  name: string;
-  email: string;
-  handleClickLogout: () => void;
-  avatarUrl?: string;
-}) => {
+}: IAvatarDropdownProps) => {
   const t = useTranslations("Common.header.avatarDropdown");
 
   return (
-    <Dropdown
+    <AppDropdown
+      align="right"
       trigger={
         <div
           className="h-10 w-10 relative cursor-pointer group"
@@ -36,7 +39,6 @@ const AvatarDropdown = ({
       }
     >
       <div className="flex flex-col gap-1 min-w-[220px]">
-        {/* User Info Section */}
         <div className="px-3.5 py-3 border-b border-content/[0.1] space-y-1">
           <p className="text-[10px] font-black text-content/50 uppercase tracking-widest">
             {t("accountDetails")}
@@ -51,7 +53,6 @@ const AvatarDropdown = ({
           </div>
         </div>
 
-        {/* Action Buttons Section */}
         <div className="p-1 space-y-0.5">
           <Button
             variant="ghost"
@@ -104,7 +105,7 @@ const AvatarDropdown = ({
           </Button>
         </div>
       </div>
-    </Dropdown>
+    </AppDropdown>
   );
 };
 

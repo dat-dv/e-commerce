@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import React, { forwardRef } from "react";
+import { Button as BaseButton } from "react-aria-components";
 
 import { cn } from "@/utils/cn";
 
 import { sizeClasses, variantClasses } from "./button.style";
-import { ButtonProps } from "./button.types";
+import { IButtonProps } from "./button.types";
 
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
   (
     {
       variant = "primary",
@@ -18,7 +19,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       loading,
       href,
       ...rest
-    }: ButtonProps,
+    }: IButtonProps,
     ref,
   ) => {
     const base =
@@ -56,16 +57,16 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     } = rest as React.ButtonHTMLAttributes<HTMLButtonElement>;
 
     return (
-      <button
+      <BaseButton
         ref={ref as React.Ref<HTMLButtonElement>}
         className={classes}
         type={type}
-        disabled={loading || disabled}
-        {...btnRest}
+        isDisabled={loading || disabled}
+        {...(btnRest as Record<string, unknown>)}
       >
         {loader}
         {children}
-      </button>
+      </BaseButton>
     );
   },
 );

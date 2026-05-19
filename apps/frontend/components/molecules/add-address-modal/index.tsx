@@ -1,9 +1,9 @@
 "use client";
 
 import {
-  AriaDialog,
-  AriaDialogPanel,
-  AriaDialogTitle,
+  AppDialog,
+  AppDialogPanel,
+  AppDialogTitle,
 } from "@/components/atoms/aria/dialog";
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import {
@@ -71,43 +71,36 @@ export const AddAddressModal = ({
 
   const title = editingAddress ? t("editAddress") : t("newAddress");
   return (
-    <AriaDialog isOpen={isOpen} onClose={onClose} className="relative z-[100]">
-      <div
-        className="fixed inset-0 bg-content/40 backdrop-blur-md transition-opacity"
-        aria-hidden="true"
-      />
-
-      <div className="fixed inset-0 flex items-center justify-center p-4">
-        <AriaDialogPanel className="relative w-full max-w-2xl bg-surface/95 backdrop-blur-3xl rounded-[2.5rem] shadow-2xl border border-content/10 overflow-hidden animate-in zoom-in-95 fade-in duration-200">
-          <div className="px-10 py-8 border-b border-content/5 flex justify-between items-center bg-surface/50 backdrop-blur-xl">
-            <div>
-              <AriaDialogTitle className="text-2xl font-bold text-content">
-                {title}
-              </AriaDialogTitle>
-              <p className="text-xs text-content/40 mt-1">
-                {t("shippingDetails")}
-              </p>
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onClose}
-              className="rounded-full hover:bg-content/5 transition-colors"
-            >
-              <XIcon className="w-5 h-5" />
-            </Button>
+    <AppDialog isOpen={isOpen} onClose={onClose}>
+      <AppDialogPanel className="relative w-full max-w-2xl bg-surface/95 backdrop-blur-3xl rounded-[2.5rem] shadow-2xl border border-content/10 overflow-hidden">
+        <div className="px-10 py-8 border-b border-content/5 flex justify-between items-center bg-surface/50 backdrop-blur-xl">
+          <div>
+            <AppDialogTitle className="text-2xl font-bold text-content">
+              {title}
+            </AppDialogTitle>
+            <p className="text-xs text-content/40 mt-1">
+              {t("shippingDetails")}
+            </p>
           </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onClose}
+            className="rounded-full hover:bg-content/5 transition-colors"
+          >
+            <XIcon className="w-5 h-5" />
+          </Button>
+        </div>
 
-          <div className="p-10 max-h-[70vh] overflow-y-auto hide-scrollbar">
-            <AddressesForm
-              onSubmit={onSubmit}
-              loading={loading}
-              initialData={initialData}
-              key={isOpen ? editingAddress?.id || "new" : "closed"} // Reset form when modal opens with new data
-            />
-          </div>
-        </AriaDialogPanel>
-      </div>
-    </AriaDialog>
+        <div className="p-10 max-h-[70vh] overflow-y-auto hide-scrollbar">
+          <AddressesForm
+            onSubmit={onSubmit}
+            loading={loading}
+            initialData={initialData}
+            key={isOpen ? editingAddress?.id || "new" : "closed"} // Reset form when modal opens with new data
+          />
+        </div>
+      </AppDialogPanel>
+    </AppDialog>
   );
 };

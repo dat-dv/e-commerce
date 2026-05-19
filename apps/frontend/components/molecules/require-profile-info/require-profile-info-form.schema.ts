@@ -5,11 +5,6 @@ import { dummyTranslator } from "@/utils/i18n";
 
 type K = ReturnType<typeof useTranslations>;
 
-/**
- * Generates the validation schema for enforcing completion of profile information.
- *
- * @param t - The translation key lookup function
- */
 export const getRequireProfileInfoSchema = (t: K) =>
   z.object({
     firstName: z.string().min(1, t("firstNameRequired")),
