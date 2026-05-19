@@ -2,9 +2,8 @@
 
 import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
-import helpData from "@/app/(main)/(localized)/_data/help.json";
 import { APP_ROUTES } from "@/constants/routes";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -40,17 +39,24 @@ const hrefMap = {
 type IconName = keyof typeof iconMap;
 type HrefKey = keyof typeof hrefMap;
 
+interface CardItem {
+  title: string;
+  desc: string;
+  icon: string;
+  href: string;
+  tags: string[];
+}
+
 export function HelpView(): React.ReactElement {
-  const locale = useLocale();
-  const lang = locale === "vi" ? "vi" : "en";
-  const t = helpData.help[lang];
+  const tHelp = useTranslations("HelpCenter");
+  const t = tHelp.raw("");
   const [query, setQuery] = useState("");
 
   const filteredCards = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     if (!normalizedQuery) return t.cards;
 
-    return t.cards.filter((item) =>
+    return t.cards.filter((item: CardItem) =>
       [item.title, item.desc, ...item.tags]
         .join(" ")
         .toLowerCase()
@@ -131,7 +137,7 @@ export function HelpView(): React.ReactElement {
         <section className="mt-10">
           <h2 className="text-xl font-black text-content">{t.popular}</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
-            {t.answers.map((answer, index) => (
+            {t.answers.map((answer: string, index: number) => (
               <Link
                 key={answer}
                 href={APP_ROUTES.FAQ}

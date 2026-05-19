@@ -2,12 +2,12 @@
 
 import React from "react";
 import { I18nProvider } from "react-aria-components/I18nProvider";
-import { NextIntlClientProvider, AbstractIntlMessages } from "next-intl";
+import { AppConfig, NextIntlClientProvider } from "next-intl";
 
 interface I18nProviderClientProps {
   children: React.ReactNode;
   locale: string;
-  messages: AbstractIntlMessages;
+  messages: AppConfig["Messages"];
 }
 
 export function I18nProviderClient({

@@ -41,7 +41,7 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
             <div className="flex items-center gap-4 text-xs font-medium text-content/60">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                {t("selected", { count: selectedCount })}
+                {t("selected", { count: String(selectedCount) })}
               </span>
               <span className="w-px h-3 bg-content/10" />
               <span className="text-emerald-500">{t("freeShipping")}</span>

@@ -12,7 +12,7 @@ import { CategoryMegaMenuContentWrapper } from "../categories-dropdown";
 
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import { useTranslations } from "next-intl";
 
 export default function Header() {
@@ -54,7 +54,9 @@ export default function Header() {
         </div>
       </AppContainer>
       <CategoryMegaMenuContentWrapper />
-      <GlobalSearch />
+      <Suspense>
+        <GlobalSearch />
+      </Suspense>
     </header>
   );
 }

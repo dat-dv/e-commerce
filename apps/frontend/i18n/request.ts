@@ -1,8 +1,11 @@
 import { getRequestConfig } from "next-intl/server";
 import { getServerSubdomain } from "@/utils/sub-domain/get-server-sub-domain";
 
-export default getRequestConfig(async () => {
-  const locale = await getServerSubdomain();
+export default getRequestConfig(async ({ requestLocale }) => {
+  let locale = await requestLocale;
+  if (!locale) {
+    locale = await getServerSubdomain();
+  }
 
   const res = await Promise.all([
     import(`../messages/${locale}/auth.json`),
@@ -33,6 +36,7 @@ export default getRequestConfig(async () => {
   const messages = res.reduce((acc, item) => {
     return { ...acc, ...item.default };
   }, {});
+
   return {
     locale,
     messages,

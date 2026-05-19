@@ -70,7 +70,7 @@ export function ListingProductsToolbar({
         <div className="text-sm font-medium text-content/70">
           {t.rich("showingProducts", {
             total,
-            bold: (chunks) => (
+            bold: (chunks: React.ReactNode) => (
               <span className="text-content font-bold">{chunks}</span>
             ),
           })}

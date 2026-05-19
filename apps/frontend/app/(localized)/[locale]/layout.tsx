@@ -1,11 +1,23 @@
 import Footer from "@/components/atoms/footer";
 import Header from "@/components/molecules/header";
-import AppProvider from "@/components/molecules/providers/app-provider";
-import { getTranslations } from "next-intl/server";
+import LocalizedAppProvider from "@/components/molecules/providers/localized-app-provider";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 
-export async function generateMetadata() {
-  const t = await getTranslations("Common.rootMetadata");
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ locale: "vi" }, { locale: "en" }];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Common.rootMetadata" });
 
   return {
     title: {
@@ -16,7 +28,7 @@ export async function generateMetadata() {
     metadataBase: PUBLIC_ENV.NEXT_PUBLIC_SITE_URL,
     openGraph: {
       type: "website",
-      locale: "en_US",
+      locale: locale === "vi" ? "vi_VN" : "en_US",
       url: "/",
       siteName: t("siteName"),
       title: t("siteName"),
@@ -46,18 +58,22 @@ export async function generateMetadata() {
   };
 }
 
-export default async function MainLayout({
+export default async function LocalizedLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
-    <AppProvider>
+    <LocalizedAppProvider locale={locale}>
       <div className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
       </div>
-    </AppProvider>
+    </LocalizedAppProvider>
   );
 }

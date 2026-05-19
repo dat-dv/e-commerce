@@ -69,6 +69,291 @@
         "sendSuccess": "Tin nhắn đã được gửi đi. Chúng tôi sẽ phản hồi sớm nhất có thể.",
         "sendFailed": "Không thể gửi tin nhắn. Vui lòng thử lại sau."
       }
+    },
+    "help": {
+      "title": "Trung tâm trợ giúp",
+      "desc": "Hỗ trợ mua sắm trên Shop.Hub: tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng, đổi trả và liên hệ hỗ trợ.",
+      "search": "Tìm tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng...",
+      "quick": "Bạn cần hỗ trợ gì?",
+      "popular": "Câu trả lời thường xem",
+      "supportNote": "Shop.Hub là một cửa hàng online. Đơn hàng và yêu cầu hỗ trợ được đội Shop.Hub xử lý trực tiếp.",
+      "contactTitle": "Vẫn cần hỗ trợ?",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình hoặc ảnh kiện hàng khi cần. Shop.Hub sẽ phản hồi qua email hoặc số điện thoại bạn cung cấp.",
+      "contactCta": "Liên hệ hỗ trợ",
+      "noResults": "Không tìm thấy chủ đề phù hợp.",
+      "cards": [
+        {
+          "title": "Tài khoản",
+          "desc": "Đăng nhập, đặt lại mật khẩu, cập nhật hồ sơ và giữ tài khoản an toàn.",
+          "href": "faq",
+          "icon": "shield-check",
+          "tags": ["tai khoan", "ho so", "mat khau", "bao mat"]
+        },
+        {
+          "title": "Giỏ hàng & checkout",
+          "desc": "Kiểm tra giỏ hàng, chọn địa chỉ giao, áp dụng voucher và đặt hàng.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": ["gio hang", "checkout", "dia chi", "voucher"]
+        },
+        {
+          "title": "Đơn hàng",
+          "desc": "Xem trạng thái, kiểm tra chi tiết đơn và nắm khi nào còn có thể chỉnh sửa.",
+          "href": "orders",
+          "icon": "package-check",
+          "tags": ["don hang", "trang thai", "huy", "chi tiet"]
+        },
+        {
+          "title": "Giao hàng",
+          "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và kiện hàng hư hỏng.",
+          "href": "shipping",
+          "icon": "truck",
+          "tags": ["giao hang", "van chuyen", "tracking", "phi"]
+        },
+        {
+          "title": "Thanh toán & voucher",
+          "desc": "Phương thức hiển thị tại checkout, điều kiện voucher, lỗi thanh toán và thời gian hoàn tiền.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": ["thanh toan", "voucher", "hoan tien", "checkout"]
+        },
+        {
+          "title": "Đổi trả & hoàn tiền",
+          "desc": "Điều kiện đổi trả, bằng chứng cần gửi, tình trạng sản phẩm và quy trình hoàn tiền.",
+          "href": "faq",
+          "icon": "rotate-ccw",
+          "tags": ["doi tra", "hoan tien", "doi hang", "bang chung"]
+        }
+      ],
+      "answers": [
+        "Làm sao để theo dõi đơn hàng?",
+        "Có thể đổi địa chỉ giao hàng sau khi đặt không?",
+        "Vì sao voucher không áp dụng?",
+        "Cần làm gì nếu kiện hàng bị hư hỏng?",
+        "Liên hệ hỗ trợ Shop.Hub như thế nào?"
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "desc": "Câu trả lời cho các luồng chính của Shop.Hub: tài khoản, hồ sơ, giỏ hàng, checkout, đơn hàng, thanh toán, voucher, giao hàng, đổi trả và hỗ trợ.",
+      "search": "Tìm câu hỏi...",
+      "empty": "Không tìm thấy câu hỏi phù hợp.",
+      "contactTitle": "Cần câu trả lời cụ thể?",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình để Shop.Hub kiểm tra trực tiếp.",
+      "contactCta": "Liên hệ hỗ trợ",
+      "topics": [
+        {
+          "name": "Tài khoản & hồ sơ",
+          "icon": "shield-check",
+          "faqs": [
+            {
+              "q": "Làm sao để đặt lại mật khẩu?",
+              "a": "Mở trang đăng nhập, chọn Quên mật khẩu, sau đó làm theo hướng dẫn được gửi về email hoặc số điện thoại của bạn."
+            },
+            {
+              "q": "Cập nhật thông tin cá nhân ở đâu?",
+              "a": "Sau khi đăng nhập, mở trang Hồ sơ để cập nhật thông tin cá nhân. Hãy giữ email và số điện thoại chính xác để Shop.Hub có thể liên hệ khi cần."
+            },
+            {
+              "q": "Làm sao giữ tài khoản Shop.Hub an toàn?",
+              "a": "Dùng mật khẩu riêng tư, không chia sẻ OTP hoặc link đặt lại mật khẩu, và liên hệ hỗ trợ nếu thấy hoạt động lạ trong tài khoản."
+            }
+          ]
+        },
+        {
+          "name": "Địa chỉ",
+          "icon": "shield-check",
+          "faqs": [
+            {
+              "q": "Có thể lưu nhiều địa chỉ giao hàng không?",
+              "a": "Bạn có thể quản lý địa chỉ trong tài khoản và chọn địa chỉ phù hợp khi checkout."
+            },
+            {
+              "q": "Cần kiểm tra gì trước khi đặt hàng?",
+              "a": "Kiểm tra tên người nhận, số điện thoại, địa chỉ, phường hoặc quận huyện và ghi chú giao hàng trước khi gửi đơn."
+            }
+          ]
+        },
+        {
+          "name": "Giỏ hàng & checkout",
+          "icon": "credit-card",
+          "faqs": [
+            {
+              "q": "Vì sao sản phẩm biến mất khỏi giỏ hàng?",
+              "a": "Sản phẩm có thể hết hàng hoặc không còn khả dụng trước khi checkout. Hãy kiểm tra lại giỏ hàng trước khi đặt."
+            },
+            {
+              "q": "Có thể đổi số lượng trong lúc checkout không?",
+              "a": "Hãy chỉnh số lượng trong giỏ hàng trước khi checkout. Sau khi đặt, việc chỉnh sửa chỉ có thể thực hiện khi đơn còn chờ xử lý."
+            },
+            {
+              "q": "Vì sao tôi không đặt hàng được?",
+              "a": "Hãy kiểm tra bạn đã đăng nhập, giỏ hàng còn sản phẩm khả dụng, địa chỉ giao hàng đầy đủ và phương thức thanh toán hợp lệ."
+            }
+          ]
+        },
+        {
+          "name": "Đơn hàng",
+          "icon": "package-check",
+          "faqs": [
+            {
+              "q": "Xem trạng thái đơn hàng ở đâu?",
+              "a": "Vào mục Đơn hàng trong tài khoản. Mỗi đơn sẽ hiển thị trạng thái hiện tại, sản phẩm, thanh toán và tiến trình giao hàng nếu có."
+            },
+            {
+              "q": "Có thể hủy đơn hàng không?",
+              "a": "Bạn có thể yêu cầu hỗ trợ khi đơn còn chờ xử lý hoặc chưa bàn giao giao hàng. Đơn đã giao có thể cần đi theo quy trình đổi trả."
+            },
+            {
+              "q": "Khi hỏi về đơn hàng cần gửi thông tin gì?",
+              "a": "Gửi mã đơn hàng, email hoặc số điện thoại đã dùng để đặt và ảnh chụp màn hình nếu lỗi hiển thị trên website."
+            }
+          ]
+        },
+        {
+          "name": "Thanh toán & voucher",
+          "icon": "credit-card",
+          "faqs": [
+            {
+              "q": "Shop.Hub hỗ trợ phương thức thanh toán nào?",
+              "a": "Các phương thức khả dụng sẽ hiển thị tại checkout. Danh sách cuối cùng phụ thuộc địa chỉ, giá trị đơn hàng và cấu hình hiện tại."
+            },
+            {
+              "q": "Vì sao voucher không áp dụng?",
+              "a": "Voucher có thể có giá trị đơn tối thiểu, giới hạn danh mục, hạn dùng, số lượt dùng hoặc giới hạn tài khoản. Hãy kiểm tra điều kiện voucher trước khi đặt."
+            },
+            {
+              "q": "Cần làm gì nếu thanh toán thất bại?",
+              "a": "Không nên thử lại quá nhiều lần liên tục. Hãy kiểm tra thông tin thanh toán, tải lại checkout hoặc liên hệ hỗ trợ kèm ảnh lỗi."
+            }
+          ]
+        },
+        {
+          "name": "Giao hàng",
+          "icon": "truck",
+          "faqs": [
+            {
+              "q": "Làm sao để theo dõi đơn hàng?",
+              "a": "Mở chi tiết đơn hàng trong mục Đơn hàng. Nếu có tracking, bạn sẽ thấy tiến trình giao và cập nhật mới nhất từ đơn vị vận chuyển."
+            },
+            {
+              "q": "Có thể đổi địa chỉ giao hàng không?",
+              "a": "Bạn chỉ có thể đổi địa chỉ trước khi đơn được xử lý giao hàng. Hãy liên hệ hỗ trợ càng sớm càng tốt nếu địa chỉ bị sai."
+            },
+            {
+              "q": "Nếu giao hàng thất bại thì sao?",
+              "a": "Hãy giữ điện thoại liên lạc được. Nếu giao thất bại hoặc đơn vị vận chuyển không liên hệ được, gửi mã đơn để Shop.Hub kiểm tra bước tiếp theo."
+            }
+          ]
+        },
+        {
+          "name": "Đổi trả & hoàn tiền",
+          "icon": "rotate-ccw",
+          "faqs": [
+            {
+              "q": "Chính sách đổi trả như thế nào?",
+              "a": "Điều kiện đổi trả phụ thuộc loại sản phẩm, trạng thái đơn, tình trạng hàng và lý do đổi trả. Hãy giữ bao bì, phụ kiện và ảnh bằng chứng."
+            },
+            {
+              "q": "Hoàn tiền mất bao lâu?",
+              "a": "Sau khi yêu cầu hủy hoặc đổi trả được duyệt, thời gian hoàn tiền phụ thuộc phương thức thanh toán và thời gian xử lý của đối tác."
+            },
+            {
+              "q": "Cần chuẩn bị bằng chứng gì khi yêu cầu đổi trả?",
+              "a": "Chuẩn bị ảnh rõ của sản phẩm, kiện hàng, phụ kiện, nhãn giao hàng và ảnh chụp màn hình đơn hàng khi cần."
+            }
+          ]
+        }
+      ]
+    },
+    "shipping": {
+      "title": "Thông tin giao hàng",
+      "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và hướng dẫn xử lý sự cố kiện hàng Shop.Hub.",
+      "search": "Tìm thông tin giao hàng...",
+      "empty": "Không tìm thấy chủ đề giao hàng phù hợp.",
+      "contactTitle": "Cần hỗ trợ giao hàng?",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh kiện hàng nếu có sự cố giao hàng.",
+      "contactCta": "Báo sự cố giao hàng",
+      "topics": [
+        {
+          "name": "Vùng giao hàng",
+          "icon": "map-pin",
+          "faqs": [
+            {
+              "q": "Shop.Hub giao hàng ở đâu?",
+              "a": "Khả dụng giao hàng được kiểm tra tại checkout dựa trên địa chỉ giao hàng bạn nhập."
+            },
+            {
+              "q": "Vì sao địa chỉ của tôi không được chấp nhận?",
+              "a": "Địa chỉ có thể chưa đầy đủ hoặc nằm ngoài vùng giao hàng hiện tại. Hãy kiểm tra lại địa chỉ hoặc liên hệ hỗ trợ."
+            }
+          ]
+        },
+        {
+          "name": "Thời gian giao",
+          "icon": "clock",
+          "faqs": [
+            {
+              "q": "Giao hàng mất bao lâu?",
+              "a": "Thời gian giao phụ thuộc địa chỉ, xử lý đơn, năng lực vận chuyển, ngày lễ và thời tiết. Trang đơn hàng sẽ hiển thị tiến trình mới nhất."
+            },
+            {
+              "q": "Khi nào đơn bắt đầu được xử lý?",
+              "a": "Đơn bắt đầu xử lý sau khi được đặt và các kiểm tra thanh toán cần thiết hoàn tất. Shop.Hub chuẩn bị hàng trước khi bàn giao vận chuyển."
+            }
+          ]
+        },
+        {
+          "name": "Theo dõi đơn",
+          "icon": "package-search",
+          "faqs": [
+            {
+              "q": "Theo dõi đơn hàng ở đâu?",
+              "a": "Mở mục Đơn hàng, chọn đơn cần xem và kiểm tra trạng thái mới nhất. Nếu có tracking, trang chi tiết đơn sẽ hiển thị tiến trình giao hàng."
+            },
+            {
+              "q": "Vì sao tracking chưa cập nhật?",
+              "a": "Tracking có thể cần thời gian để cập nhật sau khi nhận hàng hoặc chuyển tuyến. Nếu quá lâu không thay đổi, hãy liên hệ hỗ trợ kèm mã đơn."
+            },
+            {
+              "q": "Đơn vị vận chuyển có gọi cho tôi không?",
+              "a": "Đơn vị vận chuyển có thể gọi khi kiện hàng đang được giao. Hãy giữ số điện thoại trong đơn luôn liên lạc được."
+            }
+          ]
+        },
+        {
+          "name": "Phí vận chuyển",
+          "icon": "map-pin",
+          "faqs": [
+            {
+              "q": "Phí vận chuyển được tính thế nào?",
+              "a": "Phí được tính tại checkout dựa trên địa chỉ, kích thước, trọng lượng kiện hàng, quy định đơn vị vận chuyển và khuyến mãi giao hàng đang áp dụng."
+            },
+            {
+              "q": "Khi nào tôi thấy phí vận chuyển cuối cùng?",
+              "a": "Phí vận chuyển cuối cùng hiển thị trước khi đặt hàng. Hãy kiểm tra lại phần tổng kết checkout trước khi xác nhận."
+            }
+          ]
+        },
+        {
+          "name": "Sự cố giao hàng",
+          "icon": "alert-triangle",
+          "faqs": [
+            {
+              "q": "Nếu tôi không có mặt khi giao hàng thì sao?",
+              "a": "Đơn vị vận chuyển có thể gọi và giao lại theo lịch trình của họ. Hãy giữ điện thoại liên lạc được khi đơn đang giao."
+            },
+            {
+              "q": "Cần làm gì nếu kiện hàng bị hư hỏng?",
+              "a": "Chụp rõ ảnh bên ngoài kiện hàng, nhãn giao hàng và sản phẩm trước khi sử dụng. Liên hệ hỗ trợ kèm mã đơn và hình ảnh."
+            },
+            {
+              "q": "Nếu thiếu sản phẩm trong kiện hàng thì sao?",
+              "a": "Giữ lại toàn bộ bao bì, chụp ảnh và liên hệ hỗ trợ kèm mã đơn cùng danh sách sản phẩm bị thiếu."
+            }
+          ]
+        }
+      ]
     }
   }
 }

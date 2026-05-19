@@ -69,6 +69,291 @@
         "sendSuccess": "Message sent. We will get back to you soon.",
         "sendFailed": "Failed to send message. Please try again."
       }
+    },
+    "help": {
+      "title": "Help Center",
+      "desc": "Practical help for shopping on Shop.Hub: account setup, cart, checkout, orders, delivery, returns, and support.",
+      "search": "Search account, cart, checkout, orders, shipping...",
+      "quick": "What do you need help with?",
+      "popular": "Popular Answers",
+      "supportNote": "Shop.Hub is one online store. Order and support requests are handled directly by our team.",
+      "contactTitle": "Still need help?",
+      "contactDesc": "Send your order number, contact details, and screenshots or package photos when relevant. We reply through the email or phone number you provide.",
+      "contactCta": "Contact Support",
+      "noResults": "No matching help topics found.",
+      "cards": [
+        {
+          "title": "Account",
+          "desc": "Sign in, reset your password, update profile details, and keep your account secure.",
+          "href": "faq",
+          "icon": "shield-check",
+          "tags": ["account", "profile", "password", "security"]
+        },
+        {
+          "title": "Cart & Checkout",
+          "desc": "Review your cart, choose a shipping address, apply vouchers, and place an order.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": ["cart", "checkout", "address", "voucher"]
+        },
+        {
+          "title": "Orders",
+          "desc": "Check order status, review order details, and understand when changes are still possible.",
+          "href": "orders",
+          "icon": "package-check",
+          "tags": ["order", "status", "cancel", "detail"]
+        },
+        {
+          "title": "Shipping",
+          "desc": "Delivery coverage, shipping fees, tracking updates, failed delivery, and damaged packages.",
+          "href": "shipping",
+          "icon": "truck",
+          "tags": ["shipping", "delivery", "tracking", "fee"]
+        },
+        {
+          "title": "Payments & Vouchers",
+          "desc": "Payment options shown at checkout, voucher rules, failed payments, and refund timing.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": ["payment", "voucher", "refund", "checkout"]
+        },
+        {
+          "title": "Returns & Refunds",
+          "desc": "Return eligibility, required evidence, item condition, and refund processing.",
+          "href": "faq",
+          "icon": "rotate-ccw",
+          "tags": ["return", "refund", "exchange", "evidence"]
+        }
+      ],
+      "answers": [
+        "How do I track my order?",
+        "Can I change my shipping address after checkout?",
+        "Why did my voucher not apply?",
+        "What should I do if my package is damaged?",
+        "How do I contact Shop.Hub support?"
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "desc": "Answers for common Shop.Hub workflows: account, profile, cart, checkout, orders, payments, vouchers, shipping, returns, and support.",
+      "search": "Search questions...",
+      "empty": "No matching questions found.",
+      "contactTitle": "Need a specific answer?",
+      "contactDesc": "Send your order number, contact details, and screenshots so Shop.Hub can check the issue directly.",
+      "contactCta": "Contact Support",
+      "topics": [
+        {
+          "name": "Account & Profile",
+          "icon": "shield-check",
+          "faqs": [
+            {
+              "q": "How do I reset my password?",
+              "a": "Open the Sign In page, choose Forgot Password, then follow the instructions sent to your email or phone number."
+            },
+            {
+              "q": "Where can I update my profile information?",
+              "a": "After signing in, open Profile to update personal details. Keep your email and phone number accurate so support can reach you when needed."
+            },
+            {
+              "q": "How can I keep my Shop.Hub account safe?",
+              "a": "Use a private password, never share OTP or reset links, and contact support if you notice unfamiliar account activity."
+            }
+          ]
+        },
+        {
+          "name": "Addresses",
+          "icon": "shield-check",
+          "faqs": [
+            {
+              "q": "Can I save more than one shipping address?",
+              "a": "You can manage addresses from your account and choose the right one during checkout."
+            },
+            {
+              "q": "What should I check before placing an order?",
+              "a": "Confirm recipient name, phone number, street address, ward or district details, and any delivery note before submitting the order."
+            }
+          ]
+        },
+        {
+          "name": "Cart & Checkout",
+          "icon": "credit-card",
+          "faqs": [
+            {
+              "q": "Why did an item disappear from my cart?",
+              "a": "Items can become unavailable if stock changes before checkout. Review your cart before placing the order."
+            },
+            {
+              "q": "Can I change quantity during checkout?",
+              "a": "Adjust quantities in the cart before checkout. Once the order is placed, changes may only be possible while the order is still pending."
+            },
+            {
+              "q": "Why can I not place my order?",
+              "a": "Check that you are signed in, your cart has available items, your shipping address is complete, and the selected payment option is valid."
+            }
+          ]
+        },
+        {
+          "name": "Orders",
+          "icon": "package-check",
+          "faqs": [
+            {
+              "q": "Where can I see my order status?",
+              "a": "Go to Orders in your account. Each order shows current status, products, payment summary, and delivery progress when available."
+            },
+            {
+              "q": "Can I cancel an order?",
+              "a": "You can request help while the order is still pending or before it is handed to delivery. Orders already shipped may need to follow the return flow."
+            },
+            {
+              "q": "What information should I send when asking about an order?",
+              "a": "Send the order number, the email or phone number used on the order, and screenshots if the issue is visible on the website."
+            }
+          ]
+        },
+        {
+          "name": "Payments & Vouchers",
+          "icon": "credit-card",
+          "faqs": [
+            {
+              "q": "What payment methods are supported?",
+              "a": "Available payment methods are shown at checkout. The final method list depends on your address, order value, and current configuration."
+            },
+            {
+              "q": "Why did my voucher not apply?",
+              "a": "Vouchers can have minimum order values, category limits, expiration dates, usage limits, or account restrictions. Check voucher conditions before placing the order."
+            },
+            {
+              "q": "What should I do if payment fails?",
+              "a": "Do not retry too many times quickly. Check your payment details, refresh checkout, or contact support with a screenshot of the error."
+            }
+          ]
+        },
+        {
+          "name": "Shipping",
+          "icon": "truck",
+          "faqs": [
+            {
+              "q": "How do I track my order?",
+              "a": "Open the order detail page from Orders. If tracking is available, you will see delivery progress and the latest carrier update."
+            },
+            {
+              "q": "Can I change my shipping address?",
+              "a": "Address changes are only possible before the order is processed for delivery. Contact support as soon as possible if the address is wrong."
+            },
+            {
+              "q": "What if delivery fails?",
+              "a": "Keep your phone reachable. If delivery fails or the carrier cannot contact you, send your order number to support so Shop.Hub can check the next step."
+            }
+          ]
+        },
+        {
+          "name": "Returns & Refunds",
+          "icon": "rotate-ccw",
+          "faqs": [
+            {
+              "q": "What is the return policy?",
+              "a": "Return eligibility depends on product type, order status, item condition, and the reason for return. Keep packaging, accessories, and photos of the issue."
+            },
+            {
+              "q": "How long does a refund take?",
+              "a": "After a cancellation or return is approved, refund timing depends on the payment method and provider processing time."
+            },
+            {
+              "q": "What evidence should I prepare for a return request?",
+              "a": "Prepare clear photos of the product, package, accessories, shipping label, and screenshots of the order when relevant."
+            }
+          ]
+        }
+      ]
+    },
+    "shipping": {
+      "title": "Shipping Information",
+      "desc": "Delivery coverage, fees, tracking, failed delivery, and package issue guidance for Shop.Hub orders.",
+      "search": "Search shipping help...",
+      "empty": "No matching shipping topics found.",
+      "contactTitle": "Need delivery support?",
+      "contactDesc": "Send your order number, contact details, and package photos if there is a delivery issue.",
+      "contactCta": "Report a Delivery Issue",
+      "topics": [
+        {
+          "name": "Delivery Coverage",
+          "icon": "map-pin",
+          "faqs": [
+            {
+              "q": "Where does Shop.Hub deliver?",
+              "a": "Delivery availability is checked during checkout based on the shipping address you enter."
+            },
+            {
+              "q": "Why is my address not accepted?",
+              "a": "The address may be incomplete or outside the current delivery coverage. Review the address details or contact support for help."
+            }
+          ]
+        },
+        {
+          "name": "Delivery Time",
+          "icon": "clock",
+          "faqs": [
+            {
+              "q": "How long does shipping take?",
+              "a": "Delivery time depends on address, order processing, carrier capacity, holidays, and weather. The order page shows the latest available progress."
+            },
+            {
+              "q": "When does order processing start?",
+              "a": "Processing starts after the order is placed and required payment checks are complete. Shop.Hub prepares the items before handing them to delivery."
+            }
+          ]
+        },
+        {
+          "name": "Tracking",
+          "icon": "package-search",
+          "faqs": [
+            {
+              "q": "Where can I track my order?",
+              "a": "Open Orders, choose the order, then check the latest status. If tracking is available, the order detail page shows delivery progress."
+            },
+            {
+              "q": "Why is tracking not updating?",
+              "a": "Tracking can take time to update after pickup or transfer. If it does not change for too long, contact support with your order number."
+            },
+            {
+              "q": "Will the carrier call me?",
+              "a": "The carrier may call when the package is out for delivery. Keep the phone number on your order reachable."
+            }
+          ]
+        },
+        {
+          "name": "Shipping Fees",
+          "icon": "map-pin",
+          "faqs": [
+            {
+              "q": "How are shipping fees calculated?",
+              "a": "Fees are calculated during checkout based on delivery address, package size, weight, carrier rules, and active shipping promotions."
+            },
+            {
+              "q": "When do I see the final shipping fee?",
+              "a": "The final shipping fee is shown before you place the order. Review the checkout summary before confirming."
+            }
+          ]
+        },
+        {
+          "name": "Delivery Issues",
+          "icon": "alert-triangle",
+          "faqs": [
+            {
+              "q": "What if I am not available when delivery arrives?",
+              "a": "The carrier may call and retry delivery according to their route policy. Keep your phone reachable after the order is out for delivery."
+            },
+            {
+              "q": "What should I do if the package is damaged?",
+              "a": "Take clear photos of the outer package, shipping label, and product before using it. Contact support with your order number and images."
+            },
+            {
+              "q": "What if items are missing from the package?",
+              "a": "Keep all packaging, take photos, and contact support with the order number and a list of missing items."
+            }
+          ]
+        }
+      ]
     }
   }
 }

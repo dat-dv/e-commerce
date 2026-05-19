@@ -6,8 +6,7 @@ import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
-import helpData from "@/app/(main)/(localized)/_data/help.json";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Fuse from "fuse.js";
 import {
   AlertTriangle,
@@ -19,10 +18,15 @@ import {
 import React, { useMemo, useState } from "react";
 import ShippingHeader from "./shipping-header";
 
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
 interface ShippingTopic {
   name: string;
   icon: string;
-  faqs: Array<{ q: string; a: string }>;
+  faqs: FAQItem[];
 }
 
 const iconMap = {
@@ -35,16 +39,22 @@ const iconMap = {
 type IconName = keyof typeof iconMap;
 
 export const HelpShippingView = (): React.ReactElement => {
-  const locale = useLocale();
-  const lang = locale === "vi" ? "vi" : "en";
-  const t = helpData.shipping[lang];
+  const tShipping = useTranslations("HelpCenter");
+  const t = tShipping.raw("shipping") as {
+    contactTitle: string;
+    contactDesc: string;
+    contactCta: string;
+    search: string;
+    empty: string;
+    topics: ShippingTopic[];
+  };
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTopics = useMemo(() => {
     if (!searchQuery.trim()) return t.topics;
 
-    const searchableFaqs = t.topics.flatMap((topic) =>
-      topic.faqs.map((faq) => ({ ...faq, topicName: topic.name })),
+    const searchableFaqs = t.topics.flatMap((topic: ShippingTopic) =>
+      topic.faqs.map((faq: FAQItem) => ({ ...faq, topicName: topic.name })),
     );
 
     const fuse = new Fuse(searchableFaqs, {
@@ -53,20 +63,21 @@ export const HelpShippingView = (): React.ReactElement => {
       ignoreLocation: true,
     });
 
-    const grouped = new Map<string, ShippingTopic["faqs"]>();
+    const grouped = new Map<string, FAQItem[]>();
     fuse.search(searchQuery).forEach(({ item }) => {
-      grouped.set(item.topicName, [
-        ...(grouped.get(item.topicName) ?? []),
-        { q: item.q, a: item.a },
+      const typedItem = item as FAQItem & { topicName: string };
+      grouped.set(typedItem.topicName, [
+        ...(grouped.get(typedItem.topicName) ?? []),
+        { q: typedItem.q, a: typedItem.a },
       ]);
     });
 
     return t.topics
-      .map((topic) => ({
+      .map((topic: ShippingTopic) => ({
         ...topic,
         faqs: grouped.get(topic.name) ?? [],
       }))
-      .filter((topic) => topic.faqs.length > 0);
+      .filter((topic: ShippingTopic) => topic.faqs.length > 0);
   }, [searchQuery, t.topics]);
 
   return (
@@ -82,7 +93,9 @@ export const HelpShippingView = (): React.ReactElement => {
               showCta
             />
 
-            <HelpTopicNav topics={t.topics.map((topic) => topic.name)} />
+            <HelpTopicNav
+              topics={t.topics.map((topic: ShippingTopic) => topic.name)}
+            />
           </aside>
 
           <main className="min-w-0">
@@ -104,7 +117,7 @@ export const HelpShippingView = (): React.ReactElement => {
             </div>
 
             <div className="mt-8 space-y-8">
-              {filteredTopics.map((topic) => {
+              {filteredTopics.map((topic: ShippingTopic) => {
                 const Icon = iconMap[topic.icon as IconName];
                 return (
                   <section
@@ -121,7 +134,7 @@ export const HelpShippingView = (): React.ReactElement => {
                       </h2>
                     </div>
                     <div className="space-y-3">
-                      {topic.faqs.map((faq) => (
+                      {topic.faqs.map((faq: FAQItem) => (
                         <Accordion key={faq.q} title={faq.q}>
                           {faq.a}
                         </Accordion>

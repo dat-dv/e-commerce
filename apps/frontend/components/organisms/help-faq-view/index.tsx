@@ -6,8 +6,7 @@ import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
-import helpData from "@/app/(main)/(localized)/_data/help.json";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Fuse from "fuse.js";
 import {
   CreditCard,
@@ -25,6 +24,12 @@ interface FAQItem {
   a: string;
 }
 
+interface Topic {
+  name: string;
+  icon: string;
+  faqs: FAQItem[];
+}
+
 const iconMap = {
   "credit-card": CreditCard,
   "package-check": PackageCheck,
@@ -36,16 +41,22 @@ const iconMap = {
 type IconName = keyof typeof iconMap;
 
 export function HelpFAQView(): React.ReactElement {
-  const locale = useLocale();
-  const lang = locale === "vi" ? "vi" : "en";
-  const t = helpData.faq[lang];
+  const tFAQ = useTranslations("HelpCenter");
+  const t = tFAQ.raw("faq") as {
+    contactTitle: string;
+    contactDesc: string;
+    contactCta: string;
+    search: string;
+    empty: string;
+    topics: Topic[];
+  };
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTopics = useMemo(() => {
     if (!searchQuery.trim()) return t.topics;
 
-    const searchableFaqs = t.topics.flatMap((topic) =>
-      topic.faqs.map((faq) => ({ ...faq, topicName: topic.name })),
+    const searchableFaqs = t.topics.flatMap((topic: Topic) =>
+      topic.faqs.map((faq: FAQItem) => ({ ...faq, topicName: topic.name })),
     );
 
     const fuse = new Fuse(searchableFaqs, {
@@ -56,18 +67,19 @@ export function HelpFAQView(): React.ReactElement {
 
     const grouped = new Map<string, FAQItem[]>();
     fuse.search(searchQuery).forEach(({ item }) => {
-      grouped.set(item.topicName, [
-        ...(grouped.get(item.topicName) ?? []),
-        { q: item.q, a: item.a },
+      const typedItem = item as FAQItem & { topicName: string };
+      grouped.set(typedItem.topicName, [
+        ...(grouped.get(typedItem.topicName) ?? []),
+        { q: typedItem.q, a: typedItem.a },
       ]);
     });
 
     return t.topics
-      .map((topic) => ({
+      .map((topic: Topic) => ({
         ...topic,
         faqs: grouped.get(topic.name) ?? [],
       }))
-      .filter((topic) => topic.faqs.length > 0);
+      .filter((topic: Topic) => topic.faqs.length > 0);
   }, [searchQuery, t.topics]);
 
   return (
@@ -83,7 +95,7 @@ export function HelpFAQView(): React.ReactElement {
               showCta
             />
 
-            <HelpTopicNav topics={t.topics.map((topic) => topic.name)} />
+            <HelpTopicNav topics={t.topics.map((topic: Topic) => topic.name)} />
           </aside>
 
           <main className="min-w-0">
@@ -105,7 +117,7 @@ export function HelpFAQView(): React.ReactElement {
             </div>
 
             <div className="mt-8 space-y-8">
-              {filteredTopics.map((topic) => {
+              {filteredTopics.map((topic: Topic) => {
                 const Icon = iconMap[topic.icon as IconName];
                 return (
                   <section
@@ -122,7 +134,7 @@ export function HelpFAQView(): React.ReactElement {
                       </h2>
                     </div>
                     <div className="space-y-3">
-                      {topic.faqs.map((faq) => (
+                      {topic.faqs.map((faq: FAQItem) => (
                         <Accordion key={faq.q} title={faq.q}>
                           {faq.a}
                         </Accordion>

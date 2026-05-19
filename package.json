@@ -13,7 +13,7 @@
     "test:be": "npm run test -w apps/backend",
     "lint:be": "npm run lint -w apps/backend",
     "format:be": "npm run format -w apps/backend",
-    "dev:fe": "npm run dev:next -w apps/frontend",
+    "dev:fe": "npm run dev -w apps/frontend",
     "build:fe": "npm run build -w apps/frontend",
     "lint:fe": "npm run lint -w apps/frontend",
     "dev:be:shared": "concurrently \"npm run dev:be\" \"npm run dev:shared\"",

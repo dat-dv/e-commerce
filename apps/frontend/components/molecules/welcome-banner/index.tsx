@@ -25,7 +25,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
                 <>
                   {t.rich("titleLoggedIn", {
                     name,
-                    italic: (chunks) => (
+                    italic: (chunks: React.ReactNode) => (
                       <span className="italic font-light text-content/30">
                         {chunks}
                       </span>
@@ -36,7 +36,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
               ) : (
                 <>
                   {t.rich("titlePublic", {
-                    italic: (chunks) => (
+                    italic: (chunks: React.ReactNode) => (
                       <span className="italic font-light text-content/30">
                         {chunks}
                       </span>

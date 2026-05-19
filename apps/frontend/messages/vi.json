@@ -1,0 +1,1582 @@
+{
+  "AuthLayout": {
+    "description": "Nền tảng thương mại điện tử được yêu thích nhất ở Đông Nam Á & Đài Loan.",
+    "backToHome": "Quay về trang chủ"
+  },
+  "LoginPage": {
+    "title": "Chào mừng trở lại",
+    "description": "Nhập thông tin đăng nhập của bạn để truy cập tài khoản.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Mật khẩu",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Quên mật khẩu?",
+    "submit": "Đăng nhập",
+    "submitting": "Đang đăng nhập...",
+    "noAccount": "Chưa có tài khoản?",
+    "registerLink": "Đăng ký"
+  },
+  "RegisterPage": {
+    "title": "Tạo tài khoản",
+    "description": "Tham gia cùng chúng tôi ngay hôm nay để bắt đầu.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Mật khẩu",
+    "passwordPlaceholder": "••••••••",
+    "confirmPasswordLabel": "Xác nhận mật khẩu",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submit": "Tạo tài khoản",
+    "submitting": "Đang đăng ký...",
+    "alreadyHaveAccount": "Đã có tài khoản?",
+    "loginLink": "Đăng nhập",
+    "agreementText": "Bằng việc tiếp tục, bạn đồng ý với",
+    "termsOfService": "Điều khoản dịch vụ",
+    "privacyPolicy": "Chính sách bảo mật",
+    "and": "và"
+  },
+  "ForgotPasswordPage": {
+    "title": "Quên mật khẩu",
+    "description": "Nhập email hoặc số điện thoại của bạn để nhận liên kết đặt lại/OTP.",
+    "emailTab": "Email",
+    "phoneTab": "Số điện thoại",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "phoneLabel": "Số điện thoại",
+    "sendResetLink": "Gửi liên kết đặt lại",
+    "sendOtp": "Gửi OTP",
+    "submitting": "Đang gửi...",
+    "rememberedPassword": "Đã nhớ mật khẩu?",
+    "loginLink": "Đăng nhập"
+  },
+  "ResetPasswordPage": {
+    "title": "Đặt lại mật khẩu",
+    "description": "Nhập mật khẩu mới của bạn bên dưới.",
+    "newPasswordLabel": "Mật khẩu mới",
+    "newPasswordPlaceholder": "••••••••",
+    "confirmNewPasswordLabel": "Xác nhận mật khẩu mới",
+    "confirmNewPasswordPlaceholder": "••••••••",
+    "submit": "Đặt lại mật khẩu",
+    "submitting": "Đang đặt lại...",
+    "rememberedPassword": "Đã nhớ mật khẩu?",
+    "loginLink": "Đăng nhập"
+  },
+  "BrandsPage": {
+    "metadata": {
+      "title": "Thương hiệu | Chất lượng chọn lọc",
+      "description": "Khám phá các thương hiệu đối tác và tên tuổi nổi bật."
+    },
+    "header": {
+      "title": "Thương",
+      "highlight": "Hiệu",
+      "description": "Khám phá các thương hiệu công nghệ và thiết kế hàng đầu."
+    },
+    "search": {
+      "placeholder": "Tìm thương hiệu..."
+    },
+    "grid": {
+      "loadingMore": "Đang tải thêm thương hiệu...",
+      "end": "Đã tải hết thương hiệu"
+    },
+    "empty": {
+      "title": "Không tìm thấy thương hiệu",
+      "description": "Không có thương hiệu nào khớp với \"{query}\". Hãy thử từ khóa khác."
+    }
+  },
+  "CartPage": {
+    "metadata": {
+      "title": "Giỏ hàng | Công nghệ chọn lọc",
+      "description": "Xem và quản lý giỏ hàng trước khi thanh toán."
+    },
+    "header": {
+      "title": "Giỏ",
+      "highlight": "Hàng",
+      "descriptionWithItems": "Xem {count} sản phẩm, chọn món cần thanh toán và chuẩn bị đơn hàng.",
+      "emptyDescription": "Giỏ hàng đang chờ món tiếp theo bạn yêu thích."
+    },
+    "summary": {
+      "items": "Sản phẩm",
+      "selected": "Đã chọn",
+      "subtotal": "Tạm tính"
+    },
+    "empty": {
+      "title": "GIỎ HÀNG",
+      "highlight": "TRỐNG",
+      "description": "Khám phá bộ sưu tập cao cấp và thiết bị hiệu năng cao.",
+      "action": "Khám phá"
+    },
+    "table": {
+      "product": "Sản phẩm",
+      "unitPrice": "Đơn giá",
+      "quantity": "Số lượng",
+      "total": "Tổng",
+      "action": "Thao tác"
+    },
+    "footer": {
+      "applyCoupon": "Áp mã giảm giá",
+      "summary": "Tóm tắt giỏ hàng",
+      "selected": "Đã chọn {count}",
+      "freeShipping": "Miễn phí vận chuyển",
+      "subtotal": "Tạm tính",
+      "checkout": "Thanh toán"
+    },
+    "item": {
+      "standard": "Tiêu chuẩn",
+      "inStock": "Còn hàng",
+      "outOfStock": "Hết hàng",
+      "unavailable": "Sản phẩm này hiện không khả dụng.",
+      "remove": "Xóa {product}",
+      "increase": "Tăng số lượng {product}",
+      "decrease": "Giảm số lượng {product}"
+    },
+    "quantity": {
+      "increase": "Tăng số lượng",
+      "decrease": "Giảm số lượng"
+    },
+    "drawer": {
+      "title": "Giỏ hàng",
+      "count": "{count} món",
+      "close": "Đóng giỏ hàng",
+      "subtotal": "Tạm tính",
+      "freeShipping": "Miễn phí vận chuyển",
+      "checkout": "Thanh toán",
+      "finalizing": "Đang hoàn tất đơn",
+      "viewDetails": "Xem chi tiết",
+      "empty": {
+        "title": "Giỏ hàng trống",
+        "description": "Khám phá sản phẩm và chọn món bạn thích."
+      }
+    },
+    "toasts": {
+      "signInRequired": "Vui lòng đăng nhập để thêm vào giỏ",
+      "addSuccess": "Đã thêm vào giỏ",
+      "addFailed": "Không thể thêm vào giỏ",
+      "clearFailed": "Không thể xóa giỏ hàng",
+      "removeFailed": "Không thể xóa sản phẩm",
+      "removeManyFailed": "Không thể xóa các sản phẩm",
+      "updateFailed": "Không thể cập nhật số lượng"
+    }
+  },
+  "CategoriesPage": {
+    "metadata": {
+      "title": "Danh mục",
+      "description": "Khám phá tất cả danh mục sản phẩm."
+    },
+    "header": {
+      "allTitle": "Tất cả danh mục",
+      "allDescription": "Khám phá tất cả danh mục sản phẩm.",
+      "categoryDescription": "Khám phá sản phẩm chất lượng trong {category}."
+    },
+    "content": {
+      "eyebrow": "Duyệt",
+      "title": "Khám phá danh mục",
+      "description": "Tìm bộ sưu tập phù hợp với nhu cầu của bạn.",
+      "count": "{count} danh mục",
+      "childCount": "{count} danh mục"
+    },
+    "sidebar": {
+      "title": "Danh mục",
+      "description": "Duyệt theo bộ sưu tập",
+      "searchPlaceholder": "Tìm danh mục",
+      "clearSearch": "Xóa tìm kiếm danh mục",
+      "allCategories": "Tất cả danh mục",
+      "empty": "Không tìm thấy danh mục",
+      "expand": "Mở {category}",
+      "collapse": "Thu gọn {category}"
+    }
+  },
+  "CategoryDetailPage": {
+    "metadata": {
+      "title": "Sản phẩm - {category}",
+      "description": "Khám phá sản phẩm trong {category}."
+    },
+    "fallbackTitle": "Sản phẩm",
+    "description": "Khám phá sản phẩm {category} nổi bật, chọn lọc theo chất lượng, giá và tình trạng hàng.",
+    "searchPlaceholder": "Tìm {category}"
+  },
+  "CheckoutPage": {
+    "metadata": {
+      "title": "Thanh toán | E-commerce",
+      "description": "Hoàn tất đơn hàng với trải nghiệm thanh toán an toàn."
+    },
+    "header": {
+      "backToCart": "Quay lại giỏ hàng",
+      "title": "Thanh toán"
+    },
+    "shipping": {
+      "title": "Địa chỉ giao hàng",
+      "newAddress": "Địa chỉ mới",
+      "empty": {
+        "title": "Chưa có địa chỉ",
+        "description": "Thêm địa chỉ giao hàng trước khi đặt đơn.",
+        "action": "Thêm địa chỉ"
+      }
+    },
+    "items": {
+      "title": "Kiểm tra sản phẩm",
+      "standard": "Tiêu chuẩn",
+      "quantity": "SL: {count}",
+      "empty": {
+        "title": "Chưa chọn sản phẩm",
+        "description": "Quay lại giỏ hàng hoặc xem sản phẩm để chọn món thanh toán.",
+        "action": "Xem sản phẩm"
+      }
+    },
+    "summary": {
+      "title": "Tóm tắt đơn hàng",
+      "shippingTo": "Giao đến",
+      "subtotal": "Tạm tính",
+      "shippingFee": "Phí giao hàng",
+      "free": "MIỄN PHÍ",
+      "tax": "Thuế (đã gồm)",
+      "paymentMethod": "Phương thức thanh toán",
+      "cod": "Thanh toán khi nhận hàng",
+      "grandTotal": "Tổng cộng",
+      "processing": "Đang xử lý đơn...",
+      "complete": "Đặt hàng"
+    },
+    "toasts": {
+      "selectAddress": "Vui lòng chọn địa chỉ giao hàng",
+      "noItems": "Chưa chọn sản phẩm để thanh toán",
+      "success": "Đặt hàng thành công!",
+      "placeFailed": "Không thể đặt hàng",
+      "unknownError": "Có lỗi xảy ra khi đặt hàng"
+    }
+  },
+  "Common": {
+    "viewAll": "Xem tất cả",
+    "toolbar": {
+      "showingProducts": "Hiển thị <bold>{total}</bold> sản phẩm",
+      "sortBy": "Sắp xếp theo",
+      "sortProductsBy": "Sắp xếp sản phẩm theo",
+      "sortOptions": {
+        "newest": "Mới nhất",
+        "bestSelling": "Bán chạy nhất",
+        "priceLowToHigh": "Giá: Từ thấp đến cao",
+        "priceHighToLow": "Giá: Từ cao đến thấp"
+      }
+    },
+    "header": {
+      "settings": "Cài đặt",
+      "signIn": "Đăng nhập",
+      "signUp": "Đăng ký",
+      "favorites": "Yêu thích",
+      "cart": "Giỏ hàng",
+      "avatarDropdown": {
+        "accountDetails": "Thông tin tài khoản",
+        "viewProfile": "Xem hồ sơ",
+        "wishlist": "Danh sách yêu thích",
+        "recentlyViewed": "Đã xem gần đây",
+        "myOrders": "Đơn hàng của tôi",
+        "signOut": "Đăng xuất",
+        "noEmail": "Chưa có email"
+      },
+      "nav": {
+        "home": "Trang chủ",
+        "categories": "Danh mục",
+        "newArrivals": "Hàng mới",
+        "flashSale": "Khuyến mãi",
+        "brands": "Thương hiệu"
+      }
+    },
+    "footer": {
+      "categories": "Danh mục",
+      "support": "Hỗ trợ",
+      "legal": "Pháp lý",
+      "poweredBy": "Phát triển bởi",
+      "allProducts": "Tất cả sản phẩm",
+      "featured": "Nổi bật",
+      "newArrivals": "Hàng mới về",
+      "helpCenter": "Trung tâm trợ giúp",
+      "contactUs": "Liên hệ",
+      "faqs": "Hỏi đáp (FAQs)",
+      "shipping": "Vận chuyển",
+      "privacyPolicy": "Chính sách bảo mật",
+      "termsOfService": "Điều khoản dịch vụ",
+      "rightsReserved": "Bảo lưu mọi quyền."
+    },
+    "rootMetadata": {
+      "siteName": "Nền tảng Thương mại Điện tử Luxury",
+      "description": "Nền tảng thương mại điện tử hiệu năng cao cho hàng hiệu tuyển chọn.",
+      "openGraphDesc": "Nền tảng thương mại điện tử tối giản, hiệu năng cao dành cho người dùng chuyên nghiệp.",
+      "openGraphAlt": "Hình ảnh xem trước Nền tảng Thương mại Điện tử Luxury"
+    },
+    "errorPage": {
+      "metadataTitle": "503 - Dịch vụ Không khả dụng",
+      "title": "Đã xảy ra lỗi",
+      "description": "Hệ thống của chúng tôi hiện đang tạm thời gián đoạn hoặc có sự cố ngoài ý muốn. Chúng tôi đã nhận được thông báo và đang tiến hành khắc phục.",
+      "tryAgain": "Thử lại",
+      "takeMeBack": "Quay lại"
+    },
+    "notFoundPage": {
+      "metadataTitle": "404 - Không tìm thấy trang",
+      "title": "Bạn đã đi lạc",
+      "description": "Trang bạn đang tìm kiếm chưa được khám phá. Có thể trang đã được chuyển sang một địa chỉ khác hoặc chưa từng tồn tại.",
+      "returnHome": "Quay lại Trang chủ"
+    },
+    "missingProduct": {
+      "title": "Không tìm thấy sản phẩm",
+      "description": "Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển sang mục khác. Hãy thử tìm kiếm hoặc xem các bộ sưu tập của chúng tôi.",
+      "browseProducts": "Duyệt sản phẩm",
+      "viewCart": "Xem giỏ hàng",
+      "backToHome": "Quay lại trang chủ",
+      "continueShopping": "Tiếp tục mua sắm",
+      "goBack": "Quay lại"
+    },
+    "search": {
+      "defaultPlaceholder": "Tìm kiếm...",
+      "clear": "Xóa",
+      "submit": "Tìm kiếm",
+      "globalPlaceholder": "Tìm kiếm thiết bị công nghệ & đồ dùng góc làm việc cao cấp..."
+    }
+  },
+  "FavoritesPage": {
+    "metadata": {
+      "title": "Danh sách yêu thích",
+      "description": "Xem và quản lý các sản phẩm yêu thích của bạn."
+    },
+    "banner": {
+      "title": "Danh sách",
+      "highlight": "Yêu thích",
+      "description": "Bộ sưu tập cá nhân của riêng bạn. Sẵn sàng đồng hành cùng bạn.",
+      "totalItems": "Tổng số sản phẩm"
+    },
+    "list": {
+      "emptyTitle": "Danh sách yêu thích đang trống",
+      "emptyDescription": "Những sản phẩm bạn yêu thích sẽ được lưu tại đây. Hãy bắt đầu khám phá các bộ sưu tập mới nhất.",
+      "loadingText": "Đang tìm thêm sản phẩm...",
+      "endText": "Bạn đã xem hết danh sách yêu thích"
+    }
+  },
+  "FlashSalePage": {
+    "metadata": {
+      "title": "Flash Sale | E-Commerce",
+      "description": "Săn ưu đãi tốt nhất trước khi hết."
+    },
+    "header": {
+      "title": "Flash",
+      "highlight": "Sale",
+      "description": "Công nghệ hiệu năng cao với mức giá hấp dẫn trong thời gian ngắn."
+    },
+    "list": {
+      "eyebrow": "Ưu đãi đang mở",
+      "title": "{total} sản phẩm flash sale",
+      "meta": "Trang {page}/{totalPages}",
+      "loadingMore": "Đang tải thêm ưu đãi...",
+      "end": "Đã tải hết flash sale",
+      "empty": {
+        "title": "Chưa có sản phẩm flash sale",
+        "description": "Hiện chưa có sản phẩm flash sale."
+      }
+    },
+    "card": {
+      "badge": "Flash Sale",
+      "noImage": "Không có ảnh",
+      "sale": "Sale",
+      "viewDetails": "Xem chi tiết",
+      "addToCart": "Thêm vào giỏ",
+      "sold": "Đã bán {count}",
+      "left": "Còn {count}"
+    }
+  },
+  "HelpCenter": {
+    "metadata": {
+      "title": "Trung tâm trợ giúp",
+      "description": "Bạn cần hỗ trợ gì hôm nay?"
+    },
+    "shippingMetadata": {
+      "title": "Thông tin giao hàng",
+      "description": "Tìm câu trả lời về vận chuyển, đơn vị giao hàng và chính sách theo dõi đơn."
+    },
+    "faqMetadata": {
+      "title": "Câu hỏi thường gặp",
+      "description": "Tìm câu trả lời cho các câu hỏi thường gặp."
+    },
+    "contactMetadata": {
+      "title": "Liên hệ với chúng tôi",
+      "description": "Liên hệ với đội ngũ hỗ trợ của chúng tôi."
+    },
+    "headers": {
+      "help": {
+        "title": "TRỢ GIÚP",
+        "highlight": "SHOP.HUB",
+        "description": "Bạn cần hỗ trợ gì hôm nay? Tìm nhanh câu trả lời hoặc duyệt các chủ đề bên dưới.",
+        "placeholder": "Nhập từ khóa hoặc tìm bài viết phổ biến...",
+        "clear": "Xóa"
+      },
+      "shipping": {
+        "title": "THÔNG TIN",
+        "highlight": "GIAO HÀNG",
+        "description": "Tìm câu trả lời về vận chuyển, đơn vị giao hàng và chính sách theo dõi đơn."
+      },
+      "faq": {
+        "title": "CÂU HỎI",
+        "highlight": "THƯỜNG GẶP",
+        "description": "Tìm câu trả lời về Shop.Hub, an toàn tài khoản, thanh toán, giao hàng và đổi trả."
+      }
+    },
+    "contact": {
+      "backToHelp": "← Quay lại Trung tâm trợ giúp",
+      "title": "Liên hệ hỗ trợ",
+      "subtitle": "Chúng tôi sẵn sàng hỗ trợ bạn 24/7.",
+      "sendUsAMessage": "Gửi tin nhắn cho chúng tôi",
+      "directContact": "Liên hệ trực tiếp",
+      "directSupportNote": "Đội ngũ của chúng tôi sẵn sàng 24/7 cho các vấn đề khẩn cấp.",
+      "emailLabel": "Email",
+      "phoneLabel": "Số điện thoại",
+      "needSupport": "Cần hỗ trợ?",
+      "needSupportDesc": "Không tìm thấy thông tin bạn cần? Hãy gửi yêu cầu hỗ trợ và chúng tôi sẽ giúp bạn.",
+      "openATicket": "Gửi yêu cầu",
+      "form": {
+        "nameLabel": "Tên",
+        "namePlaceholder": "Tên của bạn",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "phoneLabel": "Số điện thoại",
+        "subjectLabel": "Tiêu đề",
+        "subjectPlaceholder": "Chúng tôi có thể giúp gì cho bạn?",
+        "messageLabel": "Nội dung",
+        "messagePlaceholder": "Mô tả chi tiết vấn đề của bạn...",
+        "attachmentsLabel": "Tệp đính kèm",
+        "uploadLabel": "Tải ảnh lên ({count}/{max})",
+        "sending": "Đang gửi...",
+        "send": "Gửi tin nhắn"
+      },
+      "toasts": {
+        "unsupportedType": "{fileName} không phải định dạng ảnh được hỗ trợ.",
+        "imageTooLarge": "{fileName} vượt quá kích thước tối đa 5MB.",
+        "maxAttachments": "Bạn chỉ có thể đính kèm tối đa {max} ảnh.",
+        "sendSuccess": "Tin nhắn đã được gửi đi. Chúng tôi sẽ phản hồi sớm nhất có thể.",
+        "sendFailed": "Không thể gửi tin nhắn. Vui lòng thử lại sau."
+      }
+    },
+    "help": {
+      "title": "Trung tâm trợ giúp",
+      "desc": "Hỗ trợ mua sắm trên Shop.Hub: tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng, đổi trả và liên hệ hỗ trợ.",
+      "search": "Tìm tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng...",
+      "quick": "Bạn cần hỗ trợ gì?",
+      "popular": "Câu trả lời thường xem",
+      "supportNote": "Shop.Hub là một cửa hàng online. Đơn hàng và yêu cầu hỗ trợ được đội Shop.Hub xử lý trực tiếp.",
+      "contactTitle": "Vẫn cần hỗ trợ?",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình hoặc ảnh kiện hàng khi cần. Shop.Hub sẽ phản hồi qua email hoặc số điện thoại bạn cung cấp.",
+      "contactCta": "Liên hệ hỗ trợ",
+      "noResults": "Không tìm thấy chủ đề phù hợp.",
+      "cards": [
+        {
+          "title": "Tài khoản",
+          "desc": "Đăng nhập, đặt lại mật khẩu, cập nhật hồ sơ và giữ tài khoản an toàn.",
+          "href": "faq",
+          "icon": "shield-check",
+          "tags": [
+            "tai khoan",
+            "ho so",
+            "mat khau",
+            "bao mat"
+          ]
+        },
+        {
+          "title": "Giỏ hàng & checkout",
+          "desc": "Kiểm tra giỏ hàng, chọn địa chỉ giao, áp dụng voucher và đặt hàng.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": [
+            "gio hang",
+            "checkout",
+            "dia chi",
+            "voucher"
+          ]
+        },
+        {
+          "title": "Đơn hàng",
+          "desc": "Xem trạng thái, kiểm tra chi tiết đơn và nắm khi nào còn có thể chỉnh sửa.",
+          "href": "orders",
+          "icon": "package-check",
+          "tags": [
+            "don hang",
+            "trang thai",
+            "huy",
+            "chi tiet"
+          ]
+        },
+        {
+          "title": "Giao hàng",
+          "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và kiện hàng hư hỏng.",
+          "href": "shipping",
+          "icon": "truck",
+          "tags": [
+            "giao hang",
+            "van chuyen",
+            "tracking",
+            "phi"
+          ]
+        },
+        {
+          "title": "Thanh toán & voucher",
+          "desc": "Phương thức hiển thị tại checkout, điều kiện voucher, lỗi thanh toán và thời gian hoàn tiền.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": [
+            "thanh toan",
+            "voucher",
+            "hoan tien",
+            "checkout"
+          ]
+        },
+        {
+          "title": "Đổi trả & hoàn tiền",
+          "desc": "Điều kiện đổi trả, bằng chứng cần gửi, tình trạng sản phẩm và quy trình hoàn tiền.",
+          "href": "faq",
+          "icon": "rotate-ccw",
+          "tags": [
+            "doi tra",
+            "hoan tien",
+            "doi hang",
+            "bang chung"
+          ]
+        }
+      ],
+      "answers": [
+        "Làm sao để theo dõi đơn hàng?",
+        "Có thể đổi địa chỉ giao hàng sau khi đặt không?",
+        "Vì sao voucher không áp dụng?",
+        "Cần làm gì nếu kiện hàng bị hư hỏng?",
+        "Liên hệ hỗ trợ Shop.Hub như thế nào?"
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "desc": "Câu trả lời cho các luồng chính của Shop.Hub: tài khoản, hồ sơ, giỏ hàng, checkout, đơn hàng, thanh toán, voucher, giao hàng, đổi trả và hỗ trợ.",
+      "search": "Tìm câu hỏi...",
+      "empty": "Không tìm thấy câu hỏi phù hợp.",
+      "contactTitle": "Cần câu trả lời cụ thể?",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình để Shop.Hub kiểm tra trực tiếp.",
+      "contactCta": "Liên hệ hỗ trợ",
+      "topics": [
+        {
+          "name": "Tài khoản & hồ sơ",
+          "icon": "shield-check",
+          "faqs": [
+            {
+              "q": "Làm sao để đặt lại mật khẩu?",
+              "a": "Mở trang đăng nhập, chọn Quên mật khẩu, sau đó làm theo hướng dẫn được gửi về email hoặc số điện thoại của bạn."
+            },
+            {
+              "q": "Cập nhật thông tin cá nhân ở đâu?",
+              "a": "Sau khi đăng nhập, mở trang Hồ sơ để cập nhật thông tin cá nhân. Hãy giữ email và số điện thoại chính xác để Shop.Hub có thể liên hệ khi cần."
+            },
+            {
+              "q": "Làm sao giữ tài khoản Shop.Hub an toàn?",
+              "a": "Dùng mật khẩu riêng tư, không chia sẻ OTP hoặc link đặt lại mật khẩu, và liên hệ hỗ trợ nếu thấy hoạt động lạ trong tài khoản."
+            }
+          ]
+        },
+        {
+          "name": "Địa chỉ",
+          "icon": "shield-check",
+          "faqs": [
+            {
+              "q": "Có thể lưu nhiều địa chỉ giao hàng không?",
+              "a": "Bạn có thể quản lý địa chỉ trong tài khoản và chọn địa chỉ phù hợp khi checkout."
+            },
+            {
+              "q": "Cần kiểm tra gì trước khi đặt hàng?",
+              "a": "Kiểm tra tên người nhận, số điện thoại, địa chỉ, phường hoặc quận huyện và ghi chú giao hàng trước khi gửi đơn."
+            }
+          ]
+        },
+        {
+          "name": "Giỏ hàng & checkout",
+          "icon": "credit-card",
+          "faqs": [
+            {
+              "q": "Vì sao sản phẩm biến mất khỏi giỏ hàng?",
+              "a": "Sản phẩm có thể hết hàng hoặc không còn khả dụng trước khi checkout. Hãy kiểm tra lại giỏ hàng trước khi đặt."
+            },
+            {
+              "q": "Có thể đổi số lượng trong lúc checkout không?",
+              "a": "Hãy chỉnh số lượng trong giỏ hàng trước khi checkout. Sau khi đặt, việc chỉnh sửa chỉ có thể thực hiện khi đơn còn chờ xử lý."
+            },
+            {
+              "q": "Vì sao tôi không đặt hàng được?",
+              "a": "Hãy kiểm tra bạn đã đăng nhập, giỏ hàng còn sản phẩm khả dụng, địa chỉ giao hàng đầy đủ và phương thức thanh toán hợp lệ."
+            }
+          ]
+        },
+        {
+          "name": "Đơn hàng",
+          "icon": "package-check",
+          "faqs": [
+            {
+              "q": "Xem trạng thái đơn hàng ở đâu?",
+              "a": "Vào mục Đơn hàng trong tài khoản. Mỗi đơn sẽ hiển thị trạng thái hiện tại, sản phẩm, thanh toán và tiến trình giao hàng nếu có."
+            },
+            {
+              "q": "Có thể hủy đơn hàng không?",
+              "a": "Bạn có thể yêu cầu hỗ trợ khi đơn còn chờ xử lý hoặc chưa bàn giao giao hàng. Đơn đã giao có thể cần đi theo quy trình đổi trả."
+            },
+            {
+              "q": "Khi hỏi về đơn hàng cần gửi thông tin gì?",
+              "a": "Gửi mã đơn hàng, email hoặc số điện thoại đã dùng để đặt và ảnh chụp màn hình nếu lỗi hiển thị trên website."
+            }
+          ]
+        },
+        {
+          "name": "Thanh toán & voucher",
+          "icon": "credit-card",
+          "faqs": [
+            {
+              "q": "Shop.Hub hỗ trợ phương thức thanh toán nào?",
+              "a": "Các phương thức khả dụng sẽ hiển thị tại checkout. Danh sách cuối cùng phụ thuộc địa chỉ, giá trị đơn hàng và cấu hình hiện tại."
+            },
+            {
+              "q": "Vì sao voucher không áp dụng?",
+              "a": "Voucher có thể có giá trị đơn tối thiểu, giới hạn danh mục, hạn dùng, số lượt dùng hoặc giới hạn tài khoản. Hãy kiểm tra điều kiện voucher trước khi đặt."
+            },
+            {
+              "q": "Cần làm gì nếu thanh toán thất bại?",
+              "a": "Không nên thử lại quá nhiều lần liên tục. Hãy kiểm tra thông tin thanh toán, tải lại checkout hoặc liên hệ hỗ trợ kèm ảnh lỗi."
+            }
+          ]
+        },
+        {
+          "name": "Giao hàng",
+          "icon": "truck",
+          "faqs": [
+            {
+              "q": "Làm sao để theo dõi đơn hàng?",
+              "a": "Mở chi tiết đơn hàng trong mục Đơn hàng. Nếu có tracking, bạn sẽ thấy tiến trình giao và cập nhật mới nhất từ đơn vị vận chuyển."
+            },
+            {
+              "q": "Có thể đổi địa chỉ giao hàng không?",
+              "a": "Bạn chỉ có thể đổi địa chỉ trước khi đơn được xử lý giao hàng. Hãy liên hệ hỗ trợ càng sớm càng tốt nếu địa chỉ bị sai."
+            },
+            {
+              "q": "Nếu giao hàng thất bại thì sao?",
+              "a": "Hãy giữ điện thoại liên lạc được. Nếu giao thất bại hoặc đơn vị vận chuyển không liên hệ được, gửi mã đơn để Shop.Hub kiểm tra bước tiếp theo."
+            }
+          ]
+        },
+        {
+          "name": "Đổi trả & hoàn tiền",
+          "icon": "rotate-ccw",
+          "faqs": [
+            {
+              "q": "Chính sách đổi trả như thế nào?",
+              "a": "Điều kiện đổi trả phụ thuộc loại sản phẩm, trạng thái đơn, tình trạng hàng và lý do đổi trả. Hãy giữ bao bì, phụ kiện và ảnh bằng chứng."
+            },
+            {
+              "q": "Hoàn tiền mất bao lâu?",
+              "a": "Sau khi yêu cầu hủy hoặc đổi trả được duyệt, thời gian hoàn tiền phụ thuộc phương thức thanh toán và thời gian xử lý của đối tác."
+            },
+            {
+              "q": "Cần chuẩn bị bằng chứng gì khi yêu cầu đổi trả?",
+              "a": "Chuẩn bị ảnh rõ của sản phẩm, kiện hàng, phụ kiện, nhãn giao hàng và ảnh chụp màn hình đơn hàng khi cần."
+            }
+          ]
+        }
+      ]
+    },
+    "shipping": {
+      "title": "Thông tin giao hàng",
+      "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và hướng dẫn xử lý sự cố kiện hàng Shop.Hub.",
+      "search": "Tìm thông tin giao hàng...",
+      "empty": "Không tìm thấy chủ đề giao hàng phù hợp.",
+      "contactTitle": "Cần hỗ trợ giao hàng?",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh kiện hàng nếu có sự cố giao hàng.",
+      "contactCta": "Báo sự cố giao hàng",
+      "topics": [
+        {
+          "name": "Vùng giao hàng",
+          "icon": "map-pin",
+          "faqs": [
+            {
+              "q": "Shop.Hub giao hàng ở đâu?",
+              "a": "Khả dụng giao hàng được kiểm tra tại checkout dựa trên địa chỉ giao hàng bạn nhập."
+            },
+            {
+              "q": "Vì sao địa chỉ của tôi không được chấp nhận?",
+              "a": "Địa chỉ có thể chưa đầy đủ hoặc nằm ngoài vùng giao hàng hiện tại. Hãy kiểm tra lại địa chỉ hoặc liên hệ hỗ trợ."
+            }
+          ]
+        },
+        {
+          "name": "Thời gian giao",
+          "icon": "clock",
+          "faqs": [
+            {
+              "q": "Giao hàng mất bao lâu?",
+              "a": "Thời gian giao phụ thuộc địa chỉ, xử lý đơn, năng lực vận chuyển, ngày lễ và thời tiết. Trang đơn hàng sẽ hiển thị tiến trình mới nhất."
+            },
+            {
+              "q": "Khi nào đơn bắt đầu được xử lý?",
+              "a": "Đơn bắt đầu xử lý sau khi được đặt và các kiểm tra thanh toán cần thiết hoàn tất. Shop.Hub chuẩn bị hàng trước khi bàn giao vận chuyển."
+            }
+          ]
+        },
+        {
+          "name": "Theo dõi đơn",
+          "icon": "package-search",
+          "faqs": [
+            {
+              "q": "Theo dõi đơn hàng ở đâu?",
+              "a": "Mở mục Đơn hàng, chọn đơn cần xem và kiểm tra trạng thái mới nhất. Nếu có tracking, trang chi tiết đơn sẽ hiển thị tiến trình giao hàng."
+            },
+            {
+              "q": "Vì sao tracking chưa cập nhật?",
+              "a": "Tracking có thể cần thời gian để cập nhật sau khi nhận hàng hoặc chuyển tuyến. Nếu quá lâu không thay đổi, hãy liên hệ hỗ trợ kèm mã đơn."
+            },
+            {
+              "q": "Đơn vị vận chuyển có gọi cho tôi không?",
+              "a": "Đơn vị vận chuyển có thể gọi khi kiện hàng đang được giao. Hãy giữ số điện thoại trong đơn luôn liên lạc được."
+            }
+          ]
+        },
+        {
+          "name": "Phí vận chuyển",
+          "icon": "map-pin",
+          "faqs": [
+            {
+              "q": "Phí vận chuyển được tính thế nào?",
+              "a": "Phí được tính tại checkout dựa trên địa chỉ, kích thước, trọng lượng kiện hàng, quy định đơn vị vận chuyển và khuyến mãi giao hàng đang áp dụng."
+            },
+            {
+              "q": "Khi nào tôi thấy phí vận chuyển cuối cùng?",
+              "a": "Phí vận chuyển cuối cùng hiển thị trước khi đặt hàng. Hãy kiểm tra lại phần tổng kết checkout trước khi xác nhận."
+            }
+          ]
+        },
+        {
+          "name": "Sự cố giao hàng",
+          "icon": "alert-triangle",
+          "faqs": [
+            {
+              "q": "Nếu tôi không có mặt khi giao hàng thì sao?",
+              "a": "Đơn vị vận chuyển có thể gọi và giao lại theo lịch trình của họ. Hãy giữ điện thoại liên lạc được khi đơn đang giao."
+            },
+            {
+              "q": "Cần làm gì nếu kiện hàng bị hư hỏng?",
+              "a": "Chụp rõ ảnh bên ngoài kiện hàng, nhãn giao hàng và sản phẩm trước khi sử dụng. Liên hệ hỗ trợ kèm mã đơn và hình ảnh."
+            },
+            {
+              "q": "Nếu thiếu sản phẩm trong kiện hàng thì sao?",
+              "a": "Giữ lại toàn bộ bao bì, chụp ảnh và liên hệ hỗ trợ kèm mã đơn cùng danh sách sản phẩm bị thiếu."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "HomePage": {
+    "hero": {
+      "titleLoggedIn": "Chào <italic>{name}</italic><br></br>Nâng Tầm Cuộc Sống.",
+      "titlePublic": "Nâng Tầm <italic>Phong Cách</italic> Sống.",
+      "descLoggedIn": "Tiếp tục khám phá các sản phẩm cao cấp, bộ sưu tập độc quyền và các sản phẩm thiết yếu được thiết kế riêng cho lối sống hàng ngày của bạn.",
+      "descPublic": "Khám phá các sản phẩm cao cấp, bộ sưu tập được tuyển chọn và các sản phẩm thiết yếu hàng ngày phù hợp với cuộc sống hiện đại.",
+      "btnContinueShopping": "Tiếp tục mua sắm",
+      "btnStartShopping": "Bắt đầu mua sắm",
+      "btnViewOrders": "Xem đơn hàng",
+      "btnExploreCollections": "Khám phá bộ sưu tập"
+    },
+    "features": {
+      "flashSale": {
+        "name": "Flash Sale",
+        "desc": "Sắp kết thúc"
+      },
+      "vouchers": {
+        "name": "Mã giảm giá",
+        "desc": "Sắp ra mắt"
+      },
+      "topBrands": {
+        "name": "Thương hiệu hàng đầu",
+        "desc": "Cửa hàng chính hãng"
+      },
+      "newArrivals": {
+        "name": "Hàng mới về",
+        "desc": "Sản phẩm mới nhất"
+      }
+    },
+    "sections": {
+      "flashSale": "Flash Sale"
+    },
+    "discovery": {
+      "recentViewed": "Đã xem gần đây",
+      "wishlist": "Danh sách yêu thích",
+      "recommended": "Gợi ý cho bạn"
+    },
+    "joinUs": {
+      "title": "Ưu đãi tốt hơn,<br></br>dành riêng cho bạn.",
+      "desc": "Tham gia để lưu sản phẩm yêu thích, theo dõi đơn hàng và khám phá các ưu đãi được tuyển chọn cho các nhu cầu hàng ngày.",
+      "btnJoin": "Tham gia ngay",
+      "backgroundText": "Ưu đãi"
+    }
+  },
+  "NewArrivalsPage": {
+    "metadata": {
+      "title": "Hàng mới | E-Commerce",
+      "description": "Khám phá những sản phẩm mới vừa có mặt tại cửa hàng."
+    },
+    "header": {
+      "title": "Hàng",
+      "highlight": "Mới",
+      "description": "Đón đầu xu hướng với <strong>sản phẩm mới nhất</strong> được chọn riêng cho bạn.",
+      "note": "Bộ sưu tập mới đang được chuẩn bị và sẽ sớm có mặt tại đây. Hãy quay lại thường xuyên để không bỏ lỡ sản phẩm mới."
+    },
+    "list": {
+      "eyebrow": "Bộ sưu tập",
+      "title": "{total} sản phẩm mới",
+      "meta": "Trang {page}/{totalPages}",
+      "loadingMore": "Đang tải thêm hàng mới...",
+      "end": "Đã tải hết hàng mới",
+      "empty": {
+        "title": "Chưa có hàng mới",
+        "description": "Hiện chưa có sản phẩm mới."
+      }
+    }
+  },
+  "NotificationsPage": {
+    "metadata": {
+      "title": "Thông báo",
+      "description": "Xem và quản lý thông báo và hoạt động tài khoản của bạn."
+    },
+    "banner": {
+      "title": "Trung tâm",
+      "highlight": "Thông báo",
+      "unreadDescription": "Bạn có {count} cập nhật chưa đọc. Xem lại hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi tại đây.",
+      "allCaughtUpDescription": "Bạn đã đọc hết mọi thông báo. Hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi sẽ xuất hiện tại đây."
+    },
+    "summary": {
+      "total": "Tổng thông báo",
+      "unread": "Chưa đọc",
+      "read": "Đã đọc"
+    },
+    "header": {
+      "title": "Thông báo",
+      "subtitle": "Quản lý đơn hàng, cập nhật và các chương trình khuyến mãi.",
+      "markAllAsRead": "Đánh dấu tất cả đã đọc"
+    },
+    "filters": {
+      "searchPlaceholder": "Tìm kiếm thông báo...",
+      "searchButton": "Tìm kiếm"
+    },
+    "list": {
+      "fetchingText": "Đang tải thông báo...",
+      "emptyTitle": "Chưa có thông báo nào",
+      "emptyDescription": "Chúng tôi sẽ gửi thông báo cho bạn khi có cập nhật quan trọng về đơn hàng hoặc tài khoản.",
+      "loadingMoreText": "Đang tải thêm thông báo...",
+      "endText": "Đã hết thông báo"
+    },
+    "dropdown": {
+      "title": "Thông báo",
+      "markAllAsRead": "Đánh dấu đã đọc tất cả",
+      "loadingText": "Đang tải thông báo...",
+      "emptyText": "Không có thông báo mới!",
+      "viewAll": "Xem tất cả thông báo"
+    }
+  },
+  "OrdersPage": {
+    "metadata": {
+      "title": "Lịch sử mua hàng | Luxury E-commerce",
+      "description": "Quản lý lịch sử mua hàng và theo dõi trạng thái đơn hàng của bạn."
+    },
+    "detailMetadata": {
+      "title": "Chi tiết đơn hàng | Luxury E-commerce",
+      "description": "Xem chi tiết thông tin đơn hàng cao cấp của bạn."
+    },
+    "header": {
+      "title": "Đơn hàng",
+      "highlight": "Của tôi",
+      "description": "Theo dõi các giao dịch mua hàng, kiểm tra trạng thái vận chuyển và quản lý các sản phẩm đã mua."
+    },
+    "tabs": {
+      "all": "Tất cả",
+      "inProgress": "Đang xử lý",
+      "inTransit": "Đang giao",
+      "delivered": "Đã giao",
+      "returns": "Trả hàng",
+      "closed": "Đã đóng"
+    },
+    "emptyState": {
+      "title": "Chưa có đơn hàng nào",
+      "actionLabel": "Bắt đầu mua sắm",
+      "messageOverview": "Bạn chưa thực hiện đơn đặt hàng nào. Hãy khám phá các sản phẩm cao cấp và đặt đơn hàng đầu tiên ngay nhé.",
+      "messageOther": "Hiện tại bạn không có đơn hàng nào trong mục này."
+    },
+    "card": {
+      "orderNumber": "Đơn hàng #{id}",
+      "needHelp": "Cần hỗ trợ?",
+      "shipping": "Đang giao",
+      "units": "{count} sản phẩm",
+      "discount": "Giảm giá:",
+      "total": "Tổng tiền",
+      "cancel": "Hủy đơn",
+      "requestReturn": "Trả hàng",
+      "review": "Đánh giá",
+      "reorder": "Mua lại",
+      "noOrders": "Chưa có đơn hàng nào",
+      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!"
+    },
+    "confirmCancel": {
+      "title": "Hủy đơn hàng",
+      "description": "Bạn có chắc chắn muốn hủy đơn hàng này? Hành động này không thể hoàn tác.",
+      "keep": "Không, giữ lại",
+      "confirm": "Có, hủy đơn"
+    },
+    "requestReturn": {
+      "title": "Yêu cầu trả hàng",
+      "description": "Vui lòng cho biết lý do và đính kèm hình ảnh rõ ràng để chúng tôi xem xét và hỗ trợ.",
+      "reason": "Lý do trả hàng",
+      "reasonPlaceholder": "Giao sai sản phẩm, hư hỏng hộp/đóng gói, thiếu chi tiết...",
+      "details": "Chi tiết sự cố",
+      "detailsPlaceholder": "Mô tả vấn đề gặp phải, tình trạng của sản phẩm, bao bì đóng gói và phương án mong muốn.",
+      "evidence": "Hình ảnh bằng chứng",
+      "upload": "Tải ảnh lên",
+      "photoRequired": "Yêu cầu đính kèm ít nhất một hình ảnh.",
+      "keepOrder": "Giữ đơn hàng",
+      "submit": "Gửi yêu cầu",
+      "toasts": {
+        "unsupportedImage": "Định dạng ảnh {name} không được hỗ trợ.",
+        "imageTooLarge": "Kích thước ảnh {name} vượt quá 5MB.",
+        "maxImages": "Bạn chỉ có thể đính kèm tối đa {max} ảnh.",
+        "imageRequired": "Vui lòng đính kèm ít nhất một hình ảnh bằng chứng.",
+        "submitSuccess": "Yêu cầu trả hàng đã được gửi thành công.",
+        "submitError": "Không thể gửi yêu cầu trả hàng."
+      }
+    },
+    "detail": {
+      "loading": "Đang tải...",
+      "notFoundTitle": "Không tìm thấy đơn hàng",
+      "notFoundDesc": "Chúng tôi không thể tìm thấy thông tin đơn hàng này. Có thể đơn hàng đã bị xóa hoặc mã ID không chính xác.",
+      "backToOrders": "Quay lại danh sách đơn hàng",
+      "deliveryDetails": "Thông tin giao hàng",
+      "paymentSummary": "Chi tiết thanh toán",
+      "subtotal": "Thành tiền",
+      "discount": "Giảm giá",
+      "total": "Tổng tiền",
+      "returnSectionTitle": "Bạn cần trả lại đơn hàng này?",
+      "returnSectionDesc": "Gửi lý do kèm theo ảnh chụp chi tiết để đội ngũ chăm sóc khách hàng hỗ trợ.",
+      "requestReturnBtn": "Yêu cầu trả hàng",
+      "orderItemsTitle": "Sản phẩm đã mua ({count})",
+      "noOrderItems": "Không có sản phẩm nào.",
+      "qty": "SL",
+      "unit": "Đơn giá",
+      "orderItemsHeader": "Sản phẩm đã mua"
+    }
+  },
+  "AdminOrdersPage": {
+    "header": {
+      "adminCenter": "Trung tâm quản trị",
+      "title": "Quản lý đơn hàng",
+      "description": "Theo dõi các giao dịch mua hàng đa kênh, xử lý các hàng đợi vận hành và cập nhật trạng thái đơn hàng.",
+      "refresh": "Làm mới danh sách"
+    },
+    "filters": {
+      "searchLabel": "Tìm kiếm đơn hàng",
+      "searchPlaceholder": "Tìm theo Mã đơn hàng, tên khách hàng hoặc số điện thoại...",
+      "clearActive": "Xóa bộ lọc hiện tại",
+      "statusLabel": "Lọc theo trạng thái xử lý"
+    },
+    "results": {
+      "ordersCount": "{count} đơn hàng",
+      "pageInfo": "Trang {page} / {totalPages}",
+      "loading": "Đang tải danh sách...",
+      "noOrdersFound": "Không tìm thấy đơn hàng nào",
+      "noOrdersDesc": "Hãy thay đổi từ khóa tìm kiếm hoặc bộ lọc trạng thái để mở rộng phạm vi hiển thị.",
+      "clearFilters": "Xóa bộ lọc",
+      "stt": "STT",
+      "orderId": "Mã đơn hàng",
+      "customer": "Khách hàng",
+      "date": "Ngày đặt",
+      "total": "Tổng tiền",
+      "status": "Trạng thái",
+      "noName": "Không có tên",
+      "hideItems": "Ẩn chi tiết",
+      "showItems": "Hiển thị {count} sản phẩm",
+      "copied": "Đã sao chép mã đơn hàng.",
+      "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang"
+    }
+  },
+  "OrderStatus": {
+    "pending": "Chờ xử lý",
+    "paid": "Đã xác nhận",
+    "shipping": "Đang vận chuyển",
+    "delivered": "Đã giao hàng",
+    "cancelRequested": "Yêu cầu hủy đơn",
+    "cancelProcessing": "Đang hủy đơn",
+    "cancelled": "Đã hủy đơn",
+    "returnRequested": "Yêu cầu trả hàng",
+    "returnProcessing": "Đang xử lý trả hàng",
+    "returned": "Đã trả hàng",
+    "returnRejected": "Từ chối trả hàng"
+  },
+  "Privacy": {
+    "title": "Chính sách Bảo mật",
+    "description": "Chính sách này giải thích cách Shop.Hub thu thập, sử dụng, lưu trữ và bảo vệ thông tin khách hàng khi bạn sử dụng cửa hàng trực tuyến của chúng tôi.",
+    "toc": "Mục lục",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "1. Tổng quan",
+        "paragraphs": [
+          "1.1. Shop.Hub vận hành cửa hàng trực tuyến để khách hàng xem sản phẩm, tạo tài khoản, lưu địa chỉ, đặt hàng, quản lý giỏ hàng, nhận thông báo và liên hệ hỗ trợ.",
+          "1.2. Chính sách Quyền riêng tư này giải thích thông tin nào được thu thập, lý do thu thập, cách chúng tôi sử dụng thông tin và các lựa chọn của bạn khi sử dụng Shop.Hub.",
+          "1.3. Khi sử dụng Shop.Hub, tạo tài khoản, đặt hàng hoặc liên hệ hỗ trợ, bạn xác nhận rằng thông tin của mình sẽ được xử lý như mô tả trong chính sách này.",
+          "1.4. Chúng tôi có thể cập nhật chính sách này khi tính năng, nghĩa vụ pháp lý hoặc cách xử lý dữ liệu thay đổi. Phiên bản mới nhất sẽ được đăng trên trang này."
+        ]
+      },
+      {
+        "id": "data-we-collect",
+        "title": "2. Thông tin chúng tôi thu thập",
+        "paragraphs": [
+          "2.1. Thông tin tài khoản: họ tên, email, số điện thoại, thông tin đăng nhập, ảnh đại diện, thông tin hồ sơ và trạng thái tài khoản.",
+          "2.2. Thông tin mua sắm: sản phẩm trong giỏ hàng, sản phẩm yêu thích, sản phẩm đã xem gần đây, lịch sử duyệt, hoạt động tìm kiếm, danh mục đã chọn, đánh giá sản phẩm, xếp hạng và lịch sử đơn hàng.",
+          "2.3. Thông tin đơn hàng và giao hàng: tên người nhận, số điện thoại, địa chỉ giao hàng, thông tin thanh toán khi cần, sản phẩm đặt mua, số lượng, voucher, trạng thái giao hàng, yêu cầu hủy, yêu cầu đổi trả và ghi chú hỗ trợ.",
+          "2.4. Thông tin thanh toán: phương thức thanh toán, trạng thái thanh toán, mã tham chiếu giao dịch, trạng thái hoàn tiền và một số dữ liệu thanh toán giới hạn. Thông tin đầy đủ của thẻ, ngân hàng hoặc ví điện tử có thể do đối tác thanh toán xử lý và không nhằm mục đích lưu trữ tại Shop.Hub.",
+          "2.5. Thông tin thiết bị và kỹ thuật: địa chỉ IP, loại trình duyệt, loại thiết bị, hệ điều hành, tùy chọn ngôn ngữ, trang đã truy cập, thời điểm truy cập, cookie, dữ liệu local storage và nhật ký chẩn đoán.",
+          "2.6. Thông tin thông báo: tùy chọn thông báo, token thông báo, quyền trên thiết bị và trạng thái gửi push notification khi bạn bật tính năng này."
+        ]
+      },
+      {
+        "id": "how-we-collect",
+        "title": "3. Cách chúng tôi thu thập thông tin",
+        "paragraphs": [
+          "3.1. Chúng tôi thu thập thông tin trực tiếp từ bạn khi bạn đăng ký, đăng nhập, cập nhật hồ sơ, thêm địa chỉ, đặt hàng, gửi đánh giá, liên hệ hỗ trợ hoặc thay đổi cài đặt tài khoản.",
+          "3.2. Chúng tôi tự động thu thập thông tin mua sắm và kỹ thuật khi bạn duyệt trang, tìm kiếm, xem sản phẩm, thêm vào giỏ hàng, lưu sản phẩm yêu thích hoặc tương tác với thông báo.",
+          "3.3. Chúng tôi có thể nhận một số thông tin giới hạn từ nhà cung cấp dịch vụ như đối tác thanh toán, đơn vị vận chuyển, công cụ phân tích, dịch vụ xác thực hoặc nhà cung cấp thông báo khi cần để vận hành cửa hàng.",
+          "3.4. Chúng tôi không chủ ý thu thập thông tin cá nhân của trẻ em không được phép sử dụng dịch vụ mua sắm trực tuyến theo pháp luật áp dụng."
+        ]
+      },
+      {
+        "id": "use-of-data",
+        "title": "4. Cách chúng tôi sử dụng thông tin",
+        "paragraphs": [
+          "4.1. Chúng tôi sử dụng thông tin của bạn để tạo và bảo vệ tài khoản, xác thực đăng nhập, khôi phục quyền truy cập và ngăn chặn việc sử dụng trái phép.",
+          "4.2. Chúng tôi sử dụng thông tin mua sắm và đơn hàng để xử lý giỏ hàng, thanh toán, giao hàng, đổi trả, hoàn tiền, voucher, gợi ý sản phẩm và hỗ trợ khách hàng.",
+          "4.3. Chúng tôi sử dụng thông tin liên hệ để gửi xác nhận đơn hàng, cập nhật giao hàng, cảnh báo bảo mật, phản hồi hỗ trợ, thông báo tài khoản và thông báo dịch vụ.",
+          "4.4. Chúng tôi sử dụng dữ liệu duyệt trang, tìm kiếm, sản phẩm yêu thích và sản phẩm đã xem gần đây để cải thiện việc khám phá sản phẩm, cá nhân hóa trải nghiệm mua sắm, đo lường hiệu quả tính năng và nâng cao chất lượng cửa hàng.",
+          "4.5. Chúng tôi sử dụng thông tin kỹ thuật và chẩn đoán để duy trì bảo mật, phát hiện gian lận, sửa lỗi, ngăn chặn lạm dụng, cải thiện hiệu năng và tuân thủ nghĩa vụ pháp lý."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "5. Cookie và local storage",
+        "paragraphs": [
+          "5.1. Shop.Hub có thể sử dụng cookie, local storage và công nghệ tương tự để duy trì đăng nhập, ghi nhớ tùy chọn, lưu giỏ hàng hoặc thiết lập giao diện, cải thiện điều hướng và đo lường mức độ sử dụng.",
+          "5.2. Một số dữ liệu lưu trữ là cần thiết cho các tính năng cốt lõi như xác thực, giỏ hàng, tùy chọn ngôn ngữ, tùy chọn giao diện và kiểm tra bảo mật.",
+          "5.3. Bạn có thể kiểm soát cookie qua cài đặt trình duyệt. Việc chặn hoặc xóa cookie có thể ảnh hưởng đến đăng nhập, thanh toán, tùy chọn đã lưu và các tính năng khác của cửa hàng."
+        ]
+      },
+      {
+        "id": "sharing",
+        "title": "6. Khi nào chúng tôi chia sẻ thông tin",
+        "paragraphs": [
+          "6.1. Chúng tôi không bán thông tin cá nhân của bạn.",
+          "6.2. Chúng tôi có thể chia sẻ thông tin với nhà cung cấp dịch vụ hỗ trợ vận hành cửa hàng, bao gồm lưu trữ, cơ sở dữ liệu, thanh toán, giao hàng, email, SMS, push notification, phân tích, phòng chống gian lận và hỗ trợ khách hàng.",
+          "6.3. Chúng tôi có thể chia sẻ thông tin giao hàng với đơn vị vận chuyển để họ giao đơn hàng và liên hệ với bạn về các lần giao hàng.",
+          "6.4. Chúng tôi có thể tiết lộ thông tin khi pháp luật, quy trình pháp lý, điều tra bảo mật, phòng chống gian lận, bảo vệ quyền lợi hoặc việc thực thi Điều khoản Dịch vụ yêu cầu.",
+          "6.5. Nếu Shop.Hub tham gia chuyển giao kinh doanh, sáp nhập, huy động vốn, tái cấu trúc hoặc bán tài sản, thông tin khách hàng có thể được chuyển giao như một phần của giao dịch đó kèm các biện pháp bảo vệ phù hợp."
+        ]
+      },
+      {
+        "id": "security",
+        "title": "7. Bảo mật dữ liệu",
+        "paragraphs": [
+          "7.1. Chúng tôi áp dụng các biện pháp kỹ thuật và tổ chức hợp lý để bảo vệ thông tin cá nhân khỏi truy cập trái phép, mất mát, lạm dụng, thay đổi hoặc tiết lộ.",
+          "7.2. Biện pháp bảo mật có thể bao gồm kiểm soát truy cập, kết nối mã hóa, bảo vệ thông tin đăng nhập, giám sát, phân quyền theo vai trò và giới hạn quyền truy cập của nhân viên hoặc nhà cung cấp dịch vụ theo nhu cầu công việc.",
+          "7.3. Không dịch vụ trực tuyến nào có thể đảm bảo an toàn tuyệt đối. Bạn nên sử dụng mật khẩu mạnh, giữ bí mật thông tin đăng nhập và liên hệ với chúng tôi ngay nếu nghi ngờ tài khoản bị xâm phạm."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "8. Thời gian lưu trữ dữ liệu",
+        "paragraphs": [
+          "8.1. Chúng tôi lưu giữ thông tin cá nhân trong thời gian cần thiết để cung cấp cửa hàng, hoàn tất đơn hàng, hỗ trợ đổi trả và hoàn tiền, duy trì lịch sử tài khoản, ngăn chặn gian lận, giải quyết tranh chấp và tuân thủ nghĩa vụ pháp lý hoặc kế toán.",
+          "8.2. Một số thông tin có thể còn trong bản sao lưu, nhật ký, hóa đơn, hồ sơ đơn hàng hoặc hồ sơ phòng chống gian lận trong một khoảng thời gian giới hạn ngay cả sau khi có yêu cầu xóa tài khoản hoặc xóa dữ liệu.",
+          "8.3. Khi thông tin không còn cần thiết, chúng tôi sẽ xóa, ẩn danh hóa hoặc chỉ lưu giữ an toàn nếu pháp luật hoặc nhu cầu vận hành hợp pháp yêu cầu."
+        ]
+      },
+      {
+        "id": "your-choices",
+        "title": "9. Lựa chọn và quyền của bạn",
+        "paragraphs": [
+          "9.1. Bạn có thể truy cập, cập nhật hoặc chỉnh sửa một số thông tin tài khoản, địa chỉ, quyền thông báo và tùy chọn thông qua cài đặt tài khoản.",
+          "9.2. Bạn có thể yêu cầu truy cập, chỉnh sửa, xóa, hạn chế xử lý hoặc xuất dữ liệu cá nhân khi các quyền này được pháp luật áp dụng cho phép.",
+          "9.3. Bạn có thể hủy nhận tin nhắn khuyến mãi khi có tùy chọn hủy đăng ký. Tin nhắn về đơn hàng, bảo mật, tài khoản và dịch vụ vẫn có thể được gửi khi cần thiết.",
+          "9.4. Bạn có thể tắt push notification qua cài đặt trình duyệt hoặc thiết bị. Việc tắt thông báo có thể khiến bạn không nhận được cập nhật thời gian thực về đơn hàng, khuyến mãi hoặc tài khoản."
+        ]
+      },
+      {
+        "id": "international",
+        "title": "10. Xử lý quốc tế",
+        "paragraphs": [
+          "10.1. Shop.Hub và các nhà cung cấp dịch vụ có thể xử lý hoặc lưu trữ thông tin tại các quốc gia nơi hạ tầng, đội ngũ hỗ trợ hoặc đối tác công nghệ của chúng tôi hoạt động.",
+          "10.2. Khi thông tin được chuyển qua biên giới, chúng tôi áp dụng biện pháp bảo vệ phù hợp theo pháp luật áp dụng và giới hạn quyền truy cập ở mức cần thiết để vận hành cửa hàng."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Liên hệ",
+        "paragraphs": [
+          "11.1. Nếu bạn có câu hỏi về Chính sách Quyền riêng tư này hoặc muốn gửi yêu cầu về quyền riêng tư, hãy liên hệ bộ phận hỗ trợ Shop.Hub qua trang trợ giúp hoặc liên hệ.",
+          "11.2. Để chúng tôi xác minh và phản hồi yêu cầu, vui lòng cung cấp email hoặc số điện thoại tài khoản, mô tả rõ yêu cầu và mã đơn hàng hoặc mã hỗ trợ liên quan nếu có."
+        ]
+      }
+    ]
+  },
+  "ProductsPage": {
+    "title": "Sản phẩm của chúng tôi",
+    "premiumProducts": "sản phẩm cao cấp",
+    "description": "Khám phá bộ sưu tập tốt nhất của {categoryTitle}. Được tuyển chọn cho chất lượng và phong cách.",
+    "filters": "Bộ lọc",
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tìm sản phẩm",
+    "categories": "Danh mục",
+    "searchCategories": "Tìm danh mục",
+    "noCategories": "Không tìm thấy danh mục.",
+    "priceRange": "Khoảng giá",
+    "min": "Tối thiểu",
+    "max": "Tối đa",
+    "applyPrice": "Áp dụng giá",
+    "rating": "Đánh giá",
+    "up": " trở lên",
+    "noProducts": "Không tìm thấy sản phẩm",
+    "noProductsDesc": "Không tìm thấy sản phẩm nào trong danh mục \"{categoryTitle}\" phù hợp với tiêu chí của bạn."
+  },
+  "ProductDetailPage": {
+    "general": "Chung",
+    "anonymousUser": "Người dùng ẩn danh",
+    "noImage": "Không có hình ảnh",
+    "authenticProduct": "Sản phẩm chính hãng từ thương hiệu này",
+    "viewStore": "Xem cửa hàng",
+    "productDescription": "Mô tả sản phẩm",
+    "noDescription": "Đây là mô tả chi tiết của sản phẩm. Dữ liệu hiện đang được cập nhật.",
+    "reviews": "Đánh giá",
+    "sold": "Đã bán",
+    "report": "Tố cáo",
+    "quantity": "Số lượng",
+    "itemsAvailable": "Còn {count} sản phẩm",
+    "inStock": "Còn hàng",
+    "addToCart": "Thêm vào giỏ hàng",
+    "addToCartSuccess": "Đã thêm vào giỏ hàng",
+    "buyNow": "Mua ngay",
+    "signInForAction": "Vui lòng đăng nhập để tiếp tục",
+    "signInToBuy": "Vui lòng đăng nhập để mua hàng",
+    "similarProducts": "Sản phẩm cùng danh mục",
+    "viewAll": "Xem tất cả",
+    "noSimilarProducts": "Không có sản phẩm tương tự",
+    "customerReviews": "Đánh giá của khách hàng",
+    "reviewsCount": "({count} đánh giá)",
+    "noReviews": "Chưa có đánh giá nào",
+    "noReviewsDesc": "Phản hồi của khách hàng về sản phẩm này sẽ hiển thị ở đây khi có đánh giá.",
+    "writeReview": "Viết đánh giá",
+    "writeReviewDesc": "Đánh giá chỉ khả dụng sau khi đơn hàng đã được giao.",
+    "ratingRequired": "Vui lòng chọn mức đánh giá",
+    "comment": "Bình luận",
+    "commentPlaceholder": "Chia sẻ trải nghiệm của bạn sau khi sử dụng sản phẩm này.",
+    "commentMax1000": "Đánh giá không được vượt quá 1000 ký tự",
+    "submitReview": "Gửi đánh giá",
+    "signInToReview": "Đăng nhập để đánh giá các sản phẩm đã mua.",
+    "signIn": "Đăng nhập",
+    "reviewsLoadFailed": "Không thể tải danh sách đánh giá",
+    "retry": "Thử lại",
+    "submitFailed": "Không thể gửi đánh giá. Vui lòng thử lại sau.",
+    "authRequired": "Vui lòng đăng nhập trước khi viết đánh giá.",
+    "variantUnavailable": "Phiên bản sản phẩm này không khả dụng để đánh giá.",
+    "submitSuccess": "Đã gửi đánh giá thành công.",
+    "filterAll": "Tất cả",
+    "filterStars": "{rating} Sao"
+  },
+  "ProfileLayout": {
+    "header": {
+      "title": "Hồ sơ",
+      "highlight": "Cài đặt",
+      "description": "Quản lý hồ sơ và quay lại các sản phẩm bạn quan tâm."
+    },
+    "sidebar": {
+      "accountSettings": "Cài đặt tài khoản",
+      "myAccount": "Tài khoản của tôi",
+      "links": {
+        "profile": "Hồ sơ",
+        "bankAccount": "Ngân hàng",
+        "addresses": "Địa chỉ",
+        "changePassword": "Đổi mật khẩu",
+        "notifications": "Thông báo",
+        "purchases": "Đơn mua",
+        "cart": "Giỏ hàng"
+      }
+    }
+  },
+  "ProfileBankPage": {
+    "metadata": {
+      "title": "Tài khoản ngân hàng",
+      "description": "Quản lý tài khoản ngân hàng để rút tiền."
+    },
+    "title": "Tài khoản ngân hàng",
+    "description": "Quản lý tài khoản ngân hàng để rút tiền.",
+    "addAccount": "Thêm tài khoản",
+    "empty": {
+      "title": "Chưa có tài khoản ngân hàng",
+      "description": "Thêm tài khoản để rút tiền nhanh hơn."
+    }
+  },
+  "ProfilePasswordPage": {
+    "metadata": {
+      "title": "Đổi mật khẩu",
+      "description": "Cập nhật mật khẩu để bảo vệ tài khoản."
+    },
+    "title": "Đổi mật khẩu",
+    "description": "Cập nhật mật khẩu để bảo vệ tài khoản.",
+    "form": {
+      "currentPasswordLabel": "Mật khẩu hiện tại",
+      "newPasswordLabel": "Mật khẩu mới",
+      "confirmNewPasswordLabel": "Xác nhận mật khẩu mới",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Cập nhật mật khẩu"
+    },
+    "toast": {
+      "success": "Đã đổi mật khẩu.",
+      "failed": "Không thể đổi mật khẩu.",
+      "failedWithRetry": "Không thể đổi mật khẩu. Vui lòng thử lại."
+    }
+  },
+  "ProfilePage": {
+    "metadata": {
+      "title": "Hồ sơ của tôi",
+      "description": "Xem và cập nhật thông tin hồ sơ cá nhân của bạn."
+    },
+    "form": {
+      "firstNameLabel": "Tên",
+      "firstNamePlaceholder": "Nhập tên của bạn",
+      "lastNameLabel": "Họ",
+      "lastNamePlaceholder": "Nhập họ của bạn",
+      "emailLabel": "Địa chỉ Email",
+      "emailPlaceholder": "Nhập Email",
+      "phoneLabel": "Số điện thoại",
+      "dateOfBirthLabel": "Ngày sinh",
+      "dateOfBirthPlaceholder": "ngày/tháng/năm",
+      "genderLabel": "Giới tính",
+      "genders": {
+        "male": "Nam",
+        "female": "Nữ",
+        "other": "Khác"
+      },
+      "editBtn": "Sửa hồ sơ",
+      "updateBtn": "Cập nhật hồ sơ",
+      "updating": "Đang cập nhật...",
+      "cancelBtn": "Hủy"
+    },
+    "toast": {
+      "updateSuccess": "Cập nhật hồ sơ thành công!",
+      "updateFailed": "Cập nhật hồ sơ thất bại.",
+      "uploadAvatarSuccess": "Tải ảnh đại diện thành công!",
+      "uploadAvatarFailed": "Tải ảnh đại diện thất bại."
+    }
+  },
+  "ProfileAddressesPage": {
+    "metadata": {
+      "title": "Địa chỉ của tôi",
+      "description": "Quản lý địa chỉ giao hàng của bạn."
+    },
+    "title": "Địa chỉ của tôi",
+    "description": "Quản lý các địa chỉ nhận hàng của bạn.",
+    "defaultBadge": "Mặc định",
+    "noName": "Không có tên",
+    "noPhone": "Không có SĐT",
+    "addAddress": "Thêm địa chỉ",
+    "newAddress": "Địa chỉ mới",
+    "editAddress": "Sửa địa chỉ",
+    "shippingDetails": "Thông tin giao hàng",
+    "empty": {
+      "title": "Chưa có địa chỉ nào",
+      "description": "Thêm địa chỉ giao hàng để bắt đầu mua sắm.",
+      "actionLabel": "Thêm địa chỉ"
+    },
+    "form": {
+      "receiverNameLabel": "Tên người nhận",
+      "receiverNamePlaceholder": "Nguyễn Văn A",
+      "receiverPhoneLabel": "Số điện thoại nhận hàng",
+      "labelField": "Nhãn địa chỉ",
+      "labels": {
+        "home": "Nhà riêng",
+        "work": "Văn phòng",
+        "apartment": "Chung cư",
+        "other": "Khác"
+      },
+      "addressFromMap": "Địa chỉ từ bản đồ",
+      "streetLabel": "Số nhà / Đường / Địa chỉ cụ thể",
+      "streetPlaceholder": "Ví dụ: Số 12, Tầng 3, Tên đường",
+      "cityLabel": "Quận / Huyện / Thành phố",
+      "cityPlaceholder": "Quận / Huyện",
+      "stateLabel": "Tỉnh / Thành phố",
+      "statePlaceholder": "Tỉnh / Thành phố",
+      "countryLabel": "Quốc gia",
+      "countryPlaceholder": "Quốc gia",
+      "postalCodeLabel": "Mã bưu chính",
+      "postalCodePlaceholder": "Mã bưu chính",
+      "setDefaultCheckbox": "Đặt làm địa chỉ mặc định",
+      "submitAdd": "Thêm địa chỉ",
+      "submitUpdate": "Cập nhật"
+    },
+    "toast": {
+      "loadFailed": "Không thể tải danh sách địa chỉ.",
+      "addSuccess": "Đã thêm địa chỉ thành công!",
+      "addFailed": "Thêm địa chỉ thất bại.",
+      "deleteSuccess": "Đã xóa địa chỉ.",
+      "deleteFailed": "Xóa địa chỉ thất bại.",
+      "setDefaultSuccess": "Đã cập nhật địa chỉ mặc định.",
+      "setDefaultFailed": "Đặt địa chỉ mặc định thất bại."
+    }
+  },
+  "RecentViewedPage": {
+    "metadata": {
+      "title": "Sản phẩm đã xem gần đây",
+      "description": "Các sản phẩm bạn đã xem gần đây."
+    },
+    "tag": "Lịch sử",
+    "title": "Xem gần đây",
+    "description": "Các sản phẩm bạn đã mở gần đây được lưu tại đây để bạn có thể xem lại dễ dàng.",
+    "loadingText": "Đang tải thêm lịch sử...",
+    "endText": "Bạn đã xem hết lịch sử xem sản phẩm",
+    "emptyTitle": "Chưa có sản phẩm đã xem gần đây",
+    "emptyDescription": "Hãy xem thử một vài trang sản phẩm và chúng sẽ hiển thị ở đây.",
+    "browseButton": "Khám phá sản phẩm"
+  },
+  "RequireProfileInfoModal": {
+    "title": "Hoàn tất thông tin cá nhân",
+    "description": "Vui lòng cung cấp các thông tin còn thiếu để tiếp tục.",
+    "form": {
+      "firstNameLabel": "Tên",
+      "firstNamePlaceholder": "Nhập tên",
+      "lastNameLabel": "Họ",
+      "lastNamePlaceholder": "Nhập họ",
+      "dateOfBirthLabel": "Ngày sinh",
+      "dateOfBirthPlaceholder": "ngày/tháng/năm",
+      "genderLabel": "Giới tính",
+      "genders": {
+        "male": "Nam",
+        "female": "Nữ",
+        "other": "Khác"
+      },
+      "submit": "Lưu & Tiếp tục",
+      "logout": "Đăng xuất"
+    }
+  },
+  "SearchView": {
+    "titleWithQuery": "Kết quả cho \"{query}\"",
+    "titleWithoutQuery": "Tìm kiếm sản phẩm",
+    "description": "Chúng tôi tìm thấy {total} sản phẩm phù hợp với tiêu chí của bạn.",
+    "noResultsTitle": "Không tìm thấy kết quả",
+    "noResultsDescription": "Không tìm thấy sản phẩm nào khớp với \"{query}\". Hãy thử từ khóa khác hoặc duyệt qua các danh mục của chúng tôi."
+  },
+  "SettingsPage": {
+    "metadata": {
+      "title": "Cài đặt",
+      "description": "Quản lý giao diện và tùy chọn tài khoản."
+    },
+    "header": {
+      "title": "Trang",
+      "highlight": "Cài đặt",
+      "description": "Điều chỉnh ngôn ngữ, giao diện tối, màu sắc và tùy chọn hiển thị."
+    },
+    "navigation": {
+      "title": "Cài đặt",
+      "appearance": "Giao diện",
+      "language": "Ngôn ngữ"
+    },
+    "appearance": {
+      "title": "Giao diện",
+      "themeColor": {
+        "label": "Màu chủ đạo",
+        "description": "Chọn màu nhấn bạn thích.",
+        "select": "Chọn giao diện {theme}"
+      },
+      "themes": {
+        "blue": "Xanh dương",
+        "red": "Đỏ",
+        "green": "Xanh lá"
+      },
+      "darkMode": {
+        "label": "Giao diện tối",
+        "description": "Chuyển giữa nền sáng và tối.",
+        "toggle": "Bật/tắt giao diện tối"
+      }
+    },
+    "language": {
+      "label": "Ngôn ngữ",
+      "description": "Chọn ngôn ngữ hiển thị. Tùy chọn này đổi subdomain.",
+      "select": "Chọn {language}",
+      "options": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+      }
+    }
+  },
+  "Terms": {
+    "title": "Điều khoản Dịch vụ",
+    "description": "Các điều khoản này giải thích cách khách hàng sử dụng Shop.Hub để xem sản phẩm, đặt hàng, quản lý tài khoản và mua hàng trực tiếp từ cửa hàng trực tuyến của chúng tôi.",
+    "toc": "Mục lục",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "1. Tổng quan",
+        "paragraphs": [
+          "1.1. Shop.Hub cung cấp cửa hàng trực tuyến để khách hàng tìm kiếm sản phẩm do Shop.Hub bán, quản lý giỏ hàng, đặt hàng, nhận cập nhật đơn hàng, lưu sản phẩm yêu thích và sử dụng các tính năng tài khoản liên quan đến hoạt động mua sắm.",
+          "1.2. Khi truy cập Shop.Hub, tạo tài khoản hoặc đặt hàng, bạn đồng ý tuân thủ Điều khoản Dịch vụ này và các chính sách được dẫn chiếu từ trang thanh toán, tài khoản, giao hàng, đổi trả hoặc quyền riêng tư.",
+          "1.3. Các điều khoản này áp dụng cho tất cả khách truy cập và khách hàng đã đăng ký. Một số tính năng như thanh toán, lịch sử đơn hàng, địa chỉ đã lưu, sản phẩm yêu thích và thông báo có thể yêu cầu tài khoản.",
+          "1.4. Shop.Hub may update these terms when platform features, legal requirements, or operating policies change. Continued use of the platform after an update means you accept the revised terms."
+        ]
+      },
+      {
+        "id": "accounts",
+        "title": "2. Tài khoản và bảo mật",
+        "paragraphs": [
+          "2.1. Bạn chịu trách nhiệm cung cấp thông tin tài khoản chính xác, bao gồm họ tên, thông tin liên hệ, địa chỉ giao hàng và các thông tin cần thiết để hoàn tất đơn hàng.",
+          "2.2. Bạn chịu trách nhiệm bảo mật thông tin đăng nhập và các hoạt động được thực hiện qua tài khoản của mình, trừ khi hoạt động đó phát sinh từ sự cố bảo mật của nền tảng.",
+          "2.3. Shop.Hub có thể yêu cầu bổ sung thông tin hồ sơ trước khi cho phép thanh toán hoặc thực hiện một số thao tác tài khoản khi thông tin đó cần cho giao hàng, phòng chống gian lận, hỗ trợ hoặc tuân thủ pháp luật.",
+          "2.4. Shop.Hub có thể giới hạn, tạm ngưng hoặc đóng tài khoản có dấu hiệu gian lận, lạm dụng, truy cập trái phép, lạm dụng thanh toán, vi phạm chính sách nhiều lần hoặc gây ảnh hưởng đến hoạt động nền tảng."
+        ]
+      },
+      {
+        "id": "products",
+        "title": "3. Thông tin sản phẩm",
+        "paragraphs": [
+          "3.1. Shop.Hub cố gắng hiển thị rõ ràng tên sản phẩm, mô tả, hình ảnh, danh mục, thông tin thương hiệu, giá bán, khuyến mãi, tình trạng tồn kho, đánh giá và các chi tiết liên quan.",
+          "3.2. Hình ảnh và mô tả sản phẩm được cung cấp để tham khảo khi mua sắm. Có thể có khác biệt nhỏ về bao bì, màu sắc, phụ kiện hoặc cách trình bày của nhà sản xuất do cập nhật lô hàng, thay đổi từ nhà sản xuất hoặc thiết lập màn hình.",
+          "3.3. Giá, khuyến mãi, voucher, flash sale và số lượng tồn kho có thể thay đổi trước khi thanh toán. Tóm tắt đơn hàng cuối cùng tại bước thanh toán là thông tin được dùng để gửi đơn hàng.",
+          "3.4. Nếu sản phẩm có lỗi hiển thị rõ ràng, hết hàng, sai giá hoặc không đáp ứng điều kiện giao hàng, Shop.Hub có thể hủy hoặc điều chỉnh đơn hàng bị ảnh hưởng và thông báo cho bạn qua kênh liên hệ phù hợp."
+        ]
+      },
+      {
+        "id": "orders",
+        "title": "4. Đơn hàng và thanh toán",
+        "paragraphs": [
+          "4.1. Việc thêm sản phẩm vào giỏ hàng hoặc danh sách yêu thích không giữ hàng và không đảm bảo giá hiển thị. Đơn hàng chỉ được tạo sau khi bạn hoàn tất thanh toán và nhận xác nhận đơn hàng.",
+          "4.2. Bạn chịu trách nhiệm kiểm tra sản phẩm, số lượng, địa chỉ giao hàng, thông tin liên hệ, voucher, phương thức thanh toán và tổng tiền trước khi gửi đơn hàng.",
+          "4.3. Shop.Hub có thể từ chối, hủy hoặc tạm giữ đơn hàng khi không xác minh được thanh toán, thông tin giao hàng chưa đầy đủ, hàng không còn, nghi ngờ gian lận hoặc đơn hàng vi phạm chính sách cửa hàng.",
+          "4.4. Trạng thái đơn hàng, điều kiện hủy, cập nhật giao hàng và phản hồi hỗ trợ có thể được hiển thị trong tài khoản, gửi qua email hoặc gửi qua thông báo nền tảng khi khả dụng."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "5. Thanh toán, voucher và khuyến mãi",
+        "paragraphs": [
+          "5.1. Các phương thức thanh toán được hỗ trợ sẽ hiển thị tại bước thanh toán. Việc ủy quyền, ghi nhận, hoàn tiền và bảo mật giao dịch có thể do đối tác thanh toán xử lý theo điều khoản riêng của họ.",
+          "5.2. Voucher, mã giảm giá, miễn phí vận chuyển, giá flash sale và các chương trình khuyến mãi khác có thể có điều kiện áp dụng, giới hạn lượt dùng, thời hạn, giá trị đơn hàng tối thiểu, giới hạn danh mục hoặc giới hạn tài khoản.",
+          "5.3. Shop.Hub có thể từ chối hoặc thu hồi ưu đãi được áp dụng do lỗi kỹ thuật, hoạt động đáng ngờ, sử dụng trùng lặp, hành vi mua đi bán lại hoặc vi phạm điều kiện khuyến mãi.",
+          "5.4. Thuế, phí vận chuyển, phí xử lý hoặc các khoản phí áp dụng khác sẽ được hiển thị khi cần thiết trước khi gửi đơn hàng."
+        ]
+      },
+      {
+        "id": "shipping",
+        "title": "6. Giao hàng",
+        "paragraphs": [
+          "6.1. Thời gian giao hàng dự kiến chỉ nhằm mục đích tham khảo và có thể thay đổi do độ chính xác của địa chỉ, năng lực đơn vị vận chuyển, thời tiết, ngày lễ, hải quan, xử lý tồn kho hoặc điều kiện vận hành khác.",
+          "6.2. Bạn cần cung cấp số điện thoại có thể liên hệ và địa chỉ giao hàng đầy đủ. Việc giao hàng thất bại do thông tin sai hoặc không liên hệ được có thể dẫn đến chậm giao, hủy đơn hoặc phát sinh lần giao bổ sung.",
+          "6.3. Rủi ro mất mát hoặc hư hỏng thường được xác định theo xác nhận giao hàng và quy định bảo vệ người tiêu dùng áp dụng. Nếu hàng bị hư hỏng, thiếu hoặc khác đáng kể so với đơn hàng, hãy liên hệ hỗ trợ sớm kèm bằng chứng phù hợp.",
+          "6.4. Một số sản phẩm có thể bị giới hạn theo địa điểm, kích thước, trọng lượng, nguồn hàng, quy định của đơn vị vận chuyển hoặc yêu cầu pháp lý."
+        ]
+      },
+      {
+        "id": "returns",
+        "title": "7. Hủy đơn, đổi trả và hoàn tiền",
+        "paragraphs": [
+          "7.1. Điều kiện hủy đơn, đổi trả, đổi sản phẩm và hoàn tiền phụ thuộc vào loại sản phẩm, trạng thái đơn hàng, chính sách đổi trả của Shop.Hub, phương thức thanh toán và yêu cầu bảo vệ người tiêu dùng áp dụng.",
+          "7.2. Sản phẩm đổi trả có thể cần chưa qua sử dụng, còn đầy đủ và được gửi lại cùng bao bì gốc, phụ kiện, quà tặng, hướng dẫn, hóa đơn hoặc các vật phẩm đi kèm, trừ trường hợp đổi trả do lỗi, hư hỏng hoặc giao sai.",
+          "7.3. Thời gian hoàn tiền có thể khác nhau tùy phương thức thanh toán, ngân hàng, ví điện tử, loại khuyến mãi và kết quả kiểm tra. Phí vận chuyển, voucher hoặc ưu đãi một phần sẽ được xử lý theo chính sách áp dụng cho đơn hàng.",
+          "7.4. Shop.Hub có thể từ chối yêu cầu đổi trả hoặc hoàn tiền có dấu hiệu lạm dụng, sản phẩm bị thay đổi, thiếu hàng, khai báo sai, gửi yêu cầu quá hạn hoặc không đáp ứng chính sách đổi trả."
+        ]
+      },
+      {
+        "id": "user-conduct",
+        "title": "8. Hành vi người dùng",
+        "paragraphs": [
+          "8.1. Bạn đồng ý không lạm dụng Shop.Hub, can thiệp hoạt động nền tảng, truy cập trái phép hệ thống, thu thập dữ liệu được bảo vệ, tạo đơn hàng gian lận, lạm dụng voucher, thao túng đánh giá hoặc mạo danh người khác.",
+          "8.2. Đánh giá, tin nhắn, thông tin hồ sơ và nội dung khác do bạn gửi không được chứa nội dung bất hợp pháp, quấy rối, thù ghét, spam, thông tin gây hiểu lầm, mã độc, dữ liệu cá nhân của người khác hoặc nội dung vi phạm quyền của bên thứ ba.",
+          "8.3. Shop.Hub có thể kiểm duyệt, gỡ bỏ, giới hạn hoặc báo cáo nội dung hay hoạt động vi phạm điều khoản này, gây hại cho người dùng, tạo rủi ro bảo mật hoặc trái với pháp luật áp dụng."
+        ]
+      },
+      {
+        "id": "privacy",
+        "title": "9. Quyền riêng tư và thông báo",
+        "paragraphs": [
+          "9.1. Shop.Hub thu thập và sử dụng thông tin tài khoản, đơn hàng, lịch sử duyệt, thiết bị, thông báo và hỗ trợ như được mô tả trong Chính sách Quyền riêng tư.",
+          "9.2. Thông báo nền tảng, email, SMS, push notification hoặc tin nhắn trong tài khoản có thể được dùng cho cập nhật đơn hàng, cảnh báo bảo mật, hoạt động tài khoản, phản hồi hỗ trợ, ưu đãi khuyến mãi và thông báo dịch vụ.",
+          "9.3. Bạn có thể quản lý một số tùy chọn liên lạc qua cài đặt tài khoản, quyền trình duyệt hoặc cài đặt thiết bị. Các tin nhắn giao dịch và bảo mật vẫn có thể được gửi khi cần để vận hành dịch vụ."
+        ]
+      },
+      {
+        "id": "liability",
+        "title": "10. Tính khả dụng và trách nhiệm",
+        "paragraphs": [
+          "10.1. Shop.Hub cố gắng duy trì nền tảng ổn định, nhưng việc truy cập có thể bị gián đoạn do bảo trì, sự cố mạng, lỗi dịch vụ bên thứ ba, sự kiện bảo mật hoặc thay đổi tính năng nền tảng.",
+          "10.2. Trong phạm vi pháp luật cho phép, Shop.Hub không chịu trách nhiệm đối với thiệt hại gián tiếp, ngẫu nhiên, mang tính phạt hoặc hệ quả phát sinh từ việc sử dụng nền tảng, giao hàng chậm, sản phẩm không còn, dịch vụ bên thứ ba hoặc việc người dùng sử dụng sai mục đích.",
+          "10.3. Không nội dung nào trong điều khoản này giới hạn các quyền không thể bị loại trừ theo pháp luật bảo vệ người tiêu dùng áp dụng."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Hỗ trợ",
+        "paragraphs": [
+          "11.1. Nếu bạn có câu hỏi về điều khoản này, đơn hàng, thanh toán, đổi trả, tài khoản hoặc sự cố nền tảng, hãy liên hệ bộ phận hỗ trợ của Shop.Hub qua trang trợ giúp hoặc liên hệ.",
+          "11.2. Khi liên hệ hỗ trợ, hãy cung cấp đủ thông tin để xác định vấn đề, chẳng hạn mã đơn hàng, tên sản phẩm, email hoặc số điện thoại tài khoản, ảnh chụp màn hình, hình ảnh và mô tả rõ ràng."
+        ]
+      }
+    ]
+  },
+  "Validation": {
+    "emailRequired": "Email không được bỏ trống",
+    "emailInvalid": "Địa chỉ email không hợp lệ",
+    "passwordMin6": "Mật khẩu phải chứa ít nhất 6 ký tự",
+    "passwordMin8": "Mật khẩu phải chứa ít nhất 8 ký tự",
+    "currentPasswordRequired": "Vui lòng nhập mật khẩu hiện tại",
+    "newPasswordMin6": "Mật khẩu mới phải có ít nhất 6 ký tự",
+    "confirmPasswordRequired": "Vui lòng xác nhận mật khẩu",
+    "passwordsMustMatch": "Mật khẩu xác nhận không trùng khớp",
+    "phoneMin10": "Số điện thoại phải chứa ít nhất 10 số",
+    "emailOrPhoneRequired": "Vui lòng nhập email hoặc số điện thoại",
+    "returnReasonMin": "Vui lòng nhập lý do ngắn gọn.",
+    "returnReasonMax": "Lý do không được quá 120 ký tự.",
+    "returnDescriptionMin": "Vui lòng mô tả chi tiết sự cố xảy ra.",
+    "returnDescriptionMax": "Mô tả không được quá 1200 ký tự.",
+    "phoneCodeRequired": "Mã quốc gia không được bỏ trống",
+    "phoneCodeInvalid": "Mã quốc gia không hợp lệ",
+    "phoneNumberRequired": "Số điện thoại không được bỏ trống",
+    "phoneNumberTooLong": "Số điện thoại quá dài",
+    "phoneNumberDigitsOnly": "Số điện thoại chỉ được chứa số",
+    "phoneNumberStartsWithZero": "Số điện thoại không được bắt đầu bằng số 0 sau mã quốc gia",
+    "firstNameRequired": "Tên không được bỏ trống",
+    "lastNameRequired": "Họ không được bỏ trống",
+    "avatarUrlInvalid": "Đường dẫn ảnh không hợp lệ",
+    "labelRequired": "Nhãn không được bỏ trống",
+    "receiverNameRequired": "Tên người nhận không được bỏ trống",
+    "receiverPhoneRequired": "Số điện thoại người nhận không được bỏ trống",
+    "mapLocationRequired": "Vị trí trên bản đồ không được bỏ trống",
+    "streetRequired": "Địa chỉ cụ thể không được bỏ trống",
+    "cityRequired": "Thành phố/Quận/Huyện không được bỏ trống",
+    "stateRequired": "Tỉnh/Thành phố không được bỏ trống",
+    "countryRequired": "Quốc gia không được bỏ trống",
+    "postalCodeRequired": "Mã bưu chính không được bỏ trống",
+    "dateOfBirthRequired": "Ngày sinh không được bỏ trống",
+    "dateOfBirthInvalid": "Ngày sinh không hợp lệ",
+    "genderRequired": "Giới tính không được bỏ trống",
+    "subjectRequired": "Tiêu đề không được bỏ trống",
+    "subjectMax": "Tiêu đề không được dài quá 160 ký tự",
+    "messageRequired": "Nội dung tin nhắn không được bỏ trống",
+    "messageMax": "Nội dung tin nhắn không được dài quá 5000 ký tự",
+    "contactNameMax": "Tên không được dài quá 120 ký tự"
+  },
+  "VouchersPage": {
+    "metadata": {
+      "title": "Ví voucher | E-Commerce",
+      "description": "Sưu tầm mã giảm giá, freeship và voucher hoàn tiền."
+    },
+    "header": {
+      "title": "Ví",
+      "highlight": "Voucher",
+      "description": "Sưu tầm mã giảm giá, freeship và voucher hoàn tiền từ các thương hiệu."
+    },
+    "empty": {
+      "title": "Chưa có voucher",
+      "description": "Mã giảm giá, freeship và voucher hoàn tiền đang được chuẩn bị. Hãy quay lại sau.",
+      "action": "Tiếp tục mua sắm"
+    }
+  }
+}

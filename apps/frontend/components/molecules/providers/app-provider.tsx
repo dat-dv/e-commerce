@@ -15,6 +15,7 @@ import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { allSafe } from "@/utils/promise";
 import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
 import { getMessages } from "next-intl/server";
+import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 
 const AppProvider = async ({ children }: { children: React.ReactNode }) => {
   const [
@@ -43,6 +44,7 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
               <CartProvider initState={initialCartState?.data?.items || []}>
                 <AddressProvider initState={initialAddressesState?.data || []}>
                   <FavoritesProvider>
+                    <RequireProfileInfoModal />
                     {children}
                     <CartDrawer />
                   </FavoritesProvider>
