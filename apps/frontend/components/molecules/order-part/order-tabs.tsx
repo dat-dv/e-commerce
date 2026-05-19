@@ -1,16 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
-import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { useTranslations } from "next-intl";
 
-interface OrderTabsProps {
+import Button from "@/components/atoms/button";
+import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
+import { cn } from "@/utils/cn";
+
+export interface IOrderTabsProps {
   activeTab: OrderTabValue;
   onTabChange: (value: OrderTabValue) => void;
 }
 
-export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
+export const OrderTabs = ({ activeTab, onTabChange }: IOrderTabsProps) => {
   const t = useTranslations("OrdersPage");
 
   const getTabLabel = (label: string) => {
@@ -38,11 +40,11 @@ export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
         {ORDER_TABS.map((tab) => {
           const isActive = activeTab === tab.value;
           return (
-            <button
+            <Button
               key={tab.label}
               onClick={() => onTabChange(tab.value)}
               className={cn(
-                "relative px-6 py-5 text-sm font-semibold transition-all duration-300",
+                "relative px-6 py-5 text-sm font-semibold transition-all duration-300 rounded-none bg-transparent shadow-none active:scale-100",
                 isActive
                   ? "text-primary"
                   : "text-content/40 hover:text-content hover:bg-content/[0.02]",
@@ -56,7 +58,7 @@ export const OrderTabs = ({ activeTab, onTabChange }: OrderTabsProps) => {
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
-            </button>
+            </Button>
           );
         })}
       </div>

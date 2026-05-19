@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo } from "react";
-import { TGetProductReviewsRequest } from "@/domain/products/types/products.model";
-
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
+
+import Button from "@/components/atoms/button";
+import { TGetProductReviewsRequest } from "@/domain/products/types/products.model";
+import { cn } from "@/utils/cn";
 
 const reviewFilters: Array<{
   key: "filterAll" | "filterStars";
@@ -31,7 +33,7 @@ const isSameReviewFilter = (
   (left.has_images ?? undefined) === (right.has_images ?? undefined) &&
   (left.sort ?? "newest") === (right.sort ?? "newest");
 
-interface ReviewFilterTabsProps {
+export interface IReviewFilterTabsProps {
   activeFilter: TGetProductReviewsRequest;
   onFilterChange: (filter: TGetProductReviewsRequest) => void;
 }
@@ -39,7 +41,7 @@ interface ReviewFilterTabsProps {
 export const ReviewFilterTabs = ({
   activeFilter,
   onFilterChange,
-}: ReviewFilterTabsProps) => {
+}: IReviewFilterTabsProps) => {
   const t = useTranslations("ProductDetailPage");
 
   const translatedLabels = useMemo(() => {
@@ -60,17 +62,18 @@ export const ReviewFilterTabs = ({
             : translatedLabels.filterAll;
 
         return (
-          <button
+          <Button
             key={`${filter.key}-${filter.rating ?? "all"}`}
             onClick={() => onFilterChange(filter.value)}
-            className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all ${
+            className={cn(
+              "rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all shadow-none active:scale-100",
               isActive
                 ? "border-primary bg-primary/5 text-primary"
-                : "border-content/[0.05] text-content/60 hover:border-content/[0.1]"
-            }`}
+                : "border-content/[0.05] text-content/60 hover:border-content/[0.1] bg-transparent",
+            )}
           >
             {displayLabel}
-          </button>
+          </Button>
         );
       })}
     </div>
