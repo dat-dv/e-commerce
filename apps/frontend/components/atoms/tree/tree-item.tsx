@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import {
   Button as RACButton,
@@ -15,6 +16,8 @@ export function AppTreeItem({
   title,
   children,
   className,
+  showDot,
+  activeLayoutId,
   ...props
 }: ITreeItemProps) {
   return (
@@ -40,22 +43,34 @@ export function AppTreeItem({
         }) => (
           <div
             className={cn(
-              "flex items-center w-full py-1.5 px-3 rounded-lg text-sm text-content transition-colors",
+              "relative flex items-center w-full py-2 px-3 rounded-xl text-sm text-content transition-colors min-h-10",
               !isSelected && "hover:bg-content/[0.04]",
-              isSelected && "bg-primary/10 text-primary font-semibold",
+              isSelected &&
+                !activeLayoutId &&
+                "bg-primary/10 text-primary font-semibold",
+              isSelected && activeLayoutId && "text-primary font-semibold",
               isDisabled && "text-content/30 opacity-50 z-10",
               isFocused && "outline-none ring-2 ring-primary/20",
             )}
           >
-            {selectionMode !== "none" && selectionBehavior === "toggle" && (
-              <Checkbox slot="selection" className="mr-2" />
+            {isSelected && activeLayoutId && (
+              <motion.div
+                layoutId={activeLayoutId}
+                className="absolute inset-0 rounded-xl bg-primary/10"
+                transition={{ type: "spring", bounce: 0.15, duration: 0.45 }}
+              />
             )}
-            <div className="shrink-0 w-[calc(calc(var(--tree-item-level)_-_1)_*_12px)]" />
+
+            {selectionMode !== "none" && selectionBehavior === "toggle" && (
+              <Checkbox slot="selection" className="mr-2 relative z-10" />
+            )}
+            <div className="shrink-0 w-[calc(calc(var(--tree-item-level)_-_1)_*_10px)] relative z-10" />
+
             {hasChildItems ? (
               <RACButton
                 slot="chevron"
                 className={cn(
-                  "border-0 p-0 bg-transparent shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-start cursor-pointer hover:bg-content/[0.04] transition-colors outline-none mr-1",
+                  "relative z-10 border-0 p-0 bg-transparent shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-start cursor-pointer hover:bg-content/[0.04] transition-colors outline-none mr-1",
                   isDisabled && "text-content/30 opacity-50 cursor-not-allowed",
                 )}
               >
@@ -69,9 +84,22 @@ export function AppTreeItem({
                 />
               </RACButton>
             ) : (
-              <div className="shrink-0 w-7 h-7" />
+              <div className="shrink-0 w-7 h-7 relative z-10 flex items-center justify-center">
+                {showDot && (
+                  <span
+                    className={cn(
+                      "size-1.5 rounded-full transition-opacity",
+                      isSelected
+                        ? "bg-primary opacity-100"
+                        : "bg-content/20 opacity-0 group-hover:opacity-100",
+                    )}
+                  />
+                )}
+              </div>
             )}
-            <span className="truncate">{title}</span>
+            <span className="relative z-10 truncate capitalize font-semibold">
+              {title}
+            </span>
           </div>
         )}
       </RACTreeItemContent>

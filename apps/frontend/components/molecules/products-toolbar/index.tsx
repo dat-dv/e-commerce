@@ -1,6 +1,5 @@
 "use client";
 
-import { AppDropdown } from "@/components/molecules/dropdown";
 import { EProductSort } from "@ecommerce/shared";
 import { motion } from "framer-motion";
 import {
@@ -9,10 +8,12 @@ import {
   ChevronRight,
   SlidersHorizontal,
 } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { IListingProductsToolbarProps } from "./products-toolbar.types";
-
 import { useTranslations } from "next-intl";
+import { useRouter, useSearchParams } from "next/navigation";
+
+import Button from "@/components/atoms/button";
+import { AppDropdown } from "@/components/molecules/dropdown";
+import { IListingProductsToolbarProps } from "./products-toolbar.types";
 
 export function ListingProductsToolbar({
   total,
@@ -114,10 +115,14 @@ export function ListingProductsToolbar({
         </div>
 
         <AppDropdown
-          trigger={
-            <button
-              disabled={isLoading}
-              className="flex items-center gap-3 px-3.5 py-2 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-xl transition-all group min-w-[160px] justify-between disabled:opacity-50 disabled:cursor-not-allowed"
+          trigger={({ ref, toggle, isOpen }) => (
+            <Button
+              ref={ref}
+              onPress={toggle}
+              isDisabled={isLoading}
+              aria-haspopup="dialog"
+              aria-expanded={isOpen}
+              className="flex items-center gap-3 px-3.5 py-2 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-xl transition-all group min-w-[160px] justify-between text-content font-semibold"
             >
               <span className="text-[11px] font-bold text-content/70 group-hover:text-content">
                 {currentSortOption.label}
@@ -126,8 +131,8 @@ export function ListingProductsToolbar({
                 size={12}
                 className="text-content/30 group-hover:text-content transition-colors"
               />
-            </button>
-          }
+            </Button>
+          )}
         >
           <div className="flex flex-col gap-0.5 min-w-[200px]">
             <div className="px-3 py-1.5 mb-0.5 border-b border-content/[0.05]">
@@ -139,17 +144,17 @@ export function ListingProductsToolbar({
               <button
                 key={option.value}
                 onClick={() => updateSort(option.value.toString())}
-                className={`flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-bold transition-all ${
+                className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[11px] font-semibold transition-all duration-200 ${
                   currentSort === option.value.toString()
-                    ? "bg-primary text-white shadow-md shadow-primary/20"
-                    : "text-content/60 hover:text-content hover:bg-content/5"
+                    ? "bg-primary/10 text-primary font-bold"
+                    : "text-content/65 hover:text-content hover:bg-content/[0.04]"
                 }`}
               >
                 {option.label}
                 {currentSort === option.value.toString() && (
                   <motion.div
                     layoutId="active-sort"
-                    className="w-1 h-1 rounded-full bg-white"
+                    className="w-1.5 h-1.5 rounded-full bg-primary"
                   />
                 )}
               </button>

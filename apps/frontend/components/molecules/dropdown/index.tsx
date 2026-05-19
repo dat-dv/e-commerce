@@ -1,20 +1,30 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, RefObject, useRef, useState } from "react";
 import {
-  Button as RACButton,
-  Popover as RACPopover,
   Dialog as RACDialog,
+  Popover as RACPopover,
 } from "react-aria-components";
 
-const MotionPopover = motion(RACPopover);
+import { cn } from "@/utils/cn";
+
+const MotionPopover = motion.create(RACPopover);
+
+interface DropdownTriggerProps {
+  ref: RefObject<HTMLButtonElement | null>;
+  isOpen: boolean;
+  toggle: () => void;
+  open: () => void;
+  close: () => void;
+}
 
 export interface IAppDropdownProps {
-  trigger: ReactNode;
+  trigger: (props: DropdownTriggerProps) => ReactNode;
   children: ReactNode;
   align?: "left" | "right";
   closeOnContentClick?: boolean;
+  popoverClassName?: string;
 }
 
 export const AppDropdown = ({
@@ -22,19 +32,25 @@ export const AppDropdown = ({
   children,
   align = "right",
   closeOnContentClick = true,
+  popoverClassName,
 }: IAppDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
+  const toggle = () => setIsOpen((prev) => !prev);
 
   return (
     <>
-      <RACButton
-        ref={triggerRef}
-        onPress={() => setIsOpen((prev) => !prev)}
-        className="outline-none cursor-pointer select-none"
-      >
-        {trigger}
-      </RACButton>
+      {trigger({
+        ref: triggerRef,
+        isOpen,
+        toggle,
+        open,
+        close,
+      })}
+
       <AnimatePresence>
         {isOpen && (
           <MotionPopover
@@ -50,12 +66,12 @@ export const AppDropdown = ({
               stiffness: 400,
               damping: 30,
             }}
-            className={[
-              "z-[9999] w-72 outline-none",
-              "bg-surface/95 backdrop-blur-3xl",
-              "rounded-2xl border border-content/[0.08]",
-              "shadow-[0_20px_70px_-10px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_70px_-10px_rgba(0,0,0,0.4)] p-2",
-            ].join(" ")}
+            className={cn(
+              "z-[9999] w-auto min-w-[200px] overflow-hidden rounded-2xl border border-content/10",
+              "bg-surface/85 p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl",
+              "outline-none dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)]",
+              popoverClassName,
+            )}
           >
             <RACDialog className="outline-none">
               {({ close }) => (

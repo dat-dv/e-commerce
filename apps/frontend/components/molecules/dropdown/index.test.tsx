@@ -7,7 +7,13 @@ import { AppDropdown } from "./index";
 describe("Dropdown Molecule", () => {
   it("should toggle content visibility when clicked", () => {
     render(
-      <AppDropdown trigger={<span>Open Menu</span>}>
+      <AppDropdown
+        trigger={({ ref, toggle }) => (
+          <button ref={ref} onClick={toggle}>
+            Open Menu
+          </button>
+        )}
+      >
         <div>Menu Content</div>
       </AppDropdown>,
     );
@@ -25,7 +31,13 @@ describe("Dropdown Molecule", () => {
     render(
       <div>
         <div data-testid="outside">Outside</div>
-        <AppDropdown trigger={<span>Open Menu</span>}>
+        <AppDropdown
+          trigger={({ ref, toggle }) => (
+            <button ref={ref} onClick={toggle}>
+              Open Menu
+            </button>
+          )}
+        >
           <div>Menu Content</div>
         </AppDropdown>
       </div>,

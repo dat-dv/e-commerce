@@ -1,7 +1,7 @@
 "use client";
 
+import { EyeIcon, Heart, LogOut, ShoppingBag, User } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { LogOut, User, ShoppingBag, Heart, EyeIcon } from "lucide-react";
 
 import Avatar from "@/components/atoms/avatar";
 import Button from "@/components/atoms/button";
@@ -27,16 +27,20 @@ const AvatarDropdown = ({
   return (
     <AppDropdown
       align="right"
-      trigger={
-        <div
-          className="h-10 w-10 relative cursor-pointer group"
+      trigger={({ ref, toggle, isOpen }) => (
+        <button
+          ref={ref}
+          onClick={toggle}
           aria-label={t("menuLabel")}
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
+          className="h-10 w-10 relative cursor-pointer group border-none bg-transparent outline-none p-0"
         >
           <div className="absolute inset-0 rounded-xl border-2 border-primary/20 bg-primary/5 transition-all group-hover:border-primary/40 group-hover:scale-105 active:scale-95 overflow-hidden ring-offset-background group-focus-visible:ring-2 group-focus-visible:ring-primary/50">
             <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
           </div>
-        </div>
-      }
+        </button>
+      )}
     >
       <div className="flex flex-col gap-1 min-w-[220px]">
         <div className="px-3.5 py-3 border-b border-content/[0.1] space-y-1">

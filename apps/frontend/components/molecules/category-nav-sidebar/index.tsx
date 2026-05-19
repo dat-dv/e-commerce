@@ -1,23 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, FolderTree, Search, X } from "lucide-react";
+import { FolderTree, Search, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
-import {
-  Button as AriaButton,
-  Disclosure,
-  DisclosurePanel,
-  Heading,
-} from "react-aria-components";
+import { useMemo, useState } from "react";
+import { type Key } from "react-aria-components";
 
 import Input from "@/components/atoms/input";
+import { Tree } from "@/components/atoms/tree";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { cn } from "@/utils/cn";
-import {
-  ICategoryNavSidebarProps,
-  ICategoryTreeItemProps,
-} from "./category-nav-sidebar.types";
+import { ICategoryNavSidebarProps } from "./category-nav-sidebar.types";
 
 const categoryHasActiveId = (
   category: TCategory,
@@ -57,109 +50,15 @@ const filterCategoriesByKeyword = (
   }, []);
 };
 
-function CategoryTreeItem({
-  category,
-  activeId,
-  level,
-  forceExpanded,
-  onSelect,
-}: ICategoryTreeItemProps) {
-  const t = useTranslations("CategoriesPage.sidebar");
-  const hasChildren = Boolean(category.children?.length);
-  const isActive = category.id === activeId;
-  const isActiveBranch = categoryHasActiveId(category, activeId);
-  const [isExpanded, setIsExpanded] = useState(
-    forceExpanded || isActiveBranch || level === 0,
-  );
-
-  useEffect(() => {
-    if (forceExpanded || isActiveBranch) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsExpanded(true);
+const getCategoryIds = (items: TCategory[]): string[] => {
+  return items.reduce<string[]>((acc, item) => {
+    acc.push(item.id);
+    if (item.children) {
+      acc.push(...getCategoryIds(item.children));
     }
-  }, [forceExpanded, isActiveBranch]);
-
-  const itemButton = (
-    <button
-      type="button"
-      onClick={() => onSelect(category.id)}
-      className={cn(
-        "group relative flex min-h-10 min-w-0 flex-1 items-center gap-2 rounded-xl py-2 pr-3 text-left transition-colors",
-        isActive ? "text-primary" : "text-content/55 hover:text-content",
-      )}
-      style={{ paddingLeft: `${12 + level * 10}px` }}
-    >
-      {isActive ? (
-        <motion.div
-          layoutId="active-category-sidebar"
-          className="absolute inset-0 rounded-xl bg-primary/10"
-          transition={{ type: "spring", bounce: 0.15, duration: 0.45 }}
-        />
-      ) : null}
-
-      <span
-        className={cn(
-          "relative z-10 size-1.5 shrink-0 rounded-full transition-opacity",
-          isActive
-            ? "bg-primary opacity-100"
-            : "bg-content/20 opacity-0 group-hover:opacity-100",
-        )}
-      />
-      <span className="relative z-10 block truncate text-sm font-semibold capitalize">
-        {category.name}
-      </span>
-    </button>
-  );
-
-  if (!hasChildren) {
-    return (
-      <div className="flex min-h-10 items-center gap-1.5">{itemButton}</div>
-    );
-  }
-
-  return (
-    <Disclosure isExpanded={isExpanded} onExpandedChange={setIsExpanded}>
-      {({ isExpanded: isDisclosureExpanded }) => (
-        <div className="space-y-1">
-          <Heading className="flex min-h-10 items-center gap-1.5">
-            {itemButton}
-            <AriaButton
-              slot="trigger"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-content/35 outline-none transition-colors hover:bg-content/[0.05] hover:text-content focus-visible:ring-2 focus-visible:ring-primary/30"
-              aria-label={
-                isDisclosureExpanded
-                  ? t("collapse", { category: category.name })
-                  : t("expand", { category: category.name })
-              }
-            >
-              <ChevronDown
-                className={cn(
-                  "h-4 w-4 transition-transform",
-                  isDisclosureExpanded ? "rotate-180" : "rotate-0",
-                )}
-              />
-            </AriaButton>
-          </Heading>
-
-          <DisclosurePanel className="ml-4 border-l border-content/[0.08] pl-2">
-            <div className="flex flex-col gap-1 py-1">
-              {category.children?.map((child) => (
-                <CategoryTreeItem
-                  key={child.id}
-                  category={child}
-                  activeId={activeId}
-                  level={level + 1}
-                  forceExpanded={forceExpanded}
-                  onSelect={onSelect}
-                />
-              ))}
-            </div>
-          </DisclosurePanel>
-        </div>
-      )}
-    </Disclosure>
-  );
-}
+    return acc;
+  }, []);
+};
 
 export const CategoryNavSidebar = ({
   categories,
@@ -174,6 +73,29 @@ export const CategoryNavSidebar = ({
     [categories, search],
   );
   const isSearching = search.trim().length > 0;
+
+  const [expandedKeys, setExpandedKeys] = useState<Iterable<Key>>(() => {
+    if (isSearching) {
+      return new Set<Key>(getCategoryIds(filteredCategories));
+    }
+    const activeBranchIds: string[] = [];
+    const findActiveBranch = (items: TCategory[]) => {
+      for (const item of items) {
+        if (categoryHasActiveId(item, activeId)) {
+          activeBranchIds.push(item.id);
+          if (item.children) {
+            findActiveBranch(item.children);
+          }
+        }
+      }
+    };
+    findActiveBranch(categories);
+    return new Set<Key>(activeBranchIds);
+  });
+
+  const selectedKeys = useMemo<Iterable<Key>>(() => {
+    return activeId === "all" ? new Set<Key>() : new Set<Key>([activeId]);
+  }, [activeId]);
 
   return (
     <nav className="h-full overflow-hidden lg:h-[calc(100vh-190px)]">
@@ -227,7 +149,7 @@ export const CategoryNavSidebar = ({
               type="button"
               onClick={() => setActiveId("all")}
               className={cn(
-                "group relative flex min-h-10 w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors",
+                "group relative flex min-h-10 w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors mb-1.5",
                 activeId === "all"
                   ? "text-primary"
                   : "text-content/55 hover:text-content",
@@ -253,24 +175,32 @@ export const CategoryNavSidebar = ({
               </span>
             </button>
 
-            {filteredCategories.map((category) => (
-              <CategoryTreeItem
-                key={category.id}
-                category={category}
-                activeId={activeId}
-                level={0}
-                forceExpanded={isSearching}
-                onSelect={setActiveId}
+            {filteredCategories.length > 0 ? (
+              <Tree
+                items={filteredCategories}
+                selectedKeys={selectedKeys}
+                selectionMode="single"
+                onSelectionChange={(keys) => {
+                  if (keys !== "all") {
+                    const selected = Array.from(keys)[0];
+                    if (selected !== undefined) {
+                      setActiveId(selected.toString());
+                    }
+                  }
+                }}
+                expandedKeys={expandedKeys}
+                onExpandedChange={setExpandedKeys}
+                showDot
+                activeLayoutId="active-category-sidebar"
+                className="w-full border-none bg-transparent p-0 gap-1.5"
               />
-            ))}
-
-            {filteredCategories.length === 0 ? (
+            ) : (
               <div className="rounded-xl bg-content/[0.03] px-4 py-8 text-center">
                 <p className="text-sm font-medium text-content/35">
                   {t("empty")}
                 </p>
               </div>
-            ) : null}
+            )}
           </div>
         </div>
       </div>

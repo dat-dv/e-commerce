@@ -18,10 +18,14 @@ export interface ITreeProps<T> extends Omit<
   getTitle?: (item: T) => string;
   getChildren?: (item: T) => T[] | undefined;
   renderItem?: (item: T) => React.ReactNode;
+  showDot?: boolean;
+  activeLayoutId?: string;
 }
 
 export interface ITreeItemProps extends Partial<RACTreeItemProps> {
   title: string;
   children?: React.ReactNode;
   className?: RACTreeItemProps["className"];
+  showDot?: boolean;
+  activeLayoutId?: string;
 }

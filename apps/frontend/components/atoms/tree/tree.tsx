@@ -19,6 +19,8 @@ export function AppTree<T extends object>({
   getTitle,
   getChildren,
   renderItem,
+  showDot,
+  activeLayoutId,
   ...props
 }: ITreeProps<T>) {
   if (items) {
@@ -41,7 +43,13 @@ export function AppTree<T extends object>({
       const childItems = childrenGetter(item);
 
       return (
-        <TreeItem key={id} id={id} title={title}>
+        <TreeItem
+          key={id}
+          id={id}
+          title={title}
+          showDot={showDot}
+          activeLayoutId={activeLayoutId}
+        >
           {renderItem ? renderItem(item) : null}
           {childItems && childItems.length > 0 && (
             <RACCollection items={childItems}>
