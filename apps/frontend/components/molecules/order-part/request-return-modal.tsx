@@ -16,7 +16,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useTranslations } from "next-intl";
 
 const ORDER_RETURN_MAX_ATTACHMENTS = 6;

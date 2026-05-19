@@ -1,4 +1,4 @@
-import AppToast from "@/components/atoms/toast";
+import { ToastProvider } from "@/components/ui/toast";
 import React from "react";
 import { AuthProvider } from "./auth-provider";
 import { ConfigProvider } from "./config-provider";
@@ -21,7 +21,7 @@ const AuthAppProvider = async ({ children }: { children: React.ReactNode }) => {
           <RequireProfileInfoModal />
           {children}
         </AuthProvider>
-        <AppToast />
+        <ToastProvider />
       </ConfigProvider>
     </I18nProviderClient>
   );

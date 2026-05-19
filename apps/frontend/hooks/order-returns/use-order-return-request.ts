@@ -1,7 +1,7 @@
 import { orderReturnsUseCase } from "@/domain/order-returns";
 import { useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 
 import { OrderReturnRequestFormData } from "./order-return-request.schema";
 

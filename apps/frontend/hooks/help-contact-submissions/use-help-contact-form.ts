@@ -2,7 +2,7 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useTranslations } from "next-intl";
 
 import { helpContactSubmissionsUseCase } from "@/domain/help-contact-submissions/use-cases";

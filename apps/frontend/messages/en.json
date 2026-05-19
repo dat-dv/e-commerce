@@ -587,42 +587,72 @@
           "desc": "Sign in, reset your password, update profile details, and keep your account secure.",
           "href": "faq",
           "icon": "shield-check",
-          "tags": ["account", "profile", "password", "security"]
+          "tags": [
+            "account",
+            "profile",
+            "password",
+            "security"
+          ]
         },
         {
           "title": "Cart & Checkout",
           "desc": "Review your cart, choose a shipping address, apply vouchers, and place an order.",
           "href": "faq",
           "icon": "receipt-text",
-          "tags": ["cart", "checkout", "address", "voucher"]
+          "tags": [
+            "cart",
+            "checkout",
+            "address",
+            "voucher"
+          ]
         },
         {
           "title": "Orders",
           "desc": "Check order status, review order details, and understand when changes are still possible.",
           "href": "orders",
           "icon": "package-check",
-          "tags": ["order", "status", "cancel", "detail"]
+          "tags": [
+            "order",
+            "status",
+            "cancel",
+            "detail"
+          ]
         },
         {
           "title": "Shipping",
           "desc": "Delivery coverage, shipping fees, tracking updates, failed delivery, and damaged packages.",
           "href": "shipping",
           "icon": "truck",
-          "tags": ["shipping", "delivery", "tracking", "fee"]
+          "tags": [
+            "shipping",
+            "delivery",
+            "tracking",
+            "fee"
+          ]
         },
         {
           "title": "Payments & Vouchers",
           "desc": "Payment options shown at checkout, voucher rules, failed payments, and refund timing.",
           "href": "faq",
           "icon": "receipt-text",
-          "tags": ["payment", "voucher", "refund", "checkout"]
+          "tags": [
+            "payment",
+            "voucher",
+            "refund",
+            "checkout"
+          ]
         },
         {
           "title": "Returns & Refunds",
           "desc": "Return eligibility, required evidence, item condition, and refund processing.",
           "href": "faq",
           "icon": "rotate-ccw",
-          "tags": ["return", "refund", "exchange", "evidence"]
+          "tags": [
+            "return",
+            "refund",
+            "exchange",
+            "evidence"
+          ]
         }
       ],
       "answers": [

@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { useAddressStore } from "./use-address-store";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
 
 export const useAddresses = () => {

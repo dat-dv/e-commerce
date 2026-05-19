@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 
 export const useSpamListener = ({
   isSpam,
@@ -16,9 +16,7 @@ export const useSpamListener = ({
       const now = Date.now();
       // Throttling toasts so we don't spam the user with "Please wait"
       if (now - lastToastTime.current > 2000) {
-        toast.warning(message, {
-          toastId: "spam-warning",
-        });
+        toast.warning(message);
         lastToastTime.current = now;
       }
     }

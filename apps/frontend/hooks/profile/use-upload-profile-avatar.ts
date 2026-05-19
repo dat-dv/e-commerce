@@ -1,6 +1,6 @@
 import { usersUseCase } from "@/domain/users/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useTranslations } from "next-intl";
 
 export function useUpLoadProfileAvatar() {
@@ -25,9 +25,7 @@ export function useUpLoadProfileAvatar() {
         throw new Error(response.message || "Update failed");
       }
     } catch {
-      toast.error(t("uploadAvatarFailed"), {
-        toastId: "profile-error",
-      });
+      toast.error(t("uploadAvatarFailed"));
     } finally {
       setLoading(false);
     }

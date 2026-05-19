@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useTranslations } from "next-intl";
 import {
   getForgotPasswordSchema,

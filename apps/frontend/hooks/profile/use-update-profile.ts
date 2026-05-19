@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";

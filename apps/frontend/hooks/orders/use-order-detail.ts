@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 
 export const useOrderDetail = (orderId: string) => {
   const [order, setOrder] = useState<TOrder | null>(null);

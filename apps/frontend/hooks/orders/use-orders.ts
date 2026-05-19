@@ -4,7 +4,7 @@ import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { useAuthStore } from "../auth/use-auth-store";
 import { IPaginationMeta } from "@/utils/request/request.types";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 export const useOrders = () => {
   const [orders, setOrders] = useState<TOrder[]>([]);

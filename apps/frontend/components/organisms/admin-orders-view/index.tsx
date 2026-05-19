@@ -17,7 +17,7 @@ import {
   FilterX,
   RefreshCw,
 } from "lucide-react";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { AnimatePresence, motion } from "framer-motion";
 import AppContainer from "@/components/atoms/app-container";
 import Loading from "@/components/atoms/loading";

@@ -8,7 +8,7 @@ import { formatCurrency } from "@/utils/format-currency";
 import Image from "next/image";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { CALLBACK_URL_KEY } from "@/constants/routes";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";

@@ -1,4 +1,3 @@
-import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 import { Inter, JetBrains_Mono } from "next/font/google";

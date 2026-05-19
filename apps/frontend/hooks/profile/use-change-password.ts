@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { ChangePasswordFormData } from "../../components/molecules/change-password-form/change-password.schema";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { useTranslations } from "next-intl";

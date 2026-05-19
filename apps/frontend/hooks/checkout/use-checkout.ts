@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useCart } from "@/hooks/cart/use-cart";
 import { ordersUseCase } from "@/domain/orders";
 import { APP_ROUTES } from "@/constants/routes";

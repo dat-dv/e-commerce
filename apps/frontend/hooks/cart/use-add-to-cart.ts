@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { usePathname, useRouter } from "next/navigation";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";

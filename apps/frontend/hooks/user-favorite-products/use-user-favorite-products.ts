@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useAuthStore } from "../auth/use-auth-store";
 
 export const useUserFavoriteProducts = (
@@ -14,9 +14,7 @@ export const useUserFavoriteProducts = (
 
   const toggleFavorite = async (productId: string) => {
     if (!user) {
-      toast.info("Please sign in to add items to your wishlist", {
-        toastId: "auth-required",
-      });
+      toast.info("Please sign in to add items to your wishlist");
       return;
     }
 

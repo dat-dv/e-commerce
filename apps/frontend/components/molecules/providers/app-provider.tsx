@@ -1,4 +1,4 @@
-import AppToast from "@/components/atoms/toast";
+import { ToastProvider } from "@/components/ui/toast";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { NotificationProvider } from "@/components/providers/notification-provider";
 import React from "react";
@@ -53,7 +53,7 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
             </NotificationProvider>
           </AuthProvider>
         </CategoriesProvider>
-        <AppToast />
+        <ToastProvider />
       </ConfigProvider>
     </I18nProviderClient>
   );

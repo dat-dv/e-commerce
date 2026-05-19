@@ -1,4 +1,4 @@
-import AppToast from "@/components/atoms/toast";
+import { ToastProvider } from "@/components/ui/toast";
 import React from "react";
 import { ConfigProvider } from "./config-provider";
 import { I18nProviderClient } from "./i18n-provider";
@@ -39,7 +39,7 @@ const LocalizedAppProvider = async ({
             </CartProvider>
           </AuthProvider>
         </CategoriesProvider>
-        <AppToast />
+        <ToastProvider />
       </ConfigProvider>
     </I18nProviderClient>
   );

@@ -4,7 +4,7 @@ import { getFirebaseMessaging } from "@/lib/firebase";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { useAuthStore } from "../auth/use-auth-store";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import React from "react";
 
 export const useFCM = () => {
@@ -57,25 +57,8 @@ export const useFCM = () => {
           }
           if (payload.notification) {
             toast.info(
-              <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold text-content leading-none">
-                  {payload.notification.title}
-                </p>
-                <p className="text-xs text-content/60 leading-tight">
-                  {payload.notification.body}
-                </p>
-              </div>,
-              {
-                icon: <span>🔔</span>,
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                className:
-                  "bg-surface border border-content/[0.05] rounded-2xl shadow-2xl",
-              },
+              payload.notification.title || "Notification",
+              payload.notification.body || undefined,
             );
           }
         });

@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
@@ -20,9 +20,7 @@ export const useProductActions = (
 
   const handleAddToCart = () => {
     if (!user) {
-      toast.info(t("signInForAction"), {
-        toastId: "auth-required",
-      });
+      toast.info(t("signInForAction"));
       const callbackUrl = encodeURIComponent(window.location.pathname);
       router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
       return;

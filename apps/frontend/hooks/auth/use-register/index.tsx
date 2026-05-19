@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { authUseCase } from "@/domain/auth/use-cases";
@@ -45,7 +45,7 @@ export const useRegister = () => {
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Registration failed";
-      toast.error(errorMessage, { toastId: "auth-error" });
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { IPaginationMeta } from "@/utils/request/request.types";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 
 export interface UseAdminOrdersProps {
   initialLimit?: number;

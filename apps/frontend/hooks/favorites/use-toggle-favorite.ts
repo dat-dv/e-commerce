@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
-import { toast } from "react-toastify";
+import { toast } from "@/components/ui/toast";
 import { useFavoritesStore } from "./use-favorites-store";
 
 export const useToggleFavorite = (
@@ -25,9 +25,7 @@ export const useToggleFavorite = (
       }
 
       if (!userId) {
-        toast.info("Please sign in to add items to your wishlist", {
-          toastId: "auth-required",
-        });
+        toast.info("Please sign in to add items to your wishlist");
         return;
       }
 
