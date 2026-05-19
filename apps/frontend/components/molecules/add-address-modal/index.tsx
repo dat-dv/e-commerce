@@ -1,18 +1,18 @@
 "use client";
 
+import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
+} from "@/components/atoms/dialog";
+import { XIcon } from "@/components/atoms/icons";
 import { AddressesForm } from "@/components/molecules/addresses-form";
+import { AddressFormInput } from "@/components/molecules/addresses-form/addresses.schema";
 import {
   TAddress,
   TCreateAddressInput,
 } from "@/domain/addresses/types/address.model";
-import { XIcon } from "@/components/atoms/icons";
-import Button from "@/components/atoms/button";
-import { AddressFormInput } from "@/components/molecules/addresses-form/addresses.schema";
 import { useTranslations } from "next-intl";
 
 interface AddAddressModalProps {

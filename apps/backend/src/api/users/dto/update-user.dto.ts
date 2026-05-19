@@ -1,5 +1,6 @@
-import { IsString, IsOptional, IsEnum, MinLength, IsDateString } from 'class-validator';
-import { IUpdateUserRequest, EGender } from '@ecommerce/shared';
+import { EGender, IUpdateUserRequest } from '@ecommerce/shared';
+import { Type } from 'class-transformer';
+import { IsDateString, IsEnum, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class UpdateUserDto implements IUpdateUserRequest {
   @IsString()
@@ -21,6 +22,7 @@ export class UpdateUserDto implements IUpdateUserRequest {
 
   @IsEnum(EGender)
   @IsOptional()
+  @Type(() => Number)
   gender?: number;
 
   @IsString()

@@ -1,7 +1,7 @@
 "use client";
 
-import { AriaMenu, AriaMenuItem } from "@/components/atoms/aria/menu";
 import { InputSize } from "@/components/atoms/input/input.sizes";
+import { AppMenu, AppMenuItem } from "@/components/atoms/menu";
 import { aseanCountries } from "@/constants/countries";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
@@ -89,12 +89,10 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
               )}
             >
               <div className="relative z-50 inline-block h-full text-left">
-                <AriaMenu
-                  disabled={rest.disabled}
-                  className="absolute left-0 top-full z-[9999] mt-1 w-56 rounded-xl bg-surface border border-content/10 shadow-2xl max-h-60 overflow-y-auto"
-                  trigger={({ buttonProps }) => (
-                    <button
-                      {...buttonProps}
+                <AppMenu
+                  isDisabled={rest.disabled}
+                  trigger={
+                    <div
                       className={cn(
                         "flex items-center gap-1 px-3 h-full border-r border-content/[0.08]",
                         rest.disabled
@@ -107,42 +105,37 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
                         {country.dialCode}
                       </span>
                       <ChevronDown size={14} />
-                    </button>
-                  )}
+                    </div>
+                  }
+                  popoverClassName="w-56"
                 >
-                  {({ close }) => (
-                    <>
-                      {countries.map((c) => {
-                        const isDisabled =
-                          c.disabled ||
-                          (disabledSelected && country.code === c.code);
+                  {countries.map((c) => {
+                    const isDisabled =
+                      c.disabled ||
+                      (disabledSelected && country.code === c.code);
 
-                        return (
-                          <AriaMenuItem
-                            key={c.code}
-                            disabled={isDisabled}
-                            onClick={() => {
-                              handleCountryChange(c.dialCode);
-                              close();
-                            }}
-                            className={cn(
-                              "flex w-full items-center gap-3 px-4 py-2 cursor-pointer hover:bg-content/[0.04] focus:bg-content/[0.04] focus:outline-none text-left",
-                              isDisabled && "opacity-50",
-                            )}
-                          >
-                            <span className="text-xl">{c.flag}</span>
-                            <div>
-                              <div className="text-sm">{c.name}</div>
-                              <div className="text-xs text-content/50">
-                                {c.dialCode}
-                              </div>
-                            </div>
-                          </AriaMenuItem>
-                        );
-                      })}
-                    </>
-                  )}
-                </AriaMenu>
+                    return (
+                      <AppMenuItem
+                        key={c.code}
+                        id={c.code}
+                        isDisabled={isDisabled}
+                        onAction={() => handleCountryChange(c.dialCode)}
+                        className={cn(
+                          "flex w-full items-center gap-3 px-4 py-2 cursor-pointer hover:bg-content/[0.04] focus:bg-content/[0.04] focus:outline-none text-left",
+                          isDisabled && "opacity-50",
+                        )}
+                      >
+                        <span className="text-xl">{c.flag}</span>
+                        <div>
+                          <div className="text-sm">{c.name}</div>
+                          <div className="text-xs text-content/50">
+                            {c.dialCode}
+                          </div>
+                        </div>
+                      </AppMenuItem>
+                    );
+                  })}
+                </AppMenu>
               </div>
 
               <input

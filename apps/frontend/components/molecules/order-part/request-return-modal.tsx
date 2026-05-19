@@ -4,7 +4,7 @@ import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
+} from "@/components/atoms/dialog";
 import { toast } from "@/components/ui/toast";
 import {
   OrderReturnRequestFormData,

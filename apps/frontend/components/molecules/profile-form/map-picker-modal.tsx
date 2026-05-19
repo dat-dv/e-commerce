@@ -4,7 +4,7 @@ import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
+} from "@/components/atoms/dialog";
 import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
 import { useMapPicker } from "@/hooks/addresses/use-map-picker";

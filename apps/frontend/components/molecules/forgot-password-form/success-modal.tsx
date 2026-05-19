@@ -1,13 +1,12 @@
 "use client";
 
 import Button from "@/components/atoms/button";
-import { XIcon } from "@/components/atoms/icons";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
-import React from "react";
+} from "@/components/atoms/dialog";
+import { XIcon } from "@/components/atoms/icons";
 
 interface SuccessModalProps {
   isOpen: boolean;

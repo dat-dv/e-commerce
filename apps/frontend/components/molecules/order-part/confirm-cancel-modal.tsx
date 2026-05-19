@@ -4,7 +4,7 @@ import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
+} from "@/components/atoms/dialog";
 import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 

@@ -1,16 +1,16 @@
 "use client";
 
 import { MaximizeIcon, XIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import React, { useCallback, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
-import { useTranslations } from "next-intl";
 
+import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
-import Button from "@/components/atoms/button";
+} from "@/components/atoms/dialog";
 
 import getCroppedImg from "./get-cropped-img";
 

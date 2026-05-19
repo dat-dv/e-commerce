@@ -1,20 +1,20 @@
 "use client";
 
+import { cn } from "@/utils/cn";
+import { motion } from "framer-motion";
 import React from "react";
 import {
-  ModalOverlay as RACModalOverlay,
-  Modal as RACModal,
   Dialog as RACDialog,
   Heading as RACHeading,
+  Modal as RACModal,
+  ModalOverlay as RACModalOverlay,
   type HeadingProps,
 } from "react-aria-components";
-import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
 
 const MotionModalOverlay = motion(RACModalOverlay);
 const MotionModal = motion(RACModal);
 
-interface IAppDialogProps {
+export interface IAppDialogProps {
   children: React.ReactNode;
   className?: string;
   isDismissable?: boolean;
@@ -50,7 +50,7 @@ export function AppDialog({
   );
 }
 
-interface IAppDialogPanelProps {
+export interface IAppDialogPanelProps {
   children: React.ReactNode;
   className?: string;
 }
@@ -69,7 +69,7 @@ export function AppDialogPanel({ children, className }: IAppDialogPanelProps) {
   );
 }
 
-interface IAppDialogTitleProps extends HeadingProps {
+export interface IAppDialogTitleProps extends HeadingProps {
   as?: React.ElementType;
   children: React.ReactNode;
 }
@@ -95,3 +95,7 @@ export function AppDialogTitle({
     </RACHeading>
   );
 }
+
+export const Dialog = AppDialog;
+export const DialogPanel = AppDialogPanel;
+export const DialogTitle = AppDialogTitle;

@@ -6,7 +6,7 @@ import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/aria/dialog";
+} from "@/components/atoms/dialog";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { RequireProfileInfoForm } from "./require-profile-info-form";
