@@ -3,6 +3,7 @@
 import SummaryCard from "@/components/molecules/summary-card";
 import { formatCurrency } from "@/utils/format-currency";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface CartSummaryProps {
   itemCount: number;
@@ -15,12 +16,18 @@ export const CartSummary = ({
   selectedCount,
   totalAmount,
 }: CartSummaryProps) => {
+  const t = useTranslations("CartPage.summary");
+
   return (
     <div className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-3">
-      <SummaryCard label="Cart Items" value={itemCount} icon={ShoppingBag} />
-      <SummaryCard label="Selected" value={selectedCount} icon={ShoppingCart} />
+      <SummaryCard label={t("items")} value={itemCount} icon={ShoppingBag} />
       <SummaryCard
-        label="Subtotal"
+        label={t("selected")}
+        value={selectedCount}
+        icon={ShoppingCart}
+      />
+      <SummaryCard
+        label={t("subtotal")}
         value={formatCurrency(totalAmount)}
         icon={ShoppingCart}
       />

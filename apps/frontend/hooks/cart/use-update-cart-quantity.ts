@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
@@ -6,6 +7,7 @@ import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { useCartStore } from "./use-cart-store";
 
 export const useUpdateCartQuantity = () => {
+  const t = useTranslations("CartPage.toasts");
   const user = useAuthStore((s) => s.user);
   const _addOrUpdateItem = useCartStore((s) => s.addOrUpdateItem);
   const currentItems = useCartStore((s) => s.items);
@@ -29,9 +31,9 @@ export const useUpdateCartQuantity = () => {
       } catch (err) {
         // Revert on error
         _addOrUpdateItem(item, previousQuantity);
-        toast.error("Failed to update quantity");
+        toast.error(t("updateFailed"));
       }
     },
-    [user, _addOrUpdateItem, currentItems],
+    [user, _addOrUpdateItem, currentItems, t],
   );
 };

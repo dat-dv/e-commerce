@@ -1,0 +1,75 @@
+{
+  "CartPage": {
+    "metadata": {
+      "title": "Shopping Cart | Premium Tech Essentials",
+      "description": "Review and manage your cart before checkout."
+    },
+    "header": {
+      "title": "Shopping",
+      "highlight": "Bag",
+      "descriptionWithItems": "Review {count, plural, one {# item} other {# items}}, select what to checkout, and keep your order ready.",
+      "emptyDescription": "Your shopping bag is ready for the next item you discover."
+    },
+    "summary": {
+      "items": "Cart Items",
+      "selected": "Selected",
+      "subtotal": "Subtotal"
+    },
+    "empty": {
+      "title": "THE BAG IS",
+      "highlight": "EMPTY",
+      "description": "Explore our premium collections and high-performance hardware.",
+      "action": "Explore Now"
+    },
+    "table": {
+      "product": "Product details",
+      "unitPrice": "Unit price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "action": "Action"
+    },
+    "footer": {
+      "applyCoupon": "Apply coupon",
+      "summary": "Cart Summary",
+      "selected": "{count} Selected",
+      "freeShipping": "Free Shipping",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout"
+    },
+    "item": {
+      "standard": "Standard",
+      "inStock": "In stock",
+      "outOfStock": "Out of stock",
+      "unavailable": "This item is currently unavailable.",
+      "remove": "Remove {product}",
+      "increase": "Increase quantity for {product}",
+      "decrease": "Decrease quantity for {product}"
+    },
+    "quantity": {
+      "increase": "Increase quantity",
+      "decrease": "Decrease quantity"
+    },
+    "drawer": {
+      "title": "Shopping Cart",
+      "count": "{count, plural, one {# item} other {# items}}",
+      "close": "Close cart",
+      "subtotal": "Subtotal",
+      "freeShipping": "Free Shipping",
+      "checkout": "Begin Checkout",
+      "finalizing": "Finalizing Order",
+      "viewDetails": "View Full Details",
+      "empty": {
+        "title": "Your bag is empty",
+        "description": "Explore our products and find something you love."
+      }
+    },
+    "toasts": {
+      "signInRequired": "Please sign in to add items to cart",
+      "addFailed": "Failed to add to cart",
+      "clearFailed": "Failed to clear cart",
+      "removeFailed": "Failed to remove item",
+      "removeManyFailed": "Failed to remove items",
+      "updateFailed": "Failed to update quantity"
+    }
+  }
+}

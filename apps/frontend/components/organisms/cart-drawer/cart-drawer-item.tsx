@@ -8,6 +8,7 @@ import { Trash2, Minus, Plus, ImageIcon } from "lucide-react";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
 import { APP_ROUTES } from "@/constants/routes";
+import { useTranslations } from "next-intl";
 
 interface CartItemProps {
   item: TCartItem;
@@ -24,6 +25,7 @@ export const CartItem = ({
   onRemove,
   onCloseDrawer,
 }: CartItemProps) => {
+  const t = useTranslations("CartPage.item");
   const imageUrl = item.imageUrl;
 
   return (
@@ -46,7 +48,7 @@ export const CartItem = ({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-content/20">
-            <ImageIcon size={18} />
+            <ImageIcon size={18} aria-hidden />
           </div>
         )}
       </div>
@@ -70,7 +72,7 @@ export const CartItem = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-medium text-content/30 truncate max-w-[80px]">
-              {item.attributes || "Standard"}
+              {item.attributes || t("standard")}
             </span>
             {item.discountPercent && (
               <span className="text-[10px] font-bold text-red-400 bg-red-400/10 px-1 rounded">
@@ -85,8 +87,9 @@ export const CartItem = ({
                 <button
                   onClick={() => onAdd(item, -1)}
                   className="text-content/30 hover:text-content transition-colors"
+                  aria-label={t("decrease", { product: item.name })}
                 >
-                  <Minus size={10} />
+                  <Minus size={10} aria-hidden />
                 </button>
                 <span className="text-[10px] font-medium min-w-[12px] text-center">
                   {item.quantity}
@@ -94,8 +97,9 @@ export const CartItem = ({
                 <button
                   onClick={() => onAdd(item, 1)}
                   className="text-content/30 hover:text-content transition-colors"
+                  aria-label={t("increase", { product: item.name })}
                 >
-                  <Plus size={10} />
+                  <Plus size={10} aria-hidden />
                 </button>
               </div>
             )}
@@ -103,8 +107,9 @@ export const CartItem = ({
               <button
                 onClick={() => onRemove(item)}
                 className="text-content/10 hover:text-red-500/60 transition-colors"
+                aria-label={t("remove", { product: item.name })}
               >
-                <Trash2 size={12} />
+                <Trash2 size={12} aria-hidden />
               </button>
             )}
           </div>

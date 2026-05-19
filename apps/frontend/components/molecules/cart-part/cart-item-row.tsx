@@ -11,6 +11,7 @@ import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { Checkbox } from "./checkbox";
 import { QuantitySelector } from "./quantity-selector";
 import { formatCurrency } from "@/utils/format-currency";
+import { useTranslations } from "next-intl";
 
 interface CartItemRowProps {
   item: TCartItem;
@@ -27,6 +28,7 @@ export const CartItemRow = ({
   onRemove,
   onUpdateQuantity,
 }: CartItemRowProps) => {
+  const t = useTranslations("CartPage.item");
   const isOutOfStock = item.quantity === 0;
 
   return (
@@ -63,7 +65,7 @@ export const CartItemRow = ({
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-content/20 bg-content/[0.05]">
-                <ShoppingBag size={24} />
+                <ShoppingBag size={24} aria-hidden />
               </div>
             )}
           </Link>
@@ -82,17 +84,17 @@ export const CartItemRow = ({
               )}
               {isOutOfStock ? (
                 <span className="text-[10px] font-semibold text-red-500 bg-red-50 px-1.5 py-0.5 rounded">
-                  Out of stock
+                  {t("outOfStock")}
                 </span>
               ) : (
                 <span className="text-[10px] font-semibold text-green-500">
-                  In stock
+                  {t("inStock")}
                 </span>
               )}
             </div>
             {isOutOfStock && (
               <p className="text-[11px] text-red-500 mt-2 font-medium">
-                This item is currently unavailable.
+                {t("unavailable")}
               </p>
             )}
           </div>
@@ -119,8 +121,9 @@ export const CartItemRow = ({
             <button
               onClick={onRemove}
               className="p-3 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-lg transition-all"
+              aria-label={t("remove", { product: item.name })}
             >
-              <Trash2 size={16} />
+              <Trash2 size={16} aria-hidden />
             </button>
           </div>
         </div>

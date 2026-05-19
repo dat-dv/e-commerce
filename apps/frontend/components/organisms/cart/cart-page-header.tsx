@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   ShoppingBag,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 
@@ -16,15 +17,16 @@ interface CartPageHeaderProps {
 }
 
 export const CartPageHeader = ({ itemCount }: CartPageHeaderProps) => {
+  const t = useTranslations("CartPage.header");
   const description =
     itemCount > 0
-      ? `Review ${itemCount} item${itemCount > 1 ? "s" : ""}, select what you want to checkout, and keep your order ready in one place.`
-      : "Your shopping bag is ready for the next item you discover.";
+      ? t("descriptionWithItems", { count: itemCount })
+      : t("emptyDescription");
 
   return (
     <AnimatedPageHeader
-      title="Shopping"
-      highlight="Bag"
+      title={t("title")}
+      highlight={t("highlight")}
       description={description}
       icons={CART_HEADER_ICONS}
     />

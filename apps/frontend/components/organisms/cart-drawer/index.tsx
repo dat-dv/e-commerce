@@ -8,6 +8,7 @@ import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
+import { useTranslations } from "next-intl";
 
 import { CartHeader } from "./cart-drawer-header";
 import { CartItem } from "./cart-drawer-item";
@@ -16,6 +17,7 @@ import { CartDrawerFooter } from "./cart-drawer-footer";
 const DISABLED_EDIT_ROUTES: string[] = [APP_ROUTES.CHECKOUT];
 
 export const CartDrawer = () => {
+  const t = useTranslations("CartPage.drawer.empty");
   const pathname = usePathname();
   const { items, subtotal, setIsOpen, isOpen, itemsCount } = useCart();
 
@@ -57,13 +59,17 @@ export const CartDrawer = () => {
               {isEmpty ? (
                 <div className="flex flex-col items-center justify-center h-full text-center py-20">
                   <div className="w-20 h-20 rounded-full bg-content/[0.02] flex items-center justify-center mb-6 border border-content/5">
-                    <ShoppingBag size={32} className="text-content/10" />
+                    <ShoppingBag
+                      size={32}
+                      className="text-content/10"
+                      aria-hidden
+                    />
                   </div>
                   <h3 className="text-lg font-bold tracking-tight text-content/80">
-                    Your bag is empty
+                    {t("title")}
                   </h3>
                   <p className="text-xs text-content/30 mt-2 max-w-[180px]">
-                    Explore our products and find something you love.
+                    {t("description")}
                   </p>
                 </div>
               ) : (

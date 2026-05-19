@@ -1,0 +1,75 @@
+{
+  "CartPage": {
+    "metadata": {
+      "title": "Giỏ hàng | Công nghệ chọn lọc",
+      "description": "Xem và quản lý giỏ hàng trước khi thanh toán."
+    },
+    "header": {
+      "title": "Giỏ",
+      "highlight": "Hàng",
+      "descriptionWithItems": "Xem {count} sản phẩm, chọn món cần thanh toán và chuẩn bị đơn hàng.",
+      "emptyDescription": "Giỏ hàng đang chờ món tiếp theo bạn yêu thích."
+    },
+    "summary": {
+      "items": "Sản phẩm",
+      "selected": "Đã chọn",
+      "subtotal": "Tạm tính"
+    },
+    "empty": {
+      "title": "GIỎ HÀNG",
+      "highlight": "TRỐNG",
+      "description": "Khám phá bộ sưu tập cao cấp và thiết bị hiệu năng cao.",
+      "action": "Khám phá"
+    },
+    "table": {
+      "product": "Sản phẩm",
+      "unitPrice": "Đơn giá",
+      "quantity": "Số lượng",
+      "total": "Tổng",
+      "action": "Thao tác"
+    },
+    "footer": {
+      "applyCoupon": "Áp mã giảm giá",
+      "summary": "Tóm tắt giỏ hàng",
+      "selected": "Đã chọn {count}",
+      "freeShipping": "Miễn phí vận chuyển",
+      "subtotal": "Tạm tính",
+      "checkout": "Thanh toán"
+    },
+    "item": {
+      "standard": "Tiêu chuẩn",
+      "inStock": "Còn hàng",
+      "outOfStock": "Hết hàng",
+      "unavailable": "Sản phẩm này hiện không khả dụng.",
+      "remove": "Xóa {product}",
+      "increase": "Tăng số lượng {product}",
+      "decrease": "Giảm số lượng {product}"
+    },
+    "quantity": {
+      "increase": "Tăng số lượng",
+      "decrease": "Giảm số lượng"
+    },
+    "drawer": {
+      "title": "Giỏ hàng",
+      "count": "{count} món",
+      "close": "Đóng giỏ hàng",
+      "subtotal": "Tạm tính",
+      "freeShipping": "Miễn phí vận chuyển",
+      "checkout": "Thanh toán",
+      "finalizing": "Đang hoàn tất đơn",
+      "viewDetails": "Xem chi tiết",
+      "empty": {
+        "title": "Giỏ hàng trống",
+        "description": "Khám phá sản phẩm và chọn món bạn thích."
+      }
+    },
+    "toasts": {
+      "signInRequired": "Vui lòng đăng nhập để thêm vào giỏ",
+      "addFailed": "Không thể thêm vào giỏ",
+      "clearFailed": "Không thể xóa giỏ hàng",
+      "removeFailed": "Không thể xóa sản phẩm",
+      "removeManyFailed": "Không thể xóa các sản phẩm",
+      "updateFailed": "Không thể cập nhật số lượng"
+    }
+  }
+}

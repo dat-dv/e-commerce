@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Minus, Plus } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/utils/cn";
 
 interface QuantitySelectorProps {
@@ -17,6 +18,8 @@ export const QuantitySelector = ({
   disabled,
   className,
 }: QuantitySelectorProps) => {
+  const t = useTranslations("CartPage.quantity");
+
   return (
     <div
       className={cn(
@@ -29,8 +32,9 @@ export const QuantitySelector = ({
         onClick={() => onChange(Math.max(1, value - 1))}
         className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content border-r border-content/[0.1]"
         disabled={disabled}
+        aria-label={t("decrease")}
       >
-        <Minus size={14} />
+        <Minus size={14} aria-hidden />
       </button>
       <span className="px-3 min-w-[36px] text-center text-sm font-bold text-content">
         {value}
@@ -39,8 +43,9 @@ export const QuantitySelector = ({
         onClick={() => onChange(value + 1)}
         className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content border-l border-content/[0.1]"
         disabled={disabled}
+        aria-label={t("increase")}
       >
-        <Plus size={14} />
+        <Plus size={14} aria-hidden />
       </button>
     </div>
   );

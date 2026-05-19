@@ -1,11 +1,15 @@
 import { CartView } from "@/components/organisms/cart";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Shopping Cart | Premium Tech Essentials",
-  description:
-    "Review and manage the items in your shopping cart before proceeding to checkout.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("CartPage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function CartPage() {
   return <CartView />;

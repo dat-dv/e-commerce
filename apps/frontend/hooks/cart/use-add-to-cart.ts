@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { usePathname, useRouter } from "next/navigation";
 import { cartUseCase } from "@/domain/cart/use-cases";
@@ -8,6 +9,7 @@ import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { useCartStore } from "./use-cart-store";
 
 export const useAddToCart = () => {
+  const t = useTranslations("CartPage.toasts");
   const user = useAuthStore((s) => s.user);
   const router = useRouter();
   const pathname = usePathname();
@@ -40,13 +42,13 @@ export const useAddToCart = () => {
           router.push(
             `${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`,
           );
-          toast.info("Please sign in to add items to cart");
+          toast.info(t("signInRequired"));
         }
       } catch (err) {
         _addOrUpdateItem(item, previousQuantity);
-        toast.error("Failed to add to cart");
+        toast.error(t("addFailed"));
       }
     },
-    [currentItems, user, _addOrUpdateItem, pathname, router],
+    [currentItems, user, _addOrUpdateItem, pathname, router, t],
   );
 };
