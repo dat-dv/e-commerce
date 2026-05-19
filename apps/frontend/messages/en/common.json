@@ -100,7 +100,8 @@
       "searchLabel": "Search & Pick Location:",
       "searchPlaceholder": "Search address...",
       "cancel": "Cancel",
-      "confirm": "Confirm Address"
+      "confirm": "Confirm Address",
+      "unknownAddress": "Unknown Address"
     },
     "password": {
       "show": "Show password",
@@ -152,7 +153,21 @@
       "change": "Change"
     },
     "dateInput": {
-      "today": "Today"
+      "today": "Today",
+      "months": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      }
     },
     "regionSelector": {
       "title": "Select Your Region",

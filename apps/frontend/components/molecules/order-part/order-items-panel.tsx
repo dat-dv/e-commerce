@@ -7,7 +7,10 @@ import { TOrderItem } from "@/domain/orders/types/order.model";
 import { parseOrderAttributes } from "./order-display.utils";
 import { useTranslations, useLocale } from "next-intl";
 
-export const getOrderItemDisplay = (item: TOrderItem) => {
+export const getOrderItemDisplay = (
+  item: TOrderItem,
+  fallbackProductName = "Product",
+) => {
   const sku = item.snapshot?.sku;
   const snapshotProduct = sku?.product;
   const domainProduct = item.sku?.product;
@@ -21,7 +24,7 @@ export const getOrderItemDisplay = (item: TOrderItem) => {
       domainProduct?.thumbnailUrl ||
       item.sku?.imageUrl ||
       "/images/placeholder.png",
-    name: snapshotProduct?.name || domainProduct?.name || "Product",
+    name: snapshotProduct?.name || domainProduct?.name || fallbackProductName,
     skuCode: sku?.sku_code || item.sku?.skuCode || item.skuId,
     subtotal: unitPrice * item.quantity,
     unitPrice,
@@ -39,6 +42,7 @@ export function OrderItemsPanel({
 }: OrderItemsPanelProps) {
   const t = useTranslations("OrdersPage.detail");
   const locale = useLocale();
+  const fallbackProductName = t("productFallback");
 
   if (items.length === 0) {
     return (
@@ -63,6 +67,7 @@ export function OrderItemsPanel({
             compact={compact}
             locale={locale}
             t={t}
+            fallbackProductName={fallbackProductName}
           />
         ))}
       </div>
@@ -79,7 +84,8 @@ export function OrderItemProductSummary({
   imageSize = 44,
   item,
 }: OrderItemProductSummaryProps) {
-  const preview = getOrderItemDisplay(item);
+  const t = useTranslations("OrdersPage.detail");
+  const preview = getOrderItemDisplay(item, t("productFallback"));
 
   return (
     <div className="flex min-w-0 items-center gap-3">
@@ -112,13 +118,15 @@ function OrderItemRow({
   item,
   locale,
   t,
+  fallbackProductName,
 }: {
   compact: boolean;
   item: TOrderItem;
   locale: string;
   t: ReturnType<typeof useTranslations>;
+  fallbackProductName: string;
 }) {
-  const preview = getOrderItemDisplay(item);
+  const preview = getOrderItemDisplay(item, fallbackProductName);
 
   const currencyFormatter = new Intl.NumberFormat(locale, {
     style: "currency",

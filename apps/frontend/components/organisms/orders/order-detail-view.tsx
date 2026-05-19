@@ -162,9 +162,13 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
             </div>
             <div className="space-y-4 text-sm font-medium text-content/60">
               <p className="text-content font-bold">
-                {order.shippingAddress?.receiverName || "N/A"}
+                {order.shippingAddress?.receiverName ||
+                  t("detail.notAvailable")}
               </p>
-              <p>{order.shippingAddress?.receiverPhone || "N/A"}</p>
+              <p>
+                {order.shippingAddress?.receiverPhone ||
+                  t("detail.notAvailable")}
+              </p>
               <p className="leading-relaxed">
                 {order.shippingAddress?.street}
                 <br />
@@ -272,7 +276,9 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                   {item.sku?.imageUrl && (
                     <Image
                       src={item.sku.imageUrl}
-                      alt={item.sku.product?.name || "Product"}
+                      alt={
+                        item.sku.product?.name || t("detail.productFallback")
+                      }
                       fill
                       sizes="96px"
                       className="object-cover"
@@ -282,7 +288,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
                   <div className="flex justify-between items-start gap-4">
                     <h3 className="text-base font-bold text-content leading-tight">
-                      {item.sku?.product?.name || "Unknown Product"}
+                      {item.sku?.product?.name || t("detail.unknownProduct")}
                     </h3>
                     <div className="text-lg font-black text-content tracking-tight shrink-0">
                       {formatCurrency(item.price)}

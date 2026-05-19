@@ -17,7 +17,23 @@
     "rating": "Đánh giá",
     "up": " trở lên",
     "noProducts": "Không tìm thấy sản phẩm",
-    "noProductsDesc": "Không tìm thấy sản phẩm nào trong danh mục \"{categoryTitle}\" phù hợp với tiêu chí của bạn."
+    "noProductsDesc": "Không tìm thấy sản phẩm nào trong danh mục \"{categoryTitle}\" phù hợp với tiêu chí của bạn.",
+    "appliedFilters": {
+      "applied": "Đang áp dụng",
+      "search": "Tìm kiếm: {value}",
+      "sort": "Sắp xếp: {value}",
+      "min": "Tối thiểu: {value}",
+      "max": "Tối đa: {value}",
+      "rating": "{value}+ sao",
+      "category": "Danh mục: {value}",
+      "resetAll": "Xóa tất cả",
+      "sortOptions": {
+        "newest": "Mới nhất",
+        "bestSelling": "Bán chạy",
+        "priceLowToHigh": "Giá thấp đến cao",
+        "priceHighToLow": "Giá cao đến thấp"
+      }
+    }
   },
   "ProductDetailPage": {
     "metadata": {

@@ -42,8 +42,12 @@
       "requestReturn": "Request Return",
       "review": "Review",
       "reorder": "Reorder",
-      "noOrders": "Chưa có đơn hàng nào",
-      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!"
+      "noOrders": "No orders yet",
+      "emptyListDesc": "Keep shopping to fill your order history.",
+      "productFallback": "Product",
+      "productNameFallback": "Product Name",
+      "skuCode": "Code: {code}",
+      "defaultSku": "Default"
     },
     "confirmCancel": {
       "title": "Cancel Order",
@@ -91,7 +95,10 @@
       "qty": "Qty",
       "unit": "Unit",
       "subtotal": "Subtotal",
-      "orderItemsHeader": "Order Items"
+      "orderItemsHeader": "Order Items",
+      "productFallback": "Product",
+      "unknownProduct": "Unknown Product",
+      "notAvailable": "N/A"
     }
   },
   "AdminOrdersPage": {
@@ -105,7 +112,8 @@
       "searchLabel": "Search Orders",
       "searchPlaceholder": "Filter by Order ID, customer name or phone...",
       "clearActive": "Clear Active Filters",
-      "statusLabel": "Fulfillment Status Filters"
+      "statusLabel": "Fulfillment Status Filters",
+      "ariaLabel": "Order Filters"
     },
     "results": {
       "ordersCount": "{count, plural, =1 {1 Order} other {# Orders}}",
@@ -124,7 +132,13 @@
       "hideItems": "Hide Items",
       "showItems": "Show {count, plural, =1 {1 Item} other {Show # Items}}",
       "copied": "Order ID copied.",
-      "showingPageOf": "Showing page {page} of {totalPages}"
+      "showingPageOf": "Showing page {page} of {totalPages}",
+      "unknown": "Unknown",
+      "productFallback": "Product",
+      "paginationAria": "Orders Pagination",
+      "previousPage": "Previous Page",
+      "nextPage": "Next Page",
+      "pageAria": "Page {page}"
     }
   },
   "OrderStatus": {

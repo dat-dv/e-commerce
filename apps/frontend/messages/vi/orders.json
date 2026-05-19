@@ -43,7 +43,11 @@
       "review": "Đánh giá",
       "reorder": "Mua lại",
       "noOrders": "Chưa có đơn hàng nào",
-      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!"
+      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!",
+      "productFallback": "Sản phẩm",
+      "productNameFallback": "Tên sản phẩm",
+      "skuCode": "Mã: {code}",
+      "defaultSku": "Mặc định"
     },
     "confirmCancel": {
       "title": "Hủy đơn hàng",
@@ -91,7 +95,10 @@
       "qty": "SL",
       "unit": "Đơn giá",
       "subtotal": "Thành tiền",
-      "orderItemsHeader": "Sản phẩm đã mua"
+      "orderItemsHeader": "Sản phẩm đã mua",
+      "productFallback": "Sản phẩm",
+      "unknownProduct": "Sản phẩm không xác định",
+      "notAvailable": "Không có"
     }
   },
   "AdminOrdersPage": {
@@ -105,7 +112,8 @@
       "searchLabel": "Tìm kiếm đơn hàng",
       "searchPlaceholder": "Tìm theo Mã đơn hàng, tên khách hàng hoặc số điện thoại...",
       "clearActive": "Xóa bộ lọc hiện tại",
-      "statusLabel": "Lọc theo trạng thái xử lý"
+      "statusLabel": "Lọc theo trạng thái xử lý",
+      "ariaLabel": "Bộ lọc đơn hàng"
     },
     "results": {
       "ordersCount": "{count, plural, other {# đơn hàng}}",
@@ -124,7 +132,13 @@
       "hideItems": "Ẩn chi tiết",
       "showItems": "{count, plural, other {Hiển thị # sản phẩm}}",
       "copied": "Đã sao chép mã đơn hàng.",
-      "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang"
+      "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang",
+      "unknown": "Không xác định",
+      "productFallback": "Sản phẩm",
+      "paginationAria": "Phân trang đơn hàng",
+      "previousPage": "Trang trước",
+      "nextPage": "Trang sau",
+      "pageAria": "Trang {page}"
     }
   },
   "OrderStatus": {

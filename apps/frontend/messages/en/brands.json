@@ -2,7 +2,8 @@
   "BrandsPage": {
     "metadata": {
       "title": "Brands | Defined Quality",
-      "description": "Explore our certified partner brands and industry leaders."
+      "description": "Explore our certified partner brands and industry leaders.",
+      "notFoundTitle": "Brand Not Found"
     },
     "header": {
       "title": "Top",

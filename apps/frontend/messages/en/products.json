@@ -17,7 +17,23 @@
     "rating": "Rating",
     "up": " & Up",
     "noProducts": "No products found",
-    "noProductsDesc": "No products found in category \"{categoryTitle}\" matching your criteria."
+    "noProductsDesc": "No products found in category \"{categoryTitle}\" matching your criteria.",
+    "appliedFilters": {
+      "applied": "Applied",
+      "search": "Search: {value}",
+      "sort": "Sort: {value}",
+      "min": "Min: {value}",
+      "max": "Max: {value}",
+      "rating": "{value}+ Stars",
+      "category": "Category: {value}",
+      "resetAll": "Reset all",
+      "sortOptions": {
+        "newest": "Newest",
+        "bestSelling": "Best Selling",
+        "priceLowToHigh": "Price Low to High",
+        "priceHighToLow": "Price High to Low"
+      }
+    }
   },
   "ProductDetailPage": {
     "metadata": {

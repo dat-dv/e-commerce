@@ -67,6 +67,7 @@ declare const messages: {
     metadata: {
       title: "Brands | Defined Quality";
       description: "Explore our certified partner brands and industry leaders.";
+      notFoundTitle: "Brand Not Found";
     };
     header: {
       title: "Top";
@@ -370,6 +371,7 @@ declare const messages: {
       searchPlaceholder: "Search address...";
       cancel: "Cancel";
       confirm: "Confirm Address";
+      unknownAddress: "Unknown Address";
     };
     password: {
       show: "Show password";
@@ -422,6 +424,20 @@ declare const messages: {
     };
     dateInput: {
       today: "Today";
+      months: {
+        january: "January";
+        february: "February";
+        march: "March";
+        april: "April";
+        may: "May";
+        june: "June";
+        july: "July";
+        august: "August";
+        september: "September";
+        october: "October";
+        november: "November";
+        december: "December";
+      };
     };
     regionSelector: {
       title: "Select Your Region";
@@ -1007,8 +1023,12 @@ declare const messages: {
       requestReturn: "Request Return";
       review: "Review";
       reorder: "Reorder";
-      noOrders: "Chưa có đơn hàng nào";
-      emptyListDesc: "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!";
+      noOrders: "No orders yet";
+      emptyListDesc: "Keep shopping to fill your order history.";
+      productFallback: "Product";
+      productNameFallback: "Product Name";
+      skuCode: "Code: {code}";
+      defaultSku: "Default";
     };
     confirmCancel: {
       title: "Cancel Order";
@@ -1056,6 +1076,9 @@ declare const messages: {
       qty: "Qty";
       unit: "Unit";
       orderItemsHeader: "Order Items";
+      productFallback: "Product";
+      unknownProduct: "Unknown Product";
+      notAvailable: "N/A";
     };
   };
   AdminOrdersPage: {
@@ -1070,6 +1093,7 @@ declare const messages: {
       searchPlaceholder: "Filter by Order ID, customer name or phone...";
       clearActive: "Clear Active Filters";
       statusLabel: "Fulfillment Status Filters";
+      ariaLabel: "Order Filters";
     };
     results: {
       ordersCount: "{count, plural, =1 {1 Order} other {# Orders}}";
@@ -1089,6 +1113,12 @@ declare const messages: {
       showItems: "Show {count, plural, =1 {1 Item} other {Show # Items}}";
       copied: "Order ID copied.";
       showingPageOf: "Showing page {page} of {totalPages}";
+      unknown: "Unknown";
+      productFallback: "Product";
+      paginationAria: "Orders Pagination";
+      previousPage: "Previous Page";
+      nextPage: "Next Page";
+      pageAria: "Page {page}";
     };
   };
   OrderStatus: {
@@ -1237,6 +1267,22 @@ declare const messages: {
     up: " & Up";
     noProducts: "No products found";
     noProductsDesc: 'No products found in category "{categoryTitle}" matching your criteria.';
+    appliedFilters: {
+      applied: "Applied";
+      search: "Search: {value}";
+      sort: "Sort: {value}";
+      min: "Min: {value}";
+      max: "Max: {value}";
+      rating: "{value}+ Stars";
+      category: "Category: {value}";
+      resetAll: "Reset all";
+      sortOptions: {
+        newest: "Newest";
+        bestSelling: "Best Selling";
+        priceLowToHigh: "Price Low to High";
+        priceHighToLow: "Price High to Low";
+      };
+    };
   };
   ProductDetailPage: {
     metadata: {

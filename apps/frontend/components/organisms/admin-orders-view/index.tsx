@@ -37,13 +37,13 @@ const STATUS_VALUES = Object.keys(ORDER_STATUS_CONFIG).map(
   (v) => Number(v) as EOrderStatus,
 );
 
-const getOrderPreview = (order: TOrder) => {
+const getOrderPreview = (order: TOrder, fallbackProductName: string) => {
   const firstItem = order.items[0];
   const snap = firstItem?.snapshot;
 
   return {
     image: snap?.sku?.image_url || "/images/placeholder.png",
-    name: snap?.sku?.product?.name || "Product",
+    name: snap?.sku?.product?.name || fallbackProductName,
     attributes: parseOrderAttributes(snap?.sku?.attributes),
     extraCount: Math.max(order.items.length - 1, 0),
     quantity: order.items.reduce((total, item) => total + item.quantity, 0),
@@ -53,7 +53,6 @@ const getOrderPreview = (order: TOrder) => {
 export function AdminOrdersView() {
   const t = useTranslations("AdminOrdersPage");
   const tStatus = useTranslations("OrderStatus");
-  const locale = useLocale();
 
   const getStatusLabel = useCallback(
     (status: number) => {
@@ -81,10 +80,10 @@ export function AdminOrdersView() {
         case EOrderStatus.RETURN_REJECTED:
           return tStatus("returnRejected");
         default:
-          return "Unknown";
+          return t("results.unknown");
       }
     },
-    [tStatus],
+    [t, tStatus],
   );
 
   const STATUS_OPTIONS = useMemo(() => {
@@ -187,7 +186,7 @@ export function AdminOrdersView() {
         </header>
 
         <section
-          aria-label="Order Filters"
+          aria-label={t("filters.ariaLabel")}
           className="flex flex-col gap-6 border-b border-content/[0.08] pb-6"
         >
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
@@ -513,7 +512,7 @@ function OrderCompactCard({
   const t = useTranslations("AdminOrdersPage.results");
   const locale = useLocale();
 
-  const preview = getOrderPreview(order);
+  const preview = getOrderPreview(order, t("productFallback"));
   const isUpdating = updatingId === order.id;
 
   const dateFormatter = useMemo(
@@ -721,6 +720,7 @@ function StatusDropdown({
   onStatusUpdate: (orderId: string, newStatus: EOrderStatus) => void;
 }) {
   const tStatus = useTranslations("OrderStatus");
+  const tResults = useTranslations("AdminOrdersPage.results");
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -756,10 +756,10 @@ function StatusDropdown({
         case EOrderStatus.RETURN_REJECTED:
           return tStatus("returnRejected");
         default:
-          return "Unknown";
+          return tResults("unknown");
       }
     },
-    [tStatus],
+    [tResults, tStatus],
   );
 
   const statusColor =
@@ -927,7 +927,7 @@ function OrdersPagination({
   const t = useTranslations("AdminOrdersPage.results");
   return (
     <nav
-      aria-label="Orders Pagination"
+      aria-label={t("paginationAria")}
       className="flex flex-col gap-3 border-t border-content/10 pt-5 sm:flex-row sm:items-center sm:justify-between"
     >
       <p className="text-sm text-content/55">
@@ -940,7 +940,7 @@ function OrdersPagination({
       <div className="flex items-center gap-2">
         <button
           type="button"
-          aria-label="Previous Page"
+          aria-label={t("previousPage")}
           disabled={page <= 1 || loading}
           onClick={() => onPageChange(page - 1)}
           className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40"
@@ -957,7 +957,7 @@ function OrdersPagination({
               <button
                 key={targetPage}
                 type="button"
-                aria-label={`Page ${targetPage}`}
+                aria-label={t("pageAria", { page: String(targetPage) })}
                 aria-current={isCurrent ? "page" : undefined}
                 onClick={() => onPageChange(targetPage)}
                 disabled={loading}
@@ -975,7 +975,7 @@ function OrdersPagination({
 
         <button
           type="button"
-          aria-label="Next Page"
+          aria-label={t("nextPage")}
           disabled={page >= totalPages || loading}
           onClick={() => onPageChange(page + 1)}
           className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40"

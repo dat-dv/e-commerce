@@ -24,6 +24,7 @@ export function GlobalSearch() {
     },
   });
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const queryValue = methods.watch("query");
 
   const onSubmit = (data: SearchFormValues) => {

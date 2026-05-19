@@ -2,7 +2,8 @@
   "BrandsPage": {
     "metadata": {
       "title": "Thương hiệu | Chất lượng chọn lọc",
-      "description": "Khám phá các thương hiệu đối tác và tên tuổi nổi bật."
+      "description": "Khám phá các thương hiệu đối tác và tên tuổi nổi bật.",
+      "notFoundTitle": "Không tìm thấy thương hiệu"
     },
     "header": {
       "title": "Thương",

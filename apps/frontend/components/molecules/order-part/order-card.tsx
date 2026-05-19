@@ -121,7 +121,7 @@ export const OrderCard = ({
                 {item.sku?.imageUrl ? (
                   <Image
                     src={item.sku.imageUrl}
-                    alt={item.sku.product?.name || "Product"}
+                    alt={item.sku.product?.name || t("card.productFallback")}
                     fill
                     sizes="80px"
                     className="object-cover transition-transform group-hover:scale-110"
@@ -135,14 +135,17 @@ export const OrderCard = ({
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-start gap-4">
                   <h3 className="text-sm font-bold text-content line-clamp-1 leading-tight group-hover:text-primary transition-colors">
-                    {item.sku?.product?.name || "Product Name"}
+                    {item.sku?.product?.name || t("card.productNameFallback")}
                   </h3>
                   <div className="text-base font-bold text-content tracking-tight shrink-0">
                     {formatCurrency(item.price)}
                   </div>
                 </div>
                 <p className="mt-1 text-xs font-medium text-content/40">
-                  {item.attributes || `Code: ${item.sku?.skuCode || "Default"}`}
+                  {item.attributes ||
+                    t("card.skuCode", {
+                      code: item.sku?.skuCode || t("card.defaultSku"),
+                    })}
                 </p>
                 <div className="mt-2 flex items-center justify-between">
                   <div className="text-[11px] font-semibold text-content/50 bg-content/[0.05] px-2 py-0.5 rounded-full">

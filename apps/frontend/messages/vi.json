@@ -63,7 +63,8 @@
   "BrandsPage": {
     "metadata": {
       "title": "Thương hiệu | Chất lượng chọn lọc",
-      "description": "Khám phá các thương hiệu đối tác và tên tuổi nổi bật."
+      "description": "Khám phá các thương hiệu đối tác và tên tuổi nổi bật.",
+      "notFoundTitle": "Không tìm thấy thương hiệu"
     },
     "header": {
       "title": "Thương",
@@ -366,7 +367,8 @@
       "searchLabel": "Tìm kiếm & chọn vị trí:",
       "searchPlaceholder": "Tìm địa chỉ...",
       "cancel": "Hủy",
-      "confirm": "Xác nhận địa chỉ"
+      "confirm": "Xác nhận địa chỉ",
+      "unknownAddress": "Không xác định được địa chỉ"
     },
     "password": {
       "show": "Hiện mật khẩu",
@@ -418,7 +420,21 @@
       "change": "Đổi"
     },
     "dateInput": {
-      "today": "Hôm nay"
+      "today": "Hôm nay",
+      "months": {
+        "january": "Tháng 1",
+        "february": "Tháng 2",
+        "march": "Tháng 3",
+        "april": "Tháng 4",
+        "may": "Tháng 5",
+        "june": "Tháng 6",
+        "july": "Tháng 7",
+        "august": "Tháng 8",
+        "september": "Tháng 9",
+        "october": "Tháng 10",
+        "november": "Tháng 11",
+        "december": "Tháng 12"
+      }
     },
     "regionSelector": {
       "title": "Chọn khu vực của bạn",
@@ -1035,7 +1051,11 @@
       "review": "Đánh giá",
       "reorder": "Mua lại",
       "noOrders": "Chưa có đơn hàng nào",
-      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!"
+      "emptyListDesc": "Hãy tiếp tục mua sắm để lấp đầy lịch sử nhé!",
+      "productFallback": "Sản phẩm",
+      "productNameFallback": "Tên sản phẩm",
+      "skuCode": "Mã: {code}",
+      "defaultSku": "Mặc định"
     },
     "confirmCancel": {
       "title": "Hủy đơn hàng",
@@ -1082,7 +1102,10 @@
       "noOrderItems": "Không có sản phẩm nào.",
       "qty": "SL",
       "unit": "Đơn giá",
-      "orderItemsHeader": "Sản phẩm đã mua"
+      "orderItemsHeader": "Sản phẩm đã mua",
+      "productFallback": "Sản phẩm",
+      "unknownProduct": "Sản phẩm không xác định",
+      "notAvailable": "Không có"
     }
   },
   "AdminOrdersPage": {
@@ -1096,7 +1119,8 @@
       "searchLabel": "Tìm kiếm đơn hàng",
       "searchPlaceholder": "Tìm theo Mã đơn hàng, tên khách hàng hoặc số điện thoại...",
       "clearActive": "Xóa bộ lọc hiện tại",
-      "statusLabel": "Lọc theo trạng thái xử lý"
+      "statusLabel": "Lọc theo trạng thái xử lý",
+      "ariaLabel": "Bộ lọc đơn hàng"
     },
     "results": {
       "ordersCount": "{count, plural, other {# đơn hàng}}",
@@ -1115,7 +1139,13 @@
       "hideItems": "Ẩn chi tiết",
       "showItems": "{count, plural, other {Hiển thị # sản phẩm}}",
       "copied": "Đã sao chép mã đơn hàng.",
-      "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang"
+      "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang",
+      "unknown": "Không xác định",
+      "productFallback": "Sản phẩm",
+      "paginationAria": "Phân trang đơn hàng",
+      "previousPage": "Trang trước",
+      "nextPage": "Trang sau",
+      "pageAria": "Trang {page}"
     }
   },
   "OrderStatus": {
@@ -1263,7 +1293,23 @@
     "rating": "Đánh giá",
     "up": " trở lên",
     "noProducts": "Không tìm thấy sản phẩm",
-    "noProductsDesc": "Không tìm thấy sản phẩm nào trong danh mục \"{categoryTitle}\" phù hợp với tiêu chí của bạn."
+    "noProductsDesc": "Không tìm thấy sản phẩm nào trong danh mục \"{categoryTitle}\" phù hợp với tiêu chí của bạn.",
+    "appliedFilters": {
+      "applied": "Đang áp dụng",
+      "search": "Tìm kiếm: {value}",
+      "sort": "Sắp xếp: {value}",
+      "min": "Tối thiểu: {value}",
+      "max": "Tối đa: {value}",
+      "rating": "{value}+ sao",
+      "category": "Danh mục: {value}",
+      "resetAll": "Xóa tất cả",
+      "sortOptions": {
+        "newest": "Mới nhất",
+        "bestSelling": "Bán chạy",
+        "priceLowToHigh": "Giá thấp đến cao",
+        "priceHighToLow": "Giá cao đến thấp"
+      }
+    }
   },
   "ProductDetailPage": {
     "metadata": {

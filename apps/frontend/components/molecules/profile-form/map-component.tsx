@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Button from "@/components/atoms/button";
+import { useTranslations } from "next-intl";
 
 if (typeof window !== "undefined") {
   delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })
@@ -65,6 +66,7 @@ export default function MapComponent({
   setLoading,
   center,
 }: MapComponentProps) {
+  const t = useTranslations("Common.mapPickerModal");
   const [position, setPosition] = useState<[number, number]>([
     10.762622, 106.660172,
   ]); // Default to HCM City
@@ -105,7 +107,7 @@ export default function MapComponent({
         `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`,
       );
       const data = await res.json();
-      onPick(data.display_name || "Unknown Address", lat, lng);
+      onPick(data.display_name || t("unknownAddress"), lat, lng);
     } catch (error) {
       console.error(error);
     } finally {

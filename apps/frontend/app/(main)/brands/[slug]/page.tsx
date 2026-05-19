@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { allSafe, safe } from "@/utils/promise";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { getTranslations } from "next-intl/server";
 
 interface IBrandDetailPageProps {
   params: Promise<{
@@ -20,10 +21,11 @@ export async function generateMetadata({
   params,
 }: IBrandDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
+  const t = await getTranslations("BrandsPage.metadata");
   const brandResult = await safe(brandsUseCase.getBrandBySlug.execute(slug));
   const brand = brandResult?.data;
 
-  if (!brand) return { title: "Brand Not Found" };
+  if (!brand) return { title: t("notFoundTitle") };
 
   return {
     title: `${brand.name} | Defined Quality`,
