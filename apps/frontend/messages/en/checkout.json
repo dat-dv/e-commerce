@@ -1,0 +1,51 @@
+{
+  "CheckoutPage": {
+    "metadata": {
+      "title": "Checkout | Luxury E-commerce",
+      "description": "Complete your order with our secure checkout experience."
+    },
+    "header": {
+      "backToCart": "Back to Shopping Bag",
+      "title": "Checkout"
+    },
+    "shipping": {
+      "title": "Shipping Address",
+      "newAddress": "New Address",
+      "empty": {
+        "title": "No Addresses Found",
+        "description": "Add a shipping address before placing your order.",
+        "action": "Add New Address"
+      }
+    },
+    "items": {
+      "title": "Review Items",
+      "standard": "Standard",
+      "quantity": "Qty: {count}",
+      "empty": {
+        "title": "No items selected",
+        "description": "Return to your cart or browse products to select items for checkout.",
+        "action": "Browse Products"
+      }
+    },
+    "summary": {
+      "title": "Order Summary",
+      "shippingTo": "Shipping To",
+      "subtotal": "Subtotal",
+      "shippingFee": "Shipping fee",
+      "free": "FREE",
+      "tax": "Tax (included)",
+      "paymentMethod": "Payment method",
+      "cod": "Cash on Delivery",
+      "grandTotal": "Grand Total",
+      "processing": "Processing Order...",
+      "complete": "Complete Purchase"
+    },
+    "toasts": {
+      "selectAddress": "Please select a shipping address",
+      "noItems": "No items selected for checkout",
+      "success": "Order placed successfully!",
+      "placeFailed": "Failed to place order",
+      "unknownError": "An error occurred while placing your order"
+    }
+  }
+}

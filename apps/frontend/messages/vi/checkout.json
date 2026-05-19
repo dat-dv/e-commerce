@@ -1,0 +1,51 @@
+{
+  "CheckoutPage": {
+    "metadata": {
+      "title": "Thanh toán | E-commerce",
+      "description": "Hoàn tất đơn hàng với trải nghiệm thanh toán an toàn."
+    },
+    "header": {
+      "backToCart": "Quay lại giỏ hàng",
+      "title": "Thanh toán"
+    },
+    "shipping": {
+      "title": "Địa chỉ giao hàng",
+      "newAddress": "Địa chỉ mới",
+      "empty": {
+        "title": "Chưa có địa chỉ",
+        "description": "Thêm địa chỉ giao hàng trước khi đặt đơn.",
+        "action": "Thêm địa chỉ"
+      }
+    },
+    "items": {
+      "title": "Kiểm tra sản phẩm",
+      "standard": "Tiêu chuẩn",
+      "quantity": "SL: {count}",
+      "empty": {
+        "title": "Chưa chọn sản phẩm",
+        "description": "Quay lại giỏ hàng hoặc xem sản phẩm để chọn món thanh toán.",
+        "action": "Xem sản phẩm"
+      }
+    },
+    "summary": {
+      "title": "Tóm tắt đơn hàng",
+      "shippingTo": "Giao đến",
+      "subtotal": "Tạm tính",
+      "shippingFee": "Phí giao hàng",
+      "free": "MIỄN PHÍ",
+      "tax": "Thuế (đã gồm)",
+      "paymentMethod": "Phương thức thanh toán",
+      "cod": "Thanh toán khi nhận hàng",
+      "grandTotal": "Tổng cộng",
+      "processing": "Đang xử lý đơn...",
+      "complete": "Đặt hàng"
+    },
+    "toasts": {
+      "selectAddress": "Vui lòng chọn địa chỉ giao hàng",
+      "noItems": "Chưa chọn sản phẩm để thanh toán",
+      "success": "Đặt hàng thành công!",
+      "placeFailed": "Không thể đặt hàng",
+      "unknownError": "Có lỗi xảy ra khi đặt hàng"
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { ShoppingBag } from "lucide-react";
 import { cn } from "@/utils/cn";
 import Button from "@/components/atoms/button";
 import { formatCurrency } from "@/utils/format-currency";
+import { useTranslations } from "next-intl";
 
 interface IOrderSummaryProps {
   totalAmount: number;
@@ -22,6 +23,8 @@ export const OrderSummary = ({
   recipientName,
   recipientPhone,
 }: IOrderSummaryProps) => {
+  const t = useTranslations("CheckoutPage.summary");
+
   return (
     <div className="lg:col-span-4 sticky top-32">
       <motion.div
@@ -34,9 +37,9 @@ export const OrderSummary = ({
 
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-8 opacity-60">
-            <ShoppingBag size={14} className="text-content" />
+            <ShoppingBag size={14} className="text-content" aria-hidden />
             <span className="text-sm font-semibold text-content capitalize">
-              Order Summary
+              {t("title")}
             </span>
           </div>
 
@@ -44,7 +47,7 @@ export const OrderSummary = ({
           {recipientName && (
             <div className="mb-8 pb-6 border-b border-content/[0.08]">
               <div className="text-[10px] font-bold text-content/30 uppercase tracking-wider mb-2">
-                Shipping To
+                {t("shippingTo")}
               </div>
               <div className="flex flex-col gap-0.5">
                 <div className="font-bold text-sm text-content capitalize">
@@ -57,19 +60,19 @@ export const OrderSummary = ({
 
           <div className="space-y-4 mb-8">
             <div className="flex justify-between text-sm text-content/60">
-              <span className="capitalize">Subtotal</span>
+              <span className="capitalize">{t("subtotal")}</span>
               <span className="text-content font-medium">
                 {formatCurrency(totalAmount)}
               </span>
             </div>
             <div className="flex justify-between text-sm text-content/60">
-              <span className="capitalize">Shipping fee</span>
+              <span className="capitalize">{t("shippingFee")}</span>
               <span className="text-green-500 font-bold tracking-wide">
-                FREE
+                {t("free")}
               </span>
             </div>
             <div className="flex justify-between text-sm text-content/60">
-              <span className="capitalize">Tax (included)</span>
+              <span className="capitalize">{t("tax")}</span>
               <span className="text-content font-medium">$0.00</span>
             </div>
 
@@ -79,16 +82,16 @@ export const OrderSummary = ({
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-3 opacity-60">
                 <span className="text-xs font-semibold text-content capitalize">
-                  Payment method
+                  {t("paymentMethod")}
                 </span>
               </div>
-              <div className="text-xs text-content/60">Cash on Delivery</div>
+              <div className="text-xs text-content/60">{t("cod")}</div>
             </div>
 
             <div className="flex justify-between items-end">
               <div className="flex flex-col text-content">
                 <span className="text-xs font-semibold text-content capitalize mb-1">
-                  Grand Total
+                  {t("grandTotal")}
                 </span>
                 <span className="text-3xl font-bold tracking-tight">
                   {formatCurrency(totalAmount)}
@@ -108,7 +111,7 @@ export const OrderSummary = ({
                 : "bg-primary text-surface hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/20",
             )}
           >
-            {loading ? "Processing Order..." : "Complete Purchase"}
+            {loading ? t("processing") : t("complete")}
           </Button>
         </div>
       </motion.div>

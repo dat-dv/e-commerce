@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { useCart } from "@/hooks/cart/use-cart";
 import { ordersUseCase } from "@/domain/orders";
@@ -8,6 +9,7 @@ import { useCartStore } from "@/hooks/cart/use-cart-store";
 import { useLoadCart } from "@/hooks/cart/use-load-cart";
 
 export const useCheckout = (selectedAddressId: string | null) => {
+  const t = useTranslations("CheckoutPage.toasts");
   const router = useRouter();
   const { items, selectedItems, totalAmount, clearSelection } = useCart();
   const loadCart = useLoadCart();
@@ -17,12 +19,12 @@ export const useCheckout = (selectedAddressId: string | null) => {
 
   const handlePlaceOrder = useCallback(async () => {
     if (!selectedAddressId) {
-      toast.error("Please select a shipping address");
+      toast.error(t("selectAddress"));
       return;
     }
 
     if (selectedSkuIds.length === 0) {
-      toast.error("No items selected for checkout");
+      toast.error(t("noItems"));
       return;
     }
 
@@ -43,18 +45,16 @@ export const useCheckout = (selectedAddressId: string | null) => {
       });
 
       if (res.status === "success") {
-        toast.success("Order placed successfully!");
+        toast.success(t("success"));
         clearSelection();
         await loadCart(); // Synchronize cart state with server after items are evicted
         router.push(APP_ROUTES.ORDERS);
       } else {
-        toast.error(res.message || "Failed to place order");
+        toast.error(res.message || t("placeFailed"));
       }
     } catch (error) {
       const message =
-        error instanceof Error
-          ? error.message
-          : "An error occurred while placing your order";
+        error instanceof Error ? error.message : t("unknownError");
       toast.error(message);
     } finally {
       setPlacingOrder(false);
@@ -66,6 +66,7 @@ export const useCheckout = (selectedAddressId: string | null) => {
     clearSelection,
     loadCart,
     router,
+    t,
   ]);
 
   return {

@@ -6,28 +6,31 @@ import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
 import EmptyState from "@/components/molecules/empty-space";
 import { APP_ROUTES } from "@/constants/routes";
+import { useTranslations } from "next-intl";
 
 interface CheckoutListProps {
   items: TCartItem[];
 }
 
 export const CheckoutList = ({ items }: CheckoutListProps) => {
+  const t = useTranslations("CheckoutPage.items");
+
   if (items.length === 0) {
     return (
       <section>
         <div className="flex items-center gap-4 mb-8">
           <div className="w-10 h-10 rounded-full bg-content text-surface flex items-center justify-center shadow-lg shadow-content/10">
-            <Package size={20} />
+            <Package size={20} aria-hidden />
           </div>
           <h2 className="text-2xl font-black uppercase tracking-tight">
-            Review Items
+            {t("title")}
           </h2>
         </div>
         <EmptyState
-          title="No items selected"
-          description="Please return to your cart or explore our products catalog to select items for checkout."
+          title={t("empty.title")}
+          description={t("empty.description")}
           icon={ShoppingBag}
-          actionLabel="Browse Products"
+          actionLabel={t("empty.action")}
           actionHref={APP_ROUTES.RECENTLY_VIEWED}
           className="py-12"
         />
@@ -39,10 +42,10 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
     <section>
       <div className="flex items-center gap-4 mb-8">
         <div className="w-10 h-10 rounded-full bg-content text-surface flex items-center justify-center shadow-lg shadow-content/10">
-          <Package size={20} />
+          <Package size={20} aria-hidden />
         </div>
         <h2 className="text-2xl font-black uppercase tracking-tight">
-          Review Items
+          {t("title")}
         </h2>
       </div>
 
@@ -77,7 +80,7 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-content/10">
-                    <ShoppingBag size={24} />
+                    <ShoppingBag size={24} aria-hidden />
                   </div>
                 )}
               </div>
@@ -93,10 +96,10 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-[11px] font-medium text-content/40">
-                    <span>{item.attributes || "Standard"}</span>
+                    <span>{item.attributes || t("standard")}</span>
                     <span className="w-1 h-1 rounded-full bg-content/20" />
                     <span className="text-content/60">
-                      Qty: {item.quantity}
+                      {t("quantity", { count: item.quantity })}
                     </span>
                   </div>
 
