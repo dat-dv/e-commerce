@@ -23,13 +23,15 @@ export const useBrandProductsFilter = () => {
   const searchQuery = searchParams.get("q") || "";
 
   const updateFilter = useCallback(
-    (key: BrandProductsFilterKey, value: string | null) => {
+    (filters: { key: BrandProductsFilterKey; value: string | null }[]) => {
       const params = new URLSearchParams(searchParams.toString());
-      if (value) {
-        params.set(key, value);
-      } else {
-        params.delete(key);
-      }
+      filters.forEach(({ key, value }) => {
+        if (value) {
+          params.set(key, value);
+        } else {
+          params.delete(key);
+        }
+      });
       params.set("page", "1");
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
     },

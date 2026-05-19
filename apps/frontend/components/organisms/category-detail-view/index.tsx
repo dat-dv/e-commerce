@@ -1,8 +1,8 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductsHeader } from "@/app/(main)/products/products-header";
-import { ProductsFilterSidebar } from "@/components/organisms/products-view/products-filter-sidebar";
+import { ProductsHeader } from "@/components/molecules/products-header";
+import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { useMemo } from "react";
@@ -78,7 +78,7 @@ export function CategoryDetailView({
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
         <div className="lg:col-span-1">
-          <ProductsFilterSidebar<CategoryProductsFilterKey>
+          <ProductFilterSidebar<CategoryProductsFilterKey>
             categories={displayCategories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
@@ -110,7 +110,7 @@ export function CategoryDetailView({
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
           onPageChange={changePage}
-          onSortChange={(value) => updateFilter("sort", value)}
+          onSortChange={(value) => updateFilter([{ key: "sort", value }])}
         />
       </div>
     </AppContainer>

@@ -1,7 +1,7 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductsHeader } from "@/app/(main)/products/products-header";
+import { ProductsHeader } from "@/components/molecules/products-header";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { useEffect, useRef } from "react";
@@ -29,11 +29,13 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   const page = searchParams.get("page");
   const sort = searchParams.get("sort");
 
-  const updateFilter = (key: string, value: string | null) => {
+  const updateFilter = (filters: { key: string; value: string | null }[]) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (value) params.set(key, value);
-    else params.delete(key);
-    if (key !== "page") params.set("page", "1");
+    filters.forEach(({ key, value }) => {
+      if (value) params.set(key, value);
+      else params.delete(key);
+    });
+    params.set("page", "1");
     router.push(`${window.location.pathname}?${params.toString()}`);
   };
 

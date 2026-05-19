@@ -1,12 +1,15 @@
 "use client";
 
-import { ListingProductsToolbar } from "@/app/(main)/products/products-toolbar";
+import { ListingProductsToolbar } from "@/components/molecules/products-toolbar";
 import { ProductGrid } from "@/components/molecules/product-grid";
 import EmptyState from "@/components/molecules/empty-space";
 import { Pagination } from "@/components/molecules/pagination";
 import { Search } from "lucide-react";
 import { TProduct } from "@/domain/products/types/products.model";
-import { AppliedFilters, AppliedFiltersBar } from "./applied-filters-bar";
+import {
+  AppliedFilters,
+  AppliedFiltersBar,
+} from "@/components/molecules/applied-filters-bar";
 
 interface ProductsCatalogProps<T extends string = string> {
   products: TProduct[];

@@ -1,8 +1,8 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductsHeader } from "@/app/(main)/products/products-header";
-import { ProductsFilterSidebar } from "./products-filter-sidebar";
+import { ProductsHeader } from "@/components/molecules/products-header";
+import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { TCategory } from "@/domain/categories/types/categories.model";
@@ -30,16 +30,17 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
   const sort = searchParams.get("sort");
   const search = searchParams.get("search");
 
-  const updateFilter = (key: string, value: string | null) => {
+  const updateFilter = (filters: { key: string; value: string | null }[]) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (value) {
-      params.set(key, value);
-    } else {
-      params.delete(key);
-    }
-    if (key !== "page") {
-      params.set("page", "1");
-    }
+
+    filters.forEach(({ key, value }) => {
+      if (value) {
+        params.set(key, value);
+      } else {
+        params.delete(key);
+      }
+    });
+    params.set("page", "1");
     router.push(`${window.location.pathname}?${params.toString()}`);
   };
 
@@ -117,7 +118,7 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar */}
         <div className="lg:col-span-1">
-          <ProductsFilterSidebar
+          <ProductFilterSidebar
             categories={displayCategories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}

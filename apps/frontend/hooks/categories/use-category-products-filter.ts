@@ -25,13 +25,15 @@ export const useCategoryProductsFilter = () => {
   const currentPage = Number(searchParams.get("page") || "1");
 
   const updateFilter = useCallback(
-    (key: CategoryProductsFilterKey, value: string | null) => {
+    (filters: { key: CategoryProductsFilterKey; value: string | null }[]) => {
       const params = new URLSearchParams(searchParams.toString());
-      if (value) {
-        params.set(key, value);
-      } else {
-        params.delete(key);
-      }
+      filters.forEach(({ key, value }) => {
+        if (value) {
+          params.set(key, value);
+        } else {
+          params.delete(key);
+        }
+      });
       params.set("page", "1");
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
     },

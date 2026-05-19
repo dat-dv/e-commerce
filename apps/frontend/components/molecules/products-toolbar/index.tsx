@@ -10,15 +10,7 @@ import {
 } from "lucide-react";
 import { Dropdown } from "@/components/molecules/dropdown";
 import { EProductSort } from "@ecommerce/shared";
-
-interface IListingProductsToolbarProps {
-  total: number;
-  currentPage: number;
-  totalPages: number;
-  isLoading?: boolean;
-  onPageChange?: (page: number) => void;
-  onSortChange?: (sort: string) => void;
-}
+import { IListingProductsToolbarProps } from "./products-toolbar.types";
 
 export function ListingProductsToolbar({
   total,

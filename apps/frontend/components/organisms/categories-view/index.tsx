@@ -1,18 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import AppContainer from "@/components/atoms/app-container";
 import { CategoriesContent } from "./content";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
-import { CategoriesSidebar } from "@/components/molecules/caterogies-sidebar";
+import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import CategoryHeader from "./categories-header";
 import SidebarLayout from "@/components/molecules/sidebar-layout";
+import { TCategory } from "@/domain/categories/types/categories.model";
+
+const findCategoryById = (
+  categories: TCategory[],
+  id: string,
+): TCategory | null => {
+  for (const category of categories) {
+    if (category.id === id) return category;
+
+    const found = category.children
+      ? findCategoryById(category.children, id)
+      : null;
+    if (found) return found;
+  }
+
+  return null;
+};
 
 export const CategoriesView = () => {
   const categoriesTree = useCategoriesStore((s) => s.categories);
   const [activeId, setActiveId] = useState<string>("all");
 
-  const activeCategory = categoriesTree.find((cat) => cat.id === activeId);
+  const activeCategory = findCategoryById(categoriesTree, activeId);
 
   const title = activeCategory ? activeCategory.name : "All Categories";
   const description = activeCategory
@@ -25,7 +41,7 @@ export const CategoriesView = () => {
   return (
     <SidebarLayout
       sidebar={
-        <CategoriesSidebar
+        <CategoryNavSidebar
           categories={categoriesTree}
           activeId={activeId}
           setActiveId={setActiveId}

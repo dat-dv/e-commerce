@@ -83,3 +83,5 @@ export function AppliedFiltersBar<T extends string = string>({
     </div>
   );
 }
+
+export default AppliedFiltersBar;

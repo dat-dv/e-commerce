@@ -108,13 +108,6 @@ interface PaginationProps {
   scroll?: boolean;
 }
 
-/**
- * Pagination
- *
- * Why: Renders dynamic page-navigation selectors. Supporting both manual callbacks
- * and automated query-parameter routing (queryParam) completely removes duplicated URL parsing
- * and router pushing across views.
- */
 export const Pagination = ({
   currentPage,
   totalPages,

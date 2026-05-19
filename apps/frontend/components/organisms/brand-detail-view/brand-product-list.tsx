@@ -3,7 +3,7 @@
 import { TProduct } from "@/domain/products/types/products.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { TCategory } from "@/domain/categories/types/categories.model";
-import { ProductsFilterSidebar } from "@/components/organisms/products-view/products-filter-sidebar";
+import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import {
   useBrandProductsFilter,
@@ -86,7 +86,7 @@ export function BrandProductListSection({
       {/* Premium Side-by-Side Filtering Layout (Identical to Category Detail) */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
         <div className="lg:col-span-1">
-          <ProductsFilterSidebar<BrandProductsFilterKey>
+          <ProductFilterSidebar<BrandProductsFilterKey>
             categories={categories}
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
@@ -119,7 +119,7 @@ export function BrandProductListSection({
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
           onPageChange={changePage}
-          onSortChange={(value) => updateFilter("sort", value)}
+          onSortChange={(value) => updateFilter([{ key: "sort", value }])}
         />
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ListingProductsToolbar } from "@/app/(main)/products/products-toolbar";
+import { ListingProductsToolbar } from "@/components/molecules/products-toolbar";
 import { ProductGrid } from "@/components/molecules/product-grid";
 import EmptyState from "@/components/molecules/empty-space";
 import { Pagination } from "@/components/molecules/pagination";

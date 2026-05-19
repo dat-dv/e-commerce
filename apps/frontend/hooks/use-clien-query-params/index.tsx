@@ -64,16 +64,6 @@ export const useClientSearchParams = <T extends ExtraParams>({
     [navigate, params, toURLSearchParams],
   );
 
-  /**
-   * clear()
-   * => clear all
-   *
-   * clear({ page: true })
-   * => keep only page
-   *
-   * clear({ page: true, keyword: true })
-   * => keep page + keyword
-   */
   const clear = useCallback(
     (keep: Record<string, boolean> = {}) => {
       const keepKeys = Object.keys(keep);

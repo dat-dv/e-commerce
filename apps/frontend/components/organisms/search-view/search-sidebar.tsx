@@ -1,11 +1,11 @@
 "use client";
 
-import { ProductsFilterSidebar } from "@/components/organisms/products-view/products-filter-sidebar";
+import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { TCategory } from "@/domain/categories/types/categories.model";
 
 interface SearchSidebarProps {
   categories: TCategory[];
-  onFilterChange: (key: string, value: string | null) => void;
+  onFilterChange: (filters: { key: string; value: string | null }[]) => void;
   onCategoryChange: (slug: string) => void;
 }
 
@@ -16,7 +16,7 @@ export function SearchSidebar({
 }: SearchSidebarProps) {
   return (
     <div className="lg:col-span-1">
-      <ProductsFilterSidebar
+      <ProductFilterSidebar
         categories={categories}
         onFilterChange={onFilterChange}
         onCategoryChange={onCategoryChange}
