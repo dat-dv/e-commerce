@@ -7,8 +7,11 @@ import { ProductCard } from "../product-card";
 import { SectionHeader } from "../section-header";
 import { LucideIcon } from "lucide-react";
 
-const ProductCardPlaceholder = () => (
-  <div className="flex flex-col h-full flex-1 p-3 pointer-events-none select-none invisible">
+const ProductCardSpacer = () => (
+  <div
+    aria-hidden="true"
+    className="flex h-full flex-1 flex-col p-3 pointer-events-none invisible"
+  >
     <div className="relative aspect-square rounded-xl bg-transparent" />
     <div className="mt-3 flex flex-col flex-grow">
       <span className="text-[10px]">&nbsp;</span>
@@ -28,7 +31,6 @@ interface IProductCarouselProps {
   products: TProduct[];
   rows: 1 | 2;
   lang: string;
-  shouldChunk?: number;
 }
 
 export const ProductCarousel = ({
@@ -37,12 +39,9 @@ export const ProductCarousel = ({
   icon: Icon,
   products,
   rows = 1,
-  shouldChunk = 6,
 }: IProductCarouselProps) => {
   const carouselProducts = useMemo(() => {
-    const shouldUseChunk = rows > 1 && products.length > shouldChunk;
-
-    if (!shouldUseChunk) {
+    if (rows === 1) {
       return products.map((product) => [product]);
     }
 
@@ -53,7 +52,7 @@ export const ProductCarousel = ({
     }
 
     return chunked;
-  }, [products, rows, shouldChunk]);
+  }, [products, rows]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -73,9 +72,7 @@ export const ProductCarousel = ({
               {column.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
-              {Array.from({ length: rows - column.length }).map((_, idx) => (
-                <ProductCardPlaceholder key={`empty-${idx}`} />
-              ))}
+              {rows > 1 && column.length < rows ? <ProductCardSpacer /> : null}
             </div>
           </CarouselItem>
         ))}
