@@ -6,15 +6,17 @@ import { ChevronRight, Search } from "lucide-react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function MissingProduct() {
-  const suggestedRoutes = [
-    { label: "Browse products", href: APP_ROUTES.PRODUCTS },
-    { label: "View shopping cart", href: APP_ROUTES.CART },
-    { label: "Back to homepage", href: APP_ROUTES.HOME },
-  ];
-
+  const t = useTranslations("Common.missingProduct");
   const router = useRouter();
+
+  const suggestedRoutes = [
+    { label: t("browseProducts"), href: APP_ROUTES.PRODUCTS },
+    { label: t("viewCart"), href: APP_ROUTES.CART },
+    { label: t("backToHome"), href: APP_ROUTES.HOME },
+  ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] p-6">
@@ -29,13 +31,12 @@ export default function MissingProduct() {
           <Search className="text-content/60 h-12 w-12 mr-2" />
 
           <h1 className="text-2xl font-bold text-content mb-2 tracking-tight">
-            Product not found
+            {t("title")}
           </h1>
         </div>
 
         <p className="text-sm text-content/60 mb-8 max-w-sm mx-auto leading-relaxed">
-          The product you are looking for doesn&apos;t exist or has been moved.
-          Try searching or check out our collections.
+          {t("description")}
         </p>
 
         {/* Clean Navigation Links (Vercel Style) */}
@@ -62,7 +63,7 @@ export default function MissingProduct() {
             size="md"
             className="flex-1"
           >
-            Continue Shopping
+            {t("continueShopping")}
           </Button>
           <Button
             onClick={() => router.back()}
@@ -70,7 +71,7 @@ export default function MissingProduct() {
             size="md"
             className="flex-1"
           >
-            Go Back
+            {t("goBack")}
           </Button>
         </div>
       </motion.div>

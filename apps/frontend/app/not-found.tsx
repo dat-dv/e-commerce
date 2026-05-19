@@ -1,14 +1,20 @@
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 
-export const metadata = {
-  title: "404 - Not Found",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("Common.notFoundPage");
+  return {
+    title: t("metadataTitle"),
+  };
+}
 
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getTranslations("Common.notFoundPage");
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-surface selection:bg-primary/30 relative overflow-hidden">
       {/* Background Decor */}
@@ -27,12 +33,9 @@ export default function NotFound() {
           </div>
         </div>
 
-        <h2 className="text-4xl font-bold tracking-tight mb-4">
-          You&apos;re lost in space
-        </h2>
+        <h2 className="text-4xl font-bold tracking-tight mb-4">{t("title")}</h2>
         <p className="text-content/60 text-lg font-medium mb-12 leading-relaxed">
-          The page you are looking for hasn&apos;t been discovered yet. Maybe it
-          moved to another galaxy or simply never existed.
+          {t("description")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -43,7 +46,7 @@ export default function NotFound() {
               className="w-full rounded-[24px]"
             >
               <MoveLeft className="mr-2 w-5 h-5" />
-              Return Home
+              {t("returnHome")}
             </Button>
           </Link>
         </div>

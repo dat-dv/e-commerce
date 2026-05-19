@@ -7,6 +7,7 @@ import Script from "next/script";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
 import AppProvider from "@/components/molecules/providers/app-provider";
+import { getTranslations } from "next-intl/server";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,45 +19,47 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s | E-Commerce Platform",
-    default: "E-Commerce Platform",
-  },
-  description: "E-commerce platform with real-time focus.",
-  metadataBase: PUBLIC_ENV.NEXT_PUBLIC_SITE_URL,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "/",
-    siteName: "E-Commerce Platform",
-    title: "E-Commerce Platform",
-    description:
-      "The minimalist, high-performance e-commerce platform for power users.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Task Manager Preview",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "E-Commerce Platform",
-    description:
-      "The minimalist, high-performance e-commerce platform for power users.",
-    images: ["/og-image.png"],
-  },
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
-    apple: "/icon.svg",
-  },
-};
+export async function generateMetadata() {
+  const t = await getTranslations("Common.rootMetadata");
+
+  return {
+    title: {
+      template: `%s | ${t("siteName")}`,
+      default: t("siteName"),
+    },
+    description: t("description"),
+    metadataBase: PUBLIC_ENV.NEXT_PUBLIC_SITE_URL,
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: "/",
+      siteName: t("siteName"),
+      title: t("siteName"),
+      description: t("openGraphDesc"),
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: t("openGraphAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("siteName"),
+      description: t("openGraphDesc"),
+      images: ["/og-image.png"],
+    },
+    icons: {
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", type: "image/x-icon" },
+      ],
+      apple: "/icon.svg",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,

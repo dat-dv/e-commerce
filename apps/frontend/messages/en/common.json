@@ -50,6 +50,40 @@
       "privacyPolicy": "Privacy Policy",
       "termsOfService": "Terms of Service",
       "rightsReserved": "All rights reserved."
+    },
+    "rootMetadata": {
+      "siteName": "Luxury E-commerce Platform",
+      "description": "High-performance e-commerce platform for curated luxury.",
+      "openGraphDesc": "The minimalist, high-performance e-commerce platform for power users.",
+      "openGraphAlt": "Luxury E-commerce Platform Preview"
+    },
+    "errorPage": {
+      "metadataTitle": "503 - Service Unavailable",
+      "title": "Something went wrong",
+      "description": "Our systems are currently taking a quick breather or something unexpected happened. We've been notified and are already looking into it.",
+      "tryAgain": "Try Again",
+      "takeMeBack": "Take Me Back"
+    },
+    "notFoundPage": {
+      "metadataTitle": "404 - Not Found",
+      "title": "You're lost in space",
+      "description": "The page you are looking for hasn't been discovered yet. Maybe it moved to another galaxy or simply never existed.",
+      "returnHome": "Return Home"
+    },
+    "missingProduct": {
+      "title": "Product not found",
+      "description": "The product you are looking for doesn't exist or has been moved. Try searching or check out our collections.",
+      "browseProducts": "Browse products",
+      "viewCart": "View shopping cart",
+      "backToHome": "Back to homepage",
+      "continueShopping": "Continue Shopping",
+      "goBack": "Go Back"
+    },
+    "search": {
+      "defaultPlaceholder": "Search...",
+      "clear": "Clear",
+      "submit": "Search",
+      "globalPlaceholder": "Search for premium tech & workspace essentials..."
     }
   }
 }

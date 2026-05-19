@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Search, Loader2, X } from "lucide-react";
 import { cn } from "@/utils/cn";
+import { useTranslations } from "next-intl";
 
 export interface SearchInputProps {
   id?: string;
@@ -19,13 +20,17 @@ export const SearchInput = ({
   id,
   value,
   onSearch,
-  placeholder = "Search...",
+  placeholder,
   loading = false,
   className,
   inputClassName,
-  submitButtonLabel = "Search",
+  submitButtonLabel,
 }: SearchInputProps) => {
+  const t = useTranslations("Common.search");
   const [localValue, setLocalValue] = useState(value);
+
+  const resolvedPlaceholder = placeholder || t("defaultPlaceholder");
+  const resolvedSubmitButtonLabel = submitButtonLabel || t("submit");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -68,7 +73,7 @@ export const SearchInput = ({
         value={localValue}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder={placeholder}
+        placeholder={resolvedPlaceholder}
         className={cn(
           "w-full bg-transparent px-3 py-2.5 text-sm font-semibold text-content outline-none placeholder:text-content/30",
           inputClassName,
@@ -82,7 +87,7 @@ export const SearchInput = ({
             className="rounded-lg bg-content/5 px-2.5 py-1 text-xs font-bold text-content/60 transition-colors hover:bg-content/10 hover:text-content flex items-center gap-1"
           >
             <X className="h-3 w-3" />
-            <span>Clear</span>
+            <span>{t("clear")}</span>
           </button>
         )}
 
@@ -90,7 +95,7 @@ export const SearchInput = ({
           onClick={() => onSearch?.(localValue)}
           className="px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-xl text-xs font-bold transition-all active:scale-95 shadow-md shadow-primary/10"
         >
-          {submitButtonLabel}
+          {resolvedSubmitButtonLabel}
         </button>
       </div>
     </div>

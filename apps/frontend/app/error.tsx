@@ -1,13 +1,10 @@
 "use client";
 
 import { RefreshCcw, ShieldAlert } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
-
-export const metadata = {
-  title: "503 - Service Unavailable",
-};
 
 export default function Error({
   error,
@@ -16,6 +13,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useTranslations("Common.errorPage");
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-surface selection:bg-primary/30 relative overflow-hidden">
       {/* Red/Danger Ambient Glow */}
@@ -27,12 +26,10 @@ export default function Error({
         </div>
 
         <h1 className="text-4xl font-black tracking-tighter mb-4 text-red-500">
-          503 • Something went wrong
+          {t("title")}
         </h1>
         <p className="text-content/70 text-lg font-medium mb-10 leading-relaxed max-w-md">
-          Our systems are currently taking a quick breather or something
-          unexpected happened. We&apos;ve been notified and are already looking
-          into it.
+          {t("description")}
         </p>
 
         <div className="bg-surface/40 backdrop-blur-2xl border border-content/5 p-6 rounded-[24px] mb-10 w-full">
@@ -51,7 +48,7 @@ export default function Error({
             className="flex-1 rounded-[24px] bg-primary shadow-xl shadow-primary/25 border-none"
           >
             <RefreshCcw className="mr-2 w-5 h-5" />
-            Try Again
+            {t("tryAgain")}
           </Button>
           <Button
             href={APP_ROUTES.HOME}
@@ -59,7 +56,7 @@ export default function Error({
             size="lg"
             className="flex-1 rounded-[24px] font-bold"
           >
-            Take Me Back
+            {t("takeMeBack")}
           </Button>
         </div>
       </div>

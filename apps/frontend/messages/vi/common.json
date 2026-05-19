@@ -50,6 +50,40 @@
       "privacyPolicy": "Chính sách bảo mật",
       "termsOfService": "Điều khoản dịch vụ",
       "rightsReserved": "Bảo lưu mọi quyền."
+    },
+    "rootMetadata": {
+      "siteName": "Nền tảng Thương mại Điện tử Luxury",
+      "description": "Nền tảng thương mại điện tử hiệu năng cao cho hàng hiệu tuyển chọn.",
+      "openGraphDesc": "Nền tảng thương mại điện tử tối giản, hiệu năng cao dành cho người dùng chuyên nghiệp.",
+      "openGraphAlt": "Hình ảnh xem trước Nền tảng Thương mại Điện tử Luxury"
+    },
+    "errorPage": {
+      "metadataTitle": "503 - Dịch vụ Không khả dụng",
+      "title": "Đã xảy ra lỗi",
+      "description": "Hệ thống của chúng tôi hiện đang tạm thời gián đoạn hoặc có sự cố ngoài ý muốn. Chúng tôi đã nhận được thông báo và đang tiến hành khắc phục.",
+      "tryAgain": "Thử lại",
+      "takeMeBack": "Quay lại"
+    },
+    "notFoundPage": {
+      "metadataTitle": "404 - Không tìm thấy trang",
+      "title": "Bạn đã đi lạc",
+      "description": "Trang bạn đang tìm kiếm chưa được khám phá. Có thể trang đã được chuyển sang một địa chỉ khác hoặc chưa từng tồn tại.",
+      "returnHome": "Quay lại Trang chủ"
+    },
+    "missingProduct": {
+      "title": "Không tìm thấy sản phẩm",
+      "description": "Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển sang mục khác. Hãy thử tìm kiếm hoặc xem các bộ sưu tập của chúng tôi.",
+      "browseProducts": "Duyệt sản phẩm",
+      "viewCart": "Xem giỏ hàng",
+      "backToHome": "Quay lại trang chủ",
+      "continueShopping": "Tiếp tục mua sắm",
+      "goBack": "Quay lại"
+    },
+    "search": {
+      "defaultPlaceholder": "Tìm kiếm...",
+      "clear": "Xóa",
+      "submit": "Tìm kiếm",
+      "globalPlaceholder": "Tìm kiếm thiết bị công nghệ & đồ dùng góc làm việc cao cấp..."
     }
   }
 }

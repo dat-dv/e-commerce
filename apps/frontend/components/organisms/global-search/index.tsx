@@ -7,12 +7,14 @@ import { APP_ROUTES } from "@/constants/routes";
 import AppContainer from "@/components/atoms/app-container";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
+import { useTranslations } from "next-intl";
 
 type SearchFormValues = {
   query: string;
 };
 
 export function GlobalSearch() {
+  const t = useTranslations("Common.search");
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -40,7 +42,7 @@ export function GlobalSearch() {
             <FormInput
               name="query"
               variant="none"
-              placeholder="Search for premium tech & workspace essentials..."
+              placeholder={t("globalPlaceholder")}
               className="w-full !h-12 bg-surface !border-solid border border-content/[0.08] hover:border-content/[0.15] focus:border-content/[0.25] focus:shadow-sm transition-all rounded-full pl-11 pr-28 text-sm outline-none text-content placeholder:text-content/40 font-medium m-0"
             />
             <button
@@ -48,7 +50,7 @@ export function GlobalSearch() {
               disabled={!queryValue?.trim()}
               className="absolute right-1.5 top-1.5 bottom-1.5 px-6 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full text-xs font-bold disabled:opacity-0 disabled:scale-95 transition-all z-10"
             >
-              Search
+              {t("submit")}
             </button>
           </div>
         </AppForm>
