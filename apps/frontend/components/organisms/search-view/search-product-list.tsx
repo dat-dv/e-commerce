@@ -7,6 +7,8 @@ import { Pagination } from "@/components/molecules/pagination";
 import { Search } from "lucide-react";
 import { TProduct } from "@/domain/products/types/products.model";
 
+import { useTranslations } from "next-intl";
+
 interface SearchProductListProps {
   products: TProduct[];
   total: number;
@@ -27,6 +29,7 @@ export function SearchProductList({
   shortQuery,
 }: SearchProductListProps) {
   const hasProducts = products.length > 0;
+  const t = useTranslations("SearchView");
 
   return (
     <div className="lg:col-span-3">
@@ -57,8 +60,8 @@ export function SearchProductList({
         </div>
       ) : (
         <EmptyState
-          title="No results found"
-          description={`We couldn't find anything matching "${shortQuery}". Try using different keywords or browsing our categories.`}
+          title={t("noResultsTitle")}
+          description={t("noResultsDescription", { query: shortQuery })}
           icon={Search}
         />
       )}

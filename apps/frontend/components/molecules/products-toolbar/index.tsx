@@ -12,6 +12,8 @@ import { Dropdown } from "@/components/molecules/dropdown";
 import { EProductSort } from "@ecommerce/shared";
 import { IListingProductsToolbarProps } from "./products-toolbar.types";
 
+import { useTranslations } from "next-intl";
+
 export function ListingProductsToolbar({
   total,
   currentPage,
@@ -22,6 +24,7 @@ export function ListingProductsToolbar({
 }: IListingProductsToolbarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations("Common.toolbar");
 
   const currentSort =
     searchParams.get("sort") || EProductSort.DEFAULT.toString();
@@ -50,10 +53,10 @@ export function ListingProductsToolbar({
   };
 
   const sortOptions = [
-    { value: EProductSort.DEFAULT, label: "Newest" },
-    { value: EProductSort.BUY_MOST, label: "Best Selling" },
-    { value: EProductSort.PRICE_ASC, label: "Price: Low to High" },
-    { value: EProductSort.PRICE_DESC, label: "Price: High to Low" },
+    { value: EProductSort.DEFAULT, label: t("sortOptions.newest") },
+    { value: EProductSort.BUY_MOST, label: t("sortOptions.bestSelling") },
+    { value: EProductSort.PRICE_ASC, label: t("sortOptions.priceLowToHigh") },
+    { value: EProductSort.PRICE_DESC, label: t("sortOptions.priceHighToLow") },
   ];
 
   const currentSortOption =
@@ -65,8 +68,12 @@ export function ListingProductsToolbar({
       {/* Left side: Info & Pagination */}
       <div className="flex items-center justify-between w-full md:w-auto gap-4">
         <div className="text-sm font-medium text-content/70">
-          Showing <span className="text-content font-bold">{total}</span>{" "}
-          products
+          {t.rich("showingProducts", {
+            total,
+            bold: (chunks) => (
+              <span className="text-content font-bold">{chunks}</span>
+            ),
+          })}
         </div>
 
         <div className="flex items-center gap-2 bg-content/[0.03] rounded-xl p-1 border border-content/[0.05]">
@@ -102,7 +109,7 @@ export function ListingProductsToolbar({
         <div className="hidden md:flex items-center gap-2 text-content/40 mr-2">
           <SlidersHorizontal size={12} />
           <span className="text-[9px] font-bold uppercase tracking-widest">
-            Sort By
+            {t("sortBy")}
           </span>
         </div>
 
@@ -125,7 +132,7 @@ export function ListingProductsToolbar({
           <div className="flex flex-col gap-0.5 min-w-[200px]">
             <div className="px-3 py-1.5 mb-0.5 border-b border-content/[0.05]">
               <span className="text-[9px] font-black uppercase tracking-[0.2em] text-content/30">
-                Sort Products By
+                {t("sortProductsBy")}
               </span>
             </div>
             {sortOptions.map((option) => (

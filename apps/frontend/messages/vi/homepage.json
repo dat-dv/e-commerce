@@ -1,0 +1,46 @@
+{
+  "HomePage": {
+    "hero": {
+      "titleLoggedIn": "Chào <italic>{name}</italic><br></br>Nâng Tầm Cuộc Sống.",
+      "titlePublic": "Nâng Tầm <italic>Phong Cách</italic> Sống.",
+      "descLoggedIn": "Tiếp tục khám phá các sản phẩm cao cấp, bộ sưu tập độc quyền và các sản phẩm thiết yếu được thiết kế riêng cho lối sống hàng ngày của bạn.",
+      "descPublic": "Khám phá các sản phẩm cao cấp, bộ sưu tập được tuyển chọn và các sản phẩm thiết yếu hàng ngày phù hợp với cuộc sống hiện đại.",
+      "btnContinueShopping": "Tiếp tục mua sắm",
+      "btnStartShopping": "Bắt đầu mua sắm",
+      "btnViewOrders": "Xem đơn hàng",
+      "btnExploreCollections": "Khám phá bộ sưu tập"
+    },
+    "features": {
+      "flashSale": {
+        "name": "Flash Sale",
+        "desc": "Sắp kết thúc"
+      },
+      "vouchers": {
+        "name": "Mã giảm giá",
+        "desc": "Sắp ra mắt"
+      },
+      "topBrands": {
+        "name": "Thương hiệu hàng đầu",
+        "desc": "Cửa hàng chính hãng"
+      },
+      "newArrivals": {
+        "name": "Hàng mới về",
+        "desc": "Sản phẩm mới nhất"
+      }
+    },
+    "sections": {
+      "flashSale": "Flash Sale"
+    },
+    "discovery": {
+      "recentViewed": "Đã xem gần đây",
+      "wishlist": "Danh sách yêu thích",
+      "recommended": "Gợi ý cho bạn"
+    },
+    "joinUs": {
+      "title": "Ưu đãi tốt hơn,<br></br>dành riêng cho bạn.",
+      "desc": "Tham gia để lưu sản phẩm yêu thích, theo dõi đơn hàng và khám phá các ưu đãi được tuyển chọn cho các nhu cầu hàng ngày.",
+      "btnJoin": "Tham gia ngay",
+      "backgroundText": "Ưu đãi"
+    }
+  }
+}

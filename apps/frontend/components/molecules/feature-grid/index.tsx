@@ -3,6 +3,7 @@
 import { cn } from "@/utils/cn";
 import { LucideIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface FeatureItem {
   name: string;
@@ -18,11 +19,23 @@ interface FeatureGridProps {
   classNames?: string;
 }
 
+const keyMap: Record<string, string> = {
+  "Flash Sale": "flashSale",
+  Vouchers: "vouchers",
+  "Top Brands": "topBrands",
+  "New Arrivals": "newArrivals",
+};
+
 export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
+  const t = useTranslations("HomePage.features");
+
   return (
     <nav className={cn("grid grid-cols-2 gap-3 md:grid-cols-4", classNames)}>
       {items.map((item) => {
         const Icon = item.icon;
+        const key = keyMap[item.name];
+        const displayName = key ? t(`${key}.name`) : item.name;
+        const displayDesc = key ? t(`${key}.desc`) : item.desc;
 
         return (
           <Link
@@ -38,7 +51,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <h3 className="truncate text-sm font-black text-content transition-colors group-hover:text-primary">
-                    {item.name}
+                    {displayName}
                   </h3>
 
                   {item.badge && (
@@ -49,7 +62,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
                 </div>
 
                 <p className="mt-0.5 truncate text-xs font-medium text-content/35">
-                  {item.desc}
+                  {displayDesc}
                 </p>
               </div>
             </div>

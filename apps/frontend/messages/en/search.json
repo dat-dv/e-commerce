@@ -1,0 +1,9 @@
+{
+  "SearchView": {
+    "titleWithQuery": "Results for \"{query}\"",
+    "titleWithoutQuery": "Search Products",
+    "description": "We found {total} {total, plural, =1 {product} other {products}} matching your criteria.",
+    "noResultsTitle": "No results found",
+    "noResultsDescription": "We couldn't find anything matching \"{query}\". Try using different keywords or browsing our categories."
+  }
+}

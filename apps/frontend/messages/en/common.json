@@ -1,1 +1,16 @@
-{}
+{
+  "Common": {
+    "viewAll": "View All",
+    "toolbar": {
+      "showingProducts": "Showing <bold>{total}</bold> {total, plural, =1 {product} other {products}}",
+      "sortBy": "Sort By",
+      "sortProductsBy": "Sort Products By",
+      "sortOptions": {
+        "newest": "Newest",
+        "bestSelling": "Best Selling",
+        "priceLowToHigh": "Price: Low to High",
+        "priceHighToLow": "Price: High to Low"
+      }
+    }
+  }
+}

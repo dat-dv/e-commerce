@@ -13,6 +13,8 @@ import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { SearchSidebar } from "./search-sidebar";
 import { SearchProductList } from "./search-product-list";
 
+import { useTranslations } from "next-intl";
+
 interface SearchViewProps {
   searchQuery: string;
 }
@@ -25,6 +27,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   const { fetchProducts } = useProductsAdapter();
   const searchParams = useSearchParams();
   const router = useRouter();
+  const t = useTranslations("SearchView");
 
   const page = searchParams.get("page");
   const sort = searchParams.get("sort");
@@ -67,8 +70,12 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   return (
     <AppContainer size="2xl" className="py-12 md:py-16">
       <ProductsHeader
-        title={searchQuery ? `Results for "${shortQuery}"` : "Search Products"}
-        description={`We found ${total} products matching your criteria.`}
+        title={
+          searchQuery
+            ? t("titleWithQuery", { query: shortQuery })
+            : t("titleWithoutQuery")
+        }
+        description={t("description", { total })}
       />
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-24">
         <SearchSidebar

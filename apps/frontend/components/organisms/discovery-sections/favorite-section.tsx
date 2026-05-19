@@ -7,11 +7,13 @@ import { APP_ROUTES } from "@/constants/routes";
 import { RecentViewedSectionSkeleton } from "./skeletons";
 import { useConfig } from "@/hooks/config/use-config";
 import { useLoadOnce } from "@/hooks/use-load-once";
+import { useTranslations } from "next-intl";
 import { TProduct } from "@/domain/products/types/products.model";
 
 export const FavoriteSection = () => {
   const { favorites, loading, fetchFavorites } = useFavorites();
   const { language } = useConfig();
+  const t = useTranslations("HomePage.discovery");
   const { loading: initialLoading } = useLoadOnce(fetchFavorites);
   const products = favorites
     .map((favorite) => favorite.product)
@@ -28,7 +30,7 @@ export const FavoriteSection = () => {
   return (
     <div className="w-full py-6">
       <ProductCarousel
-        title="Your Wishlist"
+        title={t("wishlist")}
         href={APP_ROUTES.FAVORITES}
         icon={Heart}
         products={products}

@@ -41,7 +41,7 @@ export const SectionHeader = ({
         {children}
       </div>
 
-      {href && <ViewAllButton href={href} lang={lang} />}
+      {href && <ViewAllButton href={href} />}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface HomeHeroSectionProps {
   name?: string;
@@ -10,6 +11,7 @@ interface HomeHeroSectionProps {
 
 export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
   const isLoggedIn = !!name;
+  const t = useTranslations("HomePage.hero");
 
   return (
     <section className="relative mb-8 min-h-[420px] flex items-center overflow-hidden border-b border-content/[0.03]">
@@ -21,21 +23,26 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
             <h1 className="text-5xl md:text-7xl font-black tracking-[-0.05em] leading-none uppercase text-content">
               {isLoggedIn ? (
                 <>
-                  Hello{" "}
-                  <span className="italic font-light text-content/30">
-                    {name}
-                  </span>
-                  <br />
-                  Elevate Your Life.
+                  {t.rich("titleLoggedIn", {
+                    name,
+                    italic: (chunks) => (
+                      <span className="italic font-light text-content/30">
+                        {chunks}
+                      </span>
+                    ),
+                    br: () => <br />,
+                  })}
                 </>
               ) : (
                 <>
-                  Elevate{" "}
-                  <span className="italic font-light text-content/30">
-                    Your
-                  </span>
-                  <br />
-                  Lifestyle.
+                  {t.rich("titlePublic", {
+                    italic: (chunks) => (
+                      <span className="italic font-light text-content/30">
+                        {chunks}
+                      </span>
+                    ),
+                    br: () => <br />,
+                  })}
                 </>
               )}
             </h1>
@@ -43,9 +50,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
 
           <AnimationItem>
             <p className="text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight">
-              {isLoggedIn
-                ? "Continue discovering premium products, exclusive collections, and curated essentials designed for your everyday lifestyle."
-                : "Discover premium products, curated collections, and everyday essentials tailored to modern living."}
+              {isLoggedIn ? t("descLoggedIn") : t("descPublic")}
             </p>
           </AnimationItem>
 
@@ -57,7 +62,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
                 size="lg"
                 className="rounded-xl px-8 text-sm font-bold shadow-xl shadow-primary/20"
               >
-                {isLoggedIn ? "Continue Shopping" : "Start Shopping"}
+                {isLoggedIn ? t("btnContinueShopping") : t("btnStartShopping")}
               </Button>
             </motion.div>
 
@@ -68,7 +73,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
                 size="lg"
                 className="rounded-xl px-8 text-sm font-bold border border-content/[0.08] hover:bg-content/[0.02]"
               >
-                {isLoggedIn ? "View Orders" : "Explore Collections"}
+                {isLoggedIn ? t("btnViewOrders") : t("btnExploreCollections")}
               </Button>
             </motion.div>
           </AnimationItem>

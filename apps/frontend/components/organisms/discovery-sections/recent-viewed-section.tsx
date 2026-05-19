@@ -9,6 +9,8 @@ import { RecentViewedSectionSkeleton } from "./skeletons";
 import { useConfig } from "@/hooks/config/use-config";
 import { useLoadOnce } from "@/hooks/use-load-once";
 
+import { useTranslations } from "next-intl";
+
 import { TProduct } from "@/domain/products/types/products.model";
 
 export interface RecentViewedSectionProps {
@@ -28,6 +30,7 @@ export const RecentViewedSection = ({
   const { loading: initialLoading } = useLoadOnce(fetchRecentViewedProducts);
 
   const { language } = useConfig();
+  const t = useTranslations("HomePage.discovery");
 
   const products = propProducts ?? recentViewedProducts;
   const loading = propLoading || hookLoading || initialLoading;
@@ -48,7 +51,7 @@ export const RecentViewedSection = ({
   return (
     <div className="w-full py-6">
       <ProductCarousel
-        title="Recently Viewed"
+        title={t("recentViewed")}
         href={APP_ROUTES.RECENTLY_VIEWED}
         icon={Eye}
         products={products}

@@ -1,0 +1,46 @@
+{
+  "HomePage": {
+    "hero": {
+      "titleLoggedIn": "Hello <italic>{name}</italic><br></br>Elevate Your Life.",
+      "titlePublic": "Elevate <italic>Your</italic><br></br>Lifestyle.",
+      "descLoggedIn": "Continue discovering premium products, exclusive collections, and curated essentials designed for your everyday lifestyle.",
+      "descPublic": "Discover premium products, curated collections, and everyday essentials tailored to modern living.",
+      "btnContinueShopping": "Continue Shopping",
+      "btnStartShopping": "Start Shopping",
+      "btnViewOrders": "View Orders",
+      "btnExploreCollections": "Explore Collections"
+    },
+    "features": {
+      "flashSale": {
+        "name": "Flash Sale",
+        "desc": "Ending soon"
+      },
+      "vouchers": {
+        "name": "Vouchers",
+        "desc": "Coming soon"
+      },
+      "topBrands": {
+        "name": "Top Brands",
+        "desc": "Certified stores"
+      },
+      "newArrivals": {
+        "name": "New Arrivals",
+        "desc": "Fresh drops"
+      }
+    },
+    "sections": {
+      "flashSale": "Flash Sale"
+    },
+    "discovery": {
+      "recentViewed": "Recently Viewed",
+      "wishlist": "Your Wishlist",
+      "recommended": "Recommended for You"
+    },
+    "joinUs": {
+      "title": "Better deals,<br></br>picked for you.",
+      "desc": "Join to save your favorites, track orders, and discover selected offers across everyday essentials.",
+      "btnJoin": "Join Now",
+      "backgroundText": "Deals"
+    }
+  }
+}

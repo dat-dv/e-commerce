@@ -1,0 +1,9 @@
+{
+  "SearchView": {
+    "titleWithQuery": "Kết quả cho \"{query}\"",
+    "titleWithoutQuery": "Tìm kiếm sản phẩm",
+    "description": "Chúng tôi tìm thấy {total} sản phẩm phù hợp với tiêu chí của bạn.",
+    "noResultsTitle": "Không tìm thấy kết quả",
+    "noResultsDescription": "Không tìm thấy sản phẩm nào khớp với \"{query}\". Hãy thử từ khóa khác hoặc duyệt qua các danh mục của chúng tôi."
+  }
+}

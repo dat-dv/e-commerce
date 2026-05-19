@@ -1,1 +1,16 @@
-{}
+{
+  "Common": {
+    "viewAll": "Xem tất cả",
+    "toolbar": {
+      "showingProducts": "Hiển thị <bold>{total}</bold> sản phẩm",
+      "sortBy": "Sắp xếp theo",
+      "sortProductsBy": "Sắp xếp sản phẩm theo",
+      "sortOptions": {
+        "newest": "Mới nhất",
+        "bestSelling": "Bán chạy nhất",
+        "priceLowToHigh": "Giá: Từ thấp đến cao",
+        "priceHighToLow": "Giá: Từ cao đến thấp"
+      }
+    }
+  }
+}
