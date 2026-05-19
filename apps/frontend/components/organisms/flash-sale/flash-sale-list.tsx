@@ -34,6 +34,7 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
   } = usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
     initialItems: products,
     initialMeta: meta,
+    params: { page: meta.page, limit: meta.limit },
     fetchPage: fetchFlashSalePage,
     getItemKey: (item) => item.id,
   });

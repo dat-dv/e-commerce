@@ -46,6 +46,7 @@ export const useNotifications = () => {
   const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
     usePaginationWithSSRData<INotification, { page: number; limit: number }>({
       initialItems: [],
+      params: { page: 1, limit: LIMIT },
       initialMeta: INITIAL_META,
       fetchPage: fetchNotificationsPage,
       getItemKey: (item) => item.id,

@@ -20,20 +20,23 @@ type LoadPageOptions = {
   syncQuery?: boolean;
 };
 
-interface UsePaginationParams<T, TParams extends ExtraParams = ExtraParams> {
+type PaginationQueryParams = PaginationParams & ExtraParams;
+
+interface UsePaginationParams<
+  T,
+  TParams extends PaginationQueryParams = PaginationQueryParams,
+> {
   initialItems: T[];
   initialMeta: IPaginationMeta;
-  params?: TParams;
+  params: TParams;
   pathname?: string;
-  fetchPage: (
-    params: PaginationParams & TParams,
-  ) => Promise<ApiPaginatedResponse<T>>;
+  fetchPage: (params: TParams) => Promise<ApiPaginatedResponse<T>>;
   getItemKey?: (item: T) => string | number;
 }
 
 export const usePaginationWithSSRData = <
   T,
-  TParams extends ExtraParams = ExtraParams,
+  TParams extends PaginationQueryParams = PaginationQueryParams,
 >({
   initialItems,
   initialMeta,
@@ -48,7 +51,7 @@ export const usePaginationWithSSRData = <
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const queryParams = useMemo(() => (params ?? {}) as TParams, [params]);
+  const queryParams = useMemo(() => params, [params]);
 
   const {
     clear,
@@ -61,6 +64,7 @@ export const usePaginationWithSSRData = <
 
   const loadingRef = useRef(false);
   const loadingMoreRef = useRef(false);
+  const initialLimit = initialMeta.limit;
 
   const hasMore = meta.page < meta.totalPages;
 
@@ -73,12 +77,12 @@ export const usePaginationWithSSRData = <
     (
       paginationParams: PaginationParams,
       overrideParams?: Partial<TParams>,
-    ): PaginationParams & TParams => {
+    ): TParams => {
       return {
         ...clientQueryParams,
         ...(overrideParams ?? {}),
         ...paginationParams,
-      } as PaginationParams & TParams;
+      } as TParams;
     },
     [clientQueryParams],
   );
@@ -120,7 +124,8 @@ export const usePaginationWithSSRData = <
 
       try {
         const nextLimit =
-          Number(overrideParams?.limit ?? clientQueryParams.limit) || 1;
+          Number(overrideParams?.limit ?? clientQueryParams.limit) ||
+          initialLimit;
 
         const response = await fetchPage(
           buildParams(
@@ -152,7 +157,7 @@ export const usePaginationWithSSRData = <
         }
       }
     },
-    [buildParams, clientQueryParams.limit, fetchPage, update],
+    [buildParams, clientQueryParams.limit, fetchPage, initialLimit, update],
   );
 
   const loadMore = useCallback(

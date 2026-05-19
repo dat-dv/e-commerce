@@ -27,6 +27,7 @@ export const useLoadRecentViewedProducts = ({
     usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
       initialItems: initialItems,
       initialMeta: INITIAL_META,
+      params: { page: 1, limit: LIMIT },
       fetchPage: fetchRecentViewedPage,
       getItemKey: (item) => item.id,
     });

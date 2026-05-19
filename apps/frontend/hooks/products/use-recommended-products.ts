@@ -29,6 +29,7 @@ export const useRecommendedProducts = ({
       initialMeta: INITIAL_META,
       fetchPage: fetchRecommendedPage,
       getItemKey: (item) => item.id,
+      params: { page: 1, limit: LIMIT },
     });
 
   const fetchRecommendedProducts = useCallback(() => loadPage(1), [loadPage]);

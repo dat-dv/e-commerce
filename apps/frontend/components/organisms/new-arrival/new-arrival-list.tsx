@@ -39,6 +39,7 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
   } = usePaginationWithSSRData<TProduct>({
     initialItems: products,
     initialMeta: meta,
+    params: { page: meta.page, limit: meta.limit },
     fetchPage: fetchNewArrivalsPage,
     getItemKey: (product) => product.id,
   });

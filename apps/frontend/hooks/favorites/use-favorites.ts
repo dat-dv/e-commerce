@@ -42,6 +42,7 @@ export const useFavorites = ({
   >({
     initialItems: initialItems,
     initialMeta,
+    params: { page: initialMeta.page || 1, limit: initialMeta.limit },
     fetchPage: fetchFavoritesPage,
     getItemKey: (item) => item.productId,
   });
