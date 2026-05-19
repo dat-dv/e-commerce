@@ -13,6 +13,24 @@
     "returnReasonMin": "Enter a short reason.",
     "returnReasonMax": "Keep the reason under 120 characters.",
     "returnDescriptionMin": "Describe what happened.",
-    "returnDescriptionMax": "Keep the description under 1200 characters."
+    "returnDescriptionMax": "Keep the description under 1200 characters.",
+    "phoneCodeRequired": "Phone code is required",
+    "phoneCodeInvalid": "Invalid country code",
+    "phoneNumberRequired": "Phone number is required",
+    "phoneNumberTooLong": "Phone number is too long",
+    "phoneNumberDigitsOnly": "Phone number must contain only digits",
+    "phoneNumberStartsWithZero": "Phone number should not start with 0 after country code",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "avatarUrlInvalid": "Invalid URL",
+    "labelRequired": "Label is required",
+    "receiverNameRequired": "Receiver name is required",
+    "receiverPhoneRequired": "Receiver phone is required",
+    "mapLocationRequired": "Map location is required",
+    "streetRequired": "Street is required",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "countryRequired": "Country is required",
+    "postalCodeRequired": "Postal code is required"
   }
 }

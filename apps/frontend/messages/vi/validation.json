@@ -13,6 +13,24 @@
     "returnReasonMin": "Vui lòng nhập lý do ngắn gọn.",
     "returnReasonMax": "Lý do không được quá 120 ký tự.",
     "returnDescriptionMin": "Vui lòng mô tả chi tiết sự cố xảy ra.",
-    "returnDescriptionMax": "Mô tả không được quá 1200 ký tự."
+    "returnDescriptionMax": "Mô tả không được quá 1200 ký tự.",
+    "phoneCodeRequired": "Mã quốc gia không được bỏ trống",
+    "phoneCodeInvalid": "Mã quốc gia không hợp lệ",
+    "phoneNumberRequired": "Số điện thoại không được bỏ trống",
+    "phoneNumberTooLong": "Số điện thoại quá dài",
+    "phoneNumberDigitsOnly": "Số điện thoại chỉ được chứa số",
+    "phoneNumberStartsWithZero": "Số điện thoại không được bắt đầu bằng số 0 sau mã quốc gia",
+    "firstNameRequired": "Tên không được bỏ trống",
+    "lastNameRequired": "Họ không được bỏ trống",
+    "avatarUrlInvalid": "Đường dẫn ảnh không hợp lệ",
+    "labelRequired": "Nhãn không được bỏ trống",
+    "receiverNameRequired": "Tên người nhận không được bỏ trống",
+    "receiverPhoneRequired": "Số điện thoại người nhận không được bỏ trống",
+    "mapLocationRequired": "Vị trí trên bản đồ không được bỏ trống",
+    "streetRequired": "Địa chỉ cụ thể không được bỏ trống",
+    "cityRequired": "Thành phố/Quận/Huyện không được bỏ trống",
+    "stateRequired": "Tỉnh/Thành phố không được bỏ trống",
+    "countryRequired": "Quốc gia không được bỏ trống",
+    "postalCodeRequired": "Mã bưu chính không được bỏ trống"
   }
 }

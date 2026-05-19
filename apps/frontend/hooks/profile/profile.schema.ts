@@ -14,48 +14,56 @@ const aseanCodes = [
   "+95",
 ];
 
-export const phoneSchema = z
-  .object({
-    phoneCode: z
+export const getPhoneSchema = (t: (key: string) => string) =>
+  z
+    .object({
+      phoneCode: z
+        .string()
+        .min(1, t("phoneCodeRequired"))
+        .regex(/^\+\d{1,4}$/, t("phoneCodeInvalid")),
+
+      phoneNumber: z
+        .string()
+        .min(7, t("phoneNumberRequired"))
+        .max(11, t("phoneNumberTooLong"))
+        .regex(/^\d+$/, t("phoneNumberDigitsOnly")),
+    })
+    .refine(
+      (data) => {
+        if (
+          aseanCodes.includes(data.phoneCode) &&
+          data.phoneNumber.startsWith("0")
+        ) {
+          return false;
+        }
+        return true;
+      },
+      {
+        message: t("phoneNumberStartsWithZero"),
+        path: ["phoneNumber"],
+      },
+    );
+
+export const getProfileSchema = (t: (key: string) => string) =>
+  z.object({
+    firstName: z.string().min(1, { message: t("firstNameRequired") }),
+    lastName: z.string().min(1, { message: t("lastNameRequired") }),
+    email: z
       .string()
-      .min(1, "Phone code is required")
-      .regex(/^\+\d{1,4}$/, "Invalid country code"),
-
-    phoneNumber: z
+      .email({ message: t("emailInvalid") })
+      .optional(),
+    dateOfBirth: z.string().datetime().optional().nullable(),
+    avatarUrl: z
       .string()
-      .min(7, "Phone number is required")
-      .max(11, "Phone number is too long")
-      .regex(/^\d+$/, "Phone number must contain only digits"),
-  })
-  .refine(
-    (data) => {
-      if (
-        aseanCodes.includes(data.phoneCode) &&
-        data.phoneNumber.startsWith("0")
-      ) {
-        return false;
-      }
-      return true;
-    },
-    {
-      message: "Phone number should not start with 0 after country code",
-      path: ["phoneNumber"],
-    },
-  );
+      .url({ message: t("avatarUrlInvalid") })
+      .optional()
+      .or(z.literal("")),
+    avatarId: z.string().optional().nullable(),
+    gender: z.nativeEnum(EGender).optional().nullable(),
+    phone: getPhoneSchema(t),
+  });
 
-export const profileSchema = z.object({
-  firstName: z.string().min(1, { message: "First name is required" }),
-  lastName: z.string().min(1, { message: "Last name is required" }),
-  email: z.string().email().optional(),
-  dateOfBirth: z.string().datetime().optional().nullable(),
-  avatarUrl: z
-    .string()
-    .url({ message: "Invalid URL" })
-    .optional()
-    .or(z.literal("")),
-  avatarId: z.string().optional().nullable(),
-  gender: z.nativeEnum(EGender).optional().nullable(),
-  phone: phoneSchema,
-});
+export const phoneSchema = getPhoneSchema((key) => key);
+export const profileSchema = getProfileSchema((key) => key);
 
-export type ProfileSchema = z.infer<typeof profileSchema>;
+export type ProfileSchema = z.infer<ReturnType<typeof getProfileSchema>>;

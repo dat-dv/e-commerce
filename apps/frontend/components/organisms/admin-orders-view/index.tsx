@@ -115,11 +115,6 @@ export function AdminOrdersView() {
   );
   const hasFilters = selectedStatuses.length > 0 || search.trim().length > 0;
 
-  const numberFormatter = useMemo(
-    () => new Intl.NumberFormat(locale),
-    [locale],
-  );
-
   const totalLabel = useMemo(() => {
     if (!meta) return t("results.ordersCount", { count: 0 });
     return t("results.ordersCount", { count: meta.total });
