@@ -158,7 +158,9 @@ export const RequestReturnModal = ({
         );
         if (current.length + validFiles.length > ORDER_RETURN_MAX_ATTACHMENTS) {
           toast.info(
-            t("toasts.maxImages", { max: ORDER_RETURN_MAX_ATTACHMENTS }),
+            t("toasts.maxImages", {
+              max: String(ORDER_RETURN_MAX_ATTACHMENTS),
+            }),
           );
         }
         return next;

@@ -248,7 +248,7 @@ declare const messages: {
   Common: {
     viewAll: "View All";
     toolbar: {
-      showingProducts: "Showing <bold>{total}</bold> {total, plural, =1 {product} other {products}}";
+      showingProducts: "{total, plural, =1 {Showing <bold>1</bold> product} other {Showing <bold>#</bold> products}}";
       sortBy: "Sort By";
       sortProductsBy: "Sort Products By";
       sortOptions: {
@@ -813,7 +813,7 @@ declare const messages: {
     banner: {
       title: "Notification";
       highlight: "Center";
-      unreadDescription: "You have {count} unread update{count, plural, =1 {} other {s}}. Review order activity, account alerts, and promotions in one place.";
+      unreadDescription: "{count, plural, =1 {You have 1 unread update} other {You have # unread updates}}. Review order activity, account alerts, and promotions in one place.";
       allCaughtUpDescription: "You are all caught up. Order activity, account alerts, and promotions will appear here.";
     };
     summary: {
@@ -877,7 +877,7 @@ declare const messages: {
       orderNumber: "Order #{id}";
       needHelp: "Need help?";
       shipping: "Shipping";
-      units: "{count} {count, plural, =1 {unit} other {units}}";
+      units: "{count, plural, =1 {1 unit} other {# units}}";
       discount: "Discount:";
       total: "Total";
       cancel: "Cancel";
@@ -948,7 +948,7 @@ declare const messages: {
       statusLabel: "Fulfillment Status Filters";
     };
     results: {
-      ordersCount: "{count} {count, plural, =1 {Order} other {Orders}}";
+      ordersCount: "{count, plural, =1 {1 Order} other {# Orders}}";
       pageInfo: "Page {page} of {totalPages}";
       loading: "Loading Orders…";
       noOrdersFound: "No Orders Found";
@@ -962,7 +962,7 @@ declare const messages: {
       status: "Status";
       noName: "No Name";
       hideItems: "Hide Items";
-      showItems: "Show {count} {count, plural, =1 {Item} other {Items}}";
+      showItems: "{count, plural, =1 {Show 1 Item} other {Show # Items}}";
       copied: "Order ID copied.";
       showingPageOf: "Showing page {page} of {totalPages}";
     };
@@ -1335,7 +1335,7 @@ declare const messages: {
   SearchView: {
     titleWithQuery: 'Results for "{query}"';
     titleWithoutQuery: "Search Products";
-    description: "We found {total} {total, plural, =1 {product} other {products}} matching your criteria.";
+    description: "{total, plural, =1 {We found 1 product matching your criteria.} other {We found # products matching your criteria.}}";
     noResultsTitle: "No results found";
     noResultsDescription: 'We couldn\'t find anything matching "{query}". Try using different keywords or browsing our categories.';
   };

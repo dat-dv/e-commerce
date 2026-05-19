@@ -1,5 +1,9 @@
 import { EGender } from "@ecommerce/shared";
+import { useTranslations } from "next-intl";
 import { z } from "zod";
+import { dummyTranslator } from "@/utils/i18n";
+
+type K = ReturnType<typeof useTranslations>;
 
 const aseanCodes = [
   "+84",
@@ -14,7 +18,12 @@ const aseanCodes = [
   "+95",
 ];
 
-export const getPhoneSchema = (t: (key: string) => string) =>
+/**
+ * Generates the validation schema for user phone numbers.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getPhoneSchema = (t: K) =>
   z
     .object({
       phoneCode: z
@@ -44,7 +53,12 @@ export const getPhoneSchema = (t: (key: string) => string) =>
       },
     );
 
-export const getProfileSchema = (t: (key: string) => string) =>
+/**
+ * Generates the validation schema for user profiles.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getProfileSchema = (t: K) =>
   z.object({
     firstName: z.string().min(1, { message: t("firstNameRequired") }),
     lastName: z.string().min(1, { message: t("lastNameRequired") }),
@@ -63,7 +77,7 @@ export const getProfileSchema = (t: (key: string) => string) =>
     phone: getPhoneSchema(t),
   });
 
-export const phoneSchema = getPhoneSchema((key) => key);
-export const profileSchema = getProfileSchema((key) => key);
+export const phoneSchema = getPhoneSchema(dummyTranslator);
+export const profileSchema = getProfileSchema(dummyTranslator);
 
 export type ProfileSchema = z.infer<ReturnType<typeof getProfileSchema>>;

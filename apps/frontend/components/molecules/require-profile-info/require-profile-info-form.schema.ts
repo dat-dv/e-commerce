@@ -1,7 +1,16 @@
 import { EGender } from "@ecommerce/shared";
+import { useTranslations } from "next-intl";
 import { z } from "zod";
+import { dummyTranslator } from "@/utils/i18n";
 
-export const getRequireProfileInfoSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for enforcing completion of profile information.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getRequireProfileInfoSchema = (t: K) =>
   z.object({
     firstName: z.string().min(1, t("firstNameRequired")),
     lastName: z.string().min(1, t("lastNameRequired")),
@@ -15,9 +24,8 @@ export const getRequireProfileInfoSchema = (t: (key: string) => string) =>
     gender: z.nativeEnum(EGender, { error: t("genderRequired") }),
   });
 
-export const requireProfileInfoSchema = getRequireProfileInfoSchema(
-  (key) => key,
-);
+export const requireProfileInfoSchema =
+  getRequireProfileInfoSchema(dummyTranslator);
 
 export type TRequireProfileInfoSchema = z.infer<
   ReturnType<typeof getRequireProfileInfoSchema>

@@ -2,6 +2,7 @@ import { UseCase } from "@/utils/use-case";
 import { IAuthRepository } from "../types/auth.repository";
 import { ApiResponse } from "@/utils/request/request.types";
 import { getResetPasswordSchema } from "@/components/molecules/reset-password-form/reset-password.schema";
+import { dummyTranslator } from "@/utils/i18n";
 
 interface ResetPasswordRequest {
   token: string;
@@ -18,7 +19,7 @@ export class ResetPasswordUseCase extends UseCase<
   }
 
   async execute(request: ResetPasswordRequest): Promise<ApiResponse<void>> {
-    const validated = getResetPasswordSchema((k) => k).parse({
+    const validated = getResetPasswordSchema(dummyTranslator).parse({
       password: request.password,
       confirmPassword: request.confirmPassword,
     });

@@ -1,7 +1,16 @@
 import { EAddressLabel } from "@ecommerce/shared";
+import { useTranslations } from "next-intl";
 import * as z from "zod";
+import { dummyTranslator } from "@/utils/i18n";
 
-export const getAddressSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for shipping addresses.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getAddressSchema = (t: K) =>
   z.object({
     label: z.nativeEnum(EAddressLabel, {
       error: t("labelRequired"),
@@ -21,7 +30,7 @@ export const getAddressSchema = (t: (key: string) => string) =>
     isDefault: z.boolean(),
   });
 
-export const addressSchema = getAddressSchema((key) => key);
+export const addressSchema = getAddressSchema(dummyTranslator);
 
 export type AddressFormData = z.infer<ReturnType<typeof getAddressSchema>>;
 export type AddressFormInput = z.input<ReturnType<typeof getAddressSchema>>;

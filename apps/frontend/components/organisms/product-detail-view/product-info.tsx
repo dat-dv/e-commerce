@@ -197,7 +197,7 @@ export const ProductInfo = ({
           </div>
           <span className="text-sm text-content/50">
             {selectedSku?.stock !== undefined
-              ? t("itemsAvailable", { count: selectedSku.stock })
+              ? t("itemsAvailable", { count: String(selectedSku.stock) })
               : t("inStock")}
           </span>
         </div>

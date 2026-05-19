@@ -53,7 +53,9 @@ export const ReviewSubmitForm = ({
                         type="button"
                         role="radio"
                         aria-checked={field.value === rating}
-                        aria-label={t("filterStars", { rating })}
+                        aria-label={t("filterStars", {
+                          rating: String(rating),
+                        })}
                         className="rounded-lg p-1 text-amber-400 outline-none transition-colors hover:bg-amber-400/10 focus-visible:ring-2 focus-visible:ring-primary/50"
                         onClick={() => field.onChange(rating)}
                       >

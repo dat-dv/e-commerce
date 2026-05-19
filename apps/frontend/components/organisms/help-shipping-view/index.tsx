@@ -40,7 +40,7 @@ type IconName = keyof typeof iconMap;
 
 export const HelpShippingView = (): React.ReactElement => {
   const tShipping = useTranslations("HelpCenter");
-  const t = tShipping.raw("shipping") as {
+  const t = tShipping.raw("shipping" as never) as {
     contactTitle: string;
     contactDesc: string;
     contactCta: string;

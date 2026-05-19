@@ -143,10 +143,10 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           </div>
           <div className="flex justify-between items-center mt-1.5">
             <span className="text-[10px] font-bold text-content/60">
-              {t("sold", { count: soldCount })}
+              {t("sold", { count: String(soldCount) })}
             </span>
             <span className="text-[10px] font-bold text-content/40">
-              {t("left", { count: stockLeft })}
+              {t("left", { count: String(stockLeft) })}
             </span>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { getRegisterSchema } from "@/hooks/auth/use-register/register.schema";
 import { UseCase } from "@/utils/use-case";
+import { dummyTranslator } from "@/utils/i18n";
 
 import { TRegisterRequest } from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
@@ -14,7 +15,7 @@ export class RegisterUseCase extends UseCase<
   }
 
   async execute(request: TRegisterRequest): Promise<ApiResponse<null>> {
-    const validated = getRegisterSchema((k) => k).parse(request);
+    const validated = getRegisterSchema(dummyTranslator).parse(request);
     return this.repository.register(validated);
   }
 }

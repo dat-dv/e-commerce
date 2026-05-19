@@ -33,7 +33,7 @@ export const useHelpContactForm = () => {
   };
 
   const schema = useMemo(
-    () => getHelpContactFormSchema((key) => tValidation(key)),
+    () => getHelpContactFormSchema(tValidation),
     [tValidation],
   );
 
@@ -94,7 +94,9 @@ export const useHelpContactForm = () => {
         HELP_CONTACT_MAX_ATTACHMENTS,
       );
       if (current.length + validFiles.length > HELP_CONTACT_MAX_ATTACHMENTS) {
-        toast.info(t("maxAttachments", { max: HELP_CONTACT_MAX_ATTACHMENTS }));
+        toast.info(
+          t("maxAttachments", { max: String(HELP_CONTACT_MAX_ATTACHMENTS) }),
+        );
       }
       return next;
     });

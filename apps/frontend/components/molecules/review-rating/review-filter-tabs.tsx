@@ -46,8 +46,8 @@ export const ReviewFilterTabs = ({
         const isActive = isSameReviewFilter(activeFilter, filter.value);
         const displayLabel =
           filter.rating !== undefined
-            ? t(filter.key, { rating: filter.rating })
-            : t(filter.key);
+            ? t(filter.key as never, { rating: String(filter.rating) } as never)
+            : t(filter.key as never);
 
         return (
           <button

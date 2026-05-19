@@ -20,7 +20,7 @@ export const ReviewRatingSummary = ({
           {averageRating.toFixed(1)} / 5
         </span>
         <span className="text-sm text-content/50 font-medium">
-          {t("reviewsCount", { count: totalReviews })}
+          {t("reviewsCount", { count: String(totalReviews) })}
         </span>
       </div>
     </div>

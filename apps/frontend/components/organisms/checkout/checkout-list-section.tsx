@@ -99,7 +99,7 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
                     <span>{item.attributes || t("standard")}</span>
                     <span className="w-1 h-1 rounded-full bg-content/20" />
                     <span className="text-content/60">
-                      {t("quantity", { count: item.quantity })}
+                      {t("quantity", { count: String(item.quantity) })}
                     </span>
                   </div>
 

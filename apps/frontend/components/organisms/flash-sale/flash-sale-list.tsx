@@ -60,7 +60,10 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
                 aria-hidden="true"
               />
             }
-            meta={t("meta", { page: pageMeta.page, totalPages })}
+            meta={t("meta", {
+              page: String(pageMeta.page),
+              totalPages: String(totalPages),
+            })}
           />
 
           {error && (

@@ -245,7 +245,7 @@
   "Common": {
     "viewAll": "Xem tất cả",
     "toolbar": {
-      "showingProducts": "Hiển thị <bold>{total}</bold> sản phẩm",
+      "showingProducts": "{total, plural, other {Hiển thị <bold>#</bold> sản phẩm}}",
       "sortBy": "Sắp xếp theo",
       "sortProductsBy": "Sắp xếp sản phẩm theo",
       "sortOptions": {
@@ -840,7 +840,7 @@
     "banner": {
       "title": "Trung tâm",
       "highlight": "Thông báo",
-      "unreadDescription": "Bạn có {count} cập nhật chưa đọc. Xem lại hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi tại đây.",
+      "unreadDescription": "{count, plural, other {Bạn có # cập nhật chưa đọc. Xem lại hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi tại đây.}}",
       "allCaughtUpDescription": "Bạn đã đọc hết mọi thông báo. Hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi sẽ xuất hiện tại đây."
     },
     "summary": {
@@ -904,7 +904,7 @@
       "orderNumber": "Đơn hàng #{id}",
       "needHelp": "Cần hỗ trợ?",
       "shipping": "Đang giao",
-      "units": "{count} sản phẩm",
+      "units": "{count, plural, other {# sản phẩm}}",
       "discount": "Giảm giá:",
       "total": "Tổng tiền",
       "cancel": "Hủy đơn",
@@ -975,7 +975,7 @@
       "statusLabel": "Lọc theo trạng thái xử lý"
     },
     "results": {
-      "ordersCount": "{count} đơn hàng",
+      "ordersCount": "{count, plural, other {# đơn hàng}}",
       "pageInfo": "Trang {page} / {totalPages}",
       "loading": "Đang tải danh sách...",
       "noOrdersFound": "Không tìm thấy đơn hàng nào",
@@ -989,7 +989,7 @@
       "status": "Trạng thái",
       "noName": "Không có tên",
       "hideItems": "Ẩn chi tiết",
-      "showItems": "Hiển thị {count} sản phẩm",
+      "showItems": "{count, plural, other {Hiển thị # sản phẩm}}",
       "copied": "Đã sao chép mã đơn hàng.",
       "showingPageOf": "Hiển thị trang {page} trên tổng số {totalPages} trang"
     }
@@ -1362,7 +1362,7 @@
   "SearchView": {
     "titleWithQuery": "Kết quả cho \"{query}\"",
     "titleWithoutQuery": "Tìm kiếm sản phẩm",
-    "description": "Chúng tôi tìm thấy {total} sản phẩm phù hợp với tiêu chí của bạn.",
+    "description": "{total, plural, other {Chúng tôi tìm thấy # sản phẩm phù hợp với tiêu chí của bạn.}}",
     "noResultsTitle": "Không tìm thấy kết quả",
     "noResultsDescription": "Không tìm thấy sản phẩm nào khớp với \"{query}\". Hãy thử từ khóa khác hoặc duyệt qua các danh mục của chúng tôi."
   },

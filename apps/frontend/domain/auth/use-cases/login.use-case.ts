@@ -1,5 +1,6 @@
 import { getLoginSchema } from "@/hooks/auth/use-login/login.schema";
 import { UseCase } from "@/utils/use-case";
+import { dummyTranslator } from "@/utils/i18n";
 
 import { TAuthRequest, TUser } from "../types/auth.model";
 import { IAuthRepository } from "../types/auth.repository";
@@ -14,7 +15,7 @@ export class LoginUseCase extends UseCase<
   }
 
   async execute(request: TAuthRequest): Promise<ApiResponse<TUser>> {
-    const validated = getLoginSchema((k) => k).parse(request);
+    const validated = getLoginSchema(dummyTranslator).parse(request);
     return this.repository.login(validated);
   }
 }

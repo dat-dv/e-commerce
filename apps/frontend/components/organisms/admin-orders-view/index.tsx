@@ -260,8 +260,8 @@ export function AdminOrdersView() {
             {meta && (
               <p className="text-sm text-content/55">
                 {t("results.pageInfo", {
-                  page,
-                  totalPages: meta.totalPages || 1,
+                  page: String(page),
+                  totalPages: String(meta.totalPages || 1),
                 })}
               </p>
             )}
@@ -931,7 +931,10 @@ function OrdersPagination({
       className="flex flex-col gap-3 border-t border-content/10 pt-5 sm:flex-row sm:items-center sm:justify-between"
     >
       <p className="text-sm text-content/55">
-        {t("showingPageOf", { page, totalPages })}
+        {t("showingPageOf", {
+          page: String(page),
+          totalPages: String(totalPages),
+        })}
       </p>
 
       <div className="flex items-center gap-2">

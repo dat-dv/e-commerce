@@ -31,7 +31,7 @@
       "orderNumber": "Order #{id}",
       "needHelp": "Need help?",
       "shipping": "Shipping",
-      "units": "{count} {count, plural, =1 {unit} other {units}}",
+      "units": "{count, plural, =1 {1 unit} other {# units}}",
       "discount": "Discount:",
       "total": "Total",
       "cancel": "Cancel",
@@ -103,7 +103,7 @@
       "statusLabel": "Fulfillment Status Filters"
     },
     "results": {
-      "ordersCount": "{count} {count, plural, =1 {Order} other {Orders}}",
+      "ordersCount": "{count, plural, =1 {1 Order} other {# Orders}}",
       "pageInfo": "Page {page} of {totalPages}",
       "loading": "Loading Orders…",
       "noOrdersFound": "No Orders Found",
@@ -117,7 +117,7 @@
       "status": "Status",
       "noName": "No Name",
       "hideItems": "Hide Items",
-      "showItems": "Show {count} {count, plural, =1 {Item} other {Items}}",
+      "showItems": "Show {count, plural, =1 {1 Item} other {Show # Items}}",
       "copied": "Order ID copied.",
       "showingPageOf": "Showing page {page} of {totalPages}"
     }

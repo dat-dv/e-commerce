@@ -1,6 +1,15 @@
+import { useTranslations } from "next-intl";
 import { z } from "zod";
+import { dummyTranslator } from "@/utils/i18n";
 
-export const getHelpContactFormSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for the support/contact form.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getHelpContactFormSchema = (t: K) =>
   z
     .object({
       contact_name: z.string().max(120, t("contactNameMax")),
@@ -29,7 +38,7 @@ export const getHelpContactFormSchema = (t: (key: string) => string) =>
       path: ["contact_email"],
     });
 
-export const helpContactFormSchema = getHelpContactFormSchema((key) => key);
+export const helpContactFormSchema = getHelpContactFormSchema(dummyTranslator);
 
 export type HelpContactFormData = z.infer<
   ReturnType<typeof getHelpContactFormSchema>

@@ -1,6 +1,14 @@
+import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-export const getForgotPasswordSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for retrieving forgotten passwords.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getForgotPasswordSchema = (t: K) =>
   z
     .object({
       email: z.string().email(t("emailInvalid")).optional().or(z.literal("")),

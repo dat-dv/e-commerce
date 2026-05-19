@@ -33,7 +33,7 @@ export const useSubmitProductReview = ({
   };
 
   const methods = useForm<ReviewSubmitSchema>({
-    resolver: zodResolver(getReviewSubmitSchema((key) => t(key))),
+    resolver: zodResolver(getReviewSubmitSchema(t)),
     defaultValues: {
       rating: 0,
       comment: "",

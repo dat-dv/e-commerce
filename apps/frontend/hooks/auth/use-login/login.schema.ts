@@ -1,6 +1,15 @@
+import { useTranslations } from "next-intl";
 import { z } from "zod";
+import { dummyTranslator } from "@/utils/i18n";
 
-export const getLoginSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for user login.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getLoginSchema = (t: K) =>
   z.object({
     email: z
       .string()

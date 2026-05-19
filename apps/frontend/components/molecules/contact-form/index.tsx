@@ -111,8 +111,8 @@ export default function ContactForm() {
           <Upload className="size-5" aria-hidden />
           <span className="text-sm font-bold">
             {t("uploadLabel", {
-              count: attachments.length,
-              max: HELP_CONTACT_MAX_ATTACHMENTS,
+              count: String(attachments.length),
+              max: String(HELP_CONTACT_MAX_ATTACHMENTS),
             })}
           </span>
         </Button>

@@ -1,6 +1,15 @@
+import { useTranslations } from "next-intl";
 import * as z from "zod";
+import { dummyTranslator } from "@/utils/i18n";
 
-export const getChangePasswordSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for updating the user's password.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getChangePasswordSchema = (t: K) =>
   z
     .object({
       currentPassword: z.string().min(1, t("currentPasswordRequired")),
@@ -12,7 +21,7 @@ export const getChangePasswordSchema = (t: (key: string) => string) =>
       path: ["confirmPassword"],
     });
 
-export const changePasswordSchema = getChangePasswordSchema((key) => key);
+export const changePasswordSchema = getChangePasswordSchema(dummyTranslator);
 
 export type ChangePasswordFormData = z.infer<
   ReturnType<typeof getChangePasswordSchema>

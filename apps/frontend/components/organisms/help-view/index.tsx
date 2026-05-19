@@ -49,7 +49,17 @@ interface CardItem {
 
 export function HelpView(): React.ReactElement {
   const tHelp = useTranslations("HelpCenter");
-  const t = tHelp.raw("");
+  const t = tHelp.raw("" as never) as {
+    quick: string;
+    supportNote: string;
+    popular: string;
+    contactTitle: string;
+    contactDesc: string;
+    contactCta: string;
+    noResults: string;
+    cards: CardItem[];
+    answers: string[];
+  };
   const [query, setQuery] = useState("");
 
   const filteredCards = useMemo(() => {
@@ -81,7 +91,7 @@ export function HelpView(): React.ReactElement {
             </div>
 
             <div className="mt-5 grid gap-3 md:grid-cols-2">
-              {filteredCards.map((item) => {
+              {filteredCards.map((item: CardItem) => {
                 const Icon = iconMap[item.icon as IconName];
                 return (
                   <Link

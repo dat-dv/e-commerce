@@ -28,7 +28,7 @@ const HeaderNav = () => {
           : pathname.startsWith(link.href);
 
         const key = navKeyMap[link.label];
-        const displayLabel = key ? t(key) : link.label;
+        const displayLabel = key ? t(key as never) : link.label;
 
         if (link.dropdown) {
           return (

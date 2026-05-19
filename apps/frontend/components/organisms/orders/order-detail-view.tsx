@@ -257,7 +257,9 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
           <div className="px-6 py-4 border-b border-content/[0.05] bg-content/[0.02] flex items-center gap-3">
             <Package className="w-4 h-4 text-content/40" />
             <h2 className="text-sm font-bold text-content">
-              {t("detail.orderItemsTitle", { count: order.items.length })}
+              {t("detail.orderItemsTitle", {
+                count: String(order.items.length),
+              })}
             </h2>
           </div>
           <div className="divide-y divide-content/[0.05]">

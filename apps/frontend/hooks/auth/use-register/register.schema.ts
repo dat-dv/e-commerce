@@ -1,6 +1,14 @@
+import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-export const getRegisterSchema = (t: (key: string) => string) =>
+type K = ReturnType<typeof useTranslations>;
+
+/**
+ * Generates the validation schema for user registration.
+ *
+ * @param t - The translation key lookup function
+ */
+export const getRegisterSchema = (t: K) =>
   z
     .object({
       email: z

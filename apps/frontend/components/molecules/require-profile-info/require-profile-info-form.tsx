@@ -16,6 +16,7 @@ import {
   TRequireProfileInfoSchema,
 } from "./require-profile-info-form.schema";
 import { GENDER_OPTIONS } from "@/constants/gender.constant";
+import { EGender } from "@ecommerce/shared";
 
 export const RequireProfileInfoForm = ({
   onSubmit,
@@ -38,7 +39,7 @@ export const RequireProfileInfoForm = ({
     });
 
   const schema = useMemo(
-    () => getRequireProfileInfoSchema((key) => tValidation(key)),
+    () => getRequireProfileInfoSchema(tValidation),
     [tValidation],
   );
 
@@ -66,22 +67,23 @@ export const RequireProfileInfoForm = ({
   }, [user, methods, show]);
 
   const translatedGenderOptions = useMemo(() => {
-    const genderKeys: Record<string, string> = {
-      MALE: "male",
-      FEMALE: "female",
-      OTHER: "other",
+    const EGenderMap: Record<EGender, "male" | "female" | "other"> = {
+      [EGender.MALE]: "male", // EGender.MALE
+      [EGender.FEMALE]: "female", // EGender.FEMALE
+      [EGender.OTHER]: "other", // EGender.OTHER
     };
-    // EGender can be numeric or string, handle key lookup safely
-    const EGenderMap: Record<number, string> = {
-      [0]: "male",
-      [1]: "female",
-      [2]: "other",
+
+    const genderLabels = {
+      male: t("form.genders.male"),
+      female: t("form.genders.female"),
+      other: t("form.genders.other"),
     };
+
     return GENDER_OPTIONS.map((opt) => {
-      const key = EGenderMap[opt.value as number] || "other";
+      const key = EGenderMap[opt.value];
       return {
         ...opt,
-        label: t(`form.genders.${key}`),
+        label: genderLabels[key],
       };
     });
   }, [t]);

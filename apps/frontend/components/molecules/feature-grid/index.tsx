@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { cn } from "@/utils/cn";
 import { LucideIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -19,7 +20,10 @@ interface FeatureGridProps {
   classNames?: string;
 }
 
-const keyMap: Record<string, string> = {
+const keyMap: Record<
+  string,
+  "flashSale" | "vouchers" | "topBrands" | "newArrivals"
+> = {
   "Flash Sale": "flashSale",
   Vouchers: "vouchers",
   "Top Brands": "topBrands",
@@ -29,13 +33,34 @@ const keyMap: Record<string, string> = {
 export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
   const t = useTranslations("HomePage.features");
 
+  const translatedItems = useMemo(() => {
+    return {
+      flashSale: {
+        name: t("flashSale.name"),
+        desc: t("flashSale.desc"),
+      },
+      vouchers: {
+        name: t("vouchers.name"),
+        desc: t("vouchers.desc"),
+      },
+      topBrands: {
+        name: t("topBrands.name"),
+        desc: t("topBrands.desc"),
+      },
+      newArrivals: {
+        name: t("newArrivals.name"),
+        desc: t("newArrivals.desc"),
+      },
+    };
+  }, [t]);
+
   return (
     <nav className={cn("grid grid-cols-2 gap-3 md:grid-cols-4", classNames)}>
       {items.map((item) => {
         const Icon = item.icon;
         const key = keyMap[item.name];
-        const displayName = key ? t(`${key}.name`) : item.name;
-        const displayDesc = key ? t(`${key}.desc`) : item.desc;
+        const displayName = key ? translatedItems[key].name : item.name;
+        const displayDesc = key ? translatedItems[key].desc : item.desc;
 
         return (
           <Link

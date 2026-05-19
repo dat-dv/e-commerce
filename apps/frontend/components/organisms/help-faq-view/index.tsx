@@ -42,7 +42,7 @@ type IconName = keyof typeof iconMap;
 
 export function HelpFAQView(): React.ReactElement {
   const tFAQ = useTranslations("HelpCenter");
-  const t = tFAQ.raw("faq") as {
+  const t = tFAQ.raw("faq" as never) as {
     contactTitle: string;
     contactDesc: string;
     contactCta: string;
