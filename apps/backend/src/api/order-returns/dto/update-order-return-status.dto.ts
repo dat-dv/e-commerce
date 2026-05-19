@@ -1,8 +1,8 @@
 import { IsNotEmpty, IsEnum, IsString, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { IReviewOrderReturnRequest, EOrderReturnStatus } from '@ecommerce/shared';
+import { IUpdateOrderReturnStatusRequest, EOrderReturnStatus } from '@ecommerce/shared';
 
-export class ReviewOrderReturnDto implements IReviewOrderReturnRequest {
+export class UpdateOrderReturnStatusDto implements IUpdateOrderReturnStatusRequest {
   @ApiProperty({ enum: EOrderReturnStatus, example: EOrderReturnStatus.APPROVED })
   @IsNotEmpty()
   @IsEnum(EOrderReturnStatus)

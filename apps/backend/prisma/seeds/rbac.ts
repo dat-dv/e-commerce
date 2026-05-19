@@ -80,6 +80,28 @@ export async function seedRBAC(prisma: PrismaClient) {
       category: 'Quản lý đơn hàng',
     },
 
+    // Quản lý yêu cầu trả hàng (Order Return)
+    {
+      permission_name: 'CREATE:ORDER_RETURN',
+      description: 'Quyền tạo yêu cầu trả hàng',
+      category: 'Quản lý trả hàng',
+    },
+    {
+      permission_name: 'LIST:ANY_ORDER_RETURN',
+      description: 'Quyền xem danh sách tất cả yêu cầu trả hàng',
+      category: 'Quản lý trả hàng',
+    },
+    {
+      permission_name: 'CANCEL:OWN_ORDER_RETURN',
+      description: 'Quyền hủy yêu cầu trả hàng của chính mình',
+      category: 'Quản lý trả hàng',
+    },
+    {
+      permission_name: 'UPDATE:ORDER_RETURN',
+      description: 'Quyền cập nhật trạng thái yêu cầu trả hàng',
+      category: 'Quản lý trả hàng',
+    },
+
     // Quản lý sản phẩm (Product)
     { permission_name: 'CREATE:PRODUCT', description: 'Quyền tạo sản phẩm', category: 'Quản lý sản phẩm' },
     { permission_name: 'LIST:PRODUCT', description: 'Quyền xem danh sách sản phẩm', category: 'Quản lý sản phẩm' },
@@ -188,6 +210,8 @@ export async function seedRBAC(prisma: PrismaClient) {
     'CREATE:ORDER',
     'LIST:OWN_ORDER',
     'DETAIL:OWN_ORDER',
+    'CREATE:ORDER_RETURN',
+    'CANCEL:OWN_ORDER_RETURN',
   ];
 
   const userRole = await prisma.role.upsert({

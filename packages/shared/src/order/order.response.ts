@@ -1,4 +1,4 @@
-import type { Order, OrderItem, ShippingAddress } from "../generate/browser";
+import type { Image, Order, OrderItem, OrderReturn, OrderReturnImage, ShippingAddress } from "../generate/browser";
 import type { IPaginatedResult } from "../paginate";
 
 export interface IOrderItemResponse extends OrderItem {
@@ -23,3 +23,26 @@ export interface ICancelOrderResponse {
   success: boolean;
   message?: string;
 }
+
+export interface IOrderReturnImageResponse extends OrderReturnImage {
+  image?: Image | null;
+}
+
+export interface IOrderReturnUserResponse {
+  id: string;
+  email: string;
+  first_name?: string | null;
+  last_name?: string | null;
+}
+
+export interface IOrderReturnOrderResponse extends Order {
+  user?: IOrderReturnUserResponse | null;
+}
+
+export interface IOrderReturnResponse extends OrderReturn {
+  images?: IOrderReturnImageResponse[];
+  order?: IOrderReturnOrderResponse | null;
+  created_by?: IOrderReturnUserResponse | null;
+}
+
+export type IOrderReturnListResponse = IPaginatedResult<IOrderReturnResponse>;

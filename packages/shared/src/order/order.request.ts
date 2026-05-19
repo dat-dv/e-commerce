@@ -26,7 +26,7 @@ export interface IGetOrdersByAdminRequest {
 export interface ICreateOrderReturnRequest {
   title: string;
   description?: string;
-  imageIds?: string[];
+  image_ids?: string[];
 }
 
 export interface IGetOrderReturnsRequest {
@@ -35,7 +35,7 @@ export interface IGetOrderReturnsRequest {
   status?: EOrderReturnStatus;
 }
 
-export interface IReviewOrderReturnRequest {
+export interface IUpdateOrderReturnStatusRequest {
   status: EOrderReturnStatus;
   reason?: string;
   note?: string;

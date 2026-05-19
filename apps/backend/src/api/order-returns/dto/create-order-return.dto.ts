@@ -21,5 +21,5 @@ export class CreateOrderReturnDto implements ICreateOrderReturnRequest {
   @IsOptional()
   @IsArray()
   @IsString({ each: true })
-  imageIds?: string[];
+  image_ids?: string[];
 }

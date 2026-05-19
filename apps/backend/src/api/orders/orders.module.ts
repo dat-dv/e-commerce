@@ -6,9 +6,6 @@ import { GetUserOrdersUseCase } from './domain/use-cases/get-user-orders.use-cas
 import { GetAllOrdersUseCase } from './domain/use-cases/get-all-orders.use-case';
 import { UpdateOrderStatusUseCase } from './domain/use-cases/update-order-status.use-case';
 import { CancelOrderUseCase } from './domain/use-cases/cancel-order.use-case';
-import { CreateOrderReturnUseCase } from './domain/use-cases/create-order-return.use-case';
-import { GetOrderReturnsUseCase } from './domain/use-cases/get-order-returns.use-case';
-import { ReviewOrderReturnUseCase } from './domain/use-cases/review-order-return.use-case';
 import { IOrdersRepository } from './domain/entities/orders.repository.interface';
 import { OrdersRepository } from './domain/infrastructure/orders.repository';
 import { AuthModule } from 'src/api/auth/auth.module';
@@ -24,9 +21,6 @@ import { CartModule } from 'src/api/cart/cart.module';
     GetAllOrdersUseCase,
     UpdateOrderStatusUseCase,
     CancelOrderUseCase,
-    CreateOrderReturnUseCase,
-    GetOrderReturnsUseCase,
-    ReviewOrderReturnUseCase,
     {
       provide: IOrdersRepository,
       useClass: OrdersRepository,
@@ -39,9 +33,6 @@ import { CartModule } from 'src/api/cart/cart.module';
     GetAllOrdersUseCase,
     UpdateOrderStatusUseCase,
     CancelOrderUseCase,
-    CreateOrderReturnUseCase,
-    GetOrderReturnsUseCase,
-    ReviewOrderReturnUseCase,
     IOrdersRepository,
   ],
 })
