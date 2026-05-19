@@ -14,7 +14,7 @@ import { PUBLIC_ENV } from "@/config/public.env.config";
 import { API_ROUTES } from "@/constants/routes";
 
 import { refreshState, processQueue } from "./request-queue";
-import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
+import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
 
 export class RequestError extends Error {
   constructor(
@@ -64,7 +64,7 @@ const requestCreator: TRequestCreator = async <T>({
     ...options,
     headers: {
       ...(isFormData ? {} : { "Content-Type": "application/json" }),
-      "Accept-Language": getLanguageSubdomain(),
+      "Accept-Language": getSubdomainByHostname(),
       ...options?.headers,
     },
     body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,

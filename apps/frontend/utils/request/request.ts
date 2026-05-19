@@ -7,7 +7,9 @@ import {
   TRequest,
 } from "./request.types";
 import requestCreator from "./request-creator";
-import { getLanguageSubdomain } from "../sub-domain/extract-sub-domain";
+import { getSubdomainByHostname } from "../sub-domain/get-client-sub-domain";
+import { getServerSubdomain } from "../sub-domain/get-server-sub-domain";
+import { getServerCookies } from "../cookies";
 
 const forwardClientRequest = async <T>(
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
@@ -19,21 +21,21 @@ const forwardClientRequest = async <T>(
   const headers: Record<string, string> = {
     ...((options?.headers as Record<string, string>) || {}),
   };
-  headers["Accept-Language"] =
-    headers["Accept-Language"] ?? getLanguageSubdomain();
 
   if (isServer) {
     try {
-      const { cookies, headers: nextHeaders } = await import("next/headers");
-      const cookieStore = await cookies();
-      const headerStore = await nextHeaders();
-      const host = headerStore.get("host") ?? undefined;
-
-      headers["Cookie"] = cookieStore.toString();
-      headers["Accept-Language"] = getLanguageSubdomain(host);
+      const cookieStore = await getServerCookies();
+      const cookieHeader = cookieStore?.toString();
+      if (cookieHeader) {
+        headers["Cookie"] = cookieHeader;
+      }
+      headers["Accept-Language"] = await getServerSubdomain();
     } catch {
       // Not in a request context, skip cookie forwarding
     }
+  } else {
+    headers["Accept-Language"] =
+      headers["Accept-Language"] ?? getSubdomainByHostname();
   }
 
   const baseUrl = PUBLIC_ENV.NEXT_PUBLIC_API_URL;

@@ -4,7 +4,6 @@ import {
   FilterSection,
   FilterSidebar,
 } from "@/components/molecules/filter-sidebar";
-import { TCategory } from "@/domain/categories/types/categories.model";
 import { CategoryFilterSection } from "./category-filter";
 import { ProductSearchFilter } from "./search-filter";
 import { ProductPriceFilter } from "./price-filter";

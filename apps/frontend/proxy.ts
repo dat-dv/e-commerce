@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getLanguageSubdomain } from "./utils/sub-domain/extract-sub-domain";
+import { getSubdomainByHostname } from "./utils/sub-domain/get-client-sub-domain";
 
 const SSG_LOCALIZED_PAGES = [
   "/terms",
@@ -17,7 +17,7 @@ export function proxy(request: NextRequest) {
 
   if (SSG_LOCALIZED_PAGES.includes(cleanPathname)) {
     const host = request.headers.get("host") || "";
-    const lang = getLanguageSubdomain(host) || "en";
+    const lang = getSubdomainByHostname(host);
 
     url.pathname = `/${lang}${cleanPathname}`;
     return NextResponse.rewrite(url);

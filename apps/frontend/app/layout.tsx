@@ -3,27 +3,10 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { headers } from "next/headers";
 import Script from "next/script";
-
-import AppToast from "@/components/atoms/toast";
-import { AuthProvider } from "@/components/molecules/providers/auth-provider";
-import { ConfigProvider } from "@/components/molecules/providers/config-provider";
-import { CategoriesProvider } from "@/components/molecules/providers/categories-provider";
-import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
-import { allSafe } from "@/utils/promise";
-import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
-import { AddressProvider } from "@/components/molecules/providers/address-provider";
-import { CartProvider } from "@/components/molecules/providers/cart-provider";
-import { FavoritesProvider } from "@/components/molecules/providers/favorites-provider";
-import { CartDrawer } from "@/components/organisms/cart-drawer";
-import { addressesUseCase } from "@/domain/addresses";
-import { cartUseCase } from "@/domain/cart/use-cases";
-import { NotificationProvider } from "@/components/providers/notification-provider";
-import { isRTL } from "react-aria-components/I18nProvider";
-import { I18nProviderClient } from "@/components/molecules/providers/i18n-provider";
+import AppProvider from "@/components/molecules/providers/app-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -80,21 +63,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [categoriesRes, language, initialCartState, initialAddressesState] =
-    await allSafe([
-      categoriesUseCase.getTree.execute(),
-      getLanguageSubdomain(),
-      cartUseCase.getCart.execute(),
-      addressesUseCase.getAddresses.execute(),
-    ]);
-
-  const categories =
-    categoriesRes?.status === "success" ? categoriesRes.data : [];
-
   return (
     <html
-      lang={language}
-      dir={isRTL(language) ? "rtl" : "ltr"}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
@@ -114,27 +84,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
-        <I18nProviderClient language={language}>
-          <ConfigProvider initState={{ language: language }}>
-            <CategoriesProvider initState={{ categories }}>
-              <AuthProvider>
-                <NotificationProvider>
-                  <CartProvider initState={initialCartState?.data?.items || []}>
-                    <AddressProvider
-                      initState={initialAddressesState?.data || []}
-                    >
-                      <FavoritesProvider>
-                        {children}
-                        <CartDrawer />
-                      </FavoritesProvider>
-                    </AddressProvider>
-                  </CartProvider>
-                </NotificationProvider>
-              </AuthProvider>
-            </CategoriesProvider>
-            <AppToast />
-          </ConfigProvider>
-        </I18nProviderClient>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );

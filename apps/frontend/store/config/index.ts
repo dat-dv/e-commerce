@@ -6,7 +6,7 @@ import { PUBLIC_ENV } from "@/config/public.env.config";
 import { CONFIG_STORE_KEY, ETheme } from "@/constants/theme.constanst";
 
 import { ConfigState, ConfigStore, ELanguage } from "./config.types";
-import { getLanguageSubdomain } from "@/utils/sub-domain/extract-sub-domain";
+import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
 
 export const configCreator =
   (initState?: Partial<ConfigState>): StateCreator<ConfigStore> =>
@@ -21,7 +21,7 @@ export const configCreator =
       isDarkMode: false,
       _hasHydrated: false,
       isLoadingTransition: false,
-      language: getLanguageSubdomain() || ELanguage.EN,
+      language: getSubdomainByHostname() || ELanguage.EN,
       ...initState,
       setTheme: (theme: ETheme) => {
         set({ theme, isLoadingTransition: true });
@@ -52,7 +52,7 @@ export const createConfigStore = (initState?: Partial<ConfigState>) =>
         name: CONFIG_STORE_KEY,
         onRehydrateStorage: () => (state) => {
           state?.setHasHydrated(true);
-          const urlLang = getLanguageSubdomain();
+          const urlLang = getSubdomainByHostname();
           if (
             urlLang &&
             Object.values(ELanguage).includes(urlLang as ELanguage)
