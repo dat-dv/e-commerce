@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { INotification } from "@/domain/notifications/types/notification";
 import { NotificationItem } from "../notification-item";
 import { VirtualList } from "@/components/molecules/virtual-list";
@@ -23,12 +24,14 @@ export const NotificationList = ({
   onMarkAsRead,
   onLoadMore,
 }: NotificationListProps) => {
+  const t = useTranslations("NotificationsPage");
+
   if (loading) {
     return (
       <div className="bg-surface rounded-[2rem] border border-content/[0.08] p-20 text-center space-y-4 shadow-xl shadow-content/[0.02]">
         <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
         <p className="text-[10px] font-bold text-content/20 uppercase tracking-[0.2em]">
-          Fetching your updates...
+          {t("list.fetchingText")}
         </p>
       </div>
     );
@@ -39,11 +42,10 @@ export const NotificationList = ({
       <div className="bg-surface rounded-2xl border border-content/[0.08] p-24 text-center flex flex-col items-center gap-6 shadow-xl shadow-content/[0.02]">
         <div className="space-y-1">
           <h3 className="text-lg font-bold text-content">
-            No notifications yet
+            {t("list.emptyTitle")}
           </h3>
           <p className="text-sm text-content/40 max-w-[280px] mx-auto leading-relaxed font-inter">
-            We&apos;ll let you know when something important happens with your
-            account or orders.
+            {t("list.emptyDescription")}
           </p>
         </div>
       </div>
@@ -60,8 +62,8 @@ export const NotificationList = ({
         keyExtractor={(notification) => notification.id}
         className="divide-y divide-content/[0.03]"
         itemClassName=""
-        loadingText="Loading more notifications..."
-        endText="End of notifications"
+        loadingText={t("list.loadingMoreText")}
+        endText={t("list.endText")}
         renderItem={(notif, index) => (
           <motion.div
             initial={{ opacity: 0, x: -10 }}

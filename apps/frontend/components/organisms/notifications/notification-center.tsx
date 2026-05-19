@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Bell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
@@ -11,6 +12,7 @@ import { NotificationItem } from "./notification-item";
 import { useLoadOnce } from "@/hooks/use-load-once";
 
 export const NotificationCenter = () => {
+  const t = useTranslations("NotificationsPage");
   const [isOpen, setIsOpen] = useState(false);
   const {
     notifications,
@@ -57,13 +59,13 @@ export const NotificationCenter = () => {
               className="absolute right-0 mt-2 w-80 md:w-96 bg-surface/90 backdrop-blur-xl border border-content/[0.05] rounded-2xl shadow-2xl z-50 overflow-hidden"
             >
               <div className="p-4 border-b border-content/[0.05] flex items-center justify-between">
-                <h3 className="font-bold text-sm">Notifications</h3>
+                <h3 className="font-bold text-sm">{t("dropdown.title")}</h3>
                 {unreadCount > 0 && (
                   <button
                     onClick={markAllAsRead}
                     className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors"
                   >
-                    Mark all as read
+                    {t("dropdown.markAllAsRead")}
                   </button>
                 )}
               </div>
@@ -71,7 +73,7 @@ export const NotificationCenter = () => {
               <div className="max-h-[400px] overflow-y-auto">
                 {loading ? (
                   <div className="p-8 text-center text-xs text-content/40 uppercase tracking-widest">
-                    Loading updates...
+                    {t("dropdown.loadingText")}
                   </div>
                 ) : notifications.length > 0 ? (
                   <div className="">
@@ -89,7 +91,7 @@ export const NotificationCenter = () => {
                       <Bell size={24} />
                     </div>
                     <p className="text-xs text-content/40 font-medium">
-                      All caught up!
+                      {t("dropdown.emptyText")}
                     </p>
                   </div>
                 )}
@@ -100,7 +102,7 @@ export const NotificationCenter = () => {
                   href="/notifications"
                   className="group flex items-center justify-center gap-2 text-[12px] font-semibold text-content/50 hover:text-primary transition-all duration-300"
                 >
-                  View all notifications
+                  {t("dropdown.viewAll")}
                   <div className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300">
                     <div className="h-[1px] w-4 bg-primary" />
                   </div>

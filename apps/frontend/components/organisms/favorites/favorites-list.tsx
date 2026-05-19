@@ -3,6 +3,7 @@ import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import { useFavorites } from "@/hooks/favorites/use-favorites";
 import { motion } from "framer-motion";
 import EmptyState from "@/components/molecules/empty-space";
+import { useTranslations } from "next-intl";
 
 const FavoritesGrid = ({
   favorites,
@@ -14,11 +15,13 @@ const FavoritesGrid = ({
   ReturnType<typeof useFavorites>,
   "favorites" | "loading" | "loadingMore" | "hasMore" | "fetchMore"
 >) => {
+  const t = useTranslations("FavoritesPage");
+
   if (!loading && favorites.length === 0) {
     return (
       <EmptyState
-        title="Your collection is empty"
-        description="The items you love deserve a place here. Start exploring our latest collections."
+        title={t("list.emptyTitle")}
+        description={t("list.emptyDescription")}
       />
     );
   }
@@ -38,8 +41,8 @@ const FavoritesGrid = ({
           />
         )}
         keyExtractor={(fav) => fav.productId}
-        loadingText="Discovering more..."
-        endText="You've seen everything in your wishlist"
+        loadingText={t("list.loadingText")}
+        endText={t("list.endText")}
         columns={{
           base: 2,
           sm: 3,

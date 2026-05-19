@@ -2,6 +2,8 @@
 
 import { Bell, BellDot, CheckCheck, Megaphone } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 
 const NOTIFICATION_HEADER_ICONS = [Bell, BellDot, CheckCheck, Megaphone];
@@ -13,15 +15,17 @@ interface NotificationPageHeaderProps {
 export const NotificationPageHeader = ({
   unreadCount,
 }: NotificationPageHeaderProps) => {
+  const t = useTranslations("NotificationsPage");
+
   const description =
     unreadCount > 0
-      ? `You have ${unreadCount} unread update${unreadCount > 1 ? "s" : ""}. Review order activity, account alerts, and promotions in one place.`
-      : "You are all caught up. Order activity, account alerts, and promotions will appear here.";
+      ? t("banner.unreadDescription", { count: unreadCount })
+      : t("banner.allCaughtUpDescription");
 
   return (
     <AnimatedPageHeader
-      title="Notification"
-      highlight="Center"
+      title={t("banner.title")}
+      highlight={t("banner.highlight")}
       description={description}
       icons={NOTIFICATION_HEADER_ICONS}
     />

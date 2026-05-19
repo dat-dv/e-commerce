@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Eye, ShoppingBag } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
@@ -12,6 +13,7 @@ import { useLoadOnce } from "@/hooks/use-load-once";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
 
 export const RecentViewedView = () => {
+  const t = useTranslations("RecentViewedPage");
   const {
     recentViewedProducts,
     loading,
@@ -28,16 +30,15 @@ export const RecentViewedView = () => {
         <div className="flex items-center gap-2 text-primary">
           <Eye size={18} />
           <span className="text-xs font-black uppercase tracking-[0.25em]">
-            History
+            {t("tag")}
           </span>
         </div>
         <div>
           <h1 className="text-3xl font-black tracking-tight text-content">
-            Recently Viewed
+            {t("title")}
           </h1>
           <p className="mt-2 max-w-2xl text-sm text-content/50">
-            Products you opened recently, kept here so you can continue where
-            you left off.
+            {t("description")}
           </p>
         </div>
       </div>
@@ -62,8 +63,8 @@ export const RecentViewedView = () => {
             <ProductCard key={product.id} product={product} />
           )}
           keyExtractor={(product) => product.id}
-          loadingText="Retrieving more history..."
-          endText="You've reached the end of your viewing history"
+          loadingText={t("loadingText")}
+          endText={t("endText")}
           columns={{
             base: 2,
             sm: 3,
@@ -76,18 +77,16 @@ export const RecentViewedView = () => {
           <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-content/5 text-content/30">
             <Eye size={28} />
           </div>
-          <h2 className="text-xl font-black text-content">
-            No recently viewed products
-          </h2>
+          <h2 className="text-xl font-black text-content">{t("emptyTitle")}</h2>
           <p className="mt-2 max-w-sm text-sm text-content/50">
-            Open a few product pages and they will appear here.
+            {t("emptyDescription")}
           </p>
           <Link
             href={APP_ROUTES.PRODUCTS}
             className="mt-8 inline-flex items-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-bold text-surface transition-transform active:scale-95"
           >
             <ShoppingBag size={16} />
-            Browse products
+            {t("browseButton")}
           </Link>
         </div>
       )}

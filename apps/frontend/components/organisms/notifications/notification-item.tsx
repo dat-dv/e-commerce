@@ -1,6 +1,8 @@
 import React from "react";
 import { Clock, Package, Info, Zap, User } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
+import { vi, enUS } from "date-fns/locale";
+import { useLocale } from "next-intl";
 import { cn } from "@/utils/cn";
 import { INotification } from "@/domain/notifications/types/notification";
 import { ENotificationType } from "@ecommerce/shared";
@@ -16,6 +18,9 @@ export const NotificationItem = ({
   onRead,
   className,
 }: NotificationItemProps) => {
+  const localeKey = useLocale();
+  const dateLocale = localeKey === "vi" ? vi : enUS;
+
   const getIcon = (type: ENotificationType) => {
     switch (type) {
       case ENotificationType.ORDER:
@@ -63,6 +68,7 @@ export const NotificationItem = ({
             <Clock size={10} />
             {formatDistanceToNow(new Date(notif.createdAt), {
               addSuffix: true,
+              locale: dateLocale,
             })}
           </span>
         </div>

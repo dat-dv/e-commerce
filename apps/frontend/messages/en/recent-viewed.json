@@ -1,0 +1,16 @@
+{
+  "RecentViewedPage": {
+    "metadata": {
+      "title": "Recently Viewed",
+      "description": "Products you recently viewed."
+    },
+    "tag": "History",
+    "title": "Recently Viewed",
+    "description": "Products you opened recently, kept here so you can continue where you left off.",
+    "loadingText": "Retrieving more history...",
+    "endText": "You've reached the end of your viewing history",
+    "emptyTitle": "No recently viewed products",
+    "emptyDescription": "Open a few product pages and they will appear here.",
+    "browseButton": "Browse products"
+  }
+}

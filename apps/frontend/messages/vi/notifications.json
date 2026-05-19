@@ -1,0 +1,42 @@
+{
+  "NotificationsPage": {
+    "metadata": {
+      "title": "Thông báo",
+      "description": "Xem và quản lý thông báo và hoạt động tài khoản của bạn."
+    },
+    "banner": {
+      "title": "Trung tâm",
+      "highlight": "Thông báo",
+      "unreadDescription": "Bạn có {count} cập nhật chưa đọc. Xem lại hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi tại đây.",
+      "allCaughtUpDescription": "Bạn đã đọc hết mọi thông báo. Hoạt động đơn hàng, cảnh báo tài khoản và khuyến mãi sẽ xuất hiện tại đây."
+    },
+    "summary": {
+      "total": "Tổng thông báo",
+      "unread": "Chưa đọc",
+      "read": "Đã đọc"
+    },
+    "header": {
+      "title": "Thông báo",
+      "subtitle": "Quản lý đơn hàng, cập nhật và các chương trình khuyến mãi.",
+      "markAllAsRead": "Đánh dấu tất cả đã đọc"
+    },
+    "filters": {
+      "searchPlaceholder": "Tìm kiếm thông báo...",
+      "searchButton": "Tìm kiếm"
+    },
+    "list": {
+      "fetchingText": "Đang tải thông báo...",
+      "emptyTitle": "Chưa có thông báo nào",
+      "emptyDescription": "Chúng tôi sẽ gửi thông báo cho bạn khi có cập nhật quan trọng về đơn hàng hoặc tài khoản.",
+      "loadingMoreText": "Đang tải thêm thông báo...",
+      "endText": "Đã hết thông báo"
+    },
+    "dropdown": {
+      "title": "Thông báo",
+      "markAllAsRead": "Đánh dấu đã đọc tất cả",
+      "loadingText": "Đang tải thông báo...",
+      "emptyText": "Không có thông báo mới!",
+      "viewAll": "Xem tất cả thông báo"
+    }
+  }
+}

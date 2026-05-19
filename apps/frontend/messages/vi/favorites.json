@@ -1,0 +1,20 @@
+{
+  "FavoritesPage": {
+    "metadata": {
+      "title": "Danh sách yêu thích",
+      "description": "Xem và quản lý các sản phẩm yêu thích của bạn."
+    },
+    "banner": {
+      "title": "Danh sách",
+      "highlight": "Yêu thích",
+      "description": "Bộ sưu tập cá nhân của riêng bạn. Sẵn sàng đồng hành cùng bạn.",
+      "totalItems": "Tổng số sản phẩm"
+    },
+    "list": {
+      "emptyTitle": "Danh sách yêu thích đang trống",
+      "emptyDescription": "Những sản phẩm bạn yêu thích sẽ được lưu tại đây. Hãy bắt đầu khám phá các bộ sưu tập mới nhất.",
+      "loadingText": "Đang tìm thêm sản phẩm...",
+      "endText": "Bạn đã xem hết danh sách yêu thích"
+    }
+  }
+}

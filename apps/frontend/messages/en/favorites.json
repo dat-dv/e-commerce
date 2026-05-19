@@ -1,0 +1,20 @@
+{
+  "FavoritesPage": {
+    "metadata": {
+      "title": "My Wishlist",
+      "description": "View and manage your favorite luxury acquisitions."
+    },
+    "banner": {
+      "title": "Wish",
+      "highlight": "List",
+      "description": "Your private gallery of curated desires. Ready to be transformed into reality.",
+      "totalItems": "Total Items"
+    },
+    "list": {
+      "emptyTitle": "Your collection is empty",
+      "emptyDescription": "The items you love deserve a place here. Start exploring our latest collections.",
+      "loadingText": "Discovering more...",
+      "endText": "You've seen everything in your wishlist"
+    }
+  }
+}

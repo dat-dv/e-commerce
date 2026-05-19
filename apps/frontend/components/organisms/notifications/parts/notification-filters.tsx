@@ -2,12 +2,14 @@
 
 import React, { useState } from "react";
 import { Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface NotificationFiltersProps {
   onSearch: (query: string) => void;
 }
 
 export const NotificationFilters = ({ onSearch }: NotificationFiltersProps) => {
+  const t = useTranslations("NotificationsPage");
   const [value, setValue] = useState("");
 
   const handleSearch = () => {
@@ -29,7 +31,7 @@ export const NotificationFilters = ({ onSearch }: NotificationFiltersProps) => {
         />
         <input
           type="text"
-          placeholder="Search notifications..."
+          placeholder={t("filters.searchPlaceholder")}
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
@@ -43,7 +45,7 @@ export const NotificationFilters = ({ onSearch }: NotificationFiltersProps) => {
           onClick={handleSearch}
           className="absolute right-1.5 top-1/2 -translate-y-1/2 px-6 py-2 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full text-xs font-bold transition-all active:scale-95"
         >
-          Search
+          {t("filters.searchButton")}
         </button>
       </div>
     </div>
