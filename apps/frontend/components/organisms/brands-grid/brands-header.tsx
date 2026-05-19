@@ -6,13 +6,16 @@ import {
   Headphones,
   MonitorSmartphone,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function BrandsHeader() {
+  const t = useTranslations("BrandsPage.header");
+
   return (
     <AnimatedPageHeader
-      title="Top"
-      highlight="Brands"
-      description="Explore the world's most iconic technology and design leaders."
+      title={t("title")}
+      highlight={t("highlight")}
+      description={t("description")}
       icons={[Smartphone, Laptop, Headphones, MonitorSmartphone]}
     />
   );

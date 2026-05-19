@@ -1,0 +1,24 @@
+{
+  "BrandsPage": {
+    "metadata": {
+      "title": "Thương hiệu | Chất lượng chọn lọc",
+      "description": "Khám phá các thương hiệu đối tác và tên tuổi nổi bật."
+    },
+    "header": {
+      "title": "Thương",
+      "highlight": "Hiệu",
+      "description": "Khám phá các thương hiệu công nghệ và thiết kế hàng đầu."
+    },
+    "search": {
+      "placeholder": "Tìm thương hiệu..."
+    },
+    "grid": {
+      "loadingMore": "Đang tải thêm thương hiệu...",
+      "end": "Đã tải hết thương hiệu"
+    },
+    "empty": {
+      "title": "Không tìm thấy thương hiệu",
+      "description": "Không có thương hiệu nào khớp với \"{query}\". Hãy thử từ khóa khác."
+    }
+  }
+}

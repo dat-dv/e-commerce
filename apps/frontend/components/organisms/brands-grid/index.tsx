@@ -11,6 +11,7 @@ import { EmptyState } from "@/components/molecules/empty-space";
 import { SearchInput } from "@/components/molecules/search-input";
 import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import { brandsUseCase } from "@/domain/brands/use-cases";
+import { useTranslations } from "next-intl";
 
 interface TopBrandsViewProps {
   brands: TBrand[];
@@ -19,6 +20,7 @@ interface TopBrandsViewProps {
 }
 
 const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
+  const t = useTranslations("BrandsPage");
   const {
     items: brandItems,
     loadingMore,
@@ -71,7 +73,7 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
             update(nextParams);
             void loadPage(1, nextParams, { syncQuery: false });
           }}
-          placeholder="Search brands by name..."
+          placeholder={t("search.placeholder")}
         />
       </div>
 
@@ -85,8 +87,10 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
         />
       ) : (
         <EmptyState
-          title="No brands found"
-          description={`We couldn't find any brands matching "${clientQueryParams.search}". Try adjusting your search query.`}
+          title={t("empty.title")}
+          description={t("empty.description", {
+            query: clientQueryParams.search,
+          })}
           icon={Search}
         />
       )}

@@ -3,6 +3,7 @@
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { BrandCard } from "@/components/molecules/brrand-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import { useTranslations } from "next-intl";
 
 interface IBrandListGridProps {
   brands: TBrand[];
@@ -17,6 +18,8 @@ const BrandListGrid = ({
   hasMore,
   loadMore,
 }: IBrandListGridProps) => {
+  const t = useTranslations("BrandsPage.grid");
+
   return (
     <VirtualGrid<TBrand>
       data={brands}
@@ -30,8 +33,8 @@ const BrandListGrid = ({
       loadingMore={loadingMore}
       hasMore={hasMore}
       onLoadMore={loadMore}
-      loadingText="Loading more brands..."
-      endText="All brands loaded"
+      loadingText={t("loadingMore")}
+      endText={t("end")}
     />
   );
 };

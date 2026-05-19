@@ -3,11 +3,16 @@ import { brandsUseCase } from "@/domain/brands/use-cases";
 import { safe } from "@/utils/promise";
 import BrandsView from "@/components/organisms/brands-grid";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Brands | Defined Quality",
-  description: "Explore our certified partner brands and industry leaders.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("BrandsPage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 interface IBrandsPageProps {
   searchParams: Promise<{

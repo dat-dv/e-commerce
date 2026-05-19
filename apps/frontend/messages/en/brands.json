@@ -1,0 +1,24 @@
+{
+  "BrandsPage": {
+    "metadata": {
+      "title": "Brands | Defined Quality",
+      "description": "Explore our certified partner brands and industry leaders."
+    },
+    "header": {
+      "title": "Top",
+      "highlight": "Brands",
+      "description": "Explore the world's most iconic technology and design leaders."
+    },
+    "search": {
+      "placeholder": "Search brands by name..."
+    },
+    "grid": {
+      "loadingMore": "Loading more brands...",
+      "end": "All brands loaded"
+    },
+    "empty": {
+      "title": "No brands found",
+      "description": "We couldn't find any brands matching \"{query}\". Try adjusting your search query."
+    }
+  }
+}
