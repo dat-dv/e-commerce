@@ -12,6 +12,7 @@ import {
   variantActive,
 } from "@/components/atoms/input/input.styles";
 import { InputVariant } from "@/components/atoms/input/input.types";
+import { useTranslations } from "next-intl";
 
 interface Option {
   label: string;
@@ -36,6 +37,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   variant = "outline",
   className,
 }) => {
+  const t = useTranslations("Common.form");
   const { control } = useFormContext();
 
   return (
@@ -74,7 +76,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
                       options.find((opt) => opt.value === field.value)?.label ||
                       ""
                     }
-                    placeholder="Select..."
+                    placeholder={t("selectPlaceholder")}
                     className="bg-transparent border-none outline-none w-full pointer-events-none placeholder:opacity-50 text-content font-normal"
                   />
                   <ChevronDown className="w-4 h-4 ml-2 opacity-50" />

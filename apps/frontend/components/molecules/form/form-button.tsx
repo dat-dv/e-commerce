@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 interface FormButtonProps extends HTMLMotionProps<"button"> {
@@ -10,12 +11,15 @@ interface FormButtonProps extends HTMLMotionProps<"button"> {
 
 export const FormButton: React.FC<FormButtonProps> = ({
   isLoading,
-  loadingText = "Processing...",
+  loadingText,
   children,
   className = "",
   disabled,
   ...props
 }) => {
+  const t = useTranslations("Common.form");
+  const displayLoadingText = loadingText ?? t("processing");
+
   return (
     <motion.button
       whileHover={{ scale: isLoading ? 1 : 1.02 }}
@@ -39,7 +43,7 @@ export const FormButton: React.FC<FormButtonProps> = ({
             className="flex items-center justify-center gap-2 px-4"
           >
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-on-primary/30 border-t-on-primary" />
-            <span className="tracking-tight">{loadingText}</span>
+            <span className="tracking-tight">{displayLoadingText}</span>
           </motion.div>
         ) : (
           <motion.div

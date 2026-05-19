@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { type LucideIcon, PackageOpen } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { cn } from "@/utils/cn";
 
@@ -19,8 +20,8 @@ interface EmptyStateProps {
 }
 
 export const EmptyState = ({
-  title = "Nothing Here Yet",
-  description = "There’s currently no content available in this section.",
+  title,
+  description,
   icon: Icon = PackageOpen,
   actionLabel,
   actionHref,
@@ -28,6 +29,10 @@ export const EmptyState = ({
   className,
   delay = 0.2,
 }: EmptyStateProps) => {
+  const t = useTranslations("Common.emptyState");
+  const displayTitle = title ?? t("title");
+  const displayDescription = description ?? t("description");
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -63,11 +68,11 @@ export const EmptyState = ({
         </div>
 
         <h2 className="text-3xl font-black tracking-tight text-content">
-          {title}
+          {displayTitle}
         </h2>
 
         <p className="mt-3 max-w-md text-sm font-medium leading-relaxed text-content/40">
-          {description}
+          {displayDescription}
         </p>
 
         {actionLabel && actionHref && (

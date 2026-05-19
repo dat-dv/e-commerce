@@ -2,6 +2,7 @@
 
 import Button from "@/components/atoms/button";
 import { MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface AddressEmptyStateProps {
   title?: string;
@@ -12,12 +13,16 @@ interface AddressEmptyStateProps {
 }
 
 export const AddressEmptyState = ({
-  title = "No addresses yet",
-  description = "Add a shipping address to get started.",
+  title,
+  description,
   actionLabel,
   onAction,
   className,
 }: AddressEmptyStateProps) => {
+  const t = useTranslations("Common.addressEmptyState");
+  const displayTitle = title ?? t("title");
+  const displayDescription = description ?? t("description");
+
   return (
     <div
       className={`flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-content/10 py-10 text-center ${
@@ -28,8 +33,8 @@ export const AddressEmptyState = ({
         <MapPin size={24} className="text-content/30" aria-hidden />
       </div>
       <div>
-        <p className="font-bold text-content">{title}</p>
-        <p className="mt-1 text-sm text-content/50">{description}</p>
+        <p className="font-bold text-content">{displayTitle}</p>
+        <p className="mt-1 text-sm text-content/50">{displayDescription}</p>
       </div>
       {onAction && actionLabel && (
         <Button

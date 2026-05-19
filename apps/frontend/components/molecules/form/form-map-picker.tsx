@@ -6,6 +6,7 @@ import { useFormContext } from "react-hook-form";
 import { cn } from "@/utils/cn";
 import MapPickerModal from "@/components/molecules/profile-form/map-picker-modal";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface FormMapPickerProps {
   label: string;
@@ -20,6 +21,7 @@ export const FormMapPicker = ({
   nameLng,
   disabled,
 }: FormMapPickerProps) => {
+  const t = useTranslations("Common.formMapPicker");
   const [mapOpen, setMapOpen] = useState(false);
   const {
     setValue,
@@ -61,7 +63,7 @@ export const FormMapPicker = ({
   }, [hasCoord, lat, lng, pickedAddress, resolving]);
 
   const displayValue = resolving
-    ? "Resolving location..."
+    ? t("resolving")
     : pickedAddress || (hasCoord ? `${lat.toFixed(4)}, ${lng.toFixed(4)}` : "");
 
   const error = errors[nameLat] || errors[nameLng];
@@ -105,11 +107,11 @@ export const FormMapPicker = ({
               !displayValue && "text-content/40",
             )}
           >
-            {displayValue || "Click to pick address on map"}
+            {displayValue || t("placeholder")}
           </span>
         </div>
         <span className="text-xs text-primary font-medium">
-          {displayValue ? "Change" : "Select"}
+          {displayValue ? t("change") : t("select")}
         </span>
       </div>
 

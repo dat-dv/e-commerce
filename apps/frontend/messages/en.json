@@ -327,6 +327,54 @@
       "clear": "Clear",
       "submit": "Search",
       "globalPlaceholder": "Search for premium tech & workspace essentials..."
+    },
+    "formMapPicker": {
+      "resolving": "Resolving location...",
+      "placeholder": "Click to pick address on map",
+      "change": "Change",
+      "select": "Select"
+    },
+    "mapPickerModal": {
+      "title": "Pick Address on Map",
+      "close": "Close",
+      "searchLabel": "Search & Pick Location:",
+      "searchPlaceholder": "Search address...",
+      "cancel": "Cancel",
+      "confirm": "Confirm Address"
+    },
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
+    "emptyState": {
+      "title": "Nothing Here Yet",
+      "description": "There’s currently no content available in this section."
+    },
+    "addressEmptyState": {
+      "title": "No addresses yet",
+      "description": "Add a shipping address to get started."
+    },
+    "form": {
+      "processing": "Processing...",
+      "selectPlaceholder": "Select..."
+    },
+    "imageCropper": {
+      "title": "Edit photo",
+      "close": "Close",
+      "cancel": "Cancel",
+      "save": "Save changes"
+    },
+    "accessDenied": {
+      "title": "Access",
+      "highlight": "Denied.",
+      "description": "You must be signed in to view this page.",
+      "signIn": "Sign In",
+      "createAccount": "Create Account"
+    },
+    "productsHeader": {
+      "title": "Our",
+      "highlight": "Products",
+      "description": "Explore our curated collection of premium products."
     }
   },
   "FavoritesPage": {

@@ -10,6 +10,7 @@ import { XIcon } from "@/components/atoms/icons";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useMapPicker } from "@/hooks/addresses/use-map-picker";
+import { useTranslations } from "next-intl";
 
 const MapComponent = dynamic(
   () => import("@/components/molecules/profile-form/map-component"),
@@ -27,6 +28,7 @@ export default function MapPickerModal({
   onClose,
   onPick,
 }: MapPickerModalProps) {
+  const t = useTranslations("Common.mapPickerModal");
   const {
     address,
     loading,
@@ -77,7 +79,7 @@ export default function MapPickerModal({
           className="w-full max-w-2xl bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative"
         >
           <AriaDialogTitle className="text-2xl font-bold mb-4">
-            Pick Address on Map
+            {t("title")}
           </AriaDialogTitle>
 
           <Button
@@ -86,7 +88,7 @@ export default function MapPickerModal({
             size="icon"
             onClick={onClose}
             className="absolute right-6 top-6"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <XIcon />
           </Button>
@@ -104,14 +106,14 @@ export default function MapPickerModal({
           <div className="space-y-6 bg-content/5 p-6 rounded-2xl border border-content/10">
             <div>
               <p className="text-sm font-medium opacity-60 mb-2">
-                Search & Pick Location:
+                {t("searchLabel")}
               </p>
               <div className="relative mb-4">
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search address..."
+                  placeholder={t("searchPlaceholder")}
                   className="w-full px-4 py-3 bg-surface border border-content/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm hover:border-content/20"
                 />
                 {suggestions.length > 0 && (
@@ -132,7 +134,7 @@ export default function MapPickerModal({
 
             <div className="flex justify-end gap-4">
               <Button type="button" variant="ghost" onClick={onClose}>
-                Cancel
+                {t("cancel")}
               </Button>
               <Button
                 type="button"
@@ -140,7 +142,7 @@ export default function MapPickerModal({
                 onClick={handleConfirmAddress}
                 disabled={!address || loading}
               >
-                Confirm Address
+                {t("confirm")}
               </Button>
             </div>
           </div>

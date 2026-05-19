@@ -3,6 +3,7 @@
 import { MaximizeIcon, XIcon } from "lucide-react";
 import React, { useCallback, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
+import { useTranslations } from "next-intl";
 
 import {
   AriaDialog,
@@ -27,9 +28,12 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
   onCropComplete,
   onCancel,
   aspect = 1,
-  saveLabel = "Save changes",
-  title: _title = "Edit photo",
+  saveLabel,
+  title,
 }) => {
+  const t = useTranslations("Common.imageCropper");
+  const displayTitle = title ?? t("title");
+  const displaySaveLabel = saveLabel ?? t("save");
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);
@@ -78,7 +82,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
           <button
             onClick={onCancel}
             className="absolute right-4 top-4 z-10 size-8 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/40 transition-colors"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <XIcon size={16} />
           </button>
@@ -109,7 +113,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
           {/* Controls */}
           <div className="p-6 space-y-6 overflow-y-auto">
             <AriaDialogTitle className="text-lg font-bold text-content sr-only">
-              Edit Photo
+              {displayTitle}
             </AriaDialogTitle>
 
             {/* Zoom Control */}
@@ -134,7 +138,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
                 onClick={onCancel}
                 className="flex-1 rounded-xl h-11 text-sm font-semibold"
               >
-                Cancel
+                {t("cancel")}
               </Button>
               <Button
                 variant="primary"
@@ -142,7 +146,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
                 loading={isCropping}
                 className="flex-1 rounded-xl h-11 text-sm font-semibold"
               >
-                {saveLabel}
+                {displaySaveLabel}
               </Button>
             </div>
           </div>

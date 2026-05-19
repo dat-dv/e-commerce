@@ -84,6 +84,54 @@
       "clear": "Xóa",
       "submit": "Tìm kiếm",
       "globalPlaceholder": "Tìm kiếm thiết bị công nghệ & đồ dùng góc làm việc cao cấp..."
+    },
+    "formMapPicker": {
+      "resolving": "Đang xác định vị trí...",
+      "placeholder": "Bấm để chọn địa chỉ trên bản đồ",
+      "change": "Đổi",
+      "select": "Chọn"
+    },
+    "mapPickerModal": {
+      "title": "Chọn địa chỉ trên bản đồ",
+      "close": "Đóng",
+      "searchLabel": "Tìm kiếm & chọn vị trí:",
+      "searchPlaceholder": "Tìm địa chỉ...",
+      "cancel": "Hủy",
+      "confirm": "Xác nhận địa chỉ"
+    },
+    "password": {
+      "show": "Hiện mật khẩu",
+      "hide": "Ẩn mật khẩu"
+    },
+    "emptyState": {
+      "title": "Chưa có nội dung",
+      "description": "Hiện chưa có nội dung nào trong mục này."
+    },
+    "addressEmptyState": {
+      "title": "Chưa có địa chỉ",
+      "description": "Thêm địa chỉ giao hàng để bắt đầu."
+    },
+    "form": {
+      "processing": "Đang xử lý...",
+      "selectPlaceholder": "Chọn..."
+    },
+    "imageCropper": {
+      "title": "Chỉnh sửa ảnh",
+      "close": "Đóng",
+      "cancel": "Hủy",
+      "save": "Lưu thay đổi"
+    },
+    "accessDenied": {
+      "title": "Truy cập",
+      "highlight": "bị từ chối.",
+      "description": "Bạn cần đăng nhập để xem trang này.",
+      "signIn": "Đăng nhập",
+      "createAccount": "Tạo tài khoản"
+    },
+    "productsHeader": {
+      "title": "Sản phẩm",
+      "highlight": "của chúng tôi",
+      "description": "Khám phá bộ sưu tập sản phẩm cao cấp được tuyển chọn."
     }
   }
 }
