@@ -6,7 +6,7 @@ import { IFavoritesStore, IFavoritesStoreState } from "./favorites-store.type";
 
 const createFavoritesStoreCreator =
   (initState?: Partial<IFavoritesStoreState>): StateCreator<IFavoritesStore> =>
-  (set, _get, _store) => {
+  (set) => {
     const state: IFavoritesStore = {
       favorites: [],
       loading: false,

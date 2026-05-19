@@ -28,7 +28,7 @@ export const useUpdateCartQuantity = () => {
             quantity,
           });
         }
-      } catch (err) {
+      } catch {
         // Revert on error
         _addOrUpdateItem(item, previousQuantity);
         toast.error(t("updateFailed"));

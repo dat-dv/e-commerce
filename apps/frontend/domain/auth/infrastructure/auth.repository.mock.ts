@@ -2,12 +2,7 @@ import { delay } from "@/utils/delay";
 
 import { ApiResponse } from "@/utils/request/request.types";
 
-import {
-  TAuthRequest,
-  TRegisterRequest,
-  TUser,
-  TResetPasswordRequest,
-} from "../types/auth.model";
+import { TAuthRequest, TUser } from "../types/auth.model";
 import { TUpdateUserInput } from "../../users/types/user.model";
 import { IAuthRepository } from "../types/auth.repository";
 import { UserMapper } from "./auth.mapper";
@@ -71,7 +66,7 @@ export class MockAuthRepository implements IAuthRepository {
     };
   }
 
-  async register(_request: TRegisterRequest): Promise<ApiResponse<null>> {
+  async register(): Promise<ApiResponse<null>> {
     await delay(1200);
     return {
       data: null,
@@ -119,26 +114,17 @@ export class MockAuthRepository implements IAuthRepository {
     };
   }
 
-  async forgotPassword(request: {
-    email?: string;
-    phone?: string;
-  }): Promise<ApiResponse<void>> {
+  async forgotPassword(): Promise<ApiResponse<void>> {
     await delay(500);
     return { data: undefined, status: "success" };
   }
 
-  async resetPassword(
-    request: TResetPasswordRequest,
-  ): Promise<ApiResponse<void>> {
+  async resetPassword(): Promise<ApiResponse<void>> {
     await delay(500);
     return { data: undefined, status: "success" };
   }
 
-  async changePassword(request: {
-    oldPassword: string;
-    newPassword: string;
-    confirmPassword: string;
-  }): Promise<ApiResponse<{ success: boolean }>> {
+  async changePassword(): Promise<ApiResponse<{ success: boolean }>> {
     await delay(500);
     return { data: { success: true }, status: "success" };
   }

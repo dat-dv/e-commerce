@@ -39,25 +39,28 @@ export const useConfig = () => {
     [setDarkModeStore],
   );
 
-  const changeLanguage = useCallback((newLang: ELanguage) => {
-    if (language === newLang) return;
+  const changeLanguage = useCallback(
+    (newLang: ELanguage) => {
+      if (language === newLang) return;
 
-    const url = new URL(window.location.href);
-    const hostParts = url.hostname.split(".");
-    if (
-      hostParts.length >= 2 &&
-      (hostParts[0].length <= 3 || hostParts[0] === "www")
-    ) {
-      hostParts[0] = newLang;
-    } else {
-      hostParts.unshift(newLang);
-    }
+      const url = new URL(window.location.href);
+      const hostParts = url.hostname.split(".");
+      if (
+        hostParts.length >= 2 &&
+        (hostParts[0].length <= 3 || hostParts[0] === "www")
+      ) {
+        hostParts[0] = newLang;
+      } else {
+        hostParts.unshift(newLang);
+      }
 
-    url.hostname = hostParts.join(".");
-    setLanguage(newLang);
+      url.hostname = hostParts.join(".");
+      setLanguage(newLang);
 
-    window.location.href = url.toString();
-  }, []);
+      window.location.href = url.toString();
+    },
+    [language, setLanguage],
+  );
 
   return {
     theme,

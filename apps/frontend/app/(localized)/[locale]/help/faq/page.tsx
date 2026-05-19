@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import HelpFAQView from "@/components/organisms/help-faq-view";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 

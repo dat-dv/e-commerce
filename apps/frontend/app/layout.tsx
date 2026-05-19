@@ -1,7 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
-import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { PUBLIC_ENV } from "@/config/public.env.config";

@@ -10,11 +10,10 @@ import React from "react";
 export const BrandCard = ({
   brand,
   isLarge,
-  index,
 }: {
   brand: TBrand;
   isLarge: boolean;
-  index: number;
+  index?: number;
 }) => {
   const t = useTranslations("BrandsPage.card");
   const [imgError, setImgError] = React.useState(false);

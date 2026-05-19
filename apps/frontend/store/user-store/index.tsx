@@ -8,7 +8,7 @@ import { IAuthStore, IAuthStoreState } from "./user-store.type";
 
 const createAuthStoreCreator =
   (initState?: Partial<IAuthStoreState>): StateCreator<IAuthStore> =>
-  (set, _get, _store) => {
+  (set) => {
     const state: IAuthStore = {
       user: null,
       loading: false,

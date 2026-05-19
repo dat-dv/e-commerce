@@ -37,7 +37,6 @@ export const ProductCarousel = ({
   icon: Icon,
   products,
   rows = 1,
-  lang,
   shouldChunk = 6,
 }: IProductCarouselProps) => {
   const carouselProducts = useMemo(() => {
@@ -62,7 +61,6 @@ export const ProductCarousel = ({
         title={title}
         href={href || APP_ROUTES.PRODUCTS}
         icon={<Icon className="w-5 h-5 text-purple-500" />}
-        lang={lang}
       />
 
       <Carousel options={{ align: "start" }}>

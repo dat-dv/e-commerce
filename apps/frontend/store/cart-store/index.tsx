@@ -31,7 +31,7 @@ const computeCartDerived = (items: TCartItem[], selectedSkuIds: string[]) => {
 
 const createCartStoreCreator =
   (initState?: Partial<TCartStoreState>): StateCreator<TCartStore> =>
-  (set, get, _store) => {
+  (set, get) => {
     const initialItems = initState?.items || [];
     const initialSelectedIds = initState?.selectedSkuIds || [];
 

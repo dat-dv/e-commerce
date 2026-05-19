@@ -33,7 +33,7 @@ const createCategoriesStoreCreator =
   (
     initState?: Partial<ICategoriesStoreState>,
   ): StateCreator<ICategoriesStore> =>
-  (set, get, _store) => {
+  (set, get) => {
     const state: ICategoriesStore = {
       categories: [],
       loading: false,

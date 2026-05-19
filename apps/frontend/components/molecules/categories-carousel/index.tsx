@@ -24,7 +24,6 @@ interface CategoriesCarouselProps {
 
 export const CategoriesCarousel = ({
   categories = [],
-  lang = "vi",
   onLoadMore,
 }: CategoriesCarouselProps) => {
   const t = useTranslations("HomePage.sections");
@@ -41,7 +40,6 @@ export const CategoriesCarousel = ({
         title={title}
         href={APP_ROUTES.CATEGORIES}
         icon={<Sparkles className="w-5 h-5 text-purple-500" />}
-        lang={lang}
       />
 
       <Carousel options={{ align: "start" }} loadMore={onLoadMore}>

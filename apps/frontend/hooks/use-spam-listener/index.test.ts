@@ -40,7 +40,7 @@ describe("useSpamListener Hook", () => {
 
   it("should throttle toast warnings", () => {
     vi.useFakeTimers();
-    const { result, rerender } = renderHook(
+    const { rerender } = renderHook(
       ({ isSpam }) => useSpamListener({ isSpam }),
       {
         initialProps: { isSpam: true },

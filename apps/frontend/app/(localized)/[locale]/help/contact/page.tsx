@@ -1,5 +1,4 @@
 import React from "react";
-import type { Metadata } from "next";
 import { HelpContactView } from "@/components/organisms/help-contact-view";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 

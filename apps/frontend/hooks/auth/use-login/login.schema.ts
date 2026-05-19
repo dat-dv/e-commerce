@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { dummyTranslator } from "@/utils/i18n";
 
 type K = ReturnType<typeof useTranslations>;
 

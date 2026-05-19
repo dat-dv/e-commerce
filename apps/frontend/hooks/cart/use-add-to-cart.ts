@@ -44,7 +44,7 @@ export const useAddToCart = () => {
           );
           toast.info(t("signInRequired"));
         }
-      } catch (err) {
+      } catch {
         _addOrUpdateItem(item, previousQuantity);
         toast.error(t("addFailed"));
       }

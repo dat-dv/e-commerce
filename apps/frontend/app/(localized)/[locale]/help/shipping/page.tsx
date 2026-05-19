@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { HelpShippingView } from "@/components/organisms/help-shipping-view";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 

@@ -1,4 +1,4 @@
-import { Zap, Ticket, Star, Sparkles, Flame } from "lucide-react";
+import { Zap, Ticket, Star, Sparkles } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
 
 export const HOMEPAGE_SECTION_TYPES = {

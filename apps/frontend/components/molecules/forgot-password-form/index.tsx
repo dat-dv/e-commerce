@@ -1,8 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { TForgotPasswordSchema } from "./forgot-password.schema";
 import AppForm from "../form/app-form";
 import { FormInput } from "../form/form-input";

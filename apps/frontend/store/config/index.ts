@@ -10,7 +10,7 @@ import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain
 
 export const configCreator =
   (initState?: Partial<ConfigState>): StateCreator<ConfigStore> =>
-  (set, _get, _store) => {
+  (set) => {
     const turnOffTransition = () => {
       setTimeout(() => {
         set({ isLoadingTransition: false });

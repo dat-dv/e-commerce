@@ -7,7 +7,7 @@ import {
   useMapEvents,
   useMap,
 } from "react-leaflet";
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Button from "@/components/atoms/button";
@@ -86,7 +86,25 @@ export default function MapComponent({
     }
   }, [center, prevCenter, setPrevCenter]);
 
-  const getCurrentLocation = () => {
+  const fetchAddress = useCallback(
+    async (lat: number, lng: number) => {
+      setLoading(true);
+      try {
+        const res = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`,
+        );
+        const data = await res.json();
+        onPick(data.display_name || t("unknownAddress"), lat, lng);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [onPick, setLoading, t],
+  );
+
+  const getCurrentLocation = useCallback(() => {
     if (typeof window !== "undefined" && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -98,26 +116,11 @@ export default function MapComponent({
         },
       );
     }
-  };
-
-  const fetchAddress = async (lat: number, lng: number) => {
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`,
-      );
-      const data = await res.json();
-      onPick(data.display_name || t("unknownAddress"), lat, lng);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [fetchAddress]);
 
   useEffect(() => {
     getCurrentLocation();
-  }, []);
+  }, [getCurrentLocation]);
 
   return (
     <MapContainer

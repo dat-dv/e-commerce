@@ -6,7 +6,7 @@ import { IProductsStore, IProductsStoreState } from "./products-store.type";
 
 const createProductsStoreCreator =
   (initState?: Partial<IProductsStoreState>): StateCreator<IProductsStore> =>
-  (set, _get, _store) => {
+  (set) => {
     const state: IProductsStore = {
       sections: [],
       loading: false,

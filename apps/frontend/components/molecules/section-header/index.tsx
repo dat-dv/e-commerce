@@ -9,14 +9,12 @@ interface SectionHeaderProps {
   href?: string;
   icon?: React.ReactNode;
   children?: React.ReactNode;
-  lang?: string;
 }
 
 export const SectionHeader = ({
   title,
   href,
   icon,
-  lang = "vi",
   children,
 }: SectionHeaderProps) => {
   return (

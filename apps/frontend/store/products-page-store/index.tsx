@@ -12,7 +12,7 @@ import {
 
 const createProductsPageStoreCreator =
   (initState?: Partial<IProductsPageState>): StateCreator<IProductsPageStore> =>
-  (set, _get, _store) => {
+  (set) => {
     const state: IProductsPageStore = {
       products: [],
       total: 0,

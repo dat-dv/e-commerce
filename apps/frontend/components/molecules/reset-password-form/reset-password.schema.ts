@@ -1,4 +1,4 @@
-import { _Translator, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { z } from "zod";
 
 /**

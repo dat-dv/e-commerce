@@ -5,7 +5,7 @@ import * as Icons from "./index";
 
 describe("Icons Components", () => {
   it("should render all icons correctly", () => {
-    Object.entries(Icons).forEach(([_name, IconComponent]) => {
+    Object.values(Icons).forEach((IconComponent) => {
       const { container } = render(<IconComponent />);
       // Icons usually render as <svg>
       const svg = container.querySelector("svg");

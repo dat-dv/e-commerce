@@ -20,7 +20,7 @@ export const useRemoveFromCart = () => {
         if (user) {
           await cartUseCase.removeItem.execute(item.id);
         }
-      } catch (err) {
+      } catch {
         _addOrUpdateItem(item, item.quantity);
         toast.error(t("removeFailed"));
       }
@@ -40,7 +40,7 @@ export const useRemoveFromCart = () => {
             items.map((item) => cartUseCase.removeItem.execute(item.id)),
           );
         }
-      } catch (err) {
+      } catch {
         // Revert: put all items back
         previousItems.forEach((item) => _addOrUpdateItem(item, item.quantity));
         toast.error(t("removeManyFailed"));

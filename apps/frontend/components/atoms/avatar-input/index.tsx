@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Camera } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React, { useRef, useState } from "react";

@@ -69,7 +69,6 @@ function CategoryTreeItem({
   forceExpanded = false,
   onCategoryChange,
 }: ICategoryTreeItemProps) {
-  const t = useTranslations("ProductsPage");
   const hasChildren = Boolean(category.children?.length);
   const isActive = activeSlug === category.slug;
   const isActiveBranch = categoryHasActiveSlug(category, activeSlug);

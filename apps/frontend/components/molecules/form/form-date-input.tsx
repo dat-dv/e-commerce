@@ -18,7 +18,7 @@ export const FormDateInput: React.FC<FormDateInputProps> = ({
   name,
   ...rest
 }) => {
-  const { control, setError } = useFormContext();
+  const { control } = useFormContext();
 
   return (
     <Controller
