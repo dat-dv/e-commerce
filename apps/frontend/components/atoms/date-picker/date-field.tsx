@@ -1,32 +1,31 @@
 "use client";
 
-import React from "react";
 import {
   DateField as AriaDateField,
   type DateFieldProps as AriaDateFieldProps,
   DateInput as AriaDateInput,
   type DateInputProps as AriaDateInputProps,
+  type DateFieldRenderProps,
+  type DateInputRenderProps,
   DateSegment,
   type DateValue,
-  type ValidationResult,
+  I18nProvider,
+  FieldError as RACFieldError,
   Label as RACLabel,
   Text as RACText,
-  FieldError as RACFieldError,
-  type DateInputRenderProps,
-  type DateFieldRenderProps,
-  I18nProvider,
   useLocale,
+  type ValidationResult,
 } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
-import { InputVariant } from "@/components/atoms/input/input.types";
 import {
-  variantBase,
-  variantNormal,
-  variantDisabled,
   variantActive,
+  variantBase,
+  variantDisabled,
   variantError,
+  variantNormal,
 } from "@/components/atoms/input/input.styles";
+import { InputVariant } from "@/components/atoms/input/input.types";
+import { cn } from "@/utils/cn";
 
 export interface IDateInputProps extends Omit<
   AriaDateInputProps,
