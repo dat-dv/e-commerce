@@ -3,14 +3,17 @@
 import { Ticket } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
 import EmptyState from "@/components/molecules/empty-space";
+import { useTranslations } from "next-intl";
 
 export const VoucherList = () => {
+  const t = useTranslations("VouchersPage.empty");
+
   return (
     <EmptyState
-      title="No Vouchers Available"
-      description="Special promo codes, free shipping coupons, and cashback vouchers are on the way. Check back later to grab the best deals!"
+      title={t("title")}
+      description={t("description")}
       icon={Ticket}
-      actionLabel="Continue Shopping"
+      actionLabel={t("action")}
       actionHref={APP_ROUTES.PRODUCTS}
     />
   );

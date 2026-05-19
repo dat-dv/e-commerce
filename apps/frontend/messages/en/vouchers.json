@@ -1,0 +1,18 @@
+{
+  "VouchersPage": {
+    "metadata": {
+      "title": "Voucher Wallet | E-Commerce",
+      "description": "Collect promo codes, free shipping coupons, and cashback vouchers."
+    },
+    "header": {
+      "title": "Voucher",
+      "highlight": "Wallet",
+      "description": "Collect promo codes, free shipping coupons, and cashback vouchers from leading brands."
+    },
+    "empty": {
+      "title": "No Vouchers Available",
+      "description": "Special promo codes, free shipping coupons, and cashback vouchers are on the way. Check back later to grab the best deals!",
+      "action": "Continue Shopping"
+    }
+  }
+}

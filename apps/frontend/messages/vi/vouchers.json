@@ -1,0 +1,18 @@
+{
+  "VouchersPage": {
+    "metadata": {
+      "title": "Ví voucher | E-Commerce",
+      "description": "Sưu tầm mã giảm giá, freeship và voucher hoàn tiền."
+    },
+    "header": {
+      "title": "Ví",
+      "highlight": "Voucher",
+      "description": "Sưu tầm mã giảm giá, freeship và voucher hoàn tiền từ các thương hiệu."
+    },
+    "empty": {
+      "title": "Chưa có voucher",
+      "description": "Mã giảm giá, freeship và voucher hoàn tiền đang được chuẩn bị. Hãy quay lại sau.",
+      "action": "Tiếp tục mua sắm"
+    }
+  }
+}
