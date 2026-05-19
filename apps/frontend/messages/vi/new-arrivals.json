@@ -1,0 +1,25 @@
+{
+  "NewArrivalsPage": {
+    "metadata": {
+      "title": "Hàng mới | E-Commerce",
+      "description": "Khám phá những sản phẩm mới vừa có mặt tại cửa hàng."
+    },
+    "header": {
+      "title": "Hàng",
+      "highlight": "Mới",
+      "description": "Đón đầu xu hướng với <strong>sản phẩm mới nhất</strong> được chọn riêng cho bạn.",
+      "note": "Bộ sưu tập mới đang được chuẩn bị và sẽ sớm có mặt tại đây. Hãy quay lại thường xuyên để không bỏ lỡ sản phẩm mới."
+    },
+    "list": {
+      "eyebrow": "Bộ sưu tập",
+      "title": "{total} sản phẩm mới",
+      "meta": "Trang {page}/{totalPages}",
+      "loadingMore": "Đang tải thêm hàng mới...",
+      "end": "Đã tải hết hàng mới",
+      "empty": {
+        "title": "Chưa có hàng mới",
+        "description": "Hiện chưa có sản phẩm mới."
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "NewArrivalsPage": {
+    "metadata": {
+      "title": "New Arrivals | E-Commerce",
+      "description": "Discover the latest products that have just arrived at our store."
+    },
+    "header": {
+      "title": "Fresh",
+      "highlight": "Arrivals",
+      "description": "Stay ahead of the curve with our <strong>latest trends</strong> curated just for you.",
+      "note": "Our latest collection is currently being curated and will be available here shortly. Check back often so you don't miss our newest releases."
+    },
+    "list": {
+      "eyebrow": "Collection",
+      "title": "{total, plural, =1 {# latest product} other {# latest products}}",
+      "meta": "Page {page} of {totalPages}",
+      "loadingMore": "Loading more arrivals...",
+      "end": "All new arrivals loaded",
+      "empty": {
+        "title": "No new arrivals found",
+        "description": "There are no new products available at the moment."
+      }
+    }
+  }
+}

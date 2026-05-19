@@ -8,12 +8,16 @@ import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
 } from "@/constants/pagination.constant";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "New Arrivals | E-Commerce",
-  description:
-    "Discover the latest products that have just arrived at our store.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("NewArrivalsPage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function NewArrivalsPage() {
   const productsResponse = await safe(

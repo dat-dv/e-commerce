@@ -3,10 +3,12 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MouseEvent } from "react";
 import { PackagePlus, Sparkles, Clock, ShoppingBag } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const FLOATING_ICONS = [PackagePlus, Sparkles, Clock, ShoppingBag];
 
 export function FreshArrivalsHeader() {
+  const t = useTranslations("NewArrivalsPage.header");
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -48,7 +50,7 @@ export function FreshArrivalsHeader() {
               top: `${20 + (i % 3) * 20}%`,
             }}
           >
-            <Icon size={90} strokeWidth={1} />
+            <Icon size={90} strokeWidth={1} aria-hidden="true" />
           </motion.div>
         ))}
       </div>
@@ -69,22 +71,24 @@ export function FreshArrivalsHeader() {
       <div className="relative z-20 w-full max-w-6xl px-6">
         <div className="flex flex-col items-center text-center gap-5 py-10">
           <h1 className="text-5xl md:text-7xl font-black tracking-[-0.05em] text-content leading-none uppercase">
-            Fresh{" "}
-            <span className="italic font-light text-content/30">Arrivals</span>
+            {t("title")}{" "}
+            <span className="italic font-light text-content/30">
+              {t("highlight")}
+            </span>
           </h1>
 
           <p className="text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight">
-            Stay ahead of the curve with our{" "}
-            <span className="text-content font-bold underline underline-offset-4 decoration-primary/20">
-              latest trends
-            </span>{" "}
-            curated just for you.
+            {t.rich("description", {
+              strong: (chunks) => (
+                <span className="text-content font-bold underline underline-offset-4 decoration-primary/20">
+                  {chunks}
+                </span>
+              ),
+            })}
           </p>
 
           <p className="text-sm md:text-base text-content/35 max-w-2xl font-medium leading-relaxed">
-            Our latest collection is currently being curated and will be
-            available here shortly. Check back often so you don&apos;t miss our
-            newest releases.
+            {t("note")}
           </p>
         </div>
       </div>

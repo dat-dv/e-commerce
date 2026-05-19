@@ -12,6 +12,7 @@ import { IPaginationMeta } from "@/utils/request/request.types";
 import EmptyState from "@/components/molecules/empty-space";
 import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import { EProductSort } from "@ecommerce/shared";
+import { useTranslations } from "next-intl";
 
 interface NewArrivalListProps {
   products: TProduct[];
@@ -19,6 +20,7 @@ interface NewArrivalListProps {
 }
 
 const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
+  const t = useTranslations("NewArrivalsPage.list");
   const fetchNewArrivalsPage = useCallback(
     (params: { page: number; limit: number }) =>
       productsUseCase.getProducts.execute({
@@ -54,10 +56,12 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
       {items.length > 0 ? (
         <div className="space-y-8">
           <ListingSectionHeader
-            eyebrow="Collection"
-            title={`${pageMeta.total} latest products`}
-            icon={<Sparkles size={18} className="text-primary" />}
-            meta={`Page ${pageMeta.page} of ${totalPages}`}
+            eyebrow={t("eyebrow")}
+            title={t("title", { total: pageMeta.total })}
+            icon={
+              <Sparkles size={18} className="text-primary" aria-hidden="true" />
+            }
+            meta={t("meta", { page: pageMeta.page, totalPages })}
           />
 
           {error && (
@@ -76,8 +80,8 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
             loadingMore={loadingMore}
             hasMore={hasMore}
             onLoadMore={loadMore}
-            loadingText="Loading more arrivals..."
-            endText="All new arrivals loaded"
+            loadingText={t("loadingMore")}
+            endText={t("end")}
             gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
             itemClassName="min-w-0"
             rowClassName="mb-4"
@@ -91,8 +95,8 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
         </div>
       ) : (
         <EmptyState
-          title="No new arrivals found"
-          description="There are no new products available at the moment."
+          title={t("empty.title")}
+          description={t("empty.description")}
         />
       )}
     </motion.div>
