@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
-import { Plus, CreditCard } from "lucide-react";
+import Button from "@/components/atoms/button";
+import { CreditCard, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
+import React from "react";
 
 export function ProfileBankView(): React.ReactElement {
   const t = useTranslations("ProfileBankPage");
@@ -18,13 +19,15 @@ export function ProfileBankView(): React.ReactElement {
             {t("description")}
           </p>
         </div>
-        <button
-          className="inline-flex min-w-max items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-primary/90 transition-colors"
+        <Button
+          variant="primary"
+          size="md"
+          className="min-w-max"
           aria-label={t("addAccount")}
         >
           <Plus size={18} aria-hidden="true" />
           {t("addAccount")}
-        </button>
+        </Button>
       </div>
 
       <div className="border-2 border-dashed border-content/10 rounded-xl p-8 text-center flex flex-col items-center justify-center gap-3">

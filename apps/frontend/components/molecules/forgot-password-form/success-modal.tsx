@@ -28,12 +28,14 @@ export default function SuccessModal({
           <AppDialogTitle className="text-xl font-bold text-content">
             {title}
           </AppDialogTitle>
-          <button
+          <Button
+            variant="ghost"
+            className="p-1 h-auto text-content/50 hover:text-content"
             onClick={onClose}
-            className="text-content/50 hover:text-content"
+            aria-label="Close dialog"
           >
             <XIcon className="w-6 h-6" />
-          </button>
+          </Button>
         </div>
 
         <div className="space-y-4">

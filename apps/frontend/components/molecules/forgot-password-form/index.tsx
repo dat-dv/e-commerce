@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { TForgotPasswordSchema } from "./forgot-password.schema";
-import AppForm from "../form/app-form";
-import { FormInput } from "../form/form-input";
-import { FormButton } from "../form/form-button";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
-import { cn } from "@/utils/cn";
-import { FormPhoneInput } from "../form/form-phone-input";
-import SuccessModal from "./success-modal";
 import useForgotPassword from "@/hooks/auth/use-forgot-password";
+import { cn } from "@/utils/cn";
+import { useTranslations } from "next-intl";
+import AppForm from "../form/app-form";
+import { FormButton } from "../form/form-button";
+import { FormInput } from "../form/form-input";
+import { FormPhoneInput } from "../form/form-phone-input";
+import { TForgotPasswordSchema } from "./forgot-password.schema";
+import SuccessModal from "./success-modal";
 
 export default function ForgotPasswordForm() {
   const t = useTranslations("ForgotPasswordPage");
@@ -34,37 +34,37 @@ export default function ForgotPasswordForm() {
       </div>
 
       <div className="flex p-1 bg-content/5 rounded-xl gap-1">
-        <button
-          type="button"
+        <Button
+          variant="ghost"
           className={cn(
-            "flex-1 py-2 text-sm font-bold rounded-lg transition-all",
+            "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
             method === "email"
-              ? "bg-white shadow-sm text-primary"
+              ? "bg-white shadow-sm text-primary hover:bg-white"
               : "text-content/60 hover:text-content",
           )}
           onClick={() => setMethod("email")}
         >
           {t("emailTab")}
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
+          variant="ghost"
           className={cn(
-            "flex-1 py-2 text-sm font-bold rounded-lg transition-all",
+            "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
             method === "phone"
-              ? "bg-white shadow-sm text-primary"
+              ? "bg-white shadow-sm text-primary hover:bg-white"
               : "text-content/60 hover:text-content",
           )}
           onClick={() => setMethod("phone")}
         >
           {t("phoneTab")}
-        </button>
+        </Button>
       </div>
 
       <AppForm<TForgotPasswordSchema>
         methods={methods}
         onSubmit={handleForgotPassword}
       >
-        {method === "email" ? (
+        {method === "email" && (
           <FormInput
             name="email"
             label={t("emailLabel")}
@@ -72,10 +72,8 @@ export default function ForgotPasswordForm() {
             type="email"
             autoComplete="email"
           />
-        ) : (
-          <FormPhoneInput name="phone" label={t("phoneLabel")} />
         )}
-
+        {false && <FormPhoneInput name="phone" label={t("phoneLabel")} />}
         <FormButton
           type="submit"
           isLoading={isLoading}
@@ -89,7 +87,7 @@ export default function ForgotPasswordForm() {
 
       <div className="text-center">
         <p className="text-sm opacity-60">
-          {t("rememberedPassword")}{" "}
+          {t("rememberedPassword")}
           <Button
             variant="ghost"
             size="sm"

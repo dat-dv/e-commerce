@@ -1,8 +1,10 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { Star, Minus, Plus, ShoppingCart, Heart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
+import Button from "@/components/atoms/button";
 
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 
@@ -205,41 +207,38 @@ export const ProductInfo = ({
 
       {/* Actions */}
       <div className="flex gap-4 mt-2">
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+        <Button
+          variant="outline"
+          className="flex-1 py-3.5 h-auto bg-primary/10 hover:bg-primary/20 border-primary/20 hover:brightness-100"
           onClick={handleAddToCart}
           disabled={!selectedSku.id}
-          className="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary py-3.5 rounded-xl font-semibold transition-colors border border-primary/20 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary/10"
         >
           <ShoppingCart size={18} />
           {t("addToCart")}
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+        </Button>
+        <Button
+          variant="primary"
+          className="flex-1 py-3.5 h-auto"
           onClick={handleBuyNow}
           disabled={!selectedSku.id}
-          className="flex-1 bg-primary hover:bg-primary/90 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/10 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary"
         >
           {t("buyNow")}
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={onToggleFavorite}
-          className={`flex items-center justify-center w-12 h-12 rounded-xl border transition-all ${
+        </Button>
+        <Button
+          variant="ghost"
+          className={`flex items-center justify-center w-12 h-12 rounded-xl border transition-all px-0 ${
             isFavorited
               ? "bg-red-50 border-red-100 text-red-500 shadow-sm shadow-red-500/10"
               : "bg-content/[0.02] border-content/[0.08] text-content/40 hover:text-red-400 hover:border-red-100 hover:bg-red-50/30"
           }`}
+          onClick={onToggleFavorite}
         >
           <Heart
             size={20}
             fill={isFavorited ? "currentColor" : "none"}
             className={isFavorited ? "animate-pulse-slow" : ""}
           />
-        </motion.button>
+        </Button>
       </div>
     </motion.div>
   );
