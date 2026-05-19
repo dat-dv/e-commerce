@@ -1,5 +1,9 @@
 {
   "HomePage": {
+    "metadata": {
+      "title": "Trang chủ",
+      "description": "Nền tảng thương mại điện tử với trải nghiệm thời gian thực."
+    },
     "hero": {
       "titleLoggedIn": "Chào <italic>{name}</italic><br></br>Nâng Tầm Cuộc Sống.",
       "titlePublic": "Nâng Tầm <italic>Phong Cách</italic> Sống.",

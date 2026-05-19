@@ -25,11 +25,14 @@
         "recentlyViewed": "Đã xem gần đây",
         "myOrders": "Đơn hàng của tôi",
         "signOut": "Đăng xuất",
-        "noEmail": "Chưa có email"
+        "noEmail": "Chưa có email",
+        "menuLabel": "Menu tài khoản người dùng",
+        "fallbackUser": "Người dùng"
       },
       "nav": {
         "home": "Trang chủ",
         "categories": "Danh mục",
+        "allCategories": "Tất cả danh mục",
         "newArrivals": "Hàng mới",
         "flashSale": "Khuyến mãi",
         "brands": "Thương hiệu"
@@ -156,6 +159,13 @@
       "description": "Vui lòng chọn quốc gia/khu vực để tiếp tục. Thông tin này giúp chúng tôi cá nhân hóa trải nghiệm của bạn.",
       "available": "Khả dụng",
       "comingSoon": "Sắp ra mắt"
+    },
+    "avatar": {
+      "alt": "Ảnh đại diện người dùng"
+    },
+    "pagination": {
+      "previous": "Về trang trước",
+      "next": "Tới trang sau"
     }
   }
 }

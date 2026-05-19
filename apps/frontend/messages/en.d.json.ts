@@ -295,10 +295,13 @@ declare const messages: {
         myOrders: "My Orders";
         signOut: "Sign Out";
         noEmail: "No email provided";
+        menuLabel: "User Account Menu";
+        fallbackUser: "User";
       };
       nav: {
         home: "Home";
         categories: "Categories";
+        allCategories: "All Categories";
         newArrivals: "New Arrivals";
         flashSale: "Flash Sale";
         brands: "Brands";
@@ -425,6 +428,13 @@ declare const messages: {
       description: "Please select your country/region to continue. This will help us customize your experience.";
       available: "Available";
       comingSoon: "Coming Soon";
+    };
+    avatar: {
+      alt: "User Avatar";
+    };
+    pagination: {
+      previous: "Go to previous page";
+      next: "Go to next page";
     };
   };
   FavoritesPage: {
@@ -834,6 +844,10 @@ declare const messages: {
     };
   };
   HomePage: {
+    metadata: {
+      title: "Home";
+      description: "E-commerce platform with real-time focus.";
+    };
     hero: {
       titleLoggedIn: "Hello <italic>{name}</italic><br></br>Elevate Your Life.";
       titlePublic: "Elevate <italic>Your</italic><br></br>Lifestyle.";
@@ -959,6 +973,10 @@ declare const messages: {
       title: "Order Details | Luxury E-commerce";
       description: "View details of your premium order.";
     };
+    notificationsMetadata: {
+      title: "Order Notifications | E-commerce";
+      description: "View and manage your order notifications and account activity.";
+    };
     header: {
       title: "My";
       highlight: "Orders";
@@ -1008,6 +1026,7 @@ declare const messages: {
       evidence: "Evidence Photos";
       upload: "Upload images";
       photoRequired: "At least one photo is required.";
+      close: "Close return request form";
       keepOrder: "Keep Order";
       submit: "Submit Request";
       toasts: {
@@ -1208,6 +1227,7 @@ declare const messages: {
     searchPlaceholder: "Search products";
     categories: "Categories";
     searchCategories: "Search categories";
+    clearCategorySearch: "Clear category search";
     noCategories: "No categories found.";
     priceRange: "Price Range";
     min: "Min";
@@ -1219,6 +1239,10 @@ declare const messages: {
     noProductsDesc: 'No products found in category "{categoryTitle}" matching your criteria.';
   };
   ProductDetailPage: {
+    metadata: {
+      title: "Product Details";
+      description: "View product details.";
+    };
     general: "General";
     anonymousUser: "Anonymous User";
     noImage: "No Image";

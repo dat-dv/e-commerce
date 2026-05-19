@@ -8,6 +8,7 @@
     "searchPlaceholder": "Tìm sản phẩm",
     "categories": "Danh mục",
     "searchCategories": "Tìm danh mục",
+    "clearCategorySearch": "Xóa tìm kiếm danh mục",
     "noCategories": "Không tìm thấy danh mục.",
     "priceRange": "Khoảng giá",
     "min": "Tối thiểu",
@@ -19,6 +20,10 @@
     "noProductsDesc": "Không tìm thấy sản phẩm nào trong danh mục \"{categoryTitle}\" phù hợp với tiêu chí của bạn."
   },
   "ProductDetailPage": {
+    "metadata": {
+      "title": "Chi tiết sản phẩm",
+      "description": "Xem thông tin chi tiết sản phẩm."
+    },
     "general": "Chung",
     "anonymousUser": "Người dùng ẩn danh",
     "noImage": "Không có hình ảnh",

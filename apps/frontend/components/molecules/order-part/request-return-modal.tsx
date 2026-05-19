@@ -230,7 +230,7 @@ export const RequestReturnModal = ({
                   onClick={closeModal}
                   disabled={isSubmitting}
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-content/[0.08] text-content/50 transition-colors hover:bg-content/[0.05] disabled:opacity-50"
-                  aria-label="Close return request form"
+                  aria-label={t("close")}
                 >
                   <X className="h-4 w-4" />
                 </button>

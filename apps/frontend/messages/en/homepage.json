@@ -1,5 +1,9 @@
 {
   "HomePage": {
+    "metadata": {
+      "title": "Home",
+      "description": "E-commerce platform with real-time focus."
+    },
     "hero": {
       "titleLoggedIn": "Hello <italic>{name}</italic><br></br>Elevate Your Life.",
       "titlePublic": "Elevate <italic>Your</italic><br></br>Lifestyle.",

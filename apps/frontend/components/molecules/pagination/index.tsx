@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { cn } from "@/utils/cn";
 
 const getPaginationRange = (currentPage: number, totalPages: number) => {
@@ -81,9 +82,9 @@ const PaginationArrow = ({
   disabled: boolean;
   onClick: () => void;
 }) => {
+  const t = useTranslations("Common.pagination");
   const Icon = direction === "left" ? ChevronLeft : ChevronRight;
-  const label =
-    direction === "left" ? "Go to previous page" : "Go to next page";
+  const label = direction === "left" ? t("previous") : t("next");
 
   return (
     <button

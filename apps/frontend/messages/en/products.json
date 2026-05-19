@@ -8,6 +8,7 @@
     "searchPlaceholder": "Search products",
     "categories": "Categories",
     "searchCategories": "Search categories",
+    "clearCategorySearch": "Clear category search",
     "noCategories": "No categories found.",
     "priceRange": "Price Range",
     "min": "Min",
@@ -19,6 +20,10 @@
     "noProductsDesc": "No products found in category \"{categoryTitle}\" matching your criteria."
   },
   "ProductDetailPage": {
+    "metadata": {
+      "title": "Product Details",
+      "description": "View product details."
+    },
     "general": "General",
     "anonymousUser": "Anonymous User",
     "noImage": "No Image",

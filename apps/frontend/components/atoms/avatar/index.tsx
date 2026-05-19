@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 const Avatar = ({
@@ -10,13 +11,15 @@ const Avatar = ({
   name?: string;
   size?: number;
 }) => {
+  const t = useTranslations("Common.avatar");
+
   return url ? (
     <Image
       width={size}
       height={size}
       loading="eager"
       src={url}
-      alt="User Avatar"
+      alt={t("alt")}
       className="object-cover"
     />
   ) : (

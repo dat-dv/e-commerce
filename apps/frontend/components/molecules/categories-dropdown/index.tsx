@@ -9,8 +9,10 @@ import { usePathname } from "next/navigation";
 import SubCategoryItem from "./sub-category-item";
 import { ParentCategoryItem } from "./parent-category-item";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const CategoryMegaMenuContent = () => {
+  const t = useTranslations("Common.header.nav");
   const router = useRouter();
   const categories = useCategoriesStore((s) => s.categories);
   const {
@@ -52,7 +54,7 @@ const CategoryMegaMenuContent = () => {
       <div className="grid grid-rows-2 grid-flow-col gap-x-10 gap-y-4 border-b border-content/10 pb-6 mb-8 overflow-x-auto hide-scrollbar shrink-0 scroll-smooth">
         {/* All Categories */}
         <ParentCategoryItem
-          name="All Categories"
+          name={t("allCategories")}
           onClick={() => {
             setIsOpenCategory(false);
             router.push(APP_ROUTES.CATEGORIES);

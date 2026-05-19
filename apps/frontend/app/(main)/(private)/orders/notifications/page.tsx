@@ -1,10 +1,15 @@
 import { Metadata } from "next";
 import { NotificationsView } from "@/components/organisms/notifications";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Order Notifications | E-commerce",
-  description: "View and manage your order notifications and account activity.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("OrdersPage.notificationsMetadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function NotificationsPage() {
   return <NotificationsView />;

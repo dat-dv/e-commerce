@@ -5,11 +5,16 @@ import { productsUseCase } from "@/domain/products/use-cases";
 import { ProductsProvider } from "@/components/molecules/providers/products-provider";
 import { safe } from "@/utils/promise";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Home",
-  description: "E-commerce platform with real-time focus.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("HomePage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function Home() {
   const [sectionsResponse, flashSaleResponse] = await Promise.all([

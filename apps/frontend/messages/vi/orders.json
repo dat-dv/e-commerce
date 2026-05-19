@@ -8,6 +8,10 @@
       "title": "Chi tiết đơn hàng | Luxury E-commerce",
       "description": "Xem chi tiết thông tin đơn hàng cao cấp của bạn."
     },
+    "notificationsMetadata": {
+      "title": "Thông báo đơn hàng | E-commerce",
+      "description": "Xem và quản lý thông báo đơn hàng cùng hoạt động tài khoản."
+    },
     "header": {
       "title": "Đơn hàng",
       "highlight": "Của tôi",
@@ -57,6 +61,7 @@
       "evidence": "Hình ảnh bằng chứng",
       "upload": "Tải ảnh lên",
       "photoRequired": "Yêu cầu đính kèm ít nhất một hình ảnh.",
+      "close": "Đóng biểu mẫu yêu cầu trả hàng",
       "keepOrder": "Giữ đơn hàng",
       "submit": "Gửi yêu cầu",
       "toasts": {

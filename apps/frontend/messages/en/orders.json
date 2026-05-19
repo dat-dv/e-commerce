@@ -8,6 +8,10 @@
       "title": "Order Details | Luxury E-commerce",
       "description": "View details of your premium order."
     },
+    "notificationsMetadata": {
+      "title": "Order Notifications | E-commerce",
+      "description": "View and manage your order notifications and account activity."
+    },
     "header": {
       "title": "My",
       "highlight": "Orders",
@@ -57,6 +61,7 @@
       "evidence": "Evidence Photos",
       "upload": "Upload images",
       "photoRequired": "At least one photo is required.",
+      "close": "Close return request form",
       "keepOrder": "Keep Order",
       "submit": "Submit Request",
       "toasts": {

@@ -3,11 +3,16 @@ import MissingProduct from "@/components/molecules/missing-product";
 import type { Metadata } from "next";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { safe } from "@/utils/promise";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Product Details",
-  description: "View product details.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("ProductDetailPage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function ProductDetailPage({
   params,

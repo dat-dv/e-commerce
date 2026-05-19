@@ -27,10 +27,10 @@ const AvatarDropdown = ({
       trigger={
         <div
           className="h-10 w-10 relative cursor-pointer group"
-          aria-label="User Account Menu"
+          aria-label={t("menuLabel")}
         >
           <div className="absolute inset-0 rounded-xl border-2 border-primary/20 bg-primary/5 transition-all group-hover:border-primary/40 group-hover:scale-105 active:scale-95 overflow-hidden ring-offset-background group-focus-visible:ring-2 group-focus-visible:ring-primary/50">
-            <Avatar name={name || "User"} url={avatarUrl || ""} />
+            <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
           </div>
         </div>
       }
@@ -43,7 +43,7 @@ const AvatarDropdown = ({
           </p>
           <div className="flex flex-col">
             <p className="font-bold text-sm truncate text-content leading-snug">
-              {name || "User"}
+              {name || t("fallbackUser")}
             </p>
             <p className="text-xs text-content/60 truncate font-medium">
               {email || t("noEmail")}

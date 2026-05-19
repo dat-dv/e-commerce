@@ -25,11 +25,14 @@
         "recentlyViewed": "Recently Viewed",
         "myOrders": "My Orders",
         "signOut": "Sign Out",
-        "noEmail": "No email provided"
+        "noEmail": "No email provided",
+        "menuLabel": "User Account Menu",
+        "fallbackUser": "User"
       },
       "nav": {
         "home": "Home",
         "categories": "Categories",
+        "allCategories": "All Categories",
         "newArrivals": "New Arrivals",
         "flashSale": "Flash Sale",
         "brands": "Brands"
@@ -156,6 +159,13 @@
       "description": "Please select your country/region to continue. This will help us customize your experience.",
       "available": "Available",
       "comingSoon": "Coming Soon"
+    },
+    "avatar": {
+      "alt": "User Avatar"
+    },
+    "pagination": {
+      "previous": "Go to previous page",
+      "next": "Go to next page"
     }
   }
 }
