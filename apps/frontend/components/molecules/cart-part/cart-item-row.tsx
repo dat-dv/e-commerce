@@ -1,17 +1,17 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { Trash2, ShoppingBag } from "lucide-react";
-import { cn } from "@/utils/cn";
+import Button from "@/components/atoms/button";
+import { Checkbox } from "@/components/atoms/checkbox";
 import { APP_ROUTES } from "@/constants/routes";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
-import { Checkbox } from "@/components/atoms/checkbox";
-import { QuantitySelector } from "./quantity-selector";
+import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
+import { motion } from "framer-motion";
+import { ShoppingBag, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { QuantitySelector } from "./quantity-selector";
 
 interface CartItemRowProps {
   item: TCartItem;
@@ -118,13 +118,14 @@ export const CartItemRow = ({
           </div>
 
           <div className="w-24 flex justify-center">
-            <button
+            <Button
+              variant="ghost"
               onClick={onRemove}
-              className="p-3 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-lg transition-all"
+              className="p-3 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-lg transition-all h-auto active:scale-95 opacity-100 hover:opacity-100"
               aria-label={t("remove", { product: item.name })}
             >
               <Trash2 size={16} aria-hidden />
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -1,16 +1,18 @@
 "use client";
 
-import React from "react";
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import AppContainer from "@/components/atoms/app-container";
-import { useTranslations } from "next-intl";
+import Button from "@/components/atoms/button";
+import Input from "@/components/atoms/input";
+import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import {
   HelpCircle,
   LifeBuoy,
-  Search,
   MessageSquare,
+  Search,
   Settings,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
+import React from "react";
 
 interface HelpHeaderProps {
   searchQuery: string;
@@ -46,7 +48,7 @@ export function HelpHeader({
           <label htmlFor="help-header-search" className="sr-only">
             {placeholder}
           </label>
-          <input
+          <Input
             id="help-header-search"
             name="help-header-search"
             type="search"
@@ -60,14 +62,15 @@ export function HelpHeader({
             🔍
           </div>
           {searchQuery && (
-            <button
+            <Button
               type="button"
+              variant="ghost"
               aria-label={clearLabel}
               onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-content/40 hover:text-content text-sm font-medium transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-content/40 hover:text-content text-sm font-medium transition-colors h-auto p-0 active:scale-100 hover:bg-transparent"
             >
               {clearLabel}
-            </button>
+            </Button>
           )}
         </div>
       </div>

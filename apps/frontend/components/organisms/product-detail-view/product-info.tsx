@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Star, Minus, Plus, ShoppingCart, Heart } from "lucide-react";
-import { formatCurrency } from "@/utils/format-currency";
 import Button from "@/components/atoms/button";
+import { formatCurrency } from "@/utils/format-currency";
+import { motion } from "framer-motion";
+import { Heart, Minus, Plus, ShoppingCart, Star } from "lucide-react";
 
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 
@@ -106,9 +105,12 @@ export const ProductInfo = ({
             <span className="text-content/50 text-xs">{t("sold")}</span>
           </div>
         </div>
-        <button className="text-content/40 hover:text-content text-xs font-medium transition-colors">
+        <Button
+          variant="ghost"
+          className="text-content/40 hover:text-content hover:bg-transparent text-xs font-medium transition-colors h-auto px-0 active:scale-100"
+        >
           {t("report")}
-        </button>
+        </Button>
       </div>
 
       {/* Price Box - Shopee Style */}
@@ -136,18 +138,19 @@ export const ProductInfo = ({
           </span>
           <div className="flex flex-wrap gap-2">
             {values.map((value) => (
-              <button
+              <Button
                 key={value}
+                variant="ghost"
                 onClick={() =>
                   setSelectedAttributes({
                     ...selectedAttributes,
                     [attrName]: value,
                   })
                 }
-                className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 h-auto rounded-lg border text-sm font-medium transition-all flex items-center gap-2 active:scale-[0.98] hover:opacity-100 ${
                   selectedAttributes[attrName] === value
-                    ? "border-primary text-primary bg-primary/5"
-                    : "border-content/[0.1] hover:border-content/20 text-content/80"
+                    ? "border-primary text-primary bg-primary/5 hover:bg-primary/5"
+                    : "border-content/[0.1] hover:border-content/20 text-content/80 hover:bg-transparent"
                 }`}
               >
                 {value}
@@ -168,7 +171,7 @@ export const ProductInfo = ({
                     />
                   </svg>
                 )}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -181,21 +184,23 @@ export const ProductInfo = ({
         </span>
         <div className="flex items-center gap-4">
           <div className="flex items-center border border-content/[0.1] rounded-lg overflow-hidden h-9">
-            <button
+            <Button
+              variant="ghost"
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-r border-r-content/[0.1]"
+              className="h-full px-3 hover:bg-content/[0.05] transition-colors rounded-none border-r border-r-content/[0.1] active:scale-100 hover:opacity-100 text-content opacity-100 font-normal"
             >
               <Minus size={12} />
-            </button>
+            </Button>
             <span className="px-4 font-semibold text-sm min-w-[40px] text-center">
               {quantity}
             </span>
-            <button
+            <Button
+              variant="ghost"
               onClick={() => setQuantity(quantity + 1)}
-              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-l border-l-content/[0.1]"
+              className="h-full px-3 hover:bg-content/[0.05] transition-colors rounded-none border-l border-l-content/[0.1] active:scale-100 hover:opacity-100 text-content opacity-100 font-normal"
             >
               <Plus size={12} />
-            </button>
+            </Button>
           </div>
           <span className="text-sm text-content/50">
             {selectedSku?.stock !== undefined

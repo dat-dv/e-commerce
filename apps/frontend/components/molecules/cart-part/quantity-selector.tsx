@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import Button from "@/components/atoms/button";
+import { cn } from "@/utils/cn";
 import { Minus, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { cn } from "@/utils/cn";
 
 interface QuantitySelectorProps {
   value: number;
@@ -28,25 +28,27 @@ export const QuantitySelector = ({
         className,
       )}
     >
-      <button
+      <Button
+        variant="ghost"
         onClick={() => onChange(Math.max(1, value - 1))}
-        className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content border-r border-content/[0.1]"
+        className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content rounded-none border-r border-content/[0.1] h-auto active:scale-100 hover:opacity-100 opacity-100 font-normal"
         disabled={disabled}
         aria-label={t("decrease")}
       >
         <Minus size={14} aria-hidden />
-      </button>
+      </Button>
       <span className="px-3 min-w-[36px] text-center text-sm font-bold text-content">
         {value}
       </span>
-      <button
+      <Button
+        variant="ghost"
         onClick={() => onChange(value + 1)}
-        className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content border-l border-content/[0.1]"
+        className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content rounded-none border-l border-content/[0.1] h-auto active:scale-100 hover:opacity-100 opacity-100 font-normal"
         disabled={disabled}
         aria-label={t("increase")}
       >
         <Plus size={14} aria-hidden />
-      </button>
+      </Button>
     </div>
   );
 };

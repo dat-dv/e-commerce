@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Trash2, Minus, Plus, ImageIcon } from "lucide-react";
+import Button from "@/components/atoms/button";
+import { APP_ROUTES } from "@/constants/routes";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
-import { APP_ROUTES } from "@/constants/routes";
+import { motion } from "framer-motion";
+import { ImageIcon, Minus, Plus, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 
 interface CartItemProps {
   item: TCartItem;
@@ -84,33 +84,36 @@ export const CartItem = ({
           <div className="flex items-center gap-3">
             {!isCheckoutPage && (
               <div className="flex items-center gap-1.5 border border-content/10 rounded-md px-1 py-0.5 bg-surface/50">
-                <button
+                <Button
+                  variant="ghost"
                   onClick={() => onAdd(item, -1)}
-                  className="text-content/30 hover:text-content transition-colors"
+                  className="text-content/30 hover:text-content transition-colors h-auto p-0 active:scale-100 opacity-100 hover:opacity-100 font-normal hover:bg-transparent"
                   aria-label={t("decrease", { product: item.name })}
                 >
                   <Minus size={10} aria-hidden />
-                </button>
+                </Button>
                 <span className="text-[10px] font-medium min-w-[12px] text-center">
                   {item.quantity}
                 </span>
-                <button
+                <Button
+                  variant="ghost"
                   onClick={() => onAdd(item, 1)}
-                  className="text-content/30 hover:text-content transition-colors"
+                  className="text-content/30 hover:text-content transition-colors h-auto p-0 active:scale-100 opacity-100 hover:opacity-100 font-normal hover:bg-transparent"
                   aria-label={t("increase", { product: item.name })}
                 >
                   <Plus size={10} aria-hidden />
-                </button>
+                </Button>
               </div>
             )}
             {!isCheckoutPage && (
-              <button
+              <Button
+                variant="ghost"
                 onClick={() => onRemove(item)}
-                className="text-content/10 hover:text-red-500/60 transition-colors"
+                className="text-content/10 hover:text-red-500/60 transition-colors h-auto p-0 active:scale-95 opacity-100 hover:opacity-100 hover:bg-transparent"
                 aria-label={t("remove", { product: item.name })}
               >
                 <Trash2 size={12} aria-hidden />
-              </button>
+              </Button>
             )}
           </div>
         </div>
