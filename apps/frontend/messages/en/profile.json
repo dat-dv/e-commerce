@@ -1,0 +1,15 @@
+{
+  "ProfileBankPage": {
+    "metadata": {
+      "title": "Bank Accounts - Antigravity",
+      "description": "Manage your bank accounts for withdrawals."
+    },
+    "title": "Bank Account",
+    "description": "Manage your bank accounts for withdrawals.",
+    "addAccount": "Add Bank Account",
+    "empty": {
+      "title": "No bank accounts added yet",
+      "description": "Add a bank account to enable fast withdrawals."
+    }
+  }
+}

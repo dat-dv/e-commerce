@@ -1,0 +1,15 @@
+{
+  "ProfileBankPage": {
+    "metadata": {
+      "title": "Tài khoản ngân hàng - Antigravity",
+      "description": "Quản lý tài khoản ngân hàng để rút tiền."
+    },
+    "title": "Tài khoản ngân hàng",
+    "description": "Quản lý tài khoản ngân hàng để rút tiền.",
+    "addAccount": "Thêm tài khoản",
+    "empty": {
+      "title": "Chưa có tài khoản ngân hàng",
+      "description": "Thêm tài khoản để rút tiền nhanh hơn."
+    }
+  }
+}

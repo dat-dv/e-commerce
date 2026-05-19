@@ -1,10 +1,15 @@
-import React from "react";
 import { ProfileBankView } from "@/components/organisms/profile-bank-view";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = {
-  title: "Bank Accounts - Antigravity",
-  description: "Manage your bank accounts for withdrawals.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("ProfileBankPage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function BankAccountPage() {
   return <ProfileBankView />;
