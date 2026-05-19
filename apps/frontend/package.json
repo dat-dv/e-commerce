@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "i18n:gen": "npx tsx scripts/generate-messages.ts",
-    "predev": "npm run build -w @ecommerce/shared --prefix ../.. && npm run i18n:gen",
-    "dev": "concurrently \"npm run dev:next\" \"npm run dev -w @ecommerce/shared --prefix ../..\"",
-    "dev:next": "next dev -p 5173",
+    "i18n:gen": "node scripts/generate-messages.mjs",
+    "i18n:watch": "nodemon --watch messages/en --watch messages/vi -e json --exec \"npm run i18n:gen\"",
+    "dev": "next dev -p 5173",
     "prebuild": "npm run build -w @ecommerce/shared --prefix ../.. && npm run i18n:gen",
     "build": "next build",
     "start": "next start",
