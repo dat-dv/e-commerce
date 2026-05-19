@@ -1,3 +1,5 @@
+import { getSubdomainByHostNameWithoutFallback } from "@/utils/sub-domain/get-client-sub-domain";
+import { upsertSubDomain } from "@/utils/sub-domain/upsert-sub-domain";
 import { z } from "zod";
 
 export const publicEnvSchema = z.object({
@@ -23,9 +25,15 @@ export const publicEnvSchema = z.object({
 });
 
 const parsed = publicEnvSchema.safeParse({
+  NODE_ENV: process.env.NODE_ENV,
   NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
-  NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  NEXT_PUBLIC_API_URL: upsertSubDomain({
+    url: process.env.NEXT_PUBLIC_API_URL,
+    subDomain: getSubdomainByHostNameWithoutFallback(),
+  }),
   NEXT_PUBLIC_IS_DEBUG: process.env.NEXT_PUBLIC_IS_DEBUG,
+
+  // firebase
   NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:
     process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -36,7 +44,6 @@ const parsed = publicEnvSchema.safeParse({
     process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   NEXT_PUBLIC_FIREBASE_APP_ID: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   NEXT_PUBLIC_FIREBASE_VAPID_KEY: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
-  NODE_ENV: process.env.NODE_ENV,
 });
 
 if (!parsed.success) {

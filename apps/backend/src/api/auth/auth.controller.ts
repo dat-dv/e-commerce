@@ -21,6 +21,7 @@ import { ConfigService } from '@nestjs/config';
 import { IApiResponse, IAuthMeResponse, ILoginResponse, IRegisterResponse } from '@ecommerce/shared';
 import { EnvVars } from 'src/config/config.validation';
 import type { TAppRequest } from 'src/shared/types/request.type';
+import { authCookieOptions } from 'src/common/constants/auth.constant';
 
 @Controller('auth')
 export class AuthController {
@@ -97,8 +98,8 @@ export class AuthController {
       throw new UnauthorizedException('Refresh token not found');
     }
     const result = await this.logoutUseCase.execute(refreshToken);
-    res.clearCookie('access_token');
-    res.clearCookie('refresh_token');
+    res.clearCookie('access_token', authCookieOptions);
+    res.clearCookie('refresh_token', authCookieOptions);
     return createSuccessResponse(result);
   }
 
@@ -118,26 +119,22 @@ export class AuthController {
 
       return createSuccessResponse(true);
     } catch (error) {
-      res.clearCookie('access_token');
-      res.clearCookie('refresh_token');
+      res.clearCookie('access_token', authCookieOptions);
+      res.clearCookie('refresh_token', authCookieOptions);
       throw error;
     }
   }
 
   private setAccessTokenCookies(accessToken: string, res: Response) {
     res.cookie('access_token', accessToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      ...authCookieOptions,
       maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
   }
 
   private setRefreshTokenCookies(refreshToken: string, res: Response) {
     res.cookie('refresh_token', refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      ...authCookieOptions,
       maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
   }

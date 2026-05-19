@@ -23,3 +23,25 @@ export function getSubdomainByHostname(
   }
   return DEFAULT_LANG;
 }
+
+export function getSubdomainByHostNameWithoutFallback(
+  hostname?: string,
+): string {
+  try {
+    const host =
+      hostname ??
+      (typeof window !== "undefined" ? window.location.hostname : null);
+    if (!host) return "";
+    const subdomain = host.split(".")[0];
+    if (
+      SUPPORTED_LANGUAGES.includes(
+        subdomain as (typeof SUPPORTED_LANGUAGES)[number],
+      )
+    ) {
+      return subdomain;
+    }
+  } catch {
+    // ignore
+  }
+  return "";
+}
