@@ -2,8 +2,10 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { ChangePasswordFormData } from "../../components/molecules/change-password-form/change-password.schema";
 import { authUseCase } from "@/domain/auth/use-cases";
+import { useTranslations } from "next-intl";
 
 export const useChangePassword = () => {
+  const t = useTranslations("ProfilePasswordPage.toast");
   const [loading, setLoading] = useState(false);
 
   const changePassword = async (data: ChangePasswordFormData) => {
@@ -16,14 +18,14 @@ export const useChangePassword = () => {
       });
 
       if (response.data.success) {
-        toast.success("Password changed successfully!");
+        toast.success(t("success"));
         return true;
       } else {
-        toast.error("Failed to change password.");
+        toast.error(t("failed"));
         return false;
       }
     } catch {
-      toast.error("Failed to change password. Please try again.");
+      toast.error(t("failedWithRetry"));
       return false;
     } finally {
       setLoading(false);

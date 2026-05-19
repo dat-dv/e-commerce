@@ -11,5 +11,25 @@
       "title": "Chưa có tài khoản ngân hàng",
       "description": "Thêm tài khoản để rút tiền nhanh hơn."
     }
+  },
+  "ProfilePasswordPage": {
+    "metadata": {
+      "title": "Đổi mật khẩu - Antigravity",
+      "description": "Cập nhật mật khẩu để bảo vệ tài khoản."
+    },
+    "title": "Đổi mật khẩu",
+    "description": "Cập nhật mật khẩu để bảo vệ tài khoản.",
+    "form": {
+      "currentPasswordLabel": "Mật khẩu hiện tại",
+      "newPasswordLabel": "Mật khẩu mới",
+      "confirmNewPasswordLabel": "Xác nhận mật khẩu mới",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Cập nhật mật khẩu"
+    },
+    "toast": {
+      "success": "Đã đổi mật khẩu.",
+      "failed": "Không thể đổi mật khẩu.",
+      "failedWithRetry": "Không thể đổi mật khẩu. Vui lòng thử lại."
+    }
   }
 }

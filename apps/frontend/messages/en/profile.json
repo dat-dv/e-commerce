@@ -11,5 +11,25 @@
       "title": "No bank accounts added yet",
       "description": "Add a bank account to enable fast withdrawals."
     }
+  },
+  "ProfilePasswordPage": {
+    "metadata": {
+      "title": "Change Password - Antigravity",
+      "description": "Update your password to keep your account secure."
+    },
+    "title": "Change Password",
+    "description": "Update your password to keep your account secure.",
+    "form": {
+      "currentPasswordLabel": "Current Password",
+      "newPasswordLabel": "New Password",
+      "confirmNewPasswordLabel": "Confirm New Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Update Password"
+    },
+    "toast": {
+      "success": "Password changed successfully!",
+      "failed": "Failed to change password.",
+      "failedWithRetry": "Failed to change password. Please try again."
+    }
   }
 }

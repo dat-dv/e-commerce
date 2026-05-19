@@ -1,16 +1,19 @@
 import * as z from "zod";
 
-export const changePasswordSchema = z
-  .object({
-    currentPassword: z.string().min(1, "Current password is required"),
-    newPassword: z
-      .string()
-      .min(6, "New password must be at least 6 characters"),
-    confirmPassword: z.string().min(1, "Please confirm your password"),
-  })
-  .refine((data) => data.newPassword === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-  });
+export const getChangePasswordSchema = (t: (key: string) => string) =>
+  z
+    .object({
+      currentPassword: z.string().min(1, t("currentPasswordRequired")),
+      newPassword: z.string().min(6, t("newPasswordMin6")),
+      confirmPassword: z.string().min(1, t("confirmPasswordRequired")),
+    })
+    .refine((data) => data.newPassword === data.confirmPassword, {
+      message: t("passwordsMustMatch"),
+      path: ["confirmPassword"],
+    });
 
-export type ChangePasswordFormData = z.infer<typeof changePasswordSchema>;
+export const changePasswordSchema = getChangePasswordSchema((key) => key);
+
+export type ChangePasswordFormData = z.infer<
+  ReturnType<typeof getChangePasswordSchema>
+>;

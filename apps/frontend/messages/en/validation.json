@@ -4,6 +4,8 @@
     "emailInvalid": "Invalid email address",
     "passwordMin6": "Password must be at least 6 characters",
     "passwordMin8": "Password must be at least 8 characters",
+    "currentPasswordRequired": "Current password is required",
+    "newPasswordMin6": "New password must be at least 6 characters",
     "confirmPasswordRequired": "Confirm password is required",
     "passwordsMustMatch": "Passwords do not match",
     "phoneMin10": "Phone number must be at least 10 digits",
