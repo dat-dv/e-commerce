@@ -5,6 +5,7 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import PrivacyHeader from "./privacy-header";
 import PrivacySidebar from "./privacy-sidebar";
 import PrivacyContent from "./privacy-content";
+import { useTranslations } from "next-intl";
 
 interface StaticPageSection {
   id: string;
@@ -12,36 +13,23 @@ interface StaticPageSection {
   paragraphs: string[];
 }
 
-interface StaticPageData {
-  title: string;
-  description: string;
-  sections: StaticPageSection[];
-}
+export function PrivacyView(): React.ReactElement {
+  const t = useTranslations("Privacy");
+  const rawSections = t.raw("sections") as StaticPageSection[];
 
-interface PrivacyViewProps {
-  data: StaticPageData;
-  lang: "en" | "vi";
-}
-
-export function PrivacyView({
-  data,
-  lang,
-}: PrivacyViewProps): React.ReactElement {
-  const sections = useMemo(() => {
-    return data.sections.map((section) => ({
+  const sidebarSections = useMemo(() => {
+    return rawSections.map((section) => ({
       id: section.id,
       title: section.title,
     }));
-  }, [data.sections]);
+  }, [rawSections]);
 
   return (
     <SidebarLayout
-      header={
-        <PrivacyHeader title={data.title} description={data.description} />
-      }
-      sidebar={<PrivacySidebar sections={sections} lang={lang} />}
+      header={<PrivacyHeader />}
+      sidebar={<PrivacySidebar sections={sidebarSections} />}
     >
-      <PrivacyContent sections={data.sections} lang={lang} />
+      <PrivacyContent sections={rawSections} />
     </SidebarLayout>
   );
 }

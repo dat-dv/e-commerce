@@ -7,22 +7,21 @@ export default getRequestConfig(async () => {
   const host = headerStore.get("host") ?? undefined;
   const locale = getSubdomainByHostname(host);
 
-  const [auth, common, validation, homepage, search] = await Promise.all([
+  const res = await Promise.all([
     import(`../messages/${locale}/auth.json`),
     import(`../messages/${locale}/common.json`),
     import(`../messages/${locale}/validation.json`),
     import(`../messages/${locale}/homepage.json`),
     import(`../messages/${locale}/search.json`),
+    import(`../messages/${locale}/privacy.json`),
+    import(`../messages/${locale}/terms.json`),
   ]);
 
+  const messages = res.reduce((acc, item) => {
+    return { ...acc, ...item.default };
+  }, {});
   return {
     locale,
-    messages: {
-      ...auth.default,
-      ...common.default,
-      ...validation.default,
-      ...homepage.default,
-      ...search.default,
-    },
+    messages,
   };
 });

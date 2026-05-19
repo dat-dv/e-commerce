@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
 import PrivacyView from "@/components/organisms/privacy-view";
-import privacyData from "../../_data/privacy.json";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Privacy");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
-export default async function PrivacyPage({
-  params,
-}: {
-  params: Promise<{ locale: "vi" | "en" }>;
-}) {
-  const { locale } = await params;
-  const data = privacyData[locale];
-
-  return <PrivacyView data={data} lang={locale} />;
+export default function PrivacyPage() {
+  return <PrivacyView />;
 }

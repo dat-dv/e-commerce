@@ -4,16 +4,13 @@ import React from "react";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import { Lock, Eye, Shield, KeyRound, LockKeyhole } from "lucide-react";
 import AppContainer from "@/components/atoms/app-container";
+import { useTranslations } from "next-intl";
 
-interface PrivacyHeaderProps {
-  title: string;
-  description: string;
-}
+export function PrivacyHeader(): React.ReactElement {
+  const t = useTranslations("Privacy");
+  const title = t("title");
+  const description = t("description");
 
-export function PrivacyHeader({
-  title,
-  description,
-}: PrivacyHeaderProps): React.ReactElement {
   const words = title.split(" ");
   const isVi = title.toLowerCase().includes("chính");
   const highlight = isVi ? words.slice(-2).join(" ") : words.pop() || "";

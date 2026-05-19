@@ -10,7 +10,6 @@ interface StaticPageSection {
 
 interface TermsContentProps {
   sections: StaticPageSection[];
-  lang: "en" | "vi";
 }
 
 export function TermsContent({

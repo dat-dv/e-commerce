@@ -10,7 +10,6 @@ interface StaticPageSection {
 
 interface PrivacyContentProps {
   sections: StaticPageSection[];
-  lang: "en" | "vi";
 }
 
 export function PrivacyContent({

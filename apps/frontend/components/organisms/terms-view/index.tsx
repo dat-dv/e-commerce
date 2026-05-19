@@ -5,6 +5,7 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import TermsHeader from "./terms-header";
 import TermsSidebar from "./terms-sidebar";
 import TermsContent from "./terms-content";
+import { useTranslations } from "next-intl";
 
 interface StaticPageSection {
   id: string;
@@ -12,31 +13,23 @@ interface StaticPageSection {
   paragraphs: string[];
 }
 
-interface StaticPageData {
-  title: string;
-  description: string;
-  sections: StaticPageSection[];
-}
+export function TermsView(): React.ReactElement {
+  const t = useTranslations("Terms");
+  const rawSections = t.raw("sections") as StaticPageSection[];
 
-interface TermsViewProps {
-  data: StaticPageData;
-  lang: "en" | "vi";
-}
-
-export function TermsView({ data, lang }: TermsViewProps): React.ReactElement {
-  const sections = useMemo(() => {
-    return data.sections.map((section) => ({
+  const sidebarSections = useMemo(() => {
+    return rawSections.map((section) => ({
       id: section.id,
       title: section.title,
     }));
-  }, [data.sections]);
+  }, [rawSections]);
 
   return (
     <SidebarLayout
-      header={<TermsHeader title={data.title} description={data.description} />}
-      sidebar={<TermsSidebar sections={sections} lang={lang} />}
+      header={<TermsHeader />}
+      sidebar={<TermsSidebar sections={sidebarSections} />}
     >
-      <TermsContent sections={data.sections} lang={lang} />
+      <TermsContent sections={rawSections} />
     </SidebarLayout>
   );
 }

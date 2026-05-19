@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
 import TermsView from "@/components/organisms/terms-view";
-import termsData from "../../_data/terms.json";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Terms");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
-export default async function TermsPage({
-  params,
-}: {
-  params: Promise<{ locale: "vi" | "en" }>;
-}) {
-  const { locale } = await params;
-  const data = termsData[locale];
-
-  return <TermsView data={data} lang={locale} />;
+export default function TermsPage() {
+  return <TermsView />;
 }

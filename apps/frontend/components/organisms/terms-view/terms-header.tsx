@@ -10,16 +10,13 @@ import {
   BookOpen,
 } from "lucide-react";
 import AppContainer from "@/components/atoms/app-container";
+import { useTranslations } from "next-intl";
 
-interface TermsHeaderProps {
-  title: string;
-  description: string;
-}
+export function TermsHeader(): React.ReactElement {
+  const t = useTranslations("Terms");
+  const title = t("title");
+  const description = t("description");
 
-export function TermsHeader({
-  title,
-  description,
-}: TermsHeaderProps): React.ReactElement {
   const words = title.split(" ");
   const isVi = title.toLowerCase().includes("điều");
   const highlight = isVi ? words.slice(-2).join(" ") : words.pop() || "";
