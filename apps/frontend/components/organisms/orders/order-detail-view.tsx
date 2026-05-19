@@ -22,6 +22,8 @@ import { EOrderStatus } from "@ecommerce/shared";
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
 import { useTranslations, useLocale } from "next-intl";
 
+import Button from "@/components/atoms/button";
+
 export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   const t = useTranslations("OrdersPage");
   const tStatus = useTranslations("OrderStatus");
@@ -240,14 +242,14 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
                 {t("detail.returnSectionDesc")}
               </p>
             </div>
-            <button
+            <Button
               type="button"
               onClick={() => setIsReturnModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary h-auto opacity-100 hover:opacity-100"
             >
               <RotateCcw className="h-4 w-4" />
               {t("detail.requestReturnBtn")}
-            </button>
+            </Button>
           </motion.div>
         )}
 

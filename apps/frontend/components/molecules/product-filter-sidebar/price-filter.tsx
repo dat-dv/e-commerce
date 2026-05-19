@@ -1,5 +1,7 @@
 "use client";
 
+import Button from "@/components/atoms/button";
+import Input from "@/components/atoms/input";
 import { useEffect, useState } from "react";
 
 import { IProductPriceFilterProps } from "./product-filter-sidebar.types";
@@ -51,28 +53,29 @@ export function ProductPriceFilter<T extends string = string>({
       </h3>
       <div className="flex flex-col gap-3">
         <div className="flex gap-2 items-center">
-          <input
+          <Input
             type="number"
             placeholder={t("min")}
-            className="h-10 w-full rounded-xl border border-content/10 bg-content/[0.03] px-3 text-sm font-medium text-content outline-none transition-all placeholder:text-content/35 focus:border-primary"
+            className="h-10 w-full rounded-xl border-content/10 bg-content/[0.03] px-3 placeholder:text-content/35 focus:border-primary"
             value={minPrice}
             onChange={(event) => setMinPrice(event.target.value)}
           />
           <span className="text-sm font-semibold text-content/25">-</span>
-          <input
+          <Input
             type="number"
             placeholder={t("max")}
-            className="h-10 w-full rounded-xl border border-content/10 bg-content/[0.03] px-3 text-sm font-medium text-content outline-none transition-all placeholder:text-content/35 focus:border-primary"
+            className="h-10 w-full rounded-xl border-content/10 bg-content/[0.03] px-3 placeholder:text-content/35 focus:border-primary"
             value={maxPrice}
             onChange={(event) => setMaxPrice(event.target.value)}
           />
         </div>
-        <button
+        <Button
           type="submit"
-          className="h-10 rounded-xl border border-content/10 px-4 text-xs font-bold uppercase tracking-widest text-content/60 transition-all hover:border-primary/30 hover:text-primary active:scale-95"
+          variant="outline"
+          className="h-10 rounded-xl border-content/10 px-4 text-xs font-bold uppercase tracking-widest text-content/60 hover:border-primary/30 hover:text-primary"
         >
           {t("applyPrice")}
-        </button>
+        </Button>
       </div>
     </form>
   );

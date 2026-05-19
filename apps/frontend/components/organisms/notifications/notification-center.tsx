@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import Button from "@/components/atoms/button";
 
 import { NotificationItem } from "./notification-item";
 import { useLoadOnce } from "@/hooks/use-load-once";
@@ -29,9 +30,10 @@ export const NotificationCenter = () => {
   return (
     <div className="relative">
       {/* Bell Icon */}
-      <button
+      <Button
+        variant="ghost"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 rounded-full hover:bg-content/[0.05] transition-colors"
+        className="relative p-2 rounded-full hover:bg-content/[0.05] transition-colors h-auto active:scale-95 opacity-100 hover:opacity-100 hover:bg-content/[0.05]"
       >
         <Bell
           size={20}
@@ -42,7 +44,7 @@ export const NotificationCenter = () => {
             {unreadCount}
           </span>
         )}
-      </button>
+      </Button>
 
       {/* Popover */}
       <AnimatePresence>
@@ -61,12 +63,13 @@ export const NotificationCenter = () => {
               <div className="p-4 border-b border-content/[0.05] flex items-center justify-between">
                 <h3 className="font-bold text-sm">{t("dropdown.title")}</h3>
                 {unreadCount > 0 && (
-                  <button
+                  <Button
+                    variant="ghost"
                     onClick={markAllAsRead}
-                    className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors"
+                    className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors h-auto p-0 hover:bg-transparent active:scale-100"
                   >
                     {t("dropdown.markAllAsRead")}
-                  </button>
+                  </Button>
                 )}
               </div>
 

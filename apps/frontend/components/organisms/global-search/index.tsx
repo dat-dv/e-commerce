@@ -9,6 +9,9 @@ import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 
+import Button from "@/components/atoms/button";
+import FormListenerDirty from "@/components/molecules/form/form-listener-dirty";
+
 type SearchFormValues = {
   query: string;
 };
@@ -23,9 +26,6 @@ export function GlobalSearch() {
       query: searchParams.get("search") || "",
     },
   });
-
-  // eslint-disable-next-line react-hooks/incompatible-library
-  const queryValue = methods.watch("query");
 
   const onSubmit = (data: SearchFormValues) => {
     if (!data.query.trim()) return;
@@ -46,13 +46,17 @@ export function GlobalSearch() {
               placeholder={t("globalPlaceholder")}
               className="w-full !h-12 bg-surface !border-solid border border-content/[0.08] hover:border-content/[0.15] focus:border-content/[0.25] focus:shadow-sm transition-all rounded-full pl-11 pr-28 text-sm outline-none text-content placeholder:text-content/40 font-medium m-0"
             />
-            <button
-              type="submit"
-              disabled={!queryValue?.trim()}
-              className="absolute right-1.5 top-1.5 bottom-1.5 px-6 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full text-xs font-bold disabled:opacity-0 disabled:scale-95 transition-all z-10"
-            >
-              {t("submit")}
-            </button>
+            <FormListenerDirty>
+              {() => (
+                <Button
+                  type="submit"
+                  variant="ghost"
+                  className="absolute right-1.5 top-1.5 bottom-1.5 px-6 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full text-xs font-bold disabled:opacity-0 disabled:scale-95 transition-all z-10 h-auto active:scale-95 opacity-100 hover:opacity-100"
+                >
+                  {t("submit")}
+                </Button>
+              )}
+            </FormListenerDirty>
           </div>
         </AppForm>
       </AppContainer>

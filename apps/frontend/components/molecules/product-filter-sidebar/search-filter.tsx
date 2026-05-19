@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/atoms/button";
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -46,12 +47,12 @@ export function ProductSearchFilter({
           className="min-w-0 flex-1 bg-transparent text-sm font-medium text-content outline-none placeholder:text-content/35"
         />
       </div>
-      <button
+      <Button
         type="submit"
-        className="h-10 rounded-xl bg-primary px-4 text-xs font-bold uppercase tracking-widest text-white transition-transform active:scale-95"
+        className="h-10 rounded-xl bg-primary px-4 text-xs font-bold uppercase tracking-widest text-white"
       >
         {t("search")}
-      </button>
+      </Button>
     </form>
   );
 }

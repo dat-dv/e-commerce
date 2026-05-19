@@ -4,6 +4,8 @@ import { aseanCountries } from "@/constants/countries";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 
+import Button from "@/components/atoms/button";
+
 export function RegionSelectorView() {
   const t = useTranslations("Common.regionSelector");
 
@@ -25,15 +27,16 @@ export function RegionSelectorView() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {aseanCountries.map((country) => (
-            <button
+            <Button
               key={country.code}
+              variant="ghost"
               onClick={() => handleSelect(country)}
               disabled={country.disabled}
               className={cn(
-                "flex items-center gap-3 p-4 rounded-2xl border transition-all duration-200",
+                "flex items-center gap-3 p-4 rounded-2xl border transition-all duration-200 h-auto font-normal text-left active:scale-[0.98] hover:opacity-100",
                 country.disabled
                   ? "border-primary/20 bg-primary/5 hover:bg-primary/10 hover:border-primary/40 cursor-pointer"
-                  : "border-content/5 bg-content/5 opacity-50 cursor-not-allowed",
+                  : "border-content/5 bg-content/5 opacity-50 cursor-not-allowed hover:bg-content/5",
               )}
             >
               <span className="text-2xl">{country.flag}</span>
@@ -43,7 +46,7 @@ export function RegionSelectorView() {
                   {country.disabled ? t("available") : t("comingSoon")}
                 </p>
               </div>
-            </button>
+            </Button>
           ))}
         </div>
       </div>

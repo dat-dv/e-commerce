@@ -1,3 +1,4 @@
+import Button from "@/components/atoms/button";
 import { Star } from "lucide-react";
 import React from "react";
 
@@ -17,10 +18,11 @@ export function ProductRatingFilter({
       </h3>
       <div className="flex flex-col gap-1.5">
         {[5, 4, 3, 2, 1].map((rating) => (
-          <button
+          <Button
             key={rating}
+            variant="ghost"
             onClick={() => handleRatingClick(rating)}
-            className={`flex min-h-10 items-center gap-2 px-3 py-2 rounded-xl text-sm transition-all ${
+            className={`flex min-h-10 items-center gap-2 px-3 py-2 rounded-xl text-sm h-auto ${
               ratingValue === String(rating)
                 ? "bg-primary/10 text-primary font-bold"
                 : "text-content/70 hover:bg-content/5 hover:text-content"
@@ -39,7 +41,7 @@ export function ProductRatingFilter({
             <span className="text-sm font-medium text-content/60">
               {t("up")}
             </span>
-          </button>
+          </Button>
         ))}
       </div>
     </div>

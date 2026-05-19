@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { type Key } from "react-aria-components";
 
+import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
 import { Tree } from "@/components/atoms/tree";
 import { TCategory } from "@/domain/categories/types/categories.model";
@@ -131,25 +132,27 @@ export const CategoryNavSidebar = ({
             />
 
             {search ? (
-              <button
+              <Button
                 type="button"
+                variant="ghost"
                 onClick={() => setSearch("")}
-                className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg text-content/30 transition-colors hover:bg-content/[0.06] hover:text-content"
+                className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg text-content/30 hover:bg-content/[0.06] hover:text-content p-0"
                 aria-label={t("clearSearch")}
               >
                 <X className="h-4 w-4" aria-hidden />
-              </button>
+              </Button>
             ) : null}
           </div>
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto pr-1">
           <div className="flex flex-col gap-1.5">
-            <button
+            <Button
               type="button"
+              variant="ghost"
               onClick={() => setActiveId("all")}
               className={cn(
-                "group relative flex min-h-10 w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors mb-1.5",
+                "group relative flex min-h-10 w-full items-center gap-3 rounded-xl px-3 py-2 text-left mb-1.5 h-auto justify-start",
                 activeId === "all"
                   ? "text-primary"
                   : "text-content/55 hover:text-content",
@@ -173,7 +176,7 @@ export const CategoryNavSidebar = ({
               <span className="relative z-10 truncate text-sm font-semibold">
                 {t("allCategories")}
               </span>
-            </button>
+            </Button>
 
             {filteredCategories.length > 0 ? (
               <Tree

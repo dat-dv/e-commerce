@@ -1,11 +1,10 @@
-import React from "react";
-import { Clock, Package, Info, Zap, User } from "lucide-react";
-import { formatDistanceToNow } from "date-fns";
-import { vi, enUS } from "date-fns/locale";
-import { useLocale } from "next-intl";
-import { cn } from "@/utils/cn";
 import { INotification } from "@/domain/notifications/types/notification";
+import { cn } from "@/utils/cn";
 import { ENotificationType } from "@ecommerce/shared";
+import { formatDistanceToNow } from "date-fns";
+import { enUS, vi } from "date-fns/locale";
+import { Clock, Info, Package, User, Zap } from "lucide-react";
+import { useLocale } from "next-intl";
 
 interface NotificationItemProps {
   notif: INotification;

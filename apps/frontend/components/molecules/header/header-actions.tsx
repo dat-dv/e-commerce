@@ -2,15 +2,15 @@
 
 import Button from "@/components/atoms/button";
 import ProtectedSection from "@/components/atoms/protected-section/protected-section";
+import { NotificationCenter } from "@/components/organisms/notifications/notification-center";
 import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
-import AvatarDropdown from "../avatar-dropdown";
-import { ShoppingBag, Heart } from "lucide-react";
 import { useCart } from "@/hooks/cart/use-cart";
-import { NotificationCenter } from "@/components/organisms/notifications/notification-center";
-import Link from "next/link";
+import { Heart, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import AvatarDropdown from "../avatar-dropdown";
 
 export default function HeaderActions() {
   const user = useAuthStore((store) => store.user);
@@ -49,9 +49,10 @@ export default function HeaderActions() {
         >
           <Heart size={20} />
         </Link>
-        <button
+        <Button
+          variant="ghost"
           onClick={() => setIsOpen(true)}
-          className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
+          className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center h-auto active:scale-95 opacity-100 hover:opacity-100"
           title={t("cart")}
         >
           <ShoppingBag size={20} />
@@ -60,7 +61,7 @@ export default function HeaderActions() {
               {itemsCount}
             </span>
           )}
-        </button>
+        </Button>
         <AvatarDropdown
           name={`${user?.firstName || ""} ${user?.lastName || ""}`}
           email={user?.email || ""}

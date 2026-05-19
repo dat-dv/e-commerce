@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Button from "@/components/atoms/button";
 import { Eye, ShoppingBag, Heart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
 import Image from "next/image";
@@ -99,12 +100,13 @@ export const ProductCard = ({
           >
             <Eye size={18} />
           </Link>
-          <button
+          <Button
             onClick={handleAddToCart}
-            className="w-10 h-10 bg-primary text-surface rounded-full flex items-center justify-center hover:opacity-90 transition-all shadow-lg active:scale-90"
+            variant="ghost"
+            className="w-10 h-10 bg-primary text-surface rounded-full flex items-center justify-center hover:opacity-90 shadow-lg active:scale-90 p-0"
           >
             <ShoppingBag size={18} />
-          </button>
+          </Button>
         </div>
 
         {/* Badges */}
@@ -118,14 +120,15 @@ export const ProductCard = ({
 
         {/* Favorite Button */}
         {showFavoriteButton && (
-          <button
+          <Button
             onClick={toggleFavorite}
             disabled={favoriteLoading}
+            variant="ghost"
             className={cn(
-              "absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 z-10 shadow-lg active:scale-75",
+              "absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center duration-300 z-10 shadow-lg active:scale-75 p-0",
               isFavorited
-                ? "bg-red-500 text-white shadow-red-500/20"
-                : "bg-surface/80 backdrop-blur-md text-content/40 hover:text-red-500 shadow-black/5",
+                ? "bg-red-500 text-white shadow-red-500/20 hover:bg-red-500"
+                : "bg-surface/80 backdrop-blur-md text-content/40 hover:text-red-500 hover:bg-surface/80 shadow-black/5",
             )}
           >
             <Heart
@@ -135,7 +138,7 @@ export const ProductCard = ({
                 isFavorited && "fill-current",
               )}
             />
-          </button>
+          </Button>
         )}
       </div>
 
@@ -190,12 +193,13 @@ export const ProductCard = ({
             )}
           </div>
 
-          <button
+          <Button
             onClick={handleAddToCart}
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-content/20 hover:text-primary hover:bg-primary/10 transition-all lg:hidden border border-content/5"
+            variant="ghost"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-content/20 hover:text-primary hover:bg-primary/10 lg:hidden border border-content/5 p-0"
           >
             <ShoppingBag size={18} />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

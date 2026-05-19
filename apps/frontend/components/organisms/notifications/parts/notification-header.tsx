@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
 import { CheckCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
+
+import Button from "@/components/atoms/button";
 
 interface NotificationHeaderProps {
   unreadCount: number;
@@ -28,13 +29,13 @@ export const NotificationHeader = ({
 
       <div className="flex items-center gap-3">
         {unreadCount > 0 && (
-          <button
+          <Button
             onClick={onMarkAllAsRead}
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 active:scale-95"
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 active:scale-95 h-auto opacity-100 hover:opacity-100"
           >
             <CheckCheck size={14} />
             {t("header.markAllAsRead")}
-          </button>
+          </Button>
         )}
       </div>
     </div>

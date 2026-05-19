@@ -1,10 +1,12 @@
 "use client";
 
+import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
 } from "@/components/atoms/dialog";
+import Input from "@/components/atoms/input";
 import { toast } from "@/components/ui/toast";
 import {
   OrderReturnRequestFormData,
@@ -71,15 +73,16 @@ const AttachmentPreview = ({
           <ImageIcon className="h-5 w-5 text-content/30" />
         </div>
       )}
-      <button
+      <Button
         type="button"
+        variant="ghost"
         onClick={onRemove}
         disabled={disabled}
-        className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-red-500 disabled:opacity-50"
+        className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-red-500 hover:text-white disabled:opacity-50 h-auto w-auto p-0"
         aria-label={`Remove ${file.name}`}
       >
         <X className="h-4 w-4" />
-      </button>
+      </Button>
     </div>
   );
 };
@@ -206,15 +209,16 @@ export const RequestReturnModal = ({
                     {t("description")}
                   </p>
                 </div>
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
                   onClick={closeModal}
                   disabled={isSubmitting}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-content/[0.08] text-content/50 transition-colors hover:bg-content/[0.05] disabled:opacity-50"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-content/[0.08] text-content/50 hover:bg-content/[0.05] disabled:opacity-50 p-0"
                   aria-label={t("close")}
                 >
                   <X className="h-4 w-4" />
-                </button>
+                </Button>
               </div>
 
               <div className="space-y-5">
@@ -222,11 +226,11 @@ export const RequestReturnModal = ({
                   <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
                     {t("reason")}
                   </label>
-                  <input
+                  <Input
                     {...register("title")}
                     disabled={isSubmitting}
                     placeholder={t("reasonPlaceholder")}
-                    className="w-full rounded-xl border border-content/[0.08] bg-content/[0.03] px-4 py-3 text-sm font-medium text-content outline-none transition-colors placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
+                    className="w-full rounded-xl border-content/[0.08] bg-content/[0.03] px-4 py-3 placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
                   />
                   {errors.title ? (
                     <p className="mt-2 text-xs font-semibold text-red-500">
@@ -270,18 +274,19 @@ export const RequestReturnModal = ({
                     onChange={handleAttachmentChange}
                     className="hidden"
                   />
-                  <button
+                  <Button
                     type="button"
+                    variant="outline"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={
                       isSubmitting ||
                       attachments.length >= ORDER_RETURN_MAX_ATTACHMENTS
                     }
-                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 transition-colors hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50 h-auto"
                   >
                     <Upload className="h-4 w-4" />
                     {t("upload")}
-                  </button>
+                  </Button>
 
                   {attachments.length ? (
                     <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
@@ -303,25 +308,26 @@ export const RequestReturnModal = ({
               </div>
 
               <div className="mt-7 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
-                <button
+                <Button
                   type="button"
+                  variant="outline"
                   onClick={closeModal}
                   disabled={isSubmitting}
-                  className="rounded-xl border border-content/[0.1] px-5 py-3 text-sm font-semibold text-content transition-colors hover:bg-content/[0.05] disabled:opacity-50"
+                  className="rounded-xl border-content/[0.1] px-5 py-3 text-sm font-semibold text-content hover:bg-content/[0.05] disabled:opacity-50 h-auto"
                 >
                   {t("keepOrder")}
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center justify-center rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary disabled:opacity-50"
+                  className="flex items-center justify-center rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 hover:bg-primary disabled:opacity-50 h-auto"
                 >
                   {isSubmitting ? (
                     <span className="h-4 w-4 rounded-full border-2 border-surface/30 border-t-surface animate-spin" />
                   ) : (
                     t("submit")
                   )}
-                </button>
+                </Button>
               </div>
             </form>
           </AppDialogPanel>

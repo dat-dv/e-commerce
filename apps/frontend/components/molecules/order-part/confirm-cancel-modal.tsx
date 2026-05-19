@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
@@ -39,24 +40,25 @@ export const ConfirmCancelModal = ({
               {t("confirmCancel.description")}
             </p>
             <div className="flex gap-4">
-              <button
+              <Button
+                variant="outline"
                 onClick={onClose}
                 disabled={isCancelling}
-                className="flex-1 py-3 text-sm font-semibold text-content border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all disabled:opacity-50"
+                className="flex-1 py-3 text-sm font-semibold text-content border-content/[0.1] rounded-xl hover:bg-content/[0.05] disabled:opacity-50 h-auto"
               >
                 {t("confirmCancel.keep")}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={onConfirm}
                 disabled={isCancelling}
-                className="flex-1 flex items-center justify-center py-3 text-sm font-semibold text-white bg-red-500 rounded-xl hover:bg-red-600 transition-all disabled:opacity-50 shadow-lg shadow-red-500/20"
+                className="flex-1 flex items-center justify-center py-3 text-sm font-semibold text-white bg-red-500 rounded-xl hover:bg-red-600 disabled:opacity-50 shadow-lg shadow-red-500/20 h-auto"
               >
                 {isCancelling ? (
                   <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                 ) : (
                   t("confirmCancel.confirm")
                 )}
-              </button>
+              </Button>
             </div>
           </AppDialogPanel>
         </AppDialog>

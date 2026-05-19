@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Button from "@/components/atoms/button";
 import { Search, Loader2, X } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
@@ -82,21 +83,23 @@ export const SearchInput = ({
 
       <div className="flex items-center gap-2 shrink-0">
         {localValue && (
-          <button
+          <Button
+            variant="ghost"
             onClick={handleClear}
-            className="rounded-lg bg-content/5 px-2.5 py-1 text-xs font-bold text-content/60 transition-colors hover:bg-content/10 hover:text-content flex items-center gap-1"
+            className="rounded-lg bg-content/5 px-2.5 py-1 text-xs font-bold text-content/60 hover:bg-content/10 hover:text-content flex items-center gap-1 h-auto"
           >
             <X className="h-3 w-3" />
             <span>{t("clear")}</span>
-          </button>
+          </Button>
         )}
 
-        <button
+        <Button
+          variant="ghost"
           onClick={() => onSearch?.(localValue)}
-          className="px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-xl text-xs font-bold transition-all active:scale-95 shadow-md shadow-primary/10"
+          className="px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-xl text-xs font-bold shadow-md shadow-primary/10 h-auto"
         >
           {resolvedSubmitButtonLabel}
-        </button>
+        </Button>
       </div>
     </div>
   );

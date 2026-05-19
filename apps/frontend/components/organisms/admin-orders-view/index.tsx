@@ -1,6 +1,7 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import Button from "@/components/atoms/button";
 import Loading from "@/components/atoms/loading";
 import { AppStatusDropdown } from "@/components/molecules/app-status-dropdown";
 import { parseOrderAttributes } from "@/components/molecules/order-part/order-display.utils";
@@ -160,11 +161,12 @@ export function AdminOrdersView() {
             </p>
           </div>
 
-          <button
+          <Button
             type="button"
+            variant="ghost"
             onClick={refresh}
             disabled={loading}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-content/10 bg-surface/50 backdrop-blur-md px-4 text-sm font-semibold text-content transition-all duration-200 hover:bg-content/5 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-content/10 bg-surface/50 backdrop-blur-md px-4 text-sm font-semibold text-content transition-all duration-200 hover:bg-content/5 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-50 active:scale-95 opacity-100 hover:opacity-100"
           >
             <RefreshCw
               aria-hidden="true"
@@ -175,7 +177,7 @@ export function AdminOrdersView() {
               }
             />
             {t("header.refresh")}
-          </button>
+          </Button>
         </header>
 
         <section
@@ -201,14 +203,15 @@ export function AdminOrdersView() {
             </div>
 
             {hasFilters && (
-              <button
+              <Button
                 type="button"
+                variant="ghost"
                 onClick={clearFilters}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-transparent bg-rose-500/10 px-4 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-500/20 hover:scale-[1.02] focus-visible:outline-none"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-transparent bg-rose-500/10 px-4 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-500/20 hover:scale-[1.02] focus-visible:outline-none active:scale-95 opacity-100 hover:opacity-100"
               >
                 <FilterX aria-hidden="true" className="size-4" />
                 {t("filters.clearActive")}
-              </button>
+              </Button>
             )}
           </div>
 
@@ -220,15 +223,16 @@ export function AdminOrdersView() {
               {STATUS_OPTIONS.map((status) => {
                 const isSelected = selectedStatuses.includes(status.value);
                 return (
-                  <button
+                  <Button
                     key={status.value}
                     type="button"
+                    variant="ghost"
                     aria-pressed={isSelected}
                     onClick={() => handleStatusFilterToggle(status.value)}
                     className={cn(
-                      "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
+                      "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto active:scale-95 opacity-100 hover:opacity-100",
                       isSelected
-                        ? "border-transparent bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-2 ring-primary/20"
+                        ? "border-transparent bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-2 ring-primary/20 hover:bg-primary"
                         : "border-content/10 bg-surface/40 backdrop-blur-md text-content/65 hover:bg-content/5 hover:border-content/20",
                     )}
                   >
@@ -239,7 +243,7 @@ export function AdminOrdersView() {
                       )}
                     />
                     {status.label}
-                  </button>
+                  </Button>
                 );
               })}
             </div>
@@ -314,13 +318,14 @@ function EmptyOrders({
         {t("noOrdersDesc")}
       </p>
       {hasFilters && (
-        <button
+        <Button
           type="button"
+          variant="ghost"
           onClick={onClearFilters}
-          className="mt-4 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          className="mt-4 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto opacity-100 hover:opacity-100"
         >
           {t("clearFilters")}
-        </button>
+        </Button>
       )}
     </div>
   );
@@ -397,10 +402,11 @@ function OrderResults({
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <button
+                        <Button
                           type="button"
+                          variant="ghost"
                           onClick={() => onExpandedToggle(order.id)}
-                          className="inline-flex size-6 items-center justify-center rounded-md text-content/50 transition-colors hover:bg-content/5 hover:text-content focus-visible:outline-none"
+                          className="inline-flex size-6 items-center justify-center rounded-md text-content/50 transition-colors hover:bg-content/5 hover:text-content focus-visible:outline-none h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
                         >
                           <ChevronRight
                             aria-hidden="true"
@@ -409,7 +415,7 @@ function OrderResults({
                               isExpanded && "rotate-90",
                             )}
                           />
-                        </button>
+                        </Button>
                         <OrderIdCell orderId={order.id} onCopy={onCopy} />
                       </div>
                     </td>
@@ -548,11 +554,12 @@ function OrderCompactCard({
         <OrderPreview preview={preview} />
       </div>
 
-      <button
+      <Button
         type="button"
+        variant="ghost"
         aria-expanded={isExpanded}
         onClick={() => onExpandedToggle(order.id)}
-        className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-md border border-content/15 text-sm font-semibold text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+        className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-md border border-content/15 text-sm font-semibold text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 active:scale-95 opacity-100 hover:opacity-100"
       >
         <ChevronDown
           aria-hidden="true"
@@ -565,7 +572,7 @@ function OrderCompactCard({
         {isExpanded
           ? t("hideItems")
           : t("showItems", { count: order.items.length })}
-      </button>
+      </Button>
 
       {isExpanded && (
         <div className="mt-3">
@@ -623,14 +630,15 @@ function OrderIdCell({
       <span className="truncate font-mono text-xs font-semibold text-content">
         {orderId}
       </span>
-      <button
+      <Button
         type="button"
+        variant="ghost"
         aria-label={`Copy Order ${orderId}`}
         onClick={() => onCopy(orderId)}
-        className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-content/50 hover:bg-content/5 hover:text-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+        className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-content/50 hover:bg-content/5 hover:text-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
       >
         <Copy aria-hidden="true" className="size-4" />
-      </button>
+      </Button>
     </div>
   );
 }
@@ -688,15 +696,16 @@ function OrdersPagination({
       </p>
 
       <div className="flex items-center gap-2">
-        <button
+        <Button
           type="button"
+          variant="ghost"
           aria-label={t("previousPage")}
           disabled={page <= 1 || loading}
           onClick={() => onPageChange(page - 1)}
-          className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
         >
           <ChevronLeft aria-hidden="true" className="size-4" />
-        </button>
+        </Button>
 
         <div className="flex max-w-[calc(100vw-8rem)] items-center gap-1 overflow-x-auto">
           {Array.from({ length: totalPages }, (_, index) => {
@@ -704,34 +713,36 @@ function OrdersPagination({
             const isCurrent = page === targetPage;
 
             return (
-              <button
+              <Button
                 key={targetPage}
                 type="button"
+                variant="ghost"
                 aria-label={t("pageAria", { page: String(targetPage) })}
                 aria-current={isCurrent ? "page" : undefined}
                 onClick={() => onPageChange(targetPage)}
                 disabled={loading}
                 className={
                   isCurrent
-                    ? "inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                    : "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-content/15 text-sm font-semibold text-content/70 hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40"
+                    ? "inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto p-0 opacity-100 hover:opacity-100 hover:bg-primary active:scale-95"
+                    : "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-content/15 text-sm font-semibold text-content/70 hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 opacity-100 hover:opacity-100 active:scale-95"
                 }
               >
                 {targetPage}
-              </button>
+              </Button>
             );
           })}
         </div>
 
-        <button
+        <Button
           type="button"
+          variant="ghost"
           aria-label={t("nextPage")}
           disabled={page >= totalPages || loading}
           onClick={() => onPageChange(page + 1)}
-          className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
         >
           <ChevronRight aria-hidden="true" className="size-4" />
-        </button>
+        </Button>
       </div>
     </nav>
   );

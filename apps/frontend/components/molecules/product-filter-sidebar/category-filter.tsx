@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/atoms/button";
 import { motion } from "framer-motion";
 import { ChevronDown, FolderTree, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -175,14 +176,15 @@ export function CategoryFilterSection({
         />
 
         {categoryKeyword ? (
-          <button
+          <Button
             type="button"
+            variant="ghost"
             onClick={() => setCategoryKeyword("")}
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-content/35 transition-colors hover:bg-content/[0.06] hover:text-content"
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-content/35 hover:bg-content/[0.06] hover:text-content p-0"
             aria-label={t("clearCategorySearch")}
           >
             <X className="h-3.5 w-3.5" />
-          </button>
+          </Button>
         ) : null}
       </div>
 

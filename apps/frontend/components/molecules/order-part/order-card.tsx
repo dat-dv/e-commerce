@@ -1,14 +1,15 @@
 "use client";
 
-import { EOrderStatus } from "@ecommerce/shared";
+import Button from "@/components/atoms/button";
+import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { TOrder } from "@/domain/orders/types/order.model";
-import Image from "next/image";
+import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
+import { EOrderStatus } from "@ecommerce/shared";
 import { motion } from "framer-motion";
 import { MessageSquare, RotateCcw, Store, Truck } from "lucide-react";
-import { cn } from "@/utils/cn";
-import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 
 import { APP_ROUTES } from "@/constants/routes";
 import Link from "next/link";
@@ -85,13 +86,14 @@ export const OrderCard = ({
               })}
             </span>
           </div>
-          <button
+          <Button
+            variant="ghost"
             disabled
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-content/40 bg-content/[0.03] rounded-full border border-content/[0.05]"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-content/40 bg-content/[0.03] rounded-full border border-content/[0.05] h-auto active:scale-100"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             {t("card.needHelp")}
-          </button>
+          </Button>
         </div>
         <div className="flex items-center gap-4">
           {order.status === EOrderStatus.SHIPPING && (
@@ -199,34 +201,39 @@ export const OrderCard = ({
 
           <div className="flex flex-wrap justify-end gap-3">
             {order.status === EOrderStatus.PENDING && (
-              <button
+              <Button
+                variant="outline"
                 onClick={(e) => {
                   e.preventDefault();
                   onCancelOrder?.(order.id);
                 }}
-                className="px-6 py-2.5 text-sm font-semibold text-red-500 border border-red-500/20 rounded-xl hover:bg-red-500/10 transition-all active:scale-95"
+                className="px-6 py-2.5 text-sm font-semibold text-red-500 border-red-500/20 rounded-xl hover:bg-red-500/10 h-auto"
               >
                 {t("card.cancel")}
-              </button>
+              </Button>
             )}
             {order.status === EOrderStatus.DELIVERED && (
               <>
-                <button
+                <Button
+                  variant="outline"
                   onClick={(e) => {
                     e.preventDefault();
                     onRequestReturn?.(order.id);
                   }}
-                  className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-content border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all active:scale-95"
+                  className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-content border-content/[0.1] rounded-xl hover:bg-content/[0.05] h-auto"
                 >
                   <RotateCcw className="h-4 w-4" />
                   {t("card.requestReturn")}
-                </button>
-                <button className="px-6 py-2.5 text-sm font-semibold text-surface bg-content rounded-xl hover:bg-primary transition-all active:scale-95">
+                </Button>
+                <Button className="px-6 py-2.5 text-sm font-semibold text-surface bg-content rounded-xl hover:bg-primary h-auto">
                   {t("card.review")}
-                </button>
-                <button className="px-6 py-2.5 text-sm font-semibold text-content/60 border border-content/[0.1] rounded-xl hover:bg-content/[0.05] transition-all active:scale-95">
+                </Button>
+                <Button
+                  variant="outline"
+                  className="px-6 py-2.5 text-sm font-semibold text-content/60 border-content/[0.1] rounded-xl hover:bg-content/[0.05] h-auto"
+                >
                   {t("card.reorder")}
-                </button>
+                </Button>
               </>
             )}
           </div>

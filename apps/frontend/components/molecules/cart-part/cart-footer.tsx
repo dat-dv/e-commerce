@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
-import { Ticket, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
+import { ChevronRight, Ticket } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 interface CartFooterProps {
   selectedCount: number;
@@ -21,7 +21,10 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-primary/30 blur-md pointer-events-none" />
 
       <div className="bg-primary/[0.1] border-b border-primary/5 px-8 py-3 flex items-center justify-center md:justify-end gap-8 text-xs font-medium">
-        <button className="text-content/70 hover:text-primary transition-all flex items-center gap-2 group">
+        <Button
+          variant="ghost"
+          className="text-content/70 hover:text-primary flex items-center gap-2 group h-auto px-0"
+        >
           <Ticket size={14} className="text-primary/60" aria-hidden />
           {t("applyCoupon")}{" "}
           <ChevronRight
@@ -29,7 +32,7 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
             className="group-hover:translate-x-1 transition-transform"
             aria-hidden
           />
-        </button>
+        </Button>
       </div>
 
       <div className="container mx-auto max-w-7xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6 relative">

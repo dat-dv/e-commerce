@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { Eye, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
@@ -109,13 +110,14 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           >
             <Eye size={18} aria-hidden />
           </Link>
-          <button
+          <Button
             onClick={handleAddToCart}
-            className="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-all shadow-lg active:scale-90"
+            variant="ghost"
+            className="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 shadow-lg active:scale-90 p-0"
             title={t("addToCart")}
           >
             <ShoppingBag size={18} aria-hidden />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -163,13 +165,14 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
             )}
           </div>
 
-          <button
+          <Button
             onClick={handleAddToCart}
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-red-500 hover:bg-red-500/10 transition-all lg:hidden border border-red-500/10"
+            variant="ghost"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-red-500 hover:bg-red-500/10 lg:hidden border border-red-500/10 p-0"
             title={t("addToCart")}
           >
             <ShoppingBag size={18} aria-hidden />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

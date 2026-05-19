@@ -1,8 +1,10 @@
 "use client";
 
-import { X } from "lucide-react";
 import { EProductSort } from "@ecommerce/shared";
+import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
+
+import Button from "@/components/atoms/button";
 
 export interface AppliedFilters {
   search?: string;
@@ -85,21 +87,23 @@ export function AppliedFiltersBar<T extends string = string>({
         {t("applied")}
       </span>
       {chips.map((chip) => (
-        <button
+        <Button
           key={chip.key}
+          variant="ghost"
           onClick={() => onClearFilter(chip.key)}
-          className="inline-flex h-8 items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-3 text-xs font-bold text-primary transition-colors hover:bg-primary/15"
+          className="inline-flex h-8 items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-3 text-xs font-bold text-primary transition-colors hover:bg-primary/15 active:scale-95 opacity-100 hover:opacity-100"
         >
           {chip.label}
           <X size={13} />
-        </button>
+        </Button>
       ))}
-      <button
+      <Button
+        variant="ghost"
         onClick={onResetFilters}
-        className="ml-auto h-8 rounded-full border border-content/10 px-3 text-xs font-bold text-content/45 transition-colors hover:border-primary/30 hover:text-primary"
+        className="ml-auto h-8 rounded-full border border-content/10 px-3 text-xs font-bold text-content/45 transition-colors hover:border-primary/30 hover:text-primary active:scale-95 opacity-100 hover:opacity-100 hover:bg-transparent"
       >
         {t("resetAll")}
-      </button>
+      </Button>
     </div>
   );
 }
