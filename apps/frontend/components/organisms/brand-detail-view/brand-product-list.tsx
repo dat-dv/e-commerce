@@ -9,6 +9,7 @@ import {
   useBrandProductsFilter,
   BrandProductsFilterKey,
 } from "@/hooks/brands/use-brand-products-filter";
+import { useTranslations } from "next-intl";
 
 interface IBrandProductListSection {
   brand: TBrand;
@@ -30,6 +31,7 @@ export function BrandProductListSection({
   searchQuery = "",
   categories,
 }: IBrandProductListSection) {
+  const t = useTranslations("BrandsPage.detail.products");
   const {
     filterMinPrice,
     filterMaxPrice,
@@ -73,13 +75,13 @@ export function BrandProductListSection({
         <div className="flex flex-col gap-4">
           <h2 className="text-5xl font-black tracking-tighter text-content uppercase">
             {brand.name}{" "}
-            <span className="italic font-light text-content/30">Archive</span>
+            <span className="italic font-light text-content/30">
+              {t("archive")}
+            </span>
           </h2>
         </div>
         <p className="text-content/50 font-medium max-w-xs text-sm italic">
-          {"Experience the pinnacle of craftsmanship through our curated selection of " +
-            brand.name +
-            " products."}
+          {t("description", { brand: brand.name })}
         </p>
       </div>
 

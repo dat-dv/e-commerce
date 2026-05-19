@@ -3,6 +3,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { cn } from "@/utils/cn";
 
@@ -31,6 +32,7 @@ interface DateInputProps extends Omit<
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
   ({ className, label, error, id, variant = "outline", ...rest }, ref) => {
+    const t = useTranslations("Common.dateInput");
     const isDisabled = rest.disabled;
     const [isCalendarOpen, setIsCalendarOpen] = React.useState(false);
 
@@ -188,7 +190,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             }}
             todayButton={
               <div className="flex justify-between w-full text-sm font-semibold text-content/80">
-                <span>Today</span>
+                <span>{t("today")}</span>
                 <button
                   type="button"
                   onClick={(e) => {

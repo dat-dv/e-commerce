@@ -6,6 +6,7 @@ import { Eye, ShoppingBag, Heart } from "lucide-react";
 import { formatCurrency } from "@/utils/format-currency";
 import Image from "next/image";
 import { APP_ROUTES } from "@/constants/routes";
+import { useTranslations } from "next-intl";
 
 import { TProduct } from "@/domain/products/types/products.model";
 
@@ -22,6 +23,7 @@ export const ProductCard = ({
   product,
   showFavoriteButton = true,
 }: ProductCardProps) => {
+  const t = useTranslations("Common.productCard");
   const addItem = useAddToCart();
   const {
     isFavorited,
@@ -84,7 +86,9 @@ export const ProductCard = ({
             className="object-contain transition-transform duration-500"
           />
         ) : (
-          <div className="text-content/20 text-xs font-semibold">No Image</div>
+          <div className="text-content/20 text-xs font-semibold">
+            {t("noImage")}
+          </div>
         )}
 
         {/* Action Overlay */}

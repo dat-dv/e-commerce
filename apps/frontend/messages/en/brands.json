@@ -16,6 +16,29 @@
       "loadingMore": "Loading more brands...",
       "end": "All brands loaded"
     },
+    "card": {
+      "productCount": "{count, plural, =1 {1 Product} other {# Products}}",
+      "viewArchive": "View Archive"
+    },
+    "detail": {
+      "story": {
+        "eyebrow": "The Heritage",
+        "title": "Crafting",
+        "highlight": "Tomorrow",
+        "fallbackQuote": "Leading the industry with innovation and world-class design standards.",
+        "overviewTitle": "Overview",
+        "overviewDescription": "Established with a vision to redefine the boundaries of technology and lifestyle, {brand} has consistently delivered excellence across its global portfolio.",
+        "philosophyTitle": "Philosophy",
+        "philosophyDescription": "At the core of {brand} lies a commitment to precision engineering and a deep understanding of the modern consumer's evolving needs.",
+        "imageAlt": "Philosophy image",
+        "imageCaption": "Iconic Series",
+        "closingDescription": "From its humble beginnings to its current status as a global leader, {brand} continues to push the limits of what's possible, merging aesthetics with high-performance functionality in every product they create."
+      },
+      "products": {
+        "archive": "Archive",
+        "description": "Experience the pinnacle of craftsmanship through our curated selection of {brand} products."
+      }
+    },
     "empty": {
       "title": "No brands found",
       "description": "We couldn't find any brands matching \"{query}\". Try adjusting your search query."

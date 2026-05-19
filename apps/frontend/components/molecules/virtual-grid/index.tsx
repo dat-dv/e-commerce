@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
+import { useTranslations } from "next-intl";
 
 type VirtualItemWithId = {
   id?: string | number;
@@ -89,14 +90,17 @@ export function VirtualGrid<T>({
   loadingMore,
   hasMore,
   onLoadMore,
-  loadingText = "Loading more...",
-  endText = "All items loaded",
+  loadingText,
+  endText,
   gridClassName = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
   itemClassName = "",
   rowClassName = "pb-6 last:pb-0",
   triggerMargin = "200px", // Reduced margin to avoid double-triggering in grids
   columns = { base: 2, md: 3, lg: 4 },
 }: VirtualGridProps<T>) {
+  const t = useTranslations("Common.virtualized");
+  const displayLoadingText = loadingText ?? t("loadingMore");
+  const displayEndText = endText ?? t("allItemsLoaded");
   const sentinelRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sentinelRef, {
     margin: triggerMargin,
@@ -171,17 +175,17 @@ export function VirtualGrid<T>({
             <div className="w-5 h-5 border-2 border-primary/10 border-t-primary rounded-full animate-spin" />
 
             <span className="text-sm font-medium text-content/50">
-              {loadingText}
+              {displayLoadingText}
             </span>
           </div>
         ) : hasMore ? (
           <div className="h-12" />
-        ) : data.length > 0 && endText ? (
+        ) : data.length > 0 && displayEndText ? (
           <div className="py-6 flex items-center gap-4 w-full px-4">
             <div className="h-px flex-1 bg-content/[0.05]" />
 
             <span className="text-sm font-medium text-content/40 whitespace-nowrap">
-              {endText}
+              {displayEndText}
             </span>
 
             <div className="h-px flex-1 bg-content/[0.05]" />

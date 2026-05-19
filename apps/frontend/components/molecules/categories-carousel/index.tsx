@@ -6,6 +6,7 @@ import { Carousel, CarouselItem } from "@/components/molecules/carousel";
 import { CategoryCard } from "../category-card";
 import { APP_ROUTES } from "@/constants/routes";
 import { SectionHeader } from "../section-header";
+import { useTranslations } from "next-intl";
 
 interface ICategory {
   id: string;
@@ -26,7 +27,8 @@ export const CategoriesCarousel = ({
   lang = "vi",
   onLoadMore,
 }: CategoriesCarouselProps) => {
-  const title = lang === "vi" ? "Danh Mục" : "Categories";
+  const t = useTranslations("HomePage.sections");
+  const title = t("categories");
 
   const chunkedCategories = [];
   for (let i = 0; i < categories.length; i += 2) {
@@ -54,7 +56,7 @@ export const CategoriesCarousel = ({
                   key={category.id}
                   href={`/categories/${category.slug}`}
                   name={category.name}
-                  count="100+ Products"
+                  count={t("categoryProductCount", { count: "100+" })}
                   image={`https://picsum.photos/100?random=${index * 2 + catIndex}`}
                 />
               ))}

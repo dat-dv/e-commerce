@@ -29,7 +29,17 @@
       }
     },
     "sections": {
-      "flashSale": "Flash Sale"
+      "flashSale": "Flash Sale",
+      "categories": "Danh Mục",
+      "categoryProductCount": "{count} sản phẩm"
+    },
+    "liveState": {
+      "title": "Đồng bộ hệ thống",
+      "themeLabel": "Giao diện:",
+      "modeLabel": "Chế độ:",
+      "dark": "TỐI",
+      "light": "SÁNG",
+      "description": "Trải nghiệm đồng bộ thời gian thực mượt mà."
     },
     "discovery": {
       "recentViewed": "Đã xem gần đây",

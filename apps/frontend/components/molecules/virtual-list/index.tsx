@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
+import { useTranslations } from "next-intl";
 
 export interface VirtualListProps<T extends { id?: string | number }> {
   data: T[];
@@ -25,12 +26,15 @@ export function VirtualList<T extends { id?: string | number }>({
   loadingMore,
   hasMore,
   onLoadMore,
-  loadingText = "Loading more...",
-  endText = "End of list",
+  loadingText,
+  endText,
   className = "space-y-8",
   itemClassName = "pb-8",
   triggerMargin = "300px", // Standard list margin
 }: VirtualListProps<T>) {
+  const t = useTranslations("Common.virtualized");
+  const displayLoadingText = loadingText ?? t("loadingMore");
+  const displayEndText = endText ?? t("endOfList");
   const sentinelRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sentinelRef, {
     margin: triggerMargin,
@@ -83,7 +87,7 @@ export function VirtualList<T extends { id?: string | number }>({
           <div className="flex flex-col items-center gap-3 py-6">
             <div className="w-5 h-5 border-2 border-primary/10 border-t-primary rounded-full animate-spin" />
             <span className="text-sm font-medium text-content/50">
-              {loadingText}
+              {displayLoadingText}
             </span>
           </div>
         ) : hasMore ? (
@@ -92,7 +96,7 @@ export function VirtualList<T extends { id?: string | number }>({
           <div className="py-6 flex items-center gap-4 w-full px-4">
             <div className="h-px flex-1 bg-content/[0.05]" />
             <span className="text-sm font-medium text-content/40 whitespace-nowrap">
-              {endText}
+              {displayEndText}
             </span>
             <div className="h-px flex-1 bg-content/[0.05]" />
           </div>

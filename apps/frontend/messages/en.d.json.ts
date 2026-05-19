@@ -80,6 +80,29 @@ declare const messages: {
       loadingMore: "Loading more brands...";
       end: "All brands loaded";
     };
+    card: {
+      productCount: "{count, plural, =1 {1 Product} other {# Products}}";
+      viewArchive: "View Archive";
+    };
+    detail: {
+      story: {
+        eyebrow: "The Heritage";
+        title: "Crafting";
+        highlight: "Tomorrow";
+        fallbackQuote: "Leading the industry with innovation and world-class design standards.";
+        overviewTitle: "Overview";
+        overviewDescription: "Established with a vision to redefine the boundaries of technology and lifestyle, {brand} has consistently delivered excellence across its global portfolio.";
+        philosophyTitle: "Philosophy";
+        philosophyDescription: "At the core of {brand} lies a commitment to precision engineering and a deep understanding of the modern consumer's evolving needs.";
+        imageAlt: "Philosophy image";
+        imageCaption: "Iconic Series";
+        closingDescription: "From its humble beginnings to its current status as a global leader, {brand} continues to push the limits of what's possible, merging aesthetics with high-performance functionality in every product they create.";
+      };
+      products: {
+        archive: "Archive";
+        description: "Experience the pinnacle of craftsmanship through our curated selection of {brand} products.";
+      };
+    };
     empty: {
       title: "No brands found";
       description: 'We couldn\'t find any brands matching "{query}". Try adjusting your search query.';
@@ -378,6 +401,30 @@ declare const messages: {
       title: "Our";
       highlight: "Products";
       description: "Explore our curated collection of premium products.";
+    };
+    productCard: {
+      noImage: "No Image";
+    };
+    virtualized: {
+      loadingMore: "Loading more...";
+      allItemsLoaded: "All items loaded";
+      endOfList: "End of list";
+    };
+    modal: {
+      close: "Close";
+    };
+    avatarInput: {
+      changeAvatar: "Change avatar";
+      change: "Change";
+    };
+    dateInput: {
+      today: "Today";
+    };
+    regionSelector: {
+      title: "Select Your Region";
+      description: "Please select your country/region to continue. This will help us customize your experience.";
+      available: "Available";
+      comingSoon: "Coming Soon";
     };
   };
   FavoritesPage: {
@@ -817,6 +864,16 @@ declare const messages: {
     };
     sections: {
       flashSale: "Flash Sale";
+      categories: "Categories";
+      categoryProductCount: "{count} Products";
+    };
+    liveState: {
+      title: "System Sync";
+      themeLabel: "Theme:";
+      modeLabel: "Mode:";
+      dark: "DARK";
+      light: "LIGHT";
+      description: "Experience seamless real-time synchronization.";
     };
     discovery: {
       recentViewed: "Recently Viewed";

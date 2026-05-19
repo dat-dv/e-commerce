@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Camera } from "lucide-react";
+import { useTranslations } from "next-intl";
 import React, { useRef, useState } from "react";
 
 import Avatar from "@/components/atoms/avatar";
@@ -22,6 +23,7 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
   size = 160,
   disabled = false,
 }) => {
+  const t = useTranslations("Common.avatarInput");
   const fileRef = useRef<HTMLInputElement>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showCropper, setShowCropper] = useState(false);
@@ -75,11 +77,11 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
               type="button"
               className="absolute inset-0 rounded-full bg-black/50 flex flex-col items-center justify-center gap-1 cursor-pointer z-10 opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300"
               onClick={() => fileRef.current?.click()}
-              aria-label="Change avatar"
+              aria-label={t("changeAvatar")}
             >
               <Camera className="w-7 h-7 text-white" />
               <span className="text-[10px] font-bold text-white uppercase tracking-widest">
-                Change
+                {t("change")}
               </span>
             </button>
 

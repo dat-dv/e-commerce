@@ -2,11 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
 import { XIcon } from "@/components/atoms/icons";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
+  const t = useTranslations("Common.modal");
   const router = useRouter();
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +31,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
           size="icon"
           onClick={() => router.back()}
           className="absolute right-6 top-6"
-          aria-label="Close"
+          aria-label={t("close")}
         >
           <XIcon />
         </Button>

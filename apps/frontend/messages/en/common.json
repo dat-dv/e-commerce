@@ -132,6 +132,30 @@
       "title": "Our",
       "highlight": "Products",
       "description": "Explore our curated collection of premium products."
+    },
+    "productCard": {
+      "noImage": "No Image"
+    },
+    "virtualized": {
+      "loadingMore": "Loading more...",
+      "allItemsLoaded": "All items loaded",
+      "endOfList": "End of list"
+    },
+    "modal": {
+      "close": "Close"
+    },
+    "avatarInput": {
+      "changeAvatar": "Change avatar",
+      "change": "Change"
+    },
+    "dateInput": {
+      "today": "Today"
+    },
+    "regionSelector": {
+      "title": "Select Your Region",
+      "description": "Please select your country/region to continue. This will help us customize your experience.",
+      "available": "Available",
+      "comingSoon": "Coming Soon"
     }
   }
 }

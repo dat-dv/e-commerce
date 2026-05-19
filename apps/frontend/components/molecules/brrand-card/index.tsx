@@ -4,6 +4,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 export const BrandCard = ({
@@ -15,6 +16,7 @@ export const BrandCard = ({
   isLarge: boolean;
   index: number;
 }) => {
+  const t = useTranslations("BrandsPage.card");
   const [imgError, setImgError] = React.useState(false);
 
   return (
@@ -71,7 +73,7 @@ export const BrandCard = ({
 
             <div className="px-3 py-1 rounded-full bg-content/[0.03] border border-content/[0.05] backdrop-blur-md">
               <span className="text-[10px] font-bold text-content/40 uppercase tracking-widest">
-                {brand.productCount || 0} Products
+                {t("productCount", { count: brand.productCount || 0 })}
               </span>
             </div>
           </div>
@@ -94,7 +96,7 @@ export const BrandCard = ({
             )}
 
             <div className="flex items-center gap-2 text-primary font-bold text-[11px] uppercase tracking-[0.2em] mt-4">
-              <span>View Archive</span>
+              <span>{t("viewArchive")}</span>
               <div className="w-8 h-[1px] bg-primary/30 group-hover:w-12 transition-all duration-500" />
             </div>
           </div>

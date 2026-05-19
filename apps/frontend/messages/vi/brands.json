@@ -16,6 +16,29 @@
       "loadingMore": "Đang tải thêm thương hiệu...",
       "end": "Đã tải hết thương hiệu"
     },
+    "card": {
+      "productCount": "{count, plural, other {# sản phẩm}}",
+      "viewArchive": "Xem bộ sưu tập"
+    },
+    "detail": {
+      "story": {
+        "eyebrow": "Di sản thương hiệu",
+        "title": "Kiến tạo",
+        "highlight": "Tương lai",
+        "fallbackQuote": "Dẫn đầu ngành bằng đổi mới và tiêu chuẩn thiết kế đẳng cấp thế giới.",
+        "overviewTitle": "Tổng quan",
+        "overviewDescription": "Được xây dựng với tầm nhìn tái định nghĩa ranh giới giữa công nghệ và phong cách sống, {brand} luôn mang đến sự xuất sắc trên danh mục toàn cầu.",
+        "philosophyTitle": "Triết lý",
+        "philosophyDescription": "Cốt lõi của {brand} là cam kết về kỹ thuật chính xác và sự thấu hiểu sâu sắc nhu cầu đang thay đổi của người tiêu dùng hiện đại.",
+        "imageAlt": "Hình ảnh triết lý thương hiệu",
+        "imageCaption": "Dòng sản phẩm biểu tượng",
+        "closingDescription": "Từ những ngày đầu khiêm tốn đến vị thế dẫn đầu toàn cầu hiện tại, {brand} tiếp tục mở rộng giới hạn có thể, kết hợp thẩm mỹ với hiệu năng cao trong từng sản phẩm."
+      },
+      "products": {
+        "archive": "Bộ sưu tập",
+        "description": "Trải nghiệm tinh hoa chế tác qua tuyển chọn sản phẩm {brand} của chúng tôi."
+      }
+    },
     "empty": {
       "title": "Không tìm thấy thương hiệu",
       "description": "Không có thương hiệu nào khớp với \"{query}\". Hãy thử từ khóa khác."

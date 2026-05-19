@@ -132,6 +132,30 @@
       "title": "Sản phẩm",
       "highlight": "của chúng tôi",
       "description": "Khám phá bộ sưu tập sản phẩm cao cấp được tuyển chọn."
+    },
+    "productCard": {
+      "noImage": "Không có ảnh"
+    },
+    "virtualized": {
+      "loadingMore": "Đang tải thêm...",
+      "allItemsLoaded": "Đã tải hết",
+      "endOfList": "Đã hết danh sách"
+    },
+    "modal": {
+      "close": "Đóng"
+    },
+    "avatarInput": {
+      "changeAvatar": "Đổi ảnh đại diện",
+      "change": "Đổi"
+    },
+    "dateInput": {
+      "today": "Hôm nay"
+    },
+    "regionSelector": {
+      "title": "Chọn khu vực của bạn",
+      "description": "Vui lòng chọn quốc gia/khu vực để tiếp tục. Thông tin này giúp chúng tôi cá nhân hóa trải nghiệm của bạn.",
+      "available": "Khả dụng",
+      "comingSoon": "Sắp ra mắt"
     }
   }
 }

@@ -29,7 +29,17 @@
       }
     },
     "sections": {
-      "flashSale": "Flash Sale"
+      "flashSale": "Flash Sale",
+      "categories": "Categories",
+      "categoryProductCount": "{count} Products"
+    },
+    "liveState": {
+      "title": "System Sync",
+      "themeLabel": "Theme:",
+      "modeLabel": "Mode:",
+      "dark": "DARK",
+      "light": "LIGHT",
+      "description": "Experience seamless real-time synchronization."
     },
     "discovery": {
       "recentViewed": "Recently Viewed",

@@ -2,8 +2,11 @@
 
 import { aseanCountries } from "@/constants/countries";
 import { cn } from "@/utils/cn";
+import { useTranslations } from "next-intl";
 
 export function RegionSelectorView() {
+  const t = useTranslations("Common.regionSelector");
+
   const handleSelect = (country: {
     code: string;
     language: string;
@@ -16,13 +19,8 @@ export function RegionSelectorView() {
     <div className="flex items-center justify-center min-h-screen bg-background p-4">
       <div className="mx-auto max-w-2xl w-full rounded-3xl bg-surface p-8 shadow-2xl border border-content/5 backdrop-blur-xl">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-content mb-2">
-            Select Your Region
-          </h1>
-          <p className="text-content/60">
-            Please select your country/region to continue. This will help us
-            customize your experience.
-          </p>
+          <h1 className="text-3xl font-bold text-content mb-2">{t("title")}</h1>
+          <p className="text-content/60">{t("description")}</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -42,7 +40,7 @@ export function RegionSelectorView() {
               <div className="text-left">
                 <p className="font-medium text-content">{country.name}</p>
                 <p className="text-xs text-content/50">
-                  {country.disabled ? "Available" : "Coming Soon"}
+                  {country.disabled ? t("available") : t("comingSoon")}
                 </p>
               </div>
             </button>

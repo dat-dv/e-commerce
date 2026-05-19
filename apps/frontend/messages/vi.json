@@ -77,6 +77,29 @@
       "loadingMore": "Đang tải thêm thương hiệu...",
       "end": "Đã tải hết thương hiệu"
     },
+    "card": {
+      "productCount": "{count, plural, other {# sản phẩm}}",
+      "viewArchive": "Xem bộ sưu tập"
+    },
+    "detail": {
+      "story": {
+        "eyebrow": "Di sản thương hiệu",
+        "title": "Kiến tạo",
+        "highlight": "Tương lai",
+        "fallbackQuote": "Dẫn đầu ngành bằng đổi mới và tiêu chuẩn thiết kế đẳng cấp thế giới.",
+        "overviewTitle": "Tổng quan",
+        "overviewDescription": "Được xây dựng với tầm nhìn tái định nghĩa ranh giới giữa công nghệ và phong cách sống, {brand} luôn mang đến sự xuất sắc trên danh mục toàn cầu.",
+        "philosophyTitle": "Triết lý",
+        "philosophyDescription": "Cốt lõi của {brand} là cam kết về kỹ thuật chính xác và sự thấu hiểu sâu sắc nhu cầu đang thay đổi của người tiêu dùng hiện đại.",
+        "imageAlt": "Hình ảnh triết lý thương hiệu",
+        "imageCaption": "Dòng sản phẩm biểu tượng",
+        "closingDescription": "Từ những ngày đầu khiêm tốn đến vị thế dẫn đầu toàn cầu hiện tại, {brand} tiếp tục mở rộng giới hạn có thể, kết hợp thẩm mỹ với hiệu năng cao trong từng sản phẩm."
+      },
+      "products": {
+        "archive": "Bộ sưu tập",
+        "description": "Trải nghiệm tinh hoa chế tác qua tuyển chọn sản phẩm {brand} của chúng tôi."
+      }
+    },
     "empty": {
       "title": "Không tìm thấy thương hiệu",
       "description": "Không có thương hiệu nào khớp với \"{query}\". Hãy thử từ khóa khác."
@@ -375,6 +398,30 @@
       "title": "Sản phẩm",
       "highlight": "của chúng tôi",
       "description": "Khám phá bộ sưu tập sản phẩm cao cấp được tuyển chọn."
+    },
+    "productCard": {
+      "noImage": "Không có ảnh"
+    },
+    "virtualized": {
+      "loadingMore": "Đang tải thêm...",
+      "allItemsLoaded": "Đã tải hết",
+      "endOfList": "Đã hết danh sách"
+    },
+    "modal": {
+      "close": "Đóng"
+    },
+    "avatarInput": {
+      "changeAvatar": "Đổi ảnh đại diện",
+      "change": "Đổi"
+    },
+    "dateInput": {
+      "today": "Hôm nay"
+    },
+    "regionSelector": {
+      "title": "Chọn khu vực của bạn",
+      "description": "Vui lòng chọn quốc gia/khu vực để tiếp tục. Thông tin này giúp chúng tôi cá nhân hóa trải nghiệm của bạn.",
+      "available": "Khả dụng",
+      "comingSoon": "Sắp ra mắt"
     }
   },
   "FavoritesPage": {
@@ -843,7 +890,17 @@
       }
     },
     "sections": {
-      "flashSale": "Flash Sale"
+      "flashSale": "Flash Sale",
+      "categories": "Danh Mục",
+      "categoryProductCount": "{count} sản phẩm"
+    },
+    "liveState": {
+      "title": "Đồng bộ hệ thống",
+      "themeLabel": "Giao diện:",
+      "modeLabel": "Chế độ:",
+      "dark": "TỐI",
+      "light": "SÁNG",
+      "description": "Trải nghiệm đồng bộ thời gian thực mượt mà."
     },
     "discovery": {
       "recentViewed": "Đã xem gần đây",
