@@ -12,8 +12,11 @@ import { toast } from "react-toastify";
 import { CALLBACK_URL_KEY } from "@/constants/routes";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
+import { useTranslations } from "next-intl";
 
 export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
+  const t = useTranslations("FlashSalePage.card");
+  const tCart = useTranslations("CartPage.toasts");
   const addItem = useAddToCart();
   const sku = product.skus[0];
 
@@ -24,7 +27,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
     e.preventDefault(); // Prevent navigating to product detail
 
     if (!user) {
-      toast.info("Please sign in to add items to cart");
+      toast.info(tCart("signInRequired"));
       const productDetailUrl = APP_ROUTES.PRODUCT_DETAIL(product.slug);
       const callbackUrl = encodeURIComponent(productDetailUrl);
       router.push(`${APP_ROUTES.SIGN_IN}?${CALLBACK_URL_KEY}=${callbackUrl}`);
@@ -41,11 +44,11 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
         name: product.name,
         price: isNaN(priceNumber) ? 0 : priceNumber,
         imageUrl: product.imageUrl || sku?.imageUrl || "",
-        attributes: "Flash Sale",
+        attributes: t("badge"),
       },
       1,
     );
-    toast.success("Added to cart");
+    toast.success(tCart("addSuccess"));
   };
 
   const currentPriceNum = sku?.price || 0;
@@ -66,7 +69,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
 
   const badgeText =
     product.brand?.name ||
-    (product.category !== "General" ? product.category : "Flash Sale");
+    (product.category !== "General" ? product.category : t("badge"));
 
   return (
     <div className="group relative flex h-full flex-col bg-content/[0.02] border border-red-500/10 rounded-2xl p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5">
@@ -81,7 +84,9 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
             className="object-contain transition-transform duration-500"
           />
         ) : (
-          <div className="text-content/20 text-xs font-semibold">No Image</div>
+          <div className="text-content/20 text-xs font-semibold">
+            {t("noImage")}
+          </div>
         )}
 
         {/* Badges */}
@@ -92,7 +97,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
         </div>
 
         <div className="absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-red-500 backdrop-blur-md">
-          Sale
+          {t("sale")}
         </div>
 
         {/* Action Overlay */}
@@ -100,16 +105,16 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
             className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:bg-white/90 transition-all"
-            title="View Details"
+            title={t("viewDetails")}
           >
-            <Eye size={18} />
+            <Eye size={18} aria-hidden />
           </Link>
           <button
             onClick={handleAddToCart}
             className="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-all shadow-lg active:scale-90"
-            title="Add to Cart"
+            title={t("addToCart")}
           >
-            <ShoppingBag size={18} />
+            <ShoppingBag size={18} aria-hidden />
           </button>
         </div>
       </div>
@@ -138,10 +143,10 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           </div>
           <div className="flex justify-between items-center mt-1.5">
             <span className="text-[10px] font-bold text-content/60">
-              Sold {soldCount}
+              {t("sold", { count: soldCount })}
             </span>
             <span className="text-[10px] font-bold text-content/40">
-              Left {stockLeft}
+              {t("left", { count: stockLeft })}
             </span>
           </div>
         </div>
@@ -161,8 +166,9 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           <button
             onClick={handleAddToCart}
             className="w-9 h-9 rounded-xl flex items-center justify-center text-red-500 hover:bg-red-500/10 transition-all lg:hidden border border-red-500/10"
+            title={t("addToCart")}
           >
-            <ShoppingBag size={18} />
+            <ShoppingBag size={18} aria-hidden />
           </button>
         </div>
       </div>

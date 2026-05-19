@@ -19,6 +19,15 @@
         "title": "No flash sale products found",
         "description": "There are no flash sale products available at the moment."
       }
+    },
+    "card": {
+      "badge": "Flash Sale",
+      "noImage": "No Image",
+      "sale": "Sale",
+      "viewDetails": "View Details",
+      "addToCart": "Add to Cart",
+      "sold": "Sold {count}",
+      "left": "Left {count}"
     }
   }
 }

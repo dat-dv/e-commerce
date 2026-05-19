@@ -65,6 +65,7 @@
     },
     "toasts": {
       "signInRequired": "Please sign in to add items to cart",
+      "addSuccess": "Added to cart",
       "addFailed": "Failed to add to cart",
       "clearFailed": "Failed to clear cart",
       "removeFailed": "Failed to remove item",

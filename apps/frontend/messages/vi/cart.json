@@ -65,6 +65,7 @@
     },
     "toasts": {
       "signInRequired": "Vui lòng đăng nhập để thêm vào giỏ",
+      "addSuccess": "Đã thêm vào giỏ",
       "addFailed": "Không thể thêm vào giỏ",
       "clearFailed": "Không thể xóa giỏ hàng",
       "removeFailed": "Không thể xóa sản phẩm",

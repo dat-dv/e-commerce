@@ -19,6 +19,15 @@
         "title": "Chưa có sản phẩm flash sale",
         "description": "Hiện chưa có sản phẩm flash sale."
       }
+    },
+    "card": {
+      "badge": "Flash Sale",
+      "noImage": "Không có ảnh",
+      "sale": "Sale",
+      "viewDetails": "Xem chi tiết",
+      "addToCart": "Thêm vào giỏ",
+      "sold": "Đã bán {count}",
+      "left": "Còn {count}"
     }
   }
 }
