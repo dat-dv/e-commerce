@@ -11,6 +11,36 @@
         "priceLowToHigh": "Giá: Từ thấp đến cao",
         "priceHighToLow": "Giá: Từ cao đến thấp"
       }
+    },
+    "header": {
+      "settings": "Cài đặt",
+      "signIn": "Đăng nhập",
+      "signUp": "Đăng ký",
+      "favorites": "Yêu thích",
+      "cart": "Giỏ hàng",
+      "nav": {
+        "home": "Trang chủ",
+        "categories": "Danh mục",
+        "newArrivals": "Hàng mới",
+        "flashSale": "Khuyến mãi",
+        "brands": "Thương hiệu"
+      }
+    },
+    "footer": {
+      "categories": "Danh mục",
+      "support": "Hỗ trợ",
+      "legal": "Pháp lý",
+      "poweredBy": "Phát triển bởi",
+      "allProducts": "Tất cả sản phẩm",
+      "featured": "Nổi bật",
+      "newArrivals": "Hàng mới về",
+      "helpCenter": "Trung tâm trợ giúp",
+      "contactUs": "Liên hệ",
+      "faqs": "Hỏi đáp (FAQs)",
+      "shipping": "Vận chuyển",
+      "privacyPolicy": "Chính sách bảo mật",
+      "termsOfService": "Điều khoản dịch vụ",
+      "rightsReserved": "Bảo lưu mọi quyền."
     }
   }
 }

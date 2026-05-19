@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { APP_ROUTES } from "@/constants/routes";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const pathname = usePathname();
+  const t = useTranslations("Common.footer");
 
   const getLinkClass = (href: string) => {
     return `hover:text-primary cursor-pointer transition-colors ${
@@ -16,27 +18,27 @@ export default function Footer() {
 
   const FOOTER_SECTIONS = [
     {
-      title: "Categories",
+      title: t("categories"),
       links: [
-        { label: "All Products", href: APP_ROUTES.SEARCH },
-        { label: "Featured", href: APP_ROUTES.PRODUCTS },
-        { label: "New Arrivals", href: APP_ROUTES.NEW_ARRIVALS },
+        { label: t("allProducts"), href: APP_ROUTES.SEARCH },
+        { label: t("featured"), href: APP_ROUTES.PRODUCTS },
+        { label: t("newArrivals"), href: APP_ROUTES.NEW_ARRIVALS },
       ],
     },
     {
-      title: "Support",
+      title: t("support"),
       links: [
-        { label: "Help Center", href: APP_ROUTES.HELP },
-        { label: "Contact Us", href: APP_ROUTES.CONTACT },
-        { label: "FAQs", href: APP_ROUTES.FAQ },
-        { label: "Shipping", href: APP_ROUTES.SHIPPING },
+        { label: t("helpCenter"), href: APP_ROUTES.HELP },
+        { label: t("contactUs"), href: APP_ROUTES.CONTACT },
+        { label: t("faqs"), href: APP_ROUTES.FAQ },
+        { label: t("shipping"), href: APP_ROUTES.SHIPPING },
       ],
     },
     {
-      title: "Legal",
+      title: t("legal"),
       links: [
-        { label: "Privacy Policy", href: APP_ROUTES.PRIVACY },
-        { label: "Terms of Service", href: APP_ROUTES.TERMS },
+        { label: t("privacyPolicy"), href: APP_ROUTES.PRIVACY },
+        { label: t("termsOfService"), href: APP_ROUTES.TERMS },
       ],
     },
   ];
@@ -60,12 +62,12 @@ export default function Footer() {
         ))}
 
         <div>
-          <h3 className="font-bold text-content mb-3">Powered by</h3>
+          <h3 className="font-bold text-content mb-3">{t("poweredBy")}</h3>
           <p className="font-medium text-primary">datdoan.dev@gmail.com</p>
         </div>
       </div>
       <div className="mt-10 pt-6 border-t border-content/5 text-center text-xs text-content/40">
-        © {new Date().getFullYear()} Shop.hub. All rights reserved.
+        © {new Date().getFullYear()} Shop.hub. {t("rightsReserved")}
       </div>
     </footer>
   );

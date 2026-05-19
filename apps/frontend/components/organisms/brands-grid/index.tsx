@@ -53,7 +53,7 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
   });
 
   return (
-    <AppContainer className="flex flex-col gap-12 py-12">
+    <AppContainer className="flex flex-col gap-12 pb-12">
       <BrandsHeader />
 
       {/* Premium Search Bar Container */}

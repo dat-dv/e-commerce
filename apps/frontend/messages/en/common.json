@@ -11,6 +11,36 @@
         "priceLowToHigh": "Price: Low to High",
         "priceHighToLow": "Price: High to Low"
       }
+    },
+    "header": {
+      "settings": "Settings",
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "favorites": "Wishlist",
+      "cart": "Shopping Cart",
+      "nav": {
+        "home": "Home",
+        "categories": "Categories",
+        "newArrivals": "New Arrivals",
+        "flashSale": "Flash Sale",
+        "brands": "Brands"
+      }
+    },
+    "footer": {
+      "categories": "Categories",
+      "support": "Support",
+      "legal": "Legal",
+      "poweredBy": "Powered by",
+      "allProducts": "All Products",
+      "featured": "Featured",
+      "newArrivals": "New Arrivals",
+      "helpCenter": "Help Center",
+      "contactUs": "Contact Us",
+      "faqs": "FAQs",
+      "shipping": "Shipping",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "rightsReserved": "All rights reserved."
     }
   }
 }

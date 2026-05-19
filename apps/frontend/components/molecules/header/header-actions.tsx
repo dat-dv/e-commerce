@@ -10,11 +10,13 @@ import { ShoppingBag, Heart } from "lucide-react";
 import { useCart } from "@/hooks/cart/use-cart";
 import { NotificationCenter } from "@/components/organisms/notifications/notification-center";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function HeaderActions() {
   const user = useAuthStore((store) => store.user);
   const { handleClickLogout } = useLogout();
   const { setIsOpen, itemsCount } = useCart();
+  const t = useTranslations("Common.header");
 
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">
@@ -27,7 +29,7 @@ export default function HeaderActions() {
               href={APP_ROUTES.SIGN_IN}
               className="hidden sm:flex h-9 px-4 text-sm md:h-10 md:px-4 md:text-sm"
             >
-              Sign In
+              {t("signIn")}
             </Button>
             <Button
               variant="primary"
@@ -35,7 +37,7 @@ export default function HeaderActions() {
               className="h-9 px-4 text-sm md:h-10 md:px-4 md:text-sm"
               href={APP_ROUTES.SIGN_UP}
             >
-              Sign Up
+              {t("signUp")}
             </Button>
           </>
         }
@@ -43,14 +45,14 @@ export default function HeaderActions() {
         <Link
           href={APP_ROUTES.FAVORITES}
           className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
-          title="Yêu thích"
+          title={t("favorites")}
         >
           <Heart size={20} />
         </Link>
         <button
           onClick={() => setIsOpen(true)}
           className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center"
-          title="Giỏ hàng"
+          title={t("cart")}
         >
           <ShoppingBag size={20} />
           {itemsCount > 0 && (

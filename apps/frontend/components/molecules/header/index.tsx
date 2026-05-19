@@ -13,10 +13,12 @@ import { CategoryMegaMenuContentWrapper } from "../categories-dropdown";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Header() {
   const { setIsOpenCategory, isOpenCategory } = useHeaderStore();
   const headerRef = useRef<HTMLElement>(null);
+  const t = useTranslations("Common.header");
 
   useClickOutside(
     headerRef,
@@ -45,7 +47,7 @@ export default function Header() {
           <Link
             href={APP_ROUTES.SETTINGS}
             className="w-10 h-10 flex items-center justify-center text-content/60 hover:text-content hover:bg-content/5 rounded-full transition-colors"
-            title="Settings"
+            title={t("settings")}
           >
             <Settings size={20} />
           </Link>
