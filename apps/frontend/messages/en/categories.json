@@ -1,0 +1,39 @@
+{
+  "CategoriesPage": {
+    "metadata": {
+      "title": "Categories",
+      "description": "Browse all product categories."
+    },
+    "header": {
+      "allTitle": "All Categories",
+      "allDescription": "Explore all product categories.",
+      "categoryDescription": "Explore quality products in {category}."
+    },
+    "content": {
+      "eyebrow": "Browse",
+      "title": "Discover Categories",
+      "description": "Explore collections and find what fits your needs.",
+      "count": "{count, plural, one {# category} other {# categories}}",
+      "childCount": "{count, plural, one {# category} other {# categories}}"
+    },
+    "sidebar": {
+      "title": "Categories",
+      "description": "Browse by collection",
+      "searchPlaceholder": "Search categories",
+      "clearSearch": "Clear category search",
+      "allCategories": "All Categories",
+      "empty": "No categories found",
+      "expand": "Expand {category}",
+      "collapse": "Collapse {category}"
+    }
+  },
+  "CategoryDetailPage": {
+    "metadata": {
+      "title": "Products - {category}",
+      "description": "Explore products in {category}."
+    },
+    "fallbackTitle": "Products",
+    "description": "Explore our best {category}. Selected for quality, price, and availability.",
+    "searchPlaceholder": "Search {category}"
+  }
+}

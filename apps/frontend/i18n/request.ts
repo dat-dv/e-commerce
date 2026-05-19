@@ -1,11 +1,8 @@
 import { getRequestConfig } from "next-intl/server";
-import { headers } from "next/headers";
-import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
+import { getServerSubdomain } from "@/utils/sub-domain/get-server-sub-domain";
 
 export default getRequestConfig(async () => {
-  const headerStore = await headers();
-  const host = headerStore.get("host") ?? undefined;
-  const locale = getSubdomainByHostname(host);
+  const locale = await getServerSubdomain();
 
   const res = await Promise.all([
     import(`../messages/${locale}/auth.json`),
@@ -22,6 +19,7 @@ export default getRequestConfig(async () => {
     import(`../messages/${locale}/new-arrivals.json`),
     import(`../messages/${locale}/flash-sale.json`),
     import(`../messages/${locale}/brands.json`),
+    import(`../messages/${locale}/categories.json`),
   ]);
 
   const messages = res.reduce((acc, item) => {

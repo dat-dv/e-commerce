@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 import NotFound from "@/app/not-found";
 import { CategoryDetailView } from "@/components/organisms/category-detail-view";
@@ -64,10 +65,11 @@ export async function generateMetadata({
   params,
 }: ProductsPageProps): Promise<Metadata> {
   const { slug } = await params;
+  const t = await getTranslations("CategoryDetailPage.metadata");
 
   return {
-    title: `Products - ${slug}`,
-    description: `Explore our collection of products in ${slug}.`,
+    title: t("title", { category: slug }),
+    description: t("description", { category: slug }),
   };
 }
 

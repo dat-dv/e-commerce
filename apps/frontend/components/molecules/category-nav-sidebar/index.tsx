@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown, FolderTree, Search, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import {
   Button as AriaButton,
@@ -63,6 +64,7 @@ function CategoryTreeItem({
   forceExpanded,
   onSelect,
 }: ICategoryTreeItemProps) {
+  const t = useTranslations("CategoriesPage.sidebar");
   const hasChildren = Boolean(category.children?.length);
   const isActive = category.id === activeId;
   const isActiveBranch = categoryHasActiveId(category, activeId);
@@ -126,8 +128,8 @@ function CategoryTreeItem({
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-content/35 outline-none transition-colors hover:bg-content/[0.05] hover:text-content focus-visible:ring-2 focus-visible:ring-primary/30"
               aria-label={
                 isDisclosureExpanded
-                  ? `Collapse ${category.name}`
-                  : `Expand ${category.name}`
+                  ? t("collapse", { category: category.name })
+                  : t("expand", { category: category.name })
               }
             >
               <ChevronDown
@@ -164,6 +166,7 @@ export const CategoryNavSidebar = ({
   activeId,
   setActiveId,
 }: ICategoryNavSidebarProps) => {
+  const t = useTranslations("CategoriesPage.sidebar");
   const [search, setSearch] = useState("");
 
   const filteredCategories = useMemo(
@@ -178,15 +181,15 @@ export const CategoryNavSidebar = ({
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <FolderTree size={17} strokeWidth={2} />
+              <FolderTree size={17} strokeWidth={2} aria-hidden />
             </div>
 
             <div>
               <h2 className="text-lg font-black tracking-tight text-content">
-                Categories
+                {t("title")}
               </h2>
               <p className="text-xs font-medium text-content/35">
-                Browse by collection
+                {t("description")}
               </p>
             </div>
           </div>
@@ -195,10 +198,11 @@ export const CategoryNavSidebar = ({
             <Search
               size={16}
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-content/25"
+              aria-hidden
             />
 
             <Input
-              placeholder="Search categories"
+              placeholder={t("searchPlaceholder")}
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               className="h-11 rounded-xl border-content/[0.06] bg-content/[0.02] pl-10 pr-10 text-sm"
@@ -209,9 +213,9 @@ export const CategoryNavSidebar = ({
                 type="button"
                 onClick={() => setSearch("")}
                 className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg text-content/30 transition-colors hover:bg-content/[0.06] hover:text-content"
-                aria-label="Clear category search"
+                aria-label={t("clearSearch")}
               >
-                <X className="h-4 w-4" />
+                <X className="h-4 w-4" aria-hidden />
               </button>
             ) : null}
           </div>
@@ -245,7 +249,7 @@ export const CategoryNavSidebar = ({
                 )}
               />
               <span className="relative z-10 truncate text-sm font-semibold">
-                All Categories
+                {t("allCategories")}
               </span>
             </button>
 
@@ -263,7 +267,7 @@ export const CategoryNavSidebar = ({
             {filteredCategories.length === 0 ? (
               <div className="rounded-xl bg-content/[0.03] px-4 py-8 text-center">
                 <p className="text-sm font-medium text-content/35">
-                  No categories found
+                  {t("empty")}
                 </p>
               </div>
             ) : null}

@@ -1,0 +1,39 @@
+{
+  "CategoriesPage": {
+    "metadata": {
+      "title": "Danh mục",
+      "description": "Khám phá tất cả danh mục sản phẩm."
+    },
+    "header": {
+      "allTitle": "Tất cả danh mục",
+      "allDescription": "Khám phá tất cả danh mục sản phẩm.",
+      "categoryDescription": "Khám phá sản phẩm chất lượng trong {category}."
+    },
+    "content": {
+      "eyebrow": "Duyệt",
+      "title": "Khám phá danh mục",
+      "description": "Tìm bộ sưu tập phù hợp với nhu cầu của bạn.",
+      "count": "{count} danh mục",
+      "childCount": "{count} danh mục"
+    },
+    "sidebar": {
+      "title": "Danh mục",
+      "description": "Duyệt theo bộ sưu tập",
+      "searchPlaceholder": "Tìm danh mục",
+      "clearSearch": "Xóa tìm kiếm danh mục",
+      "allCategories": "Tất cả danh mục",
+      "empty": "Không tìm thấy danh mục",
+      "expand": "Mở {category}",
+      "collapse": "Thu gọn {category}"
+    }
+  },
+  "CategoryDetailPage": {
+    "metadata": {
+      "title": "Sản phẩm - {category}",
+      "description": "Khám phá sản phẩm trong {category}."
+    },
+    "fallbackTitle": "Sản phẩm",
+    "description": "Khám phá sản phẩm {category} nổi bật, chọn lọc theo chất lượng, giá và tình trạng hàng.",
+    "searchPlaceholder": "Tìm {category}"
+  }
+}

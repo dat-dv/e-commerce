@@ -4,6 +4,7 @@ import { TCategory } from "@/domain/categories/types/categories.model";
 import { motion, AnimatePresence } from "framer-motion";
 import { CategoryCard } from "@/components/molecules/category-card";
 import { Grid2X2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface CategoriesContentProps {
   categories: TCategory[];
@@ -14,6 +15,8 @@ export const CategoriesContent = ({
   categories,
   activeId,
 }: CategoriesContentProps) => {
+  const t = useTranslations("CategoriesPage.content");
+
   return (
     <div className="min-w-0 flex-1">
       <AnimatePresence mode="wait">
@@ -30,25 +33,25 @@ export const CategoriesContent = ({
               <div>
                 <div className="mb-3 flex items-center gap-3">
                   <div className="flex size-9 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Grid2X2 size={16} strokeWidth={2.2} />
+                    <Grid2X2 size={16} strokeWidth={2.2} aria-hidden />
                   </div>
 
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-primary/80">
-                    Browse
+                    {t("eyebrow")}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-black tracking-tight text-content">
-                  Discover Categories
+                  {t("title")}
                 </h3>
 
                 <p className="mt-1 text-sm font-medium text-content/40">
-                  Explore collections and find what fits your needs.
+                  {t("description")}
                 </p>
               </div>
 
               <div className="w-fit rounded-full border border-content/[0.05] bg-content/[0.02] px-4 py-2 text-xs font-bold text-content/40">
-                {categories.length} categories
+                {t("count", { count: categories.length })}
               </div>
             </div>
 
@@ -74,7 +77,9 @@ export const CategoriesContent = ({
                 >
                   <CategoryCard
                     name={child.name}
-                    count={`${child.children?.length || 0} Categories`}
+                    count={t("childCount", {
+                      count: child.children?.length || 0,
+                    })}
                     href={`/categories/${child.slug}`}
                     showCount={!!child?.children?.length}
                   />

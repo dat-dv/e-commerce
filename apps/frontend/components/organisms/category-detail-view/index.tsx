@@ -8,6 +8,7 @@ import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useShallow } from "zustand/react/shallow";
+import { useTranslations } from "next-intl";
 import {
   useCategoryProductsFilter,
   CategoryProductsFilterKey,
@@ -27,6 +28,7 @@ export function CategoryDetailView({
   totalProducts,
   totalPages,
 }: CategoryDetailViewProps) {
+  const t = useTranslations("CategoryDetailPage");
   const router = useRouter();
 
   const { categories, getCategoryNavigationContext } = useCategoriesStore(
@@ -56,7 +58,7 @@ export function CategoryDetailView({
   );
 
   const displayCategories = topCategory ? [topCategory] : categories;
-  const categoryTitle = activeCategory?.name || "Products";
+  const categoryTitle = activeCategory?.name || t("fallbackTitle");
 
   const navigateToCategory = (slug: string) => {
     const current = new URLSearchParams(window.location.search);
@@ -73,7 +75,7 @@ export function CategoryDetailView({
     <AppContainer size="2xl" className="py-16">
       <ProductsHeader
         title={categoryTitle}
-        description={`Explore our finest selection of ${categoryTitle}. Handpicked for quality, price, and availability.`}
+        description={t("description", { category: categoryTitle })}
       />
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
@@ -83,7 +85,9 @@ export function CategoryDetailView({
             onFilterChange={updateFilter}
             onCategoryChange={navigateToCategory}
             initialSearchValue={filterSearch}
-            searchPlaceholder={`Search ${categoryTitle}`}
+            searchPlaceholder={t("searchPlaceholder", {
+              category: categoryTitle,
+            })}
             onSearchSubmit={submitSearch}
             minPriceValue={filterMinPrice}
             maxPriceValue={filterMaxPrice}

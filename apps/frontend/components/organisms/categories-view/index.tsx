@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { CategoriesContent } from "./content";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
@@ -25,15 +26,16 @@ const findCategoryById = (
 };
 
 export const CategoriesView = () => {
+  const t = useTranslations("CategoriesPage.header");
   const categoriesTree = useCategoriesStore((s) => s.categories);
   const [activeId, setActiveId] = useState<string>("all");
 
   const activeCategory = findCategoryById(categoriesTree, activeId);
 
-  const title = activeCategory ? activeCategory.name : "All Categories";
+  const title = activeCategory ? activeCategory.name : t("allTitle");
   const description = activeCategory
-    ? `Explore our curated collection of high-quality products in ${activeCategory.name}.`
-    : "Explore all our product categories.";
+    ? t("categoryDescription", { category: activeCategory.name })
+    : t("allDescription");
   const categories = activeCategory
     ? activeCategory.children || []
     : categoriesTree;
