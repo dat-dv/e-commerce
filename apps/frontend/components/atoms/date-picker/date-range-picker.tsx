@@ -12,6 +12,9 @@ import {
   Label as RACLabel,
   Popover as RACPopover,
   Text as RACText,
+  Group as RACGroup,
+  I18nProvider,
+  useLocale,
   type DateRangePickerProps as AriaDateRangePickerProps,
   type RangeCalendarProps as AriaRangeCalendarProps,
   type DateRangePickerRenderProps,
@@ -110,70 +113,82 @@ export function DateRangePicker<T extends DateValue>({
   className,
   ...props
 }: IDateRangePickerProps<T>) {
+  const { locale } = useLocale();
+  const dateLocale = locale === "en" ? "en-GB" : locale;
+
   return (
-    <AriaDateRangePicker
-      {...props}
-      className={(renderProps) =>
-        cn(
-          "group flex flex-col gap-1.5 w-full font-sans",
-          typeof className === "function" ? className(renderProps) : className,
-        )
-      }
-    >
-      {({ isOpen, isInvalid, isDisabled }) => (
-        <>
-          {label && (
-            <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
-              {label}
-            </RACLabel>
-          )}
-          <div
-            className={cn(
-              "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
-              variantBase[variant],
-              isDisabled
-                ? variantDisabled[variant]
-                : isInvalid
-                  ? variantError[variant]
-                  : isOpen
-                    ? variantActive[variant]
-                    : variantNormal[variant],
+    <I18nProvider locale={dateLocale}>
+      <AriaDateRangePicker
+        {...props}
+        className={(renderProps) =>
+          cn(
+            "group flex flex-col gap-1.5 w-full font-sans",
+            typeof className === "function"
+              ? className(renderProps)
+              : className,
+          )
+        }
+      >
+        {({ isOpen, isInvalid, isDisabled }) => (
+          <>
+            {label && (
+              <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+                {label}
+              </RACLabel>
             )}
-          >
-            <div className="flex-1 flex items-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <DateInput
-                slot="start"
-                variant="none"
-                className="min-w-[110px]"
-              />
-              <span aria-hidden="true" className="text-content/40 px-1">
-                –
-              </span>
-              <DateInput slot="end" variant="none" className="min-w-[110px]" />
-            </div>
-            <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">
-              <CalendarIcon className="w-5 h-5" />
-            </RACButton>
-          </div>
-          {description && (
-            <RACText
-              slot="description"
-              className="text-xs text-content/65 ml-1"
+            <RACGroup
+              className={cn(
+                "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
+                variantBase[variant],
+                isDisabled
+                  ? variantDisabled[variant]
+                  : isInvalid
+                    ? variantError[variant]
+                    : isOpen
+                      ? variantActive[variant]
+                      : variantNormal[variant],
+              )}
             >
-              {description}
-            </RACText>
-          )}
-          <RACFieldError className="text-xs text-red-500 font-medium ml-1">
-            {errorMessage}
-          </RACFieldError>
-          <RACPopover
-            className="z-50 origin-top-right rounded-2xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none p-4 animate-in fade-in zoom-in-95 duration-100"
-            offset={4}
-          >
-            <RangeCalendar />
-          </RACPopover>
-        </>
-      )}
-    </AriaDateRangePicker>
+              <div className="flex-1 flex items-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <DateInput
+                  slot="start"
+                  variant="none"
+                  className="min-w-[110px]"
+                />
+                <span aria-hidden="true" className="text-content/40 px-1">
+                  –
+                </span>
+                <DateInput
+                  slot="end"
+                  variant="none"
+                  className="min-w-[110px]"
+                />
+              </div>
+              <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">
+                <CalendarIcon className="w-5 h-5" />
+              </RACButton>
+            </RACGroup>
+            {description && (
+              <RACText
+                slot="description"
+                className="text-xs text-content/65 ml-1"
+              >
+                {description}
+              </RACText>
+            )}
+            <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+              {errorMessage}
+            </RACFieldError>
+            <RACPopover
+              className="z-50 origin-top-right rounded-2xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none p-4 animate-in fade-in zoom-in-95 duration-100"
+              offset={4}
+              placement="bottom end"
+            >
+              <RangeCalendar />
+            </RACPopover>
+          </>
+        )}
+      </AriaDateRangePicker>
+    </I18nProvider>
   );
 }

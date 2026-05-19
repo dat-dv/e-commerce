@@ -1,29 +1,32 @@
 "use client";
 
+import React from "react";
 import {
   DateField as AriaDateField,
   type DateFieldProps as AriaDateFieldProps,
   DateInput as AriaDateInput,
   type DateInputProps as AriaDateInputProps,
-  type DateFieldRenderProps,
-  type DateInputRenderProps,
   DateSegment,
   type DateValue,
-  FieldError as RACFieldError,
+  type ValidationResult,
   Label as RACLabel,
   Text as RACText,
-  type ValidationResult,
+  FieldError as RACFieldError,
+  type DateInputRenderProps,
+  type DateFieldRenderProps,
+  I18nProvider,
+  useLocale,
 } from "react-aria-components";
 
-import {
-  variantActive,
-  variantBase,
-  variantDisabled,
-  variantError,
-  variantNormal,
-} from "@/components/atoms/input/input.styles";
-import { InputVariant } from "@/components/atoms/input/input.types";
 import { cn } from "@/utils/cn";
+import { InputVariant } from "@/components/atoms/input/input.types";
+import {
+  variantBase,
+  variantNormal,
+  variantDisabled,
+  variantActive,
+  variantError,
+} from "@/components/atoms/input/input.styles";
 
 export interface IDateInputProps extends Omit<
   AriaDateInputProps,
@@ -93,30 +96,37 @@ export function DateField<T extends DateValue>({
   className,
   ...props
 }: IDateFieldProps<T>) {
+  const { locale } = useLocale();
+  const dateLocale = locale === "en" ? "en-GB" : locale;
+
   return (
-    <AriaDateField
-      {...props}
-      className={(renderProps) =>
-        cn(
-          "flex flex-col gap-1.5 w-full font-sans",
-          typeof className === "function" ? className(renderProps) : className,
-        )
-      }
-    >
-      {label && (
-        <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
-          {label}
-        </RACLabel>
-      )}
-      <DateInput variant={variant} />
-      {description && (
-        <RACText slot="description" className="text-xs text-content/65 ml-1">
-          {description}
-        </RACText>
-      )}
-      <RACFieldError className="text-xs text-red-500 font-medium ml-1">
-        {errorMessage}
-      </RACFieldError>
-    </AriaDateField>
+    <I18nProvider locale={dateLocale}>
+      <AriaDateField
+        {...props}
+        className={(renderProps) =>
+          cn(
+            "flex flex-col gap-1.5 w-full font-sans",
+            typeof className === "function"
+              ? className(renderProps)
+              : className,
+          )
+        }
+      >
+        {label && (
+          <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+            {label}
+          </RACLabel>
+        )}
+        <DateInput variant={variant} />
+        {description && (
+          <RACText slot="description" className="text-xs text-content/65 ml-1">
+            {description}
+          </RACText>
+        )}
+        <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+          {errorMessage}
+        </RACFieldError>
+      </AriaDateField>
+    </I18nProvider>
   );
 }

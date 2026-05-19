@@ -1,33 +1,37 @@
 "use client";
 
-import { CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
 import {
-  Calendar as AriaCalendar,
-  CalendarCell as AriaCalendarCell,
-  CalendarGrid as AriaCalendarGrid,
   DatePicker as AriaDatePicker,
-  Button as RACButton,
-  FieldError as RACFieldError,
-  Heading as RACHeading,
-  Label as RACLabel,
-  Popover as RACPopover,
-  Text as RACText,
-  type CalendarProps as AriaCalendarProps,
   type DatePickerProps as AriaDatePickerProps,
+  Calendar as AriaCalendar,
+  type CalendarProps as AriaCalendarProps,
+  CalendarGrid as AriaCalendarGrid,
+  CalendarCell as AriaCalendarCell,
+  Heading as RACHeading,
+  Button as RACButton,
+  Popover as RACPopover,
+  Label as RACLabel,
+  Text as RACText,
+  FieldError as RACFieldError,
+  Group as RACGroup,
+  I18nProvider,
+  useLocale,
   type DatePickerRenderProps,
   type DateValue,
   type ValidationResult,
 } from "react-aria-components";
+import { CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 
-import {
-  variantActive,
-  variantBase,
-  variantDisabled,
-  variantError,
-  variantNormal,
-} from "@/components/atoms/input/input.styles";
-import { InputVariant } from "@/components/atoms/input/input.types";
 import { cn } from "@/utils/cn";
+import { InputVariant } from "@/components/atoms/input/input.types";
+import {
+  variantBase,
+  variantNormal,
+  variantDisabled,
+  variantActive,
+  variantError,
+} from "@/components/atoms/input/input.styles";
 import { DateInput } from "./date-field";
 
 export type ICalendarProps<T extends DateValue> = AriaCalendarProps<T>;
@@ -97,60 +101,71 @@ export function DatePicker<T extends DateValue>({
   className,
   ...props
 }: IDatePickerProps<T>) {
+  const { locale } = useLocale();
+  const dateLocale = locale === "en" ? "en-GB" : locale;
+
   return (
-    <AriaDatePicker
-      {...props}
-      className={(renderProps) =>
-        cn(
-          "group flex flex-col gap-1.5 w-full font-sans",
-          typeof className === "function" ? className(renderProps) : className,
-        )
-      }
-    >
-      {({ isOpen, isInvalid, isDisabled }) => (
-        <>
-          {label && (
-            <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
-              {label}
-            </RACLabel>
-          )}
-          <div
-            className={cn(
-              "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
-              variantBase[variant],
-              isDisabled
-                ? variantDisabled[variant]
-                : isInvalid
-                  ? variantError[variant]
-                  : isOpen
-                    ? variantActive[variant]
-                    : variantNormal[variant],
+    <I18nProvider locale={dateLocale}>
+      <AriaDatePicker
+        {...props}
+        className={(renderProps) =>
+          cn(
+            "group flex flex-col gap-1.5 w-full font-sans",
+            typeof className === "function"
+              ? className(renderProps)
+              : className,
+          )
+        }
+      >
+        {({ isOpen, isInvalid, isDisabled }) => (
+          <>
+            {label && (
+              <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+                {label}
+              </RACLabel>
             )}
-          >
-            <DateInput variant="none" className="flex-1 min-w-[120px] h-full" />
-            <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">
-              <CalendarIcon className="w-5 h-5" />
-            </RACButton>
-          </div>
-          {description && (
-            <RACText
-              slot="description"
-              className="text-xs text-content/65 ml-1"
+            <RACGroup
+              className={cn(
+                "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
+                variantBase[variant],
+                isDisabled
+                  ? variantDisabled[variant]
+                  : isInvalid
+                    ? variantError[variant]
+                    : isOpen
+                      ? variantActive[variant]
+                      : variantNormal[variant],
+              )}
             >
-              {description}
-            </RACText>
-          )}
-          <RACFieldError className="text-xs text-red-500 font-medium ml-1">
-            {errorMessage}
-          </RACFieldError>
-          <RACPopover
-            className="z-50 origin-top-right rounded-2xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none p-4 animate-in fade-in zoom-in-95 duration-100"
-            offset={4}
-          >
-            <Calendar />
-          </RACPopover>
-        </>
-      )}
-    </AriaDatePicker>
+              <DateInput
+                variant="none"
+                className="flex-1 min-w-[120px] h-full"
+              />
+              <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">
+                <CalendarIcon className="w-5 h-5" />
+              </RACButton>
+            </RACGroup>
+            {description && (
+              <RACText
+                slot="description"
+                className="text-xs text-content/65 ml-1"
+              >
+                {description}
+              </RACText>
+            )}
+            <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+              {errorMessage}
+            </RACFieldError>
+            <RACPopover
+              className="z-50 origin-top-right rounded-2xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none p-4 animate-in fade-in zoom-in-95 duration-100"
+              offset={4}
+              placement="bottom end"
+            >
+              <Calendar />
+            </RACPopover>
+          </>
+        )}
+      </AriaDatePicker>
+    </I18nProvider>
   );
 }

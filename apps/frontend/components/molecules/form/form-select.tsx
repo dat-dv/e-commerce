@@ -37,7 +37,7 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
           options={options}
           variant={variant}
           isDisabled={disabled}
-          selectedKey={field.value !== undefined ? String(field.value) : ""}
+          selectedKey={field.value ?? undefined}
           onSelectionChange={(val) => field.onChange(val)}
           placeholder={t("selectPlaceholder")}
           errorMessage={fieldState.error?.message}

@@ -1,38 +1,68 @@
 "use client";
 
+import { parseDate } from "@internationalized/date";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { DateInput } from "@/components/atoms/input/date-input";
+import { DatePicker } from "@/components/atoms/date-picker";
 import { InputVariant } from "@/components/atoms/input/input.types";
 
-interface FormDateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IFormDateInputProps {
   name: string;
   label?: string;
   variant?: InputVariant;
   maxDate?: Date;
   minDate?: Date;
+  disabled?: boolean;
+  placeholder?: string;
+  className?: string;
 }
 
-export const FormDateInput: React.FC<FormDateInputProps> = ({
+const getCalendarDate = (val: unknown) => {
+  if (!val) return undefined;
+  try {
+    if (val instanceof Date) {
+      return parseDate(val.toISOString().split("T")[0]);
+    }
+    const str = String(val).split("T")[0];
+    return parseDate(str);
+  } catch {
+    return undefined;
+  }
+};
+
+export const FormDateInput: React.FC<IFormDateInputProps> = ({
   name,
-  ...rest
+  label,
+  variant = "outline",
+  maxDate,
+  minDate,
+  disabled,
+  className,
 }) => {
   const { control } = useFormContext();
+
+  const maxValue = getCalendarDate(maxDate);
+  const minValue = getCalendarDate(minDate);
 
   return (
     <Controller
       name={name}
       control={control}
       render={({ field, fieldState: { error } }) => {
+        const value = getCalendarDate(field.value);
+
         return (
-          <DateInput
-            {...field}
-            {...rest}
-            id={name}
-            value={field.value}
-            onChange={(e) => field.onChange(e.target.value)}
-            error={error?.message}
+          <DatePicker
+            label={label}
+            variant={variant}
+            value={value || null}
+            onChange={(date) => field.onChange(date ? date.toString() : "")}
+            maxValue={maxValue}
+            minValue={minValue}
+            isDisabled={disabled}
+            errorMessage={error?.message}
+            className={className}
           />
         );
       }}
