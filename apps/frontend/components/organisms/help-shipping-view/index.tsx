@@ -6,7 +6,7 @@ import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Fuse from "fuse.js";
 import {
   AlertTriangle,
@@ -16,6 +16,7 @@ import {
   Search,
 } from "lucide-react";
 import React, { useMemo, useState } from "react";
+import { getRawI18nValue } from "@/utils/i18n";
 import ShippingHeader from "./shipping-header";
 
 interface FAQItem {
@@ -39,21 +40,15 @@ const iconMap = {
 type IconName = keyof typeof iconMap;
 
 export const HelpShippingView = (): React.ReactElement => {
-  const tShipping = useTranslations("HelpCenter");
-  const t = tShipping.raw("shipping" as never) as {
-    contactTitle: string;
-    contactDesc: string;
-    contactCta: string;
-    search: string;
-    empty: string;
-    topics: ShippingTopic[];
-  };
+  const tShipping = useTranslations("HelpCenter.shipping");
+  const topics = getRawI18nValue<ShippingTopic[]>(tShipping.raw("topics"));
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) return t.topics;
+    if (!searchQuery.trim()) return topics;
 
-    const searchableFaqs = t.topics.flatMap((topic: ShippingTopic) =>
+    const searchableFaqs = topics.flatMap((topic: ShippingTopic) =>
       topic.faqs.map((faq: FAQItem) => ({ ...faq, topicName: topic.name })),
     );
 
@@ -72,13 +67,13 @@ export const HelpShippingView = (): React.ReactElement => {
       ]);
     });
 
-    return t.topics
+    return topics
       .map((topic: ShippingTopic) => ({
         ...topic,
         faqs: grouped.get(topic.name) ?? [],
       }))
       .filter((topic: ShippingTopic) => topic.faqs.length > 0);
-  }, [searchQuery, t.topics]);
+  }, [searchQuery, topics]);
 
   return (
     <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
@@ -87,14 +82,14 @@ export const HelpShippingView = (): React.ReactElement => {
         <section className="grid gap-10 lg:grid-cols-[280px_1fr]">
           <aside className="self-start lg:top-32">
             <HelpSupportCard
-              title={t.contactTitle}
-              description={t.contactDesc}
-              ctaLabel={t.contactCta}
+              title={tShipping("contactTitle")}
+              description={tShipping("contactDesc")}
+              ctaLabel={tShipping("contactCta")}
               showCta
             />
 
             <HelpTopicNav
-              topics={t.topics.map((topic: ShippingTopic) => topic.name)}
+              topics={topics.map((topic: ShippingTopic) => topic.name)}
             />
           </aside>
 
@@ -102,7 +97,7 @@ export const HelpShippingView = (): React.ReactElement => {
             <div className="relative">
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
               <label htmlFor="help-shipping-search" className="sr-only">
-                {t.search}
+                {tShipping("search")}
               </label>
               <input
                 id="help-shipping-search"
@@ -111,7 +106,7 @@ export const HelpShippingView = (): React.ReactElement => {
                 autoComplete="off"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder={t.search}
+                placeholder={tShipping("search")}
                 className="h-12 w-full rounded-xl border border-content/10 bg-surface px-12 text-sm font-medium shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>
@@ -147,13 +142,13 @@ export const HelpShippingView = (): React.ReactElement => {
 
             {!filteredTopics.length && (
               <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
-                {t.empty}
+                {tShipping("empty")}
               </div>
             )}
 
             <HelpSupportCard
-              title={t.contactTitle}
-              description={t.contactDesc}
+              title={tShipping("contactTitle")}
+              description={tShipping("contactDesc")}
               className="mt-10 p-6"
             />
           </main>

@@ -245,7 +245,7 @@
   "Common": {
     "viewAll": "View All",
     "toolbar": {
-      "showingProducts": "{total, plural, =1 {Showing <bold>1</bold> product} other {Showing <bold>#</bold> products}}",
+      "showingProducts": "Showing <bold>{total, number}</bold> {total, plural, =1 {product} other {products}}",
       "sortBy": "Sort By",
       "sortProductsBy": "Sort Products By",
       "sortOptions": {
@@ -989,7 +989,7 @@
       "status": "Status",
       "noName": "No Name",
       "hideItems": "Hide Items",
-      "showItems": "{count, plural, =1 {Show 1 Item} other {Show # Items}}",
+      "showItems": "Show {count, plural, =1 {1 Item} other {Show # Items}}",
       "copied": "Order ID copied.",
       "showingPageOf": "Showing page {page} of {totalPages}"
     }
@@ -1362,7 +1362,7 @@
   "SearchView": {
     "titleWithQuery": "Results for \"{query}\"",
     "titleWithoutQuery": "Search Products",
-    "description": "{total, plural, =1 {We found 1 product matching your criteria.} other {We found # products matching your criteria.}}",
+    "description": "We found {total, number} {total, plural, =1 {product} other {products}} matching your criteria.",
     "noResultsTitle": "No results found",
     "noResultsDescription": "We couldn't find anything matching \"{query}\". Try using different keywords or browsing our categories."
   },

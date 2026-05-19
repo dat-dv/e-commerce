@@ -8,7 +8,10 @@ import { CategoryHeaderNav } from "./category-header-nav";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
 import { useTranslations } from "next-intl";
 
-const navKeyMap: Record<string, string> = {
+const navKeyMap: Record<
+  string,
+  "home" | "categories" | "newArrivals" | "flashSale" | "brands"
+> = {
   Home: "home",
   Categories: "categories",
   "New Arrivals": "newArrivals",
@@ -28,7 +31,7 @@ const HeaderNav = () => {
           : pathname.startsWith(link.href);
 
         const key = navKeyMap[link.label];
-        const displayLabel = key ? t(key as never) : link.label;
+        const displayLabel = key ? t(key) : link.label;
 
         if (link.dropdown) {
           return (

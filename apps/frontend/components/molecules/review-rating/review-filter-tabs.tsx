@@ -1,11 +1,12 @@
 "use client";
 
+import { useMemo } from "react";
 import { TGetProductReviewsRequest } from "@/domain/products/types/products.model";
 
 import { useTranslations } from "next-intl";
 
 const reviewFilters: Array<{
-  key: string;
+  key: "filterAll" | "filterStars";
   rating?: number;
   value: TGetProductReviewsRequest;
 }> = [
@@ -40,14 +41,23 @@ export const ReviewFilterTabs = ({
   onFilterChange,
 }: ReviewFilterTabsProps) => {
   const t = useTranslations("ProductDetailPage");
+
+  const translatedLabels = useMemo(() => {
+    return {
+      filterAll: t("filterAll"),
+      filterStars: (rating: number) =>
+        t("filterStars", { rating: String(rating) }),
+    };
+  }, [t]);
+
   return (
     <div className="flex flex-wrap gap-2">
       {reviewFilters.map((filter) => {
         const isActive = isSameReviewFilter(activeFilter, filter.value);
         const displayLabel =
           filter.rating !== undefined
-            ? t(filter.key as never, { rating: String(filter.rating) } as never)
-            : t(filter.key as never);
+            ? translatedLabels.filterStars(filter.rating)
+            : translatedLabels.filterAll;
 
         return (
           <button

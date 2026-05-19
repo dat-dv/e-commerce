@@ -245,7 +245,7 @@
   "Common": {
     "viewAll": "Xem tất cả",
     "toolbar": {
-      "showingProducts": "{total, plural, other {Hiển thị <bold>#</bold> sản phẩm}}",
+      "showingProducts": "Hiển thị <bold>{total}</bold> sản phẩm",
       "sortBy": "Sắp xếp theo",
       "sortProductsBy": "Sắp xếp sản phẩm theo",
       "sortOptions": {
@@ -1362,7 +1362,7 @@
   "SearchView": {
     "titleWithQuery": "Kết quả cho \"{query}\"",
     "titleWithoutQuery": "Tìm kiếm sản phẩm",
-    "description": "{total, plural, other {Chúng tôi tìm thấy # sản phẩm phù hợp với tiêu chí của bạn.}}",
+    "description": "Chúng tôi tìm thấy {total} sản phẩm phù hợp với tiêu chí của bạn.",
     "noResultsTitle": "Không tìm thấy kết quả",
     "noResultsDescription": "Không tìm thấy sản phẩm nào khớp với \"{query}\". Hãy thử từ khóa khác hoặc duyệt qua các danh mục của chúng tôi."
   },

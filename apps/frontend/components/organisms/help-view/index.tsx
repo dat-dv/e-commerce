@@ -16,8 +16,9 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
-import React, { useMemo, useState } from "react";
 import HelpHeader from "./help-header";
+import { useState, useMemo } from "react";
+import { getRawI18nValue } from "@/utils/i18n";
 
 const iconMap = {
   "message-circle": MessageCircle,
@@ -48,31 +49,21 @@ interface CardItem {
 }
 
 export function HelpView(): React.ReactElement {
-  const tHelp = useTranslations("HelpCenter");
-  const t = tHelp.raw("" as never) as {
-    quick: string;
-    supportNote: string;
-    popular: string;
-    contactTitle: string;
-    contactDesc: string;
-    contactCta: string;
-    noResults: string;
-    cards: CardItem[];
-    answers: string[];
-  };
+  const tHelp = useTranslations("HelpCenter.help");
   const [query, setQuery] = useState("");
 
   const filteredCards = useMemo(() => {
+    const cards = getRawI18nValue<CardItem[]>(tHelp.raw("cards"));
     const normalizedQuery = query.trim().toLowerCase();
-    if (!normalizedQuery) return t.cards;
+    if (!normalizedQuery) return cards;
 
-    return t.cards.filter((item: CardItem) =>
+    return cards.filter((item: CardItem) =>
       [item.title, item.desc, ...item.tags]
         .join(" ")
         .toLowerCase()
         .includes(normalizedQuery),
     );
-  }, [query, t.cards]);
+  }, [query, tHelp]);
 
   return (
     <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
@@ -83,9 +74,11 @@ export function HelpView(): React.ReactElement {
           <div className="min-w-0">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <h2 className="text-xl font-black text-content">{t.quick}</h2>
+                <h2 className="text-xl font-black text-content">
+                  {tHelp("quick")}
+                </h2>
                 <p className="mt-2 text-sm leading-6 text-content/55">
-                  {t.supportNote}
+                  {tHelp("supportNote")}
                 </p>
               </div>
             </div>
@@ -120,7 +113,7 @@ export function HelpView(): React.ReactElement {
             </div>
             {!filteredCards.length && (
               <p className="mt-6 rounded-lg border border-content/5 bg-surface p-6 text-sm text-content/55">
-                {t.noResults}
+                {tHelp("noResults")}
               </p>
             )}
           </div>
@@ -128,10 +121,10 @@ export function HelpView(): React.ReactElement {
           <aside className="self-start rounded-lg border border-content/5 bg-surface p-5 shadow-sm">
             <Headphones className="size-6 text-primary" aria-hidden="true" />
             <h2 className="mt-4 text-lg font-black text-content">
-              {t.contactTitle}
+              {tHelp("contactTitle")}
             </h2>
             <p className="mt-2 text-sm leading-6 text-content/60">
-              {t.contactDesc}
+              {tHelp("contactDesc")}
             </p>
             <Button
               href={APP_ROUTES.CONTACT}
@@ -139,26 +132,30 @@ export function HelpView(): React.ReactElement {
               size="lg"
               className="mt-5 w-full"
             >
-              {t.contactCta}
+              {tHelp("contactCta")}
             </Button>
           </aside>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-black text-content">{t.popular}</h2>
+          <h2 className="text-xl font-black text-content">
+            {tHelp("popular")}
+          </h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
-            {t.answers.map((answer: string, index: number) => (
-              <Link
-                key={answer}
-                href={APP_ROUTES.FAQ}
-                className="flex min-w-0 items-center gap-4 rounded-lg border border-content/5 bg-surface px-4 py-3 text-sm font-bold text-content/75 transition-colors hover:border-primary/30 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
-              >
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-xs text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="min-w-0 flex-1 break-words">{answer}</span>
-              </Link>
-            ))}
+            {(tHelp.raw("answers") as string[]).map(
+              (answer: string, index: number) => (
+                <Link
+                  key={answer}
+                  href={APP_ROUTES.FAQ}
+                  className="flex min-w-0 items-center gap-4 rounded-lg border border-content/5 bg-surface px-4 py-3 text-sm font-bold text-content/75 transition-colors hover:border-primary/30 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
+                >
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-xs text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="min-w-0 flex-1 break-words">{answer}</span>
+                </Link>
+              ),
+            )}
           </div>
         </section>
       </AppContainer>

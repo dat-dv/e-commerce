@@ -2,7 +2,7 @@
   "Common": {
     "viewAll": "View All",
     "toolbar": {
-      "showingProducts": "Showing <bold>{total}</bold> {total, plural, =1 {product} other {products}}",
+      "showingProducts": "Showing <bold>{total, number}</bold> {total, plural, =1 {product} other {products}}",
       "sortBy": "Sort By",
       "sortProductsBy": "Sort Products By",
       "sortOptions": {

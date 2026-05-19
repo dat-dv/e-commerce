@@ -6,7 +6,7 @@ import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Fuse from "fuse.js";
 import {
   CreditCard,
@@ -17,6 +17,7 @@ import {
   Truck,
 } from "lucide-react";
 import React, { useMemo, useState } from "react";
+import { getRawI18nValue } from "@/utils/i18n";
 import FAQHeader from "./faq-header";
 
 interface FAQItem {
@@ -41,21 +42,14 @@ const iconMap = {
 type IconName = keyof typeof iconMap;
 
 export function HelpFAQView(): React.ReactElement {
-  const tFAQ = useTranslations("HelpCenter");
-  const t = tFAQ.raw("faq" as never) as {
-    contactTitle: string;
-    contactDesc: string;
-    contactCta: string;
-    search: string;
-    empty: string;
-    topics: Topic[];
-  };
+  const tFAQ = useTranslations("HelpCenter.faq");
+  const topics = getRawI18nValue<Topic[]>(tFAQ.raw("topics"));
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) return t.topics;
+    if (!searchQuery.trim()) return topics;
 
-    const searchableFaqs = t.topics.flatMap((topic: Topic) =>
+    const searchableFaqs = topics.flatMap((topic: Topic) =>
       topic.faqs.map((faq: FAQItem) => ({ ...faq, topicName: topic.name })),
     );
 
@@ -74,13 +68,13 @@ export function HelpFAQView(): React.ReactElement {
       ]);
     });
 
-    return t.topics
+    return topics
       .map((topic: Topic) => ({
         ...topic,
         faqs: grouped.get(topic.name) ?? [],
       }))
       .filter((topic: Topic) => topic.faqs.length > 0);
-  }, [searchQuery, t.topics]);
+  }, [searchQuery, topics]);
 
   return (
     <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
@@ -89,20 +83,20 @@ export function HelpFAQView(): React.ReactElement {
         <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
           <aside className="self-start lg:top-32">
             <HelpSupportCard
-              title={t.contactTitle}
-              description={t.contactDesc}
-              ctaLabel={t.contactCta}
+              title={tFAQ("contactTitle")}
+              description={tFAQ("contactDesc")}
+              ctaLabel={tFAQ("contactCta")}
               showCta
             />
 
-            <HelpTopicNav topics={t.topics.map((topic: Topic) => topic.name)} />
+            <HelpTopicNav topics={topics.map((topic: Topic) => topic.name)} />
           </aside>
 
           <main className="min-w-0">
             <div className="relative">
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
               <label htmlFor="help-faq-search" className="sr-only">
-                {t.search}
+                {tFAQ("search")}
               </label>
               <input
                 id="help-faq-search"
@@ -111,7 +105,7 @@ export function HelpFAQView(): React.ReactElement {
                 autoComplete="off"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder={t.search}
+                placeholder={tFAQ("search")}
                 className="h-12 w-full rounded-xl border border-content/10 bg-surface px-12 text-sm font-medium shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>
@@ -147,13 +141,13 @@ export function HelpFAQView(): React.ReactElement {
 
             {!filteredTopics.length && (
               <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
-                {t.empty}
+                {tFAQ("empty")}
               </div>
             )}
 
             <HelpSupportCard
-              title={t.contactTitle}
-              description={t.contactDesc}
+              title={tFAQ("contactTitle")}
+              description={tFAQ("contactDesc")}
               className="mt-10 p-6"
             />
           </main>

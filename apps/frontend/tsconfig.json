@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom"],
+    "allowArbitraryExtensions": true
   },
   "include": [
     "next-env.d.ts",
