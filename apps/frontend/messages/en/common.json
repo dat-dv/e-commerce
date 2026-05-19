@@ -18,6 +18,15 @@
       "signUp": "Sign Up",
       "favorites": "Wishlist",
       "cart": "Shopping Cart",
+      "avatarDropdown": {
+        "accountDetails": "Account Details",
+        "viewProfile": "View Profile",
+        "wishlist": "Wishlist",
+        "recentlyViewed": "Recently Viewed",
+        "myOrders": "My Orders",
+        "signOut": "Sign Out",
+        "noEmail": "No email provided"
+      },
       "nav": {
         "home": "Home",
         "categories": "Categories",

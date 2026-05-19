@@ -1,8 +1,10 @@
 import { usersUseCase } from "@/domain/users/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 export function useUpLoadProfileAvatar() {
+  const t = useTranslations("ProfilePage.toast");
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const setLoading = useAuthStore((state) => state.setLoading);
@@ -18,13 +20,12 @@ export function useUpLoadProfileAvatar() {
       });
       if (response.status === "success" && response.data) {
         setUser({ ...user, avatarUrl: response.data });
-        toast.success("Avatar updated successfully!");
+        toast.success(t("uploadAvatarSuccess"));
       } else {
         throw new Error(response.message || "Update failed");
       }
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Update failed";
-      toast.error(message, {
+    } catch {
+      toast.error(t("uploadAvatarFailed"), {
         toastId: "profile-error",
       });
     } finally {

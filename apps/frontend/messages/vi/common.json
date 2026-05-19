@@ -18,6 +18,15 @@
       "signUp": "Đăng ký",
       "favorites": "Yêu thích",
       "cart": "Giỏ hàng",
+      "avatarDropdown": {
+        "accountDetails": "Thông tin tài khoản",
+        "viewProfile": "Xem hồ sơ",
+        "wishlist": "Danh sách yêu thích",
+        "recentlyViewed": "Đã xem gần đây",
+        "myOrders": "Đơn hàng của tôi",
+        "signOut": "Đăng xuất",
+        "noEmail": "Chưa có email"
+      },
       "nav": {
         "home": "Trang chủ",
         "categories": "Danh mục",

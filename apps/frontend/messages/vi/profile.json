@@ -21,7 +21,7 @@
   },
   "ProfileBankPage": {
     "metadata": {
-      "title": "Tài khoản ngân hàng - Antigravity",
+      "title": "Tài khoản ngân hàng",
       "description": "Quản lý tài khoản ngân hàng để rút tiền."
     },
     "title": "Tài khoản ngân hàng",
@@ -34,7 +34,7 @@
   },
   "ProfilePasswordPage": {
     "metadata": {
-      "title": "Đổi mật khẩu - Antigravity",
+      "title": "Đổi mật khẩu",
       "description": "Cập nhật mật khẩu để bảo vệ tài khoản."
     },
     "title": "Đổi mật khẩu",
@@ -50,6 +50,94 @@
       "success": "Đã đổi mật khẩu.",
       "failed": "Không thể đổi mật khẩu.",
       "failedWithRetry": "Không thể đổi mật khẩu. Vui lòng thử lại."
+    }
+  },
+  "ProfilePage": {
+    "metadata": {
+      "title": "Hồ sơ của tôi",
+      "description": "Xem và cập nhật thông tin hồ sơ cá nhân của bạn."
+    },
+    "form": {
+      "firstNameLabel": "Tên",
+      "firstNamePlaceholder": "Nhập tên của bạn",
+      "lastNameLabel": "Họ",
+      "lastNamePlaceholder": "Nhập họ của bạn",
+      "emailLabel": "Địa chỉ Email",
+      "emailPlaceholder": "Nhập Email",
+      "phoneLabel": "Số điện thoại",
+      "dateOfBirthLabel": "Ngày sinh",
+      "dateOfBirthPlaceholder": "ngày/tháng/năm",
+      "genderLabel": "Giới tính",
+      "genders": {
+        "male": "Nam",
+        "female": "Nữ",
+        "other": "Khác"
+      },
+      "editBtn": "Sửa hồ sơ",
+      "updateBtn": "Cập nhật hồ sơ",
+      "updating": "Đang cập nhật...",
+      "cancelBtn": "Hủy"
+    },
+    "toast": {
+      "updateSuccess": "Cập nhật hồ sơ thành công!",
+      "updateFailed": "Cập nhật hồ sơ thất bại.",
+      "uploadAvatarSuccess": "Tải ảnh đại diện thành công!",
+      "uploadAvatarFailed": "Tải ảnh đại diện thất bại."
+    }
+  },
+  "ProfileAddressesPage": {
+    "metadata": {
+      "title": "Địa chỉ của tôi",
+      "description": "Quản lý địa chỉ giao hàng của bạn."
+    },
+    "title": "Địa chỉ của tôi",
+    "description": "Quản lý các địa chỉ nhận hàng của bạn.",
+    "defaultBadge": "Mặc định",
+    "noName": "Không có tên",
+    "noPhone": "Không có SĐT",
+    "addAddress": "Thêm địa chỉ",
+    "newAddress": "Địa chỉ mới",
+    "editAddress": "Sửa địa chỉ",
+    "shippingDetails": "Thông tin giao hàng",
+    "empty": {
+      "title": "Chưa có địa chỉ nào",
+      "description": "Thêm địa chỉ giao hàng để bắt đầu mua sắm.",
+      "actionLabel": "Thêm địa chỉ"
+    },
+    "form": {
+      "receiverNameLabel": "Tên người nhận",
+      "receiverNamePlaceholder": "Nguyễn Văn A",
+      "receiverPhoneLabel": "Số điện thoại nhận hàng",
+      "labelField": "Nhãn địa chỉ",
+      "labels": {
+        "home": "Nhà riêng",
+        "work": "Văn phòng",
+        "apartment": "Chung cư",
+        "other": "Khác"
+      },
+      "addressFromMap": "Địa chỉ từ bản đồ",
+      "streetLabel": "Số nhà / Đường / Địa chỉ cụ thể",
+      "streetPlaceholder": "Ví dụ: Số 12, Tầng 3, Tên đường",
+      "cityLabel": "Quận / Huyện / Thành phố",
+      "cityPlaceholder": "Quận / Huyện",
+      "stateLabel": "Tỉnh / Thành phố",
+      "statePlaceholder": "Tỉnh / Thành phố",
+      "countryLabel": "Quốc gia",
+      "countryPlaceholder": "Quốc gia",
+      "postalCodeLabel": "Mã bưu chính",
+      "postalCodePlaceholder": "Mã bưu chính",
+      "setDefaultCheckbox": "Đặt làm địa chỉ mặc định",
+      "submitAdd": "Thêm địa chỉ",
+      "submitUpdate": "Cập nhật"
+    },
+    "toast": {
+      "loadFailed": "Không thể tải danh sách địa chỉ.",
+      "addSuccess": "Đã thêm địa chỉ thành công!",
+      "addFailed": "Thêm địa chỉ thất bại.",
+      "deleteSuccess": "Đã xóa địa chỉ.",
+      "deleteFailed": "Xóa địa chỉ thất bại.",
+      "setDefaultSuccess": "Đã cập nhật địa chỉ mặc định.",
+      "setDefaultFailed": "Đặt địa chỉ mặc định thất bại."
     }
   }
 }

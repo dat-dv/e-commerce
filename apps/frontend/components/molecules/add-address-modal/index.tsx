@@ -13,6 +13,7 @@ import {
 import { XIcon } from "@/components/atoms/icons";
 import Button from "@/components/atoms/button";
 import { AddressFormInput } from "@/components/molecules/addresses-form/addresses.schema";
+import { useTranslations } from "next-intl";
 
 interface AddAddressModalProps {
   isOpen: boolean;
@@ -29,6 +30,7 @@ export const AddAddressModal = ({
   loading,
   editingAddress,
 }: AddAddressModalProps) => {
+  const t = useTranslations("ProfileAddressesPage");
   const initialData: Partial<AddressFormInput> | undefined = editingAddress
     ? {
         receiverName: editingAddress.name,
@@ -67,7 +69,7 @@ export const AddAddressModal = ({
       }
     : undefined;
 
-  const title = editingAddress ? "Edit Address" : "New Address";
+  const title = editingAddress ? t("editAddress") : t("newAddress");
   return (
     <AriaDialog isOpen={isOpen} onClose={onClose} className="relative z-[100]">
       <div
@@ -82,7 +84,9 @@ export const AddAddressModal = ({
               <AriaDialogTitle className="text-2xl font-bold text-content">
                 {title}
               </AriaDialogTitle>
-              <p className="text-xs text-content/40 mt-1">Shipping Details</p>
+              <p className="text-xs text-content/40 mt-1">
+                {t("shippingDetails")}
+              </p>
             </div>
             <Button
               variant="ghost"

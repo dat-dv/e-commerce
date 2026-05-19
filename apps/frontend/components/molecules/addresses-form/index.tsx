@@ -8,8 +8,9 @@ import AppForm from "@/components/molecules/form/app-form";
 import Button from "@/components/atoms/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addressSchema, AddressFormData } from "./addresses.schema";
-import { SHIPPING_ADDRESS_LABELS_OPTIONS } from "@/constants/shipping-address.constanst";
+import { getAddressSchema, AddressFormData } from "./addresses.schema";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import { FormMapPicker } from "../form/form-map-picker";
 import { EAddressLabel } from "@ecommerce/shared";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
@@ -25,8 +26,12 @@ export const AddressesForm = ({
   loading,
   initialData,
 }: AddressesFormProps) => {
+  const t = useTranslations("ProfileAddressesPage.form");
+  const tValidation = useTranslations("Validation");
+
+  const schema = useMemo(() => getAddressSchema(tValidation), [tValidation]);
   const methods = useForm<AddressFormData>({
-    resolver: zodResolver(addressSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       label: initialData?.label ?? EAddressLabel.HOME,
       receiverName: initialData?.receiverName || "",
@@ -44,6 +49,16 @@ export const AddressesForm = ({
       isDefault: initialData?.isDefault ?? false,
     },
   });
+
+  const translatedLabelOptions = useMemo(
+    () => [
+      { label: t("labels.home"), value: EAddressLabel.HOME },
+      { label: t("labels.work"), value: EAddressLabel.OFFICE },
+      { label: t("labels.apartment"), value: EAddressLabel.APARTMENT },
+      { label: t("labels.other"), value: EAddressLabel.OTHER },
+    ],
+    [t],
+  );
 
   const handleFormSubmit = async (data: AddressFormData) => {
     const formattedData: TCreateAddressInput = {
@@ -63,15 +78,15 @@ export const AddressesForm = ({
         <div className="grid grid-cols-2 gap-4">
           <FormInput
             name="receiverName"
-            label="Receiver Name"
-            placeholder="John Doe"
+            label={t("receiverNameLabel")}
+            placeholder={t("receiverNamePlaceholder")}
             variant="outline"
             className="h-10 text-sm rounded-xl"
             disabled={loading}
           />
           <FormPhoneInput
             name="receiverPhone"
-            label="Receiver Phone"
+            label={t("receiverPhoneLabel")}
             disabled={loading}
             className="h-10 text-sm rounded-xl"
           />
@@ -79,15 +94,15 @@ export const AddressesForm = ({
 
         <FormSelect
           name="label"
-          label="Label"
-          options={SHIPPING_ADDRESS_LABELS_OPTIONS}
+          label={t("labelField")}
+          options={translatedLabelOptions}
           variant="outline"
           className="h-10 text-sm rounded-xl"
           disabled={loading}
         />
 
         <FormMapPicker
-          label="Address from Map"
+          label={t("addressFromMap")}
           nameLat="latitude"
           nameLng="longitude"
           disabled={loading}
@@ -95,8 +110,8 @@ export const AddressesForm = ({
 
         <FormInput
           name="street"
-          label="Street / Specific Details"
-          placeholder="e.g., House No. 12, Floor 3, Street Name"
+          label={t("streetLabel")}
+          placeholder={t("streetPlaceholder")}
           variant="outline"
           className="h-10 text-sm rounded-xl"
           disabled={loading}
@@ -105,16 +120,16 @@ export const AddressesForm = ({
         <div className="grid grid-cols-2 gap-4">
           <FormInput
             name="city"
-            label="City"
-            placeholder="City"
+            label={t("cityLabel")}
+            placeholder={t("cityPlaceholder")}
             variant="outline"
             className="h-10 text-sm rounded-xl"
             disabled={loading}
           />
           <FormInput
             name="state"
-            label="State / Province"
-            placeholder="State"
+            label={t("stateLabel")}
+            placeholder={t("statePlaceholder")}
             variant="outline"
             className="h-10 text-sm rounded-xl"
             disabled={loading}
@@ -124,16 +139,16 @@ export const AddressesForm = ({
         <div className="grid grid-cols-2 gap-4">
           <FormInput
             name="country"
-            label="Country"
-            placeholder="Country"
+            label={t("countryLabel")}
+            placeholder={t("countryPlaceholder")}
             variant="outline"
             className="h-10 text-sm rounded-xl"
             disabled={loading}
           />
           <FormInput
             name="postalCode"
-            label="Postal Code"
-            placeholder="Postal Code"
+            label={t("postalCodeLabel")}
+            placeholder={t("postalCodePlaceholder")}
             variant="outline"
             className="h-10 text-sm rounded-xl"
             disabled={loading}
@@ -148,7 +163,7 @@ export const AddressesForm = ({
             className="w-4 h-4 rounded border-content/10 text-primary focus:ring-primary/20"
           />
           <label htmlFor="isDefault" className="text-sm text-content/80">
-            Set as default address
+            {t("setDefaultCheckbox")}
           </label>
         </div>
 
@@ -158,11 +173,11 @@ export const AddressesForm = ({
           className="flex items-center justify-center gap-2 w-full mt-6"
         >
           {initialData ? (
-            "Update Address"
+            t("submitUpdate")
           ) : (
             <>
               <Plus size={18} />
-              Add Address
+              {t("submitAdd")}
             </>
           )}
         </Button>

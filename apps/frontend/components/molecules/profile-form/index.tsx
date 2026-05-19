@@ -2,7 +2,6 @@
 
 import { AnimationItem } from "@/components/atoms/animate";
 import Button from "@/components/atoms/button";
-import { FormAvatarInput } from "@/components/molecules/form/form-avatar-input";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
@@ -11,13 +10,18 @@ import { Pencil } from "lucide-react";
 
 import AppForm from "../form/app-form";
 import FormListenerDirty from "../form/form-listener-dirty";
-import { ProfileSchema, profileSchema } from "@/hooks/profile/profile.schema";
+import { useTranslations } from "next-intl";
+import {
+  getProfileSchema,
+  ProfileSchema,
+} from "@/hooks/profile/profile.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { TUser } from "@/domain/auth/types/auth.model";
-import { GENDER_OPTIONS } from "@/constants/gender.constant";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
+import { EGender } from "@ecommerce/shared";
+import AvatarWrapper from "./avatar-wapper";
 
 interface IProfileFormProps {
   user: Partial<TUser> | null;
@@ -34,11 +38,14 @@ export const ProfileForm = ({
   updateProfile,
   uploadAvatar,
 }: IProfileFormProps) => {
+  const t = useTranslations("ProfilePage");
+  const tValidation = useTranslations("Validation");
   const [isEditing, setIsEditing] = useState(false);
 
   const avatarRef = useRef(user?.avatarId);
+  const schema = useMemo(() => getProfileSchema(tValidation), [tValidation]);
   const methods = useForm<ProfileSchema>({
-    resolver: zodResolver(profileSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       firstName: user?.firstName || "",
       lastName: user?.lastName || "",
@@ -53,6 +60,15 @@ export const ProfileForm = ({
       gender: user?.gender === null ? undefined : user?.gender,
     },
   });
+
+  const translatedGenderOptions = useMemo(
+    () => [
+      { label: t("form.genders.male"), value: EGender.MALE },
+      { label: t("form.genders.female"), value: EGender.FEMALE },
+      { label: t("form.genders.other"), value: EGender.OTHER },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     if (user) {
@@ -96,14 +112,6 @@ export const ProfileForm = ({
     setIsEditing(false);
   };
 
-  const watchedFirstName = methods.watch("firstName");
-  const watchedLastName = methods.watch("lastName");
-
-  const fullName =
-    `${watchedFirstName || ""} ${watchedLastName || ""}`.trim() ||
-    `${user?.firstName || ""} ${user?.lastName || ""}`.trim() ||
-    "Your Name";
-
   const isFormDisabled = isLoading || isUploading || !isEditing;
   const isSubmitLoading = isLoading || isUploading;
 
@@ -141,68 +149,52 @@ export const ProfileForm = ({
         {/* Form Fields Section */}
         <div className="bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl space-y-6">
           {/* Avatar & Name Header INSIDE the card! */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 pb-4 border-b border-content/10">
-            <FormAvatarInput
-              name="avatarUrl"
-              displayName={fullName}
-              size={64}
-              disabled={isFormDisabled}
-            />
-
-            <div className="space-y-1 text-content text-left w-full max-w-md">
-              <p className="text-left text-xl font-bold tracking-tight">
-                {fullName}
-              </p>
-              <p className="text-sm opacity-60 font-medium ml-1">
-                {user?.email}
-              </p>
-            </div>
-          </div>
+          <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormInput
               variant="outline"
               name="firstName"
-              label="First Name"
-              placeholder="Your First Name"
+              label={t("form.firstNameLabel")}
+              placeholder={t("form.firstNamePlaceholder")}
               disabled={isFormDisabled}
               className="h-10 text-sm rounded-xl"
             />
             <FormInput
               variant="outline"
               name="lastName"
-              label="Last Name"
-              placeholder="Your Last Name"
+              label={t("form.lastNameLabel")}
+              placeholder={t("form.lastNamePlaceholder")}
               disabled={isFormDisabled}
               className="h-10 text-sm rounded-xl"
             />
             <FormInput
               variant="outline"
               name="email"
-              label="Email Address"
-              placeholder="Your Email"
+              label={t("form.emailLabel")}
+              placeholder={t("form.emailPlaceholder")}
               disabled={true} // Email is read-only in profile
               className="h-10 text-sm rounded-xl opacity-60"
             />
             <FormPhoneInput
               name="phone"
-              label="Phone Number"
+              label={t("form.phoneLabel")}
               disabled={isFormDisabled}
               className="h-10 text-sm rounded-xl"
             />
             <FormDateInput
               variant="outline"
               name="dateOfBirth"
-              label="Date of Birth"
-              placeholder="dd/mm/yyyy"
+              label={t("form.dateOfBirthLabel")}
+              placeholder={t("form.dateOfBirthPlaceholder")}
               disabled={isFormDisabled}
               className="h-10 text-sm rounded-xl"
             />
             <FormSelect
               name="gender"
-              label="Gender"
+              label={t("form.genderLabel")}
               disabled={isFormDisabled}
-              options={GENDER_OPTIONS}
+              options={translatedGenderOptions}
               className="h-10 text-sm rounded-xl"
             />
           </div>
@@ -219,7 +211,9 @@ export const ProfileForm = ({
                       className="rounded-2xl px-8 bg-primary shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all text-white disabled:opacity-50 disabled:hover:scale-100"
                       disabled={isSubmitLoading || !isDirty}
                     >
-                      {isSubmitLoading ? "Updating..." : "Update Profile"}
+                      {isSubmitLoading
+                        ? t("form.updating")
+                        : t("form.updateBtn")}
                     </Button>
                   )}
                 </FormListenerDirty>
@@ -230,7 +224,7 @@ export const ProfileForm = ({
                   className="rounded-2xl px-8 border border-content/5 hover:bg-content/5 transition-all"
                   disabled={isSubmitLoading}
                 >
-                  Cancel
+                  {t("form.cancelBtn")}
                 </Button>
               </>
             ) : (
@@ -242,7 +236,7 @@ export const ProfileForm = ({
                 disabled={isSubmitLoading}
               >
                 <Pencil className="w-4 h-4" />
-                Edit Profile
+                {t("form.editBtn")}
               </Button>
             )}
           </AnimationItem>

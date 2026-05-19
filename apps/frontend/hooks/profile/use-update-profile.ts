@@ -3,8 +3,10 @@ import { toast } from "react-toastify";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { useAuthStore } from "../auth/use-auth-store";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
+import { useTranslations } from "next-intl";
 
 export const useUpdateProfile = () => {
+  const t = useTranslations("ProfilePage.toast");
   const [loading, setLoading] = useState(false);
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
@@ -32,22 +34,22 @@ export const useUpdateProfile = () => {
 
         if (response.status === "success" && response.data) {
           setUser(response.data);
-          toast.success("Profile updated successfully!");
+          toast.success(t("updateSuccess"));
           return true;
         } else {
           setUser(previousUser);
-          toast.error("Failed to update profile.");
+          toast.error(t("updateFailed"));
           return false;
         }
       } catch {
         setUser(previousUser);
-        toast.error("Failed to update profile. Please try again.");
+        toast.error(t("updateFailed"));
         return false;
       } finally {
         setLoading(false);
       }
     },
-    [setUser, user],
+    [setUser, user, t],
   );
 
   return {

@@ -1,6 +1,7 @@
 "use client";
 
-import { LogOut, User, ShoppingBag, Heart, Eye, EyeIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { LogOut, User, ShoppingBag, Heart, EyeIcon } from "lucide-react";
 
 import Avatar from "@/components/atoms/avatar";
 import Button from "@/components/atoms/button";
@@ -19,6 +20,8 @@ const AvatarDropdown = ({
   handleClickLogout: () => void;
   avatarUrl?: string;
 }) => {
+  const t = useTranslations("Common.header.avatarDropdown");
+
   return (
     <Dropdown
       trigger={
@@ -36,14 +39,14 @@ const AvatarDropdown = ({
         {/* User Info Section */}
         <div className="px-3.5 py-3 border-b border-content/[0.1] space-y-1">
           <p className="text-[10px] font-black text-content/50 uppercase tracking-widest">
-            Account Details
+            {t("accountDetails")}
           </p>
           <div className="flex flex-col">
             <p className="font-bold text-sm truncate text-content leading-snug">
               {name || "User"}
             </p>
             <p className="text-xs text-content/60 truncate font-medium">
-              {email || "No email provided"}
+              {email || t("noEmail")}
             </p>
           </div>
         </div>
@@ -57,7 +60,7 @@ const AvatarDropdown = ({
             href={APP_ROUTES.PROFILE}
           >
             <User className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">View Profile</span>
+            <span className="text-sm">{t("viewProfile")}</span>
           </Button>
 
           <Button
@@ -67,7 +70,7 @@ const AvatarDropdown = ({
             href={APP_ROUTES.FAVORITES}
           >
             <Heart className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">Wishlist</span>
+            <span className="text-sm">{t("wishlist")}</span>
           </Button>
 
           <Button
@@ -77,7 +80,7 @@ const AvatarDropdown = ({
             href={APP_ROUTES.RECENTLY_VIEWED}
           >
             <EyeIcon className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">Recently Viewed</span>
+            <span className="text-sm">{t("recentlyViewed")}</span>
           </Button>
 
           <Button
@@ -87,7 +90,7 @@ const AvatarDropdown = ({
             href={APP_ROUTES.ORDERS}
           >
             <ShoppingBag className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">My Orders</span>
+            <span className="text-sm">{t("myOrders")}</span>
           </Button>
 
           <Button
@@ -97,7 +100,7 @@ const AvatarDropdown = ({
             className="w-full justify-start rounded-lg font-bold group h-9 px-2.5 active:scale-95 transition-all"
           >
             <LogOut className="w-4 h-4 mr-2.5 opacity-80" />
-            <span className="text-sm">Sign Out</span>
+            <span className="text-sm">{t("signOut")}</span>
           </Button>
         </div>
       </div>

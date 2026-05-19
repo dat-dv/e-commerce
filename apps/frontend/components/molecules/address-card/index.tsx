@@ -4,6 +4,7 @@ import Button from "@/components/atoms/button";
 import { TAddress } from "@/domain/addresses/types/address.model";
 import { cn } from "@/utils/cn";
 import { Edit, Star, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type AddressCardMode = "select" | "manage";
 
@@ -24,30 +25,43 @@ const getFullAddress = (address: TAddress) =>
     .filter(Boolean)
     .join(", ");
 
-const AddressMeta = ({ address }: { address: TAddress }) => (
-  <span className="min-w-0 flex-1">
-    <span className="flex min-w-0 flex-wrap items-center gap-2">
-      <span className="truncate text-sm font-bold text-content">
-        {address.name || "No Name"}
-      </span>
-      <span className="text-content/30">·</span>
-      <span className="text-xs font-medium text-content/50">
-        {address.phone || "No Phone"}
-      </span>
-      {address.isDefault && (
-        <span className="rounded-md border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter text-primary">
-          Default
+const AddressMeta = ({ address }: { address: TAddress }) => {
+  const t = useTranslations("ProfileAddressesPage");
+
+  const getLocalizedLabel = (label?: string) => {
+    const lower = String(label || "").toLowerCase();
+    if (lower === "home") return t("form.labels.home");
+    if (lower === "office" || lower === "work") return t("form.labels.work");
+    if (lower === "apartment") return t("form.labels.apartment");
+    if (lower === "other") return t("form.labels.other");
+    return String(label || "");
+  };
+
+  return (
+    <span className="min-w-0 flex-1">
+      <span className="flex min-w-0 flex-wrap items-center gap-2">
+        <span className="truncate text-sm font-bold text-content">
+          {address.name || t("noName")}
         </span>
-      )}
-      <span className="rounded-full bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60">
-        {address.label}
+        <span className="text-content/30">·</span>
+        <span className="text-xs font-medium text-content/50">
+          {address.phone || t("noPhone")}
+        </span>
+        {address.isDefault && (
+          <span className="rounded-md border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter text-primary">
+            {t("defaultBadge")}
+          </span>
+        )}
+        <span className="rounded-full bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60">
+          {getLocalizedLabel(String(address?.label))}
+        </span>
+      </span>
+      <span className="block truncate text-sm font-normal text-content/60">
+        {getFullAddress(address)}
       </span>
     </span>
-    <span className="block truncate text-sm font-normal text-content/60">
-      {getFullAddress(address)}
-    </span>
-  </span>
-);
+  );
+};
 
 const SelectionIndicator = ({ selected }: { selected: boolean }) => (
   <span

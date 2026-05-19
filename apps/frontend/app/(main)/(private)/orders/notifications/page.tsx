@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { NotificationsView } from "@/components/organisms/notifications";
 
 export const metadata: Metadata = {
-  title: "Order Notifications | Antigravity E-commerce",
+  title: "Order Notifications | E-commerce",
   description: "View and manage your order notifications and account activity.",
 };
 

@@ -4,8 +4,7 @@ import * as z from "zod";
 export const getAddressSchema = (t: (key: string) => string) =>
   z.object({
     label: z.nativeEnum(EAddressLabel, {
-      invalid_type_error: t("labelRequired"),
-      required_error: t("labelRequired"),
+      error: t("labelRequired"),
     }),
     receiverName: z.string().min(1, t("receiverNameRequired")),
     receiverPhone: z.object({

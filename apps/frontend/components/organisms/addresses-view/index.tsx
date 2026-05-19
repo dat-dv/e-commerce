@@ -11,7 +11,10 @@ import AddressCard from "@/components/molecules/address-card";
 import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";
 
+import { useTranslations } from "next-intl";
+
 export const AddressesView = () => {
+  const t = useTranslations("ProfileAddressesPage");
   const {
     addresses,
     loading,
@@ -37,18 +40,16 @@ export const AddressesView = () => {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-black text-content tracking-tight">
-            My Addresses
+            {t("title")}
           </h1>
-          <p className="text-sm text-content/50 mt-1">
-            Manage your shipping destinations.
-          </p>
+          <p className="text-sm text-content/50 mt-1">{t("description")}</p>
         </div>
         <Button
           className="flex items-center gap-2 rounded-xl"
           onClick={() => setShowForm(!showForm)}
         >
           <Plus size={16} />
-          Add Address
+          {t("addAddress")}
         </Button>
       </div>
 
@@ -62,7 +63,7 @@ export const AddressesView = () => {
             className="p-6 border border-primary/20 rounded-2xl bg-surface/60 backdrop-blur-md"
           >
             <h2 className="text-base font-bold text-content mb-4">
-              New Address
+              {t("newAddress")}
             </h2>
             <AddressesForm onSubmit={handleAddAddress} loading={adding} />
           </motion.div>
@@ -80,9 +81,10 @@ export const AddressesView = () => {
       {/* Empty State */}
       {!loading && addresses.length === 0 && (
         <AddressEmptyState
-          title="No Addresses Yet"
-          description="Add a shipping address to get started."
-          actionLabel="Add Address"
+          title={t("empty.title")}
+          description={t("empty.description")}
+          actionLabel={t("empty.actionLabel")}
+          onAction={() => setShowForm(true)}
         />
       )}
 

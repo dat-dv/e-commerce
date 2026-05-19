@@ -21,7 +21,7 @@
   },
   "ProfileBankPage": {
     "metadata": {
-      "title": "Bank Accounts - Antigravity",
+      "title": "Bank Accounts",
       "description": "Manage your bank accounts for withdrawals."
     },
     "title": "Bank Account",
@@ -34,7 +34,7 @@
   },
   "ProfilePasswordPage": {
     "metadata": {
-      "title": "Change Password - Antigravity",
+      "title": "Change Password",
       "description": "Update your password to keep your account secure."
     },
     "title": "Change Password",
@@ -50,6 +50,94 @@
       "success": "Password changed successfully!",
       "failed": "Failed to change password.",
       "failedWithRetry": "Failed to change password. Please try again."
+    }
+  },
+  "ProfilePage": {
+    "metadata": {
+      "title": "My Profile",
+      "description": "View and update your personal profile information."
+    },
+    "form": {
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Your First Name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Your Last Name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Your Email",
+      "phoneLabel": "Phone Number",
+      "dateOfBirthLabel": "Date of Birth",
+      "dateOfBirthPlaceholder": "dd/mm/yyyy",
+      "genderLabel": "Gender",
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "editBtn": "Edit Profile",
+      "updateBtn": "Update Profile",
+      "updating": "Updating...",
+      "cancelBtn": "Cancel"
+    },
+    "toast": {
+      "updateSuccess": "Profile updated successfully!",
+      "updateFailed": "Failed to update profile.",
+      "uploadAvatarSuccess": "Avatar uploaded successfully!",
+      "uploadAvatarFailed": "Failed to upload avatar."
+    }
+  },
+  "ProfileAddressesPage": {
+    "metadata": {
+      "title": "My Addresses",
+      "description": "Manage your shipping addresses."
+    },
+    "title": "My Addresses",
+    "description": "Manage your shipping destinations.",
+    "defaultBadge": "Default",
+    "noName": "No Name",
+    "noPhone": "No Phone",
+    "addAddress": "Add Address",
+    "newAddress": "New Address",
+    "editAddress": "Edit Address",
+    "shippingDetails": "Shipping Details",
+    "empty": {
+      "title": "No Addresses Yet",
+      "description": "Add a shipping address to get started.",
+      "actionLabel": "Add Address"
+    },
+    "form": {
+      "receiverNameLabel": "Receiver Name",
+      "receiverNamePlaceholder": "John Doe",
+      "receiverPhoneLabel": "Receiver Phone",
+      "labelField": "Label",
+      "labels": {
+        "home": "Home",
+        "work": "Work",
+        "apartment": "Apartment",
+        "other": "Other"
+      },
+      "addressFromMap": "Address from Map",
+      "streetLabel": "Street / Specific Details",
+      "streetPlaceholder": "e.g., House No. 12, Floor 3, Street Name",
+      "cityLabel": "City",
+      "cityPlaceholder": "City",
+      "stateLabel": "State / Province",
+      "statePlaceholder": "State",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Country",
+      "postalCodeLabel": "Postal Code",
+      "postalCodePlaceholder": "Postal Code",
+      "setDefaultCheckbox": "Set as default address",
+      "submitAdd": "Add Address",
+      "submitUpdate": "Update Address"
+    },
+    "toast": {
+      "loadFailed": "Failed to load addresses.",
+      "addSuccess": "Address added successfully!",
+      "addFailed": "Failed to add address.",
+      "deleteSuccess": "Address removed.",
+      "deleteFailed": "Failed to delete address.",
+      "setDefaultSuccess": "Default address updated.",
+      "setDefaultFailed": "Failed to set default address."
     }
   }
 }
