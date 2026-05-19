@@ -6,6 +6,8 @@ import { formatCurrency } from "@/utils/format-currency";
 
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 
+import { useTranslations } from "next-intl";
+
 interface ProductInfoProps {
   product: TProduct;
   selectedSku: TSkuDomain;
@@ -45,6 +47,7 @@ export const ProductInfo = ({
   isFavorited = false,
   onToggleFavorite,
 }: ProductInfoProps) => {
+  const t = useTranslations("ProductDetailPage");
   const isDiscounted = originalPrice > price;
   const hasValidDiscountPercent = isDiscounted && discountPercent > 0;
   const parsedAttributeGroups = Object.entries(attributeGroups).map(
@@ -89,7 +92,7 @@ export const ProductInfo = ({
 
           <div className="flex items-center gap-1">
             <span className="font-bold text-content">{reviewsCount}</span>
-            <span className="text-content/50 text-xs">Reviews</span>
+            <span className="text-content/50 text-xs">{t("reviews")}</span>
           </div>
 
           <div className="w-[1px] h-4 bg-content/[0.1]" />
@@ -98,11 +101,11 @@ export const ProductInfo = ({
             <span className="font-bold text-content">
               {product.soldCount || 0}
             </span>
-            <span className="text-content/50 text-xs">Sold</span>
+            <span className="text-content/50 text-xs">{t("sold")}</span>
           </div>
         </div>
         <button className="text-content/40 hover:text-content text-xs font-medium transition-colors">
-          Report
+          {t("report")}
         </button>
       </div>
 
@@ -172,13 +175,13 @@ export const ProductInfo = ({
       {/* Quantity & Stock */}
       <div className="flex flex-col gap-3">
         <span className="text-sm font-medium text-content/60 w-24">
-          Quantity
+          {t("quantity")}
         </span>
         <div className="flex items-center gap-4">
           <div className="flex items-center border border-content/[0.1] rounded-lg overflow-hidden h-9">
             <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-r border-content/[0.1]"
+              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-r border-r-content/[0.1]"
             >
               <Minus size={12} />
             </button>
@@ -187,15 +190,15 @@ export const ProductInfo = ({
             </span>
             <button
               onClick={() => setQuantity(quantity + 1)}
-              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-l border-content/[0.1]"
+              className="h-full px-3 hover:bg-content/[0.05] transition-colors border-l border-l-content/[0.1]"
             >
               <Plus size={12} />
             </button>
           </div>
           <span className="text-sm text-content/50">
             {selectedSku?.stock !== undefined
-              ? `${selectedSku.stock} items available`
-              : "In Stock"}
+              ? t("itemsAvailable", { count: selectedSku.stock })
+              : t("inStock")}
           </span>
         </div>
       </div>
@@ -210,7 +213,7 @@ export const ProductInfo = ({
           className="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary py-3.5 rounded-xl font-semibold transition-colors border border-primary/20 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary/10"
         >
           <ShoppingCart size={18} />
-          Add to Cart
+          {t("addToCart")}
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.02 }}
@@ -219,7 +222,7 @@ export const ProductInfo = ({
           disabled={!selectedSku.id}
           className="flex-1 bg-primary hover:bg-primary/90 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/10 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary"
         >
-          Buy Now
+          {t("buyNow")}
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.1 }}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import EmptyState from "@/components/molecules/empty-space";
 import { TReview } from "@/domain/products/types/products.model";
 import { MessageCircle } from "lucide-react";
@@ -12,6 +13,8 @@ interface ReviewListProps {
 }
 
 export const ReviewList = ({ reviews, loadingReviews }: ReviewListProps) => {
+  const t = useTranslations("ProductDetailPage");
+
   if (loadingReviews) {
     return (
       <div className="divide-y divide-content/[0.05]">
@@ -23,8 +26,8 @@ export const ReviewList = ({ reviews, loadingReviews }: ReviewListProps) => {
   if (reviews.length === 0) {
     return (
       <EmptyState
-        title="No reviews yet"
-        description="Customer feedback for this product will appear here once reviews are available."
+        title={t("noReviews")}
+        description={t("noReviewsDesc")}
         icon={MessageCircle}
         className="rounded-2xl px-6 py-14"
         delay={0}

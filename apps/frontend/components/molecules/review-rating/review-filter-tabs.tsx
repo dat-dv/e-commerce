@@ -2,17 +2,22 @@
 
 import { TGetProductReviewsRequest } from "@/domain/products/types/products.model";
 
+import { useTranslations } from "next-intl";
+
 const reviewFilters: Array<{
-  label: string;
+  key: string;
+  rating?: number;
   value: TGetProductReviewsRequest;
 }> = [
-  { label: "All", value: { page: 1, limit: 10, sort: "newest" } },
+  { key: "filterAll", value: { page: 1, limit: 10, sort: "newest" } },
   {
-    label: "5 Stars",
+    key: "filterStars",
+    rating: 5,
     value: { page: 1, limit: 10, rating: 5, sort: "newest" },
   },
   {
-    label: "4 Stars",
+    key: "filterStars",
+    rating: 4,
     value: { page: 1, limit: 10, rating: 4, sort: "newest" },
   },
 ];
@@ -34,14 +39,19 @@ export const ReviewFilterTabs = ({
   activeFilter,
   onFilterChange,
 }: ReviewFilterTabsProps) => {
+  const t = useTranslations("ProductDetailPage");
   return (
     <div className="flex flex-wrap gap-2">
       {reviewFilters.map((filter) => {
         const isActive = isSameReviewFilter(activeFilter, filter.value);
+        const displayLabel =
+          filter.rating !== undefined
+            ? t(filter.key, { rating: filter.rating })
+            : t(filter.key);
 
         return (
           <button
-            key={filter.label}
+            key={`${filter.key}-${filter.rating ?? "all"}`}
             onClick={() => onFilterChange(filter.value)}
             className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all ${
               isActive
@@ -49,7 +59,7 @@ export const ReviewFilterTabs = ({
                 : "border-content/[0.05] text-content/60 hover:border-content/[0.1]"
             }`}
           >
-            {filter.label}
+            {displayLabel}
           </button>
         );
       })}

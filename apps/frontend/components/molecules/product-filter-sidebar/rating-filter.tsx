@@ -3,14 +3,17 @@ import React from "react";
 
 import { IProductRatingFilterProps } from "./product-filter-sidebar.types";
 
+import { useTranslations } from "next-intl";
+
 export function ProductRatingFilter({
   handleRatingClick,
   ratingValue,
 }: IProductRatingFilterProps) {
+  const t = useTranslations("ProductsPage");
   return (
     <div>
       <h3 className="mb-3 text-[11px] font-bold uppercase tracking-widest text-content/45">
-        Rating
+        {t("rating")}
       </h3>
       <div className="flex flex-col gap-1.5">
         {[5, 4, 3, 2, 1].map((rating) => (
@@ -33,7 +36,9 @@ export function ProductRatingFilter({
                 />
               ))}
             </div>
-            <span className="text-sm font-medium text-content/60">& Up</span>
+            <span className="text-sm font-medium text-content/60">
+              {t("up")}
+            </span>
           </button>
         ))}
       </div>

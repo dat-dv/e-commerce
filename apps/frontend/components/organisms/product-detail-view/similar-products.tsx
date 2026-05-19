@@ -4,6 +4,8 @@ import React from "react";
 import { TProduct } from "@/domain/products/types/products.model";
 import { ProductCard } from "../../molecules/product-card";
 
+import { useTranslations } from "next-intl";
+
 interface SimilarProductsProps {
   similarProducts: TProduct[];
   loadingSimilar: boolean;
@@ -13,14 +15,15 @@ export const SimilarProducts = ({
   similarProducts,
   loadingSimilar,
 }: SimilarProductsProps) => {
+  const t = useTranslations("ProductDetailPage");
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-content">
-          Sản phẩm cùng danh mục
+          {t("similarProducts")}
         </h2>
         <button className="text-sm font-semibold text-primary hover:underline">
-          Xem tất cả
+          {t("viewAll")}
         </button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -33,7 +36,7 @@ export const SimilarProducts = ({
           ))
         ) : similarProducts.length === 0 ? (
           <div className="col-span-full text-center text-content/50 py-8">
-            Không có sản phẩm tương tự
+            {t("noSimilarProducts")}
           </div>
         ) : (
           similarProducts.map((p) => <ProductCard key={p.id} product={p} />)

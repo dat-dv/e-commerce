@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   FilterSection,
   FilterSidebar,
@@ -15,7 +16,7 @@ export function ProductFilterSidebar<T extends string = string>({
   onFilterChange,
   onCategoryChange,
   hideCategories = false,
-  searchPlaceholder = "Search products",
+  searchPlaceholder,
   initialSearchValue = "",
   onSearchSubmit,
   minPriceValue = "",
@@ -23,6 +24,7 @@ export function ProductFilterSidebar<T extends string = string>({
   ratingValue = "",
   activeSlug = "",
 }: IProductFilterSidebarProps<T>) {
+  const t = useTranslations("ProductsPage");
   const handleRatingClick = (rating: number) => {
     if (ratingValue === String(rating)) {
       onFilterChange([{ key: "rating" as T, value: null }]); // Toggle off
@@ -41,11 +43,11 @@ export function ProductFilterSidebar<T extends string = string>({
         />
       )}
 
-      <FilterSection title="Filters">
+      <FilterSection title={t("filters")}>
         <ProductSearchFilter
           show={Boolean(onSearchSubmit)}
           onSearchSubmit={onSearchSubmit}
-          searchPlaceholder={searchPlaceholder}
+          searchPlaceholder={searchPlaceholder || t("searchPlaceholder")}
           initialSearchValue={initialSearchValue}
         />
 

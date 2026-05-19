@@ -13,11 +13,14 @@ import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { ProductsCatalog } from "./products-catalog";
 
+import { useTranslations } from "next-intl";
+
 interface ProductsViewProps {
   categorySlug: string;
 }
 
 export function ProductsView({ categorySlug }: ProductsViewProps) {
+  const t = useTranslations("ProductsPage");
   const categories = useCategoriesStore((s) => s.categories);
   const { products, total, currentPage, totalPages, loading } =
     useProductsPageStore((state) => state);
@@ -67,7 +70,6 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
     });
   }, [categorySlug, page, sort, search, fetchProducts]);
 
-  // Tìm category cấp cao nhất chứa slug hiện tại
   const findTopLevelCategoryForSlug = (
     cats: TCategory[],
     slug: string,
@@ -76,7 +78,7 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
       if (cat.slug === slug) return cat;
       if (cat.children) {
         const found = findTopLevelCategoryForSlug(cat.children, slug);
-        if (found) return cat; // Trả về category cha cấp cao nhất
+        if (found) return cat;
       }
     }
     return null;
@@ -86,7 +88,6 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
     ? findTopLevelCategoryForSlug(categories, categorySlug)
     : null;
 
-  // Lấy tên category đang active để hiển thị lên Header
   const getActiveCategoryTitle = (
     cats: TCategory[],
     slug: string,
@@ -103,20 +104,20 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
 
   const categoryTitle = categorySlug
     ? getActiveCategoryTitle(categories, categorySlug)
-    : "Our Products";
+    : null;
 
-  // Nếu đang ở một category cụ thể, chỉ hiển thị tree của category đó
+  const displayTitle = categoryTitle || t("title");
+  const description = t("description", {
+    categoryTitle: categoryTitle || t("premiumProducts"),
+  });
+
   const displayCategories = activeCategory ? [activeCategory] : categories;
 
   return (
     <AppContainer size="2xl" className="py-16">
-      <ProductsHeader
-        title={categoryTitle || "Our Products"}
-        description={`Explore our finest selection of ${categoryTitle || "premium products"}. Handpicked for quality and style.`}
-      />
+      <ProductsHeader title={displayTitle} description={description} />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Sidebar */}
         <div className="lg:col-span-1">
           <ProductFilterSidebar
             categories={displayCategories}
@@ -129,7 +130,6 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
           />
         </div>
 
-        {/* Products Area */}
         <ProductsCatalog
           products={products}
           total={total}
@@ -137,7 +137,7 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
           totalPages={totalPages}
           loading={loading}
           pageStr={page}
-          categoryTitle={categoryTitle || "Our Products"}
+          categoryTitle={displayTitle}
         />
       </div>
     </AppContainer>

@@ -11,6 +11,8 @@ import {
   AppliedFiltersBar,
 } from "@/components/molecules/applied-filters-bar";
 
+import { useTranslations } from "next-intl";
+
 interface ProductsCatalogProps<T extends string = string> {
   products: TProduct[];
   total: number;
@@ -40,6 +42,7 @@ export function ProductsCatalog<T extends string = string>({
   onPageChange,
   onSortChange,
 }: ProductsCatalogProps<T>) {
+  const t = useTranslations("ProductsPage");
   const hasProducts = products.length > 0;
 
   return (
@@ -81,8 +84,8 @@ export function ProductsCatalog<T extends string = string>({
         </div>
       ) : (
         <EmptyState
-          title="No products found"
-          description={`No products found in category "${categoryTitle}" matching your criteria.`}
+          title={t("noProducts")}
+          description={t("noProductsDesc", { categoryTitle })}
           icon={Search}
         />
       )}

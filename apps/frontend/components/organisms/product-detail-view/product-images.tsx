@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import { useTranslations } from "next-intl";
+
 interface ProductImagesProps {
   images: string[];
   selectedImage: number;
@@ -17,6 +19,7 @@ export const ProductImages = ({
   setSelectedImage,
   name,
 }: ProductImagesProps) => {
+  const t = useTranslations("ProductDetailPage");
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,7 +46,7 @@ export const ProductImages = ({
             />
           ) : (
             <div className="flex items-center justify-center h-full text-content/30 text-sm">
-              No Image
+              {t("noImage")}
             </div>
           )}
         </motion.div>

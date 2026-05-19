@@ -4,11 +4,14 @@ import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { TBrand } from "@/domain/products/types/products.model";
 
+import { useTranslations } from "next-intl";
+
 interface BrandInfoProps {
   brand?: TBrand;
 }
 
 export const BrandInfo = ({ brand }: BrandInfoProps) => {
+  const t = useTranslations("ProductDetailPage");
   if (!brand) return null;
 
   return (
@@ -35,7 +38,7 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
         <div>
           <h3 className="font-bold text-content">{brand.name}</h3>
           <p className="text-xs text-content/50 line-clamp-2 max-w-md">
-            {brand.description || "Authentic products from this brand"}
+            {brand.description || t("authenticProduct")}
           </p>
         </div>
       </div>
@@ -43,7 +46,7 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
         href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
         className="px-4 py-2 rounded-xl border border-content/[0.05] text-sm font-semibold hover:bg-content/[0.03] transition-colors"
       >
-        View Store
+        {t("viewStore")}
       </Link>
     </div>
   );

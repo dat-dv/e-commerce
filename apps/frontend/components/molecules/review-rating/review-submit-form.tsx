@@ -7,6 +7,8 @@ import { APP_ROUTES } from "@/constants/routes";
 import { Star } from "lucide-react";
 import { Controller, UseFormReturn } from "react-hook-form";
 
+import { useTranslations } from "next-intl";
+
 interface ReviewSubmitFormProps {
   methods: UseFormReturn<ReviewSubmitSchema>;
   isAuthenticated: boolean;
@@ -22,13 +24,12 @@ export const ReviewSubmitForm = ({
   error,
   onSubmit,
 }: ReviewSubmitFormProps) => {
+  const t = useTranslations("ProductDetailPage");
   return (
     <div className="rounded-2xl border border-content/[0.05] bg-background/40 p-5">
       <div className="mb-4 flex flex-col gap-1">
-        <h3 className="text-base font-bold text-content">Write a review</h3>
-        <p className="text-sm text-content/55">
-          Reviews are available after a delivered purchase.
-        </p>
+        <h3 className="text-base font-bold text-content">{t("writeReview")}</h3>
+        <p className="text-sm text-content/55">{t("writeReviewDesc")}</p>
       </div>
 
       {isAuthenticated ? (
@@ -41,7 +42,7 @@ export const ReviewSubmitForm = ({
                 <div
                   className="flex gap-1"
                   role="radiogroup"
-                  aria-label="Rating"
+                  aria-label={t("ratingRequired")}
                 >
                   {[1, 2, 3, 4, 5].map((rating) => {
                     const isActive = rating <= field.value;
@@ -52,7 +53,7 @@ export const ReviewSubmitForm = ({
                         type="button"
                         role="radio"
                         aria-checked={field.value === rating}
-                        aria-label={`${rating} star${rating > 1 ? "s" : ""}`}
+                        aria-label={t("filterStars", { rating })}
                         className="rounded-lg p-1 text-amber-400 outline-none transition-colors hover:bg-amber-400/10 focus-visible:ring-2 focus-visible:ring-primary/50"
                         onClick={() => field.onChange(rating)}
                       >
@@ -83,14 +84,14 @@ export const ReviewSubmitForm = ({
                   htmlFor="review-comment"
                   className="mb-2 block text-sm font-bold text-content/80"
                 >
-                  Comment
+                  {t("comment")}
                 </label>
                 <textarea
                   {...field}
                   id="review-comment"
                   rows={4}
                   maxLength={1000}
-                  placeholder="Share what stood out after using this product."
+                  placeholder={t("commentPlaceholder")}
                   className="min-h-28 w-full resize-y rounded-xl border-2 border-content/5 bg-surface px-4 py-3 text-sm shadow-sm outline-none transition-colors placeholder:text-content/35 focus:border-primary"
                 />
                 <div className="mt-1 flex justify-between gap-3 text-xs font-bold text-content/35">
@@ -114,21 +115,19 @@ export const ReviewSubmitForm = ({
             loading={isSubmitting}
             className="w-full rounded-xl sm:w-auto"
           >
-            Submit Review
+            {t("submitReview")}
           </Button>
         </AppForm>
       ) : (
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-content/60">
-            Sign in to review delivered purchases.
-          </p>
+          <p className="text-sm text-content/60">{t("signInToReview")}</p>
           <Button
             href={APP_ROUTES.SIGN_IN}
             variant="outline"
             size="sm"
             className="rounded-lg"
           >
-            Sign In
+            {t("signIn")}
           </Button>
         </div>
       )}

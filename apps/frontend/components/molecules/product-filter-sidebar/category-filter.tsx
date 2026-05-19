@@ -18,6 +18,8 @@ import {
   ICategoryTreeItemProps,
 } from "./product-filter-sidebar.types";
 
+import { useTranslations } from "next-intl";
+
 const categoryHasActiveSlug = (
   category: TCategory,
   activeSlug?: string,
@@ -67,6 +69,7 @@ function CategoryTreeItem({
   forceExpanded = false,
   onCategoryChange,
 }: ICategoryTreeItemProps) {
+  const t = useTranslations("ProductsPage");
   const hasChildren = Boolean(category.children?.length);
   const isActive = activeSlug === category.slug;
   const isActiveBranch = categoryHasActiveSlug(category, activeSlug);
@@ -147,6 +150,7 @@ export function CategoryFilterSection({
   activeSlug,
   onCategoryChange,
 }: ICategoryFilterSectionProps) {
+  const t = useTranslations("ProductsPage");
   const [categoryKeyword, setCategoryKeyword] = useState("");
 
   const searchedCategories = useMemo(
@@ -158,7 +162,7 @@ export function CategoryFilterSection({
 
   return (
     <FilterSection
-      title="Categories"
+      title={t("categories")}
       icon={<FolderTree className="h-4 w-4 text-primary" />}
     >
       <div className="mb-3 flex items-center gap-2 rounded-xl border border-content/[0.08] bg-content/[0.03] px-3 py-2">
@@ -167,7 +171,7 @@ export function CategoryFilterSection({
         <input
           value={categoryKeyword}
           onChange={(event) => setCategoryKeyword(event.target.value)}
-          placeholder="Search categories"
+          placeholder={t("searchCategories")}
           className="min-w-0 flex-1 bg-transparent text-sm font-medium text-content outline-none placeholder:text-content/35"
         />
 
@@ -187,7 +191,7 @@ export function CategoryFilterSection({
         <div className="flex flex-col gap-1">
           {searchedCategories.length === 0 ? (
             <p className="rounded-xl bg-content/[0.03] px-3 py-4 text-center text-sm font-medium text-content/40">
-              No categories found.
+              {t("noCategories")}
             </p>
           ) : (
             searchedCategories.map((category) => (

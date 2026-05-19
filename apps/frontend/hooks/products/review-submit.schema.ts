@@ -1,12 +1,11 @@
 import { z } from "zod";
 
-export const reviewSubmitSchema = z.object({
-  rating: z.number().min(1, "Choose a rating").max(5, "Choose a rating"),
-  comment: z
-    .string()
-    .trim()
-    .max(1000, "Review must be 1000 characters or less")
-    .optional(),
-});
+export const getReviewSubmitSchema = (t: (key: string) => string) =>
+  z.object({
+    rating: z.number().min(1, t("ratingRequired")).max(5, t("ratingRequired")),
+    comment: z.string().trim().max(1000, t("commentMax1000")).optional(),
+  });
 
-export type ReviewSubmitSchema = z.infer<typeof reviewSubmitSchema>;
+export type ReviewSubmitSchema = z.infer<
+  ReturnType<typeof getReviewSubmitSchema>
+>;

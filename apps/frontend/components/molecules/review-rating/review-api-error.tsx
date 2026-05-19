@@ -3,12 +3,15 @@
 import Button from "@/components/atoms/button";
 import { AlertCircle, RotateCcw } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 interface ReviewApiErrorProps {
   message: string;
   onRetry: () => void;
 }
 
 export const ReviewApiError = ({ message, onRetry }: ReviewApiErrorProps) => {
+  const t = useTranslations("ProductDetailPage");
   return (
     <div
       role="alert"
@@ -22,7 +25,7 @@ export const ReviewApiError = ({ message, onRetry }: ReviewApiErrorProps) => {
           />
           <div className="min-w-0">
             <h3 className="text-sm font-bold text-content">
-              Reviews could not be loaded
+              {t("reviewsLoadFailed")}
             </h3>
             <p className="mt-1 text-sm text-content/60">{message}</p>
           </div>
@@ -36,7 +39,7 @@ export const ReviewApiError = ({ message, onRetry }: ReviewApiErrorProps) => {
           className="shrink-0 rounded-lg"
         >
           <RotateCcw className="size-4" aria-hidden />
-          Retry
+          {t("retry")}
         </Button>
       </div>
     </div>

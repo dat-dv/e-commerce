@@ -15,6 +15,7 @@ export default getRequestConfig(async () => {
     import(`../messages/${locale}/search.json`),
     import(`../messages/${locale}/privacy.json`),
     import(`../messages/${locale}/terms.json`),
+    import(`../messages/${locale}/products.json`),
   ]);
 
   const messages = res.reduce((acc, item) => {
