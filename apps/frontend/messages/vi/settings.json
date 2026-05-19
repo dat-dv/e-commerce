@@ -1,0 +1,45 @@
+{
+  "SettingsPage": {
+    "metadata": {
+      "title": "Cài đặt",
+      "description": "Quản lý giao diện và tùy chọn tài khoản."
+    },
+    "header": {
+      "title": "Trang",
+      "highlight": "Cài đặt",
+      "description": "Điều chỉnh ngôn ngữ, giao diện tối, màu sắc và tùy chọn hiển thị."
+    },
+    "navigation": {
+      "title": "Cài đặt",
+      "appearance": "Giao diện",
+      "language": "Ngôn ngữ"
+    },
+    "appearance": {
+      "title": "Giao diện",
+      "themeColor": {
+        "label": "Màu chủ đạo",
+        "description": "Chọn màu nhấn bạn thích.",
+        "select": "Chọn giao diện {theme}"
+      },
+      "themes": {
+        "blue": "Xanh dương",
+        "red": "Đỏ",
+        "green": "Xanh lá"
+      },
+      "darkMode": {
+        "label": "Giao diện tối",
+        "description": "Chuyển giữa nền sáng và tối.",
+        "toggle": "Bật/tắt giao diện tối"
+      }
+    },
+    "language": {
+      "label": "Ngôn ngữ",
+      "description": "Chọn ngôn ngữ hiển thị. Tùy chọn này đổi subdomain.",
+      "select": "Chọn {language}",
+      "options": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+      }
+    }
+  }
+}

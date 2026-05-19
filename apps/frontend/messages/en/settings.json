@@ -1,0 +1,45 @@
+{
+  "SettingsPage": {
+    "metadata": {
+      "title": "Settings",
+      "description": "Manage your account preferences and appearance."
+    },
+    "header": {
+      "title": "Page",
+      "highlight": "Settings",
+      "description": "Adjust language, dark mode, colors, and interface preferences to match your personal style."
+    },
+    "navigation": {
+      "title": "Settings",
+      "appearance": "Appearance",
+      "language": "Language"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "themeColor": {
+        "label": "Theme Color",
+        "description": "Choose your preferred accent color.",
+        "select": "Select {theme} theme"
+      },
+      "themes": {
+        "blue": "Blue",
+        "red": "Red",
+        "green": "Green"
+      },
+      "darkMode": {
+        "label": "Dark Mode",
+        "description": "Switch between light and dark themes.",
+        "toggle": "Toggle dark mode"
+      }
+    },
+    "language": {
+      "label": "Language",
+      "description": "Select your preferred language. This changes the subdomain.",
+      "select": "Select {language}",
+      "options": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+      }
+    }
+  }
+}

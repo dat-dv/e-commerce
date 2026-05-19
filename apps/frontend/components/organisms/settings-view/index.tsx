@@ -6,8 +6,10 @@ import SettingsHeader from "./setting-header";
 import SettingsSidebar from "./settings-sidebar";
 import AppearanceSection from "./appearance-section";
 import LanguageSection from "./language-section";
+import { useTranslations } from "next-intl";
 
 export function SettingsView() {
+  const t = useTranslations("SettingsPage.navigation");
   const {
     theme,
     isDarkMode,
@@ -18,8 +20,8 @@ export function SettingsView() {
   } = useConfig();
 
   const tocItems = [
-    { id: "appearance", title: "Appearance" },
-    { id: "language", title: "Language" },
+    { id: "appearance", title: t("appearance") },
+    { id: "language", title: t("language") },
   ];
 
   return (

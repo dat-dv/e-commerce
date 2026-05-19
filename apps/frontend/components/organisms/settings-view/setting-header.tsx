@@ -8,16 +8,19 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const SETTINGS_ICONS = [Settings, SlidersHorizontal, ShieldCheck, Sparkles];
 
 const SettingsHeader = () => {
+  const t = useTranslations("SettingsPage.header");
+
   return (
     <AppContainer>
       <AnimatedPageHeader
-        title="Page"
-        highlight="Settings"
-        description="Adjust language, dark mode, colors, and interface preferences to match your personal style."
+        title={t("title")}
+        highlight={t("highlight")}
+        description={t("description")}
         icons={SETTINGS_ICONS}
       />
     </AppContainer>
