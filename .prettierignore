@@ -11,3 +11,4 @@ packages/shared/src/generate
 apps/backend/generated
 
 .gemini/*
+apps/frontend/messages/**/*

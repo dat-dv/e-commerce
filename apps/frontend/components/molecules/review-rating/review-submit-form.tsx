@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import Textarea from "@/components/atoms/textarea";
 import AppForm from "@/components/molecules/form/app-form";
 import { ReviewSubmitSchema } from "@/hooks/products/review-submit.schema";
 import { APP_ROUTES } from "@/constants/routes";
@@ -81,26 +82,15 @@ export const ReviewSubmitForm = ({
             name="comment"
             control={methods.control}
             render={({ field, fieldState: { error: fieldError } }) => (
-              <div>
-                <label
-                  htmlFor="review-comment"
-                  className="mb-2 block text-sm font-bold text-content/80"
-                >
-                  {t("comment")}
-                </label>
-                <textarea
-                  {...field}
-                  id="review-comment"
-                  rows={4}
-                  maxLength={1000}
-                  placeholder={t("commentPlaceholder")}
-                  className="min-h-28 w-full resize-y rounded-xl border-2 border-content/5 bg-surface px-4 py-3 text-sm shadow-sm outline-none transition-colors placeholder:text-content/35 focus:border-primary"
-                />
-                <div className="mt-1 flex justify-between gap-3 text-xs font-bold text-content/35">
-                  <span className="text-red-500">{fieldError?.message}</span>
-                  <span>{String(field.value ?? "").length}/1000</span>
-                </div>
-              </div>
+              <Textarea
+                {...field}
+                id="review-comment"
+                label={t("comment")}
+                error={fieldError?.message}
+                maxCount={1000}
+                placeholder={t("commentPlaceholder")}
+                className="min-h-28 border-content/5 bg-surface focus:border-primary"
+              />
             )}
           />
 

@@ -7,6 +7,7 @@ import {
   AppDialogTitle,
 } from "@/components/atoms/dialog";
 import Input from "@/components/atoms/input";
+import Textarea from "@/components/atoms/textarea";
 import { toast } from "@/components/ui/toast";
 import {
   OrderReturnRequestFormData,
@@ -222,40 +223,26 @@ export const RequestReturnModal = ({
               </div>
 
               <div className="space-y-5">
-                <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
-                    {t("reason")}
-                  </label>
-                  <Input
-                    {...register("title")}
-                    disabled={isSubmitting}
-                    placeholder={t("reasonPlaceholder")}
-                    className="w-full rounded-xl border-content/[0.08] bg-content/[0.03] px-4 py-3 placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
-                  />
-                  {errors.title ? (
-                    <p className="mt-2 text-xs font-semibold text-red-500">
-                      {errors.title.message}
-                    </p>
-                  ) : null}
-                </div>
+                <Input
+                  {...register("title")}
+                  id="return-title"
+                  label={t("reason")}
+                  error={errors.title?.message}
+                  disabled={isSubmitting}
+                  placeholder={t("reasonPlaceholder")}
+                  className="w-full rounded-xl border-content/[0.08] bg-content/[0.03] px-4 py-3 placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
+                />
 
-                <div>
-                  <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-content/45">
-                    {t("details")}
-                  </label>
-                  <textarea
-                    {...register("description")}
-                    disabled={isSubmitting}
-                    rows={5}
-                    placeholder={t("detailsPlaceholder")}
-                    className="w-full resize-none rounded-xl border border-content/[0.08] bg-content/[0.03] px-4 py-3 text-sm font-medium leading-relaxed text-content outline-none transition-colors placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60"
-                  />
-                  {errors.description ? (
-                    <p className="mt-2 text-xs font-semibold text-red-500">
-                      {errors.description.message}
-                    </p>
-                  ) : null}
-                </div>
+                <Textarea
+                  {...register("description")}
+                  id="return-description"
+                  label={t("details")}
+                  error={errors.description?.message}
+                  disabled={isSubmitting}
+                  rows={5}
+                  placeholder={t("detailsPlaceholder")}
+                  className="resize-none border-content/[0.08] bg-content/[0.03] px-4 py-3 placeholder:text-content/30 focus:border-primary/40"
+                />
 
                 <div>
                   <div className="mb-2 flex items-center justify-between gap-3">
