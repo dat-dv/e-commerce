@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { IUsersRepository } from '../entities/users.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { IPaginatedResult, IUserResponse } from '@ecommerce/shared';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import * as crypto from 'crypto';
-import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
-import { IUserResponse, IPaginatedResult, IUpdateUserRequest, ICreateUserRequest } from '@ecommerce/shared';
+import { IUsersRepository } from '../entities/users.repository.interface';
 
-import { UpdateUserDto } from '../../dto/update-user.dto';
 import { CreateUserDto } from '../../dto/create-user.dto';
+import { UpdateUserDto } from '../../dto/update-user.dto';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -47,24 +47,59 @@ export class UsersRepository implements IUsersRepository {
 
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       if (isUpdatePhone) {
-        await tx.userPhone.updateMany({
-          where: {
-            user_id: id,
-            is_default: true,
-          },
-          data: {
-            is_default: false,
-          },
+        const existingPhone = await tx.userPhone.findUnique({
+          where: { phone_number },
         });
 
-        await tx.userPhone.create({
-          data: {
-            user_id: id,
-            phone_number: phone_number || '',
-            phone_code: phone_code || '',
-            is_default: true,
-          },
-        });
+        if (existingPhone) {
+          if (existingPhone.user_id !== id) {
+            throw new BadRequestException('Phone number is already in use by another account');
+          }
+
+          await tx.userPhone.updateMany({
+            where: {
+              user_id: id,
+              id: { not: existingPhone.id },
+            },
+            data: {
+              is_default: false,
+            },
+          });
+
+          await tx.userPhone.update({
+            where: { id: existingPhone.id },
+            data: {
+              phone_code,
+              is_default: true,
+            },
+          });
+        } else {
+          const defaultPhone = await tx.userPhone.findFirst({
+            where: {
+              user_id: id,
+              is_default: true,
+            },
+          });
+
+          if (defaultPhone) {
+            await tx.userPhone.update({
+              where: { id: defaultPhone.id },
+              data: {
+                phone_number,
+                phone_code,
+              },
+            });
+          } else {
+            await tx.userPhone.create({
+              data: {
+                user_id: id,
+                phone_number,
+                phone_code,
+                is_default: true,
+              },
+            });
+          }
+        }
       }
 
       return tx.user.update({

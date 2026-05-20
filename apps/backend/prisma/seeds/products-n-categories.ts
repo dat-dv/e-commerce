@@ -275,13 +275,6 @@ const SUB_CATEGORY_TRANSLATIONS_VI: Record<string, string> = {
   'musical-instruments-professional-audio': 'Nhạc cụ & âm thanh chuyên nghiệp',
 };
 
-/**
- * Seeds a single Amazon product into the database, including its nested SKUs,
- * translations, categories, images, and reviews.
- *
- * Implements a try-catch block to ensure that database errors on a specific product
- * do not interrupt the concurrent seeding process of other products in the batch.
- */
 async function seedOneProduct(params: {
   prisma: PrismaClient;
   product: AmazonProduct;
@@ -389,14 +382,6 @@ async function seedOneProduct(params: {
   }
 }
 
-/**
- * Handles seeding products and categories into the database.
- * Scans the JSON datasets, caches category levels to prevent duplication/race conditions,
- * and processes products in parallel batches using Promise.allSettled.
- *
- * @param prisma - PrismaClient instance for database write queries.
- * @param brandMap - Mapped Brand IDs from memory cache.
- */
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
   const startTime = Date.now();
   const isDevSeed = false;

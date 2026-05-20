@@ -1,7 +1,6 @@
-import { TUser } from "../types/auth.model";
-import { IUserResponse, IUpdateUserRequest } from "@ecommerce/shared";
+import { EGender, IUpdateUserRequest, IUserResponse } from "@ecommerce/shared";
 import { TUpdateUserInput } from "../../users/types/user.model";
-import { EGender } from "@ecommerce/shared";
+import { TUser } from "../types/auth.model";
 
 export const UserMapper = {
   toDomain(dto: IUserResponse): TUser {
@@ -30,8 +29,14 @@ export const UserMapper = {
       roleName: dto.role?.role_name || null,
     };
   },
-  toDTO(user: Partial<TUser>): Partial<IUserResponse> {
-    const dto: Partial<IUserResponse> = {};
+
+  toDTO(
+    user: Partial<TUser> & { phoneNumber?: string; phoneCode?: string },
+  ): Partial<IUserResponse> & { phone_number?: string; phone_code?: string } {
+    const dto: Partial<IUserResponse> & {
+      phone_number?: string;
+      phone_code?: string;
+    } = {};
     if (user.id) dto.id = user.id;
     if (user.firstName) dto.first_name = user.firstName;
     if (user.lastName) dto.last_name = user.lastName;
@@ -39,6 +44,8 @@ export const UserMapper = {
       dto.date_of_birth = new Date(user.dateOfBirth);
     }
     if (user.avatarId) dto.avatar_id = user.avatarId;
+    if (user.phoneNumber) dto.phone_number = user.phoneNumber;
+    if (user.phoneCode) dto.phone_code = user.phoneCode;
     if (user.phones && user.phones.length > 0) {
       dto.phones = user.phones.map((p) => ({
         id: p.id,
