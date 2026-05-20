@@ -1,15 +1,15 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { useTranslations } from "next-intl";
-import HelpHeader from "./help-header";
-import { useState, useMemo } from "react";
 import { getRawI18nValue } from "@/utils/i18n";
-import { HelpCardItem } from "./help-view.types";
-import { filterHelpCards } from "./help-view.utils";
+import { useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
 import { HelpContactPanel } from "./help-contact-panel";
+import HelpHeader from "./help-header";
 import { HelpPopularAnswers } from "./help-popular-answers";
 import { HelpQuickLinks } from "./help-quick-links";
+import { HelpCardItem } from "./help-view.types";
+import { filterHelpCards } from "./help-view.utils";
 
 export function HelpView(): React.ReactElement {
   const tHelp = useTranslations("HelpCenter.help");
@@ -21,11 +21,11 @@ export function HelpView(): React.ReactElement {
   }, [query, tHelp]);
 
   return (
-    <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+    <div className="animate-in fade-in slide-in-from-bottom-6 pb-12 duration-700 sm:pb-16">
       <HelpHeader searchQuery={query} setSearchQuery={setQuery} />
 
-      <AppContainer size="2xl" className="py-10">
-        <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <AppContainer size="2xl" className="py-6 sm:py-10">
+        <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-8">
           <HelpQuickLinks
             cards={filteredCards}
             title={tHelp("quick")}

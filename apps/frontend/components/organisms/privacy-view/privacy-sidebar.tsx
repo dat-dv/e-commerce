@@ -19,8 +19,8 @@ export function PrivacySidebar({
   const t = useTranslations("Privacy");
 
   return (
-    <div>
-      <h3 className="text-sm font-bold text-content/40 uppercase tracking-wider mb-3">
+    <div className="min-w-0">
+      <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-content/40">
         {t("toc")}
       </h3>
       <TableOfContents items={sections} />

@@ -18,7 +18,7 @@ export function FAQSidebar({
   contactCta,
 }: FAQSidebarProps): React.ReactElement {
   return (
-    <aside className="self-start lg:top-32">
+    <aside className="min-w-0 self-start lg:top-32">
       <HelpSupportCard
         title={contactTitle}
         description={contactDescription}

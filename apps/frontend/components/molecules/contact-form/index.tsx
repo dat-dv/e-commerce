@@ -27,21 +27,25 @@ export default function ContactForm() {
   } = useHelpContactForm();
 
   return (
-    <AppForm methods={methods} onSubmit={onSubmit} className="space-y-5">
+    <AppForm
+      methods={methods}
+      onSubmit={onSubmit}
+      className="space-y-4 sm:space-y-5"
+    >
       <div className="grid gap-4 sm:grid-cols-2">
         <FormInput
           name="contact_name"
           label={t("nameLabel")}
           placeholder={t("namePlaceholder")}
           maxCount={120}
-          className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
+          className="h-12 rounded-xl border-2 border-content/5 bg-surface px-4 text-sm shadow-sm transition-all focus:border-primary focus:outline-none sm:px-5"
         />
         <FormInput
           name="contact_email"
           label={t("emailLabel")}
           type="email"
           placeholder={t("emailPlaceholder")}
-          className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
+          className="h-12 rounded-xl border-2 border-content/5 bg-surface px-4 text-sm shadow-sm transition-all focus:border-primary focus:outline-none sm:px-5"
         />
       </div>
 
@@ -49,7 +53,7 @@ export default function ContactForm() {
         name="contact_phone"
         label={t("phoneLabel")}
         disabled={isSubmitting}
-        className="h-12 text-sm rounded-xl"
+        className="h-12 rounded-xl text-sm"
       />
 
       <FormInput
@@ -57,7 +61,7 @@ export default function ContactForm() {
         label={t("subjectLabel")}
         placeholder={t("subjectPlaceholder")}
         maxCount={160}
-        className="h-12 px-5 rounded-xl bg-surface border-2 border-content/5 focus:outline-none focus:border-primary transition-all text-sm shadow-sm"
+        className="h-12 rounded-xl border-2 border-content/5 bg-surface px-4 text-sm shadow-sm transition-all focus:border-primary focus:outline-none sm:px-5"
       />
 
       <FormTextarea
@@ -70,7 +74,7 @@ export default function ContactForm() {
       />
 
       <div>
-        <label className="text-sm font-bold text-content/80 block mb-2">
+        <label className="mb-2 block text-sm font-bold text-content/80">
           {t("attachmentsLabel")}
         </label>
         <input
@@ -86,7 +90,7 @@ export default function ContactForm() {
           variant="outline"
           size="lg"
           onClick={() => fileInputRef.current?.click()}
-          className="w-full min-h-24 rounded-xl border-dashed flex-col text-content/70"
+          className="flex min-h-20 w-full flex-col rounded-xl border-dashed text-content/70 sm:min-h-24"
           disabled={isSubmitting}
         >
           <Upload className="size-5" aria-hidden />
@@ -103,14 +107,14 @@ export default function ContactForm() {
             {attachments.map((file, index) => (
               <li
                 key={`${file.name}-${file.lastModified}`}
-                className="flex items-center gap-3 rounded-xl border border-content/5 bg-surface px-3 py-2 text-sm"
+                className="flex min-w-0 items-center gap-2 rounded-xl border border-content/5 bg-surface px-3 py-2 text-sm sm:gap-3"
               >
                 <ImageIcon
                   className="size-4 shrink-0 text-content/45"
                   aria-hidden
                 />
                 <span className="min-w-0 flex-1 truncate">{file.name}</span>
-                <span className="shrink-0 text-xs font-bold text-content/35">
+                <span className="hidden shrink-0 text-xs font-bold text-content/35 sm:inline">
                   {(file.size / 1024 / 1024).toFixed(1)} MB
                 </span>
                 <Button
@@ -134,7 +138,7 @@ export default function ContactForm() {
         type="submit"
         variant="primary"
         size="md"
-        className="w-full h-12 rounded-xl"
+        className="h-12 w-full rounded-xl"
         loading={isSubmitting}
       >
         {isSubmitting ? t("sending") : t("send")}

@@ -20,10 +20,10 @@ export function HelpFAQView(): React.ReactElement {
   }, [searchQuery, topics]);
 
   return (
-    <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+    <div className="animate-in fade-in slide-in-from-bottom-6 pb-12 duration-700 sm:pb-16">
       <FAQHeader />
-      <AppContainer size="2xl" className="py-10 sm:py-14">
-        <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
+      <AppContainer size="2xl" className="py-6 sm:py-10 lg:py-14">
+        <div className="grid gap-6 lg:grid-cols-[280px_1fr] lg:gap-10">
           <FAQSidebar
             topics={topics}
             contactTitle={tFAQ("contactTitle")}

@@ -57,7 +57,7 @@ export function HelpTopicNav({
   return (
     <nav
       className={cn(
-        "mt-5 rounded-xl border border-content/5 bg-surface p-2",
+        "scrollbar-hide mt-5 flex max-w-full gap-2 overflow-x-auto rounded-xl border border-content/5 bg-surface p-2 lg:block lg:overflow-visible",
         className,
       )}
     >
@@ -72,7 +72,7 @@ export function HelpTopicNav({
             onClick={() => setActiveId(topicId)}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "block rounded-lg px-3 py-2 text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20",
+              "block whitespace-nowrap rounded-lg px-3 py-2 text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 lg:whitespace-normal",
               isActive
                 ? "bg-primary/10 text-primary"
                 : "text-content/60 hover:bg-content/[0.04] hover:text-primary",

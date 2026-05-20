@@ -71,11 +71,11 @@ export const HelpShippingView = (): React.ReactElement => {
   }, [searchQuery, topics]);
 
   return (
-    <div className="pb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+    <div className="animate-in fade-in slide-in-from-bottom-6 pb-12 duration-700 sm:pb-16">
       <ShippingHeader />
-      <AppContainer size="2xl" className="py-10 sm:py-14">
-        <section className="grid gap-10 lg:grid-cols-[280px_1fr]">
-          <aside className="self-start lg:top-32">
+      <AppContainer size="2xl" className="py-6 sm:py-10 lg:py-14">
+        <section className="grid gap-6 lg:grid-cols-[280px_1fr] lg:gap-10">
+          <aside className="min-w-0 self-start lg:top-32">
             <HelpSupportCard
               title={tShipping("contactTitle")}
               description={tShipping("contactDesc")}
@@ -98,7 +98,7 @@ export const HelpShippingView = (): React.ReactElement => {
               className="rounded-xl bg-surface shadow-sm"
             />
 
-            <div className="mt-8 space-y-8">
+            <div className="mt-6 space-y-7 sm:mt-8 sm:space-y-8">
               {filteredTopics.map((topic: ShippingTopic) => {
                 const Icon = iconMap[topic.icon as IconName];
                 return (
@@ -107,11 +107,11 @@ export const HelpShippingView = (): React.ReactElement => {
                     id={getHelpTopicId(topic.name)}
                     className="scroll-mt-28"
                   >
-                    <div className="mb-4 flex items-center gap-3">
+                    <div className="mb-4 flex min-w-0 items-center gap-3">
                       <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         <Icon className="size-5" />
                       </span>
-                      <h2 className="text-xl font-black text-content">
+                      <h2 className="min-w-0 break-words text-lg font-black text-content sm:text-xl">
                         {topic.name}
                       </h2>
                     </div>
@@ -128,7 +128,7 @@ export const HelpShippingView = (): React.ReactElement => {
             </div>
 
             {!filteredTopics.length && (
-              <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
+              <div className="mt-8 rounded-xl border border-content/5 bg-surface p-5 text-center text-sm text-content/55 sm:p-8">
                 {tShipping("empty")}
               </div>
             )}

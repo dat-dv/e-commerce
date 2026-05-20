@@ -1,14 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { HelpCardItem } from "./help-view.types";
 import {
   HelpHrefKey,
   HelpIconName,
   helpHrefMap,
   helpIconMap,
 } from "./help-view.utils";
-import { HelpCardItem } from "./help-view.types";
 
 interface HelpQuickLinksProps {
   cards: HelpCardItem[];
@@ -26,7 +26,7 @@ export function HelpQuickLinks({
   return (
     <div className="min-w-0">
       <div className="flex items-end justify-between gap-4">
-        <div>
+        <div className="min-w-0">
           <h2 className="text-xl font-black text-content">{title}</h2>
           <p className="mt-2 text-sm leading-6 text-content/55">
             {description}
@@ -42,7 +42,7 @@ export function HelpQuickLinks({
             <Link
               key={item.title}
               href={helpHrefMap[item.href as HelpHrefKey]}
-              className="group flex min-w-0 items-center gap-4 rounded-lg border border-content/5 bg-surface p-4 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
+              className="group flex min-w-0 items-start gap-3 rounded-lg border border-content/5 bg-surface p-4 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 sm:items-center sm:gap-4"
             >
               <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Icon className="size-5" aria-hidden="true" />
@@ -56,7 +56,7 @@ export function HelpQuickLinks({
                 </span>
               </span>
               <ArrowRight
-                className="size-4 shrink-0 text-content/30 transition-transform group-hover:translate-x-0.5 group-hover:text-primary"
+                className="mt-3 size-4 shrink-0 text-content/30 transition-transform group-hover:translate-x-0.5 group-hover:text-primary sm:mt-0"
                 aria-hidden="true"
               />
             </Link>

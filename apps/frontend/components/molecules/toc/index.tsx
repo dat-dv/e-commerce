@@ -34,12 +34,12 @@ export default function TableOfContents({ items }: TocProps) {
   }, [items]);
 
   return (
-    <ul className="flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-0 lg:space-y-1">
+    <ul className="scrollbar-hide flex max-w-full flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-0 lg:space-y-1 lg:overflow-visible lg:pb-0">
       {items.map((item) => (
         <li key={item.id} className="shrink-0 lg:w-full">
           <Link
             href={`#${item.id}`}
-            className={`block text-center lg:text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+            className={`block max-w-[76vw] truncate whitespace-nowrap rounded-xl px-4 py-2.5 text-center text-sm font-medium transition-colors lg:max-w-none lg:whitespace-normal lg:text-left ${
               activeId === item.id
                 ? "bg-primary text-white"
                 : "text-content/70 hover:bg-surface/80 hover:text-primary"

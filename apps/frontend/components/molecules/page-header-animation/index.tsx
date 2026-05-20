@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { type MouseEvent, type ReactNode } from "react";
 import { type LucideIcon } from "lucide-react";
+import { type MouseEvent, type ReactNode } from "react";
 
 interface AnimatedPageHeaderProps {
   title: string;
@@ -37,7 +37,7 @@ export function AnimatedPageHeader({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       onMouseMove={handleMouseMove}
-      className="group relative mb-8 min-h-[260px] flex items-center justify-center overflow-hidden border-b border-content/[0.03]"
+      className="group relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b border-content/[0.03] sm:mb-8 sm:min-h-[260px]"
     >
       <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none">
         {icons.map((Icon, i) => (
@@ -63,7 +63,7 @@ export function AnimatedPageHeader({
               top: `${20 + (i % 3) * 20}%`,
             }}
           >
-            <Icon size={90} strokeWidth={1} />
+            <Icon className="size-16 sm:size-[90px]" strokeWidth={1} />
           </motion.div>
         ))}
       </div>
@@ -85,18 +85,18 @@ export function AnimatedPageHeader({
         <div
           className={
             center
-              ? "flex flex-col items-center gap-6 py-10 text-center"
-              : "flex flex-col items-center justify-between gap-6 py-10 text-center md:flex-row md:items-end md:text-left"
+              ? "flex flex-col items-center gap-5 py-8 text-center sm:gap-6 sm:py-10"
+              : "flex flex-col items-center justify-between gap-5 py-8 text-center sm:gap-6 sm:py-10 md:flex-row md:items-end md:text-left"
           }
         >
           <div
             className={
               center
-                ? "flex flex-col items-center gap-5"
-                : "flex flex-col items-center gap-5 md:items-start"
+                ? "flex min-w-0 flex-col items-center gap-4 sm:gap-5"
+                : "flex min-w-0 flex-col items-center gap-4 sm:gap-5 md:items-start"
             }
           >
-            <h1 className="text-5xl md:text-7xl font-black tracking-[-0.05em] text-content leading-none uppercase">
+            <h1 className="max-w-full break-words text-4xl font-black uppercase leading-none tracking-normal text-content sm:text-5xl md:text-7xl">
               {title}{" "}
               {highlight && (
                 <span className="italic font-light text-content/30">
@@ -109,8 +109,8 @@ export function AnimatedPageHeader({
               <p
                 className={
                   center
-                    ? "text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight text-center"
-                    : "text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight"
+                    ? "max-w-2xl text-center text-sm font-medium leading-relaxed tracking-normal text-content/50 sm:text-base md:text-lg"
+                    : "max-w-2xl text-sm font-medium leading-relaxed tracking-normal text-content/50 sm:text-base md:text-lg"
                 }
               >
                 {description}

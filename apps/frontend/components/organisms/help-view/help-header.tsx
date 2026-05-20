@@ -30,7 +30,7 @@ export function HelpHeader({
   const clearLabel = t("clear");
 
   return (
-    <div className="mb-12">
+    <div className="mb-8 sm:mb-12">
       <AppContainer>
         <AnimatedPageHeader
           title={title}
@@ -41,7 +41,7 @@ export function HelpHeader({
         />
       </AppContainer>
 
-      <div className="max-w-2xl mx-auto relative mt-[-40px] z-30 px-4">
+      <div className="relative z-30 mx-auto mt-[-32px] max-w-2xl px-4 sm:mt-[-40px]">
         <SearchInput
           id="help-header-search"
           value={searchQuery}
@@ -50,7 +50,7 @@ export function HelpHeader({
           clearButtonLabel={clearLabel}
           showSubmitButton={false}
           className="rounded-2xl border-2 border-content/10 bg-surface shadow-md"
-          inputClassName="py-3.5 text-base"
+          inputClassName="py-3 text-sm sm:py-3.5 sm:text-base"
         />
       </div>
     </div>

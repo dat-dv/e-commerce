@@ -16,10 +16,10 @@ export default function SidebarLayout({
   children,
 }: SidebarLayoutProps) {
   return (
-    <div className="pt-4 pb-12">
-      <div className="mb-12">{header}</div>
+    <div className="pb-10 pt-2 sm:pb-12 sm:pt-4">
+      <div className="mb-8 sm:mb-12">{header}</div>
       <AppContainer size="2xl">
-        <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
           {/* Sidebar */}
           <aside
             className={cn("w-full lg:w-[280px] shrink-0", sidebarClassName)}
