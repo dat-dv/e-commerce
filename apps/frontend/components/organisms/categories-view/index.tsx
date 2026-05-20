@@ -5,7 +5,7 @@ import SidebarLayout from "@/components/molecules/sidebar-layout";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import CategoryHeader from "./categories-header";
 import { CategoriesContent } from "./content";
 
@@ -30,6 +30,16 @@ export const CategoriesView = () => {
   const categoriesTree = useCategoriesStore((s) => s.categories);
   const [activeId, setActiveId] = useState<string>("all");
 
+  const parentCategories = useMemo<TCategory[]>(
+    () =>
+      categoriesTree.map(({ id, name, slug }) => ({
+        id,
+        name,
+        slug,
+      })),
+    [categoriesTree],
+  );
+
   const activeCategory = findCategoryById(categoriesTree, activeId);
 
   const title = activeCategory ? activeCategory.name : t("allTitle");
@@ -44,7 +54,7 @@ export const CategoriesView = () => {
     <SidebarLayout
       sidebar={
         <CategoryNavSidebar
-          categories={categoriesTree}
+          categories={parentCategories}
           activeId={activeId}
           setActiveId={setActiveId}
         />
