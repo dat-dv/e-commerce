@@ -195,7 +195,11 @@
       "title": "Discover Categories",
       "description": "Explore collections and find what fits your needs.",
       "count": "{count, plural, one {# category} other {# categories}}",
-      "childCount": "{count, plural, one {# category} other {# categories}}"
+      "childCount": "{count, plural, one {# category} other {# categories}}",
+      "viewCategory": "View {category}",
+      "viewMore": "{count, plural, one {# more} other {# more}}",
+      "noChildren": "Browse products in this category.",
+      "browseProducts": "Browse products"
     },
     "sidebar": {
       "title": "Categories",

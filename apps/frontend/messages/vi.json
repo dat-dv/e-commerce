@@ -195,7 +195,11 @@
       "title": "Khám phá danh mục",
       "description": "Tìm bộ sưu tập phù hợp với nhu cầu của bạn.",
       "count": "{count} danh mục",
-      "childCount": "{count} danh mục"
+      "childCount": "{count} danh mục",
+      "viewCategory": "Xem {category}",
+      "viewMore": "Còn {count} danh mục",
+      "noChildren": "Xem sản phẩm trong danh mục này.",
+      "browseProducts": "Xem sản phẩm"
     },
     "sidebar": {
       "title": "Danh mục",
