@@ -1,8 +1,8 @@
+import * as crypto from 'crypto';
 import 'dotenv/config';
-import { PrismaClient } from '../../generated/prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as crypto from 'crypto';
+import { PrismaClient } from '../../generated/prisma/client';
 import { TOP_BRANDS_DATA } from './top-brands.data';
 
 export interface AmazonSku {
@@ -168,7 +168,130 @@ const SUB_CATEGORY_TRANSLATIONS_VI: Record<string, string> = {
   yoga: 'Yoga',
 };
 
+/**
+ * Seeds a single Amazon product into the database, including its nested SKUs,
+ * translations, categories, images, and reviews.
+ *
+ * Implements a try-catch block to ensure that database errors on a specific product
+ * do not interrupt the concurrent seeding process of other products in the batch.
+ */
+async function seedOneProduct(params: {
+  prisma: PrismaClient;
+  product: AmazonProduct;
+  file: string;
+  categoryCache: Record<string, string>;
+  brandMap: Record<string, string>;
+  langViId: string;
+  langEnId: string;
+  users: { id: string }[];
+  seedLogsPath: string;
+}): Promise<void> {
+  const { prisma, product: p, file, categoryCache, brandMap, langViId, langEnId, users, seedLogsPath } = params;
+  const imageUrl = Array.isArray(p.image) ? p.image[0] : p.image;
+
+  try {
+    const subCategorySlug = slugify(p.sub_category);
+    const subCategoryId = categoryCache[subCategorySlug];
+
+    if (!subCategoryId) {
+      throw new Error(`Không tìm thấy categoryId trong cache cho slug: ${subCategorySlug}`);
+    }
+
+    let brandId = p.brand ? brandMap[p.brand.toLowerCase()] : null;
+    if (!brandId) {
+      brandId = findBrandIdByProductName(p.name, brandMap);
+    }
+
+    const skuPrices = p.skus.map((sku) =>
+      sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000,
+    );
+    const basePrice =
+      skuPrices.length > 0 ? Math.min(...skuPrices) : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
+
+    const createdProduct = await prisma.product.create({
+      data: {
+        slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
+        status: ProductStatus.ACTIVE,
+        thumbnail: {
+          create: {
+            url: imageUrl || '',
+            public_id: imageUrl || `placeholder-${Date.now()}`,
+          },
+        },
+        brand: brandId ? { connect: { id: brandId } } : undefined,
+        base_price: basePrice,
+        rating: p.ratings && !isNaN(parseFloat(p.ratings)) ? parseFloat(p.ratings) : 0,
+        review_count: p.no_of_ratings ? parseInt(p.no_of_ratings.replace(/[^0-9]/g, '')) || 0 : 0,
+        sold_count: Math.floor(Math.random() * 1000),
+        translations: {
+          create: [
+            { language_id: langViId, name: p.name_vi, description: p.description_vi },
+            { language_id: langEnId, name: p.name, description: p.description_en },
+          ],
+        },
+        categories: {
+          create: [{ category_id: subCategoryId }],
+        },
+        skus: {
+          create: p.skus.map((sku) => {
+            const price = sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
+            const originalPrice = p.actual_price_vnd > 0 ? p.actual_price_vnd : price;
+            const color = sku.attributes?.color ?? 'NA';
+            const size = sku.attributes?.size ?? 'NA';
+            const safeSkuCode = resolveSkuCode(sku.sku_code, p.pure_name, color, size);
+
+            return {
+              sku_code: safeSkuCode,
+              price: price,
+              original_price: originalPrice,
+              unit_price: 'VND',
+              stock: sku.stock,
+              image_url: imageUrl,
+            };
+          }),
+        },
+      },
+      include: {
+        skus: true,
+      },
+    });
+
+    type ParsedReview = { rating?: number | string | null; title?: string | null; comment?: string | null };
+    const validReviews = p.reviews?.filter((rev: ParsedReview) => rev.rating != null || rev.comment != null) || [];
+    if (validReviews.length > 0 && users.length > 0) {
+      const firstSku = createdProduct.skus[0];
+      if (firstSku) {
+        await prisma.review.createMany({
+          data: validReviews.map((rev: ParsedReview) => ({
+            product_id: createdProduct.id,
+            sku_id: firstSku.id,
+            user_id: users[Math.floor(Math.random() * users.length)].id,
+            rating: Number(rev.rating) || 5,
+            comment: rev.title ? `[${rev.title}] ${rev.comment || ''}` : rev.comment || '',
+          })),
+        });
+      }
+    }
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    const isSkuCollision = message.includes('sku_code') || message.includes('Unique constraint failed');
+    const errorLog = `❌ Lỗi khi seed sản phẩm ${p.pure_name} (File: ${file})${isSkuCollision ? ' [SKU_COLLISION]' : ''}:\n${message}\n-----------------------------------------\n`;
+    console.error(errorLog);
+    fs.appendFileSync(seedLogsPath, errorLog, 'utf-8');
+    throw error;
+  }
+}
+
+/**
+ * Handles seeding products and categories into the database.
+ * Scans the JSON datasets, caches category levels to prevent duplication/race conditions,
+ * and processes products in parallel batches using Promise.allSettled.
+ *
+ * @param prisma - PrismaClient instance for database write queries.
+ * @param brandMap - Mapped Brand IDs from memory cache.
+ */
 export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: Record<string, string> = {}) {
+  const startTime = Date.now();
   const isDevSeed = false;
 
   const seedLogsPath = path.join(process.cwd(), `seedlogs-${Date.now()}.txt`);
@@ -182,7 +305,6 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
   let filesToProcess: string[] = [];
 
   const originalDatasetDir = path.join(__dirname, '../dataset/products');
-  // Ưu tiên dùng thư mục đã được AI xử lý (enriched)
   const datasetDir = originalDatasetDir;
 
   console.log('ℹ️ Đang sử dụng dữ liệu GỐC (Original) từ thư mục products');
@@ -210,13 +332,113 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
     return;
   }
 
-  // Lấy danh sách User để gán Review ngẫu nhiên
   const users = await prisma.user.findMany({ select: { id: true }, take: 100 });
   if (users.length === 0) {
     console.warn('⚠️ Không tìm thấy User nào trong DB. Review sẽ không được seed.');
   }
 
+  console.log('🔍 Đang quét và pre-create categories từ dữ liệu...');
+  const categoryCache: Record<string, string> = {};
+
+  const existingCats = await prisma.productCategory.findMany({
+    select: { id: true, slug: true },
+  });
+  for (const cat of existingCats) {
+    categoryCache[cat.slug] = cat.id;
+  }
+
+  const uniqueCategories = new Map<string, { main: string; sub: string }>();
   for (const file of filesToProcess) {
+    const filePath = path.join(datasetDir, file);
+    if (!fs.existsSync(filePath)) continue;
+    try {
+      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      const products = JSON.parse(fileContent) as AmazonProduct[];
+      if (!Array.isArray(products)) continue;
+      for (const p of products) {
+        if (!p.main_category || !p.sub_category) continue;
+        let normalizedMainCategory = p.main_category;
+        if (normalizedMainCategory.toLowerCase() === 'home, kitchen, pets') {
+          normalizedMainCategory = 'Home & Kitchen';
+        }
+        const subSlug = slugify(p.sub_category);
+        if (!uniqueCategories.has(subSlug)) {
+          uniqueCategories.set(subSlug, {
+            main: normalizedMainCategory,
+            sub: p.sub_category,
+          });
+        }
+      }
+    } catch (e) {
+      // Ignore errors for metadata phase
+    }
+  }
+
+  for (const [subSlug, catInfo] of uniqueCategories.entries()) {
+    const mainSlug = slugify(catInfo.main);
+
+    let mainId = categoryCache[mainSlug];
+    if (!mainId) {
+      const mainCatVi = CATEGORY_TRANSLATIONS_VI[catInfo.main.toLowerCase()] || catInfo.main;
+      const mainCatEn = catInfo.main;
+      try {
+        const mainCat = await prisma.productCategory.upsert({
+          where: { slug: mainSlug },
+          update: {},
+          create: {
+            slug: mainSlug,
+            level: 1,
+            translations: {
+              create: [
+                { language_id: langVi.id, name: mainCatVi },
+                { language_id: langEn.id, name: mainCatEn },
+              ],
+            },
+          },
+          select: { id: true },
+        });
+        mainId = mainCat.id;
+        categoryCache[mainSlug] = mainId;
+      } catch (error) {
+        console.error(`Lỗi pre-create main category: ${catInfo.main}`, error);
+      }
+    }
+
+    let subId = categoryCache[subSlug];
+    if (!subId && mainId) {
+      const subCatVi = SUB_CATEGORY_TRANSLATIONS_VI[catInfo.sub.toLowerCase()] || catInfo.sub;
+      const subCatEn = catInfo.sub;
+      try {
+        const subCat = await prisma.productCategory.upsert({
+          where: { slug: subSlug },
+          update: {},
+          create: {
+            slug: subSlug,
+            level: 2,
+            parent_id: mainId,
+            translations: {
+              create: [
+                { language_id: langVi.id, name: subCatVi },
+                { language_id: langEn.id, name: subCatEn },
+              ],
+            },
+          },
+          select: { id: true },
+        });
+        subId = subCat.id;
+        categoryCache[subSlug] = subId;
+      } catch (error) {
+        console.error(`Lỗi pre-create sub category: ${catInfo.sub}`, error);
+      }
+    }
+  }
+  console.log(`✅ Đã cache/pre-create ${Object.keys(categoryCache).length} categories.`);
+
+  // --- 2. MAIN SEED LOOP FOR PRODUCTS ---
+  const BATCH_SIZE = Number(process.env.SEED_BATCH_SIZE ?? 25);
+
+  for (const file of filesToProcess) {
+    const fileStartTime = Date.now();
     const filePath = path.join(datasetDir, file);
     if (!fs.existsSync(filePath)) {
       console.error(`❌ Không tìm thấy file tại: ${filePath}`);
@@ -245,153 +467,38 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
       continue;
     }
 
-    console.log(`Tìm thấy ${products.length} sản phẩm. Đang xử lý...`);
+    console.log(
+      `Tìm thấy ${products.length} sản phẩm. Đang xử lý bằng Promise.allSettled với batch size = ${BATCH_SIZE}...`,
+    );
 
-    for (let i = 0; i < products.length; i++) {
-      const p = products[i];
+    for (let i = 0; i < products.length; i += BATCH_SIZE) {
+      const batch = products.slice(i, i + BATCH_SIZE);
 
-      if (i % 50 === 0 && i > 0) {
-        console.log(`... Đã xử lý ${i}/${products.length} sản phẩm`);
-      }
+      const results = await Promise.allSettled(
+        batch.map((product) =>
+          seedOneProduct({
+            prisma,
+            product,
+            file,
+            categoryCache,
+            brandMap,
+            langViId: langVi.id,
+            langEnId: langEn.id,
+            users,
+            seedLogsPath,
+          }),
+        ),
+      );
 
-      const imageUrl = Array.isArray(p.image) ? p.image[0] : p.image;
+      const failed = results.filter((r) => r.status === 'rejected').length;
 
-      try {
-        // 1. Tạo Category (Main & Sub) trước để lấy ID
-        let normalizedMainCategory = p.main_category;
-        if (normalizedMainCategory.toLowerCase() === 'home, kitchen, pets') {
-          normalizedMainCategory = 'Home & Kitchen';
-        }
-
-        const mainCategorySlug = slugify(normalizedMainCategory);
-        const mainCatVi = CATEGORY_TRANSLATIONS_VI[normalizedMainCategory.toLowerCase()] || normalizedMainCategory;
-        const mainCatEn = normalizedMainCategory;
-
-        const mainCategory = await prisma.productCategory.upsert({
-          where: { slug: mainCategorySlug },
-          update: {},
-          create: {
-            slug: mainCategorySlug,
-            level: 1,
-            translations: {
-              create: [
-                { language_id: langVi.id, name: mainCatVi },
-                { language_id: langEn.id, name: mainCatEn },
-              ],
-            },
-          },
-        });
-
-        const normalizedSubCategory = p.sub_category;
-        const subCategorySlug = slugify(normalizedSubCategory);
-        const subCatVi = SUB_CATEGORY_TRANSLATIONS_VI[normalizedSubCategory.toLowerCase()] || normalizedSubCategory;
-        const subCatEn = normalizedSubCategory;
-
-        const subCategory = await prisma.productCategory.upsert({
-          where: { slug: subCategorySlug },
-          update: {},
-          create: {
-            slug: subCategorySlug,
-            level: 2,
-            parent_id: mainCategory.id,
-            translations: {
-              create: [
-                { language_id: langVi.id, name: subCatVi },
-                { language_id: langEn.id, name: subCatEn },
-              ],
-            },
-          },
-        });
-
-        const thumbnail = await prisma.image.create({
-          data: {
-            url: imageUrl || '',
-            public_id: imageUrl || `placeholder-${Date.now()}`,
-          },
-        });
-
-        // ĐỊNH NGHĨA BRAND ID TẠI ĐÂY
-        let brandId = p.brand ? brandMap[p.brand.toLowerCase()] : null;
-        if (!brandId) {
-          brandId = findBrandIdByProductName(p.name, brandMap);
-        }
-
-        const skuPrices = p.skus.map((sku) =>
-          sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000,
-        );
-        const basePrice =
-          skuPrices.length > 0 ? Math.min(...skuPrices) : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
-
-        const createdProduct = await prisma.product.create({
-          data: {
-            slug: `${slugify(p.pure_name)}-${p.skus[0]?.sku_code}`,
-            status: ProductStatus.ACTIVE,
-            thumbnail_id: thumbnail.id,
-            brand_id: brandId,
-            base_price: basePrice,
-            rating: p.ratings && !isNaN(parseFloat(p.ratings)) ? parseFloat(p.ratings) : 0,
-            review_count: p.no_of_ratings ? parseInt(p.no_of_ratings.replace(/[^0-9]/g, '')) || 0 : 0,
-            sold_count: Math.floor(Math.random() * 1000), // Tạm thời random sold_count vì dataset không có
-            translations: {
-              create: [
-                { language_id: langVi.id, name: p.name_vi, description: p.description_vi },
-                { language_id: langEn.id, name: p.name, description: p.description_en },
-              ],
-            },
-            categories: {
-              create: [{ category_id: subCategory.id }],
-            },
-            skus: {
-              create: p.skus.map((sku) => {
-                const price = sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
-                const originalPrice = p.actual_price_vnd > 0 ? p.actual_price_vnd : price;
-                const color = sku.attributes?.color ?? 'NA';
-                const size = sku.attributes?.size ?? 'NA';
-                // Sinh SKU deterministic từ hash — tránh hoàn toàn collision ngẫu nhiên
-                const safeSkuCode = resolveSkuCode(sku.sku_code, p.pure_name, color, size);
-
-                return {
-                  sku_code: safeSkuCode,
-                  price: price,
-                  original_price: originalPrice,
-                  unit_price: 'VND',
-                  stock: sku.stock,
-                  image_url: imageUrl,
-                };
-              }),
-            },
-          },
-          include: {
-            skus: true,
-          },
-        });
-
-        // 4. Seed Reviews nếu có
-        type ParsedReview = { rating?: number | string | null; title?: string | null; comment?: string | null };
-        const validReviews = p.reviews?.filter((rev: ParsedReview) => rev.rating != null || rev.comment != null) || [];
-        if (validReviews.length > 0 && users.length > 0) {
-          const firstSku = createdProduct.skus[0];
-          if (firstSku) {
-            await prisma.review.createMany({
-              data: validReviews.map((rev: ParsedReview) => ({
-                product_id: createdProduct.id,
-                sku_id: firstSku.id,
-                user_id: users[Math.floor(Math.random() * users.length)].id,
-                rating: Number(rev.rating) || 5,
-                comment: rev.title ? `[${rev.title}] ${rev.comment || ''}` : rev.comment || '',
-              })),
-            });
-          }
-        }
-      } catch (error: unknown) {
-        const message = error instanceof Error ? error.message : String(error);
-        // Nếu vẫn còn collision sau hash (cực hiếm), log rõ để debug
-        const isSkuCollision = message.includes('sku_code');
-        const errorLog = `❌ Lỗi khi seed sản phẩm ${p.pure_name} (File: ${file})${isSkuCollision ? ' [SKU_COLLISION]' : ''}:\n${message}\n-----------------------------------------\n`;
-        console.error(errorLog);
-        fs.appendFileSync(seedLogsPath, errorLog, 'utf-8');
-      }
+      console.log(
+        `... Đã xử lý ${Math.min(i + batch.length, products.length)}/${products.length} sản phẩm. Failed batch: ${failed}`,
+      );
     }
-    console.log(`✅ Hoàn thành seed file: ${file}!`);
+    const fileDuration = ((Date.now() - fileStartTime) / 1000).toFixed(2);
+    console.log(`✅ Hoàn thành seed file: ${file} trong ${fileDuration} giây!`);
   }
+  const totalDuration = ((Date.now() - startTime) / 1000).toFixed(2);
+  console.log(`\n🎉 Hoàn thành seed products-n-categories trong ${totalDuration} giây!`);
 }
