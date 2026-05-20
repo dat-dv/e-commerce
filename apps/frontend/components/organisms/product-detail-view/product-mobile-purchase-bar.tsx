@@ -30,7 +30,7 @@ export function ProductMobilePurchaseBar({
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", damping: 26, stiffness: 230, delay: 0.3 }}
-        className="fixed bottom-0 left-0 right-0 z-50 lg:hidden"
+        className="fixed bottom-0 left-0 right-0 z-50"
       >
         <div className="border-t border-content/10 bg-surface/90 backdrop-blur-xl px-4 pb-safe pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.12)]">
           <div className="pb-4 flex items-center gap-3">

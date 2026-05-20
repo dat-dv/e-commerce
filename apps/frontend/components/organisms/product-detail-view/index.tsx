@@ -1,21 +1,22 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { TProduct } from "@/domain/products/types/products.model";
 import { useProductActions } from "@/hooks/products/use-product-actions";
 import { useProductGallery } from "@/hooks/products/use-product-gallery";
 import { useProductReviewSection } from "@/hooks/products/use-product-review-section";
 import { useProductSelection } from "@/hooks/products/use-product-selection";
 import { useSimilarProducts } from "@/hooks/products/use-similar-products";
-import { ProductImages } from "./product-images";
-import { ProductInfo } from "./product-info";
+import { ReviewsRatings } from "../../molecules/review-rating";
 import { BrandInfo } from "./brand-info";
 import { DescriptionCategory } from "./description-category";
-import { ReviewsRatings } from "../../molecules/review-rating";
-import { SimilarProducts } from "./similar-products";
-import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
+import { ProductImages } from "./product-images";
+import { ProductInfo } from "./product-info";
 import { ProductMobilePurchaseBar } from "./product-mobile-purchase-bar";
+import { SimilarProducts } from "./similar-products";
 
+import { RenderTabletAndBelow } from "@/components/molecules/responsive";
 import { useUserFavoriteProducts } from "@/hooks/user-favorite-products/use-user-favorite-products";
 
 export interface ProductDetailProps {
@@ -128,14 +129,16 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
       <DiscoveryCarouselSection />
 
       {/* MOBILE STICKY PURCHASE BAR */}
-      <ProductMobilePurchaseBar
-        hasSelectedSku={Boolean(selectedSku.id)}
-        isFavorited={isFavorited}
-        price={price}
-        onAddToCart={handleAddToCart}
-        onBuyNow={handleBuyNow}
-        onToggleFavorite={() => toggleFavorite(product.id)}
-      />
+      <RenderTabletAndBelow>
+        <ProductMobilePurchaseBar
+          hasSelectedSku={Boolean(selectedSku.id)}
+          isFavorited={isFavorited}
+          price={price}
+          onAddToCart={handleAddToCart}
+          onBuyNow={handleBuyNow}
+          onToggleFavorite={() => toggleFavorite(product.id)}
+        />
+      </RenderTabletAndBelow>
     </AppContainer>
   );
 }
