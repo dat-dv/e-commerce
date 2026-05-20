@@ -4,6 +4,10 @@ import { useEffect, useState, useMemo, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
 import { WindowVirtualizer } from "virtua";
 import { useTranslations } from "next-intl";
+import {
+  PRODUCT_LISTING_GRID_CLASS_NAME,
+  PRODUCT_LISTING_GRID_COLUMNS,
+} from "./grid-presets";
 
 type VirtualItemWithId = {
   id?: string | number;
@@ -92,11 +96,11 @@ export function VirtualGrid<T>({
   onLoadMore,
   loadingText,
   endText,
-  gridClassName = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
+  gridClassName = PRODUCT_LISTING_GRID_CLASS_NAME,
   itemClassName = "",
   rowClassName = "pb-6 last:pb-0",
   triggerMargin = "200px", // Reduced margin to avoid double-triggering in grids
-  columns = { base: 2, md: 3, lg: 4 },
+  columns = PRODUCT_LISTING_GRID_COLUMNS,
 }: VirtualGridProps<T>) {
   const t = useTranslations("Common.virtualized");
   const displayLoadingText = loadingText ?? t("loadingMore");

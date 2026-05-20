@@ -3,8 +3,8 @@
 import EmptyState from "@/components/molecules/empty-space";
 import { Pagination } from "@/components/molecules/pagination";
 import { ProductGrid } from "@/components/molecules/product-grid";
-import { TProduct } from "@/domain/products/types/products.model";
 import { LucideIcon, Search } from "lucide-react";
+import { TProduct } from "@/domain/products/types/products.model";
 
 interface ProductListingContentProps {
   products: TProduct[];
@@ -43,11 +43,7 @@ export function ProductListingContent({
 
   return (
     <div className="flex flex-col gap-12">
-      <ProductGrid
-        products={products}
-        loading={loading}
-        gridClassName="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
-      />
+      <ProductGrid products={products} loading={loading} />
 
       {totalPages > 1 && !loading ? (
         <div className="mt-8 flex justify-center">

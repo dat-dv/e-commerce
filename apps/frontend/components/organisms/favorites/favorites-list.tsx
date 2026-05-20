@@ -1,6 +1,10 @@
 import EmptyState from "@/components/molecules/empty-space";
 import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import {
+  PRODUCT_LISTING_GRID_CLASS_NAME,
+  PRODUCT_LISTING_GRID_COLUMNS,
+} from "@/components/molecules/virtual-grid/grid-presets";
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -46,7 +50,8 @@ const FavoritesGrid = ({
         keyExtractor={(fav) => fav.productId}
         loadingText={t("list.loadingText")}
         endText={t("list.endText")}
-        columns={{ base: 2, md: 3, lg: 4 }}
+        gridClassName={PRODUCT_LISTING_GRID_CLASS_NAME}
+        columns={PRODUCT_LISTING_GRID_COLUMNS}
       />
     </motion.div>
   );

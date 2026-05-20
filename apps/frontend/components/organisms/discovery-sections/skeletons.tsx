@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Eye, Sparkles } from "lucide-react";
+import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/components/molecules/virtual-grid/grid-presets";
 
 export const RecentViewedSectionSkeleton = () => {
   return (
@@ -14,7 +15,7 @@ export const RecentViewedSectionSkeleton = () => {
         <div className="h-7 w-48 rounded bg-content/5 animate-pulse" />
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
@@ -40,7 +41,7 @@ export const RecommendedSectionSkeleton = () => {
         <div className="h-7 w-60 rounded bg-content/5 animate-pulse" />
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}

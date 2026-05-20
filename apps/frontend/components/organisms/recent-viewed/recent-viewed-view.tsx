@@ -7,9 +7,14 @@ import Link from "next/link";
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import {
+  PRODUCT_LISTING_GRID_CLASS_NAME,
+  PRODUCT_LISTING_GRID_COLUMNS,
+} from "@/components/molecules/virtual-grid/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { useLoadOnce } from "@/hooks/use-load-once";
+import DiscoveryCarouselSection from "../discovery-sections";
 import RecentViewedHeader from "./recent-viewed-header";
 
 export const RecentViewedView = () => {
@@ -29,7 +34,7 @@ export const RecentViewedView = () => {
       <RecentViewedHeader />
 
       {loading ? (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
           {Array.from({ length: 10 }).map((_, index) => (
             <div
               key={index}
@@ -43,19 +48,14 @@ export const RecentViewedView = () => {
           loadingMore={loadingMore}
           hasMore={hasMore}
           onLoadMore={fetchMore}
-          gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+          gridClassName={PRODUCT_LISTING_GRID_CLASS_NAME}
           renderItem={(product) => (
             <ProductCard key={product.id} product={product} />
           )}
           keyExtractor={(product) => product.id}
           loadingText={t("loadingText")}
           endText={t("endText")}
-          columns={{
-            base: 2,
-            sm: 3,
-            md: 4,
-            lg: 5,
-          }}
+          columns={PRODUCT_LISTING_GRID_COLUMNS}
         />
       ) : (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-content/10 bg-surface/50 px-6 py-20 text-center">
@@ -75,6 +75,7 @@ export const RecentViewedView = () => {
           </Link>
         </div>
       )}
+      <DiscoveryCarouselSection exclude={["recent-viewed"]} />
     </AppContainer>
   );
 };

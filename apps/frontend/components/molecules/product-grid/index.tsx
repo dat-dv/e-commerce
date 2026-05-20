@@ -1,4 +1,5 @@
 import { ProductCard } from "@/components/molecules/product-card";
+import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/components/molecules/virtual-grid/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { cn } from "@/utils/cn";
 
@@ -13,7 +14,7 @@ export function ProductGrid({
   products,
   loading = false,
   skeletonCount = 8,
-  gridClassName = "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6",
+  gridClassName = PRODUCT_LISTING_GRID_CLASS_NAME,
 }: ProductGridProps) {
   const isInitialLoading = loading && products.length === 0;
 

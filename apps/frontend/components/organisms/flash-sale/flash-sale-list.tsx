@@ -4,6 +4,10 @@ import EmptyState from "@/components/molecules/empty-space";
 import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 import { FlashSaleCard } from "@/components/molecules/product-card/flash-sale-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import {
+  PRODUCT_LISTING_GRID_CLASS_NAME,
+  PRODUCT_LISTING_GRID_COLUMNS,
+} from "@/components/molecules/virtual-grid/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { usePagination } from "@/hooks/use-pagination";
@@ -85,15 +89,10 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
             onLoadMore={loadMore}
             loadingText={t("loadingMore")}
             endText={t("end")}
-            gridClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
+            gridClassName={PRODUCT_LISTING_GRID_CLASS_NAME}
             itemClassName="min-w-0"
             rowClassName="mb-4"
-            columns={{
-              base: 2,
-              sm: 3,
-              md: 4,
-              lg: 5,
-            }}
+            columns={PRODUCT_LISTING_GRID_COLUMNS}
           />
         </div>
       ) : (

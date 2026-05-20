@@ -3,6 +3,10 @@
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { BrandCard } from "@/components/molecules/brrand-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import {
+  BRAND_LISTING_GRID_CLASS_NAME,
+  BRAND_LISTING_GRID_COLUMNS,
+} from "@/components/molecules/virtual-grid/grid-presets";
 import { useTranslations } from "next-intl";
 
 interface IBrandListGridProps {
@@ -23,9 +27,9 @@ const BrandListGrid = ({
   return (
     <VirtualGrid<TBrand>
       data={brands}
-      gridClassName="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]"
+      gridClassName={BRAND_LISTING_GRID_CLASS_NAME}
       itemClassName="h-full"
-      columns={{ base: 1, md: 4 }}
+      columns={BRAND_LISTING_GRID_COLUMNS}
       renderItem={(brand, index) => {
         const isLarge = index === 0 || index === 5 || index === 10;
         return <BrandCard brand={brand} isLarge={isLarge} index={index} />;

@@ -1,5 +1,6 @@
 "use client";
 
+import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/components/molecules/virtual-grid/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { ProductCard } from "../../molecules/product-card";
 
@@ -29,9 +30,9 @@ export const SimilarProducts = ({
           {t("viewAll")}
         </Button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
         {loadingSimilar ? (
-          [...Array(4)].map((_, i) => (
+          [...Array(5)].map((_, i) => (
             <div
               key={i}
               className="animate-pulse bg-content/[0.05] rounded-xl p-3 h-64"
