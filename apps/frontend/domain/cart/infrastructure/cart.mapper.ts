@@ -1,6 +1,6 @@
-import { TCart } from "../types/cart.model";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
-import { ICartResponse, ICartItemResponse } from "@ecommerce/shared";
+import { ICartItemResponse, ICartResponse } from "@ecommerce/shared";
+import { TCart } from "../types/cart.model";
 
 export class CartMapper {
   static toDomainItem(dto: ICartItemResponse): TCartItem {
@@ -20,7 +20,7 @@ export class CartMapper {
           ? Math.round((1 - price / sku.original_price) * 100)
           : null,
       quantity: dto.quantity,
-      imageUrl: sku?.product?.thumbnail?.url || null,
+      imageUrl: sku?.image_url || sku?.product?.thumbnail?.url || null,
       attributes: "", // TODO: Fetch SKU attributes if needed
     };
   }

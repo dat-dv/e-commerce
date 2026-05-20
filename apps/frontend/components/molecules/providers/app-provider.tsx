@@ -45,7 +45,7 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
             initState={{ user: authState?.data, hasHydrated: true }}
           >
             <NotificationProvider>
-              <CartProvider initState={initialCartState?.data?.items || []}>
+              <CartProvider initState={initialCartState?.data?.items}>
                 <AddressProvider initState={initialAddressesState?.data || []}>
                   <FavoritesProvider>
                     <RequireProfileInfoModal />
