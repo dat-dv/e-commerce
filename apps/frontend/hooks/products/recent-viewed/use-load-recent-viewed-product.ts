@@ -6,7 +6,7 @@ import {
 } from "@/constants/pagination.constant";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { usePagination } from "@/hooks/use-pagination";
 import { useCallback } from "react";
 
 const LIMIT = PAGINATION_LIMITS.DEFAULT;
@@ -24,7 +24,7 @@ export const useLoadRecentViewedProducts = ({
   );
 
   const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
-    usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
+    usePagination<TProduct, { page: number; limit: number }>({
       initialData: {
         items: initialItems,
         meta: INITIAL_META,

@@ -6,7 +6,7 @@ import { SearchInput } from "@/components/molecules/search-input";
 import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { usePagination } from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -30,7 +30,7 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
     loadPage,
     routerState: clientQueryParams,
     update,
-  } = usePaginationWithSSRData<
+  } = usePagination<
     TBrand,
     {
       page: number;

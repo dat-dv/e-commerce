@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { usePagination } from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { EProductSort } from "@ecommerce/shared";
 import { motion } from "framer-motion";
@@ -38,7 +38,7 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
     loadingMore,
     error,
     loadMore,
-  } = usePaginationWithSSRData<TProduct>({
+  } = usePagination<TProduct>({
     initialData: {
       items: products,
       meta,

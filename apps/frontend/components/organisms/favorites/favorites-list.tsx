@@ -1,8 +1,8 @@
+import EmptyState from "@/components/molecules/empty-space";
 import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
-import { useFavorites } from "@/hooks/favorites/use-favorites";
+import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { motion } from "framer-motion";
-import EmptyState from "@/components/molecules/empty-space";
 import { useTranslations } from "next-intl";
 
 const FavoritesGrid = ({
@@ -11,10 +11,13 @@ const FavoritesGrid = ({
   loadingMore,
   hasMore,
   fetchMore,
-}: Pick<
-  ReturnType<typeof useFavorites>,
-  "favorites" | "loading" | "loadingMore" | "hasMore" | "fetchMore"
->) => {
+}: {
+  favorites: TUserFavoriteProductItem[];
+  loading: boolean;
+  loadingMore: boolean;
+  hasMore: boolean;
+  fetchMore: () => void;
+}) => {
   const t = useTranslations("FavoritesPage");
 
   if (!loading && favorites.length === 0) {
@@ -43,12 +46,7 @@ const FavoritesGrid = ({
         keyExtractor={(fav) => fav.productId}
         loadingText={t("list.loadingText")}
         endText={t("list.endText")}
-        columns={{
-          base: 2,
-          sm: 3,
-          md: 4,
-          lg: 5,
-        }}
+        columns={{ base: 2, md: 3, lg: 4 }}
       />
     </motion.div>
   );

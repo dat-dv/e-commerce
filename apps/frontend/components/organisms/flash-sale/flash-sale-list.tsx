@@ -6,7 +6,7 @@ import { FlashSaleCard } from "@/components/molecules/product-card/flash-sale-ca
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { usePagination } from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
@@ -33,7 +33,7 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
     loadingMore,
     error,
     loadMore,
-  } = usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
+  } = usePagination<TProduct, { page: number; limit: number }>({
     initialData: {
       items: products,
       meta,

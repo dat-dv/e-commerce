@@ -4,7 +4,7 @@ import {
 } from "@/constants/pagination.constant";
 import { INotification } from "@/domain/notifications/types/notification";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { usePagination } from "@/hooks/use-pagination";
 import { useNotificationStore } from "@/store/notification-store";
 import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -44,7 +44,7 @@ export const useNotifications = () => {
   );
 
   const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
-    usePaginationWithSSRData<INotification, { page: number; limit: number }>({
+    usePagination<INotification, { page: number; limit: number }>({
       initialData: {
         items: [],
         meta: INITIAL_META,

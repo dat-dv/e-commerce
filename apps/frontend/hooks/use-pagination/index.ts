@@ -22,7 +22,7 @@ type LoadPageOptions = {
 
 type PaginationQueryParams = PaginationParams & ExtraParams;
 
-interface UsePaginationParams<
+interface IUsePaginationParams<
   T,
   TParams extends PaginationQueryParams = PaginationParams,
 > {
@@ -37,7 +37,7 @@ interface UsePaginationParams<
   getItemKey?: (item: T) => string | number;
 }
 
-export const usePaginationWithSSRData = <
+export const usePagination = <
   T,
   TParams extends PaginationQueryParams = PaginationParams,
 >({
@@ -47,7 +47,7 @@ export const usePaginationWithSSRData = <
   syncUrlParams = false,
   fetchPage,
   getItemKey,
-}: UsePaginationParams<T, TParams>) => {
+}: IUsePaginationParams<T, TParams>) => {
   const [items, setItems] = useState<T[]>(() => initialData.items);
   const [meta, setMeta] = useState<IPaginationMeta>(() => initialData.meta);
   const [loading, setLoading] = useState(false);
