@@ -4,4 +4,5 @@ export interface ICategoryNavSidebarProps {
   categories: TCategory[];
   activeId: string;
   setActiveId: (id: string) => void;
+  onSelectCategory?: () => void;
 }

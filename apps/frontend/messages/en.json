@@ -208,6 +208,8 @@
       "clearSearch": "Clear category search",
       "allCategories": "All Categories",
       "empty": "No categories found",
+      "filterButton": "Filter",
+      "closeDrawer": "Close categories filter",
       "expand": "Expand {category}",
       "collapse": "Collapse {category}"
     }

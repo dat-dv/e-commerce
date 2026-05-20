@@ -19,6 +19,7 @@ export const CategoryNavSidebar = ({
   categories,
   activeId,
   setActiveId,
+  onSelectCategory,
 }: ICategoryNavSidebarProps) => {
   const t = useTranslations("CategoriesPage.sidebar");
   const [search, setSearch] = useState("");
@@ -64,7 +65,10 @@ export const CategoryNavSidebar = ({
             <AllCategoriesButton
               active={activeId === "all"}
               label={t("allCategories")}
-              onPress={() => setActiveId("all")}
+              onPress={() => {
+                setActiveId("all");
+                onSelectCategory?.();
+              }}
             />
 
             {filteredCategories.length > 0 ? (
@@ -78,6 +82,7 @@ export const CategoryNavSidebar = ({
                     const selected = Array.from(keys)[0];
                     if (selected !== undefined) {
                       setActiveId(selected.toString());
+                      onSelectCategory?.();
                     }
                   }
                 }}
