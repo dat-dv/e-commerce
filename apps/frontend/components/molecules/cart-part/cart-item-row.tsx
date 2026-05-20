@@ -29,6 +29,7 @@ export const CartItemRow = ({
   onUpdateQuantity,
 }: CartItemRowProps) => {
   const t = useTranslations("CartPage.item");
+  const tTable = useTranslations("CartPage.table");
   const isOutOfStock = item.quantity === 0;
 
   return (
@@ -38,22 +39,22 @@ export const CartItemRow = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       className={cn(
-        "bg-surface/50 backdrop-blur-xl border rounded-xl p-4 transition-all group relative overflow-hidden",
+        "group relative overflow-hidden rounded-xl border bg-surface/50 p-3 transition-all backdrop-blur-xl sm:p-4",
         isOutOfStock ? "opacity-60 grayscale" : "hover:border-primary/20",
         isSelected
           ? "border-primary/40 bg-primary/[0.02] shadow-sm shadow-primary/5"
           : "border-content/[0.05]",
       )}
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 bg-primary/5 opacity-0 blur-3xl transition-opacity group-hover:opacity-100" />
+      <div className="flex flex-col gap-4 md:flex-row md:items-center">
         {/* Checkbox & Product Info */}
-        <div className="flex items-start md:items-center gap-3 flex-1 min-w-0">
+        <div className="flex min-w-0 flex-1 items-start gap-3 md:items-center">
           <Checkbox checked={isSelected} onCheckedChange={onToggleSelect} />
 
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}
-            className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-content/[0.05] bg-content/[0.02]"
+            className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] sm:h-24 sm:w-24 md:h-20 md:w-20"
           >
             {item.imageUrl ? (
               <Image
@@ -64,19 +65,19 @@ export const CartItemRow = ({
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-content/20 bg-content/[0.05]">
+              <div className="flex h-full w-full items-center justify-center bg-content/[0.05] text-content/20">
                 <ShoppingBag size={24} aria-hidden />
               </div>
             )}
           </Link>
 
-          <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-content text-sm md:text-base line-clamp-2 hover:text-primary transition-colors">
+          <div className="min-w-0 flex-1">
+            <h3 className="line-clamp-2 text-sm font-bold text-content transition-colors hover:text-primary md:text-base">
               <Link href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}>
                 {item.name}
               </Link>
             </h3>
-            <div className="flex flex-wrap gap-2 mt-1">
+            <div className="mt-1 flex flex-wrap gap-2">
               {item.attributes && (
                 <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-content/[0.05] text-content/40">
                   {item.attributes}
@@ -93,35 +94,51 @@ export const CartItemRow = ({
               )}
             </div>
             {isOutOfStock && (
-              <p className="text-[11px] text-red-500 mt-2 font-medium">
+              <p className="mt-2 text-[11px] font-medium text-red-500">
                 {t("unavailable")}
               </p>
             )}
           </div>
         </div>
 
-        <div className="hidden md:flex items-center gap-4 w-full md:w-auto">
-          <div className="w-32 text-center font-bold text-content/40 text-sm italic font-light">
-            {formatCurrency(item.price)}
+        <div className="grid w-full grid-cols-2 gap-3 border-t border-content/[0.05] pt-4 md:flex md:w-auto md:items-center md:gap-4 md:border-t-0 md:pt-0">
+          <div className="min-w-0 md:w-32 md:text-center">
+            <div className="mb-1 text-[10px] font-black uppercase tracking-[0.16em] text-content/30 md:hidden">
+              {tTable("unitPrice")}
+            </div>
+            <div className="text-sm font-semibold text-content/50 md:font-light md:italic md:text-content/40">
+              {formatCurrency(item.price)}
+            </div>
           </div>
 
-          <div className="w-32 flex justify-center scale-90 group-hover:scale-100 transition-transform duration-500">
-            <QuantitySelector
-              value={item.quantity}
-              onChange={onUpdateQuantity}
-              disabled={isOutOfStock}
-            />
+          <div className="flex min-w-0 justify-end md:w-32 md:justify-center md:transition-transform md:duration-500 md:group-hover:scale-100">
+            <div>
+              <div className="mb-1 text-right text-[10px] font-black uppercase tracking-[0.16em] text-content/30 md:hidden">
+                {tTable("quantity")}
+              </div>
+              <QuantitySelector
+                value={item.quantity}
+                onChange={onUpdateQuantity}
+                disabled={isOutOfStock}
+                className="justify-end"
+              />
+            </div>
           </div>
 
-          <div className="w-32 text-center text-xl font-black text-content tracking-tighter">
-            {formatCurrency(item.price * item.quantity)}
+          <div className="min-w-0 md:w-32 md:text-center">
+            <div className="mb-1 text-[10px] font-black uppercase tracking-[0.16em] text-content/30 md:hidden">
+              {tTable("total")}
+            </div>
+            <div className="text-lg font-black tracking-tight text-content md:text-xl md:tracking-tighter">
+              {formatCurrency(item.price * item.quantity)}
+            </div>
           </div>
 
-          <div className="w-24 flex justify-center">
+          <div className="flex justify-end md:w-24 md:justify-center">
             <Button
               variant="ghost"
               onClick={onRemove}
-              className="p-3 text-content/10 hover:text-red-500 hover:bg-red-500/5 rounded-lg transition-all h-auto active:scale-95 opacity-100 hover:opacity-100"
+              className="h-10 rounded-lg px-3 text-content/30 opacity-100 transition-all hover:bg-red-500/5 hover:text-red-500 hover:opacity-100 active:scale-95 md:h-auto md:p-3 md:text-content/10"
               aria-label={t("remove", { product: item.name })}
             >
               <Trash2 size={16} aria-hidden />

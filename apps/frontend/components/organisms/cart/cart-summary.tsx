@@ -18,19 +18,73 @@ export const CartSummary = ({
 }: CartSummaryProps) => {
   const t = useTranslations("CartPage.summary");
 
+  const summaryItems = [
+    {
+      label: t("items"),
+      value: itemCount,
+      icon: ShoppingBag,
+      valueClassName: "text-2xl md:text-4xl",
+    },
+    {
+      label: t("selected"),
+      value: selectedCount,
+      icon: ShoppingCart,
+      valueClassName: "text-2xl md:text-4xl",
+    },
+    {
+      label: t("subtotal"),
+      value: formatCurrency(totalAmount),
+      icon: ShoppingCart,
+      valueClassName: "text-xl md:text-4xl",
+    },
+  ];
+
   return (
-    <div className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-3">
-      <SummaryCard label={t("items")} value={itemCount} icon={ShoppingBag} />
-      <SummaryCard
-        label={t("selected")}
-        value={selectedCount}
-        icon={ShoppingCart}
-      />
-      <SummaryCard
-        label={t("subtotal")}
-        value={formatCurrency(totalAmount)}
-        icon={ShoppingCart}
-      />
+    <div className="flex gap-3 sm:grid sm:grid-cols-3 sm:gap-4 mb-4">
+      {summaryItems.map(({ label, value, icon }) => (
+        <SummaryCard
+          key={label}
+          label={label}
+          value={value}
+          icon={icon}
+          className="
+        w-[160px]
+        shrink-0
+        min-h-[88px]
+        rounded-2xl
+        p-3
+
+        sm:min-h-[120px]
+        sm:w-auto
+        sm:rounded-3xl
+        sm:p-5
+      "
+          contentClassName="gap-4"
+          labelClassName="
+        truncate
+        text-[10px]
+        tracking-[0.12em]
+
+        sm:text-xs
+        sm:tracking-[0.18em]
+      "
+          valueClassName="
+        mt-2
+        text-2xl
+
+        sm:mt-3
+        sm:text-4xl
+      "
+          iconWrapperClassName="
+        size-8
+        rounded-xl
+
+        sm:size-11
+        sm:rounded-2xl
+      "
+          iconClassName="size-4 sm:size-5"
+        />
+      ))}
     </div>
   );
 };

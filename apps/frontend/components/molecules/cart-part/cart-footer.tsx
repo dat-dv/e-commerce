@@ -17,46 +17,46 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
   const t = useTranslations("CartPage.footer");
 
   return (
-    <div className="sticky bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-3xl border-t border-content/[0.05] shadow-[0_-10px_40px_rgba(0,0,0,0.03)] z-40 overflow-hidden mt-12 mb-8">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-primary/30 blur-md pointer-events-none" />
+    <div className="sticky bottom-0 left-0 right-0 z-40 mt-8 mb-4 overflow-hidden rounded-t-2xl border-t border-content/[0.05] bg-surface/95 shadow-[0_-10px_40px_rgba(0,0,0,0.03)] backdrop-blur-3xl md:mt-12 md:mb-8 md:rounded-t-none">
+      <div className="pointer-events-none absolute left-1/2 top-0 h-1 w-1/2 -translate-x-1/2 bg-primary/30 blur-md" />
 
-      <div className="bg-primary/[0.1] border-b border-primary/5 px-8 py-3 flex items-center justify-center md:justify-end gap-8 text-xs font-medium">
+      <div className="flex items-center justify-center gap-8 border-b border-primary/5 bg-primary/[0.1] px-4 py-2.5 text-xs font-medium md:justify-end md:px-8 md:py-3">
         <Button
           variant="ghost"
-          className="text-content/70 hover:text-primary flex items-center gap-2 group h-auto px-0"
+          className="group flex h-auto items-center gap-2 px-0 text-content/70 hover:text-primary"
         >
           <Ticket size={14} className="text-primary/60" aria-hidden />
           {t("applyCoupon")}{" "}
           <ChevronRight
             size={14}
-            className="group-hover:translate-x-1 transition-transform"
+            className="transition-transform group-hover:translate-x-1"
             aria-hidden
           />
         </Button>
       </div>
 
-      <div className="container mx-auto max-w-7xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6 relative">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-4 px-4 py-4 md:flex-row md:items-center md:gap-6 md:px-8 md:py-5">
         <div className="flex items-center gap-10">
           <div className="hidden md:block">
-            <div className="text-xs font-semibold text-content/40 mb-1">
+            <div className="mb-1 text-xs font-semibold text-content/40">
               {t("summary")}
             </div>
             <div className="flex items-center gap-4 text-xs font-medium text-content/60">
               <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 {t("selected", { count: String(selectedCount) })}
               </span>
-              <span className="w-px h-3 bg-content/10" />
+              <span className="h-3 w-px bg-content/10" />
               <span className="text-emerald-500">{t("freeShipping")}</span>
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-8 w-full md:w-auto justify-between md:justify-end">
-          <div className="text-right">
-            <div className="text-xs font-semibold text-content/40 mb-1">
+        <div className="flex w-full items-center justify-between gap-4 md:w-auto md:justify-end md:gap-8">
+          <div className="min-w-0 text-left md:text-right">
+            <div className="mb-1 text-xs font-semibold text-content/40">
               {t("subtotal")}
             </div>
-            <div className="text-2xl md:text-3xl font-black text-content tracking-tight leading-none">
+            <div className="truncate text-xl font-black leading-none tracking-tight text-content sm:text-2xl md:text-3xl">
               {formatCurrency(totalAmount)}
             </div>
           </div>
@@ -64,7 +64,7 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
           <Link
             href={selectedCount > 0 ? APP_ROUTES.CHECKOUT : "#"}
             className={cn(
-              "px-10 h-12 flex items-center justify-center rounded-xl font-bold text-sm transition-all relative overflow-hidden group",
+              "group relative flex h-11 shrink-0 items-center justify-center overflow-hidden rounded-xl px-5 text-sm font-bold transition-all sm:h-12 sm:px-10",
               selectedCount > 0
                 ? "bg-primary text-surface shadow-lg shadow-primary/20 hover:opacity-90 active:scale-[0.98]"
                 : "bg-content/[0.05] text-content/20 cursor-not-allowed",
@@ -74,7 +74,7 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
             {t("checkout")}
             <ChevronRight
               size={18}
-              className="ml-2 group-hover:translate-x-1 transition-transform"
+              className="ml-2 transition-transform group-hover:translate-x-1"
               aria-hidden
             />
           </Link>

@@ -31,7 +31,7 @@ export function CartView() {
   const selectedCount = selectedSkuIds.length;
 
   return (
-    <AppContainer>
+    <AppContainer className="pb-6">
       <CartPageHeader itemCount={itemCount} />
       <CartSummary
         itemCount={itemCount}
@@ -44,13 +44,13 @@ export function CartView() {
           <EmptyCart />
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <CartTableHead
             isAllSelected={isAllSelected}
             onToggleSelectAll={handleToggleSelectAll}
           />
 
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <AnimatePresence mode="popLayout">
               {items.map((item) => (
                 <CartItemRow
