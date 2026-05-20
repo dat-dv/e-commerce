@@ -1,20 +1,20 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { FeatureGrid } from "@/components/molecules/feature-grid";
 import { CategoriesCarousel } from "@/components/molecules/categories-carousel";
+import { FeatureGrid } from "@/components/molecules/feature-grid";
 import HomeWelcomeSection from "@/components/molecules/welcome-banner";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 
 import { FEATURE_ITEMS } from "@/constants/homepage";
 
-import { useProductsStore } from "@/hooks/products/use-products-store";
-import { useCategories } from "@/hooks/categories/use-homepage-categories";
-import { DynamicCarouselSection } from "./dynamic-carousel-section";
-import { useConfig } from "@/hooks/config/use-config";
-import DiscoveryCarouselSection from "../discovery-sections";
 import { FlashSaleCarousel } from "@/components/molecules/flash-sale-carousel";
 import { TProduct } from "@/domain/products/types/products.model";
+import { useCategories } from "@/hooks/categories/use-homepage-categories";
+import { useConfig } from "@/hooks/config/use-config";
+import { useProductsStore } from "@/hooks/products/use-products-store";
+import DiscoveryCarouselSection from "../discovery-sections";
+import { DynamicCarouselSection } from "./dynamic-carousel-section";
 
 interface HomepagePrivateProps {
   flashSaleProducts: TProduct[];

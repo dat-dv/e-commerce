@@ -2,1730 +2,1760 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-  AuthLayout: {
-    description: "The most loved e-commerce platform in Southeast Asia & Taiwan.";
-    backToHome: "Back to Home";
-  };
-  LoginPage: {
-    title: "Welcome back";
-    description: "Enter your credentials to access your account.";
-    emailLabel: "Email";
-    emailPlaceholder: "name@example.com";
-    passwordLabel: "Password";
-    passwordPlaceholder: "••••••••";
-    forgotPassword: "Forgot Password?";
-    submit: "Sign In";
-    submitting: "Signing in...";
-    noAccount: "Don't have an account?";
-    registerLink: "Sign Up";
-  };
-  RegisterPage: {
-    title: "Create an account";
-    description: "Join us today to get started with your tasks.";
-    emailLabel: "Email";
-    emailPlaceholder: "name@example.com";
-    passwordLabel: "Password";
-    passwordPlaceholder: "••••••••";
-    confirmPasswordLabel: "Confirm Password";
-    confirmPasswordPlaceholder: "••••••••";
-    submit: "Create Account";
-    submitting: "Creating account...";
-    alreadyHaveAccount: "Already have an account?";
-    loginLink: "Sign In";
-    agreementText: "By continuing, you agree to our";
-    termsOfService: "Terms of Service";
-    privacyPolicy: "Privacy Policy";
-    and: "and";
-  };
-  ForgotPasswordPage: {
-    title: "Forgot Password";
-    description: "Enter your email or phone number to receive a reset link/OTP.";
-    emailTab: "Email";
-    phoneTab: "Phone";
-    emailLabel: "Email";
-    emailPlaceholder: "name@example.com";
-    phoneLabel: "Phone Number";
-    sendResetLink: "Send Reset Link";
-    sendOtp: "Send OTP";
-    submitting: "Sending...";
-    rememberedPassword: "Remembered your password?";
-    loginLink: "Sign In";
-  };
-  ResetPasswordPage: {
-    title: "Reset Password";
-    description: "Enter your new password below.";
-    newPasswordLabel: "New Password";
-    newPasswordPlaceholder: "••••••••";
-    confirmNewPasswordLabel: "Confirm New Password";
-    confirmNewPasswordPlaceholder: "••••••••";
-    submit: "Reset Password";
-    submitting: "Resetting...";
-    rememberedPassword: "Remembered your password?";
-    loginLink: "Sign In";
-  };
-  BrandsPage: {
-    metadata: {
-      title: "Brands | Defined Quality";
-      description: "Explore our certified partner brands and industry leaders.";
-      notFoundTitle: "Brand Not Found";
-    };
-    header: {
-      title: "Top";
-      highlight: "Brands";
-      description: "Explore the world's most iconic technology and design leaders.";
-    };
-    search: {
-      placeholder: "Search brands by name...";
-    };
-    grid: {
-      loadingMore: "Loading more brands...";
-      end: "All brands loaded";
-    };
-    card: {
-      productCount: "{count, plural, =1 {1 Product} other {# Products}}";
-      viewArchive: "View Archive";
-    };
-    detail: {
-      story: {
-        eyebrow: "The Heritage";
-        title: "Crafting";
-        highlight: "Tomorrow";
-        fallbackQuote: "Leading the industry with innovation and world-class design standards.";
-        overviewTitle: "Overview";
-        overviewDescription: "Established with a vision to redefine the boundaries of technology and lifestyle, {brand} has consistently delivered excellence across its global portfolio.";
-        philosophyTitle: "Philosophy";
-        philosophyDescription: "At the core of {brand} lies a commitment to precision engineering and a deep understanding of the modern consumer's evolving needs.";
-        imageAlt: "Philosophy image";
-        imageCaption: "Iconic Series";
-        closingDescription: "From its humble beginnings to its current status as a global leader, {brand} continues to push the limits of what's possible, merging aesthetics with high-performance functionality in every product they create.";
-      };
-      products: {
-        archive: "Archive";
-        description: "Experience the pinnacle of craftsmanship through our curated selection of {brand} products.";
-      };
-    };
-    empty: {
-      title: "No brands found";
-      description: 'We couldn\'t find any brands matching "{query}". Try adjusting your search query.';
-    };
-  };
-  CartPage: {
-    metadata: {
-      title: "Shopping Cart | Premium Tech Essentials";
-      description: "Review and manage your cart before checkout.";
-    };
-    header: {
-      title: "Shopping";
-      highlight: "Bag";
-      descriptionWithItems: "Review {count, plural, one {# item} other {# items}}, select what to checkout, and keep your order ready.";
-      emptyDescription: "Your shopping bag is ready for the next item you discover.";
-    };
-    summary: {
-      items: "Cart Items";
-      selected: "Selected";
-      subtotal: "Subtotal";
-    };
-    empty: {
-      title: "THE BAG IS";
-      highlight: "EMPTY";
-      description: "Explore our premium collections and high-performance hardware.";
-      action: "Explore Now";
-    };
-    table: {
-      product: "Product details";
-      unitPrice: "Unit price";
-      quantity: "Quantity";
-      total: "Total";
-      action: "Action";
-    };
-    footer: {
-      applyCoupon: "Apply coupon";
-      summary: "Cart Summary";
-      selected: "{count} Selected";
-      freeShipping: "Free Shipping";
-      subtotal: "Subtotal";
-      checkout: "Checkout";
-    };
-    item: {
-      standard: "Standard";
-      inStock: "In stock";
-      outOfStock: "Out of stock";
-      unavailable: "This item is currently unavailable.";
-      remove: "Remove {product}";
-      increase: "Increase quantity for {product}";
-      decrease: "Decrease quantity for {product}";
-    };
-    quantity: {
-      increase: "Increase quantity";
-      decrease: "Decrease quantity";
-    };
-    drawer: {
-      title: "Shopping Cart";
-      count: "{count, plural, one {# item} other {# items}}";
-      close: "Close cart";
-      subtotal: "Subtotal";
-      freeShipping: "Free Shipping";
-      checkout: "Begin Checkout";
-      finalizing: "Finalizing Order";
-      viewDetails: "View Full Details";
-      empty: {
-        title: "Your bag is empty";
-        description: "Explore our products and find something you love.";
-      };
-    };
-    toasts: {
-      signInRequired: "Please sign in to add items to cart";
-      addSuccess: "Added to cart";
-      addFailed: "Failed to add to cart";
-      clearFailed: "Failed to clear cart";
-      removeFailed: "Failed to remove item";
-      removeManyFailed: "Failed to remove items";
-      updateFailed: "Failed to update quantity";
-    };
-  };
-  CategoriesPage: {
-    metadata: {
-      title: "Categories";
-      description: "Browse all product categories.";
-    };
-    header: {
-      allTitle: "All Categories";
-      allDescription: "Explore all product categories.";
-      categoryDescription: "Explore quality products in {category}.";
-    };
-    content: {
-      eyebrow: "Browse";
-      title: "Discover Categories";
-      description: "Explore collections and find what fits your needs.";
-      count: "{count, plural, one {# category} other {# categories}}";
-      childCount: "{count, plural, one {# category} other {# categories}}";
-    };
-    sidebar: {
-      title: "Categories";
-      description: "Browse by collection";
-      searchPlaceholder: "Search categories";
-      clearSearch: "Clear category search";
-      allCategories: "All Categories";
-      empty: "No categories found";
-      expand: "Expand {category}";
-      collapse: "Collapse {category}";
-    };
-  };
-  CategoryDetailPage: {
-    metadata: {
-      title: "Products - {category}";
-      description: "Explore products in {category}.";
-    };
-    fallbackTitle: "Products";
-    description: "Explore our best {category}. Selected for quality, price, and availability.";
-    searchPlaceholder: "Search {category}";
-  };
-  CheckoutPage: {
-    metadata: {
-      title: "Checkout | Luxury E-commerce";
-      description: "Complete your order with our secure checkout experience.";
-    };
-    header: {
-      backToCart: "Back to Shopping Bag";
-      title: "Checkout";
-    };
-    shipping: {
-      title: "Shipping Address";
-      newAddress: "New Address";
-      empty: {
-        title: "No Addresses Found";
-        description: "Add a shipping address before placing your order.";
-        action: "Add New Address";
-      };
-    };
-    items: {
-      title: "Review Items";
-      standard: "Standard";
-      quantity: "Qty: {count}";
-      empty: {
-        title: "No items selected";
-        description: "Return to your cart or browse products to select items for checkout.";
-        action: "Browse Products";
-      };
-    };
-    summary: {
-      title: "Order Summary";
-      shippingTo: "Shipping To";
-      subtotal: "Subtotal";
-      shippingFee: "Shipping fee";
-      free: "FREE";
-      tax: "Tax (included)";
-      paymentMethod: "Payment method";
-      cod: "Cash on Delivery";
-      grandTotal: "Grand Total";
-      processing: "Processing Order...";
-      complete: "Complete Purchase";
-    };
-    toasts: {
-      selectAddress: "Please select a shipping address";
-      noItems: "No items selected for checkout";
-      success: "Order placed successfully!";
-      placeFailed: "Failed to place order";
-      unknownError: "An error occurred while placing your order";
-    };
-  };
-  Common: {
-    viewAll: "View All";
-    toolbar: {
-      showingProducts: "Showing <bold>{total, number}</bold> {total, plural, =1 {product} other {products}}";
-      sortBy: "Sort By";
-      sortProductsBy: "Sort Products By";
-      sortOptions: {
-        newest: "Newest";
-        bestSelling: "Best Selling";
-        priceLowToHigh: "Price: Low to High";
-        priceHighToLow: "Price: High to Low";
-      };
-    };
-    header: {
-      settings: "Settings";
-      signIn: "Sign In";
-      signUp: "Sign Up";
-      favorites: "Wishlist";
-      cart: "Shopping Cart";
-      avatarDropdown: {
-        accountDetails: "Account Details";
-        viewProfile: "View Profile";
-        wishlist: "Wishlist";
-        recentlyViewed: "Recently Viewed";
-        myOrders: "My Orders";
-        signOut: "Sign Out";
-        noEmail: "No email provided";
-        menuLabel: "User Account Menu";
-        fallbackUser: "User";
-      };
-      nav: {
-        home: "Home";
-        categories: "Categories";
-        allCategories: "All Categories";
-        newArrivals: "New Arrivals";
-        flashSale: "Flash Sale";
-        brands: "Brands";
-      };
-    };
-    footer: {
-      categories: "Categories";
-      support: "Support";
-      legal: "Legal";
-      poweredBy: "Powered by";
-      allProducts: "All Products";
-      featured: "Featured";
-      newArrivals: "New Arrivals";
-      helpCenter: "Help Center";
-      contactUs: "Contact Us";
-      faqs: "FAQs";
-      shipping: "Shipping";
-      privacyPolicy: "Privacy Policy";
-      termsOfService: "Terms of Service";
-      rightsReserved: "All rights reserved.";
-    };
-    rootMetadata: {
-      siteName: "Luxury E-commerce Platform";
-      description: "High-performance e-commerce platform for curated luxury.";
-      openGraphDesc: "The minimalist, high-performance e-commerce platform for power users.";
-      openGraphAlt: "Luxury E-commerce Platform Preview";
-    };
-    errorPage: {
-      metadataTitle: "503 - Service Unavailable";
-      title: "Something went wrong";
-      description: "Our systems are currently taking a quick breather or something unexpected happened. We've been notified and are already looking into it.";
-      tryAgain: "Try Again";
-      takeMeBack: "Take Me Back";
-    };
-    notFoundPage: {
-      metadataTitle: "404 - Not Found";
-      title: "You're lost in space";
-      description: "The page you are looking for hasn't been discovered yet. Maybe it moved to another galaxy or simply never existed.";
-      returnHome: "Return Home";
-    };
-    missingProduct: {
-      title: "Product not found";
-      description: "The product you are looking for doesn't exist or has been moved. Try searching or check out our collections.";
-      browseProducts: "Browse products";
-      viewCart: "View shopping cart";
-      backToHome: "Back to homepage";
-      continueShopping: "Continue Shopping";
-      goBack: "Go Back";
-    };
-    search: {
-      defaultPlaceholder: "Search...";
-      clear: "Clear";
-      submit: "Search";
-      globalPlaceholder: "Search for premium tech & workspace essentials...";
-    };
-    formMapPicker: {
-      resolving: "Resolving location...";
-      placeholder: "Click to pick address on map";
-      change: "Change";
-      select: "Select";
-    };
-    mapPickerModal: {
-      title: "Pick Address on Map";
-      close: "Close";
-      searchLabel: "Search & Pick Location:";
-      searchPlaceholder: "Search address...";
-      cancel: "Cancel";
-      confirm: "Confirm Address";
-      unknownAddress: "Unknown Address";
-    };
-    password: {
-      show: "Show password";
-      hide: "Hide password";
-    };
-    emptyState: {
-      title: "Nothing Here Yet";
-      description: "There’s currently no content available in this section.";
-    };
-    addressEmptyState: {
-      title: "No addresses yet";
-      description: "Add a shipping address to get started.";
-    };
-    form: {
-      processing: "Processing...";
-      selectPlaceholder: "Select...";
-    };
-    imageCropper: {
-      title: "Edit photo";
-      close: "Close";
-      cancel: "Cancel";
-      save: "Save changes";
-    };
-    accessDenied: {
-      title: "Access";
-      highlight: "Denied.";
-      description: "You must be signed in to view this page.";
-      signIn: "Sign In";
-      createAccount: "Create Account";
-    };
-    productsHeader: {
-      title: "Our";
-      highlight: "Products";
-      description: "Explore our curated collection of premium products.";
-    };
-    productCard: {
-      noImage: "No Image";
-    };
-    virtualized: {
-      loadingMore: "Loading more...";
-      allItemsLoaded: "All items loaded";
-      endOfList: "End of list";
-    };
-    modal: {
-      close: "Close";
-    };
-    avatarInput: {
-      changeAvatar: "Change avatar";
-      change: "Change";
-    };
-    dateInput: {
-      today: "Today";
-      months: {
-        january: "January";
-        february: "February";
-        march: "March";
-        april: "April";
-        may: "May";
-        june: "June";
-        july: "July";
-        august: "August";
-        september: "September";
-        october: "October";
-        november: "November";
-        december: "December";
-      };
-    };
-    regionSelector: {
-      title: "Select Your Region";
-      description: "Please select your country/region to continue. This will help us customize your experience.";
-      available: "Available";
-      comingSoon: "Coming Soon";
-    };
-    avatar: {
-      alt: "User Avatar";
-    };
-    pagination: {
-      previous: "Go to previous page";
-      next: "Go to next page";
-    };
-  };
-  FavoritesPage: {
-    metadata: {
-      title: "My Wishlist";
-      description: "View and manage your favorite luxury acquisitions.";
-    };
-    banner: {
-      title: "Wish";
-      highlight: "List";
-      description: "Your private gallery of curated desires. Ready to be transformed into reality.";
-      totalItems: "Total Items";
-    };
-    list: {
-      emptyTitle: "Your collection is empty";
-      emptyDescription: "The items you love deserve a place here. Start exploring our latest collections.";
-      loadingText: "Discovering more...";
-      endText: "You've seen everything in your wishlist";
-    };
-  };
-  FlashSalePage: {
-    metadata: {
-      title: "Flash Sale | E-Commerce";
-      description: "Grab the best deals before they are gone!";
-    };
-    header: {
-      title: "Flash";
-      highlight: "Sale";
-      description: "High-performance technology at unprecedented prices. Synchronize your watches.";
-    };
-    list: {
-      eyebrow: "Live Deals";
-      title: "{total, plural, =1 {# flash sale product} other {# flash sale products}}";
-      meta: "Page {page} of {totalPages}";
-      loadingMore: "Loading more deals...";
-      end: "All flash sale products loaded";
-      empty: {
-        title: "No flash sale products found";
-        description: "There are no flash sale products available at the moment.";
-      };
-    };
-    card: {
-      badge: "Flash Sale";
-      noImage: "No Image";
-      sale: "Sale";
-      viewDetails: "View Details";
-      addToCart: "Add to Cart";
-      sold: "Sold {count}";
-      left: "Left {count}";
-    };
-  };
-  HelpCenter: {
-    metadata: {
-      title: "Help Center";
-      description: "How can we help you today?";
-    };
-    shippingMetadata: {
-      title: "Shipping Information";
-      description: "Learn about our shipping policies and tracking.";
-    };
-    faqMetadata: {
-      title: "Frequently Asked Questions";
-      description: "Find answers to common questions.";
-    };
-    contactMetadata: {
-      title: "Contact Us";
-      description: "Get in touch with our support team.";
-    };
-    headers: {
-      help: {
-        title: "HELP";
-        highlight: "SHOP.HUB";
-        description: "Hello, how can we help you today? Search our database or browse categories below.";
-        placeholder: "Enter keywords or search popular articles...";
-        clear: "Clear";
-      };
-      shipping: {
-        title: "SHIPPING";
-        highlight: "INFORMATION";
-        description: "Find answers to questions about shipping, couriers, and delivery tracking policies.";
-      };
-      faq: {
-        title: "FREQUENTLY";
-        highlight: "ASKED QUESTIONS";
-        description: "Find answers to common questions about using Shop.Hub, account safety, and payment processing.";
-      };
-    };
-    contact: {
-      backToHelp: "← Back to Help Center";
-      title: "Contact Us";
-      subtitle: "We are here to help you 24/7.";
-      sendUsAMessage: "Send us a message";
-      directContact: "Direct Contact";
-      directSupportNote: "Our team is available 24/7 for urgent matters.";
-      emailLabel: "Email";
-      phoneLabel: "Phone";
-      needSupport: "Need Support?";
-      needSupportDesc: "Can't find what you need? Open a support ticket and we'll help you.";
-      openATicket: "Open a Ticket";
-      form: {
-        nameLabel: "Name";
-        namePlaceholder: "Your name";
-        emailLabel: "Email";
-        emailPlaceholder: "you@example.com";
-        phoneLabel: "Phone";
-        subjectLabel: "Subject";
-        subjectPlaceholder: "How can we help?";
-        messageLabel: "Message";
-        messagePlaceholder: "Describe your issue in detail...";
-        attachmentsLabel: "Attachments";
-        uploadLabel: "Upload images ({count}/{max})";
-        sending: "Sending...";
-        send: "Send Message";
-      };
-      toasts: {
-        unsupportedType: "{fileName} is not a supported image type.";
-        imageTooLarge: "{fileName} is larger than 5MB.";
-        maxAttachments: "You can attach up to {max} images.";
-        sendSuccess: "Message sent. We will get back to you soon.";
-        sendFailed: "Failed to send message. Please try again.";
-      };
-    };
-    help: {
-      title: "Help Center";
-      desc: "Practical help for shopping on Shop.Hub: account setup, cart, checkout, orders, delivery, returns, and support.";
-      search: "Search account, cart, checkout, orders, shipping...";
-      quick: "What do you need help with?";
-      popular: "Popular Answers";
-      supportNote: "Shop.Hub is one online store. Order and support requests are handled directly by our team.";
-      contactTitle: "Still need help?";
-      contactDesc: "Send your order number, contact details, and screenshots or package photos when relevant. We reply through the email or phone number you provide.";
-      contactCta: "Contact Support";
-      noResults: "No matching help topics found.";
-      cards: [
+  "AuthLayout": {
+    "description": "The most loved e-commerce platform in Southeast Asia & Taiwan.",
+    "backToHome": "Back to Home"
+  },
+  "LoginPage": {
+    "title": "Welcome back",
+    "description": "Enter your credentials to access your account.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Forgot Password?",
+    "submit": "Sign In",
+    "submitting": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Sign Up"
+  },
+  "RegisterPage": {
+    "title": "Create an account",
+    "description": "Join us today to get started with your tasks.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submit": "Create Account",
+    "submitting": "Creating account...",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Sign In",
+    "agreementText": "By continuing, you agree to our",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "and": "and"
+  },
+  "ForgotPasswordPage": {
+    "title": "Forgot Password",
+    "description": "Enter your email or phone number to receive a reset link/OTP.",
+    "emailTab": "Email",
+    "phoneTab": "Phone",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "phoneLabel": "Phone Number",
+    "sendResetLink": "Send Reset Link",
+    "sendOtp": "Send OTP",
+    "submitting": "Sending...",
+    "rememberedPassword": "Remembered your password?",
+    "loginLink": "Sign In"
+  },
+  "ResetPasswordPage": {
+    "title": "Reset Password",
+    "description": "Enter your new password below.",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "••••••••",
+    "confirmNewPasswordLabel": "Confirm New Password",
+    "confirmNewPasswordPlaceholder": "••••••••",
+    "submit": "Reset Password",
+    "submitting": "Resetting...",
+    "rememberedPassword": "Remembered your password?",
+    "loginLink": "Sign In"
+  },
+  "BrandsPage": {
+    "metadata": {
+      "title": "Brands | Defined Quality",
+      "description": "Explore our certified partner brands and industry leaders.",
+      "notFoundTitle": "Brand Not Found"
+    },
+    "header": {
+      "title": "Top",
+      "highlight": "Brands",
+      "description": "Explore the world's most iconic technology and design leaders."
+    },
+    "search": {
+      "placeholder": "Search brands by name..."
+    },
+    "grid": {
+      "loadingMore": "Loading more brands...",
+      "end": "All brands loaded"
+    },
+    "card": {
+      "productCount": "{count, plural, =1 {1 Product} other {# Products}}",
+      "viewArchive": "View Archive"
+    },
+    "detail": {
+      "story": {
+        "eyebrow": "The Heritage",
+        "title": "Crafting",
+        "highlight": "Tomorrow",
+        "fallbackQuote": "Leading the industry with innovation and world-class design standards.",
+        "overviewTitle": "Overview",
+        "overviewDescription": "Established with a vision to redefine the boundaries of technology and lifestyle, {brand} has consistently delivered excellence across its global portfolio.",
+        "philosophyTitle": "Philosophy",
+        "philosophyDescription": "At the core of {brand} lies a commitment to precision engineering and a deep understanding of the modern consumer's evolving needs.",
+        "imageAlt": "Philosophy image",
+        "imageCaption": "Iconic Series",
+        "closingDescription": "From its humble beginnings to its current status as a global leader, {brand} continues to push the limits of what's possible, merging aesthetics with high-performance functionality in every product they create."
+      },
+      "products": {
+        "archive": "Archive",
+        "description": "Experience the pinnacle of craftsmanship through our curated selection of {brand} products."
+      }
+    },
+    "empty": {
+      "title": "No brands found",
+      "description": "We couldn't find any brands matching \"{query}\". Try adjusting your search query."
+    }
+  },
+  "CartPage": {
+    "metadata": {
+      "title": "Shopping Cart | Premium Tech Essentials",
+      "description": "Review and manage your cart before checkout."
+    },
+    "header": {
+      "title": "Shopping",
+      "highlight": "Bag",
+      "descriptionWithItems": "Review {count, plural, one {# item} other {# items}}, select what to checkout, and keep your order ready.",
+      "emptyDescription": "Your shopping bag is ready for the next item you discover."
+    },
+    "summary": {
+      "items": "Cart Items",
+      "selected": "Selected",
+      "subtotal": "Subtotal"
+    },
+    "empty": {
+      "title": "THE BAG IS",
+      "highlight": "EMPTY",
+      "description": "Explore our premium collections and high-performance hardware.",
+      "action": "Explore Now"
+    },
+    "table": {
+      "product": "Product details",
+      "unitPrice": "Unit price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "action": "Action"
+    },
+    "footer": {
+      "applyCoupon": "Apply coupon",
+      "summary": "Cart Summary",
+      "selected": "{count} Selected",
+      "freeShipping": "Free Shipping",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout"
+    },
+    "item": {
+      "standard": "Standard",
+      "inStock": "In stock",
+      "outOfStock": "Out of stock",
+      "unavailable": "This item is currently unavailable.",
+      "remove": "Remove {product}",
+      "increase": "Increase quantity for {product}",
+      "decrease": "Decrease quantity for {product}"
+    },
+    "quantity": {
+      "increase": "Increase quantity",
+      "decrease": "Decrease quantity"
+    },
+    "drawer": {
+      "title": "Shopping Cart",
+      "count": "{count, plural, one {# item} other {# items}}",
+      "close": "Close cart",
+      "subtotal": "Subtotal",
+      "freeShipping": "Free Shipping",
+      "checkout": "Begin Checkout",
+      "finalizing": "Finalizing Order",
+      "viewDetails": "View Full Details",
+      "empty": {
+        "title": "Your bag is empty",
+        "description": "Explore our products and find something you love."
+      }
+    },
+    "toasts": {
+      "signInRequired": "Please sign in to add items to cart",
+      "addSuccess": "Added to cart",
+      "addFailed": "Failed to add to cart",
+      "clearFailed": "Failed to clear cart",
+      "removeFailed": "Failed to remove item",
+      "removeManyFailed": "Failed to remove items",
+      "updateFailed": "Failed to update quantity"
+    }
+  },
+  "CategoriesPage": {
+    "metadata": {
+      "title": "Categories",
+      "description": "Browse all product categories."
+    },
+    "header": {
+      "allTitle": "All Categories",
+      "allDescription": "Explore all product categories.",
+      "categoryDescription": "Explore quality products in {category}."
+    },
+    "content": {
+      "eyebrow": "Browse",
+      "title": "Discover Categories",
+      "description": "Explore collections and find what fits your needs.",
+      "count": "{count, plural, one {# category} other {# categories}}",
+      "childCount": "{count, plural, one {# category} other {# categories}}"
+    },
+    "sidebar": {
+      "title": "Categories",
+      "description": "Browse by collection",
+      "searchPlaceholder": "Search categories",
+      "clearSearch": "Clear category search",
+      "allCategories": "All Categories",
+      "empty": "No categories found",
+      "expand": "Expand {category}",
+      "collapse": "Collapse {category}"
+    }
+  },
+  "CategoryDetailPage": {
+    "metadata": {
+      "title": "Products - {category}",
+      "description": "Explore products in {category}."
+    },
+    "fallbackTitle": "Products",
+    "description": "Explore our best {category}. Selected for quality, price, and availability.",
+    "searchPlaceholder": "Search {category}"
+  },
+  "CheckoutPage": {
+    "metadata": {
+      "title": "Checkout | Luxury E-commerce",
+      "description": "Complete your order with our secure checkout experience."
+    },
+    "header": {
+      "backToCart": "Back to Shopping Bag",
+      "title": "Checkout"
+    },
+    "shipping": {
+      "title": "Shipping Address",
+      "newAddress": "New Address",
+      "empty": {
+        "title": "No Addresses Found",
+        "description": "Add a shipping address before placing your order.",
+        "action": "Add New Address"
+      }
+    },
+    "items": {
+      "title": "Review Items",
+      "standard": "Standard",
+      "quantity": "Qty: {count}",
+      "empty": {
+        "title": "No items selected",
+        "description": "Return to your cart or browse products to select items for checkout.",
+        "action": "Browse Products"
+      }
+    },
+    "summary": {
+      "title": "Order Summary",
+      "shippingTo": "Shipping To",
+      "subtotal": "Subtotal",
+      "shippingFee": "Shipping fee",
+      "free": "FREE",
+      "tax": "Tax (included)",
+      "paymentMethod": "Payment method",
+      "cod": "Cash on Delivery",
+      "grandTotal": "Grand Total",
+      "processing": "Processing Order...",
+      "complete": "Complete Purchase"
+    },
+    "toasts": {
+      "selectAddress": "Please select a shipping address",
+      "noItems": "No items selected for checkout",
+      "success": "Order placed successfully!",
+      "placeFailed": "Failed to place order",
+      "unknownError": "An error occurred while placing your order"
+    }
+  },
+  "Common": {
+    "viewAll": "View All",
+    "toolbar": {
+      "showingProducts": "Showing <bold>{total, number}</bold> {total, plural, =1 {product} other {products}}",
+      "sortBy": "Sort By",
+      "sortProductsBy": "Sort Products By",
+      "sortOptions": {
+        "newest": "Newest",
+        "bestSelling": "Best Selling",
+        "priceLowToHigh": "Price: Low to High",
+        "priceHighToLow": "Price: High to Low"
+      }
+    },
+    "header": {
+      "settings": "Settings",
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "favorites": "Wishlist",
+      "cart": "Shopping Cart",
+      "avatarDropdown": {
+        "accountDetails": "Account Details",
+        "viewProfile": "View Profile",
+        "wishlist": "Wishlist",
+        "recentlyViewed": "Recently Viewed",
+        "myOrders": "My Orders",
+        "signOut": "Sign Out",
+        "noEmail": "No email provided",
+        "menuLabel": "User Account Menu",
+        "fallbackUser": "User"
+      },
+      "nav": {
+        "home": "Home",
+        "categories": "Categories",
+        "allCategories": "All Categories",
+        "newArrivals": "New Arrivals",
+        "flashSale": "Flash Sale",
+        "brands": "Brands"
+      }
+    },
+    "footer": {
+      "categories": "Categories",
+      "support": "Support",
+      "legal": "Legal",
+      "poweredBy": "Powered by",
+      "allProducts": "All Products",
+      "featured": "Featured",
+      "newArrivals": "New Arrivals",
+      "helpCenter": "Help Center",
+      "contactUs": "Contact Us",
+      "faqs": "FAQs",
+      "shipping": "Shipping",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "rightsReserved": "All rights reserved."
+    },
+    "rootMetadata": {
+      "siteName": "Luxury E-commerce Platform",
+      "description": "High-performance e-commerce platform for curated luxury.",
+      "openGraphDesc": "The minimalist, high-performance e-commerce platform for power users.",
+      "openGraphAlt": "Luxury E-commerce Platform Preview"
+    },
+    "errorPage": {
+      "metadataTitle": "503 - Service Unavailable",
+      "title": "Something went wrong",
+      "description": "Our systems are currently taking a quick breather or something unexpected happened. We've been notified and are already looking into it.",
+      "tryAgain": "Try Again",
+      "takeMeBack": "Take Me Back"
+    },
+    "notFoundPage": {
+      "metadataTitle": "404 - Not Found",
+      "title": "You're lost in space",
+      "description": "The page you are looking for hasn't been discovered yet. Maybe it moved to another galaxy or simply never existed.",
+      "returnHome": "Return Home"
+    },
+    "missingProduct": {
+      "title": "Product not found",
+      "description": "The product you are looking for doesn't exist or has been moved. Try searching or check out our collections.",
+      "browseProducts": "Browse products",
+      "viewCart": "View shopping cart",
+      "backToHome": "Back to homepage",
+      "continueShopping": "Continue Shopping",
+      "goBack": "Go Back"
+    },
+    "search": {
+      "defaultPlaceholder": "Search...",
+      "clear": "Clear",
+      "submit": "Search",
+      "globalPlaceholder": "Search for premium tech & workspace essentials..."
+    },
+    "formMapPicker": {
+      "resolving": "Resolving location...",
+      "placeholder": "Click to pick address on map",
+      "change": "Change",
+      "select": "Select"
+    },
+    "mapPickerModal": {
+      "title": "Pick Address on Map",
+      "close": "Close",
+      "searchLabel": "Search & Pick Location:",
+      "searchPlaceholder": "Search address...",
+      "cancel": "Cancel",
+      "confirm": "Confirm Address",
+      "unknownAddress": "Unknown Address"
+    },
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
+    "emptyState": {
+      "title": "Nothing Here Yet",
+      "description": "There’s currently no content available in this section."
+    },
+    "addressEmptyState": {
+      "title": "No addresses yet",
+      "description": "Add a shipping address to get started."
+    },
+    "form": {
+      "processing": "Processing...",
+      "selectPlaceholder": "Select..."
+    },
+    "imageCropper": {
+      "title": "Edit photo",
+      "close": "Close",
+      "cancel": "Cancel",
+      "save": "Save changes"
+    },
+    "accessDenied": {
+      "title": "Access",
+      "highlight": "Denied.",
+      "description": "You must be signed in to view this page.",
+      "signIn": "Sign In",
+      "createAccount": "Create Account"
+    },
+    "productsHeader": {
+      "title": "Our",
+      "highlight": "Products",
+      "description": "Explore our curated collection of premium products."
+    },
+    "productCard": {
+      "noImage": "No Image"
+    },
+    "virtualized": {
+      "loadingMore": "Loading more...",
+      "allItemsLoaded": "All items loaded",
+      "endOfList": "End of list"
+    },
+    "modal": {
+      "close": "Close"
+    },
+    "avatarInput": {
+      "changeAvatar": "Change avatar",
+      "change": "Change"
+    },
+    "dateInput": {
+      "today": "Today",
+      "months": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      }
+    },
+    "regionSelector": {
+      "title": "Select Your Region",
+      "description": "Please select your country/region to continue. This will help us customize your experience.",
+      "available": "Available",
+      "comingSoon": "Coming Soon"
+    },
+    "avatar": {
+      "alt": "User Avatar"
+    },
+    "pagination": {
+      "previous": "Go to previous page",
+      "next": "Go to next page"
+    }
+  },
+  "FavoritesPage": {
+    "metadata": {
+      "title": "My Wishlist",
+      "description": "View and manage your favorite luxury acquisitions."
+    },
+    "banner": {
+      "title": "Wish",
+      "highlight": "List",
+      "description": "Your private gallery of curated desires. Ready to be transformed into reality.",
+      "totalItems": "Total Items"
+    },
+    "list": {
+      "emptyTitle": "Your collection is empty",
+      "emptyDescription": "The items you love deserve a place here. Start exploring our latest collections.",
+      "loadingText": "Discovering more...",
+      "endText": "You've seen everything in your wishlist"
+    }
+  },
+  "FlashSalePage": {
+    "metadata": {
+      "title": "Flash Sale | E-Commerce",
+      "description": "Grab the best deals before they are gone!"
+    },
+    "header": {
+      "title": "Flash",
+      "highlight": "Sale",
+      "description": "High-performance technology at unprecedented prices. Synchronize your watches."
+    },
+    "list": {
+      "eyebrow": "Live Deals",
+      "title": "{total, plural, =1 {# flash sale product} other {# flash sale products}}",
+      "meta": "Page {page} of {totalPages}",
+      "loadingMore": "Loading more deals...",
+      "end": "All flash sale products loaded",
+      "empty": {
+        "title": "No flash sale products found",
+        "description": "There are no flash sale products available at the moment."
+      }
+    },
+    "card": {
+      "badge": "Flash Sale",
+      "noImage": "No Image",
+      "sale": "Sale",
+      "viewDetails": "View Details",
+      "addToCart": "Add to Cart",
+      "sold": "Sold {count}",
+      "left": "Left {count}"
+    }
+  },
+  "HelpCenter": {
+    "metadata": {
+      "title": "Help Center",
+      "description": "How can we help you today?"
+    },
+    "shippingMetadata": {
+      "title": "Shipping Information",
+      "description": "Learn about our shipping policies and tracking."
+    },
+    "faqMetadata": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions."
+    },
+    "contactMetadata": {
+      "title": "Contact Us",
+      "description": "Get in touch with our support team."
+    },
+    "headers": {
+      "help": {
+        "title": "HELP",
+        "highlight": "SHOP.HUB",
+        "description": "Hello, how can we help you today? Search our database or browse categories below.",
+        "placeholder": "Enter keywords or search popular articles...",
+        "clear": "Clear"
+      },
+      "shipping": {
+        "title": "SHIPPING",
+        "highlight": "INFORMATION",
+        "description": "Find answers to questions about shipping, couriers, and delivery tracking policies."
+      },
+      "faq": {
+        "title": "FREQUENTLY",
+        "highlight": "ASKED QUESTIONS",
+        "description": "Find answers to common questions about using Shop.Hub, account safety, and payment processing."
+      }
+    },
+    "contact": {
+      "backToHelp": "← Back to Help Center",
+      "title": "Contact Us",
+      "subtitle": "We are here to help you 24/7.",
+      "sendUsAMessage": "Send us a message",
+      "directContact": "Direct Contact",
+      "directSupportNote": "Our team is available 24/7 for urgent matters.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "needSupport": "Need Support?",
+      "needSupportDesc": "Can't find what you need? Open a support ticket and we'll help you.",
+      "openATicket": "Open a Ticket",
+      "form": {
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "phoneLabel": "Phone",
+        "subjectLabel": "Subject",
+        "subjectPlaceholder": "How can we help?",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Describe your issue in detail...",
+        "attachmentsLabel": "Attachments",
+        "uploadLabel": "Upload images ({count}/{max})",
+        "sending": "Sending...",
+        "send": "Send Message"
+      },
+      "toasts": {
+        "unsupportedType": "{fileName} is not a supported image type.",
+        "imageTooLarge": "{fileName} is larger than 5MB.",
+        "maxAttachments": "You can attach up to {max} images.",
+        "sendSuccess": "Message sent. We will get back to you soon.",
+        "sendFailed": "Failed to send message. Please try again."
+      }
+    },
+    "help": {
+      "title": "Help Center",
+      "desc": "Practical help for shopping on Shop.Hub: account setup, cart, checkout, orders, delivery, returns, and support.",
+      "search": "Search account, cart, checkout, orders, shipping...",
+      "quick": "What do you need help with?",
+      "popular": "Popular Answers",
+      "supportNote": "Shop.Hub is one online store. Order and support requests are handled directly by our team.",
+      "contactTitle": "Still need help?",
+      "contactDesc": "Send your order number, contact details, and screenshots or package photos when relevant. We reply through the email or phone number you provide.",
+      "contactCta": "Contact Support",
+      "noResults": "No matching help topics found.",
+      "cards": [
         {
-          title: "Account";
-          desc: "Sign in, reset your password, update profile details, and keep your account secure.";
-          href: "faq";
-          icon: "shield-check";
-          tags: ["account", "profile", "password", "security"];
+          "title": "Account",
+          "desc": "Sign in, reset your password, update profile details, and keep your account secure.",
+          "href": "faq",
+          "icon": "shield-check",
+          "tags": [
+            "account",
+            "profile",
+            "password",
+            "security"
+          ]
         },
         {
-          title: "Cart & Checkout";
-          desc: "Review your cart, choose a shipping address, apply vouchers, and place an order.";
-          href: "faq";
-          icon: "receipt-text";
-          tags: ["cart", "checkout", "address", "voucher"];
+          "title": "Cart & Checkout",
+          "desc": "Review your cart, choose a shipping address, apply vouchers, and place an order.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": [
+            "cart",
+            "checkout",
+            "address",
+            "voucher"
+          ]
         },
         {
-          title: "Orders";
-          desc: "Check order status, review order details, and understand when changes are still possible.";
-          href: "orders";
-          icon: "package-check";
-          tags: ["order", "status", "cancel", "detail"];
+          "title": "Orders",
+          "desc": "Check order status, review order details, and understand when changes are still possible.",
+          "href": "orders",
+          "icon": "package-check",
+          "tags": [
+            "order",
+            "status",
+            "cancel",
+            "detail"
+          ]
         },
         {
-          title: "Shipping";
-          desc: "Delivery coverage, shipping fees, tracking updates, failed delivery, and damaged packages.";
-          href: "shipping";
-          icon: "truck";
-          tags: ["shipping", "delivery", "tracking", "fee"];
+          "title": "Shipping",
+          "desc": "Delivery coverage, shipping fees, tracking updates, failed delivery, and damaged packages.",
+          "href": "shipping",
+          "icon": "truck",
+          "tags": [
+            "shipping",
+            "delivery",
+            "tracking",
+            "fee"
+          ]
         },
         {
-          title: "Payments & Vouchers";
-          desc: "Payment options shown at checkout, voucher rules, failed payments, and refund timing.";
-          href: "faq";
-          icon: "receipt-text";
-          tags: ["payment", "voucher", "refund", "checkout"];
+          "title": "Payments & Vouchers",
+          "desc": "Payment options shown at checkout, voucher rules, failed payments, and refund timing.",
+          "href": "faq",
+          "icon": "receipt-text",
+          "tags": [
+            "payment",
+            "voucher",
+            "refund",
+            "checkout"
+          ]
         },
         {
-          title: "Returns & Refunds";
-          desc: "Return eligibility, required evidence, item condition, and refund processing.";
-          href: "faq";
-          icon: "rotate-ccw";
-          tags: ["return", "refund", "exchange", "evidence"];
-        },
-      ];
-      answers: [
+          "title": "Returns & Refunds",
+          "desc": "Return eligibility, required evidence, item condition, and refund processing.",
+          "href": "faq",
+          "icon": "rotate-ccw",
+          "tags": [
+            "return",
+            "refund",
+            "exchange",
+            "evidence"
+          ]
+        }
+      ],
+      "answers": [
         "How do I track my order?",
         "Can I change my shipping address after checkout?",
         "Why did my voucher not apply?",
         "What should I do if my package is damaged?",
-        "How do I contact Shop.Hub support?",
-      ];
-    };
-    faq: {
-      title: "Frequently Asked Questions";
-      desc: "Answers for common Shop.Hub workflows: account, profile, cart, checkout, orders, payments, vouchers, shipping, returns, and support.";
-      search: "Search questions...";
-      empty: "No matching questions found.";
-      contactTitle: "Need a specific answer?";
-      contactDesc: "Send your order number, contact details, and screenshots so Shop.Hub can check the issue directly.";
-      contactCta: "Contact Support";
-      topics: [
+        "How do I contact Shop.Hub support?"
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "desc": "Answers for common Shop.Hub workflows: account, profile, cart, checkout, orders, payments, vouchers, shipping, returns, and support.",
+      "search": "Search questions...",
+      "empty": "No matching questions found.",
+      "contactTitle": "Need a specific answer?",
+      "contactDesc": "Send your order number, contact details, and screenshots so Shop.Hub can check the issue directly.",
+      "contactCta": "Contact Support",
+      "topics": [
         {
-          name: "Account & Profile";
-          icon: "shield-check";
-          faqs: [
+          "name": "Account & Profile",
+          "icon": "shield-check",
+          "faqs": [
             {
-              q: "How do I reset my password?";
-              a: "Open the Sign In page, choose Forgot Password, then follow the instructions sent to your email or phone number.";
+              "q": "How do I reset my password?",
+              "a": "Open the Sign In page, choose Forgot Password, then follow the instructions sent to your email or phone number."
             },
             {
-              q: "Where can I update my profile information?";
-              a: "After signing in, open Profile to update personal details. Keep your email and phone number accurate so support can reach you when needed.";
+              "q": "Where can I update my profile information?",
+              "a": "After signing in, open Profile to update personal details. Keep your email and phone number accurate so support can reach you when needed."
             },
             {
-              q: "How can I keep my Shop.Hub account safe?";
-              a: "Use a private password, never share OTP or reset links, and contact support if you notice unfamiliar account activity.";
-            },
-          ];
+              "q": "How can I keep my Shop.Hub account safe?",
+              "a": "Use a private password, never share OTP or reset links, and contact support if you notice unfamiliar account activity."
+            }
+          ]
         },
         {
-          name: "Addresses";
-          icon: "shield-check";
-          faqs: [
+          "name": "Addresses",
+          "icon": "shield-check",
+          "faqs": [
             {
-              q: "Can I save more than one shipping address?";
-              a: "You can manage addresses from your account and choose the right one during checkout.";
+              "q": "Can I save more than one shipping address?",
+              "a": "You can manage addresses from your account and choose the right one during checkout."
             },
             {
-              q: "What should I check before placing an order?";
-              a: "Confirm recipient name, phone number, street address, ward or district details, and any delivery note before submitting the order.";
-            },
-          ];
+              "q": "What should I check before placing an order?",
+              "a": "Confirm recipient name, phone number, street address, ward or district details, and any delivery note before submitting the order."
+            }
+          ]
         },
         {
-          name: "Cart & Checkout";
-          icon: "credit-card";
-          faqs: [
+          "name": "Cart & Checkout",
+          "icon": "credit-card",
+          "faqs": [
             {
-              q: "Why did an item disappear from my cart?";
-              a: "Items can become unavailable if stock changes before checkout. Review your cart before placing the order.";
+              "q": "Why did an item disappear from my cart?",
+              "a": "Items can become unavailable if stock changes before checkout. Review your cart before placing the order."
             },
             {
-              q: "Can I change quantity during checkout?";
-              a: "Adjust quantities in the cart before checkout. Once the order is placed, changes may only be possible while the order is still pending.";
+              "q": "Can I change quantity during checkout?",
+              "a": "Adjust quantities in the cart before checkout. Once the order is placed, changes may only be possible while the order is still pending."
             },
             {
-              q: "Why can I not place my order?";
-              a: "Check that you are signed in, your cart has available items, your shipping address is complete, and the selected payment option is valid.";
-            },
-          ];
+              "q": "Why can I not place my order?",
+              "a": "Check that you are signed in, your cart has available items, your shipping address is complete, and the selected payment option is valid."
+            }
+          ]
         },
         {
-          name: "Orders";
-          icon: "package-check";
-          faqs: [
+          "name": "Orders",
+          "icon": "package-check",
+          "faqs": [
             {
-              q: "Where can I see my order status?";
-              a: "Go to Orders in your account. Each order shows current status, products, payment summary, and delivery progress when available.";
+              "q": "Where can I see my order status?",
+              "a": "Go to Orders in your account. Each order shows current status, products, payment summary, and delivery progress when available."
             },
             {
-              q: "Can I cancel an order?";
-              a: "You can request help while the order is still pending or before it is handed to delivery. Orders already shipped may need to follow the return flow.";
+              "q": "Can I cancel an order?",
+              "a": "You can request help while the order is still pending or before it is handed to delivery. Orders already shipped may need to follow the return flow."
             },
             {
-              q: "What information should I send when asking about an order?";
-              a: "Send the order number, the email or phone number used on the order, and screenshots if the issue is visible on the website.";
-            },
-          ];
+              "q": "What information should I send when asking about an order?",
+              "a": "Send the order number, the email or phone number used on the order, and screenshots if the issue is visible on the website."
+            }
+          ]
         },
         {
-          name: "Payments & Vouchers";
-          icon: "credit-card";
-          faqs: [
+          "name": "Payments & Vouchers",
+          "icon": "credit-card",
+          "faqs": [
             {
-              q: "What payment methods are supported?";
-              a: "Available payment methods are shown at checkout. The final method list depends on your address, order value, and current configuration.";
+              "q": "What payment methods are supported?",
+              "a": "Available payment methods are shown at checkout. The final method list depends on your address, order value, and current configuration."
             },
             {
-              q: "Why did my voucher not apply?";
-              a: "Vouchers can have minimum order values, category limits, expiration dates, usage limits, or account restrictions. Check voucher conditions before placing the order.";
+              "q": "Why did my voucher not apply?",
+              "a": "Vouchers can have minimum order values, category limits, expiration dates, usage limits, or account restrictions. Check voucher conditions before placing the order."
             },
             {
-              q: "What should I do if payment fails?";
-              a: "Do not retry too many times quickly. Check your payment details, refresh checkout, or contact support with a screenshot of the error.";
-            },
-          ];
+              "q": "What should I do if payment fails?",
+              "a": "Do not retry too many times quickly. Check your payment details, refresh checkout, or contact support with a screenshot of the error."
+            }
+          ]
         },
         {
-          name: "Shipping";
-          icon: "truck";
-          faqs: [
+          "name": "Shipping",
+          "icon": "truck",
+          "faqs": [
             {
-              q: "How do I track my order?";
-              a: "Open the order detail page from Orders. If tracking is available, you will see delivery progress and the latest carrier update.";
+              "q": "How do I track my order?",
+              "a": "Open the order detail page from Orders. If tracking is available, you will see delivery progress and the latest carrier update."
             },
             {
-              q: "Can I change my shipping address?";
-              a: "Address changes are only possible before the order is processed for delivery. Contact support as soon as possible if the address is wrong.";
+              "q": "Can I change my shipping address?",
+              "a": "Address changes are only possible before the order is processed for delivery. Contact support as soon as possible if the address is wrong."
             },
             {
-              q: "What if delivery fails?";
-              a: "Keep your phone reachable. If delivery fails or the carrier cannot contact you, send your order number to support so Shop.Hub can check the next step.";
-            },
-          ];
+              "q": "What if delivery fails?",
+              "a": "Keep your phone reachable. If delivery fails or the carrier cannot contact you, send your order number to support so Shop.Hub can check the next step."
+            }
+          ]
         },
         {
-          name: "Returns & Refunds";
-          icon: "rotate-ccw";
-          faqs: [
+          "name": "Returns & Refunds",
+          "icon": "rotate-ccw",
+          "faqs": [
             {
-              q: "What is the return policy?";
-              a: "Return eligibility depends on product type, order status, item condition, and the reason for return. Keep packaging, accessories, and photos of the issue.";
+              "q": "What is the return policy?",
+              "a": "Return eligibility depends on product type, order status, item condition, and the reason for return. Keep packaging, accessories, and photos of the issue."
             },
             {
-              q: "How long does a refund take?";
-              a: "After a cancellation or return is approved, refund timing depends on the payment method and provider processing time.";
+              "q": "How long does a refund take?",
+              "a": "After a cancellation or return is approved, refund timing depends on the payment method and provider processing time."
             },
             {
-              q: "What evidence should I prepare for a return request?";
-              a: "Prepare clear photos of the product, package, accessories, shipping label, and screenshots of the order when relevant.";
-            },
-          ];
-        },
-      ];
-    };
-    shipping: {
-      title: "Shipping Information";
-      desc: "Delivery coverage, fees, tracking, failed delivery, and package issue guidance for Shop.Hub orders.";
-      search: "Search shipping help...";
-      empty: "No matching shipping topics found.";
-      contactTitle: "Need delivery support?";
-      contactDesc: "Send your order number, contact details, and package photos if there is a delivery issue.";
-      contactCta: "Report a Delivery Issue";
-      topics: [
+              "q": "What evidence should I prepare for a return request?",
+              "a": "Prepare clear photos of the product, package, accessories, shipping label, and screenshots of the order when relevant."
+            }
+          ]
+        }
+      ]
+    },
+    "shipping": {
+      "title": "Shipping Information",
+      "desc": "Delivery coverage, fees, tracking, failed delivery, and package issue guidance for Shop.Hub orders.",
+      "search": "Search shipping help...",
+      "empty": "No matching shipping topics found.",
+      "contactTitle": "Need delivery support?",
+      "contactDesc": "Send your order number, contact details, and package photos if there is a delivery issue.",
+      "contactCta": "Report a Delivery Issue",
+      "topics": [
         {
-          name: "Delivery Coverage";
-          icon: "map-pin";
-          faqs: [
+          "name": "Delivery Coverage",
+          "icon": "map-pin",
+          "faqs": [
             {
-              q: "Where does Shop.Hub deliver?";
-              a: "Delivery availability is checked during checkout based on the shipping address you enter.";
+              "q": "Where does Shop.Hub deliver?",
+              "a": "Delivery availability is checked during checkout based on the shipping address you enter."
             },
             {
-              q: "Why is my address not accepted?";
-              a: "The address may be incomplete or outside the current delivery coverage. Review the address details or contact support for help.";
-            },
-          ];
-        },
-        {
-          name: "Delivery Time";
-          icon: "clock";
-          faqs: [
-            {
-              q: "How long does shipping take?";
-              a: "Delivery time depends on address, order processing, carrier capacity, holidays, and weather. The order page shows the latest available progress.";
-            },
-            {
-              q: "When does order processing start?";
-              a: "Processing starts after the order is placed and required payment checks are complete. Shop.Hub prepares the items before handing them to delivery.";
-            },
-          ];
+              "q": "Why is my address not accepted?",
+              "a": "The address may be incomplete or outside the current delivery coverage. Review the address details or contact support for help."
+            }
+          ]
         },
         {
-          name: "Tracking";
-          icon: "package-search";
-          faqs: [
+          "name": "Delivery Time",
+          "icon": "clock",
+          "faqs": [
             {
-              q: "Where can I track my order?";
-              a: "Open Orders, choose the order, then check the latest status. If tracking is available, the order detail page shows delivery progress.";
+              "q": "How long does shipping take?",
+              "a": "Delivery time depends on address, order processing, carrier capacity, holidays, and weather. The order page shows the latest available progress."
             },
             {
-              q: "Why is tracking not updating?";
-              a: "Tracking can take time to update after pickup or transfer. If it does not change for too long, contact support with your order number.";
-            },
-            {
-              q: "Will the carrier call me?";
-              a: "The carrier may call when the package is out for delivery. Keep the phone number on your order reachable.";
-            },
-          ];
+              "q": "When does order processing start?",
+              "a": "Processing starts after the order is placed and required payment checks are complete. Shop.Hub prepares the items before handing them to delivery."
+            }
+          ]
         },
         {
-          name: "Shipping Fees";
-          icon: "map-pin";
-          faqs: [
+          "name": "Tracking",
+          "icon": "package-search",
+          "faqs": [
             {
-              q: "How are shipping fees calculated?";
-              a: "Fees are calculated during checkout based on delivery address, package size, weight, carrier rules, and active shipping promotions.";
+              "q": "Where can I track my order?",
+              "a": "Open Orders, choose the order, then check the latest status. If tracking is available, the order detail page shows delivery progress."
             },
             {
-              q: "When do I see the final shipping fee?";
-              a: "The final shipping fee is shown before you place the order. Review the checkout summary before confirming.";
+              "q": "Why is tracking not updating?",
+              "a": "Tracking can take time to update after pickup or transfer. If it does not change for too long, contact support with your order number."
             },
-          ];
+            {
+              "q": "Will the carrier call me?",
+              "a": "The carrier may call when the package is out for delivery. Keep the phone number on your order reachable."
+            }
+          ]
         },
         {
-          name: "Delivery Issues";
-          icon: "alert-triangle";
-          faqs: [
+          "name": "Shipping Fees",
+          "icon": "map-pin",
+          "faqs": [
             {
-              q: "What if I am not available when delivery arrives?";
-              a: "The carrier may call and retry delivery according to their route policy. Keep your phone reachable after the order is out for delivery.";
+              "q": "How are shipping fees calculated?",
+              "a": "Fees are calculated during checkout based on delivery address, package size, weight, carrier rules, and active shipping promotions."
             },
             {
-              q: "What should I do if the package is damaged?";
-              a: "Take clear photos of the outer package, shipping label, and product before using it. Contact support with your order number and images.";
-            },
-            {
-              q: "What if items are missing from the package?";
-              a: "Keep all packaging, take photos, and contact support with the order number and a list of missing items.";
-            },
-          ];
+              "q": "When do I see the final shipping fee?",
+              "a": "The final shipping fee is shown before you place the order. Review the checkout summary before confirming."
+            }
+          ]
         },
-      ];
-    };
-  };
-  HomePage: {
-    metadata: {
-      title: "Home";
-      description: "E-commerce platform with real-time focus.";
-    };
-    hero: {
-      titleLoggedIn: "Hello <italic>{name}</italic><br></br>Elevate Your Life.";
-      titlePublic: "Elevate <italic>Your</italic><br></br>Lifestyle.";
-      descLoggedIn: "Continue discovering premium products, exclusive collections, and curated essentials designed for your everyday lifestyle.";
-      descPublic: "Discover premium products, curated collections, and everyday essentials tailored to modern living.";
-      btnContinueShopping: "Continue Shopping";
-      btnStartShopping: "Start Shopping";
-      btnViewOrders: "View Orders";
-      btnExploreCollections: "Explore Collections";
-    };
-    features: {
-      flashSale: {
-        name: "Flash Sale";
-        desc: "Ending soon";
-      };
-      vouchers: {
-        name: "Vouchers";
-        desc: "Coming soon";
-      };
-      topBrands: {
-        name: "Top Brands";
-        desc: "Certified stores";
-      };
-      newArrivals: {
-        name: "New Arrivals";
-        desc: "Fresh drops";
-      };
-    };
-    sections: {
-      flashSale: "Flash Sale";
-      categories: "Categories";
-      categoryProductCount: "{count} Products";
-    };
-    liveState: {
-      title: "System Sync";
-      themeLabel: "Theme:";
-      modeLabel: "Mode:";
-      dark: "DARK";
-      light: "LIGHT";
-      description: "Experience seamless real-time synchronization.";
-    };
-    discovery: {
-      recentViewed: "Recently Viewed";
-      wishlist: "Your Wishlist";
-      recommended: "Recommended for You";
-    };
-    joinUs: {
-      title: "Better deals,<br></br>picked for you.";
-      desc: "Join to save your favorites, track orders, and discover selected offers across everyday essentials.";
-      btnJoin: "Join Now";
-      backgroundText: "Deals";
-    };
-  };
-  NewArrivalsPage: {
-    metadata: {
-      title: "New Arrivals | E-Commerce";
-      description: "Discover the latest products that have just arrived at our store.";
-    };
-    header: {
-      title: "Fresh";
-      highlight: "Arrivals";
-      description: "Stay ahead of the curve with our <strong>latest trends</strong> curated just for you.";
-      note: "Our latest collection is currently being curated and will be available here shortly. Check back often so you don't miss our newest releases.";
-    };
-    list: {
-      eyebrow: "Collection";
-      title: "{total, plural, =1 {# latest product} other {# latest products}}";
-      meta: "Page {page} of {totalPages}";
-      loadingMore: "Loading more arrivals...";
-      end: "All new arrivals loaded";
-      empty: {
-        title: "No new arrivals found";
-        description: "There are no new products available at the moment.";
-      };
-    };
-  };
-  NotificationsPage: {
-    metadata: {
-      title: "Notifications";
-      description: "View and manage your account notifications and activity.";
-    };
-    banner: {
-      title: "Notification";
-      highlight: "Center";
-      unreadDescription: "{count, plural, =1 {You have 1 unread update} other {You have # unread updates}}. Review order activity, account alerts, and promotions in one place.";
-      allCaughtUpDescription: "You are all caught up. Order activity, account alerts, and promotions will appear here.";
-    };
-    summary: {
-      total: "Total Notifications";
-      unread: "Unread";
-      read: "Read";
-    };
-    header: {
-      title: "Notifications";
-      subtitle: "Manage your orders, updates, and promotional activities.";
-      markAllAsRead: "Mark all as read";
-    };
-    filters: {
-      searchPlaceholder: "Search notifications...";
-      searchButton: "Search";
-    };
-    list: {
-      fetchingText: "Fetching your updates...";
-      emptyTitle: "No notifications yet";
-      emptyDescription: "We'll let you know when something important happens with your account or orders.";
-      loadingMoreText: "Loading more notifications...";
-      endText: "End of notifications";
-    };
-    dropdown: {
-      title: "Notifications";
-      markAllAsRead: "Mark all as read";
-      loadingText: "Loading updates...";
-      emptyText: "All caught up!";
-      viewAll: "View all notifications";
-    };
-  };
-  OrdersPage: {
-    metadata: {
-      title: "Order History | Luxury E-commerce";
-      description: "Manage your purchase history and track your order status.";
-    };
-    detailMetadata: {
-      title: "Order Details | Luxury E-commerce";
-      description: "View details of your premium order.";
-    };
-    notificationsMetadata: {
-      title: "Order Notifications | E-commerce";
-      description: "View and manage your order notifications and account activity.";
-    };
-    header: {
-      title: "My";
-      highlight: "Orders";
-      description: "Track your purchases, review order status, and manage everything you’ve bought.";
-    };
-    tabs: {
-      all: "Overview";
-      inProgress: "In Progress";
-      inTransit: "In Transit";
-      delivered: "Delivered";
-      returns: "Returns";
-      closed: "Closed";
-    };
-    emptyState: {
-      title: "No Orders Yet";
-      actionLabel: "Start Shopping";
-      messageOverview: "You haven’t placed any orders yet. Start exploring products and place your first order.";
-      messageOther: "You have no {tab} orders at the moment.";
-    };
-    card: {
-      orderNumber: "Order #{id}";
-      needHelp: "Need help?";
-      shipping: "Shipping";
-      units: "{count, plural, =1 {1 unit} other {# units}}";
-      discount: "Discount:";
-      total: "Total";
-      cancel: "Cancel";
-      requestReturn: "Request Return";
-      review: "Review";
-      reorder: "Reorder";
-      noOrders: "No orders yet";
-      emptyListDesc: "Keep shopping to fill your order history.";
-      productFallback: "Product";
-      productNameFallback: "Product Name";
-      skuCode: "Code: {code}";
-      defaultSku: "Default";
-    };
-    confirmCancel: {
-      title: "Cancel Order";
-      description: "Are you sure you want to cancel this order? This action cannot be undone.";
-      keep: "No, keep it";
-      confirm: "Yes, cancel";
-    };
-    requestReturn: {
-      title: "Request Return";
-      description: "Share the reason and attach clear photos so support can review the order.";
-      reason: "Reason";
-      reasonPlaceholder: "Wrong item, damaged package, missing parts...";
-      details: "Details";
-      detailsPlaceholder: "Describe the issue, item condition, packaging, and what outcome you expect.";
-      evidence: "Evidence Photos";
-      upload: "Upload images";
-      photoRequired: "At least one photo is required.";
-      close: "Close return request form";
-      keepOrder: "Keep Order";
-      submit: "Submit Request";
-      toasts: {
-        unsupportedImage: "{name} is not a supported image type.";
-        imageTooLarge: "{name} is larger than 5MB.";
-        maxImages: "You can attach up to {max} images.";
-        imageRequired: "Attach at least one image for the return request.";
-        submitSuccess: "Return request submitted.";
-        submitError: "Failed to submit return request.";
-      };
-    };
-    detail: {
-      loading: "Loading...";
-      notFoundTitle: "Order Not Found";
-      notFoundDesc: "We could not locate this order. It may have been removed or the ID is incorrect.";
-      backToOrders: "Return to Orders";
-      deliveryDetails: "Delivery Details";
-      paymentSummary: "Payment Summary";
-      subtotal: "Subtotal";
-      discount: "Discount";
-      total: "Total";
-      returnSectionTitle: "Need to return this order?";
-      returnSectionDesc: "Submit a reason and clear photos for support review.";
-      requestReturnBtn: "Request return";
-      orderItemsTitle: "Order Items ({count})";
-      noOrderItems: "No order items.";
-      qty: "Qty";
-      unit: "Unit";
-      orderItemsHeader: "Order Items";
-      productFallback: "Product";
-      unknownProduct: "Unknown Product";
-      notAvailable: "N/A";
-    };
-  };
-  AdminOrdersPage: {
-    header: {
-      adminCenter: "Admin Center";
-      title: "Order Fulfillment";
-      description: "Track multi-channel purchases, manage processing operational queues, and update order statuses smoothly.";
-      refresh: "Refresh Queues";
-    };
-    filters: {
-      searchLabel: "Search Orders";
-      searchPlaceholder: "Filter by Order ID, customer name or phone...";
-      clearActive: "Clear Active Filters";
-      statusLabel: "Fulfillment Status Filters";
-      ariaLabel: "Order Filters";
-    };
-    results: {
-      ordersCount: "{count, plural, =1 {1 Order} other {# Orders}}";
-      pageInfo: "Page {page} of {totalPages}";
-      loading: "Loading Orders…";
-      noOrdersFound: "No Orders Found";
-      noOrdersDesc: "Adjust the search or status filters to broaden the result set.";
-      clearFilters: "Clear Filters";
-      stt: "STT";
-      orderId: "Order ID";
-      customer: "Customer";
-      date: "Date";
-      total: "Total";
-      status: "Status";
-      noName: "No Name";
-      hideItems: "Hide Items";
-      showItems: "Show {count, plural, =1 {1 Item} other {Show # Items}}";
-      copied: "Order ID copied.";
-      showingPageOf: "Showing page {page} of {totalPages}";
-      unknown: "Unknown";
-      productFallback: "Product";
-      paginationAria: "Orders Pagination";
-      previousPage: "Previous Page";
-      nextPage: "Next Page";
-      pageAria: "Page {page}";
-    };
-  };
-  OrderStatus: {
-    pending: "Pending";
-    paid: "Confirmed";
-    shipping: "In Transit";
-    delivered: "Delivered";
-    cancelRequested: "Cancel Requested";
-    cancelProcessing: "Cancelling";
-    cancelled: "Cancelled";
-    returnRequested: "Return Requested";
-    returnProcessing: "Return Processing";
-    returned: "Returned";
-    returnRejected: "Return Rejected";
-  };
-  Privacy: {
-    title: "Privacy Policy";
-    description: "This policy explains how Shop.Hub collects, uses, stores, and protects customer information when you use our online store.";
-    toc: "Table of Contents";
-    sections: [
+        {
+          "name": "Delivery Issues",
+          "icon": "alert-triangle",
+          "faqs": [
+            {
+              "q": "What if I am not available when delivery arrives?",
+              "a": "The carrier may call and retry delivery according to their route policy. Keep your phone reachable after the order is out for delivery."
+            },
+            {
+              "q": "What should I do if the package is damaged?",
+              "a": "Take clear photos of the outer package, shipping label, and product before using it. Contact support with your order number and images."
+            },
+            {
+              "q": "What if items are missing from the package?",
+              "a": "Keep all packaging, take photos, and contact support with the order number and a list of missing items."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "HomePage": {
+    "metadata": {
+      "title": "Home",
+      "description": "E-commerce platform with real-time focus."
+    },
+    "hero": {
+      "titleLoggedIn": "Hello <italic>{name}</italic><br></br>Elevate Your Life.",
+      "titlePublic": "Elevate <italic>Your</italic><br></br>Lifestyle.",
+      "descLoggedIn": "Continue discovering premium products, exclusive collections, and curated essentials designed for your everyday lifestyle.",
+      "descPublic": "Discover premium products, curated collections, and everyday essentials tailored to modern living.",
+      "btnContinueShopping": "Continue Shopping",
+      "btnStartShopping": "Start Shopping",
+      "btnViewOrders": "View Orders",
+      "btnExploreCollections": "Explore Collections"
+    },
+    "features": {
+      "flashSale": {
+        "name": "Flash Sale",
+        "desc": "Ending soon"
+      },
+      "vouchers": {
+        "name": "Vouchers",
+        "desc": "Coming soon"
+      },
+      "topBrands": {
+        "name": "Top Brands",
+        "desc": "Certified stores"
+      },
+      "newArrivals": {
+        "name": "New Arrivals",
+        "desc": "Fresh drops"
+      }
+    },
+    "sections": {
+      "flashSale": "Flash Sale",
+      "categories": "Categories",
+      "categoryProductCount": "{count} Products"
+    },
+    "liveState": {
+      "title": "System Sync",
+      "themeLabel": "Theme:",
+      "modeLabel": "Mode:",
+      "dark": "DARK",
+      "light": "LIGHT",
+      "description": "Experience seamless real-time synchronization."
+    },
+    "discovery": {
+      "recentViewed": "Recently Viewed",
+      "wishlist": "Your Wishlist",
+      "recommended": "Recommended for You"
+    },
+    "joinUs": {
+      "title": "Better deals,<br></br>picked for you.",
+      "desc": "Join to save your favorites, track orders, and discover selected offers across everyday essentials.",
+      "btnJoin": "Join Now",
+      "backgroundText": "Deals"
+    }
+  },
+  "NewArrivalsPage": {
+    "metadata": {
+      "title": "New Arrivals | E-Commerce",
+      "description": "Discover the latest products that have just arrived at our store."
+    },
+    "header": {
+      "title": "Fresh",
+      "highlight": "Arrivals",
+      "description": "Stay ahead of the curve with our <strong>latest trends</strong> curated just for you.",
+      "note": "Our latest collection is currently being curated and will be available here shortly. Check back often so you don't miss our newest releases."
+    },
+    "list": {
+      "eyebrow": "Collection",
+      "title": "{total, plural, =1 {# latest product} other {# latest products}}",
+      "meta": "Page {page} of {totalPages}",
+      "loadingMore": "Loading more arrivals...",
+      "end": "All new arrivals loaded",
+      "empty": {
+        "title": "No new arrivals found",
+        "description": "There are no new products available at the moment."
+      }
+    }
+  },
+  "NotificationsPage": {
+    "metadata": {
+      "title": "Notifications",
+      "description": "View and manage your account notifications and activity."
+    },
+    "banner": {
+      "title": "Notification",
+      "highlight": "Center",
+      "unreadDescription": "{count, plural, =1 {You have 1 unread update} other {You have # unread updates}}. Review order activity, account alerts, and promotions in one place.",
+      "allCaughtUpDescription": "You are all caught up. Order activity, account alerts, and promotions will appear here."
+    },
+    "summary": {
+      "total": "Total Notifications",
+      "unread": "Unread",
+      "read": "Read"
+    },
+    "header": {
+      "title": "Notifications",
+      "subtitle": "Manage your orders, updates, and promotional activities.",
+      "markAllAsRead": "Mark all as read"
+    },
+    "filters": {
+      "searchPlaceholder": "Search notifications...",
+      "searchButton": "Search"
+    },
+    "list": {
+      "fetchingText": "Fetching your updates...",
+      "emptyTitle": "No notifications yet",
+      "emptyDescription": "We'll let you know when something important happens with your account or orders.",
+      "loadingMoreText": "Loading more notifications...",
+      "endText": "End of notifications"
+    },
+    "dropdown": {
+      "title": "Notifications",
+      "markAllAsRead": "Mark all as read",
+      "loadingText": "Loading updates...",
+      "emptyText": "All caught up!",
+      "viewAll": "View all notifications"
+    }
+  },
+  "OrdersPage": {
+    "metadata": {
+      "title": "Order History | Luxury E-commerce",
+      "description": "Manage your purchase history and track your order status."
+    },
+    "detailMetadata": {
+      "title": "Order Details | Luxury E-commerce",
+      "description": "View details of your premium order."
+    },
+    "notificationsMetadata": {
+      "title": "Order Notifications | E-commerce",
+      "description": "View and manage your order notifications and account activity."
+    },
+    "header": {
+      "title": "My",
+      "highlight": "Orders",
+      "description": "Track your purchases, review order status, and manage everything you’ve bought."
+    },
+    "tabs": {
+      "all": "Overview",
+      "inProgress": "In Progress",
+      "inTransit": "In Transit",
+      "delivered": "Delivered",
+      "returns": "Returns",
+      "closed": "Closed"
+    },
+    "emptyState": {
+      "title": "No Orders Yet",
+      "actionLabel": "Start Shopping",
+      "messageOverview": "You haven’t placed any orders yet. Start exploring products and place your first order.",
+      "messageOther": "You have no {tab} orders at the moment."
+    },
+    "card": {
+      "orderNumber": "Order #{id}",
+      "needHelp": "Need help?",
+      "shipping": "Shipping",
+      "units": "{count, plural, =1 {1 unit} other {# units}}",
+      "discount": "Discount:",
+      "total": "Total",
+      "cancel": "Cancel",
+      "requestReturn": "Request Return",
+      "review": "Review",
+      "reorder": "Reorder",
+      "noOrders": "No orders yet",
+      "emptyListDesc": "Keep shopping to fill your order history.",
+      "productFallback": "Product",
+      "productNameFallback": "Product Name",
+      "skuCode": "Code: {code}",
+      "defaultSku": "Default"
+    },
+    "confirmCancel": {
+      "title": "Cancel Order",
+      "description": "Are you sure you want to cancel this order? This action cannot be undone.",
+      "keep": "No, keep it",
+      "confirm": "Yes, cancel"
+    },
+    "requestReturn": {
+      "title": "Request Return",
+      "description": "Share the reason and attach clear photos so support can review the order.",
+      "reason": "Reason",
+      "reasonPlaceholder": "Wrong item, damaged package, missing parts...",
+      "details": "Details",
+      "detailsPlaceholder": "Describe the issue, item condition, packaging, and what outcome you expect.",
+      "evidence": "Evidence Photos",
+      "upload": "Upload images",
+      "photoRequired": "At least one photo is required.",
+      "close": "Close return request form",
+      "keepOrder": "Keep Order",
+      "submit": "Submit Request",
+      "toasts": {
+        "unsupportedImage": "{name} is not a supported image type.",
+        "imageTooLarge": "{name} is larger than 5MB.",
+        "maxImages": "You can attach up to {max} images.",
+        "imageRequired": "Attach at least one image for the return request.",
+        "submitSuccess": "Return request submitted.",
+        "submitError": "Failed to submit return request."
+      }
+    },
+    "detail": {
+      "loading": "Loading...",
+      "notFoundTitle": "Order Not Found",
+      "notFoundDesc": "We could not locate this order. It may have been removed or the ID is incorrect.",
+      "backToOrders": "Return to Orders",
+      "deliveryDetails": "Delivery Details",
+      "paymentSummary": "Payment Summary",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "total": "Total",
+      "returnSectionTitle": "Need to return this order?",
+      "returnSectionDesc": "Submit a reason and clear photos for support review.",
+      "requestReturnBtn": "Request return",
+      "orderItemsTitle": "Order Items ({count})",
+      "noOrderItems": "No order items.",
+      "qty": "Qty",
+      "unit": "Unit",
+      "orderItemsHeader": "Order Items",
+      "productFallback": "Product",
+      "unknownProduct": "Unknown Product",
+      "notAvailable": "N/A"
+    }
+  },
+  "AdminOrdersPage": {
+    "header": {
+      "adminCenter": "Admin Center",
+      "title": "Order Fulfillment",
+      "description": "Track multi-channel purchases, manage processing operational queues, and update order statuses smoothly.",
+      "refresh": "Refresh Queues"
+    },
+    "filters": {
+      "searchLabel": "Search Orders",
+      "searchPlaceholder": "Filter by Order ID, customer name or phone...",
+      "clearActive": "Clear Active Filters",
+      "statusLabel": "Fulfillment Status Filters",
+      "ariaLabel": "Order Filters"
+    },
+    "results": {
+      "ordersCount": "{count, plural, =1 {1 Order} other {# Orders}}",
+      "pageInfo": "Page {page} of {totalPages}",
+      "loading": "Loading Orders…",
+      "noOrdersFound": "No Orders Found",
+      "noOrdersDesc": "Adjust the search or status filters to broaden the result set.",
+      "clearFilters": "Clear Filters",
+      "stt": "STT",
+      "orderId": "Order ID",
+      "customer": "Customer",
+      "date": "Date",
+      "total": "Total",
+      "status": "Status",
+      "noName": "No Name",
+      "hideItems": "Hide Items",
+      "showItems": "Show {count, plural, =1 {1 Item} other {Show # Items}}",
+      "copied": "Order ID copied.",
+      "showingPageOf": "Showing page {page} of {totalPages}",
+      "unknown": "Unknown",
+      "productFallback": "Product",
+      "paginationAria": "Orders Pagination",
+      "previousPage": "Previous Page",
+      "nextPage": "Next Page",
+      "pageAria": "Page {page}"
+    }
+  },
+  "OrderStatus": {
+    "pending": "Pending",
+    "paid": "Confirmed",
+    "shipping": "In Transit",
+    "delivered": "Delivered",
+    "cancelRequested": "Cancel Requested",
+    "cancelProcessing": "Cancelling",
+    "cancelled": "Cancelled",
+    "returnRequested": "Return Requested",
+    "returnProcessing": "Return Processing",
+    "returned": "Returned",
+    "returnRejected": "Return Rejected"
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "description": "This policy explains how Shop.Hub collects, uses, stores, and protects customer information when you use our online store.",
+    "toc": "Table of Contents",
+    "sections": [
       {
-        id: "overview";
-        title: "1. Overview";
-        paragraphs: [
+        "id": "overview",
+        "title": "1. Overview",
+        "paragraphs": [
           "1.1. Shop.Hub operates an online store where customers can browse products, create accounts, save addresses, place orders, manage carts, receive notifications, and contact support.",
           "1.2. This Privacy Policy explains what information we collect, why we collect it, how we use it, and the choices you have when using Shop.Hub.",
           "1.3. By using Shop.Hub, creating an account, placing an order, or contacting support, you acknowledge that your information will be handled as described in this policy.",
-          "1.4. We may update this policy when our features, legal obligations, or data practices change. The latest version will be posted on this page.",
-        ];
+          "1.4. We may update this policy when our features, legal obligations, or data practices change. The latest version will be posted on this page."
+        ]
       },
       {
-        id: "data-we-collect";
-        title: "2. Information We Collect";
-        paragraphs: [
+        "id": "data-we-collect",
+        "title": "2. Information We Collect",
+        "paragraphs": [
           "2.1. Account information: name, email address, phone number, password credentials, avatar, profile details, and account status.",
           "2.2. Shopping information: cart items, favorite products, recently viewed products, browsing history, search activity, selected categories, product reviews, ratings, and order history.",
           "2.3. Order and delivery information: recipient name, phone number, shipping address, billing details when needed, order items, quantities, vouchers, delivery status, cancellation requests, return requests, and support notes.",
           "2.4. Payment information: payment method, payment status, transaction reference, refund status, and limited payment metadata. Full card, bank, or wallet credentials may be processed by payment providers and are not intended to be stored by Shop.Hub.",
           "2.5. Device and technical information: IP address, browser type, device type, operating system, language preference, pages visited, timestamps, cookies, local storage data, and diagnostic logs.",
-          "2.6. Notification information: notification preferences, notification tokens, device permissions, and delivery status for push notifications when you enable them.",
-        ];
+          "2.6. Notification information: notification preferences, notification tokens, device permissions, and delivery status for push notifications when you enable them."
+        ]
       },
       {
-        id: "how-we-collect";
-        title: "3. How We Collect Information";
-        paragraphs: [
+        "id": "how-we-collect",
+        "title": "3. How We Collect Information",
+        "paragraphs": [
           "3.1. We collect information directly from you when you register, sign in, update your profile, add an address, place an order, submit a review, contact support, or change account settings.",
           "3.2. We collect shopping and technical information automatically when you browse the site, use search, view products, add items to cart, save favorites, or interact with notifications.",
           "3.3. We may receive limited information from service providers such as payment processors, delivery partners, analytics tools, authentication services, or notification providers when needed to operate the store.",
-          "3.4. We do not intentionally collect personal information from children who are not permitted to use online shopping services under applicable law.",
-        ];
+          "3.4. We do not intentionally collect personal information from children who are not permitted to use online shopping services under applicable law."
+        ]
       },
       {
-        id: "use-of-data";
-        title: "4. How We Use Information";
-        paragraphs: [
+        "id": "use-of-data",
+        "title": "4. How We Use Information",
+        "paragraphs": [
           "4.1. We use your information to create and secure your account, authenticate sign-ins, recover access, and prevent unauthorized use.",
           "4.2. We use shopping and order information to process carts, checkout, payments, delivery, returns, refunds, vouchers, product recommendations, and customer support.",
           "4.3. We use contact information to send order confirmations, delivery updates, security alerts, support replies, account notices, and service announcements.",
           "4.4. We use browsing, search, favorite, and recently viewed product data to improve product discovery, personalize shopping experiences, measure feature performance, and improve store quality.",
-          "4.5. We use technical and diagnostic information to maintain security, detect fraud, debug errors, prevent abuse, improve performance, and comply with legal obligations.",
-        ];
+          "4.5. We use technical and diagnostic information to maintain security, detect fraud, debug errors, prevent abuse, improve performance, and comply with legal obligations."
+        ]
       },
       {
-        id: "cookies";
-        title: "5. Cookies and Local Storage";
-        paragraphs: [
+        "id": "cookies",
+        "title": "5. Cookies and Local Storage",
+        "paragraphs": [
           "5.1. Shop.Hub may use cookies, local storage, and similar technologies to keep you signed in, remember preferences, store cart or theme settings, improve navigation, and measure usage.",
           "5.2. Some storage is necessary for core features such as authentication, cart behavior, language preference, theme preference, and security checks.",
-          "5.3. You can control cookies through your browser settings. Blocking or deleting cookies may affect login, checkout, saved preferences, and other store features.",
-        ];
+          "5.3. You can control cookies through your browser settings. Blocking or deleting cookies may affect login, checkout, saved preferences, and other store features."
+        ]
       },
       {
-        id: "sharing";
-        title: "6. When We Share Information";
-        paragraphs: [
+        "id": "sharing",
+        "title": "6. When We Share Information",
+        "paragraphs": [
           "6.1. We do not sell your personal information.",
           "6.2. We may share information with service providers that help us operate the store, including hosting, database, payment, delivery, email, SMS, push notification, analytics, fraud prevention, and customer support providers.",
           "6.3. We may share delivery information with shipping partners so they can deliver orders and contact you about delivery attempts.",
           "6.4. We may disclose information when required by law, legal process, security investigation, fraud prevention, rights protection, or enforcement of our Terms of Service.",
-          "6.5. If Shop.Hub is involved in a business transfer, merger, financing, reorganization, or sale of assets, customer information may be transferred as part of that transaction subject to appropriate safeguards.",
-        ];
+          "6.5. If Shop.Hub is involved in a business transfer, merger, financing, reorganization, or sale of assets, customer information may be transferred as part of that transaction subject to appropriate safeguards."
+        ]
       },
       {
-        id: "security";
-        title: "7. Data Security";
-        paragraphs: [
+        "id": "security",
+        "title": "7. Data Security",
+        "paragraphs": [
           "7.1. We use reasonable technical and organizational measures to protect personal information against unauthorized access, loss, misuse, alteration, or disclosure.",
           "7.2. Security measures may include access controls, encrypted connections, credential protection, monitoring, role-based permissions, and limiting employee or service provider access to information needed for their work.",
-          "7.3. No online service can guarantee absolute security. You should use a strong password, keep your login credentials private, and contact us promptly if you believe your account has been compromised.",
-        ];
+          "7.3. No online service can guarantee absolute security. You should use a strong password, keep your login credentials private, and contact us promptly if you believe your account has been compromised."
+        ]
       },
       {
-        id: "retention";
-        title: "8. Data Retention";
-        paragraphs: [
+        "id": "retention",
+        "title": "8. Data Retention",
+        "paragraphs": [
           "8.1. We keep personal information for as long as needed to provide the store, fulfill orders, support returns and refunds, maintain account history, prevent fraud, resolve disputes, and comply with legal or accounting obligations.",
           "8.2. Some information may remain in backups, logs, invoices, order records, or fraud prevention records for a limited period even after account deletion or data removal requests.",
-          "8.3. When information is no longer needed, we delete, anonymize, or securely retain it only where required by law or legitimate operational needs.",
-        ];
+          "8.3. When information is no longer needed, we delete, anonymize, or securely retain it only where required by law or legitimate operational needs."
+        ]
       },
       {
-        id: "your-choices";
-        title: "9. Your Choices and Rights";
-        paragraphs: [
+        "id": "your-choices",
+        "title": "9. Your Choices and Rights",
+        "paragraphs": [
           "9.1. You may access, update, or correct certain account details, addresses, notification permissions, and preferences through your account settings.",
           "9.2. You may request access, correction, deletion, restriction, or export of your personal information where those rights are available under applicable law.",
           "9.3. You may unsubscribe from promotional messages where an unsubscribe option is available. Order, security, account, and service messages may still be sent when necessary.",
-          "9.4. You may disable push notifications through browser or device settings. Disabling notifications may prevent real-time order, promotion, or account alerts.",
-        ];
+          "9.4. You may disable push notifications through browser or device settings. Disabling notifications may prevent real-time order, promotion, or account alerts."
+        ]
       },
       {
-        id: "international";
-        title: "10. International Processing";
-        paragraphs: [
+        "id": "international",
+        "title": "10. International Processing",
+        "paragraphs": [
           "10.1. Shop.Hub and its service providers may process or store information in countries where our infrastructure, support, or technology partners operate.",
-          "10.2. When information is transferred across borders, we use appropriate safeguards required by applicable law and limit access to what is needed to operate the store.",
-        ];
+          "10.2. When information is transferred across borders, we use appropriate safeguards required by applicable law and limit access to what is needed to operate the store."
+        ]
       },
       {
-        id: "contact";
-        title: "11. Contact Us";
-        paragraphs: [
+        "id": "contact",
+        "title": "11. Contact Us",
+        "paragraphs": [
           "11.1. If you have questions about this Privacy Policy or want to exercise a privacy request, contact Shop.Hub support through the help or contact page.",
-          "11.2. To help us verify and respond to your request, include your account email or phone number, a clear description of the request, and any relevant order or support reference.",
-        ];
+          "11.2. To help us verify and respond to your request, include your account email or phone number, a clear description of the request, and any relevant order or support reference."
+        ]
+      }
+    ]
+  },
+  "ProductsPage": {
+    "title": "Our Products",
+    "premiumProducts": "premium products",
+    "description": "Explore our finest selection of {categoryTitle}. Handpicked for quality and style.",
+    "filters": "Filters",
+    "search": "Search",
+    "searchPlaceholder": "Search products",
+    "categories": "Categories",
+    "searchCategories": "Search categories",
+    "clearCategorySearch": "Clear category search",
+    "noCategories": "No categories found.",
+    "priceRange": "Price Range",
+    "min": "Min",
+    "max": "Max",
+    "applyPrice": "Apply Price",
+    "rating": "Rating",
+    "up": " & Up",
+    "noProducts": "No products found",
+    "noProductsDesc": "No products found in category \"{categoryTitle}\" matching your criteria.",
+    "appliedFilters": {
+      "applied": "Applied",
+      "search": "Search: {value}",
+      "sort": "Sort: {value}",
+      "min": "Min: {value}",
+      "max": "Max: {value}",
+      "rating": "{value}+ Stars",
+      "category": "Category: {value}",
+      "resetAll": "Reset all",
+      "sortOptions": {
+        "newest": "Newest",
+        "bestSelling": "Best Selling",
+        "priceLowToHigh": "Price Low to High",
+        "priceHighToLow": "Price High to Low"
+      }
+    }
+  },
+  "ProductDetailPage": {
+    "metadata": {
+      "title": "Product Details",
+      "description": "View product details."
+    },
+    "general": "General",
+    "anonymousUser": "Anonymous User",
+    "noImage": "No Image",
+    "authenticProduct": "Authentic products from this brand",
+    "viewStore": "View Store",
+    "productDescription": "Product Description",
+    "noDescription": "This is the detailed description for the product. Data is currently being updated.",
+    "reviews": "Reviews",
+    "sold": "Sold",
+    "report": "Report",
+    "quantity": "Quantity",
+    "itemsAvailable": "{count} items available",
+    "inStock": "In Stock",
+    "addToCart": "Add to Cart",
+    "addToCartSuccess": "Added to cart successfully",
+    "buyNow": "Buy Now",
+    "signInForAction": "Please sign in to perform this action",
+    "signInToBuy": "Please sign in to buy items",
+    "similarProducts": "Similar Products",
+    "viewAll": "View All",
+    "noSimilarProducts": "No similar products found",
+    "customerReviews": "Customer Reviews",
+    "reviewsCount": "({count} reviews)",
+    "noReviews": "No reviews yet",
+    "noReviewsDesc": "Customer feedback for this product will appear here once reviews are available.",
+    "writeReview": "Write a review",
+    "writeReviewDesc": "Reviews are available after a delivered purchase.",
+    "ratingRequired": "Choose a rating",
+    "comment": "Comment",
+    "commentPlaceholder": "Share what stood out after using this product.",
+    "commentMax1000": "Review must be 1000 characters or less",
+    "submitReview": "Submit Review",
+    "signInToReview": "Sign in to review delivered purchases.",
+    "signIn": "Sign In",
+    "reviewsLoadFailed": "Reviews could not be loaded",
+    "retry": "Retry",
+    "submitFailed": "Review could not be submitted. Please try again.",
+    "authRequired": "Please sign in before submitting a review.",
+    "variantUnavailable": "This product variant is unavailable for review.",
+    "submitSuccess": "Review submitted.",
+    "filterAll": "All",
+    "filterStars": "{rating} Stars"
+  },
+  "ProfileLayout": {
+    "header": {
+      "title": "Profile",
+      "highlight": "Settings",
+      "description": "Manage your profile and jump back into the products you care about."
+    },
+    "sidebar": {
+      "accountSettings": "Account Settings",
+      "myAccount": "My Account",
+      "links": {
+        "profile": "Profile",
+        "bankAccount": "Bank Account",
+        "addresses": "Addresses",
+        "changePassword": "Change Password",
+        "notifications": "Notifications",
+        "purchases": "My Purchases",
+        "cart": "My Cart"
+      }
+    }
+  },
+  "ProfileBankPage": {
+    "metadata": {
+      "title": "Bank Accounts",
+      "description": "Manage your bank accounts for withdrawals."
+    },
+    "title": "Bank Account",
+    "description": "Manage your bank accounts for withdrawals.",
+    "addAccount": "Add Bank Account",
+    "empty": {
+      "title": "No bank accounts added yet",
+      "description": "Add a bank account to enable fast withdrawals."
+    }
+  },
+  "ProfilePasswordPage": {
+    "metadata": {
+      "title": "Change Password",
+      "description": "Update your password to keep your account secure."
+    },
+    "title": "Change Password",
+    "description": "Update your password to keep your account secure.",
+    "form": {
+      "currentPasswordLabel": "Current Password",
+      "newPasswordLabel": "New Password",
+      "confirmNewPasswordLabel": "Confirm New Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Update Password"
+    },
+    "toast": {
+      "success": "Password changed successfully!",
+      "failed": "Failed to change password.",
+      "failedWithRetry": "Failed to change password. Please try again."
+    }
+  },
+  "ProfilePage": {
+    "metadata": {
+      "title": "My Profile",
+      "description": "View and update your personal profile information."
+    },
+    "form": {
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Your First Name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Your Last Name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Your Email",
+      "phoneLabel": "Phone Number",
+      "dateOfBirthLabel": "Date of Birth",
+      "dateOfBirthPlaceholder": "dd/mm/yyyy",
+      "genderLabel": "Gender",
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
       },
-    ];
-  };
-  ProductsPage: {
-    title: "Our Products";
-    premiumProducts: "premium products";
-    description: "Explore our finest selection of {categoryTitle}. Handpicked for quality and style.";
-    filters: "Filters";
-    search: "Search";
-    searchPlaceholder: "Search products";
-    categories: "Categories";
-    searchCategories: "Search categories";
-    clearCategorySearch: "Clear category search";
-    noCategories: "No categories found.";
-    priceRange: "Price Range";
-    min: "Min";
-    max: "Max";
-    applyPrice: "Apply Price";
-    rating: "Rating";
-    up: " & Up";
-    noProducts: "No products found";
-    noProductsDesc: 'No products found in category "{categoryTitle}" matching your criteria.';
-    appliedFilters: {
-      applied: "Applied";
-      search: "Search: {value}";
-      sort: "Sort: {value}";
-      min: "Min: {value}";
-      max: "Max: {value}";
-      rating: "{value}+ Stars";
-      category: "Category: {value}";
-      resetAll: "Reset all";
-      sortOptions: {
-        newest: "Newest";
-        bestSelling: "Best Selling";
-        priceLowToHigh: "Price Low to High";
-        priceHighToLow: "Price High to Low";
-      };
-    };
-  };
-  ProductDetailPage: {
-    metadata: {
-      title: "Product Details";
-      description: "View product details.";
-    };
-    general: "General";
-    anonymousUser: "Anonymous User";
-    noImage: "No Image";
-    authenticProduct: "Authentic products from this brand";
-    viewStore: "View Store";
-    productDescription: "Product Description";
-    noDescription: "This is the detailed description for the product. Data is currently being updated.";
-    reviews: "Reviews";
-    sold: "Sold";
-    report: "Report";
-    quantity: "Quantity";
-    itemsAvailable: "{count} items available";
-    inStock: "In Stock";
-    addToCart: "Add to Cart";
-    addToCartSuccess: "Added to cart successfully";
-    buyNow: "Buy Now";
-    signInForAction: "Please sign in to perform this action";
-    signInToBuy: "Please sign in to buy items";
-    similarProducts: "Similar Products";
-    viewAll: "View All";
-    noSimilarProducts: "No similar products found";
-    customerReviews: "Customer Reviews";
-    reviewsCount: "({count} reviews)";
-    noReviews: "No reviews yet";
-    noReviewsDesc: "Customer feedback for this product will appear here once reviews are available.";
-    writeReview: "Write a review";
-    writeReviewDesc: "Reviews are available after a delivered purchase.";
-    ratingRequired: "Choose a rating";
-    comment: "Comment";
-    commentPlaceholder: "Share what stood out after using this product.";
-    commentMax1000: "Review must be 1000 characters or less";
-    submitReview: "Submit Review";
-    signInToReview: "Sign in to review delivered purchases.";
-    signIn: "Sign In";
-    reviewsLoadFailed: "Reviews could not be loaded";
-    retry: "Retry";
-    submitFailed: "Review could not be submitted. Please try again.";
-    authRequired: "Please sign in before submitting a review.";
-    variantUnavailable: "This product variant is unavailable for review.";
-    submitSuccess: "Review submitted.";
-    filterAll: "All";
-    filterStars: "{rating} Stars";
-  };
-  ProfileLayout: {
-    header: {
-      title: "Profile";
-      highlight: "Settings";
-      description: "Manage your profile and jump back into the products you care about.";
-    };
-    sidebar: {
-      accountSettings: "Account Settings";
-      myAccount: "My Account";
-      links: {
-        profile: "Profile";
-        bankAccount: "Bank Account";
-        addresses: "Addresses";
-        changePassword: "Change Password";
-        notifications: "Notifications";
-        purchases: "My Purchases";
-        cart: "My Cart";
-      };
-    };
-  };
-  ProfileBankPage: {
-    metadata: {
-      title: "Bank Accounts";
-      description: "Manage your bank accounts for withdrawals.";
-    };
-    title: "Bank Account";
-    description: "Manage your bank accounts for withdrawals.";
-    addAccount: "Add Bank Account";
-    empty: {
-      title: "No bank accounts added yet";
-      description: "Add a bank account to enable fast withdrawals.";
-    };
-  };
-  ProfilePasswordPage: {
-    metadata: {
-      title: "Change Password";
-      description: "Update your password to keep your account secure.";
-    };
-    title: "Change Password";
-    description: "Update your password to keep your account secure.";
-    form: {
-      currentPasswordLabel: "Current Password";
-      newPasswordLabel: "New Password";
-      confirmNewPasswordLabel: "Confirm New Password";
-      passwordPlaceholder: "••••••••";
-      submit: "Update Password";
-    };
-    toast: {
-      success: "Password changed successfully!";
-      failed: "Failed to change password.";
-      failedWithRetry: "Failed to change password. Please try again.";
-    };
-  };
-  ProfilePage: {
-    metadata: {
-      title: "My Profile";
-      description: "View and update your personal profile information.";
-    };
-    form: {
-      firstNameLabel: "First Name";
-      firstNamePlaceholder: "Your First Name";
-      lastNameLabel: "Last Name";
-      lastNamePlaceholder: "Your Last Name";
-      emailLabel: "Email Address";
-      emailPlaceholder: "Your Email";
-      phoneLabel: "Phone Number";
-      dateOfBirthLabel: "Date of Birth";
-      dateOfBirthPlaceholder: "dd/mm/yyyy";
-      genderLabel: "Gender";
-      genders: {
-        male: "Male";
-        female: "Female";
-        other: "Other";
-      };
-      editBtn: "Edit Profile";
-      updateBtn: "Update Profile";
-      updating: "Updating...";
-      cancelBtn: "Cancel";
-    };
-    toast: {
-      updateSuccess: "Profile updated successfully!";
-      updateFailed: "Failed to update profile.";
-      uploadAvatarSuccess: "Avatar uploaded successfully!";
-      uploadAvatarFailed: "Failed to upload avatar.";
-    };
-  };
-  ProfileAddressesPage: {
-    metadata: {
-      title: "My Addresses";
-      description: "Manage your shipping addresses.";
-    };
-    title: "My Addresses";
-    description: "Manage your shipping destinations.";
-    defaultBadge: "Default";
-    noName: "No Name";
-    noPhone: "No Phone";
-    addAddress: "Add Address";
-    newAddress: "New Address";
-    editAddress: "Edit Address";
-    shippingDetails: "Shipping Details";
-    empty: {
-      title: "No Addresses Yet";
-      description: "Add a shipping address to get started.";
-      actionLabel: "Add Address";
-    };
-    form: {
-      receiverNameLabel: "Receiver Name";
-      receiverNamePlaceholder: "John Doe";
-      receiverPhoneLabel: "Receiver Phone";
-      labelField: "Label";
-      labels: {
-        home: "Home";
-        work: "Work";
-        apartment: "Apartment";
-        other: "Other";
-      };
-      addressFromMap: "Address from Map";
-      streetLabel: "Street / Specific Details";
-      streetPlaceholder: "e.g., House No. 12, Floor 3, Street Name";
-      cityLabel: "City";
-      cityPlaceholder: "City";
-      stateLabel: "State / Province";
-      statePlaceholder: "State";
-      countryLabel: "Country";
-      countryPlaceholder: "Country";
-      postalCodeLabel: "Postal Code";
-      postalCodePlaceholder: "Postal Code";
-      setDefaultCheckbox: "Set as default address";
-      submitAdd: "Add Address";
-      submitUpdate: "Update Address";
-    };
-    toast: {
-      loadFailed: "Failed to load addresses.";
-      addSuccess: "Address added successfully!";
-      addFailed: "Failed to add address.";
-      deleteSuccess: "Address removed.";
-      deleteFailed: "Failed to delete address.";
-      setDefaultSuccess: "Default address updated.";
-      setDefaultFailed: "Failed to set default address.";
-    };
-  };
-  RecentViewedPage: {
-    metadata: {
-      title: "Recently Viewed";
-      description: "Products you recently viewed.";
-    };
-    tag: "History";
-    title: "Recently Viewed";
-    description: "Products you opened recently, kept here so you can continue where you left off.";
-    loadingText: "Retrieving more history...";
-    endText: "You've reached the end of your viewing history";
-    emptyTitle: "No recently viewed products";
-    emptyDescription: "Open a few product pages and they will appear here.";
-    browseButton: "Browse products";
-  };
-  RequireProfileInfoModal: {
-    title: "Complete Your Profile";
-    description: "Please provide the missing information to continue.";
-    form: {
-      firstNameLabel: "First Name";
-      firstNamePlaceholder: "Enter first name";
-      lastNameLabel: "Last Name";
-      lastNamePlaceholder: "Enter last name";
-      dateOfBirthLabel: "Date of Birth";
-      dateOfBirthPlaceholder: "dd/mm/yyyy";
-      genderLabel: "Gender";
-      genders: {
-        male: "Male";
-        female: "Female";
-        other: "Other";
-      };
-      submit: "Save & Continue";
-      logout: "Logout";
-    };
-  };
-  SearchView: {
-    titleWithQuery: 'Results for "{query}"';
-    titleWithoutQuery: "Search Products";
-    description: "We found {total, number} {total, plural, =1 {product} other {products}} matching your criteria.";
-    noResultsTitle: "No results found";
-    noResultsDescription: 'We couldn\'t find anything matching "{query}". Try using different keywords or browsing our categories.';
-  };
-  SettingsPage: {
-    metadata: {
-      title: "Settings";
-      description: "Manage your account preferences and appearance.";
-    };
-    header: {
-      title: "Page";
-      highlight: "Settings";
-      description: "Adjust language, dark mode, colors, and interface preferences to match your personal style.";
-    };
-    navigation: {
-      title: "Settings";
-      appearance: "Appearance";
-      language: "Language";
-    };
-    appearance: {
-      title: "Appearance";
-      themeColor: {
-        label: "Theme Color";
-        description: "Choose your preferred accent color.";
-        select: "Select {theme} theme";
-      };
-      themes: {
-        blue: "Blue";
-        red: "Red";
-        green: "Green";
-      };
-      darkMode: {
-        label: "Dark Mode";
-        description: "Switch between light and dark themes.";
-        toggle: "Toggle dark mode";
-      };
-    };
-    language: {
-      label: "Language";
-      description: "Select your preferred language. This changes the subdomain.";
-      select: "Select {language}";
-      options: {
-        en: "English";
-        vi: "Tiếng Việt";
-      };
-    };
-  };
-  Terms: {
-    title: "Terms of Service";
-    description: "These terms explain how customers use Shop.Hub to browse products, place orders, manage accounts, and buy directly from our online store.";
-    toc: "Table of Contents";
-    sections: [
+      "editBtn": "Edit Profile",
+      "updateBtn": "Update Profile",
+      "updating": "Updating...",
+      "cancelBtn": "Cancel"
+    },
+    "toast": {
+      "updateSuccess": "Profile updated successfully!",
+      "updateFailed": "Failed to update profile.",
+      "uploadAvatarSuccess": "Avatar uploaded successfully!",
+      "uploadAvatarFailed": "Failed to upload avatar."
+    }
+  },
+  "ProfileAddressesPage": {
+    "metadata": {
+      "title": "My Addresses",
+      "description": "Manage your shipping addresses."
+    },
+    "title": "My Addresses",
+    "description": "Manage your shipping destinations.",
+    "defaultBadge": "Default",
+    "noName": "No Name",
+    "noPhone": "No Phone",
+    "addAddress": "Add Address",
+    "newAddress": "New Address",
+    "editAddress": "Edit Address",
+    "shippingDetails": "Shipping Details",
+    "empty": {
+      "title": "No Addresses Yet",
+      "description": "Add a shipping address to get started.",
+      "actionLabel": "Add Address"
+    },
+    "form": {
+      "receiverNameLabel": "Receiver Name",
+      "receiverNamePlaceholder": "John Doe",
+      "receiverPhoneLabel": "Receiver Phone",
+      "labelField": "Label",
+      "labels": {
+        "home": "Home",
+        "work": "Work",
+        "apartment": "Apartment",
+        "other": "Other"
+      },
+      "addressFromMap": "Address from Map",
+      "streetLabel": "Street / Specific Details",
+      "streetPlaceholder": "e.g., House No. 12, Floor 3, Street Name",
+      "cityLabel": "City",
+      "cityPlaceholder": "City",
+      "stateLabel": "State / Province",
+      "statePlaceholder": "State",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Country",
+      "postalCodeLabel": "Postal Code",
+      "postalCodePlaceholder": "Postal Code",
+      "setDefaultCheckbox": "Set as default address",
+      "submitAdd": "Add Address",
+      "submitUpdate": "Update Address"
+    },
+    "toast": {
+      "loadFailed": "Failed to load addresses.",
+      "addSuccess": "Address added successfully!",
+      "addFailed": "Failed to add address.",
+      "deleteSuccess": "Address removed.",
+      "deleteFailed": "Failed to delete address.",
+      "setDefaultSuccess": "Default address updated.",
+      "setDefaultFailed": "Failed to set default address."
+    }
+  },
+  "RecentViewedPage": {
+    "metadata": {
+      "title": "Recently Viewed",
+      "description": "Products you recently viewed."
+    },
+    "tag": "History",
+    "title": "Recently Viewed",
+    "description": "Products you opened recently, kept here so you can continue where you left off.",
+    "loadingText": "Retrieving more history...",
+    "endText": "You've reached the end of your viewing history",
+    "emptyTitle": "No recently viewed products",
+    "emptyDescription": "Open a few product pages and they will appear here.",
+    "browseButton": "Browse products"
+  },
+  "RequireProfileInfoModal": {
+    "title": "Complete Your Profile",
+    "description": "Please provide the missing information to continue.",
+    "form": {
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Enter first name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Enter last name",
+      "dateOfBirthLabel": "Date of Birth",
+      "dateOfBirthPlaceholder": "dd/mm/yyyy",
+      "genderLabel": "Gender",
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "submit": "Save & Continue",
+      "logout": "Logout"
+    }
+  },
+  "SearchView": {
+    "titleWithQuery": "Results for \"{query}\"",
+    "titleWithoutQuery": "Search Products",
+    "description": "We found {total, number} {total, plural, =1 {product} other {products}} matching your criteria.",
+    "noResultsTitle": "No results found",
+    "noResultsDescription": "We couldn't find anything matching \"{query}\". Try using different keywords or browsing our categories."
+  },
+  "SettingsPage": {
+    "metadata": {
+      "title": "Settings",
+      "description": "Manage your account preferences and appearance."
+    },
+    "header": {
+      "title": "Page",
+      "highlight": "Settings",
+      "description": "Adjust language, dark mode, colors, and interface preferences to match your personal style."
+    },
+    "navigation": {
+      "title": "Settings",
+      "appearance": "Appearance",
+      "language": "Language"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "themeColor": {
+        "label": "Theme Color",
+        "description": "Choose your preferred accent color.",
+        "select": "Select {theme} theme"
+      },
+      "themes": {
+        "blue": "Blue",
+        "red": "Red",
+        "green": "Green"
+      },
+      "darkMode": {
+        "label": "Dark Mode",
+        "description": "Switch between light and dark themes.",
+        "toggle": "Toggle dark mode"
+      }
+    },
+    "language": {
+      "label": "Language",
+      "description": "Select your preferred language. This changes the subdomain.",
+      "select": "Select {language}",
+      "options": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+      }
+    }
+  },
+  "Terms": {
+    "title": "Terms of Service",
+    "description": "These terms explain how customers use Shop.Hub to browse products, place orders, manage accounts, and buy directly from our online store.",
+    "toc": "Table of Contents",
+    "sections": [
       {
-        id: "overview";
-        title: "1. Overview";
-        paragraphs: [
+        "id": "overview",
+        "title": "1. Overview",
+        "paragraphs": [
           "1.1. Shop.Hub provides an online store where customers can discover products sold by Shop.Hub, manage shopping carts, place orders, receive order updates, save favorite items, and use account features related to shopping activity.",
           "1.2. By accessing Shop.Hub, creating an account, or placing an order, you agree to follow these Terms of Service and any policies referenced from the checkout, account, shipping, return, or privacy pages.",
           "1.3. These terms apply to all visitors and registered customers. Some features, such as checkout, order history, saved addresses, favorites, and notifications, may require an account.",
-          "1.4. Shop.Hub may update these terms when platform features, legal requirements, or operating policies change. Continued use of the platform after an update means you accept the revised terms.",
-        ];
+          "1.4. Shop.Hub may update these terms when platform features, legal requirements, or operating policies change. Continued use of the platform after an update means you accept the revised terms."
+        ]
       },
       {
-        id: "accounts";
-        title: "2. Accounts and Security";
-        paragraphs: [
+        "id": "accounts",
+        "title": "2. Accounts and Security",
+        "paragraphs": [
           "2.1. You are responsible for providing accurate account information, including your name, contact details, delivery addresses, and any information required to complete an order.",
           "2.2. You are responsible for keeping your login credentials secure and for activities performed through your account unless the activity is caused by a platform security issue.",
           "2.3. Shop.Hub may request additional profile information before allowing checkout or other account actions when that information is required for delivery, fraud prevention, support, or legal compliance.",
-          "2.4. Shop.Hub may limit, suspend, or close an account that appears to be used for fraud, abuse, unauthorized access, payment misuse, repeated policy violations, or activity that disrupts the platform.",
-        ];
+          "2.4. Shop.Hub may limit, suspend, or close an account that appears to be used for fraud, abuse, unauthorized access, payment misuse, repeated policy violations, or activity that disrupts the platform."
+        ]
       },
       {
-        id: "products";
-        title: "3. Product Information";
-        paragraphs: [
+        "id": "products",
+        "title": "3. Product Information",
+        "paragraphs": [
           "3.1. Shop.Hub aims to show product names, descriptions, images, categories, brand information, prices, discounts, stock status, ratings, and related product details as clearly as possible.",
           "3.2. Product images and descriptions are provided for shopping reference. Minor differences in packaging, color, accessories, or manufacturer presentation may occur because of product batch updates, manufacturer changes, or screen display settings.",
           "3.3. Prices, discounts, vouchers, flash sale availability, and stock quantities may change before checkout. The final order summary shown at checkout controls the price and quantity submitted with your order.",
-          "3.4. If a product is listed with an obvious error, unavailable inventory, incorrect price, or unsupported shipping condition, Shop.Hub may cancel or adjust the affected order and notify you through the available contact channels.",
-        ];
+          "3.4. If a product is listed with an obvious error, unavailable inventory, incorrect price, or unsupported shipping condition, Shop.Hub may cancel or adjust the affected order and notify you through the available contact channels."
+        ]
       },
       {
-        id: "orders";
-        title: "4. Orders and Checkout";
-        paragraphs: [
+        "id": "orders",
+        "title": "4. Orders and Checkout",
+        "paragraphs": [
           "4.1. Adding a product to your cart or favorites does not reserve the item or guarantee the displayed price. An order is created only after you complete checkout and receive an order confirmation.",
           "4.2. You are responsible for reviewing product selections, quantities, shipping address, contact details, vouchers, payment method, and order total before submitting checkout.",
           "4.3. Shop.Hub may reject, cancel, or hold an order when payment cannot be verified, delivery information is incomplete, inventory is unavailable, fraud is suspected, or the order violates store policies.",
-          "4.4. Order status, cancellation eligibility, delivery updates, and support messages may be shown in your account, sent by email, or sent through platform notifications when available.",
-        ];
+          "4.4. Order status, cancellation eligibility, delivery updates, and support messages may be shown in your account, sent by email, or sent through platform notifications when available."
+        ]
       },
       {
-        id: "payments";
-        title: "5. Payments, Vouchers, and Promotions";
-        paragraphs: [
+        "id": "payments",
+        "title": "5. Payments, Vouchers, and Promotions",
+        "paragraphs": [
           "5.1. Supported payment methods are displayed during checkout. Payment authorization, settlement, refunds, and transaction security may be handled by payment partners subject to their own terms.",
           "5.2. Vouchers, coupons, free-shipping offers, flash sale prices, and other promotions may have eligibility rules, usage limits, expiration times, minimum order values, category restrictions, or account restrictions.",
           "5.3. Shop.Hub may refuse or reverse promotional benefits that are applied because of technical errors, suspicious activity, duplicated use, resale behavior, or violation of promotion rules.",
-          "5.4. Taxes, shipping fees, handling fees, or other applicable charges will be shown where required before order submission.",
-        ];
+          "5.4. Taxes, shipping fees, handling fees, or other applicable charges will be shown where required before order submission."
+        ]
       },
       {
-        id: "shipping";
-        title: "6. Shipping and Delivery";
-        paragraphs: [
+        "id": "shipping",
+        "title": "6. Shipping and Delivery",
+        "paragraphs": [
           "6.1. Delivery estimates are provided for planning purposes and may change because of address accuracy, carrier capacity, weather, holidays, customs, inventory processing, or other operational conditions.",
           "6.2. You must provide a reachable phone number and complete delivery address. Failed delivery caused by incorrect or unreachable information may result in delay, cancellation, or additional shipping attempts.",
           "6.3. Risk of loss or damage generally transfers according to the delivery confirmation and applicable consumer protection rules. If an item arrives damaged, incomplete, or materially different from the order, contact support promptly with supporting evidence.",
-          "6.4. Some products may be restricted by location, size, weight, stock source, carrier rules, or legal requirements.",
-        ];
+          "6.4. Some products may be restricted by location, size, weight, stock source, carrier rules, or legal requirements."
+        ]
       },
       {
-        id: "returns";
-        title: "7. Cancellations, Returns, and Refunds";
-        paragraphs: [
+        "id": "returns",
+        "title": "7. Cancellations, Returns, and Refunds",
+        "paragraphs": [
           "7.1. Cancellation, return, exchange, and refund eligibility depends on product type, order status, Shop.Hub's return policy, payment method, and applicable consumer protection requirements.",
           "7.2. Returned products may need to be unused, complete, and returned with original packaging, accessories, gifts, manuals, invoices, or other included items unless the return is caused by defect, damage, or incorrect fulfillment.",
           "7.3. Refund timing may vary by payment method, bank, wallet provider, promotion type, and inspection result. Shipping fees, vouchers, or partial discounts may be handled according to the applicable policy for the order.",
-          "7.4. Shop.Hub may reject return or refund requests involving abuse, altered products, missing items, false claims, late submissions, or conditions outside the stated return policy.",
-        ];
+          "7.4. Shop.Hub may reject return or refund requests involving abuse, altered products, missing items, false claims, late submissions, or conditions outside the stated return policy."
+        ]
       },
       {
-        id: "user-conduct";
-        title: "8. User Conduct";
-        paragraphs: [
+        "id": "user-conduct",
+        "title": "8. User Conduct",
+        "paragraphs": [
           "8.1. You agree not to misuse Shop.Hub, interfere with platform operations, access systems without authorization, scrape protected data, submit fraudulent orders, abuse vouchers, manipulate reviews, or impersonate another person.",
           "8.2. Reviews, messages, profile information, and other content you submit must not include illegal content, harassment, hate speech, spam, misleading claims, malware, personal data of others, or content that violates third-party rights.",
-          "8.3. Shop.Hub may moderate, remove, limit, or report content or activity that violates these terms, harms users, creates security risk, or conflicts with applicable law.",
-        ];
+          "8.3. Shop.Hub may moderate, remove, limit, or report content or activity that violates these terms, harms users, creates security risk, or conflicts with applicable law."
+        ]
       },
       {
-        id: "privacy";
-        title: "9. Privacy and Notifications";
-        paragraphs: [
+        "id": "privacy",
+        "title": "9. Privacy and Notifications",
+        "paragraphs": [
           "9.1. Shop.Hub collects and uses account, order, browsing, device, notification, and support information as described in the Privacy Policy.",
           "9.2. Platform notifications, email, SMS, push notifications, or in-account messages may be used for order updates, security alerts, account activity, support responses, promotional offers, and service announcements.",
-          "9.3. You can manage some communication preferences through account settings, browser permissions, or device settings. Transactional and security messages may still be sent when needed to operate the service.",
-        ];
+          "9.3. You can manage some communication preferences through account settings, browser permissions, or device settings. Transactional and security messages may still be sent when needed to operate the service."
+        ]
       },
       {
-        id: "liability";
-        title: "10. Service Availability and Liability";
-        paragraphs: [
+        "id": "liability",
+        "title": "10. Service Availability and Liability",
+        "paragraphs": [
           "10.1. Shop.Hub works to keep the platform reliable, but access may be interrupted by maintenance, network issues, third-party service failures, security events, or changes to platform features.",
           "10.2. To the extent permitted by law, Shop.Hub is not responsible for indirect, incidental, punitive, or consequential losses arising from use of the platform, delayed delivery, unavailable products, third-party services, or user misuse.",
-          "10.3. Nothing in these terms limits rights that cannot be excluded under applicable consumer protection law.",
-        ];
+          "10.3. Nothing in these terms limits rights that cannot be excluded under applicable consumer protection law."
+        ]
       },
       {
-        id: "contact";
-        title: "11. Support";
-        paragraphs: [
+        "id": "contact",
+        "title": "11. Support",
+        "paragraphs": [
           "11.1. If you have questions about these terms, an order, a payment, a return, your account, or a platform issue, contact Shop.Hub support through the help or contact page.",
-          "11.2. When contacting support, provide enough information to identify the issue, such as order number, product name, account email or phone number, screenshots, photos, and a clear description of the problem.",
-        ];
-      },
-    ];
-  };
-  Validation: {
-    emailRequired: "Email is required";
-    emailInvalid: "Invalid email address";
-    passwordMin6: "Password must be at least 6 characters";
-    passwordMin8: "Password must be at least 8 characters";
-    currentPasswordRequired: "Current password is required";
-    newPasswordMin6: "New password must be at least 6 characters";
-    confirmPasswordRequired: "Confirm password is required";
-    passwordsMustMatch: "Passwords do not match";
-    phoneMin10: "Phone number must be at least 10 digits";
-    emailOrPhoneRequired: "Either email or phone is required";
-    returnReasonMin: "Enter a short reason.";
-    returnReasonMax: "Keep the reason under 120 characters.";
-    returnDescriptionMin: "Describe what happened.";
-    returnDescriptionMax: "Keep the description under 1200 characters.";
-    phoneCodeRequired: "Phone code is required";
-    phoneCodeInvalid: "Invalid country code";
-    phoneNumberRequired: "Phone number is required";
-    phoneNumberTooLong: "Phone number is too long";
-    phoneNumberDigitsOnly: "Phone number must contain only digits";
-    phoneNumberStartsWithZero: "Phone number should not start with 0 after country code";
-    firstNameRequired: "First name is required";
-    lastNameRequired: "Last name is required";
-    avatarUrlInvalid: "Invalid URL";
-    labelRequired: "Label is required";
-    receiverNameRequired: "Receiver name is required";
-    receiverPhoneRequired: "Receiver phone is required";
-    mapLocationRequired: "Map location is required";
-    streetRequired: "Street is required";
-    cityRequired: "City is required";
-    stateRequired: "State is required";
-    countryRequired: "Country is required";
-    postalCodeRequired: "Postal code is required";
-    dateOfBirthRequired: "Date of birth is required";
-    dateOfBirthInvalid: "Invalid date of birth";
-    genderRequired: "Gender is required";
-    subjectRequired: "Subject is required";
-    subjectMax: "Subject must be at most 160 characters";
-    messageRequired: "Message is required";
-    messageMax: "Message must be at most 5000 characters";
-    contactNameMax: "Name must be at most 120 characters";
-  };
-  VouchersPage: {
-    metadata: {
-      title: "Voucher Wallet | E-Commerce";
-      description: "Collect promo codes, free shipping coupons, and cashback vouchers.";
-    };
-    header: {
-      title: "Voucher";
-      highlight: "Wallet";
-      description: "Collect promo codes, free shipping coupons, and cashback vouchers from leading brands.";
-    };
-    empty: {
-      title: "No Vouchers Available";
-      description: "Special promo codes, free shipping coupons, and cashback vouchers are on the way. Check back later to grab the best deals!";
-      action: "Continue Shopping";
-    };
-  };
+          "11.2. When contacting support, provide enough information to identify the issue, such as order number, product name, account email or phone number, screenshots, photos, and a clear description of the problem."
+        ]
+      }
+    ]
+  },
+  "Validation": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "passwordMin6": "Password must be at least 6 characters",
+    "passwordMin8": "Password must be at least 8 characters",
+    "currentPasswordRequired": "Current password is required",
+    "newPasswordMin6": "New password must be at least 6 characters",
+    "confirmPasswordRequired": "Confirm password is required",
+    "passwordsMustMatch": "Passwords do not match",
+    "phoneMin10": "Phone number must be at least 10 digits",
+    "emailOrPhoneRequired": "Either email or phone is required",
+    "returnReasonMin": "Enter a short reason.",
+    "returnReasonMax": "Keep the reason under 120 characters.",
+    "returnDescriptionMin": "Describe what happened.",
+    "returnDescriptionMax": "Keep the description under 1200 characters.",
+    "phoneCodeRequired": "Phone code is required",
+    "phoneCodeInvalid": "Invalid country code",
+    "phoneNumberRequired": "Phone number is required",
+    "phoneNumberTooLong": "Phone number is too long",
+    "phoneNumberDigitsOnly": "Phone number must contain only digits",
+    "phoneNumberStartsWithZero": "Phone number should not start with 0 after country code",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "avatarUrlInvalid": "Invalid URL",
+    "labelRequired": "Label is required",
+    "receiverNameRequired": "Receiver name is required",
+    "receiverPhoneRequired": "Receiver phone is required",
+    "mapLocationRequired": "Map location is required",
+    "streetRequired": "Street is required",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "countryRequired": "Country is required",
+    "postalCodeRequired": "Postal code is required",
+    "dateOfBirthRequired": "Date of birth is required",
+    "dateOfBirthInvalid": "Invalid date of birth",
+    "genderRequired": "Gender is required",
+    "subjectRequired": "Subject is required",
+    "subjectMax": "Subject must be at most 160 characters",
+    "messageRequired": "Message is required",
+    "messageMax": "Message must be at most 5000 characters",
+    "contactNameMax": "Name must be at most 120 characters"
+  },
+  "VouchersPage": {
+    "metadata": {
+      "title": "Voucher Wallet | E-Commerce",
+      "description": "Collect promo codes, free shipping coupons, and cashback vouchers."
+    },
+    "header": {
+      "title": "Voucher",
+      "highlight": "Wallet",
+      "description": "Collect promo codes, free shipping coupons, and cashback vouchers from leading brands."
+    },
+    "empty": {
+      "title": "No Vouchers Available",
+      "description": "Special promo codes, free shipping coupons, and cashback vouchers are on the way. Check back later to grab the best deals!",
+      "action": "Continue Shopping"
+    }
+  }
 };
 export default messages;

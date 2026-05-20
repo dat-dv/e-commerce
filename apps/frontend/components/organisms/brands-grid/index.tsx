@@ -1,17 +1,17 @@
 "use client";
 
-import { TBrand } from "@/domain/homepage/types/homepage.model";
 import AppContainer from "@/components/atoms/app-container";
-import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
-import BrandListGrid from "./brands-list";
-import { Search } from "lucide-react";
-import { IPaginationMeta } from "@/utils/request/request.types";
-import DiscoveryCarouselSection from "../discovery-sections";
 import { EmptyState } from "@/components/molecules/empty-space";
 import { SearchInput } from "@/components/molecules/search-input";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
 import { brandsUseCase } from "@/domain/brands/use-cases";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { IPaginationMeta } from "@/utils/request/request.types";
+import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
+import DiscoveryCarouselSection from "../discovery-sections";
+import BrandListGrid from "./brands-list";
 
 interface TopBrandsViewProps {
   brands: TBrand[];
@@ -57,7 +57,6 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
   return (
     <AppContainer className="flex flex-col gap-12 pb-12">
       <BrandsHeader />
-
       {/* Premium Search Bar Container */}
       <div className="relative mx-auto w-full max-w-2xl">
         <SearchInput
@@ -76,7 +75,6 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
           placeholder={t("search.placeholder")}
         />
       </div>
-
       {/* Brands Grid Section */}
       {brandItems.length > 0 ? (
         <BrandListGrid
