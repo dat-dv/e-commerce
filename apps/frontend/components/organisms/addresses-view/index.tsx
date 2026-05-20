@@ -1,6 +1,5 @@
 "use client";
 
-import Button from "@/components/atoms/button";
 import AddressCard from "@/components/molecules/address-card";
 import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";
@@ -8,10 +7,10 @@ import { AddressesForm } from "@/components/molecules/addresses-form";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { useAddresses } from "@/hooks/profile/use-addresses";
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus } from "lucide-react";
 import { useState } from "react";
 
 import { useTranslations } from "next-intl";
+import AddressViewHeader from "./address-view-header";
 
 export const AddressesView = () => {
   const t = useTranslations("ProfileAddressesPage");
@@ -37,22 +36,12 @@ export const AddressesView = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-black text-content tracking-tight">
-            {t("title")}
-          </h1>
-          <p className="text-sm text-content/50 mt-1">{t("description")}</p>
-        </div>
-        <Button
-          className="flex items-center gap-2 rounded-xl"
-          onClick={() => setShowForm(!showForm)}
-        >
-          <Plus size={16} />
-          {t("addAddress")}
-        </Button>
-      </div>
-
+      <AddressViewHeader
+        title={t("title")}
+        description={t("description")}
+        actionLabel={t("addAddress")}
+        onPress={() => setShowForm(!showForm)}
+      />
       {/* Add Form */}
       <AnimatePresence>
         {showForm && (
@@ -72,7 +61,7 @@ export const AddressesView = () => {
 
       {/* Loading */}
       {loading && (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <AddressLoadingCard />
           <AddressLoadingCard />
         </div>
@@ -90,7 +79,7 @@ export const AddressesView = () => {
 
       {/* Address List */}
       {!loading && addresses.length > 0 && (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {addresses.map((addr) => (
             <motion.div key={addr.id} layout>
               <AddressCard

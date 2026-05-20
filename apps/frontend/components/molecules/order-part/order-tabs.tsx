@@ -42,7 +42,7 @@ export const OrderTabs = ({ activeTab, onTabChange }: IOrderTabsProps) => {
           return (
             <Button
               key={tab.label}
-              onClick={() => onTabChange(tab.value)}
+              onPress={() => onTabChange(tab.value)}
               className={cn(
                 "relative px-6 py-5 text-sm font-semibold transition-all duration-300 rounded-none bg-transparent shadow-none active:scale-100",
                 isActive

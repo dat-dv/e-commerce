@@ -992,6 +992,7 @@ declare const messages: {
       "allCaughtUpDescription": "You are all caught up. Order activity, account alerts, and promotions will appear here."
     },
     "summary": {
+      "label": "Notification summary",
       "total": "Total Notifications",
       "unread": "Unread",
       "read": "Read"

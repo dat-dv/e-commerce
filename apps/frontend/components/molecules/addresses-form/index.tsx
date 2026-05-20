@@ -76,7 +76,7 @@ export const AddressesForm = ({
   return (
     <AppForm methods={methods} onSubmit={handleFormSubmit}>
       <div className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormInput
             name="receiverName"
             label={t("receiverNameLabel")}
@@ -118,7 +118,7 @@ export const AddressesForm = ({
           disabled={loading}
         />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormInput
             name="city"
             label={t("cityLabel")}
@@ -137,7 +137,7 @@ export const AddressesForm = ({
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormInput
             name="country"
             label={t("countryLabel")}
