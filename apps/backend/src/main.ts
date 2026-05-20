@@ -33,6 +33,6 @@ async function bootstrap() {
   initSwagger(app);
   const configService = app.get(ConfigService<EnvVars>);
   const port = configService.get<number>('PORT');
-  await app.listen(port!, '0.0.0.0');
+  await app.listen(port!);
 }
 void bootstrap();

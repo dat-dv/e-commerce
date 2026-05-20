@@ -3,6 +3,7 @@ import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { NotificationProvider } from "@/components/providers/notification-provider";
 import { ToastProvider } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
+import { authUseCase } from "@/domain/auth/use-cases";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { categoriesUseCase } from "@/domain/categories/use-cases";
 import { allSafe } from "@/utils/promise";
@@ -19,13 +20,19 @@ import { I18nProviderClient } from "./i18n-provider";
 
 const AppProvider = async ({ children }: { children: React.ReactNode }) => {
   const language = await getServerSubdomain();
-  const [categoriesRes, initialCartState, initialAddressesState, messages] =
-    await allSafe([
-      categoriesUseCase.getTree.execute(),
-      cartUseCase.getCart.execute(),
-      addressesUseCase.getAddresses.execute(),
-      getMessages({ locale: language }),
-    ]);
+  const [
+    categoriesRes,
+    initialCartState,
+    initialAddressesState,
+    messages,
+    authState,
+  ] = await allSafe([
+    categoriesUseCase.getTree.execute(),
+    cartUseCase.getCart.execute(),
+    addressesUseCase.getAddresses.execute(),
+    getMessages({ locale: language }),
+    authUseCase.fetchMe.execute(),
+  ]);
 
   const categories =
     categoriesRes?.status === "success" ? categoriesRes.data : [];
@@ -34,7 +41,9 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
     <I18nProviderClient locale={language!} messages={messages!}>
       <ConfigProvider initState={{ language: language! }}>
         <CategoriesProvider initState={{ categories }}>
-          <AuthProvider>
+          <AuthProvider
+            initState={{ user: authState?.data, hasHydrated: true }}
+          >
             <NotificationProvider>
               <CartProvider initState={initialCartState?.data?.items || []}>
                 <AddressProvider initState={initialAddressesState?.data || []}>

@@ -19,7 +19,9 @@ export const ConfigProvider = ({
   children,
   initState,
 }: ConfigProviderProps) => {
-  const [store] = useState(() => createConfigStore(initState));
+  const [store] = useState(() =>
+    createConfigStore({ ...initState, _hasHydrated: true }),
+  );
   const hasHydrated = useStore(store, (s) => s._hasHydrated);
   const isLoadingTransition = useStore(store, (s) => s.isLoadingTransition);
   const showLoading = !hasHydrated || isLoadingTransition;
