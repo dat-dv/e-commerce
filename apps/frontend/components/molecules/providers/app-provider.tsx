@@ -1,6 +1,13 @@
-import { ToastProvider } from "@/components/ui/toast";
+import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { NotificationProvider } from "@/components/providers/notification-provider";
+import { ToastProvider } from "@/components/ui/toast";
+import { addressesUseCase } from "@/domain/addresses";
+import { cartUseCase } from "@/domain/cart/use-cases";
+import { categoriesUseCase } from "@/domain/categories/use-cases";
+import { allSafe } from "@/utils/promise";
+import { getServerSubdomain } from "@/utils/sub-domain/get-server-sub-domain";
+import { getMessages } from "next-intl/server";
 import React from "react";
 import { AddressProvider } from "./address-provider";
 import { AuthProvider } from "./auth-provider";
@@ -9,28 +16,16 @@ import { CategoriesProvider } from "./categories-provider";
 import { ConfigProvider } from "./config-provider";
 import { FavoritesProvider } from "./favorites-provider";
 import { I18nProviderClient } from "./i18n-provider";
-import { addressesUseCase } from "@/domain/addresses";
-import { cartUseCase } from "@/domain/cart/use-cases";
-import { categoriesUseCase } from "@/domain/categories/use-cases";
-import { allSafe } from "@/utils/promise";
-import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
-import { getMessages } from "next-intl/server";
-import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 
 const AppProvider = async ({ children }: { children: React.ReactNode }) => {
-  const [
-    categoriesRes,
-    language,
-    initialCartState,
-    initialAddressesState,
-    messages,
-  ] = await allSafe([
-    categoriesUseCase.getTree.execute(),
-    getSubdomainByHostname(),
-    cartUseCase.getCart.execute(),
-    addressesUseCase.getAddresses.execute(),
-    getMessages(),
-  ]);
+  const language = await getServerSubdomain();
+  const [categoriesRes, initialCartState, initialAddressesState, messages] =
+    await allSafe([
+      categoriesUseCase.getTree.execute(),
+      cartUseCase.getCart.execute(),
+      addressesUseCase.getAddresses.execute(),
+      getMessages({ locale: language }),
+    ]);
 
   const categories =
     categoriesRes?.status === "success" ? categoriesRes.data : [];
