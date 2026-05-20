@@ -292,6 +292,9 @@ declare const messages: {
       "signUp": "Sign Up",
       "favorites": "Wishlist",
       "cart": "Shopping Cart",
+      "navigation": "Navigation",
+      "mySpace": "My Space",
+      "menu": "Menu",
       "avatarDropdown": {
         "accountDetails": "Account Details",
         "viewProfile": "View Profile",
