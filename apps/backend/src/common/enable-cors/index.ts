@@ -8,9 +8,7 @@ export const enableCors = (app: INestApplication) => {
         return;
       }
       const isAllowed =
-        origin === 'http://localhost:5173' ||
-        origin === 'http://localhost:3000' ||
-        /^http:\/\/.*\.localhost:5173$/.test(origin);
+        /^http:\/\/.*\.localhost:(3000|5173)$/.test(origin) || /^http:\/\/192\.168\.\d+\.\d+:(5173|3000)$/.test(origin);
 
       if (isAllowed) {
         callback(null, true);

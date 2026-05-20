@@ -1,14 +1,14 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import cookieParser from 'cookie-parser';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import cookieParser from 'cookie-parser';
+import { AppModule } from './app.module';
 
 import { ConfigService } from '@nestjs/config';
-import { initSwagger } from './config/swagger.config';
-import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
-import { EnvVars } from './config/config.validation';
-import { CustomValidationPipe } from './common/pipes/custom-validation.pipe';
 import { enableCors } from './common/enable-cors';
+import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
+import { CustomValidationPipe } from './common/pipes/custom-validation.pipe';
+import { EnvVars } from './config/config.validation';
+import { initSwagger } from './config/swagger.config';
 
 async function bootstrap() {
   const logger = new Logger();
@@ -33,6 +33,6 @@ async function bootstrap() {
   initSwagger(app);
   const configService = app.get(ConfigService<EnvVars>);
   const port = configService.get<number>('PORT');
-  await app.listen(port!);
+  await app.listen(port!, '0.0.0.0');
 }
 void bootstrap();
