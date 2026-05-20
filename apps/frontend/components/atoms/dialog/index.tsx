@@ -11,8 +11,8 @@ import {
   type HeadingProps,
 } from "react-aria-components";
 
-const MotionModalOverlay = motion(RACModalOverlay);
-const MotionModal = motion(RACModal);
+const MotionModalOverlay = motion.create(RACModalOverlay);
+const MotionModal = motion.create(RACModal);
 
 export interface IAppDialogProps {
   children: React.ReactNode;

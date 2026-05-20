@@ -10,11 +10,11 @@ import {
   errorResponseStrategies,
   successResponseStrategies,
 } from "./response-mapping";
-import { PUBLIC_ENV } from "@/config/public.env.config";
-import { API_ROUTES } from "@/constants/routes";
 
-import { refreshState, processQueue } from "./request-queue";
+import { APP_ROUTES } from "@/constants/routes";
 import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
+import { refreshToken } from "./refresh-token";
+import { processQueue, refreshState } from "./request-queue";
 
 export class RequestError extends Error {
   constructor(
@@ -35,7 +35,6 @@ function resolveResponseType(
   return contentType.includes("application/json") ? "json" : "blob";
 }
 
-// ===== CORE REQUEST =====
 const requestCreator: TRequestCreator = async <T>({
   method,
   url,
@@ -71,7 +70,8 @@ const requestCreator: TRequestCreator = async <T>({
   });
 
   // ===== REFRESH TOKEN =====
-  if (res.status === 401 && !options?.skipAutoRefresh) {
+  const isServer = typeof window === "undefined";
+  if (res.status === 401 && !options?.skipAutoRefresh && !isServer) {
     return new Promise<ApiResponse<T>>((resolve, reject) => {
       refreshState.failedQueue.push({
         resolve: () => {
@@ -84,12 +84,7 @@ const requestCreator: TRequestCreator = async <T>({
 
       if (!refreshState.isRefreshing) {
         refreshState.isRefreshing = true;
-
-        requestCreator({
-          method: "POST",
-          url: `${PUBLIC_ENV.NEXT_PUBLIC_API_URL}${API_ROUTES.AUTH.REFRESH_TOKEN}`,
-          options: { skipAutoRefresh: true },
-        })
+        refreshToken()
           .then(() => {
             refreshState.isRefreshing = false;
             processQueue(null);
@@ -99,6 +94,7 @@ const requestCreator: TRequestCreator = async <T>({
             processQueue(
               err instanceof Error ? err : new Error("Refresh failed"),
             );
+            window.location.replace(APP_ROUTES.SIGN_IN);
           });
       }
     });
