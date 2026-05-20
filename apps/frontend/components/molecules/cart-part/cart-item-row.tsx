@@ -47,21 +47,21 @@ export const CartItemRow = ({
       )}
     >
       <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 bg-primary/5 opacity-0 blur-3xl transition-opacity group-hover:opacity-100" />
-      <div className="flex flex-col gap-4 md:flex-row md:items-center">
+      <div className="relative z-10 flex flex-col gap-4 md:flex-row md:items-center">
         {/* Checkbox & Product Info */}
         <div className="flex min-w-0 flex-1 items-start gap-3 md:items-center">
           <Checkbox checked={isSelected} onCheckedChange={onToggleSelect} />
 
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}
-            className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] sm:h-24 sm:w-24 md:h-20 md:w-20"
+            className="relative block size-20 shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] sm:size-24 md:size-20"
           >
             {item.imageUrl ? (
               <Image
                 src={item.imageUrl}
                 alt={item.name}
                 fill
-                sizes="80px"
+                sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 80px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
