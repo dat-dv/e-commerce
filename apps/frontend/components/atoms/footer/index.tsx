@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
 import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -45,7 +44,7 @@ export default function Footer() {
 
   return (
     <footer className="py-10 border-t border-content/10 bg-surface mt-30">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-content/60">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm text-content/60">
         {FOOTER_SECTIONS.map((section) => (
           <div key={section.title}>
             <h3 className="font-bold text-content mb-3">{section.title}</h3>

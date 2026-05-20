@@ -1,9 +1,8 @@
-import React from "react";
+import Button from "@/components/atoms/button";
+import { cn } from "@/utils/cn";
+import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
-import { cn } from "@/utils/cn";
-import Button from "@/components/atoms/button";
-import { formatCurrency } from "@/utils/format-currency";
 import { useTranslations } from "next-intl";
 
 interface IOrderSummaryProps {
@@ -26,7 +25,7 @@ export const OrderSummary = ({
   const t = useTranslations("CheckoutPage.summary");
 
   return (
-    <div className="lg:col-span-4 sticky top-32">
+    <div className="lg:col-span-4 lg:sticky lg:top-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -10,7 +10,7 @@ import { useCart } from "@/hooks/cart/use-cart";
 import { Heart, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import AvatarDropdown from "../avatar-dropdown";
+import AvatarDropdown from "../../avatar-dropdown";
 
 export default function HeaderActions() {
   const user = useAuthStore((store) => store.user);

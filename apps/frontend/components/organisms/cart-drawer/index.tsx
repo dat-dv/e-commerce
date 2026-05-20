@@ -1,18 +1,17 @@
 "use client";
 
-import React from "react";
-import { usePathname } from "next/navigation";
+import { APP_ROUTES } from "@/constants/routes";
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
-import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
-import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
+import { CartDrawerFooter } from "./cart-drawer-footer";
 import { CartHeader } from "./cart-drawer-header";
 import { CartItem } from "./cart-drawer-item";
-import { CartDrawerFooter } from "./cart-drawer-footer";
 
 const DISABLED_EDIT_ROUTES: string[] = [APP_ROUTES.CHECKOUT];
 

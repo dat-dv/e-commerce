@@ -1,12 +1,12 @@
 "use client";
 
-import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { BrandCard } from "@/components/molecules/brrand-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import {
   BRAND_LISTING_GRID_CLASS_NAME,
   BRAND_LISTING_GRID_COLUMNS,
 } from "@/components/molecules/virtual-grid/grid-presets";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { useTranslations } from "next-intl";
 
 interface IBrandListGridProps {
