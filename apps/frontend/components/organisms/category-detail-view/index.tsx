@@ -1,19 +1,25 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductsHeader } from "@/components/molecules/products-header";
+import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
-import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
-import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
-import { useMemo } from "react";
-import { useRouter } from "next/navigation";
-import { useShallow } from "zustand/react/shallow";
-import { useTranslations } from "next-intl";
+import { ProductsHeader } from "@/components/molecules/products-header";
 import {
-  useCategoryProductsFilter,
-  CategoryProductsFilterKey,
-} from "@/hooks/categories/use-category-products-filter";
+  RenderDesktopOnly,
+  RenderTabletBelow,
+} from "@/components/molecules/responsive";
+import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { TProduct } from "@/domain/products/types/products.model";
+import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import {
+  CategoryProductsFilterKey,
+  useCategoryProductsFilter,
+} from "@/hooks/categories/use-category-products-filter";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
+import { useShallow } from "zustand/react/shallow";
+import { CategoryFilterDrawer } from "./category-filter-drawer";
 
 interface CategoryDetailViewProps {
   categorySlug: string;
@@ -29,7 +35,9 @@ export function CategoryDetailView({
   totalPages,
 }: CategoryDetailViewProps) {
   const t = useTranslations("CategoryDetailPage");
+  const tProducts = useTranslations("ProductsPage");
   const router = useRouter();
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const { categories, getCategoryNavigationContext } = useCategoriesStore(
     useShallow((state) => ({
@@ -70,6 +78,10 @@ export function CategoryDetailView({
         : `/categories/${slug}`,
     );
   };
+  const handleDrawerCategoryChange = (slug: string) => {
+    setIsFilterOpen(false);
+    navigateToCategory(slug);
+  };
 
   return (
     <AppContainer size="2xl" className="py-16">
@@ -78,23 +90,34 @@ export function CategoryDetailView({
         description={t("description", { category: categoryTitle })}
       />
 
+      <RenderTabletBelow>
+        <FilterDrawerTrigger
+          eyebrow={tProducts("filters")}
+          label={categoryTitle}
+          buttonLabel={tProducts("filterButton")}
+          onPress={() => setIsFilterOpen(true)}
+        />
+      </RenderTabletBelow>
+
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-        <div className="lg:col-span-1">
-          <ProductFilterSidebar<CategoryProductsFilterKey>
-            categories={displayCategories}
-            onFilterChange={updateFilter}
-            onCategoryChange={navigateToCategory}
-            initialSearchValue={filterSearch}
-            searchPlaceholder={t("searchPlaceholder", {
-              category: categoryTitle,
-            })}
-            onSearchSubmit={submitSearch}
-            minPriceValue={filterMinPrice}
-            maxPriceValue={filterMaxPrice}
-            ratingValue={filterRating}
-            activeSlug={categorySlug}
-          />
-        </div>
+        <RenderDesktopOnly>
+          <div className="col-span-1">
+            <ProductFilterSidebar<CategoryProductsFilterKey>
+              categories={displayCategories}
+              onFilterChange={updateFilter}
+              onCategoryChange={navigateToCategory}
+              initialSearchValue={filterSearch}
+              searchPlaceholder={t("searchPlaceholder", {
+                category: categoryTitle,
+              })}
+              onSearchSubmit={submitSearch}
+              minPriceValue={filterMinPrice}
+              maxPriceValue={filterMaxPrice}
+              ratingValue={filterRating}
+              activeSlug={categorySlug}
+            />
+          </div>
+        </RenderDesktopOnly>
 
         <ProductsCatalog<CategoryProductsFilterKey>
           products={products}
@@ -117,6 +140,25 @@ export function CategoryDetailView({
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
         />
       </div>
+
+      <RenderTabletBelow>
+        <CategoryFilterDrawer<CategoryProductsFilterKey>
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          categories={displayCategories}
+          onFilterChange={updateFilter}
+          onCategoryChange={handleDrawerCategoryChange}
+          initialSearchValue={filterSearch}
+          searchPlaceholder={t("searchPlaceholder", {
+            category: categoryTitle,
+          })}
+          onSearchSubmit={submitSearch}
+          minPriceValue={filterMinPrice}
+          maxPriceValue={filterMaxPrice}
+          ratingValue={filterRating}
+          activeSlug={categorySlug}
+        />
+      </RenderTabletBelow>
     </AppContainer>
   );
 }
