@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { EOrderStatus } from "@ecommerce/shared";
 import { motion } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion";
 import { MessageSquare, RotateCcw, Store, Truck } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -14,16 +15,38 @@ import Image from "next/image";
 import { APP_ROUTES } from "@/constants/routes";
 import Link from "next/link";
 
-interface OrderCardProps {
+interface OrderCardProps extends HTMLMotionProps<"div"> {
   order: TOrder;
+  headerClassName?: string;
+  headerInfoClassName?: string;
+  headerStatusClassName?: string;
+  itemClassName?: string;
+  itemImageClassName?: string;
+  itemTitleClassName?: string;
+  footerClassName?: string;
+  totalClassName?: string;
+  footerActionsClassName?: string;
+  actionButtonClassName?: string;
   onCancelOrder?: (id: string) => void;
   onRequestReturn?: (id: string) => void;
 }
 
 export const OrderCard = ({
   order,
+  className,
+  headerClassName,
+  headerInfoClassName,
+  headerStatusClassName,
+  itemClassName,
+  itemImageClassName,
+  itemTitleClassName,
+  footerClassName,
+  totalClassName,
+  footerActionsClassName,
+  actionButtonClassName,
   onCancelOrder,
   onRequestReturn,
+  ...props
 }: OrderCardProps) => {
   const t = useTranslations("OrdersPage");
   const tStatus = useTranslations("OrderStatus");
@@ -66,15 +89,26 @@ export const OrderCard = ({
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-surface/40 backdrop-blur-md rounded-xl border border-content/[0.05] overflow-hidden transition-all duration-300 hover:border-primary/20 shadow-sm"
+      className={cn(
+        "overflow-hidden rounded-xl border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-primary/20",
+        className,
+      )}
+      {...props}
     >
       {/* Header */}
-      <div className="px-5 py-4 flex items-center justify-between border-b border-content/[0.05] bg-content/[0.02]">
-        <div className="flex items-center gap-4">
-          <div className="flex flex-col">
+      <div
+        className={cn(
+          "flex items-center justify-between gap-4 border-b border-content/[0.05] bg-content/[0.02] px-5 py-4",
+          headerClassName,
+        )}
+      >
+        <div
+          className={cn("flex min-w-0 items-center gap-4", headerInfoClassName)}
+        >
+          <div className="flex min-w-0 flex-col">
             <Link
               href={APP_ROUTES.ORDER_DETAIL(order.id)}
-              className="font-bold text-content text-sm hover:text-primary transition-all"
+              className="truncate text-sm font-bold text-content transition-all hover:text-primary"
             >
               {t("card.orderNumber", { id: order.id.slice(-8).toUpperCase() })}
             </Link>
@@ -89,22 +123,27 @@ export const OrderCard = ({
           <Button
             variant="ghost"
             disabled
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-content/40 bg-content/[0.03] rounded-full border border-content/[0.05] h-auto active:scale-100"
+            className="hidden h-auto items-center gap-1.5 rounded-full border border-content/[0.05] bg-content/[0.03] px-3 py-1 text-xs font-medium text-content/40 active:scale-100 sm:flex"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             {t("card.needHelp")}
           </Button>
         </div>
-        <div className="flex items-center gap-4">
+        <div
+          className={cn(
+            "flex min-w-0 items-center justify-end gap-4",
+            headerStatusClassName,
+          )}
+        >
           {order.status === EOrderStatus.SHIPPING && (
-            <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-primary border-r border-content/[0.05] pr-4">
+            <div className="hidden items-center gap-2 border-r border-content/[0.05] pr-4 text-xs font-semibold text-primary sm:flex">
               <Truck className="w-4 h-4" />
               <span>{t("card.shipping")}</span>
             </div>
           )}
           <span
             className={cn(
-              "px-3 py-1 text-[11px] font-bold rounded-full",
+              "min-w-0 rounded-full px-3 py-1 text-[11px] font-bold",
               statusColor,
             )}
           >
@@ -118,8 +157,18 @@ export const OrderCard = ({
         {order.items.map((item) => {
           const productSlug = item.sku?.product?.slug;
           const itemContent = (
-            <div className="p-5 flex gap-5 transition-colors hover:bg-content/[0.02]">
-              <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-content/[0.05] bg-content/[0.02]">
+            <div
+              className={cn(
+                "flex gap-5 p-5 transition-colors hover:bg-content/[0.02]",
+                itemClassName,
+              )}
+            >
+              <div
+                className={cn(
+                  "relative size-20 flex-shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02]",
+                  itemImageClassName,
+                )}
+              >
                 {item.sku?.imageUrl ? (
                   <Image
                     src={item.sku.imageUrl}
@@ -129,28 +178,33 @@ export const OrderCard = ({
                     className="object-cover transition-transform group-hover:scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-content/10">
-                    <Store className="w-6 h-6" />
+                  <div className="flex h-full w-full items-center justify-center text-content/10">
+                    <Store className="h-6 w-6" />
                   </div>
                 )}
               </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex justify-between items-start gap-4">
-                  <h3 className="text-sm font-bold text-content line-clamp-1 leading-tight group-hover:text-primary transition-colors">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <h3
+                    className={cn(
+                      "line-clamp-1 text-sm font-bold leading-tight text-content transition-colors group-hover:text-primary",
+                      itemTitleClassName,
+                    )}
+                  >
                     {item.sku?.product?.name || t("card.productNameFallback")}
                   </h3>
-                  <div className="text-base font-bold text-content tracking-tight shrink-0">
+                  <div className="shrink-0 text-sm font-bold tracking-tight text-content sm:text-base">
                     {formatCurrency(item.price)}
                   </div>
                 </div>
-                <p className="mt-1 text-xs font-medium text-content/40">
+                <p className="mt-1 line-clamp-1 text-xs font-medium text-content/40">
                   {item.attributes ||
                     t("card.skuCode", {
                       code: item.sku?.skuCode || t("card.defaultSku"),
                     })}
                 </p>
-                <div className="mt-2 flex items-center justify-between">
-                  <div className="text-[11px] font-semibold text-content/50 bg-content/[0.05] px-2 py-0.5 rounded-full">
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                  <div className="rounded-full bg-content/[0.05] px-2 py-0.5 text-[11px] font-semibold text-content/50">
                     {t("card.units", { count: item.quantity })}
                   </div>
                   {item.originalPrice && item.originalPrice > item.price && (
@@ -178,7 +232,12 @@ export const OrderCard = ({
       </div>
 
       {/* Footer */}
-      <div className="px-5 py-5 bg-content/[0.01] border-t border-content/[0.05]">
+      <div
+        className={cn(
+          "border-t border-content/[0.05] bg-content/[0.01] px-5 py-5",
+          footerClassName,
+        )}
+      >
         <div className="flex flex-col items-end gap-4">
           <div className="flex flex-col items-end gap-1">
             {order.discountAmount > 0 && (
@@ -193,13 +252,23 @@ export const OrderCard = ({
               <span className="text-sm font-medium text-content/40">
                 {t("card.total")}
               </span>
-              <span className="text-3xl font-black text-content tracking-tight">
+              <span
+                className={cn(
+                  "text-3xl font-black tracking-tight text-content",
+                  totalClassName,
+                )}
+              >
                 {formatCurrency(order.totalAmount)}
               </span>
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-end gap-3">
+          <div
+            className={cn(
+              "flex w-full flex-wrap justify-end gap-3",
+              footerActionsClassName,
+            )}
+          >
             {order.status === EOrderStatus.PENDING && (
               <Button
                 variant="outline"
@@ -207,7 +276,10 @@ export const OrderCard = ({
                   e.preventDefault();
                   onCancelOrder?.(order.id);
                 }}
-                className="px-6 py-2.5 text-sm font-semibold text-red-500 border-red-500/20 rounded-xl hover:bg-red-500/10 h-auto"
+                className={cn(
+                  "h-auto rounded-xl border-red-500/20 px-6 py-2.5 text-sm font-semibold text-red-500 hover:bg-red-500/10",
+                  actionButtonClassName,
+                )}
               >
                 {t("card.cancel")}
               </Button>
@@ -220,17 +292,28 @@ export const OrderCard = ({
                     e.preventDefault();
                     onRequestReturn?.(order.id);
                   }}
-                  className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-content border-content/[0.1] rounded-xl hover:bg-content/[0.05] h-auto"
+                  className={cn(
+                    "flex h-auto items-center gap-2 rounded-xl border-content/[0.1] px-5 py-2.5 text-sm font-semibold text-content hover:bg-content/[0.05]",
+                    actionButtonClassName,
+                  )}
                 >
                   <RotateCcw className="h-4 w-4" />
                   {t("card.requestReturn")}
                 </Button>
-                <Button className="px-6 py-2.5 text-sm font-semibold text-surface bg-content rounded-xl hover:bg-primary h-auto">
+                <Button
+                  className={cn(
+                    "h-auto rounded-xl bg-content px-6 py-2.5 text-sm font-semibold text-surface hover:bg-primary",
+                    actionButtonClassName,
+                  )}
+                >
                   {t("card.review")}
                 </Button>
                 <Button
                   variant="outline"
-                  className="px-6 py-2.5 text-sm font-semibold text-content/60 border-content/[0.1] rounded-xl hover:bg-content/[0.05] h-auto"
+                  className={cn(
+                    "h-auto rounded-xl border-content/[0.1] px-6 py-2.5 text-sm font-semibold text-content/60 hover:bg-content/[0.05]",
+                    actionButtonClassName,
+                  )}
                 >
                   {t("card.reorder")}
                 </Button>

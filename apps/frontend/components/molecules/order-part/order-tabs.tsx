@@ -6,13 +6,23 @@ import { useTranslations } from "next-intl";
 import Button from "@/components/atoms/button";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { cn } from "@/utils/cn";
+import type { ComponentPropsWithoutRef } from "react";
 
-export interface IOrderTabsProps {
+export interface IOrderTabsProps extends ComponentPropsWithoutRef<"div"> {
   activeTab: OrderTabValue;
   onTabChange: (value: OrderTabValue) => void;
+  listClassName?: string;
+  tabClassName?: string;
 }
 
-export const OrderTabs = ({ activeTab, onTabChange }: IOrderTabsProps) => {
+export const OrderTabs = ({
+  activeTab,
+  onTabChange,
+  className,
+  listClassName,
+  tabClassName,
+  ...props
+}: IOrderTabsProps) => {
   const t = useTranslations("OrdersPage");
 
   const getTabLabel = (label: string) => {
@@ -35,8 +45,14 @@ export const OrderTabs = ({ activeTab, onTabChange }: IOrderTabsProps) => {
   };
 
   return (
-    <div className="w-full overflow-x-auto bg-transparent border-b border-content/[0.05] scrollbar-hide">
-      <div className="flex min-w-max container mx-auto">
+    <div
+      className={cn(
+        "scrollbar-hide w-full overflow-x-auto border-b border-content/[0.05] bg-transparent",
+        className,
+      )}
+      {...props}
+    >
+      <div className={cn("container mx-auto flex min-w-max", listClassName)}>
         {ORDER_TABS.map((tab) => {
           const isActive = activeTab === tab.value;
           return (
@@ -44,10 +60,11 @@ export const OrderTabs = ({ activeTab, onTabChange }: IOrderTabsProps) => {
               key={tab.label}
               onPress={() => onTabChange(tab.value)}
               className={cn(
-                "relative px-6 py-5 text-sm font-semibold transition-all duration-300 rounded-none bg-transparent shadow-none active:scale-100",
+                "relative rounded-none bg-transparent px-6 py-5 text-sm font-semibold shadow-none transition-all duration-300 active:scale-100",
                 isActive
                   ? "text-primary"
                   : "text-content/40 hover:text-content hover:bg-content/[0.02]",
+                tabClassName,
               )}
             >
               <span className="relative z-10">{getTabLabel(tab.label)}</span>

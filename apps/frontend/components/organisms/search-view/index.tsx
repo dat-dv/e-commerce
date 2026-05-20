@@ -1,17 +1,23 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
+import { ProductFilterDrawer } from "@/components/molecules/product-filter-drawer";
 import { ProductsHeader } from "@/components/molecules/products-header";
-import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
-import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
-import { useEffect, useRef } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import { EProductSort } from "@ecommerce/shared";
+import {
+  RenderDesktopOnly,
+  RenderTabletAndBelow,
+} from "@/components/molecules/responsive";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
-import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
-import { SearchSidebar } from "./search-sidebar";
+import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
+import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
+import { EProductSort } from "@ecommerce/shared";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { SearchProductList } from "./search-product-list";
+import { SearchSidebar } from "./search-sidebar";
 
 import { useTranslations } from "next-intl";
 
@@ -28,6 +34,8 @@ export function SearchView({ searchQuery }: SearchViewProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const t = useTranslations("SearchView");
+  const tProducts = useTranslations("ProductsPage");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const page = searchParams.get("page");
   const sort = searchParams.get("sort");
@@ -77,12 +85,23 @@ export function SearchView({ searchQuery }: SearchViewProps) {
         }
         description={t("description", { total })}
       />
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-24">
-        <SearchSidebar
-          categories={categories}
-          onFilterChange={updateFilter}
-          onCategoryChange={navigateToCategory}
+      <RenderTabletAndBelow>
+        <FilterDrawerTrigger
+          eyebrow={tProducts("filters")}
+          label={searchQuery || t("titleWithoutQuery")}
+          buttonLabel={tProducts("filterButton")}
+          onPress={() => setIsFilterOpen(true)}
         />
+      </RenderTabletAndBelow>
+
+      <div className="mb-24 grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <RenderDesktopOnly>
+          <SearchSidebar
+            categories={categories}
+            onFilterChange={updateFilter}
+            onCategoryChange={navigateToCategory}
+          />
+        </RenderDesktopOnly>
 
         <SearchProductList
           products={products}
@@ -94,6 +113,20 @@ export function SearchView({ searchQuery }: SearchViewProps) {
           shortQuery={shortQuery}
         />
       </div>
+
+      <RenderTabletAndBelow>
+        <ProductFilterDrawer
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          categories={categories}
+          onFilterChange={updateFilter}
+          onCategoryChange={navigateToCategory}
+          hideCategories={true}
+          minPriceValue={searchParams.get("min_price") || ""}
+          maxPriceValue={searchParams.get("max_price") || ""}
+          ratingValue={searchParams.get("rating") || ""}
+        />
+      </RenderTabletAndBelow>
       {/* Discovery Sections */}
       <DiscoveryCarouselSection />
     </AppContainer>

@@ -11,9 +11,9 @@ export function BrandStory({ brand }: BrandStoryProps) {
   const t = useTranslations("BrandsPage.detail.story");
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <section className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16">
       {/* Title Side */}
-      <div className="lg:col-span-5 flex flex-col gap-8">
+      <div className="flex flex-col gap-6 lg:col-span-5 lg:gap-8">
         <div className="flex items-center gap-4">
           <div className="h-[1px] w-12 bg-primary" />
           <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary">
@@ -21,14 +21,14 @@ export function BrandStory({ brand }: BrandStoryProps) {
           </span>
         </div>
 
-        <h2 className="text-6xl font-black tracking-tighter text-content leading-[0.9] uppercase italic">
+        <h2 className="text-4xl font-black uppercase italic leading-[0.95] tracking-normal text-content sm:text-5xl lg:text-6xl">
           {t("title")} <br />
           <span className="text-primary">{t("highlight")}</span>
         </h2>
 
-        <div className="p-8 bg-content/[0.03] rounded-[2rem] border border-content/5 relative overflow-hidden">
-          <Quote className="absolute -top-4 -left-4 w-24 h-24 text-primary opacity-5" />
-          <p className="relative z-10 text-xl font-light italic text-content/60 leading-relaxed">
+        <div className="relative overflow-hidden rounded-2xl border border-content/5 bg-content/[0.03] p-5 sm:p-8 md:rounded-[2rem]">
+          <Quote className="absolute -left-4 -top-4 h-24 w-24 text-primary opacity-5" />
+          <p className="relative z-10 text-base font-light italic leading-relaxed text-content/60 sm:text-xl">
             &quot;
             {brand.description || t("fallbackQuote")}
             &quot;
@@ -37,8 +37,8 @@ export function BrandStory({ brand }: BrandStoryProps) {
       </div>
 
       {/* Content Side */}
-      <div className="lg:col-span-7 flex flex-col gap-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="flex flex-col gap-8 lg:col-span-7 lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-bold text-primary tracking-widest uppercase">
               {t("overviewTitle")}
@@ -57,7 +57,7 @@ export function BrandStory({ brand }: BrandStoryProps) {
           </div>
         </div>
 
-        <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-content/10">
+        <div className="relative aspect-video overflow-hidden rounded-2xl border border-content/10 md:rounded-[3rem]">
           <img
             src={
               brand.bannerUrl ||
@@ -67,15 +67,15 @@ export function BrandStory({ brand }: BrandStoryProps) {
             alt={t("imageAlt")}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-          <div className="absolute bottom-8 left-8">
-            <span className="text-4xl font-black text-content uppercase tracking-tighter">
+          <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8">
+            <span className="text-2xl font-black uppercase tracking-normal text-content md:text-4xl">
               {t("imageCaption")}
             </span>
           </div>
         </div>
 
         <div className="flex flex-col gap-6">
-          <p className="text-content/60 text-lg leading-relaxed">
+          <p className="text-base leading-relaxed text-content/60 sm:text-lg">
             {t("closingDescription", { brand: brand.name })}
           </p>
         </div>

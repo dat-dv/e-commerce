@@ -15,10 +15,10 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
-      className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] overflow-hidden shadow-sm"
+      className="overflow-hidden rounded-2xl border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md"
     >
-      <div className="px-6 py-4 border-b border-content/[0.05] bg-content/[0.02] flex items-center gap-3">
-        <Package className="w-4 h-4 text-content/40" />
+      <div className="flex items-center gap-3 border-b border-content/[0.05] bg-content/[0.02] px-4 py-4 sm:px-6">
+        <Package className="h-4 w-4 text-content/40" />
         <h2 className="text-sm font-bold text-content">
           {t("detail.orderItemsTitle", {
             count: String(order.items.length),
@@ -29,9 +29,9 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
         {order.items.map((item) => (
           <div
             key={item.id}
-            className="p-6 flex gap-6 hover:bg-content/[0.02] transition-colors"
+            className="flex gap-4 p-4 transition-colors hover:bg-content/[0.02] sm:gap-6 sm:p-6"
           >
-            <div className="relative w-24 h-24 rounded-2xl border border-content/[0.05] bg-content/[0.02] overflow-hidden shrink-0 shadow-sm">
+            <div className="relative size-20 shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] shadow-sm sm:size-24 sm:rounded-2xl">
               {item.sku?.imageUrl && (
                 <Image
                   src={item.sku.imageUrl}
@@ -42,20 +42,20 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
                 />
               )}
             </div>
-            <div className="flex-1 min-w-0 flex flex-col justify-center">
-              <div className="flex justify-between items-start gap-4">
-                <h3 className="text-base font-bold text-content leading-tight">
+            <div className="flex min-w-0 flex-1 flex-col justify-center">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <h3 className="line-clamp-2 text-sm font-bold leading-tight text-content sm:text-base">
                   {item.sku?.product?.name || t("detail.unknownProduct")}
                 </h3>
-                <div className="text-lg font-black text-content tracking-tight shrink-0">
+                <div className="shrink-0 text-base font-black tracking-tight text-content sm:text-lg">
                   {formatCurrency(item.price)}
                 </div>
               </div>
-              <p className="mt-2 text-xs font-medium text-content/40">
+              <p className="mt-2 line-clamp-1 text-xs font-medium text-content/40">
                 {item.snapshot?.sku.attributes || `SKU: ${item.skuId}`}
               </p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs font-semibold px-3 py-1 bg-content/[0.05] rounded-full text-content/60">
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2 sm:mt-4">
+                <span className="rounded-full bg-content/[0.05] px-3 py-1 text-xs font-semibold text-content/60">
                   {t("card.units", { count: item.quantity })}
                 </span>
                 <span className="text-sm font-bold text-content/60">

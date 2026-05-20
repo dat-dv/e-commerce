@@ -5,15 +5,23 @@ import { TAddress } from "@/domain/addresses/types/address.model";
 import { cn } from "@/utils/cn";
 import { Edit, Star, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import type { ComponentPropsWithoutRef } from "react";
 
 type AddressCardMode = "select" | "manage";
 
-interface AddressCardProps {
+interface AddressCardProps extends Omit<
+  ComponentPropsWithoutRef<"div">,
+  "onSelect"
+> {
   address: TAddress;
   mode?: AddressCardMode;
   isSelected?: boolean;
   disabled?: boolean;
   isMutating?: boolean;
+  contentClassName?: string;
+  selectButtonClassName?: string;
+  staticContentClassName?: string;
+  actionsClassName?: string;
   onSelect?: () => void;
   onEdit?: () => void;
   onSetDefault?: () => void;
@@ -88,10 +96,16 @@ export const AddressCard = ({
   isSelected = false,
   disabled = false,
   isMutating = false,
+  className,
+  contentClassName,
+  selectButtonClassName,
+  staticContentClassName,
+  actionsClassName,
   onSelect,
   onEdit,
   onSetDefault,
   onDelete,
+  ...props
 }: AddressCardProps) => {
   const isSelectable = mode === "select" && onSelect;
 
@@ -102,27 +116,42 @@ export const AddressCard = ({
         isSelected || address.isDefault
           ? "border-primary/30 bg-primary/[0.05] shadow-sm shadow-primary/5"
           : "border-content/5 bg-surface/40 hover:border-content/10 hover:bg-content/[0.03]",
+        className,
       )}
+      {...props}
     >
-      <div className="flex items-center gap-4">
+      <div className={cn("flex items-center gap-4", contentClassName)}>
         {isSelectable ? (
           <button
             type="button"
             onClick={onSelect}
             disabled={disabled}
-            className="flex min-w-0 flex-1 items-center gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-60"
+            className={cn(
+              "flex min-w-0 flex-1 items-center gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-60",
+              selectButtonClassName,
+            )}
             aria-pressed={isSelected}
           >
             <SelectionIndicator selected={isSelected} />
             <AddressMeta address={address} />
           </button>
         ) : (
-          <div className="flex min-w-0 flex-1 items-center gap-4">
+          <div
+            className={cn(
+              "flex min-w-0 flex-1 items-center gap-4",
+              staticContentClassName,
+            )}
+          >
             <AddressMeta address={address} />
           </div>
         )}
 
-        <div className="flex shrink-0 items-center justify-end gap-1">
+        <div
+          className={cn(
+            "flex shrink-0 items-center justify-end gap-1",
+            actionsClassName,
+          )}
+        >
           {mode === "manage" && !address.isDefault && onSetDefault && (
             <Button
               type="button"

@@ -1,18 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
-import { useCheckout } from "@/hooks/checkout/use-checkout";
-import { CheckoutHeader } from "./checkout-header";
-import { ShippingSection } from "./shipping-section";
-import { CheckoutList } from "./checkout-list-section";
-import { OrderSummary } from "./order-summary";
-import { AddAddressModal } from "../../molecules/add-address-modal";
-import { useAddresses } from "@/hooks/addresses/use-addresses";
+import AppContainer from "@/components/atoms/app-container";
 import {
   TAddress,
   TCreateAddressInput,
 } from "@/domain/addresses/types/address.model";
-import AppContainer from "@/components/atoms/app-container";
+import { useAddresses } from "@/hooks/addresses/use-addresses";
+import { useCheckout } from "@/hooks/checkout/use-checkout";
+import { useState } from "react";
+import { AddAddressModal } from "../../molecules/add-address-modal";
+import { CheckoutHeader } from "./checkout-header";
+import { CheckoutList } from "./checkout-list-section";
+import { OrderSummary } from "./order-summary";
+import { ShippingSection } from "./shipping-section";
 
 export const CheckoutView = () => {
   const {
@@ -63,11 +63,11 @@ export const CheckoutView = () => {
     useCheckout(selectedAddressId);
 
   return (
-    <AppContainer className="py-12 animate-in fade-in slide-in-from-bottom-6 duration-700">
+    <AppContainer className="animate-in fade-in slide-in-from-bottom-6 py-8 duration-700 md:py-12">
       <CheckoutHeader />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-8 space-y-16">
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="space-y-10 lg:col-span-8 lg:space-y-16">
           <ShippingSection
             addresses={addresses}
             selectedAddressId={selectedAddressId}

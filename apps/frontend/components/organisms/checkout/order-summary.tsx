@@ -29,13 +29,13 @@ export const OrderSummary = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-8 rounded-[2.5rem] bg-surface/90 backdrop-blur-3xl border border-content/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] relative overflow-hidden"
+        className="relative overflow-hidden rounded-2xl border border-content/5 bg-surface/90 p-5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] backdrop-blur-3xl md:rounded-[2.5rem] md:p-8"
       >
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/[0.03] blur-[60px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+        <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 bg-primary/10 blur-[80px]" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 bg-primary/[0.03] blur-[60px]" />
 
         <div className="relative z-10">
-          <div className="flex items-center gap-2 mb-8 opacity-60">
+          <div className="mb-6 flex items-center gap-2 opacity-60 md:mb-8">
             <ShoppingBag size={14} className="text-content" aria-hidden />
             <span className="text-sm font-semibold text-content capitalize">
               {t("title")}
@@ -44,8 +44,8 @@ export const OrderSummary = ({
 
           {/* Recipient Summary */}
           {recipientName && (
-            <div className="mb-8 pb-6 border-b border-content/[0.08]">
-              <div className="text-[10px] font-bold text-content/30 uppercase tracking-wider mb-2">
+            <div className="mb-6 border-b border-content/[0.08] pb-5 md:mb-8 md:pb-6">
+              <div className="mb-2 text-[10px] font-bold uppercase tracking-wider text-content/30">
                 {t("shippingTo")}
               </div>
               <div className="flex flex-col gap-0.5">
@@ -57,7 +57,7 @@ export const OrderSummary = ({
             </div>
           )}
 
-          <div className="space-y-4 mb-8">
+          <div className="mb-6 space-y-4 md:mb-8">
             <div className="flex justify-between text-sm text-content/60">
               <span className="capitalize">{t("subtotal")}</span>
               <span className="text-content font-medium">
@@ -75,7 +75,7 @@ export const OrderSummary = ({
               <span className="text-content font-medium">$0.00</span>
             </div>
 
-            <div className="h-px bg-content/5 my-6" />
+            <div className="my-5 h-px bg-content/5 md:my-6" />
 
             {/* Integrated Payment Method */}
             <div className="mb-8">
@@ -87,12 +87,12 @@ export const OrderSummary = ({
               <div className="text-xs text-content/60">{t("cod")}</div>
             </div>
 
-            <div className="flex justify-between items-end">
+            <div className="flex items-end justify-between gap-4">
               <div className="flex flex-col text-content">
-                <span className="text-xs font-semibold text-content capitalize mb-1">
+                <span className="mb-1 text-xs font-semibold capitalize text-content">
                   {t("grandTotal")}
                 </span>
-                <span className="text-3xl font-bold tracking-tight">
+                <span className="break-words text-2xl font-bold tracking-tight md:text-3xl">
                   {formatCurrency(totalAmount)}
                 </span>
               </div>
@@ -104,7 +104,7 @@ export const OrderSummary = ({
             disabled={loading || isItemsEmpty}
             loading={loading}
             className={cn(
-              "w-full py-6 rounded-2xl font-semibold text-[11px] uppercase tracking-[0.3em] transition-all relative overflow-hidden",
+              "relative w-full overflow-hidden rounded-2xl py-5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all md:py-6 md:tracking-[0.3em]",
               loading || isItemsEmpty
                 ? "bg-content/5 text-content/20 cursor-not-allowed"
                 : "bg-primary text-surface hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/20",

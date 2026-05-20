@@ -17,19 +17,19 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8"
     >
-      <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-            <Truck className="w-4 h-4" />
+      <div className="rounded-2xl border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6">
+        <div className="mb-5 flex items-center gap-3 sm:mb-6">
+          <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <Truck className="h-4 w-4" />
           </div>
           <h2 className="text-sm font-bold text-content">
             {t("detail.deliveryDetails")}
           </h2>
         </div>
         <div className="space-y-4 text-sm font-medium text-content/60">
-          <p className="text-content font-bold">
+          <p className="font-bold text-content">
             {order.shippingAddress?.receiverName || t("detail.notAvailable")}
           </p>
           <p>
@@ -45,10 +45,10 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
         </div>
       </div>
 
-      <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-            <CreditCard className="w-4 h-4" />
+      <div className="rounded-2xl border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6">
+        <div className="mb-5 flex items-center gap-3 sm:mb-6">
+          <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <CreditCard className="h-4 w-4" />
           </div>
           <h2 className="text-sm font-bold text-content">
             {t("detail.paymentSummary")}
@@ -65,7 +65,7 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
           </div>
           {order.discountAmount > 0 && (
             <div className="flex justify-between text-sm">
-              <span className="text-content/60 font-medium">
+              <span className="font-medium text-content/60">
                 {t("detail.discount")}
               </span>
               <span className="font-bold text-red-500">
@@ -73,11 +73,11 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
               </span>
             </div>
           )}
-          <div className="pt-4 border-t border-content/[0.05] flex justify-between items-center">
+          <div className="flex items-center justify-between gap-4 border-t border-content/[0.05] pt-4">
             <span className="text-sm font-bold text-content">
               {t("detail.total")}
             </span>
-            <span className="text-3xl font-black text-content tracking-tight">
+            <span className="text-2xl font-black tracking-tight text-content sm:text-3xl">
               {formatCurrency(order.totalAmount)}
             </span>
           </div>

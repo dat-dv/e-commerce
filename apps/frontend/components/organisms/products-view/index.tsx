@@ -1,15 +1,21 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
+import { ProductFilterDrawer } from "@/components/molecules/product-filter-drawer";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { ProductsHeader } from "@/components/molecules/products-header";
+import {
+  RenderDesktopOnly,
+  RenderTabletAndBelow,
+} from "@/components/molecules/responsive";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
 import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
 import { EProductSort } from "@ecommerce/shared";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProductsCatalog } from "./products-catalog";
 import {
   findTopLevelCategoryForSlug,
@@ -24,6 +30,7 @@ interface ProductsViewProps {
 
 export function ProductsView({ categorySlug }: ProductsViewProps) {
   const t = useTranslations("ProductsPage");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const categories = useCategoriesStore((s) => s.categories);
   const { products, total, currentPage, totalPages, loading } =
     useProductsPageStore((state) => state);
@@ -54,6 +61,11 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", "1");
     router.push(`/categories/${slug}?${params.toString()}`);
+  };
+
+  const handleDrawerCategoryChange = (slug: string) => {
+    setIsFilterOpen(false);
+    navigateToCategory(slug);
   };
 
   const isFirstMount = useRef(true);
@@ -92,18 +104,29 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
     <AppContainer size="2xl" className="py-16">
       <ProductsHeader title={displayTitle} description={description} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-1">
-          <ProductFilterSidebar
-            categories={displayCategories}
-            onFilterChange={updateFilter}
-            onCategoryChange={navigateToCategory}
-            minPriceValue={searchParams.get("min_price") || ""}
-            maxPriceValue={searchParams.get("max_price") || ""}
-            ratingValue={searchParams.get("rating") || ""}
-            activeSlug={activeCategory?.slug || ""}
-          />
-        </div>
+      <RenderTabletAndBelow>
+        <FilterDrawerTrigger
+          eyebrow={t("filters")}
+          label={displayTitle}
+          buttonLabel={t("filterButton")}
+          onPress={() => setIsFilterOpen(true)}
+        />
+      </RenderTabletAndBelow>
+
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <RenderDesktopOnly>
+          <div className="lg:col-span-1">
+            <ProductFilterSidebar
+              categories={displayCategories}
+              onFilterChange={updateFilter}
+              onCategoryChange={navigateToCategory}
+              minPriceValue={searchParams.get("min_price") || ""}
+              maxPriceValue={searchParams.get("max_price") || ""}
+              ratingValue={searchParams.get("rating") || ""}
+              activeSlug={activeCategory?.slug || ""}
+            />
+          </div>
+        </RenderDesktopOnly>
 
         <ProductsCatalog
           products={products}
@@ -115,6 +138,20 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
           categoryTitle={displayTitle}
         />
       </div>
+
+      <RenderTabletAndBelow>
+        <ProductFilterDrawer
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          categories={displayCategories}
+          onFilterChange={updateFilter}
+          onCategoryChange={handleDrawerCategoryChange}
+          minPriceValue={searchParams.get("min_price") || ""}
+          maxPriceValue={searchParams.get("max_price") || ""}
+          ratingValue={searchParams.get("rating") || ""}
+          activeSlug={activeCategory?.slug || ""}
+        />
+      </RenderTabletAndBelow>
     </AppContainer>
   );
 }

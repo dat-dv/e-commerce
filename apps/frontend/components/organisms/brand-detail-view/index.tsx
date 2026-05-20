@@ -1,11 +1,11 @@
 import AppContainer from "@/components/atoms/app-container";
+import { TCategory } from "@/domain/categories/types/categories.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { TProduct } from "@/domain/products/types/products.model";
-import { TCategory } from "@/domain/categories/types/categories.model";
-import { BrandHero } from "./brand-hero";
-import { BrandStory } from "./brand-story";
-import { BrandProductListSection } from "./brand-product-list";
 import DiscoveryCarouselSection from "../discovery-sections";
+import { BrandHero } from "./brand-hero";
+import { BrandProductListSection } from "./brand-product-list";
+import { BrandStory } from "./brand-story";
 
 interface BrandDetailViewProps {
   brand: TBrand;
@@ -33,7 +33,7 @@ export function BrandDetailView({
       {/* Hero Banner Section */}
       <BrandHero brand={brand} />
 
-      <AppContainer className="py-20 flex flex-col gap-32">
+      <AppContainer className="flex flex-col gap-16 py-12 md:gap-24 md:py-20 lg:gap-32">
         {/* Editorial Narrative Story Section */}
         <BrandStory brand={brand} />
 

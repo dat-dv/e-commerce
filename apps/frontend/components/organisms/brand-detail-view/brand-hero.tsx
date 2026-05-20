@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 interface BrandHeroProps {
   brand: TBrand;
@@ -21,7 +21,7 @@ export function BrandHero({ brand }: BrandHeroProps) {
   return (
     <section
       ref={containerRef}
-      className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center bg-background"
+      className="relative flex h-[72svh] min-h-[520px] w-full items-center justify-center overflow-hidden bg-background md:h-[80vh]"
     >
       {/* Background Banner with Parallax */}
       <motion.div style={{ y: y1, scale }} className="absolute inset-0 z-0">
@@ -42,10 +42,10 @@ export function BrandHero({ brand }: BrandHeroProps) {
       {/* Floating Logo and Name */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 flex flex-col items-center gap-12"
+        className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-8 px-4 md:gap-12"
       >
         {brand.logoUrl && !imgError && (
-          <div className="relative w-40 h-40 md:w-56 md:h-56 p-8 rounded-[4rem] bg-background/30 backdrop-blur-3xl border border-content/10 shadow-2xl flex items-center justify-center">
+          <div className="relative flex size-32 items-center justify-center rounded-[2rem] border border-content/10 bg-background/30 p-6 shadow-2xl backdrop-blur-3xl sm:size-40 md:size-56 md:rounded-[4rem] md:p-8">
             <Image
               src={brand.logoUrl}
               alt={brand.name}
@@ -56,12 +56,12 @@ export function BrandHero({ brand }: BrandHeroProps) {
           </div>
         )}
 
-        <div className="text-center">
+        <div className="min-w-0 max-w-full text-center">
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-7xl md:text-[10rem] font-black tracking-tighter text-content leading-none uppercase"
+            className="break-words text-5xl font-black uppercase leading-none tracking-normal text-content sm:text-7xl md:text-[10rem]"
           >
             {brand.name}
           </motion.h1>
@@ -69,7 +69,7 @@ export function BrandHero({ brand }: BrandHeroProps) {
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ delay: 1, duration: 1 }}
-            className="h-1 w-full bg-primary mt-4"
+            className="mt-4 h-1 w-full bg-primary"
           />
         </div>
       </motion.div>

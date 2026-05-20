@@ -23,12 +23,12 @@ const ShippingSectionHeader = ({
   const t = useTranslations("CheckoutPage.shipping");
 
   return (
-    <div className="mb-6 flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <div className="flex size-8 items-center justify-center rounded-full bg-content text-surface">
+    <div className="mb-5 flex items-center justify-between gap-4 md:mb-6">
+      <div className="flex min-w-0 items-center gap-3 md:gap-4">
+        <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-content text-surface">
           <MapPin size={16} aria-hidden />
         </div>
-        <h2 className="text-xl font-bold capitalize text-content">
+        <h2 className="truncate text-lg font-bold capitalize text-content md:text-xl">
           {t("title")}
         </h2>
       </div>
@@ -36,7 +36,7 @@ const ShippingSectionHeader = ({
         variant="ghost"
         size="sm"
         onClick={onAddAddress}
-        className="h-auto rounded-lg px-0 py-1 text-xs font-semibold capitalize text-content/60 opacity-100 hover:text-primary"
+        className="h-auto shrink-0 rounded-lg px-0 py-1 text-xs font-semibold capitalize text-content/60 opacity-100 hover:text-primary"
       >
         <Plus size={14} aria-hidden />
         {t("newAddress")}
@@ -71,6 +71,8 @@ export const ShippingSection = ({
               isSelected={selectedAddressId === address.id}
               onSelect={() => setSelectedAddressId(address.id)}
               onEdit={() => onClickEdit(address)}
+              contentClassName="items-start gap-3 sm:items-center sm:gap-4"
+              selectButtonClassName="items-start gap-3 sm:items-center sm:gap-4"
             />
           ))
         ) : (

@@ -23,18 +23,18 @@ export function OrderDetailHeader({
 
   return (
     <div className="bg-surface/80 backdrop-blur-2xl border-b border-content/[0.05]">
-      <div className="container mx-auto px-4 py-6 max-w-4xl flex items-center gap-6">
+      <div className="container mx-auto flex max-w-4xl items-start gap-3 px-4 py-5 sm:items-center sm:gap-6 sm:py-6">
         <Link
           href={APP_ROUTES.ORDERS}
-          className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-content/[0.05] transition-colors border border-content/[0.05]"
+          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-content/[0.05] transition-colors hover:bg-content/[0.05]"
         >
-          <ArrowLeft className="w-5 h-5 text-content/60" />
+          <ArrowLeft className="h-5 w-5 text-content/60" />
         </Link>
-        <div>
-          <h1 className="text-xl font-bold text-content tracking-tight">
+        <div className="min-w-0 flex-1">
+          <h1 className="truncate text-lg font-bold tracking-tight text-content sm:text-xl">
             {t("card.orderNumber", { id: orderId.slice(-8).toUpperCase() })}
           </h1>
-          <p className="text-xs text-content/40 mt-1 font-medium">
+          <p className="mt-1 text-xs font-medium text-content/40">
             {new Date(createdAt).toLocaleDateString(locale, {
               month: "long",
               day: "numeric",
@@ -42,10 +42,10 @@ export function OrderDetailHeader({
             })}
           </p>
         </div>
-        <div className="ml-auto">
+        <div className="shrink-0">
           <span
             className={cn(
-              "px-4 py-1.5 text-xs font-bold rounded-full",
+              "inline-flex max-w-32 truncate rounded-full px-3 py-1.5 text-xs font-bold sm:max-w-none sm:px-4",
               statusColor,
             )}
           >

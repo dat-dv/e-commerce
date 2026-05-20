@@ -1,25 +1,25 @@
-import { ChevronLeft } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
-import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export const CheckoutHeader = () => {
   const t = useTranslations("CheckoutPage.header");
 
   return (
-    <div className="mb-12">
+    <div className="mb-8 md:mb-12">
       <Link
         href={APP_ROUTES.CART}
-        className="inline-flex items-center gap-2 text-sm font-medium text-content/60 hover:text-primary transition-colors mb-6 group"
+        className="group mb-5 inline-flex items-center gap-2 text-sm font-medium text-content/60 transition-colors hover:text-primary md:mb-6"
       >
         <ChevronLeft
           size={16}
-          className="group-hover:-translate-x-1 transition-transform"
+          className="transition-transform group-hover:-translate-x-1"
           aria-hidden
         />
         {t("backToCart")}
       </Link>
-      <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-content mb-4">
+      <h1 className="mb-4 text-3xl font-bold tracking-tight text-content md:text-5xl">
         {t("title")}
       </h1>
       <div className="h-px w-24 bg-primary" />
