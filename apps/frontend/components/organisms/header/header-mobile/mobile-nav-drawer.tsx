@@ -58,13 +58,16 @@ export default function MobileNavDrawer({
             </div>
 
             <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-5">
-              <UserProfileSection user={user} onClose={onClose} />
-
               <MobileNavLinks onClose={onClose} />
 
               {user && (
                 <UserShortcuts onClose={onClose} handleLogout={handleLogout} />
               )}
+              <UserProfileSection
+                user={user}
+                onClose={onClose}
+                className="mt-auto border-t border-content/10 pt-4"
+              />
             </div>
           </motion.div>
         </>

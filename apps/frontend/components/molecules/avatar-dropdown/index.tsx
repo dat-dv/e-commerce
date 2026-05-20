@@ -72,7 +72,7 @@ const AvatarDropdown = ({
           aria-expanded={isOpen}
           className="h-10 w-10 relative cursor-pointer group border-none bg-transparent outline-none p-0"
         >
-          <div className="absolute inset-0 rounded-xl border-2 border-primary/20 bg-primary/5 transition-all group-hover:border-primary/40 group-hover:scale-105 active:scale-95 overflow-hidden ring-offset-background group-focus-visible:ring-2 group-focus-visible:ring-primary/50">
+          <div className="size-10 rounded-full border border-content/10 overflow-hidden">
             <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
           </div>
         </button>

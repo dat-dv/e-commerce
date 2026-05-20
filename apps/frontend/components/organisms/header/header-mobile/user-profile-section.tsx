@@ -1,33 +1,44 @@
 "use client";
 
+import Avatar from "@/components/atoms/avatar";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
-import { ArrowRight, User } from "lucide-react";
+import { TUser } from "@/domain/auth/types/auth.model";
+import { LogIn, User, UserPlus } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ComponentPropsWithoutRef } from "react";
 
-interface IUserProfileSectionProps {
-  user: {
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-  } | null;
+interface IUserProfileSectionProps extends Omit<
+  ComponentPropsWithoutRef<"section">,
+  "children"
+> {
+  user: Partial<TUser> | null;
   onClose: () => void;
 }
 
 export default function UserProfileSection({
   user,
   onClose,
+  ...rest
 }: IUserProfileSectionProps) {
   const t = useTranslations("Common.header");
 
   return (
-    <section className="mb-5">
+    <section {...rest}>
       {user ? (
-        <div className="flex items-center gap-3 rounded-xl border border-content/10 bg-content/[0.025] p-3">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-base font-black uppercase text-primary">
-            {user.firstName ? user.firstName[0] : <User size={18} />}
+        <Button
+          variant="ghost"
+          href={APP_ROUTES.PROFILE}
+          onClick={onClose}
+          className="flex h-auto w-full items-center justify-start rounded-lg px-2 py-2 text-left hover:bg-content/[0.04]"
+        >
+          <div className="size-11 rounded-full border border-content/10 overflow-hidden">
+            <Avatar
+              name={`${user.firstName || ""} ${user.lastName || ""}`.trim()}
+              url={user?.avatarUrl || ""}
+            />
           </div>
-          <div className="flex min-w-0 flex-col">
+          <span className="ml-3 flex min-w-0 flex-1 flex-col">
             <span className="truncate text-sm font-black text-content">
               {`${user.firstName || ""} ${user.lastName || ""}`.trim() ||
                 t("avatarDropdown.fallbackUser")}
@@ -35,40 +46,44 @@ export default function UserProfileSection({
             <span className="mt-0.5 truncate text-xs font-medium text-content/50">
               {user.email || t("avatarDropdown.noEmail")}
             </span>
-          </div>
-        </div>
+          </span>
+        </Button>
       ) : (
-        <div className="rounded-xl border border-content/10 bg-content/[0.025] p-3">
-          <div className="mb-3 flex items-center gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <User size={18} />
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-black text-content">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 px-1">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <User size={17} />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-black text-content">
                 {t("avatarDropdown.accountDetails")}
-              </p>
-              <p className="mt-0.5 text-xs font-medium text-content/50">
-                {t("signIn")} / {t("signUp")}
-              </p>
-            </div>
+              </span>
+              <span className="mt-0.5 block text-xs font-medium text-content/50">
+                {t("signIn")} {t("navigation").toLowerCase()}
+              </span>
+            </span>
           </div>
-          <Button
-            variant="primary"
-            href={APP_ROUTES.SIGN_IN}
-            onClick={onClose}
-            className="h-10 w-full justify-between rounded-lg px-3 text-sm"
-          >
-            {t("signIn")}
-            <ArrowRight size={16} />
-          </Button>
-          <Button
-            variant="ghost"
-            href={APP_ROUTES.SIGN_UP}
-            onClick={onClose}
-            className="mt-2 h-9 w-full justify-center rounded-lg border border-content/10 text-xs"
-          >
-            {t("signUp")}
-          </Button>
+
+          <div className="grid grid-cols-2 gap-2">
+            <Button
+              variant="primary"
+              href={APP_ROUTES.SIGN_IN}
+              onClick={onClose}
+              className="h-10 rounded-lg px-2 text-xs"
+            >
+              <LogIn size={15} />
+              {t("signIn")}
+            </Button>
+            <Button
+              variant="ghost"
+              href={APP_ROUTES.SIGN_UP}
+              onClick={onClose}
+              className="h-10 rounded-lg border border-content/10 px-2 text-xs"
+            >
+              <UserPlus size={15} />
+              {t("signUp")}
+            </Button>
+          </div>
         </div>
       )}
     </section>
