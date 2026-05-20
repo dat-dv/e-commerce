@@ -29,29 +29,32 @@ export default function HeaderActions({
   const isAvatarVisible = visible.includes("avatar");
   const isNotificationsVisible = visible.includes("notifications");
   const isFavoritesVisible = visible.includes("favorites");
+  const isFallbackVisible = visible.includes("fallback");
 
   return (
     <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">
       <ProtectedSection
         fallbackChildren={
-          <>
-            <Button
-              variant="ghost"
-              size="sm"
-              href={APP_ROUTES.SIGN_IN}
-              className="h-9 px-4 text-sm sm:flex md:h-10 md:px-4 md:text-sm"
-            >
-              {t("signIn")}
-            </Button>
-            <Button
-              variant="primary"
-              size="sm"
-              className="h-9 px-4 text-sm sm:flex md:h-10 md:px-4 md:text-sm"
-              href={APP_ROUTES.SIGN_UP}
-            >
-              {t("signUp")}
-            </Button>
-          </>
+          isFallbackVisible && (
+            <>
+              <Button
+                variant="ghost"
+                size="sm"
+                href={APP_ROUTES.SIGN_IN}
+                className="h-9 px-4 text-sm sm:flex md:h-10 md:px-4 md:text-sm"
+              >
+                {t("signIn")}
+              </Button>
+              <Button
+                variant="primary"
+                size="sm"
+                className="h-9 px-4 text-sm sm:flex md:h-10 md:px-4 md:text-sm"
+                href={APP_ROUTES.SIGN_UP}
+              >
+                {t("signUp")}
+              </Button>
+            </>
+          )
         }
       >
         {isFavoritesVisible && (

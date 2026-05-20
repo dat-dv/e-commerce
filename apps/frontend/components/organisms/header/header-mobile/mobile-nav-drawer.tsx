@@ -1,12 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
 import HamburgerButton from "@/components/atoms/hamburger-button";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 
+import HeaderLogo from "../header-desktop/header-logo";
 import MobileNavLinks from "./mobile-nav-links";
 import UserProfileSection from "./user-profile-section";
 import UserShortcuts from "./user-shortcuts";
@@ -22,7 +22,6 @@ export default function MobileNavDrawer({
 }: IMobileNavDrawerProps) {
   const user = useAuthStore((store) => store.user);
   const { handleClickLogout } = useLogout();
-  const t = useTranslations("Common.header");
 
   const handleLogout = async () => {
     onClose();
@@ -38,7 +37,7 @@ export default function MobileNavDrawer({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/35 backdrop-blur-[2px]"
           />
 
           <motion.div
@@ -46,12 +45,10 @@ export default function MobileNavDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 left-0 bottom-0 z-50 w-full bg-surface/90 backdrop-blur-xl border-r border-content/10 flex flex-col p-6 shadow-2xl overflow-y-auto"
+            className="fixed bottom-0 left-0 top-0 z-50 flex w-[86vw] max-w-[360px] flex-col border-r border-content/10 bg-surface shadow-2xl sm:max-w-[380px] md:max-w-[420px]"
           >
-            <div className="flex items-center justify-between mb-8">
-              <span className="text-lg font-black tracking-wider text-primary uppercase">
-                {t("menu")}
-              </span>
+            <div className="flex h-16 shrink-0 items-center justify-between border-b border-content/10 px-4">
+              <HeaderLogo />
               <HamburgerButton
                 isOpen
                 onClick={onClose}
@@ -60,13 +57,15 @@ export default function MobileNavDrawer({
               />
             </div>
 
-            <UserProfileSection user={user} onClose={onClose} />
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-5">
+              <UserProfileSection user={user} onClose={onClose} />
 
-            <MobileNavLinks onClose={onClose} />
+              <MobileNavLinks onClose={onClose} />
 
-            {user && (
-              <UserShortcuts onClose={onClose} handleLogout={handleLogout} />
-            )}
+              {user && (
+                <UserShortcuts onClose={onClose} handleLogout={handleLogout} />
+              )}
+            </div>
           </motion.div>
         </>
       )}

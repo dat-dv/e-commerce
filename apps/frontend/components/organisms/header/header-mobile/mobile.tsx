@@ -4,6 +4,10 @@ import AppContainer from "@/components/atoms/app-container";
 import HamburgerButton from "@/components/atoms/hamburger-button";
 import { useState } from "react";
 
+import {
+  RenderOnMobile,
+  RenderTabletOnly,
+} from "@/components/molecules/responsive";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "../header-desktop/header-logo";
 import MobileNavDrawer from "./mobile-nav-drawer";
@@ -18,7 +22,14 @@ export default function HeaderMobile() {
           <HeaderLogo />
         </div>
         <div className="flex items-center gap-0">
-          <HeaderActions visible={["avatar", "notifications", "cart"]} />
+          <RenderOnMobile>
+            <HeaderActions visible={["avatar", "notifications", "cart"]} />
+          </RenderOnMobile>
+          <RenderTabletOnly>
+            <HeaderActions
+              visible={["avatar", "notifications", "cart", "fallback"]}
+            />
+          </RenderTabletOnly>
           <HamburgerButton
             isOpen={isOpenMobileMenu}
             onClick={() => setIsOpenMobileMenu(true)}

@@ -3,7 +3,14 @@
 import Button from "@/components/atoms/button";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
 import { cn } from "@/utils/cn";
-import { ChevronRight } from "lucide-react";
+import {
+  Flame,
+  Grid2X2,
+  Home,
+  PackagePlus,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
@@ -27,9 +34,17 @@ export default function MobileNavLinks({ onClose }: IMobileNavLinksProps) {
     Brands: "brands",
   };
 
+  const iconMap: Record<string, LucideIcon> = {
+    Home,
+    Categories: Grid2X2,
+    "New Arrivals": PackagePlus,
+    "Flash Sale": Flame,
+    Brands: ShieldCheck,
+  };
+
   return (
-    <nav className="flex flex-col gap-1 mb-8">
-      <span className="text-xs font-semibold text-content/40 uppercase tracking-wider px-3 mb-2">
+    <nav className="mb-5 flex flex-col gap-1">
+      <span className="mb-2 px-1 text-[11px] font-black uppercase tracking-[0.18em] text-content/35">
         {t("navigation")}
       </span>
       {HEADER_NAV_LINKS.map((link) => {
@@ -38,6 +53,7 @@ export default function MobileNavLinks({ onClose }: IMobileNavLinksProps) {
           : pathname.startsWith(link.href);
         const key = navKeyMap[link.label];
         const displayLabel = key ? tNav(key) : link.label;
+        const Icon = iconMap[link.label] ?? Home;
 
         return (
           <Button
@@ -46,21 +62,28 @@ export default function MobileNavLinks({ onClose }: IMobileNavLinksProps) {
             href={link.href}
             onClick={onClose}
             className={cn(
-              "flex items-center justify-between px-3 py-3 rounded-xl text-sm font-bold transition-colors w-full text-left h-auto",
+              "flex h-11 w-full items-center justify-start rounded-lg px-2 text-left text-sm font-bold transition-colors",
               isActive
-                ? "bg-primary/5 text-primary"
-                : "text-content/70 hover:text-content hover:bg-content/5",
+                ? "bg-primary/10 text-primary"
+                : "text-content/70 hover:bg-content/[0.04] hover:text-content",
             )}
           >
-            <span className="flex items-center gap-2">
+            <span
+              className={cn(
+                "flex size-8 shrink-0 items-center justify-center rounded-md",
+                isActive ? "bg-primary text-white" : "bg-content/[0.04]",
+              )}
+            >
+              <Icon size={16} />
+            </span>
+            <span className="ml-3 flex min-w-0 flex-1 items-center gap-2 truncate">
               {displayLabel}
               {link.badge && (
-                <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-[8px] text-white font-black uppercase tracking-wider">
+                <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[8px] font-black uppercase tracking-wider text-white">
                   {link.badge}
                 </span>
               )}
             </span>
-            <ChevronRight size={16} className="opacity-40" />
           </Button>
         );
       })}

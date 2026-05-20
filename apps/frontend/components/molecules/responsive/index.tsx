@@ -36,6 +36,16 @@ export function RenderTabletAbove({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function RenderTabletOnly({ children }: { children: React.ReactNode }) {
+  return (
+    <ResponsiveRender
+      query={`(min-width: ${BREAKPOINTS.tablet}px) and (max-width: ${BREAKPOINTS.desktop - 1}px)`}
+    >
+      {children}
+    </ResponsiveRender>
+  );
+}
+
 export function RenderTabletBelow({ children }: { children: React.ReactNode }) {
   return (
     <ResponsiveRender query={`(max-width: ${BREAKPOINTS.desktop - 1}px)`}>

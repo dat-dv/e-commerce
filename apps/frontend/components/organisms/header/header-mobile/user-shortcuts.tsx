@@ -3,13 +3,7 @@
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { useCart } from "@/hooks/cart/use-cart";
-import {
-  ChevronRight,
-  Heart,
-  LogOut,
-  Settings,
-  ShoppingBag,
-} from "lucide-react";
+import { Heart, LogOut, Settings, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface IUserShortcutsProps {
@@ -25,8 +19,8 @@ export default function UserShortcuts({
   const t = useTranslations("Common.header");
 
   return (
-    <div className="flex flex-col gap-1 mb-8">
-      <span className="text-xs font-semibold text-content/40 uppercase tracking-wider px-3 mb-2">
+    <div className="mt-auto flex flex-col gap-1 border-t border-content/10 pt-4">
+      <span className="mb-2 px-1 text-[11px] font-black uppercase tracking-[0.18em] text-content/35">
         {t("mySpace")}
       </span>
 
@@ -34,13 +28,12 @@ export default function UserShortcuts({
         variant="ghost"
         href={APP_ROUTES.FAVORITES}
         onClick={onClose}
-        className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-bold text-content/70 hover:text-content hover:bg-content/5 transition-colors w-full text-left h-auto"
+        className="flex h-11 w-full items-center justify-start rounded-lg px-2 text-left text-sm font-bold text-content/70 transition-colors hover:bg-content/[0.04] hover:text-content"
       >
-        <span className="flex items-center gap-2.5">
-          <Heart size={18} className="text-content/50" />
-          {t("favorites")}
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-content/[0.04]">
+          <Heart size={16} />
         </span>
-        <ChevronRight size={16} className="opacity-40" />
+        <span className="ml-3 flex-1">{t("favorites")}</span>
       </Button>
 
       <Button
@@ -49,42 +42,42 @@ export default function UserShortcuts({
           onClose();
           setCartOpen(true);
         }}
-        className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-bold text-content/70 hover:text-content hover:bg-content/5 transition-colors w-full text-left h-auto"
+        className="flex h-11 w-full items-center justify-start rounded-lg px-2 text-left text-sm font-bold text-content/70 transition-colors hover:bg-content/[0.04] hover:text-content"
       >
-        <span className="flex items-center gap-2.5">
-          <ShoppingBag size={18} className="text-content/50" />
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-content/[0.04]">
+          <ShoppingBag size={16} />
+        </span>
+        <span className="ml-3 flex flex-1 items-center gap-2">
           {t("cart")}
           {itemsCount > 0 && (
-            <span className="px-2 py-0.5 rounded-full bg-blue-600 text-[10px] text-white font-bold">
+            <span className="rounded-full bg-blue-600 px-2 py-0.5 text-[10px] font-bold text-white">
               {itemsCount}
             </span>
           )}
         </span>
-        <ChevronRight size={16} className="opacity-40" />
       </Button>
 
       <Button
         variant="ghost"
         href={APP_ROUTES.SETTINGS}
         onClick={onClose}
-        className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-bold text-content/70 hover:text-content hover:bg-content/5 transition-colors w-full text-left h-auto"
+        className="flex h-11 w-full items-center justify-start rounded-lg px-2 text-left text-sm font-bold text-content/70 transition-colors hover:bg-content/[0.04] hover:text-content"
       >
-        <span className="flex items-center gap-2.5">
-          <Settings size={18} className="text-content/50" />
-          {t("settings")}
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-content/[0.04]">
+          <Settings size={16} />
         </span>
-        <ChevronRight size={16} className="opacity-40" />
+        <span className="ml-3 flex-1">{t("settings")}</span>
       </Button>
 
       <Button
         variant="ghost"
         onClick={handleLogout}
-        className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-bold text-red-500 hover:bg-red-500/5 transition-colors w-full text-left mt-4 h-auto"
+        className="mt-2 flex h-11 w-full items-center justify-start rounded-lg px-2 text-left text-sm font-bold text-red-500 transition-colors hover:bg-red-500/5"
       >
-        <span className="flex items-center gap-2.5">
-          <LogOut size={18} />
-          {t("avatarDropdown.signOut")}
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-red-500/10">
+          <LogOut size={16} />
         </span>
+        <span className="ml-3">{t("avatarDropdown.signOut")}</span>
       </Button>
     </div>
   );
