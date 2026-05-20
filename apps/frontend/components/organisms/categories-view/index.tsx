@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { CategoriesContent } from "./content";
-import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
-import CategoryHeader from "./categories-header";
 import SidebarLayout from "@/components/molecules/sidebar-layout";
 import { TCategory } from "@/domain/categories/types/categories.model";
+import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import CategoryHeader from "./categories-header";
+import { CategoriesContent } from "./content";
 
 const findCategoryById = (
   categories: TCategory[],

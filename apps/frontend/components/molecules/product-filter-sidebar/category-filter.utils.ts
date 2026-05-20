@@ -41,3 +41,35 @@ export const searchCategoryTree = (
     return result;
   }, []);
 };
+
+export const getCategorySlugs = (items: TCategory[]): string[] => {
+  return items.reduce<string[]>((acc, item) => {
+    acc.push(item.slug);
+    if (item.children) {
+      acc.push(...getCategorySlugs(item.children));
+    }
+    return acc;
+  }, []);
+};
+
+export const getActiveBranchSlugs = (
+  categories: TCategory[],
+  activeSlug?: string,
+) => {
+  const activeBranchSlugs: string[] = [];
+  if (!activeSlug) return activeBranchSlugs;
+
+  const findActiveBranch = (items: TCategory[]) => {
+    for (const item of items) {
+      if (categoryHasActiveSlug(item, activeSlug)) {
+        activeBranchSlugs.push(item.slug);
+        if (item.children) {
+          findActiveBranch(item.children);
+        }
+      }
+    }
+  };
+
+  findActiveBranch(categories);
+  return activeBranchSlugs;
+};

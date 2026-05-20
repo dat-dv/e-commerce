@@ -37,11 +37,3 @@ export interface ICategoryFilterSectionProps {
   activeSlug?: string;
   onCategoryChange: (slug: string) => void;
 }
-
-export interface ICategoryTreeItemProps {
-  category: TCategory;
-  activeSlug?: string;
-  level: number;
-  forceExpanded?: boolean;
-  onCategoryChange: (slug: string) => void;
-}

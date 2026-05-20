@@ -6,14 +6,14 @@ import { type Key } from "react-aria-components";
 
 import { Tree } from "@/components/atoms/tree";
 import { AllCategoriesButton } from "./all-categories-button";
-import { CategorySearchInput } from "./category-search-input";
-import { CategorySidebarHeader } from "./category-sidebar-header";
 import { ICategoryNavSidebarProps } from "./category-nav-sidebar.types";
 import {
   filterCategoriesByKeyword,
   getActiveBranchIds,
   getCategoryIds,
 } from "./category-nav-sidebar.utils";
+import { CategorySearchInput } from "./category-search-input";
+import { CategorySidebarHeader } from "./category-sidebar-header";
 
 export const CategoryNavSidebar = ({
   categories,
@@ -72,6 +72,7 @@ export const CategoryNavSidebar = ({
                 items={filteredCategories}
                 selectedKeys={selectedKeys}
                 selectionMode="single"
+                selectionBehavior="replace"
                 onSelectionChange={(keys) => {
                   if (keys !== "all") {
                     const selected = Array.from(keys)[0];
