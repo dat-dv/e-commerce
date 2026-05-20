@@ -2,6 +2,7 @@
 
 import { AnimationItem } from "@/components/atoms/animate";
 import Button from "@/components/atoms/button";
+import { FormCard } from "@/components/atoms/form-card";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
@@ -55,7 +56,7 @@ export const ProfileFormDesktop = ({
       methods={methods}
       onSubmit={handleSave}
     >
-      <div className="bg-white/80 dark:bg-surface/80 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl space-y-6">
+      <FormCard className="space-y-6">
         <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
 
         <div className="grid grid-cols-2 gap-4">
@@ -146,7 +147,7 @@ export const ProfileFormDesktop = ({
             </Button>
           )}
         </AnimationItem>
-      </div>
+      </FormCard>
     </AppForm>
   );
 };

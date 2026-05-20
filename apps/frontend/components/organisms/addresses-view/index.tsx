@@ -1,5 +1,6 @@
 "use client";
 
+import { FormCard } from "@/components/atoms/form-card";
 import AddressCard from "@/components/molecules/address-card";
 import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";
@@ -49,12 +50,13 @@ export const AddressesView = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="p-6 border border-primary/20 rounded-2xl bg-surface/60 backdrop-blur-md"
           >
-            <h2 className="text-base font-bold text-content mb-4">
-              {t("newAddress")}
-            </h2>
-            <AddressesForm onSubmit={handleAddAddress} loading={adding} />
+            <FormCard>
+              <h2 className="text-base font-bold text-content mb-4">
+                {t("newAddress")}
+              </h2>
+              <AddressesForm onSubmit={handleAddAddress} loading={adding} />
+            </FormCard>
           </motion.div>
         )}
       </AnimatePresence>

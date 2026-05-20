@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { FormCard } from "@/components/atoms/form-card";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
@@ -21,6 +22,10 @@ interface IProfileFormMobileProps {
   uploadAvatar: (avatar: File) => Promise<boolean | void>;
 }
 
+/**
+ * Molecule component rendering the Profile form for mobile views.
+ * Utilizes the centralized FormCard layout component for visual consistency.
+ */
 export const ProfileFormMobile = ({
   user,
   isLoading,
@@ -56,15 +61,15 @@ export const ProfileFormMobile = ({
     >
       <div className="space-y-4">
         {/* Avatar section — centered on mobile */}
-        <div className="flex flex-col items-center gap-3 py-6 bg-white/80 dark:bg-surface/80 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg">
+        <FormCard className="flex flex-col items-center gap-3 py-6">
           <AvatarWrapper
             user={user}
             isFormDisabled={isFormDisabled}
             className="align-center [&_p]:text-center"
           />
-        </div>
+        </FormCard>
         {/* Form fields — single column */}
-        <div className="bg-white/80 dark:bg-surface/80 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-lg space-y-4">
+        <FormCard className="space-y-4">
           <FormInput
             variant="outline"
             name="firstName"
@@ -153,7 +158,7 @@ export const ProfileFormMobile = ({
               </Button>
             )}
           </div>
-        </div>
+        </FormCard>
       </div>
     </AppForm>
   );

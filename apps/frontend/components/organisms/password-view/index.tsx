@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { useChangePassword } from "@/hooks/profile/use-change-password";
+import { FormCard } from "@/components/atoms/form-card";
 import { ChangePasswordForm } from "@/components/molecules/change-password-form";
+import { useChangePassword } from "@/hooks/profile/use-change-password";
 import { useTranslations } from "next-intl";
 
 export const PasswordView = () => {
@@ -10,7 +10,7 @@ export const PasswordView = () => {
   const { changePassword, loading } = useChangePassword();
 
   return (
-    <div className="p-6 bg-surface/60 backdrop-blur-md rounded-2xl shadow-xl border border-content/8">
+    <FormCard>
       <div className="mb-6 min-w-0">
         <h1 className="text-2xl font-bold text-content break-words">
           {t("title")}
@@ -21,6 +21,6 @@ export const PasswordView = () => {
       </div>
 
       <ChangePasswordForm onSubmit={changePassword} loading={loading} />
-    </div>
+    </FormCard>
   );
 };

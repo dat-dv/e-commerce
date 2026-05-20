@@ -18,10 +18,6 @@ interface ChangePasswordFormProps {
   loading: boolean;
 }
 
-/**
- * A form component allowing users to securely update their passwords.
- * Renders full-width input fields to maintain alignment and layout consistency across profile settings pages.
- */
 export const ChangePasswordForm = ({
   onSubmit,
   loading,

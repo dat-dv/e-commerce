@@ -1,5 +1,6 @@
 "use client";
 
+import { FormCard } from "@/components/atoms/form-card";
 import Button from "@/components/atoms/button";
 import { CreditCard, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -9,7 +10,7 @@ export function ProfileBankView(): React.ReactElement {
   const t = useTranslations("ProfileBankPage");
 
   return (
-    <div className="p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/20">
+    <FormCard>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
         <div className="min-w-0">
           <h1 className="text-2xl font-bold text-content break-words">
@@ -43,7 +44,7 @@ export function ProfileBankView(): React.ReactElement {
           </p>
         </div>
       </div>
-    </div>
+    </FormCard>
   );
 }
 
