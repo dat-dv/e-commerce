@@ -1,21 +1,15 @@
-import Link from "next/link";
-
+import Logo from "@/components/atoms/logo";
 import { APP_ROUTES } from "@/constants/routes";
+import Link from "next/link";
 
 const HeaderLogo = () => {
   return (
-    <Link href={APP_ROUTES.HOME}>
-      <div className="flex items-center gap-2">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white font-bold transition-all">
-          S
-        </div>
-        <span className="text-lg md:text-xl font-bold tracking-tight text-content select-none">
-          Shop
-          <span className="hidden sm:inline text-primary transition-all">
-            .hub
-          </span>
-        </span>
-      </div>
+    <Link
+      href={APP_ROUTES.HOME}
+      aria-label="Go to homepage"
+      className="rounded-xl outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:opacity-80"
+    >
+      <Logo />
     </Link>
   );
 };
