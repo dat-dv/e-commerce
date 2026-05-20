@@ -29,7 +29,7 @@ export const HomepagePublic = ({ flashSaleProducts }: HomepagePublicProps) => {
       {/* 1. Hero Banner Section */}
       <HomeWelcomeSection />
       {/* Wrapping the rest in ONE AppContainer */}
-      <AppContainer className="flex flex-col gap-12">
+      <AppContainer className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
 

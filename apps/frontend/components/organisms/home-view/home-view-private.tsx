@@ -34,7 +34,7 @@ export const HomepagePrivate = ({
       <HomeWelcomeSection
         name={`${user?.firstName || ""} ${user?.lastName || ""}`}
       />
-      <AppContainer className="flex flex-col gap-10 pt-10">
+      <AppContainer className="flex flex-col gap-8 pt-8 sm:gap-10 sm:pt-10">
         {/* 2. Feature Cards Grid */}
         <FeatureGrid items={FEATURE_ITEMS} />
         {/* Categories Section */}

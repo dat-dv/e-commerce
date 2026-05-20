@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import { EmblaCarouselType, EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight } from "lucide-react";
-import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+
+import Button from "@/components/atoms/button";
+import { cn } from "@/utils/cn";
 
 interface CarouselProps {
   children: React.ReactNode;
@@ -69,28 +72,33 @@ export const Carousel = ({ children, options, loadMore }: CarouselProps) => {
   return (
     <div className="relative">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6 items-stretch">{children}</div>
+        <div className="flex items-stretch gap-3 sm:gap-4 lg:gap-6">
+          {children}
+        </div>
       </div>
 
-      {/* Controls */}
-      <button
+      <Button
+        variant="ghost"
         onClick={scrollPrev}
         disabled={!prevBtnEnabled}
-        className={`absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-surface/80 backdrop-blur-md border border-content/[0.05] rounded-full flex items-center justify-center hover:bg-content/[0.02] active:scale-95 transition-all ${
+        aria-label="Previous carousel items"
+        className={`absolute left-3 top-1/2 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-content/[0.05] bg-surface/85 p-0 text-content/60 shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:bg-content/[0.02] sm:flex lg:left-4 lg:size-11 ${
           !prevBtnEnabled ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
-        <ArrowRight className="w-5 h-5 rotate-180 text-content/60" />
-      </button>
-      <button
+        <ArrowRight className="size-5 rotate-180" />
+      </Button>
+      <Button
+        variant="ghost"
         onClick={scrollNext}
         disabled={!nextBtnEnabled}
-        className={`absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-surface/80 backdrop-blur-md border border-content/[0.05] rounded-full flex items-center justify-center hover:bg-content/[0.02] active:scale-95 transition-all ${
+        aria-label="Next carousel items"
+        className={`absolute right-3 top-1/2 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-content/[0.05] bg-surface/85 p-0 text-content/60 shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:bg-content/[0.02] sm:flex lg:right-4 lg:size-11 ${
           !nextBtnEnabled ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
-        <ArrowRight className="w-5 h-5 text-content/60" />
-      </button>
+        <ArrowRight className="size-5" />
+      </Button>
     </div>
   );
 };
@@ -103,9 +111,7 @@ export const CarouselItem = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={`flex-[0_0_auto] min-w-0 flex flex-col items-stretch ${className}`}
-    >
+    <div className={cn("min-w-0 flex flex-col items-stretch", className)}>
       {children}
     </div>
   );
