@@ -6,7 +6,7 @@ import { ProductFilterSidebar } from "@/components/molecules/product-filter-side
 import { ProductsHeader } from "@/components/molecules/products-header";
 import {
   RenderDesktopOnly,
-  RenderTabletBelow,
+  RenderTabletAndBelow,
 } from "@/components/molecules/responsive";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { TProduct } from "@/domain/products/types/products.model";
@@ -90,14 +90,14 @@ export function CategoryDetailView({
         description={t("description", { category: categoryTitle })}
       />
 
-      <RenderTabletBelow>
+      <RenderTabletAndBelow>
         <FilterDrawerTrigger
           eyebrow={tProducts("filters")}
           label={categoryTitle}
           buttonLabel={tProducts("filterButton")}
           onPress={() => setIsFilterOpen(true)}
         />
-      </RenderTabletBelow>
+      </RenderTabletAndBelow>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
         <RenderDesktopOnly>
@@ -141,7 +141,7 @@ export function CategoryDetailView({
         />
       </div>
 
-      <RenderTabletBelow>
+      <RenderTabletAndBelow>
         <CategoryFilterDrawer<CategoryProductsFilterKey>
           isOpen={isFilterOpen}
           onClose={() => setIsFilterOpen(false)}
@@ -158,7 +158,7 @@ export function CategoryDetailView({
           ratingValue={filterRating}
           activeSlug={categorySlug}
         />
-      </RenderTabletBelow>
+      </RenderTabletAndBelow>
     </AppContainer>
   );
 }

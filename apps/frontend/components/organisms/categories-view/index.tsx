@@ -2,7 +2,7 @@
 
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
-import { RenderTabletBelow } from "@/components/molecules/responsive";
+import { RenderTabletAndBelow } from "@/components/molecules/responsive";
 import SidebarLayout from "@/components/molecules/sidebar-layout";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
@@ -67,17 +67,17 @@ export const CategoriesView = () => {
       sidebarClassName="hidden lg:block"
       header={<CategoryHeader title={title} description={description} />}
     >
-      <RenderTabletBelow>
+      <RenderTabletAndBelow>
         <FilterDrawerTrigger
           eyebrow={tSidebar("title")}
           label={activeCategory?.name || tSidebar("allCategories")}
           buttonLabel={tSidebar("filterButton")}
           onPress={() => setIsDrawerOpen(true)}
         />
-      </RenderTabletBelow>
+      </RenderTabletAndBelow>
 
       <CategoriesContent categories={categories} activeId={activeId} />
-      <RenderTabletBelow>
+      <RenderTabletAndBelow>
         <CategoriesFilterDrawer
           isOpen={isDrawerOpen}
           categories={parentCategories}
@@ -85,7 +85,7 @@ export const CategoriesView = () => {
           setActiveId={setActiveId}
           onClose={() => setIsDrawerOpen(false)}
         />
-      </RenderTabletBelow>
+      </RenderTabletAndBelow>
     </SidebarLayout>
   );
 };

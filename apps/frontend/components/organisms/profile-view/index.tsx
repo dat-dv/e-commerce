@@ -1,23 +1,23 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import { ProfileFormDesktop } from "@/components/molecules/profile-form/profile-form-desktop";
 import { ProfileFormMobile } from "@/components/molecules/profile-form/profile-form-mobile";
 import {
-  RenderDesktopOnly,
-  RenderTabletBelow,
+  RenderMobileOnly,
+  RenderTabletAndAbove,
 } from "@/components/molecules/responsive";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
 import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
-import { ProfileTabs } from "./profile-tabs";
 
 export const ProfileView = () => {
   const user = useAuthStore((state) => state.user);
   const { updateProfile, loading: isUpdating } = useUpdateProfile();
   const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
 
-  const mobileProps = {
+  const formProps = {
     user,
     updateProfile,
     uploadAvatar,
@@ -27,16 +27,16 @@ export const ProfileView = () => {
 
   return (
     <AppContainer>
-      <RenderDesktopOnly>
+      <RenderTabletAndAbove>
         <div className="space-y-12">
-          <ProfileTabs />
+          <ProfileFormDesktop {...formProps} />
           <DiscoveryCarouselSection />
         </div>
-      </RenderDesktopOnly>
+      </RenderTabletAndAbove>
 
-      <RenderTabletBelow>
-        <ProfileFormMobile {...mobileProps} />
-      </RenderTabletBelow>
+      <RenderMobileOnly>
+        <ProfileFormMobile {...formProps} />
+      </RenderMobileOnly>
     </AppContainer>
   );
 };

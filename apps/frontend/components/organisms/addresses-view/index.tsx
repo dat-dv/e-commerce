@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
-import { Plus } from "lucide-react";
-import { useAddresses } from "@/hooks/profile/use-addresses";
-import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import Button from "@/components/atoms/button";
-import { AddressesForm } from "@/components/molecules/addresses-form";
-import { motion, AnimatePresence } from "framer-motion";
 import AddressCard from "@/components/molecules/address-card";
 import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";
+import { AddressesForm } from "@/components/molecules/addresses-form";
+import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
+import { useAddresses } from "@/hooks/profile/use-addresses";
+import { AnimatePresence, motion } from "framer-motion";
+import { Plus } from "lucide-react";
+import { useState } from "react";
 
 import { useTranslations } from "next-intl";
 

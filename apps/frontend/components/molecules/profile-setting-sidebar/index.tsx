@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import SidebarLayout from "@/components/molecules/sidebar-layout";
+import React from "react";
 import ProfileSettingsSidebarHeader from "./profile-sidebar-header";
 import ProfileSidebarSection from "./profile-sidebar-section";
 

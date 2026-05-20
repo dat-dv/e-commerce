@@ -2,7 +2,7 @@
 
 import {
   RenderDesktopOnly,
-  RenderTabletBelow,
+  RenderTabletAndBelow,
 } from "../../molecules/responsive";
 import HeaderDesktop from "./header-desktop";
 import HeaderMobile from "./header-mobile/mobile";
@@ -13,9 +13,9 @@ export default function Header() {
       <RenderDesktopOnly>
         <HeaderDesktop />
       </RenderDesktopOnly>
-      <RenderTabletBelow>
+      <RenderTabletAndBelow>
         <HeaderMobile />
-      </RenderTabletBelow>
+      </RenderTabletAndBelow>
     </>
   );
 }

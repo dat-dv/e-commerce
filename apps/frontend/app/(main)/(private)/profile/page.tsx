@@ -1,4 +1,3 @@
-import { ProductsProvider } from "@/components/molecules/providers/products-provider";
 import { ProfileView } from "@/components/organisms/profile-view";
 import { getTranslations } from "next-intl/server";
 
@@ -11,9 +10,5 @@ export async function generateMetadata() {
 }
 
 export default function ProfilePage() {
-  return (
-    <ProductsProvider>
-      <ProfileView />
-    </ProductsProvider>
-  );
+  return <ProfileView />;
 }

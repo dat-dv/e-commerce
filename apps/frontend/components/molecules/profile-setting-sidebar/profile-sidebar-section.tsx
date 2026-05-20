@@ -21,7 +21,6 @@ export default function ProfileSidebarSection() {
       icon: User,
       items: [
         { href: "/profile", label: t("links.profile") },
-        { href: "/profile/bank", label: t("links.bankAccount") },
         { href: "/profile/address", label: t("links.addresses") },
         { href: "/profile/password", label: t("links.changePassword") },
       ],

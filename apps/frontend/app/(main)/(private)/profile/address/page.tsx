@@ -1,4 +1,3 @@
-import React from "react";
 import { AddressesView } from "@/components/organisms/addresses-view";
 import { getTranslations } from "next-intl/server";
 

@@ -34,7 +34,7 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
     if (lower === "office" || lower === "work") return t("form.labels.work");
     if (lower === "apartment") return t("form.labels.apartment");
     if (lower === "other") return t("form.labels.other");
-    return String(label || "");
+    return label;
   };
 
   return (
