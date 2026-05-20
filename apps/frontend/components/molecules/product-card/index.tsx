@@ -1,24 +1,26 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Button from "@/components/atoms/button";
-import { Eye, ShoppingBag, Heart } from "lucide-react";
-import { formatCurrency } from "@/utils/format-currency";
-import Image from "next/image";
-import { APP_ROUTES } from "@/constants/routes";
+import { ShoppingBag, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
+import React from "react";
 
 import { TProduct } from "@/domain/products/types/products.model";
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
+import { useToggleFavorite } from "@/hooks/favorites/use-toggle-favorite";
+import { ProductCardInfo } from "./product-card-info";
+import { ProductCardMedia } from "./product-card-media";
+import { ProductCardPrice } from "./product-card-price";
+import {
+  getFormattedSoldCount,
+  getProductBadgeText,
+  getSkuPriceDisplay,
+} from "./product-card.utils";
 
 interface ProductCardProps {
   product: TProduct;
   showFavoriteButton?: boolean;
 }
-
-import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
-import { useToggleFavorite } from "@/hooks/favorites/use-toggle-favorite";
-import { cn } from "@/utils/cn";
 
 export const ProductCard = ({
   product,
@@ -55,9 +57,7 @@ export const ProductCard = ({
     );
   };
 
-  const badgeText =
-    product.brand?.name ||
-    (product.category !== "General" ? product.category : "");
+  const badgeText = getProductBadgeText(product);
 
   const hasDiscount = !!sku?.discountPercent;
   const discountLabel = `-${sku?.discountPercent}%`;
@@ -65,116 +65,42 @@ export const ProductCard = ({
   const hasRating = product.rating !== undefined && product.rating > 0;
   const formattedRating = product.rating?.toFixed(1);
 
-  const hasSoldCount = product.soldCount !== undefined && product.soldCount > 0;
-  const formattedSoldCount =
-    product.soldCount && product.soldCount > 1000
-      ? `${(product.soldCount / 1000).toFixed(1)}k`
-      : product.soldCount;
-
-  const displayPrice = formatCurrency(sku?.price);
-  const displayOriginalPrice = formatCurrency(sku?.originalPrice);
+  const formattedSoldCount = getFormattedSoldCount(product.soldCount);
+  const priceDisplay = getSkuPriceDisplay(sku);
 
   return (
     <div className="group relative flex flex-col h-full flex-1 bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
-      {/* Image Section */}
-      <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
-        {product.imageUrl ? (
-          <Image
-            src={product.imageUrl}
-            alt={product.name}
-            fill
-            sizes="(max-width: 768px) 50vw, 20vw"
-            className="object-contain transition-transform duration-500"
-          />
-        ) : (
-          <div className="text-content/20 text-xs font-semibold">
-            {t("noImage")}
-          </div>
-        )}
-
-        {/* Action Overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-          <Link
-            href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
-            className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:bg-white/90 transition-all"
-          >
-            <Eye size={18} />
-          </Link>
-          <Button
-            onClick={handleAddToCart}
-            variant="ghost"
-            className="w-10 h-10 bg-primary text-surface rounded-full flex items-center justify-center hover:opacity-90 shadow-lg active:scale-90 p-0"
-          >
-            <ShoppingBag size={18} />
-          </Button>
-        </div>
-
-        {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
-          {hasDiscount && (
+      <ProductCardMedia
+        product={product}
+        noImageLabel={t("noImage")}
+        addToCartClassName="bg-primary text-surface hover:opacity-90"
+        onAddToCart={handleAddToCart}
+        showFavoriteButton={showFavoriteButton}
+        isFavorited={isFavorited}
+        favoriteLoading={favoriteLoading}
+        onToggleFavorite={toggleFavorite}
+        badges={
+          hasDiscount ? (
             <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-lg shadow-red-500/20">
               {discountLabel}
             </div>
-          )}
-        </div>
+          ) : undefined
+        }
+      />
 
-        {/* Favorite Button */}
-        {showFavoriteButton && (
-          <Button
-            onClick={toggleFavorite}
-            disabled={favoriteLoading}
-            variant="ghost"
-            className={cn(
-              "absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center duration-300 z-10 shadow-lg active:scale-75 p-0",
-              isFavorited
-                ? "bg-red-500 text-white shadow-red-500/20 hover:bg-red-500"
-                : "bg-surface/80 backdrop-blur-md text-content/40 hover:text-red-500 hover:bg-surface/80 shadow-black/5",
-            )}
-          >
-            <Heart
-              size={16}
-              className={cn(
-                "transition-transform",
-                isFavorited && "fill-current",
-              )}
-            />
-          </Button>
-        )}
-      </div>
-
-      {/* Info Section */}
-      <div className="mt-3 flex flex-col flex-grow">
-        {badgeText && (
-          <span className="text-[10px] text-content/40 font-bold truncate">
-            {badgeText}
-          </span>
-        )}
-
-        <h3 className="mt-1 text-sm font-bold text-content line-clamp-1 group-hover:text-primary transition-colors">
-          <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
-            {product.name}
-          </Link>
-        </h3>
-
+      <ProductCardInfo
+        product={product}
+        badgeText={badgeText}
+        titleHoverClassName="group-hover:text-primary"
+      >
         <div className="mt-1 flex items-center gap-2">
           {hasRating && (
             <div className="flex items-center gap-0.5 text-yellow-500 text-[10px] font-bold">
               <span>{formattedRating}</span>
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
+              <Star className="h-2.5 w-2.5 fill-current" />
             </div>
           )}
-          {hasSoldCount && (
+          {formattedSoldCount && (
             <span className="text-[10px] text-content/30">
               Đã bán {formattedSoldCount}
             </span>
@@ -182,16 +108,12 @@ export const ProductCard = ({
         </div>
 
         <div className="mt-auto pt-3 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="text-base font-black text-primary tracking-tight">
-              {displayPrice}
-            </span>
-            {sku?.originalPrice && (
-              <span className="text-[10px] text-content/20 line-through font-medium">
-                {displayOriginalPrice}
-              </span>
-            )}
-          </div>
+          <ProductCardPrice
+            price={priceDisplay.price}
+            originalPrice={priceDisplay.originalPrice}
+            hasOriginalPrice={priceDisplay.hasOriginalPrice}
+            priceClassName="text-primary"
+          />
 
           <Button
             onClick={handleAddToCart}
@@ -201,7 +123,7 @@ export const ProductCard = ({
             <ShoppingBag size={18} />
           </Button>
         </div>
-      </div>
+      </ProductCardInfo>
     </div>
   );
 };

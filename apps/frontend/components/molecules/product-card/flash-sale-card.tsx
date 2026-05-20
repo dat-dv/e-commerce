@@ -1,19 +1,19 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Button from "@/components/atoms/button";
-import { APP_ROUTES } from "@/constants/routes";
-import { Eye, ShoppingBag } from "lucide-react";
-import { formatCurrency } from "@/utils/format-currency";
-import Image from "next/image";
-import { useAuthStore } from "@/hooks/auth/use-auth-store";
-import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/toast";
-import { CALLBACK_URL_KEY } from "@/constants/routes";
+import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
+import { ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { ProductCardInfo } from "./product-card-info";
+import { ProductCardMedia } from "./product-card-media";
+import { ProductCardPrice } from "./product-card-price";
+import { getProductBadgeText, getSkuPriceDisplay } from "./product-card.utils";
 
 export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
   const t = useTranslations("FlashSalePage.card");
@@ -25,7 +25,8 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
   const router = useRouter();
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent navigating to product detail
+    e.preventDefault();
+    e.stopPropagation();
 
     if (!user) {
       toast.info(tCart("signInRequired"));
@@ -62,78 +63,35 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
   const totalCount = sku?.total || 1;
   const stockLeft = Math.max(0, totalCount - soldCount);
   const progressWidth = `${(soldCount / totalCount) * 100}%`;
-
-  const displayPrice = formatCurrency(sku?.price);
-  const displayOriginalPrice = formatCurrency(sku?.originalPrice);
-
-  const hasOriginalPrice = !!sku?.originalPrice;
-
-  const badgeText =
-    product.brand?.name ||
-    (product.category !== "General" ? product.category : t("badge"));
+  const priceDisplay = getSkuPriceDisplay(sku);
+  const badgeText = getProductBadgeText(product, t("badge"));
 
   return (
     <div className="group relative flex h-full flex-col bg-content/[0.02] border border-red-500/10 rounded-2xl p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5">
-      {/* Image Section */}
-      <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
-        {product.imageUrl ? (
-          <Image
-            src={product.imageUrl}
-            alt={product.name}
-            fill
-            sizes="(max-width: 768px) 50vw, 20vw"
-            className="object-contain transition-transform duration-500"
-          />
-        ) : (
-          <div className="text-content/20 text-xs font-semibold">
-            {t("noImage")}
-          </div>
-        )}
-
-        {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
+      <ProductCardMedia
+        product={product}
+        noImageLabel={t("noImage")}
+        addToCartClassName="bg-red-500 text-white hover:bg-red-600"
+        onAddToCart={handleAddToCart}
+        viewDetailsTitle={t("viewDetails")}
+        addToCartTitle={t("addToCart")}
+        badges={
           <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-lg shadow-red-500/20">
             -{discountPercent}%
           </div>
-        </div>
+        }
+        cornerBadge={
+          <div className="absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-red-500 backdrop-blur-md">
+            {t("sale")}
+          </div>
+        }
+      />
 
-        <div className="absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-red-500 backdrop-blur-md">
-          {t("sale")}
-        </div>
-
-        {/* Action Overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-          <Link
-            href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
-            className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:bg-white/90 transition-all"
-            title={t("viewDetails")}
-          >
-            <Eye size={18} aria-hidden />
-          </Link>
-          <Button
-            onClick={handleAddToCart}
-            variant="ghost"
-            className="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 shadow-lg active:scale-90 p-0"
-            title={t("addToCart")}
-          >
-            <ShoppingBag size={18} aria-hidden />
-          </Button>
-        </div>
-      </div>
-
-      {/* Info Section */}
-      <div className="mt-3 flex flex-col flex-grow">
-        <span className="text-[10px] text-content/40 font-bold truncate">
-          {badgeText}
-        </span>
-
-        <h3 className="mt-1 text-sm font-bold text-content line-clamp-1 group-hover:text-red-500 transition-colors">
-          <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
-            {product.name}
-          </Link>
-        </h3>
-
-        {/* Progress Bar */}
+      <ProductCardInfo
+        product={product}
+        badgeText={badgeText}
+        titleHoverClassName="group-hover:text-red-500"
+      >
         <div className="mt-2">
           <div className="w-full h-1.5 bg-content/[0.05] rounded-full overflow-hidden">
             <div
@@ -154,16 +112,12 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
         </div>
 
         <div className="mt-auto pt-3 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="text-base font-black text-red-500 tracking-tight">
-              {displayPrice}
-            </span>
-            {hasOriginalPrice && (
-              <span className="text-[10px] text-content/20 line-through font-medium">
-                {displayOriginalPrice}
-              </span>
-            )}
-          </div>
+          <ProductCardPrice
+            price={priceDisplay.price}
+            originalPrice={priceDisplay.originalPrice}
+            hasOriginalPrice={priceDisplay.hasOriginalPrice}
+            priceClassName="text-red-500"
+          />
 
           <Button
             onClick={handleAddToCart}
@@ -174,7 +128,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
             <ShoppingBag size={18} aria-hidden />
           </Button>
         </div>
-      </div>
+      </ProductCardInfo>
     </div>
   );
 };
