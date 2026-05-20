@@ -1,28 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  Package,
-  CreditCard,
-  Truck,
-  AlertCircle,
-  RotateCcw,
-} from "lucide-react";
-import Link from "next/link";
-import { APP_ROUTES } from "@/constants/routes";
-import { useOrderDetail } from "@/hooks/orders/use-order-detail";
-import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
-import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
-import { formatCurrency } from "@/utils/format-currency";
-import { cn } from "@/utils/cn";
-import Image from "next/image";
-import { EOrderStatus } from "@ecommerce/shared";
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
-import { useTranslations, useLocale } from "next-intl";
-
-import Button from "@/components/atoms/button";
+import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
+import { APP_ROUTES } from "@/constants/routes";
+import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
+import { useOrderDetail } from "@/hooks/orders/use-order-detail";
+import { EOrderStatus } from "@ecommerce/shared";
+import { AlertCircle } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
+import { useState } from "react";
+import { OrderDetailHeader } from "./order-detail-header";
+import { OrderDetailItems } from "./order-detail-items";
+import { OrderDetailSummaryCards } from "./order-detail-summary-cards";
+import { OrderReturnPanel } from "./order-return-panel";
 
 export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   const t = useTranslations("OrdersPage");
@@ -113,205 +104,24 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
 
   return (
     <div className="min-h-screen bg-transparent">
-      <div className="bg-surface/80 backdrop-blur-2xl border-b border-content/[0.05]">
-        <div className="container mx-auto px-4 py-6 max-w-4xl flex items-center gap-6">
-          <Link
-            href={APP_ROUTES.ORDERS}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-content/[0.05] transition-colors border border-content/[0.05]"
-          >
-            <ArrowLeft className="w-5 h-5 text-content/60" />
-          </Link>
-          <div>
-            <h1 className="text-xl font-bold text-content tracking-tight">
-              {t("card.orderNumber", { id: order.id.slice(-8).toUpperCase() })}
-            </h1>
-            <p className="text-xs text-content/40 mt-1 font-medium">
-              {new Date(order.createdAt).toLocaleDateString(locale, {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </p>
-          </div>
-          <div className="ml-auto">
-            <span
-              className={cn(
-                "px-4 py-1.5 text-xs font-bold rounded-full",
-                statusColor,
-              )}
-            >
-              {statusLabel}
-            </span>
-          </div>
-        </div>
-      </div>
+      <OrderDetailHeader
+        orderId={order.id}
+        createdAt={order.createdAt}
+        locale={locale}
+        statusLabel={statusLabel}
+        statusColor={statusColor}
+      />
 
       <div className="container mx-auto px-4 py-8 max-w-4xl space-y-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {/* Shipping Info */}
-          <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6 shadow-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                <Truck className="w-4 h-4" />
-              </div>
-              <h2 className="text-sm font-bold text-content">
-                {t("detail.deliveryDetails")}
-              </h2>
-            </div>
-            <div className="space-y-4 text-sm font-medium text-content/60">
-              <p className="text-content font-bold">
-                {order.shippingAddress?.receiverName ||
-                  t("detail.notAvailable")}
-              </p>
-              <p>
-                {order.shippingAddress?.receiverPhone ||
-                  t("detail.notAvailable")}
-              </p>
-              <p className="leading-relaxed">
-                {order.shippingAddress?.street}
-                <br />
-                {order.shippingAddress?.city}, {order.shippingAddress?.state}
-                <br />
-                {order.shippingAddress?.country}
-              </p>
-            </div>
-          </div>
-
-          {/* Payment Info */}
-          <div className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] p-6 shadow-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                <CreditCard className="w-4 h-4" />
-              </div>
-              <h2 className="text-sm font-bold text-content">
-                {t("detail.paymentSummary")}
-              </h2>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between text-sm">
-                <span className="text-content/60 font-medium">
-                  {t("detail.subtotal")}
-                </span>
-                <span className="font-bold text-content">
-                  {formatCurrency(
-                    order.items.reduce(
-                      (acc, item) => acc + item.price * item.quantity,
-                      0,
-                    ),
-                  )}
-                </span>
-              </div>
-              {order.discountAmount > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span className="text-content/60 font-medium">
-                    {t("detail.discount")}
-                  </span>
-                  <span className="font-bold text-red-500">
-                    -{formatCurrency(order.discountAmount)}
-                  </span>
-                </div>
-              )}
-              <div className="pt-4 border-t border-content/[0.05] flex justify-between items-center">
-                <span className="text-sm font-bold text-content">
-                  {t("detail.total")}
-                </span>
-                <span className="text-3xl font-black text-content tracking-tight">
-                  {formatCurrency(order.totalAmount)}
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <OrderDetailSummaryCards order={order} />
 
         {order.status === EOrderStatus.DELIVERED && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
-            className="flex flex-col gap-4 rounded-2xl border border-content/[0.05] bg-surface/40 p-6 shadow-sm backdrop-blur-md sm:flex-row sm:items-center sm:justify-between"
-          >
-            <div>
-              <h2 className="text-sm font-bold text-content">
-                {t("detail.returnSectionTitle")}
-              </h2>
-              <p className="mt-1 text-sm font-medium leading-relaxed text-content/50">
-                {t("detail.returnSectionDesc")}
-              </p>
-            </div>
-            <Button
-              type="button"
-              onClick={() => setIsReturnModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 transition-colors hover:bg-primary h-auto opacity-100 hover:opacity-100"
-            >
-              <RotateCcw className="h-4 w-4" />
-              {t("detail.requestReturnBtn")}
-            </Button>
-          </motion.div>
+          <OrderReturnPanel
+            onRequestReturn={() => setIsReturnModalOpen(true)}
+          />
         )}
 
-        {/* Order Items */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="bg-surface/40 backdrop-blur-md rounded-2xl border border-content/[0.05] overflow-hidden shadow-sm"
-        >
-          <div className="px-6 py-4 border-b border-content/[0.05] bg-content/[0.02] flex items-center gap-3">
-            <Package className="w-4 h-4 text-content/40" />
-            <h2 className="text-sm font-bold text-content">
-              {t("detail.orderItemsTitle", {
-                count: String(order.items.length),
-              })}
-            </h2>
-          </div>
-          <div className="divide-y divide-content/[0.05]">
-            {order.items.map((item) => (
-              <div
-                key={item.id}
-                className="p-6 flex gap-6 hover:bg-content/[0.02] transition-colors"
-              >
-                <div className="relative w-24 h-24 rounded-2xl border border-content/[0.05] bg-content/[0.02] overflow-hidden shrink-0 shadow-sm">
-                  {item.sku?.imageUrl && (
-                    <Image
-                      src={item.sku.imageUrl}
-                      alt={
-                        item.sku.product?.name || t("detail.productFallback")
-                      }
-                      fill
-                      sizes="96px"
-                      className="object-cover"
-                    />
-                  )}
-                </div>
-                <div className="flex-1 min-w-0 flex flex-col justify-center">
-                  <div className="flex justify-between items-start gap-4">
-                    <h3 className="text-base font-bold text-content leading-tight">
-                      {item.sku?.product?.name || t("detail.unknownProduct")}
-                    </h3>
-                    <div className="text-lg font-black text-content tracking-tight shrink-0">
-                      {formatCurrency(item.price)}
-                    </div>
-                  </div>
-                  <p className="mt-2 text-xs font-medium text-content/40">
-                    {item.snapshot?.sku.attributes || `SKU: ${item.skuId}`}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xs font-semibold px-3 py-1 bg-content/[0.05] rounded-full text-content/60">
-                      {t("card.units", { count: item.quantity })}
-                    </span>
-                    <span className="text-sm font-bold text-content/60">
-                      {formatCurrency(item.price * item.quantity)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        <OrderDetailItems order={order} />
       </div>
       <RequestReturnModal
         isOpen={isReturnModalOpen}
