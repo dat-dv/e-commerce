@@ -21,6 +21,7 @@ export interface INotificationsRepository {
 
   // Notification History
   getNotifications(userId: string, page?: number, limit?: number): Promise<INotificationListResponse>;
+  countUnread(userId: string): Promise<number>;
   markAsRead(userId: string, notificationId: string): Promise<INotificationResponse>;
   markAllAsRead(userId: string): Promise<void>;
   createNotification(userId: string, data: CreateNotificationInput): Promise<INotificationResponse>;

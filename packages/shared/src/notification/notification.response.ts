@@ -16,3 +16,6 @@ export type INotificationResponse = Omit<Notification, "metadata"> & {
   metadata: NotificationMetadata | null;
 };
 export type INotificationListResponse = IPaginatedResult<INotificationResponse>;
+export type INotificationUnreadCountResponse = {
+  count: number;
+};

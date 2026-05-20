@@ -9,6 +9,7 @@ export const notificationsUseCase = {
     notificationsRepository.saveToken(data),
   getNotifications: (params?: { page?: number; limit?: number }) =>
     notificationsRepository.getNotifications(params),
+  getUnreadCount: () => notificationsRepository.getUnreadCount(),
   markAsRead: (id: string) => notificationsRepository.markAsRead(id),
   markAllAsRead: () => notificationsRepository.markAllAsRead(),
 };

@@ -14,6 +14,9 @@ const LIMIT = PAGINATION_LIMITS.NOTIFICATIONS;
 const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
 export const useNotifications = () => {
+  const storeNotifications = useNotificationStore(
+    (state) => state.notifications,
+  );
   const setNotifications = useNotificationStore(
     (state) => state.setNotifications,
   );
@@ -26,6 +29,7 @@ export const useNotifications = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [readIds, setReadIds] = useState<Set<string>>(() => new Set());
   const [isAllRead, setIsAllRead] = useState(false);
+  const [serverUnreadCount, setServerUnreadCount] = useState(0);
 
   const user = useAuthStore((s) => s.user);
 
@@ -54,19 +58,24 @@ export const useNotifications = () => {
     });
 
   useEffect(() => {
-    if (meta.page === 1) {
-      setNotifications(items);
-    }
-  }, [items, meta.page, setNotifications]);
+    setNotifications(items);
+  }, [items, setNotifications]);
 
   const markAsRead = async (id: string) => {
     try {
+      const notification = storeNotifications.find((item) => item.id === id);
+
       storeMarkAsRead(id);
       setReadIds((prev) => {
         const next = new Set(prev);
         next.add(id);
         return next;
       });
+      if (notification && !notification.isRead && !id.startsWith("fcm-")) {
+        setServerUnreadCount((count) => Math.max(count - 1, 0));
+      }
+      if (id.startsWith("fcm-")) return;
+
       await notificationsUseCase.markAsRead(id);
     } catch (error) {
       console.error("Error marking notification as read:", error);
@@ -77,26 +86,40 @@ export const useNotifications = () => {
     try {
       storeMarkAllAsRead();
       setIsAllRead(true);
+      setServerUnreadCount(0);
       await notificationsUseCase.markAllAsRead();
     } catch (error) {
       console.error("Error marking all as read:", error);
     }
   };
 
+  const loadUnreadCount = useCallback(async () => {
+    if (!user) {
+      setServerUnreadCount(0);
+      return;
+    }
+
+    const response = await notificationsUseCase.getUnreadCount();
+
+    if (response.status === "success") {
+      setServerUnreadCount(response.data.count);
+    }
+  }, [user]);
+
   const refresh = useCallback(async () => {
     setReadIds(new Set());
     setIsAllRead(false);
-    await loadPage(1);
-  }, [loadPage]);
+    await Promise.all([loadPage(1), loadUnreadCount()]);
+  }, [loadPage, loadUnreadCount]);
 
   const notifications = useMemo(
     () =>
-      items.map((notification) =>
+      storeNotifications.map((notification) =>
         isAllRead || readIds.has(notification.id)
           ? { ...notification, isRead: true }
           : notification,
       ),
-    [isAllRead, items, readIds],
+    [isAllRead, readIds, storeNotifications],
   );
 
   const filteredNotifications = notifications.filter((notification) => {
@@ -108,7 +131,16 @@ export const useNotifications = () => {
     );
   });
 
-  const unreadCount = notifications.filter((n) => !n.isRead).length;
+  const loadedUnreadCount = notifications.filter((n) => !n.isRead).length;
+  const localTransientUnreadCount = notifications.filter(
+    (n) => !n.isRead && n.id.startsWith("fcm-"),
+  ).length;
+  const unreadCount = isAllRead
+    ? 0
+    : Math.max(
+        serverUnreadCount + localTransientUnreadCount,
+        loadedUnreadCount,
+      );
 
   return {
     notifications: filteredNotifications,

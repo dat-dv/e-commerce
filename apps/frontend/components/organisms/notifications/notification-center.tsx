@@ -33,15 +33,18 @@ export const NotificationCenter = () => {
       <Button
         variant="ghost"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 rounded-full hover:bg-content/[0.05] transition-colors h-auto active:scale-95 opacity-100 hover:opacity-100 hover:bg-content/[0.05]"
+        className="relative flex h-10 w-10 items-center justify-center rounded-full p-0 text-content/60 transition-colors hover:bg-content/[0.05] hover:text-content active:scale-95 opacity-100 hover:opacity-100"
+        title={t("dropdown.title")}
+        aria-label={t("dropdown.title")}
       >
         <Bell
-          size={20}
-          className={cn("text-content/60", isOpen && "text-primary")}
+          size={24}
+          strokeWidth={2.2}
+          className={cn("transition-colors", isOpen && "text-primary")}
         />
         {unreadCount > 0 && (
-          <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-background">
-            {unreadCount}
+          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-background bg-red-500 px-1 text-[10px] font-black leading-none text-white shadow-sm">
+            {unreadCount > 99 ? "99+" : unreadCount}
           </span>
         )}
       </Button>

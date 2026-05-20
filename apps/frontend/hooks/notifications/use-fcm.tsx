@@ -6,9 +6,20 @@ import { PUBLIC_ENV } from "@/config/public.env.config";
 import { useAuthStore } from "../auth/use-auth-store";
 import { toast } from "@/components/ui/toast";
 import React from "react";
+import { ENotificationType } from "@ecommerce/shared";
+import { useNotificationStore } from "@/store/notification-store";
+
+const getNotificationType = (type?: string) => {
+  const parsedType = Number(type);
+
+  return Object.values(ENotificationType).includes(parsedType)
+    ? (parsedType as ENotificationType)
+    : ENotificationType.SYSTEM;
+};
 
 export const useFCM = () => {
   const user = useAuthStore((s) => s.user);
+  const addNotification = useNotificationStore((s) => s.addNotification);
   const isInitialized = React.useRef(false);
 
   useEffect(() => {
@@ -56,6 +67,21 @@ export const useFCM = () => {
             console.info("Foreground message received:", payload);
           }
           if (payload.notification) {
+            const now = new Date().toISOString();
+
+            addNotification({
+              id: payload.messageId || `fcm-${Date.now()}`,
+              userId: user.id || "",
+              title: payload.notification.title || "Notification",
+              content: payload.notification.body || "",
+              type: getNotificationType(payload.data?.type),
+              link: payload.data?.link || payload.fcmOptions?.link,
+              isRead: false,
+              metadata: payload.data,
+              createdAt: now,
+              updatedAt: now,
+            });
+
             toast.info(
               payload.notification.title || "Notification",
               payload.notification.body || undefined,
@@ -70,5 +96,5 @@ export const useFCM = () => {
     };
 
     setupFCM();
-  }, [user]);
+  }, [addNotification, user]);
 };

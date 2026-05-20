@@ -7,6 +7,7 @@ import {
   INotificationListResponse,
   INotificationTokenResponse,
   INotificationResponse,
+  INotificationUnreadCountResponse,
 } from "@ecommerce/shared";
 import {
   INotificationsRepository,
@@ -42,6 +43,14 @@ export class NotificationsRepository implements INotificationsRepository {
       ...response,
       data: mapPaginatedData(response.data, NotificationsMapper.toDomain),
     };
+  }
+
+  async getUnreadCount(): Promise<
+    ApiResponse<INotificationUnreadCountResponse>
+  > {
+    return this.request.get<INotificationUnreadCountResponse>(
+      API_ROUTES.NOTIFICATIONS.UNREAD_COUNT,
+    );
   }
 
   async markAsRead(id: string): Promise<ApiResponse<INotification>> {

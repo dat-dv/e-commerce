@@ -64,6 +64,15 @@ export class NotificationsRepository implements INotificationsRepository {
     };
   }
 
+  async countUnread(userId: string): Promise<number> {
+    return this.prisma.notification.count({
+      where: {
+        user_id: userId,
+        is_read: false,
+      },
+    });
+  }
+
   async markAsRead(userId: string, notificationId: string) {
     const notification = await this.prisma.notification.update({
       where: { id: notificationId, user_id: userId },

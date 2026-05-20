@@ -103,6 +103,7 @@ export const API_ROUTES = {
   },
   NOTIFICATIONS: {
     BASE: "/notifications",
+    UNREAD_COUNT: "/notifications/unread-count",
     TOKENS: "/notifications/tokens",
     MARK_AS_READ: (id: string) => `/notifications/${id}/read`,
     MARK_ALL_AS_READ: "/notifications/read-all",

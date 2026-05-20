@@ -9,6 +9,7 @@ import {
   INotificationListResponse,
   INotificationTokenResponse,
   INotificationResponse,
+  INotificationUnreadCountResponse,
 } from '@ecommerce/shared';
 import createSuccessResponse from 'src/common/respomse';
 
@@ -38,6 +39,13 @@ export class NotificationsController {
     const limitNum = limit ? Number.parseInt(limit, 10) : undefined;
     const result = await this.notificationsRepository.getNotifications(userId, pageNum, limitNum);
     return createSuccessResponse(result);
+  }
+
+  @Get('unread-count')
+  async getUnreadCount(@Req() req: Request): Promise<IApiResponse<INotificationUnreadCountResponse>> {
+    const userId = req.user?.sub;
+    const count = await this.notificationsRepository.countUnread(userId);
+    return createSuccessResponse({ count });
   }
 
   @Patch(':id/read')
