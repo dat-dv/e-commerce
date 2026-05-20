@@ -1,5 +1,5 @@
 import { HelpShippingView } from "@/components/organisms/help-shipping-view";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -7,6 +7,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({
     locale,
     namespace: "HelpCenter.shippingMetadata",
@@ -17,6 +18,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function ShippingPage() {
+export default async function ShippingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return <HelpShippingView />;
 }

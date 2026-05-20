@@ -1,5 +1,5 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const dynamicParams = false;
 export const dynamic = "force-static";
@@ -14,6 +14,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Common.rootMetadata" });
 
   return {
@@ -57,8 +58,12 @@ export async function generateMetadata({
 
 export default async function LocalizedLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return children;
 }

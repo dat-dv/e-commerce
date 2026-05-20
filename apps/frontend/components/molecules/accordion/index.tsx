@@ -58,7 +58,12 @@ export default function Accordion({
               />
             </svg>
           </RACButton>
-          <RACDisclosurePanel className="px-6 pb-6 text-content/60 text-sm animate-in fade-in duration-300 border-t border-content/5 pt-4 mt-2">
+          <RACDisclosurePanel
+            className={cn(
+              isExpanded &&
+                "px-6 pb-6 text-content/60 text-sm animate-in fade-in duration-300 border-t border-content/5 pt-4 mt-2",
+            )}
+          >
             {children}
           </RACDisclosurePanel>
         </>
