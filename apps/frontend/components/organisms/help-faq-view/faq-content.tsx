@@ -1,0 +1,53 @@
+"use client";
+
+import HelpSupportCard from "@/components/molecules/help-support-card";
+import SearchInput from "@/components/molecules/search-input";
+import { FAQTopic } from "./help-faq.types";
+import { FAQTopicList } from "./faq-topic-list";
+
+interface FAQContentProps {
+  topics: FAQTopic[];
+  searchQuery: string;
+  searchPlaceholder: string;
+  emptyText: string;
+  contactTitle: string;
+  contactDescription: string;
+  onSearchChange: (query: string) => void;
+}
+
+export function FAQContent({
+  topics,
+  searchQuery,
+  searchPlaceholder,
+  emptyText,
+  contactTitle,
+  contactDescription,
+  onSearchChange,
+}: FAQContentProps): React.ReactElement {
+  return (
+    <main className="min-w-0">
+      <SearchInput
+        id="help-faq-search"
+        value={searchQuery}
+        onChange={onSearchChange}
+        placeholder={searchPlaceholder}
+        showSubmitButton={false}
+        className="rounded-xl bg-surface shadow-sm"
+      />
+
+      <FAQTopicList topics={topics} />
+
+      {!topics.length && (
+        <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
+          {emptyText}
+        </div>
+      )}
+
+      <HelpSupportCard
+        title={contactTitle}
+        description={contactDescription}
+        className="mt-10 p-6"
+      />
+    </main>
+  );
+}
