@@ -1,17 +1,20 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { ProductsHeader } from "@/components/molecules/products-header";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
-import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
-import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
-import { TCategory } from "@/domain/categories/types/categories.model";
-import { useEffect, useRef } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import { EProductSort } from "@ecommerce/shared";
-import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { ProductsHeader } from "@/components/molecules/products-header";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
+import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
+import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
+import { EProductSort } from "@ecommerce/shared";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { ProductsCatalog } from "./products-catalog";
+import {
+  findTopLevelCategoryForSlug,
+  getActiveCategoryTitle,
+} from "./products-view.utils";
 
 import { useTranslations } from "next-intl";
 
@@ -70,37 +73,9 @@ export function ProductsView({ categorySlug }: ProductsViewProps) {
     });
   }, [categorySlug, page, sort, search, fetchProducts]);
 
-  const findTopLevelCategoryForSlug = (
-    cats: TCategory[],
-    slug: string,
-  ): TCategory | null => {
-    for (const cat of cats) {
-      if (cat.slug === slug) return cat;
-      if (cat.children) {
-        const found = findTopLevelCategoryForSlug(cat.children, slug);
-        if (found) return cat;
-      }
-    }
-    return null;
-  };
-
   const activeCategory = categorySlug
     ? findTopLevelCategoryForSlug(categories, categorySlug)
     : null;
-
-  const getActiveCategoryTitle = (
-    cats: TCategory[],
-    slug: string,
-  ): string | null => {
-    for (const cat of cats) {
-      if (cat.slug === slug) return cat.name;
-      if (cat.children) {
-        const found = getActiveCategoryTitle(cat.children, slug);
-        if (found) return found;
-      }
-    }
-    return null;
-  };
 
   const categoryTitle = categorySlug
     ? getActiveCategoryTitle(categories, categorySlug)

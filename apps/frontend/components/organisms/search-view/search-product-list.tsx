@@ -1,10 +1,7 @@
 "use client";
 
 import { ListingProductsToolbar } from "@/components/molecules/products-toolbar";
-import { ProductGrid } from "@/components/molecules/product-grid";
-import EmptyState from "@/components/molecules/empty-space";
-import { Pagination } from "@/components/molecules/pagination";
-import { Search } from "lucide-react";
+import { ProductListingContent } from "@/components/molecules/product-listing-content";
 import { TProduct } from "@/domain/products/types/products.model";
 
 import { useTranslations } from "next-intl";
@@ -28,8 +25,8 @@ export function SearchProductList({
   pageStr,
   shortQuery,
 }: SearchProductListProps) {
-  const hasProducts = products.length > 0;
   const t = useTranslations("SearchView");
+  const currentPaginationPage = pageStr ? parseInt(pageStr) : 1;
 
   return (
     <div className="lg:col-span-3">
@@ -40,31 +37,15 @@ export function SearchProductList({
         isLoading={loading}
       />
 
-      {hasProducts || loading ? (
-        <div className="flex flex-col gap-12">
-          <ProductGrid
-            products={products}
-            loading={loading}
-            gridClassName="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
-          />
-
-          {totalPages > 1 && !loading && (
-            <div className="mt-8 flex justify-center">
-              <Pagination
-                currentPage={pageStr ? parseInt(pageStr) : 1}
-                totalPages={totalPages}
-                queryParam="page"
-              />
-            </div>
-          )}
-        </div>
-      ) : (
-        <EmptyState
-          title={t("noResultsTitle")}
-          description={t("noResultsDescription", { query: shortQuery })}
-          icon={Search}
-        />
-      )}
+      <ProductListingContent
+        products={products}
+        loading={loading}
+        totalPages={totalPages}
+        currentPage={currentPaginationPage}
+        queryParam="page"
+        emptyTitle={t("noResultsTitle")}
+        emptyDescription={t("noResultsDescription", { query: shortQuery })}
+      />
     </div>
   );
 }

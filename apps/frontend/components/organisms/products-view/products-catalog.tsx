@@ -1,15 +1,12 @@
 "use client";
 
-import { ListingProductsToolbar } from "@/components/molecules/products-toolbar";
-import { ProductGrid } from "@/components/molecules/product-grid";
-import EmptyState from "@/components/molecules/empty-space";
-import { Pagination } from "@/components/molecules/pagination";
-import { Search } from "lucide-react";
-import { TProduct } from "@/domain/products/types/products.model";
 import {
   AppliedFilters,
   AppliedFiltersBar,
 } from "@/components/molecules/applied-filters-bar";
+import { ProductListingContent } from "@/components/molecules/product-listing-content";
+import { ListingProductsToolbar } from "@/components/molecules/products-toolbar";
+import { TProduct } from "@/domain/products/types/products.model";
 
 import { useTranslations } from "next-intl";
 
@@ -43,7 +40,7 @@ export function ProductsCatalog<T extends string = string>({
   onSortChange,
 }: ProductsCatalogProps<T>) {
   const t = useTranslations("ProductsPage");
-  const hasProducts = products.length > 0;
+  const currentPaginationPage = pageStr ? parseInt(pageStr) : 1;
 
   return (
     <div className="lg:col-span-3">
@@ -63,32 +60,16 @@ export function ProductsCatalog<T extends string = string>({
         />
       )}
 
-      {hasProducts || loading ? (
-        <div className="flex flex-col gap-12">
-          <ProductGrid
-            products={products}
-            loading={loading}
-            gridClassName="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
-          />
-
-          {totalPages > 1 && !loading && (
-            <div className="mt-8 flex justify-center">
-              <Pagination
-                currentPage={pageStr ? parseInt(pageStr) : 1}
-                totalPages={totalPages}
-                queryParam={onPageChange ? undefined : "page"}
-                onPageChange={onPageChange}
-              />
-            </div>
-          )}
-        </div>
-      ) : (
-        <EmptyState
-          title={t("noProducts")}
-          description={t("noProductsDesc", { categoryTitle })}
-          icon={Search}
-        />
-      )}
+      <ProductListingContent
+        products={products}
+        loading={loading}
+        totalPages={totalPages}
+        currentPage={currentPaginationPage}
+        queryParam={onPageChange ? undefined : "page"}
+        onPageChange={onPageChange}
+        emptyTitle={t("noProducts")}
+        emptyDescription={t("noProductsDesc", { categoryTitle })}
+      />
     </div>
   );
 }
