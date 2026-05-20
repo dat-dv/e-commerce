@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimationItem } from "@/components/atoms/animate";
 import Button from "@/components/atoms/button";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
@@ -55,12 +54,15 @@ export const ProfileFormMobile = ({
       methods={methods}
       onSubmit={handleSave}
     >
-      <div className="space-y-4 pb-28">
+      <div className="space-y-4">
         {/* Avatar section — centered on mobile */}
         <div className="flex flex-col items-center gap-3 py-6 bg-white/80 dark:bg-surface/80 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg">
-          <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
+          <AvatarWrapper
+            user={user}
+            isFormDisabled={isFormDisabled}
+            className="align-center [&_p]:text-center"
+          />
         </div>
-
         {/* Form fields — single column */}
         <div className="bg-white/80 dark:bg-surface/80 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-lg space-y-4">
           <FormInput
@@ -109,49 +111,50 @@ export const ProfileFormMobile = ({
             options={translatedGenderOptions}
             size="md"
           />
+          {/* Sticky bottom action bar */}
+          <div className="mt-4">
+            {isEditing ? (
+              <div className="flex gap-3">
+                <FormListenerDirty>
+                  {(isDirty) => (
+                    <Button
+                      onClick={methods.handleSubmit(handleSave)}
+                      variant="primary"
+                      size="lg"
+                      className="flex-1 rounded-2xl bg-primary shadow-xl shadow-primary/25 text-white disabled:opacity-50"
+                      disabled={isSubmitLoading || !isDirty}
+                    >
+                      {isSubmitLoading
+                        ? t("form.updating")
+                        : t("form.updateBtn")}
+                    </Button>
+                  )}
+                </FormListenerDirty>
+                <Button
+                  onClick={disableEdit}
+                  variant="ghost"
+                  size="lg"
+                  className="rounded-2xl px-6 border border-content/10 hover:bg-content/5"
+                  disabled={isSubmitLoading}
+                >
+                  {t("form.cancelBtn")}
+                </Button>
+              </div>
+            ) : (
+              <Button
+                onClick={enableEdit}
+                variant="primary"
+                size="lg"
+                className="w-full rounded-2xl shadow-xl shadow-primary/25 flex items-center justify-center gap-2"
+                disabled={isSubmitLoading}
+              >
+                <Pencil className="w-4 h-4" />
+                {t("form.editBtn")}
+              </Button>
+            )}
+          </div>
         </div>
       </div>
-
-      {/* Sticky bottom action bar */}
-      <AnimationItem className="fixed bottom-0 left-0 right-0 z-30 p-4 bg-surface/90 backdrop-blur-md border-t border-content/10 shadow-2xl">
-        {isEditing ? (
-          <div className="flex gap-3">
-            <FormListenerDirty>
-              {(isDirty) => (
-                <Button
-                  onClick={methods.handleSubmit(handleSave)}
-                  variant="primary"
-                  size="lg"
-                  className="flex-1 rounded-2xl bg-primary shadow-xl shadow-primary/25 text-white disabled:opacity-50"
-                  disabled={isSubmitLoading || !isDirty}
-                >
-                  {isSubmitLoading ? t("form.updating") : t("form.updateBtn")}
-                </Button>
-              )}
-            </FormListenerDirty>
-            <Button
-              onClick={disableEdit}
-              variant="ghost"
-              size="lg"
-              className="rounded-2xl px-6 border border-content/10 hover:bg-content/5"
-              disabled={isSubmitLoading}
-            >
-              {t("form.cancelBtn")}
-            </Button>
-          </div>
-        ) : (
-          <Button
-            onClick={enableEdit}
-            variant="primary"
-            size="lg"
-            className="w-full rounded-2xl shadow-xl shadow-primary/25 flex items-center justify-center gap-2"
-            disabled={isSubmitLoading}
-          >
-            <Pencil className="w-4 h-4" />
-            {t("form.editBtn")}
-          </Button>
-        )}
-      </AnimationItem>
     </AppForm>
   );
 };

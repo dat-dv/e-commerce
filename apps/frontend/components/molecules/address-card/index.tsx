@@ -28,14 +28,17 @@ const getFullAddress = (address: TAddress) =>
 const AddressMeta = ({ address }: { address: TAddress }) => {
   const t = useTranslations("ProfileAddressesPage");
 
-  const getLocalizedLabel = (label?: string) => {
-    const lower = String(label || "").toLowerCase();
+  const getLocalizedLabel = (label?: string | null | number) => {
+    const raw = String(label ?? "").trim();
+    if (!raw || /^\d+$/.test(raw)) return undefined;
+    const lower = raw.toLowerCase();
     if (lower === "home") return t("form.labels.home");
     if (lower === "office" || lower === "work") return t("form.labels.work");
     if (lower === "apartment") return t("form.labels.apartment");
     if (lower === "other") return t("form.labels.other");
-    return label;
+    return raw;
   };
+  const resolvedLabel = getLocalizedLabel(address?.label);
 
   return (
     <span className="min-w-0 flex-1">
@@ -52,9 +55,11 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
             {t("defaultBadge")}
           </span>
         )}
-        <span className="rounded-full bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60">
-          {getLocalizedLabel(String(address?.label))}
-        </span>
+        {resolvedLabel && (
+          <span className="rounded-full bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60">
+            {resolvedLabel}
+          </span>
+        )}
       </span>
       <span className="block truncate text-sm font-normal text-content/60">
         {getFullAddress(address)}

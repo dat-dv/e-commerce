@@ -52,7 +52,7 @@ export function ProfileSettingNavTablet({
   const t = useTranslations("ProfileLayout.sidebar");
 
   return (
-    <div className="flex flex-col gap-0 w-full">
+    <div className="flex flex-col gap-0 w-full pt-10">
       <div
         className={cn(
           "flex flex-row items-end gap-1 border-b border-content/10",
@@ -91,7 +91,7 @@ export function ProfileSettingNavTablet({
         })}
       </div>
 
-      <div className="mt-4">{children}</div>
+      <div className="mt-12">{children}</div>
     </div>
   );
 }

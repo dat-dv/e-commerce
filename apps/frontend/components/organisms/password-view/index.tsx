@@ -10,7 +10,7 @@ export const PasswordView = () => {
   const { changePassword, loading } = useChangePassword();
 
   return (
-    <div className="p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/20">
+    <div className="p-6 bg-surface/60 backdrop-blur-md rounded-2xl shadow-xl border border-content/8">
       <div className="mb-6 min-w-0">
         <h1 className="text-2xl font-bold text-content break-words">
           {t("title")}
