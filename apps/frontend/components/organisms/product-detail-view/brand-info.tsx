@@ -1,8 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { APP_ROUTES } from "@/constants/routes";
 import { TBrand } from "@/domain/products/types/products.model";
+import Image from "next/image";
+import Link from "next/link";
 
 import { useTranslations } from "next-intl";
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 
+import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { ProductAttributeOptions } from "./product-attribute-options";
 import { ProductPriceBox } from "./product-price-box";
@@ -83,13 +84,15 @@ export const ProductInfo = ({
         onQuantityChange={setQuantity}
       />
 
-      <ProductPurchaseActions
-        hasSelectedSku={Boolean(selectedSku.id)}
-        isFavorited={isFavorited}
-        onAddToCart={handleAddToCart}
-        onBuyNow={handleBuyNow}
-        onToggleFavorite={onToggleFavorite}
-      />
+      <RenderDesktopOnly>
+        <ProductPurchaseActions
+          hasSelectedSku={Boolean(selectedSku.id)}
+          isFavorited={isFavorited}
+          onAddToCart={handleAddToCart}
+          onBuyNow={handleBuyNow}
+          onToggleFavorite={onToggleFavorite}
+        />
+      </RenderDesktopOnly>
     </motion.div>
   );
 };

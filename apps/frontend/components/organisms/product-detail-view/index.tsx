@@ -14,6 +14,7 @@ import { DescriptionCategory } from "./description-category";
 import { ReviewsRatings } from "../../molecules/review-rating";
 import { SimilarProducts } from "./similar-products";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
+import { ProductMobilePurchaseBar } from "./product-mobile-purchase-bar";
 
 import { useUserFavoriteProducts } from "@/hooks/user-favorite-products/use-user-favorite-products";
 
@@ -63,7 +64,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const discountPercent = selectedSku?.discountPercent || 0;
 
   return (
-    <AppContainer className="py-8 space-y-12">
+    <AppContainer className="py-8 pb-24 lg:pb-8 space-y-12">
       {/* SECTION 1: TOP GRID (Image & Info) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-surface border border-content/[0.05] rounded-3xl p-6 shadow-sm">
         <ProductImages
@@ -125,6 +126,16 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
 
       {/* SECTION 6: DISCOVERY SECTIONS */}
       <DiscoveryCarouselSection />
+
+      {/* MOBILE STICKY PURCHASE BAR */}
+      <ProductMobilePurchaseBar
+        hasSelectedSku={Boolean(selectedSku.id)}
+        isFavorited={isFavorited}
+        price={price}
+        onAddToCart={handleAddToCart}
+        onBuyNow={handleBuyNow}
+        onToggleFavorite={() => toggleFavorite(product.id)}
+      />
     </AppContainer>
   );
 }
