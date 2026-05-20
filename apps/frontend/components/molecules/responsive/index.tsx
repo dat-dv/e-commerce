@@ -54,7 +54,7 @@ export function RenderTabletBelow({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function RenderOnMobile({ children }: { children: React.ReactNode }) {
+export function RenderMobileOnly({ children }: { children: React.ReactNode }) {
   return (
     <ResponsiveRender query={`(max-width: ${BREAKPOINTS.tablet - 1}px)`}>
       {children}

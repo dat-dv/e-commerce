@@ -5,7 +5,7 @@ import HamburgerButton from "@/components/atoms/hamburger-button";
 import { useState } from "react";
 
 import {
-  RenderOnMobile,
+  RenderMobileOnly,
   RenderTabletOnly,
 } from "@/components/molecules/responsive";
 import HeaderActions from "../header-actions";
@@ -22,9 +22,9 @@ export default function HeaderMobile() {
           <HeaderLogo />
         </div>
         <div className="flex items-center gap-0">
-          <RenderOnMobile>
-            <HeaderActions visible={["avatar", "notifications", "cart"]} />
-          </RenderOnMobile>
+          <RenderMobileOnly>
+            <HeaderActions visible={["notifications", "cart"]} />
+          </RenderMobileOnly>
           <RenderTabletOnly>
             <HeaderActions
               visible={["avatar", "notifications", "cart", "fallback"]}
