@@ -1,15 +1,15 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import {
   FilterSection,
   FilterSidebar,
 } from "@/components/molecules/filter-sidebar";
+import { useTranslations } from "next-intl";
 import { CategoryFilterSection } from "./category-filter";
-import { ProductSearchFilter } from "./search-filter";
 import { ProductPriceFilter } from "./price-filter";
-import { ProductRatingFilter } from "./rating-filter";
 import { IProductFilterSidebarProps } from "./product-filter-sidebar.types";
+import { ProductRatingFilter } from "./rating-filter";
+import { ProductSearchFilter } from "./search-filter";
 
 export function ProductFilterSidebar<T extends string = string>({
   categories,

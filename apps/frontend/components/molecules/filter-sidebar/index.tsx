@@ -10,8 +10,8 @@ import {
 
 import { cn } from "@/utils/cn";
 import {
-  IFilterSidebarProps,
   IFilterSectionProps,
+  IFilterSidebarProps,
 } from "./filter-sidebar.types";
 
 export function FilterSidebar({ children }: IFilterSidebarProps) {
@@ -53,7 +53,7 @@ export function FilterSection({
             </AriaButton>
           </Heading>
 
-          <DisclosurePanel>{children}</DisclosurePanel>
+          <DisclosurePanel className="space-y-4">{children}</DisclosurePanel>
         </section>
       )}
     </Disclosure>

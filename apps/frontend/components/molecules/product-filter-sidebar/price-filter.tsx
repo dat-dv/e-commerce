@@ -46,7 +46,6 @@ export function ProductPriceFilter<T extends string = string>({
         event.preventDefault();
         applyPriceRange();
       }}
-      className="border-b border-content/[0.06] pb-5"
     >
       <h3 className="mb-3 text-[11px] font-bold uppercase tracking-widest text-content/45">
         {t("priceRange")}
