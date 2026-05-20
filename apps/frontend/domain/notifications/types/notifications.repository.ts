@@ -10,7 +10,7 @@ import { INotification } from "./notification";
 
 export type TSaveTokenRequest = {
   token: string;
-  device_type?: string;
+  deviceType?: string;
 };
 
 export interface INotificationsRepository {

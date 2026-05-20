@@ -7,6 +7,7 @@ import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { usePagination } from "@/hooks/use-pagination";
 import { useNotificationStore } from "@/store/notification-store";
 import { createEmptyPaginatedData } from "@/utils/request/pagination";
+import { ENotificationClientEvent } from "@ecommerce/shared";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";
 
@@ -111,6 +112,19 @@ export const useNotifications = () => {
     setIsAllRead(false);
     await Promise.all([loadPage(1), loadUnreadCount()]);
   }, [loadPage, loadUnreadCount]);
+
+  useEffect(() => {
+    const handleRefresh = () => {
+      void refresh();
+    };
+    window.addEventListener(ENotificationClientEvent.REFRESH, handleRefresh);
+    return () => {
+      window.removeEventListener(
+        ENotificationClientEvent.REFRESH,
+        handleRefresh,
+      );
+    };
+  }, [refresh]);
 
   const notifications = useMemo(
     () =>

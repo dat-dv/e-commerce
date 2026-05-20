@@ -1,7 +1,7 @@
-import { Injectable, Inject, Logger } from '@nestjs/common';
+import { ENotificationType } from '@ecommerce/shared';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
-import { ENotificationType } from '@ecommerce/shared';
 
 @Injectable()
 export class NotificationService {
@@ -20,6 +20,14 @@ export class NotificationService {
     type: ENotificationType = ENotificationType.SYSTEM,
     data?: Record<string, string>,
   ) {
+    await this.notificationsRepository.createNotification(userId, {
+      title,
+      content: body,
+      type: type,
+      link: data?.link,
+      metadata: data,
+    });
+
     const tokens = await this.notificationsRepository.getUserTokens(userId);
 
     if (tokens.length === 0) {
@@ -43,23 +51,17 @@ export class NotificationService {
     };
 
     try {
-      await this.notificationsRepository.createNotification(userId, {
-        title,
-        content: body,
-        type: type,
-        link: data?.link,
-        metadata: data,
-      });
-
       const response = await messaging.sendEachForMulticast(message);
       this.logger.log(`Successfully sent ${response.successCount} notifications to user ${userId}`);
 
-      // Nếu có token lỗi (ví dụ token đã hết hạn), mình nên xóa nó đi
       if (response.failureCount > 0) {
         for (let idx = 0; idx < response.responses.length; idx++) {
           const resp = response.responses[idx];
           if (!resp.success) {
             const errorCode = resp.error?.code;
+            this.logger.warn(
+              `Firebase token send failed for user ${userId}, tokenIndex=${idx}, code=${errorCode}, message=${resp.error?.message}`,
+            );
             if (
               errorCode === 'messaging/registration-token-not-registered' ||
               errorCode === 'messaging/invalid-registration-token'

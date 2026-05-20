@@ -1,13 +1,12 @@
-import { useEffect } from "react";
-import { getToken, onMessage } from "firebase/messaging";
-import { getFirebaseMessaging } from "@/lib/firebase";
-import { notificationsUseCase } from "@/domain/notifications/use-cases";
-import { PUBLIC_ENV } from "@/config/public.env.config";
-import { useAuthStore } from "../auth/use-auth-store";
 import { toast } from "@/components/ui/toast";
-import React from "react";
-import { ENotificationType } from "@ecommerce/shared";
+import { PUBLIC_ENV } from "@/config/public.env.config";
+import { notificationsUseCase } from "@/domain/notifications/use-cases";
+import { getFirebaseMessaging } from "@/lib/firebase";
 import { useNotificationStore } from "@/store/notification-store";
+import { ENotificationClientEvent, ENotificationType } from "@ecommerce/shared";
+import { getToken, onMessage } from "firebase/messaging";
+import React, { useEffect } from "react";
+import { useAuthStore } from "../auth/use-auth-store";
 
 const getNotificationType = (type?: string) => {
   const parsedType = Number(type);
@@ -52,7 +51,7 @@ export const useFCM = () => {
           try {
             await notificationsUseCase.saveToken({
               token,
-              device_type: "web",
+              deviceType: "web",
             });
           } catch (error) {
             if (PUBLIC_ENV.IS_DEBUG) {
@@ -81,6 +80,7 @@ export const useFCM = () => {
               createdAt: now,
               updatedAt: now,
             });
+            window.dispatchEvent(new Event(ENotificationClientEvent.REFRESH));
 
             toast.info(
               payload.notification.title || "Notification",

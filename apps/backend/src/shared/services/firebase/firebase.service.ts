@@ -10,6 +10,14 @@ export class FirebaseService implements OnModuleInit {
 
   constructor(private readonly configService: ConfigService) {}
 
+  private normalizePrivateKey(privateKey: string): string {
+    return privateKey
+      .trim()
+      .replace(/^["']|["']$/g, '')
+      .replace(/\\n/g, '\n')
+      .replace(/\r\n/g, '\n');
+  }
+
   onModuleInit() {
     const projectId = this.configService.get<string>('FIREBASE_PROJECT_ID');
     const clientEmail = this.configService.get<string>('FIREBASE_CLIENT_EMAIL');
@@ -31,7 +39,7 @@ export class FirebaseService implements OnModuleInit {
           credential: admin.credential.cert({
             projectId,
             clientEmail,
-            privateKey: privateKey.replace(/\\n/g, '\n'),
+            privateKey: this.normalizePrivateKey(privateKey),
           }),
         });
         this.logger.log('Firebase Admin initialized successfully.');

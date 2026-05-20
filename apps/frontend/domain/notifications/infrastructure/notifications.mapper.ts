@@ -1,7 +1,15 @@
-import { INotificationResponse } from "@ecommerce/shared";
+import { INotificationResponse, ISaveTokenRequest } from "@ecommerce/shared";
 import { INotification } from "../types/notification";
+import { TSaveTokenRequest } from "../types/notifications.repository";
 
 export class NotificationsMapper {
+  static toSaveTokenRequest(data: TSaveTokenRequest): ISaveTokenRequest {
+    return {
+      token: data.token,
+      deviceType: data.deviceType,
+    };
+  }
+
   static toDomain(raw: INotificationResponse): INotification {
     return {
       id: raw.id,

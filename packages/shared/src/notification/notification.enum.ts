@@ -4,3 +4,7 @@ export enum ENotificationType {
   SYSTEM = 2,
   SOCIAL = 3,
 }
+
+export enum ENotificationClientEvent {
+  REFRESH = "notifications:refresh",
+}

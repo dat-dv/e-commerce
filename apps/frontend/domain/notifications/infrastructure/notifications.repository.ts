@@ -26,7 +26,7 @@ export class NotificationsRepository implements INotificationsRepository {
   ): Promise<ApiResponse<INotificationTokenResponse>> {
     return this.request.post<INotificationTokenResponse>(
       API_ROUTES.NOTIFICATIONS.TOKENS,
-      data,
+      NotificationsMapper.toSaveTokenRequest(data),
     );
   }
 
