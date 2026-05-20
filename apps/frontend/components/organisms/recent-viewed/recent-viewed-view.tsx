@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { Eye, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 import AppContainer from "@/components/atoms/app-container";
 import { ProductCard } from "@/components/molecules/product-card";
+import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import { APP_ROUTES } from "@/constants/routes";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { useLoadOnce } from "@/hooks/use-load-once";
-
-import { VirtualGrid } from "@/components/molecules/virtual-grid";
+import RecentViewedHeader from "./recent-viewed-header";
 
 export const RecentViewedView = () => {
   const t = useTranslations("RecentViewedPage");
@@ -26,22 +26,7 @@ export const RecentViewedView = () => {
 
   return (
     <AppContainer size="2xl" className="py-14">
-      <div className="mb-10 flex flex-col gap-3">
-        <div className="flex items-center gap-2 text-primary">
-          <Eye size={18} />
-          <span className="text-xs font-black uppercase tracking-[0.25em]">
-            {t("tag")}
-          </span>
-        </div>
-        <div>
-          <h1 className="text-3xl font-black tracking-tight text-content">
-            {t("title")}
-          </h1>
-          <p className="mt-2 max-w-2xl text-sm text-content/50">
-            {t("description")}
-          </p>
-        </div>
-      </div>
+      <RecentViewedHeader />
 
       {loading ? (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
