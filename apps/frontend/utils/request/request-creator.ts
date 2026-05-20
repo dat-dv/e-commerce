@@ -85,16 +85,17 @@ const requestCreator: TRequestCreator = async <T>({
       if (!refreshState.isRefreshing) {
         refreshState.isRefreshing = true;
         refreshToken()
-          .then(() => {
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Refresh failed");
+            }
             refreshState.isRefreshing = false;
             processQueue(null);
           })
           .catch((err) => {
             refreshState.isRefreshing = false;
-            processQueue(
-              err instanceof Error ? err : new Error("Refresh failed"),
-            );
-            window.location.replace(APP_ROUTES.SIGN_IN);
+            processQueue(err);
+            window.location.href = APP_ROUTES.SIGN_IN;
           });
       }
     });
