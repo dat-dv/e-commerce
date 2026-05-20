@@ -1,15 +1,23 @@
 "use client";
 
-import { TProduct } from "@/domain/products/types/products.model";
-import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { TCategory } from "@/domain/categories/types/categories.model";
+import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
-import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import {
-  useBrandProductsFilter,
+  RenderDesktopOnly,
+  RenderTabletAndBelow,
+} from "@/components/molecules/responsive";
+import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
+import { TCategory } from "@/domain/categories/types/categories.model";
+import { TBrand } from "@/domain/homepage/types/homepage.model";
+import { TProduct } from "@/domain/products/types/products.model";
+import {
   BrandProductsFilterKey,
+  useBrandProductsFilter,
 } from "@/hooks/brands/use-brand-products-filter";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { BrandFilterDrawer } from "./brand-filter-drawer";
+import { BrandProductHeader } from "./brand-product-header";
 
 interface IBrandProductListSection {
   brand: TBrand;
@@ -31,7 +39,9 @@ export function BrandProductListSection({
   searchQuery = "",
   categories,
 }: IBrandProductListSection) {
-  const t = useTranslations("BrandsPage.detail.products");
+  const tProducts = useTranslations("ProductsPage");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   const {
     filterMinPrice,
     filterMaxPrice,
@@ -46,7 +56,6 @@ export function BrandProductListSection({
     changePage,
   } = useBrandProductsFilter();
 
-  // Find active category recursively with safety and case-insensitivity
   const findCategoryBySlug = (
     cats: TCategory[],
     slug: string,
@@ -68,39 +77,41 @@ export function BrandProductListSection({
   const activeCategory = findCategoryBySlug(categories, categorySlug);
   const categoryTitle = activeCategory?.name || brand.name;
 
+  const handleDrawerCategoryChange = (slug: string) => {
+    setIsFilterOpen(false);
+    navigateToCategory(slug);
+  };
+
   return (
     <section className="flex flex-col gap-12">
-      {/* Editorial  Banner */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-content/10 pb-12">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-5xl font-black tracking-tighter text-content uppercase">
-            {brand.name}{" "}
-            <span className="italic font-light text-content/30">
-              {t("archive")}
-            </span>
-          </h2>
-        </div>
-        <p className="text-content/50 font-medium max-w-xs text-sm italic">
-          {t("description", { brand: brand.name })}
-        </p>
-      </div>
+      <BrandProductHeader brand={brand} />
 
-      {/* Premium Side-by-Side Filtering Layout (Identical to Category Detail) */}
+      <RenderTabletAndBelow>
+        <FilterDrawerTrigger
+          eyebrow={tProducts("filters")}
+          label={categoryTitle}
+          buttonLabel={tProducts("filterButton")}
+          onPress={() => setIsFilterOpen(true)}
+        />
+      </RenderTabletAndBelow>
+
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-        <div className="lg:col-span-1">
-          <ProductFilterSidebar<BrandProductsFilterKey>
-            categories={categories}
-            onFilterChange={updateFilter}
-            onCategoryChange={navigateToCategory}
-            initialSearchValue={searchQuery}
-            searchPlaceholder={`Search ${brand.name}`}
-            onSearchSubmit={submitSearch}
-            minPriceValue={filterMinPrice}
-            maxPriceValue={filterMaxPrice}
-            ratingValue={filterRating}
-            activeSlug={categorySlug}
-          />
-        </div>
+        <RenderDesktopOnly>
+          <div className="col-span-1">
+            <ProductFilterSidebar<BrandProductsFilterKey>
+              categories={categories}
+              onFilterChange={updateFilter}
+              onCategoryChange={navigateToCategory}
+              initialSearchValue={searchQuery}
+              searchPlaceholder={`Search ${brand.name}`}
+              onSearchSubmit={submitSearch}
+              minPriceValue={filterMinPrice}
+              maxPriceValue={filterMaxPrice}
+              ratingValue={filterRating}
+              activeSlug={categorySlug}
+            />
+          </div>
+        </RenderDesktopOnly>
 
         <ProductsCatalog<BrandProductsFilterKey>
           products={products}
@@ -124,6 +135,24 @@ export function BrandProductListSection({
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
         />
       </div>
+
+      {/* Mobile/Tablet filter drawer */}
+      <RenderTabletAndBelow>
+        <BrandFilterDrawer<BrandProductsFilterKey>
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          categories={categories}
+          onFilterChange={updateFilter}
+          onCategoryChange={handleDrawerCategoryChange}
+          initialSearchValue={searchQuery}
+          searchPlaceholder={`Search ${brand.name}`}
+          onSearchSubmit={submitSearch}
+          minPriceValue={filterMinPrice}
+          maxPriceValue={filterMaxPrice}
+          ratingValue={filterRating}
+          activeSlug={categorySlug}
+        />
+      </RenderTabletAndBelow>
     </section>
   );
 }

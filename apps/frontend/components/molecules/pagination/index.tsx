@@ -52,7 +52,7 @@ const PaginationItem = ({
 }) => {
   if (typeof page === "string") {
     return (
-      <span className="flex h-10 w-8 items-center justify-center text-sm opacity-20 font-bold">
+      <span className="flex h-8 w-5 items-center justify-center text-xs font-bold opacity-20 sm:h-10 sm:w-8 sm:text-sm">
         {page}
       </span>
     );
@@ -60,12 +60,14 @@ const PaginationItem = ({
 
   return (
     <button
-      onClick={() => onClick(page as number)}
+      type="button"
+      onClick={() => onClick(page)}
+      aria-current={active ? "page" : undefined}
       className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-xl font-bold text-sm transition-colors duration-300",
+        "flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold transition-colors duration-300 sm:h-10 sm:w-10 sm:rounded-xl sm:text-sm",
         active
-          ? "bg-primary text-white shadow-lg shadow-primary/25 scale-110 z-10"
-          : "bg-white/5 border border-white/5 text-content/40 hover:bg-white/10 hover:text-content active:scale-90",
+          ? "z-10 bg-primary text-white shadow-lg shadow-primary/25 sm:scale-110"
+          : "border border-white/5 bg-white/5 text-content/40 hover:bg-white/10 hover:text-content active:scale-90",
       )}
     >
       {page}
@@ -88,15 +90,16 @@ const PaginationArrow = ({
 
   return (
     <button
+      type="button"
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
       className={cn(
-        "h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-content/10 text-content/60 transition-colors hover:bg-white/10 hover:text-content disabled:opacity-30 disabled:cursor-not-allowed",
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-content/10 bg-white/5 text-content/60 transition-colors hover:bg-white/10 hover:text-content disabled:cursor-not-allowed disabled:opacity-30 sm:h-10 sm:w-10 sm:rounded-xl",
         !disabled && "active:scale-90",
       )}
     >
-      <Icon className="w-5 h-5" aria-hidden />
+      <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
     </button>
   );
 };
@@ -126,26 +129,31 @@ export const Pagination = ({
     if (queryParam) {
       const params = new URLSearchParams(searchParams.toString());
       params.set(queryParam, page.toString());
+
       router.push(`${pathname}?${params.toString()}`, { scroll });
-    } else if (onPageChange) {
-      onPageChange(page);
+      return;
     }
+
+    onPageChange?.(page);
   };
 
   const pages = getPaginationRange(currentPage, totalPages);
 
   return (
-    <div className="flex items-center justify-center gap-4 py-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+    <nav
+      aria-label="Pagination"
+      className="flex w-full items-center justify-center gap-1.5 py-4 animate-in fade-in slide-in-from-bottom-2 duration-500 sm:gap-4"
+    >
       <PaginationArrow
         direction="left"
         disabled={currentPage === 1}
         onClick={() => handlePageSelect(Math.max(1, currentPage - 1))}
       />
 
-      <div className="flex items-center gap-2">
+      <div className="flex min-w-0 items-center gap-1 sm:gap-2">
         {pages.map((p, i) => (
           <PaginationItem
-            key={i}
+            key={`${p}-${i}`}
             page={p}
             active={currentPage === p}
             onClick={handlePageSelect}
@@ -158,6 +166,6 @@ export const Pagination = ({
         disabled={currentPage === totalPages}
         onClick={() => handlePageSelect(Math.min(totalPages, currentPage + 1))}
       />
-    </div>
+    </nav>
   );
 };
