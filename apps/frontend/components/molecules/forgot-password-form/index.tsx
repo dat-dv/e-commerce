@@ -32,34 +32,34 @@ export default function ForgotPasswordForm() {
         <h1 className="text-2xl font-bold text-content">{t("title")}</h1>
         <p className="text-sm opacity-60 mt-1">{t("description")}</p>
       </div>
-
-      <div className="flex p-1 bg-content/5 rounded-xl gap-1">
-        <Button
-          variant="ghost"
-          className={cn(
-            "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
-            method === "email"
-              ? "bg-white shadow-sm text-primary hover:bg-white"
-              : "text-content/60 hover:text-content",
-          )}
-          onClick={() => setMethod("email")}
-        >
-          {t("emailTab")}
-        </Button>
-        <Button
-          variant="ghost"
-          className={cn(
-            "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
-            method === "phone"
-              ? "bg-white shadow-sm text-primary hover:bg-white"
-              : "text-content/60 hover:text-content",
-          )}
-          onClick={() => setMethod("phone")}
-        >
-          {t("phoneTab")}
-        </Button>
-      </div>
-
+      {false && (
+        <div className="flex p-1 bg-content/5 rounded-xl gap-1">
+          <Button
+            variant="ghost"
+            className={cn(
+              "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
+              method === "email"
+                ? "bg-white shadow-sm text-primary hover:bg-white"
+                : "text-content/60 hover:text-content",
+            )}
+            onClick={() => setMethod("email")}
+          >
+            {t("emailTab")}
+          </Button>
+          <Button
+            variant="ghost"
+            className={cn(
+              "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
+              method === "phone"
+                ? "bg-white shadow-sm text-primary hover:bg-white"
+                : "text-content/60 hover:text-content",
+            )}
+            onClick={() => setMethod("phone")}
+          >
+            {t("phoneTab")}
+          </Button>
+        </div>
+      )}
       <AppForm<TForgotPasswordSchema>
         methods={methods}
         onSubmit={handleForgotPassword}

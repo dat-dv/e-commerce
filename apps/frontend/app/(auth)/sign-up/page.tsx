@@ -1,5 +1,5 @@
-import { getTranslations } from "next-intl/server";
 import SignUpForm from "@/components/molecules/sign-up-form";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
   const t = await getTranslations("RegisterPage");
@@ -10,9 +10,5 @@ export async function generateMetadata() {
 }
 
 export default function SignUpPage() {
-  return (
-    <div className="flex flex-col items-center w-full">
-      <SignUpForm />
-    </div>
-  );
+  return <SignUpForm />;
 }

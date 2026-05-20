@@ -1,5 +1,5 @@
-import { getTranslations } from "next-intl/server";
 import ResetPasswordForm from "@/components/molecules/reset-password-form";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
   const t = await getTranslations("ResetPasswordPage");
@@ -10,9 +10,5 @@ export async function generateMetadata() {
 }
 
 export default function ResetPasswordPage() {
-  return (
-    <div className="flex flex-col items-center">
-      <ResetPasswordForm />
-    </div>
-  );
+  return <ResetPasswordForm />;
 }

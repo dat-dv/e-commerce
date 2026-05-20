@@ -1,6 +1,6 @@
+import AuthAppProvider from "@/components/molecules/providers/auth-app-provider";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import AuthAppProvider from "@/components/molecules/providers/auth-app-provider";
 
 export const dynamic = "force-dynamic";
 
@@ -44,8 +44,8 @@ export default async function AuthLayout({
               ← {t("backToHome")}
             </Link>
           </div>
-          <div className="w-full max-w-md">
-            <div className="animate-in fade-in slide-in-from-right-8 duration-700">
+          <div className="w-full max-w-md flex flex-col items-center">
+            <div className="animate-in fade-in slide-in-from-right-8 duration-700 w-full flex flex-col items-center">
               {children}
             </div>
           </div>
