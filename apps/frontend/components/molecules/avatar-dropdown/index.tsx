@@ -16,6 +16,29 @@ interface IAvatarDropdownProps {
   avatarUrl?: string;
 }
 
+const MENU_ITEMS = [
+  {
+    labelKey: "viewProfile" as const,
+    href: APP_ROUTES.PROFILE,
+    icon: User,
+  },
+  {
+    labelKey: "wishlist" as const,
+    href: APP_ROUTES.FAVORITES,
+    icon: Heart,
+  },
+  {
+    labelKey: "recentlyViewed" as const,
+    href: APP_ROUTES.RECENTLY_VIEWED,
+    icon: EyeIcon,
+  },
+  {
+    labelKey: "myOrders" as const,
+    href: APP_ROUTES.ORDERS,
+    icon: ShoppingBag,
+  },
+];
+
 const AvatarDropdown = ({
   name,
   email,
@@ -27,6 +50,7 @@ const AvatarDropdown = ({
   return (
     <AppDropdown
       align="right"
+      popoverClassName="min-w-0 w-64"
       trigger={({ ref, toggle, isOpen }) => (
         <button
           ref={ref}
@@ -42,70 +66,50 @@ const AvatarDropdown = ({
         </button>
       )}
     >
-      <div className="flex flex-col gap-1 min-w-[220px]">
-        <div className="px-3.5 py-3 border-b border-content/[0.1] space-y-1">
-          <p className="text-[10px] font-black text-content/50 uppercase tracking-widest">
-            {t("accountDetails")}
-          </p>
-          <div className="flex flex-col">
-            <p className="font-bold text-sm truncate text-content leading-snug">
+      <div className="flex flex-col w-full">
+        <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-content/[0.08] bg-content/[0.01]">
+          <div className="h-9 w-9 rounded-lg overflow-hidden border border-content/10 flex-shrink-0">
+            <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
+          </div>
+          <div className="flex flex-col min-w-0">
+            <p className="font-bold text-sm truncate text-content leading-none">
               {name || t("fallbackUser")}
             </p>
-            <p className="text-xs text-content/60 truncate font-medium">
+            <p className="text-[11px] text-content/50 truncate font-medium mt-1 leading-none">
               {email || t("noEmail")}
             </p>
           </div>
         </div>
 
+        {/* Compact action buttons with reduced height for improved vertical proportion */}
         <div className="p-1 space-y-0.5">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-9 px-2.5 transition-all"
-            href={APP_ROUTES.PROFILE}
-          >
-            <User className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">{t("viewProfile")}</span>
-          </Button>
+          {MENU_ITEMS.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Button
+                key={item.href}
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-8 px-2 transition-all"
+                href={item.href}
+              >
+                <Icon className="w-3.5 h-3.5 mr-2 opacity-60 group-hover:opacity-100 transition-opacity" />
+                <span className="text-xs">{t(item.labelKey)}</span>
+              </Button>
+            );
+          })}
 
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-9 px-2.5 transition-all"
-            href={APP_ROUTES.FAVORITES}
-          >
-            <Heart className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">{t("wishlist")}</span>
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-9 px-2.5 transition-all"
-            href={APP_ROUTES.RECENTLY_VIEWED}
-          >
-            <EyeIcon className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">{t("recentlyViewed")}</span>
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-9 px-2.5 transition-all"
-            href={APP_ROUTES.ORDERS}
-          >
-            <ShoppingBag className="w-4 h-4 mr-2.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm">{t("myOrders")}</span>
-          </Button>
+          {/* Separation line for destructive action section */}
+          <div className="h-px bg-content/[0.08] my-1" />
 
           <Button
             variant="danger"
             size="sm"
             onClick={handleClickLogout}
-            className="w-full justify-start rounded-lg font-bold group h-9 px-2.5 active:scale-95 transition-all"
+            className="w-full justify-start rounded-lg font-bold group h-8 px-2 active:scale-95 transition-all"
           >
-            <LogOut className="w-4 h-4 mr-2.5 opacity-80" />
-            <span className="text-sm">{t("signOut")}</span>
+            <LogOut className="w-3.5 h-3.5 mr-2 opacity-80" />
+            <span className="text-xs">{t("signOut")}</span>
           </Button>
         </div>
       </div>
