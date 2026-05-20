@@ -1,11 +1,11 @@
 "use client";
 
+import ImagePreview from "@/components/molecules/image-preview";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { Package } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 export function OrderDetailItems({ order }: { order: TOrder }) {
   const t = useTranslations("OrdersPage");
@@ -33,12 +33,13 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
           >
             <div className="relative size-20 shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] shadow-sm sm:size-24 sm:rounded-2xl">
               {item.sku?.imageUrl && (
-                <Image
+                <ImagePreview
                   src={item.sku.imageUrl}
                   alt={item.sku.product?.name || t("detail.productFallback")}
                   fill
                   sizes="96px"
-                  className="object-cover"
+                  triggerClassName="absolute inset-0 rounded-xl sm:rounded-2xl"
+                  imageClassName="object-cover"
                 />
               )}
             </div>

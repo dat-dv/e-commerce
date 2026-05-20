@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import ImagePreview from "@/components/molecules/image-preview";
 
 import { TOrderItem } from "@/domain/orders/types/order.model";
 
+import { useLocale, useTranslations } from "next-intl";
 import { parseOrderAttributes } from "./order-display.utils";
-import { useTranslations, useLocale } from "next-intl";
 
 export const getOrderItemDisplay = (
   item: TOrderItem,
@@ -89,12 +89,13 @@ export function OrderItemProductSummary({
 
   return (
     <div className="flex min-w-0 items-center gap-3">
-      <Image
+      <ImagePreview
         src={preview.image}
         alt={preview.name}
         width={imageSize}
         height={imageSize}
-        className="size-11 rounded-md border border-content/10 object-cover"
+        triggerClassName="size-11 shrink-0 rounded-md border border-content/10"
+        imageClassName="size-full object-cover"
       />
       <div className="min-w-0">
         <p className="truncate text-sm font-semibold text-content">

@@ -1,8 +1,8 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import ImagePreview from "@/components/molecules/image-preview";
 import { ImageIcon, X } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export const AttachmentPreview = ({
@@ -26,12 +26,13 @@ export const AttachmentPreview = ({
   return (
     <div className="relative aspect-square overflow-hidden rounded-xl border border-content/[0.08] bg-content/[0.03]">
       {previewUrl ? (
-        <Image
+        <ImagePreview
           src={previewUrl}
           alt={file.name}
           fill
           sizes="88px"
-          className="object-cover"
+          triggerClassName="absolute inset-0 rounded-xl"
+          imageClassName="object-cover"
         />
       ) : (
         <div className="flex h-full items-center justify-center">
