@@ -1,10 +1,8 @@
-import Footer from "@/components/atoms/footer";
-import Header from "@/components/molecules/header";
-import LocalizedAppProvider from "@/components/molecules/providers/localized-app-provider";
-import { setRequestLocale, getTranslations } from "next-intl/server";
 import { PUBLIC_ENV } from "@/config/public.env.config";
+import { getTranslations } from "next-intl/server";
 
 export const dynamicParams = false;
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return [{ locale: "vi" }, { locale: "en" }];
@@ -16,7 +14,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Common.rootMetadata" });
 
   return {
@@ -60,20 +57,8 @@ export async function generateMetadata({
 
 export default async function LocalizedLayout({
   children,
-  params,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}>) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  return (
-    <LocalizedAppProvider locale={locale}>
-      <div className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
-    </LocalizedAppProvider>
-  );
+}) {
+  return children;
 }

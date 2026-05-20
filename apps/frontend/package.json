@@ -8,7 +8,7 @@
     "dev": "next dev -p 5173",
     "prebuild": "npm run build -w @ecommerce/shared --prefix ../.. && npm run i18n:gen",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 5173",
     "lint": "eslint",
     "type-check": "tsc --noEmit"
   },

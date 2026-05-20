@@ -1,9 +1,10 @@
 import "./globals.css";
 
-import { Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
+import AppProvider from "@/components/molecules/providers/app-provider";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -40,7 +41,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
-        {children}
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );

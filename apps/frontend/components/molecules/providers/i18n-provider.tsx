@@ -1,8 +1,8 @@
 "use client";
 
+import { AppConfig, NextIntlClientProvider } from "next-intl";
 import React from "react";
 import { I18nProvider } from "react-aria-components/I18nProvider";
-import { AppConfig, NextIntlClientProvider } from "next-intl";
 
 interface I18nProviderClientProps {
   children: React.ReactNode;

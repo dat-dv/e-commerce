@@ -1,8 +1,7 @@
 import Footer from "@/components/atoms/footer";
 import Header from "@/components/molecules/header";
-import AppProvider from "@/components/molecules/providers/app-provider";
-import { getTranslations } from "next-intl/server";
 import { PUBLIC_ENV } from "@/config/public.env.config";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
   const t = await getTranslations("Common.rootMetadata");
@@ -52,12 +51,10 @@ export default async function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AppProvider>
-      <div className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
-    </AppProvider>
+    <div className="min-h-full flex flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 }
