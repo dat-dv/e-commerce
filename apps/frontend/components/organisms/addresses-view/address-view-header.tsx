@@ -1,30 +1,34 @@
 import Button from "@/components/atoms/button";
 import { Plus } from "lucide-react";
 
+interface AddressViewHeaderProps {
+  title: string;
+  description: string;
+  actionLabel: string;
+  onPress: () => void;
+  showAction?: boolean;
+}
+
 const AddressViewHeader = ({
   title,
   description,
   actionLabel,
   onPress,
   showAction = true,
-}: {
-  title: string;
-  description: string;
-  actionLabel: string;
-  onPress: () => void;
-  showAction?: boolean;
-}) => {
+}: AddressViewHeaderProps) => {
   return (
-    <div className="flex flex-wrap justify-between items-start gap-3">
-      <div>
-        <h1 className="text-2xl font-black text-content tracking-tight">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="min-w-0">
+        <h1 className="text-xl font-black tracking-tight text-content sm:text-2xl">
           {title}
         </h1>
-        <p className="text-sm text-content/50 mt-1">{description}</p>
+
+        <p className="mt-1 text-sm text-content/50">{description}</p>
       </div>
+
       {showAction && (
         <Button
-          className="flex items-center gap-2 rounded-xl"
+          className="flex w-full items-center justify-center gap-2 rounded-xl sm:w-auto sm:shrink-0"
           onPress={onPress}
         >
           <Plus size={16} />

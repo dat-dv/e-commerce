@@ -18,6 +18,10 @@ interface ChangePasswordFormProps {
   loading: boolean;
 }
 
+/**
+ * A form component allowing users to securely update their passwords.
+ * Renders full-width input fields to maintain alignment and layout consistency across profile settings pages.
+ */
 export const ChangePasswordForm = ({
   onSubmit,
   loading,
@@ -46,7 +50,7 @@ export const ChangePasswordForm = ({
 
   return (
     <AppForm methods={methods} onSubmit={handleFormSubmit}>
-      <div className="space-y-4 max-w-md">
+      <div className="space-y-4">
         <FormInput
           name="currentPassword"
           label={t("currentPasswordLabel")}

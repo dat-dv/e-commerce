@@ -1,6 +1,5 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
 import { ProfileFormDesktop } from "@/components/molecules/profile-form/profile-form-desktop";
 import { ProfileFormMobile } from "@/components/molecules/profile-form/profile-form-mobile";
 import {
@@ -17,26 +16,30 @@ export const ProfileView = () => {
   const { updateProfile, loading: isUpdating } = useUpdateProfile();
   const { uploadAvatar, isLoading: isUploading } = useUpLoadProfileAvatar();
 
-  const formProps = {
-    user,
-    updateProfile,
-    uploadAvatar,
-    isLoading: isUpdating,
-    isUploading,
-  };
-
   return (
-    <AppContainer>
+    <>
       <RenderTabletAndAbove>
         <div className="space-y-12">
-          <ProfileFormDesktop {...formProps} />
+          <ProfileFormDesktop
+            user={user}
+            updateProfile={updateProfile}
+            uploadAvatar={uploadAvatar}
+            isLoading={isUpdating}
+            isUploading={isUploading}
+          />
           <DiscoveryCarouselSection />
         </div>
       </RenderTabletAndAbove>
 
       <RenderMobileOnly>
-        <ProfileFormMobile {...formProps} />
+        <ProfileFormMobile
+          user={user}
+          updateProfile={updateProfile}
+          uploadAvatar={uploadAvatar}
+          isLoading={isUpdating}
+          isUploading={isUploading}
+        />
       </RenderMobileOnly>
-    </AppContainer>
+    </>
   );
 };
