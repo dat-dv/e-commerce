@@ -1,19 +1,18 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import Input from "@/components/atoms/input";
 import Accordion from "@/components/molecules/accordion";
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
+import SearchInput from "@/components/molecules/search-input";
 import { getRawI18nValue } from "@/utils/i18n";
 import Fuse from "fuse.js";
 import {
   CreditCard,
   PackageCheck,
   RotateCcw,
-  Search,
   ShieldCheck,
   Truck,
 } from "lucide-react";
@@ -94,20 +93,14 @@ export function HelpFAQView(): React.ReactElement {
           </aside>
 
           <main className="min-w-0">
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
-              <Input
-                id="help-faq-search"
-                name="help-faq-search"
-                type="search"
-                aria-label={tFAQ("search")}
-                autoComplete="off"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder={tFAQ("search")}
-                className="rounded-xl bg-surface px-12 text-sm font-medium"
-              />
-            </div>
+            <SearchInput
+              id="help-faq-search"
+              value={searchQuery}
+              onChange={setSearchQuery}
+              placeholder={tFAQ("search")}
+              showSubmitButton={false}
+              className="rounded-xl bg-surface shadow-sm"
+            />
 
             <div className="mt-8 space-y-8">
               {filteredTopics.map((topic: Topic) => {

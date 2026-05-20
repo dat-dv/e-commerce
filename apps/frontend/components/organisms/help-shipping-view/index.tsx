@@ -1,21 +1,15 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import Input from "@/components/atoms/input";
 import Accordion from "@/components/molecules/accordion";
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
+import SearchInput from "@/components/molecules/search-input";
 import { getRawI18nValue } from "@/utils/i18n";
 import Fuse from "fuse.js";
-import {
-  AlertTriangle,
-  Clock,
-  MapPin,
-  PackageSearch,
-  Search,
-} from "lucide-react";
+import { AlertTriangle, Clock, MapPin, PackageSearch } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React, { useMemo, useState } from "react";
 import ShippingHeader from "./shipping-header";
@@ -95,20 +89,14 @@ export const HelpShippingView = (): React.ReactElement => {
           </aside>
 
           <main className="min-w-0">
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-content/35" />
-              <Input
-                id="help-shipping-search"
-                name="help-shipping-search"
-                type="search"
-                aria-label={tShipping("search")}
-                autoComplete="off"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder={tShipping("search")}
-                className="rounded-xl bg-surface px-12 text-sm font-medium"
-              />
-            </div>
+            <SearchInput
+              id="help-shipping-search"
+              value={searchQuery}
+              onChange={setSearchQuery}
+              placeholder={tShipping("search")}
+              showSubmitButton={false}
+              className="rounded-xl bg-surface shadow-sm"
+            />
 
             <div className="mt-8 space-y-8">
               {filteredTopics.map((topic: ShippingTopic) => {

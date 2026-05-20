@@ -1,9 +1,8 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import Button from "@/components/atoms/button";
-import Input from "@/components/atoms/input";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import SearchInput from "@/components/molecules/search-input";
 import {
   HelpCircle,
   LifeBuoy,
@@ -42,37 +41,17 @@ export function HelpHeader({
         />
       </AppContainer>
 
-      {/* Dynamic Search Bar */}
       <div className="max-w-2xl mx-auto relative mt-[-40px] z-30 px-4">
-        <div className="relative">
-          <label htmlFor="help-header-search" className="sr-only">
-            {placeholder}
-          </label>
-          <Input
-            id="help-header-search"
-            name="help-header-search"
-            type="search"
-            autoComplete="off"
-            placeholder={placeholder}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-14 px-6 pl-14 rounded-2xl bg-surface border-2 border-content/10 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-base shadow-md"
-          />
-          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-content/40 text-xl">
-            🔍
-          </div>
-          {searchQuery && (
-            <Button
-              type="button"
-              variant="ghost"
-              aria-label={clearLabel}
-              onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-content/40 hover:text-content text-sm font-medium transition-colors h-auto p-0 active:scale-100 hover:bg-transparent"
-            >
-              {clearLabel}
-            </Button>
-          )}
-        </div>
+        <SearchInput
+          id="help-header-search"
+          value={searchQuery}
+          onChange={setSearchQuery}
+          placeholder={placeholder}
+          clearButtonLabel={clearLabel}
+          showSubmitButton={false}
+          className="rounded-2xl border-2 border-content/10 bg-surface shadow-md"
+          inputClassName="py-3.5 text-base"
+        />
       </div>
     </div>
   );
