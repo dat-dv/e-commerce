@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import Button from "@/components/atoms/button";
@@ -8,7 +10,7 @@ import React, { useEffect, useState } from "react";
 
 export interface SearchInputProps {
   id?: string;
-  value: string;
+  value?: string | null;
   onSearch?: (value: string) => void;
   onChange?: (value: string) => void;
   placeholder?: string;
@@ -36,15 +38,14 @@ export const SearchInput = ({
   "aria-label": ariaLabel,
 }: SearchInputProps) => {
   const t = useTranslations("Common.search");
-  const [localValue, setLocalValue] = useState(value);
+  const [localValue, setLocalValue] = useState(value ?? "");
 
   const resolvedPlaceholder = placeholder || t("defaultPlaceholder");
   const resolvedClearButtonLabel = clearButtonLabel || t("clear");
   const resolvedSubmitButtonLabel = submitButtonLabel || t("submit");
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLocalValue(value);
+    if (value !== localValue) setLocalValue(value ?? "");
   }, [value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

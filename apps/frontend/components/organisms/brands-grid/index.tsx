@@ -28,7 +28,7 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
     hasMore,
     loadMore,
     loadPage,
-    clientQueryParams,
+    routerState: clientQueryParams,
     update,
   } = usePaginationWithSSRData<
     TBrand,
@@ -38,11 +38,11 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
       search: string;
     }
   >({
-    initialItems: brands,
-    initialMeta: meta,
-    params: {
-      page: meta.page,
-      limit: meta.limit,
+    initialData: {
+      items: brands,
+      meta,
+    },
+    defaultParams: {
       search: searchQuery,
     },
     fetchPage: (params) =>
@@ -57,7 +57,6 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
   return (
     <AppContainer className="flex flex-col gap-12 pb-12">
       <BrandsHeader />
-      {/* Premium Search Bar Container */}
       <div className="relative mx-auto w-full max-w-2xl">
         <SearchInput
           value={clientQueryParams.search}
@@ -75,7 +74,6 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
           placeholder={t("search.placeholder")}
         />
       </div>
-      {/* Brands Grid Section */}
       {brandItems.length > 0 ? (
         <BrandListGrid
           brands={brandItems}

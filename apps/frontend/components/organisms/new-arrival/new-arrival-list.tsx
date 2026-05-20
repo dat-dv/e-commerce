@@ -1,18 +1,18 @@
 "use client";
 
-import { useCallback } from "react";
-import { Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import EmptyState from "@/components/molecules/empty-space";
+import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
-import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { IPaginationMeta } from "@/utils/request/request.types";
-import EmptyState from "@/components/molecules/empty-space";
 import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { IPaginationMeta } from "@/utils/request/request.types";
 import { EProductSort } from "@ecommerce/shared";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useCallback } from "react";
 
 interface NewArrivalListProps {
   products: TProduct[];
@@ -39,9 +39,10 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
     error,
     loadMore,
   } = usePaginationWithSSRData<TProduct>({
-    initialItems: products,
-    initialMeta: meta,
-    params: { page: meta.page, limit: meta.limit },
+    initialData: {
+      items: products,
+      meta,
+    },
     fetchPage: fetchNewArrivalsPage,
     getItemKey: (product) => product.id,
   });

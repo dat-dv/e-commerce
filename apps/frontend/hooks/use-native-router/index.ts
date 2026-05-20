@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 
-type QueryPrimitive = string | number | boolean;
+type QueryPrimitive = string | number | boolean | object;
 type QueryValue = QueryPrimitive | null | undefined | QueryPrimitive[];
 type QueryParams = Record<string, QueryValue>;
 
@@ -13,18 +13,27 @@ type NavigateParams = {
   pathname?: string;
 } & QueryParams;
 
+type UseAppRouterOptions<T extends Record<string, unknown>> = {
+  updateUrl?: boolean;
+  defaultParams?: Partial<T>;
+  syncUrlParams?: string;
+};
+
 export default function useAppRouter<T extends Record<string, unknown>>({
   updateUrl = false,
-}: {
-  updateUrl?: boolean;
-} = {}) {
+  defaultParams,
+  syncUrlParams,
+}: UseAppRouterOptions<T> = {}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const nextRouter = useRouter();
 
-  const [routerState, setRouterState] = useState<T>(
-    () => Object.fromEntries(searchParams.entries()) as T,
-  );
+  const [routerState, setRouterState] = useState<T>(() => {
+    return {
+      ...(defaultParams ?? {}),
+      ...Object.fromEntries(searchParams.entries()),
+    } as T;
+  });
 
   const buildParamsObject = useCallback(
     (query: QueryParams = {}) => {
@@ -80,7 +89,7 @@ export default function useAppRouter<T extends Record<string, unknown>>({
     ({ pathname: nextPathname, ...query }: NavigateParams) => {
       const paramsObject = buildParamsObject(query);
       const queryString = buildQueryString(paramsObject);
-      const finalPathname = nextPathname?.trim() || pathname;
+      const finalPathname = nextPathname?.trim() || syncUrlParams || pathname;
 
       return {
         url: queryString ? `${finalPathname}?${queryString}` : finalPathname,
@@ -88,14 +97,15 @@ export default function useAppRouter<T extends Record<string, unknown>>({
         pathname: finalPathname,
       };
     },
-    [buildParamsObject, buildQueryString, pathname],
+    [buildParamsObject, buildQueryString, syncUrlParams, pathname],
   );
 
   const isSamePathname = useCallback(
     (nextPathname?: string) => {
-      return !nextPathname?.trim() || nextPathname.trim() === pathname;
+      const targetPathname = nextPathname?.trim() || syncUrlParams || pathname;
+      return targetPathname === pathname;
     },
-    [pathname],
+    [syncUrlParams, pathname],
   );
 
   const push = useCallback(
@@ -134,10 +144,26 @@ export default function useAppRouter<T extends Record<string, unknown>>({
     [buildUrl, isSamePathname, nextRouter, updateUrl],
   );
 
+  const clear = useCallback(
+    (keep: Record<string, boolean> = {}) => {
+      const nextState = Object.entries(routerState).reduce<QueryParams>(
+        (acc, [key, value]) => {
+          acc[key] = keep[key] ? (value as QueryValue) : null;
+          return acc;
+        },
+        {},
+      );
+
+      replace(nextState as NavigateParams);
+    },
+    [replace, routerState],
+  );
+
   return {
     pathname,
     routerState,
     push,
     replace,
+    clear,
   };
 }

@@ -1,14 +1,14 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { notificationsUseCase } from "@/domain/notifications/use-cases";
-import { useAuthStore } from "../auth/use-auth-store";
-import { useNotificationStore } from "@/store/notification-store";
-import { INotification } from "@/domain/notifications/types/notification";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
 } from "@/constants/pagination.constant";
+import { INotification } from "@/domain/notifications/types/notification";
+import { notificationsUseCase } from "@/domain/notifications/use-cases";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { useNotificationStore } from "@/store/notification-store";
 import { createEmptyPaginatedData } from "@/utils/request/pagination";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useAuthStore } from "../auth/use-auth-store";
 
 const LIMIT = PAGINATION_LIMITS.NOTIFICATIONS;
 const INITIAL_META = createInitialPaginationMeta(LIMIT);
@@ -45,9 +45,10 @@ export const useNotifications = () => {
 
   const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
     usePaginationWithSSRData<INotification, { page: number; limit: number }>({
-      initialItems: [],
-      params: { page: 1, limit: LIMIT },
-      initialMeta: INITIAL_META,
+      initialData: {
+        items: [],
+        meta: INITIAL_META,
+      },
       fetchPage: fetchNotificationsPage,
       getItemKey: (item) => item.id,
     });

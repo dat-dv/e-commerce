@@ -1,14 +1,14 @@
 "use client";
 
-import { useCallback } from "react";
-import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
-import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
-import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import {
   PAGINATION_LIMITS,
   createInitialPaginationMeta,
 } from "@/constants/pagination.constant";
+import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
+import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
+import { usePaginationWithSSRData } from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
+import { useCallback } from "react";
 
 const LIMIT = PAGINATION_LIMITS.FAVORITES;
 
@@ -40,9 +40,10 @@ export const useFavorites = ({
     TUserFavoriteProductItem,
     { page: number; limit: number }
   >({
-    initialItems: initialItems,
-    initialMeta,
-    params: { page: initialMeta.page || 1, limit: initialMeta.limit },
+    initialData: {
+      items: initialItems,
+      meta: initialMeta,
+    },
     fetchPage: fetchFavoritesPage,
     getItemKey: (item) => item.productId,
   });

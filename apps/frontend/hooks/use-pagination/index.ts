@@ -1,9 +1,9 @@
-import { useCallback, useMemo, useRef, useState } from "react";
 import {
   ApiPaginatedResponse,
   IPaginationMeta,
 } from "@/utils/request/request.types";
-import { useClientSearchParams } from "../use-clien-query-params";
+import { useCallback, useMemo, useRef, useState } from "react";
+import useAppRouter from "../use-native-router";
 
 type PaginationParams = {
   page: number;
@@ -24,47 +24,53 @@ type PaginationQueryParams = PaginationParams & ExtraParams;
 
 interface UsePaginationParams<
   T,
-  TParams extends PaginationQueryParams = PaginationQueryParams,
+  TParams extends PaginationQueryParams = PaginationParams,
 > {
-  initialItems: T[];
-  initialMeta: IPaginationMeta;
-  params: TParams;
-  pathname?: string;
+  initialData: {
+    items: T[];
+    meta: IPaginationMeta;
+  };
+  defaultParams?: Partial<TParams>;
+  defaultPathname?: string;
+  syncUrlParams?: boolean;
   fetchPage: (params: TParams) => Promise<ApiPaginatedResponse<T>>;
   getItemKey?: (item: T) => string | number;
 }
 
 export const usePaginationWithSSRData = <
   T,
-  TParams extends PaginationQueryParams = PaginationQueryParams,
+  TParams extends PaginationQueryParams = PaginationParams,
 >({
-  initialItems,
-  initialMeta,
-  params,
-  pathname,
+  initialData,
+  defaultParams,
+  defaultPathname,
+  syncUrlParams = false,
   fetchPage,
   getItemKey,
 }: UsePaginationParams<T, TParams>) => {
-  const [items, setItems] = useState<T[]>(() => initialItems);
-  const [meta, setMeta] = useState<IPaginationMeta>(() => initialMeta);
+  const [items, setItems] = useState<T[]>(() => initialData.items);
+  const [meta, setMeta] = useState<IPaginationMeta>(() => initialData.meta);
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const queryParams = useMemo(() => params, [params]);
+  const resolvedDefaultParams = useMemo(() => {
+    return {
+      page: defaultParams?.page || initialData.meta.page || 1,
+      limit: defaultParams?.limit || initialData.meta.limit || 10,
+      ...(defaultParams ?? {}),
+    } as TParams;
+  }, [defaultParams, initialData.meta.limit, initialData.meta.page]);
 
-  const {
-    clear,
-    params: clientQueryParams,
-    update,
-  } = useClientSearchParams<TParams>({
-    searchParams: queryParams,
-    pathname,
+  const { clear, routerState, replace } = useAppRouter<TParams>({
+    defaultParams: resolvedDefaultParams,
+    syncUrlParams: defaultPathname,
+    updateUrl: syncUrlParams,
   });
 
   const loadingRef = useRef(false);
   const loadingMoreRef = useRef(false);
-  const initialLimit = initialMeta.limit;
+  const initialLimit = initialData.meta.limit;
 
   const hasMore = meta.page < meta.totalPages;
 
@@ -79,12 +85,12 @@ export const usePaginationWithSSRData = <
       overrideParams?: Partial<TParams>,
     ): TParams => {
       return {
-        ...clientQueryParams,
+        ...routerState,
         ...(overrideParams ?? {}),
         ...paginationParams,
       } as TParams;
     },
-    [clientQueryParams],
+    [routerState],
   );
 
   const appendItems = useCallback(
@@ -124,8 +130,7 @@ export const usePaginationWithSSRData = <
 
       try {
         const nextLimit =
-          Number(overrideParams?.limit ?? clientQueryParams.limit) ||
-          initialLimit;
+          Number(overrideParams?.limit ?? routerState.limit) || initialLimit;
 
         const response = await fetchPage(
           buildParams(
@@ -143,7 +148,7 @@ export const usePaginationWithSSRData = <
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
-          update((response.data.meta || {}) as object as TParams);
+          replace((response.data.meta || {}) as object as TParams);
         }
       } catch (error) {
         setError(
@@ -157,7 +162,7 @@ export const usePaginationWithSSRData = <
         }
       }
     },
-    [buildParams, clientQueryParams.limit, fetchPage, initialLimit, update],
+    [buildParams, routerState.limit, fetchPage, initialLimit, replace],
   );
 
   const loadMore = useCallback(
@@ -190,7 +195,7 @@ export const usePaginationWithSSRData = <
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
-          update((response.data.meta || {}) as object as TParams);
+          replace((response.data.meta || {}) as object as TParams);
         }
       } catch (error) {
         setError(
@@ -208,7 +213,7 @@ export const usePaginationWithSSRData = <
       hasMore,
       meta.limit,
       meta.page,
-      update,
+      replace,
     ],
   );
 
@@ -218,8 +223,8 @@ export const usePaginationWithSSRData = <
       meta?: IPaginationMeta;
       keepQuery?: Record<string, boolean>;
     }) => {
-      const nextItems = next?.items ?? initialItems;
-      const nextMeta = next?.meta ?? initialMeta;
+      const nextItems = next?.items ?? initialData.items;
+      const nextMeta = next?.meta ?? initialData.meta;
 
       setItems(nextItems);
       setMeta(nextMeta);
@@ -232,7 +237,7 @@ export const usePaginationWithSSRData = <
 
       clear(next?.keepQuery);
     },
-    [initialItems, initialMeta, clear],
+    [initialData.items, initialData.meta, clear],
   );
 
   return {
@@ -250,7 +255,7 @@ export const usePaginationWithSSRData = <
     loadMore,
     reset,
 
-    clientQueryParams,
-    update,
+    routerState,
+    update: replace,
   };
 };

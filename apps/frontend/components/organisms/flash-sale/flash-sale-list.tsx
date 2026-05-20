@@ -1,17 +1,17 @@
 "use client";
 
-import { useCallback } from "react";
-import { Flame } from "lucide-react";
-import { motion } from "framer-motion";
+import EmptyState from "@/components/molecules/empty-space";
+import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 import { FlashSaleCard } from "@/components/molecules/product-card/flash-sale-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
-import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { IPaginationMeta } from "@/utils/request/request.types";
-import EmptyState from "@/components/molecules/empty-space";
 import { usePaginationWithSSRData } from "@/hooks/use-pagination";
+import { IPaginationMeta } from "@/utils/request/request.types";
+import { motion } from "framer-motion";
+import { Flame } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useCallback } from "react";
 
 interface FlashSaleListProps {
   products: TProduct[];
@@ -34,9 +34,10 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
     error,
     loadMore,
   } = usePaginationWithSSRData<TProduct, { page: number; limit: number }>({
-    initialItems: products,
-    initialMeta: meta,
-    params: { page: meta.page, limit: meta.limit },
+    initialData: {
+      items: products,
+      meta,
+    },
     fetchPage: fetchFlashSalePage,
     getItemKey: (item) => item.id,
   });
