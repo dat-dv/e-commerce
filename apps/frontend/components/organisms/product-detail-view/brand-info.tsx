@@ -1,9 +1,10 @@
-import { APP_ROUTES } from "@/constants/routes";
-import { TBrand } from "@/domain/products/types/products.model";
 import Image from "next/image";
 import Link from "next/link";
 
 import { useTranslations } from "next-intl";
+
+import { APP_ROUTES } from "@/constants/routes";
+import { TBrand } from "@/domain/products/types/products.model";
 
 interface BrandInfoProps {
   brand?: TBrand;
@@ -11,42 +12,57 @@ interface BrandInfoProps {
 
 export const BrandInfo = ({ brand }: BrandInfoProps) => {
   const t = useTranslations("ProductDetailPage");
+
   if (!brand) return null;
 
   return (
-    <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 flex items-center justify-between shadow-sm">
-      <div className="flex items-center gap-4">
-        <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden bg-content/[0.02] border border-content/[0.05] flex items-center justify-center p-2">
-          {brand.logoUrl ? (
-            <div className="relative w-full h-full">
-              <Image
-                src={brand.logoUrl}
-                alt={brand.name}
-                fill
-                unoptimized
-                sizes="(max-width: 768px) 80px, 96px"
-                className="object-contain"
-              />
-            </div>
-          ) : (
-            <span className="text-2xl font-bold text-content/10 uppercase">
-              {brand.name.charAt(0)}
-            </span>
-          )}
+    <div className="group relative overflow-hidden rounded-2xl border border-content/[0.06] bg-surface px-4 py-3 shadow-sm transition-all duration-300 hover:border-content/[0.1] hover:shadow-md">
+      {/* glow */}
+      <div className="absolute right-0 top-0 h-24 w-24 translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/5 blur-2xl transition-transform duration-500 group-hover:scale-125" />
+
+      <div className="relative flex items-center justify-between gap-3">
+        {/* left */}
+        <div className="flex min-w-0 items-center gap-3">
+          {/* logo */}
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] p-2 sm:h-16 sm:w-16">
+            {brand.logoUrl ? (
+              <div className="relative h-full w-full">
+                <Image
+                  src={brand.logoUrl}
+                  alt={brand.name}
+                  fill
+                  unoptimized
+                  sizes="64px"
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <span className="text-xl font-bold uppercase text-content/10">
+                {brand.name.charAt(0)}
+              </span>
+            )}
+          </div>
+
+          {/* content */}
+          <div className="min-w-0">
+            <h3 className="truncate text-sm font-bold text-content sm:text-base">
+              {brand.name}
+            </h3>
+
+            <p className="mt-0.5 line-clamp-1 text-xs text-content/50 sm:line-clamp-2">
+              {brand.description || t("authenticProduct")}
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className="font-bold text-content">{brand.name}</h3>
-          <p className="text-xs text-content/50 line-clamp-2 max-w-md">
-            {brand.description || t("authenticProduct")}
-          </p>
-        </div>
+
+        {/* action */}
+        <Link
+          href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
+          className="shrink-0 rounded-xl border border-content/[0.06] px-3 py-2 text-xs font-semibold text-content/80 transition-all duration-300 hover:bg-content/[0.03] hover:text-content active:scale-95 sm:px-4"
+        >
+          {t("viewStore")}
+        </Link>
       </div>
-      <Link
-        href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
-        className="px-4 py-2 rounded-xl border border-content/[0.05] text-sm font-semibold hover:bg-content/[0.03] transition-colors"
-      >
-        {t("viewStore")}
-      </Link>
     </div>
   );
 };

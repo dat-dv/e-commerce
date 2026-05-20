@@ -64,7 +64,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const discountPercent = selectedSku?.discountPercent || 0;
 
   return (
-    <AppContainer className="py-8 pb-24 lg:pb-8 space-y-12">
+    <AppContainer className="py-8 pb-24 lg:pb-8 space-y-8">
       {/* SECTION 1: TOP GRID (Image & Info) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-surface border border-content/[0.05] rounded-3xl p-6 shadow-sm">
         <ProductImages
