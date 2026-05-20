@@ -1,6 +1,13 @@
 "use client";
 
-import { EyeIcon, Heart, LogOut, ShoppingBag, User } from "lucide-react";
+import {
+  EyeIcon,
+  Heart,
+  LogOut,
+  Settings,
+  ShoppingBag,
+  User,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import Avatar from "@/components/atoms/avatar";
@@ -36,6 +43,11 @@ const MENU_ITEMS = [
     labelKey: "myOrders" as const,
     href: APP_ROUTES.ORDERS,
     icon: ShoppingBag,
+  },
+  {
+    labelKey: "settings" as const,
+    href: APP_ROUTES.SETTINGS,
+    icon: Settings,
   },
 ];
 

@@ -301,6 +301,7 @@ declare const messages: {
         "wishlist": "Wishlist",
         "recentlyViewed": "Recently Viewed",
         "myOrders": "My Orders",
+        "settings": "Settings",
         "signOut": "Sign Out",
         "noEmail": "No email provided",
         "menuLabel": "User Account Menu",

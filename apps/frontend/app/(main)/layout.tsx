@@ -1,5 +1,5 @@
 import Footer from "@/components/atoms/footer";
-import Header from "@/components/organisms/header/header-desktop";
+import Header from "@/components/organisms/header";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { getTranslations } from "next-intl/server";
 

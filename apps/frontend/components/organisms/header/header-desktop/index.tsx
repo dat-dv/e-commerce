@@ -7,11 +7,12 @@ import { GlobalSearch } from "@/components/organisms/global-search";
 import { Settings } from "lucide-react";
 import { CategoryMegaMenuContentWrapper } from "../../../molecules/categories-dropdown";
 
+import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";
 import { Suspense, useCallback, useRef } from "react";
-import HeaderActions from "./header-actions";
+import HeaderActions from "../header-actions";
 import HeaderLogo from "./header-logo";
 import HeaderNav from "./header-nav";
 
@@ -38,18 +39,18 @@ export default function HeaderDesktop() {
         </div>
 
         <div className="flex items-center gap-0">
-          <HeaderActions />
-
-          <div className="h-6 w-px bg-content/10 mx-2" />
-
-          <Button
-            variant="ghost"
-            href={APP_ROUTES.SETTINGS}
-            className="w-10 h-10 flex items-center justify-center text-content/60 hover:text-content hover:bg-content/5 rounded-full transition-colors p-0"
-            title={t("settings")}
-          >
-            <Settings size={20} />
-          </Button>
+          <RenderDesktopOnly>
+            <HeaderActions />
+            <div className="h-6 w-px bg-content/10 mx-2" />
+            <Button
+              variant="ghost"
+              href={APP_ROUTES.SETTINGS}
+              className="w-10 h-10 flex items-center justify-center text-content/60 hover:text-content hover:bg-content/5 rounded-full transition-colors p-0"
+              title={t("settings")}
+            >
+              <Settings size={20} />
+            </Button>
+          </RenderDesktopOnly>
         </div>
       </AppContainer>
       <CategoryMegaMenuContentWrapper />

@@ -1,18 +1,21 @@
 "use client";
 
-import { DesktopRenderOnly, RenderOnMobile } from "../../molecules/responsive";
+import {
+  RenderDesktopOnly,
+  RenderTabletBelow,
+} from "../../molecules/responsive";
 import HeaderDesktop from "./header-desktop";
 import HeaderMobile from "./header-mobile/mobile";
 
 export default function Header() {
   return (
     <>
-      <DesktopRenderOnly>
+      <RenderDesktopOnly>
         <HeaderDesktop />
-      </DesktopRenderOnly>
-      <RenderOnMobile>
+      </RenderDesktopOnly>
+      <RenderTabletBelow>
         <HeaderMobile />
-      </RenderOnMobile>
+      </RenderTabletBelow>
     </>
   );
 }
