@@ -36,10 +36,12 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
                 <ImagePreview
                   src={item.sku.imageUrl}
                   alt={item.sku.product?.name || t("detail.productFallback")}
-                  fill
-                  sizes="96px"
                   triggerClassName="absolute inset-0 rounded-xl sm:rounded-2xl"
-                  imageClassName="object-cover"
+                  imageProps={{
+                    fill: true,
+                    sizes: "96px",
+                    className: "object-cover",
+                  }}
                 />
               )}
             </div>

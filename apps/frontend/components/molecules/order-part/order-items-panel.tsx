@@ -92,10 +92,12 @@ export function OrderItemProductSummary({
       <ImagePreview
         src={preview.image}
         alt={preview.name}
-        width={imageSize}
-        height={imageSize}
         triggerClassName="size-11 shrink-0 rounded-md border border-content/10"
-        imageClassName="size-full object-cover"
+        imageProps={{
+          width: imageSize,
+          height: imageSize,
+          className: "size-full object-cover",
+        }}
       />
       <div className="min-w-0">
         <p className="truncate text-sm font-semibold text-content">

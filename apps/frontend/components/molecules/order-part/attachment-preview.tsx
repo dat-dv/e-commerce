@@ -29,10 +29,12 @@ export const AttachmentPreview = ({
         <ImagePreview
           src={previewUrl}
           alt={file.name}
-          fill
-          sizes="88px"
           triggerClassName="absolute inset-0 rounded-xl"
-          imageClassName="object-cover"
+          imageProps={{
+            fill: true,
+            sizes: "88px",
+            className: "object-cover",
+          }}
         />
       ) : (
         <div className="flex h-full items-center justify-center">

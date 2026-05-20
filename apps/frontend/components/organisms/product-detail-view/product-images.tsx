@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import ImagePreview from "@/components/molecules/image-preview";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -36,13 +36,16 @@ export const ProductImages = ({
           className="relative w-full h-full"
         >
           {images[selectedImage] ? (
-            <Image
+            <ImagePreview
               src={images[selectedImage]}
               alt={name}
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-contain"
-              priority
+              triggerClassName="absolute inset-0 rounded-2xl"
+              imageProps={{
+                fill: true,
+                sizes: "(max-width: 1024px) 100vw, 40vw",
+                priority: true,
+                className: "object-contain",
+              }}
             />
           ) : (
             <div className="flex items-center justify-center h-full text-content/30 text-sm">
