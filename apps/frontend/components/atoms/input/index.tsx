@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { forwardRef, useState } from "react";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 
 import { inputSizeClasses } from "./input.sizes";
@@ -75,7 +76,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             type={isPassword && showPassword ? "text" : rest.type || "text"}
           />
 
-          <div className="text-[11px] absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none select-none">
+          <div
+            className={`absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none select-none ${TYPOGRAPHY.badge}`}
+          >
             {maxCount && (
               <span
                 className={cn(
@@ -109,7 +112,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               initial={{ opacity: 0, height: 0, y: -5 }}
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: -5 }}
-              className="text-[11px] font-bold text-red-500 tracking-tight ml-1 overflow-hidden"
+              className={`font-bold text-red-500 tracking-tight ml-1 overflow-hidden ${TYPOGRAPHY.badge}`}
             >
               {error}
             </motion.span>

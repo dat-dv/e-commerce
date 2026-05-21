@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { MapPin } from "lucide-react";
@@ -44,7 +45,7 @@ export const AddressEmptyState = ({
         <Button
           type="button"
           onClick={onAction}
-          className="mt-2 text-[12px] font-black uppercase"
+          className={`mt-2 ${TYPOGRAPHY.caption} font-black uppercase`}
         >
           {actionLabel}
         </Button>

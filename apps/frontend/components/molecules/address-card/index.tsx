@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TAddress } from "@/domain/addresses/types/address.model";
 import { cn } from "@/utils/cn";
@@ -52,18 +53,21 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
   return (
     <span className="min-w-0 flex-1">
       <span className="flex min-w-0 flex-wrap items-center gap-2">
-        <span className="truncate text-sm font-bold text-content">
+        <span
+          className={`truncate ${TYPOGRAPHY.bodySmall} font-bold text-content`}
+        >
           {address.name || t("noName")}
         </span>
         <span className="text-content/30">·</span>
-        <span className="text-xs font-medium text-content/50">
+        <span className={`${TYPOGRAPHY.meta} text-content/50`}>
           {address.phone || t("noPhone")}
         </span>
         {address.isDefault && (
           <span
             className={cn(
               UI_RADIUS.badge,
-              "border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter text-primary",
+              TYPOGRAPHY.badge,
+              "border border-primary/20 bg-primary/10 px-2 py-0.5 uppercase tracking-tighter text-primary",
             )}
           >
             {t("defaultBadge")}
@@ -73,14 +77,17 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
           <span
             className={cn(
               UI_RADIUS.badge,
-              "bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60",
+              TYPOGRAPHY.badge,
+              "bg-content/10 px-2 py-0.5 uppercase tracking-wider text-content/60",
             )}
           >
             {resolvedLabel}
           </span>
         )}
       </span>
-      <span className="block truncate text-sm font-normal text-content/60">
+      <span
+        className={`block truncate ${TYPOGRAPHY.bodySmall} text-content/60`}
+      >
         {getFullAddress(address)}
       </span>
     </span>

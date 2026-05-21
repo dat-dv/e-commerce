@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
@@ -56,7 +57,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 initial={{ opacity: 0, height: 0, y: -5 }}
                 animate={{ opacity: 1, height: "auto", y: 0 }}
                 exit={{ opacity: 0, height: 0, y: -5 }}
-                className="ml-1 overflow-hidden text-[11px] font-bold tracking-tight text-red-500"
+                className={`ml-1 overflow-hidden ${TYPOGRAPHY.badge} tracking-tight text-red-500`}
               >
                 {error}
               </motion.span>
@@ -66,7 +67,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           </AnimatePresence>
 
           {maxCount ? (
-            <span className="shrink-0 text-[11px] font-bold text-content/35">
+            <span className={`shrink-0 ${TYPOGRAPHY.badge} text-content/35`}>
               {valueLength}/{maxCount}
             </span>
           ) : null}
