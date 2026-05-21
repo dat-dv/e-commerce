@@ -3,8 +3,10 @@
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { APP_ROUTES } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 import { useOrderDetail } from "@/hooks/orders/use-order-detail";
+import { cn } from "@/utils/cn";
 import { EOrderStatus } from "@ecommerce/shared";
 import { AlertCircle } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -90,7 +92,10 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
         </p>
         <Link
           href={APP_ROUTES.ORDERS}
-          className="px-8 py-3 bg-content text-surface text-sm font-semibold rounded-xl hover:-translate-y-1 transition-all shadow-lg shadow-black/10"
+          className={cn(
+            UI_RADIUS.control,
+            "px-8 py-3 bg-content text-surface text-sm font-semibold hover:-translate-y-1 transition-all shadow-lg shadow-black/10",
+          )}
         >
           {t("detail.backToOrders")}
         </Link>

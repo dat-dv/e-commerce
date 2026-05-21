@@ -139,7 +139,7 @@ export const CartItemRow = ({
             <div className="mb-1 text-[10px] font-black uppercase tracking-[0.16em] text-content/30 md:hidden">
               {tTable("total")}
             </div>
-            <div className="text-lg font-black tracking-tight text-content md:text-xl md:tracking-tighter">
+            <div className="text-nowrap text-lg font-black tracking-tight text-content md:text-xl md:tracking-tighter">
               {formatCurrency(item.price * item.quantity)}
             </div>
           </div>

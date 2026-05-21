@@ -1,6 +1,8 @@
 "use client";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder } from "@/domain/orders/types/order.model";
+import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { CreditCard, Truck } from "lucide-react";
@@ -19,7 +21,12 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
       animate={{ opacity: 1, y: 0 }}
       className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8"
     >
-      <div className="rounded-2xl border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6">
+      <div
+        className={cn(
+          UI_RADIUS.card,
+          "border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6",
+        )}
+      >
         <div className="mb-5 flex items-center gap-3 sm:mb-6">
           <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
             <Truck className="h-4 w-4" />
@@ -45,7 +52,12 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6">
+      <div
+        className={cn(
+          UI_RADIUS.card,
+          "border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6",
+        )}
+      >
         <div className="mb-5 flex items-center gap-3 sm:mb-6">
           <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
             <CreditCard className="h-4 w-4" />
