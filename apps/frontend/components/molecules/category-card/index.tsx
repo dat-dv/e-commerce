@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { LucideIcon, Sparkles } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CategoryCardProps {
   name: string;
@@ -27,7 +28,10 @@ export const CategoryCard = ({
   return (
     <Link
       href={href}
-      className="group relative h-32 border border-content/10 rounded-2xl p-6 flex flex-col justify-between transition-all overflow-hidden w-full"
+      className={cn(
+        UI_RADIUS.card,
+        "group relative h-32 border border-content/10 p-6 flex flex-col justify-between transition-all overflow-hidden w-full",
+      )}
     >
       <div
         className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-current to-transparent opacity-[0.02] group-hover:opacity-[0.08] blur-2xl transition-opacity ${color}`}
@@ -45,7 +49,7 @@ export const CategoryCard = ({
             height={100}
             src={image}
             alt={name}
-            className="w-10 h-10 object-cover rounded-xl"
+            className={cn(UI_RADIUS.media, "w-10 h-10 object-cover")}
           />
         ) : (
           <Icon

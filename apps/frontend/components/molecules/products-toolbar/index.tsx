@@ -13,6 +13,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Button from "@/components/atoms/button";
 import { AppDropdown } from "@/components/molecules/dropdown";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { IListingProductsToolbarProps } from "./products-toolbar.types";
 
 export function ListingProductsToolbar({
@@ -65,7 +67,12 @@ export function ListingProductsToolbar({
     sortOptions[0];
 
   return (
-    <div className="relative z-30 bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl rounded-2xl p-3 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]">
+    <div
+      className={cn(
+        UI_RADIUS.panel,
+        "relative z-30 bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl p-3 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]",
+      )}
+    >
       {/* Left side: Info & Pagination */}
       <div className="flex items-center justify-between w-full md:w-auto gap-4">
         <div className="text-sm font-medium text-content/70">
@@ -77,13 +84,21 @@ export function ListingProductsToolbar({
           })}
         </div>
 
-        <div className="flex items-center gap-2 bg-content/[0.03] rounded-xl p-1 border border-content/[0.05]">
+        <div
+          className={cn(
+            UI_RADIUS.control,
+            "flex items-center gap-2 bg-content/[0.03] p-1 border border-content/[0.05]",
+          )}
+        >
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => updatePage(currentPage - 1)}
             disabled={currentPage <= 1}
-            className="p-1.5 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors"
+            className={cn(
+              UI_RADIUS.control,
+              "p-1.5 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors",
+            )}
           >
             <ChevronLeft size={14} />
           </motion.button>
@@ -98,7 +113,10 @@ export function ListingProductsToolbar({
             whileTap={{ scale: 0.95 }}
             onClick={() => updatePage(currentPage + 1)}
             disabled={currentPage >= totalPages}
-            className="p-1.5 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors"
+            className={cn(
+              UI_RADIUS.control,
+              "p-1.5 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors",
+            )}
           >
             <ChevronRight size={14} />
           </motion.button>
@@ -115,7 +133,10 @@ export function ListingProductsToolbar({
         </div>
 
         <AppDropdown
-          popoverClassName="rounded-xl border-content/[0.08] bg-surface p-1 shadow-[0_12px_28px_-18px_rgba(0,0,0,0.45)] backdrop-blur-none dark:shadow-[0_12px_28px_-18px_rgba(0,0,0,0.65)]"
+          popoverClassName={cn(
+            UI_RADIUS.popover,
+            "border-content/[0.08] bg-surface p-1 shadow-[0_12px_28px_-18px_rgba(0,0,0,0.45)] backdrop-blur-none dark:shadow-[0_12px_28px_-18px_rgba(0,0,0,0.65)]",
+          )}
           trigger={({ ref, toggle, isOpen }) => (
             <Button
               ref={ref}
@@ -123,7 +144,10 @@ export function ListingProductsToolbar({
               isDisabled={isLoading}
               aria-haspopup="dialog"
               aria-expanded={isOpen}
-              className="flex min-w-[160px] items-center justify-between gap-3 rounded-lg border border-content/[0.08] bg-transparent px-3.5 py-2 font-semibold text-content shadow-none transition-colors hover:border-content/15 hover:bg-content/[0.025]"
+              className={cn(
+                UI_RADIUS.control,
+                "flex min-w-[160px] items-center justify-between gap-3 border border-content/[0.08] bg-transparent px-3.5 py-2 font-semibold text-content shadow-none transition-colors hover:border-content/15 hover:bg-content/[0.025]",
+              )}
             >
               <span className="text-[11px] font-bold text-content/70">
                 {currentSortOption.label}
@@ -142,11 +166,13 @@ export function ListingProductsToolbar({
               <button
                 key={option.value}
                 onClick={() => updateSort(option.value.toString())}
-                className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-[11px] font-semibold transition-colors ${
+                className={cn(
+                  UI_RADIUS.control,
+                  "flex items-center justify-between px-3 py-2.5 text-[11px] font-semibold transition-colors",
                   currentSort === option.value.toString()
                     ? "bg-content/[0.06] font-bold text-content"
-                    : "text-content/65 hover:text-content hover:bg-content/[0.04]"
-                }`}
+                    : "text-content/65 hover:text-content hover:bg-content/[0.04]",
+                )}
               >
                 {option.label}
                 {currentSort === option.value.toString() && (

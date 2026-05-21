@@ -1,6 +1,8 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { SlidersHorizontal } from "lucide-react";
 
 interface IFilterDrawerTriggerProps {
@@ -30,7 +32,10 @@ export function FilterDrawerTrigger({
       <Button
         variant="ghost"
         onClick={onPress}
-        className="h-10 shrink-0 rounded-full border border-content/10 px-3 text-sm text-content/70 hover:border-primary/25 hover:bg-primary/5 hover:text-primary"
+        className={cn(
+          UI_RADIUS.control,
+          "h-10 shrink-0 border border-content/10 px-3 text-sm text-content/70 hover:border-primary/25 hover:bg-primary/5 hover:text-primary",
+        )}
       >
         <SlidersHorizontal size={16} />
         {buttonLabel}
