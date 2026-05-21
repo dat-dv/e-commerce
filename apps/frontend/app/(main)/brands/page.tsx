@@ -32,7 +32,7 @@ export default async function BrandsPage({ searchParams }: IBrandsPageProps) {
     ),
   );
 
-  const brands = response?.data;
+  const brands = response?.data || null;
 
   return <BrandsView initialData={brands} />;
 }

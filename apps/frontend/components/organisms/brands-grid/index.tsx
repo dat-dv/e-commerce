@@ -13,7 +13,7 @@ import DiscoveryCarouselSection from "../discovery-sections";
 import BrandListGrid from "./brands-list";
 
 interface TopBrandsViewProps {
-  initialData?: { items: TBrand[]; meta: IPaginationMeta };
+  initialData: { items: TBrand[]; meta: IPaginationMeta } | null;
 }
 
 const BrandsView = ({ initialData }: TopBrandsViewProps) => {
