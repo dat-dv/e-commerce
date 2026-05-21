@@ -1,6 +1,4 @@
-import { toast } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
-import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { useCallback } from "react";
 import { useAddressStore } from "./use-address-store";
 
@@ -10,8 +8,6 @@ export const useAddresses = () => {
   const setAddresses = useAddressStore((s) => s.setAddresses);
   const setLoading = useAddressStore((s) => s.setLoading);
   const setHasHydrated = useAddressStore((s) => s.setHasHydrated);
-  const selectedAddressId = useAddressStore((s) => s.selectedAddressId);
-  const setSelectedAddressId = useAddressStore((s) => s.setSelectedAddressId);
 
   const fetchAddresses = useCallback(async () => {
     setLoading(true);
@@ -29,49 +25,9 @@ export const useAddresses = () => {
     }
   }, [setAddresses, setHasHydrated, setLoading]);
 
-  const addAddress = async (data: TCreateAddressInput) => {
-    try {
-      const res = await addressesUseCase.createAddress.execute(data);
-      if (res.status === "success" && res.data) {
-        toast.success("Address added successfully");
-        await fetchAddresses();
-        setSelectedAddressId(res.data.id);
-        return true;
-      }
-      toast.error(res.message || "Failed to add address");
-      return false;
-    } catch {
-      toast.error("An error occurred while adding address");
-      return false;
-    }
-  };
-
-  const updateAddress = async (
-    id: string,
-    data: Partial<TCreateAddressInput>,
-  ) => {
-    try {
-      const res = await addressesUseCase.updateAddress.execute(id, data);
-      if (res.status === "success") {
-        toast.success("Address updated successfully");
-        await fetchAddresses();
-        return true;
-      }
-      toast.error(res.message || "Failed to update address");
-      return false;
-    } catch {
-      toast.error("An error occurred while updating address");
-      return false;
-    }
-  };
-
   return {
     addresses,
     loading,
-    selectedAddressId,
-    setSelectedAddressId,
     fetchAddresses,
-    addAddress,
-    updateAddress,
   };
 };

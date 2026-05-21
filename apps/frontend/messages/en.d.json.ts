@@ -1524,7 +1524,9 @@ declare const messages: {
       "deleteSuccess": "Address removed.",
       "deleteFailed": "Failed to delete address.",
       "setDefaultSuccess": "Default address updated.",
-      "setDefaultFailed": "Failed to set default address."
+      "setDefaultFailed": "Failed to set default address.",
+      "updateSuccess": "Address updated successfully!",
+      "updateFailed": "Failed to update address."
     }
   },
   "RecentViewedPage": {

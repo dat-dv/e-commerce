@@ -6,7 +6,10 @@ import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
-import { useAddresses } from "@/hooks/profile/use-addresses";
+import { useAddAddress } from "@/hooks/addresses/use-add-address";
+import { useAddresses } from "@/hooks/addresses/use-addresses";
+import { useDeleteAddress } from "@/hooks/addresses/use-delete-address";
+import { useSetDefaultAddress } from "@/hooks/addresses/use-set-default-address";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
@@ -15,15 +18,12 @@ import AddressViewHeader from "./address-view-header";
 
 export const AddressesView = () => {
   const t = useTranslations("ProfileAddressesPage");
-  const {
-    addresses,
-    loading,
-    adding,
-    mutatingId,
-    addAddress,
-    deleteAddress,
-    setDefaultAddress,
-  } = useAddresses();
+  const { addresses, loading } = useAddresses();
+  const { addAddress, adding } = useAddAddress();
+  const { deleteAddress, deletingId } = useDeleteAddress();
+  const { setDefaultAddress, settingDefaultId } = useSetDefaultAddress();
+
+  const mutatingId = deletingId || settingDefaultId;
   const [showForm, setShowForm] = useState(false);
 
   const handleAddAddress = async (

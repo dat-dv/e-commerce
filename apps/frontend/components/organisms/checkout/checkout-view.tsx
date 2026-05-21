@@ -6,6 +6,9 @@ import {
   TCreateAddressInput,
 } from "@/domain/addresses/types/address.model";
 import { useAddresses } from "@/hooks/addresses/use-addresses";
+import { useSelectedAddress } from "@/hooks/addresses/use-selected-address";
+import { useAddAddress } from "@/hooks/addresses/use-add-address";
+import { useUpdateAddress } from "@/hooks/addresses/use-update-address";
 import { useCheckout } from "@/hooks/checkout/use-checkout";
 import { useState } from "react";
 import { AddAddressModal } from "../../molecules/add-address-modal";
@@ -15,14 +18,10 @@ import { OrderSummary } from "./order-summary";
 import { ShippingSection } from "./shipping-section";
 
 export const CheckoutView = () => {
-  const {
-    addresses,
-    loading: loadingAddresses,
-    selectedAddressId,
-    setSelectedAddressId,
-    addAddress,
-    updateAddress,
-  } = useAddresses();
+  const { addresses, loading: loadingAddresses } = useAddresses();
+  const { selectedAddressId, setSelectedAddressId } = useSelectedAddress();
+  const { addAddress } = useAddAddress();
+  const { updateAddress } = useUpdateAddress();
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingAddress, setEditingAddress] = useState<TAddress | null>(null);
