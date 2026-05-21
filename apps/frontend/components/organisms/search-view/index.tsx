@@ -133,10 +133,6 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
               categories={categories}
               onFilterChange={updateFilter}
               onCategoryChange={(slug) => loadPage(1, { category_slug: slug })}
-              initialSearchValue={routerState.search || ""}
-              onSearchSubmit={(val) =>
-                updateFilter([{ key: "search", value: val }])
-              }
               minPriceValue={routerState.min_price || ""}
               maxPriceValue={routerState.max_price || ""}
               ratingValue={routerState.rating || ""}

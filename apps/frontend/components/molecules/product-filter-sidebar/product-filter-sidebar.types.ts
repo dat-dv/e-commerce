@@ -5,9 +5,6 @@ export interface IProductFilterSidebarProps<T extends string = string> {
   onFilterChange: (filters: { key: T; value: string | null }[]) => void;
   onCategoryChange: (slug: string) => void;
   hideCategories?: boolean;
-  searchPlaceholder?: string;
-  initialSearchValue?: string;
-  onSearchSubmit?: (value: string) => void;
   minPriceValue?: string;
   maxPriceValue?: string;
   ratingValue?: string;
@@ -23,13 +20,6 @@ export interface IProductPriceFilterProps<T extends string = string> {
 export interface IProductRatingFilterProps {
   handleRatingClick: (rating: number) => void;
   ratingValue: string;
-}
-
-export interface IProductSearchFilterProps {
-  show: boolean;
-  onSearchSubmit?: (value: string) => void;
-  searchPlaceholder?: string;
-  initialSearchValue: string;
 }
 
 export interface ICategoryFilterSectionProps {

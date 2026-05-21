@@ -9,16 +9,12 @@ import { CategoryFilterSection } from "./category-filter";
 import { ProductPriceFilter } from "./price-filter";
 import { IProductFilterSidebarProps } from "./product-filter-sidebar.types";
 import { ProductRatingFilter } from "./rating-filter";
-import { ProductSearchFilter } from "./search-filter";
 
 export function ProductFilterSidebar<T extends string = string>({
   categories,
   onFilterChange,
   onCategoryChange,
   hideCategories = false,
-  searchPlaceholder,
-  initialSearchValue = "",
-  onSearchSubmit,
   minPriceValue = "",
   maxPriceValue = "",
   ratingValue = "",
@@ -44,13 +40,6 @@ export function ProductFilterSidebar<T extends string = string>({
       )}
 
       <FilterSection title={t("filters")}>
-        <ProductSearchFilter
-          show={Boolean(onSearchSubmit)}
-          onSearchSubmit={onSearchSubmit}
-          searchPlaceholder={searchPlaceholder || t("searchPlaceholder")}
-          initialSearchValue={initialSearchValue}
-        />
-
         {/* Price Range */}
         <ProductPriceFilter<T>
           minPriceValue={minPriceValue}

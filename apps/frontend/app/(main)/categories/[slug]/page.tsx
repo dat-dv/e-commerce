@@ -92,18 +92,7 @@ export default async function CategoryProductsPage({
     return <NotFound />;
   }
 
-  const isSuccess = productsRes.status === "success";
-
-  const products = isSuccess ? (productsRes.data?.items ?? []) : [];
-
-  const meta = isSuccess ? productsRes.data?.meta : undefined;
-
   return (
-    <CategoryDetailView
-      categorySlug={slug}
-      products={products}
-      totalProducts={meta?.total ?? 0}
-      totalPages={meta?.totalPages ?? 1}
-    />
+    <CategoryDetailView categorySlug={slug} initialData={productsRes.data} />
   );
 }

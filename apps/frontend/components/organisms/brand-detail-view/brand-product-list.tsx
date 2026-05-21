@@ -50,7 +50,6 @@ export function BrandProductListSection({
     categorySlug,
     updateFilter,
     navigateToCategory,
-    submitSearch,
     clearFilter,
     resetFilters,
     changePage,
@@ -102,9 +101,6 @@ export function BrandProductListSection({
               categories={categories}
               onFilterChange={updateFilter}
               onCategoryChange={navigateToCategory}
-              initialSearchValue={searchQuery}
-              searchPlaceholder={`Search ${brand.name}`}
-              onSearchSubmit={submitSearch}
               minPriceValue={filterMinPrice}
               maxPriceValue={filterMaxPrice}
               ratingValue={filterRating}
@@ -144,9 +140,6 @@ export function BrandProductListSection({
           categories={categories}
           onFilterChange={updateFilter}
           onCategoryChange={handleDrawerCategoryChange}
-          initialSearchValue={searchQuery}
-          searchPlaceholder={`Search ${brand.name}`}
-          onSearchSubmit={submitSearch}
           minPriceValue={filterMinPrice}
           maxPriceValue={filterMaxPrice}
           ratingValue={filterRating}
