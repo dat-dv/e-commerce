@@ -38,14 +38,14 @@ export default function ContactForm() {
           label={t("nameLabel")}
           placeholder={t("namePlaceholder")}
           maxCount={120}
-          className="h-12 rounded-xl border-2 border-content/5 bg-surface px-4 text-sm shadow-sm transition-all focus:border-primary focus:outline-none sm:px-5"
+          size="lg"
         />
         <FormInput
           name="contact_email"
           label={t("emailLabel")}
           type="email"
           placeholder={t("emailPlaceholder")}
-          className="h-12 rounded-xl border-2 border-content/5 bg-surface px-4 text-sm shadow-sm transition-all focus:border-primary focus:outline-none sm:px-5"
+          size="lg"
         />
       </div>
 
@@ -53,7 +53,7 @@ export default function ContactForm() {
         name="contact_phone"
         label={t("phoneLabel")}
         disabled={isSubmitting}
-        className="h-12 rounded-xl text-sm"
+        size="lg"
       />
 
       <FormInput
@@ -61,7 +61,7 @@ export default function ContactForm() {
         label={t("subjectLabel")}
         placeholder={t("subjectPlaceholder")}
         maxCount={160}
-        className="h-12 rounded-xl border-2 border-content/5 bg-surface px-4 text-sm shadow-sm transition-all focus:border-primary focus:outline-none sm:px-5"
+        size="lg"
       />
 
       <FormTextarea
@@ -70,7 +70,6 @@ export default function ContactForm() {
         placeholder={t("messagePlaceholder")}
         rows={6}
         maxCount={5000}
-        className="border-2 border-content/5 bg-surface shadow-sm"
       />
 
       <div>
@@ -90,7 +89,7 @@ export default function ContactForm() {
           variant="outline"
           size="lg"
           onClick={() => fileInputRef.current?.click()}
-          className="flex min-h-20 w-full flex-col rounded-xl border-dashed text-content/70 sm:min-h-24"
+          className="flex min-h-20 w-full flex-col border-dashed text-content/70 sm:min-h-24"
           disabled={isSubmitting}
         >
           <Upload className="size-5" aria-hidden />
@@ -137,8 +136,8 @@ export default function ContactForm() {
       <Button
         type="submit"
         variant="primary"
-        size="md"
-        className="h-12 w-full rounded-xl"
+        size="lg"
+        className="w-full"
         loading={isSubmitting}
       >
         {isSubmitting ? t("sending") : t("send")}

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -35,7 +36,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           className={cn(
-            "min-h-36 w-full resize-y rounded-xl border bg-white/5 px-5 py-3 text-sm font-normal shadow-sm outline-none backdrop-blur-xl transition-all duration-300 placeholder:opacity-50 focus:border-primary focus:ring-1 focus:ring-primary/20",
+            "min-h-36 w-full resize-y border bg-white/5 px-5 py-3 text-sm font-normal shadow-sm outline-none backdrop-blur-xl transition-all duration-300 placeholder:opacity-50 focus:border-primary focus:ring-1 focus:ring-primary/20",
+            UI_RADIUS.input,
             error
               ? "border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.1)] focus:border-red-500"
               : "border-content/10",

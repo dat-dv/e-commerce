@@ -3,8 +3,6 @@
 import Button from "@/components/atoms/button";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -55,7 +53,7 @@ export const ChangePasswordForm = ({
           type="password"
           placeholder={t("passwordPlaceholder")}
           variant="outline"
-          className={cn(UI_RADIUS.input, "h-10 text-sm")}
+          size="md"
           disabled={loading}
         />
 
@@ -65,7 +63,7 @@ export const ChangePasswordForm = ({
           type="password"
           placeholder={t("passwordPlaceholder")}
           variant="outline"
-          className={cn(UI_RADIUS.input, "h-10 text-sm")}
+          size="md"
           disabled={loading}
         />
 
@@ -75,17 +73,16 @@ export const ChangePasswordForm = ({
           type="password"
           placeholder={t("passwordPlaceholder")}
           variant="outline"
-          className={cn(UI_RADIUS.input, "h-10 text-sm")}
+          size="md"
           disabled={loading}
         />
 
         <Button
           type="submit"
           loading={loading}
-          className={cn(
-            UI_RADIUS.control,
-            "flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 font-medium hover:bg-primary/90 transition-colors w-full mt-6",
-          )}
+          variant="primary"
+          size="lg"
+          className="flex items-center justify-center gap-2 w-full mt-6"
         >
           <Lock size={18} aria-hidden="true" />
           {t("submit")}
