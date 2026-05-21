@@ -147,11 +147,11 @@ export const ProfileForm = ({
     <AppForm data-testid="profile-form" methods={methods} onSubmit={handleSave}>
       <div className="space-y-12">
         {/* Form Fields Section */}
-        <div className="bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl space-y-6">
+        <div className="space-y-6 rounded-2xl border border-white/20 bg-white/80 p-6 shadow-xl backdrop-blur-md">
           {/* Avatar & Name Header INSIDE the card! */}
           <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormInput
               variant="outline"
               name="firstName"
@@ -209,7 +209,7 @@ export const ProfileForm = ({
                       onClick={methods.handleSubmit(handleSave)}
                       variant="primary"
                       size="lg"
-                      className="rounded-2xl px-8 bg-primary shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all text-white disabled:opacity-50 disabled:hover:scale-100"
+                      className="bg-primary shadow-primary/25 rounded-2xl px-8 text-white shadow-xl transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
                       disabled={isSubmitLoading || !isDirty}
                     >
                       {isSubmitLoading
@@ -222,7 +222,7 @@ export const ProfileForm = ({
                   onClick={disableEdit}
                   variant="ghost"
                   size="lg"
-                  className="rounded-2xl px-8 border border-content/5 hover:bg-content/5 transition-all"
+                  className="border-content/5 hover:bg-content/5 rounded-2xl border px-8 transition-all"
                   disabled={isSubmitLoading}
                 >
                   {t("form.cancelBtn")}
@@ -233,10 +233,10 @@ export const ProfileForm = ({
                 onClick={enableEdit}
                 variant="primary"
                 size="lg"
-                className="rounded-2xl px-12 shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                className="shadow-primary/25 flex items-center gap-2 rounded-2xl px-12 shadow-xl transition-all hover:scale-105 active:scale-95"
                 disabled={isSubmitLoading}
               >
-                <Pencil className="w-4 h-4" />
+                <Pencil className="h-4 w-4" />
                 {t("form.editBtn")}
               </Button>
             )}

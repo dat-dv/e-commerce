@@ -73,7 +73,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
     <div
       className={cn(
         UI_RADIUS.card,
-        "group relative flex h-full flex-col bg-content/[0.02] border border-red-500/10 p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5",
+        "group bg-content/[0.02] relative flex h-full flex-col border border-red-500/10 p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5",
       )}
     >
       <ProductCardMedia
@@ -95,7 +95,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
         }
         cornerBadge={
           <div
-            className={`absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 ${TYPOGRAPHY.badge} uppercase tracking-wide text-red-500 backdrop-blur-md`}
+            className={`absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 ${TYPOGRAPHY.badge} tracking-wide text-red-500 uppercase backdrop-blur-md`}
           >
             {t("sale")}
           </div>
@@ -108,15 +108,15 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
         titleHoverClassName="group-hover:text-red-500"
       >
         <div className="mt-2">
-          <div className="w-full h-1.5 bg-content/[0.05] rounded-full overflow-hidden">
+          <div className="bg-content/[0.05] h-1.5 w-full overflow-hidden rounded-full">
             <div
-              className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full"
+              className="h-full rounded-full bg-gradient-to-r from-orange-500 to-red-500"
               style={{
                 width: progressWidth,
               }}
             />
           </div>
-          <div className="flex justify-between items-center mt-1.5">
+          <div className="mt-1.5 flex items-center justify-between">
             <span className={`${TYPOGRAPHY.badge} text-content/60`}>
               {t("sold", { count: String(soldCount) })}
             </span>
@@ -126,7 +126,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           </div>
         </div>
 
-        <div className="mt-auto pt-3 flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between pt-3">
           <ProductCardPrice
             price={priceDisplay.price}
             originalPrice={priceDisplay.originalPrice}
@@ -139,7 +139,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
             variant="ghost"
             className={cn(
               UI_RADIUS.control,
-              "w-9 h-9 flex items-center justify-center text-red-500 hover:bg-red-500/10 lg:hidden border border-red-500/10 p-0",
+              "flex h-9 w-9 items-center justify-center border border-red-500/10 p-0 text-red-500 hover:bg-red-500/10 lg:hidden",
             )}
             title={t("addToCart")}
           >

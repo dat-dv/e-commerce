@@ -73,7 +73,7 @@ export default function ContactForm() {
       />
 
       <div>
-        <label className="mb-2 block text-sm font-bold text-content/80">
+        <label className="text-content/80 mb-2 block text-sm font-bold">
           {t("attachmentsLabel")}
         </label>
         <input
@@ -89,7 +89,7 @@ export default function ContactForm() {
           variant="outline"
           size="lg"
           onClick={() => fileInputRef.current?.click()}
-          className="flex min-h-20 w-full flex-col border-dashed text-content/70 sm:min-h-24"
+          className="text-content/70 flex min-h-20 w-full flex-col border-dashed sm:min-h-24"
           disabled={isSubmitting}
         >
           <Upload className="size-5" aria-hidden />
@@ -106,14 +106,14 @@ export default function ContactForm() {
             {attachments.map((file, index) => (
               <li
                 key={`${file.name}-${file.lastModified}`}
-                className="flex min-w-0 items-center gap-2 rounded-xl border border-content/5 bg-surface px-3 py-2 text-sm sm:gap-3"
+                className="border-content/5 bg-surface flex min-w-0 items-center gap-2 rounded-xl border px-3 py-2 text-sm sm:gap-3"
               >
                 <ImageIcon
-                  className="size-4 shrink-0 text-content/45"
+                  className="text-content/45 size-4 shrink-0"
                   aria-hidden
                 />
                 <span className="min-w-0 flex-1 truncate">{file.name}</span>
-                <span className="hidden shrink-0 text-xs font-bold text-content/35 sm:inline">
+                <span className="text-content/35 hidden shrink-0 text-xs font-bold sm:inline">
                   {(file.size / 1024 / 1024).toFixed(1)} MB
                 </span>
                 <Button
@@ -121,7 +121,7 @@ export default function ContactForm() {
                   variant="ghost"
                   size="icon"
                   onClick={() => removeAttachment(index)}
-                  className="size-8 shrink-0 rounded-lg text-content/45 hover:bg-content/5"
+                  className="text-content/45 hover:bg-content/5 size-8 shrink-0 rounded-lg"
                   aria-label={`Remove ${file.name}`}
                   disabled={isSubmitting}
                 >

@@ -49,7 +49,7 @@ export function HelpHeader({
           placeholder={placeholder}
           clearButtonLabel={clearLabel}
           showSubmitButton={false}
-          className="rounded-2xl border-2 border-content/10 bg-surface shadow-md"
+          className="border-content/10 bg-surface rounded-2xl border-2 shadow-md"
           inputClassName="py-3 text-sm sm:py-3.5 sm:text-base"
         />
       </div>

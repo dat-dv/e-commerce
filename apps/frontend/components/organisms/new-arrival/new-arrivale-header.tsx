@@ -24,13 +24,13 @@ export function FreshArrivalsHeader() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       onMouseMove={handleMouseMove}
-      className="group relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b border-content/[0.03] sm:mb-8 sm:min-h-[260px]"
+      className="group border-content/[0.03] relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b sm:mb-8 sm:min-h-[260px]"
     >
-      <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06]">
         {FLOATING_ICONS.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-content"
+            className="text-content absolute"
             initial={{
               x: ((i * 149) % 1000) - 500,
               y: ((i * 73) % 500) - 250,
@@ -56,7 +56,7 @@ export function FreshArrivalsHeader() {
       </div>
 
       <motion.div
-        className="pointer-events-none absolute inset-0 z-10 transition duration-500 opacity-0 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition duration-500 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(
@@ -70,31 +70,31 @@ export function FreshArrivalsHeader() {
 
       <div className="relative z-20 w-full max-w-6xl px-4 sm:px-6">
         <div className="flex min-w-0 flex-col items-center gap-4 py-8 text-center sm:gap-5 sm:py-10">
-          <h1 className="max-w-full text-4xl font-black leading-none text-content uppercase sm:text-5xl md:text-7xl">
+          <h1 className="text-content max-w-full text-4xl leading-none font-black uppercase sm:text-5xl md:text-7xl">
             {t("title")}{" "}
-            <span className="italic font-light text-content/30">
+            <span className="text-content/30 font-light italic">
               {t("highlight")}
             </span>
           </h1>
 
-          <p className="max-w-2xl text-sm font-medium leading-relaxed text-content/50 sm:text-base md:text-lg">
+          <p className="text-content/50 max-w-2xl text-sm leading-relaxed font-medium sm:text-base md:text-lg">
             {t.rich("description", {
               strong: (chunks) => (
-                <span className="text-content font-bold underline underline-offset-4 decoration-primary/20">
+                <span className="text-content decoration-primary/20 font-bold underline underline-offset-4">
                   {chunks}
                 </span>
               ),
             })}
           </p>
 
-          <p className="max-w-2xl text-sm font-medium leading-relaxed text-content/35 md:text-base">
+          <p className="text-content/35 max-w-2xl text-sm leading-relaxed font-medium md:text-base">
             {t("note")}
           </p>
         </div>
       </div>
 
       <div
-        className="absolute inset-0 z-0 opacity-[0.015] pointer-events-none"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.015]"
         style={{
           backgroundImage:
             "radial-gradient(var(--color-content) 0.5px, transparent 0.5px)",

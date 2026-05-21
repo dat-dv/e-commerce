@@ -63,13 +63,13 @@ export const CategoriesContent = ({
                         hidden: { opacity: 0, y: 14 },
                         show: { opacity: 1, y: 0 },
                       }}
-                      className="group flex min-h-48 flex-col rounded-lg border border-content/[0.07] bg-surface p-4 transition-colors hover:border-primary/20"
+                      className="group border-content/[0.07] bg-surface hover:border-primary/20 flex min-h-48 flex-col rounded-lg border p-4 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="min-w-0">
                           <Link
                             href={`/categories/${category.slug}`}
-                            className="inline-flex max-w-full items-center gap-2 text-lg font-black text-content transition-colors hover:text-primary"
+                            className="text-content hover:text-primary inline-flex max-w-full items-center gap-2 text-lg font-black transition-colors"
                           >
                             <span className="truncate capitalize">
                               {category.name}
@@ -82,14 +82,14 @@ export const CategoriesContent = ({
                             />
                           </Link>
 
-                          <p className="mt-1 text-sm font-semibold text-content/40">
+                          <p className="text-content/40 mt-1 text-sm font-semibold">
                             {t("childCount", { count: children.length })}
                           </p>
                         </div>
 
                         <Link
                           href={`/categories/${category.slug}`}
-                          className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg border border-content/[0.06] text-content/45 transition-colors hover:border-primary/30 hover:text-primary"
+                          className="border-content/[0.06] text-content/45 hover:border-primary/30 hover:text-primary inline-flex size-9 shrink-0 items-center justify-center rounded-lg border transition-colors"
                           aria-label={t("viewCategory", {
                             category: category.name,
                           })}
@@ -108,7 +108,7 @@ export const CategoriesContent = ({
                             <Link
                               key={child.id}
                               href={`/categories/${child.slug}`}
-                              className="flex min-h-11 items-center justify-between gap-3 rounded-lg bg-content/[0.025] px-3 py-2 text-sm font-bold text-content/70 transition-colors hover:bg-primary/10 hover:text-primary"
+                              className="bg-content/[0.025] text-content/70 hover:bg-primary/10 hover:text-primary flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-bold transition-colors"
                             >
                               <span className="line-clamp-1 capitalize">
                                 {child.name}
@@ -125,7 +125,7 @@ export const CategoriesContent = ({
                           {hiddenChildrenCount > 0 && (
                             <Link
                               href={`/categories/${category.slug}`}
-                              className="flex min-h-11 items-center justify-between gap-3 rounded-lg border border-dashed border-content/[0.1] px-3 py-2 text-sm font-black text-content/45 transition-colors hover:border-primary/25 hover:text-primary"
+                              className="border-content/[0.1] text-content/45 hover:border-primary/25 hover:text-primary flex min-h-11 items-center justify-between gap-3 rounded-lg border border-dashed px-3 py-2 text-sm font-black transition-colors"
                             >
                               <span>
                                 {t("viewMore", {
@@ -142,8 +142,8 @@ export const CategoriesContent = ({
                           )}
                         </div>
                       ) : (
-                        <div className="mt-5 flex min-h-24 items-center rounded-lg bg-content/[0.025] px-4">
-                          <p className="text-sm font-semibold text-content/35">
+                        <div className="bg-content/[0.025] mt-5 flex min-h-24 items-center rounded-lg px-4">
+                          <p className="text-content/35 text-sm font-semibold">
                             {t("noChildren")}
                           </p>
                         </div>
@@ -178,17 +178,17 @@ export const CategoriesContent = ({
                     >
                       <Link
                         href={`/categories/${child.slug}`}
-                        className="group flex min-h-24 items-center gap-4 rounded-lg border border-content/[0.07] bg-surface px-4 py-3 transition-colors hover:border-primary/25"
+                        className="group border-content/[0.07] bg-surface hover:border-primary/25 flex min-h-24 items-center gap-4 rounded-lg border px-4 py-3 transition-colors"
                       >
-                        <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <div className="bg-primary/10 text-primary flex size-11 shrink-0 items-center justify-center rounded-lg">
                           <Layers3 size={18} strokeWidth={2.2} aria-hidden />
                         </div>
 
                         <div className="min-w-0 flex-1">
-                          <h4 className="line-clamp-2 text-sm font-black capitalize text-content transition-colors group-hover:text-primary">
+                          <h4 className="text-content group-hover:text-primary line-clamp-2 text-sm font-black capitalize transition-colors">
                             {child.name}
                           </h4>
-                          <p className="mt-1 text-xs font-semibold text-content/40">
+                          <p className="text-content/40 mt-1 text-xs font-semibold">
                             {childCount > 0
                               ? t("childCount", { count: childCount })
                               : t("browseProducts")}
@@ -199,7 +199,7 @@ export const CategoriesContent = ({
                           size={17}
                           strokeWidth={2.4}
                           aria-hidden
-                          className="shrink-0 text-content/25 transition-colors group-hover:text-primary"
+                          className="text-content/25 group-hover:text-primary shrink-0 transition-colors"
                         />
                       </Link>
                     </motion.div>

@@ -41,7 +41,7 @@ export function AppDialog({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
       className={cn(
-        "fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm",
+        "fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm",
         className,
       )}
     >
@@ -62,9 +62,9 @@ export function AppDialogPanel({ children, className }: IAppDialogPanelProps) {
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, y: 15 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className={cn("outline-none w-full max-w-md", className)}
+      className={cn("w-full max-w-md outline-none", className)}
     >
-      <RACDialog className="outline-none h-full w-full">{children}</RACDialog>
+      <RACDialog className="h-full w-full outline-none">{children}</RACDialog>
     </MotionModal>
   );
 }

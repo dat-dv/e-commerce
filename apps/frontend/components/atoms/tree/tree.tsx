@@ -64,7 +64,7 @@ export function AppTree<T extends object>({
       <RACTree
         {...props}
         className={cn(
-          "w-64 max-w-full overflow-auto relative border border-content/10 bg-surface/50 rounded-xl p-1.5 focus:outline-none focus:ring-2 focus:ring-primary/20",
+          "border-content/10 bg-surface/50 focus:ring-primary/20 relative w-64 max-w-full overflow-auto rounded-xl border p-1.5 focus:ring-2 focus:outline-none",
           className,
         )}
       >
@@ -79,7 +79,7 @@ export function AppTree<T extends object>({
     <RACTree
       {...props}
       className={cn(
-        "w-64 max-w-full overflow-auto relative border border-content/10 bg-surface/50 rounded-xl p-1.5 focus:outline-none focus:ring-2 focus:ring-primary/20",
+        "border-content/10 bg-surface/50 focus:ring-primary/20 relative w-64 max-w-full overflow-auto rounded-xl border p-1.5 focus:ring-2 focus:outline-none",
         className,
       )}
     >

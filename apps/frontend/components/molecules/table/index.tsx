@@ -28,7 +28,7 @@ export function Table({ className, ...props }: CommonTableProps) {
   return (
     <AriaTable
       {...props}
-      className={cn("min-w-full divide-y divide-content/10 text-sm", className)}
+      className={cn("divide-content/10 min-w-full divide-y text-sm", className)}
     />
   );
 }
@@ -48,7 +48,7 @@ export function TableHeader<T extends object>({
     <AriaTableHeader
       {...props}
       className={cn(
-        "bg-content/[0.03] text-left text-xs font-semibold uppercase text-content/45",
+        "bg-content/[0.03] text-content/45 text-left text-xs font-semibold uppercase",
         className,
       )}
     />
@@ -77,7 +77,7 @@ export function TableBody<T extends object>({
   return (
     <AriaTableBody
       {...props}
-      className={cn("divide-y divide-content/10", className)}
+      className={cn("divide-content/10 divide-y", className)}
     />
   );
 }
@@ -97,7 +97,7 @@ export function Row<T extends object>({
     <AriaRow
       {...props}
       className={cn(
-        "align-middle hover:bg-content/[0.025] focus-visible:outline-none",
+        "hover:bg-content/[0.025] align-middle focus-visible:outline-none",
         className,
       )}
     />

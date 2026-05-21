@@ -26,7 +26,7 @@ const HeaderNav = () => {
   const t = useTranslations("Common.header.nav");
 
   return (
-    <nav className="hidden md:flex items-center gap-6">
+    <nav className="hidden items-center gap-6 md:flex">
       {HEADER_NAV_LINKS.map((link, idx) => {
         const isActive = link.exact
           ? pathname === link.href
@@ -57,13 +57,13 @@ const HeaderNav = () => {
             <LiquidWaveText isActive={isActive}>{displayLabel}</LiquidWaveText>
             {link.badge && (
               <span
-                className={`px-1.5 py-0.5 rounded-full bg-red-500 ${TYPOGRAPHY.badge} text-white uppercase tracking-wider animate-pulse`}
+                className={`rounded-full bg-red-500 px-1.5 py-0.5 ${TYPOGRAPHY.badge} animate-pulse tracking-wider text-white uppercase`}
               >
                 {link.badge}
               </span>
             )}
             {isActive && (
-              <span className="absolute -bottom-[22px] left-0 h-[2.5px] w-full bg-primary rounded-full shadow-[0_-2px_8px_rgba(var(--primary),0.4)]" />
+              <span className="bg-primary absolute -bottom-[22px] left-0 h-[2.5px] w-full rounded-full shadow-[0_-2px_8px_rgba(var(--primary),0.4)]" />
             )}
           </Link>
         );

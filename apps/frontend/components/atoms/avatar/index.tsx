@@ -23,7 +23,7 @@ const Avatar = ({
       className="object-cover"
     />
   ) : (
-    <div className="h-full w-full flex items-center justify-center bg-primary/10">
+    <div className="bg-primary/10 flex h-full w-full items-center justify-center">
       <span
         className="text-primary font-bold"
         style={{ fontSize: `${size * 0.4}px` }}

@@ -63,8 +63,8 @@ export default function MapPickerModal({
 
   return (
     <AppDialog isOpen={isOpen} onClose={onClose} isDismissable={false}>
-      <AppDialogPanel className="w-full max-w-2xl bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative">
-        <AppDialogTitle className="text-2xl font-bold mb-4">
+      <AppDialogPanel className="bg-surface border-content/10 relative w-full max-w-2xl rounded-3xl border p-8 shadow-2xl">
+        <AppDialogTitle className="mb-4 text-2xl font-bold">
           {t("title")}
         </AppDialogTitle>
 
@@ -73,7 +73,7 @@ export default function MapPickerModal({
           variant="ghost"
           size="icon"
           onClick={onClose}
-          className="absolute right-6 top-6"
+          className="absolute top-6 right-6"
           aria-label={t("close")}
         >
           <XIcon />
@@ -81,7 +81,7 @@ export default function MapPickerModal({
 
         {/* Search Autocomplete */}
 
-        <div className="h-[400px] w-full rounded-2xl overflow-hidden border border-content/10 mb-4">
+        <div className="border-content/10 mb-4 h-[400px] w-full overflow-hidden rounded-2xl border">
           <MapComponent
             onPick={updateLocation}
             setLoading={setLoading}
@@ -89,7 +89,7 @@ export default function MapPickerModal({
           />
         </div>
 
-        <div className="space-y-6 bg-content/5 p-6 rounded-2xl border border-content/10">
+        <div className="bg-content/5 border-content/10 space-y-6 rounded-2xl border p-6">
           <div>
             <div className="relative mb-4">
               <Input
@@ -100,14 +100,14 @@ export default function MapPickerModal({
                 label={t("searchLabel")}
                 variant="outline"
                 size="md"
-                className="w-full bg-surface border-content/10 hover:border-content/20 focus:ring-primary/50"
+                className="bg-surface border-content/10 hover:border-content/20 focus:ring-primary/50 w-full"
               />
               {suggestions.length > 0 && (
-                <div className="absolute z-[1100] w-full bg-surface/90 backdrop-blur-md border border-content/10 rounded-xl shadow-2xl mt-2 max-h-60 overflow-y-auto">
+                <div className="bg-surface/90 border-content/10 absolute z-[1100] mt-2 max-h-60 w-full overflow-y-auto rounded-xl border shadow-2xl backdrop-blur-md">
                   {suggestions.map((item) => (
                     <div
                       key={item.place_id}
-                      className="px-4 py-3 hover:bg-primary/5 cursor-pointer text-sm border-b border-content/5 last:border-b-0 transition-colors"
+                      className="hover:bg-primary/5 border-content/5 cursor-pointer border-b px-4 py-3 text-sm transition-colors last:border-b-0"
                       onClick={() => selectSuggestion(item)}
                     >
                       {item.display_name}

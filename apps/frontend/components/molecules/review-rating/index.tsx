@@ -48,8 +48,8 @@ export const ReviewsRatings = ({
   };
 
   return (
-    <div className="bg-surface border border-content/[0.05] rounded-2xl p-6 space-y-6 shadow-sm">
-      <div className="flex flex-col md:flex-row justify-between gap-4 items-baseline">
+    <div className="bg-surface border-content/[0.05] space-y-6 rounded-2xl border p-6 shadow-sm">
+      <div className="flex flex-col items-baseline justify-between gap-4 md:flex-row">
         <ReviewRatingSummary
           averageRating={averageRating}
           totalReviews={totalReviews}

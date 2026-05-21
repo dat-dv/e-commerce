@@ -137,7 +137,7 @@ export const RequestReturnModal = ({
     <AnimatePresence>
       {isOpen ? (
         <AppDialog isOpen={isOpen} onClose={closeModal}>
-          <AppDialogPanel className="my-6 w-full max-w-xl rounded-2xl border border-content/[0.06] bg-surface/90 p-6 shadow-2xl backdrop-blur-2xl">
+          <AppDialogPanel className="border-content/[0.06] bg-surface/90 my-6 w-full max-w-xl rounded-2xl border p-6 shadow-2xl backdrop-blur-2xl">
             <RequestReturnForm
               isSubmitting={isSubmitting}
               attachments={attachments}

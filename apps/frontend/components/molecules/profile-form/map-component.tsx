@@ -146,7 +146,7 @@ export default function MapComponent({
           variant="primary"
           size="sm"
           onClick={getCurrentLocation}
-          className="shadow-lg bg-primary text-white hover:bg-primary-focus"
+          className="bg-primary hover:bg-primary-focus text-white shadow-lg"
         >
           My Location
         </Button>

@@ -71,18 +71,18 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
 
   return (
     <AppDialog isOpen={true} onClose={onCancel}>
-      <AppDialogPanel className="relative w-full max-w-sm max-h-[90vh] overflow-hidden bg-surface border border-content/10 rounded-3xl shadow-2xl flex flex-col">
+      <AppDialogPanel className="bg-surface border-content/10 relative flex max-h-[90vh] w-full max-w-sm flex-col overflow-hidden rounded-3xl border shadow-2xl">
         {/* Close Button Overlay */}
         <button
           onClick={onCancel}
-          className="absolute right-4 top-4 z-10 size-8 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/40 transition-colors"
+          className="absolute top-4 right-4 z-10 flex size-8 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-black/40"
           aria-label={t("close")}
         >
           <XIcon size={16} />
         </button>
 
         {/* Cropper Area */}
-        <div className="relative w-full aspect-square bg-neutral-900 overflow-hidden flex-shrink-0">
+        <div className="relative aspect-square w-full flex-shrink-0 overflow-hidden bg-neutral-900">
           <Cropper
             image={image}
             crop={crop}
@@ -105,8 +105,8 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
         </div>
 
         {/* Controls */}
-        <div className="p-6 space-y-6 overflow-y-auto">
-          <AppDialogTitle className="text-lg font-bold text-content sr-only">
+        <div className="space-y-6 overflow-y-auto p-6">
+          <AppDialogTitle className="text-content sr-only text-lg font-bold">
             {displayTitle}
           </AppDialogTitle>
 
@@ -121,7 +121,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
               step={0.1}
               aria-labelledby="Zoom"
               onChange={(e) => onZoomChange(Number(e.target.value))}
-              className="flex-1 h-1 bg-content/10 rounded-full appearance-none cursor-pointer accent-primary"
+              className="bg-content/10 accent-primary h-1 flex-1 cursor-pointer appearance-none rounded-full"
             />
           </div>
 
@@ -130,7 +130,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
             <Button
               variant="ghost"
               onClick={onCancel}
-              className="flex-1 rounded-xl h-11 text-sm font-semibold"
+              className="h-11 flex-1 rounded-xl text-sm font-semibold"
             >
               {t("cancel")}
             </Button>
@@ -138,7 +138,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
               variant="primary"
               onClick={handleCrop}
               loading={isCropping}
-              className="flex-1 rounded-xl h-11 text-sm font-semibold"
+              className="h-11 flex-1 rounded-xl text-sm font-semibold"
             >
               {displaySaveLabel}
             </Button>

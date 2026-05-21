@@ -27,19 +27,19 @@ export default function ForgotPasswordForm() {
   } = useForgotPassword();
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-sm">
+    <div className="flex w-full max-w-sm flex-col gap-6">
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-content">{t("title")}</h1>
-        <p className="text-sm opacity-60 mt-1">{t("description")}</p>
+        <h1 className="text-content text-2xl font-bold">{t("title")}</h1>
+        <p className="mt-1 text-sm opacity-60">{t("description")}</p>
       </div>
       {false && (
-        <div className="flex p-1 bg-content/5 rounded-xl gap-1">
+        <div className="bg-content/5 flex gap-1 rounded-xl p-1">
           <Button
             variant="ghost"
             className={cn(
-              "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
+              "h-auto flex-1 rounded-lg px-0 py-2 text-sm font-bold transition-all hover:bg-transparent active:scale-100",
               method === "email"
-                ? "bg-white shadow-sm text-primary hover:bg-white"
+                ? "text-primary bg-white shadow-sm hover:bg-white"
                 : "text-content/60 hover:text-content",
             )}
             onClick={() => setMethod("email")}
@@ -49,9 +49,9 @@ export default function ForgotPasswordForm() {
           <Button
             variant="ghost"
             className={cn(
-              "flex-1 py-2 text-sm font-bold rounded-lg transition-all h-auto px-0 active:scale-100 hover:bg-transparent",
+              "h-auto flex-1 rounded-lg px-0 py-2 text-sm font-bold transition-all hover:bg-transparent active:scale-100",
               method === "phone"
-                ? "bg-white shadow-sm text-primary hover:bg-white"
+                ? "text-primary bg-white shadow-sm hover:bg-white"
                 : "text-content/60 hover:text-content",
             )}
             onClick={() => setMethod("phone")}
@@ -92,7 +92,7 @@ export default function ForgotPasswordForm() {
             variant="ghost"
             size="sm"
             href={APP_ROUTES.SIGN_IN}
-            className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100 hover:bg-transparent"
+            className="text-primary px-0 font-bold underline-offset-4 opacity-100 hover:bg-transparent hover:underline"
           >
             {t("loginLink")}
           </Button>

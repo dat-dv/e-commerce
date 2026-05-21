@@ -24,10 +24,10 @@ export function FAQTopicList({
             className="scroll-mt-28"
           >
             <div className="mb-4 flex min-w-0 items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <span className="bg-primary/10 text-primary flex size-10 items-center justify-center rounded-xl">
                 <Icon className="size-5" />
               </span>
-              <h2 className="min-w-0 break-words text-lg font-black text-content sm:text-xl">
+              <h2 className="text-content min-w-0 text-lg font-black break-words sm:text-xl">
                 {topic.name}
               </h2>
             </div>

@@ -51,12 +51,12 @@ export function OrderCompactCard({
     <article
       className={cn(
         UI_RADIUS.panel,
-        "border border-content/[0.06] bg-surface/40 backdrop-blur-md p-5 shadow-sm hover:shadow-md transition-all duration-200",
+        "border-content/[0.06] bg-surface/40 border p-5 shadow-sm backdrop-blur-md transition-all duration-200 hover:shadow-md",
       )}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase text-content/45">
+          <p className="text-content/45 text-xs font-semibold uppercase">
             {t("orderId")}
           </p>
           <OrderIdCell orderId={order.id} onCopy={onCopy} />
@@ -80,7 +80,7 @@ export function OrderCompactCard({
         onClick={() => onExpandedToggle(order.id)}
         className={cn(
           UI_RADIUS.control,
-          "mt-4 inline-flex h-10 w-full items-center justify-center gap-2 border border-content/15 text-sm font-semibold text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 active:scale-95 opacity-100 hover:opacity-100",
+          "border-content/15 text-content hover:bg-content/5 focus-visible:ring-primary/40 mt-4 inline-flex h-10 w-full items-center justify-center gap-2 border text-sm font-semibold opacity-100 hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95",
         )}
       >
         <ChevronDown
@@ -104,34 +104,34 @@ export function OrderCompactCard({
 
       <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
         <div>
-          <dt className="text-xs font-semibold uppercase text-content/45">
+          <dt className="text-content/45 text-xs font-semibold uppercase">
             {t("customer")}
           </dt>
-          <dd className="mt-1 truncate text-xs text-content/65">
+          <dd className="text-content/65 mt-1 truncate text-xs">
             {order.user ? (
-              <span className="font-semibold text-content block truncate">
+              <span className="text-content block truncate font-semibold">
                 {order.user.firstName || order.user.lastName
                   ? `${order.user.firstName || ""} ${order.user.lastName || ""}`.trim()
                   : t("noName")}
               </span>
             ) : (
-              <span className="font-mono block truncate">{order.userId}</span>
+              <span className="block truncate font-mono">{order.userId}</span>
             )}
           </dd>
         </div>
         <div>
-          <dt className="text-xs font-semibold uppercase text-content/45">
+          <dt className="text-content/45 text-xs font-semibold uppercase">
             {t("total")}
           </dt>
-          <dd className="mt-1 font-semibold tabular-nums text-content">
+          <dd className="text-content mt-1 font-semibold tabular-nums">
             {currencyFormatter.format(order.totalAmount)}
           </dd>
         </div>
         <div className="col-span-2">
-          <dt className="text-xs font-semibold uppercase text-content/45">
+          <dt className="text-content/45 text-xs font-semibold uppercase">
             {t("date")}
           </dt>
-          <dd className="mt-1 tabular-nums text-content/65">
+          <dd className="text-content/65 mt-1 tabular-nums">
             {dateFormatter.format(new Date(order.createdAt))}
           </dd>
         </div>

@@ -48,7 +48,7 @@ export const OrderTabs = ({
   return (
     <div
       className={cn(
-        "scrollbar-hide w-full overflow-x-auto border-b border-content/[0.05] bg-transparent",
+        "scrollbar-hide border-content/[0.05] w-full overflow-x-auto border-b bg-transparent",
         className,
       )}
       {...props}
@@ -78,7 +78,7 @@ export const OrderTabs = ({
               {isActive && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  className="bg-primary absolute right-0 bottom-0 left-0 h-0.5"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}

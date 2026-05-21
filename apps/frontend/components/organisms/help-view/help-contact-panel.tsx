@@ -16,10 +16,10 @@ export function HelpContactPanel({
   ctaLabel,
 }: HelpContactPanelProps): React.ReactElement {
   return (
-    <aside className="self-start rounded-lg border border-content/5 bg-surface p-5 shadow-sm">
-      <Headphones className="size-6 text-primary" aria-hidden="true" />
-      <h2 className="mt-4 text-lg font-black text-content">{title}</h2>
-      <p className="mt-2 text-sm leading-6 text-content/60">{description}</p>
+    <aside className="border-content/5 bg-surface self-start rounded-lg border p-5 shadow-sm">
+      <Headphones className="text-primary size-6" aria-hidden="true" />
+      <h2 className="text-content mt-4 text-lg font-black">{title}</h2>
+      <p className="text-content/60 mt-2 text-sm leading-6">{description}</p>
       <Button
         href={APP_ROUTES.CONTACT}
         variant="primary"

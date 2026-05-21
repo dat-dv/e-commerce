@@ -16,10 +16,10 @@ export function AppComboBoxItem({
       {...props}
       className={({ isFocused, isSelected, isDisabled }) =>
         cn(
-          "group flex w-full items-center px-4 py-3 text-base font-normal transition-colors text-content outline-none cursor-pointer select-none",
+          "group text-content flex w-full cursor-pointer items-center px-4 py-3 text-base font-normal transition-colors outline-none select-none",
           isFocused && "bg-primary/10 text-primary",
           isSelected && "bg-primary/5 text-primary font-semibold",
-          isDisabled && "opacity-50 cursor-not-allowed",
+          isDisabled && "cursor-not-allowed opacity-50",
           className,
         )
       }

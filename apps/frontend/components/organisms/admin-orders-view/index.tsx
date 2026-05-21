@@ -70,9 +70,9 @@ export function AdminOrdersView() {
   };
 
   return (
-    <main className="relative min-h-screen bg-surface py-8 text-content overflow-hidden">
-      <div className="pointer-events-none absolute -top-40 -right-40 -z-10 size-96 rounded-full bg-primary/5 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 -z-10 size-96 rounded-full bg-primary/5 blur-3xl" />
+    <main className="bg-surface text-content relative min-h-screen overflow-hidden py-8">
+      <div className="bg-primary/5 pointer-events-none absolute -top-40 -right-40 -z-10 size-96 rounded-full blur-3xl" />
+      <div className="bg-primary/5 pointer-events-none absolute -bottom-40 -left-40 -z-10 size-96 rounded-full blur-3xl" />
 
       <AppContainer size="2xl" className="flex flex-col gap-8">
         <AdminOrdersHeader loading={loading} onRefresh={refresh} />
@@ -89,9 +89,9 @@ export function AdminOrdersView() {
 
         <section aria-live="polite" className="min-w-0">
           <div className="mb-3 flex items-center justify-between gap-3">
-            <p className="text-sm font-semibold text-content">{totalLabel}</p>
+            <p className="text-content text-sm font-semibold">{totalLabel}</p>
             {meta && (
-              <p className="text-sm text-content/55">
+              <p className="text-content/55 text-sm">
                 {t("results.pageInfo", {
                   page: String(page),
                   totalPages: String(meta.totalPages || 1),
@@ -104,11 +104,11 @@ export function AdminOrdersView() {
             <div
               className={cn(
                 UI_RADIUS.panel,
-                "flex min-h-60 flex-col items-center justify-center border border-content/10",
+                "border-content/10 flex min-h-60 flex-col items-center justify-center border",
               )}
             >
               <Loading />
-              <span className="mt-3 text-sm text-content/55">
+              <span className="text-content/55 mt-3 text-sm">
                 {t("results.loading")}
               </span>
             </div>

@@ -72,7 +72,7 @@ export function AppSelect<T extends object>({
       {...props}
       className={(renderProps) =>
         cn(
-          "flex flex-col gap-1.5 w-full font-sans",
+          "flex w-full flex-col gap-1.5 font-sans",
           typeof className === "function" ? className(renderProps) : className,
         )
       }
@@ -80,7 +80,7 @@ export function AppSelect<T extends object>({
       {({ isOpen, isInvalid, isDisabled }) => (
         <>
           {label && (
-            <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+            <RACLabel className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
               {label}
             </RACLabel>
           )}
@@ -88,7 +88,7 @@ export function AppSelect<T extends object>({
           <RACButton
             className={({ isFocusVisible }) =>
               cn(
-                "w-full flex justify-between items-center transition-all font-medium outline-none select-none cursor-pointer text-left",
+                "flex w-full cursor-pointer items-center justify-between text-left font-medium transition-all outline-none select-none",
                 variantBase[variant],
                 inputSizeClasses[size][variant],
                 variant === "outline" && UI_RADIUS.input,
@@ -99,37 +99,37 @@ export function AppSelect<T extends object>({
                     : isOpen
                       ? variantActive[variant]
                       : variantNormal[variant],
-                isFocusVisible && "ring-2 ring-primary/50",
+                isFocusVisible && "ring-primary/50 ring-2",
               )
             }
           >
-            <RACSelectValue className="text-content font-normal empty:text-content/50">
+            <RACSelectValue className="text-content empty:text-content/50 font-normal">
               {({ selectedText }) => selectedText || placeholder}
             </RACSelectValue>
-            <ChevronDown className="w-4 h-4 ml-2 opacity-50 shrink-0 text-content" />
+            <ChevronDown className="text-content ml-2 h-4 w-4 shrink-0 opacity-50" />
           </RACButton>
 
           {description && (
             <RACText
               slot="description"
-              className="text-xs text-content/65 ml-1"
+              className="text-content/65 ml-1 text-xs"
             >
               {description}
             </RACText>
           )}
 
-          <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+          <RACFieldError className="ml-1 text-xs font-medium text-red-500">
             {errorMessage}
           </RACFieldError>
 
           <RACPopover
             className={cn(
               UI_RADIUS.popover,
-              "z-50 w-[var(--trigger-width)] origin-top-right bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100",
+              "bg-surface/95 border-content/10 animate-in fade-in zoom-in-95 z-50 w-[var(--trigger-width)] origin-top-right overflow-hidden border shadow-2xl backdrop-blur-md duration-100 focus:outline-none",
             )}
             offset={4}
           >
-            <RACListBox className="outline-none py-1 max-h-60 overflow-y-auto">
+            <RACListBox className="max-h-60 overflow-y-auto py-1 outline-none">
               {options && !children
                 ? options.map((opt) => (
                     <RACListBoxItem
@@ -142,12 +142,12 @@ export function AppSelect<T extends object>({
                         isDisabled: itemDisabled,
                       }) =>
                         cn(
-                          "group flex w-full items-center px-4 py-3 text-base font-normal transition-colors text-content outline-none cursor-pointer select-none",
+                          "group text-content flex w-full cursor-pointer items-center px-4 py-3 text-base font-normal transition-colors outline-none select-none",
                           itemClassName,
                           isFocused && "bg-primary/10 text-primary",
                           isSelected &&
                             "bg-primary/5 text-primary font-semibold",
-                          itemDisabled && "opacity-50 cursor-not-allowed",
+                          itemDisabled && "cursor-not-allowed opacity-50",
                         )
                       }
                     >

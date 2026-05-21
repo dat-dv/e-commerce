@@ -24,10 +24,10 @@ export function ProductGrid({
         {Array.from({ length: skeletonCount }).map((_, i) => (
           <div
             key={i}
-            className="aspect-[3/4] rounded-3xl border border-content/[0.04] bg-content/[0.02] p-4 flex flex-col justify-end gap-3 animate-pulse"
+            className="border-content/[0.04] bg-content/[0.02] flex aspect-[3/4] animate-pulse flex-col justify-end gap-3 rounded-3xl border p-4"
           >
-            <div className="h-4 bg-content/5 rounded-full w-3/4 animate-pulse" />
-            <div className="h-3 bg-content/5 rounded-full w-1/2 animate-pulse" />
+            <div className="bg-content/5 h-4 w-3/4 animate-pulse rounded-full" />
+            <div className="bg-content/5 h-3 w-1/2 animate-pulse rounded-full" />
           </div>
         ))}
       </div>
@@ -43,7 +43,7 @@ export function ProductGrid({
       className={cn(
         gridClassName,
         "transition-all duration-300",
-        loading && "opacity-40 pointer-events-none scale-[0.99] blur-[1px]",
+        loading && "pointer-events-none scale-[0.99] opacity-40 blur-[1px]",
       )}
     >
       {products.map((product, idx) => (

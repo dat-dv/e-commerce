@@ -9,16 +9,16 @@ export const JoinUs = () => {
   const t = useTranslations("HomePage.joinUs");
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 border-y border-content/[0.04]">
+    <section className="border-content/[0.04] relative overflow-hidden border-y py-16 md:py-24">
       <div className="relative z-10 grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
         <div className="max-w-3xl">
-          <h2 className="text-4xl md:text-6xl font-black tracking-[-0.06em] leading-none text-content uppercase">
+          <h2 className="text-content text-4xl leading-none font-black tracking-[-0.06em] uppercase md:text-6xl">
             {t.rich("title", {
               br: () => <br />,
             })}
           </h2>
 
-          <p className="mt-6 max-w-xl text-base md:text-lg font-medium leading-relaxed text-content/50">
+          <p className="text-content/50 mt-6 max-w-xl text-base leading-relaxed font-medium md:text-lg">
             {t("desc")}
           </p>
         </div>
@@ -28,14 +28,14 @@ export const JoinUs = () => {
             href={APP_ROUTES.SIGN_UP}
             variant="primary"
             size="lg"
-            className="rounded-xl px-8 text-sm font-bold shadow-xl shadow-primary/20"
+            className="shadow-primary/20 rounded-xl px-8 text-sm font-bold shadow-xl"
           >
             {t("btnJoin")}
           </Button>
         </div>
       </div>
 
-      <span className="pointer-events-none absolute -right-8 bottom-0 select-none text-[96px] md:text-[160px] font-black tracking-[-0.08em] uppercase leading-none text-content/[0.025]">
+      <span className="text-content/[0.025] pointer-events-none absolute -right-8 bottom-0 text-[96px] leading-none font-black tracking-[-0.08em] uppercase select-none md:text-[160px]">
         {t("backgroundText")}
       </span>
     </section>

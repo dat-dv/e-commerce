@@ -54,7 +54,7 @@ export default function ProfileSidebarSection() {
           return (
             <h1
               key={index}
-              className="text-sm font-bold tracking-wider text-content/40 uppercase mb-4 ml-1"
+              className="text-content/40 mb-4 ml-1 text-sm font-bold tracking-wider uppercase"
             >
               {item.label}
             </h1>
@@ -65,22 +65,22 @@ export default function ProfileSidebarSection() {
           const Icon = item.icon;
           return (
             <div key={index} className="space-y-1">
-              <div className="font-bold text-content mb-2 flex items-center gap-2 px-3 py-2">
+              <div className="text-content mb-2 flex items-center gap-2 px-3 py-2 font-bold">
                 {Icon && (
                   <Icon
-                    className="w-5 h-5 text-content/60"
+                    className="text-content/60 h-5 w-5"
                     aria-hidden="true"
                   />
                 )}
                 {item.label}
               </div>
-              <ul className="space-y-1 ml-4">
+              <ul className="ml-4 space-y-1">
                 {item.items?.map((subItem, subIndex) => (
                   <li key={subIndex}>
                     <Link
                       href={subItem.href}
                       className={cn(
-                        "font-medium flex items-center gap-2 px-3 py-2 transition-all text-sm",
+                        "flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all",
                         UI_RADIUS.control,
                         pathname === subItem.href
                           ? "bg-primary/10 text-primary font-semibold"
@@ -108,7 +108,7 @@ export default function ProfileSidebarSection() {
               <Link
                 href={item.href || "/"}
                 className={cn(
-                  "font-bold flex items-center gap-2 px-3 py-2 transition-all text-sm",
+                  "flex items-center gap-2 px-3 py-2 text-sm font-bold transition-all",
                   UI_RADIUS.control,
                   pathname === item.href
                     ? "bg-primary/10 text-primary"
@@ -117,7 +117,7 @@ export default function ProfileSidebarSection() {
               >
                 {Icon && (
                   <Icon
-                    className="w-5 h-5 text-content/60"
+                    className="text-content/60 h-5 w-5"
                     aria-hidden="true"
                   />
                 )}

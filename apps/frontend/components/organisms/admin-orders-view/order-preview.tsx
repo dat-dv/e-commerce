@@ -18,14 +18,14 @@ export function OrderPreview({ preview }: { preview: OrderPreviewData }) {
         height={48}
         className={cn(
           UI_RADIUS.media,
-          "size-12 border border-content/10 object-cover",
+          "border-content/10 size-12 border object-cover",
         )}
       />
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-content">
+        <p className="text-content truncate text-sm font-semibold">
           {preview.name}
         </p>
-        <p className="truncate text-xs text-content/50">
+        <p className="text-content/50 truncate text-xs">
           {preview.attributes || t("showItems", { count: preview.quantity })}
           {preview.extraCount > 0 && ` +${preview.extraCount}`}
         </p>

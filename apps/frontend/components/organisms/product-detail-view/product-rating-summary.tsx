@@ -20,13 +20,13 @@ export function ProductRatingSummary({
   const roundedRating = Math.floor(rating);
 
   return (
-    <div className="flex items-center justify-between text-sm border-b border-content/[0.05] pb-4">
+    <div className="border-content/[0.05] flex items-center justify-between border-b pb-4 text-sm">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1">
-          <span className="font-bold text-primary text-base">
+          <span className="text-primary text-base font-bold">
             {rating.toFixed(1)}
           </span>
-          <div className="flex text-primary">
+          <div className="text-primary flex">
             {Array.from({ length: 5 }).map((_, index) => (
               <Star
                 key={index}
@@ -38,17 +38,17 @@ export function ProductRatingSummary({
           </div>
         </div>
 
-        <div className="w-[1px] h-4 bg-content/[0.1]" />
+        <div className="bg-content/[0.1] h-4 w-[1px]" />
 
         <div className="flex items-center gap-1">
-          <span className="font-bold text-content">{reviewsCount}</span>
+          <span className="text-content font-bold">{reviewsCount}</span>
           <span className="text-content/50 text-xs">{t("reviews")}</span>
         </div>
 
-        <div className="w-[1px] h-4 bg-content/[0.1]" />
+        <div className="bg-content/[0.1] h-4 w-[1px]" />
 
         <div className="flex items-center gap-1">
-          <span className="font-bold text-content">
+          <span className="text-content font-bold">
             {product.soldCount || 0}
           </span>
           <span className="text-content/50 text-xs">{t("sold")}</span>
@@ -57,7 +57,7 @@ export function ProductRatingSummary({
 
       <Button
         variant="ghost"
-        className="text-content/40 hover:text-content hover:bg-transparent text-xs font-medium transition-colors h-auto px-0 active:scale-100"
+        className="text-content/40 hover:text-content h-auto px-0 text-xs font-medium transition-colors hover:bg-transparent active:scale-100"
       >
         {t("report")}
       </Button>

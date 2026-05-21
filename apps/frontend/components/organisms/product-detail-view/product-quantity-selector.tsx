@@ -20,30 +20,30 @@ export function ProductQuantitySelector({
 
   return (
     <div className="flex flex-col gap-3">
-      <span className="text-sm font-medium text-content/60 w-24">
+      <span className="text-content/60 w-24 text-sm font-medium">
         {t("quantity")}
       </span>
       <div className="flex items-center gap-4">
-        <div className="flex items-center border border-content/[0.1] rounded-lg overflow-hidden h-9">
+        <div className="border-content/[0.1] flex h-9 items-center overflow-hidden rounded-lg border">
           <Button
             variant="ghost"
             onClick={() => onQuantityChange(Math.max(1, quantity - 1))}
-            className="h-full px-3 hover:bg-content/[0.05] transition-colors rounded-none border-r border-r-content/[0.1] active:scale-100 hover:opacity-100 text-content opacity-100 font-normal"
+            className="hover:bg-content/[0.05] border-r-content/[0.1] text-content h-full rounded-none border-r px-3 font-normal opacity-100 transition-colors hover:opacity-100 active:scale-100"
           >
             <Minus size={12} />
           </Button>
-          <span className="px-4 font-semibold text-sm min-w-[40px] text-center">
+          <span className="min-w-[40px] px-4 text-center text-sm font-semibold">
             {quantity}
           </span>
           <Button
             variant="ghost"
             onClick={() => onQuantityChange(quantity + 1)}
-            className="h-full px-3 hover:bg-content/[0.05] transition-colors rounded-none border-l border-l-content/[0.1] active:scale-100 hover:opacity-100 text-content opacity-100 font-normal"
+            className="hover:bg-content/[0.05] border-l-content/[0.1] text-content h-full rounded-none border-l px-3 font-normal opacity-100 transition-colors hover:opacity-100 active:scale-100"
           >
             <Plus size={12} />
           </Button>
         </div>
-        <span className="text-sm text-content/50">
+        <span className="text-content/50 text-sm">
           {selectedSku?.stock !== undefined
             ? t("itemsAvailable", { count: String(selectedSku.stock) })
             : t("inStock")}

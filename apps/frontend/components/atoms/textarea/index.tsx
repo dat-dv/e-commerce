@@ -22,7 +22,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label ? (
           <label
             htmlFor={id}
-            className="ml-1 text-sm font-bold tracking-tight text-content/80 opacity-70"
+            className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70"
           >
             {label}
           </label>
@@ -37,13 +37,13 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           className={cn(
-            "min-h-36 w-full resize-y border bg-white/5 px-5 py-3 text-sm font-normal shadow-sm outline-none backdrop-blur-xl transition-all duration-300 placeholder:opacity-50 focus:border-primary focus:ring-1 focus:ring-primary/20",
+            "focus:border-primary focus:ring-primary/20 min-h-36 w-full resize-y border bg-white/5 px-5 py-3 text-sm font-normal shadow-sm backdrop-blur-xl transition-all duration-300 outline-none placeholder:opacity-50 focus:ring-1",
             UI_RADIUS.input,
             error
               ? "border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.1)] focus:border-red-500"
               : "border-content/10",
             rest.disabled &&
-              "cursor-not-allowed border-content/10 bg-content/5 opacity-70 shadow-none",
+              "border-content/10 bg-content/5 cursor-not-allowed opacity-70 shadow-none",
             className,
           )}
         />

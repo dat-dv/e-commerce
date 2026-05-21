@@ -26,7 +26,7 @@ export default function UserShortcuts({
   const isSettingsActive = pathname === APP_ROUTES.SETTINGS;
 
   return (
-    <div className="flex flex-col gap-1 border-t border-content/10 pt-4">
+    <div className="border-content/10 flex flex-col gap-1 border-t pt-4">
       <MobileDrawerSectionTitle>{t("mySpace")}</MobileDrawerSectionTitle>
 
       <MobileDrawerAction

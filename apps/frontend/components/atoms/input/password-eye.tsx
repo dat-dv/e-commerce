@@ -18,7 +18,7 @@ const PasswordEye = ({
       variant="ghost"
       size="icon"
       onClick={handleShowPassword}
-      className="text-content/50 hover:text-content transition-colors z-10"
+      className="text-content/50 hover:text-content z-10 transition-colors"
       aria-label={showPassword ? t("hide") : t("show")}
       type="button"
     >

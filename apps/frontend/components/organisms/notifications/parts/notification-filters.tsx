@@ -16,7 +16,7 @@ export const NotificationFilters = ({ onSearch }: NotificationFiltersProps) => {
       onSearch={onSearch}
       placeholder={t("filters.searchPlaceholder")}
       submitButtonLabel={t("filters.searchButton")}
-      className="w-full bg-surface"
+      className="bg-surface w-full"
     />
   );
 };

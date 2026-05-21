@@ -28,8 +28,8 @@ export function HelpQuickLinks({
     <div className="min-w-0">
       <div className="flex items-end justify-between gap-4">
         <div className="min-w-0">
-          <h2 className="text-xl font-black text-content">{title}</h2>
-          <p className="mt-2 text-sm leading-6 text-content/55">
+          <h2 className="text-content text-xl font-black">{title}</h2>
+          <p className="text-content/55 mt-2 text-sm leading-6">
             {description}
           </p>
         </div>
@@ -43,9 +43,9 @@ export function HelpQuickLinks({
             <Link
               key={item.title}
               href={helpHrefMap[item.href as HelpHrefKey]}
-              className="group flex min-w-0 items-start gap-3 rounded-lg border border-content/5 bg-surface p-4 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 sm:items-center sm:gap-4"
+              className="group border-content/5 bg-surface hover:border-primary/30 hover:bg-primary/[0.03] focus-visible:ring-primary/20 flex min-w-0 items-start gap-3 rounded-lg border p-4 shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none sm:items-center sm:gap-4"
             >
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span className="bg-primary/10 text-primary flex size-11 shrink-0 items-center justify-center rounded-lg">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
               <span className="min-w-0 flex-1">
@@ -55,12 +55,12 @@ export function HelpQuickLinks({
                 >
                   {item.title}
                 </LiquidWaveText>
-                <span className="mt-1 block text-sm leading-6 text-content/60">
+                <span className="text-content/60 mt-1 block text-sm leading-6">
                   {item.desc}
                 </span>
               </span>
               <ArrowRight
-                className="mt-3 size-4 shrink-0 text-content/30 transition-transform group-hover:translate-x-0.5 group-hover:text-primary sm:mt-0"
+                className="text-content/30 group-hover:text-primary mt-3 size-4 shrink-0 transition-transform group-hover:translate-x-0.5 sm:mt-0"
                 aria-hidden="true"
               />
             </Link>
@@ -69,7 +69,7 @@ export function HelpQuickLinks({
       </div>
 
       {!cards.length && (
-        <p className="mt-6 rounded-lg border border-content/5 bg-surface p-6 text-sm text-content/55">
+        <p className="border-content/5 bg-surface text-content/55 mt-6 rounded-lg border p-6 text-sm">
           {emptyText}
         </p>
       )}

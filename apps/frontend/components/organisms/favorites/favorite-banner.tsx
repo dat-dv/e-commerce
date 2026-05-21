@@ -20,13 +20,13 @@ const FavoritesBanner = ({ count }: { count: number }) => {
       rightContent={
         <div className="flex min-w-0 flex-col items-center md:items-end">
           <span
-            className={`${TYPOGRAPHY.pageTitle} font-black tabular-nums text-content`}
+            className={`${TYPOGRAPHY.pageTitle} text-content font-black tabular-nums`}
           >
             {count.toString().padStart(2, "0")}
           </span>
 
           <span
-            className={`max-w-full truncate ${TYPOGRAPHY.caption} font-medium text-content/30`}
+            className={`max-w-full truncate ${TYPOGRAPHY.caption} text-content/30 font-medium`}
           >
             {t("banner.totalItems")}
           </span>

@@ -55,11 +55,11 @@ export function OrderResults({
 
   return (
     <>
-      <div className="hidden overflow-x-auto rounded-xl border border-content/[0.06] bg-surface/40 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] lg:block">
-        <table className="w-full border-collapse text-left text-sm text-content">
+      <div className="border-content/[0.06] bg-surface/40 hidden overflow-x-auto rounded-xl border shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] lg:block">
+        <table className="text-content w-full border-collapse text-left text-sm">
           <thead>
-            <tr className="border-b border-content/[0.06] bg-content/[0.02] text-xs font-semibold uppercase tracking-wider text-content/45">
-              <th className="px-6 py-4 text-center w-16">{t("stt")}</th>
+            <tr className="border-content/[0.06] bg-content/[0.02] text-content/45 border-b text-xs font-semibold tracking-wider uppercase">
+              <th className="w-16 px-6 py-4 text-center">{t("stt")}</th>
               <th className="px-6 py-4">{t("orderId")}</th>
               <th className="px-6 py-4">{t("customer")}</th>
               <th className="px-6 py-4">{t("date")}</th>
@@ -67,7 +67,7 @@ export function OrderResults({
               <th className="px-6 py-4 text-center">{t("status")}</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-content/[0.06]">
+          <tbody className="divide-content/[0.06] divide-y">
             {orders.map((order, index) => {
               const isExpanded = expandedOrderIds.has(order.id);
               const isUpdating = updatingId === order.id;
@@ -76,11 +76,11 @@ export function OrderResults({
                 <Fragment key={order.id}>
                   <tr
                     className={cn(
-                      "transition-colors duration-150 hover:bg-content/[0.015] align-middle",
+                      "hover:bg-content/[0.015] align-middle transition-colors duration-150",
                       isExpanded && "bg-content/[0.005]",
                     )}
                   >
-                    <td className="px-6 py-4 text-center text-content/50 font-medium font-mono text-xs w-16 border-r border-content/[0.03]">
+                    <td className="text-content/50 border-content/[0.03] w-16 border-r px-6 py-4 text-center font-mono text-xs font-medium">
                       {(page - 1) * 10 + index + 1}
                     </td>
                     <td className="px-6 py-4">
@@ -89,7 +89,7 @@ export function OrderResults({
                           type="button"
                           variant="ghost"
                           onClick={() => onExpandedToggle(order.id)}
-                          className="inline-flex size-6 items-center justify-center rounded-md text-content/50 transition-colors hover:bg-content/5 hover:text-content focus-visible:outline-none h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
+                          className="text-content/50 hover:bg-content/5 hover:text-content inline-flex size-6 h-auto items-center justify-center rounded-md p-0 opacity-100 transition-colors hover:opacity-100 focus-visible:outline-none active:scale-95"
                         >
                           <ChevronRight
                             aria-hidden="true"
@@ -105,25 +105,25 @@ export function OrderResults({
                     <td className="px-6 py-4">
                       {order.user ? (
                         <div className="flex flex-col">
-                          <span className="font-semibold text-content max-w-44 truncate">
+                          <span className="text-content max-w-44 truncate font-semibold">
                             {order.user.firstName || order.user.lastName
                               ? `${order.user.firstName || ""} ${order.user.lastName || ""}`.trim()
                               : t("noName")}
                           </span>
-                          <span className="text-xs text-content/50 max-w-44 truncate">
+                          <span className="text-content/50 max-w-44 truncate text-xs">
                             {order.user.email}
                           </span>
                         </div>
                       ) : (
-                        <span className="block max-w-44 truncate font-mono text-xs text-content/65">
+                        <span className="text-content/65 block max-w-44 truncate font-mono text-xs">
                           {order.userId}
                         </span>
                       )}
                     </td>
-                    <td className="px-6 py-4 tabular-nums text-content/65">
+                    <td className="text-content/65 px-6 py-4 tabular-nums">
                       {dateFormatter.format(new Date(order.createdAt))}
                     </td>
-                    <td className="px-6 py-4 text-right font-semibold tabular-nums text-content">
+                    <td className="text-content px-6 py-4 text-right font-semibold tabular-nums">
                       {currencyFormatter.format(order.totalAmount)}
                     </td>
                     <td className="px-6 py-4 text-center">
@@ -137,7 +137,7 @@ export function OrderResults({
                   </tr>
                   {isExpanded && (
                     <tr className="bg-content/[0.005]">
-                      <td colSpan={6} className="p-3 bg-content/[0.01]">
+                      <td colSpan={6} className="bg-content/[0.01] p-3">
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -145,7 +145,7 @@ export function OrderResults({
                           transition={{ duration: 0.2, ease: "easeOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="pb-3 pt-1">
+                          <div className="pt-1 pb-3">
                             <OrderItemsPanel items={order.items} />
                           </div>
                         </motion.div>

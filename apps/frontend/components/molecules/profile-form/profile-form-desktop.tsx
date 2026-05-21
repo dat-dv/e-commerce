@@ -117,7 +117,7 @@ export const ProfileFormDesktop = ({
                     onClick={methods.handleSubmit(handleSave)}
                     variant="primary"
                     size="lg"
-                    className="w-full rounded-2xl bg-primary px-8 text-white shadow-xl shadow-primary/25 transition-all active:scale-95 disabled:opacity-50 sm:w-auto sm:hover:scale-105 sm:disabled:hover:scale-100"
+                    className="bg-primary shadow-primary/25 w-full rounded-2xl px-8 text-white shadow-xl transition-all active:scale-95 disabled:opacity-50 sm:w-auto sm:hover:scale-105 sm:disabled:hover:scale-100"
                     disabled={isSubmitLoading || !isDirty}
                   >
                     {isSubmitLoading ? t("form.updating") : t("form.updateBtn")}
@@ -128,7 +128,7 @@ export const ProfileFormDesktop = ({
                 onClick={disableEdit}
                 variant="ghost"
                 size="lg"
-                className="w-full rounded-2xl border border-content/5 px-8 transition-all hover:bg-content/5 sm:w-auto"
+                className="border-content/5 hover:bg-content/5 w-full rounded-2xl border px-8 transition-all sm:w-auto"
                 disabled={isSubmitLoading}
               >
                 {t("form.cancelBtn")}
@@ -139,10 +139,10 @@ export const ProfileFormDesktop = ({
               onClick={enableEdit}
               variant="primary"
               size="lg"
-              className="flex w-full items-center justify-center gap-2 rounded-2xl px-12 shadow-xl shadow-primary/25 transition-all active:scale-95 sm:w-auto sm:hover:scale-105"
+              className="shadow-primary/25 flex w-full items-center justify-center gap-2 rounded-2xl px-12 shadow-xl transition-all active:scale-95 sm:w-auto sm:hover:scale-105"
               disabled={isSubmitLoading}
             >
-              <Pencil className="w-4 h-4" />
+              <Pencil className="h-4 w-4" />
               {t("form.editBtn")}
             </Button>
           )}

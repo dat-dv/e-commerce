@@ -30,15 +30,15 @@ export const ConfirmCancelModal = ({
     <AnimatePresence>
       {isOpen && (
         <AppDialog isOpen={isOpen} onClose={() => !isCancelling && onClose()}>
-          <AppDialogPanel className="w-full max-w-sm bg-surface/80 backdrop-blur-2xl border border-content/[0.05] shadow-2xl rounded-3xl p-8 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-red-500/20" />
+          <AppDialogPanel className="bg-surface/80 border-content/[0.05] relative w-full max-w-sm overflow-hidden rounded-3xl border p-8 shadow-2xl backdrop-blur-2xl">
+            <div className="absolute top-0 left-0 h-1 w-full bg-red-500/20" />
             <AppDialogTitle
               as="h3"
-              className="text-xl font-bold text-content tracking-tight mb-2"
+              className="text-content mb-2 text-xl font-bold tracking-tight"
             >
               {t("confirmCancel.title")}
             </AppDialogTitle>
-            <p className="text-content/60 text-sm font-medium mb-8 leading-relaxed">
+            <p className="text-content/60 mb-8 text-sm leading-relaxed font-medium">
               {t("confirmCancel.description")}
             </p>
             <div className="flex gap-4">
@@ -48,7 +48,7 @@ export const ConfirmCancelModal = ({
                 disabled={isCancelling}
                 className={cn(
                   UI_RADIUS.control,
-                  "flex-1 py-3 text-sm font-semibold text-content border-content/[0.1] hover:bg-content/[0.05] disabled:opacity-50 h-auto",
+                  "text-content border-content/[0.1] hover:bg-content/[0.05] h-auto flex-1 py-3 text-sm font-semibold disabled:opacity-50",
                 )}
               >
                 {t("confirmCancel.keep")}
@@ -58,11 +58,11 @@ export const ConfirmCancelModal = ({
                 disabled={isCancelling}
                 className={cn(
                   UI_RADIUS.control,
-                  "flex-1 flex items-center justify-center py-3 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 disabled:opacity-50 shadow-lg shadow-red-500/20 h-auto",
+                  "flex h-auto flex-1 items-center justify-center bg-red-500 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-red-600 disabled:opacity-50",
                 )}
               >
                 {isCancelling ? (
-                  <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white" />
                 ) : (
                   t("confirmCancel.confirm")
                 )}

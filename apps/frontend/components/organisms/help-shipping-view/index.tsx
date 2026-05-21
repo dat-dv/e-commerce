@@ -95,7 +95,7 @@ export const HelpShippingView = (): React.ReactElement => {
               onChange={setSearchQuery}
               placeholder={tShipping("search")}
               showSubmitButton={false}
-              className="rounded-xl bg-surface shadow-sm"
+              className="bg-surface rounded-xl shadow-sm"
             />
 
             <div className="mt-6 space-y-7 sm:mt-8 sm:space-y-8">
@@ -108,10 +108,10 @@ export const HelpShippingView = (): React.ReactElement => {
                     className="scroll-mt-28"
                   >
                     <div className="mb-4 flex min-w-0 items-center gap-3">
-                      <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <span className="bg-primary/10 text-primary flex size-10 items-center justify-center rounded-xl">
                         <Icon className="size-5" />
                       </span>
-                      <h2 className="min-w-0 break-words text-lg font-black text-content sm:text-xl">
+                      <h2 className="text-content min-w-0 text-lg font-black break-words sm:text-xl">
                         {topic.name}
                       </h2>
                     </div>
@@ -128,7 +128,7 @@ export const HelpShippingView = (): React.ReactElement => {
             </div>
 
             {!filteredTopics.length && (
-              <div className="mt-8 rounded-xl border border-content/5 bg-surface p-5 text-center text-sm text-content/55 sm:p-8">
+              <div className="border-content/5 bg-surface text-content/55 mt-8 rounded-xl border p-5 text-center text-sm sm:p-8">
                 {tShipping("empty")}
               </div>
             )}

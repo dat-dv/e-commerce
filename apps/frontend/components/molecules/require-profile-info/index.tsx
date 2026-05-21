@@ -43,8 +43,8 @@ const RequireProfileInfoModal = () => {
 
   return (
     <AppDialog isOpen onClose={() => {}} isDismissable={false}>
-      <AppDialogPanel className="w-full max-w-xl bg-surface rounded-3xl p-8">
-        <AppDialogTitle className="text-2xl font-bold mb-2">
+      <AppDialogPanel className="bg-surface w-full max-w-xl rounded-3xl p-8">
+        <AppDialogTitle className="mb-2 text-2xl font-bold">
           {t("title")}
         </AppDialogTitle>
         <p className="text-content/60 mb-6">{t("description")}</p>

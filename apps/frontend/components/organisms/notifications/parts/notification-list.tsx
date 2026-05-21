@@ -28,10 +28,10 @@ export const NotificationList = ({
 
   if (loading) {
     return (
-      <div className="bg-surface rounded-[2rem] border border-content/[0.08] p-20 text-center space-y-4 shadow-xl shadow-content/[0.02]">
-        <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+      <div className="bg-surface border-content/[0.08] shadow-content/[0.02] space-y-4 rounded-[2rem] border p-20 text-center shadow-xl">
+        <div className="border-primary mx-auto h-8 w-8 animate-spin rounded-full border-2 border-t-transparent" />
         <p
-          className={`${TYPOGRAPHY.badge} text-content/20 uppercase tracking-[0.2em]`}
+          className={`${TYPOGRAPHY.badge} text-content/20 tracking-[0.2em] uppercase`}
         >
           {t("list.fetchingText")}
         </p>
@@ -41,12 +41,12 @@ export const NotificationList = ({
 
   if (notifications.length === 0) {
     return (
-      <div className="bg-surface rounded-2xl border border-content/[0.08] p-24 text-center flex flex-col items-center gap-6 shadow-xl shadow-content/[0.02]">
+      <div className="bg-surface border-content/[0.08] shadow-content/[0.02] flex flex-col items-center gap-6 rounded-2xl border p-24 text-center shadow-xl">
         <div className="space-y-1">
-          <h3 className="text-lg font-bold text-content">
+          <h3 className="text-content text-lg font-bold">
             {t("list.emptyTitle")}
           </h3>
-          <p className="text-sm text-content/40 max-w-[280px] mx-auto leading-relaxed font-inter">
+          <p className="text-content/40 font-inter mx-auto max-w-[280px] text-sm leading-relaxed">
             {t("list.emptyDescription")}
           </p>
         </div>
@@ -55,14 +55,14 @@ export const NotificationList = ({
   }
 
   return (
-    <div className="bg-surface rounded-2xl border border-content/[0.08] shadow-2xl shadow-content/[0.02] overflow-hidden">
+    <div className="bg-surface border-content/[0.08] shadow-content/[0.02] overflow-hidden rounded-2xl border shadow-2xl">
       <VirtualList
         data={notifications}
         loadingMore={loadingMore}
         hasMore={hasMore}
         onLoadMore={onLoadMore}
         keyExtractor={(notification) => notification.id}
-        className="divide-y divide-content/[0.03]"
+        className="divide-content/[0.03] divide-y"
         itemClassName=""
         loadingText={t("list.loadingMoreText")}
         endText={t("list.endText")}
@@ -75,7 +75,7 @@ export const NotificationList = ({
             <NotificationItem
               notif={notif}
               onRead={onMarkAsRead}
-              className="p-6 hover:bg-primary/[0.01] transition-all duration-300"
+              className="hover:bg-primary/[0.01] p-6 transition-all duration-300"
             />
           </motion.div>
         )}

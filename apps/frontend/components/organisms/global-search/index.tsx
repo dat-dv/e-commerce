@@ -22,9 +22,9 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
   const t = useTranslations("Common.search");
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto flex items-center group bg-surface border border-content/[0.08] hover:border-content/[0.15] focus-within:border-content/[0.20] rounded-full transition-all focus-within:shadow-sm">
+    <div className="group bg-surface border-content/[0.08] hover:border-content/[0.15] focus-within:border-content/[0.20] relative mx-auto flex w-full max-w-2xl items-center rounded-full border transition-all focus-within:shadow-sm">
       {/* Dropdown select */}
-      <div className="relative border-r border-content/[0.08] shrink-0 pl-3 pr-1">
+      <div className="border-content/[0.08] relative shrink-0 border-r pr-1 pl-3">
         <FormSelect
           name="route"
           options={options.map((opt) => ({
@@ -33,23 +33,23 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
           }))}
           variant="none"
           size="sm"
-          className={`w-24 font-bold uppercase tracking-wider ${TYPOGRAPHY.badge} text-content/60`}
+          className={`w-24 font-bold tracking-wider uppercase ${TYPOGRAPHY.badge} text-content/60`}
           itemClassName={`px-3 py-2 ${TYPOGRAPHY.caption}`}
         />
       </div>
 
       {/* Search icon */}
-      <div className="pl-4 pr-1 text-content/40 group-focus-within:text-primary transition-colors shrink-0 pointer-events-none">
+      <div className="text-content/40 group-focus-within:text-primary pointer-events-none shrink-0 pr-1 pl-4 transition-colors">
         <Search size={16} />
       </div>
 
       {/* Form Input */}
-      <div className="flex-1 min-w-0 pr-28">
+      <div className="min-w-0 flex-1 pr-28">
         <FormInput
           name="search"
           variant="none"
           placeholder={placeholder}
-          className={`w-full !h-11 bg-transparent ${TYPOGRAPHY.bodySmall} outline-none text-content placeholder:text-content/40 font-medium m-0 border-0 p-0`}
+          className={`!h-11 w-full bg-transparent ${TYPOGRAPHY.bodySmall} text-content placeholder:text-content/40 m-0 border-0 p-0 font-medium outline-none`}
         />
       </div>
 
@@ -59,7 +59,7 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
           <Button
             type="submit"
             variant="ghost"
-            className={`absolute right-1.5 top-1.5 bottom-1.5 px-6 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full ${TYPOGRAPHY.caption} font-bold disabled:opacity-0 disabled:scale-95 transition-all z-10 h-auto active:scale-95 opacity-100 hover:opacity-100`}
+            className={`bg-content/[0.06] hover:bg-content/[0.12] text-content absolute top-1.5 right-1.5 bottom-1.5 rounded-full px-6 ${TYPOGRAPHY.caption} z-10 h-auto font-bold opacity-100 transition-all hover:opacity-100 active:scale-95 disabled:scale-95 disabled:opacity-0`}
           >
             {t("submit")}
           </Button>
@@ -78,7 +78,7 @@ export function GlobalSearch() {
   const placeholder = selectedOption.placeholder;
 
   return (
-    <div className="w-full border-t border-content/[0.04] bg-surface/80 backdrop-blur-md py-3 hidden md:block">
+    <div className="border-content/[0.04] bg-surface/80 hidden w-full border-t py-3 backdrop-blur-md md:block">
       <AppContainer>
         <AppForm methods={methods} onSubmit={onSubmit}>
           <SearchBar options={options} placeholder={placeholder} />

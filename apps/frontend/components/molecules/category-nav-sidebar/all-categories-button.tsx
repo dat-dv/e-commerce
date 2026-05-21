@@ -21,14 +21,14 @@ export function AllCategoriesButton({
       variant="ghost"
       onClick={onPress}
       className={cn(
-        "group relative flex min-h-10 w-full items-center gap-3 rounded-xl px-3 py-2 text-left mb-1.5 h-auto justify-start",
+        "group relative mb-1.5 flex h-auto min-h-10 w-full items-center justify-start gap-3 rounded-xl px-3 py-2 text-left",
         active ? "text-primary" : "text-content/55 hover:text-content",
       )}
     >
       {active ? (
         <motion.div
           layoutId="active-category-sidebar"
-          className="absolute inset-0 rounded-xl bg-primary/10"
+          className="bg-primary/10 absolute inset-0 rounded-xl"
           transition={{ type: "spring", bounce: 0.15, duration: 0.45 }}
         />
       ) : null}

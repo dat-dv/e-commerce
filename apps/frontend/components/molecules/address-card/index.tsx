@@ -54,7 +54,7 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
     <span className="min-w-0 flex-1">
       <span className="flex min-w-0 flex-wrap items-center gap-2">
         <span
-          className={`truncate ${TYPOGRAPHY.bodySmall} font-bold text-content`}
+          className={`truncate ${TYPOGRAPHY.bodySmall} text-content font-bold`}
         >
           {address.name || t("noName")}
         </span>
@@ -67,7 +67,7 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
             className={cn(
               UI_RADIUS.badge,
               TYPOGRAPHY.badge,
-              "border border-primary/20 bg-primary/10 px-2 py-0.5 uppercase tracking-tighter text-primary",
+              "border-primary/20 bg-primary/10 text-primary border px-2 py-0.5 tracking-tighter uppercase",
             )}
           >
             {t("defaultBadge")}
@@ -78,7 +78,7 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
             className={cn(
               UI_RADIUS.badge,
               TYPOGRAPHY.badge,
-              "bg-content/10 px-2 py-0.5 uppercase tracking-wider text-content/60",
+              "bg-content/10 text-content/60 px-2 py-0.5 tracking-wider uppercase",
             )}
           >
             {resolvedLabel}
@@ -104,7 +104,7 @@ const SelectionIndicator = ({ selected }: { selected: boolean }) => (
     )}
     aria-hidden
   >
-    {selected && <span className="size-1.5 rounded-full bg-surface" />}
+    {selected && <span className="bg-surface size-1.5 rounded-full" />}
   </span>
 );
 
@@ -133,7 +133,7 @@ export const AddressCard = ({
         UI_RADIUS.card,
         "border px-5 py-3.5 transition-colors",
         isSelected || address.isDefault
-          ? "border-primary/30 bg-primary/[0.05] shadow-sm shadow-primary/5"
+          ? "border-primary/30 bg-primary/[0.05] shadow-primary/5 shadow-sm"
           : "border-content/5 bg-surface/40 hover:border-content/10 hover:bg-content/[0.03]",
         className,
       )}
@@ -146,7 +146,7 @@ export const AddressCard = ({
             onClick={onSelect}
             disabled={disabled}
             className={cn(
-              "flex min-w-0 flex-1 items-center gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-60",
+              "focus-visible:ring-primary/50 flex min-w-0 flex-1 items-center gap-4 text-left focus-visible:ring-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60",
               selectButtonClassName,
             )}
             aria-pressed={isSelected}
@@ -181,7 +181,7 @@ export const AddressCard = ({
               aria-label={`Set ${address.name || "address"} as default`}
               className={cn(
                 UI_RADIUS.control,
-                "size-8 p-0 text-content/40 opacity-100 hover:bg-primary/5 hover:text-primary",
+                "text-content/40 hover:bg-primary/5 hover:text-primary size-8 p-0 opacity-100",
               )}
             >
               <Star size={16} aria-hidden />
@@ -198,7 +198,7 @@ export const AddressCard = ({
               aria-label={`Edit address for ${address.name || "recipient"}`}
               className={cn(
                 UI_RADIUS.control,
-                "size-8 p-0 text-content/30 opacity-100 hover:bg-content/5 hover:text-content",
+                "text-content/30 hover:bg-content/5 hover:text-content size-8 p-0 opacity-100",
               )}
             >
               <Edit size={14} className="rotate-45" aria-hidden />
@@ -215,11 +215,11 @@ export const AddressCard = ({
               aria-label={`Delete address for ${address.name || "recipient"}`}
               className={cn(
                 UI_RADIUS.control,
-                "size-8 p-0 text-content/40 opacity-100 hover:bg-red-500/5 hover:text-red-500",
+                "text-content/40 size-8 p-0 opacity-100 hover:bg-red-500/5 hover:text-red-500",
               )}
             >
               {isMutating ? (
-                <span className="size-4 rounded-full border-2 border-content/30 border-t-transparent animate-spin" />
+                <span className="border-content/30 size-4 animate-spin rounded-full border-2 border-t-transparent" />
               ) : (
                 <Trash2 size={16} aria-hidden />
               )}

@@ -23,10 +23,10 @@ export function HelpSupportCard({
 }: HelpSupportCardProps): React.ReactElement {
   return (
     <div
-      className={`rounded-xl border border-content/5 bg-surface p-5 shadow-sm ${className}`}
+      className={`border-content/5 bg-surface rounded-xl border p-5 shadow-sm ${className}`}
     >
-      <h2 className="text-base font-black text-content">{title}</h2>
-      <p className="mt-2 text-sm leading-6 text-content/60">{description}</p>
+      <h2 className="text-content text-base font-black">{title}</h2>
+      <p className="text-content/60 mt-2 text-sm leading-6">{description}</p>
       {showCta && ctaLabel && (
         <Button
           href={ctaHref}

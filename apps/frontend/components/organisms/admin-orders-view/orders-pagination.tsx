@@ -21,9 +21,9 @@ export function OrdersPagination({
   return (
     <nav
       aria-label={t("paginationAria")}
-      className="flex flex-col gap-3 border-t border-content/10 pt-5 sm:flex-row sm:items-center sm:justify-between"
+      className="border-content/10 flex flex-col gap-3 border-t pt-5 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p className="text-sm text-content/55">
+      <p className="text-content/55 text-sm">
         {t("showingPageOf", {
           page: String(page),
           totalPages: String(totalPages),
@@ -39,7 +39,7 @@ export function OrdersPagination({
           onClick={() => onPageChange(page - 1)}
           className={cn(
             UI_RADIUS.control,
-            "inline-flex size-10 items-center justify-center border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100",
+            "border-content/15 text-content hover:bg-content/5 focus-visible:ring-primary/40 inline-flex size-10 h-auto items-center justify-center border p-0 opacity-100 hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95 disabled:cursor-not-allowed disabled:opacity-40",
           )}
         >
           <ChevronLeft aria-hidden="true" className="size-4" />
@@ -62,8 +62,8 @@ export function OrdersPagination({
                 className={cn(
                   UI_RADIUS.control,
                   isCurrent
-                    ? "inline-flex size-10 shrink-0 items-center justify-center bg-primary text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto p-0 opacity-100 hover:opacity-100 hover:bg-primary active:scale-95"
-                    : "inline-flex size-10 shrink-0 items-center justify-center border border-content/15 text-sm font-semibold text-content/70 hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 opacity-100 hover:opacity-100 active:scale-95",
+                    ? "bg-primary focus-visible:ring-primary/40 hover:bg-primary inline-flex size-10 h-auto shrink-0 items-center justify-center p-0 text-sm font-semibold text-white opacity-100 hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95"
+                    : "border-content/15 text-content/70 hover:bg-content/5 focus-visible:ring-primary/40 inline-flex size-10 h-auto shrink-0 items-center justify-center border p-0 text-sm font-semibold opacity-100 hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95 disabled:cursor-not-allowed disabled:opacity-40",
                 )}
               >
                 {targetPage}
@@ -80,7 +80,7 @@ export function OrdersPagination({
           onClick={() => onPageChange(page + 1)}
           className={cn(
             UI_RADIUS.control,
-            "inline-flex size-10 items-center justify-center border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100",
+            "border-content/15 text-content hover:bg-content/5 focus-visible:ring-primary/40 inline-flex size-10 h-auto items-center justify-center border p-0 opacity-100 hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95 disabled:cursor-not-allowed disabled:opacity-40",
           )}
         >
           <ChevronRight aria-hidden="true" className="size-4" />

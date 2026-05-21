@@ -24,19 +24,19 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
       <div
         className={cn(
           UI_RADIUS.card,
-          "border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6",
+          "border-content/[0.05] bg-surface/40 border p-5 shadow-sm backdrop-blur-md sm:p-6",
         )}
       >
         <div className="mb-5 flex items-center gap-3 sm:mb-6">
-          <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <div className="bg-primary/10 text-primary flex size-8 items-center justify-center rounded-full">
             <Truck className="h-4 w-4" />
           </div>
-          <h2 className="text-sm font-bold text-content">
+          <h2 className="text-content text-sm font-bold">
             {t("detail.deliveryDetails")}
           </h2>
         </div>
-        <div className="space-y-4 text-sm font-medium text-content/60">
-          <p className="font-bold text-content">
+        <div className="text-content/60 space-y-4 text-sm font-medium">
+          <p className="text-content font-bold">
             {order.shippingAddress?.receiverName || t("detail.notAvailable")}
           </p>
           <p>
@@ -55,14 +55,14 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
       <div
         className={cn(
           UI_RADIUS.card,
-          "border border-content/[0.05] bg-surface/40 p-5 shadow-sm backdrop-blur-md sm:p-6",
+          "border-content/[0.05] bg-surface/40 border p-5 shadow-sm backdrop-blur-md sm:p-6",
         )}
       >
         <div className="mb-5 flex items-center gap-3 sm:mb-6">
-          <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <div className="bg-primary/10 text-primary flex size-8 items-center justify-center rounded-full">
             <CreditCard className="h-4 w-4" />
           </div>
-          <h2 className="text-sm font-bold text-content">
+          <h2 className="text-content text-sm font-bold">
             {t("detail.paymentSummary")}
           </h2>
         </div>
@@ -71,13 +71,13 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
             <span className="text-content/60 font-medium">
               {t("detail.subtotal")}
             </span>
-            <span className="font-bold text-content">
+            <span className="text-content font-bold">
               {formatCurrency(subtotal)}
             </span>
           </div>
           {order.discountAmount > 0 && (
             <div className="flex justify-between text-sm">
-              <span className="font-medium text-content/60">
+              <span className="text-content/60 font-medium">
                 {t("detail.discount")}
               </span>
               <span className="font-bold text-red-500">
@@ -85,11 +85,11 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
               </span>
             </div>
           )}
-          <div className="flex items-center justify-between gap-4 border-t border-content/[0.05] pt-4">
-            <span className="text-sm font-bold text-content">
+          <div className="border-content/[0.05] flex items-center justify-between gap-4 border-t pt-4">
+            <span className="text-content text-sm font-bold">
               {t("detail.total")}
             </span>
-            <span className="text-2xl font-black tracking-tight text-content sm:text-3xl">
+            <span className="text-content text-2xl font-black tracking-tight sm:text-3xl">
               {formatCurrency(order.totalAmount)}
             </span>
           </div>

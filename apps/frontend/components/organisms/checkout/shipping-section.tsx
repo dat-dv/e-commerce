@@ -27,10 +27,10 @@ const ShippingSectionHeader = ({
   return (
     <div className="mb-5 flex items-center justify-between gap-4 md:mb-6">
       <div className="flex min-w-0 items-center gap-3 md:gap-4">
-        <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-content text-surface">
+        <div className="bg-content text-surface flex size-8 shrink-0 items-center justify-center rounded-full">
           <MapPin size={16} aria-hidden />
         </div>
-        <h2 className="truncate text-lg font-bold capitalize text-content md:text-xl">
+        <h2 className="text-content truncate text-lg font-bold capitalize md:text-xl">
           {t("title")}
         </h2>
       </div>
@@ -40,7 +40,7 @@ const ShippingSectionHeader = ({
         onClick={onAddAddress}
         className={cn(
           UI_RADIUS.control,
-          "h-auto shrink-0 px-0 py-1 text-xs font-semibold capitalize text-content/60 opacity-100 hover:text-primary",
+          "text-content/60 hover:text-primary h-auto shrink-0 px-0 py-1 text-xs font-semibold capitalize opacity-100",
         )}
       >
         <Plus size={14} aria-hidden />

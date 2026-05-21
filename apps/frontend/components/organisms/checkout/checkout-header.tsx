@@ -10,7 +10,7 @@ export const CheckoutHeader = () => {
     <div className="mb-8 md:mb-12">
       <Link
         href={APP_ROUTES.CART}
-        className="group mb-5 inline-flex items-center gap-2 text-sm font-medium text-content/60 transition-colors hover:text-primary md:mb-6"
+        className="group text-content/60 hover:text-primary mb-5 inline-flex items-center gap-2 text-sm font-medium transition-colors md:mb-6"
       >
         <ChevronLeft
           size={16}
@@ -19,10 +19,10 @@ export const CheckoutHeader = () => {
         />
         {t("backToCart")}
       </Link>
-      <h1 className="mb-4 text-3xl font-bold tracking-tight text-content md:text-5xl">
+      <h1 className="text-content mb-4 text-3xl font-bold tracking-tight md:text-5xl">
         {t("title")}
       </h1>
-      <div className="h-px w-24 bg-primary" />
+      <div className="bg-primary h-px w-24" />
     </div>
   );
 };

@@ -22,13 +22,13 @@ const LanguageSection = ({
       id="language"
       className={cn(
         UI_RADIUS.panel,
-        "min-w-0 border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6",
+        "border-content/10 bg-surface/50 min-w-0 scroll-mt-24 border p-4 backdrop-blur-md sm:p-6",
       )}
     >
       <div className="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div className="min-w-0">
-          <span className="font-medium text-content block">{t("label")}</span>
-          <span className="text-sm text-content/60 break-words">
+          <span className="text-content block font-medium">{t("label")}</span>
+          <span className="text-content/60 text-sm break-words">
             {t("description")}
           </span>
         </div>
@@ -44,7 +44,7 @@ const LanguageSection = ({
                 UI_RADIUS.control,
                 "min-w-0 border px-4 py-2 text-sm font-semibold transition-all",
                 currentLang === value
-                  ? "bg-primary text-white border-primary"
+                  ? "bg-primary border-primary text-white"
                   : "border-content/10 text-content hover:bg-content/5",
               )}
             >

@@ -1,9 +1,9 @@
 export default function BasicLoading() {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-surface/60 backdrop-blur-xl transition-all duration-500 overflow-hidden">
+    <div className="bg-surface/60 fixed inset-0 z-[100] flex items-center justify-center overflow-hidden backdrop-blur-xl transition-all duration-500">
       {/* Ambient glow layers */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
             "radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%)",
@@ -11,7 +11,7 @@ export default function BasicLoading() {
         }}
       />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full pointer-events-none"
+        className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
             "radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 60%)",
@@ -37,7 +37,7 @@ export default function BasicLoading() {
             style={{ animation: "spin-slow 8s linear infinite" }}
           >
             <div
-              className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
+              className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full"
               style={{
                 background: "hsl(var(--primary) / 0.9)",
                 boxShadow: "0 0 8px 2px hsl(var(--primary) / 0.5)",
@@ -69,7 +69,7 @@ export default function BasicLoading() {
           />
 
           {/* Center pulse core */}
-          <div className="relative h-8 w-8 flex items-center justify-center">
+          <div className="relative flex h-8 w-8 items-center justify-center">
             <div
               className="absolute inset-0 rounded-full"
               style={{

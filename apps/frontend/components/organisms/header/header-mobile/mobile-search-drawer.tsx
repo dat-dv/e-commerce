@@ -52,20 +52,20 @@ export default function MobileSearchDrawer({
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 240 }}
-            className="fixed inset-x-0 bottom-0 z-50 rounded-t-3xl border border-content/10 bg-surface p-4 shadow-2xl"
+            className="border-content/10 bg-surface fixed inset-x-0 bottom-0 z-50 rounded-t-3xl border p-4 shadow-2xl"
           >
-            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-content/15" />
+            <div className="bg-content/15 mx-auto mb-4 h-1 w-10 rounded-full" />
 
             <div className="mb-4 flex items-center justify-between gap-4">
               <div className="flex min-w-0 items-center gap-3">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <span className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-full">
                   <Search className="size-4" aria-hidden="true" />
                 </span>
                 <div className="min-w-0">
-                  <p className="text-sm font-black text-content">
+                  <p className="text-content text-sm font-black">
                     {t("submit")}
                   </p>
-                  <p className="truncate text-xs font-medium text-content/45">
+                  <p className="text-content/45 truncate text-xs font-medium">
                     {selectedOption.placeholder}
                   </p>
                 </div>
@@ -74,7 +74,7 @@ export default function MobileSearchDrawer({
               <Button
                 variant="ghost"
                 onClick={onClose}
-                className="size-9 rounded-full p-0 text-content/45 hover:bg-content/[0.05] hover:text-content"
+                className="text-content/45 hover:bg-content/[0.05] hover:text-content size-9 rounded-full p-0"
                 aria-label={t("clear")}
               >
                 <X className="size-4" aria-hidden="true" />
@@ -109,19 +109,19 @@ export default function MobileSearchDrawer({
               </div>
 
               <div className="relative">
-                <Search className="pointer-events-none absolute left-4 top-1/2 z-10 size-4 -translate-y-1/2 text-content/30" />
+                <Search className="text-content/30 pointer-events-none absolute top-1/2 left-4 z-10 size-4 -translate-y-1/2" />
                 <FormInput
                   name="search"
                   variant="outline"
                   size="lg"
                   autoFocus
                   placeholder={selectedOption.placeholder}
-                  className="h-12 rounded-full border-content/10 bg-content/[0.02] pl-11 pr-24 text-sm font-semibold"
+                  className="border-content/10 bg-content/[0.02] h-12 rounded-full pr-24 pl-11 text-sm font-semibold"
                 />
                 <Button
                   type="submit"
                   variant="primary"
-                  className="absolute right-1.5 top-1.5 h-9 rounded-full px-4 text-xs"
+                  className="absolute top-1.5 right-1.5 h-9 rounded-full px-4 text-xs"
                 >
                   {t("submit")}
                 </Button>

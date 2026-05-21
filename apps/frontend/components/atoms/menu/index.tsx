@@ -33,19 +33,19 @@ export function AppMenu({
     <RACMenuTrigger {...props}>
       <RACButton
         isDisabled={isDisabled}
-        className="outline-none focus:outline-none bg-transparent p-0 border-none inline-flex items-center justify-center h-full w-full"
+        className="inline-flex h-full w-full items-center justify-center border-none bg-transparent p-0 outline-none focus:outline-none"
       >
         {trigger}
       </RACButton>
       <RACPopover
         className={cn(
-          "z-50 origin-top-right rounded-xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100",
+          "bg-surface/95 border-content/10 animate-in fade-in zoom-in-95 z-50 origin-top-right overflow-hidden rounded-xl border shadow-2xl backdrop-blur-md duration-100 focus:outline-none",
           popoverClassName,
         )}
       >
         <RACMenu
           className={cn(
-            "outline-none py-1 max-h-60 overflow-y-auto",
+            "max-h-60 overflow-y-auto py-1 outline-none",
             menuClassName,
           )}
         >
@@ -70,10 +70,10 @@ export function AppMenuItem({
       {...props}
       className={({ isFocused, isSelected, isDisabled }) =>
         cn(
-          "group flex w-full items-center px-4 py-2 text-sm font-normal transition-colors text-content outline-none cursor-pointer select-none",
+          "group text-content flex w-full cursor-pointer items-center px-4 py-2 text-sm font-normal transition-colors outline-none select-none",
           isFocused && "bg-primary/10 text-primary",
           isSelected && "bg-primary/5 text-primary font-semibold",
-          isDisabled && "opacity-50 cursor-not-allowed",
+          isDisabled && "cursor-not-allowed opacity-50",
           className,
         )
       }

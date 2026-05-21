@@ -21,10 +21,10 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
     return (
       <section>
         <div className="mb-6 flex min-w-0 items-center gap-3 md:mb-8 md:gap-4">
-          <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-content text-surface shadow-lg shadow-content/10 md:size-10">
+          <div className="bg-content text-surface shadow-content/10 flex size-8 shrink-0 items-center justify-center rounded-full shadow-lg md:size-10">
             <Package size={18} aria-hidden />
           </div>
-          <h2 className="min-w-0 whitespace-nowrap text-lg font-black uppercase tracking-normal text-content md:text-2xl md:tracking-tight">
+          <h2 className="text-content min-w-0 text-lg font-black tracking-normal whitespace-nowrap uppercase md:text-2xl md:tracking-tight">
             {t("title")}
           </h2>
         </div>
@@ -43,10 +43,10 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
   return (
     <section>
       <div className="mb-6 flex min-w-0 items-center gap-3 md:mb-8 md:gap-4">
-        <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-content text-surface shadow-lg shadow-content/10 md:size-10">
+        <div className="bg-content text-surface shadow-content/10 flex size-8 shrink-0 items-center justify-center rounded-full shadow-lg md:size-10">
           <Package size={18} aria-hidden />
         </div>
-        <h2 className="min-w-0 whitespace-nowrap text-lg font-black uppercase tracking-normal text-content md:text-2xl md:tracking-tight">
+        <h2 className="text-content min-w-0 text-lg font-black tracking-normal whitespace-nowrap uppercase md:text-2xl md:tracking-tight">
           {t("title")}
         </h2>
       </div>
@@ -71,13 +71,13 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
               animate={{ opacity: 1, y: 0 }}
               className={cn(
                 UI_RADIUS.card,
-                "group flex items-center gap-3 border border-content/[0.05] bg-surface/40 p-4 shadow-sm backdrop-blur-md transition-all hover:bg-surface/60 sm:gap-5 md:gap-6 md:p-6",
+                "group border-content/[0.05] bg-surface/40 hover:bg-surface/60 flex items-center gap-3 border p-4 shadow-sm backdrop-blur-md transition-all sm:gap-5 md:gap-6 md:p-6",
               )}
             >
               <div
                 className={cn(
                   UI_RADIUS.media,
-                  "relative size-20 shrink-0 overflow-hidden border border-content/[0.08] bg-content/[0.02] sm:h-28 sm:w-24",
+                  "border-content/[0.08] bg-content/[0.02] relative size-20 shrink-0 overflow-hidden border sm:h-28 sm:w-24",
                 )}
               >
                 {item.imageUrl ? (
@@ -89,30 +89,30 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
                     className="object-cover"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-content/10">
+                  <div className="text-content/10 flex h-full w-full items-center justify-center">
                     <ShoppingBag size={24} aria-hidden />
                   </div>
                 )}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="mb-2 flex items-start justify-between gap-3">
-                  <h4 className="min-w-0 flex-1 line-clamp-2 text-sm font-bold leading-tight text-content sm:truncate">
+                  <h4 className="text-content line-clamp-2 min-w-0 flex-1 text-sm leading-tight font-bold sm:truncate">
                     {item.name}
                   </h4>
-                  <div className="shrink-0 text-sm font-black tracking-tight text-content sm:text-base sm:tracking-tighter">
+                  <div className="text-content shrink-0 text-sm font-black tracking-tight sm:text-base sm:tracking-tighter">
                     {displayTotal}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                   <div
-                    className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} font-medium text-content/40`}
+                    className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} text-content/40 font-medium`}
                   >
                     <span className="min-w-0 truncate">
                       {item.attributes || t("standard")}
                     </span>
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-content/20" />
-                    <span className="shrink-0 text-content/60">
+                    <span className="bg-content/20 h-1 w-1 shrink-0 rounded-full" />
+                    <span className="text-content/60 shrink-0">
                       {t("quantity", { count: String(item.quantity) })}
                     </span>
                   </div>
@@ -130,13 +130,13 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
                     )}
                     <div className="flex min-w-0 items-baseline gap-1.5">
                       <span
-                        className={`${TYPOGRAPHY.caption} font-semibold text-content/60`}
+                        className={`${TYPOGRAPHY.caption} text-content/60 font-semibold`}
                       >
                         {displayPrice}
                       </span>
                       {isDiscounted && (
                         <span
-                          className={`${TYPOGRAPHY.badge} text-content/20 line-through font-normal`}
+                          className={`${TYPOGRAPHY.badge} text-content/20 font-normal line-through`}
                         >
                           {displayOriginalPrice}
                         </span>

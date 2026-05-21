@@ -70,31 +70,31 @@ const AvatarDropdown = ({
           aria-label={t("menuLabel")}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
-          className="h-10 w-10 relative cursor-pointer group border-none bg-transparent outline-none p-0"
+          className="group relative h-10 w-10 cursor-pointer border-none bg-transparent p-0 outline-none"
         >
-          <div className="size-10 rounded-full border border-content/10 overflow-hidden">
+          <div className="border-content/10 size-10 overflow-hidden rounded-full border">
             <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
           </div>
         </button>
       )}
     >
-      <div className="flex flex-col w-full">
-        <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-content/[0.08] bg-content/[0.01]">
-          <div className="h-9 w-9 rounded-lg overflow-hidden border border-content/10 flex-shrink-0">
+      <div className="flex w-full flex-col">
+        <div className="border-content/[0.08] bg-content/[0.01] flex items-center gap-2.5 border-b px-3 py-2.5">
+          <div className="border-content/10 h-9 w-9 flex-shrink-0 overflow-hidden rounded-lg border">
             <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
           </div>
-          <div className="flex flex-col min-w-0">
-            <p className="font-bold text-sm truncate text-content leading-none">
+          <div className="flex min-w-0 flex-col">
+            <p className="text-content truncate text-sm leading-none font-bold">
               {name || t("fallbackUser")}
             </p>
-            <p className="text-[11px] text-content/50 truncate font-medium mt-1 leading-none">
+            <p className="text-content/50 mt-1 truncate text-[11px] leading-none font-medium">
               {email || t("noEmail")}
             </p>
           </div>
         </div>
 
         {/* Compact action buttons with reduced height for improved vertical proportion */}
-        <div className="p-1 space-y-0.5">
+        <div className="space-y-0.5 p-1">
           {MENU_ITEMS.map((item) => {
             const Icon = item.icon;
             return (
@@ -102,25 +102,25 @@ const AvatarDropdown = ({
                 key={item.href}
                 variant="ghost"
                 size="sm"
-                className="w-full justify-start rounded-lg font-bold hover:bg-content/5 group h-8 px-2 transition-all"
+                className="hover:bg-content/5 group h-8 w-full justify-start rounded-lg px-2 font-bold transition-all"
                 href={item.href}
               >
-                <Icon className="w-3.5 h-3.5 mr-2 opacity-60 group-hover:opacity-100 transition-opacity" />
+                <Icon className="mr-2 h-3.5 w-3.5 opacity-60 transition-opacity group-hover:opacity-100" />
                 <span className="text-xs">{t(item.labelKey)}</span>
               </Button>
             );
           })}
 
           {/* Separation line for destructive action section */}
-          <div className="h-px bg-content/[0.08] my-1" />
+          <div className="bg-content/[0.08] my-1 h-px" />
 
           <Button
             variant="danger"
             size="sm"
             onClick={handleClickLogout}
-            className="w-full justify-start rounded-lg font-bold group h-8 px-2 active:scale-95 transition-all"
+            className="group h-8 w-full justify-start rounded-lg px-2 font-bold transition-all active:scale-95"
           >
-            <LogOut className="w-3.5 h-3.5 mr-2 opacity-80" />
+            <LogOut className="mr-2 h-3.5 w-3.5 opacity-80" />
             <span className="text-xs">{t("signOut")}</span>
           </Button>
         </div>

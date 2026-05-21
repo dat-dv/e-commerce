@@ -22,11 +22,11 @@ export function CategorySearchInput({
   return (
     <div
       className={cn(
-        "mb-3 flex items-center gap-2 border border-content/[0.08] bg-content/[0.03] px-3 py-2",
+        "border-content/[0.08] bg-content/[0.03] mb-3 flex items-center gap-2 border px-3 py-2",
         UI_RADIUS.input,
       )}
     >
-      <Search className="h-4 w-4 shrink-0 text-content/30" />
+      <Search className="text-content/30 h-4 w-4 shrink-0" />
 
       <Input
         value={value}
@@ -34,7 +34,7 @@ export function CategorySearchInput({
         placeholder={placeholder}
         variant="none"
         size="sm"
-        className="min-w-0 flex-1 bg-transparent text-sm font-medium text-content outline-none placeholder:text-content/35"
+        className="text-content placeholder:text-content/35 min-w-0 flex-1 bg-transparent text-sm font-medium outline-none"
       />
 
       {value ? (
@@ -42,7 +42,7 @@ export function CategorySearchInput({
           type="button"
           variant="ghost"
           onClick={() => onChange("")}
-          className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-content/35 hover:bg-content/[0.06] hover:text-content p-0"
+          className="text-content/35 hover:bg-content/[0.06] hover:text-content flex h-6 w-6 shrink-0 items-center justify-center rounded-md p-0"
           aria-label={clearLabel}
         >
           <X className="h-3.5 w-3.5" />

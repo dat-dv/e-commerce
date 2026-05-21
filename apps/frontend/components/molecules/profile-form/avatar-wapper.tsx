@@ -23,7 +23,7 @@ const AvatarWrapper = ({
     <div
       {...props}
       className={cn(
-        "flex flex-col sm:flex-row items-center gap-4 pb-4 border-b border-content/10",
+        "border-content/10 flex flex-col items-center gap-4 border-b pb-4 sm:flex-row",
         className,
       )}
     >
@@ -34,9 +34,9 @@ const AvatarWrapper = ({
         disabled={isFormDisabled}
       />
 
-      <div className="space-y-1 text-content text-left w-full max-w-md">
+      <div className="text-content w-full max-w-md space-y-1 text-left">
         <p className="text-left text-xl font-bold tracking-tight">{fullName}</p>
-        <p className="text-sm opacity-60 font-medium ml-1">{user?.email}</p>
+        <p className="ml-1 text-sm font-medium opacity-60">{user?.email}</p>
       </div>
     </div>
   );

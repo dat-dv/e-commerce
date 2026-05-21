@@ -22,7 +22,7 @@ export const FlashSaleCarousel = ({ products }: IFlashSaleCarouselProps) => {
       <SectionHeader
         title={t("flashSale")}
         icon={
-          <Zap className="size-4 shrink-0 fill-primary text-primary sm:size-5" />
+          <Zap className="fill-primary text-primary size-4 shrink-0 sm:size-5" />
         }
         href={APP_ROUTES.FLASH_SALE}
       />

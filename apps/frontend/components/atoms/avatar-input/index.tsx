@@ -60,14 +60,14 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
   return (
     <>
       <div
-        className="relative group/avatar"
+        className="group/avatar relative"
         style={{ width: size, height: size }}
       >
         {/* Glow effect */}
-        <div className="absolute -inset-4 bg-primary/20 rounded-full blur-2xl group-hover/avatar:bg-primary/30 transition-all duration-500" />
+        <div className="bg-primary/20 group-hover/avatar:bg-primary/30 absolute -inset-4 rounded-full blur-2xl transition-all duration-500" />
 
         {/* Avatar ring */}
-        <div className="relative rounded-full border-4 border-surface shadow-2xl overflow-hidden shadow-primary/20 transform group-hover/avatar:scale-105 transition-all duration-500 w-full h-full">
+        <div className="border-surface shadow-primary/20 relative h-full w-full transform overflow-hidden rounded-full border-4 shadow-2xl transition-all duration-500 group-hover/avatar:scale-105">
           <Avatar url={value} name={displayName} size={size} />
         </div>
 
@@ -76,13 +76,13 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
           <>
             <button
               type="button"
-              className="absolute inset-0 rounded-full bg-black/50 flex flex-col items-center justify-center gap-1 cursor-pointer z-10 opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 z-10 flex cursor-pointer flex-col items-center justify-center gap-1 rounded-full bg-black/50 opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100"
               onClick={() => fileRef.current?.click()}
               aria-label={t("changeAvatar")}
             >
-              <Camera className="w-7 h-7 text-white" />
+              <Camera className="h-7 w-7 text-white" />
               <span
-                className={`${TYPOGRAPHY.badge} text-white uppercase tracking-widest`}
+                className={`${TYPOGRAPHY.badge} tracking-widest text-white uppercase`}
               >
                 {t("change")}
               </span>

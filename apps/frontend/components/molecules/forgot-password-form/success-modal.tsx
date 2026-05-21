@@ -23,27 +23,27 @@ export default function SuccessModal({
 }: SuccessModalProps) {
   return (
     <AppDialog isOpen={isOpen} onClose={onClose}>
-      <AppDialogPanel className="mx-auto max-w-md w-full rounded-2xl bg-surface p-6 shadow-2xl border border-content/5">
-        <div className="flex justify-between items-center mb-4">
-          <AppDialogTitle className="text-xl font-bold text-content">
+      <AppDialogPanel className="bg-surface border-content/5 mx-auto w-full max-w-md rounded-2xl border p-6 shadow-2xl">
+        <div className="mb-4 flex items-center justify-between">
+          <AppDialogTitle className="text-content text-xl font-bold">
             {title}
           </AppDialogTitle>
           <Button
             variant="ghost"
-            className="p-1 h-auto text-content/50 hover:text-content"
+            className="text-content/50 hover:text-content h-auto p-1"
             onClick={onClose}
             aria-label="Close dialog"
           >
-            <XIcon className="w-6 h-6" />
+            <XIcon className="h-6 w-6" />
           </Button>
         </div>
 
         <div className="space-y-4">
-          <p className="text-sm text-content/70">{message}</p>
+          <p className="text-content/70 text-sm">{message}</p>
           <Button
             onClick={onClose}
             variant="primary"
-            className="w-full h-11 text-sm rounded-xl"
+            className="h-11 w-full rounded-xl text-sm"
           >
             Got it
           </Button>

@@ -29,7 +29,7 @@ export const AttachmentPreview = ({
     <div
       className={cn(
         UI_RADIUS.media,
-        "relative aspect-square overflow-hidden border border-content/[0.08] bg-content/[0.03]",
+        "border-content/[0.08] bg-content/[0.03] relative aspect-square overflow-hidden border",
       )}
     >
       {previewUrl ? (
@@ -45,7 +45,7 @@ export const AttachmentPreview = ({
         />
       ) : (
         <div className="flex h-full items-center justify-center">
-          <ImageIcon className="h-5 w-5 text-content/30" />
+          <ImageIcon className="text-content/30 h-5 w-5" />
         </div>
       )}
       <Button
@@ -53,7 +53,7 @@ export const AttachmentPreview = ({
         variant="ghost"
         onClick={onRemove}
         disabled={disabled}
-        className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-red-500 hover:text-white disabled:opacity-50 h-auto w-auto p-0"
+        className="absolute top-1.5 right-1.5 flex h-7 h-auto w-7 w-auto items-center justify-center rounded-full bg-black/70 p-0 text-white transition-colors hover:bg-red-500 hover:text-white disabled:opacity-50"
         aria-label={`Remove ${file.name}`}
       >
         <X className="h-4 w-4" />

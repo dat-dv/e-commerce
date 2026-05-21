@@ -82,7 +82,7 @@ export const ChangePasswordForm = ({
           loading={loading}
           variant="primary"
           size="lg"
-          className="flex items-center justify-center gap-2 w-full mt-6"
+          className="mt-6 flex w-full items-center justify-center gap-2"
         >
           <Lock size={18} aria-hidden="true" />
           {t("submit")}

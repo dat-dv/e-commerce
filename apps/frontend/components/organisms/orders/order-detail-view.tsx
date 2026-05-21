@@ -68,12 +68,12 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center">
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 border-4 border-primary/5 rounded-full" />
-          <div className="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
+        <div className="relative h-12 w-12">
+          <div className="border-primary/5 absolute inset-0 rounded-full border-4" />
+          <div className="border-primary absolute inset-0 animate-spin rounded-full border-4 border-t-transparent" />
         </div>
-        <div className="mt-6 text-xs font-semibold text-content/30 animate-pulse">
+        <div className="text-content/30 mt-6 animate-pulse text-xs font-semibold">
           {t("detail.loading")}
         </div>
       </div>
@@ -82,19 +82,19 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
 
   if (error || !order) {
     return (
-      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center">
-        <AlertCircle className="w-16 h-16 text-red-500/50 mb-6" />
-        <h1 className="text-2xl font-bold text-content tracking-tight mb-4">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
+        <AlertCircle className="mb-6 h-16 w-16 text-red-500/50" />
+        <h1 className="text-content mb-4 text-2xl font-bold tracking-tight">
           {t("detail.notFoundTitle")}
         </h1>
-        <p className="text-content/40 text-sm font-medium mb-8 max-w-sm text-center">
+        <p className="text-content/40 mb-8 max-w-sm text-center text-sm font-medium">
           {t("detail.notFoundDesc")}
         </p>
         <Link
           href={APP_ROUTES.ORDERS}
           className={cn(
             UI_RADIUS.control,
-            "px-8 py-3 bg-content text-surface text-sm font-semibold hover:-translate-y-1 transition-all shadow-lg shadow-black/10",
+            "bg-content text-surface px-8 py-3 text-sm font-semibold shadow-lg shadow-black/10 transition-all hover:-translate-y-1",
           )}
         >
           {t("detail.backToOrders")}
@@ -117,7 +117,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
         statusColor={statusColor}
       />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl space-y-8">
+      <div className="container mx-auto max-w-4xl space-y-8 px-4 py-8">
         <OrderDetailSummaryCards order={order} />
 
         {order.status === EOrderStatus.DELIVERED && (

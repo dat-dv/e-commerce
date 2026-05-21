@@ -22,13 +22,13 @@ export const CartDrawerFooter = ({
   const t = useTranslations("CartPage.drawer");
 
   return (
-    <div className="px-6 py-6 bg-surface border-t border-content/[0.03] relative">
-      <div className="flex items-end justify-between mb-4">
+    <div className="bg-surface border-content/[0.03] relative border-t px-6 py-6">
+      <div className="mb-4 flex items-end justify-between">
         <div className="space-y-1">
-          <span className="text-xs font-medium text-content/40 block">
+          <span className="text-content/40 block text-xs font-medium">
             {t("subtotal")}
           </span>
-          <div className="text-xl font-bold tracking-tight text-content leading-none">
+          <div className="text-content text-xl leading-none font-bold tracking-tight">
             {formatCurrency(subtotal)}
           </div>
         </div>
@@ -43,18 +43,18 @@ export const CartDrawerFooter = ({
             <Link
               href={APP_ROUTES.CHECKOUT}
               onClick={onClose}
-              className="w-full h-11 flex items-center justify-center bg-content text-surface rounded-xl font-bold text-sm tracking-tight shadow-xl shadow-content/5 hover:bg-primary hover:text-primary-foreground transition-all group"
+              className="bg-content text-surface shadow-content/5 hover:bg-primary hover:text-primary-foreground group flex h-11 w-full items-center justify-center rounded-xl text-sm font-bold tracking-tight shadow-xl transition-all"
             >
               {t("checkout")}
               <ChevronRight
                 size={16}
-                className="ml-2 group-hover:translate-x-1 transition-transform"
+                className="ml-2 transition-transform group-hover:translate-x-1"
                 aria-hidden
               />
             </Link>
           </motion.div>
         ) : (
-          <div className="w-full h-11 flex items-center justify-center bg-content/[0.03] text-content/40 rounded-xl font-medium text-sm border border-content/10">
+          <div className="bg-content/[0.03] text-content/40 border-content/10 flex h-11 w-full items-center justify-center rounded-xl border text-sm font-medium">
             {t("finalizing")}
           </div>
         )}
@@ -62,7 +62,7 @@ export const CartDrawerFooter = ({
         <Link
           href={APP_ROUTES.CART}
           onClick={onClose}
-          className={`w-full block text-center ${TYPOGRAPHY.caption} font-medium text-content/30 hover:text-primary transition-colors py-1`}
+          className={`block w-full text-center ${TYPOGRAPHY.caption} text-content/30 hover:text-primary py-1 font-medium transition-colors`}
         >
           {t("viewDetails")}
         </Link>

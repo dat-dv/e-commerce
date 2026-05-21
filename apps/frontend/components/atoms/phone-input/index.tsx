@@ -75,7 +75,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         {label ? (
           <label
             htmlFor={id}
-            className="ml-1 text-sm font-bold tracking-tight text-content/80 opacity-70"
+            className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70"
           >
             {label}
           </label>
@@ -83,7 +83,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
         <div
           className={cn(
-            "flex items-center border transition-all focus-within:ring-2 focus-within:ring-primary/20 overflow-hidden",
+            "focus-within:ring-primary/20 flex items-center overflow-hidden border transition-all focus-within:ring-2",
             UI_RADIUS.input,
             size === "sm" && "h-8 text-xs",
             size === "md" && "h-10 text-sm",
@@ -91,7 +91,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             rest.disabled
               ? "border-content/10 bg-content/5"
               : error
-                ? "border-red-500 bg-surface/50"
+                ? "bg-surface/50 border-red-500"
                 : "border-content/[0.08] bg-surface/50",
             className,
           )}
@@ -102,14 +102,14 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
               trigger={
                 <div
                   className={cn(
-                    "flex h-full items-center gap-1 border-r border-content/[0.08] px-3",
+                    "border-content/[0.08] flex h-full items-center gap-1 border-r px-3",
                     rest.disabled
                       ? "cursor-not-allowed opacity-50"
                       : "cursor-pointer",
                   )}
                 >
                   <span className="text-lg">{country.flag}</span>
-                  <span className="text-sm font-medium text-content/80">
+                  <span className="text-content/80 text-sm font-medium">
                     {country.dialCode}
                   </span>
                   <ChevronDown size={14} aria-hidden />
@@ -129,14 +129,14 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     isDisabled={isDisabled}
                     onAction={() => handleCountryChange(item.dialCode)}
                     className={cn(
-                      "flex w-full cursor-pointer items-center gap-3 px-4 py-2 text-left hover:bg-content/[0.04] focus:bg-content/[0.04] focus:outline-none",
+                      "hover:bg-content/[0.04] focus:bg-content/[0.04] flex w-full cursor-pointer items-center gap-3 px-4 py-2 text-left focus:outline-none",
                       isDisabled && "opacity-50",
                     )}
                   >
                     <span className="text-xl">{item.flag}</span>
                     <div>
                       <div className="text-sm">{item.name}</div>
-                      <div className="text-xs text-content/50">
+                      <div className="text-content/50 text-xs">
                         {item.dialCode}
                       </div>
                     </div>

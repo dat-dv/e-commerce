@@ -7,7 +7,7 @@ const HeaderLogo = () => {
     <Link
       href={APP_ROUTES.HOME}
       aria-label="Go to homepage"
-      className="rounded-xl outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:opacity-80"
+      className="focus-visible:ring-primary/40 focus-visible:ring-offset-surface rounded-xl transition-opacity outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:opacity-80"
     >
       <Logo />
     </Link>

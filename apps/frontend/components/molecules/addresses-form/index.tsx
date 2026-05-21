@@ -76,7 +76,7 @@ export const AddressesForm = ({
   return (
     <AppForm methods={methods} onSubmit={handleFormSubmit}>
       <div className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <FormInput
             name="receiverName"
             label={t("receiverNameLabel")}
@@ -118,7 +118,7 @@ export const AddressesForm = ({
           disabled={loading}
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <FormInput
             name="city"
             label={t("cityLabel")}
@@ -137,7 +137,7 @@ export const AddressesForm = ({
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <FormInput
             name="country"
             label={t("countryLabel")}
@@ -157,7 +157,7 @@ export const AddressesForm = ({
         </div>
 
         <FormCheckbox name="isDefault">
-          <span className="text-sm text-content/80">
+          <span className="text-content/80 text-sm">
             {t("setDefaultCheckbox")}
           </span>
         </FormCheckbox>
@@ -165,7 +165,7 @@ export const AddressesForm = ({
         <Button
           type="submit"
           loading={loading}
-          className="flex items-center justify-center gap-2 w-full mt-6"
+          className="mt-6 flex w-full items-center justify-center gap-2"
         >
           {initialData ? (
             t("submitUpdate")

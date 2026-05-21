@@ -19,11 +19,11 @@ const AddressViewHeader = ({
   return (
     <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
       <div className="min-w-0">
-        <h1 className="text-xl font-black tracking-tight text-content sm:text-2xl">
+        <h1 className="text-content text-xl font-black tracking-tight sm:text-2xl">
           {title}
         </h1>
 
-        <p className="mt-1 text-sm text-content/50 break-words">
+        <p className="text-content/50 mt-1 text-sm break-words">
           {description}
         </p>
       </div>

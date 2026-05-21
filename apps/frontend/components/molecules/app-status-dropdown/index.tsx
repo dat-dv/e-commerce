@@ -122,28 +122,28 @@ export function AppStatusDropdown({
         isDisabled={isTriggerDisabled}
         className={({ isPressed }) =>
           cn(
-            "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 outline-none select-none",
+            "focus-visible:ring-primary/30 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-all duration-200 outline-none select-none focus-visible:ring-2 focus-visible:outline-none",
             statusColor,
             isTriggerDisabled
-              ? "opacity-65 cursor-not-allowed"
-              : "cursor-pointer hover:scale-[1.03] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-transparent",
+              ? "cursor-not-allowed opacity-65"
+              : "cursor-pointer border-transparent hover:scale-[1.03] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]",
             isPressed && !isTriggerDisabled && "scale-[0.98]",
             fullWidth &&
-              "w-full h-10 px-3 justify-between bg-surface border border-content/10 rounded-md",
+              "bg-surface border-content/10 h-10 w-full justify-between rounded-md border px-3",
           )
         }
       >
-        <div className="flex items-center gap-1.5 min-w-0">
+        <div className="flex min-w-0 items-center gap-1.5">
           <span className="relative flex size-1.5 shrink-0 rounded-full bg-current" />
           <span className="truncate">{statusLabel}</span>
         </div>
         {disabled ? (
-          <RefreshCw className="size-3 animate-spin opacity-60 shrink-0" />
+          <RefreshCw className="size-3 shrink-0 animate-spin opacity-60" />
         ) : status === EOrderStatus.CANCELLED ||
           status === EOrderStatus.RETURNED ? null : (
           <ChevronDown
             className={cn(
-              "size-3 opacity-60 transition-transform duration-200 shrink-0",
+              "size-3 shrink-0 opacity-60 transition-transform duration-200",
               isOpen && "rotate-180",
             )}
           />
@@ -152,13 +152,13 @@ export function AppStatusDropdown({
 
       <RACPopover
         placement="bottom start"
-        className="z-[99999] rounded-xl border border-content/[0.08] bg-surface/95 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] outline-none min-w-[180px]"
+        className="border-content/[0.08] bg-surface/95 z-[99999] min-w-[180px] rounded-xl border p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl outline-none"
       >
         <RACMenu
           onAction={(key) =>
             onStatusUpdate(orderId, Number(key) as EOrderStatus)
           }
-          className="outline-none flex flex-col gap-1"
+          className="flex flex-col gap-1 outline-none"
         >
           {STATUS_VALUES.map((optionValue) => {
             const isSelected = optionValue === status;
@@ -171,9 +171,9 @@ export function AppStatusDropdown({
                 isDisabled={!isAllowed}
                 className={({ isDisabled, isFocused }) =>
                   cn(
-                    "w-full text-left flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-xs font-medium outline-none transition-all duration-150 cursor-pointer select-none",
+                    "flex w-full cursor-pointer items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-all duration-150 outline-none select-none",
                     isDisabled
-                      ? "text-content/30 cursor-not-allowed opacity-50 bg-transparent"
+                      ? "text-content/30 cursor-not-allowed bg-transparent opacity-50"
                       : isSelected
                         ? "text-primary bg-primary/[0.05]"
                         : isFocused
@@ -182,7 +182,7 @@ export function AppStatusDropdown({
                   )
                 }
               >
-                <div className="flex items-center gap-2 min-w-0">
+                <div className="flex min-w-0 items-center gap-2">
                   <span
                     className={cn(
                       "size-1.5 shrink-0 rounded-full",
@@ -194,7 +194,7 @@ export function AppStatusDropdown({
                   </span>
                 </div>
                 {isSelected && (
-                  <span className="size-1 bg-primary rounded-full shrink-0" />
+                  <span className="bg-primary size-1 shrink-0 rounded-full" />
                 )}
               </RACMenuItem>
             );

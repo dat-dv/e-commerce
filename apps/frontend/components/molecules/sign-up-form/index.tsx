@@ -13,9 +13,9 @@ export default function SignUpForm() {
   const { methods, onSubmit, loading } = useRegister();
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-sm">
+    <div className="flex w-full max-w-sm flex-col gap-6">
       <div className="space-y-1">
-        <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+        <h2 className="from-primary to-primary/60 bg-gradient-to-r bg-clip-text text-3xl font-bold tracking-tight text-transparent">
           {t("title")}
         </h2>
         <p className="text-content/60 font-medium tracking-tight">
@@ -58,7 +58,7 @@ export default function SignUpForm() {
           type="submit"
           variant="primary"
           size="lg"
-          className="w-full mt-2"
+          className="mt-2 w-full"
           loading={loading}
         >
           {loading ? t("submitting") : t("submit")}
@@ -72,25 +72,25 @@ export default function SignUpForm() {
             variant="ghost"
             size="sm"
             href={APP_ROUTES.SIGN_IN}
-            className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100"
+            className="text-primary px-0 font-bold underline-offset-4 opacity-100 hover:underline"
           >
             {t("loginLink")}
           </Button>
         </p>
       </div>
 
-      <p className="text-center text-[11px] opacity-40 leading-relax tracking-tight">
+      <p className="leading-relax text-center text-[11px] tracking-tight opacity-40">
         {t("agreementText")}{" "}
         <Link
           href={APP_ROUTES.TERMS}
-          className="underline cursor-pointer hover:text-primary transition-colors"
+          className="hover:text-primary cursor-pointer underline transition-colors"
         >
           {t("termsOfService")}
         </Link>{" "}
         {t("and")}{" "}
         <Link
           href={APP_ROUTES.PRIVACY}
-          className="underline cursor-pointer hover:text-primary transition-colors"
+          className="hover:text-primary cursor-pointer underline transition-colors"
         >
           {t("privacyPolicy")}
         </Link>

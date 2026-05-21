@@ -20,7 +20,7 @@ export function PrivacySidebar({
 
   return (
     <div className="min-w-0">
-      <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-content/40">
+      <h3 className="text-content/40 mb-3 text-sm font-bold tracking-wider uppercase">
         {t("toc")}
       </h3>
       <TableOfContents items={sections} />

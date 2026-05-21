@@ -75,7 +75,7 @@ export const ProductCard = ({
     <div
       className={cn(
         UI_RADIUS.card,
-        "group relative flex flex-col h-full flex-1 bg-content/[0.02] border border-content/[0.05] p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5",
+        "group bg-content/[0.02] border-content/[0.05] hover:border-content/[0.1] relative flex h-full flex-1 flex-col border p-3 transition-all duration-300 hover:shadow-xl hover:shadow-black/5",
       )}
     >
       <ProductCardMedia
@@ -122,7 +122,7 @@ export const ProductCard = ({
           )}
         </div>
 
-        <div className="mt-auto pt-3 flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between pt-3">
           <ProductCardPrice
             price={priceDisplay.price}
             originalPrice={priceDisplay.originalPrice}
@@ -135,7 +135,7 @@ export const ProductCard = ({
             variant="ghost"
             className={cn(
               UI_RADIUS.control,
-              "w-9 h-9 flex items-center justify-center text-content/20 hover:text-primary hover:bg-primary/10 lg:hidden border border-content/5 p-0",
+              "text-content/20 hover:text-primary hover:bg-primary/10 border-content/5 flex h-9 w-9 items-center justify-center border p-0 lg:hidden",
             )}
           >
             <ShoppingBag size={18} />

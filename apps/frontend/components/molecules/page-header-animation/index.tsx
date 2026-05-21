@@ -39,13 +39,13 @@ export function AnimatedPageHeader({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       onMouseMove={handleMouseMove}
-      className="group relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b border-content/[0.03] sm:mb-8 sm:min-h-[260px]"
+      className="group border-content/[0.03] relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b sm:mb-8 sm:min-h-[260px]"
     >
-      <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06]">
         {icons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-content"
+            className="text-content absolute"
             initial={{
               x: ((i * 149) % 1000) - 500,
               y: ((i * 73) % 500) - 250,
@@ -71,7 +71,7 @@ export function AnimatedPageHeader({
       </div>
 
       <motion.div
-        className="pointer-events-none absolute inset-0 z-10 transition duration-500 opacity-0 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition duration-500 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(
@@ -100,11 +100,11 @@ export function AnimatedPageHeader({
           >
             <LiquidWaveText>
               <h1
-                className={`max-w-full break-words ${TYPOGRAPHY.heroTitle} uppercase leading-none tracking-normal text-content`}
+                className={`max-w-full break-words ${TYPOGRAPHY.heroTitle} text-content leading-none tracking-normal uppercase`}
               >
                 {title}{" "}
                 {highlight && (
-                  <span className="italic font-light text-content/30">
+                  <span className="text-content/30 font-light italic">
                     {highlight}
                   </span>
                 )}
@@ -115,8 +115,8 @@ export function AnimatedPageHeader({
               <p
                 className={
                   center
-                    ? `max-w-2xl text-center ${TYPOGRAPHY.body} font-medium leading-relaxed tracking-normal text-content/50 md:text-lg`
-                    : `max-w-2xl ${TYPOGRAPHY.body} font-medium leading-relaxed tracking-normal text-content/50 md:text-lg`
+                    ? `max-w-2xl text-center ${TYPOGRAPHY.body} text-content/50 leading-relaxed font-medium tracking-normal md:text-lg`
+                    : `max-w-2xl ${TYPOGRAPHY.body} text-content/50 leading-relaxed font-medium tracking-normal md:text-lg`
                 }
               >
                 {description}
@@ -129,7 +129,7 @@ export function AnimatedPageHeader({
       </div>
 
       <div
-        className="absolute inset-0 z-0 opacity-[0.015] pointer-events-none"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.015]"
         style={{
           backgroundImage:
             "radial-gradient(var(--color-content) 0.5px, transparent 0.5px)",

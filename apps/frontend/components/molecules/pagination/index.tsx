@@ -66,8 +66,8 @@ const PaginationItem = ({
       className={cn(
         "flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold transition-colors duration-300 sm:h-10 sm:w-10 sm:rounded-xl sm:text-sm",
         active
-          ? "z-10 bg-primary text-white shadow-lg shadow-primary/25 sm:scale-110"
-          : "border border-white/5 bg-white/5 text-content/40 hover:bg-white/10 hover:text-content active:scale-90",
+          ? "bg-primary shadow-primary/25 z-10 text-white shadow-lg sm:scale-110"
+          : "text-content/40 hover:text-content border border-white/5 bg-white/5 hover:bg-white/10 active:scale-90",
       )}
     >
       {page}
@@ -95,7 +95,7 @@ const PaginationArrow = ({
       disabled={disabled}
       aria-label={label}
       className={cn(
-        "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-content/10 bg-white/5 text-content/60 transition-colors hover:bg-white/10 hover:text-content disabled:cursor-not-allowed disabled:opacity-30 sm:h-10 sm:w-10 sm:rounded-xl",
+        "border-content/10 text-content/60 hover:text-content flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-white/5 transition-colors hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30 sm:h-10 sm:w-10 sm:rounded-xl",
         !disabled && "active:scale-90",
       )}
     >
@@ -142,7 +142,7 @@ export const Pagination = ({
   return (
     <nav
       aria-label="Pagination"
-      className="flex w-full items-center justify-center gap-1.5 py-4 animate-in fade-in slide-in-from-bottom-2 duration-500 sm:gap-4"
+      className="animate-in fade-in slide-in-from-bottom-2 flex w-full items-center justify-center gap-1.5 py-4 duration-500 sm:gap-4"
     >
       <PaginationArrow
         direction="left"

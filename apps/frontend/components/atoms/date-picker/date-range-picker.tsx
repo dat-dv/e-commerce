@@ -44,25 +44,25 @@ export function RangeCalendar<T extends DateValue>(
 ) {
   return (
     <AriaRangeCalendar {...props}>
-      <header className="flex items-center justify-between pb-4 w-full">
+      <header className="flex w-full items-center justify-between pb-4">
         <RACButton
           slot="previous"
           className={cn(
             UI_RADIUS.control,
-            "p-1.5 text-content/50 hover:text-content hover:bg-content/5 transition-colors outline-none cursor-pointer",
+            "text-content/50 hover:text-content hover:bg-content/5 cursor-pointer p-1.5 transition-colors outline-none",
           )}
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="h-5 w-5" />
         </RACButton>
-        <RACHeading className="font-semibold text-content/85 text-sm" />
+        <RACHeading className="text-content/85 text-sm font-semibold" />
         <RACButton
           slot="next"
           className={cn(
             UI_RADIUS.control,
-            "p-1.5 text-content/50 hover:text-content hover:bg-content/5 transition-colors outline-none cursor-pointer",
+            "text-content/50 hover:text-content hover:bg-content/5 cursor-pointer p-1.5 transition-colors outline-none",
           )}
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="h-5 w-5" />
         </RACButton>
       </header>
       <AriaCalendarGrid className="border-collapse">
@@ -79,21 +79,21 @@ export function RangeCalendar<T extends DateValue>(
               isOutsideMonth,
             }) =>
               cn(
-                "w-9 h-9 text-sm font-semibold flex items-center justify-center transition-all outline-none cursor-pointer select-none",
-                isToday && "border border-primary text-primary",
+                "flex h-9 w-9 cursor-pointer items-center justify-center text-sm font-semibold transition-all outline-none select-none",
+                isToday && "border-primary text-primary border",
                 isHovered && "bg-content/5 text-content rounded-full",
                 isSelected &&
                   !isSelectionStart &&
                   !isSelectionEnd &&
-                  "bg-primary/10 text-primary font-bold rounded-none",
+                  "bg-primary/10 text-primary rounded-none font-bold",
                 isSelected &&
                   isSelectionStart &&
-                  "bg-primary text-white shadow-md shadow-primary/25 font-bold rounded-l-full",
+                  "bg-primary shadow-primary/25 rounded-l-full font-bold text-white shadow-md",
                 isSelected &&
                   isSelectionEnd &&
-                  "bg-primary text-white shadow-md shadow-primary/25 font-bold rounded-r-full",
+                  "bg-primary shadow-primary/25 rounded-r-full font-bold text-white shadow-md",
                 isOutsideMonth && "text-content/20 font-normal",
-                isDisabled && "opacity-30 cursor-not-allowed",
+                isDisabled && "cursor-not-allowed opacity-30",
               )
             }
           />
@@ -129,7 +129,7 @@ export function DateRangePicker<T extends DateValue>({
       {...props}
       className={(renderProps) =>
         cn(
-          "group flex flex-col gap-1.5 w-full font-sans",
+          "group flex w-full flex-col gap-1.5 font-sans",
           typeof className === "function" ? className(renderProps) : className,
         )
       }
@@ -137,13 +137,13 @@ export function DateRangePicker<T extends DateValue>({
       {({ isOpen, isInvalid, isDisabled }) => (
         <>
           {label && (
-            <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+            <RACLabel className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
               {label}
             </RACLabel>
           )}
           <RACGroup
             className={cn(
-              "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
+              "relative flex w-full items-center justify-between pr-4 font-medium transition-all",
               variantBase[variant],
               inputSizeClasses[size][variant],
               isDisabled
@@ -155,7 +155,7 @@ export function DateRangePicker<T extends DateValue>({
                     : variantNormal[variant],
             )}
           >
-            <div className="flex-1 flex items-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-1 [scrollbar-width:none] items-center overflow-x-auto [&::-webkit-scrollbar]:hidden">
               <DateInput
                 slot="start"
                 variant="none"
@@ -172,25 +172,25 @@ export function DateRangePicker<T extends DateValue>({
                 className="min-w-[110px]"
               />
             </div>
-            <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">
-              <CalendarIcon className="w-5 h-5" />
+            <RACButton className="text-content/40 hover:text-content ml-2 cursor-pointer p-1 transition-colors outline-none">
+              <CalendarIcon className="h-5 w-5" />
             </RACButton>
           </RACGroup>
           {description && (
             <RACText
               slot="description"
-              className="text-xs text-content/65 ml-1"
+              className="text-content/65 ml-1 text-xs"
             >
               {description}
             </RACText>
           )}
-          <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+          <RACFieldError className="ml-1 text-xs font-medium text-red-500">
             {errorMessage}
           </RACFieldError>
           <RACPopover
             className={cn(
               UI_RADIUS.modal,
-              "z-50 origin-top-right bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none p-4 animate-in fade-in zoom-in-95 duration-100",
+              "bg-surface/95 border-content/10 animate-in fade-in zoom-in-95 z-50 origin-top-right border p-4 shadow-2xl backdrop-blur-md duration-100 focus:outline-none",
             )}
             offset={4}
             placement="bottom end"

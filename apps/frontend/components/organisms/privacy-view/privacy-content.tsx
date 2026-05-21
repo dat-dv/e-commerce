@@ -16,11 +16,11 @@ export function PrivacyContent({
   sections,
 }: PrivacyContentProps): React.ReactElement {
   return (
-    <div className="space-y-9 text-sm leading-relaxed text-content/80 sm:space-y-12 sm:text-base">
+    <div className="text-content/80 space-y-9 text-sm leading-relaxed sm:space-y-12 sm:text-base">
       {sections.map((section) => (
         <section key={section.id} id={section.id} className="scroll-mt-24">
-          <h2 className="mb-4 flex min-w-0 items-start gap-2 text-xl font-bold leading-tight text-content sm:items-center sm:text-2xl">
-            <span className="mt-1 h-5 w-1 shrink-0 rounded-full bg-primary sm:mt-0" />
+          <h2 className="text-content mb-4 flex min-w-0 items-start gap-2 text-xl leading-tight font-bold sm:items-center sm:text-2xl">
+            <span className="bg-primary mt-1 h-5 w-1 shrink-0 rounded-full sm:mt-0" />
             <span className="min-w-0 break-words">
               {section.title.toUpperCase()}
             </span>
@@ -33,7 +33,7 @@ export function PrivacyContent({
                 return (
                   <ul
                     key={index}
-                    className="space-y-1 pl-5 text-content/70 list-disc"
+                    className="text-content/70 list-disc space-y-1 pl-5"
                   >
                     <li>{paragraph}</li>
                   </ul>

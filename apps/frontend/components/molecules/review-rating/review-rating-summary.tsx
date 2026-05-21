@@ -13,13 +13,13 @@ export const ReviewRatingSummary = ({
   const t = useTranslations("ProductDetailPage");
   return (
     <div>
-      <h2 className="text-lg font-bold text-content">{t("customerReviews")}</h2>
+      <h2 className="text-content text-lg font-bold">{t("customerReviews")}</h2>
       <div className="mt-1 flex items-center gap-2">
         <ReviewRatingStars rating={averageRating} />
-        <span className="text-sm font-bold text-content">
+        <span className="text-content text-sm font-bold">
           {averageRating.toFixed(1)} / 5
         </span>
-        <span className="text-sm text-content/50 font-medium">
+        <span className="text-content/50 text-sm font-medium">
           {t("reviewsCount", { count: String(totalReviews) })}
         </span>
       </div>

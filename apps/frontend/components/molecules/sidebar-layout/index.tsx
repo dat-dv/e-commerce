@@ -16,19 +16,19 @@ export default function SidebarLayout({
   children,
 }: SidebarLayoutProps) {
   return (
-    <div className="pb-10 pt-2 sm:pb-12 sm:pt-4">
+    <div className="pt-2 pb-10 sm:pt-4 sm:pb-12">
       <div className="mb-8 sm:mb-12">{header}</div>
       <AppContainer size="2xl">
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
           {/* Sidebar */}
           <aside
-            className={cn("w-full lg:w-[280px] shrink-0", sidebarClassName)}
+            className={cn("w-full shrink-0 lg:w-[280px]", sidebarClassName)}
           >
             <div className="lg:sticky lg:top-48">{sidebar}</div>
           </aside>
 
           {/* Content */}
-          <main className="flex-1 min-w-0">{children}</main>
+          <main className="min-w-0 flex-1">{children}</main>
         </div>
       </AppContainer>
     </div>

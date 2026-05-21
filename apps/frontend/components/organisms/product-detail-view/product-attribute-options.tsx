@@ -25,7 +25,7 @@ export function ProductAttributeOptions({
     <>
       {parsedAttributeGroups.map(({ name: attrName, values }) => (
         <div key={attrName} className="flex flex-col gap-3">
-          <span className="text-sm font-medium text-content/60 w-24">
+          <span className="text-content/60 w-24 text-sm font-medium">
             {attrName}
           </span>
           <div className="flex flex-wrap gap-2">
@@ -42,7 +42,7 @@ export function ProductAttributeOptions({
                       [attrName]: value,
                     })
                   }
-                  className={`px-4 py-2 h-auto rounded-lg border text-sm font-medium transition-all flex items-center gap-2 active:scale-[0.98] hover:opacity-100 ${
+                  className={`flex h-auto items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all hover:opacity-100 active:scale-[0.98] ${
                     isSelected
                       ? "border-primary text-primary bg-primary/5 hover:bg-primary/5"
                       : "border-content/[0.1] hover:border-content/20 text-content/80 hover:bg-transparent"

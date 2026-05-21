@@ -71,12 +71,12 @@ export function ListingProductsToolbar({
     <div
       className={cn(
         UI_RADIUS.panel,
-        "relative z-30 bg-content/[0.02] border border-content/[0.05] backdrop-blur-xl p-3 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg shadow-content/[0.01]",
+        "bg-content/[0.02] border-content/[0.05] shadow-content/[0.01] relative z-30 mb-6 flex flex-col items-center justify-between gap-4 border p-3 shadow-lg backdrop-blur-xl md:flex-row",
       )}
     >
       {/* Left side: Info & Pagination */}
-      <div className="flex items-center justify-between w-full md:w-auto gap-4">
-        <div className={`text-sm font-medium text-content/70`}>
+      <div className="flex w-full items-center justify-between gap-4 md:w-auto">
+        <div className={`text-content/70 text-sm font-medium`}>
           {t.rich("showingProducts", {
             total,
             bold: (chunks: React.ReactNode) => (
@@ -88,7 +88,7 @@ export function ListingProductsToolbar({
         <div
           className={cn(
             UI_RADIUS.control,
-            "flex items-center gap-2 bg-content/[0.03] p-1 border border-content/[0.05]",
+            "bg-content/[0.03] border-content/[0.05] flex items-center gap-2 border p-1",
           )}
         >
           <motion.button
@@ -98,14 +98,14 @@ export function ListingProductsToolbar({
             disabled={currentPage <= 1}
             className={cn(
               UI_RADIUS.control,
-              "p-1.5 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors",
+              "hover:bg-content/5 text-content p-1.5 transition-colors disabled:cursor-not-allowed disabled:opacity-30",
             )}
           >
             <ChevronLeft size={14} />
           </motion.button>
 
           <span
-            className={`${TYPOGRAPHY.caption} font-semibold px-1 text-content/70`}
+            className={`${TYPOGRAPHY.caption} text-content/70 px-1 font-semibold`}
           >
             {currentPage} <span className="text-content/30">/</span>{" "}
             {totalPages}
@@ -118,7 +118,7 @@ export function ListingProductsToolbar({
             disabled={currentPage >= totalPages}
             className={cn(
               UI_RADIUS.control,
-              "p-1.5 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-content/5 text-content transition-colors",
+              "hover:bg-content/5 text-content p-1.5 transition-colors disabled:cursor-not-allowed disabled:opacity-30",
             )}
           >
             <ChevronRight size={14} />
@@ -127,11 +127,11 @@ export function ListingProductsToolbar({
       </div>
 
       {/* Right side: Sort Options */}
-      <div className="flex items-center gap-3 w-full md:w-auto">
-        <div className="hidden md:flex items-center gap-2 text-content/40 mr-2">
+      <div className="flex w-full items-center gap-3 md:w-auto">
+        <div className="text-content/40 mr-2 hidden items-center gap-2 md:flex">
           <SlidersHorizontal size={12} />
           <span
-            className={`${TYPOGRAPHY.badge} font-black uppercase tracking-widest`}
+            className={`${TYPOGRAPHY.badge} font-black tracking-widest uppercase`}
           >
             {t("sortBy")}
           </span>
@@ -151,11 +151,11 @@ export function ListingProductsToolbar({
               aria-expanded={isOpen}
               className={cn(
                 UI_RADIUS.control,
-                "flex min-w-[160px] items-center justify-between gap-3 border border-content/[0.08] bg-transparent px-3.5 py-2 font-semibold text-content shadow-none transition-colors hover:border-content/15 hover:bg-content/[0.025]",
+                "border-content/[0.08] text-content hover:border-content/15 hover:bg-content/[0.025] flex min-w-[160px] items-center justify-between gap-3 border bg-transparent px-3.5 py-2 font-semibold shadow-none transition-colors",
               )}
             >
               <span
-                className={`${TYPOGRAPHY.caption} font-bold text-content/70`}
+                className={`${TYPOGRAPHY.caption} text-content/70 font-bold`}
               >
                 {currentSortOption.label}
               </span>
@@ -164,9 +164,9 @@ export function ListingProductsToolbar({
           )}
         >
           <div className="flex min-w-[200px] flex-col gap-0.5">
-            <div className="mb-0.5 border-b border-content/[0.05] px-3 py-1.5">
+            <div className="border-content/[0.05] mb-0.5 border-b px-3 py-1.5">
               <span
-                className={`${TYPOGRAPHY.badge} font-black uppercase tracking-[0.16em] text-content/35`}
+                className={`${TYPOGRAPHY.badge} text-content/35 font-black tracking-[0.16em] uppercase`}
               >
                 {t("sortProductsBy")}
               </span>
@@ -179,7 +179,7 @@ export function ListingProductsToolbar({
                   UI_RADIUS.control,
                   `flex items-center justify-between px-3 py-2.5 ${TYPOGRAPHY.caption} font-semibold transition-colors`,
                   currentSort === option.value.toString()
-                    ? "bg-content/[0.06] font-bold text-content"
+                    ? "bg-content/[0.06] text-content font-bold"
                     : "text-content/65 hover:text-content hover:bg-content/[0.04]",
                 )}
               >
@@ -187,7 +187,7 @@ export function ListingProductsToolbar({
                 {currentSort === option.value.toString() && (
                   <motion.div
                     layoutId="active-sort"
-                    className="size-1.5 rounded-full bg-content/55"
+                    className="bg-content/55 size-1.5 rounded-full"
                   />
                 )}
               </button>

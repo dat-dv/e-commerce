@@ -27,79 +27,79 @@ export const OrderSummary = ({
   const t = useTranslations("CheckoutPage.summary");
 
   return (
-    <div className="lg:col-span-4 lg:sticky lg:top-32">
+    <div className="lg:sticky lg:top-32 lg:col-span-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className={cn(
           UI_RADIUS.panel,
-          "relative overflow-hidden border border-content/5 bg-surface/90 p-5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] backdrop-blur-3xl md:p-8",
+          "border-content/5 bg-surface/90 relative overflow-hidden border p-5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] backdrop-blur-3xl md:p-8",
         )}
       >
-        <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 bg-primary/10 blur-[80px]" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 bg-primary/[0.03] blur-[60px]" />
+        <div className="bg-primary/10 pointer-events-none absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 blur-[80px]" />
+        <div className="bg-primary/[0.03] pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 blur-[60px]" />
 
         <div className="relative z-10">
           <div className="mb-6 flex items-center gap-2 opacity-60 md:mb-8">
             <ShoppingBag size={14} className="text-content" aria-hidden />
-            <span className="text-sm font-semibold text-content capitalize">
+            <span className="text-content text-sm font-semibold capitalize">
               {t("title")}
             </span>
           </div>
 
           {/* Recipient Summary */}
           {recipientName && (
-            <div className="mb-6 border-b border-content/[0.08] pb-5 md:mb-8 md:pb-6">
+            <div className="border-content/[0.08] mb-6 border-b pb-5 md:mb-8 md:pb-6">
               <div
-                className={`mb-2 ${TYPOGRAPHY.badge} uppercase tracking-wider text-content/30`}
+                className={`mb-2 ${TYPOGRAPHY.badge} text-content/30 tracking-wider uppercase`}
               >
                 {t("shippingTo")}
               </div>
               <div className="flex flex-col gap-0.5">
-                <div className="font-bold text-sm text-content capitalize">
+                <div className="text-content text-sm font-bold capitalize">
                   {recipientName}
                 </div>
-                <div className="text-xs text-content/60">{recipientPhone}</div>
+                <div className="text-content/60 text-xs">{recipientPhone}</div>
               </div>
             </div>
           )}
 
           <div className="mb-6 space-y-4 md:mb-8">
-            <div className="flex justify-between text-sm text-content/60">
+            <div className="text-content/60 flex justify-between text-sm">
               <span className="capitalize">{t("subtotal")}</span>
               <span className="text-content font-medium">
                 {formatCurrency(totalAmount)}
               </span>
             </div>
-            <div className="flex justify-between text-sm text-content/60">
+            <div className="text-content/60 flex justify-between text-sm">
               <span className="capitalize">{t("shippingFee")}</span>
-              <span className="text-green-500 font-bold tracking-wide">
+              <span className="font-bold tracking-wide text-green-500">
                 {t("free")}
               </span>
             </div>
-            <div className="flex justify-between text-sm text-content/60">
+            <div className="text-content/60 flex justify-between text-sm">
               <span className="capitalize">{t("tax")}</span>
               <span className="text-content font-medium">$0.00</span>
             </div>
 
-            <div className="my-5 h-px bg-content/5 md:my-6" />
+            <div className="bg-content/5 my-5 h-px md:my-6" />
 
             {/* Integrated Payment Method */}
             <div className="mb-8">
-              <div className="flex items-center gap-2 mb-3 opacity-60">
-                <span className="text-xs font-semibold text-content capitalize">
+              <div className="mb-3 flex items-center gap-2 opacity-60">
+                <span className="text-content text-xs font-semibold capitalize">
                   {t("paymentMethod")}
                 </span>
               </div>
-              <div className="text-xs text-content/60">{t("cod")}</div>
+              <div className="text-content/60 text-xs">{t("cod")}</div>
             </div>
 
             <div className="flex items-end justify-between gap-4">
-              <div className="flex flex-col text-content">
-                <span className="mb-1 text-xs font-semibold capitalize text-content">
+              <div className="text-content flex flex-col">
+                <span className="text-content mb-1 text-xs font-semibold capitalize">
                   {t("grandTotal")}
                 </span>
-                <span className="break-words text-2xl font-bold tracking-tight md:text-3xl">
+                <span className="text-2xl font-bold tracking-tight break-words md:text-3xl">
                   {formatCurrency(totalAmount)}
                 </span>
               </div>
@@ -112,10 +112,10 @@ export const OrderSummary = ({
             loading={loading}
             className={cn(
               UI_RADIUS.control,
-              `relative w-full overflow-hidden py-5 ${TYPOGRAPHY.caption} font-semibold uppercase tracking-[0.18em] transition-all md:py-6 md:tracking-[0.3em]`,
+              `relative w-full overflow-hidden py-5 ${TYPOGRAPHY.caption} font-semibold tracking-[0.18em] uppercase transition-all md:py-6 md:tracking-[0.3em]`,
               loading || isItemsEmpty
                 ? "bg-content/5 text-content/20 cursor-not-allowed"
-                : "bg-primary text-surface hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/20",
+                : "bg-primary text-surface shadow-primary/20 shadow-xl transition-all hover:opacity-90 active:scale-[0.98]",
             )}
           >
             {loading ? t("processing") : t("complete")}

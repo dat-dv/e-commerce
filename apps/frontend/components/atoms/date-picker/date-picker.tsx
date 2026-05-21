@@ -43,25 +43,25 @@ export type ICalendarProps<T extends DateValue> = AriaCalendarProps<T>;
 export function Calendar<T extends DateValue>(props: ICalendarProps<T>) {
   return (
     <AriaCalendar {...props}>
-      <header className="flex items-center justify-between pb-4 w-full">
+      <header className="flex w-full items-center justify-between pb-4">
         <RACButton
           slot="previous"
           className={cn(
             UI_RADIUS.control,
-            "p-1.5 text-content/50 hover:text-content hover:bg-content/5 transition-colors outline-none cursor-pointer",
+            "text-content/50 hover:text-content hover:bg-content/5 cursor-pointer p-1.5 transition-colors outline-none",
           )}
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="h-5 w-5" />
         </RACButton>
-        <RACHeading className="font-semibold text-content/85 text-sm" />
+        <RACHeading className="text-content/85 text-sm font-semibold" />
         <RACButton
           slot="next"
           className={cn(
             UI_RADIUS.control,
-            "p-1.5 text-content/50 hover:text-content hover:bg-content/5 transition-colors outline-none cursor-pointer",
+            "text-content/50 hover:text-content hover:bg-content/5 cursor-pointer p-1.5 transition-colors outline-none",
           )}
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="h-5 w-5" />
         </RACButton>
       </header>
       <AriaCalendarGrid className="border-collapse">
@@ -76,13 +76,13 @@ export function Calendar<T extends DateValue>(props: ICalendarProps<T>) {
               isOutsideMonth,
             }) =>
               cn(
-                "w-9 h-9 text-sm font-semibold flex items-center justify-center rounded-full transition-all outline-none cursor-pointer select-none",
-                isToday && "border border-primary text-primary",
+                "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-sm font-semibold transition-all outline-none select-none",
+                isToday && "border-primary text-primary border",
                 isHovered && "bg-content/5 text-content",
                 isSelected &&
-                  "bg-primary text-white shadow-md shadow-primary/25 font-bold",
+                  "bg-primary shadow-primary/25 font-bold text-white shadow-md",
                 isOutsideMonth && "text-content/20 font-normal",
-                isDisabled && "opacity-30 cursor-not-allowed",
+                isDisabled && "cursor-not-allowed opacity-30",
               )
             }
           />
@@ -122,7 +122,7 @@ export function DatePicker<T extends DateValue>({
         {...props}
         className={(renderProps) =>
           cn(
-            "group flex flex-col gap-1.5 w-full font-sans",
+            "group flex w-full flex-col gap-1.5 font-sans",
             typeof className === "function"
               ? className(renderProps)
               : className,
@@ -132,13 +132,13 @@ export function DatePicker<T extends DateValue>({
         {({ isOpen, isInvalid, isDisabled }) => (
           <>
             {label && (
-              <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+              <RACLabel className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
                 {label}
               </RACLabel>
             )}
             <RACGroup
               className={cn(
-                "w-full flex justify-between items-center transition-all font-medium pr-4 relative",
+                "relative flex w-full items-center justify-between pr-4 font-medium transition-all",
                 variantBase[variant],
                 inputSizeClasses[size][variant],
                 isDisabled
@@ -153,27 +153,27 @@ export function DatePicker<T extends DateValue>({
               <DateInput
                 variant="none"
                 size={size}
-                className="flex-1 min-w-[120px] h-full"
+                className="h-full min-w-[120px] flex-1"
               />
-              <RACButton className="ml-2 p-1 text-content/40 hover:text-content transition-colors outline-none cursor-pointer">
-                <CalendarIcon className="w-5 h-5" />
+              <RACButton className="text-content/40 hover:text-content ml-2 cursor-pointer p-1 transition-colors outline-none">
+                <CalendarIcon className="h-5 w-5" />
               </RACButton>
             </RACGroup>
             {description && (
               <RACText
                 slot="description"
-                className="text-xs text-content/65 ml-1"
+                className="text-content/65 ml-1 text-xs"
               >
                 {description}
               </RACText>
             )}
-            <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+            <RACFieldError className="ml-1 text-xs font-medium text-red-500">
               {errorMessage}
             </RACFieldError>
             <RACPopover
               className={cn(
                 UI_RADIUS.modal,
-                "z-50 origin-top-right bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none p-4 animate-in fade-in zoom-in-95 duration-100",
+                "bg-surface/95 border-content/10 animate-in fade-in zoom-in-95 z-50 origin-top-right border p-4 shadow-2xl backdrop-blur-md duration-100 focus:outline-none",
               )}
               offset={4}
               placement="bottom end"

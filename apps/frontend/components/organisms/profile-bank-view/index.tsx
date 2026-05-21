@@ -13,10 +13,10 @@ export function ProfileBankView(): React.ReactElement {
     <FormCard>
       <div className="mb-6 flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
-          <h1 className="text-2xl font-bold text-content break-words">
+          <h1 className="text-content text-2xl font-bold break-words">
             {t("title")}
           </h1>
-          <p className="text-sm text-content/60 break-words">
+          <p className="text-content/60 text-sm break-words">
             {t("description")}
           </p>
         </div>
@@ -31,15 +31,15 @@ export function ProfileBankView(): React.ReactElement {
         </Button>
       </div>
 
-      <div className="flex min-w-0 flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-content/10 p-5 text-center sm:p-8">
-        <div className="w-12 h-12 bg-content/5 rounded-full flex items-center justify-center text-content/40">
+      <div className="border-content/10 flex min-w-0 flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed p-5 text-center sm:p-8">
+        <div className="bg-content/5 text-content/40 flex h-12 w-12 items-center justify-center rounded-full">
           <CreditCard size={24} aria-hidden="true" />
         </div>
         <div className="min-w-0">
-          <p className="font-semibold text-content break-words">
+          <p className="text-content font-semibold break-words">
             {t("empty.title")}
           </p>
-          <p className="text-sm text-content/50 break-words">
+          <p className="text-content/50 text-sm break-words">
             {t("empty.description")}
           </p>
         </div>

@@ -16,7 +16,7 @@ export const DocsAnimationWrapper = ({
       className="relative w-full"
     >
       {/* Subtle side accent line */}
-      <div className="absolute -left-12 top-0 h-full w-[1px] bg-gradient-to-b from-primary/30 via-primary/5 to-transparent hidden lg:block rounded-full opacity-40" />
+      <div className="from-primary/30 via-primary/5 absolute top-0 -left-12 hidden h-full w-[1px] rounded-full bg-gradient-to-b to-transparent opacity-40 lg:block" />
 
       <div className="py-12 pb-24 lg:px-6">{children}</div>
     </motion.div>

@@ -30,16 +30,16 @@ export const AddressEmptyState = ({
     <div
       className={cn(
         UI_RADIUS.panel,
-        "flex flex-col items-center justify-center gap-3 border-2 border-dashed border-content/10 py-10 text-center",
+        "border-content/10 flex flex-col items-center justify-center gap-3 border-2 border-dashed py-10 text-center",
         className,
       )}
     >
-      <div className="flex size-14 items-center justify-center rounded-full bg-content/5">
+      <div className="bg-content/5 flex size-14 items-center justify-center rounded-full">
         <MapPin size={24} className="text-content/30" aria-hidden />
       </div>
       <div>
-        <p className="font-bold text-content">{displayTitle}</p>
-        <p className="mt-1 text-sm text-content/50">{displayDescription}</p>
+        <p className="text-content font-bold">{displayTitle}</p>
+        <p className="text-content/50 mt-1 text-sm">{displayDescription}</p>
       </div>
       {onAction && actionLabel && (
         <Button

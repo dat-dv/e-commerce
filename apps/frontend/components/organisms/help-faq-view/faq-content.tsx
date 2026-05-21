@@ -32,13 +32,13 @@ export function FAQContent({
         onChange={onSearchChange}
         placeholder={searchPlaceholder}
         showSubmitButton={false}
-        className="rounded-xl bg-surface shadow-sm"
+        className="bg-surface rounded-xl shadow-sm"
       />
 
       <FAQTopicList topics={topics} />
 
       {!topics.length && (
-        <div className="mt-8 rounded-xl border border-content/5 bg-surface p-8 text-center text-sm text-content/55">
+        <div className="border-content/5 bg-surface text-content/55 mt-8 rounded-xl border p-8 text-center text-sm">
           {emptyText}
         </div>
       )}

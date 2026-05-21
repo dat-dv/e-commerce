@@ -17,7 +17,7 @@ export const ReviewList = ({ reviews, loadingReviews }: ReviewListProps) => {
 
   if (loadingReviews) {
     return (
-      <div className="divide-y divide-content/[0.05]">
+      <div className="divide-content/[0.05] divide-y">
         <ReviewListSkeleton />
       </div>
     );
@@ -36,7 +36,7 @@ export const ReviewList = ({ reviews, loadingReviews }: ReviewListProps) => {
   }
 
   return (
-    <div className="divide-y divide-content/[0.05]">
+    <div className="divide-content/[0.05] divide-y">
       {reviews.map((review) => (
         <ReviewItem key={review.id} review={review} />
       ))}

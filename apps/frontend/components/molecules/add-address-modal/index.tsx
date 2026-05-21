@@ -72,13 +72,13 @@ export const AddAddressModal = ({
   const title = editingAddress ? t("editAddress") : t("newAddress");
   return (
     <AppDialog isOpen={isOpen} onClose={onClose}>
-      <AppDialogPanel className="relative w-full max-w-2xl bg-surface/95 backdrop-blur-3xl rounded-[2.5rem] shadow-2xl border border-content/10 overflow-hidden">
-        <div className="px-10 py-8 border-b border-content/5 flex justify-between items-center bg-surface/50 backdrop-blur-xl">
+      <AppDialogPanel className="bg-surface/95 border-content/10 relative w-full max-w-2xl overflow-hidden rounded-[2.5rem] border shadow-2xl backdrop-blur-3xl">
+        <div className="border-content/5 bg-surface/50 flex items-center justify-between border-b px-10 py-8 backdrop-blur-xl">
           <div>
-            <AppDialogTitle className="text-2xl font-bold text-content">
+            <AppDialogTitle className="text-content text-2xl font-bold">
               {title}
             </AppDialogTitle>
-            <p className="text-xs text-content/40 mt-1">
+            <p className="text-content/40 mt-1 text-xs">
               {t("shippingDetails")}
             </p>
           </div>
@@ -86,13 +86,13 @@ export const AddAddressModal = ({
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="rounded-full hover:bg-content/5 transition-colors"
+            className="hover:bg-content/5 rounded-full transition-colors"
           >
-            <XIcon className="w-5 h-5" />
+            <XIcon className="h-5 w-5" />
           </Button>
         </div>
 
-        <div className="p-10 max-h-[70vh] overflow-y-auto hide-scrollbar">
+        <div className="hide-scrollbar max-h-[70vh] overflow-y-auto p-10">
           <AddressesForm
             onSubmit={onSubmit}
             loading={loading}

@@ -17,17 +17,17 @@ export function ProductPriceBox({
   const hasValidDiscountPercent = isDiscounted && discountPercent > 0;
 
   return (
-    <div className="bg-content/[0.02] p-4 rounded-xl flex items-center gap-4">
+    <div className="bg-content/[0.02] flex items-center gap-4 rounded-xl p-4">
       {isDiscounted && (
-        <span className="text-content/40 line-through text-base">
+        <span className="text-content/40 text-base line-through">
           {formatCurrency(originalPrice)}
         </span>
       )}
-      <span className="text-3xl font-bold text-primary">
+      <span className="text-primary text-3xl font-bold">
         {formatCurrency(price)}
       </span>
       {hasValidDiscountPercent && (
-        <span className="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-lg">
+        <span className="bg-primary/10 text-primary rounded-lg px-2 py-0.5 text-xs font-bold">
           -{discountPercent}%
         </span>
       )}

@@ -54,9 +54,9 @@ export const ProductInfo = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
-      className="lg:col-span-8 flex flex-col gap-5"
+      className="flex flex-col gap-5 lg:col-span-8"
     >
-      <h1 className="text-xl font-semibold text-content leading-snug">
+      <h1 className="text-content text-xl leading-snug font-semibold">
         {name}
       </h1>
 

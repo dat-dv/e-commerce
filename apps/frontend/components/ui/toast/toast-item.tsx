@@ -62,9 +62,9 @@ export function CustomToast({
         // Layout
         "relative flex w-full items-start gap-3 overflow-hidden rounded-xl",
         // Surface — adapts to light/dark via CSS token with glassmorphism
-        "border border-content/10 bg-surface/90 backdrop-blur-md shadow-lg shadow-black/10",
+        "border-content/10 bg-surface/90 border shadow-lg shadow-black/10 backdrop-blur-md",
         // Padding: space for left bar + close button
-        "pl-4 pr-10 py-3.5",
+        "py-3.5 pr-10 pl-4",
         // Width to fit properly in Toaster container
         "w-full sm:w-[380px]",
       )}
@@ -72,19 +72,19 @@ export function CustomToast({
       {/* Left accent bar */}
       <span
         aria-hidden
-        className={cn("absolute left-0 top-0 bottom-0 w-1 rounded-l-xl", bar)}
+        className={cn("absolute top-0 bottom-0 left-0 w-1 rounded-l-xl", bar)}
       />
 
       {/* Variant icon */}
       <Icon aria-hidden className={cn("mt-0.5 size-4 shrink-0", icon)} />
 
       {/* Text content */}
-      <div className="min-w-0 flex-1 flex flex-col gap-0.5">
-        <span className="text-sm font-semibold leading-5 text-content">
+      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <span className="text-content text-sm leading-5 font-semibold">
           {title}
         </span>
         {description ? (
-          <span className="text-sm leading-5 text-content/60">
+          <span className="text-content/60 text-sm leading-5">
             {description}
           </span>
         ) : null}
@@ -96,11 +96,11 @@ export function CustomToast({
         aria-label="Close notification"
         type="button"
         className={cn(
-          "absolute right-2.5 top-2.5",
+          "absolute top-2.5 right-2.5",
           "flex size-6 items-center justify-center rounded-md",
-          "text-content/40 outline-none transition-colors",
+          "text-content/40 transition-colors outline-none",
           "hover:bg-content/10 hover:text-content",
-          "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 cursor-pointer",
+          "focus-visible:ring-primary cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-1",
         )}
       >
         <X aria-hidden className="size-3.5" />

@@ -40,15 +40,15 @@ export function AppCheckboxGroup({
       }
     >
       {label && (
-        <RACLabel className="text-sm font-bold text-content">{label}</RACLabel>
+        <RACLabel className="text-content text-sm font-bold">{label}</RACLabel>
       )}
       {children}
       {description && (
-        <RACText slot="description" className="text-xs text-content/65">
+        <RACText slot="description" className="text-content/65 text-xs">
           {description}
         </RACText>
       )}
-      <RACFieldError className="text-xs text-red-500 font-medium">
+      <RACFieldError className="text-xs font-medium text-red-500">
         {errorMessage}
       </RACFieldError>
     </RACCheckboxGroup>

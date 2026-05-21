@@ -21,7 +21,7 @@ export function CategorySearchInput({
     <div className="relative">
       <Search
         size={16}
-        className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-content/25"
+        className="text-content/25 pointer-events-none absolute top-1/2 left-3 -translate-y-1/2"
         aria-hidden
       />
 
@@ -30,7 +30,7 @@ export function CategorySearchInput({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         size="md"
-        className="border-content/[0.06] bg-content/[0.02] pl-10 pr-10"
+        className="border-content/[0.06] bg-content/[0.02] pr-10 pl-10"
       />
 
       {value ? (
@@ -38,7 +38,7 @@ export function CategorySearchInput({
           type="button"
           variant="ghost"
           onClick={onClear}
-          className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg text-content/30 hover:bg-content/[0.06] hover:text-content p-0"
+          className="text-content/30 hover:bg-content/[0.06] hover:text-content absolute top-1/2 right-2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg p-0"
           aria-label={clearLabel}
         >
           <X className="h-4 w-4" aria-hidden />

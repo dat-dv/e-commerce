@@ -88,11 +88,11 @@ export function AppliedFiltersBar<T extends string = string>({
     <div
       className={cn(
         UI_RADIUS.panel,
-        "mb-6 flex flex-wrap items-center gap-2 border border-content/[0.06] bg-content/[0.02] p-3",
+        "border-content/[0.06] bg-content/[0.02] mb-6 flex flex-wrap items-center gap-2 border p-3",
       )}
     >
       <span
-        className={`mr-1 ${TYPOGRAPHY.badge} uppercase tracking-widest text-content/35`}
+        className={`mr-1 ${TYPOGRAPHY.badge} text-content/35 tracking-widest uppercase`}
       >
         {t("applied")}
       </span>
@@ -101,7 +101,7 @@ export function AppliedFiltersBar<T extends string = string>({
           key={chip.key}
           variant="ghost"
           onClick={() => onClearFilter(chip.key)}
-          className={`inline-flex h-8 items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-3 ${TYPOGRAPHY.caption} font-bold text-primary transition-colors hover:bg-primary/15 active:scale-95 opacity-100 hover:opacity-100`}
+          className={`border-primary/15 bg-primary/10 inline-flex h-8 items-center gap-2 rounded-full border px-3 ${TYPOGRAPHY.caption} text-primary hover:bg-primary/15 font-bold opacity-100 transition-colors hover:opacity-100 active:scale-95`}
         >
           {chip.label}
           <X size={13} />
@@ -110,7 +110,7 @@ export function AppliedFiltersBar<T extends string = string>({
       <Button
         variant="ghost"
         onClick={onResetFilters}
-        className={`ml-auto h-8 rounded-full border border-content/10 px-3 ${TYPOGRAPHY.caption} font-bold text-content/45 transition-colors hover:border-primary/30 hover:text-primary active:scale-95 opacity-100 hover:opacity-100 hover:bg-transparent`}
+        className={`border-content/10 ml-auto h-8 rounded-full border px-3 ${TYPOGRAPHY.caption} text-content/45 hover:border-primary/30 hover:text-primary font-bold opacity-100 transition-colors hover:bg-transparent hover:opacity-100 active:scale-95`}
       >
         {t("resetAll")}
       </Button>

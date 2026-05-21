@@ -45,7 +45,7 @@ export const CategoryNavSidebar = ({
 
   return (
     <nav className="h-full overflow-hidden lg:h-[calc(100vh-190px)]">
-      <div className="flex h-full flex-col gap-5 rounded-2xl border border-content/[0.06] bg-surface/80 p-4 shadow-sm shadow-content/[0.02] backdrop-blur-md">
+      <div className="border-content/[0.06] bg-surface/80 shadow-content/[0.02] flex h-full flex-col gap-5 rounded-2xl border p-4 shadow-sm backdrop-blur-md">
         <div className="space-y-4">
           <CategorySidebarHeader
             title={t("title")}
@@ -91,12 +91,12 @@ export const CategoryNavSidebar = ({
                 onExpandedChange={setExpandedKeys}
                 showDot
                 activeLayoutId="active-category-sidebar"
-                className="w-full border-none bg-transparent p-0 gap-1.5"
+                className="w-full gap-1.5 border-none bg-transparent p-0"
               />
             ) : (
-              <div className="rounded-xl bg-content/[0.03] px-4 py-8 text-center">
+              <div className="bg-content/[0.03] rounded-xl px-4 py-8 text-center">
                 <p
-                  className={`${TYPOGRAPHY.bodySmall} font-medium text-content/35`}
+                  className={`${TYPOGRAPHY.bodySmall} text-content/35 font-medium`}
                 >
                   {t("empty")}
                 </p>

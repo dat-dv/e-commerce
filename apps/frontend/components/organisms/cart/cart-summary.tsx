@@ -52,7 +52,7 @@ export const CartSummary = ({
           icon={icon}
           className={cn(
             UI_RADIUS.card,
-            "w-[160px] shrink-0 min-h-[88px] p-3 sm:min-h-[120px] sm:w-auto sm:p-5",
+            "min-h-[88px] w-[160px] shrink-0 p-3 sm:min-h-[120px] sm:w-auto sm:p-5",
           )}
           contentClassName="gap-4"
           labelClassName={`truncate ${TYPOGRAPHY.badge} tracking-[0.12em] sm:${TYPOGRAPHY.caption} sm:tracking-[0.18em]`}

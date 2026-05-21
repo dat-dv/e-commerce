@@ -15,12 +15,12 @@ export const ViewAllButton = ({ href }: ViewAllButtonProps) => {
   return (
     <Link
       href={href}
-      className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+      className="text-primary hover:text-primary/80 flex items-center gap-1 text-sm font-medium transition-colors"
     >
       <LiquidWaveText inactiveClassName="text-primary/75">
         {t("viewAll")}
       </LiquidWaveText>
-      <ArrowRight className="w-4 h-4" />
+      <ArrowRight className="h-4 w-4" />
     </Link>
   );
 };

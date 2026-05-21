@@ -19,7 +19,7 @@ export default function CartIcon({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center pointer-events-none",
+        "pointer-events-none relative flex items-center justify-center",
         className,
       )}
     >

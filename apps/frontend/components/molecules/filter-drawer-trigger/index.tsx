@@ -23,7 +23,7 @@ export function FilterDrawerTrigger({
     <div className="mb-5 flex items-center justify-between gap-3">
       <div className="min-w-0">
         <p
-          className={`${TYPOGRAPHY.meta} uppercase tracking-[0.18em] text-primary`}
+          className={`${TYPOGRAPHY.meta} text-primary tracking-[0.18em] uppercase`}
         >
           {eyebrow}
         </p>
@@ -37,7 +37,7 @@ export function FilterDrawerTrigger({
         onClick={onPress}
         className={cn(
           UI_RADIUS.control,
-          "h-10 shrink-0 border border-content/10 px-3 text-sm text-content/70 hover:border-primary/25 hover:bg-primary/5 hover:text-primary",
+          "border-content/10 text-content/70 hover:border-primary/25 hover:bg-primary/5 hover:text-primary h-10 shrink-0 border px-3 text-sm",
         )}
       >
         <SlidersHorizontal size={16} />

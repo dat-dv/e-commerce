@@ -22,19 +22,19 @@ export function OrderDetailHeader({
   const t = useTranslations("OrdersPage");
 
   return (
-    <div className="bg-surface/80 backdrop-blur-2xl border-b border-content/[0.05]">
+    <div className="bg-surface/80 border-content/[0.05] border-b backdrop-blur-2xl">
       <div className="container mx-auto flex max-w-4xl items-start gap-3 px-4 py-5 sm:items-center sm:gap-6 sm:py-6">
         <Link
           href={APP_ROUTES.ORDERS}
-          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-content/[0.05] transition-colors hover:bg-content/[0.05]"
+          className="border-content/[0.05] hover:bg-content/[0.05] flex size-10 shrink-0 items-center justify-center rounded-full border transition-colors"
         >
-          <ArrowLeft className="h-5 w-5 text-content/60" />
+          <ArrowLeft className="text-content/60 h-5 w-5" />
         </Link>
         <div className="min-w-0 flex-1">
-          <h1 className="truncate text-lg font-bold tracking-tight text-content sm:text-xl">
+          <h1 className="text-content truncate text-lg font-bold tracking-tight sm:text-xl">
             {t("card.orderNumber", { id: orderId.slice(-8).toUpperCase() })}
           </h1>
-          <p className="mt-1 text-xs font-medium text-content/40">
+          <p className="text-content/40 mt-1 text-xs font-medium">
             {new Date(createdAt).toLocaleDateString(locale, {
               month: "long",
               day: "numeric",

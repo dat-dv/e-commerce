@@ -41,7 +41,7 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
 
   return (
     <div
-      className={`relative group flex w-full items-center gap-2.5 py-2 px-3 rounded-xl transition-all duration-300 outline-none ${
+      className={`group relative flex w-full items-center gap-2.5 rounded-xl px-3 py-2 transition-all duration-300 outline-none ${
         depth > 0 ? "ml-4" : ""
       } ${
         isActive
@@ -53,7 +53,7 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
       {isActive && (
         <motion.div
           layoutId="active-nav-bg"
-          className="absolute inset-0 bg-primary/[0.05] rounded-xl -z-10"
+          className="bg-primary/[0.05] absolute inset-0 -z-10 rounded-xl"
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
       )}
@@ -88,8 +88,8 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
         <button
           type="button"
           onClick={onToggle}
-          className={`shrink-0 p-1 rounded-md transition-all duration-300 hover:bg-primary/10 ${
-            isOpen ? "rotate-90 text-primary" : "text-content/20"
+          className={`hover:bg-primary/10 shrink-0 rounded-md p-1 transition-all duration-300 ${
+            isOpen ? "text-primary rotate-90" : "text-content/20"
           }`}
         >
           <ChevronRight size={13} strokeWidth={3} />
@@ -150,7 +150,7 @@ export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-l border-primary/10 ml-5"
+            className="border-primary/10 ml-5 overflow-hidden border-l"
           >
             <div className="py-1">
               {item.children!.map((child) => (

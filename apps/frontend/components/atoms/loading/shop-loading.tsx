@@ -102,10 +102,10 @@ export default function ShopLoading() {
   ];
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-surface/60 backdrop-blur-xl overflow-hidden">
-      <div className="relative flex flex-col items-center justify-end w-[160px] h-[180px]">
+    <div className="bg-surface/60 fixed inset-0 z-[100] flex items-center justify-center overflow-hidden backdrop-blur-xl">
+      <div className="relative flex h-[180px] w-[160px] flex-col items-center justify-end">
         {/* Items Container */}
-        <div className="absolute top-[20px] left-0 w-full h-[100px] z-10">
+        <div className="absolute top-[20px] left-0 z-10 h-[100px] w-full">
           {items.map((item) => (
             <motion.div
               key={item.id}
@@ -147,7 +147,7 @@ export default function ShopLoading() {
             ease: "easeInOut",
             delay: 0.2,
           }}
-          className="relative z-20 w-[112px] h-[96px]"
+          className="relative z-20 h-[96px] w-[112px]"
         >
           <svg
             viewBox="0 0 140 120"
@@ -186,7 +186,7 @@ export default function ShopLoading() {
         </motion.div>
 
         {/* Text section */}
-        <div className="loading-text mt-4 text-base font-bold text-slate-800 tracking-wider">
+        <div className="loading-text mt-4 text-base font-bold tracking-wider text-slate-800">
           Shop now
           <motion.span
             animate={{ opacity: [0, 1, 0] }}

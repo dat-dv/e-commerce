@@ -25,15 +25,15 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       isOpen
       onOpenChange={(open) => !open && handleClose()}
       isDismissable
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in transition-all"
+      className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm transition-all"
     >
-      <RACModal className="w-full max-w-md bg-surface border border-content/10 shadow-2xl rounded-3xl p-8 relative animate-in zoom-in-95 slide-in-from-bottom-5 outline-none">
-        <RACDialog className="outline-none w-full h-full">
+      <RACModal className="bg-surface border-content/10 animate-in zoom-in-95 slide-in-from-bottom-5 relative w-full max-w-md rounded-3xl border p-8 shadow-2xl outline-none">
+        <RACDialog className="h-full w-full outline-none">
           <Button
             variant="ghost"
             size="icon"
             onClick={handleClose}
-            className="absolute right-6 top-6"
+            className="absolute top-6 right-6"
             aria-label={t("close")}
           >
             <XIcon />

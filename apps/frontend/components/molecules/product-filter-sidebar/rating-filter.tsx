@@ -13,7 +13,7 @@ export function ProductRatingFilter({
   const t = useTranslations("ProductsPage");
   return (
     <div>
-      <h3 className="mb-3 text-[11px] font-bold uppercase tracking-widest text-content/45">
+      <h3 className="text-content/45 mb-3 text-[11px] font-bold tracking-widest uppercase">
         {t("rating")}
       </h3>
       <div className="flex flex-col gap-1.5">
@@ -22,7 +22,7 @@ export function ProductRatingFilter({
             key={rating}
             variant="ghost"
             onClick={() => handleRatingClick(rating)}
-            className={`flex min-h-10 items-center gap-2 px-3 py-2 rounded-xl text-sm h-auto ${
+            className={`flex h-auto min-h-10 items-center gap-2 rounded-xl px-3 py-2 text-sm ${
               ratingValue === String(rating)
                 ? "bg-primary/10 text-primary font-bold"
                 : "text-content/70 hover:bg-content/5 hover:text-content"
@@ -38,7 +38,7 @@ export function ProductRatingFilter({
                 />
               ))}
             </div>
-            <span className="text-sm font-medium text-content/60">
+            <span className="text-content/60 text-sm font-medium">
               {t("up")}
             </span>
           </Button>

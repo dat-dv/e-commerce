@@ -118,11 +118,11 @@ export const RequireProfileInfoForm = ({
         />
       </div>
 
-      <div className="flex gap-4 justify-end mt-4">
+      <div className="mt-4 flex justify-end gap-4">
         <Button
           type="submit"
           variant="primary"
-          className="w-fit mt-6"
+          className="mt-6 w-fit"
           size="lg"
         >
           {t("form.submit")}
@@ -130,7 +130,7 @@ export const RequireProfileInfoForm = ({
         <Button
           type="button"
           variant="outline"
-          className="w-fit mt-6"
+          className="mt-6 w-fit"
           size="lg"
           onClick={logout}
         >

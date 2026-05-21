@@ -46,11 +46,11 @@ export function ProductPriceFilter<T extends string = string>({
         applyPriceRange();
       }}
     >
-      <h3 className="mb-3 text-[11px] font-bold uppercase tracking-widest text-content/45">
+      <h3 className="text-content/45 mb-3 text-[11px] font-bold tracking-widest uppercase">
         {t("priceRange")}
       </h3>
       <div className="flex flex-col gap-3">
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           <Input
             type="number"
             placeholder={t("min")}
@@ -58,7 +58,7 @@ export function ProductPriceFilter<T extends string = string>({
             value={minPrice}
             onChange={(event) => setMinPrice(event.target.value)}
           />
-          <span className="text-sm font-semibold text-content/25">-</span>
+          <span className="text-content/25 text-sm font-semibold">-</span>
           <Input
             type="number"
             placeholder={t("max")}
@@ -71,7 +71,7 @@ export function ProductPriceFilter<T extends string = string>({
           type="submit"
           variant="outline"
           size="md"
-          className="w-full text-xs font-bold uppercase tracking-widest"
+          className="w-full text-xs font-bold tracking-widest uppercase"
         >
           {t("applyPrice")}
         </Button>

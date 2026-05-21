@@ -66,7 +66,7 @@ export const ReviewFilterTabs = ({
             key={`${filter.key}-${filter.rating ?? "all"}`}
             onClick={() => onFilterChange(filter.value)}
             className={cn(
-              "rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all shadow-none active:scale-100",
+              "rounded-lg border px-3 py-1.5 text-xs font-semibold shadow-none transition-all active:scale-100",
               isActive
                 ? "border-primary bg-primary/5 text-primary"
                 : "border-content/[0.05] text-content/60 hover:border-content/[0.1] bg-transparent",

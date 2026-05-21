@@ -28,17 +28,17 @@ const AppearanceSection = ({
       id="appearance"
       className={cn(
         UI_RADIUS.panel,
-        "min-w-0 border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6",
+        "border-content/10 bg-surface/50 min-w-0 scroll-mt-24 border p-4 backdrop-blur-md sm:p-6",
       )}
     >
-      <h2 className="text-lg font-bold text-content mb-4">{t("title")}</h2>
+      <h2 className="text-content mb-4 text-lg font-bold">{t("title")}</h2>
 
-      <div className="mb-4 flex min-w-0 flex-col justify-between gap-4 border-b border-content/5 pb-4 sm:flex-row sm:items-center">
+      <div className="border-content/5 mb-4 flex min-w-0 flex-col justify-between gap-4 border-b pb-4 sm:flex-row sm:items-center">
         <div className="min-w-0">
-          <span className="font-medium text-content block">
+          <span className="text-content block font-medium">
             {t("themeColor.label")}
           </span>
-          <span className="text-sm text-content/60 break-words">
+          <span className="text-content/60 text-sm break-words">
             {t("themeColor.description")}
           </span>
         </div>
@@ -57,7 +57,7 @@ const AppearanceSection = ({
                   theme: themeName,
                 })}
               >
-                {active && <span className="text-white text-xs">✓</span>}
+                {active && <span className="text-xs text-white">✓</span>}
               </ThemeSwatch>
             );
           })}
@@ -66,10 +66,10 @@ const AppearanceSection = ({
 
       <div className="flex min-w-0 items-center justify-between gap-4">
         <div className="min-w-0">
-          <span className="font-medium text-content block">
+          <span className="text-content block font-medium">
             {t("darkMode.label")}
           </span>
-          <span className="text-sm text-content/60 break-words">
+          <span className="text-content/60 text-sm break-words">
             {t("darkMode.description")}
           </span>
         </div>

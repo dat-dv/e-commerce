@@ -22,10 +22,10 @@ export function ProductPurchaseActions({
   const t = useTranslations("ProductDetailPage");
 
   return (
-    <div className="flex gap-4 mt-2">
+    <div className="mt-2 flex gap-4">
       <Button
         variant="outline"
-        className="flex-1 py-3.5 h-auto bg-primary/10 hover:bg-primary/20 border-primary/20 hover:brightness-100"
+        className="bg-primary/10 hover:bg-primary/20 border-primary/20 h-auto flex-1 py-3.5 hover:brightness-100"
         onClick={onAddToCart}
         disabled={!hasSelectedSku}
       >
@@ -34,7 +34,7 @@ export function ProductPurchaseActions({
       </Button>
       <Button
         variant="primary"
-        className="flex-1 py-3.5 h-auto"
+        className="h-auto flex-1 py-3.5"
         onClick={onBuyNow}
         disabled={!hasSelectedSku}
       >
@@ -42,10 +42,10 @@ export function ProductPurchaseActions({
       </Button>
       <Button
         variant="ghost"
-        className={`flex items-center justify-center w-12 h-12 rounded-xl border transition-all px-0 ${
+        className={`flex h-12 w-12 items-center justify-center rounded-xl border px-0 transition-all ${
           isFavorited
-            ? "bg-red-50 border-red-100 text-red-500 shadow-sm shadow-red-500/10"
-            : "bg-content/[0.02] border-content/[0.08] text-content/40 hover:text-red-400 hover:border-red-100 hover:bg-red-50/30"
+            ? "border-red-100 bg-red-50 text-red-500 shadow-sm shadow-red-500/10"
+            : "bg-content/[0.02] border-content/[0.08] text-content/40 hover:border-red-100 hover:bg-red-50/30 hover:text-red-400"
         }`}
         onClick={onToggleFavorite}
       >

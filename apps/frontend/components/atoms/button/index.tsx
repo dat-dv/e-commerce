@@ -36,7 +36,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
     );
 
     const loader = loading && (
-      <div className="size-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+      <div className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
     );
 
     if (href !== undefined) {

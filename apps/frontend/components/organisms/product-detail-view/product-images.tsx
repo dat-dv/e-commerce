@@ -24,16 +24,16 @@ export const ProductImages = ({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="lg:col-span-4 space-y-4"
+      className="space-y-4 lg:col-span-4"
     >
       {/* Main Image */}
-      <div className="relative aspect-square bg-content/[0.02] border border-content/[0.05] rounded-2xl overflow-hidden flex items-center justify-center">
+      <div className="bg-content/[0.02] border-content/[0.05] relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border">
         <motion.div
           key={selectedImage}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full h-full"
+          className="relative h-full w-full"
         >
           {images[selectedImage] ? (
             <ImagePreview
@@ -48,7 +48,7 @@ export const ProductImages = ({
               }}
             />
           ) : (
-            <div className="flex items-center justify-center h-full text-content/30 text-sm">
+            <div className="text-content/30 flex h-full items-center justify-center text-sm">
               {t("noImage")}
             </div>
           )}
@@ -62,10 +62,10 @@ export const ProductImages = ({
             <div
               key={index}
               onClick={() => setSelectedImage(index)}
-              className={`relative aspect-square rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+              className={`relative aspect-square cursor-pointer overflow-hidden rounded-lg border-2 transition-all ${
                 index === selectedImage
                   ? "border-primary"
-                  : "border-transparent hover:border-content/10"
+                  : "hover:border-content/10 border-transparent"
               }`}
             >
               <Image

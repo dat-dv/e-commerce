@@ -10,7 +10,7 @@ const SettingsSidebar = ({ items }: SettingsSidebarProps) => {
 
   return (
     <div>
-      <h3 className="text-sm font-bold text-content/40 uppercase tracking-wider mb-3">
+      <h3 className="text-content/40 mb-3 text-sm font-bold tracking-wider uppercase">
         {t("title")}
       </h3>
       <TableOfContents items={items} />

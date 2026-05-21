@@ -53,11 +53,11 @@ export function RequestReturnForm({
         <div>
           <AppDialogTitle
             as="h3"
-            className="text-xl font-bold tracking-tight text-content"
+            className="text-content text-xl font-bold tracking-tight"
           >
             {labels.title}
           </AppDialogTitle>
-          <p className="mt-1 text-sm font-medium leading-relaxed text-content/55">
+          <p className="text-content/55 mt-1 text-sm leading-relaxed font-medium">
             {labels.description}
           </p>
         </div>
@@ -66,7 +66,7 @@ export function RequestReturnForm({
           variant="ghost"
           onClick={onClose}
           disabled={isSubmitting}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-content/[0.08] text-content/50 hover:bg-content/[0.05] disabled:opacity-50 p-0"
+          className="border-content/[0.08] text-content/50 hover:bg-content/[0.05] flex h-9 w-9 shrink-0 items-center justify-center rounded-full border p-0 disabled:opacity-50"
           aria-label={labels.close}
         >
           <X className="h-4 w-4" />
@@ -125,10 +125,10 @@ export function RequestReturnForm({
           variant="primary"
           disabled={isSubmitting}
           size="md"
-          className="flex items-center justify-center w-full sm:w-auto"
+          className="flex w-full items-center justify-center sm:w-auto"
         >
           {isSubmitting ? (
-            <span className="h-4 w-4 rounded-full border-2 border-surface/30 border-t-surface animate-spin" />
+            <span className="border-surface/30 border-t-surface h-4 w-4 animate-spin rounded-full border-2" />
           ) : (
             labels.submit
           )}

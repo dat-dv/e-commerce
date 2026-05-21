@@ -26,25 +26,25 @@ export const BrandCard = ({
         href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
         className={cn(
           UI_RADIUS.card,
-          "relative flex h-full min-h-[220px] flex-col overflow-hidden border border-content/[0.08] bg-background shadow-sm transition-all duration-300 group-hover:border-primary/35 group-hover:shadow-lg group-hover:shadow-primary/10",
+          "border-content/[0.08] bg-background group-hover:border-primary/35 group-hover:shadow-primary/10 relative flex h-full min-h-[220px] flex-col overflow-hidden border shadow-sm transition-all duration-300 group-hover:shadow-lg",
         )}
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
           {brand.bannerUrl ? (
-            <div className="relative w-full h-full">
+            <div className="relative h-full w-full">
               <Image
                 src={brand.bannerUrl}
                 alt={brand.name}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover opacity-[0.15] grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-1000 group-hover:scale-110"
+                className="object-cover opacity-[0.15] grayscale transition-all duration-1000 group-hover:scale-110 group-hover:opacity-30 group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/70" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
+              <div className="from-background via-background/95 to-background/70 absolute inset-0 bg-gradient-to-br" />
+              <div className="from-background via-background/45 absolute inset-0 bg-gradient-to-t to-transparent" />
             </div>
           ) : (
-            <div className="w-full h-full bg-content/[0.02]" />
+            <div className="bg-content/[0.02] h-full w-full" />
           )}
         </div>
 
@@ -54,23 +54,23 @@ export const BrandCard = ({
             <div
               className={cn(
                 UI_RADIUS.media,
-                "flex h-14 w-14 shrink-0 items-center justify-center border border-content/[0.06] bg-background p-3 shadow-sm transition-transform duration-300 group-hover:rotate-[-3deg]",
+                "border-content/[0.06] bg-background flex h-14 w-14 shrink-0 items-center justify-center border p-3 shadow-sm transition-transform duration-300 group-hover:rotate-[-3deg]",
               )}
             >
               {brand.logoUrl && !imgError ? (
-                <div className="relative w-full h-full">
+                <div className="relative h-full w-full">
                   <Image
                     src={brand.logoUrl}
                     alt={brand.name}
                     fill
                     unoptimized
                     sizes="56px"
-                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="object-contain grayscale filter transition-all duration-500 group-hover:grayscale-0"
                     onError={() => setImgError(true)}
                   />
                 </div>
               ) : (
-                <span className="text-xl font-bold text-primary">
+                <span className="text-primary text-xl font-bold">
                   {brand.name?.charAt(0)}
                 </span>
               )}
@@ -79,11 +79,11 @@ export const BrandCard = ({
             <div
               className={cn(
                 UI_RADIUS.badge,
-                "min-w-0 max-w-[8rem] border border-content/[0.06] bg-content/[0.03] px-2.5 py-1",
+                "border-content/[0.06] bg-content/[0.03] max-w-[8rem] min-w-0 border px-2.5 py-1",
               )}
             >
               <span
-                className={`block truncate ${TYPOGRAPHY.badge} uppercase tracking-wide text-content/45`}
+                className={`block truncate ${TYPOGRAPHY.badge} text-content/45 tracking-wide uppercase`}
               >
                 {t("productCount", { count: brand.productCount || 0 })}
               </span>
@@ -92,31 +92,31 @@ export const BrandCard = ({
 
           <div className="min-w-0">
             <div className="min-w-0">
-              <h3 className="line-clamp-2 text-xl font-bold leading-tight text-content transition-colors duration-300 group-hover:text-primary">
+              <h3 className="text-content group-hover:text-primary line-clamp-2 text-xl leading-tight font-bold transition-colors duration-300">
                 {brand.name}
               </h3>
             </div>
 
             {brand.description && (
-              <p className="mt-2 line-clamp-2 min-h-[2.5rem] text-sm leading-5 text-content/55">
+              <p className="text-content/55 mt-2 line-clamp-2 min-h-[2.5rem] text-sm leading-5">
                 {brand.description}
               </p>
             )}
 
             <div
-              className={`mt-5 flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} font-bold uppercase tracking-wide text-primary`}
+              className={`mt-5 flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} text-primary font-bold tracking-wide uppercase`}
             >
               <span className="truncate">{t("viewArchive")}</span>
-              <div className="h-px w-8 shrink-0 bg-primary/30 transition-all duration-300 group-hover:w-10" />
+              <div className="bg-primary/30 h-px w-8 shrink-0 transition-all duration-300 group-hover:w-10" />
             </div>
           </div>
         </div>
 
         {/* Glass Reflection Effect */}
-        <div className="pointer-events-none absolute left-0 top-0 h-1/2 w-full bg-gradient-to-b from-white/[0.05] to-transparent" />
+        <div className="pointer-events-none absolute top-0 left-0 h-1/2 w-full bg-gradient-to-b from-white/[0.05] to-transparent" />
 
         {/* Decorative Shine */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="from-primary/10 pointer-events-none absolute inset-0 bg-gradient-to-tr via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </Link>
     </div>
   );

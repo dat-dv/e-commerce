@@ -52,7 +52,7 @@ export const AddressesView = () => {
             exit={{ opacity: 0, y: -10 }}
           >
             <FormCard>
-              <h2 className="text-base font-bold text-content mb-4">
+              <h2 className="text-content mb-4 text-base font-bold">
                 {t("newAddress")}
               </h2>
               <AddressesForm onSubmit={handleAddAddress} loading={adding} />

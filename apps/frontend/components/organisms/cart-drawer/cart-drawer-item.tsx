@@ -35,10 +35,10 @@ export const CartItem = ({
       initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="group flex gap-4 pt-4 pb-3 border-b border-content/[0.04] last:border-0 relative"
+      className="group border-content/[0.04] relative flex gap-4 border-b pt-4 pb-3 last:border-0"
     >
       {/* Balanced Image */}
-      <div className="relative w-14 h-18 rounded-lg overflow-hidden bg-content/[0.02] border border-content/5 shrink-0">
+      <div className="bg-content/[0.02] border-content/5 relative h-18 w-14 shrink-0 overflow-hidden rounded-lg border">
         {imageUrl ? (
           <Image
             src={imageUrl}
@@ -48,16 +48,16 @@ export const CartItem = ({
             className="object-cover"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-content/20">
+          <div className="text-content/20 flex h-full w-full items-center justify-center">
             <ImageIcon size={18} aria-hidden />
           </div>
         )}
       </div>
 
       {/* Content */}
-      <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
-        <div className="flex justify-between items-start gap-2">
-          <h4 className="text-xs font-medium text-content leading-tight truncate flex-1">
+      <div className="flex min-w-0 flex-1 flex-col justify-between py-0.5">
+        <div className="flex items-start justify-between gap-2">
+          <h4 className="text-content flex-1 truncate text-xs leading-tight font-medium">
             <Link
               href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}
               onClick={onCloseDrawer}
@@ -65,7 +65,7 @@ export const CartItem = ({
               {item.name}
             </Link>
           </h4>
-          <span className="text-xs font-semibold text-content tabular-nums">
+          <span className="text-content text-xs font-semibold tabular-nums">
             {formatCurrency(item.price)}
           </span>
         </div>
@@ -73,13 +73,13 @@ export const CartItem = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span
-              className={`${TYPOGRAPHY.badge} font-medium text-content/30 truncate max-w-[80px]`}
+              className={`${TYPOGRAPHY.badge} text-content/30 max-w-[80px] truncate font-medium`}
             >
               {item.attributes || t("standard")}
             </span>
             {item.discountPercent && (
               <span
-                className={`${TYPOGRAPHY.badge} font-bold text-red-400 bg-red-400/10 px-1 rounded`}
+                className={`${TYPOGRAPHY.badge} rounded bg-red-400/10 px-1 font-bold text-red-400`}
               >
                 -{item.discountPercent}%
               </span>
@@ -88,24 +88,24 @@ export const CartItem = ({
 
           <div className="flex items-center gap-3">
             {!isCheckoutPage && (
-              <div className="flex items-center gap-1.5 border border-content/10 rounded-md px-1 py-0.5 bg-surface/50">
+              <div className="border-content/10 bg-surface/50 flex items-center gap-1.5 rounded-md border px-1 py-0.5">
                 <Button
                   variant="ghost"
                   onClick={() => onAdd(item, -1)}
-                  className="text-content/30 hover:text-content transition-colors h-auto p-0 active:scale-100 opacity-100 hover:opacity-100 font-normal hover:bg-transparent"
+                  className="text-content/30 hover:text-content h-auto p-0 font-normal opacity-100 transition-colors hover:bg-transparent hover:opacity-100 active:scale-100"
                   aria-label={t("decrease", { product: item.name })}
                 >
                   <Minus size={10} aria-hidden />
                 </Button>
                 <span
-                  className={`${TYPOGRAPHY.badge} font-medium min-w-[12px] text-center`}
+                  className={`${TYPOGRAPHY.badge} min-w-[12px] text-center font-medium`}
                 >
                   {item.quantity}
                 </span>
                 <Button
                   variant="ghost"
                   onClick={() => onAdd(item, 1)}
-                  className="text-content/30 hover:text-content transition-colors h-auto p-0 active:scale-100 opacity-100 hover:opacity-100 font-normal hover:bg-transparent"
+                  className="text-content/30 hover:text-content h-auto p-0 font-normal opacity-100 transition-colors hover:bg-transparent hover:opacity-100 active:scale-100"
                   aria-label={t("increase", { product: item.name })}
                 >
                   <Plus size={10} aria-hidden />
@@ -116,7 +116,7 @@ export const CartItem = ({
               <Button
                 variant="ghost"
                 onClick={() => onRemove(item)}
-                className="text-content/10 hover:text-red-500/60 transition-colors h-auto p-0 active:scale-95 opacity-100 hover:opacity-100 hover:bg-transparent"
+                className="text-content/10 h-auto p-0 opacity-100 transition-colors hover:bg-transparent hover:text-red-500/60 hover:opacity-100 active:scale-95"
                 aria-label={t("remove", { product: item.name })}
               >
                 <Trash2 size={12} aria-hidden />

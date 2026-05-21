@@ -68,7 +68,7 @@ export default function ImagePreview({
           if (!event.defaultPrevented) setIsOpen(true);
         }}
         className={cn(
-          "group relative inline-flex overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
+          "group focus-visible:ring-primary/40 relative inline-flex overflow-hidden rounded-xl focus-visible:ring-2 focus-visible:outline-none",
           triggerClassName,
         )}
       >
@@ -109,13 +109,13 @@ export default function ImagePreview({
           <button
             type="button"
             onClick={() => setIsOpen(false)}
-            className="absolute -right-3 -top-3 z-10 flex size-9 items-center justify-center rounded-full bg-black/70 text-white backdrop-blur transition-colors hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="absolute -top-3 -right-3 z-10 flex size-9 items-center justify-center rounded-full bg-black/70 text-white backdrop-blur transition-colors hover:bg-black/85 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:outline-none"
             aria-label="Close image preview"
           >
             <X className="size-4" aria-hidden />
           </button>
 
-          <div className="relative h-[70vh] sm:h-[80vh] w-[90vw] md:w-[80vw] overflow-hidden rounded-2xl">
+          <div className="relative h-[70vh] w-[90vw] overflow-hidden rounded-2xl sm:h-[80vh] md:w-[80vw]">
             <Image
               src={src}
               alt={alt}

@@ -40,13 +40,13 @@ export const EmptyState = ({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.45, delay }}
       className={cn(
-        "relative overflow-hidden rounded-3xl border border-content/[0.05] bg-surface/60 px-6 py-20",
+        "border-content/[0.05] bg-surface/60 relative overflow-hidden rounded-3xl border px-6 py-20",
         className,
       )}
     >
       {/* Grid Texture */}
       <div
-        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-[0.015]"
         style={{
           backgroundImage:
             "radial-gradient(var(--color-content) 0.5px, transparent 0.5px)",
@@ -55,25 +55,25 @@ export const EmptyState = ({
       />
 
       {/* Ambient Glow */}
-      <div className="absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+      <div className="bg-primary/5 absolute top-0 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full blur-3xl" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <div className="group relative mb-8 flex size-24 items-center justify-center rounded-full border border-content/[0.05] bg-content/[0.02]">
-          <div className="absolute inset-0 rounded-full bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="group border-content/[0.05] bg-content/[0.02] relative mb-8 flex size-24 items-center justify-center rounded-full border">
+          <div className="bg-primary/5 absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
           <Icon
             size={38}
             strokeWidth={1.8}
-            className="text-content/20 transition-colors duration-500 group-hover:text-primary/50"
+            className="text-content/20 group-hover:text-primary/50 transition-colors duration-500"
           />
         </div>
 
-        <h2 className={`${TYPOGRAPHY.pageTitle} tracking-tight text-content`}>
+        <h2 className={`${TYPOGRAPHY.pageTitle} text-content tracking-tight`}>
           {displayTitle}
         </h2>
 
         <p
-          className={`mt-3 max-w-md ${TYPOGRAPHY.bodySmall} font-medium leading-relaxed text-content/40`}
+          className={`mt-3 max-w-md ${TYPOGRAPHY.bodySmall} text-content/40 leading-relaxed font-medium`}
         >
           {displayDescription}
         </p>
@@ -81,7 +81,7 @@ export const EmptyState = ({
         {actionLabel && actionHref && (
           <Link
             href={actionHref}
-            className="group mt-10 inline-flex items-center justify-center overflow-hidden rounded-full border border-content/[0.08] bg-content px-8 py-4 text-xs font-black uppercase tracking-[0.18em] text-surface transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary"
+            className="group border-content/[0.08] bg-content text-surface hover:border-primary hover:bg-primary mt-10 inline-flex items-center justify-center overflow-hidden rounded-full border px-8 py-4 text-xs font-black tracking-[0.18em] uppercase transition-all hover:-translate-y-0.5"
           >
             <span>{actionLabel}</span>
           </Link>

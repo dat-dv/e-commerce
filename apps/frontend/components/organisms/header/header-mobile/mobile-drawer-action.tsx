@@ -51,7 +51,7 @@ export function MobileDrawerSectionTitle({
 }) {
   return (
     <span
-      className={`mb-2 px-1 ${TYPOGRAPHY.caption} font-black uppercase tracking-[0.18em] text-content/35`}
+      className={`mb-2 px-1 ${TYPOGRAPHY.caption} text-content/35 font-black tracking-[0.18em] uppercase`}
     >
       {children}
     </span>

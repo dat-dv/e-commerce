@@ -72,13 +72,13 @@ export function AdminOrdersFilters({
   return (
     <section
       aria-label={t("filters.ariaLabel")}
-      className="flex flex-col gap-6 border-b border-content/[0.08] pb-6"
+      className="border-content/[0.08] flex flex-col gap-6 border-b pb-6"
     >
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div className="min-w-0">
           <label
             htmlFor="admin-order-search"
-            className="mb-2.5 block text-xs font-bold uppercase tracking-wider text-content/45"
+            className="text-content/45 mb-2.5 block text-xs font-bold tracking-wider uppercase"
           >
             {t("filters.searchLabel")}
           </label>
@@ -88,7 +88,7 @@ export function AdminOrdersFilters({
             onSearch={onSearch}
             placeholder={t("filters.searchPlaceholder")}
             loading={loading}
-            className="w-full bg-surface/40 border border-content/10 backdrop-blur-md focus-within:border-primary/30"
+            className="bg-surface/40 border-content/10 focus-within:border-primary/30 w-full border backdrop-blur-md"
           />
         </div>
 
@@ -97,7 +97,7 @@ export function AdminOrdersFilters({
             type="button"
             variant="ghost"
             onClick={onClearFilters}
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-transparent bg-rose-500/10 px-4 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-500/20 hover:scale-[1.02] focus-visible:outline-none active:scale-95 opacity-100 hover:opacity-100"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-transparent bg-rose-500/10 px-4 text-sm font-semibold text-rose-600 opacity-100 transition-all duration-200 hover:scale-[1.02] hover:bg-rose-500/20 hover:opacity-100 focus-visible:outline-none active:scale-95"
           >
             <FilterX aria-hidden="true" className="size-4" />
             {t("filters.clearActive")}
@@ -106,7 +106,7 @@ export function AdminOrdersFilters({
       </div>
 
       <fieldset className="min-w-0">
-        <legend className="mb-2.5 text-xs font-bold uppercase tracking-wider text-content/45">
+        <legend className="text-content/45 mb-2.5 text-xs font-bold tracking-wider uppercase">
           {t("filters.statusLabel")}
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -120,10 +120,10 @@ export function AdminOrdersFilters({
                 aria-pressed={isSelected}
                 onClick={() => onStatusFilterToggle(status.value)}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto active:scale-95 opacity-100 hover:opacity-100",
+                  "focus-visible:ring-primary/40 inline-flex h-auto items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold opacity-100 transition-all duration-200 hover:scale-[1.03] hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95",
                   isSelected
-                    ? "border-transparent bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-2 ring-primary/20 hover:bg-primary"
-                    : "border-content/10 bg-surface/40 backdrop-blur-md text-content/65 hover:bg-content/5 hover:border-content/20",
+                    ? "bg-primary ring-primary/20 hover:bg-primary border-transparent text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-2"
+                    : "border-content/10 bg-surface/40 text-content/65 hover:bg-content/5 hover:border-content/20 backdrop-blur-md",
                 )}
               >
                 <span

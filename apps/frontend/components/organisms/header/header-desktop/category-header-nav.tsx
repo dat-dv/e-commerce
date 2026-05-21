@@ -22,7 +22,7 @@ export const CategoryHeaderNav = ({
   };
 
   return (
-    <div className="relative h-full flex items-center">
+    <div className="relative flex h-full items-center">
       <button
         onClick={toggleMenu}
         className={cn(
@@ -37,13 +37,13 @@ export const CategoryHeaderNav = ({
           className={cn(
             "transition-all duration-300",
             isOpenCategory
-              ? "rotate-180 text-primary opacity-100"
+              ? "text-primary rotate-180 opacity-100"
               : "opacity-40",
           )}
         />
 
         {isActive && (
-          <span className="absolute -bottom-[22px] left-0 h-[2.5px] w-full bg-primary rounded-full shadow-[0_-2px_8px_rgba(var(--primary),0.4)]" />
+          <span className="bg-primary absolute -bottom-[22px] left-0 h-[2.5px] w-full rounded-full shadow-[0_-2px_8px_rgba(var(--primary),0.4)]" />
         )}
       </button>
     </div>

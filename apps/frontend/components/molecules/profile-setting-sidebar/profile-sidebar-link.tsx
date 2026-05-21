@@ -32,7 +32,7 @@ function ProfileSideBarLink({
 
       <span>{label}</span>
 
-      {active && <span className="ml-auto size-1.5 rounded-full bg-primary" />}
+      {active && <span className="bg-primary ml-auto size-1.5 rounded-full" />}
     </Link>
   );
 }

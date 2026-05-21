@@ -14,9 +14,9 @@ export function AppComboBoxSection({
   ...props
 }: IComboBoxSectionProps) {
   return (
-    <RACSection {...props} className="first:mt-0 mt-2">
+    <RACSection {...props} className="mt-2 first:mt-0">
       {title && (
-        <RACHeader className="px-4 py-1.5 text-xs font-bold text-content/50 uppercase tracking-wider">
+        <RACHeader className="text-content/50 px-4 py-1.5 text-xs font-bold tracking-wider uppercase">
           {title}
         </RACHeader>
       )}

@@ -43,7 +43,7 @@ export function ProductCardMedia({
     <div
       className={cn(
         UI_RADIUS.media,
-        "relative aspect-square overflow-hidden bg-transparent flex items-center justify-center",
+        "relative flex aspect-square items-center justify-center overflow-hidden bg-transparent",
       )}
     >
       {product.imageUrl ? (
@@ -60,10 +60,10 @@ export function ProductCardMedia({
         </div>
       )}
 
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+      <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
         <Link
           href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
-          className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:bg-white/90 transition-all"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-all hover:bg-white/90"
           title={viewDetailsTitle}
         >
           <Eye size={18} aria-hidden />
@@ -72,7 +72,7 @@ export function ProductCardMedia({
           onClick={onAddToCart}
           variant="ghost"
           className={cn(
-            "w-10 h-10 rounded-full flex items-center justify-center shadow-lg active:scale-90 p-0",
+            "flex h-10 w-10 items-center justify-center rounded-full p-0 shadow-lg active:scale-90",
             addToCartClassName,
           )}
           title={addToCartTitle}
@@ -82,7 +82,7 @@ export function ProductCardMedia({
       </div>
 
       {badges ? (
-        <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
+        <div className="absolute top-2 left-2 z-10 flex flex-col gap-2">
           {badges}
         </div>
       ) : null}
@@ -95,10 +95,10 @@ export function ProductCardMedia({
           disabled={favoriteLoading}
           variant="ghost"
           className={cn(
-            "absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center duration-300 z-10 shadow-lg active:scale-75 p-0",
+            "absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 shadow-lg duration-300 active:scale-75",
             isFavorited
               ? "bg-red-500 text-white shadow-red-500/20 hover:bg-red-500"
-              : "bg-surface/80 backdrop-blur-md text-content/40 hover:text-red-500 hover:bg-surface/80 shadow-black/5",
+              : "bg-surface/80 text-content/40 hover:bg-surface/80 shadow-black/5 backdrop-blur-md hover:text-red-500",
           )}
         >
           <Heart

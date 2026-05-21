@@ -12,10 +12,10 @@ export const PasswordView = () => {
   return (
     <FormCard className="max-w-full">
       <div className="mb-6 min-w-0">
-        <h1 className="text-xl font-bold text-content break-words sm:text-2xl">
+        <h1 className="text-content text-xl font-bold break-words sm:text-2xl">
           {t("title")}
         </h1>
-        <p className="text-sm text-content/60 break-words">
+        <p className="text-content/60 text-sm break-words">
           {t("description")}
         </p>
       </div>

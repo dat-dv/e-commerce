@@ -22,7 +22,7 @@ export function Tabs({
   return (
     <RACTabs
       {...props}
-      className={cn("flex flex-col gap-0 w-full", className)}
+      className={cn("flex w-full flex-col gap-0", className)}
     />
   );
 }
@@ -35,8 +35,8 @@ export function TabList<T extends object>({
     <RACTabList
       {...props}
       className={cn(
-        "flex flex-row items-end gap-1 border-b border-content/10",
-        "overflow-x-auto overflow-y-clip hide-scrollbar",
+        "border-content/10 flex flex-row items-end gap-1 border-b",
+        "hide-scrollbar overflow-x-auto overflow-y-clip",
         className,
       )}
     />
@@ -54,10 +54,10 @@ export function Tab({
       className={({ isSelected, isDisabled, isFocusVisible }) =>
         cn(
           "relative flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors duration-200",
-          "cursor-pointer select-none outline-none whitespace-nowrap shrink-0",
+          "shrink-0 cursor-pointer whitespace-nowrap outline-none select-none",
           isSelected ? "text-primary" : "text-content/50 hover:text-content/80",
-          isDisabled && "opacity-40 pointer-events-none",
-          isFocusVisible && "rounded-t-lg ring-2 ring-primary/40 ring-offset-1",
+          isDisabled && "pointer-events-none opacity-40",
+          isFocusVisible && "ring-primary/40 rounded-t-lg ring-2 ring-offset-1",
           className,
         )
       }
@@ -68,7 +68,7 @@ export function Tab({
           {isSelected && (
             <motion.span
               layoutId="tab-indicator"
-              className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
+              className="bg-primary absolute right-0 bottom-0 left-0 h-0.5 rounded-full"
               transition={{ type: "spring", stiffness: 500, damping: 35 }}
             />
           )}

@@ -44,22 +44,22 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         : variantNormal[variant as keyof typeof variantNormal];
 
     return (
-      <div className="flex flex-col gap-1.5 w-full">
+      <div className="flex w-full flex-col gap-1.5">
         {label && (
           <label
             htmlFor={id}
-            className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80"
+            className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70"
           >
             {label}
           </label>
         )}
 
-        <div className="relative group">
+        <div className="group relative">
           <input
             ref={ref}
             id={id}
             className={cn(
-              "w-full outline-none transition-all duration-300 placeholder:opacity-50",
+              "w-full transition-all duration-300 outline-none placeholder:opacity-50",
               isDisabled && "cursor-not-allowed opacity-70",
               variantBase[variant],
               inputSizeClasses[size][variant],
@@ -77,16 +77,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           <div
-            className={`absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none select-none ${TYPOGRAPHY.badge}`}
+            className={`pointer-events-none absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-2 select-none ${TYPOGRAPHY.badge}`}
           >
             {maxCount && (
               <span
                 className={cn(
-                  "transition-colors duration-300 px-1.5 py-0.5 rounded-md bg-white/5 backdrop-blur-md border border-white/5",
+                  "rounded-md border border-white/5 bg-white/5 px-1.5 py-0.5 backdrop-blur-md transition-colors duration-300",
                   isOverLimit
-                    ? "text-red-500 border-red-500/20"
+                    ? "border-red-500/20 text-red-500"
                     : isNearlyFull
-                      ? "text-amber-500 border-amber-500/20"
+                      ? "border-amber-500/20 text-amber-500"
                       : "text-content/30",
                 )}
               >
@@ -112,7 +112,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               initial={{ opacity: 0, height: 0, y: -5 }}
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: -5 }}
-              className={`font-bold text-red-500 tracking-tight ml-1 overflow-hidden ${TYPOGRAPHY.badge}`}
+              className={`ml-1 overflow-hidden font-bold tracking-tight text-red-500 ${TYPOGRAPHY.badge}`}
             >
               {error}
             </motion.span>

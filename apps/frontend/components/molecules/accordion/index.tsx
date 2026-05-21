@@ -27,7 +27,7 @@ export default function Accordion({
   return (
     <RACDisclosure
       className={cn(
-        "overflow-hidden rounded-xl border border-content/12 bg-surface transition-shadow hover:shadow-md",
+        "border-content/12 bg-surface overflow-hidden rounded-xl border transition-shadow hover:shadow-md",
         className,
       )}
     >
@@ -37,18 +37,18 @@ export default function Accordion({
             slot="trigger"
             className={({ isFocusVisible }) =>
               cn(
-                "flex w-full cursor-pointer select-none items-center justify-between gap-4 bg-surface px-5 py-4 text-base font-bold text-content outline-none sm:px-6 sm:py-[18px]",
-                isFocusVisible && "rounded-t-xl ring-2 ring-primary/50",
+                "bg-surface text-content flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-base font-bold outline-none select-none sm:px-6 sm:py-[18px]",
+                isFocusVisible && "ring-primary/50 rounded-t-xl ring-2",
                 triggerClassName,
               )
             }
           >
-            <span className="min-w-0 text-left transition-colors hover:text-primary">
+            <span className="hover:text-primary min-w-0 text-left transition-colors">
               {title}
             </span>
             <svg
               className={cn(
-                "h-5 w-5 shrink-0 text-content/40 transition-transform duration-200",
+                "text-content/40 h-5 w-5 shrink-0 transition-transform duration-200",
                 isExpanded ? "rotate-180" : "rotate-0",
               )}
               fill="none"
@@ -65,9 +65,9 @@ export default function Accordion({
           </RACButton>
           <RACDisclosurePanel
             className={cn(
-              "overflow-hidden bg-surface text-sm leading-6 text-content/60",
+              "bg-surface text-content/60 overflow-hidden text-sm leading-6",
               isExpanded
-                ? "border-t border-content/5 px-5 pb-5 pt-4 sm:px-6 sm:pb-6 motion-safe:animate-in motion-safe:fade-in motion-safe:duration-150"
+                ? "border-content/5 motion-safe:animate-in motion-safe:fade-in border-t px-5 pt-4 pb-5 motion-safe:duration-150 sm:px-6 sm:pb-6"
                 : "hidden h-0 border-0 p-0",
               panelClassName,
             )}

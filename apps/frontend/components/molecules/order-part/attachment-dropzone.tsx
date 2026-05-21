@@ -34,10 +34,10 @@ export function AttachmentDropzone({
   return (
     <div>
       <div className="mb-2 flex items-center justify-between gap-3">
-        <label className="block text-xs font-bold uppercase tracking-wide text-content/45">
+        <label className="text-content/45 block text-xs font-bold tracking-wide uppercase">
           {labels.evidence}
         </label>
-        <span className="text-xs font-semibold text-content/35">
+        <span className="text-content/35 text-xs font-semibold">
           {attachments.length}/{ORDER_RETURN_MAX_ATTACHMENTS}
         </span>
       </div>
@@ -58,7 +58,7 @@ export function AttachmentDropzone({
         }
         className={cn(
           UI_RADIUS.control,
-          "flex w-full items-center justify-center gap-2 border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50 h-auto",
+          "border-content/[0.14] bg-content/[0.02] text-content/60 hover:border-primary/30 hover:bg-primary/[0.04] flex h-auto w-full items-center justify-center gap-2 border-dashed px-4 py-4 text-sm font-semibold disabled:opacity-50",
         )}
       >
         <Upload className="h-4 w-4" />
@@ -77,7 +77,7 @@ export function AttachmentDropzone({
           ))}
         </div>
       ) : (
-        <p className="mt-2 text-xs font-medium text-content/35">
+        <p className="text-content/35 mt-2 text-xs font-medium">
           {labels.photoRequired}
         </p>
       )}

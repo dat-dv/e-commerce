@@ -23,7 +23,7 @@ export default function HamburgerButton({
       variant="ghost"
       onClick={onClick}
       className={cn(
-        "size-10 rounded-full p-0 text-content/60 transition-colors hover:bg-content/5 hover:text-content",
+        "text-content/60 hover:bg-content/5 hover:text-content size-10 rounded-full p-0 transition-colors",
         className,
       )}
       aria-label={ariaLabel}
@@ -33,19 +33,19 @@ export default function HamburgerButton({
       <span className="relative block h-4 w-5" aria-hidden="true">
         <span
           className={cn(
-            "absolute left-0 top-0.5 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ease-out motion-reduce:transition-none",
+            "absolute top-0.5 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ease-out motion-reduce:transition-none",
             isOpen && "translate-y-[6px] rotate-45",
           )}
         />
         <span
           className={cn(
-            "absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition-all duration-200 ease-out motion-reduce:transition-none",
+            "absolute top-[7px] left-0 h-0.5 w-5 rounded-full bg-current transition-all duration-200 ease-out motion-reduce:transition-none",
             isOpen && "scale-x-0 opacity-0",
           )}
         />
         <span
           className={cn(
-            "absolute left-0 top-[13px] h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ease-out motion-reduce:transition-none",
+            "absolute top-[13px] left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ease-out motion-reduce:transition-none",
             isOpen && "-translate-y-[6px] -rotate-45",
           )}
         />

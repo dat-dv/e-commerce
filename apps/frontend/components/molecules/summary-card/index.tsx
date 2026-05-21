@@ -41,7 +41,7 @@ const SummaryCard = ({
     >
       <div
         className={cn(
-          "absolute right-0 top-0 h-24 w-24 rounded-full blur-3xl transition-opacity",
+          "absolute top-0 right-0 h-24 w-24 rounded-full blur-3xl transition-opacity",
           active
             ? "bg-primary/10 opacity-100"
             : "bg-content/[0.03] opacity-0 group-hover:opacity-100",
@@ -57,7 +57,7 @@ const SummaryCard = ({
         <div>
           <p
             className={cn(
-              `${TYPOGRAPHY.caption} font-black uppercase tracking-[0.18em] text-content/35`,
+              `${TYPOGRAPHY.caption} text-content/35 font-black tracking-[0.18em] uppercase`,
               labelClassName,
             )}
           >
@@ -66,7 +66,7 @@ const SummaryCard = ({
 
           <p
             className={cn(
-              "mt-3 text-4xl font-black tracking-tight text-content",
+              "text-content mt-3 text-4xl font-black tracking-tight",
               valueClassName,
             )}
           >

@@ -39,7 +39,7 @@ export const CategoriesCarousel = ({
       <SectionHeader
         title={title}
         href={APP_ROUTES.CATEGORIES}
-        icon={<Sparkles className="size-4 shrink-0 text-primary sm:size-5" />}
+        icon={<Sparkles className="text-primary size-4 shrink-0 sm:size-5" />}
       />
 
       <Carousel options={{ align: "start" }} loadMore={onLoadMore}>

@@ -24,10 +24,10 @@ export const ReviewApiError = ({ message, onRetry }: ReviewApiErrorProps) => {
             aria-hidden
           />
           <div className="min-w-0">
-            <h3 className="text-sm font-bold text-content">
+            <h3 className="text-content text-sm font-bold">
               {t("reviewsLoadFailed")}
             </h3>
-            <p className="mt-1 text-sm text-content/60">{message}</p>
+            <p className="text-content/60 mt-1 text-sm">{message}</p>
           </div>
         </div>
 

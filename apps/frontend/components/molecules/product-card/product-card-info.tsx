@@ -20,7 +20,7 @@ export function ProductCardInfo({
   children,
 }: ProductCardInfoProps) {
   return (
-    <div className="mt-3 flex flex-col flex-grow">
+    <div className="mt-3 flex flex-grow flex-col">
       {badgeText ? (
         <span className={`${TYPOGRAPHY.badge} text-content/40 truncate`}>
           {badgeText}

@@ -47,7 +47,7 @@ export function CategoryFilterSection({
   return (
     <FilterSection
       title={t("categories")}
-      icon={<FolderTree className="h-4 w-4 text-primary" />}
+      icon={<FolderTree className="text-primary h-4 w-4" />}
     >
       <CategorySearchInput
         value={categoryKeyword}
@@ -59,7 +59,7 @@ export function CategoryFilterSection({
       <div className="max-h-[42vh] overflow-y-auto pr-1">
         <div className="flex flex-col gap-1">
           {searchedCategories.length === 0 ? (
-            <p className="rounded-xl bg-content/[0.03] px-3 py-4 text-center text-sm font-medium text-content/40">
+            <p className="bg-content/[0.03] text-content/40 rounded-xl px-3 py-4 text-center text-sm font-medium">
               {t("noCategories")}
             </p>
           ) : (
@@ -81,7 +81,7 @@ export function CategoryFilterSection({
               onExpandedChange={setExpandedKeys}
               showDot
               activeLayoutId="active-category-filter"
-              className="w-full border-none bg-transparent p-0 gap-1.5"
+              className="w-full gap-1.5 border-none bg-transparent p-0"
             />
           )}
         </div>

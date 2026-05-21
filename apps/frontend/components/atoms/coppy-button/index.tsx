@@ -12,7 +12,7 @@ export function CopyButton({ code }: { code: string }) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="p-1.5 rounded-lg hover:bg-primary/10 transition-colors text-primary/40 hover:text-primary active:scale-95"
+      className="hover:bg-primary/10 text-primary/40 hover:text-primary rounded-lg p-1.5 transition-colors active:scale-95"
     >
       {copied ? (
         <Check size={14} className="text-green-500" />

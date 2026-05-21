@@ -72,12 +72,12 @@ export function AppSelectAutocompleteClient<T extends object>({
   return (
     <RACSelect
       {...props}
-      className={cn("flex flex-col gap-1.5 w-full font-sans", className)}
+      className={cn("flex w-full flex-col gap-1.5 font-sans", className)}
     >
       {({ isOpen, isInvalid, isDisabled }) => (
         <>
           {label && (
-            <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+            <RACLabel className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
               {label}
             </RACLabel>
           )}
@@ -85,7 +85,7 @@ export function AppSelectAutocompleteClient<T extends object>({
           <RACButton
             className={({ isFocusVisible }) =>
               cn(
-                "w-full flex justify-between items-center transition-all font-medium outline-none select-none cursor-pointer text-left",
+                "flex w-full cursor-pointer items-center justify-between text-left font-medium transition-all outline-none select-none",
                 variantBase[variant],
                 inputSizeClasses[size][variant],
                 isDisabled
@@ -95,33 +95,33 @@ export function AppSelectAutocompleteClient<T extends object>({
                     : isOpen
                       ? variantActive[variant]
                       : variantNormal[variant],
-                isFocusVisible && "ring-2 ring-primary/50",
+                isFocusVisible && "ring-primary/50 ring-2",
               )
             }
           >
-            <RACSelectValue className="text-content font-normal empty:text-content/50">
+            <RACSelectValue className="text-content empty:text-content/50 font-normal">
               {({ selectedText }) => selectedText || placeholder}
             </RACSelectValue>
-            <ChevronDown className="w-4 h-4 ml-2 opacity-50 shrink-0 text-content" />
+            <ChevronDown className="text-content ml-2 h-4 w-4 shrink-0 opacity-50" />
           </RACButton>
 
           {description && (
             <RACText
               slot="description"
-              className="text-xs text-content/65 ml-1"
+              className="text-content/65 ml-1 text-xs"
             >
               {description}
             </RACText>
           )}
 
-          <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+          <RACFieldError className="ml-1 text-xs font-medium text-red-500">
             {errorMessage}
           </RACFieldError>
 
           <RACPopover
             className={cn(
               UI_RADIUS.popover,
-              "z-50 w-[var(--trigger-width)] origin-top-right bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100 flex flex-col",
+              "bg-surface/95 border-content/10 animate-in fade-in zoom-in-95 z-50 flex w-[var(--trigger-width)] origin-top-right flex-col overflow-hidden border shadow-2xl backdrop-blur-md duration-100 focus:outline-none",
             )}
             offset={4}
           >
@@ -131,24 +131,24 @@ export function AppSelectAutocompleteClient<T extends object>({
                 aria-label={searchPlaceholder}
                 className={cn(
                   UI_RADIUS.control,
-                  "flex items-center gap-2 border border-content/[0.08] bg-content/[0.02] px-2.5 py-1.5 text-sm outline-none m-2 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/50 transition-all",
+                  "border-content/[0.08] bg-content/[0.02] focus-within:ring-primary/20 focus-within:border-primary/50 m-2 flex items-center gap-2 border px-2.5 py-1.5 text-sm transition-all outline-none focus-within:ring-2",
                 )}
               >
-                <Search className="w-3.5 h-3.5 text-content/40 shrink-0" />
+                <Search className="text-content/40 h-3.5 w-3.5 shrink-0" />
                 <RACInput
                   placeholder={searchPlaceholder}
-                  className="bg-transparent border-none outline-none w-full text-content text-sm placeholder-content/40 p-0"
+                  className="text-content placeholder-content/40 w-full border-none bg-transparent p-0 text-sm outline-none"
                 />
               </RACSearchField>
 
               <RACListBox
                 items={options}
                 renderEmptyState={() => (
-                  <div className="px-4 py-3 text-sm text-content/50 italic text-center">
+                  <div className="text-content/50 px-4 py-3 text-center text-sm italic">
                     {noResultsText}
                   </div>
                 )}
-                className="outline-none py-1 max-h-60 overflow-y-auto flex-1"
+                className="max-h-60 flex-1 overflow-y-auto py-1 outline-none"
               >
                 {(opt) => (
                   <RACListBoxItem
@@ -162,10 +162,10 @@ export function AppSelectAutocompleteClient<T extends object>({
                       isDisabled: itemDisabled,
                     }) =>
                       cn(
-                        "group flex w-full items-center px-4 py-3 text-base font-normal transition-colors text-content outline-none cursor-pointer select-none",
+                        "group text-content flex w-full cursor-pointer items-center px-4 py-3 text-base font-normal transition-colors outline-none select-none",
                         isFocused && "bg-primary/10 text-primary",
                         isSelected && "bg-primary/5 text-primary font-semibold",
-                        itemDisabled && "opacity-50 cursor-not-allowed",
+                        itemDisabled && "cursor-not-allowed opacity-50",
                       )
                     }
                   >

@@ -25,12 +25,7 @@ export const FormButton: React.FC<FormButtonProps> = ({
       whileHover={{ scale: isLoading ? 1 : 1.02 }}
       whileTap={{ scale: isLoading ? 1 : 0.98 }}
       disabled={isLoading || disabled}
-      className={`
-        group relative h-11 w-full rounded-xl bg-primary text-on-primary font-bold 
-        shadow-lg shadow-primary/20 transition-all duration-300
-        disabled:opacity-50 disabled:cursor-not-allowed
-        overflow-hidden ${className}
-      `}
+      className={`group bg-primary text-on-primary shadow-primary/20 relative h-11 w-full overflow-hidden rounded-xl font-bold shadow-lg transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 ${className} `}
       {...props}
     >
       <AnimatePresence mode="wait">
@@ -42,7 +37,7 @@ export const FormButton: React.FC<FormButtonProps> = ({
             exit={{ opacity: 0, y: -10 }}
             className="flex items-center justify-center gap-2 px-4"
           >
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-on-primary/30 border-t-on-primary" />
+            <div className="border-on-primary/30 border-t-on-primary h-5 w-5 animate-spin rounded-full border-2" />
             <span className="tracking-tight">{displayLoadingText}</span>
           </motion.div>
         ) : (
@@ -59,7 +54,7 @@ export const FormButton: React.FC<FormButtonProps> = ({
       </AnimatePresence>
 
       {/* Shine effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none" />
+      <div className="group-hover:animate-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </motion.button>
   );
 };

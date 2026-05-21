@@ -20,10 +20,10 @@ export default function ResetPasswordForm() {
   }
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-sm">
+    <div className="flex w-full max-w-sm flex-col gap-6">
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-content">{t("title")}</h1>
-        <p className="text-sm opacity-60 mt-1">{t("description")}</p>
+        <h1 className="text-content text-2xl font-bold">{t("title")}</h1>
+        <p className="mt-1 text-sm opacity-60">{t("description")}</p>
       </div>
 
       <AppForm<TResetPasswordSchema>
@@ -64,7 +64,7 @@ export default function ResetPasswordForm() {
             variant="ghost"
             size="sm"
             href={APP_ROUTES.SIGN_IN}
-            className="text-primary font-bold hover:underline underline-offset-4 px-0 opacity-100"
+            className="text-primary px-0 font-bold underline-offset-4 opacity-100 hover:underline"
           >
             {t("loginLink")}
           </Button>

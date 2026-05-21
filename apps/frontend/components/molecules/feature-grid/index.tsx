@@ -69,24 +69,24 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
             key={item.name}
             href={item.href || "#"}
             className={cn(
-              "group flex items-center justify-between gap-2 border border-content/10 bg-surface/50 px-4 py-[14px] transition-all duration-300 hover:border-primary/20 hover:bg-primary/[0.04]",
+              "group border-content/10 bg-surface/50 hover:border-primary/20 hover:bg-primary/[0.04] flex items-center justify-between gap-2 border px-4 py-[14px] transition-all duration-300",
               UI_RADIUS.card,
             )}
           >
             <div className="flex min-w-0 items-center gap-3">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-content/[0.04] text-content/45 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+              <div className="bg-content/[0.04] text-content/45 group-hover:bg-primary/10 group-hover:text-primary flex size-10 shrink-0 items-center justify-center rounded-xl transition-colors">
                 <Icon size={18} strokeWidth={2.2} />
               </div>
 
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <h3 className="truncate text-sm font-black text-content transition-colors group-hover:text-primary">
+                  <h3 className="text-content group-hover:text-primary truncate text-sm font-black transition-colors">
                     {displayName}
                   </h3>
 
                   {item.badge && (
                     <span
-                      className={`rounded-full bg-primary/10 px-2 py-0.5 ${TYPOGRAPHY.badge} uppercase tracking-[0.12em] text-primary`}
+                      className={`bg-primary/10 rounded-full px-2 py-0.5 ${TYPOGRAPHY.badge} text-primary tracking-[0.12em] uppercase`}
                     >
                       {item.badge}
                     </span>
@@ -94,7 +94,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
                 </div>
 
                 <p
-                  className={`mt-0.5 truncate ${TYPOGRAPHY.caption} font-medium text-content/35`}
+                  className={`mt-0.5 truncate ${TYPOGRAPHY.caption} text-content/35 font-medium`}
                 >
                   {displayDesc}
                 </p>
@@ -103,7 +103,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
 
             <ArrowRight
               size={15}
-              className="shrink-0 text-content/20 transition-all group-hover:translate-x-0.5 group-hover:text-primary"
+              className="text-content/20 group-hover:text-primary shrink-0 transition-all group-hover:translate-x-0.5"
             />
           </Link>
         );

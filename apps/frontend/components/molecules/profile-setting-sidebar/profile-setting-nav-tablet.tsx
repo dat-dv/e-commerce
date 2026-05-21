@@ -52,11 +52,11 @@ export function ProfileSettingNavTablet({
   const t = useTranslations("ProfileLayout.sidebar");
 
   return (
-    <div className="flex flex-col gap-0 w-full pt-10">
+    <div className="flex w-full flex-col gap-0 pt-10">
       <div
         className={cn(
-          "flex flex-row items-end gap-1 border-b border-content/10",
-          "overflow-x-auto overflow-y-clip hide-scrollbar",
+          "border-content/10 flex flex-row items-end gap-1 border-b",
+          "hide-scrollbar overflow-x-auto overflow-y-clip",
         )}
         role="tablist"
         aria-label="Profile settings"
@@ -71,18 +71,18 @@ export function ProfileSettingNavTablet({
               aria-selected={isActive}
               className={cn(
                 "relative flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors duration-200",
-                "cursor-pointer select-none outline-none whitespace-nowrap shrink-0",
+                "shrink-0 cursor-pointer whitespace-nowrap outline-none select-none",
                 isActive
                   ? "text-primary"
                   : "text-content/50 hover:text-content/80",
               )}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="h-4 w-4" />
               {t(labelKey)}
               {isActive && (
                 <motion.span
                   layoutId="profile-tab-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
+                  className="bg-primary absolute right-0 bottom-0 left-0 h-0.5 rounded-full"
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}

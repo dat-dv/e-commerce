@@ -14,13 +14,13 @@ export const EmptyCart = () => {
     <div
       className={cn(
         UI_RADIUS.panel,
-        "bg-surface/50 border border-content/[0.05] backdrop-blur-3xl p-8 sm:p-12 lg:p-24 text-center flex flex-col items-center justify-center min-h-[50vh] relative overflow-hidden",
+        "bg-surface/50 border-content/[0.05] relative flex min-h-[50vh] flex-col items-center justify-center overflow-hidden border p-8 text-center backdrop-blur-3xl sm:p-12 lg:p-24",
       )}
     >
-      <div className="absolute top-0 left-0 w-full h-1 bg-primary/20 blur-xl pointer-events-none" />
+      <div className="bg-primary/20 pointer-events-none absolute top-0 left-0 h-1 w-full blur-xl" />
 
-      <div className="bg-content/[0.02] p-8 rounded-full mb-10 border border-content/5 relative group">
-        <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="bg-content/[0.02] border-content/5 group relative mb-10 rounded-full border p-8">
+        <div className="bg-primary/5 absolute inset-0 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-100" />
         <ShoppingBag
           size={64}
           className="text-content/10 relative z-10"
@@ -28,22 +28,22 @@ export const EmptyCart = () => {
         />
       </div>
 
-      <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 break-words">
+      <h2 className="mb-4 text-2xl font-black tracking-tight break-words uppercase sm:text-3xl">
         {t("title")}{" "}
-        <span className="italic font-light opacity-30 text-content">
+        <span className="text-content font-light italic opacity-30">
           {t("highlight")}
         </span>
       </h2>
-      <p className="text-content/40 mb-12 max-w-xs italic font-light leading-relaxed">
+      <p className="text-content/40 mb-12 max-w-xs leading-relaxed font-light italic">
         {t("description")}
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-6">
+      <div className="flex flex-col gap-6 sm:flex-row">
         <Link
           href={APP_ROUTES.HOME}
           className={cn(
             UI_RADIUS.control,
-            "bg-content text-surface hover:bg-primary hover:text-primary-foreground px-12 py-4 font-black text-sm uppercase tracking-[0.3em] transition-all shadow-2xl shadow-content/20 active:scale-95",
+            "bg-content text-surface hover:bg-primary hover:text-primary-foreground shadow-content/20 px-12 py-4 text-sm font-black tracking-[0.3em] uppercase shadow-2xl transition-all active:scale-95",
           )}
         >
           {t("action")}

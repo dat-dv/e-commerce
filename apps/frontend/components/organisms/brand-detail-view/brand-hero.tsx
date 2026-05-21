@@ -22,7 +22,7 @@ export function BrandHero({ brand }: BrandHeroProps) {
   return (
     <section
       ref={containerRef}
-      className="relative flex h-[72svh] min-h-[520px] w-full items-center justify-center overflow-hidden bg-background md:h-[80vh]"
+      className="bg-background relative flex h-[72svh] min-h-[520px] w-full items-center justify-center overflow-hidden md:h-[80vh]"
     >
       {/* Background Banner with Parallax */}
       <motion.div style={{ y: y1, scale }} className="absolute inset-0 z-0">
@@ -35,9 +35,9 @@ export function BrandHero({ brand }: BrandHeroProps) {
             priority
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-500/20" />
+          <div className="from-primary/20 h-full w-full bg-gradient-to-br to-purple-500/20" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
+        <div className="from-background/20 via-background/40 to-background absolute inset-0 bg-gradient-to-b" />
       </motion.div>
 
       {/* Floating Logo and Name */}
@@ -46,7 +46,7 @@ export function BrandHero({ brand }: BrandHeroProps) {
         className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-8 px-4 md:gap-12"
       >
         {brand.logoUrl && !imgError && (
-          <div className="relative flex size-32 items-center justify-center rounded-[2rem] border border-content/10 bg-background/30 p-6 shadow-2xl backdrop-blur-3xl sm:size-40 md:size-56 md:rounded-[4rem] md:p-8">
+          <div className="border-content/10 bg-background/30 relative flex size-32 items-center justify-center rounded-[2rem] border p-6 shadow-2xl backdrop-blur-3xl sm:size-40 md:size-56 md:rounded-[4rem] md:p-8">
             <Image
               src={brand.logoUrl}
               alt={brand.name}
@@ -57,12 +57,12 @@ export function BrandHero({ brand }: BrandHeroProps) {
           </div>
         )}
 
-        <div className="min-w-0 max-w-full text-center">
+        <div className="max-w-full min-w-0 text-center">
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="break-words text-5xl font-black uppercase leading-none tracking-normal text-content sm:text-7xl md:text-[10rem]"
+            className="text-content text-5xl leading-none font-black tracking-normal break-words uppercase sm:text-7xl md:text-[10rem]"
           >
             {brand.name}
           </motion.h1>
@@ -70,14 +70,14 @@ export function BrandHero({ brand }: BrandHeroProps) {
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ delay: 1, duration: 1 }}
-            className="mt-4 h-1 w-full bg-primary"
+            className="bg-primary mt-4 h-1 w-full"
           />
         </div>
       </motion.div>
 
       {/* Aesthetic Coordinates */}
       <div
-        className={`absolute bottom-12 left-12 font-mono ${TYPOGRAPHY.badge} text-content/40 tracking-[0.4em] uppercase vertical-text hidden md:block`}
+        className={`absolute bottom-12 left-12 font-mono ${TYPOGRAPHY.badge} text-content/40 vertical-text hidden tracking-[0.4em] uppercase md:block`}
       >
         Ref // {brand.slug.toUpperCase()} -- 2024
       </div>

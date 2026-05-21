@@ -41,15 +41,15 @@ export function CategoriesFilterDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 26, stiffness: 230 }}
-            className="fixed bottom-0 left-0 top-0 z-[91] flex w-[88vw] max-w-[380px] flex-col border-r border-content/10 bg-surface shadow-2xl md:max-w-[420px] lg:hidden"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[91] flex w-[88vw] max-w-[380px] flex-col border-r shadow-2xl md:max-w-[420px] lg:hidden"
             aria-label={t("title")}
           >
-            <div className="flex h-16 shrink-0 items-center justify-between border-b border-content/10 px-4">
+            <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
               <div>
-                <h2 className="text-sm font-black uppercase tracking-[0.18em] text-content">
+                <h2 className="text-content text-sm font-black tracking-[0.18em] uppercase">
                   {t("title")}
                 </h2>
-                <p className="mt-0.5 text-xs font-medium text-content/45">
+                <p className="text-content/45 mt-0.5 text-xs font-medium">
                   {t("description")}
                 </p>
               </div>
@@ -57,7 +57,7 @@ export function CategoriesFilterDrawer({
               <Button
                 variant="ghost"
                 onClick={onClose}
-                className="size-10 rounded-full p-0 text-content/60 hover:bg-content/5 hover:text-content"
+                className="text-content/60 hover:bg-content/5 hover:text-content size-10 rounded-full p-0"
                 aria-label={t("closeDrawer")}
                 title={t("closeDrawer")}
               >

@@ -14,11 +14,11 @@ export const DocsSidebar = ({ items }: { items: DocItem[] }) => {
   );
 
   return (
-    <div className="w-full h-full flex flex-col pr-2 pb-12 space-y-6">
+    <div className="flex h-full w-full flex-col space-y-6 pr-2 pb-12">
       {/* Sidebar Header / Category Label */}
       <div className="flex flex-col gap-1 px-4">
         <h2
-          className={`${TYPOGRAPHY.badge} uppercase tracking-[0.2em] text-primary/40 border-l-2 border-primary/20 pl-3 py-1`}
+          className={`${TYPOGRAPHY.badge} text-primary/40 border-primary/20 border-l-2 py-1 pl-3 tracking-[0.2em] uppercase`}
         >
           Documentation
         </h2>

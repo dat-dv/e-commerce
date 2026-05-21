@@ -26,7 +26,7 @@ export const SectionHeader = ({
           {href ? (
             <Link href={href} className="min-w-0">
               <h2
-                className={`flex min-w-0 cursor-pointer items-center gap-2 ${TYPOGRAPHY.sectionTitle} capitalize leading-tight text-content transition-colors hover:text-primary`}
+                className={`flex min-w-0 cursor-pointer items-center gap-2 ${TYPOGRAPHY.sectionTitle} text-content hover:text-primary leading-tight capitalize transition-colors`}
               >
                 {icon}
                 <LiquidWaveText
@@ -39,7 +39,7 @@ export const SectionHeader = ({
             </Link>
           ) : (
             <h2
-              className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.sectionTitle} capitalize leading-tight text-content`}
+              className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.sectionTitle} text-content leading-tight capitalize`}
             >
               {icon}
               <span className="truncate">{title}</span>

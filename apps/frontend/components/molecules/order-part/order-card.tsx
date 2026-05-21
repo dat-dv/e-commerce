@@ -92,7 +92,7 @@ export const OrderCard = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       className={cn(
-        "overflow-hidden border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-primary/20",
+        "border-content/[0.05] bg-surface/40 hover:border-primary/20 overflow-hidden border shadow-sm backdrop-blur-md transition-all duration-300",
         UI_RADIUS.panel,
         className,
       )}
@@ -101,7 +101,7 @@ export const OrderCard = ({
       {/* Header */}
       <div
         className={cn(
-          "flex items-center justify-between gap-4 border-b border-content/[0.05] bg-content/[0.02] px-5 py-4",
+          "border-content/[0.05] bg-content/[0.02] flex items-center justify-between gap-4 border-b px-5 py-4",
           headerClassName,
         )}
       >
@@ -111,11 +111,11 @@ export const OrderCard = ({
           <div className="flex min-w-0 flex-col">
             <Link
               href={APP_ROUTES.ORDER_DETAIL(order.id)}
-              className="truncate text-sm font-bold text-content transition-all hover:text-primary"
+              className="text-content hover:text-primary truncate text-sm font-bold transition-all"
             >
               {t("card.orderNumber", { id: order.id.slice(-8).toUpperCase() })}
             </Link>
-            <span className="text-xs font-medium text-content/40">
+            <span className="text-content/40 text-xs font-medium">
               {new Date(order.createdAt).toLocaleDateString(locale, {
                 month: "short",
                 day: "numeric",
@@ -126,9 +126,9 @@ export const OrderCard = ({
           <Button
             variant="ghost"
             disabled
-            className="hidden h-auto items-center gap-1.5 rounded-full border border-content/[0.05] bg-content/[0.03] px-3 py-1 text-xs font-medium text-content/40 active:scale-100 sm:flex"
+            className="border-content/[0.05] bg-content/[0.03] text-content/40 hidden h-auto items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium active:scale-100 sm:flex"
           >
-            <MessageSquare className="w-3.5 h-3.5" />
+            <MessageSquare className="h-3.5 w-3.5" />
             {t("card.needHelp")}
           </Button>
         </div>
@@ -139,8 +139,8 @@ export const OrderCard = ({
           )}
         >
           {order.status === EOrderStatus.SHIPPING && (
-            <div className="hidden items-center gap-2 border-r border-content/[0.05] pr-4 text-xs font-semibold text-primary sm:flex">
-              <Truck className="w-4 h-4" />
+            <div className="border-content/[0.05] text-primary hidden items-center gap-2 border-r pr-4 text-xs font-semibold sm:flex">
+              <Truck className="h-4 w-4" />
               <span>{t("card.shipping")}</span>
             </div>
           )}
@@ -156,19 +156,19 @@ export const OrderCard = ({
       </div>
 
       {/* Items */}
-      <div className="divide-y divide-content/[0.05]">
+      <div className="divide-content/[0.05] divide-y">
         {order.items.map((item) => {
           const productSlug = item.sku?.product?.slug;
           const itemContent = (
             <div
               className={cn(
-                "flex gap-5 p-5 transition-colors hover:bg-content/[0.02]",
+                "hover:bg-content/[0.02] flex gap-5 p-5 transition-colors",
                 itemClassName,
               )}
             >
               <div
                 className={cn(
-                  "relative size-20 flex-shrink-0 overflow-hidden border border-content/[0.05] bg-content/[0.02]",
+                  "border-content/[0.05] bg-content/[0.02] relative size-20 flex-shrink-0 overflow-hidden border",
                   UI_RADIUS.media,
                   itemImageClassName,
                 )}
@@ -182,7 +182,7 @@ export const OrderCard = ({
                     className="object-cover transition-transform group-hover:scale-110"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-content/10">
+                  <div className="text-content/10 flex h-full w-full items-center justify-center">
                     <Store className="h-6 w-6" />
                   </div>
                 )}
@@ -191,7 +191,7 @@ export const OrderCard = ({
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                   <h3
                     className={cn(
-                      "line-clamp-1 text-sm font-bold leading-tight text-content",
+                      "text-content line-clamp-1 text-sm leading-tight font-bold",
                       itemTitleClassName,
                     )}
                   >
@@ -199,22 +199,22 @@ export const OrderCard = ({
                       {item.sku?.product?.name || t("card.productNameFallback")}
                     </LiquidWaveText>
                   </h3>
-                  <div className="shrink-0 text-sm font-bold tracking-tight text-content sm:text-base">
+                  <div className="text-content shrink-0 text-sm font-bold tracking-tight sm:text-base">
                     {formatCurrency(item.price)}
                   </div>
                 </div>
-                <p className="mt-1 line-clamp-1 text-xs font-medium text-content/40">
+                <p className="text-content/40 mt-1 line-clamp-1 text-xs font-medium">
                   {item.attributes ||
                     t("card.skuCode", {
                       code: item.sku?.skuCode || t("card.defaultSku"),
                     })}
                 </p>
                 <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-                  <div className="rounded-full bg-content/[0.05] px-2 py-0.5 text-[11px] font-semibold text-content/50">
+                  <div className="bg-content/[0.05] text-content/50 rounded-full px-2 py-0.5 text-[11px] font-semibold">
                     {t("card.units", { count: item.quantity })}
                   </div>
                   {item.originalPrice && item.originalPrice > item.price && (
-                    <span className="text-xs text-content/30 line-through">
+                    <span className="text-content/30 text-xs line-through">
                       {formatCurrency(item.originalPrice)}
                     </span>
                   )}
@@ -227,7 +227,7 @@ export const OrderCard = ({
             <Link
               key={item.id}
               href={APP_ROUTES.PRODUCT_DETAIL(productSlug)}
-              className="block group"
+              className="group block"
             >
               {itemContent}
             </Link>
@@ -240,7 +240,7 @@ export const OrderCard = ({
       {/* Footer */}
       <div
         className={cn(
-          "border-t border-content/[0.05] bg-content/[0.01] px-5 py-5",
+          "border-content/[0.05] bg-content/[0.01] border-t px-5 py-5",
           footerClassName,
         )}
       >
@@ -255,12 +255,12 @@ export const OrderCard = ({
               </div>
             )}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-content/40">
+              <span className="text-content/40 text-sm font-medium">
                 {t("card.total")}
               </span>
               <span
                 className={cn(
-                  "text-3xl font-black tracking-tight text-content",
+                  "text-content text-3xl font-black tracking-tight",
                   totalClassName,
                 )}
               >
@@ -300,7 +300,7 @@ export const OrderCard = ({
                     onRequestReturn?.(order.id);
                   }}
                   className={cn(
-                    "flex h-auto items-center gap-2 border-content/[0.1] px-5 py-2.5 text-sm font-semibold text-content hover:bg-content/[0.05]",
+                    "border-content/[0.1] text-content hover:bg-content/[0.05] flex h-auto items-center gap-2 px-5 py-2.5 text-sm font-semibold",
                     UI_RADIUS.control,
                     actionButtonClassName,
                   )}
@@ -310,7 +310,7 @@ export const OrderCard = ({
                 </Button>
                 <Button
                   className={cn(
-                    "h-auto bg-content px-6 py-2.5 text-sm font-semibold text-surface hover:bg-primary",
+                    "bg-content text-surface hover:bg-primary h-auto px-6 py-2.5 text-sm font-semibold",
                     UI_RADIUS.control,
                     actionButtonClassName,
                   )}
@@ -320,7 +320,7 @@ export const OrderCard = ({
                 <Button
                   variant="outline"
                   className={cn(
-                    "h-auto border-content/[0.1] px-6 py-2.5 text-sm font-semibold text-content/60 hover:bg-content/[0.05]",
+                    "border-content/[0.1] text-content/60 hover:bg-content/[0.05] h-auto px-6 py-2.5 text-sm font-semibold",
                     UI_RADIUS.control,
                     actionButtonClassName,
                   )}

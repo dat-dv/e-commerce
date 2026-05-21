@@ -122,7 +122,7 @@ export const ProfileFormMobile = ({
                       onClick={methods.handleSubmit(handleSave)}
                       variant="primary"
                       size="lg"
-                      className="w-full rounded-2xl bg-primary text-white shadow-xl shadow-primary/25 disabled:opacity-50 sm:flex-1"
+                      className="bg-primary shadow-primary/25 w-full rounded-2xl text-white shadow-xl disabled:opacity-50 sm:flex-1"
                       disabled={isSubmitLoading || !isDirty}
                     >
                       {isSubmitLoading
@@ -135,7 +135,7 @@ export const ProfileFormMobile = ({
                   onClick={disableEdit}
                   variant="ghost"
                   size="lg"
-                  className="w-full rounded-2xl border border-content/10 px-6 hover:bg-content/5 sm:w-auto"
+                  className="border-content/10 hover:bg-content/5 w-full rounded-2xl border px-6 sm:w-auto"
                   disabled={isSubmitLoading}
                 >
                   {t("form.cancelBtn")}
@@ -146,10 +146,10 @@ export const ProfileFormMobile = ({
                 onClick={enableEdit}
                 variant="primary"
                 size="lg"
-                className="w-full rounded-2xl shadow-xl shadow-primary/25 flex items-center justify-center gap-2"
+                className="shadow-primary/25 flex w-full items-center justify-center gap-2 rounded-2xl shadow-xl"
                 disabled={isSubmitLoading}
               >
-                <Pencil className="w-4 h-4" />
+                <Pencil className="h-4 w-4" />
                 {t("form.editBtn")}
               </Button>
             )}

@@ -51,7 +51,7 @@ export function DateInput({
       {...props}
       className={(renderProps) =>
         cn(
-          "w-full flex items-center transition-all font-medium whitespace-nowrap overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          "flex w-full [scrollbar-width:none] items-center overflow-x-auto font-medium whitespace-nowrap transition-all [&::-webkit-scrollbar]:hidden",
           variantBase[variant],
           inputSizeClasses[size][variant],
           renderProps.isDisabled
@@ -70,11 +70,11 @@ export function DateInput({
           segment={segment}
           className={({ isPlaceholder, isFocused, isDisabled }) =>
             cn(
-              "inline px-0.5 py-0.5 whitespace-nowrap rounded outline-none select-none text-content cursor-default",
-              segment.type === "literal" && "px-0 text-content/50",
+              "text-content inline cursor-default rounded px-0.5 py-0.5 whitespace-nowrap outline-none select-none",
+              segment.type === "literal" && "text-content/50 px-0",
               isPlaceholder && "text-content/30",
               isDisabled && "text-content/20 cursor-not-allowed",
-              isFocused && "bg-primary text-white rounded-md",
+              isFocused && "bg-primary rounded-md text-white",
             )
           }
         />
@@ -113,7 +113,7 @@ export function DateField<T extends DateValue>({
         {...props}
         className={(renderProps) =>
           cn(
-            "flex flex-col gap-1.5 w-full font-sans",
+            "flex w-full flex-col gap-1.5 font-sans",
             typeof className === "function"
               ? className(renderProps)
               : className,
@@ -121,17 +121,17 @@ export function DateField<T extends DateValue>({
         }
       >
         {label && (
-          <RACLabel className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+          <RACLabel className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
             {label}
           </RACLabel>
         )}
         <DateInput variant={variant} size={size} />
         {description && (
-          <RACText slot="description" className="text-xs text-content/65 ml-1">
+          <RACText slot="description" className="text-content/65 ml-1 text-xs">
             {description}
           </RACText>
         )}
-        <RACFieldError className="text-xs text-red-500 font-medium ml-1">
+        <RACFieldError className="ml-1 text-xs font-medium text-red-500">
           {errorMessage}
         </RACFieldError>
       </AriaDateField>

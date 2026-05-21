@@ -37,7 +37,7 @@ export const NotificationItem = ({
   return (
     <div
       className={cn(
-        "p-4 flex gap-4 transition-all duration-300 relative group cursor-pointer border-b border-content/[0.03] last:border-0",
+        "group border-content/[0.03] relative flex cursor-pointer gap-4 border-b p-4 transition-all duration-300 last:border-0",
         !notif.isRead ? "bg-primary/[0.03]" : "hover:bg-content/[0.02]",
         className,
       )}
@@ -45,20 +45,20 @@ export const NotificationItem = ({
     >
       <div
         className={cn(
-          "w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300",
+          "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300",
           notif.isRead
             ? "bg-content/[0.02] border-content/[0.05]"
-            : "bg-primary/10 border-primary/20 shadow-sm shadow-primary/10",
+            : "bg-primary/10 border-primary/20 shadow-primary/10 shadow-sm",
         )}
       >
         {getIcon(notif.type)}
       </div>
 
-      <div className="flex-1 min-w-0">
-        <div className="flex justify-between items-start mb-1">
+      <div className="min-w-0 flex-1">
+        <div className="mb-1 flex items-start justify-between">
           <h4
             className={cn(
-              `${TYPOGRAPHY.caption} font-semibold text-content/90 transition-colors`,
+              `${TYPOGRAPHY.caption} text-content/90 font-semibold transition-colors`,
               !notif.isRead && "text-primary",
             )}
           >
@@ -82,7 +82,7 @@ export const NotificationItem = ({
       </div>
 
       {!notif.isRead && (
-        <div className="absolute top-4 right-4 w-2 h-2 bg-primary rounded-full ring-4 ring-primary/10 animate-pulse" />
+        <div className="bg-primary ring-primary/10 absolute top-4 right-4 h-2 w-2 animate-pulse rounded-full ring-4" />
       )}
     </div>
   );

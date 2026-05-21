@@ -32,7 +32,7 @@ export const NotificationCenter = () => {
       <Button
         variant="ghost"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative flex h-10 w-10 items-center justify-center rounded-full p-0 text-content/60 transition-colors hover:bg-content/[0.05] hover:text-content active:scale-95 opacity-100 hover:opacity-100"
+        className="text-content/60 hover:bg-content/[0.05] hover:text-content relative flex h-10 w-10 items-center justify-center rounded-full p-0 opacity-100 transition-colors hover:opacity-100 active:scale-95"
         title={t("dropdown.title")}
         aria-label={t("dropdown.title")}
       >
@@ -43,7 +43,7 @@ export const NotificationCenter = () => {
         />
         {unreadCount > 0 && (
           <span
-            className={`absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-background bg-red-500 px-1 ${TYPOGRAPHY.badge} font-black leading-none text-white shadow-sm`}
+            className={`border-background absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 bg-red-500 px-1 ${TYPOGRAPHY.badge} leading-none font-black text-white shadow-sm`}
           >
             {unreadCount > 99 ? "99+" : unreadCount}
           </span>
@@ -62,9 +62,9 @@ export const NotificationCenter = () => {
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              className="absolute right-0 mt-2 w-80 md:w-96 bg-surface/90 backdrop-blur-xl border border-content/[0.05] rounded-2xl shadow-2xl z-50 overflow-hidden"
+              className="bg-surface/90 border-content/[0.05] absolute right-0 z-50 mt-2 w-80 overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-xl md:w-96"
             >
-              <div className="p-4 border-b border-content/[0.05] flex items-center justify-between">
+              <div className="border-content/[0.05] flex items-center justify-between border-b p-4">
                 <h3 className={`font-bold ${TYPOGRAPHY.bodySmall}`}>
                   {t("dropdown.title")}
                 </h3>
@@ -72,7 +72,7 @@ export const NotificationCenter = () => {
                   <Button
                     variant="ghost"
                     onClick={markAllAsRead}
-                    className={`${TYPOGRAPHY.caption} font-medium text-primary hover:text-primary/80 transition-colors h-auto p-0 hover:bg-transparent active:scale-100`}
+                    className={`${TYPOGRAPHY.caption} text-primary hover:text-primary/80 h-auto p-0 font-medium transition-colors hover:bg-transparent active:scale-100`}
                   >
                     {t("dropdown.markAllAsRead")}
                   </Button>
@@ -82,7 +82,7 @@ export const NotificationCenter = () => {
               <div className="max-h-[400px] overflow-y-auto">
                 {loading ? (
                   <div
-                    className={`p-8 text-center ${TYPOGRAPHY.caption} text-content/40 uppercase tracking-widest`}
+                    className={`p-8 text-center ${TYPOGRAPHY.caption} text-content/40 tracking-widest uppercase`}
                   >
                     {t("dropdown.loadingText")}
                   </div>
@@ -97,8 +97,8 @@ export const NotificationCenter = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-12 text-center flex flex-col items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-content/[0.02] flex items-center justify-center text-content/10">
+                  <div className="flex flex-col items-center gap-3 p-12 text-center">
+                    <div className="bg-content/[0.02] text-content/10 flex h-12 w-12 items-center justify-center rounded-full">
                       <Bell size={24} />
                     </div>
                     <p className={`${TYPOGRAPHY.meta} text-content/40`}>
@@ -108,14 +108,14 @@ export const NotificationCenter = () => {
                 )}
               </div>
 
-              <div className="p-4 border-t border-content/[0.05] bg-content/[0.01]">
+              <div className="border-content/[0.05] bg-content/[0.01] border-t p-4">
                 <Link
                   href="/notifications"
-                  className={`group flex items-center justify-center gap-2 ${TYPOGRAPHY.caption} font-semibold text-content/50 hover:text-primary transition-all duration-300`}
+                  className={`group flex items-center justify-center gap-2 ${TYPOGRAPHY.caption} text-content/50 hover:text-primary font-semibold transition-all duration-300`}
                 >
                   {t("dropdown.viewAll")}
-                  <div className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300">
-                    <div className="h-[1px] w-4 bg-primary" />
+                  <div className="w-0 overflow-hidden transition-all duration-300 group-hover:w-4">
+                    <div className="bg-primary h-[1px] w-4" />
                   </div>
                 </Link>
               </div>

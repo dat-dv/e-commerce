@@ -22,7 +22,7 @@ const ThemeSwatch = React.forwardRef<HTMLButtonElement, ThemeSwatchProps>(
         className={cn(
           "flex h-8 w-8 items-center justify-center rounded-full transition-all",
           selected
-            ? "scale-110 ring-2 ring-primary ring-offset-2"
+            ? "ring-primary scale-110 ring-2 ring-offset-2"
             : "opacity-70 hover:opacity-100",
           className,
         )}

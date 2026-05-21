@@ -39,7 +39,7 @@ export default function TableOfContents({ items }: TocProps) {
         <li key={item.id} className="shrink-0 lg:w-full">
           <Link
             href={`#${item.id}`}
-            className={`block max-w-[76vw] truncate whitespace-nowrap rounded-xl px-4 py-2.5 text-center text-sm font-medium transition-colors lg:max-w-none lg:whitespace-normal lg:text-left ${
+            className={`block max-w-[76vw] truncate rounded-xl px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition-colors lg:max-w-none lg:text-left lg:whitespace-normal ${
               activeId === item.id
                 ? "bg-primary text-white"
                 : "text-content/70 hover:bg-surface/80 hover:text-primary"

@@ -40,7 +40,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-surface text-content selection:bg-primary/30">
+      <body className="bg-surface text-content selection:bg-primary/30 flex min-h-full flex-col">
         <AppProvider>{children}</AppProvider>
       </body>
     </html>

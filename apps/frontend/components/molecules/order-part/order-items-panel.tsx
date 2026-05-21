@@ -50,7 +50,7 @@ export function OrderItemsPanel({
       <div
         className={cn(
           UI_RADIUS.panel,
-          "border border-content/10 bg-surface px-4 py-3 text-sm text-content/55",
+          "border-content/10 bg-surface text-content/55 border px-4 py-3 text-sm",
         )}
       >
         {t("noOrderItems")}
@@ -59,13 +59,13 @@ export function OrderItemsPanel({
   }
 
   return (
-    <div className={cn(UI_RADIUS.panel, "border border-content/10 bg-surface")}>
-      <div className="border-b border-content/10 px-4 py-3">
-        <p className="text-xs font-semibold uppercase text-content/45">
+    <div className={cn(UI_RADIUS.panel, "border-content/10 bg-surface border")}>
+      <div className="border-content/10 border-b px-4 py-3">
+        <p className="text-content/45 text-xs font-semibold uppercase">
           {t("orderItemsHeader")}
         </p>
       </div>
-      <div className={compact ? "divide-y divide-content/10" : "grid"}>
+      <div className={compact ? "divide-content/10 divide-y" : "grid"}>
         {items.map((item) => (
           <OrderItemRow
             key={item.id}
@@ -109,14 +109,14 @@ export function OrderItemProductSummary({
         }}
       />
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-content">
+        <p className="text-content truncate text-sm font-semibold">
           {preview.name}
         </p>
-        <p className="truncate font-mono text-xs text-content/45">
+        <p className="text-content/45 truncate font-mono text-xs">
           {preview.skuCode}
         </p>
         {preview.attributes && (
-          <p className="truncate text-xs text-content/50">
+          <p className="text-content/50 truncate text-xs">
             {preview.attributes}
           </p>
         )}
@@ -153,33 +153,33 @@ function OrderItemRow({
       className={
         compact
           ? "grid gap-3 p-4"
-          : "grid grid-cols-[minmax(18rem,1fr)_7rem_8rem_8rem] items-center gap-4 border-b border-content/10 p-4 last:border-b-0"
+          : "border-content/10 grid grid-cols-[minmax(18rem,1fr)_7rem_8rem_8rem] items-center gap-4 border-b p-4 last:border-b-0"
       }
     >
       <OrderItemProductSummary item={item} />
 
       <div className={compact ? "grid grid-cols-3 gap-3 text-sm" : "contents"}>
         <div>
-          <p className="text-xs font-semibold uppercase text-content/45">
+          <p className="text-content/45 text-xs font-semibold uppercase">
             {t("qty")}
           </p>
-          <p className="mt-1 font-semibold tabular-nums text-content">
+          <p className="text-content mt-1 font-semibold tabular-nums">
             {numberFormatter.format(item.quantity)}
           </p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase text-content/45">
+          <p className="text-content/45 text-xs font-semibold uppercase">
             {t("unit")}
           </p>
-          <p className="mt-1 font-semibold tabular-nums text-content">
+          <p className="text-content mt-1 font-semibold tabular-nums">
             {currencyFormatter.format(preview.unitPrice)}
           </p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase text-content/45">
+          <p className="text-content/45 text-xs font-semibold uppercase">
             {t("subtotal")}
           </p>
-          <p className="mt-1 font-semibold tabular-nums text-content">
+          <p className="text-content mt-1 font-semibold tabular-nums">
             {currencyFormatter.format(preview.subtotal)}
           </p>
         </div>

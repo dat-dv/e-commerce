@@ -12,13 +12,13 @@ export function CategorySidebarHeader({
 }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+      <div className="bg-primary/10 text-primary flex size-9 items-center justify-center rounded-xl">
         <FolderTree size={17} strokeWidth={2} aria-hidden />
       </div>
 
       <div>
         <h2
-          className={`${TYPOGRAPHY.sectionTitle} tracking-tight text-content`}
+          className={`${TYPOGRAPHY.sectionTitle} text-content tracking-tight`}
         >
           {title}
         </h2>

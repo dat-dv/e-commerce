@@ -49,9 +49,9 @@ const CategoryMegaMenuContent = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full py-8 flex flex-col">
+    <div className="flex w-full flex-col py-8">
       {/* 1. 2-Row Horizontal Grid Navigation */}
-      <div className="grid grid-rows-2 grid-flow-col gap-x-10 gap-y-4 border-b border-content/10 pb-6 mb-8 overflow-x-auto hide-scrollbar shrink-0 scroll-smooth">
+      <div className="border-content/10 hide-scrollbar mb-8 grid shrink-0 grid-flow-col grid-rows-2 gap-x-10 gap-y-4 overflow-x-auto scroll-smooth border-b pb-6">
         {/* All Categories */}
         <ParentCategoryItem
           name={t("allCategories")}
@@ -91,7 +91,7 @@ const CategoryMegaMenuContent = () => {
 
       {/* 2. Subcategories List */}
       <div className="flex-1">
-        <div className="flex gap-x-4 flex-wrap gap-y-3">
+        <div className="flex flex-wrap gap-x-4 gap-y-3">
           <SubCategoryItem
             name={`All ${currentCategory?.name || ""}`}
             href={APP_ROUTES.CATEGORY_DETAIL(currentCategory?.slug || "")}
@@ -135,7 +135,7 @@ export const CategoryMegaMenuContentWrapper = () => {
   if (!isOpenCategory) return null;
 
   return (
-    <div className="fixed top-16 left-0 w-full bg-surface z-50 overflow-hidden shadow-2xl border-b border-content/10">
+    <div className="bg-surface border-content/10 fixed top-16 left-0 z-50 w-full overflow-hidden border-b shadow-2xl">
       <AppContainer>
         <CategoryMegaMenuContent />
       </AppContainer>

@@ -7,28 +7,28 @@ export const AccessDenied = () => {
   const t = useTranslations("Common.accessDenied");
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-120px)] p-6">
-      <AnimationContainer className="text-center space-y-8 max-w-sm">
+    <div className="flex min-h-[calc(100vh-120px)] items-center justify-center p-6">
+      <AnimationContainer className="max-w-sm space-y-8 text-center">
         <AnimationItem>
-          <div className="relative inline-block mb-4">
-            <div className="absolute -inset-4 bg-red-500/10 rounded-full blur-3xl" />
-            <h1 className="relative text-5xl sm:text-6xl font-black italic tracking-tighter text-content select-none">
+          <div className="relative mb-4 inline-block">
+            <div className="absolute -inset-4 rounded-full bg-red-500/10 blur-3xl" />
+            <h1 className="text-content relative text-5xl font-black tracking-tighter italic select-none sm:text-6xl">
               {t("title")}{" "}
               <span className="text-primary">{t("highlight")}</span>
             </h1>
           </div>
-          <p className="mt-4 text-lg font-medium opacity-50 leading-relaxed text-content/80">
+          <p className="text-content/80 mt-4 text-lg leading-relaxed font-medium opacity-50">
             {t("description")}
           </p>
         </AnimationItem>
 
         <AnimationItem>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               href={APP_ROUTES.SIGN_IN}
               variant="primary"
               size="lg"
-              className="w-full sm:w-auto px-10 shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
+              className="shadow-primary/20 w-full px-10 shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
             >
               {t("signIn")}
             </Button>
@@ -36,7 +36,7 @@ export const AccessDenied = () => {
               href={APP_ROUTES.SIGN_UP}
               variant="ghost"
               size="lg"
-              className="w-full sm:w-auto px-10 hover:bg-content/5"
+              className="hover:bg-content/5 w-full px-10 sm:w-auto"
             >
               {t("createAccount")}
             </Button>

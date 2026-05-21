@@ -22,7 +22,7 @@ export function ProductCardPrice({
       </span>
       {hasOriginalPrice ? (
         <span
-          className={`${TYPOGRAPHY.badge} text-content/20 line-through font-medium`}
+          className={`${TYPOGRAPHY.badge} text-content/20 font-medium line-through`}
         >
           {originalPrice}
         </span>

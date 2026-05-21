@@ -21,7 +21,7 @@ export const OrderList = () => {
             key={i}
             className={cn(
               UI_RADIUS.card,
-              "w-full h-48 bg-gray-100 animate-pulse",
+              "h-48 w-full animate-pulse bg-gray-100",
             )}
           />
         ))}
@@ -30,10 +30,10 @@ export const OrderList = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50/50">
+    <div className="flex min-h-screen flex-col bg-gray-50/50">
       <OrderTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <div className="p-4 mx-auto w-full">
+      <div className="mx-auto w-full p-4">
         <AnimatePresence mode="popLayout">
           {orders.length > 0 ? (
             orders.map((order) => <OrderCard key={order.id} order={order} />)
@@ -44,7 +44,7 @@ export const OrderList = () => {
               exit={{ opacity: 0, scale: 0.95 }}
               className="flex flex-col items-center justify-center py-20 text-gray-400"
             >
-              <PackageOpen className="w-16 h-16 mb-4 stroke-[1.5]" />
+              <PackageOpen className="mb-4 h-16 w-16 stroke-[1.5]" />
               <p className="text-lg font-medium">{t("card.noOrders")}</p>
               <p className="text-sm">{t("card.emptyListDesc")}</p>
             </motion.div>

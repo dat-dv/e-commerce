@@ -33,7 +33,7 @@ export default function HeaderActions({
   const isFallbackVisible = visible.includes("fallback");
 
   return (
-    <div className="flex items-center gap-2 md:gap-3 ml-1 md:ml-2">
+    <div className="ml-1 flex items-center gap-2 md:ml-2 md:gap-3">
       <ProtectedSection
         fallbackChildren={
           isFallbackVisible && (
@@ -76,12 +76,12 @@ export default function HeaderActions({
           <Button
             variant="ghost"
             onClick={() => setCartOpen(true)}
-            className="relative p-2.5 text-content/60 hover:text-content hover:bg-content/[0.05] rounded-full transition-colors flex items-center justify-center h-auto active:scale-95 opacity-100 hover:opacity-100"
+            className="text-content/60 hover:text-content hover:bg-content/[0.05] relative flex h-auto items-center justify-center rounded-full p-2.5 opacity-100 transition-colors hover:opacity-100 active:scale-95"
             title={t("cart")}
           >
             <CartIcon isActive={isCartOpen} itemsCount={itemsCount} />
             {itemsCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+              <span className="absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
                 {itemsCount}
               </span>
             )}

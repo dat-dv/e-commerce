@@ -24,7 +24,7 @@ export const ParentCategoryItem = ({
       type="button"
       onClick={onClick}
       className={cn(
-        "relative whitespace-nowrap pb-2 text-left text-sm font-bold capitalize",
+        "relative pb-2 text-left text-sm font-bold whitespace-nowrap capitalize",
         active ? "text-primary" : "text-content/60",
       )}
     >
@@ -36,7 +36,7 @@ export const ParentCategoryItem = ({
       </LiquidWaveText>
 
       {active && (
-        <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-primary" />
+        <span className="bg-primary absolute bottom-0 left-0 h-[2.5px] w-full rounded-full" />
       )}
     </button>
   );

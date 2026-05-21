@@ -85,32 +85,32 @@ export const FormMapPicker = ({
   };
 
   return (
-    <div className="flex flex-col gap-1.5 w-full">
-      <label className="text-sm font-bold opacity-70 ml-1 tracking-tight text-content/80">
+    <div className="flex w-full flex-col gap-1.5">
+      <label className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
         {label}
       </label>
       <div
         onClick={() => !disabled && setMapOpen(true)}
         className={cn(
-          "h-10 px-4 border rounded-xl cursor-pointer flex justify-between items-center transition-all duration-300",
+          "flex h-10 cursor-pointer items-center justify-between rounded-xl border px-4 transition-all duration-300",
           displayValue
-            ? "border-primary/40 bg-primary/5 shadow-sm shadow-primary/5"
+            ? "border-primary/40 bg-primary/5 shadow-primary/5 shadow-sm"
             : "border-content/10 bg-white/5 backdrop-blur-xl",
           disabled && "cursor-not-allowed opacity-50 shadow-none",
         )}
       >
-        <div className="flex items-center gap-3 max-w-[80%]">
-          <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+        <div className="flex max-w-[80%] items-center gap-3">
+          <MapPin className="text-primary h-4 w-4 flex-shrink-0" />
           <span
             className={cn(
-              "text-sm truncate",
+              "truncate text-sm",
               !displayValue && "text-content/40",
             )}
           >
             {displayValue || t("placeholder")}
           </span>
         </div>
-        <span className="text-xs text-primary font-medium">
+        <span className="text-primary text-xs font-medium">
           {displayValue ? t("change") : t("select")}
         </span>
       </div>
@@ -122,7 +122,7 @@ export const FormMapPicker = ({
             initial={{ opacity: 0, height: 0, y: -5 }}
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: -5 }}
-            className="text-[11px] font-bold text-red-500 tracking-tight ml-1 overflow-hidden block mt-1"
+            className="mt-1 ml-1 block overflow-hidden text-[11px] font-bold tracking-tight text-red-500"
           >
             {String(error?.message || "")}
           </motion.span>

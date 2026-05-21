@@ -27,10 +27,10 @@ export const ReviewSubmitForm = ({
 }: ReviewSubmitFormProps) => {
   const t = useTranslations("ProductDetailPage");
   return (
-    <div className="rounded-2xl border border-content/[0.05] bg-background/40 p-5">
+    <div className="border-content/[0.05] bg-background/40 rounded-2xl border p-5">
       <div className="mb-4 flex flex-col gap-1">
-        <h3 className="text-base font-bold text-content">{t("writeReview")}</h3>
-        <p className="text-sm text-content/55">{t("writeReviewDesc")}</p>
+        <h3 className="text-content text-base font-bold">{t("writeReview")}</h3>
+        <p className="text-content/55 text-sm">{t("writeReviewDesc")}</p>
       </div>
 
       {isAuthenticated ? (
@@ -57,7 +57,7 @@ export const ReviewSubmitForm = ({
                         aria-label={t("filterStars", {
                           rating: String(rating),
                         })}
-                        className="rounded-lg p-1 text-amber-400 outline-none transition-colors hover:bg-amber-400/10 focus-visible:ring-2 focus-visible:ring-primary/50"
+                        className="focus-visible:ring-primary/50 rounded-lg p-1 text-amber-400 transition-colors outline-none hover:bg-amber-400/10 focus-visible:ring-2"
                         onClick={() => field.onChange(rating)}
                       >
                         <Star
@@ -89,7 +89,7 @@ export const ReviewSubmitForm = ({
                 error={fieldError?.message}
                 maxCount={1000}
                 placeholder={t("commentPlaceholder")}
-                className="min-h-28 border-content/5 bg-surface focus:border-primary"
+                className="border-content/5 bg-surface focus:border-primary min-h-28"
               />
             )}
           />
@@ -112,7 +112,7 @@ export const ReviewSubmitForm = ({
         </AppForm>
       ) : (
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-content/60">{t("signInToReview")}</p>
+          <p className="text-content/60 text-sm">{t("signInToReview")}</p>
           <Button
             href={APP_ROUTES.SIGN_IN}
             variant="outline"

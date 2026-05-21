@@ -12,11 +12,11 @@ export function EmptyOrders({
 }) {
   const t = useTranslations("AdminOrdersPage.results");
   return (
-    <div className="flex min-h-60 flex-col items-center justify-center rounded-md border border-content/10 px-4 text-center">
-      <h2 className="text-base font-semibold text-content">
+    <div className="border-content/10 flex min-h-60 flex-col items-center justify-center rounded-md border px-4 text-center">
+      <h2 className="text-content text-base font-semibold">
         {t("noOrdersFound")}
       </h2>
-      <p className="mt-1 max-w-sm text-sm text-content/55">
+      <p className="text-content/55 mt-1 max-w-sm text-sm">
         {t("noOrdersDesc")}
       </p>
       {hasFilters && (
@@ -24,7 +24,7 @@ export function EmptyOrders({
           type="button"
           variant="ghost"
           onClick={onClearFilters}
-          className="mt-4 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto opacity-100 hover:opacity-100"
+          className="bg-primary hover:bg-primary/90 focus-visible:ring-primary/40 mt-4 h-auto rounded-md px-4 py-2 text-sm font-semibold text-white opacity-100 hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none"
         >
           {t("clearFilters")}
         </Button>

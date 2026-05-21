@@ -25,27 +25,27 @@ export const QuantitySelector = ({
     <div
       className={cn(
         UI_RADIUS.control,
-        "flex items-center border border-content/[0.1] overflow-hidden bg-white/50 backdrop-blur-sm shadow-sm",
-        disabled ? "opacity-50 pointer-events-none" : "",
+        "border-content/[0.1] flex items-center overflow-hidden border bg-white/50 shadow-sm backdrop-blur-sm",
+        disabled ? "pointer-events-none opacity-50" : "",
         className,
       )}
     >
       <Button
         variant="ghost"
         onClick={() => onChange(Math.max(1, value - 1))}
-        className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content rounded-none border-r border-content/[0.1] h-auto active:scale-100 hover:opacity-100 opacity-100 font-normal"
+        className="hover:bg-content/[0.05] text-content/40 hover:text-content border-content/[0.1] h-auto rounded-none border-r p-1.5 font-normal opacity-100 transition-colors hover:opacity-100 active:scale-100"
         disabled={disabled}
         aria-label={t("decrease")}
       >
         <Minus size={14} aria-hidden />
       </Button>
-      <span className="px-3 min-w-[36px] text-center text-sm font-bold text-content">
+      <span className="text-content min-w-[36px] px-3 text-center text-sm font-bold">
         {value}
       </span>
       <Button
         variant="ghost"
         onClick={() => onChange(value + 1)}
-        className="p-1.5 hover:bg-content/[0.05] transition-colors text-content/40 hover:text-content rounded-none border-l border-content/[0.1] h-auto active:scale-100 hover:opacity-100 opacity-100 font-normal"
+        className="hover:bg-content/[0.05] text-content/40 hover:text-content border-content/[0.1] h-auto rounded-none border-l p-1.5 font-normal opacity-100 transition-colors hover:opacity-100 active:scale-100"
         disabled={disabled}
         aria-label={t("increase")}
       >

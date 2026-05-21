@@ -30,18 +30,18 @@ export const CategoryCard = ({
       href={href}
       className={cn(
         UI_RADIUS.card,
-        "group relative h-32 border border-content/10 p-6 flex flex-col justify-between transition-all overflow-hidden w-full",
+        "group border-content/10 relative flex h-32 w-full flex-col justify-between overflow-hidden border p-6 transition-all",
       )}
     >
       <div
-        className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-current to-transparent opacity-[0.02] group-hover:opacity-[0.08] blur-2xl transition-opacity ${color}`}
+        className={`absolute top-0 right-0 h-24 w-24 bg-gradient-to-br from-current to-transparent opacity-[0.02] blur-2xl transition-opacity group-hover:opacity-[0.08] ${color}`}
       />
-      <div className="flex justify-between items-start">
+      <div className="flex items-start justify-between">
         <div>
-          <h3 className="font-bold text-content group-hover:text-primary transition-colors capitalize pr-1 line-clamp-2">
+          <h3 className="text-content group-hover:text-primary line-clamp-2 pr-1 font-bold capitalize transition-colors">
             {name}
           </h3>
-          {showCount && <p className="text-xs text-content/40">{count}</p>}
+          {showCount && <p className="text-content/40 text-xs">{count}</p>}
         </div>
         {image ? (
           <Image
@@ -49,11 +49,11 @@ export const CategoryCard = ({
             height={100}
             src={image}
             alt={name}
-            className={cn(UI_RADIUS.media, "w-10 h-10 object-cover")}
+            className={cn(UI_RADIUS.media, "h-10 w-10 object-cover")}
           />
         ) : (
           <Icon
-            className={`w-6 h-6 ${color} opacity-30 group-hover:opacity-100 transition-opacity`}
+            className={`h-6 w-6 ${color} opacity-30 transition-opacity group-hover:opacity-100`}
           />
         )}
       </div>

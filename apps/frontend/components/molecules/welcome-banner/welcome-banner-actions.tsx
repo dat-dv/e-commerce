@@ -15,7 +15,7 @@ export default function HomeHeroActions({
   const t = useTranslations("HomePage.hero");
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 pt-3">
+    <div className="flex flex-col gap-4 pt-3 sm:flex-row">
       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
         <Button
           href={APP_ROUTES.PRODUCTS}
@@ -23,7 +23,7 @@ export default function HomeHeroActions({
           size="lg"
           className={cn(
             UI_RADIUS.control,
-            "px-8 text-sm font-bold shadow-xl shadow-primary/20",
+            "shadow-primary/20 px-8 text-sm font-bold shadow-xl",
           )}
         >
           {isLoggedIn ? t("btnContinueShopping") : t("btnStartShopping")}
@@ -37,7 +37,7 @@ export default function HomeHeroActions({
           size="lg"
           className={cn(
             UI_RADIUS.control,
-            "px-8 text-sm font-bold border border-content/[0.08] hover:bg-content/[0.02]",
+            "border-content/[0.08] hover:bg-content/[0.02] border px-8 text-sm font-bold",
           )}
         >
           {isLoggedIn ? t("btnViewOrders") : t("btnExploreCollections")}

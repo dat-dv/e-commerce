@@ -10,14 +10,14 @@ import { SectionHeader } from "../section-header";
 const ProductCardSpacer = () => (
   <div
     aria-hidden="true"
-    className="flex h-full flex-1 flex-col p-3 pointer-events-none invisible"
+    className="pointer-events-none invisible flex h-full flex-1 flex-col p-3"
   >
     <div className="relative aspect-square rounded-xl bg-transparent" />
-    <div className="mt-3 flex flex-col flex-grow">
+    <div className="mt-3 flex flex-grow flex-col">
       <span className="text-[10px]">&nbsp;</span>
       <h3 className="mt-1 text-sm font-bold">&nbsp;</h3>
       <div className="mt-1 flex items-center gap-2">&nbsp;</div>
-      <div className="mt-auto pt-3 flex items-center justify-between">
+      <div className="mt-auto flex items-center justify-between pt-3">
         &nbsp;
       </div>
     </div>
@@ -61,7 +61,7 @@ export const ProductCarousel = ({
       <SectionHeader
         title={title}
         href={href || APP_ROUTES.PRODUCTS}
-        icon={<Icon className="size-4 shrink-0 text-primary sm:size-5" />}
+        icon={<Icon className="text-primary size-4 shrink-0 sm:size-5" />}
       />
 
       <Carousel options={{ align: "start" }}>

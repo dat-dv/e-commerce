@@ -17,22 +17,22 @@ export function HelpContactView(): React.ReactElement {
       <div className="mb-6 sm:mb-8">
         <Link
           href={APP_ROUTES.HELP}
-          className="inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
+          className="text-primary inline-flex items-center gap-1 text-sm font-bold hover:underline"
         >
           {t("backToHelp")}
         </Link>
-        <h1 className="mt-2 text-2xl font-black text-content sm:text-3xl">
+        <h1 className="text-content mt-2 text-2xl font-black sm:text-3xl">
           {t("title")}
         </h1>
-        <p className="mt-1 text-sm leading-6 text-content/60">
+        <p className="text-content/60 mt-1 text-sm leading-6">
           {t("subtitle")}
         </p>
       </div>
 
       <div className="mb-10 grid grid-cols-1 gap-6 lg:mb-12 lg:grid-cols-3 lg:gap-8">
         {/* Contact Form */}
-        <div className="rounded-2xl border border-content/5 bg-surface p-5 shadow-sm sm:p-8 lg:col-span-2">
-          <h2 className="mb-5 text-lg font-bold text-content sm:mb-6 sm:text-xl">
+        <div className="border-content/5 bg-surface rounded-2xl border p-5 shadow-sm sm:p-8 lg:col-span-2">
+          <h2 className="text-content mb-5 text-lg font-bold sm:mb-6 sm:text-xl">
             {t("sendUsAMessage")}
           </h2>
           <ContactForm />
@@ -40,14 +40,14 @@ export function HelpContactView(): React.ReactElement {
 
         {/* Direct Contact Info & Support */}
         <div className="flex flex-col gap-6 self-start">
-          <div className="rounded-2xl border border-content/5 bg-surface p-5 shadow-sm sm:p-8">
-            <h3 className="mb-2 text-lg font-bold text-content">
+          <div className="border-content/5 bg-surface rounded-2xl border p-5 shadow-sm sm:p-8">
+            <h3 className="text-content mb-2 text-lg font-bold">
               {t("directContact")}
             </h3>
-            <p className="mb-4 text-sm leading-6 text-content/60">
+            <p className="text-content/60 mb-4 text-sm leading-6">
               {t("directSupportNote")}
             </p>
-            <div className="space-y-2 text-sm text-content/80">
+            <div className="text-content/80 space-y-2 text-sm">
               <p className="break-words">
                 📧 <span className="font-medium">{t("emailLabel")}:</span>{" "}
                 support@shop.hub

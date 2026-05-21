@@ -82,8 +82,8 @@ export const Carousel = ({ children, options, loadMore }: CarouselProps) => {
         onClick={scrollPrev}
         disabled={!prevBtnEnabled}
         aria-label="Previous carousel items"
-        className={`absolute left-3 top-1/2 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-content/[0.05] bg-surface/85 p-0 text-content/60 shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:bg-content/[0.02] sm:flex lg:left-4 lg:size-11 ${
-          !prevBtnEnabled ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`border-content/[0.05] bg-surface/85 text-content/60 hover:bg-content/[0.02] absolute top-1/2 left-3 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border p-0 shadow-lg shadow-black/5 backdrop-blur-md transition-all sm:flex lg:left-4 lg:size-11 ${
+          !prevBtnEnabled ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
         <ArrowRight className="size-5 rotate-180" />
@@ -93,8 +93,8 @@ export const Carousel = ({ children, options, loadMore }: CarouselProps) => {
         onClick={scrollNext}
         disabled={!nextBtnEnabled}
         aria-label="Next carousel items"
-        className={`absolute right-3 top-1/2 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-content/[0.05] bg-surface/85 p-0 text-content/60 shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:bg-content/[0.02] sm:flex lg:right-4 lg:size-11 ${
-          !nextBtnEnabled ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`border-content/[0.05] bg-surface/85 text-content/60 hover:bg-content/[0.02] absolute top-1/2 right-3 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border p-0 shadow-lg shadow-black/5 backdrop-blur-md transition-all sm:flex lg:right-4 lg:size-11 ${
+          !nextBtnEnabled ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
         <ArrowRight className="size-5" />
@@ -111,7 +111,7 @@ export const CarouselItem = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("min-w-0 flex flex-col items-stretch", className)}>
+    <div className={cn("flex min-w-0 flex-col items-stretch", className)}>
       {children}
     </div>
   );

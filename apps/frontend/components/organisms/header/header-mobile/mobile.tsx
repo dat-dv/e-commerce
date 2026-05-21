@@ -20,8 +20,8 @@ export default function HeaderMobile() {
   const [isOpenSearch, setIsOpenSearch] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full flex flex-col border-b border-content/10 bg-surface">
-      <AppContainer className="flex h-16 items-center justify-between relative z-20">
+    <header className="border-content/10 bg-surface sticky top-0 z-50 flex w-full flex-col border-b">
+      <AppContainer className="relative z-20 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <HeaderLogo />
         </div>
@@ -29,7 +29,7 @@ export default function HeaderMobile() {
           <Button
             variant="ghost"
             onClick={() => setIsOpenSearch(true)}
-            className="flex size-10 items-center justify-center rounded-full p-0 text-content/60 hover:bg-content/[0.05] hover:text-content"
+            className="text-content/60 hover:bg-content/[0.05] hover:text-content flex size-10 items-center justify-center rounded-full p-0"
             aria-label="Open search"
           >
             <Search className="size-5" aria-hidden="true" />

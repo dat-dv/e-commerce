@@ -68,9 +68,9 @@ tracking-tight border shadow-md`,
       closeButton={({ closeToast }) => (
         <button
           onClick={closeToast}
-          className="ml-2 rounded-full p-1 opacity-40 hover:bg-black/5 dark:hover:bg-white/10 hover:opacity-100 transition-all active:scale-90"
+          className="ml-2 rounded-full p-1 opacity-40 transition-all hover:bg-black/5 hover:opacity-100 active:scale-90 dark:hover:bg-white/10"
         >
-          <X className="w-4 h-4" />
+          <X className="h-4 w-4" />
         </button>
       )}
     />

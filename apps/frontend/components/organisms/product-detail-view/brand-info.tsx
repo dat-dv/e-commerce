@@ -16,15 +16,15 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
   if (!brand) return null;
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-content/[0.06] bg-surface px-4 py-3 shadow-sm transition-all duration-300 hover:border-content/[0.1] hover:shadow-md">
+    <div className="group border-content/[0.06] bg-surface hover:border-content/[0.1] relative overflow-hidden rounded-2xl border px-4 py-3 shadow-sm transition-all duration-300 hover:shadow-md">
       {/* glow */}
-      <div className="absolute right-0 top-0 h-24 w-24 translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/5 blur-2xl transition-transform duration-500 group-hover:scale-125" />
+      <div className="bg-primary/5 absolute top-0 right-0 h-24 w-24 translate-x-1/3 -translate-y-1/3 rounded-full blur-2xl transition-transform duration-500 group-hover:scale-125" />
 
       <div className="relative flex items-center justify-between gap-3">
         {/* left */}
         <div className="flex min-w-0 items-center gap-3">
           {/* logo */}
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] p-2 sm:h-16 sm:w-16">
+          <div className="border-content/[0.05] bg-content/[0.02] flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border p-2 sm:h-16 sm:w-16">
             {brand.logoUrl ? (
               <div className="relative h-full w-full">
                 <Image
@@ -37,7 +37,7 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
                 />
               </div>
             ) : (
-              <span className="text-xl font-bold uppercase text-content/10">
+              <span className="text-content/10 text-xl font-bold uppercase">
                 {brand.name.charAt(0)}
               </span>
             )}
@@ -45,11 +45,11 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
 
           {/* content */}
           <div className="min-w-0">
-            <h3 className="truncate text-sm font-bold text-content sm:text-base">
+            <h3 className="text-content truncate text-sm font-bold sm:text-base">
               {brand.name}
             </h3>
 
-            <p className="mt-0.5 line-clamp-1 text-xs text-content/50 sm:line-clamp-2">
+            <p className="text-content/50 mt-0.5 line-clamp-1 text-xs sm:line-clamp-2">
               {brand.description || t("authenticProduct")}
             </p>
           </div>
@@ -58,7 +58,7 @@ export const BrandInfo = ({ brand }: BrandInfoProps) => {
         {/* action */}
         <Link
           href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
-          className="shrink-0 rounded-xl border border-content/[0.06] px-3 py-2 text-xs font-semibold text-content/80 transition-all duration-300 hover:bg-content/[0.03] hover:text-content active:scale-95 sm:px-4"
+          className="border-content/[0.06] text-content/80 hover:bg-content/[0.03] hover:text-content shrink-0 rounded-xl border px-3 py-2 text-xs font-semibold transition-all duration-300 active:scale-95 sm:px-4"
         >
           {t("viewStore")}
         </Link>

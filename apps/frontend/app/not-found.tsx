@@ -18,36 +18,36 @@ export default async function NotFound() {
   const t = await getTranslations("Common.notFoundPage");
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-surface selection:bg-primary/30 relative overflow-hidden">
+    <div className="bg-surface selection:bg-primary/30 relative flex min-h-screen flex-col items-center justify-center overflow-hidden p-6">
       {/* Background Decor */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[160px] opacity-60 pointer-events-none" />
-      <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[120px] opacity-40 pointer-events-none" />
+      <div className="bg-primary/10 pointer-events-none absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[160px]" />
+      <div className="bg-secondary/10 pointer-events-none absolute top-[20%] right-[10%] h-[300px] w-[300px] rounded-full opacity-40 blur-[120px]" />
 
-      <div className="relative z-10 flex flex-col items-center text-center max-w-lg animate-in fade-in slide-in-from-bottom-8 duration-700">
+      <div className="animate-in fade-in slide-in-from-bottom-8 relative z-10 flex max-w-lg flex-col items-center text-center duration-700">
         <div className="relative mb-12">
-          <h1 className="text-[180px] font-black tracking-tighter leading-none bg-gradient-to-b from-primary to-primary/20 bg-clip-text text-transparent opacity-20 select-none">
+          <h1 className="from-primary to-primary/20 bg-gradient-to-b bg-clip-text text-[180px] leading-none font-black tracking-tighter text-transparent opacity-20 select-none">
             404
           </h1>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="p-8 bg-surface/40 backdrop-blur-3xl border border-content/5 rounded-[48px] shadow-2xl">
+            <div className="bg-surface/40 border-content/5 rounded-[48px] border p-8 shadow-2xl backdrop-blur-3xl">
               <span className="text-5xl">🔭</span>
             </div>
           </div>
         </div>
 
-        <h2 className="text-4xl font-bold tracking-tight mb-4">{t("title")}</h2>
-        <p className="text-content/60 text-lg font-medium mb-12 leading-relaxed">
+        <h2 className="mb-4 text-4xl font-bold tracking-tight">{t("title")}</h2>
+        <p className="text-content/60 mb-12 text-lg leading-relaxed font-medium">
           {t("description")}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full">
+        <div className="flex w-full flex-col gap-4 sm:flex-row">
           <Link href={APP_ROUTES.HOME} className="flex-1">
             <Button
               variant="primary"
               size="lg"
               className="w-full rounded-[24px]"
             >
-              <MoveLeft className="mr-2 w-5 h-5" />
+              <MoveLeft className="mr-2 h-5 w-5" />
               {t("returnHome")}
             </Button>
           </Link>

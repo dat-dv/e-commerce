@@ -19,20 +19,20 @@ export const DiscoverySectionSkeleton = ({
   return (
     <div className="w-full py-6">
       <div className="mb-6 flex flex-col gap-2">
-        <div className="flex items-center gap-2 text-content/20">
+        <div className="text-content/20 flex items-center gap-2">
           <Eye size={16} />
-          <div className="h-3 w-16 rounded bg-content/5 animate-pulse" />
+          <div className="bg-content/5 h-3 w-16 animate-pulse rounded" />
         </div>
-        <div className="h-7 w-48 rounded bg-content/5 animate-pulse" />
+        <div className="bg-content/5 h-7 w-48 animate-pulse rounded" />
       </div>
       <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
-            className="aspect-[3/4] rounded-3xl border border-content/[0.04] bg-content/[0.02] p-4 flex flex-col justify-end gap-3"
+            className="border-content/[0.04] bg-content/[0.02] flex aspect-[3/4] flex-col justify-end gap-3 rounded-3xl border p-4"
           >
-            <div className="h-4 bg-content/5 rounded-full w-3/4 animate-pulse" />
-            <div className="h-3 bg-content/5 rounded-full w-1/2 animate-pulse" />
+            <div className="bg-content/5 h-4 w-3/4 animate-pulse rounded-full" />
+            <div className="bg-content/5 h-3 w-1/2 animate-pulse rounded-full" />
           </div>
         ))}
       </div>

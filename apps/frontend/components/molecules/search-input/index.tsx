@@ -72,12 +72,12 @@ export const SearchInput = ({
   return (
     <div
       className={cn(
-        "group relative flex items-center border border-content/10 bg-content/[0.02] p-1.5 transition-all duration-300 focus-within:border-primary/30 focus-within:bg-content/[0.04] focus-within:shadow-[0_0_30px_-5px_rgba(var(--primary-rgb),0.15)]",
+        "group border-content/10 bg-content/[0.02] focus-within:border-primary/30 focus-within:bg-content/[0.04] relative flex items-center border p-1.5 transition-all duration-300 focus-within:shadow-[0_0_30px_-5px_rgba(var(--primary-rgb),0.15)]",
         UI_RADIUS.panel,
         className,
       )}
     >
-      <div className="pl-4 text-content/30 transition-colors group-focus-within:text-primary shrink-0">
+      <div className="text-content/30 group-focus-within:text-primary shrink-0 pl-4 transition-colors">
         {loading ? (
           <Loader2 className="h-5 w-5 animate-spin" />
         ) : (
@@ -94,19 +94,19 @@ export const SearchInput = ({
         placeholder={resolvedPlaceholder}
         aria-label={ariaLabel ?? resolvedPlaceholder}
         className={cn(
-          "w-full bg-transparent px-3 py-2.5 text-sm font-semibold text-content outline-none placeholder:text-content/30",
+          "text-content placeholder:text-content/30 w-full bg-transparent px-3 py-2.5 text-sm font-semibold outline-none",
           inputClassName,
         )}
       />
 
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex shrink-0 items-center gap-2">
         {localValue && (
           <Button
             variant="ghost"
             onClick={handleClear}
             className={cn(
               UI_RADIUS.control,
-              "bg-content/5 px-2.5 py-1 text-xs font-bold text-content/60 hover:bg-content/10 hover:text-content flex items-center gap-1 h-auto",
+              "bg-content/5 text-content/60 hover:bg-content/10 hover:text-content flex h-auto items-center gap-1 px-2.5 py-1 text-xs font-bold",
             )}
           >
             <X className="h-3 w-3" />
@@ -120,7 +120,7 @@ export const SearchInput = ({
             onClick={() => onSearch?.(localValue)}
             className={cn(
               UI_RADIUS.control,
-              "px-5 py-2 bg-primary hover:bg-primary/90 text-white text-xs font-bold shadow-md shadow-primary/10 h-auto",
+              "bg-primary hover:bg-primary/90 shadow-primary/10 h-auto px-5 py-2 text-xs font-bold text-white shadow-md",
             )}
           >
             {resolvedSubmitButtonLabel}

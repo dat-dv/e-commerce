@@ -45,9 +45,9 @@ export default function MobileNavDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed bottom-0 left-0 top-0 z-50 flex w-[86vw] max-w-[360px] flex-col border-r border-content/10 bg-surface shadow-2xl sm:max-w-[380px] md:max-w-[420px]"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-50 flex w-[86vw] max-w-[360px] flex-col border-r shadow-2xl sm:max-w-[380px] md:max-w-[420px]"
           >
-            <div className="flex h-16 shrink-0 items-center justify-between border-b border-content/10 px-4">
+            <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
               <HeaderLogo />
               <HamburgerButton
                 isOpen
@@ -66,7 +66,7 @@ export default function MobileNavDrawer({
               <UserProfileSection
                 user={user}
                 onClose={onClose}
-                className="mt-auto border-t border-content/10 pt-4"
+                className="border-content/10 mt-auto border-t pt-4"
               />
             </div>
           </motion.div>

@@ -19,7 +19,7 @@ const SubCategoryItem = ({
     <Link
       href={href}
       className={cn(
-        "min-w-fit px-4 py-1.5 rounded-full border font-bold transition-all text-[12px]",
+        "min-w-fit rounded-full border px-4 py-1.5 text-[12px] font-bold transition-all",
         isActive
           ? "border-primary text-primary bg-primary/5"
           : "border-content/10 text-content/80 hover:border-primary/30 hover:bg-primary/5",

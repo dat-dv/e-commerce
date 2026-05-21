@@ -31,7 +31,7 @@ export function AppTooltip({
         className={(renderProps) =>
           cn(
             UI_RADIUS.popover,
-            "z-50 px-3 py-1.5 text-xs font-semibold text-white bg-slate-900/90 dark:bg-slate-100/90 dark:text-slate-900 shadow-md backdrop-blur-sm select-none transition-all duration-200 animate-in fade-in zoom-in-95 duration-100",
+            "animate-in fade-in zoom-in-95 z-50 bg-slate-900/90 px-3 py-1.5 text-xs font-semibold text-white shadow-md backdrop-blur-sm transition-all duration-100 duration-200 select-none dark:bg-slate-100/90 dark:text-slate-900",
             typeof className === "function"
               ? className(renderProps)
               : className,

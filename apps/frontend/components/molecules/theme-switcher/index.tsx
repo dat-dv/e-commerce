@@ -11,7 +11,7 @@ export default function ThemeSwitcher() {
 
   return (
     <div className="flex items-center gap-4">
-      <div className="flex items-center gap-2 rounded-full border border-black/[.08] p-1 bg-surface">
+      <div className="bg-surface flex items-center gap-2 rounded-full border border-black/[.08] p-1">
         {THEMES.map((t) => {
           const active = theme === t.id;
           return (
@@ -32,7 +32,7 @@ export default function ThemeSwitcher() {
         variant="primary"
         size="icon"
         onClick={toggleDarkMode}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-on-primary transition-transform hover:scale-105 active:scale-95"
+        className="bg-primary text-on-primary flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-105 active:scale-95"
       >
         {isDarkMode ? <SunIcon /> : <MoonIcon />}
       </Button>

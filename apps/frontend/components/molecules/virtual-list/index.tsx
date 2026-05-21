@@ -85,20 +85,20 @@ export function VirtualList<T extends { id?: string | number }>({
       >
         {loadingMore ? (
           <div className="flex flex-col items-center gap-3 py-6">
-            <div className="w-5 h-5 border-2 border-primary/10 border-t-primary rounded-full animate-spin" />
-            <span className="text-sm font-medium text-content/50">
+            <div className="border-primary/10 border-t-primary h-5 w-5 animate-spin rounded-full border-2" />
+            <span className="text-content/50 text-sm font-medium">
               {displayLoadingText}
             </span>
           </div>
         ) : hasMore ? (
           <div className="h-12" />
         ) : data.length > 0 ? (
-          <div className="py-6 flex items-center gap-4 w-full px-4">
-            <div className="h-px flex-1 bg-content/[0.05]" />
-            <span className="text-sm font-medium text-content/40 whitespace-nowrap">
+          <div className="flex w-full items-center gap-4 px-4 py-6">
+            <div className="bg-content/[0.05] h-px flex-1" />
+            <span className="text-content/40 text-sm font-medium whitespace-nowrap">
               {displayEndText}
             </span>
-            <div className="h-px flex-1 bg-content/[0.05]" />
+            <div className="bg-content/[0.05] h-px flex-1" />
           </div>
         ) : null}
       </div>
