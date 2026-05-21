@@ -17,7 +17,7 @@
 [data-theme="green"] {
   --primary: #22c55e;
   --primary-foreground: #ffffff;
-  --app-bg: #fafdfb;
+  --app-bg: #ffffff;
   --app-text: #0f172a;
 }
 
@@ -32,7 +32,7 @@
 [data-theme="orange"] {
   --primary: #f97316;
   --primary-foreground: #ffffff;
-  --app-bg: #fffbf9;
+  --app-bg: #ffffff;
   --app-text: #0f172a;
 }
 
@@ -47,8 +47,8 @@
 [data-theme="gold"] {
   --primary: #d97706;
   --primary-foreground: #ffffff;
-  --app-bg: #fdfaf2;
-  --app-text: #451a03;
+  --app-bg: #ffffff;
+  --app-text: #0f172a;
 }
 
 [data-theme="gold"].dark {
