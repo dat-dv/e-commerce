@@ -83,11 +83,11 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
         <div
           className={cn(
-            "flex items-center border transition-all focus-within:ring-2 focus-within:ring-primary/20",
-            size === "sm" && "h-8 rounded-lg text-xs",
-            size === "md" && "h-10 rounded-xl text-sm",
-            size === "lg" && "h-12 rounded-2xl text-base",
+            "flex items-center border transition-all focus-within:ring-2 focus-within:ring-primary/20 overflow-hidden",
             UI_RADIUS.input,
+            size === "sm" && "h-8 text-xs",
+            size === "md" && "h-10 text-sm",
+            size === "lg" && "h-12 text-base",
             rest.disabled
               ? "border-content/10 bg-content/5"
               : error
