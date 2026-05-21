@@ -1,5 +1,5 @@
-import { APP_ROUTES } from "@/constants/routes";
 import { HOMEPAGE_SECTION_TYPES } from "@/constants/homepage";
+import { APP_ROUTES } from "@/constants/routes";
 
 export const getSectionHref = (type: string, slug?: string): string => {
   if (slug) {

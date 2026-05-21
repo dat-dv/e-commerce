@@ -50,38 +50,24 @@ export const NotificationSummary = ({
             value={value}
             icon={icon}
             active={active}
-            className="
-              min-h-[88px]
-              min-w-[140px]
-              flex-1
-              rounded-2xl
-              p-3
-
-              sm:min-h-[120px]
-              sm:min-w-0
-              sm:rounded-3xl
-              sm:p-5
-            "
+            className="min-h-[88px] min-w-[140px] flex-1 rounded-2xl p-3 sm:min-h-[120px] sm:min-w-0 sm:rounded-3xl sm:p-5"
             contentClassName="gap-4"
             labelClassName={`
               truncate
               ${TYPOGRAPHY.badge}
               tracking-[0.12em]
-
               sm:${TYPOGRAPHY.caption}
               sm:tracking-[0.18em]
             `}
             valueClassName="
               mt-2
               text-2xl
-
               sm:mt-3
               sm:text-4xl
             "
             iconWrapperClassName="
               size-8
               rounded-xl
-
               sm:size-11
               sm:rounded-2xl
             "
