@@ -67,6 +67,14 @@ export interface ApiListResponse<T> {
   meta: IPaginationMeta;
 }
 
+export type PaginatedInitialData<T> = ApiListResponse<T> | null;
+
+export type SearchParamsValue = string | string[] | undefined;
+
+export type SearchParamsRecord = Record<string, SearchParamsValue>;
+
+export type AsyncSearchParams = Promise<SearchParamsRecord>;
+
 export interface ApiResponse<T> {
   data: T;
   meta?: IPaginationMeta;

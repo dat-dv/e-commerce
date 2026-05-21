@@ -6,14 +6,14 @@ import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import usePagination from "@/hooks/use-pagination";
-import { IPaginationMeta } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import DiscoveryCarouselSection from "../discovery-sections";
 import BrandListGrid from "./brands-list";
 
 interface TopBrandsViewProps {
-  initialData: { items: TBrand[]; meta: IPaginationMeta } | null;
+  initialData: PaginatedInitialData<TBrand>;
 }
 
 const BrandsView = ({ initialData }: TopBrandsViewProps) => {

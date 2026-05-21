@@ -15,7 +15,7 @@ import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import usePagination from "@/hooks/use-pagination";
-import { IPaginationMeta } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import { useState } from "react";
 
 import { useTranslations } from "next-intl";
@@ -23,10 +23,7 @@ import { useRouter } from "next/navigation";
 
 interface SearchViewProps {
   searchQuery: string;
-  initialData: {
-    items: TProduct[];
-    meta: IPaginationMeta;
-  };
+  initialData: PaginatedInitialData<TProduct>;
 }
 
 type SearchQueryParams = {

@@ -3,10 +3,11 @@ import { SearchView } from "@/components/organisms/search-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { allSafe } from "@/utils/promise";
+import { AsyncSearchParams } from "@/utils/request/request.types";
 import type { Metadata } from "next";
 
 interface SearchPageProps {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: AsyncSearchParams;
 }
 
 export async function generateMetadata({
@@ -41,5 +42,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   if (!productsRes) return <NotFound />;
 
-  return <SearchView searchQuery={query} initialData={productsRes.data} />;
+  const initialData =
+    productsRes.status === "success" ? productsRes.data : null;
+
+  return <SearchView searchQuery={query} initialData={initialData} />;
 }

@@ -1,12 +1,11 @@
+import NotFound from "@/app/not-found";
 import NewArrivalView from "@/components/organisms/new-arrival/new-arrival-view";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { safe } from "@/utils/promise";
-import { Metadata } from "next";
-import NotFound from "@/app/not-found";
+import { AsyncSearchParams } from "@/utils/request/request.types";
 import { EProductSort } from "@ecommerce/shared";
-import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
-import { createEmptyPaginatedData } from "@/utils/request/pagination";
-import { TProduct } from "@/domain/products/types/products.model";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,13 +16,23 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t("description"),
   };
 }
+interface NewArrivalsPageProps {
+  searchParams: AsyncSearchParams;
+}
+export default async function NewArrivalsPage({
+  searchParams,
+}: NewArrivalsPageProps) {
+  const p = await searchParams;
+  const page = Number(p.page) || 1;
+  const limit = Number(p.limit) || PAGINATION_LIMITS.PRODUCTS;
+  const search = String(p.search || "");
 
-export default async function NewArrivalsPage() {
   const productsResponse = await safe(
     productsUseCase.getProducts.execute({
-      page: 1,
-      limit: PAGINATION_LIMITS.PRODUCTS,
+      page,
+      limit,
       sort: EProductSort.DEFAULT.toString(),
+      search: search,
     }),
   );
 
@@ -32,12 +41,7 @@ export default async function NewArrivalsPage() {
   }
 
   const initialData =
-    productsResponse.status === "success"
-      ? productsResponse.data
-      : createEmptyPaginatedData<TProduct>({
-          page: 1,
-          limit: PAGINATION_LIMITS.PRODUCTS,
-        });
+    productsResponse.status === "success" ? productsResponse.data : null;
 
   return <NewArrivalView initialData={initialData} />;
 }

@@ -1,12 +1,12 @@
 import AppContainer from "@/components/atoms/app-container";
 import { TProduct } from "@/domain/products/types/products.model";
-import { ApiListResponse } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import DiscoveryCarouselSection from "../discovery-sections";
 import { FlashSaleHeader } from "./flash-sale-header";
 import FlashSaleList from "./flash-sale-list";
 
 interface FlashSaleViewProps {
-  initialData: ApiListResponse<TProduct>;
+  initialData: PaginatedInitialData<TProduct>;
 }
 
 const FlashSaleView = ({ initialData }: FlashSaleViewProps) => {

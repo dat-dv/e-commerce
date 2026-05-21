@@ -11,39 +11,28 @@ import {
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import usePagination from "@/hooks/use-pagination";
-import { ApiListResponse } from "@/utils/request/request.types";
-import { EProductSort } from "@ecommerce/shared";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useCallback } from "react";
 
 interface NewArrivalListProps {
-  initialData: ApiListResponse<TProduct>;
+  initialData: PaginatedInitialData<TProduct>;
 }
 
 const NewArrivalList = ({ initialData }: NewArrivalListProps) => {
   const t = useTranslations("NewArrivalsPage.list");
-  const fetchNewArrivalsPage = useCallback(
-    (params: Partial<{ page: number; limit: number; search: string }>) =>
-      productsUseCase.getProducts.execute({
-        page: params.page || 1,
-        limit: params.limit || 10,
-        sort: EProductSort.DEFAULT.toString(),
-      }),
-    [],
-  );
-
   const { data, loading, getData } = usePagination<
     TProduct,
     { page: number; limit: number; search: string }
   >({
     isSyncWithSearchParams: false,
     initialData,
-    fetchPage: fetchNewArrivalsPage,
+    fetchPage: productsUseCase.getProducts.execute,
   });
 
   const hasMore = data.meta.page < data.meta.totalPages;
+
   const loadMore = () => {
     getData({ page: data.meta.page + 1 });
   };

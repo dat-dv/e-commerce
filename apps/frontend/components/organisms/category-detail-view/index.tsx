@@ -12,7 +12,7 @@ import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import usePagination from "@/hooks/use-pagination";
-import { IPaginationMeta } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -22,10 +22,7 @@ import { CategoryFilterDrawer } from "./category-filter-drawer";
 
 interface CategoryDetailViewProps {
   categorySlug: string;
-  initialData: {
-    items: TProduct[];
-    meta: IPaginationMeta;
-  };
+  initialData: PaginatedInitialData<TProduct>;
 }
 
 type CategoryProductsFilterKey =

@@ -1,12 +1,12 @@
 import AppContainer from "@/components/atoms/app-container";
 import { TProduct } from "@/domain/products/types/products.model";
-import { ApiListResponse } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import DiscoveryCarouselSection from "../discovery-sections";
 import NewArrivalList from "./new-arrival-list";
 import { FreshArrivalsHeader } from "./new-arrivale-header";
 
 interface NewArrivalViewProps {
-  initialData: ApiListResponse<TProduct>;
+  initialData: PaginatedInitialData<TProduct>;
 }
 
 const NewArrivalView = ({ initialData }: NewArrivalViewProps) => {

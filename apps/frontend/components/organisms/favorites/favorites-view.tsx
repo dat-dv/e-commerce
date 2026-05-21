@@ -5,12 +5,12 @@ import { DiscoveryCarouselSection } from "@/components/organisms/discovery-secti
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import usePagination from "@/hooks/use-pagination";
-import { ApiListResponse } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import FavoritesBanner from "./favorite-banner";
 import FavoritesGrid from "./favorites-list";
 
 interface FavoritesViewProps {
-  initialData: ApiListResponse<TUserFavoriteProductItem>;
+  initialData: PaginatedInitialData<TUserFavoriteProductItem>;
 }
 
 export const FavoritesView = ({ initialData }: FavoritesViewProps) => {

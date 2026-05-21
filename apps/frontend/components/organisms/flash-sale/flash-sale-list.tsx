@@ -11,14 +11,14 @@ import {
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import usePagination from "@/hooks/use-pagination";
-import { ApiListResponse } from "@/utils/request/request.types";
+import { PaginatedInitialData } from "@/utils/request/request.types";
 import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback } from "react";
 
 interface FlashSaleListProps {
-  initialData: ApiListResponse<TProduct>;
+  initialData: PaginatedInitialData<TProduct>;
 }
 
 const FlashSaleList = ({ initialData }: FlashSaleListProps) => {
