@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
+import { VirtualList } from "@/components/molecules/virtual-list";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { INotification } from "@/domain/notifications/types/notification";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { INotification } from "@/domain/notifications/types/notification";
 import { NotificationItem } from "../notification-item";
-import { VirtualList } from "@/components/molecules/virtual-list";
 
 interface NotificationListProps {
   notifications: INotification[];
@@ -30,7 +30,9 @@ export const NotificationList = ({
     return (
       <div className="bg-surface rounded-[2rem] border border-content/[0.08] p-20 text-center space-y-4 shadow-xl shadow-content/[0.02]">
         <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
-        <p className="text-[10px] font-bold text-content/20 uppercase tracking-[0.2em]">
+        <p
+          className={`${TYPOGRAPHY.badge} text-content/20 uppercase tracking-[0.2em]`}
+        >
           {t("list.fetchingText")}
         </p>
       </div>

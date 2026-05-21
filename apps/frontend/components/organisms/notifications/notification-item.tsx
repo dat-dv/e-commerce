@@ -1,3 +1,4 @@
+import { TYPOGRAPHY } from "@/constants/typography";
 import { INotification } from "@/domain/notifications/types/notification";
 import { cn } from "@/utils/cn";
 import { ENotificationType } from "@ecommerce/shared";
@@ -57,13 +58,15 @@ export const NotificationItem = ({
         <div className="flex justify-between items-start mb-1">
           <h4
             className={cn(
-              "text-[13px] font-semibold text-content/90 transition-colors",
+              `${TYPOGRAPHY.caption} font-semibold text-content/90 transition-colors`,
               !notif.isRead && "text-primary",
             )}
           >
             {notif.title}
           </h4>
-          <span className="text-[10px] text-content/30 flex items-center gap-1 font-medium">
+          <span
+            className={`${TYPOGRAPHY.badge} text-content/30 flex items-center gap-1 font-medium`}
+          >
             <Clock size={10} />
             {formatDistanceToNow(new Date(notif.createdAt), {
               addSuffix: true,
@@ -71,7 +74,9 @@ export const NotificationItem = ({
             })}
           </span>
         </div>
-        <p className="text-[12px] text-content/50 line-clamp-2 leading-relaxed">
+        <p
+          className={`${TYPOGRAPHY.caption} text-content/50 line-clamp-2 leading-relaxed`}
+        >
           {notif.content}
         </p>
       </div>
