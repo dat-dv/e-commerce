@@ -29,6 +29,7 @@ import {
   variantNormal,
 } from "@/components/atoms/input/input.styles";
 import { InputVariant } from "@/components/atoms/input/input.types";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
 export interface ISelectOption {
@@ -88,6 +89,7 @@ export function AppSelect<T extends object>({
                 "w-full flex justify-between items-center transition-all font-medium outline-none select-none cursor-pointer text-left",
                 variantBase[variant],
                 inputSizeClasses[size][variant],
+                variant === "outline" && UI_RADIUS.input,
                 isDisabled
                   ? variantDisabled[variant]
                   : isInvalid
@@ -119,7 +121,10 @@ export function AppSelect<T extends object>({
           </RACFieldError>
 
           <RACPopover
-            className="z-50 w-[var(--trigger-width)] origin-top-right rounded-xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100"
+            className={cn(
+              UI_RADIUS.popover,
+              "z-50 w-[var(--trigger-width)] origin-top-right bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100",
+            )}
             offset={4}
           >
             <RACListBox className="outline-none py-1 max-h-60 overflow-y-auto">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { forwardRef } from "react";
 import { Button as BaseButton } from "react-aria-components";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
 import { sizeClasses, variantClasses } from "./button.style";
@@ -22,8 +23,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
     }: IButtonProps,
     ref,
   ) => {
-    const base =
-      "inline-flex items-center justify-center gap-2 rounded-xl font-bold transition-all duration-200 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98]";
+    const base = cn(
+      UI_RADIUS.control,
+      "inline-flex items-center justify-center gap-2 font-bold transition-all duration-200 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98]",
+    );
 
     const classes = cn(
       base,
