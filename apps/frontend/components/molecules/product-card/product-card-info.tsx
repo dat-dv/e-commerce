@@ -1,6 +1,7 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { TProduct } from "@/domain/products/types/products.model";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -21,13 +22,13 @@ export function ProductCardInfo({
   return (
     <div className="mt-3 flex flex-col flex-grow">
       {badgeText ? (
-        <span className="text-[10px] text-content/40 font-bold truncate">
+        <span className={`${TYPOGRAPHY.badge} text-content/40 truncate`}>
           {badgeText}
         </span>
       ) : null}
 
       <h3
-        className={`mt-1 text-sm font-bold text-content line-clamp-1 transition-colors ${titleHoverClassName}`}
+        className={`mt-1 ${TYPOGRAPHY.cardTitle} text-content line-clamp-1 transition-colors ${titleHoverClassName}`}
       >
         <Link href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}>
           {product.name}

@@ -1,5 +1,7 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
+
 interface ProductCardPriceProps {
   price: string;
   originalPrice?: string;
@@ -19,7 +21,9 @@ export function ProductCardPrice({
         {price}
       </span>
       {hasOriginalPrice ? (
-        <span className="text-[10px] text-content/20 line-through font-medium">
+        <span
+          className={`${TYPOGRAPHY.badge} text-content/20 line-through font-medium`}
+        >
           {originalPrice}
         </span>
       ) : null}

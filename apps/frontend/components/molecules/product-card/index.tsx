@@ -5,6 +5,7 @@ import { ShoppingBag, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React from "react";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct } from "@/domain/products/types/products.model";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
@@ -91,7 +92,7 @@ export const ProductCard = ({
             <div
               className={cn(
                 UI_RADIUS.badge,
-                "bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 shadow-lg shadow-red-500/20",
+                `bg-red-500 text-white ${TYPOGRAPHY.badge} px-2 py-0.5 shadow-lg shadow-red-500/20`,
               )}
             >
               {discountLabel}
@@ -107,13 +108,15 @@ export const ProductCard = ({
       >
         <div className="mt-1 flex items-center gap-2">
           {hasRating && (
-            <div className="flex items-center gap-0.5 text-yellow-500 text-[10px] font-bold">
+            <div
+              className={`flex items-center gap-0.5 text-yellow-500 ${TYPOGRAPHY.badge}`}
+            >
               <span>{formattedRating}</span>
               <Star className="h-2.5 w-2.5 fill-current" />
             </div>
           )}
           {formattedSoldCount && (
-            <span className="text-[10px] text-content/30">
+            <span className={`${TYPOGRAPHY.badge} text-content/30 font-normal`}>
               Đã bán {formattedSoldCount}
             </span>
           )}
