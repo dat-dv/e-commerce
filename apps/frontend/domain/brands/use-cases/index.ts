@@ -1,9 +1,9 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 import { BrandsRepository } from "../infrastructure/brands.repository";
-import { GetTopBrandsUseCase } from "./get-top-brands.use-case";
 import { GetBrandBySlugUseCase } from "./get-brand-by-slug.use-case";
-import { GetBrandProductsUseCase } from "./get-brand-products.use-case";
 import { GetBrandCategoriesUseCase } from "./get-brand-categories.use-case";
+import { GetBrandProductsUseCase } from "./get-brand-products.use-case";
+import { GetTopBrandsUseCase } from "./get-top-brands.use-case";
 
 const repo = new BrandsRepository(appRequest);
 
@@ -15,8 +15,8 @@ export const brandsUseCase = {
 };
 
 export {
-  GetTopBrandsUseCase,
   GetBrandBySlugUseCase,
-  GetBrandProductsUseCase,
   GetBrandCategoriesUseCase,
+  GetBrandProductsUseCase,
+  GetTopBrandsUseCase,
 };

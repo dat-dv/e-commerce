@@ -1,17 +1,12 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
 
-import {
-  ApiResponse,
-  IRequestOptions,
-  RequestBody,
-  TRequest,
-} from "./request.types";
-import requestCreator from "./request-creator";
+import { getServerCookies } from "../cookies";
 import { getSubdomainByHostname } from "../sub-domain/get-client-sub-domain";
 import { getServerSubdomain } from "../sub-domain/get-server-sub-domain";
-import { getServerCookies } from "../cookies";
+import requestCreator from "./request-creator";
+import { ApiResponse, IRequestOptions, RequestBody } from "./request.types";
 
-const forwardClientRequest = async <T>(
+export const forwardClientRequest = async <T>(
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
   url: string,
   body?: RequestBody,
@@ -65,30 +60,4 @@ const forwardClientRequest = async <T>(
       headers,
     },
   });
-};
-
-export const appRequest: TRequest = {
-  get: <T>(url: string, options?: IRequestOptions) =>
-    forwardClientRequest<T>("GET", url, undefined, options),
-
-  post: <T, TBody extends RequestBody = RequestBody>(
-    url: string,
-    body?: TBody,
-    options?: IRequestOptions,
-  ) => forwardClientRequest<T>("POST", url, body, options),
-
-  put: <T, TBody extends RequestBody = RequestBody>(
-    url: string,
-    body?: TBody,
-    options?: IRequestOptions,
-  ) => forwardClientRequest<T>("PUT", url, body, options),
-
-  patch: <T, TBody extends RequestBody = RequestBody>(
-    url: string,
-    body?: TBody,
-    options?: IRequestOptions,
-  ) => forwardClientRequest<T>("PATCH", url, body, options),
-
-  delete: <T>(url: string, options?: IRequestOptions) =>
-    forwardClientRequest<T>("DELETE", url, undefined, options),
 };

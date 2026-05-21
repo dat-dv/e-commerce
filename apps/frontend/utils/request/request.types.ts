@@ -80,6 +80,7 @@ export type ApiPaginatedResponse<T> = ApiResponse<ApiListResponse<T>>;
 export interface ApiErrorResponse {
   message: string;
   code?: string;
+  statusCode?: number;
   errors?: Record<string, string[]>;
 }
 

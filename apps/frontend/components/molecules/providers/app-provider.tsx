@@ -19,18 +19,15 @@ import { FavoritesProvider } from "./favorites-provider";
 import { I18nProviderClient } from "./i18n-provider";
 
 const AppProvider = async ({ children }: { children: React.ReactNode }) => {
-  const language = await getServerSubdomain();
-  const [
-    categoriesRes,
-    initialCartState,
-    initialAddressesState,
-    messages,
-    authState,
-  ] = await allSafe([
+  const [language, categoriesRes] = await allSafe([
+    getServerSubdomain(),
     categoriesUseCase.getTree.execute(),
+  ]);
+
+  const [cartRes, addressRes, messages, authRes] = await allSafe([
     cartUseCase.getCart.execute(),
     addressesUseCase.getAddresses.execute(),
-    getMessages({ locale: language }),
+    getMessages({ locale: language! }),
     authUseCase.fetchMe.execute(),
   ]);
 
@@ -41,12 +38,10 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
     <I18nProviderClient locale={language!} messages={messages!}>
       <ConfigProvider initState={{ language: language! }}>
         <CategoriesProvider initState={{ categories }}>
-          <AuthProvider
-            initState={{ user: authState?.data, hasHydrated: true }}
-          >
+          <AuthProvider initState={{ user: authRes?.data, hasHydrated: true }}>
             <NotificationProvider>
-              <CartProvider initState={initialCartState?.data?.items}>
-                <AddressProvider initState={initialAddressesState?.data || []}>
+              <CartProvider initState={cartRes?.data?.items || []}>
+                <AddressProvider initState={addressRes?.data || []}>
                   <FavoritesProvider>
                     <RequireProfileInfoModal />
                     {children}

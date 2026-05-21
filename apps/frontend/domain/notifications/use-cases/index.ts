@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 import { NotificationsRepository } from "../infrastructure/notifications.repository";
 import { TSaveTokenRequest } from "../types/notifications.repository";
 

@@ -5,7 +5,9 @@ import { headers } from "next/headers";
 const SUPPORTED_LANGUAGES = ["en", "vi"] as const;
 const DEFAULT_LANG = SUPPORTED_LANGUAGES[0];
 
-export async function getServerSubdomain() {
+export async function getServerSubdomain(): Promise<
+  (typeof SUPPORTED_LANGUAGES)[number]
+> {
   try {
     const headerStore = await headers();
     const host = headerStore.get("host") ?? undefined;

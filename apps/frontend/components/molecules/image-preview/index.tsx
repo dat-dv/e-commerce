@@ -115,20 +115,20 @@ export default function ImagePreview({
             <X className="size-4" aria-hidden />
           </button>
 
-          <div className="flex max-h-[92dvh] max-w-[94vw] items-center justify-center overflow-hidden rounded-2xl">
+          <div className="relative h-[70vh] sm:h-[80vh] w-[90vw] md:w-[80vw] overflow-hidden rounded-2xl">
             <Image
               src={src}
               alt={alt}
-              fill={previewFill}
-              sizes="94vw"
+              fill={previewFill ?? true}
+              sizes="(max-width: 768px) 90vw, 80vw"
               unoptimized={unoptimized}
-              {...(!previewFill && {
+              {...(!(previewFill ?? true) && {
                 width: previewWidth ?? 1600,
                 height: previewHeight ?? 1200,
               })}
               {...restPreviewImageProps}
               className={cn(
-                "max-h-[92dvh] w-auto max-w-[94vw] object-contain",
+                "object-contain",
                 previewImageProps?.className,
                 previewClassName,
               )}

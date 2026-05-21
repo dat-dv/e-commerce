@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import { createJSONStorage, devtools, persist } from "zustand/middleware";
+import { devtools } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 
 import { PUBLIC_ENV } from "@/config/public.env.config";
@@ -27,17 +27,8 @@ const createAuthStoreCreator =
 
 export const createUserStore = (initState?: Partial<IAuthStoreState>) =>
   createStore<IAuthStore>()(
-    devtools(
-      persist(createAuthStoreCreator(initState), {
-        name: "AuthStore",
-        storage: createJSONStorage(() => localStorage),
-        onRehydrateStorage: () => (state) => {
-          state?.setHasHydrated(true);
-        },
-      }),
-      {
-        name: "AuthStore",
-        enabled: PUBLIC_ENV.IS_DEBUG,
-      },
-    ),
+    devtools(createAuthStoreCreator(initState), {
+      name: "AuthStore",
+      enabled: PUBLIC_ENV.IS_DEBUG,
+    }),
   );

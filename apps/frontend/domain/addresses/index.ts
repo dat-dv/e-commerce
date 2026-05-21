@@ -1,15 +1,15 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 import { AddressesRepository } from "./infrastructure/addresses.repository";
-import {
-  GetAddressesUseCase,
-  GetDefaultAddressUseCase,
-} from "./use-cases/get-addresses.use-case";
 import { CreateAddressUseCase } from "./use-cases/create-address.use-case";
-import { UpdateAddressUseCase } from "./use-cases/update-address.use-case";
 import {
   DeleteAddressUseCase,
   SetDefaultAddressUseCase,
 } from "./use-cases/delete-address.use-case";
+import {
+  GetAddressesUseCase,
+  GetDefaultAddressUseCase,
+} from "./use-cases/get-addresses.use-case";
+import { UpdateAddressUseCase } from "./use-cases/update-address.use-case";
 
 const repo = new AddressesRepository(appRequest);
 

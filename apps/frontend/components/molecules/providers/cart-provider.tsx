@@ -27,7 +27,6 @@ export const CartProvider = ({ children, initState }: CartProviderProps) => {
 
   useEffect(() => {
     if (!user) return;
-
     const fetchCart = async () => {
       try {
         const res = await cartUseCase.getCart.execute();
@@ -39,8 +38,8 @@ export const CartProvider = ({ children, initState }: CartProviderProps) => {
           selectItems(res.data.items.map((item) => item.skuId));
         }
         setHasHydrated(true);
-      } catch (error) {
-        console.error("Failed to sync cart:", error);
+      } catch {
+        store.getState().clearCart();
         store.getState().setHasHydrated(true);
       }
     };

@@ -1,13 +1,13 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 import { OrdersRepository } from "./infrastructure/orders.repository";
-import { PlaceOrderUseCase } from "./use-cases/place-order.use-case";
+import { CancelOrderUseCase } from "./use-cases/cancel-order.use-case";
 import {
-  GetOrdersUseCase,
   GetOrderDetailUseCase,
   GetOrdersByAdminUseCase,
+  GetOrdersUseCase,
   UpdateOrderStatusByAdminUseCase,
 } from "./use-cases/get-orders.use-case";
-import { CancelOrderUseCase } from "./use-cases/cancel-order.use-case";
+import { PlaceOrderUseCase } from "./use-cases/place-order.use-case";
 
 const repo = new OrdersRepository(appRequest);
 

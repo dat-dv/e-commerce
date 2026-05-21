@@ -1,14 +1,14 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 import { ProductsRepository } from "../infrastructure/products.repository";
-import { GetRecommendedUseCase } from "./get-recommended.use-case";
+import { CreateReviewUseCase } from "./create-review.use-case";
 import { GetBasedOnInterestUseCase } from "./get-based-on-interest.use-case";
-import { GetRecentlyViewedUseCase } from "./get-recently-viewed.use-case";
 import { GetFlashSaleUseCase } from "./get-flash-sale.use-case";
 import { GetProductByIdUseCase } from "./get-product-by-id.use-case";
-import { GetProductsUseCase } from "./get-products.use-case";
 import { GetProductReviewsUseCase } from "./get-product-reviews.use-case";
+import { GetProductsUseCase } from "./get-products.use-case";
+import { GetRecentlyViewedUseCase } from "./get-recently-viewed.use-case";
+import { GetRecommendedUseCase } from "./get-recommended.use-case";
 import { GetSimilarProductsUseCase } from "./get-similar-products.use-case";
-import { CreateReviewUseCase } from "./create-review.use-case";
 
 const repo = new ProductsRepository(appRequest);
 

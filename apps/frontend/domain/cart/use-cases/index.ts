@@ -1,9 +1,9 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 import { CartRepository } from "../infrastructure/cart.repository";
-import { GetCartUseCase } from "./get-cart.use-case";
 import { AddToCartUseCase } from "./add-to-cart.use-case";
-import { UpdateCartItemUseCase } from "./update-cart-item.use-case";
+import { GetCartUseCase } from "./get-cart.use-case";
 import { RemoveFromCartUseCase } from "./remove-from-cart.use-case";
+import { UpdateCartItemUseCase } from "./update-cart-item.use-case";
 
 const repo = new CartRepository(appRequest);
 

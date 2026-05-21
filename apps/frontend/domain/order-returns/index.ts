@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request/request";
+import { appRequest } from "@/utils/request";
 
 import { OrderReturnsRepository } from "./infrastructure/order-returns.repository";
 import { CreateOrderReturnUseCase } from "./use-cases/create-order-return.use-case";

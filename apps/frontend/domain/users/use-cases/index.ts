@@ -1,5 +1,5 @@
-import { appRequest } from "@/utils/request/request";
 import { UpdateProfileUseCase } from "@/domain/users/use-cases/update-profile.use-case";
+import { appRequest } from "@/utils/request";
 import { UsersRepository } from "../infrastructure/users.repository";
 import { UpdateProfileAvatarUseCase } from "./update-profile-avatar.use-case";
 
