@@ -12,23 +12,23 @@ import { useTranslations } from "next-intl";
 import { DiscoverySectionSkeleton } from "./skeletons";
 
 export interface RecommendedSectionProps {
-  initialItems?: ApiListResponse<TProduct>;
+  initialData?: ApiListResponse<TProduct> | null;
   loading?: boolean;
 }
 
 export const RecommendedSection = ({
-  initialItems,
+  initialData,
   loading: propLoading,
 }: RecommendedSectionProps) => {
   const { recommendedProducts, fetchRecommendedProducts } =
     useRecommendedProducts({
-      initialItems,
+      initialData,
     });
   const { language } = useConfig();
   const t = useTranslations("HomePage.discovery");
   const { loading: initialLoading } = useLoadOnce(fetchRecommendedProducts);
 
-  const products = initialItems?.items ?? recommendedProducts;
+  const products = initialData?.items ?? recommendedProducts;
   const loading = propLoading || initialLoading;
 
   return (

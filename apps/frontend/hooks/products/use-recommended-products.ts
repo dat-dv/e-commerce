@@ -7,9 +7,9 @@ import { ApiListResponse } from "@/utils/request/request.types";
 import { useCallback } from "react";
 
 export const useRecommendedProducts = ({
-  initialItems,
+  initialData,
 }: {
-  initialItems: ApiListResponse<TProduct>;
+  initialData?: ApiListResponse<TProduct> | null;
 }) => {
   const fetchRecommendedPage = useCallback(
     (params: Partial<{ page: number; limit: number; search: string }>) =>
@@ -25,7 +25,7 @@ export const useRecommendedProducts = ({
     { page: number; limit: number; search: string }
   >({
     isSyncWithSearchParams: false,
-    initialData: initialItems,
+    initialData: initialData || null,
     fetchPage: fetchRecommendedPage,
   });
 
