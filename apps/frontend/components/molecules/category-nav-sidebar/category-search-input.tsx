@@ -29,7 +29,8 @@ export function CategorySearchInput({
         placeholder={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-11 rounded-xl border-content/[0.06] bg-content/[0.02] pl-10 pr-10 text-sm"
+        size="md"
+        className="border-content/[0.06] bg-content/[0.02] pl-10 pr-10"
       />
 
       {value ? (

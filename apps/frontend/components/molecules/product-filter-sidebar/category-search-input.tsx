@@ -2,6 +2,8 @@
 
 import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { Search, X } from "lucide-react";
 
 interface CategorySearchInputProps {
@@ -18,7 +20,12 @@ export function CategorySearchInput({
   onChange,
 }: CategorySearchInputProps) {
   return (
-    <div className="mb-3 flex items-center gap-2 rounded-xl border border-content/[0.08] bg-content/[0.03] px-3 py-2">
+    <div
+      className={cn(
+        "mb-3 flex items-center gap-2 border border-content/[0.08] bg-content/[0.03] px-3 py-2",
+        UI_RADIUS.input,
+      )}
+    >
       <Search className="h-4 w-4 shrink-0 text-content/30" />
 
       <Input

@@ -2,12 +2,13 @@
 
 import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { IProductSearchFilterProps } from "./product-filter-sidebar.types";
-
 import { useTranslations } from "next-intl";
+import { IProductSearchFilterProps } from "./product-filter-sidebar.types";
 
 export function ProductSearchFilter({
   show,
@@ -39,7 +40,12 @@ export function ProductSearchFilter({
       <h3 className="text-[11px] font-bold uppercase tracking-widest text-content/45">
         {t("search")}
       </h3>
-      <div className="flex items-center gap-2 rounded-xl border border-content/10 bg-content/[0.03] px-3 py-2">
+      <div
+        className={cn(
+          "flex items-center gap-2 border border-content/10 bg-content/[0.03] px-3 py-2",
+          UI_RADIUS.input,
+        )}
+      >
         <Search size={16} className="shrink-0 text-content/35" />
         <Input
           value={searchValue}
@@ -52,7 +58,9 @@ export function ProductSearchFilter({
       </div>
       <Button
         type="submit"
-        className="h-10 rounded-xl bg-primary px-4 text-xs font-bold uppercase tracking-widest text-white"
+        variant="primary"
+        size="md"
+        className="w-full text-xs font-bold uppercase tracking-widest"
       >
         {t("search")}
       </Button>

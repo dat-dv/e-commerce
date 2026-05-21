@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
@@ -58,7 +58,7 @@ export default function SignUpForm() {
           type="submit"
           variant="primary"
           size="lg"
-          className="w-full mt-2 rounded-2xl"
+          className="w-full mt-2"
           loading={loading}
         >
           {loading ? t("submitting") : t("submit")}

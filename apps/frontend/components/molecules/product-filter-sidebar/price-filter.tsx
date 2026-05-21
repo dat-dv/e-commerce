@@ -4,9 +4,8 @@ import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
 import { useEffect, useState } from "react";
 
-import { IProductPriceFilterProps } from "./product-filter-sidebar.types";
-
 import { useTranslations } from "next-intl";
+import { IProductPriceFilterProps } from "./product-filter-sidebar.types";
 
 export function ProductPriceFilter<T extends string = string>({
   minPriceValue,
@@ -55,7 +54,7 @@ export function ProductPriceFilter<T extends string = string>({
           <Input
             type="number"
             placeholder={t("min")}
-            className="h-10 w-full rounded-xl border-content/10 bg-content/[0.03] px-3 placeholder:text-content/35 focus:border-primary"
+            size="md"
             value={minPrice}
             onChange={(event) => setMinPrice(event.target.value)}
           />
@@ -63,7 +62,7 @@ export function ProductPriceFilter<T extends string = string>({
           <Input
             type="number"
             placeholder={t("max")}
-            className="h-10 w-full rounded-xl border-content/10 bg-content/[0.03] px-3 placeholder:text-content/35 focus:border-primary"
+            size="md"
             value={maxPrice}
             onChange={(event) => setMaxPrice(event.target.value)}
           />
@@ -71,7 +70,8 @@ export function ProductPriceFilter<T extends string = string>({
         <Button
           type="submit"
           variant="outline"
-          className="h-10 rounded-xl border-content/10 px-4 text-xs font-bold uppercase tracking-widest text-content/60 hover:border-primary/30 hover:text-primary"
+          size="md"
+          className="w-full text-xs font-bold uppercase tracking-widest"
         >
           {t("applyPrice")}
         </Button>

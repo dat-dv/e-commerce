@@ -4,9 +4,7 @@ import Button from "@/components/atoms/button";
 import { AppDialogTitle } from "@/components/atoms/dialog";
 import Input from "@/components/atoms/input";
 import Textarea from "@/components/atoms/textarea";
-import { UI_RADIUS } from "@/constants/ui-radius";
 import { OrderReturnRequestFormData } from "@/hooks/order-returns/order-return-request.schema";
-import { cn } from "@/utils/cn";
 import { X } from "lucide-react";
 import type { ChangeEvent, FormEventHandler, RefObject } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
@@ -83,10 +81,8 @@ export function RequestReturnForm({
           error={errors.title?.message}
           disabled={isSubmitting}
           placeholder={labels.reasonPlaceholder}
-          className={cn(
-            UI_RADIUS.input,
-            "w-full border-content/[0.08] bg-content/[0.03] px-4 py-3 placeholder:text-content/30 focus:border-primary/40 disabled:opacity-60",
-          )}
+          variant="outline"
+          size="md"
         />
 
         <Textarea
@@ -97,7 +93,6 @@ export function RequestReturnForm({
           disabled={isSubmitting}
           rows={5}
           placeholder={labels.detailsPlaceholder}
-          className="resize-none border-content/[0.08] bg-content/[0.03] px-4 py-3 placeholder:text-content/30 focus:border-primary/40"
         />
 
         <AttachmentDropzone
@@ -120,20 +115,17 @@ export function RequestReturnForm({
           variant="outline"
           onClick={onClose}
           disabled={isSubmitting}
-          className={cn(
-            UI_RADIUS.control,
-            "border-content/[0.1] px-5 py-3 text-sm font-semibold text-content hover:bg-content/[0.05] disabled:opacity-50 h-auto",
-          )}
+          size="md"
+          className="w-full sm:w-auto"
         >
           {labels.keepOrder}
         </Button>
         <Button
           type="submit"
+          variant="primary"
           disabled={isSubmitting}
-          className={cn(
-            UI_RADIUS.control,
-            "flex items-center justify-center bg-content px-5 py-3 text-sm font-semibold text-surface shadow-lg shadow-black/10 hover:bg-primary disabled:opacity-50 h-auto",
-          )}
+          size="md"
+          className="flex items-center justify-center w-full sm:w-auto"
         >
           {isSubmitting ? (
             <span className="h-4 w-4 rounded-full border-2 border-surface/30 border-t-surface animate-spin" />
