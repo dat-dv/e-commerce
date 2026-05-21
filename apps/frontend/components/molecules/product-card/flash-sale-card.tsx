@@ -3,6 +3,7 @@
 import Button from "@/components/atoms/button";
 import { toast } from "@/components/ui/toast";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
@@ -86,14 +87,16 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           <div
             className={cn(
               UI_RADIUS.badge,
-              "bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 shadow-lg shadow-red-500/20",
+              `bg-red-500 text-white ${TYPOGRAPHY.badge} px-2 py-0.5 shadow-lg shadow-red-500/20`,
             )}
           >
             -{discountPercent}%
           </div>
         }
         cornerBadge={
-          <div className="absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-red-500 backdrop-blur-md">
+          <div
+            className={`absolute top-2 right-2 z-10 rounded-full bg-red-500/10 px-2 py-1 ${TYPOGRAPHY.badge} uppercase tracking-wide text-red-500 backdrop-blur-md`}
+          >
             {t("sale")}
           </div>
         }
@@ -114,10 +117,10 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
             />
           </div>
           <div className="flex justify-between items-center mt-1.5">
-            <span className="text-[10px] font-bold text-content/60">
+            <span className={`${TYPOGRAPHY.badge} text-content/60`}>
               {t("sold", { count: String(soldCount) })}
             </span>
-            <span className="text-[10px] font-bold text-content/40">
+            <span className={`${TYPOGRAPHY.badge} text-content/40`}>
               {t("left", { count: String(stockLeft) })}
             </span>
           </div>
