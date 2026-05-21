@@ -60,7 +60,7 @@ export default function HeaderActions({
         {isFavoritesVisible && (
           <Link
             href={APP_ROUTES.FAVORITES}
-            className="relative items-center justify-center rounded-full p-2.5 text-content/60 transition-colors hover:bg-content/[0.05] hover:text-content sm:flex"
+            className="relative items-center justify-center rounded-full p-2.5 text-primary transition-colors hover:bg-primary/10 hover:text-primary sm:flex"
             title={t("favorites")}
           >
             <FavoriteIcon isActive={isFavoritesActive} />

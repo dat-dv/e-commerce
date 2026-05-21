@@ -4,6 +4,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useCart } from "@/hooks/cart/use-cart";
 import { Heart, LogOut, Settings, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import MobileDrawerAction, {
   MobileDrawerSectionTitle,
 } from "./mobile-drawer-action";
@@ -19,6 +20,9 @@ export default function UserShortcuts({
 }: IUserShortcutsProps) {
   const { setIsOpen: setCartOpen, itemsCount } = useCart();
   const t = useTranslations("Common.header");
+  const pathname = usePathname();
+  const isFavoritesActive = pathname === APP_ROUTES.FAVORITES;
+  const isSettingsActive = pathname === APP_ROUTES.SETTINGS;
 
   return (
     <div className="flex flex-col gap-1 border-t border-content/10 pt-4">
@@ -29,6 +33,8 @@ export default function UserShortcuts({
         onClick={onClose}
         icon={Heart}
         label={t("favorites")}
+        isActive={isFavoritesActive}
+        className="text-primary hover:bg-primary/5 hover:text-primary"
       />
 
       <MobileDrawerAction
@@ -52,6 +58,8 @@ export default function UserShortcuts({
         onClick={onClose}
         icon={Settings}
         label={t("settings")}
+        isActive={isSettingsActive}
+        className="text-primary hover:bg-primary/5 hover:text-primary"
       />
 
       <MobileDrawerAction

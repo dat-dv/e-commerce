@@ -2,6 +2,7 @@
 import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
+import { cn } from "@/utils/cn";
 
 import { GlobalSearch } from "@/components/organisms/global-search";
 import { Settings } from "lucide-react";
@@ -11,6 +12,7 @@ import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import { useCallback, useRef } from "react";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "./header-logo";
@@ -20,6 +22,8 @@ export default function HeaderDesktop() {
   const { setIsOpenCategory, isOpenCategory } = useHeaderStore();
   const headerRef = useRef<HTMLElement>(null);
   const t = useTranslations("Common.header");
+  const pathname = usePathname();
+  const isSettingsActive = pathname === APP_ROUTES.SETTINGS;
 
   const handleCloseDrawer = useCallback(() => {
     if (isOpenCategory) setIsOpenCategory(false);
@@ -45,7 +49,12 @@ export default function HeaderDesktop() {
             <Button
               variant="ghost"
               href={APP_ROUTES.SETTINGS}
-              className="w-10 h-10 flex items-center justify-center text-content/60 hover:text-content hover:bg-content/5 rounded-full transition-colors p-0"
+              className={cn(
+                "w-10 h-10 flex items-center justify-center rounded-full transition-colors p-0",
+                isSettingsActive
+                  ? "bg-primary/10 text-primary"
+                  : "text-primary hover:text-primary hover:bg-primary/10",
+              )}
               title={t("settings")}
             >
               <Settings size={20} />
