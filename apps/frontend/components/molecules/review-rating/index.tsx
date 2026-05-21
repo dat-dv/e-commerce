@@ -5,12 +5,10 @@ import {
   TGetProductReviewsRequest,
   TReview,
 } from "@/domain/products/types/products.model";
-import type { useSubmitProductReview } from "@/hooks/products/use-submit-product-review";
 import { ReviewApiError } from "./review-api-error";
 import { ReviewFilterTabs } from "./review-filter-tabs";
 import { ReviewList } from "./review-list";
 import { ReviewRatingSummary } from "./review-rating-summary";
-import { ReviewSubmitForm } from "./review-submit-form";
 
 interface ReviewsRatingsProps {
   reviews: TReview[];
@@ -18,7 +16,6 @@ interface ReviewsRatingsProps {
   reviewError: string | null;
   averageRating?: number;
   totalReviews?: number;
-  reviewForm: ReturnType<typeof useSubmitProductReview>;
   activeFilter: TGetProductReviewsRequest;
   onFilterChange: (filter: TGetProductReviewsRequest) => void;
   onRetryReviews: () => void;
@@ -30,7 +27,6 @@ export const ReviewsRatings = ({
   reviewError,
   averageRating = 0,
   totalReviews = 0,
-  reviewForm,
   activeFilter,
   onFilterChange,
   onRetryReviews,
@@ -59,14 +55,6 @@ export const ReviewsRatings = ({
           onFilterChange={onFilterChange}
         />
       </div>
-
-      <ReviewSubmitForm
-        methods={reviewForm.methods}
-        isAuthenticated={reviewForm.isAuthenticated}
-        isSubmitting={reviewForm.isSubmittingReview}
-        error={reviewForm.submitReviewError}
-        onSubmit={reviewForm.submitReview}
-      />
 
       {reviewError ? (
         <ReviewApiError message={reviewError} onRetry={onRetryReviews} />

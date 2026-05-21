@@ -3,8 +3,10 @@
 import Button from "@/components/atoms/button";
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
+import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
-import { TOrder } from "@/domain/orders/types/order.model";
+import { TOrder, TOrderItem } from "@/domain/orders/types/order.model";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { EOrderStatus } from "@ecommerce/shared";
@@ -13,9 +15,6 @@ import { motion } from "framer-motion";
 import { MessageSquare, RotateCcw, Store, Truck } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-
-import { APP_ROUTES } from "@/constants/routes";
-import { TYPOGRAPHY } from "@/constants/typography";
 import Link from "next/link";
 
 interface OrderCardProps extends HTMLMotionProps<"div"> {
@@ -32,6 +31,7 @@ interface OrderCardProps extends HTMLMotionProps<"div"> {
   actionButtonClassName?: string;
   onCancelOrder?: (id: string) => void;
   onRequestReturn?: (id: string) => void;
+  onClickReview?: (item: TOrderItem) => void;
 }
 
 export const OrderCard = ({
@@ -49,6 +49,7 @@ export const OrderCard = ({
   actionButtonClassName,
   onCancelOrder,
   onRequestReturn,
+  onClickReview,
   ...props
 }: OrderCardProps) => {
   const t = useTranslations("OrdersPage");
@@ -86,6 +87,7 @@ export const OrderCard = ({
 
   const statusColor =
     ORDER_STATUS_CONFIG[order.status]?.color || "text-content/40 bg-content/5";
+
   const statusLabel = getStatusLabel(order.status);
 
   return (
@@ -99,7 +101,6 @@ export const OrderCard = ({
       )}
       {...props}
     >
-      {/* Header */}
       <div
         className={cn(
           "border-content/[0.05] bg-content/[0.02] flex items-center justify-between gap-4 border-b px-5 py-4",
@@ -116,6 +117,7 @@ export const OrderCard = ({
             >
               {t("card.orderNumber", { id: order.id.slice(-8).toUpperCase() })}
             </Link>
+
             <span className="text-content/40 text-xs font-medium">
               {new Date(order.createdAt).toLocaleDateString(locale, {
                 month: "short",
@@ -124,6 +126,7 @@ export const OrderCard = ({
               })}
             </span>
           </div>
+
           <Button
             variant="ghost"
             disabled
@@ -133,6 +136,7 @@ export const OrderCard = ({
             {t("card.needHelp")}
           </Button>
         </div>
+
         <div
           className={cn(
             "flex min-w-0 items-center justify-end gap-4",
@@ -145,6 +149,7 @@ export const OrderCard = ({
               <span>{t("card.shipping")}</span>
             </div>
           )}
+
           <span
             className={cn(
               "min-w-0 rounded-full px-3 py-1",
@@ -157,75 +162,110 @@ export const OrderCard = ({
         </div>
       </div>
 
-      {/* Items */}
       <div className="divide-content/[0.05] divide-y">
         {order.items.map((item) => {
           const productSlug = item.sku?.product?.slug;
+
+          const reviewButton = (
+            <Button
+              size="sm"
+              variant="outline"
+              className={cn(
+                "border-content/[0.1] text-content",
+                UI_RADIUS.control,
+                actionButtonClassName,
+              )}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClickReview?.(item);
+              }}
+            >
+              {t("card.review")}
+            </Button>
+          );
+
           const itemContent = (
             <div
               className={cn(
-                "hover:bg-content/[0.02] flex gap-5 p-5 transition-colors",
+                "hover:bg-content/[0.02] p-5 transition-colors",
                 itemClassName,
               )}
             >
-              <div
-                className={cn(
-                  "border-content/[0.05] bg-content/[0.02] relative size-20 flex-shrink-0 overflow-hidden border",
-                  UI_RADIUS.media,
-                  itemImageClassName,
-                )}
-              >
-                {item.sku?.imageUrl ? (
-                  <Image
-                    src={item.sku.imageUrl}
-                    alt={item.sku.product?.name || t("card.productFallback")}
-                    fill
-                    sizes="80px"
-                    className="object-cover transition-transform group-hover:scale-110"
-                  />
-                ) : (
-                  <div className="text-content/10 flex h-full w-full items-center justify-center">
-                    <Store className="h-6 w-6" />
-                  </div>
-                )}
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <h3
-                    className={cn(
-                      "text-content line-clamp-1 text-sm leading-tight font-bold",
-                      itemTitleClassName,
-                    )}
-                  >
-                    <LiquidWaveText inactiveClassName="text-content">
-                      {item.sku?.product?.name || t("card.productNameFallback")}
-                    </LiquidWaveText>
-                  </h3>
-                  <div className="text-content shrink-0 text-sm font-bold tracking-tight sm:text-base">
-                    {formatCurrency(item.price)}
-                  </div>
-                </div>
-                <p className="text-content/40 mt-1 line-clamp-1 text-xs font-medium">
-                  {item.attributes ||
-                    t("card.skuCode", {
-                      code: item.sku?.skuCode || t("card.defaultSku"),
-                    })}
-                </p>
-                <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-                  <div
-                    className={cn(
-                      "bg-content/[0.05] text-content/50 rounded-full px-2 py-0.5",
-                      TYPOGRAPHY.badge,
-                    )}
-                  >
-                    {t("card.units", { count: item.quantity })}
-                  </div>
-                  {item.originalPrice && item.originalPrice > item.price && (
-                    <span className="text-content/30 text-xs line-through">
-                      {formatCurrency(item.originalPrice)}
-                    </span>
+              <div className="flex gap-4 sm:gap-5">
+                <div
+                  className={cn(
+                    "border-content/[0.05] bg-content/[0.02] relative size-20 flex-shrink-0 overflow-hidden border",
+                    UI_RADIUS.media,
+                    itemImageClassName,
+                  )}
+                >
+                  {item.sku?.imageUrl ? (
+                    <Image
+                      src={item.sku.imageUrl}
+                      alt={item.sku.product?.name || t("card.productFallback")}
+                      fill
+                      sizes="80px"
+                      className="object-cover transition-transform group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="text-content/10 flex h-full w-full items-center justify-center">
+                      <Store className="h-6 w-6" />
+                    </div>
                   )}
                 </div>
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <h3
+                      className={cn(
+                        "text-content line-clamp-1 text-sm leading-tight font-bold",
+                        itemTitleClassName,
+                      )}
+                    >
+                      <LiquidWaveText inactiveClassName="text-content">
+                        {item.sku?.product?.name ||
+                          t("card.productNameFallback")}
+                      </LiquidWaveText>
+                    </h3>
+
+                    <div className="text-content shrink-0 text-sm font-bold tracking-tight sm:text-base">
+                      {formatCurrency(item.price)}
+                    </div>
+                  </div>
+
+                  <p className="text-content/40 mt-1 line-clamp-1 text-xs font-medium">
+                    {item.attributes ||
+                      t("card.skuCode", {
+                        code: item.sku?.skuCode || t("card.defaultSku"),
+                      })}
+                  </p>
+
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                    <div
+                      className={cn(
+                        "bg-content/[0.05] text-content/50 rounded-full px-2 py-0.5",
+                        TYPOGRAPHY.badge,
+                      )}
+                    >
+                      {t("card.units", { count: item.quantity })}
+                    </div>
+
+                    {item.originalPrice && item.originalPrice > item.price && (
+                      <span className="text-content/30 text-xs line-through">
+                        {formatCurrency(item.originalPrice)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="hidden shrink-0 items-end sm:flex">
+                  {reviewButton}
+                </div>
+              </div>
+
+              <div className="mt-4 flex justify-end sm:hidden">
+                {reviewButton}
               </div>
             </div>
           );
@@ -244,7 +284,6 @@ export const OrderCard = ({
         })}
       </div>
 
-      {/* Footer */}
       <div
         className={cn(
           "border-content/[0.05] bg-content/[0.01] border-t px-5 py-5",
@@ -261,6 +300,7 @@ export const OrderCard = ({
                 </span>
               </div>
             )}
+
             <div className="flex items-center gap-3">
               <span className="text-content/40 text-sm font-medium">
                 {t("card.total")}
@@ -290,14 +330,16 @@ export const OrderCard = ({
                   onCancelOrder?.(order.id);
                 }}
                 className={cn(
-                  "h-auto border-red-500/20 px-6 py-2.5 text-sm font-semibold text-red-500 hover:bg-red-500/10",
+                  "border-red-500/20 text-red-500 hover:bg-red-500/10",
                   UI_RADIUS.control,
                   actionButtonClassName,
                 )}
+                size="md"
               >
                 {t("card.cancel")}
               </Button>
             )}
+
             {order.status === EOrderStatus.DELIVERED && (
               <>
                 <Button
@@ -307,30 +349,22 @@ export const OrderCard = ({
                     onRequestReturn?.(order.id);
                   }}
                   className={cn(
-                    "border-content/[0.1] text-content hover:bg-content/[0.05] flex h-auto items-center gap-2 px-5 py-2.5 text-sm font-semibold",
-                    UI_RADIUS.control,
+                    "border-content/[0.1] text-content hover:bg-content/[0.05] items-center gap-2",
                     actionButtonClassName,
                   )}
+                  size="md"
                 >
-                  <RotateCcw className="h-4 w-4" />
+                  <RotateCcw className="h-3 w-3" />
                   {t("card.requestReturn")}
                 </Button>
-                <Button
-                  className={cn(
-                    "bg-content text-surface hover:bg-primary h-auto px-6 py-2.5 text-sm font-semibold",
-                    UI_RADIUS.control,
-                    actionButtonClassName,
-                  )}
-                >
-                  {t("card.review")}
-                </Button>
+
                 <Button
                   variant="outline"
                   className={cn(
-                    "border-content/[0.1] text-content/60 hover:bg-content/[0.05] h-auto px-6 py-2.5 text-sm font-semibold",
-                    UI_RADIUS.control,
+                    "border-content/[0.1] text-content/60 hover:bg-content/[0.05]",
                     actionButtonClassName,
                   )}
+                  size="md"
                 >
                   {t("card.reorder")}
                 </Button>

@@ -1,14 +1,13 @@
-import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { toast } from "@/components/ui/toast";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "@/components/ui/toast";
 import {
   ReviewSubmitSchema,
   getReviewSubmitSchema,
 } from "./review-submit.schema";
-import { useTranslations } from "next-intl";
 
 type UseSubmitProductReviewParams = {
   productId: string;
@@ -22,7 +21,6 @@ export const useSubmitProductReview = ({
   onSubmitted,
 }: UseSubmitProductReviewParams) => {
   const t = useTranslations("ProductDetailPage");
-  const user = useAuthStore((state) => state.user);
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [submitReviewError, setSubmitReviewError] = useState<string | null>(
     null,
@@ -35,29 +33,25 @@ export const useSubmitProductReview = ({
   const methods = useForm<ReviewSubmitSchema>({
     resolver: zodResolver(getReviewSubmitSchema(t)),
     defaultValues: {
-      rating: 0,
+      rating: 5,
       comment: "",
+    },
+    resetOptions: {
+      keepDefaultValues: true,
     },
   });
 
+  useEffect(() => {
+    methods.reset();
+  }, [productId, skuId, methods]);
+
   const submitReview = async (data: ReviewSubmitSchema) => {
-    if (!user?.id) {
-      setSubmitReviewError(t("authRequired"));
-      return;
-    }
-
-    if (!skuId) {
-      setSubmitReviewError(t("variantUnavailable"));
-      return;
-    }
-
     setIsSubmittingReview(true);
-    setSubmitReviewError(null);
 
     try {
       await productsUseCase.createReview.execute({
         productId,
-        skuId,
+        skuId: skuId!,
         rating: data.rating,
         comment: data.comment?.trim() || undefined,
         images: [],
@@ -82,7 +76,6 @@ export const useSubmitProductReview = ({
 
   return {
     methods,
-    isAuthenticated: !!user?.id,
     isSubmittingReview,
     submitReviewError,
     submitReview,

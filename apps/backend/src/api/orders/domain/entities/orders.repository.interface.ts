@@ -1,5 +1,5 @@
-import { IOrderResponse, IPaginatedResult, EOrderStatus } from '@ecommerce/shared';
-import { CreateOrderInputDto, GetUserOrdersDto, GetAllOrdersInputDto } from '../../dto/create-order-input.dto';
+import { EOrderStatus, IOrderResponse, IPaginatedResult } from '@ecommerce/shared';
+import { CreateOrderInputDto, GetAllOrdersInputDto, GetUserOrdersDto } from '../../dto/create-order-input.dto';
 
 export interface IOrdersRepository {
   createOrder(data: CreateOrderInputDto): Promise<IOrderResponse>;

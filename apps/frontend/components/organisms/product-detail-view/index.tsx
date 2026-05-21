@@ -43,12 +43,10 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     loadingReviews,
     reviewError,
     refetchReviews,
-    reviewForm,
     reviewFilter,
     setReviewFilter,
   } = useProductReviewSection({
     productId: product.id,
-    skuId: selectedSku.id,
   });
   const { similarProducts, loadingSimilar } = useSimilarProducts(product.id);
   const { handleAddToCart, handleBuyNow } = useProductActions(
@@ -114,7 +112,6 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
         totalReviews={totalReviews}
         reviewError={reviewError}
         onRetryReviews={refetchReviews}
-        reviewForm={reviewForm}
         activeFilter={reviewFilter}
         onFilterChange={setReviewFilter}
       />

@@ -1,18 +1,18 @@
 "use client";
 
 import Button from "@/components/atoms/button";
-import Textarea from "@/components/atoms/textarea";
 import AppForm from "@/components/molecules/form/app-form";
 import { ReviewSubmitSchema } from "@/hooks/products/review-submit.schema";
-import { APP_ROUTES } from "@/constants/routes";
-import { Star } from "lucide-react";
-import { Controller, UseFormReturn } from "react-hook-form";
+import { UseFormReturn } from "react-hook-form";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
+import FormRating from "../form/form-rating";
+import { FormTextarea } from "../form/form-textarea";
 
 interface ReviewSubmitFormProps {
   methods: UseFormReturn<ReviewSubmitSchema>;
-  isAuthenticated: boolean;
   isSubmitting: boolean;
   error: string | null;
   onSubmit: (data: ReviewSubmitSchema) => void | Promise<void>;
@@ -20,109 +20,82 @@ interface ReviewSubmitFormProps {
 
 export const ReviewSubmitForm = ({
   methods,
-  isAuthenticated,
   isSubmitting,
   error,
   onSubmit,
 }: ReviewSubmitFormProps) => {
   const t = useTranslations("ProductDetailPage");
+
   return (
-    <div className="border-content/[0.05] bg-background/40 rounded-2xl border p-5">
-      <div className="mb-4 flex flex-col gap-1">
-        <h3 className="text-content text-base font-bold">{t("writeReview")}</h3>
-        <p className="text-content/55 text-sm">{t("writeReviewDesc")}</p>
-      </div>
-
-      {isAuthenticated ? (
-        <AppForm methods={methods} onSubmit={onSubmit} className="space-y-4">
-          <Controller
-            name="rating"
-            control={methods.control}
-            render={({ field, fieldState: { error: fieldError } }) => (
-              <div>
-                <div
-                  className="flex gap-1"
-                  role="radiogroup"
-                  aria-label={t("ratingRequired")}
-                >
-                  {[1, 2, 3, 4, 5].map((rating) => {
-                    const isActive = rating <= field.value;
-
-                    return (
-                      <button
-                        key={rating}
-                        type="button"
-                        role="radio"
-                        aria-checked={field.value === rating}
-                        aria-label={t("filterStars", {
-                          rating: String(rating),
-                        })}
-                        className="focus-visible:ring-primary/50 rounded-lg p-1 text-amber-400 transition-colors outline-none hover:bg-amber-400/10 focus-visible:ring-2"
-                        onClick={() => field.onChange(rating)}
-                      >
-                        <Star
-                          className="size-6"
-                          fill={isActive ? "currentColor" : "none"}
-                          aria-hidden
-                        />
-                      </button>
-                    );
-                  })}
-                </div>
-                {fieldError?.message && (
-                  <p className="mt-1 text-xs font-bold text-red-500">
-                    {fieldError.message}
-                  </p>
-                )}
-              </div>
-            )}
-          />
-
-          <Controller
-            name="comment"
-            control={methods.control}
-            render={({ field, fieldState: { error: fieldError } }) => (
-              <Textarea
-                {...field}
-                id="review-comment"
-                label={t("comment")}
-                error={fieldError?.message}
-                maxCount={1000}
-                placeholder={t("commentPlaceholder")}
-                className="border-content/5 bg-surface focus:border-primary min-h-28"
-              />
-            )}
-          />
-
-          {error && (
-            <p role="alert" className="text-sm font-semibold text-red-500">
-              {error}
-            </p>
+    <>
+      <div className="from-primary/10 pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b to-transparent" />
+      <div className="relative mb-5 flex items-start gap-3">
+        <div
+          className={cn(
+            "bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center",
+            UI_RADIUS.card,
           )}
+        >
+          ★
+        </div>
 
+        <div className="flex flex-col gap-1">
+          <h3 className="text-content text-lg font-black">
+            {t("writeReview")}
+          </h3>
+          <p className="text-content/55 text-sm leading-relaxed">
+            {t("writeReviewDesc")}
+          </p>
+        </div>
+      </div>
+      <AppForm
+        methods={methods}
+        onSubmit={onSubmit}
+        className={cn("relative space-y-4", UI_RADIUS.card)}
+      >
+        <div
+          className={cn(
+            "border-content/[0.06] bg-background/60 border p-4",
+            UI_RADIUS.input,
+          )}
+        >
+          <FormRating
+            name="rating"
+            methods={methods}
+            label={t("ratingRequired")}
+            getAriaLabel={(rating) =>
+              t("filterStars", {
+                rating: String(rating),
+              })
+            }
+          />
+        </div>
+
+        <FormTextarea
+          name="comment"
+          label={t("comment")}
+          maxCount={1000}
+          placeholder={t("commentPlaceholder")}
+          className="border-content/[0.08] bg-background/70 focus:border-primary min-h-32"
+        />
+
+        {error && (
+          <p role="alert" className="text-sm font-semibold text-red-500">
+            {error}
+          </p>
+        )}
+
+        <div className="flex justify-end pt-1">
           <Button
             type="submit"
             variant="primary"
             size="md"
             loading={isSubmitting}
-            className="w-full rounded-xl sm:w-auto"
           >
             {t("submitReview")}
           </Button>
-        </AppForm>
-      ) : (
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-content/60 text-sm">{t("signInToReview")}</p>
-          <Button
-            href={APP_ROUTES.SIGN_IN}
-            variant="outline"
-            size="sm"
-            className="rounded-lg"
-          >
-            {t("signIn")}
-          </Button>
         </div>
-      )}
-    </div>
+      </AppForm>
+    </>
   );
 };

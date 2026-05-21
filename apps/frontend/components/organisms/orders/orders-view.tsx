@@ -7,7 +7,9 @@ import { OrderEmptyState } from "@/components/molecules/order-part/order-empty-s
 import { OrderHeader } from "@/components/molecules/order-part/order-header";
 import { OrderTabs } from "@/components/molecules/order-part/order-tabs";
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
+import ReviewModal from "@/components/molecules/order-part/review-modal";
 import { VirtualList } from "@/components/molecules/virtual-list";
+import { TOrderItem } from "@/domain/orders/types/order.model";
 import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 import { useCancelOrder } from "@/hooks/orders/use-cancel-order";
 import { useOrders } from "@/hooks/orders/use-orders";
@@ -17,6 +19,7 @@ import { useState } from "react";
 export const OrdersView = () => {
   const [confirmCancelId, setConfirmCancelId] = useState<string | null>(null);
   const [returnOrderId, setReturnOrderId] = useState<string | null>(null);
+  const [selectedProduct, setSectedProduct] = useState<TOrderItem>();
 
   const {
     orders,
@@ -83,6 +86,9 @@ export const OrdersView = () => {
                     <OrderCard
                       order={order}
                       onCancelOrder={(id) => setConfirmCancelId(id)}
+                      onClickReview={(orderItem) => {
+                        setSectedProduct(orderItem);
+                      }}
                       onRequestReturn={(id) => setReturnOrderId(id)}
                       headerClassName="flex-col items-stretch gap-3 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-5"
                       headerStatusClassName="justify-between gap-3 sm:justify-end sm:gap-4"
@@ -114,6 +120,12 @@ export const OrdersView = () => {
         isSubmitting={returnRequest.isSubmitting}
         onClose={() => setReturnOrderId(null)}
         onSubmit={returnRequest.submitReturnRequest}
+      />
+
+      <ReviewModal
+        isOpen={!!selectedProduct}
+        onClose={() => setSectedProduct(undefined)}
+        orderItem={selectedProduct}
       />
     </>
   );
