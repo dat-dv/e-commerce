@@ -1,10 +1,10 @@
 "use client";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import {
-  Smartphone,
-  Laptop,
   Headphones,
+  Laptop,
   MonitorSmartphone,
+  Smartphone,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 

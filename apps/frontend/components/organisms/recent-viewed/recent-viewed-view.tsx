@@ -49,8 +49,8 @@ export const RecentViewedView = () => {
           hasMore={hasMore}
           onLoadMore={fetchMore}
           gridClassName={PRODUCT_LISTING_GRID_CLASS_NAME}
-          renderItem={(product) => (
-            <ProductCard key={product.id} product={product} />
+          renderItem={(product, idx) => (
+            <ProductCard key={product.id + idx} product={product} />
           )}
           keyExtractor={(product) => product.id}
           loadingText={t("loadingText")}

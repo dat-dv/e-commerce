@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { type LucideIcon } from "lucide-react";
 import { type MouseEvent, type ReactNode } from "react";
@@ -96,14 +97,16 @@ export function AnimatedPageHeader({
                 : "flex min-w-0 flex-col items-center gap-4 sm:gap-5 md:items-start"
             }
           >
-            <h1 className="max-w-full break-words text-4xl font-black uppercase leading-none tracking-normal text-content sm:text-5xl md:text-7xl">
-              {title}{" "}
-              {highlight && (
-                <span className="italic font-light text-content/30">
-                  {highlight}
-                </span>
-              )}
-            </h1>
+            <LiquidWaveText>
+              <h1 className="max-w-full break-words text-4xl font-black uppercase leading-none tracking-normal text-content sm:text-5xl md:text-7xl">
+                {title}{" "}
+                {highlight && (
+                  <span className="italic font-light text-content/30">
+                    {highlight}
+                  </span>
+                )}
+              </h1>
+            </LiquidWaveText>
 
             {description && (
               <p

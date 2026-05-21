@@ -64,7 +64,7 @@ export const CategoriesView = () => {
           setActiveId={setActiveId}
         />
       }
-      sidebarClassName="hidden lg:block"
+      sidebarClassName="hidden lg:block [&>div]:lg:static [&>div]:lg:top-auto"
       header={<CategoryHeader title={title} description={description} />}
     >
       <RenderTabletAndBelow>

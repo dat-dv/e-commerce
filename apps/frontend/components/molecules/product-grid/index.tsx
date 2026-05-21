@@ -46,8 +46,8 @@ export function ProductGrid({
         loading && "opacity-40 pointer-events-none scale-[0.99] blur-[1px]",
       )}
     >
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+      {products.map((product, idx) => (
+        <ProductCard key={product.id + idx} product={product} />
       ))}
     </div>
   );
