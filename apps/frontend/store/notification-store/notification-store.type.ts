@@ -4,6 +4,9 @@ export interface TNotificationStoreState {
   notifications: INotification[];
   loading: boolean;
   hasLoaded: boolean;
+  unreadCount: number;
+  readIds: Set<string>;
+  isAllRead: boolean;
 }
 
 export interface TNotificationStoreActions {
@@ -13,6 +16,10 @@ export interface TNotificationStoreActions {
   markAllAsRead: () => void;
   addNotification: (notification: INotification) => void;
   reset: () => void;
+  setUnreadCount: (count: number) => void;
+  addReadId: (id: string) => void;
+  setIsAllRead: (isAllRead: boolean) => void;
+  resetReadStatus: () => void;
 }
 
 export type TNotificationStore = TNotificationStoreState &

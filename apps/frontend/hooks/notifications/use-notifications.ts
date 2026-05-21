@@ -6,26 +6,18 @@ import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";
+import { useUnreadCount } from "./use-unread-count";
 
 export const useNotifications = () => {
-  const storeNotifications = useNotificationStore(
-    (state) => state.notifications,
-  );
-  const setNotifications = useNotificationStore(
-    (state) => state.setNotifications,
-  );
-
-  const storeMarkAsRead = useNotificationStore((state) => state.markAsRead);
-  const storeMarkAllAsRead = useNotificationStore(
-    (state) => state.markAllAsRead,
-  );
+  const storeNotifications = useNotificationStore((s) => s.notifications);
+  const setNotifications = useNotificationStore((s) => s.setNotifications);
+  const isAllRead = useNotificationStore((s) => s.isAllRead);
+  const readIds = useNotificationStore((s) => s.readIds);
+  const resetReadStatus = useNotificationStore((s) => s.resetReadStatus);
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [readIds, setReadIds] = useState<Set<string>>(() => new Set());
-  const [isAllRead, setIsAllRead] = useState(false);
-  const [serverUnreadCount, setServerUnreadCount] = useState(0);
-
   const user = useAuthStore((s) => s.user);
+  const { loadUnreadCount } = useUnreadCount();
 
   const fetchNotificationsPage = useCallback(
     async (
@@ -39,7 +31,6 @@ export const useNotifications = () => {
           data: createEmptyPaginatedData<INotification>({ page, limit }),
         };
       }
-
       return notificationsUseCase.getNotifications({ page, limit });
     },
     [user],
@@ -63,56 +54,10 @@ export const useNotifications = () => {
     setNotifications(data.items);
   }, [data.items, setNotifications]);
 
-  const markAsRead = async (id: string) => {
-    try {
-      const notification = storeNotifications.find((item) => item.id === id);
-
-      storeMarkAsRead(id);
-      setReadIds((prev) => {
-        const next = new Set(prev);
-        next.add(id);
-        return next;
-      });
-      if (notification && !notification.isRead && !id.startsWith("fcm-")) {
-        setServerUnreadCount((count) => Math.max(count - 1, 0));
-      }
-      if (id.startsWith("fcm-")) return;
-
-      await notificationsUseCase.markAsRead(id);
-    } catch (error) {
-      console.error("Error marking notification as read:", error);
-    }
-  };
-
-  const markAllAsRead = async () => {
-    try {
-      storeMarkAllAsRead();
-      setIsAllRead(true);
-      setServerUnreadCount(0);
-      await notificationsUseCase.markAllAsRead();
-    } catch (error) {
-      console.error("Error marking all as read:", error);
-    }
-  };
-
-  const loadUnreadCount = useCallback(async () => {
-    if (!user) {
-      setServerUnreadCount(0);
-      return;
-    }
-
-    const response = await notificationsUseCase.getUnreadCount();
-
-    if (response.status === "success") {
-      setServerUnreadCount(response.data.count);
-    }
-  }, [user]);
-
   const refresh = useCallback(async () => {
-    setReadIds(new Set());
-    setIsAllRead(false);
+    resetReadStatus();
     await Promise.all([getData({ page: 1 }), loadUnreadCount()]);
-  }, [getData, loadUnreadCount]);
+  }, [getData, loadUnreadCount, resetReadStatus]);
 
   useEffect(() => {
     const handleRefresh = () => {
@@ -146,27 +91,13 @@ export const useNotifications = () => {
     );
   });
 
-  const loadedUnreadCount = notifications.filter((n) => !n.isRead).length;
-  const localTransientUnreadCount = notifications.filter(
-    (n) => !n.isRead && n.id.startsWith("fcm-"),
-  ).length;
-  const unreadCount = isAllRead
-    ? 0
-    : Math.max(
-        serverUnreadCount + localTransientUnreadCount,
-        loadedUnreadCount,
-      );
-
   return {
     notifications: filteredNotifications,
-    unreadCount,
     loading,
     loadingMore: loading,
     hasMore,
     loadMore,
     refresh,
-    markAsRead,
-    markAllAsRead,
     setSearch: setSearchQuery,
     total: data.meta.total,
     canLoad: Boolean(user),

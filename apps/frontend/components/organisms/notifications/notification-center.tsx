@@ -1,7 +1,10 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
+import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
+import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import { Bell } from "lucide-react";
@@ -15,15 +18,10 @@ import { NotificationItem } from "./notification-item";
 export const NotificationCenter = () => {
   const t = useTranslations("NotificationsPage");
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    notifications,
-    unreadCount,
-    markAsRead,
-    markAllAsRead,
-    loading,
-    refresh,
-    canLoad,
-  } = useNotifications();
+  const { notifications, loading, refresh, canLoad } = useNotifications();
+  const { unreadCount } = useUnreadCount();
+  const { markAsRead } = useMarkAsRead();
+  const { markAllAsRead } = useMarkAllAsRead();
 
   useLoadOnce(refresh, canLoad);
 

@@ -13,8 +13,5 @@ export type NavigateParams = {
 export type UseAppRouterOptions<T extends Record<string, unknown>> = {
   isSyncWithSearchParams?: boolean;
 
-  /**
-   * Default state for router state
-   */
   extendParams?: Partial<T>;
 };

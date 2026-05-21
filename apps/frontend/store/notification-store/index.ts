@@ -1,7 +1,7 @@
+import { PUBLIC_ENV } from "@/config/public.env.config";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { TNotificationStore } from "./notification-store.type";
-import { PUBLIC_ENV } from "@/config/public.env.config";
 
 export const useNotificationStore = create<TNotificationStore>()(
   devtools(
@@ -9,6 +9,9 @@ export const useNotificationStore = create<TNotificationStore>()(
       notifications: [],
       loading: false,
       hasLoaded: false,
+      unreadCount: 0,
+      readIds: new Set(),
+      isAllRead: false,
 
       setNotifications: (notifications) =>
         set({
@@ -38,7 +41,25 @@ export const useNotificationStore = create<TNotificationStore>()(
           notifications: [notification, ...state.notifications],
         })),
 
-      reset: () => set({ notifications: [], loading: false, hasLoaded: false }),
+      setUnreadCount: (unreadCount) => set({ unreadCount }),
+      addReadId: (id) =>
+        set((state) => {
+          const next = new Set(state.readIds);
+          next.add(id);
+          return { readIds: next };
+        }),
+      setIsAllRead: (isAllRead) => set({ isAllRead }),
+      resetReadStatus: () => set({ readIds: new Set(), isAllRead: false }),
+
+      reset: () =>
+        set({
+          notifications: [],
+          loading: false,
+          hasLoaded: false,
+          unreadCount: 0,
+          readIds: new Set(),
+          isAllRead: false,
+        }),
     }),
     {
       name: "NotificationStore",

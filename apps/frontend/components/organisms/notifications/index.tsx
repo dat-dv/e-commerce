@@ -3,20 +3,20 @@
 import AppContainer from "@/components/atoms/app-container";
 import { motion } from "framer-motion";
 
+import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
+import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
+import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
+import { useLoadOnce } from "@/hooks/use-load-once";
 import { NotificationFilters } from "./parts/notification-filters";
 import { NotificationHeader } from "./parts/notification-header";
 import { NotificationList } from "./parts/notification-list";
 import { NotificationPageHeader } from "./parts/notification-page-header";
 import { NotificationSummary } from "./parts/notification-summary";
-import { useLoadOnce } from "@/hooks/use-load-once";
 
 export const NotificationsView = () => {
   const {
     notifications,
-    unreadCount,
-    markAsRead,
-    markAllAsRead,
     loading,
     loadingMore,
     hasMore,
@@ -26,6 +26,9 @@ export const NotificationsView = () => {
     total,
     canLoad,
   } = useNotifications();
+  const { unreadCount } = useUnreadCount();
+  const { markAsRead } = useMarkAsRead();
+  const { markAllAsRead } = useMarkAllAsRead();
 
   useLoadOnce(refresh, canLoad);
 
