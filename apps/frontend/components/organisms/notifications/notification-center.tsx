@@ -13,7 +13,6 @@ import { useLoadOnce } from "@/hooks/use-load-once";
 import { NotificationItem } from "./notification-item";
 
 export const NotificationCenter = () => {
-  return 1;
   const t = useTranslations("NotificationsPage");
   const [isOpen, setIsOpen] = useState(false);
   const {

@@ -1,36 +1,21 @@
 "use client";
 
-import {
-  PAGINATION_LIMITS,
-  createInitialPaginationMeta,
-} from "@/constants/pagination.constant";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import usePagination from "@/hooks/use-pagination";
-import { useCallback, useMemo } from "react";
-
-const LIMIT = PAGINATION_LIMITS.DEFAULT;
-const INITIAL_META = createInitialPaginationMeta(LIMIT);
-const EMPTY_INITIAL_ITEMS: TProduct[] = [];
+import { ApiListResponse } from "@/utils/request/request.types";
+import { useCallback } from "react";
 
 export const useRecommendedProducts = ({
   initialItems,
 }: {
-  initialItems?: TProduct[];
-} = {}) => {
-  const initialData = useMemo(
-    () => ({
-      items: initialItems ?? EMPTY_INITIAL_ITEMS,
-      meta: INITIAL_META,
-    }),
-    [initialItems],
-  );
-
+  initialItems: ApiListResponse<TProduct>;
+}) => {
   const fetchRecommendedPage = useCallback(
     (params: Partial<{ page: number; limit: number; search: string }>) =>
       productsUseCase.getRecommended.execute({
-        page: params.page || 1,
-        limit: params.limit || LIMIT,
+        page: params.page,
+        limit: params.limit,
       }),
     [],
   );
@@ -40,7 +25,7 @@ export const useRecommendedProducts = ({
     { page: number; limit: number; search: string }
   >({
     isSyncWithSearchParams: false,
-    initialData,
+    initialData: initialItems,
     fetchPage: fetchRecommendedPage,
   });
 

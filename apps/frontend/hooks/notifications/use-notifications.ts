@@ -1,7 +1,3 @@
-import {
-  PAGINATION_LIMITS,
-  createInitialPaginationMeta,
-} from "@/constants/pagination.constant";
 import { INotification } from "@/domain/notifications/types/notification";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import usePagination from "@/hooks/use-pagination";
@@ -10,9 +6,6 @@ import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";
-
-const LIMIT = PAGINATION_LIMITS.NOTIFICATIONS;
-const INITIAL_META = createInitialPaginationMeta(LIMIT);
 
 export const useNotifications = () => {
   const storeNotifications = useNotificationStore(
@@ -38,8 +31,8 @@ export const useNotifications = () => {
     async (
       params: Partial<{ page: number; limit: number; search: string }>,
     ) => {
-      const page = params.page || 1;
-      const limit = params.limit || LIMIT;
+      const page = params.page;
+      const limit = params.limit;
       if (!user) {
         return {
           status: "success" as const,
@@ -57,10 +50,7 @@ export const useNotifications = () => {
     { page: number; limit: number; search: string }
   >({
     isSyncWithSearchParams: false,
-    initialData: {
-      items: [],
-      meta: INITIAL_META,
-    },
+    initialData: null,
     fetchPage: fetchNotificationsPage,
   });
 

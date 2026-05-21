@@ -7,27 +7,28 @@ import { useRecommendedProducts } from "@/hooks/products/use-recommended-product
 import { Sparkles } from "lucide-react";
 
 import { useLoadOnce } from "@/hooks/use-load-once";
+import { ApiListResponse } from "@/utils/request/request.types";
 import { useTranslations } from "next-intl";
 import { DiscoverySectionSkeleton } from "./skeletons";
 
 export interface RecommendedSectionProps {
-  products?: TProduct[];
+  initialItems?: ApiListResponse<TProduct>;
   loading?: boolean;
 }
 
 export const RecommendedSection = ({
-  products: propProducts,
+  initialItems,
   loading: propLoading,
 }: RecommendedSectionProps) => {
   const { recommendedProducts, fetchRecommendedProducts } =
     useRecommendedProducts({
-      initialItems: propProducts,
+      initialItems,
     });
   const { language } = useConfig();
   const t = useTranslations("HomePage.discovery");
   const { loading: initialLoading } = useLoadOnce(fetchRecommendedProducts);
 
-  const products = propProducts ?? recommendedProducts;
+  const products = initialItems?.items ?? recommendedProducts;
   const loading = propLoading || initialLoading;
 
   return (
