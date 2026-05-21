@@ -29,7 +29,8 @@ export const AddressProvider = ({
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
-    if (!user) return;
+    const hydrate = store.getState().hasHydrated;
+    if (hydrate || !user) return;
     const getAddresses = async () => {
       const res = await safe(addressesUseCase.getAddresses.execute());
       const initialAddresses = res?.data || [];

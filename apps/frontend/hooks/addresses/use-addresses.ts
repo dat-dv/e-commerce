@@ -1,13 +1,12 @@
-import { useCallback, useEffect } from "react";
-import { useAddressStore } from "./use-address-store";
-import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { toast } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
+import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
+import { useCallback } from "react";
+import { useAddressStore } from "./use-address-store";
 
 export const useAddresses = () => {
   const addresses = useAddressStore((s) => s.addresses);
   const loading = useAddressStore((s) => s.loading);
-  const hasHydrated = useAddressStore((s) => s.hasHydrated);
   const setAddresses = useAddressStore((s) => s.setAddresses);
   const setLoading = useAddressStore((s) => s.setLoading);
   const setHasHydrated = useAddressStore((s) => s.setHasHydrated);
@@ -65,29 +64,6 @@ export const useAddresses = () => {
       return false;
     }
   };
-
-  useEffect(() => {
-    if (!hasHydrated && !loading) {
-      fetchAddresses();
-      return;
-    }
-
-    if (addresses.length > 0 && !selectedAddressId) {
-      const defaultAddress = addresses.find((addr) => addr.isDefault);
-      if (defaultAddress) {
-        setSelectedAddressId(defaultAddress.id);
-      } else {
-        setSelectedAddressId(addresses[0].id);
-      }
-    }
-  }, [
-    addresses,
-    fetchAddresses,
-    hasHydrated,
-    loading,
-    selectedAddressId,
-    setSelectedAddressId,
-  ]);
 
   return {
     addresses,

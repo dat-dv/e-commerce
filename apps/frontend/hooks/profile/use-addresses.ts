@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import { toast } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
 import {
@@ -8,6 +7,7 @@ import {
   TCreateAddressInput,
 } from "@/domain/addresses/types/address.model";
 import { useTranslations } from "next-intl";
+import { useCallback, useState } from "react";
 
 export type { TAddress as Address };
 
@@ -31,11 +31,6 @@ export const useAddresses = () => {
       setLoading(false);
     }
   }, [t]);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    fetchAddresses();
-  }, [fetchAddresses]);
 
   const addAddress = async (data: TCreateAddressInput): Promise<boolean> => {
     setAdding(true);
