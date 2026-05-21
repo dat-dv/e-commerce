@@ -21,7 +21,6 @@ interface ReviewSubmitFormProps {
 export const ReviewSubmitForm = ({
   methods,
   isSubmitting,
-  error,
   onSubmit,
 }: ReviewSubmitFormProps) => {
   const t = useTranslations("ProductDetailPage");
@@ -78,12 +77,6 @@ export const ReviewSubmitForm = ({
           placeholder={t("commentPlaceholder")}
           className="border-content/[0.08] bg-background/70 focus:border-primary min-h-32"
         />
-
-        {error && (
-          <p role="alert" className="text-sm font-semibold text-red-500">
-            {error}
-          </p>
-        )}
 
         <div className="flex justify-end pt-1">
           <Button

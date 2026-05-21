@@ -7,6 +7,8 @@
 @theme {
   --color-primary: var(--primary);
   --color-on-primary: var(--primary-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+
   --color-surface: var(--app-bg);
   --color-content: var(--app-text);
 
