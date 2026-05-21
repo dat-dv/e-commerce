@@ -1,3 +1,4 @@
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
 interface SummaryCardProps {
@@ -74,7 +75,8 @@ const SummaryCard = ({
 
         <div
           className={cn(
-            "flex size-11 items-center justify-center rounded-2xl",
+            "flex size-11 items-center justify-center",
+            UI_RADIUS.panel,
             active
               ? "bg-primary/10 text-primary"
               : "bg-content/[0.04] text-content/40",

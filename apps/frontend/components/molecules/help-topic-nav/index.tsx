@@ -1,5 +1,6 @@
 "use client";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import React, { useEffect, useMemo, useState } from "react";
 
@@ -57,7 +58,8 @@ export function HelpTopicNav({
   return (
     <nav
       className={cn(
-        "scrollbar-hide mt-5 flex max-w-full gap-2 overflow-x-auto rounded-xl border border-content/5 bg-surface p-2 lg:block lg:overflow-visible",
+        "scrollbar-hide mt-5 flex max-w-full gap-2 overflow-x-auto border border-content/5 bg-surface p-2 lg:block lg:overflow-visible",
+        UI_RADIUS.panel,
         className,
       )}
     >
@@ -72,7 +74,8 @@ export function HelpTopicNav({
             onClick={() => setActiveId(topicId)}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "block whitespace-nowrap rounded-lg px-3 py-2 text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 lg:whitespace-normal",
+              "block whitespace-nowrap px-3 py-2 text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 lg:whitespace-normal",
+              UI_RADIUS.control,
               isActive
                 ? "bg-primary/10 text-primary"
                 : "text-content/60 hover:bg-content/[0.04] hover:text-primary",

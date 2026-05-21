@@ -1,10 +1,11 @@
 "use client";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
-import { User, Bell, ShoppingBag, ShoppingCart } from "lucide-react";
+import { Bell, ShoppingBag, ShoppingCart, User } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
 
 export default function ProfileSidebarSection() {
   const t = useTranslations("ProfileLayout.sidebar");
@@ -78,7 +79,8 @@ export default function ProfileSidebarSection() {
                     <Link
                       href={subItem.href}
                       className={cn(
-                        "font-medium flex items-center gap-2 px-3 py-2 rounded-xl transition-all text-sm",
+                        "font-medium flex items-center gap-2 px-3 py-2 transition-all text-sm",
+                        UI_RADIUS.control,
                         pathname === subItem.href
                           ? "bg-primary/10 text-primary font-semibold"
                           : "text-content/60 hover:text-content hover:bg-content/5",
@@ -100,7 +102,8 @@ export default function ProfileSidebarSection() {
               <Link
                 href={item.href || "/"}
                 className={cn(
-                  "font-bold flex items-center gap-2 px-3 py-2 rounded-xl transition-all text-sm",
+                  "font-bold flex items-center gap-2 px-3 py-2 transition-all text-sm",
+                  UI_RADIUS.control,
                   pathname === item.href
                     ? "bg-primary/10 text-primary"
                     : "text-content/80 hover:text-primary hover:bg-primary/5",
