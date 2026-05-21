@@ -10,9 +10,9 @@ export const PasswordView = () => {
   const { changePassword, loading } = useChangePassword();
 
   return (
-    <FormCard>
+    <FormCard className="max-w-full">
       <div className="mb-6 min-w-0">
-        <h1 className="text-2xl font-bold text-content break-words">
+        <h1 className="text-xl font-bold text-content break-words sm:text-2xl">
           {t("title")}
         </h1>
         <p className="text-sm text-content/60 break-words">

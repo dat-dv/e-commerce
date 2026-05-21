@@ -59,7 +59,7 @@ export const ProfileFormDesktop = ({
       <FormCard className="space-y-6">
         <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2">
           <FormInput
             variant="outline"
             name="firstName"
@@ -108,7 +108,7 @@ export const ProfileFormDesktop = ({
           />
         </div>
 
-        <AnimationItem className="flex flex-wrap items-center justify-end gap-4 pt-6">
+        <AnimationItem className="flex min-w-0 flex-col-reverse items-stretch justify-end gap-3 pt-6 sm:flex-row sm:items-center sm:gap-4">
           {isEditing ? (
             <>
               <FormListenerDirty>
@@ -117,7 +117,7 @@ export const ProfileFormDesktop = ({
                     onClick={methods.handleSubmit(handleSave)}
                     variant="primary"
                     size="lg"
-                    className="rounded-2xl px-8 bg-primary shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all text-white disabled:opacity-50 disabled:hover:scale-100"
+                    className="w-full rounded-2xl bg-primary px-8 text-white shadow-xl shadow-primary/25 transition-all active:scale-95 disabled:opacity-50 sm:w-auto sm:hover:scale-105 sm:disabled:hover:scale-100"
                     disabled={isSubmitLoading || !isDirty}
                   >
                     {isSubmitLoading ? t("form.updating") : t("form.updateBtn")}
@@ -128,7 +128,7 @@ export const ProfileFormDesktop = ({
                 onClick={disableEdit}
                 variant="ghost"
                 size="lg"
-                className="rounded-2xl px-8 border border-content/5 hover:bg-content/5 transition-all"
+                className="w-full rounded-2xl border border-content/5 px-8 transition-all hover:bg-content/5 sm:w-auto"
                 disabled={isSubmitLoading}
               >
                 {t("form.cancelBtn")}
@@ -139,7 +139,7 @@ export const ProfileFormDesktop = ({
               onClick={enableEdit}
               variant="primary"
               size="lg"
-              className="rounded-2xl px-12 shadow-xl shadow-primary/25 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl px-12 shadow-xl shadow-primary/25 transition-all active:scale-95 sm:w-auto sm:hover:scale-105"
               disabled={isSubmitLoading}
             >
               <Pencil className="w-4 h-4" />

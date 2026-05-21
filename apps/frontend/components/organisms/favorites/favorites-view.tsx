@@ -41,7 +41,7 @@ export const FavoritesView = ({
   return (
     <AppContainer>
       <FavoritesBanner count={meta.total} />
-      <div className="space-y-24">
+      <div className="space-y-12 sm:space-y-16 lg:space-y-24">
         <FavoritesGrid
           favorites={favorites}
           loading={loading}

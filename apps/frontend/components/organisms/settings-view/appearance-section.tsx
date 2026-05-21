@@ -24,11 +24,11 @@ const AppearanceSection = ({
   return (
     <div
       id="appearance"
-      className="border border-content/10 rounded-xl p-6 bg-surface/50 backdrop-blur-md scroll-mt-24"
+      className="min-w-0 rounded-xl border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6"
     >
       <h2 className="text-lg font-bold text-content mb-4">{t("title")}</h2>
 
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-content/5 pb-4 mb-4 gap-4">
+      <div className="mb-4 flex min-w-0 flex-col justify-between gap-4 border-b border-content/5 pb-4 sm:flex-row sm:items-center">
         <div className="min-w-0">
           <span className="font-medium text-content block">
             {t("themeColor.label")}
@@ -37,7 +37,7 @@ const AppearanceSection = ({
             {t("themeColor.description")}
           </span>
         </div>
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 sm:shrink-0 sm:justify-end">
           {THEMES.map((themeOption) => {
             const themeName = t(`themes.${themeOption.id}`);
             const active = theme === themeOption.id;
@@ -59,7 +59,7 @@ const AppearanceSection = ({
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex min-w-0 items-center justify-between gap-4">
         <div className="min-w-0">
           <span className="font-medium text-content block">
             {t("darkMode.label")}

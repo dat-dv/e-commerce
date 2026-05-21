@@ -16,21 +16,23 @@ export const ListingSectionHeader = ({
   meta,
 }: ListingSectionHeaderProps) => {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        <div className="flex items-center gap-2 text-primary">
+    <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div className="min-w-0">
+        <div className="flex min-w-0 items-center gap-2 text-primary">
           {icon}
-          <span className="text-[10px] uppercase tracking-[0.35em] font-bold text-content/30">
+          <span className="truncate text-[10px] font-bold uppercase tracking-wide text-content/30 sm:tracking-[0.35em]">
             {eyebrow}
           </span>
         </div>
-        <h2 className="mt-2 text-2xl font-black text-content tracking-tight">
+        <h2 className="mt-2 text-xl font-black tracking-tight text-content sm:text-2xl">
           {title}
         </h2>
       </div>
 
       {meta ? (
-        <div className="text-sm font-semibold text-content/40">{meta}</div>
+        <div className="shrink-0 text-sm font-semibold text-content/40">
+          {meta}
+        </div>
       ) : null}
     </div>
   );

@@ -10,10 +10,11 @@ import {
   errorResponseStrategies,
   successResponseStrategies,
 } from "./response-mapping";
-import { refreshToken } from "./refresh-token";
-import { processQueue, refreshState } from "./request-queue";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
+import { refreshToken } from "./refresh-token";
+import { processQueue, refreshState } from "./request-queue";
 
 export class RequestError extends Error {
   constructor(
@@ -40,6 +41,7 @@ const requestCreator: TRequestCreator = async <T>({
   body,
   options,
 }: IRequestParams): Promise<ApiResponse<T>> => {
+  // ===== QUEUE IF REFRESHING =====
   if (refreshState.isRefreshing && !options?.skipAutoRefresh) {
     return new Promise<ApiResponse<T>>((resolve, reject) => {
       refreshState.failedQueue.push({
@@ -48,7 +50,7 @@ const requestCreator: TRequestCreator = async <T>({
             .then(resolve)
             .catch(reject);
         },
-        reject,
+        reject: (err) => reject(err),
       });
     });
   }
@@ -61,11 +63,13 @@ const requestCreator: TRequestCreator = async <T>({
     ...options,
     headers: {
       ...(isFormData ? {} : { "Content-Type": "application/json" }),
+      "Accept-Language": getSubdomainByHostname(),
       ...options?.headers,
     },
     body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
   });
 
+  // ===== REFRESH TOKEN =====
   const isServer = typeof window === "undefined";
   if (res.status === 401 && !options?.skipAutoRefresh && !isServer) {
     return new Promise<ApiResponse<T>>((resolve, reject) => {
@@ -75,40 +79,25 @@ const requestCreator: TRequestCreator = async <T>({
             .then(resolve)
             .catch(reject);
         },
-        reject,
+        reject: (err) => reject(err),
       });
 
-      if (refreshState.isRefreshing) return;
-
-      refreshState.isRefreshing = true;
-      refreshToken()
-        .then((response) => {
-          if (!response.ok) {
-            throw new RequestError("Unauthorized", {
-              message: "Unauthorized",
-              statusCode: response.status,
-            });
-          }
-
-          processQueue(null);
-        })
-        .catch((error) => {
-          const requestError =
-            error instanceof RequestError
-              ? error
-              : new RequestError("Unauthorized", {
-                  message: "Unauthorized",
-                  statusCode: 401,
-                });
-
-          processQueue(requestError);
-          if (window.location.pathname !== APP_ROUTES.SIGN_IN) {
+      if (!refreshState.isRefreshing) {
+        refreshState.isRefreshing = true;
+        refreshToken()
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Refresh failed");
+            }
+            refreshState.isRefreshing = false;
+            processQueue(null);
+          })
+          .catch((err) => {
+            refreshState.isRefreshing = false;
+            processQueue(err);
             window.location.href = APP_ROUTES.SIGN_IN;
-          }
-        })
-        .finally(() => {
-          refreshState.isRefreshing = false;
-        });
+          });
+      }
     });
   }
 
@@ -122,10 +111,7 @@ const requestCreator: TRequestCreator = async <T>({
       : "other";
     const error = await errorResponseStrategies[errorType](res);
 
-    throw new RequestError(error.message, {
-      ...error,
-      statusCode: error.statusCode ?? res.status,
-    });
+    throw new RequestError(error.message, error);
   }
 
   // ===== RESPONSE =====

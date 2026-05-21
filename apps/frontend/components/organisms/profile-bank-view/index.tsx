@@ -11,7 +11,7 @@ export function ProfileBankView(): React.ReactElement {
 
   return (
     <FormCard>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
+      <div className="mb-6 flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
           <h1 className="text-2xl font-bold text-content break-words">
             {t("title")}
@@ -23,15 +23,15 @@ export function ProfileBankView(): React.ReactElement {
         <Button
           variant="primary"
           size="md"
-          className="min-w-max"
+          className="w-full justify-center sm:w-auto sm:shrink-0"
           aria-label={t("addAccount")}
         >
           <Plus size={18} aria-hidden="true" />
-          {t("addAccount")}
+          <span className="truncate">{t("addAccount")}</span>
         </Button>
       </div>
 
-      <div className="border-2 border-dashed border-content/10 rounded-xl p-8 text-center flex flex-col items-center justify-center gap-3">
+      <div className="flex min-w-0 flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-content/10 p-5 text-center sm:p-8">
         <div className="w-12 h-12 bg-content/5 rounded-full flex items-center justify-center text-content/40">
           <CreditCard size={24} aria-hidden="true" />
         </div>

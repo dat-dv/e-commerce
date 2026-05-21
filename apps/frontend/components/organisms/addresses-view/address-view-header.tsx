@@ -17,13 +17,15 @@ const AddressViewHeader = ({
   showAction = true,
 }: AddressViewHeaderProps) => {
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+    <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
       <div className="min-w-0">
         <h1 className="text-xl font-black tracking-tight text-content sm:text-2xl">
           {title}
         </h1>
 
-        <p className="mt-1 text-sm text-content/50">{description}</p>
+        <p className="mt-1 text-sm text-content/50 break-words">
+          {description}
+        </p>
       </div>
 
       {showAction && (
@@ -32,7 +34,7 @@ const AddressViewHeader = ({
           onPress={onPress}
         >
           <Plus size={16} />
-          {actionLabel}
+          <span className="truncate">{actionLabel}</span>
         </Button>
       )}
     </div>

@@ -30,7 +30,7 @@ export const RecentViewedView = () => {
   useLoadOnce(fetchRecentViewedProducts);
 
   return (
-    <AppContainer size="2xl" className="py-14">
+    <AppContainer size="2xl" className="py-8 sm:py-12 lg:py-14">
       <RecentViewedHeader />
 
       {loading ? (
@@ -58,20 +58,22 @@ export const RecentViewedView = () => {
           columns={PRODUCT_LISTING_GRID_COLUMNS}
         />
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-content/10 bg-surface/50 px-6 py-20 text-center">
+        <div className="flex min-w-0 flex-col items-center justify-center rounded-2xl border border-dashed border-content/10 bg-surface/50 px-4 py-14 text-center sm:px-6 sm:py-20">
           <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-content/5 text-content/30">
             <Eye size={28} />
           </div>
-          <h2 className="text-xl font-black text-content">{t("emptyTitle")}</h2>
+          <h2 className="max-w-full text-xl font-black text-content">
+            {t("emptyTitle")}
+          </h2>
           <p className="mt-2 max-w-sm text-sm text-content/50">
             {t("emptyDescription")}
           </p>
           <Link
             href={APP_ROUTES.PRODUCTS}
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-bold text-surface transition-transform active:scale-95"
+            className="mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-xl bg-content px-5 py-3 text-sm font-bold text-surface transition-transform active:scale-95"
           >
             <ShoppingBag size={16} />
-            {t("browseButton")}
+            <span className="truncate">{t("browseButton")}</span>
           </Link>
         </div>
       )}

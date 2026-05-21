@@ -9,7 +9,7 @@ export const FormCard = ({ children, className, ...props }: FormCardProps) => {
   return (
     <div
       className={cn(
-        "p-4 sm:p-6 bg-white/80 dark:bg-surface/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/20",
+        "min-w-0 p-4 sm:p-6 bg-white/80 dark:bg-surface/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/20",
         className,
       )}
       {...props}

@@ -2,11 +2,11 @@
 
 import SidebarLayout from "@/components/molecules/sidebar-layout";
 import { useConfig } from "@/hooks/config/use-config";
-import SettingsHeader from "./setting-header";
-import SettingsSidebar from "./settings-sidebar";
+import { useTranslations } from "next-intl";
 import AppearanceSection from "./appearance-section";
 import LanguageSection from "./language-section";
-import { useTranslations } from "next-intl";
+import SettingsHeader from "./setting-header";
+import SettingsSidebar from "./settings-sidebar";
 
 export function SettingsView() {
   const t = useTranslations("SettingsPage.navigation");
@@ -29,7 +29,7 @@ export function SettingsView() {
       header={<SettingsHeader />}
       sidebar={<SettingsSidebar items={tocItems} />}
     >
-      <div className="space-y-6">
+      <div className="min-w-0 space-y-4 sm:space-y-6">
         <AppearanceSection
           theme={theme}
           isDarkMode={isDarkMode}

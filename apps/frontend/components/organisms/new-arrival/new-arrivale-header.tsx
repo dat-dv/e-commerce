@@ -24,7 +24,7 @@ export function FreshArrivalsHeader() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       onMouseMove={handleMouseMove}
-      className="group relative mb-8 min-h-[260px] flex items-center justify-center overflow-hidden border-b border-content/[0.03]"
+      className="group relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b border-content/[0.03] sm:mb-8 sm:min-h-[260px]"
     >
       <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none">
         {FLOATING_ICONS.map((Icon, i) => (
@@ -68,16 +68,16 @@ export function FreshArrivalsHeader() {
         }}
       />
 
-      <div className="relative z-20 w-full max-w-6xl px-6">
-        <div className="flex flex-col items-center text-center gap-5 py-10">
-          <h1 className="text-5xl md:text-7xl font-black tracking-[-0.05em] text-content leading-none uppercase">
+      <div className="relative z-20 w-full max-w-6xl px-4 sm:px-6">
+        <div className="flex min-w-0 flex-col items-center gap-4 py-8 text-center sm:gap-5 sm:py-10">
+          <h1 className="max-w-full text-4xl font-black leading-none text-content uppercase sm:text-5xl md:text-7xl">
             {t("title")}{" "}
             <span className="italic font-light text-content/30">
               {t("highlight")}
             </span>
           </h1>
 
-          <p className="text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight">
+          <p className="max-w-2xl text-sm font-medium leading-relaxed text-content/50 sm:text-base md:text-lg">
             {t.rich("description", {
               strong: (chunks) => (
                 <span className="text-content font-bold underline underline-offset-4 decoration-primary/20">
@@ -87,7 +87,7 @@ export function FreshArrivalsHeader() {
             })}
           </p>
 
-          <p className="text-sm md:text-base text-content/35 max-w-2xl font-medium leading-relaxed">
+          <p className="max-w-2xl text-sm font-medium leading-relaxed text-content/35 md:text-base">
             {t("note")}
           </p>
         </div>

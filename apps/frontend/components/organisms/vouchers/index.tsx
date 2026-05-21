@@ -6,7 +6,7 @@ import VoucherList from "./voucher-list";
 
 export const VoucherView = () => {
   return (
-    <AppContainer className="pb-24">
+    <AppContainer className="pb-14 sm:pb-20 lg:pb-24">
       <VoucherHeader />
       <VoucherList />
     </AppContainer>

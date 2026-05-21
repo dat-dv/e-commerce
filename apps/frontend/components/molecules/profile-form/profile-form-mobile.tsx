@@ -22,10 +22,6 @@ interface IProfileFormMobileProps {
   uploadAvatar: (avatar: File) => Promise<boolean | void>;
 }
 
-/**
- * Molecule component rendering the Profile form for mobile views.
- * Utilizes the centralized FormCard layout component for visual consistency.
- */
 export const ProfileFormMobile = ({
   user,
   isLoading,
@@ -59,7 +55,7 @@ export const ProfileFormMobile = ({
       methods={methods}
       onSubmit={handleSave}
     >
-      <div className="space-y-4">
+      <div className="min-w-0 space-y-4">
         {/* Avatar section — centered on mobile */}
         <FormCard className="flex flex-col items-center gap-3 py-6">
           <AvatarWrapper
@@ -119,14 +115,14 @@ export const ProfileFormMobile = ({
           {/* Sticky bottom action bar */}
           <div className="mt-4">
             {isEditing ? (
-              <div className="flex gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:flex">
                 <FormListenerDirty>
                   {(isDirty) => (
                     <Button
                       onClick={methods.handleSubmit(handleSave)}
                       variant="primary"
                       size="lg"
-                      className="flex-1 rounded-2xl bg-primary shadow-xl shadow-primary/25 text-white disabled:opacity-50"
+                      className="w-full rounded-2xl bg-primary text-white shadow-xl shadow-primary/25 disabled:opacity-50 sm:flex-1"
                       disabled={isSubmitLoading || !isDirty}
                     >
                       {isSubmitLoading
@@ -139,7 +135,7 @@ export const ProfileFormMobile = ({
                   onClick={disableEdit}
                   variant="ghost"
                   size="lg"
-                  className="rounded-2xl px-6 border border-content/10 hover:bg-content/5"
+                  className="w-full rounded-2xl border border-content/10 px-6 hover:bg-content/5 sm:w-auto"
                   disabled={isSubmitLoading}
                 >
                   {t("form.cancelBtn")}

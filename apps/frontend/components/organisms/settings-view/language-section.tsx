@@ -18,16 +18,16 @@ const LanguageSection = ({
   return (
     <div
       id="language"
-      className="border border-content/10 rounded-xl p-6 bg-surface/50 backdrop-blur-md scroll-mt-24"
+      className="min-w-0 rounded-xl border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6"
     >
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div className="min-w-0">
           <span className="font-medium text-content block">{t("label")}</span>
           <span className="text-sm text-content/60 break-words">
             {t("description")}
           </span>
         </div>
-        <div className="flex shrink-0 flex-wrap items-center gap-3 sm:justify-end">
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:shrink-0 sm:flex-wrap sm:items-center sm:justify-end">
           {Object.values(ELanguage).map((value) => (
             <motion.button
               key={value}
@@ -35,13 +35,13 @@ const LanguageSection = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={t("select", { language: t(`options.${value}`) })}
-              className={`px-4 py-2 rounded-lg border transition-all ${
+              className={`min-w-0 rounded-lg border px-4 py-2 text-sm font-semibold transition-all ${
                 currentLang === value
                   ? "bg-primary text-white border-primary"
                   : "border-content/10 text-content hover:bg-content/5"
               }`}
             >
-              {t(`options.${value}`)}
+              <span className="block truncate">{t(`options.${value}`)}</span>
             </motion.button>
           ))}
         </div>

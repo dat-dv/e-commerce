@@ -56,10 +56,10 @@ const NewArrivalList = ({ products, meta }: NewArrivalListProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
-      className="relative z-20 w-full py-10"
+      className="relative z-20 w-full py-6 sm:py-10"
     >
       {items.length > 0 ? (
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           <ListingSectionHeader
             eyebrow={t("eyebrow")}
             title={t("title", { total: pageMeta.total })}

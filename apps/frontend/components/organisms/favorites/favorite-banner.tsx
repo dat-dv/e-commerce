@@ -17,12 +17,12 @@ const FavoritesBanner = ({ count }: { count: number }) => {
       description={t("banner.description")}
       icons={WISHLIST_ICONS}
       rightContent={
-        <div className="flex flex-col items-center md:items-end">
-          <span className="text-3xl md:text-4xl font-black text-content tabular-nums">
+        <div className="flex min-w-0 flex-col items-center md:items-end">
+          <span className="text-2xl font-black tabular-nums text-content sm:text-3xl md:text-4xl">
             {count.toString().padStart(2, "0")}
           </span>
 
-          <span className="text-xs font-medium text-content/30">
+          <span className="max-w-full truncate text-xs font-medium text-content/30">
             {t("banner.totalItems")}
           </span>
         </div>

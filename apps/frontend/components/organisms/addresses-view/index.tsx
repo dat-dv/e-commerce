@@ -35,7 +35,7 @@ export const AddressesView = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="min-w-0 space-y-5 sm:space-y-6">
       {/* Header */}
       <AddressViewHeader
         title={t("title")}
@@ -63,7 +63,7 @@ export const AddressesView = () => {
 
       {/* Loading */}
       {loading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2">
           <AddressLoadingCard />
           <AddressLoadingCard />
         </div>
@@ -81,7 +81,7 @@ export const AddressesView = () => {
 
       {/* Address List */}
       {!loading && addresses.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2">
           {addresses.map((addr) => (
             <motion.div key={addr.id} layout>
               <AddressCard
