@@ -366,7 +366,13 @@ declare const messages: {
       "defaultPlaceholder": "Search...",
       "clear": "Clear",
       "submit": "Search",
-      "globalPlaceholder": "Search for premium tech & workspace essentials..."
+      "globalPlaceholder": "Search for premium tech & workspace essentials...",
+      "placeholderWithinPage": "Search within this page...",
+      "optionWithinPage": "Within page",
+      "placeholderAll": "Search products...",
+      "optionAll": "All",
+      "placeholderFlashSale": "Search flash sale",
+      "optionFlashSale": "Flash Sale"
     },
     "formMapPicker": {
       "resolving": "Resolving location...",

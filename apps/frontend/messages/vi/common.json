@@ -90,7 +90,13 @@
       "defaultPlaceholder": "Tìm kiếm...",
       "clear": "Xóa",
       "submit": "Tìm kiếm",
-      "globalPlaceholder": "Tìm kiếm thiết bị công nghệ & đồ dùng góc làm việc cao cấp..."
+      "globalPlaceholder": "Tìm kiếm thiết bị công nghệ & đồ dùng góc làm việc cao cấp...",
+      "placeholderWithinPage": "Tìm kiếm trong trang này...",
+      "optionWithinPage": "Trong trang",
+      "placeholderAll": "Tìm kiếm sản phẩm...",
+      "optionAll": "Tất cả",
+      "placeholderFlashSale": "Tìm kiếm khuyến mãi",
+      "optionFlashSale": "Khuyến mãi"
     },
     "formMapPicker": {
       "resolving": "Đang xác định vị trí...",

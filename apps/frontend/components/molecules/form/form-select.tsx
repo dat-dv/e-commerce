@@ -10,7 +10,7 @@ import { ISelectOption, Select } from "@/components/atoms/select";
 
 export interface IFormSelectProps {
   name: string;
-  label: string;
+  label?: string;
   options: ISelectOption[];
   disabled?: boolean;
   variant?: InputVariant;

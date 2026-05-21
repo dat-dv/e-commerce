@@ -127,7 +127,7 @@ export function BrandProductListSection({
             min_price: filterMinPrice ? Number(filterMinPrice) : undefined,
             max_price: filterMaxPrice ? Number(filterMaxPrice) : undefined,
             rating: filterRating ? Number(filterRating) : undefined,
-            category: activeCategory?.name || undefined,
+            category_slug: activeCategory?.name || undefined,
           }}
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}

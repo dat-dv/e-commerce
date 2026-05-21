@@ -19,6 +19,7 @@ import { IPaginationMeta } from "@/utils/request/request.types";
 import { useState } from "react";
 
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 interface SearchViewProps {
   searchQuery: string;
@@ -52,6 +53,8 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
     loading,
     loadPage,
     routerState,
+    update,
+    reset,
   } = usePagination<TProduct, SearchQueryParams>({
     initialData,
     syncUrlParams: true,
@@ -81,27 +84,17 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
     loadPage(1, nextParams);
   };
 
-  const clearFilter = (key: keyof SearchQueryParams | "category") => {
-    const targetKey = key === "category" ? "category_slug" : key;
-    loadPage(1, {
-      [targetKey]: null,
-    });
+  const router = useRouter();
+  const handleClearFilterItem = (key: string) => {
+    if (key === "search") {
+      router.push("/search");
+      return;
+    }
+    update({ [key]: null });
   };
 
-  const resetFilters = () => {
-    loadPage(1, {
-      min_price: null,
-      max_price: null,
-      rating: null,
-      sort: null,
-      category_slug: null,
-    });
-  };
-
-  const handleCategoryChange = (slug: string) => {
-    loadPage(1, {
-      category_slug: slug,
-    });
+  const handleClearAllFilter = () => {
+    router.push("/search");
   };
 
   const activeCategory = categories.find(
@@ -139,8 +132,8 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
             <ProductFilterSidebar
               categories={categories}
               onFilterChange={updateFilter}
-              onCategoryChange={handleCategoryChange}
-              initialSearchValue={searchQuery}
+              onCategoryChange={(slug) => loadPage(1, { category_slug: slug })}
+              initialSearchValue={routerState.search || ""}
               onSearchSubmit={(val) =>
                 updateFilter([{ key: "search", value: val }])
               }
@@ -170,10 +163,10 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
               ? Number(routerState.max_price)
               : undefined,
             rating: routerState.rating ? Number(routerState.rating) : undefined,
-            category: categoryLabel || undefined,
+            category_slug: categoryLabel || undefined,
           }}
-          onClearFilter={clearFilter}
-          onResetFilters={resetFilters}
+          onClearFilter={handleClearFilterItem}
+          onResetFilters={handleClearAllFilter}
           onPageChange={loadPage}
           onSortChange={(sortVal) => loadPage(1, { sort: sortVal })}
         />
@@ -185,7 +178,7 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
           onClose={() => setIsFilterOpen(false)}
           categories={categories}
           onFilterChange={updateFilter}
-          onCategoryChange={handleCategoryChange}
+          onCategoryChange={(slug) => loadPage(1, { category_slug: slug })}
           hideCategories={false}
           minPriceValue={routerState.min_price || ""}
           maxPriceValue={routerState.max_price || ""}

@@ -3,13 +3,13 @@ import { forwardRef, useState } from "react";
 
 import { cn } from "@/utils/cn";
 
+import { inputSizeClasses } from "./input.sizes";
 import {
   variantBase,
   variantDisabled,
   variantError,
   variantNormal,
 } from "./input.styles";
-import { inputSizeClasses } from "./input.sizes";
 import { InputProps } from "./input.types";
 import PasswordEye from "./password-eye";
 
@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       variant = "outline",
       size = "lg",
       maxCount,
-      value,
+      value = "",
       ...rest
     },
     ref,

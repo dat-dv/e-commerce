@@ -11,7 +11,7 @@ import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";
-import { Suspense, useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "./header-logo";
 import HeaderNav from "./header-nav";
@@ -54,9 +54,7 @@ export default function HeaderDesktop() {
         </div>
       </AppContainer>
       <CategoryMegaMenuContentWrapper />
-      <Suspense>
-        <GlobalSearch />
-      </Suspense>
+      <GlobalSearch />
     </header>
   );
 }

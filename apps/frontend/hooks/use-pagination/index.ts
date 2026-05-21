@@ -148,7 +148,14 @@ export const usePagination = <
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
-          replace((response.data.meta || {}) as object as TParams);
+          const nextParams = buildParams(
+            {
+              page: nextPage,
+              limit: nextLimit,
+            },
+            overrideParams,
+          );
+          replace(nextParams);
         }
       } catch (error) {
         setError(
@@ -195,7 +202,14 @@ export const usePagination = <
         setMeta(response.data.meta);
 
         if (shouldSyncQuery) {
-          replace((response.data.meta || {}) as object as TParams);
+          const nextParams = buildParams(
+            {
+              page: meta.page + 1,
+              limit: meta.limit,
+            },
+            overrideParams,
+          );
+          replace(nextParams);
         }
       } catch (error) {
         setError(
@@ -217,6 +231,9 @@ export const usePagination = <
     ],
   );
 
+  /**
+   * Reset sẽ clear all filter
+   */
   const reset = useCallback(
     (next?: {
       items?: T[];

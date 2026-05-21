@@ -14,7 +14,7 @@ export interface AppliedFilters {
   min_price?: number;
   max_price?: number;
   rating?: number;
-  category?: string;
+  category_slug?: string;
 }
 
 interface AppliedFiltersBarProps<T extends string = string> {
@@ -74,10 +74,10 @@ export function AppliedFiltersBar<T extends string = string>({
       label: t("rating", { value: String(filters.rating) }),
     });
   }
-  if (filters.category) {
+  if (filters.category_slug) {
     chips.push({
-      key: "category" as T,
-      label: t("category", { value: filters.category }),
+      key: "category_slug" as T,
+      label: t("category", { value: filters.category_slug }),
     });
   }
 
