@@ -9,6 +9,7 @@ import { OrderTabs } from "@/components/molecules/order-part/order-tabs";
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
 import { VirtualList } from "@/components/molecules/virtual-list";
 import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
+import { useCancelOrder } from "@/hooks/orders/use-cancel-order";
 import { useOrders } from "@/hooks/orders/use-orders";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
@@ -16,7 +17,6 @@ import { useState } from "react";
 export const OrdersView = () => {
   const [confirmCancelId, setConfirmCancelId] = useState<string | null>(null);
   const [returnOrderId, setReturnOrderId] = useState<string | null>(null);
-  const [isCancelling, setIsCancelling] = useState(false);
 
   const {
     orders,
@@ -25,9 +25,10 @@ export const OrdersView = () => {
     setActiveTab,
     loadMore,
     hasMore,
-    cancelOrder,
     refresh,
   } = useOrders();
+
+  const { cancelOrder, isCancelling } = useCancelOrder();
 
   const returnRequest = useOrderReturnRequest({
     orderId: returnOrderId ?? "",
@@ -39,13 +40,10 @@ export const OrdersView = () => {
 
   const handleConfirmCancel = async () => {
     if (!confirmCancelId) return;
-    setIsCancelling(true);
-    try {
-      await cancelOrder(confirmCancelId);
-      setConfirmCancelId(null);
-    } finally {
-      setIsCancelling(false);
-    }
+    await cancelOrder(confirmCancelId, () => {
+      refresh();
+    });
+    setConfirmCancelId(null);
   };
 
   return (

@@ -1,11 +1,11 @@
 "use client";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { ordersUseCase } from "@/domain/orders";
-import { TOrder } from "@/domain/orders/types/order.model";
-import { useAuthStore } from "../auth/use-auth-store";
-import { IPaginationMeta } from "@/utils/request/request.types";
 import { toast } from "@/components/ui/toast";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
+import { ordersUseCase } from "@/domain/orders";
+import { TOrder } from "@/domain/orders/types/order.model";
+import { IPaginationMeta } from "@/utils/request/request.types";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useAuthStore } from "../auth/use-auth-store";
 export const useOrders = () => {
   const [orders, setOrders] = useState<TOrder[]>([]);
   const [loading, setLoading] = useState(true);
@@ -79,27 +79,6 @@ export const useOrders = () => {
     setRefreshTrigger((prev) => prev + 1);
   }, []);
 
-  const cancelOrder = useCallback(
-    async (orderId: string) => {
-      try {
-        setLoading(true);
-        const response = await ordersUseCase.cancelOrder.execute(orderId);
-        if (response.status === "success") {
-          toast.success("Order cancelled successfully");
-          refresh();
-        }
-        return response;
-      } catch (error) {
-        console.error("Failed to cancel order:", error);
-        toast.error("Failed to cancel order. Please try again.");
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    },
-    [refresh],
-  );
-
   return {
     orders,
     loading,
@@ -110,7 +89,6 @@ export const useOrders = () => {
     page,
     loadMore,
     refresh,
-    cancelOrder,
     hasMore: meta ? page < meta.totalPages : false,
   };
 };
