@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
+import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { formatCurrency } from "@/utils/format-currency";
-import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 interface CartDrawerFooterProps {
   subtotal: number;
@@ -32,8 +32,8 @@ export const CartDrawerFooter = ({
             {formatCurrency(subtotal)}
           </div>
         </div>
-        <div className="text-right">
-          <div className="text-[10px] font-semibold">{t("freeShipping")}</div>
+        <div className={`text-right ${TYPOGRAPHY.badge} font-semibold`}>
+          {t("freeShipping")}
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export const CartDrawerFooter = ({
         <Link
           href={APP_ROUTES.CART}
           onClick={onClose}
-          className="w-full block text-center text-[11px] font-medium text-content/30 hover:text-primary transition-colors py-1"
+          className={`w-full block text-center ${TYPOGRAPHY.caption} font-medium text-content/30 hover:text-primary transition-colors py-1`}
         >
           {t("viewDetails")}
         </Link>

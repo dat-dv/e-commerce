@@ -1,5 +1,6 @@
 import EmptyState from "@/components/molecules/empty-space";
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { cn } from "@/utils/cn";
@@ -104,7 +105,9 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
                 </div>
 
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
-                  <div className="flex min-w-0 items-center gap-2 text-[11px] font-medium text-content/40">
+                  <div
+                    className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} font-medium text-content/40`}
+                  >
                     <span className="min-w-0 truncate">
                       {item.attributes || t("standard")}
                     </span>
@@ -119,18 +122,22 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
                       <span
                         className={cn(
                           UI_RADIUS.badge,
-                          "bg-red-400/10 px-1.5 py-0.5 text-[10px] font-bold text-red-400",
+                          `bg-red-400/10 px-1.5 py-0.5 ${TYPOGRAPHY.badge} text-red-400`,
                         )}
                       >
                         -{discountPercent}%
                       </span>
                     )}
                     <div className="flex min-w-0 items-baseline gap-1.5">
-                      <span className="text-[11px] font-semibold text-content/60">
+                      <span
+                        className={`${TYPOGRAPHY.caption} font-semibold text-content/60`}
+                      >
                         {displayPrice}
                       </span>
                       {isDiscounted && (
-                        <span className="text-[10px] text-content/20 line-through">
+                        <span
+                          className={`${TYPOGRAPHY.badge} text-content/20 line-through font-normal`}
+                        >
                           {displayOriginalPrice}
                         </span>
                       )}

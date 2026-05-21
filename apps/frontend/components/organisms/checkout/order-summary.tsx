@@ -1,4 +1,5 @@
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
@@ -49,7 +50,9 @@ export const OrderSummary = ({
           {/* Recipient Summary */}
           {recipientName && (
             <div className="mb-6 border-b border-content/[0.08] pb-5 md:mb-8 md:pb-6">
-              <div className="mb-2 text-[10px] font-bold uppercase tracking-wider text-content/30">
+              <div
+                className={`mb-2 ${TYPOGRAPHY.badge} uppercase tracking-wider text-content/30`}
+              >
                 {t("shippingTo")}
               </div>
               <div className="flex flex-col gap-0.5">
@@ -109,7 +112,7 @@ export const OrderSummary = ({
             loading={loading}
             className={cn(
               UI_RADIUS.control,
-              "relative w-full overflow-hidden py-5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all md:py-6 md:tracking-[0.3em]",
+              `relative w-full overflow-hidden py-5 ${TYPOGRAPHY.caption} font-semibold uppercase tracking-[0.18em] transition-all md:py-6 md:tracking-[0.3em]`,
               loading || isItemsEmpty
                 ? "bg-content/5 text-content/20 cursor-not-allowed"
                 : "bg-primary text-surface hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/20",

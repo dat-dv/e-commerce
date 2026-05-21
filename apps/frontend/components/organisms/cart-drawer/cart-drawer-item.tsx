@@ -2,6 +2,7 @@
 
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
@@ -71,11 +72,15 @@ export const CartItem = ({
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-medium text-content/30 truncate max-w-[80px]">
+            <span
+              className={`${TYPOGRAPHY.badge} font-medium text-content/30 truncate max-w-[80px]`}
+            >
               {item.attributes || t("standard")}
             </span>
             {item.discountPercent && (
-              <span className="text-[10px] font-bold text-red-400 bg-red-400/10 px-1 rounded">
+              <span
+                className={`${TYPOGRAPHY.badge} font-bold text-red-400 bg-red-400/10 px-1 rounded`}
+              >
                 -{item.discountPercent}%
               </span>
             )}
@@ -92,7 +97,9 @@ export const CartItem = ({
                 >
                   <Minus size={10} aria-hidden />
                 </Button>
-                <span className="text-[10px] font-medium min-w-[12px] text-center">
+                <span
+                  className={`${TYPOGRAPHY.badge} font-medium min-w-[12px] text-center`}
+                >
                   {item.quantity}
                 </span>
                 <Button
