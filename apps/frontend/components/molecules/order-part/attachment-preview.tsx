@@ -2,6 +2,8 @@
 
 import Button from "@/components/atoms/button";
 import ImagePreview from "@/components/molecules/image-preview";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { ImageIcon, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -24,12 +26,17 @@ export const AttachmentPreview = ({
   }, [file]);
 
   return (
-    <div className="relative aspect-square overflow-hidden rounded-xl border border-content/[0.08] bg-content/[0.03]">
+    <div
+      className={cn(
+        UI_RADIUS.media,
+        "relative aspect-square overflow-hidden border border-content/[0.08] bg-content/[0.03]",
+      )}
+    >
       {previewUrl ? (
         <ImagePreview
           src={previewUrl}
           alt={file.name}
-          triggerClassName="absolute inset-0 rounded-xl"
+          triggerClassName={cn(UI_RADIUS.media, "absolute inset-0")}
           imageProps={{
             fill: true,
             sizes: "88px",

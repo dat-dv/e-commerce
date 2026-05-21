@@ -1,8 +1,9 @@
 "use client";
 
 import ImagePreview from "@/components/molecules/image-preview";
-
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrderItem } from "@/domain/orders/types/order.model";
+import { cn } from "@/utils/cn";
 
 import { useLocale, useTranslations } from "next-intl";
 import { parseOrderAttributes } from "./order-display.utils";
@@ -46,14 +47,19 @@ export function OrderItemsPanel({
 
   if (items.length === 0) {
     return (
-      <div className="rounded-md border border-content/10 bg-surface px-4 py-3 text-sm text-content/55">
+      <div
+        className={cn(
+          UI_RADIUS.panel,
+          "border border-content/10 bg-surface px-4 py-3 text-sm text-content/55",
+        )}
+      >
         {t("noOrderItems")}
       </div>
     );
   }
 
   return (
-    <div className="rounded-md border border-content/10 bg-surface">
+    <div className={cn(UI_RADIUS.panel, "border border-content/10 bg-surface")}>
       <div className="border-b border-content/10 px-4 py-3">
         <p className="text-xs font-semibold uppercase text-content/45">
           {t("orderItemsHeader")}
@@ -92,7 +98,10 @@ export function OrderItemProductSummary({
       <ImagePreview
         src={preview.image}
         alt={preview.name}
-        triggerClassName="size-11 shrink-0 rounded-md border border-content/10"
+        triggerClassName={cn(
+          UI_RADIUS.media,
+          "size-11 shrink-0 border border-content/10",
+        )}
         imageProps={{
           width: imageSize,
           height: imageSize,

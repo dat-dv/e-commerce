@@ -1,6 +1,8 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { Upload } from "lucide-react";
 import type { ChangeEvent, RefObject } from "react";
 
@@ -54,7 +56,10 @@ export function AttachmentDropzone({
         disabled={
           disabled || attachments.length >= ORDER_RETURN_MAX_ATTACHMENTS
         }
-        className="flex w-full items-center justify-center gap-2 rounded-xl border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50 h-auto"
+        className={cn(
+          UI_RADIUS.control,
+          "flex w-full items-center justify-center gap-2 border-dashed border-content/[0.14] bg-content/[0.02] px-4 py-4 text-sm font-semibold text-content/60 hover:border-primary/30 hover:bg-primary/[0.04] disabled:opacity-50 h-auto",
+        )}
       >
         <Upload className="h-4 w-4" />
         {labels.upload}

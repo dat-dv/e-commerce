@@ -1,17 +1,19 @@
 "use client";
 
-import { Lock } from "lucide-react";
-import { useMemo } from "react";
-import { FormInput } from "@/components/molecules/form/form-input";
-import AppForm from "@/components/molecules/form/app-form";
 import Button from "@/components/atoms/button";
-import { useForm } from "react-hook-form";
+import AppForm from "@/components/molecules/form/app-form";
+import { FormInput } from "@/components/molecules/form/form-input";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Lock } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
+import { useForm } from "react-hook-form";
 import {
   ChangePasswordFormData,
   getChangePasswordSchema,
 } from "./change-password.schema";
-import { useTranslations } from "next-intl";
 
 interface ChangePasswordFormProps {
   onSubmit: (data: ChangePasswordFormData) => Promise<boolean>;
@@ -53,7 +55,7 @@ export const ChangePasswordForm = ({
           type="password"
           placeholder={t("passwordPlaceholder")}
           variant="outline"
-          className="h-10 text-sm rounded-xl"
+          className={cn(UI_RADIUS.input, "h-10 text-sm")}
           disabled={loading}
         />
 
@@ -63,7 +65,7 @@ export const ChangePasswordForm = ({
           type="password"
           placeholder={t("passwordPlaceholder")}
           variant="outline"
-          className="h-10 text-sm rounded-xl"
+          className={cn(UI_RADIUS.input, "h-10 text-sm")}
           disabled={loading}
         />
 
@@ -73,14 +75,17 @@ export const ChangePasswordForm = ({
           type="password"
           placeholder={t("passwordPlaceholder")}
           variant="outline"
-          className="h-10 text-sm rounded-xl"
+          className={cn(UI_RADIUS.input, "h-10 text-sm")}
           disabled={loading}
         />
 
         <Button
           type="submit"
           loading={loading}
-          className="flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-xl font-medium hover:bg-primary/90 transition-colors w-full mt-6"
+          className={cn(
+            UI_RADIUS.control,
+            "flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 font-medium hover:bg-primary/90 transition-colors w-full mt-6",
+          )}
         >
           <Lock size={18} aria-hidden="true" />
           {t("submit")}
