@@ -1,4 +1,5 @@
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
@@ -29,7 +30,10 @@ export const OrderSummary = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-2xl border border-content/5 bg-surface/90 p-5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] backdrop-blur-3xl md:rounded-[2.5rem] md:p-8"
+        className={cn(
+          UI_RADIUS.panel,
+          "relative overflow-hidden border border-content/5 bg-surface/90 p-5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] backdrop-blur-3xl md:p-8",
+        )}
       >
         <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 bg-primary/10 blur-[80px]" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 bg-primary/[0.03] blur-[60px]" />
@@ -104,7 +108,8 @@ export const OrderSummary = ({
             disabled={loading || isItemsEmpty}
             loading={loading}
             className={cn(
-              "relative w-full overflow-hidden rounded-2xl py-5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all md:py-6 md:tracking-[0.3em]",
+              UI_RADIUS.control,
+              "relative w-full overflow-hidden py-5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all md:py-6 md:tracking-[0.3em]",
               loading || isItemsEmpty
                 ? "bg-content/5 text-content/20 cursor-not-allowed"
                 : "bg-primary text-surface hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/20",

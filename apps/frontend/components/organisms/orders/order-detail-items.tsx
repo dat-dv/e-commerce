@@ -1,7 +1,9 @@
 "use client";
 
 import ImagePreview from "@/components/molecules/image-preview";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder } from "@/domain/orders/types/order.model";
+import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { Package } from "lucide-react";
@@ -15,7 +17,10 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
-      className="overflow-hidden rounded-2xl border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md"
+      className={cn(
+        UI_RADIUS.panel,
+        "overflow-hidden border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md",
+      )}
     >
       <div className="flex items-center gap-3 border-b border-content/[0.05] bg-content/[0.02] px-4 py-4 sm:px-6">
         <Package className="h-4 w-4 text-content/40" />
@@ -31,12 +36,17 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
             key={item.id}
             className="flex gap-4 p-4 transition-colors hover:bg-content/[0.02] sm:gap-6 sm:p-6"
           >
-            <div className="relative size-20 shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] shadow-sm sm:size-24 sm:rounded-2xl">
+            <div
+              className={cn(
+                UI_RADIUS.media,
+                "relative size-20 shrink-0 overflow-hidden border border-content/[0.05] bg-content/[0.02] shadow-sm sm:size-24",
+              )}
+            >
               {item.sku?.imageUrl && (
                 <ImagePreview
                   src={item.sku.imageUrl}
                   alt={item.sku.product?.name || t("detail.productFallback")}
-                  triggerClassName="absolute inset-0 rounded-xl sm:rounded-2xl"
+                  triggerClassName={cn("absolute inset-0", UI_RADIUS.media)}
                   imageProps={{
                     fill: true,
                     sizes: "96px",
@@ -58,7 +68,12 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
                 {item.snapshot?.sku.attributes || `SKU: ${item.skuId}`}
               </p>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-2 sm:mt-4">
-                <span className="rounded-full bg-content/[0.05] px-3 py-1 text-xs font-semibold text-content/60">
+                <span
+                  className={cn(
+                    UI_RADIUS.badge,
+                    "bg-content/[0.05] px-3 py-1 text-xs font-semibold text-content/60",
+                  )}
+                >
                   {t("card.units", { count: item.quantity })}
                 </span>
                 <span className="text-sm font-bold text-content/60">

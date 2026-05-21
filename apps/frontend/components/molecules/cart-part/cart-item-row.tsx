@@ -3,6 +3,7 @@
 import Button from "@/components/atoms/button";
 import { Checkbox } from "@/components/atoms/checkbox";
 import { APP_ROUTES } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
@@ -39,7 +40,8 @@ export const CartItemRow = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       className={cn(
-        "group relative overflow-hidden rounded-xl border bg-surface/50 p-3 transition-all backdrop-blur-xl sm:p-4",
+        UI_RADIUS.card,
+        "group relative overflow-hidden border bg-surface/50 p-3 transition-all backdrop-blur-xl sm:p-4",
         isOutOfStock ? "opacity-60 grayscale" : "hover:border-primary/20",
         isSelected
           ? "border-primary/40 bg-primary/[0.02] shadow-sm shadow-primary/5"
@@ -54,7 +56,10 @@ export const CartItemRow = ({
 
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}
-            className="relative block size-20 shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02] sm:size-24 md:size-20"
+            className={cn(
+              UI_RADIUS.media,
+              "relative block size-20 shrink-0 overflow-hidden border border-content/[0.05] bg-content/[0.02] sm:size-24 md:size-20",
+            )}
           >
             {item.imageUrl ? (
               <Image
@@ -79,7 +84,12 @@ export const CartItemRow = ({
             </h3>
             <div className="mt-1 flex flex-wrap gap-2">
               {item.attributes && (
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-content/[0.05] text-content/40">
+                <span
+                  className={cn(
+                    UI_RADIUS.badge,
+                    "text-[10px] font-semibold px-2 py-0.5 bg-content/[0.05] text-content/40",
+                  )}
+                >
                   {item.attributes}
                 </span>
               )}
@@ -138,7 +148,10 @@ export const CartItemRow = ({
             <Button
               variant="ghost"
               onClick={onRemove}
-              className="h-10 rounded-lg px-3 text-content/30 opacity-100 transition-all hover:bg-red-500/5 hover:text-red-500 hover:opacity-100 active:scale-95 md:h-auto md:p-3 md:text-content/10"
+              className={cn(
+                UI_RADIUS.control,
+                "h-10 px-3 text-content/30 opacity-100 transition-all hover:bg-red-500/5 hover:text-red-500 hover:opacity-100 active:scale-95 md:h-auto md:p-3 md:text-content/10",
+              )}
               aria-label={t("remove", { product: item.name })}
             >
               <Trash2 size={16} aria-hidden />

@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { Minus, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -23,7 +24,8 @@ export const QuantitySelector = ({
   return (
     <div
       className={cn(
-        "flex items-center border border-content/[0.1] rounded-xl overflow-hidden bg-white/50 backdrop-blur-sm shadow-sm",
+        UI_RADIUS.control,
+        "flex items-center border border-content/[0.1] overflow-hidden bg-white/50 backdrop-blur-sm shadow-sm",
         disabled ? "opacity-50 pointer-events-none" : "",
         className,
       )}

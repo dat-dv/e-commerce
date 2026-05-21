@@ -1,6 +1,8 @@
 import EmptyState from "@/components/molecules/empty-space";
 import { APP_ROUTES } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
+import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { Package, ShoppingBag } from "lucide-react";
@@ -66,9 +68,17 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
               key={item.skuId}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="group flex items-center gap-3 rounded-2xl border border-content/[0.05] bg-surface/40 p-4 shadow-sm backdrop-blur-md transition-all hover:bg-surface/60 sm:gap-5 md:gap-6 md:rounded-[2rem] md:p-6"
+              className={cn(
+                UI_RADIUS.card,
+                "group flex items-center gap-3 border border-content/[0.05] bg-surface/40 p-4 shadow-sm backdrop-blur-md transition-all hover:bg-surface/60 sm:gap-5 md:gap-6 md:p-6",
+              )}
             >
-              <div className="relative size-20 shrink-0 overflow-hidden rounded-xl border border-content/[0.08] bg-content/[0.02] sm:h-28 sm:w-24">
+              <div
+                className={cn(
+                  UI_RADIUS.media,
+                  "relative size-20 shrink-0 overflow-hidden border border-content/[0.08] bg-content/[0.02] sm:h-28 sm:w-24",
+                )}
+              >
                 {item.imageUrl ? (
                   <Image
                     src={item.imageUrl}
@@ -106,7 +116,12 @@ export const CheckoutList = ({ items }: CheckoutListProps) => {
 
                   <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
                     {isDiscounted && (
-                      <span className="rounded bg-red-400/10 px-1.5 py-0.5 text-[10px] font-bold text-red-400">
+                      <span
+                        className={cn(
+                          UI_RADIUS.badge,
+                          "bg-red-400/10 px-1.5 py-0.5 text-[10px] font-bold text-red-400",
+                        )}
+                      >
                         -{discountPercent}%
                       </span>
                     )}

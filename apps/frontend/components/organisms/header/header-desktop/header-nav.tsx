@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { cn } from "@/utils/cn";
-import { CategoryHeaderNav } from "./category-header-nav";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
+import { CategoryHeaderNav } from "./category-header-nav";
 
 const navKeyMap: Record<
   string,
@@ -25,7 +25,7 @@ const HeaderNav = () => {
 
   return (
     <nav className="hidden md:flex items-center gap-6">
-      {HEADER_NAV_LINKS.map((link) => {
+      {HEADER_NAV_LINKS.map((link, idx) => {
         const isActive = link.exact
           ? pathname === link.href
           : pathname.startsWith(link.href);
@@ -36,7 +36,7 @@ const HeaderNav = () => {
         if (link.dropdown) {
           return (
             <CategoryHeaderNav
-              key={link.href}
+              key={`${link.href}-${idx}`}
               label={displayLabel}
               isActive={isActive}
             />
@@ -45,7 +45,7 @@ const HeaderNav = () => {
 
         return (
           <Link
-            key={link.href}
+            key={`${link.href}-${idx}`}
             href={link.href}
             className={cn(
               "relative text-sm font-bold transition-all hover:text-primary flex items-center gap-1.5",

@@ -1,6 +1,8 @@
 "use client";
 
 import SummaryCard from "@/components/molecules/summary-card";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -40,48 +42,21 @@ export const CartSummary = ({
   ];
 
   return (
-    <div className="flex gap-3 sm:grid sm:grid-cols-3 sm:gap-4 mb-4">
-      {summaryItems.map(({ label, value, icon }) => (
+    <div className="mb-4 flex gap-3 overflow-x-auto sm:grid sm:grid-cols-3 sm:gap-4">
+      {summaryItems.map(({ label, value, icon, valueClassName }) => (
         <SummaryCard
           key={label}
           label={label}
           value={value}
           icon={icon}
-          className="
-        w-[160px]
-        shrink-0
-        min-h-[88px]
-        rounded-2xl
-        p-3
-
-        sm:min-h-[120px]
-        sm:w-auto
-        sm:rounded-3xl
-        sm:p-5
-      "
+          className={cn(
+            UI_RADIUS.card,
+            "w-[160px] shrink-0 min-h-[88px] p-3 sm:min-h-[120px] sm:w-auto sm:p-5",
+          )}
           contentClassName="gap-4"
-          labelClassName="
-        truncate
-        text-[10px]
-        tracking-[0.12em]
-
-        sm:text-xs
-        sm:tracking-[0.18em]
-      "
-          valueClassName="
-        mt-2
-        text-2xl
-
-        sm:mt-3
-        sm:text-4xl
-      "
-          iconWrapperClassName="
-        size-8
-        rounded-xl
-
-        sm:size-11
-        sm:rounded-2xl
-      "
+          labelClassName="truncate text-[10px] tracking-[0.12em] sm:text-xs sm:tracking-[0.18em]"
+          valueClassName={cn("mt-2 sm:mt-3", valueClassName)}
+          iconWrapperClassName={cn(UI_RADIUS.media, "size-8 sm:size-11")}
           iconClassName="size-4 sm:size-5"
         />
       ))}

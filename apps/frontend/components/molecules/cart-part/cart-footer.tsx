@@ -2,6 +2,7 @@
 
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { ChevronRight, Ticket } from "lucide-react";
@@ -64,7 +65,8 @@ export const CartFooter = ({ selectedCount, totalAmount }: CartFooterProps) => {
           <Link
             href={selectedCount > 0 ? APP_ROUTES.CHECKOUT : "#"}
             className={cn(
-              "group relative flex h-11 shrink-0 items-center justify-center overflow-hidden rounded-xl px-5 text-sm font-bold transition-all sm:h-12 sm:px-10",
+              UI_RADIUS.control,
+              "group relative flex h-11 shrink-0 items-center justify-center overflow-hidden px-5 text-sm font-bold transition-all sm:h-12 sm:px-10",
               selectedCount > 0
                 ? "bg-primary text-surface shadow-lg shadow-primary/20 hover:opacity-90 active:scale-[0.98]"
                 : "bg-content/[0.05] text-content/20 cursor-not-allowed",

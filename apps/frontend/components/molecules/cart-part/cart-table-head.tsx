@@ -1,6 +1,8 @@
 "use client";
 
 import { Checkbox } from "@/components/atoms/checkbox";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 
 interface CartTableHeadProps {
@@ -15,7 +17,12 @@ export const CartTableHead = ({
   const t = useTranslations("CartPage.table");
 
   return (
-    <div className="sticky top-[72px] z-10 flex items-center gap-4 rounded-2xl border border-content/[0.05] bg-surface/90 p-4 text-xs font-semibold text-content/40 shadow-sm backdrop-blur-xl md:p-6">
+    <div
+      className={cn(
+        UI_RADIUS.panel,
+        "sticky top-[72px] z-10 flex items-center gap-4 border border-content/[0.05] bg-surface/90 p-4 text-xs font-semibold text-content/40 shadow-sm backdrop-blur-xl md:p-6",
+      )}
+    >
       <div className="flex min-w-0 flex-1 items-center gap-3 md:gap-4">
         <Checkbox checked={isAllSelected} onCheckedChange={onToggleSelectAll} />
         <span className="truncate md:ml-2">{t("product")}</span>

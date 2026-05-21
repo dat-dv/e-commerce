@@ -2,7 +2,9 @@ import Button from "@/components/atoms/button";
 import AddressCard from "@/components/molecules/address-card";
 import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TAddress } from "@/domain/addresses/types/address.model";
+import { cn } from "@/utils/cn";
 import { MapPin, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -36,7 +38,10 @@ const ShippingSectionHeader = ({
         variant="ghost"
         size="sm"
         onClick={onAddAddress}
-        className="h-auto shrink-0 rounded-lg px-0 py-1 text-xs font-semibold capitalize text-content/60 opacity-100 hover:text-primary"
+        className={cn(
+          UI_RADIUS.control,
+          "h-auto shrink-0 px-0 py-1 text-xs font-semibold capitalize text-content/60 opacity-100 hover:text-primary",
+        )}
       >
         <Plus size={14} aria-hidden />
         {t("newAddress")}
