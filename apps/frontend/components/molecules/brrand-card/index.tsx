@@ -1,10 +1,12 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
+import { cn } from "@/utils/cn";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import React from "react";
 
 export const BrandCard = ({
@@ -21,7 +23,10 @@ export const BrandCard = ({
     <div className="group relative h-full min-w-0 transition-transform duration-300 hover:-translate-y-1 active:translate-y-0">
       <Link
         href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
-        className="relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-lg border border-content/[0.08] bg-background shadow-sm transition-all duration-300 group-hover:border-primary/35 group-hover:shadow-lg group-hover:shadow-primary/10"
+        className={cn(
+          UI_RADIUS.card,
+          "relative flex h-full min-h-[220px] flex-col overflow-hidden border border-content/[0.08] bg-background shadow-sm transition-all duration-300 group-hover:border-primary/35 group-hover:shadow-lg group-hover:shadow-primary/10",
+        )}
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
@@ -45,7 +50,12 @@ export const BrandCard = ({
         {/* Content Container */}
         <div className="relative z-10 flex h-full min-w-0 flex-col justify-between gap-6 p-5">
           <div className="flex min-w-0 items-start justify-between gap-3">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-content/[0.06] bg-background p-3 shadow-sm transition-transform duration-300 group-hover:rotate-[-3deg]">
+            <div
+              className={cn(
+                UI_RADIUS.media,
+                "flex h-14 w-14 shrink-0 items-center justify-center border border-content/[0.06] bg-background p-3 shadow-sm transition-transform duration-300 group-hover:rotate-[-3deg]",
+              )}
+            >
               {brand.logoUrl && !imgError ? (
                 <div className="relative w-full h-full">
                   <Image
@@ -65,7 +75,12 @@ export const BrandCard = ({
               )}
             </div>
 
-            <div className="min-w-0 max-w-[8rem] rounded-md border border-content/[0.06] bg-content/[0.03] px-2.5 py-1">
+            <div
+              className={cn(
+                UI_RADIUS.badge,
+                "min-w-0 max-w-[8rem] border border-content/[0.06] bg-content/[0.03] px-2.5 py-1",
+              )}
+            >
               <span className="block truncate text-[10px] font-bold uppercase tracking-wide text-content/45">
                 {t("productCount", { count: brand.productCount || 0 })}
               </span>

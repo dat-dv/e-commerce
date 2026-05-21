@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TAddress } from "@/domain/addresses/types/address.model";
 import { cn } from "@/utils/cn";
 import { Edit, Star, Trash2 } from "lucide-react";
@@ -59,12 +60,22 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
           {address.phone || t("noPhone")}
         </span>
         {address.isDefault && (
-          <span className="rounded-md border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter text-primary">
+          <span
+            className={cn(
+              UI_RADIUS.badge,
+              "border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter text-primary",
+            )}
+          >
             {t("defaultBadge")}
           </span>
         )}
         {resolvedLabel && (
-          <span className="rounded-full bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60">
+          <span
+            className={cn(
+              UI_RADIUS.badge,
+              "bg-content/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-content/60",
+            )}
+          >
             {resolvedLabel}
           </span>
         )}
@@ -112,7 +123,8 @@ export const AddressCard = ({
   return (
     <div
       className={cn(
-        "rounded-xl border px-5 py-3.5 transition-colors",
+        UI_RADIUS.card,
+        "border px-5 py-3.5 transition-colors",
         isSelected || address.isDefault
           ? "border-primary/30 bg-primary/[0.05] shadow-sm shadow-primary/5"
           : "border-content/5 bg-surface/40 hover:border-content/10 hover:bg-content/[0.03]",
@@ -160,7 +172,10 @@ export const AddressCard = ({
               onClick={onSetDefault}
               disabled={disabled}
               aria-label={`Set ${address.name || "address"} as default`}
-              className="size-8 rounded-lg p-0 text-content/40 opacity-100 hover:bg-primary/5 hover:text-primary"
+              className={cn(
+                UI_RADIUS.control,
+                "size-8 p-0 text-content/40 opacity-100 hover:bg-primary/5 hover:text-primary",
+              )}
             >
               <Star size={16} aria-hidden />
             </Button>
@@ -174,7 +189,10 @@ export const AddressCard = ({
               onClick={onEdit}
               disabled={disabled}
               aria-label={`Edit address for ${address.name || "recipient"}`}
-              className="size-8 rounded-lg p-0 text-content/30 opacity-100 hover:bg-content/5 hover:text-content"
+              className={cn(
+                UI_RADIUS.control,
+                "size-8 p-0 text-content/30 opacity-100 hover:bg-content/5 hover:text-content",
+              )}
             >
               <Edit size={14} className="rotate-45" aria-hidden />
             </Button>
@@ -188,7 +206,10 @@ export const AddressCard = ({
               onClick={onDelete}
               disabled={disabled}
               aria-label={`Delete address for ${address.name || "recipient"}`}
-              className="size-8 rounded-lg p-0 text-content/40 opacity-100 hover:bg-red-500/5 hover:text-red-500"
+              className={cn(
+                UI_RADIUS.control,
+                "size-8 p-0 text-content/40 opacity-100 hover:bg-red-500/5 hover:text-red-500",
+              )}
             >
               {isMutating ? (
                 <span className="size-4 rounded-full border-2 border-content/30 border-t-transparent animate-spin" />

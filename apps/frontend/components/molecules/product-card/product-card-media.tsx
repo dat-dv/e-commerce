@@ -2,6 +2,7 @@
 
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct } from "@/domain/products/types/products.model";
 import { cn } from "@/utils/cn";
 import { Eye, Heart, ShoppingBag } from "lucide-react";
@@ -39,7 +40,12 @@ export function ProductCardMedia({
   addToCartTitle,
 }: ProductCardMediaProps) {
   return (
-    <div className="relative aspect-square rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
+    <div
+      className={cn(
+        UI_RADIUS.media,
+        "relative aspect-square overflow-hidden bg-transparent flex items-center justify-center",
+      )}
+    >
       {product.imageUrl ? (
         <Image
           src={product.imageUrl}

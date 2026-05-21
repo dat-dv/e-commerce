@@ -5,9 +5,11 @@ import { ShoppingBag, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React from "react";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct } from "@/domain/products/types/products.model";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useToggleFavorite } from "@/hooks/favorites/use-toggle-favorite";
+import { cn } from "@/utils/cn";
 import { ProductCardInfo } from "./product-card-info";
 import { ProductCardMedia } from "./product-card-media";
 import { ProductCardPrice } from "./product-card-price";
@@ -69,7 +71,12 @@ export const ProductCard = ({
   const priceDisplay = getSkuPriceDisplay(sku);
 
   return (
-    <div className="group relative flex flex-col h-full flex-1 bg-content/[0.02] border border-content/[0.05] rounded-2xl p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5">
+    <div
+      className={cn(
+        UI_RADIUS.card,
+        "group relative flex flex-col h-full flex-1 bg-content/[0.02] border border-content/[0.05] p-3 transition-all duration-300 hover:border-content/[0.1] hover:shadow-xl hover:shadow-black/5",
+      )}
+    >
       <ProductCardMedia
         product={product}
         noImageLabel={t("noImage")}
@@ -81,7 +88,12 @@ export const ProductCard = ({
         onToggleFavorite={toggleFavorite}
         badges={
           hasDiscount ? (
-            <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-lg shadow-red-500/20">
+            <div
+              className={cn(
+                UI_RADIUS.badge,
+                "bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 shadow-lg shadow-red-500/20",
+              )}
+            >
               {discountLabel}
             </div>
           ) : undefined
@@ -118,7 +130,10 @@ export const ProductCard = ({
           <Button
             onClick={handleAddToCart}
             variant="ghost"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-content/20 hover:text-primary hover:bg-primary/10 lg:hidden border border-content/5 p-0"
+            className={cn(
+              UI_RADIUS.control,
+              "w-9 h-9 flex items-center justify-center text-content/20 hover:text-primary hover:bg-primary/10 lg:hidden border border-content/5 p-0",
+            )}
           >
             <ShoppingBag size={18} />
           </Button>

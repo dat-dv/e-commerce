@@ -3,9 +3,11 @@
 import Button from "@/components/atoms/button";
 import { toast } from "@/components/ui/toast";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
+import { cn } from "@/utils/cn";
 import { ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -67,7 +69,12 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
   const badgeText = getProductBadgeText(product, t("badge"));
 
   return (
-    <div className="group relative flex h-full flex-col bg-content/[0.02] border border-red-500/10 rounded-2xl p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5">
+    <div
+      className={cn(
+        UI_RADIUS.card,
+        "group relative flex h-full flex-col bg-content/[0.02] border border-red-500/10 p-3 transition-all duration-300 hover:border-red-500/25 hover:shadow-xl hover:shadow-red-500/5",
+      )}
+    >
       <ProductCardMedia
         product={product}
         noImageLabel={t("noImage")}
@@ -76,7 +83,12 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
         viewDetailsTitle={t("viewDetails")}
         addToCartTitle={t("addToCart")}
         badges={
-          <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-lg shadow-red-500/20">
+          <div
+            className={cn(
+              UI_RADIUS.badge,
+              "bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 shadow-lg shadow-red-500/20",
+            )}
+          >
             -{discountPercent}%
           </div>
         }
@@ -122,7 +134,10 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           <Button
             onClick={handleAddToCart}
             variant="ghost"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-red-500 hover:bg-red-500/10 lg:hidden border border-red-500/10 p-0"
+            className={cn(
+              UI_RADIUS.control,
+              "w-9 h-9 flex items-center justify-center text-red-500 hover:bg-red-500/10 lg:hidden border border-red-500/10 p-0",
+            )}
             title={t("addToCart")}
           >
             <ShoppingBag size={18} aria-hidden />
