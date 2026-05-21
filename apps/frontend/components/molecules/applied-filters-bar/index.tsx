@@ -5,6 +5,8 @@ import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 
 export interface AppliedFilters {
   search?: string;
@@ -82,7 +84,12 @@ export function AppliedFiltersBar<T extends string = string>({
   if (chips.length === 0) return null;
 
   return (
-    <div className="mb-6 flex flex-wrap items-center gap-2 rounded-2xl border border-content/[0.06] bg-content/[0.02] p-3">
+    <div
+      className={cn(
+        UI_RADIUS.panel,
+        "mb-6 flex flex-wrap items-center gap-2 border border-content/[0.06] bg-content/[0.02] p-3",
+      )}
+    >
       <span className="mr-1 text-[11px] font-bold uppercase tracking-widest text-content/35">
         {t("applied")}
       </span>

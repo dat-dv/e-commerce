@@ -1,6 +1,8 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -25,9 +27,11 @@ export const AddressEmptyState = ({
 
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-content/10 py-10 text-center ${
-        className ?? ""
-      }`}
+      className={cn(
+        UI_RADIUS.panel,
+        "flex flex-col items-center justify-center gap-3 border-2 border-dashed border-content/10 py-10 text-center",
+        className,
+      )}
     >
       <div className="flex size-14 items-center justify-center rounded-full bg-content/5">
         <MapPin size={24} className="text-content/30" aria-hidden />

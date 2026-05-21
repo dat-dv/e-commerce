@@ -1,11 +1,13 @@
 "use client";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { useOrders } from "@/hooks/orders/use-orders";
-import { OrderCard } from "./order-card";
-import { OrderTabs } from "./order-tabs";
-import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
 import { PackageOpen } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { OrderCard } from "./order-card";
+import { OrderTabs } from "./order-tabs";
 
 export const OrderList = () => {
   const t = useTranslations("OrdersPage");
@@ -17,7 +19,10 @@ export const OrderList = () => {
         {[1, 2, 3].map((i) => (
           <div
             key={i}
-            className="w-full h-48 bg-gray-100 rounded-xl animate-pulse"
+            className={cn(
+              UI_RADIUS.card,
+              "w-full h-48 bg-gray-100 animate-pulse",
+            )}
           />
         ))}
       </div>

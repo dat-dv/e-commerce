@@ -1,3 +1,4 @@
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { Link } from "lucide-react";
 
@@ -16,7 +17,8 @@ function ProfileSideBarLink({
     <Link
       href={href}
       className={cn(
-        "group flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold transition-all",
+        "group flex items-center gap-3 px-3 py-2.5 text-sm font-semibold transition-all",
+        UI_RADIUS.panel,
         active
           ? "bg-primary/10 text-primary"
           : "text-content/50 hover:bg-content/[0.04] hover:text-content",

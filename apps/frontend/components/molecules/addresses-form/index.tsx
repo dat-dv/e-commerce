@@ -6,7 +6,9 @@ import { FormCheckbox } from "@/components/molecules/form/form-checkbox";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
+import { cn } from "@/utils/cn";
 import { EAddressLabel } from "@ecommerce/shared";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus } from "lucide-react";
@@ -82,14 +84,14 @@ export const AddressesForm = ({
             label={t("receiverNameLabel")}
             placeholder={t("receiverNamePlaceholder")}
             variant="outline"
-            className="h-10 text-sm rounded-xl"
+            className={cn(UI_RADIUS.input, "h-10 text-sm")}
             disabled={loading}
           />
           <FormPhoneInput
             name="receiverPhone"
             label={t("receiverPhoneLabel")}
             disabled={loading}
-            className="h-10 text-sm rounded-xl"
+            className={cn(UI_RADIUS.input, "h-10 text-sm")}
           />
         </div>
 
@@ -124,7 +126,7 @@ export const AddressesForm = ({
             label={t("cityLabel")}
             placeholder={t("cityPlaceholder")}
             variant="outline"
-            className="h-10 text-sm rounded-xl"
+            className={cn(UI_RADIUS.input, "h-10 text-sm")}
             disabled={loading}
           />
           <FormInput
@@ -132,7 +134,7 @@ export const AddressesForm = ({
             label={t("stateLabel")}
             placeholder={t("statePlaceholder")}
             variant="outline"
-            className="h-10 text-sm rounded-xl"
+            className={cn(UI_RADIUS.input, "h-10 text-sm")}
             disabled={loading}
           />
         </div>
@@ -143,7 +145,7 @@ export const AddressesForm = ({
             label={t("countryLabel")}
             placeholder={t("countryPlaceholder")}
             variant="outline"
-            className="h-10 text-sm rounded-xl"
+            className={cn(UI_RADIUS.input, "h-10 text-sm")}
             disabled={loading}
           />
           <FormInput
@@ -151,7 +153,7 @@ export const AddressesForm = ({
             label={t("postalCodeLabel")}
             placeholder={t("postalCodePlaceholder")}
             variant="outline"
-            className="h-10 text-sm rounded-xl"
+            className={cn(UI_RADIUS.input, "h-10 text-sm")}
             disabled={loading}
           />
         </div>

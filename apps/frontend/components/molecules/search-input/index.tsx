@@ -3,6 +3,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { Loader2, Search, X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -71,7 +72,8 @@ export const SearchInput = ({
   return (
     <div
       className={cn(
-        "group relative flex items-center rounded-2xl border border-content/10 bg-content/[0.02] p-1.5 transition-all duration-300 focus-within:border-primary/30 focus-within:bg-content/[0.04] focus-within:shadow-[0_0_30px_-5px_rgba(var(--primary-rgb),0.15)]",
+        "group relative flex items-center border border-content/10 bg-content/[0.02] p-1.5 transition-all duration-300 focus-within:border-primary/30 focus-within:bg-content/[0.04] focus-within:shadow-[0_0_30px_-5px_rgba(var(--primary-rgb),0.15)]",
+        UI_RADIUS.panel,
         className,
       )}
     >
@@ -102,7 +104,10 @@ export const SearchInput = ({
           <Button
             variant="ghost"
             onClick={handleClear}
-            className="rounded-lg bg-content/5 px-2.5 py-1 text-xs font-bold text-content/60 hover:bg-content/10 hover:text-content flex items-center gap-1 h-auto"
+            className={cn(
+              UI_RADIUS.control,
+              "bg-content/5 px-2.5 py-1 text-xs font-bold text-content/60 hover:bg-content/10 hover:text-content flex items-center gap-1 h-auto",
+            )}
           >
             <X className="h-3 w-3" />
             <span>{resolvedClearButtonLabel}</span>
@@ -113,7 +118,10 @@ export const SearchInput = ({
           <Button
             variant="ghost"
             onClick={() => onSearch?.(localValue)}
-            className="px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-xl text-xs font-bold shadow-md shadow-primary/10 h-auto"
+            className={cn(
+              UI_RADIUS.control,
+              "px-5 py-2 bg-primary hover:bg-primary/90 text-white text-xs font-bold shadow-md shadow-primary/10 h-auto",
+            )}
           >
             {resolvedSubmitButtonLabel}
           </Button>

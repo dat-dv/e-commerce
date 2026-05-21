@@ -2,12 +2,13 @@
 
 import Button from "@/components/atoms/button";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
 import { EOrderStatus } from "@ecommerce/shared";
-import { motion } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import { MessageSquare, RotateCcw, Store, Truck } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -90,7 +91,8 @@ export const OrderCard = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       className={cn(
-        "overflow-hidden rounded-xl border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-primary/20",
+        "overflow-hidden border border-content/[0.05] bg-surface/40 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-primary/20",
+        UI_RADIUS.panel,
         className,
       )}
       {...props}
@@ -165,7 +167,8 @@ export const OrderCard = ({
             >
               <div
                 className={cn(
-                  "relative size-20 flex-shrink-0 overflow-hidden rounded-xl border border-content/[0.05] bg-content/[0.02]",
+                  "relative size-20 flex-shrink-0 overflow-hidden border border-content/[0.05] bg-content/[0.02]",
+                  UI_RADIUS.media,
                   itemImageClassName,
                 )}
               >
@@ -277,7 +280,8 @@ export const OrderCard = ({
                   onCancelOrder?.(order.id);
                 }}
                 className={cn(
-                  "h-auto rounded-xl border-red-500/20 px-6 py-2.5 text-sm font-semibold text-red-500 hover:bg-red-500/10",
+                  "h-auto border-red-500/20 px-6 py-2.5 text-sm font-semibold text-red-500 hover:bg-red-500/10",
+                  UI_RADIUS.control,
                   actionButtonClassName,
                 )}
               >
@@ -293,7 +297,8 @@ export const OrderCard = ({
                     onRequestReturn?.(order.id);
                   }}
                   className={cn(
-                    "flex h-auto items-center gap-2 rounded-xl border-content/[0.1] px-5 py-2.5 text-sm font-semibold text-content hover:bg-content/[0.05]",
+                    "flex h-auto items-center gap-2 border-content/[0.1] px-5 py-2.5 text-sm font-semibold text-content hover:bg-content/[0.05]",
+                    UI_RADIUS.control,
                     actionButtonClassName,
                   )}
                 >
@@ -302,7 +307,8 @@ export const OrderCard = ({
                 </Button>
                 <Button
                   className={cn(
-                    "h-auto rounded-xl bg-content px-6 py-2.5 text-sm font-semibold text-surface hover:bg-primary",
+                    "h-auto bg-content px-6 py-2.5 text-sm font-semibold text-surface hover:bg-primary",
+                    UI_RADIUS.control,
                     actionButtonClassName,
                   )}
                 >
@@ -311,7 +317,8 @@ export const OrderCard = ({
                 <Button
                   variant="outline"
                   className={cn(
-                    "h-auto rounded-xl border-content/[0.1] px-6 py-2.5 text-sm font-semibold text-content/60 hover:bg-content/[0.05]",
+                    "h-auto border-content/[0.1] px-6 py-2.5 text-sm font-semibold text-content/60 hover:bg-content/[0.05]",
+                    UI_RADIUS.control,
                     actionButtonClassName,
                   )}
                 >
