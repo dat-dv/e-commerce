@@ -24,6 +24,7 @@ import {
 import { CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { InputVariant } from "@/components/atoms/input/input.types";
 import {
   variantBase,
