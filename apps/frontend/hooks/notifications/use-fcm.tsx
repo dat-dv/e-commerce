@@ -1,5 +1,6 @@
 import { toast } from "@/components/ui/toast";
 import { PUBLIC_ENV } from "@/config/public.env.config";
+import { TOAST_KEYS, TToastId } from "@/constants/toast.constant";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { getFirebaseMessaging } from "@/lib/firebase";
 import { useNotificationStore } from "@/store/notification-store";
@@ -82,10 +83,25 @@ export const useFCM = () => {
             });
             window.dispatchEvent(new Event(ENotificationClientEvent.REFRESH));
 
-            toast.info(
-              payload.notification.title || "Notification",
-              payload.notification.body || undefined,
-            );
+            const orderId = payload.data?.orderId || payload.data?.id;
+            const status = payload.data?.status;
+            let toastId: TToastId | undefined = undefined;
+
+            if (orderId) {
+              if (
+                status === "cancelled" ||
+                payload.notification.title?.toLowerCase().includes("cancel")
+              ) {
+                toastId = TOAST_KEYS.ORDER_CANCEL(orderId);
+              } else {
+                toastId = TOAST_KEYS.ORDER_PLACE(orderId);
+              }
+            }
+
+            toast.info(payload.notification.title || "Notification", {
+              id: toastId,
+              description: payload.notification.body || "",
+            });
           }
         });
       } catch (error) {

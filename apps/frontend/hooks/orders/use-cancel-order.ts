@@ -1,4 +1,5 @@
 import { toast } from "@/components/ui/toast";
+import { TOAST_KEYS } from "@/constants/toast.constant";
 import { ordersUseCase } from "@/domain/orders";
 import { useCallback, useTransition } from "react";
 
@@ -12,7 +13,9 @@ export const useCancelOrder = () => {
           const response = await ordersUseCase.cancelOrder.execute(orderId);
 
           if (response.status === "success") {
-            toast.success("Order cancelled successfully");
+            toast.success("Order cancelled successfully", {
+              id: TOAST_KEYS.ORDER_CANCEL(orderId),
+            });
             onSuccess?.();
           }
           resolve();

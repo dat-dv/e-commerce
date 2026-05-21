@@ -1,5 +1,6 @@
 import { toast } from "@/components/ui/toast";
 import { APP_ROUTES } from "@/constants/routes";
+import { TOAST_KEYS } from "@/constants/toast.constant";
 import { ordersUseCase } from "@/domain/orders";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
@@ -56,7 +57,9 @@ export const useCheckout = (selectedAddressId: string | null) => {
       });
 
       if (res.status === "success") {
-        toast.success(t("success"));
+        toast.success(t("success"), {
+          id: res.data ? TOAST_KEYS.ORDER_PLACE(res.data.id) : undefined,
+        });
         setItems(latestItems.filter((item) => !cartItemIds.includes(item.id)));
         clearSelection();
         await loadCart(); // Synchronize cart state with server after items are evicted

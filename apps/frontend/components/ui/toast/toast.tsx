@@ -1,55 +1,67 @@
+import { TToastId } from "@/constants/toast.constant";
 import { toast as sonnerToast } from "sonner";
-import React from "react";
 import { CustomToast, ToastVariant } from "./toast-item";
 
 const DEFAULT_TIMEOUT = 5000;
-const ERROR_TIMEOUT = 7000; // Errors stay longer — users need time to read
+const ERROR_TIMEOUT = 7000;
 
-function add(
+type ToastId = string | number;
+
+export interface ToastOptions {
+  id?: TToastId;
+  description?: string;
+  duration?: number;
+}
+
+function showToast(
   title: string,
-  description?: string,
   variant: ToastVariant = "default",
-  timeout = DEFAULT_TIMEOUT,
-) {
+  { description, duration, id }: ToastOptions = {},
+): ToastId {
   return sonnerToast.custom(
-    (id) => (
+    (toastId) => (
       <CustomToast
-        id={id}
+        id={toastId}
         title={title}
         description={description}
         variant={variant}
       />
     ),
     {
-      duration: timeout,
+      id,
+      duration:
+        duration ?? (variant === "error" ? ERROR_TIMEOUT : DEFAULT_TIMEOUT),
     },
   );
 }
 
 export const toast = {
-  success(title: string, description?: string) {
-    return add(title, description, "success");
+  show(title: string, options?: ToastOptions & { variant?: ToastVariant }) {
+    return showToast(title, options?.variant, options);
   },
 
-  error(title: string, description?: string) {
-    return add(title, description, "error", ERROR_TIMEOUT);
+  success(title: string, options?: ToastOptions) {
+    return showToast(title, "success", options);
   },
 
-  warning(title: string, description?: string) {
-    return add(title, description, "warning");
+  warning(title: string, options?: ToastOptions) {
+    return showToast(title, "warning", options);
   },
 
-  info(title: string, description?: string) {
-    return add(title, description, "info");
+  info(title: string, options?: ToastOptions) {
+    return showToast(title, "info", options);
   },
 
-  default(title: string, description?: string) {
-    return add(title, description, "default");
+  error(title: string, options?: ToastOptions) {
+    return showToast(title, "error", options);
   },
 
-  /** Close a specific toast by key returned from `add`. */
-  close(key: string | number) {
-    sonnerToast.dismiss(key);
+  default(title: string, options?: ToastOptions) {
+    return showToast(title, "default", options);
+  },
+
+  close(id: ToastId) {
+    sonnerToast.dismiss(id);
   },
 
   clear() {
