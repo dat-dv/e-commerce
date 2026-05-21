@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { type Key } from "react-aria-components";
 
 import { Tree } from "@/components/atoms/tree";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { AllCategoriesButton } from "./all-categories-button";
 import { ICategoryNavSidebarProps } from "./category-nav-sidebar.types";
 import {
@@ -94,7 +95,9 @@ export const CategoryNavSidebar = ({
               />
             ) : (
               <div className="rounded-xl bg-content/[0.03] px-4 py-8 text-center">
-                <p className="text-sm font-medium text-content/35">
+                <p
+                  className={`${TYPOGRAPHY.bodySmall} font-medium text-content/35`}
+                >
                   {t("empty")}
                 </p>
               </div>

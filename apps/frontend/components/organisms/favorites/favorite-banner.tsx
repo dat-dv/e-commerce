@@ -1,7 +1,8 @@
 "use client";
 
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
-import { Heart, Sparkles, ShoppingBag, Package } from "lucide-react";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { Heart, Package, ShoppingBag, Sparkles } from "lucide-react";
 
 import { useTranslations } from "next-intl";
 
@@ -22,7 +23,9 @@ const FavoritesBanner = ({ count }: { count: number }) => {
             {count.toString().padStart(2, "0")}
           </span>
 
-          <span className="max-w-full truncate text-xs font-medium text-content/30">
+          <span
+            className={`max-w-full truncate ${TYPOGRAPHY.caption} font-medium text-content/30`}
+          >
             {t("banner.totalItems")}
           </span>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
 import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
@@ -41,7 +42,9 @@ export const NotificationCenter = () => {
           className={cn("transition-colors", isOpen && "text-primary")}
         />
         {unreadCount > 0 && (
-          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-background bg-red-500 px-1 text-[10px] font-black leading-none text-white shadow-sm">
+          <span
+            className={`absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-background bg-red-500 px-1 ${TYPOGRAPHY.badge} font-black leading-none text-white shadow-sm`}
+          >
             {unreadCount > 99 ? "99+" : unreadCount}
           </span>
         )}
@@ -62,12 +65,14 @@ export const NotificationCenter = () => {
               className="absolute right-0 mt-2 w-80 md:w-96 bg-surface/90 backdrop-blur-xl border border-content/[0.05] rounded-2xl shadow-2xl z-50 overflow-hidden"
             >
               <div className="p-4 border-b border-content/[0.05] flex items-center justify-between">
-                <h3 className="font-bold text-sm">{t("dropdown.title")}</h3>
+                <h3 className={`font-bold ${TYPOGRAPHY.bodySmall}`}>
+                  {t("dropdown.title")}
+                </h3>
                 {unreadCount > 0 && (
                   <Button
                     variant="ghost"
                     onClick={markAllAsRead}
-                    className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors h-auto p-0 hover:bg-transparent active:scale-100"
+                    className={`${TYPOGRAPHY.caption} font-medium text-primary hover:text-primary/80 transition-colors h-auto p-0 hover:bg-transparent active:scale-100`}
                   >
                     {t("dropdown.markAllAsRead")}
                   </Button>
@@ -76,7 +81,9 @@ export const NotificationCenter = () => {
 
               <div className="max-h-[400px] overflow-y-auto">
                 {loading ? (
-                  <div className="p-8 text-center text-xs text-content/40 uppercase tracking-widest">
+                  <div
+                    className={`p-8 text-center ${TYPOGRAPHY.caption} text-content/40 uppercase tracking-widest`}
+                  >
                     {t("dropdown.loadingText")}
                   </div>
                 ) : notifications.length > 0 ? (
@@ -94,7 +101,7 @@ export const NotificationCenter = () => {
                     <div className="w-12 h-12 rounded-full bg-content/[0.02] flex items-center justify-center text-content/10">
                       <Bell size={24} />
                     </div>
-                    <p className="text-xs text-content/40 font-medium">
+                    <p className={`${TYPOGRAPHY.meta} text-content/40`}>
                       {t("dropdown.emptyText")}
                     </p>
                   </div>
@@ -104,7 +111,7 @@ export const NotificationCenter = () => {
               <div className="p-4 border-t border-content/[0.05] bg-content/[0.01]">
                 <Link
                   href="/notifications"
-                  className="group flex items-center justify-center gap-2 text-[12px] font-semibold text-content/50 hover:text-primary transition-all duration-300"
+                  className={`group flex items-center justify-center gap-2 ${TYPOGRAPHY.caption} font-semibold text-content/50 hover:text-primary transition-all duration-300`}
                 >
                   {t("dropdown.viewAll")}
                   <div className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300">

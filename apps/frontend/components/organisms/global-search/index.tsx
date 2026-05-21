@@ -4,6 +4,7 @@ import AppContainer from "@/components/atoms/app-container";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormSelect } from "@/components/molecules/form/form-select";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -32,8 +33,8 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
           }))}
           variant="none"
           size="sm"
-          className="w-24 font-bold uppercase tracking-wider text-[10px] text-content/60"
-          itemClassName="px-3 py-2 text-xs"
+          className={`w-24 font-bold uppercase tracking-wider ${TYPOGRAPHY.badge} text-content/60`}
+          itemClassName={`px-3 py-2 ${TYPOGRAPHY.caption}`}
         />
       </div>
 
@@ -48,7 +49,7 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
           name="search"
           variant="none"
           placeholder={placeholder}
-          className="w-full !h-11 bg-transparent text-sm outline-none text-content placeholder:text-content/40 font-medium m-0 border-0 p-0"
+          className={`w-full !h-11 bg-transparent ${TYPOGRAPHY.bodySmall} outline-none text-content placeholder:text-content/40 font-medium m-0 border-0 p-0`}
         />
       </div>
 
@@ -58,7 +59,7 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
           <Button
             type="submit"
             variant="ghost"
-            className="absolute right-1.5 top-1.5 bottom-1.5 px-6 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full text-xs font-bold disabled:opacity-0 disabled:scale-95 transition-all z-10 h-auto active:scale-95 opacity-100 hover:opacity-100"
+            className={`absolute right-1.5 top-1.5 bottom-1.5 px-6 bg-content/[0.06] hover:bg-content/[0.12] text-content rounded-full ${TYPOGRAPHY.caption} font-bold disabled:opacity-0 disabled:scale-95 transition-all z-10 h-auto active:scale-95 opacity-100 hover:opacity-100`}
           >
             {t("submit")}
           </Button>

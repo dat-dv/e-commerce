@@ -4,6 +4,7 @@ import Button from "@/components/atoms/button";
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
+import { TYPOGRAPHY } from "@/constants/typography";
 
 export function AllCategoriesButton({
   active,
@@ -39,7 +40,7 @@ export function AllCategoriesButton({
             : "bg-content/20 opacity-0 group-hover:opacity-100",
         )}
       />
-      <span className="relative z-10 truncate text-sm font-semibold">
+      <span className={`relative z-10 truncate ${TYPOGRAPHY.label}`}>
         <LiquidWaveText
           isActive={active}
           className="max-w-full truncate"
