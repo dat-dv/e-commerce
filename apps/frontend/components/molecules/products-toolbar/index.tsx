@@ -115,6 +115,7 @@ export function ListingProductsToolbar({
         </div>
 
         <AppDropdown
+          popoverClassName="rounded-xl border-content/[0.08] bg-surface p-1 shadow-[0_12px_28px_-18px_rgba(0,0,0,0.45)] backdrop-blur-none dark:shadow-[0_12px_28px_-18px_rgba(0,0,0,0.65)]"
           trigger={({ ref, toggle, isOpen }) => (
             <Button
               ref={ref}
@@ -122,21 +123,18 @@ export function ListingProductsToolbar({
               isDisabled={isLoading}
               aria-haspopup="dialog"
               aria-expanded={isOpen}
-              className="flex items-center gap-3 px-3.5 py-2 bg-content/[0.03] hover:bg-content/5 border border-content/[0.05] rounded-xl transition-all group min-w-[160px] justify-between text-content font-semibold"
+              className="flex min-w-[160px] items-center justify-between gap-3 rounded-lg border border-content/[0.08] bg-transparent px-3.5 py-2 font-semibold text-content shadow-none transition-colors hover:border-content/15 hover:bg-content/[0.025]"
             >
-              <span className="text-[11px] font-bold text-content/70 group-hover:text-content">
+              <span className="text-[11px] font-bold text-content/70">
                 {currentSortOption.label}
               </span>
-              <ChevronDown
-                size={12}
-                className="text-content/30 group-hover:text-content transition-colors"
-              />
+              <ChevronDown size={12} className="text-content/35" />
             </Button>
           )}
         >
-          <div className="flex flex-col gap-0.5 min-w-[200px]">
-            <div className="px-3 py-1.5 mb-0.5 border-b border-content/[0.05]">
-              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-content/30">
+          <div className="flex min-w-[200px] flex-col gap-0.5">
+            <div className="mb-0.5 border-b border-content/[0.05] px-3 py-1.5">
+              <span className="text-[9px] font-black uppercase tracking-[0.16em] text-content/35">
                 {t("sortProductsBy")}
               </span>
             </div>
@@ -144,9 +142,9 @@ export function ListingProductsToolbar({
               <button
                 key={option.value}
                 onClick={() => updateSort(option.value.toString())}
-                className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[11px] font-semibold transition-all duration-200 ${
+                className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-[11px] font-semibold transition-colors ${
                   currentSort === option.value.toString()
-                    ? "bg-primary/10 text-primary font-bold"
+                    ? "bg-content/[0.06] font-bold text-content"
                     : "text-content/65 hover:text-content hover:bg-content/[0.04]"
                 }`}
               >
@@ -154,7 +152,7 @@ export function ListingProductsToolbar({
                 {currentSort === option.value.toString() && (
                   <motion.div
                     layoutId="active-sort"
-                    className="w-1.5 h-1.5 rounded-full bg-primary"
+                    className="size-1.5 rounded-full bg-content/55"
                   />
                 )}
               </button>
