@@ -1,4 +1,4 @@
-import { Injectable, Inject, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class GetSimilarProductsUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(productId: string, limit = 4, languageCode = 'vi') {
+  async execute(productId: string, limit: number, languageCode = 'vi') {
     const categoryIds = await this.productsRepository.getProductCategories(productId);
 
     if (categoryIds === null) {

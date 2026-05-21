@@ -68,8 +68,11 @@ export const ProductCarousel = ({
         {carouselProducts.map((column, index) => (
           <CarouselItem key={index} className={itemClassName}>
             <div className="flex flex-grow flex-col gap-4 sm:gap-6">
-              {column.map((product) => (
-                <ProductCard key={product.id} product={product} />
+              {column.map((product, idx) => (
+                <ProductCard
+                  key={`${index}-${product.id || idx}`}
+                  product={product}
+                />
               ))}
               {rows > 1 && column.length < rows ? <ProductCardSpacer /> : null}
             </div>

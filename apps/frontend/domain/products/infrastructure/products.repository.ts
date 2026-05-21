@@ -1,22 +1,22 @@
 import { API_ROUTES } from "@/constants/routes";
+import { mapPaginatedData } from "@/utils/request/pagination";
 import {
-  ApiResponse,
-  TRequest,
   ApiListResponse,
   ApiPaginatedResponse,
+  ApiResponse,
+  TRequest,
 } from "@/utils/request/request.types";
+import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
 import {
+  TCreateReviewRequest,
+  TGetProductReviewsRequest,
+  TGetProductsRequest,
   TProduct,
   TReview,
-  TGetProductsRequest,
-  TGetProductReviewsRequest,
-  TCreateReviewRequest,
 } from "../types/products.model";
 import { IProductsRepository } from "../types/products.repository";
-import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
 import { ProductMapper } from "./products.mapper";
 import { ReviewMapper } from "./reviews.mapper";
-import { mapPaginatedData } from "@/utils/request/pagination";
 
 export class ProductsRepository implements IProductsRepository {
   constructor(private request: TRequest) {}
@@ -152,7 +152,7 @@ export class ProductsRepository implements IProductsRepository {
 
   async getSimilarProducts(
     id: string,
-    limit = 4,
+    limit: number,
   ): Promise<ApiResponse<TProduct[]>> {
     const response = await this.request.get<IProductResponse[]>(
       API_ROUTES.PRODUCTS.SIMILAR(id),

@@ -1,26 +1,26 @@
-import type { Request } from 'express';
-import { Controller, Get, Param, Query, Req, UseGuards, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
-import { Language } from 'src/common/decorators/language.decorator';
-import { AuthGuard } from '../auth/guards/auth.guard';
-import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
-import { GetInterestBasedUseCase } from './domain/use-cases/get-interest-based.use-case';
-import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed.use-case';
-import { GetFlashSaleUseCase } from './domain/use-cases/get-flash-sale.use-case';
-import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
-import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.use-case';
-import { GetProductReviewsUseCase } from './domain/use-cases/get-product-reviews.use-case';
-import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
-import { GetProductsDto } from './dto/get-products.dto';
-import { GetProductReviewsDto } from './dto/get-product-reviews.dto';
 import {
   IApiResponse,
-  IProductResponse,
-  IProductListResponse,
-  IProductDetailResponse,
   IPaginatedResult,
+  IProductDetailResponse,
+  IProductListResponse,
+  IProductResponse,
   Review,
 } from '@ecommerce/shared';
+import { Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Query, Req, UseGuards } from '@nestjs/common';
+import type { Request } from 'express';
+import { Language } from 'src/common/decorators/language.decorator';
 import createSuccessResponse from 'src/common/respomse';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import { GetFlashSaleUseCase } from './domain/use-cases/get-flash-sale.use-case';
+import { GetInterestBasedUseCase } from './domain/use-cases/get-interest-based.use-case';
+import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.use-case';
+import { GetProductReviewsUseCase } from './domain/use-cases/get-product-reviews.use-case';
+import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
+import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed.use-case';
+import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
+import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
+import { GetProductReviewsDto } from './dto/get-product-reviews.dto';
+import { GetProductsDto } from './dto/get-products.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -113,7 +113,7 @@ export class ProductsController {
   @Get(':id/similar')
   async getSimilarProducts(
     @Param('id') id: string,
-    @Query('limit', new DefaultValuePipe(4), ParseIntPipe) limit: number,
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
     @Language() lang: string,
   ): Promise<IApiResponse<IProductResponse[]>> {
     const result = await this.getSimilarProductsUseCase.execute(id, limit, lang);
