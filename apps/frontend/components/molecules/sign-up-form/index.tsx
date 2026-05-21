@@ -6,6 +6,7 @@ import Link from "next/link";
 import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { useRegister } from "@/hooks/auth/use-register";
 
 export default function SignUpForm() {
@@ -79,7 +80,9 @@ export default function SignUpForm() {
         </p>
       </div>
 
-      <p className="leading-relax text-center text-[11px] tracking-tight opacity-40">
+      <p
+        className={`leading-relax text-center ${TYPOGRAPHY.caption} tracking-tight opacity-40`}
+      >
         {t("agreementText")}{" "}
         <Link
           href={APP_ROUTES.TERMS}

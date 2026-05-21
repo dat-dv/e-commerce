@@ -3,6 +3,7 @@
 import { InputSize } from "@/components/atoms/input/input.sizes";
 import { AppMenu, AppMenuItem } from "@/components/atoms/menu";
 import { aseanCountries } from "@/constants/countries";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
@@ -75,7 +76,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         {label ? (
           <label
             htmlFor={id}
-            className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70"
+            className={`text-content/80 ml-1 ${TYPOGRAPHY.bodySmall} font-bold tracking-tight opacity-70`}
           >
             {label}
           </label>
@@ -109,7 +110,9 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                   )}
                 >
                   <span className="text-lg">{country.flag}</span>
-                  <span className="text-content/80 text-sm font-medium">
+                  <span
+                    className={`text-content/80 ${TYPOGRAPHY.bodySmall} font-medium`}
+                  >
                     {country.dialCode}
                   </span>
                   <ChevronDown size={14} aria-hidden />
@@ -135,8 +138,8 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                   >
                     <span className="text-xl">{item.flag}</span>
                     <div>
-                      <div className="text-sm">{item.name}</div>
-                      <div className="text-content/50 text-xs">
+                      <div className={TYPOGRAPHY.bodySmall}>{item.name}</div>
+                      <div className={`text-content/50 ${TYPOGRAPHY.caption}`}>
                         {item.dialCode}
                       </div>
                     </div>
@@ -168,7 +171,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
               initial={{ opacity: 0, y: -5 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="ml-1 text-[11px] text-red-500"
+              className={`ml-1 ${TYPOGRAPHY.badge} text-red-500`}
             >
               {error}
             </motion.span>

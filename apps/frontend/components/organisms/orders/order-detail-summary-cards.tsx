@@ -1,5 +1,6 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { cn } from "@/utils/cn";
@@ -31,11 +32,13 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
           <div className="bg-primary/10 text-primary flex size-8 items-center justify-center rounded-full">
             <Truck className="h-4 w-4" />
           </div>
-          <h2 className="text-content text-sm font-bold">
+          <h2 className={`text-content ${TYPOGRAPHY.cardTitle}`}>
             {t("detail.deliveryDetails")}
           </h2>
         </div>
-        <div className="text-content/60 space-y-4 text-sm font-medium">
+        <div
+          className={`text-content/60 space-y-4 ${TYPOGRAPHY.bodySmall} font-medium`}
+        >
           <p className="text-content font-bold">
             {order.shippingAddress?.receiverName || t("detail.notAvailable")}
           </p>
@@ -62,12 +65,12 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
           <div className="bg-primary/10 text-primary flex size-8 items-center justify-center rounded-full">
             <CreditCard className="h-4 w-4" />
           </div>
-          <h2 className="text-content text-sm font-bold">
+          <h2 className={`text-content ${TYPOGRAPHY.cardTitle}`}>
             {t("detail.paymentSummary")}
           </h2>
         </div>
         <div className="space-y-4">
-          <div className="flex justify-between text-sm">
+          <div className={`flex justify-between ${TYPOGRAPHY.bodySmall}`}>
             <span className="text-content/60 font-medium">
               {t("detail.subtotal")}
             </span>
@@ -76,7 +79,7 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
             </span>
           </div>
           {order.discountAmount > 0 && (
-            <div className="flex justify-between text-sm">
+            <div className={`flex justify-between ${TYPOGRAPHY.bodySmall}`}>
               <span className="text-content/60 font-medium">
                 {t("detail.discount")}
               </span>
@@ -86,10 +89,12 @@ export function OrderDetailSummaryCards({ order }: { order: TOrder }) {
             </div>
           )}
           <div className="border-content/[0.05] flex items-center justify-between gap-4 border-t pt-4">
-            <span className="text-content text-sm font-bold">
+            <span className={`text-content ${TYPOGRAPHY.cardTitle}`}>
               {t("detail.total")}
             </span>
-            <span className="text-content text-2xl font-black tracking-tight sm:text-3xl">
+            <span
+              className={`text-content ${TYPOGRAPHY.sectionTitle} tracking-tight`}
+            >
               {formatCurrency(order.totalAmount)}
             </span>
           </div>

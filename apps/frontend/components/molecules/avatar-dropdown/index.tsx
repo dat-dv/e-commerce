@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import Avatar from "@/components/atoms/avatar";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 
 import { AppDropdown } from "../dropdown";
 
@@ -84,10 +85,14 @@ const AvatarDropdown = ({
             <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
           </div>
           <div className="flex min-w-0 flex-col">
-            <p className="text-content truncate text-sm leading-none font-bold">
+            <p
+              className={`text-content truncate ${TYPOGRAPHY.bodySmall} leading-none font-bold`}
+            >
               {name || t("fallbackUser")}
             </p>
-            <p className="text-content/50 mt-1 truncate text-[11px] leading-none font-medium">
+            <p
+              className={`text-content/50 mt-1 truncate ${TYPOGRAPHY.meta} leading-none`}
+            >
               {email || t("noEmail")}
             </p>
           </div>
@@ -106,7 +111,7 @@ const AvatarDropdown = ({
                 href={item.href}
               >
                 <Icon className="mr-2 h-3.5 w-3.5 opacity-60 transition-opacity group-hover:opacity-100" />
-                <span className="text-xs">{t(item.labelKey)}</span>
+                <span className={TYPOGRAPHY.caption}>{t(item.labelKey)}</span>
               </Button>
             );
           })}
@@ -121,7 +126,7 @@ const AvatarDropdown = ({
             className="group h-8 w-full justify-start rounded-lg px-2 font-bold transition-all active:scale-95"
           >
             <LogOut className="mr-2 h-3.5 w-3.5 opacity-80" />
-            <span className="text-xs">{t("signOut")}</span>
+            <span className={TYPOGRAPHY.caption}>{t("signOut")}</span>
           </Button>
         </div>
       </div>
