@@ -1,3 +1,4 @@
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
@@ -56,7 +57,7 @@ const SummaryCard = ({
         <div>
           <p
             className={cn(
-              "text-xs font-black uppercase tracking-[0.18em] text-content/35",
+              `${TYPOGRAPHY.caption} font-black uppercase tracking-[0.18em] text-content/35`,
               labelClassName,
             )}
           >

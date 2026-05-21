@@ -1,6 +1,7 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { useCart } from "@/hooks/cart/use-cart";
 import { Heart, LogOut, Settings, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -45,7 +46,9 @@ export default function UserShortcuts({
         label={t("cart")}
         badge={
           itemsCount > 0 ? (
-            <span className="rounded-full bg-blue-600 px-2 py-0.5 text-[10px] font-bold text-white">
+            <span
+              className={`rounded-full bg-blue-600 px-2 py-0.5 ${TYPOGRAPHY.badge} text-white`}
+            >
               {itemsCount}
             </span>
           ) : undefined

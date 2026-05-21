@@ -19,7 +19,9 @@ const FavoritesBanner = ({ count }: { count: number }) => {
       icons={WISHLIST_ICONS}
       rightContent={
         <div className="flex min-w-0 flex-col items-center md:items-end">
-          <span className="text-2xl font-black tabular-nums text-content sm:text-3xl md:text-4xl">
+          <span
+            className={`${TYPOGRAPHY.pageTitle} font-black tabular-nums text-content`}
+          >
             {count.toString().padStart(2, "0")}
           </span>
 

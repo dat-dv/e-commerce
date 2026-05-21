@@ -1,5 +1,6 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { AnimatePresence } from "framer-motion";
 import { Camera } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -80,7 +81,9 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
               aria-label={t("changeAvatar")}
             >
               <Camera className="w-7 h-7 text-white" />
-              <span className="text-[10px] font-bold text-white uppercase tracking-widest">
+              <span
+                className={`${TYPOGRAPHY.badge} text-white uppercase tracking-widest`}
+              >
                 {t("change")}
               </span>
             </button>

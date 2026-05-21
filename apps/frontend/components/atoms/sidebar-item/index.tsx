@@ -1,5 +1,6 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, FileText, FolderClosed, FolderOpen } from "lucide-react";
 import Link from "next/link";
@@ -76,7 +77,7 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
       {/* Label */}
       <LiquidWaveText
         isActive={isActive}
-        className="min-w-0 flex-1 truncate text-[13px] font-medium tracking-tight whitespace-nowrap"
+        className={`min-w-0 flex-1 truncate ${TYPOGRAPHY.bodySmall} font-medium tracking-tight whitespace-nowrap`}
         inactiveClassName="text-content/60"
       >
         {title}

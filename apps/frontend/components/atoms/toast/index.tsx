@@ -11,8 +11,9 @@ import {
 } from "lucide-react";
 import { ToastContainer } from "react-toastify";
 
-import { cn } from "@/utils/cn";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 
 const AppToast = () => {
   return (
@@ -30,11 +31,12 @@ const AppToast = () => {
       toastClassName={(context) => {
         const base = cn(
           UI_RADIUS.modal,
+          TYPOGRAPHY.label,
           `relative flex min-h-[56px] w-auto min-w-[320px]
 items-center justify-between overflow-hidden
 px-4 py-0 mb-4 transition-all duration-300 cursor-pointer
 hover:-translate-y-0.5 active:scale-[0.98]
-font-semibold text-[14px] tracking-tight border shadow-md`,
+tracking-tight border shadow-md`,
         );
 
         const variants: Record<string, string> = {

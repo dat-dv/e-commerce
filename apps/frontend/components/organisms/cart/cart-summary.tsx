@@ -55,7 +55,7 @@ export const CartSummary = ({
             "w-[160px] shrink-0 min-h-[88px] p-3 sm:min-h-[120px] sm:w-auto sm:p-5",
           )}
           contentClassName="gap-4"
-          labelClassName={`truncate ${TYPOGRAPHY.badge} tracking-[0.12em] sm:text-xs sm:tracking-[0.18em]`}
+          labelClassName={`truncate ${TYPOGRAPHY.badge} tracking-[0.12em] sm:${TYPOGRAPHY.caption} sm:tracking-[0.18em]`}
           valueClassName={cn("mt-2 sm:mt-3", valueClassName)}
           iconWrapperClassName={cn(UI_RADIUS.media, "size-8 sm:size-11")}
           iconClassName="size-4 sm:size-5"

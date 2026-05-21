@@ -1,5 +1,6 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { Bell, BellDot, CheckCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -62,14 +63,14 @@ export const NotificationSummary = ({
               sm:p-5
             "
             contentClassName="gap-4"
-            labelClassName="
+            labelClassName={`
               truncate
-              text-[10px]
+              ${TYPOGRAPHY.badge}
               tracking-[0.12em]
 
-              sm:text-xs
+              sm:${TYPOGRAPHY.caption}
               sm:tracking-[0.18em]
-            "
+            `}
             valueClassName="
               mt-2
               text-2xl

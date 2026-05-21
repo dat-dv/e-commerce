@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
@@ -90,7 +91,9 @@ export function AppliedFiltersBar<T extends string = string>({
         "mb-6 flex flex-wrap items-center gap-2 border border-content/[0.06] bg-content/[0.02] p-3",
       )}
     >
-      <span className="mr-1 text-[11px] font-bold uppercase tracking-widest text-content/35">
+      <span
+        className={`mr-1 ${TYPOGRAPHY.badge} uppercase tracking-widest text-content/35`}
+      >
         {t("applied")}
       </span>
       {chips.map((chip) => (
@@ -98,7 +101,7 @@ export function AppliedFiltersBar<T extends string = string>({
           key={chip.key}
           variant="ghost"
           onClick={() => onClearFilter(chip.key)}
-          className="inline-flex h-8 items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-3 text-xs font-bold text-primary transition-colors hover:bg-primary/15 active:scale-95 opacity-100 hover:opacity-100"
+          className={`inline-flex h-8 items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-3 ${TYPOGRAPHY.caption} font-bold text-primary transition-colors hover:bg-primary/15 active:scale-95 opacity-100 hover:opacity-100`}
         >
           {chip.label}
           <X size={13} />
@@ -107,7 +110,7 @@ export function AppliedFiltersBar<T extends string = string>({
       <Button
         variant="ghost"
         onClick={onResetFilters}
-        className="ml-auto h-8 rounded-full border border-content/10 px-3 text-xs font-bold text-content/45 transition-colors hover:border-primary/30 hover:text-primary active:scale-95 opacity-100 hover:opacity-100 hover:bg-transparent"
+        className={`ml-auto h-8 rounded-full border border-content/10 px-3 ${TYPOGRAPHY.caption} font-bold text-content/45 transition-colors hover:border-primary/30 hover:text-primary active:scale-95 opacity-100 hover:opacity-100 hover:bg-transparent`}
       >
         {t("resetAll")}
       </Button>
