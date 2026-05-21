@@ -2,7 +2,6 @@
 
 import AppContainer from "@/components/atoms/app-container";
 import { EmptyState } from "@/components/molecules/empty-space";
-import { SearchInput } from "@/components/molecules/search-input";
 import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
@@ -14,22 +13,17 @@ import DiscoveryCarouselSection from "../discovery-sections";
 import BrandListGrid from "./brands-list";
 
 interface TopBrandsViewProps {
-  brands: TBrand[];
-  meta: IPaginationMeta;
-  searchQuery?: string;
+  initialData?: { items: TBrand[]; meta: IPaginationMeta };
 }
 
-const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
+const BrandsView = ({ initialData }: TopBrandsViewProps) => {
   const t = useTranslations("BrandsPage");
   const {
     items: brandItems,
     loadingMore,
-    loading,
     hasMore,
     loadMore,
-    loadPage,
-    routerState: clientQueryParams,
-    update,
+    routerState,
   } = usePagination<
     TBrand,
     {
@@ -38,13 +32,7 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
       search: string;
     }
   >({
-    initialData: {
-      items: brands,
-      meta,
-    },
-    defaultParams: {
-      search: searchQuery,
-    },
+    initialData,
     fetchPage: (params) =>
       brandsUseCase.getTopBrands.execute(
         params.page,
@@ -57,23 +45,6 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
   return (
     <AppContainer className="flex flex-col gap-12 pb-12">
       <BrandsHeader />
-      <div className="relative mx-auto w-full max-w-2xl">
-        <SearchInput
-          value={clientQueryParams.search}
-          loading={loading}
-          onSearch={(value) => {
-            const nextParams = {
-              page: 1,
-              limit: meta.limit,
-              search: value,
-            };
-
-            update(nextParams);
-            void loadPage(1, nextParams, { syncQuery: false });
-          }}
-          placeholder={t("search.placeholder")}
-        />
-      </div>
       {brandItems.length > 0 ? (
         <BrandListGrid
           brands={brandItems}
@@ -85,7 +56,7 @@ const BrandsView = ({ brands, meta, searchQuery = "" }: TopBrandsViewProps) => {
         <EmptyState
           title={t("empty.title")}
           description={t("empty.description", {
-            query: clientQueryParams.search,
+            query: routerState.search,
           })}
           icon={Search}
         />

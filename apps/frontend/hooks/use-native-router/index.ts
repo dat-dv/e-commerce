@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type QueryPrimitive = string | number | boolean | object;
 type QueryValue = QueryPrimitive | null | undefined | QueryPrimitive[];
@@ -158,6 +158,11 @@ export default function useAppRouter<T extends Record<string, unknown>>({
     },
     [replace, routerState],
   );
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setRouterState(Object.fromEntries(searchParams.entries()) as unknown as T);
+  }, [searchParams]);
 
   return {
     pathname,

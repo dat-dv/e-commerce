@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { brandsUseCase } from "@/domain/brands/use-cases";
-import { safe } from "@/utils/promise";
 import BrandsView from "@/components/organisms/brands-grid";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { brandsUseCase } from "@/domain/brands/use-cases";
+import { safe } from "@/utils/promise";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -32,13 +32,7 @@ export default async function BrandsPage({ searchParams }: IBrandsPageProps) {
     ),
   );
 
-  const brands = response?.data?.items || [];
-  const meta = response?.data?.meta || {
-    total: brands.length,
-    page: 1,
-    limit: PAGINATION_LIMITS.BRANDS,
-    totalPages: 1,
-  };
+  const brands = response?.data;
 
-  return <BrandsView brands={brands} meta={meta} searchQuery={searchQuery} />;
+  return <BrandsView initialData={brands} />;
 }

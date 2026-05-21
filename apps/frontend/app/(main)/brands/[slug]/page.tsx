@@ -1,10 +1,10 @@
 import { BrandDetailView } from "@/components/organisms/brand-detail-view";
-import { brandsUseCase } from "@/domain/brands/use-cases";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { allSafe, safe } from "@/utils/promise";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { brandsUseCase } from "@/domain/brands/use-cases";
+import { allSafe, safe } from "@/utils/promise";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 interface IBrandDetailPageProps {
   params: Promise<{

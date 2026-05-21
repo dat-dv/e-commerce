@@ -26,7 +26,7 @@ interface IUsePaginationParams<
   T,
   TParams extends PaginationQueryParams = PaginationParams,
 > {
-  initialData: {
+  initialData?: {
     items: T[];
     meta: IPaginationMeta;
   };
@@ -41,7 +41,15 @@ export const usePagination = <
   T,
   TParams extends PaginationQueryParams = PaginationParams,
 >({
-  initialData,
+  initialData = {
+    items: [],
+    meta: {
+      page: 1,
+      limit: 10,
+      total: 0,
+      totalPages: 1,
+    },
+  },
   defaultParams,
   defaultPathname,
   syncUrlParams = false,
