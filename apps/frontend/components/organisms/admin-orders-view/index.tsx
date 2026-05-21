@@ -3,7 +3,9 @@
 import AppContainer from "@/components/atoms/app-container";
 import Loading from "@/components/atoms/loading";
 import { toast } from "@/components/ui/toast";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import type { Key } from "react-aria-components";
@@ -99,7 +101,12 @@ export function AdminOrdersView() {
           </div>
 
           {loading && orders.length === 0 ? (
-            <div className="flex min-h-60 flex-col items-center justify-center rounded-md border border-content/10">
+            <div
+              className={cn(
+                UI_RADIUS.panel,
+                "flex min-h-60 flex-col items-center justify-center border border-content/10",
+              )}
+            >
               <Loading />
               <span className="mt-3 text-sm text-content/55">
                 {t("results.loading")}

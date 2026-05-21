@@ -1,5 +1,7 @@
 "use client";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -14,7 +16,10 @@ export function OrderPreview({ preview }: { preview: OrderPreviewData }) {
         alt={preview.name}
         width={48}
         height={48}
-        className="size-12 rounded-md border border-content/10 object-cover"
+        className={cn(
+          UI_RADIUS.media,
+          "size-12 border border-content/10 object-cover",
+        )}
       />
       <div className="min-w-0">
         <p className="truncate text-sm font-semibold text-content">

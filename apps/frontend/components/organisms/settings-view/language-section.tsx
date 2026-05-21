@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { ELanguage } from "@/store/config/config.types";
+import { cn } from "@/utils/cn";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 interface LanguageSectionProps {
@@ -18,7 +20,10 @@ const LanguageSection = ({
   return (
     <div
       id="language"
-      className="min-w-0 rounded-xl border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6"
+      className={cn(
+        UI_RADIUS.panel,
+        "min-w-0 border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6",
+      )}
     >
       <div className="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div className="min-w-0">
@@ -35,11 +40,13 @@ const LanguageSection = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={t("select", { language: t(`options.${value}`) })}
-              className={`min-w-0 rounded-lg border px-4 py-2 text-sm font-semibold transition-all ${
+              className={cn(
+                UI_RADIUS.control,
+                "min-w-0 border px-4 py-2 text-sm font-semibold transition-all",
                 currentLang === value
                   ? "bg-primary text-white border-primary"
-                  : "border-content/10 text-content hover:bg-content/5"
-              }`}
+                  : "border-content/10 text-content hover:bg-content/5",
+              )}
             >
               <span className="block truncate">{t(`options.${value}`)}</span>
             </motion.button>

@@ -1,6 +1,8 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -35,7 +37,10 @@ export function OrdersPagination({
           aria-label={t("previousPage")}
           disabled={page <= 1 || loading}
           onClick={() => onPageChange(page - 1)}
-          className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
+          className={cn(
+            UI_RADIUS.control,
+            "inline-flex size-10 items-center justify-center border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100",
+          )}
         >
           <ChevronLeft aria-hidden="true" className="size-4" />
         </Button>
@@ -54,11 +59,12 @@ export function OrdersPagination({
                 aria-current={isCurrent ? "page" : undefined}
                 onClick={() => onPageChange(targetPage)}
                 disabled={loading}
-                className={
+                className={cn(
+                  UI_RADIUS.control,
                   isCurrent
-                    ? "inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto p-0 opacity-100 hover:opacity-100 hover:bg-primary active:scale-95"
-                    : "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-content/15 text-sm font-semibold text-content/70 hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 opacity-100 hover:opacity-100 active:scale-95"
-                }
+                    ? "inline-flex size-10 shrink-0 items-center justify-center bg-primary text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 h-auto p-0 opacity-100 hover:opacity-100 hover:bg-primary active:scale-95"
+                    : "inline-flex size-10 shrink-0 items-center justify-center border border-content/15 text-sm font-semibold text-content/70 hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 opacity-100 hover:opacity-100 active:scale-95",
+                )}
               >
                 {targetPage}
               </Button>
@@ -72,7 +78,10 @@ export function OrdersPagination({
           aria-label={t("nextPage")}
           disabled={page >= totalPages || loading}
           onClick={() => onPageChange(page + 1)}
-          className="inline-flex size-10 items-center justify-center rounded-md border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100"
+          className={cn(
+            UI_RADIUS.control,
+            "inline-flex size-10 items-center justify-center border border-content/15 text-content hover:bg-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-40 h-auto p-0 active:scale-95 opacity-100 hover:opacity-100",
+          )}
         >
           <ChevronRight aria-hidden="true" className="size-4" />
         </Button>

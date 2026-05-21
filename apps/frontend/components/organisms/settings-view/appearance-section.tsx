@@ -4,6 +4,8 @@ import Switch from "@/components/atoms/switch";
 import ThemeSwatch from "@/components/atoms/theme-swatch";
 import { THEMES } from "@/config/config";
 import { ETheme } from "@/constants/theme.constanst";
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 
 interface AppearanceSectionProps {
@@ -24,7 +26,10 @@ const AppearanceSection = ({
   return (
     <div
       id="appearance"
-      className="min-w-0 rounded-xl border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6"
+      className={cn(
+        UI_RADIUS.panel,
+        "min-w-0 border border-content/10 bg-surface/50 p-4 backdrop-blur-md scroll-mt-24 sm:p-6",
+      )}
     >
       <h2 className="text-lg font-bold text-content mb-4">{t("title")}</h2>
 
