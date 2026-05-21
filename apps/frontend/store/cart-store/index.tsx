@@ -104,9 +104,15 @@ const createCartStoreCreator =
 
       setItems: (items) => {
         const { selectedSkuIds } = get();
+        const itemSkuIds = new Set(items.map((item) => item.skuId));
+        const nextSelectedSkuIds = selectedSkuIds.filter((skuId) =>
+          itemSkuIds.has(skuId),
+        );
+
         set({
           items,
-          ...computeCartDerived(items, selectedSkuIds),
+          selectedSkuIds: nextSelectedSkuIds,
+          ...computeCartDerived(items, nextSelectedSkuIds),
         });
       },
 

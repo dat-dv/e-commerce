@@ -1,12 +1,11 @@
-import { Injectable, Inject, BadRequestException } from '@nestjs/common';
-import { IOrdersRepository } from '../entities/orders.repository.interface';
-import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { EOrderStatus } from '@ecommerce/shared';
-import { ENotificationType, IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
+import { ENotificationType, EOrderStatus, IOrderItemSnapshot, IOrderResponse } from '@ecommerce/shared';
+import { BadRequestException, Inject, Injectable, Logger } from '@nestjs/common';
 import { Prisma } from 'generated/prisma/client';
-import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';
+import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 import { NotificationService } from 'src/api/notifications/notifications.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { OrderItemSnapshotTransformer } from '../../dto/order-item-snapshot.transformer';
+import { IOrdersRepository } from '../entities/orders.repository.interface';
 
 interface IOrderItemInput {
   sku_id: string;
@@ -18,6 +17,8 @@ interface IOrderItemInput {
 
 @Injectable()
 export class CreateOrderUseCase {
+  private readonly logger = new Logger(CreateOrderUseCase.name);
+
   constructor(
     @Inject(IOrdersRepository)
     private readonly ordersRepository: IOrdersRepository,
@@ -32,6 +33,11 @@ export class CreateOrderUseCase {
     data: { cartItemIds: string[]; shippingAddressId?: string; promoCode?: string },
   ): Promise<IOrderResponse> {
     const { cartItemIds, shippingAddressId, promoCode } = data;
+    const uniqueCartItemIds = Array.from(new Set(cartItemIds));
+
+    if (uniqueCartItemIds.length === 0) {
+      throw new BadRequestException('No cart items selected for checkout');
+    }
 
     // Prioritize provided shipping address or fallback to default to ensure deliverability
     let finalShippingAddressId = shippingAddressId;
@@ -59,9 +65,9 @@ export class CreateOrderUseCase {
       throw new BadRequestException('Cart is empty');
     }
 
-    const selectedItems = cart.items.filter((item) => cartItemIds.includes(item.id));
-    if (selectedItems.length === 0) {
-      throw new BadRequestException('No valid cart items selected for checkout');
+    const selectedItems = cart.items.filter((item) => uniqueCartItemIds.includes(item.id));
+    if (selectedItems.length !== uniqueCartItemIds.length) {
+      throw new BadRequestException('Some selected cart items are no longer available. Please refresh your cart.');
     }
 
     // Set a 10s timeout to accommodate complex orders and prevent P2028 errors in high-latency environments
@@ -71,8 +77,31 @@ export class CreateOrderUseCase {
         let subTotal = 0;
         const orderItems: IOrderItemInput[] = [];
 
+        const transactionCartItems = await tx.cartItem.findMany({
+          where: {
+            id: { in: uniqueCartItemIds },
+            cart: { user_id: userId },
+          },
+          include: { sku: true },
+        });
+
+        if (transactionCartItems.length !== uniqueCartItemIds.length) {
+          throw new BadRequestException('Some selected cart items are no longer available. Please refresh your cart.');
+        }
+
+        const deletedCartItems = await tx.cartItem.deleteMany({
+          where: {
+            id: { in: uniqueCartItemIds },
+            cart: { user_id: userId },
+          },
+        });
+
+        if (deletedCartItems.count !== uniqueCartItemIds.length) {
+          throw new BadRequestException('Some selected cart items are no longer available. Please refresh your cart.');
+        }
+
         // Process each item to lock in pricing and decrement inventory to prevent overselling
-        for (const cartItem of selectedItems) {
+        for (const cartItem of transactionCartItems) {
           // Check for active flash sale participation to apply promotional pricing and specific stock pools
           const flashSaleProduct = await tx.flashSaleProduct.findFirst({
             where: {
@@ -262,14 +291,6 @@ export class CreateOrderUseCase {
           include: { items: true },
         });
 
-        // Evict purchased items from the cart to synchronize session state
-        await tx.cartItem.deleteMany({
-          where: {
-            id: { in: cartItemIds },
-            cart: { user_id: userId },
-          },
-        });
-
         return order;
       },
       {
@@ -277,16 +298,23 @@ export class CreateOrderUseCase {
       },
     );
 
-    await this.notificationService.sendToUser(
-      userId,
-      'Đặt hàng thành công',
-      `Đơn hàng #${order.id.slice(-6).toUpperCase()} của bạn đã được tiếp nhận.`,
-      ENotificationType.ORDER,
-      {
-        orderId: order.id,
-        link: `/orders/${order.id}`,
-      },
-    );
+    try {
+      await this.notificationService.sendToUser(
+        userId,
+        'Đặt hàng thành công',
+        `Đơn hàng #${order.id.slice(-6).toUpperCase()} của bạn đã được tiếp nhận.`,
+        ENotificationType.ORDER,
+        {
+          orderId: order.id,
+          link: `/orders/${order.id}`,
+        },
+      );
+    } catch (error) {
+      this.logger.error(
+        `Failed to send order confirmation notification for order ${order.id}`,
+        error instanceof Error ? error.stack : String(error),
+      );
+    }
 
     return order;
   }

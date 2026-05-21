@@ -1,12 +1,13 @@
-import { Injectable, Inject, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
-import { IOrdersRepository } from '../entities/orders.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { EOrderStatus } from '@ecommerce/shared';
+import { ENotificationType, EOrderStatus } from '@ecommerce/shared';
+import { BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { NotificationService } from 'src/api/notifications/notifications.service';
-import { ENotificationType } from '@ecommerce/shared';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { IOrdersRepository } from '../entities/orders.repository.interface';
 
 @Injectable()
 export class CancelOrderUseCase {
+  private readonly logger = new Logger(CancelOrderUseCase.name);
+
   constructor(
     @Inject(IOrdersRepository)
     private readonly ordersRepository: IOrdersRepository,
@@ -15,28 +16,32 @@ export class CancelOrderUseCase {
   ) {}
 
   async execute(orderId: string, userId: string) {
-    const order = await this.prisma.order.findUnique({
-      where: { id: orderId },
-      include: { items: true },
-    });
-
-    if (!order) {
-      throw new NotFoundException('Order not found');
-    }
-
-    if (order.user_id !== userId) {
-      throw new ForbiddenException('You do not have permission to cancel this order');
-    }
-
-    if (order.status !== Number(EOrderStatus.PENDING)) {
-      throw new BadRequestException('Only pending orders can be cancelled');
-    }
-
     const result = await this.prisma.$transaction(async (tx) => {
-      const updatedOrder = await tx.order.update({
+      const order = await tx.order.findUnique({
         where: { id: orderId },
+        include: { items: true },
+      });
+
+      if (!order) {
+        throw new NotFoundException('Order not found');
+      }
+
+      if (order.user_id !== userId) {
+        throw new ForbiddenException('You do not have permission to cancel this order');
+      }
+
+      const cancelledOrder = await tx.order.updateMany({
+        where: {
+          id: orderId,
+          user_id: userId,
+          status: EOrderStatus.PENDING,
+        },
         data: { status: EOrderStatus.CANCELLED },
       });
+
+      if (cancelledOrder.count !== 1) {
+        throw new BadRequestException('Only pending orders can be cancelled');
+      }
 
       // 2. Hoàn trả tồn kho
       for (const item of order.items) {
@@ -66,18 +71,28 @@ export class CancelOrderUseCase {
         });
       }
 
-      return updatedOrder;
+      return tx.order.findUniqueOrThrow({
+        where: { id: orderId },
+        include: { items: true },
+      });
     });
 
-    await this.notificationService.sendToUser(
-      userId,
-      'Đơn hàng đã bị hủy',
-      `Đơn hàng #${orderId.slice(-6).toUpperCase()} đã được hủy thành công.`,
-      ENotificationType.ORDER,
-      {
-        orderId: orderId,
-      },
-    );
+    try {
+      await this.notificationService.sendToUser(
+        userId,
+        'Đơn hàng đã bị hủy',
+        `Đơn hàng #${orderId.slice(-6).toUpperCase()} đã được hủy thành công.`,
+        ENotificationType.ORDER,
+        {
+          orderId: orderId,
+        },
+      );
+    } catch (error) {
+      this.logger.error(
+        `Failed to send order cancellation notification for order ${orderId}`,
+        error instanceof Error ? error.stack : String(error),
+      );
+    }
 
     return result;
   }

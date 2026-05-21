@@ -14,6 +14,7 @@ export const useCheckout = (selectedAddressId: string | null) => {
   const { items, selectedItems, totalAmount, clearSelection } = useCart();
   const loadCart = useLoadCart();
   const selectedSkuIds = useCartStore((s) => s.selectedSkuIds);
+  const setItems = useCartStore((s) => s.setItems);
 
   const [placingOrder, setPlacingOrder] = useState(false);
 
@@ -30,10 +31,20 @@ export const useCheckout = (selectedAddressId: string | null) => {
 
     setPlacingOrder(true);
     try {
+      const latestItems = (await loadCart()) ?? items;
+      const latestSelectedSkuIds = selectedSkuIds.filter((skuId) =>
+        latestItems.some((item) => item.skuId === skuId),
+      );
+
+      if (latestSelectedSkuIds.length === 0) {
+        toast.error(t("noItems"));
+        return;
+      }
+
       const cartItemIds = Array.from(
         new Set(
-          items
-            .filter((item) => selectedSkuIds.includes(item.skuId))
+          latestItems
+            .filter((item) => latestSelectedSkuIds.includes(item.skuId))
             .map((item) => item.id)
             .filter((id) => !!id),
         ),
@@ -46,6 +57,7 @@ export const useCheckout = (selectedAddressId: string | null) => {
 
       if (res.status === "success") {
         toast.success(t("success"));
+        setItems(latestItems.filter((item) => !cartItemIds.includes(item.id)));
         clearSelection();
         await loadCart(); // Synchronize cart state with server after items are evicted
         router.push(APP_ROUTES.ORDERS);
@@ -63,6 +75,7 @@ export const useCheckout = (selectedAddressId: string | null) => {
     selectedAddressId,
     selectedSkuIds,
     items,
+    setItems,
     clearSelection,
     loadCart,
     router,
