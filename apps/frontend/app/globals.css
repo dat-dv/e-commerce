@@ -1,57 +1,5 @@
 @import "tailwindcss";
-
-/* =========================================
-   1. BLUE THEME (Default)
-   ========================================= */
-:root {
-  /* Light Mode */
-  --primary: #3b82f6; /* Blue 500 */
-  --primary-foreground: #ffffff;
-  --app-bg: #ffffff;
-  --app-text: #0f172a;
-}
-
-/* Manual Dark Mode Toggle (.dark class on html/body) */
-.dark {
-  --primary: #3b82f6; /* Blue 500 */
-  --primary-foreground: #ffffff;
-  --app-bg: #020617; /* Deep Slate */
-  --app-text: #f8fafc;
-}
-
-/* =========================================
-   2. RED THEME
-   ========================================= */
-[data-theme="red"] {
-  --primary: #ef4444; /* Red 500 */
-  --primary-foreground: #ffffff;
-  --app-bg: #fff1f2;
-  --app-text: #450a0a;
-}
-
-[data-theme="red"].dark {
-  --primary: #f87171; /* Red 400 */
-  --primary-foreground: #450a0a;
-  --app-bg: #450a0a;
-  --app-text: #fecaca;
-}
-
-/* =========================================
-   3. LIGHT-GREEN THEME
-   ========================================= */
-[data-theme="green"] {
-  --primary: #22c55e; /* Green 500 */
-  --primary-foreground: #ffffff;
-  --app-bg: #f0fdf4;
-  --app-text: #052e16;
-}
-
-[data-theme="green"].dark {
-  --primary: #4ade80; /* Green 400 */
-  --primary-foreground: #052e16;
-  --app-bg: #052e16;
-  --app-text: #dcfce7;
-}
+@import "./themes.css";
 
 /* =========================================
    GÁN BIẾN VÀO TAILWIND 4

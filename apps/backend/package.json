@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "predev": "npx prisma generate",
     "dev": "npm run start:dev",
     "debug": "npm run start:debug",
     "build": "nest build",

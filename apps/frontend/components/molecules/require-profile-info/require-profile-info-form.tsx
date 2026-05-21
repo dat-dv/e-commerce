@@ -1,22 +1,22 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
-import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
-import { FormInput } from "@/components/molecules/form/form-input";
-import { FormDateInput } from "@/components/molecules/form/form-date-input";
-import { FormSelect } from "@/components/molecules/form/form-select";
 import AppForm from "@/components/molecules/form/app-form";
+import { FormDateInput } from "@/components/molecules/form/form-date-input";
+import { FormInput } from "@/components/molecules/form/form-input";
+import { FormSelect } from "@/components/molecules/form/form-select";
+import { GENDER_OPTIONS } from "@/constants/gender.constant";
 import { TUser } from "@/domain/auth/types/auth.model";
+import { EGender } from "@ecommerce/shared";
 import {
   getRequireProfileInfoSchema,
   TRequireProfileInfoSchema,
 } from "./require-profile-info-form.schema";
-import { GENDER_OPTIONS } from "@/constants/gender.constant";
-import { EGender } from "@ecommerce/shared";
 
 export const RequireProfileInfoForm = ({
   onSubmit,

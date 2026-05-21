@@ -1,0 +1,59 @@
+/* Default Blue Theme */
+:root {
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --app-bg: #ffffff;
+  --app-text: #0f172a;
+}
+
+.dark {
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --app-bg: #020617;
+  --app-text: #f8fafc;
+}
+
+/* Green Theme */
+[data-theme="green"] {
+  --primary: #22c55e;
+  --primary-foreground: #ffffff;
+  --app-bg: #fafdfb;
+  --app-text: #0f172a;
+}
+
+[data-theme="green"].dark {
+  --primary: #4ade80;
+  --primary-foreground: #064e3b;
+  --app-bg: #060c09;
+  --app-text: #f0fdf4;
+}
+
+/* Orange Theme */
+[data-theme="orange"] {
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --app-bg: #fffbf9;
+  --app-text: #0f172a;
+}
+
+[data-theme="orange"].dark {
+  --primary: #fb923c;
+  --primary-foreground: #7c2d12;
+  --app-bg: #0c0a09;
+  --app-text: #fff7ed;
+}
+
+/* Luxury Gold Theme */
+[data-theme="gold"] {
+  --primary: #d97706;
+  --primary-foreground: #ffffff;
+  --app-bg: #fdfaf2;
+  --app-text: #451a03;
+}
+
+[data-theme="gold"].dark {
+  --primary: #fbbf24;
+  --primary-foreground: #451a03;
+  --app-bg: #1c1917;
+  --app-text: #fef3c7;
+}

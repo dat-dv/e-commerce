@@ -1582,8 +1582,9 @@ declare const messages: {
       },
       "themes": {
         "blue": "Blue",
-        "red": "Red",
-        "green": "Green"
+        "green": "Green",
+        "orange": "Orange",
+        "gold": "Gold"
       },
       "darkMode": {
         "label": "Dark Mode",

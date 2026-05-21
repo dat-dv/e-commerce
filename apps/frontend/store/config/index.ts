@@ -5,8 +5,8 @@ import { createStore } from "zustand/vanilla";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { CONFIG_STORE_KEY, ETheme } from "@/constants/theme.constanst";
 
-import { ConfigState, ConfigStore, ELanguage } from "./config.types";
 import { getSubdomainByHostname } from "@/utils/sub-domain/get-client-sub-domain";
+import { ConfigState, ConfigStore, ELanguage } from "./config.types";
 
 export const configCreator =
   (initState?: Partial<ConfigState>): StateCreator<ConfigStore> =>
@@ -52,6 +52,9 @@ export const createConfigStore = (initState?: Partial<ConfigState>) =>
         name: CONFIG_STORE_KEY,
         onRehydrateStorage: () => (state) => {
           state?.setHasHydrated(true);
+          if (state && !Object.values(ETheme).includes(state.theme)) {
+            state.setTheme(ETheme.BLUE);
+          }
           const urlLang = getSubdomainByHostname();
           if (
             urlLang &&
