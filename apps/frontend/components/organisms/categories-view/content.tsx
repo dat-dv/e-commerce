@@ -2,9 +2,10 @@
 
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronRight, Grid2X2, Layers3 } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, ChevronRight, Layers3 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { CategoriesContentHeader } from "./categories-content-header";
 
 interface CategoriesContentProps {
   categories: TCategory[];
@@ -32,32 +33,7 @@ export const CategoriesContent = ({
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-4 border-b border-content/[0.04] pb-5 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex size-9 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Grid2X2 size={16} strokeWidth={2.2} aria-hidden />
-                  </div>
-
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-primary/80">
-                    {t("eyebrow")}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-black tracking-tight text-content">
-                  {t("title")}
-                </h3>
-
-                <p className="mt-1 text-sm font-medium text-content/40">
-                  {t("description")}
-                </p>
-              </div>
-
-              <div className="w-fit rounded-full border border-content/[0.05] bg-content/[0.02] px-4 py-2 text-xs font-bold text-content/40">
-                {t("count", { count: categories.length })}
-              </div>
-            </div>
-
+            <CategoriesContentHeader count={categories.length} />
             {isAllCategories ? (
               <motion.div
                 className="grid grid-cols-1 gap-4 xl:grid-cols-2"
