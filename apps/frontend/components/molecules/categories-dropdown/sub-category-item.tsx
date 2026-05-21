@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 
@@ -21,11 +22,13 @@ const SubCategoryItem = ({
         "min-w-fit px-4 py-1.5 rounded-full border font-bold transition-all text-[12px]",
         isActive
           ? "border-primary text-primary bg-primary/5"
-          : "border-content/10 text-content/80 hover:text-primary hover:border-primary/30 hover:bg-primary/5",
+          : "border-content/10 text-content/80 hover:border-primary/30 hover:bg-primary/5",
         className,
       )}
     >
-      {name}
+      <LiquidWaveText isActive={isActive} inactiveClassName="text-content/80">
+        {name}
+      </LiquidWaveText>
     </Link>
   );
 };

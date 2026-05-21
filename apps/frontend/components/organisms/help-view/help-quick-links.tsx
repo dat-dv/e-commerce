@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { HelpCardItem } from "./help-view.types";
@@ -48,9 +49,12 @@ export function HelpQuickLinks({
                 <Icon className="size-5" aria-hidden="true" />
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block text-sm font-black text-content">
+                <LiquidWaveText
+                  className="block text-sm font-black"
+                  inactiveClassName="text-content"
+                >
                   {item.title}
-                </span>
+                </LiquidWaveText>
                 <span className="mt-1 block text-sm leading-6 text-content/60">
                   {item.desc}
                 </span>

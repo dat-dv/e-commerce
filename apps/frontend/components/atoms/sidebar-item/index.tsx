@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useMemo, useState } from "react";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { DocItem } from "@/utils/docs";
 
 // ─── Utils ──────────────────────────────────────────────────────────────────
@@ -73,9 +74,13 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
       </div>
 
       {/* Label */}
-      <span className="flex-1 truncate text-[13px] font-medium tracking-tight whitespace-nowrap">
+      <LiquidWaveText
+        isActive={isActive}
+        className="min-w-0 flex-1 truncate text-[13px] font-medium tracking-tight whitespace-nowrap"
+        inactiveClassName="text-content/60"
+      >
         {title}
-      </span>
+      </LiquidWaveText>
 
       {/* Toggle Arrow */}
       {hasChildren && (

@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder } from "@/domain/orders/types/order.model";
@@ -190,11 +191,13 @@ export const OrderCard = ({
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                   <h3
                     className={cn(
-                      "line-clamp-1 text-sm font-bold leading-tight text-content transition-colors group-hover:text-primary",
+                      "line-clamp-1 text-sm font-bold leading-tight text-content",
                       itemTitleClassName,
                     )}
                   >
-                    {item.sku?.product?.name || t("card.productNameFallback")}
+                    <LiquidWaveText inactiveClassName="text-content">
+                      {item.sku?.product?.name || t("card.productNameFallback")}
+                    </LiquidWaveText>
                   </h3>
                   <div className="shrink-0 text-sm font-bold tracking-tight text-content sm:text-base">
                     {formatCurrency(item.price)}
