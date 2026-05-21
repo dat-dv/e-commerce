@@ -13,18 +13,15 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
-import { useLoadOnce } from "@/hooks/use-load-once";
 import { NotificationItem } from "./notification-item";
 
 export const NotificationCenter = () => {
   const t = useTranslations("NotificationsPage");
   const [isOpen, setIsOpen] = useState(false);
-  const { notifications, loading, refresh, canLoad } = useNotifications();
+  const { data: notifications, loading } = useNotifications();
   const { unreadCount } = useUnreadCount();
   const { markAsRead } = useMarkAsRead();
   const { markAllAsRead } = useMarkAllAsRead();
-
-  useLoadOnce(refresh, canLoad);
 
   return (
     <div className="relative">

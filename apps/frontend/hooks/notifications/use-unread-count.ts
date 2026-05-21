@@ -9,7 +9,7 @@ export const useUnreadCount = () => {
   const serverUnreadCount = useNotificationStore((s) => s.unreadCount);
   const setServerUnreadCount = useNotificationStore((s) => s.setUnreadCount);
 
-  const notifications = useNotificationStore((s) => s.notifications);
+  const notifications = useNotificationStore((s) => s.data);
   const isAllRead = useNotificationStore((s) => s.isAllRead);
   const readIds = useNotificationStore((s) => s.readIds);
 
@@ -24,16 +24,16 @@ export const useUnreadCount = () => {
     }
   }, [user, setServerUnreadCount]);
 
-  const computedNotifications = notifications.map((notification) =>
+  const computedNotifications = notifications?.items?.map((notification) =>
     isAllRead || readIds.has(notification.id)
       ? { ...notification, isRead: true }
       : notification,
   );
 
-  const loadedUnreadCount = computedNotifications.filter(
+  const loadedUnreadCount = computedNotifications?.filter(
     (n) => !n.isRead,
   ).length;
-  const localTransientUnreadCount = computedNotifications.filter(
+  const localTransientUnreadCount = computedNotifications?.filter(
     (n) => !n.isRead && n.id.startsWith("fcm-"),
   ).length;
 

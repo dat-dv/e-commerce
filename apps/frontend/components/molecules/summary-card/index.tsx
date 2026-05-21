@@ -70,7 +70,7 @@ const SummaryCard = ({
               valueClassName,
             )}
           >
-            {value}
+            {value || 0}
           </p>
         </div>
 

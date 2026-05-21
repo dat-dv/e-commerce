@@ -2,7 +2,7 @@ import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useNotificationStore } from "@/store/notification-store";
 
 export const useMarkAsRead = () => {
-  const storeNotifications = useNotificationStore((s) => s.notifications);
+  const storeNotifications = useNotificationStore((s) => s.data);
   const storeMarkAsRead = useNotificationStore((s) => s.markAsRead);
   const addReadId = useNotificationStore((s) => s.addReadId);
   const serverUnreadCount = useNotificationStore((s) => s.unreadCount);
@@ -10,7 +10,9 @@ export const useMarkAsRead = () => {
 
   const markAsRead = async (id: string) => {
     try {
-      const notification = storeNotifications.find((item) => item.id === id);
+      const notification = storeNotifications.items.find(
+        (item) => item.id === id,
+      );
 
       storeMarkAsRead(id);
       addReadId(id);

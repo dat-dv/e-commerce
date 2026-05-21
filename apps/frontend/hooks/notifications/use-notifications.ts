@@ -1,62 +1,50 @@
-import { INotification } from "@/domain/notifications/types/notification";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
-import usePagination from "@/hooks/use-pagination";
 import { useNotificationStore } from "@/store/notification-store";
-import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useAuthStore } from "../auth/use-auth-store";
 import { useUnreadCount } from "./use-unread-count";
 
 export const useNotifications = () => {
-  const storeNotifications = useNotificationStore((s) => s.notifications);
+  const storeNotifications = useNotificationStore((s) => s.data);
+  const appendNotifications = useNotificationStore(
+    (s) => s.appendNotifications,
+  );
   const setNotifications = useNotificationStore((s) => s.setNotifications);
+
   const isAllRead = useNotificationStore((s) => s.isAllRead);
   const readIds = useNotificationStore((s) => s.readIds);
   const resetReadStatus = useNotificationStore((s) => s.resetReadStatus);
-
+  const loading = false;
   const [searchQuery, setSearchQuery] = useState("");
-  const user = useAuthStore((s) => s.user);
   const { loadUnreadCount } = useUnreadCount();
 
-  const fetchNotificationsPage = useCallback(
-    async (
-      params: Partial<{ page: number; limit: number; search: string }>,
-    ) => {
-      const page = params.page;
-      const limit = params.limit;
-      if (!user) {
-        return {
-          status: "success" as const,
-          data: createEmptyPaginatedData<INotification>({ page, limit }),
-        };
-      }
-      return notificationsUseCase.getNotifications({ page, limit });
-    },
-    [user],
-  );
+  const getData = useCallback(async () => {
+    const page = 1;
+    const limit = storeNotifications.meta.limit;
+    const response = await notificationsUseCase.getNotifications({
+      page,
+      limit,
+    });
+    if (response.data?.items.length > 0) {
+      appendNotifications(response.data);
+    }
+  }, [storeNotifications, appendNotifications]);
 
-  const { data, loading, getData } = usePagination<
-    INotification,
-    { page: number; limit: number; search: string }
-  >({
-    isSyncWithSearchParams: false,
-    initialData: null,
-    fetchPage: fetchNotificationsPage,
-  });
-
-  const hasMore = data.meta.page < data.meta.totalPages;
-  const loadMore = () => {
-    getData({ page: data.meta.page + 1 });
-  };
-
-  useEffect(() => {
-    setNotifications(data.items);
-  }, [data.items, setNotifications]);
+  const loadMore = useCallback(async () => {
+    const page = storeNotifications.meta.page + 1;
+    const limit = storeNotifications.meta.limit;
+    const response = await notificationsUseCase.getNotifications({
+      page,
+      limit,
+    });
+    if (response.data?.items.length > 0) {
+      setNotifications(response.data);
+    }
+  }, [storeNotifications, setNotifications]);
 
   const refresh = useCallback(async () => {
     resetReadStatus();
-    await Promise.all([getData({ page: 1 }), loadUnreadCount()]);
+    await Promise.all([getData(), loadUnreadCount()]);
   }, [getData, loadUnreadCount, resetReadStatus]);
 
   useEffect(() => {
@@ -74,15 +62,15 @@ export const useNotifications = () => {
 
   const notifications = useMemo(
     () =>
-      storeNotifications.map((notification) =>
+      storeNotifications?.items?.map((notification) =>
         isAllRead || readIds.has(notification.id)
           ? { ...notification, isRead: true }
           : notification,
-      ),
+      ) || [],
     [isAllRead, readIds, storeNotifications],
   );
 
-  const filteredNotifications = notifications.filter((notification) => {
+  const filteredNotifications = notifications?.filter((notification) => {
     if (!searchQuery) return true;
     const lowerQuery = searchQuery.toLowerCase();
     return (
@@ -91,8 +79,21 @@ export const useNotifications = () => {
     );
   });
 
+  const data = {
+    meta: {
+      page: 1,
+      limit: 10,
+      total: 1,
+      totalPages: 1,
+    },
+    items: filteredNotifications,
+  };
+
+  const hasMore =
+    storeNotifications.items?.length < storeNotifications.meta.total;
+
   return {
-    notifications: filteredNotifications,
+    data: storeNotifications,
     loading,
     loadingMore: loading,
     hasMore,
@@ -100,6 +101,5 @@ export const useNotifications = () => {
     refresh,
     setSearch: setSearchQuery,
     total: data.meta.total,
-    canLoad: Boolean(user),
   };
 };

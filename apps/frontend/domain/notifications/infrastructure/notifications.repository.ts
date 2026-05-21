@@ -1,3 +1,4 @@
+import { API_ROUTES } from "@/constants/routes";
 import {
   ApiPaginatedResponse,
   ApiResponse,
@@ -5,18 +6,16 @@ import {
 } from "@/utils/request/request.types";
 import {
   INotificationListResponse,
-  INotificationTokenResponse,
   INotificationResponse,
+  INotificationTokenResponse,
   INotificationUnreadCountResponse,
 } from "@ecommerce/shared";
+import { INotification } from "../types/notification";
 import {
   INotificationsRepository,
   TSaveTokenRequest,
 } from "../types/notifications.repository";
 import { NotificationsMapper } from "./notifications.mapper";
-import { API_ROUTES } from "@/constants/routes";
-import { INotification } from "../types/notification";
-import { mapPaginatedData } from "@/utils/request/pagination";
 
 export class NotificationsRepository implements INotificationsRepository {
   constructor(private request: TRequest) {}
@@ -41,7 +40,10 @@ export class NotificationsRepository implements INotificationsRepository {
 
     return {
       ...response,
-      data: mapPaginatedData(response.data, NotificationsMapper.toDomain),
+      data: {
+        meta: response.data.meta,
+        items: response.data.items?.map(NotificationsMapper.toDomain) || [],
+      },
     };
   }
 

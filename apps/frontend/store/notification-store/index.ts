@@ -1,4 +1,6 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
+import { INotification } from "@/domain/notifications/types/notification";
+import { ApiListResponse } from "@/utils/request/request.types";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { TNotificationStore } from "./notification-store.type";
@@ -6,16 +8,24 @@ import { TNotificationStore } from "./notification-store.type";
 export const useNotificationStore = create<TNotificationStore>()(
   devtools(
     (set) => ({
-      notifications: [],
+      data: {
+        items: [],
+        meta: {
+          page: 1,
+          limit: 20,
+          total: 0,
+          totalPages: 0,
+        },
+      },
       loading: false,
       hasLoaded: false,
       unreadCount: 0,
       readIds: new Set(),
       isAllRead: false,
 
-      setNotifications: (notifications) =>
+      setNotifications: (data) =>
         set({
-          notifications,
+          data,
           hasLoaded: true,
           loading: false,
         }),
@@ -23,22 +33,26 @@ export const useNotificationStore = create<TNotificationStore>()(
 
       markAsRead: (id) =>
         set((state) => ({
-          notifications: state.notifications.map((n) =>
-            n.id === id ? { ...n, isRead: true } : n,
-          ),
+          data: {
+            ...state.data,
+            items: state.data.items.map((n) =>
+              n.id === id ? { ...n, isRead: true } : n,
+            ),
+          },
+          unreadCount: Math.max(state.unreadCount - 1, 0),
         })),
 
       markAllAsRead: () =>
         set((state) => ({
-          notifications: state.notifications.map((n) => ({
-            ...n,
-            isRead: true,
-          })),
-        })),
-
-      addNotification: (notification) =>
-        set((state) => ({
-          notifications: [notification, ...state.notifications],
+          data: {
+            ...state.data,
+            items: state.data.items.map((n) => ({
+              ...n,
+              isRead: true,
+            })),
+          },
+          unreadCount: 0,
+          isAllRead: true,
         })),
 
       setUnreadCount: (unreadCount) => set({ unreadCount }),
@@ -51,9 +65,27 @@ export const useNotificationStore = create<TNotificationStore>()(
       setIsAllRead: (isAllRead) => set({ isAllRead }),
       resetReadStatus: () => set({ readIds: new Set(), isAllRead: false }),
 
+      appendNotifications: (data: ApiListResponse<INotification>) =>
+        set((state) => ({
+          data: {
+            items: [...state.data.items, ...data.items],
+            meta: data.meta,
+          },
+          hasLoaded: true,
+          loading: false,
+        })),
+
       reset: () =>
         set({
-          notifications: [],
+          data: {
+            items: [],
+            meta: {
+              page: 1,
+              limit: 20,
+              total: 0,
+              totalPages: 0,
+            },
+          },
           loading: false,
           hasLoaded: false,
           unreadCount: 0,
