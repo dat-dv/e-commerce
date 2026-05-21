@@ -29,6 +29,7 @@ import {
   variantNormal,
 } from "@/components/atoms/input/input.styles";
 import { InputVariant } from "@/components/atoms/input/input.types";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
 export interface ISelectAutocompleteOption {
@@ -118,14 +119,20 @@ export function AppSelectAutocompleteClient<T extends object>({
           </RACFieldError>
 
           <RACPopover
-            className="z-50 w-[var(--trigger-width)] origin-top-right rounded-xl bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100 flex flex-col"
+            className={cn(
+              UI_RADIUS.popover,
+              "z-50 w-[var(--trigger-width)] origin-top-right bg-surface/95 border border-content/10 shadow-2xl backdrop-blur-md focus:outline-none overflow-hidden animate-in fade-in zoom-in-95 duration-100 flex flex-col",
+            )}
             offset={4}
           >
             <Autocomplete filter={contains}>
               <RACSearchField
                 autoFocus
                 aria-label={searchPlaceholder}
-                className="flex items-center gap-2 border border-content/[0.08] bg-content/[0.02] rounded-lg px-2.5 py-1.5 text-sm outline-none m-2 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/50 transition-all"
+                className={cn(
+                  UI_RADIUS.control,
+                  "flex items-center gap-2 border border-content/[0.08] bg-content/[0.02] px-2.5 py-1.5 text-sm outline-none m-2 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/50 transition-all",
+                )}
               >
                 <Search className="w-3.5 h-3.5 text-content/40 shrink-0" />
                 <RACInput
