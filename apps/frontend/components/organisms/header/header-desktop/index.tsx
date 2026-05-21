@@ -5,7 +5,6 @@ import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
 import SettingsIcon from "@/components/atoms/settings-icon";
-import { GlobalSearch } from "@/components/organisms/global-search";
 import { CategoryMegaMenuContentWrapper } from "../../../molecules/categories-dropdown";
 
 import { RenderDesktopOnly } from "@/components/molecules/responsive";
@@ -14,6 +13,7 @@ import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useCallback, useRef } from "react";
+import { GlobalSearch } from "../../global-search";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "./header-logo";
 import HeaderNav from "./header-nav";

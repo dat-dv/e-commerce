@@ -5,13 +5,13 @@ import HeaderMobile from "./header-mobile/mobile";
 
 export default function Header() {
   return (
-    <div>
-      <div className="hidden lg:block">
+    <>
+      <div className="sticky top-0 z-50 hidden lg:block">
         <HeaderDesktop />
       </div>
-      <div className="lg:hidden">
+      <div className="sticky top-0 z-50 lg:hidden">
         <HeaderMobile />
       </div>
-    </div>
+    </>
   );
 }

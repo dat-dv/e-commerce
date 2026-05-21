@@ -37,6 +37,7 @@ export default function HeaderMobile() {
           />
         </div>
       </AppContainer>
+
       <MobileNavDrawer
         isOpen={isOpenMobileMenu}
         onClose={() => setIsOpenMobileMenu(false)}
