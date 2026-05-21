@@ -30,10 +30,10 @@ const BrandListGrid = ({
       gridClassName={BRAND_LISTING_GRID_CLASS_NAME}
       itemClassName="h-full"
       columns={BRAND_LISTING_GRID_COLUMNS}
-      renderItem={(brand, index) => {
-        const isLarge = index === 0 || index === 5 || index === 10;
-        return <BrandCard brand={brand} isLarge={isLarge} index={index} />;
-      }}
+      rowClassName="pb-4 last:pb-0"
+      renderItem={(brand, index) => (
+        <BrandCard brand={brand} isLarge={false} index={index} />
+      )}
       loadingMore={loadingMore}
       hasMore={hasMore}
       onLoadMore={loadMore}

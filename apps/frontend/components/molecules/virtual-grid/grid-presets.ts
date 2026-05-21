@@ -11,11 +11,11 @@ export const PRODUCT_LISTING_GRID_COLUMNS = {
 } satisfies VirtualGridColumns;
 
 export const BRAND_LISTING_GRID_CLASS_NAME =
-  "grid grid-cols-1 gap-6 auto-rows-[240px] sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5";
+  "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 
 export const BRAND_LISTING_GRID_COLUMNS = {
   base: 1,
   sm: 2,
-  md: 4,
-  lg: 5,
+  lg: 3,
+  xl: 4,
 } satisfies VirtualGridColumns;

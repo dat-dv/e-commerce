@@ -9,7 +9,6 @@ import React from "react";
 
 export const BrandCard = ({
   brand,
-  isLarge,
 }: {
   brand: TBrand;
   isLarge: boolean;
@@ -19,14 +18,10 @@ export const BrandCard = ({
   const [imgError, setImgError] = React.useState(false);
 
   return (
-    <div
-      className={`group relative transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
-        isLarge ? "md:col-span-2 md:row-span-1" : "md:col-span-1"
-      }`}
-    >
+    <div className="group relative h-full min-w-0 transition-transform duration-300 hover:-translate-y-1 active:translate-y-0">
       <Link
         href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
-        className="relative flex flex-col h-full rounded-[2rem] overflow-hidden border border-content/[0.06] shadow-sm transition-all duration-500 bg-background group-hover:border-primary/30 group-hover:shadow-2xl group-hover:shadow-primary/10"
+        className="relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-lg border border-content/[0.08] bg-background shadow-sm transition-all duration-300 group-hover:border-primary/35 group-hover:shadow-lg group-hover:shadow-primary/10"
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
@@ -39,8 +34,8 @@ export const BrandCard = ({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover opacity-[0.15] grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
             </div>
           ) : (
             <div className="w-full h-full bg-content/[0.02]" />
@@ -48,9 +43,9 @@ export const BrandCard = ({
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 flex flex-col h-full p-7 justify-between">
-          <div className="flex justify-between items-start">
-            <div className="w-14 h-14 p-3 rounded-2xl bg-background shadow-2xl flex items-center justify-center border border-content/[0.03] transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110">
+        <div className="relative z-10 flex h-full min-w-0 flex-col justify-between gap-6 p-5">
+          <div className="flex min-w-0 items-start justify-between gap-3">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-content/[0.06] bg-background p-3 shadow-sm transition-transform duration-300 group-hover:rotate-[-3deg]">
               {brand.logoUrl && !imgError ? (
                 <div className="relative w-full h-full">
                   <Image
@@ -70,42 +65,38 @@ export const BrandCard = ({
               )}
             </div>
 
-            <div className="px-3 py-1 rounded-full bg-content/[0.03] border border-content/[0.05] backdrop-blur-md">
-              <span className="text-[10px] font-bold text-content/40 uppercase tracking-widest">
+            <div className="min-w-0 max-w-[8rem] rounded-md border border-content/[0.06] bg-content/[0.03] px-2.5 py-1">
+              <span className="block truncate text-[10px] font-bold uppercase tracking-wide text-content/45">
                 {t("productCount", { count: brand.productCount || 0 })}
               </span>
             </div>
           </div>
 
-          <div className="mt-auto">
-            <div className="overflow-hidden">
-              <h3
-                className={`font-bold text-content leading-tight transition-colors duration-500 group-hover:text-primary ${
-                  isLarge ? "text-3xl" : "text-xl"
-                }`}
-              >
+          <div className="min-w-0">
+            <div className="min-w-0">
+              <h3 className="line-clamp-2 text-xl font-bold leading-tight text-content transition-colors duration-300 group-hover:text-primary">
                 {brand.name}
               </h3>
             </div>
 
             {brand.description && (
-              <p className="text-[13px] text-content/50 line-clamp-2 mt-2 mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              <p className="mt-2 line-clamp-2 min-h-[2.5rem] text-sm leading-5 text-content/55">
                 {brand.description}
               </p>
             )}
 
-            <div className="flex items-center gap-2 text-primary font-bold text-[11px] uppercase tracking-[0.2em] mt-4">
-              <span>{t("viewArchive")}</span>
-              <div className="w-8 h-[1px] bg-primary/30 group-hover:w-12 transition-all duration-500" />
+            <div className="mt-5 flex min-w-0 items-center gap-2 text-[11px] font-bold uppercase tracking-wide text-primary">
+              <span className="truncate">{t("viewArchive")}</span>
+              <div className="h-px w-8 shrink-0 bg-primary/30 transition-all duration-300 group-hover:w-10" />
             </div>
           </div>
         </div>
 
         {/* Glass Reflection Effect */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/[0.05] to-transparent pointer-events-none" />
+        <div className="pointer-events-none absolute left-0 top-0 h-1/2 w-full bg-gradient-to-b from-white/[0.05] to-transparent" />
 
         {/* Decorative Shine */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none bg-gradient-to-tr from-primary/10 via-transparent to-transparent transition-opacity duration-500" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </Link>
     </div>
   );
