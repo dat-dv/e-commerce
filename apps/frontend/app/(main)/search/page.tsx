@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
-import { productsUseCase } from "@/domain/products/use-cases";
-import { allSafe } from "@/utils/promise";
 import NotFound from "@/app/not-found";
-import { ProductsPageProvider } from "@/components/molecules/providers/products-page-provider";
 import { SearchView } from "@/components/organisms/search-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { productsUseCase } from "@/domain/products/use-cases";
+import { allSafe } from "@/utils/promise";
+import type { Metadata } from "next";
 
 interface SearchPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -42,28 +41,5 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   if (!productsRes) return <NotFound />;
 
-  const products =
-    productsRes.status === "success" ? productsRes.data?.items || [] : [];
-  const total =
-    productsRes.status === "success" ? productsRes.data?.meta.total || 0 : 0;
-
-  return (
-    <ProductsPageProvider
-      initState={{
-        products,
-        total,
-        currentPage: page,
-        totalPages:
-          productsRes.status === "success"
-            ? productsRes.data?.meta.totalPages || 1
-            : 1,
-        sort: sort || "newest",
-        search: query,
-        min_price,
-        max_price,
-      }}
-    >
-      <SearchView searchQuery={query} />
-    </ProductsPageProvider>
-  );
+  return <SearchView searchQuery={query} initialData={productsRes.data} />;
 }

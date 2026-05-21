@@ -3,72 +3,111 @@
 import AppContainer from "@/components/atoms/app-container";
 import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
 import { ProductFilterDrawer } from "@/components/molecules/product-filter-drawer";
+import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { ProductsHeader } from "@/components/molecules/products-header";
 import {
   RenderDesktopOnly,
   RenderTabletAndBelow,
 } from "@/components/molecules/responsive";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
-import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
+import { TProduct } from "@/domain/products/types/products.model";
+import { productsUseCase } from "@/domain/products/use-cases";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
-import { useProductsAdapter } from "@/hooks/products/use-products-adapter";
-import { useProductsPageStore } from "@/hooks/products/use-products-page-store";
-import { EProductSort } from "@ecommerce/shared";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { SearchProductList } from "./search-product-list";
-import { SearchSidebar } from "./search-sidebar";
+import { usePagination } from "@/hooks/use-pagination";
+import { IPaginationMeta } from "@/utils/request/request.types";
+import { useState } from "react";
 
 import { useTranslations } from "next-intl";
 
 interface SearchViewProps {
   searchQuery: string;
+  initialData: {
+    items: TProduct[];
+    meta: IPaginationMeta;
+  };
 }
 
-export function SearchView({ searchQuery }: SearchViewProps) {
-  const categories = useCategoriesStore((s) => s.categories);
-  const { products, total, currentPage, totalPages, loading } =
-    useProductsPageStore((state) => state);
+type SearchQueryParams = {
+  page: number;
+  limit: number;
+  sort: string | null;
+  search: string | null;
+  category_slug: string | null;
+  min_price: string | null;
+  max_price: string | null;
+  rating: string | null;
+};
 
-  const { fetchProducts } = useProductsAdapter();
-  const searchParams = useSearchParams();
-  const router = useRouter();
+export function SearchView({ searchQuery, initialData }: SearchViewProps) {
+  const categories = useCategoriesStore((s) => s.categories);
   const t = useTranslations("SearchView");
   const tProducts = useTranslations("ProductsPage");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const page = searchParams.get("page");
-  const sort = searchParams.get("sort");
+  const {
+    items: products,
+    meta,
+    totalPages,
+    loading,
+    loadPage,
+    routerState,
+  } = usePagination<TProduct, SearchQueryParams>({
+    initialData,
+    syncUrlParams: true,
+    fetchPage: (params) =>
+      productsUseCase.getProducts.execute({
+        page: params.page,
+        limit: params.limit,
+        sort: params.sort || undefined,
+        search: params.search || undefined,
+        category_slug: params.category_slug || undefined,
+        min_price: params.min_price ? parseInt(params.min_price) : undefined,
+        max_price: params.max_price ? parseInt(params.max_price) : undefined,
+        rating: params.rating ? parseInt(params.rating) : undefined,
+      }),
+  });
 
-  const updateFilter = (filters: { key: string; value: string | null }[]) => {
-    const params = new URLSearchParams(searchParams.toString());
+  const updateFilter = (
+    filters: {
+      key: Exclude<keyof SearchQueryParams, "page" | "limit">;
+      value: string | null;
+    }[],
+  ) => {
+    const nextParams: Partial<SearchQueryParams> = {};
     filters.forEach(({ key, value }) => {
-      if (value) params.set(key, value);
-      else params.delete(key);
+      nextParams[key] = value;
     });
-    params.set("page", "1");
-    router.push(`${window.location.pathname}?${params.toString()}`);
+    loadPage(1, nextParams);
   };
 
-  const navigateToCategory = (slug: string) => {
-    router.push(`/categories/${slug}`);
+  const clearFilter = (key: keyof SearchQueryParams | "category") => {
+    const targetKey = key === "category" ? "category_slug" : key;
+    loadPage(1, {
+      [targetKey]: null,
+    });
   };
 
-  const isFirstMount = useRef(true);
-
-  useEffect(() => {
-    if (isFirstMount.current) {
-      isFirstMount.current = false;
-      return;
-    }
-
-    fetchProducts({
-      page: page ? parseInt(page) : 1,
-      limit: PAGINATION_LIMITS.PRODUCTS,
-      sort: sort || EProductSort.DEFAULT.toString(),
-      search: searchQuery || undefined,
+  const resetFilters = () => {
+    loadPage(1, {
+      min_price: null,
+      max_price: null,
+      rating: null,
+      sort: null,
+      category_slug: null,
     });
-  }, [page, sort, searchQuery, fetchProducts]);
+  };
+
+  const handleCategoryChange = (slug: string) => {
+    loadPage(1, {
+      category_slug: slug,
+    });
+  };
+
+  const activeCategory = categories.find(
+    (c) => c.slug === routerState.category_slug,
+  );
+  const categoryLabel = activeCategory?.name || routerState.category_slug;
 
   const shortQuery =
     searchQuery.length > 30
@@ -83,7 +122,7 @@ export function SearchView({ searchQuery }: SearchViewProps) {
             ? t("titleWithQuery", { query: shortQuery })
             : t("titleWithoutQuery")
         }
-        description={t("description", { total })}
+        description={t("description", { total: meta.total })}
       />
       <RenderTabletAndBelow>
         <FilterDrawerTrigger
@@ -96,21 +135,47 @@ export function SearchView({ searchQuery }: SearchViewProps) {
 
       <div className="mb-24 grid grid-cols-1 gap-8 lg:grid-cols-4">
         <RenderDesktopOnly>
-          <SearchSidebar
-            categories={categories}
-            onFilterChange={updateFilter}
-            onCategoryChange={navigateToCategory}
-          />
+          <div className="col-span-1">
+            <ProductFilterSidebar
+              categories={categories}
+              onFilterChange={updateFilter}
+              onCategoryChange={handleCategoryChange}
+              initialSearchValue={searchQuery}
+              onSearchSubmit={(val) =>
+                updateFilter([{ key: "search", value: val }])
+              }
+              minPriceValue={routerState.min_price || ""}
+              maxPriceValue={routerState.max_price || ""}
+              ratingValue={routerState.rating || ""}
+              activeSlug={routerState.category_slug || ""}
+            />
+          </div>
         </RenderDesktopOnly>
 
-        <SearchProductList
+        <ProductsCatalog
           products={products}
-          total={total}
-          currentPage={currentPage}
+          total={meta.total}
+          currentPage={meta.page}
           totalPages={totalPages}
           loading={loading}
-          pageStr={page}
-          shortQuery={shortQuery}
+          pageStr={String(meta.page)}
+          categoryTitle={shortQuery}
+          appliedFilters={{
+            search: searchQuery,
+            sort: routerState.sort ? String(routerState.sort) : undefined,
+            min_price: routerState.min_price
+              ? Number(routerState.min_price)
+              : undefined,
+            max_price: routerState.max_price
+              ? Number(routerState.max_price)
+              : undefined,
+            rating: routerState.rating ? Number(routerState.rating) : undefined,
+            category: categoryLabel || undefined,
+          }}
+          onClearFilter={clearFilter}
+          onResetFilters={resetFilters}
+          onPageChange={loadPage}
+          onSortChange={(sortVal) => loadPage(1, { sort: sortVal })}
         />
       </div>
 
@@ -120,11 +185,12 @@ export function SearchView({ searchQuery }: SearchViewProps) {
           onClose={() => setIsFilterOpen(false)}
           categories={categories}
           onFilterChange={updateFilter}
-          onCategoryChange={navigateToCategory}
-          hideCategories={true}
-          minPriceValue={searchParams.get("min_price") || ""}
-          maxPriceValue={searchParams.get("max_price") || ""}
-          ratingValue={searchParams.get("rating") || ""}
+          onCategoryChange={handleCategoryChange}
+          hideCategories={false}
+          minPriceValue={routerState.min_price || ""}
+          maxPriceValue={routerState.max_price || ""}
+          ratingValue={routerState.rating || ""}
+          activeSlug={routerState.category_slug || ""}
         />
       </RenderTabletAndBelow>
       {/* Discovery Sections */}
