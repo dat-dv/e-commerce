@@ -4,6 +4,7 @@ import Button from "@/components/atoms/button";
 import Input from "@/components/atoms/input";
 import { useEffect, useState } from "react";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { useTranslations } from "next-intl";
 import { IProductPriceFilterProps } from "./product-filter-sidebar.types";
 
@@ -46,7 +47,9 @@ export function ProductPriceFilter<T extends string = string>({
         applyPriceRange();
       }}
     >
-      <h3 className="text-content/45 mb-3 text-[11px] font-bold tracking-widest uppercase">
+      <h3
+        className={`text-content/45 mb-3 ${TYPOGRAPHY.badge} tracking-widest uppercase`}
+      >
         {t("priceRange")}
       </h3>
       <div className="flex flex-col gap-3">

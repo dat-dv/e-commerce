@@ -1,9 +1,9 @@
 import Button from "@/components/atoms/button";
 import { Star } from "lucide-react";
-import React from "react";
 
 import { IProductRatingFilterProps } from "./product-filter-sidebar.types";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { useTranslations } from "next-intl";
 
 export function ProductRatingFilter({
@@ -13,7 +13,9 @@ export function ProductRatingFilter({
   const t = useTranslations("ProductsPage");
   return (
     <div>
-      <h3 className="text-content/45 mb-3 text-[11px] font-bold tracking-widest uppercase">
+      <h3
+        className={`text-content/45 mb-3 ${TYPOGRAPHY.badge} tracking-widest uppercase`}
+      >
         {t("rating")}
       </h3>
       <div className="flex flex-col gap-1.5">

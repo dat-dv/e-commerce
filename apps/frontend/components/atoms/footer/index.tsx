@@ -1,6 +1,7 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -74,7 +75,9 @@ export default function Footer() {
           </p>
         </section>
       </div>
-      <div className="border-content/5 text-content/40 mx-4 mt-7 border-t pt-5 text-center text-[11px] leading-relaxed sm:mx-6 sm:mt-10 sm:pt-6 sm:text-xs">
+      <div
+        className={`border-content/5 text-content/40 mx-4 mt-7 border-t pt-5 text-center ${TYPOGRAPHY.badge} leading-relaxed sm:mx-6 sm:mt-10 sm:pt-6 sm:text-xs`}
+      >
         © {new Date().getFullYear()} Shop.hub. {t("rightsReserved")}
       </div>
     </footer>

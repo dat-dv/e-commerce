@@ -15,6 +15,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import Link from "next/link";
 
 interface OrderCardProps extends HTMLMotionProps<"div"> {
@@ -146,7 +147,8 @@ export const OrderCard = ({
           )}
           <span
             className={cn(
-              "min-w-0 rounded-full px-3 py-1 text-[11px] font-bold",
+              "min-w-0 rounded-full px-3 py-1",
+              TYPOGRAPHY.badge,
               statusColor,
             )}
           >
@@ -210,7 +212,12 @@ export const OrderCard = ({
                     })}
                 </p>
                 <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-                  <div className="bg-content/[0.05] text-content/50 rounded-full px-2 py-0.5 text-[11px] font-semibold">
+                  <div
+                    className={cn(
+                      "bg-content/[0.05] text-content/50 rounded-full px-2 py-0.5",
+                      TYPOGRAPHY.badge,
+                    )}
+                  >
                     {t("card.units", { count: item.quantity })}
                   </div>
                   {item.originalPrice && item.originalPrice > item.price && (

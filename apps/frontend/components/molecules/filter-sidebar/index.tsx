@@ -8,6 +8,7 @@ import {
   Heading,
 } from "react-aria-components";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 import {
   IFilterSectionProps,
@@ -39,7 +40,9 @@ export function FilterSection({
             >
               <span className="flex items-center gap-2">
                 {icon}
-                <span className="text-content/45 text-[14px] font-bold tracking-widest uppercase">
+                <span
+                  className={`text-content/45 ${TYPOGRAPHY.label} tracking-widest uppercase`}
+                >
                   {title}
                 </span>
               </span>

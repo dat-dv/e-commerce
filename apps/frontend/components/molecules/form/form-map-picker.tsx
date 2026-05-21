@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { MapPin } from "lucide-react";
-import { useFormContext } from "react-hook-form";
-import { cn } from "@/utils/cn";
 import MapPickerModal from "@/components/molecules/profile-form/map-picker-modal";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
 
 interface FormMapPickerProps {
   label: string;
@@ -122,7 +123,7 @@ export const FormMapPicker = ({
             initial={{ opacity: 0, height: 0, y: -5 }}
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: -5 }}
-            className="mt-1 ml-1 block overflow-hidden text-[11px] font-bold tracking-tight text-red-500"
+            className={`mt-1 ml-1 block overflow-hidden ${TYPOGRAPHY.badge} tracking-tight text-red-500`}
           >
             {String(error?.message || "")}
           </motion.span>

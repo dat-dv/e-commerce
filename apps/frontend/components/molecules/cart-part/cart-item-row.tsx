@@ -3,6 +3,7 @@
 import Button from "@/components/atoms/button";
 import { Checkbox } from "@/components/atoms/checkbox";
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
 import { cn } from "@/utils/cn";
@@ -77,7 +78,9 @@ export const CartItemRow = ({
           </Link>
 
           <div className="min-w-0 flex-1">
-            <h3 className="text-content hover:text-primary line-clamp-2 text-sm font-bold transition-colors md:text-base">
+            <h3
+              className={`text-content hover:text-primary line-clamp-2 ${TYPOGRAPHY.bodySmall} font-bold transition-colors md:text-base`}
+            >
               <Link href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}>
                 {item.name}
               </Link>
@@ -87,24 +90,29 @@ export const CartItemRow = ({
                 <span
                   className={cn(
                     UI_RADIUS.badge,
-                    "bg-content/[0.05] text-content/40 px-2 py-0.5 text-[10px] font-semibold",
+                    "bg-content/[0.05] text-content/40 px-2 py-0.5",
+                    TYPOGRAPHY.badge,
                   )}
                 >
                   {item.attributes}
                 </span>
               )}
               {isOutOfStock ? (
-                <span className="rounded bg-red-50 px-1.5 py-0.5 text-[10px] font-semibold text-red-500">
+                <span
+                  className={`rounded bg-red-50 px-1.5 py-0.5 ${TYPOGRAPHY.badge} text-red-500`}
+                >
                   {t("outOfStock")}
                 </span>
               ) : (
-                <span className="text-[10px] font-semibold text-green-500">
+                <span className={`${TYPOGRAPHY.badge} text-green-500`}>
                   {t("inStock")}
                 </span>
               )}
             </div>
             {isOutOfStock && (
-              <p className="mt-2 text-[11px] font-medium text-red-500">
+              <p
+                className={`mt-2 ${TYPOGRAPHY.badge} font-medium text-red-500`}
+              >
                 {t("unavailable")}
               </p>
             )}
@@ -113,17 +121,23 @@ export const CartItemRow = ({
 
         <div className="border-content/[0.05] grid w-full grid-cols-2 gap-3 border-t pt-4 md:flex md:w-auto md:items-center md:gap-4 md:border-t-0 md:pt-0">
           <div className="min-w-0 md:w-32 md:text-center">
-            <div className="text-content/30 mb-1 text-[10px] font-black tracking-[0.16em] uppercase md:hidden">
+            <div
+              className={`text-content/30 mb-1 ${TYPOGRAPHY.badge} tracking-[0.16em] uppercase md:hidden`}
+            >
               {tTable("unitPrice")}
             </div>
-            <div className="text-content/50 md:text-content/40 text-sm font-semibold md:font-light md:italic">
+            <div
+              className={`text-content/50 md:text-content/40 ${TYPOGRAPHY.bodySmall} font-semibold md:font-light md:italic`}
+            >
               {formatCurrency(item.price)}
             </div>
           </div>
 
           <div className="flex min-w-0 justify-end md:w-32 md:justify-center md:transition-transform md:duration-500 md:group-hover:scale-100">
             <div>
-              <div className="text-content/30 mb-1 text-right text-[10px] font-black tracking-[0.16em] uppercase md:hidden">
+              <div
+                className={`text-content/30 mb-1 text-right ${TYPOGRAPHY.badge} tracking-[0.16em] uppercase md:hidden`}
+              >
                 {tTable("quantity")}
               </div>
               <QuantitySelector
@@ -136,7 +150,9 @@ export const CartItemRow = ({
           </div>
 
           <div className="min-w-0 md:w-32 md:text-center">
-            <div className="text-content/30 mb-1 text-[10px] font-black tracking-[0.16em] uppercase md:hidden">
+            <div
+              className={`text-content/30 mb-1 ${TYPOGRAPHY.badge} tracking-[0.16em] uppercase md:hidden`}
+            >
               {tTable("total")}
             </div>
             <div className="text-content text-lg font-black tracking-tight text-nowrap md:text-xl md:tracking-tighter">
