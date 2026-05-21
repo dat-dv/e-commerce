@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
@@ -48,11 +49,11 @@ const HeaderNav = () => {
             key={`${link.href}-${idx}`}
             href={link.href}
             className={cn(
-              "relative text-sm font-bold transition-all hover:text-primary flex items-center gap-1.5",
-              isActive ? "text-primary" : "text-content/80 hover:text-content",
+              "relative flex items-center gap-1.5 text-sm font-bold",
+              isActive ? "text-primary" : "text-content/70",
             )}
           >
-            {displayLabel}
+            <LiquidWaveText isActive={isActive}>{displayLabel}</LiquidWaveText>
             {link.badge && (
               <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-[9px] text-white font-black uppercase tracking-wider animate-pulse">
                 {link.badge}

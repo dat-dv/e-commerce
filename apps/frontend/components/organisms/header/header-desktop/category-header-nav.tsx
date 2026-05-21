@@ -4,6 +4,7 @@ import React from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 
 interface CategoryHeaderNavProps {
   label: string;
@@ -25,11 +26,11 @@ export const CategoryHeaderNav = ({
       <button
         onClick={toggleMenu}
         className={cn(
-          "relative text-sm font-bold transition-all flex items-center gap-1.5 h-full px-2",
-          isActive ? "text-primary" : "text-content/80 hover:text-content",
+          "relative flex h-full items-center gap-1.5 px-2 text-sm font-bold",
+          isActive ? "text-primary" : "text-content/70",
         )}
       >
-        <span className="relative">{label}</span>
+        <LiquidWaveText isActive={isActive}>{label}</LiquidWaveText>
 
         <ChevronDown
           size={14}
