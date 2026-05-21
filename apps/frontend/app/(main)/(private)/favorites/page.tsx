@@ -1,8 +1,8 @@
 import { FavoritesView } from "@/components/organisms/favorites/favorites-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
-import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { safe } from "@/utils/promise";
+import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
@@ -30,10 +30,5 @@ export default async function FavoritesPage() {
       limit: LIMIT,
     });
 
-  return (
-    <FavoritesView
-      initialItems={favoritesData.items}
-      initialMeta={favoritesData.meta}
-    />
-  );
+  return <FavoritesView initialData={favoritesData} />;
 }

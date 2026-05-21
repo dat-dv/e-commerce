@@ -11,7 +11,7 @@ import { ProductsCatalog } from "@/components/organisms/products-view/products-c
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
-import { usePagination } from "@/hooks/use-pagination";
+import usePagination from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -38,7 +38,7 @@ type CategoryProductsFilterKey =
 type CategoryProductsQueryParams = {
   page: number;
   limit: number;
-  search: string | null;
+  search: string;
   sort: string | null;
   min_price: string | null;
   max_price: string | null;
@@ -62,15 +62,13 @@ export function CategoryDetailView({
   );
 
   const {
-    items: products,
-    meta,
-    totalPages,
+    data,
     loading,
-    loadPage,
-    routerState,
+    getData,
+    router: paginationRouter,
   } = usePagination<TProduct, CategoryProductsQueryParams>({
     initialData,
-    syncUrlParams: true,
+    isSyncWithSearchParams: true,
     fetchPage: (params) =>
       productsUseCase.getProducts.execute({
         page: params.page,
@@ -95,22 +93,21 @@ export function CategoryDetailView({
   const updateFilter = (
     filters: { key: CategoryProductsFilterKey; value: string | null }[],
   ) => {
-    const nextParams: Partial<CategoryProductsQueryParams> = {};
+    const nextParams = Object.fromEntries(
+      filters.map(({ key, value }) => [key, value]),
+    ) as Partial<CategoryProductsQueryParams>;
 
-    filters.forEach(({ key, value }) => {
-      nextParams[key] = value;
-    });
-
-    loadPage(1, nextParams);
+    getData({ page: 1, ...nextParams });
   };
 
   const clearFilter = (key: CategoryProductsFilterKey) => {
-    loadPage(1, { [key]: null } as Partial<CategoryProductsQueryParams>);
+    getData({ page: 1, [key]: null } as Partial<CategoryProductsQueryParams>);
   };
 
   const resetFilters = () => {
-    loadPage(1, {
-      search: null,
+    getData({
+      page: 1,
+      search: "",
       sort: null,
       min_price: null,
       max_price: null,
@@ -157,35 +154,39 @@ export function CategoryDetailView({
               categories={displayCategories}
               onFilterChange={updateFilter}
               onCategoryChange={navigateToCategory}
-              minPriceValue={routerState.min_price || ""}
-              maxPriceValue={routerState.max_price || ""}
-              ratingValue={routerState.rating || ""}
+              minPriceValue={paginationRouter.routerState.min_price || ""}
+              maxPriceValue={paginationRouter.routerState.max_price || ""}
+              ratingValue={paginationRouter.routerState.rating || ""}
             />
           </div>
         </RenderDesktopOnly>
 
         <ProductsCatalog<CategoryProductsFilterKey>
-          products={products}
-          total={meta.total}
-          currentPage={meta.page}
-          totalPages={totalPages}
+          products={data.items}
+          total={data.meta.total}
+          currentPage={data.meta.page}
+          totalPages={data.meta.totalPages}
           loading={loading}
-          pageStr={String(meta.page)}
+          pageStr={String(data.meta.page)}
           categoryTitle={categoryTitle}
           appliedFilters={{
-            search: routerState.search || undefined,
-            sort: routerState.sort ? String(routerState.sort) : undefined,
-            min_price: routerState.min_price
-              ? Number(routerState.min_price)
+            search: paginationRouter.routerState.search || undefined,
+            sort: paginationRouter.routerState.sort
+              ? String(paginationRouter.routerState.sort)
               : undefined,
-            max_price: routerState.max_price
-              ? Number(routerState.max_price)
+            min_price: paginationRouter.routerState.min_price
+              ? Number(paginationRouter.routerState.min_price)
               : undefined,
-            rating: routerState.rating ? Number(routerState.rating) : undefined,
+            max_price: paginationRouter.routerState.max_price
+              ? Number(paginationRouter.routerState.max_price)
+              : undefined,
+            rating: paginationRouter.routerState.rating
+              ? Number(paginationRouter.routerState.rating)
+              : undefined,
           }}
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
-          onPageChange={loadPage}
+          onPageChange={(page) => getData({ page })}
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
         />
       </div>
@@ -197,9 +198,9 @@ export function CategoryDetailView({
           categories={displayCategories}
           onFilterChange={updateFilter}
           onCategoryChange={handleDrawerCategoryChange}
-          minPriceValue={routerState.min_price || ""}
-          maxPriceValue={routerState.max_price || ""}
-          ratingValue={routerState.rating || ""}
+          minPriceValue={paginationRouter.routerState.min_price || ""}
+          maxPriceValue={paginationRouter.routerState.max_price || ""}
+          ratingValue={paginationRouter.routerState.rating || ""}
           activeSlug={categorySlug}
         />
       </RenderTabletAndBelow>

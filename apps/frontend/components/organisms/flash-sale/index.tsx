@@ -1,20 +1,19 @@
-import { FlashSaleHeader } from "./flash-sale-header";
 import AppContainer from "@/components/atoms/app-container";
-import FlashSaleList from "./flash-sale-list";
 import { TProduct } from "@/domain/products/types/products.model";
-import { IPaginationMeta } from "@/utils/request/request.types";
+import { ApiListResponse } from "@/utils/request/request.types";
 import DiscoveryCarouselSection from "../discovery-sections";
+import { FlashSaleHeader } from "./flash-sale-header";
+import FlashSaleList from "./flash-sale-list";
 
 interface FlashSaleViewProps {
-  products: TProduct[];
-  meta: IPaginationMeta;
+  initialData: ApiListResponse<TProduct>;
 }
 
-const FlashSaleView = ({ products, meta }: FlashSaleViewProps) => {
+const FlashSaleView = ({ initialData }: FlashSaleViewProps) => {
   return (
     <AppContainer className="space-y-2 sm:space-y-4">
       <FlashSaleHeader />
-      <FlashSaleList products={products} meta={meta} />
+      <FlashSaleList initialData={initialData} />
       <DiscoveryCarouselSection />
     </AppContainer>
   );

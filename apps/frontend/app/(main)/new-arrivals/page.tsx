@@ -4,10 +4,9 @@ import { safe } from "@/utils/promise";
 import { Metadata } from "next";
 import NotFound from "@/app/not-found";
 import { EProductSort } from "@ecommerce/shared";
-import {
-  PAGINATION_LIMITS,
-  createInitialPaginationMeta,
-} from "@/constants/pagination.constant";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { createEmptyPaginatedData } from "@/utils/request/pagination";
+import { TProduct } from "@/domain/products/types/products.model";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -32,12 +31,13 @@ export default async function NewArrivalsPage() {
     return <NotFound />;
   }
 
-  const products =
-    productsResponse.status === "success" ? productsResponse.data.items : [];
-  const meta =
+  const initialData =
     productsResponse.status === "success"
-      ? productsResponse.data.meta
-      : createInitialPaginationMeta(PAGINATION_LIMITS.PRODUCTS);
+      ? productsResponse.data
+      : createEmptyPaginatedData<TProduct>({
+          page: 1,
+          limit: PAGINATION_LIMITS.PRODUCTS,
+        });
 
-  return <NewArrivalView products={products} meta={meta} />;
+  return <NewArrivalView initialData={initialData} />;
 }

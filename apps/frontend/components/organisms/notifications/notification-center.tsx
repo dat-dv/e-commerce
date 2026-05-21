@@ -1,18 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { Bell } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations } from "next-intl";
+import Button from "@/components/atoms/button";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
+import { Bell } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import Button from "@/components/atoms/button";
+import { useState } from "react";
 
-import { NotificationItem } from "./notification-item";
 import { useLoadOnce } from "@/hooks/use-load-once";
+import { NotificationItem } from "./notification-item";
 
 export const NotificationCenter = () => {
+  return 1;
   const t = useTranslations("NotificationsPage");
   const [isOpen, setIsOpen] = useState(false);
   const {

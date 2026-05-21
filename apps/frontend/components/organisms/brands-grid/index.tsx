@@ -1,11 +1,11 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
-import { EmptyState } from "@/components/molecules/empty-space";
+import EmptyState from "@/components/molecules/empty-space";
 import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { usePagination } from "@/hooks/use-pagination";
+import usePagination from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -18,20 +18,8 @@ interface TopBrandsViewProps {
 
 const BrandsView = ({ initialData }: TopBrandsViewProps) => {
   const t = useTranslations("BrandsPage");
-  const {
-    items: brandItems,
-    loadingMore,
-    hasMore,
-    loadMore,
-    routerState,
-  } = usePagination<
-    TBrand,
-    {
-      page: number;
-      limit: number;
-      search: string;
-    }
-  >({
+  const { data, loading, getData, router } = usePagination<TBrand>({
+    isSyncWithSearchParams: true,
     initialData,
     fetchPage: (params) =>
       brandsUseCase.getTopBrands.execute(
@@ -39,24 +27,23 @@ const BrandsView = ({ initialData }: TopBrandsViewProps) => {
         params.limit,
         params.search,
       ),
-    getItemKey: (brand) => brand.id,
   });
 
   return (
     <AppContainer className="flex flex-col gap-12 pb-12">
       <BrandsHeader />
-      {brandItems.length > 0 ? (
+      {data.items.length > 0 ? (
         <BrandListGrid
-          brands={brandItems}
-          loadingMore={loadingMore}
-          hasMore={hasMore}
-          loadMore={loadMore}
+          brands={data.items}
+          loadingMore={loading}
+          hasMore={data.meta.page < data.meta.totalPages}
+          loadMore={() => getData({ page: data.meta.page + 1 })}
         />
       ) : (
         <EmptyState
           title={t("empty.title")}
           description={t("empty.description", {
-            query: routerState.search,
+            query: router.routerState.search,
           })}
           icon={Search}
         />

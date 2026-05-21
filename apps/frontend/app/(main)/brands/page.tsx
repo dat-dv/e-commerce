@@ -16,19 +16,19 @@ export async function generateMetadata(): Promise<Metadata> {
 
 interface IBrandsPageProps {
   searchParams: Promise<{
-    q?: string;
+    search?: string;
   }>;
 }
 
 export default async function BrandsPage({ searchParams }: IBrandsPageProps) {
-  const { q } = await searchParams;
-  const searchQuery = q?.trim() || "";
+  const { search } = await searchParams;
+  const searchQuery = search?.trim() || "";
 
   const response = await safe(
     brandsUseCase.getTopBrands.execute(
       1,
       PAGINATION_LIMITS.BRANDS,
-      searchQuery || undefined,
+      searchQuery,
     ),
   );
 

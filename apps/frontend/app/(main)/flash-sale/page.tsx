@@ -1,8 +1,8 @@
+import NotFound from "@/app/not-found";
 import FlashSaleView from "@/components/organisms/flash-sale";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { safe } from "@/utils/promise";
 import { Metadata } from "next";
-import NotFound from "@/app/not-found";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,10 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-import {
-  PAGINATION_LIMITS,
-  createInitialPaginationMeta,
-} from "@/constants/pagination.constant";
+import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
+import { TProduct } from "@/domain/products/types/products.model";
+import { createEmptyPaginatedData } from "@/utils/request/pagination";
 
 export default async function FlashSalePage() {
   const flashSaleResponse = await safe(
@@ -31,12 +30,13 @@ export default async function FlashSalePage() {
     return <NotFound />;
   }
 
-  const products =
-    flashSaleResponse.status === "success" ? flashSaleResponse.data.items : [];
-  const meta =
+  const initialData =
     flashSaleResponse.status === "success"
-      ? flashSaleResponse.data.meta
-      : createInitialPaginationMeta(PAGINATION_LIMITS.PRODUCTS);
+      ? flashSaleResponse.data
+      : createEmptyPaginatedData<TProduct>({
+          page: 1,
+          limit: PAGINATION_LIMITS.PRODUCTS,
+        });
 
-  return <FlashSaleView products={products} meta={meta} />;
+  return <FlashSaleView initialData={initialData} />;
 }

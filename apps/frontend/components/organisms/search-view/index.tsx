@@ -14,7 +14,7 @@ import { ProductsCatalog } from "@/components/organisms/products-view/products-c
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
-import { usePagination } from "@/hooks/use-pagination";
+import usePagination from "@/hooks/use-pagination";
 import { IPaginationMeta } from "@/utils/request/request.types";
 import { useState } from "react";
 
@@ -32,12 +32,12 @@ interface SearchViewProps {
 type SearchQueryParams = {
   page: number;
   limit: number;
-  sort: string | null;
-  search: string | null;
-  category_slug: string | null;
-  min_price: string | null;
-  max_price: string | null;
-  rating: string | null;
+  search: string;
+  sort: string;
+  category_slug: string;
+  min_price: string;
+  max_price: string;
+  rating: string;
 };
 
 export function SearchView({ searchQuery, initialData }: SearchViewProps) {
@@ -45,19 +45,16 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
   const t = useTranslations("SearchView");
   const tProducts = useTranslations("ProductsPage");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const router = useRouter();
 
   const {
-    items: products,
-    meta,
-    totalPages,
+    data,
     loading,
-    loadPage,
-    routerState,
-    update,
-    reset,
+    getData,
+    router: paginationRouter,
   } = usePagination<TProduct, SearchQueryParams>({
     initialData,
-    syncUrlParams: true,
+    isSyncWithSearchParams: true,
     fetchPage: (params) =>
       productsUseCase.getProducts.execute({
         page: params.page,
@@ -77,20 +74,19 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
       value: string | null;
     }[],
   ) => {
-    const nextParams: Partial<SearchQueryParams> = {};
-    filters.forEach(({ key, value }) => {
-      nextParams[key] = value;
-    });
-    loadPage(1, nextParams);
+    const nextParams = Object.fromEntries(
+      filters.map(({ key, value }) => [key, value]),
+    ) as Partial<SearchQueryParams>;
+
+    getData({ page: 1, ...nextParams });
   };
 
-  const router = useRouter();
   const handleClearFilterItem = (key: string) => {
     if (key === "search") {
       router.push("/search");
       return;
     }
-    update({ [key]: null });
+    getData({ page: 1, [key]: null } as Partial<SearchQueryParams>);
   };
 
   const handleClearAllFilter = () => {
@@ -98,9 +94,10 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
   };
 
   const activeCategory = categories.find(
-    (c) => c.slug === routerState.category_slug,
+    (c) => c.slug === paginationRouter.routerState.category_slug,
   );
-  const categoryLabel = activeCategory?.name || routerState.category_slug;
+  const categoryLabel =
+    activeCategory?.name || paginationRouter.routerState.category_slug;
 
   const shortQuery =
     searchQuery.length > 30
@@ -115,7 +112,7 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
             ? t("titleWithQuery", { query: shortQuery })
             : t("titleWithoutQuery")
         }
-        description={t("description", { total: meta.total })}
+        description={t("description", { total: data.meta.total })}
       />
       <RenderTabletAndBelow>
         <FilterDrawerTrigger
@@ -132,39 +129,45 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
             <ProductFilterSidebar
               categories={categories}
               onFilterChange={updateFilter}
-              onCategoryChange={(slug) => loadPage(1, { category_slug: slug })}
-              minPriceValue={routerState.min_price || ""}
-              maxPriceValue={routerState.max_price || ""}
-              ratingValue={routerState.rating || ""}
-              activeSlug={routerState.category_slug || ""}
+              onCategoryChange={(slug) =>
+                getData({ page: 1, category_slug: slug })
+              }
+              minPriceValue={paginationRouter.routerState.min_price || ""}
+              maxPriceValue={paginationRouter.routerState.max_price || ""}
+              ratingValue={paginationRouter.routerState.rating || ""}
+              activeSlug={paginationRouter.routerState.category_slug || ""}
             />
           </div>
         </RenderDesktopOnly>
 
         <ProductsCatalog
-          products={products}
-          total={meta.total}
-          currentPage={meta.page}
-          totalPages={totalPages}
+          products={data.items}
+          total={data.meta.total}
+          currentPage={data.meta.page}
+          totalPages={data.meta.totalPages}
           loading={loading}
-          pageStr={String(meta.page)}
+          pageStr={String(data.meta.page)}
           categoryTitle={shortQuery}
           appliedFilters={{
             search: searchQuery,
-            sort: routerState.sort ? String(routerState.sort) : undefined,
-            min_price: routerState.min_price
-              ? Number(routerState.min_price)
+            sort: paginationRouter.routerState.sort
+              ? String(paginationRouter.routerState.sort)
               : undefined,
-            max_price: routerState.max_price
-              ? Number(routerState.max_price)
+            min_price: paginationRouter.routerState.min_price
+              ? Number(paginationRouter.routerState.min_price)
               : undefined,
-            rating: routerState.rating ? Number(routerState.rating) : undefined,
+            max_price: paginationRouter.routerState.max_price
+              ? Number(paginationRouter.routerState.max_price)
+              : undefined,
+            rating: paginationRouter.routerState.rating
+              ? Number(paginationRouter.routerState.rating)
+              : undefined,
             category_slug: categoryLabel || undefined,
           }}
           onClearFilter={handleClearFilterItem}
           onResetFilters={handleClearAllFilter}
-          onPageChange={loadPage}
-          onSortChange={(sortVal) => loadPage(1, { sort: sortVal })}
+          onPageChange={(page) => getData({ page })}
+          onSortChange={(sortVal) => getData({ page: 1, sort: sortVal })}
         />
       </div>
 
@@ -174,12 +177,12 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
           onClose={() => setIsFilterOpen(false)}
           categories={categories}
           onFilterChange={updateFilter}
-          onCategoryChange={(slug) => loadPage(1, { category_slug: slug })}
+          onCategoryChange={(slug) => getData({ page: 1, category_slug: slug })}
           hideCategories={false}
-          minPriceValue={routerState.min_price || ""}
-          maxPriceValue={routerState.max_price || ""}
-          ratingValue={routerState.rating || ""}
-          activeSlug={routerState.category_slug || ""}
+          minPriceValue={paginationRouter.routerState.min_price || ""}
+          maxPriceValue={paginationRouter.routerState.max_price || ""}
+          ratingValue={paginationRouter.routerState.rating || ""}
+          activeSlug={paginationRouter.routerState.category_slug || ""}
         />
       </RenderTabletAndBelow>
       {/* Discovery Sections */}

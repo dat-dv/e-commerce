@@ -1,6 +1,5 @@
-import useAppRouter from "@/hooks/use-native-router";
 import { useTranslations } from "next-intl";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -17,7 +16,7 @@ export const useSearchForm = () => {
   const t = useTranslations("Common.search");
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const router = useAppRouter({ updateUrl: true });
+  const router = useRouter();
 
   const defaultRoute = resolveDefaultRoute(pathname);
 
@@ -39,10 +38,7 @@ export const useSearchForm = () => {
     const keyword = search.trim();
     if (!keyword) return;
 
-    router.push({
-      pathname: route,
-      search: keyword,
-    });
+    router.push(`${route}?search=${keyword}`, { scroll: false });
   };
 
   const options = buildSearchOptions(pathname, t);

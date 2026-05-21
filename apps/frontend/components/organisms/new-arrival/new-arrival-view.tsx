@@ -1,20 +1,19 @@
 import AppContainer from "@/components/atoms/app-container";
 import { TProduct } from "@/domain/products/types/products.model";
-import { IPaginationMeta } from "@/utils/request/request.types";
+import { ApiListResponse } from "@/utils/request/request.types";
 import DiscoveryCarouselSection from "../discovery-sections";
 import NewArrivalList from "./new-arrival-list";
 import { FreshArrivalsHeader } from "./new-arrivale-header";
 
 interface NewArrivalViewProps {
-  products: TProduct[];
-  meta: IPaginationMeta;
+  initialData: ApiListResponse<TProduct>;
 }
 
-const NewArrivalView = ({ products, meta }: NewArrivalViewProps) => {
+const NewArrivalView = ({ initialData }: NewArrivalViewProps) => {
   return (
     <AppContainer className="space-y-2 sm:space-y-4">
       <FreshArrivalsHeader />
-      <NewArrivalList products={products} meta={meta} />
+      <NewArrivalList initialData={initialData} />
       <DiscoveryCarouselSection />
     </AppContainer>
   );

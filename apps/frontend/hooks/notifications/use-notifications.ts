@@ -4,7 +4,7 @@ import {
 } from "@/constants/pagination.constant";
 import { INotification } from "@/domain/notifications/types/notification";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
-import { usePagination } from "@/hooks/use-pagination";
+import usePagination from "@/hooks/use-pagination";
 import { useNotificationStore } from "@/store/notification-store";
 import { createEmptyPaginatedData } from "@/utils/request/pagination";
 import { ENotificationClientEvent } from "@ecommerce/shared";
@@ -35,32 +35,43 @@ export const useNotifications = () => {
   const user = useAuthStore((s) => s.user);
 
   const fetchNotificationsPage = useCallback(
-    async (params: { page: number; limit: number }) => {
+    async (
+      params: Partial<{ page: number; limit: number; search: string }>,
+    ) => {
+      const page = params.page || 1;
+      const limit = params.limit || LIMIT;
       if (!user) {
         return {
           status: "success" as const,
-          data: createEmptyPaginatedData<INotification>(params),
+          data: createEmptyPaginatedData<INotification>({ page, limit }),
         };
       }
 
-      return notificationsUseCase.getNotifications(params);
+      return notificationsUseCase.getNotifications({ page, limit });
     },
     [user],
   );
 
-  const { items, meta, hasMore, loading, loadingMore, loadPage, loadMore } =
-    usePagination<INotification, { page: number; limit: number }>({
-      initialData: {
-        items: [],
-        meta: INITIAL_META,
-      },
-      fetchPage: fetchNotificationsPage,
-      getItemKey: (item) => item.id,
-    });
+  const { data, loading, getData } = usePagination<
+    INotification,
+    { page: number; limit: number; search: string }
+  >({
+    isSyncWithSearchParams: false,
+    initialData: {
+      items: [],
+      meta: INITIAL_META,
+    },
+    fetchPage: fetchNotificationsPage,
+  });
+
+  const hasMore = data.meta.page < data.meta.totalPages;
+  const loadMore = () => {
+    getData({ page: data.meta.page + 1 });
+  };
 
   useEffect(() => {
-    setNotifications(items);
-  }, [items, setNotifications]);
+    setNotifications(data.items);
+  }, [data.items, setNotifications]);
 
   const markAsRead = async (id: string) => {
     try {
@@ -110,8 +121,8 @@ export const useNotifications = () => {
   const refresh = useCallback(async () => {
     setReadIds(new Set());
     setIsAllRead(false);
-    await Promise.all([loadPage(1), loadUnreadCount()]);
-  }, [loadPage, loadUnreadCount]);
+    await Promise.all([getData({ page: 1 }), loadUnreadCount()]);
+  }, [getData, loadUnreadCount]);
 
   useEffect(() => {
     const handleRefresh = () => {
@@ -160,14 +171,14 @@ export const useNotifications = () => {
     notifications: filteredNotifications,
     unreadCount,
     loading,
-    loadingMore,
+    loadingMore: loading,
     hasMore,
     loadMore,
     refresh,
     markAsRead,
     markAllAsRead,
     setSearch: setSearchQuery,
-    total: meta.total,
+    total: data.meta.total,
     canLoad: Boolean(user),
   };
 };

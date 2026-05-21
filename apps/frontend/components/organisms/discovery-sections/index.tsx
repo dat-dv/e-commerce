@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
 import LazySection from "@/components/molecules/lazy-section";
+import FavoriteSection from "./favorite-section";
 import RecentViewedSection from "./recent-viewed-section";
 import RecommendedSection from "./recommend-section";
-import FavoriteSection from "./favorite-section";
 
 export interface IDiscoveryCarouselSectionProps {
   exclude?: Array<"recent-viewed" | "favorites" | "recommended">;

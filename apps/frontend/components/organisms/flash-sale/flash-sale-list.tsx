@@ -10,41 +10,40 @@ import {
 } from "@/components/molecules/virtual-grid/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { usePagination } from "@/hooks/use-pagination";
-import { IPaginationMeta } from "@/utils/request/request.types";
+import usePagination from "@/hooks/use-pagination";
+import { ApiListResponse } from "@/utils/request/request.types";
 import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback } from "react";
 
 interface FlashSaleListProps {
-  products: TProduct[];
-  meta: IPaginationMeta;
+  initialData: ApiListResponse<TProduct>;
 }
 
-const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
+const FlashSaleList = ({ initialData }: FlashSaleListProps) => {
   const t = useTranslations("FlashSalePage.list");
   const fetchFlashSalePage = useCallback(
-    (params: { page: number; limit: number }) =>
-      productsUseCase.getFlashSale.execute(params),
+    (params: Partial<{ page: number; limit: number; search: string }>) =>
+      productsUseCase.getFlashSale.execute({
+        page: params.page || 1,
+        limit: params.limit || 10,
+      }),
     [],
   );
-  const {
-    items,
-    meta: pageMeta,
-    totalPages,
-    hasMore,
-    loadingMore,
-    error,
-    loadMore,
-  } = usePagination<TProduct, { page: number; limit: number }>({
-    initialData: {
-      items: products,
-      meta,
-    },
+  const { data, loading, getData } = usePagination<
+    TProduct,
+    { page: number; limit: number; search: string }
+  >({
+    isSyncWithSearchParams: false,
+    initialData,
     fetchPage: fetchFlashSalePage,
-    getItemKey: (item) => item.id,
   });
+
+  const hasMore = data.meta.page < data.meta.totalPages;
+  const loadMore = () => {
+    getData({ page: data.meta.page + 1 });
+  };
 
   return (
     <motion.div
@@ -53,11 +52,11 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
       transition={{ delay: 0.2 }}
       className="relative z-20 w-full py-6 sm:py-10"
     >
-      {items.length > 0 ? (
+      {data.items.length > 0 ? (
         <div className="space-y-6 sm:space-y-8">
           <ListingSectionHeader
             eyebrow={t("eyebrow")}
-            title={t("title", { total: pageMeta.total })}
+            title={t("title", { total: data.meta.total })}
             icon={
               <Flame
                 size={18}
@@ -66,25 +65,16 @@ const FlashSaleList = ({ products, meta }: FlashSaleListProps) => {
               />
             }
             meta={t("meta", {
-              page: String(pageMeta.page),
-              totalPages: String(totalPages),
+              page: String(data.meta.page),
+              totalPages: String(data.meta.totalPages),
             })}
           />
 
-          {error && (
-            <p
-              role="alert"
-              className="rounded-xl border border-red-500/10 bg-red-500/5 px-4 py-3 text-sm font-semibold text-red-500"
-            >
-              {error}
-            </p>
-          )}
-
           <VirtualGrid
-            data={items}
+            data={data.items}
             renderItem={(product) => <FlashSaleCard product={product} />}
             keyExtractor={(product) => product.id}
-            loadingMore={loadingMore}
+            loadingMore={loading}
             hasMore={hasMore}
             onLoadMore={loadMore}
             loadingText={t("loadingMore")}

@@ -3,59 +3,45 @@
 import { ProductCarousel } from "@/components/molecules/product-carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
+import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { useConfig } from "@/hooks/config/use-config";
 import { useLoadOnce } from "@/hooks/use-load-once";
-import { usePagination } from "@/hooks/use-pagination";
+import usePagination from "@/hooks/use-pagination";
 import { Heart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useMemo } from "react";
-import { RecentViewedSectionSkeleton } from "./skeletons";
+import { DiscoverySectionSkeleton } from "./skeletons";
 
 export const FavoriteSection = () => {
   const { language } = useConfig();
   const t = useTranslations("HomePage.discovery");
-  const { items, loading, loadPage } = usePagination({
-    initialData: {
-      items: [],
-      meta: {
-        page: 1,
-        limit: 10,
-        total: 0,
-        totalPages: 0,
-      },
-    },
-    fetchPage: ({ page, limit }) =>
+  const { data, getData } = usePagination<
+    TUserFavoriteProductItem,
+    { page: number; limit: number; search: string }
+  >({
+    initialData: null,
+    isSyncWithSearchParams: false,
+    fetchPage: (params) =>
       userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
-        page,
-        limit,
+        params.page || 1,
+        params.limit || 10,
       ),
-    getItemKey: (favorite) => favorite.productId,
   });
 
-  const fetchFavorites = useCallback(
-    () => loadPage(1, undefined, { firstLoad: true, syncQuery: false }),
-    [loadPage],
-  );
+  const fetchFavorites = useCallback(() => getData({ page: 1 }), [getData]);
   const { loading: initialLoading } = useLoadOnce(fetchFavorites);
+
   const products = useMemo(
     () =>
-      items
+      data.items
         .map((favorite) => favorite.product)
         .filter((product): product is TProduct => Boolean(product)),
-    [items],
+    [data.items],
   );
 
-  if ((loading || initialLoading) && products.length === 0) {
-    return <RecentViewedSectionSkeleton />;
-  }
-
-  if (products.length === 0) {
-    return null;
-  }
-
   return (
-    <div className="w-full py-6">
+    <DiscoverySectionSkeleton loading={initialLoading} total={products.length}>
       <ProductCarousel
         title={t("wishlist")}
         href={APP_ROUTES.FAVORITES}
@@ -64,7 +50,7 @@ export const FavoriteSection = () => {
         rows={2}
         lang={language}
       />
-    </div>
+    </DiscoverySectionSkeleton>
   );
 };
 
