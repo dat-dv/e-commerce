@@ -14,7 +14,7 @@ export const isWithinPageSearchable = (path: string): boolean => {
     (
       [
         APP_ROUTES.PRODUCTS,
-        APP_ROUTES.TOP_BRANDS,
+        APP_ROUTES.ALL_BRANDS,
         APP_ROUTES.NEW_ARRIVALS,
         APP_ROUTES.RECENTLY_VIEWED,
         APP_ROUTES.FAVORITES,
@@ -49,13 +49,36 @@ export const buildSearchOptions = (
     label: t("optionFlashSale"),
   };
 
+  const optionBrands = {
+    router: APP_ROUTES.ALL_BRANDS,
+    placeholder: t("placeholderBrands"),
+    label: t("optionBrands"),
+  };
+
   const optionAll = {
     router: APP_ROUTES.SEARCH,
     placeholder: t("placeholderAll"),
     label: t("optionAll"),
   };
 
-  return isWithinPageSearchable(pathname)
-    ? [optionWithinPage, optionFlashSale, optionAll]
-    : [optionAll, optionFlashSale];
+  const optionNewArrived = {
+    router: APP_ROUTES.NEW_ARRIVALS,
+    placeholder: t("placeholderNewArrived"),
+    label: t("optionNewArrived"),
+  };
+
+  const options = isWithinPageSearchable(pathname)
+    ? [
+        optionWithinPage,
+        optionFlashSale,
+        optionBrands,
+        optionNewArrived,
+        optionAll,
+      ]
+    : [optionAll, optionFlashSale, optionBrands, optionNewArrived];
+
+  return options.filter(
+    (option, index, self) =>
+      self.findIndex((item) => item.router === option.router) === index,
+  );
 };

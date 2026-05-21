@@ -49,6 +49,7 @@ export interface ISelectProps<T extends object> extends Omit<
   variant?: InputVariant;
   size?: InputSize;
   className?: string | ((values: SelectRenderProps) => string);
+  itemClassName?: string;
   options?: ISelectOption[];
   children?: React.ReactNode | ((item: T) => React.ReactNode);
 }
@@ -61,6 +62,7 @@ export function AppSelect<T extends object>({
   variant = "outline",
   size = "lg",
   className,
+  itemClassName,
   options,
   children,
   ...props
@@ -141,6 +143,7 @@ export function AppSelect<T extends object>({
                       }) =>
                         cn(
                           "group flex w-full items-center px-4 py-3 text-base font-normal transition-colors text-content outline-none cursor-pointer select-none",
+                          itemClassName,
                           isFocused && "bg-primary/10 text-primary",
                           isSelected &&
                             "bg-primary/5 text-primary font-semibold",

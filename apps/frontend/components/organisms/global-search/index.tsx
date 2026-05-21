@@ -21,9 +21,9 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
   const t = useTranslations("Common.search");
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto flex items-center group bg-surface border border-content/[0.08] hover:border-content/[0.15] focus-within:border-content/[0.25] rounded-full transition-all focus-within:shadow-sm">
+    <div className="relative w-full max-w-2xl mx-auto flex items-center group bg-surface border border-content/[0.08] hover:border-content/[0.15] focus-within:border-content/[0.20] rounded-full transition-all focus-within:shadow-sm">
       {/* Dropdown select */}
-      <div className="relative border-r border-content/[0.08] shrink-0 pl-4 pr-1">
+      <div className="relative border-r border-content/[0.08] shrink-0 pl-3 pr-1">
         <FormSelect
           name="route"
           options={options.map((opt) => ({
@@ -31,8 +31,9 @@ function SearchBar({ options, placeholder }: SearchBarProps) {
             value: opt.router,
           }))}
           variant="none"
-          size="md"
-          className="w-32 font-bold uppercase tracking-wider text-xs text-content/60"
+          size="sm"
+          className="w-24 font-bold uppercase tracking-wider text-[10px] text-content/60"
+          itemClassName="px-3 py-2 text-xs"
         />
       </div>
 

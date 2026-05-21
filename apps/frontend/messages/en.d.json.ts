@@ -372,7 +372,11 @@ declare const messages: {
       "placeholderAll": "Search products...",
       "optionAll": "All",
       "placeholderFlashSale": "Search flash sale",
-      "optionFlashSale": "Flash Sale"
+      "optionFlashSale": "Flash Sale",
+      "placeholderBrands": "Search brands...",
+      "optionBrands": "Brands",
+      "placeholderNewArrived": "Search new arrivals...",
+      "optionNewArrived": "New"
     },
     "formMapPicker": {
       "resolving": "Resolving location...",

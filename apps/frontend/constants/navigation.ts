@@ -18,5 +18,5 @@ export const HEADER_NAV_LINKS: NavLink[] = [
     exact: false,
     badge: "Hot",
   },
-  { href: APP_ROUTES.TOP_BRANDS, label: "Brands", exact: false },
+  { href: APP_ROUTES.ALL_BRANDS, label: "Brands", exact: false },
 ];

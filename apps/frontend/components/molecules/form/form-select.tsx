@@ -16,6 +16,7 @@ export interface IFormSelectProps {
   variant?: InputVariant;
   size?: InputSize;
   className?: string;
+  itemClassName?: string;
 }
 
 export const FormSelect: React.FC<IFormSelectProps> = ({
@@ -26,6 +27,7 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
   variant = "outline",
   size,
   className,
+  itemClassName,
 }) => {
   const t = useTranslations("Common.form");
   const { control } = useFormContext();
@@ -46,6 +48,7 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
           placeholder={t("selectPlaceholder")}
           errorMessage={fieldState.error?.message}
           className={className}
+          itemClassName={itemClassName}
         />
       )}
     />

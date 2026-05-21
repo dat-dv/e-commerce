@@ -1,5 +1,5 @@
-import { Zap, Ticket, Star, Sparkles } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
+import { Sparkles, Star, Ticket, Zap } from "lucide-react";
 
 export const HOMEPAGE_SECTION_TYPES = {
   FLASH_SALE: "flash_sale",
@@ -29,7 +29,7 @@ export const FEATURE_ITEMS = [
     desc: "Certified stores",
     icon: Star,
     color: "text-yellow-500",
-    href: APP_ROUTES.TOP_BRANDS,
+    href: APP_ROUTES.ALL_BRANDS,
   },
   {
     name: "New Arrivals",
