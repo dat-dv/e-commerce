@@ -26,7 +26,8 @@ export const CartProvider = ({ children, initState }: CartProviderProps) => {
   );
 
   useEffect(() => {
-    if (!user) return;
+    const isHydrate = store.getState().hasHydrated;
+    if (!user || isHydrate) return;
     const fetchCart = async () => {
       try {
         const res = await cartUseCase.getCart.execute();

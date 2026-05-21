@@ -1,12 +1,11 @@
 "use client";
 
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { useStore } from "zustand";
 
-import { createAddressStore } from "@/store/address-store";
 import { addressesUseCase } from "@/domain/addresses";
-import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { TAddress } from "@/domain/addresses/types/address.model";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { createAddressStore } from "@/store/address-store";
 import { safe } from "@/utils/promise";
 
 export type AddressStore = ReturnType<typeof createAddressStore>;
@@ -27,11 +26,10 @@ export const AddressProvider = ({
       hasHydrated: initState ? true : false,
     }),
   );
-  const hasHydrated = useStore(store, (s) => s.hasHydrated);
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
-    if (!user || hasHydrated) return;
+    if (!user) return;
     const getAddresses = async () => {
       const res = await safe(addressesUseCase.getAddresses.execute());
       const initialAddresses = res?.data || [];
@@ -42,7 +40,7 @@ export const AddressProvider = ({
     };
 
     getAddresses();
-  }, [store, user, hasHydrated]);
+  }, [store, user]);
 
   return (
     <AddressContext.Provider value={store}>{children}</AddressContext.Provider>
