@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { TYPOGRAPHY } from "@/constants/typography";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { Quote } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -16,7 +17,9 @@ export function BrandStory({ brand }: BrandStoryProps) {
       <div className="flex flex-col gap-6 lg:col-span-5 lg:gap-8">
         <div className="flex items-center gap-4">
           <div className="h-[1px] w-12 bg-primary" />
-          <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary">
+          <span
+            className={`${TYPOGRAPHY.caption} font-black uppercase tracking-[0.4em] text-primary`}
+          >
             {t("eyebrow")}
           </span>
         </div>
@@ -40,7 +43,9 @@ export function BrandStory({ brand }: BrandStoryProps) {
       <div className="flex flex-col gap-8 lg:col-span-7 lg:gap-12">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           <div className="flex flex-col gap-4">
-            <span className="text-[10px] font-bold text-primary tracking-widest uppercase">
+            <span
+              className={`${TYPOGRAPHY.badge} font-bold text-primary tracking-widest uppercase`}
+            >
               {t("overviewTitle")}
             </span>
             <p className="text-content/70 leading-relaxed font-medium">
@@ -48,7 +53,9 @@ export function BrandStory({ brand }: BrandStoryProps) {
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <span className="text-[10px] font-bold text-primary tracking-widest uppercase">
+            <span
+              className={`${TYPOGRAPHY.badge} font-bold text-primary tracking-widest uppercase`}
+            >
               {t("philosophyTitle")}
             </span>
             <p className="text-content/70 leading-relaxed font-medium">

@@ -1,5 +1,6 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { FolderTree } from "lucide-react";
 
 export function CategorySidebarHeader({
@@ -16,10 +17,12 @@ export function CategorySidebarHeader({
       </div>
 
       <div>
-        <h2 className="text-lg font-black tracking-tight text-content">
+        <h2
+          className={`${TYPOGRAPHY.sectionTitle} tracking-tight text-content`}
+        >
           {title}
         </h2>
-        <p className="text-xs font-medium text-content/35">{description}</p>
+        <p className={`${TYPOGRAPHY.meta} text-content/35`}>{description}</p>
       </div>
     </div>
   );

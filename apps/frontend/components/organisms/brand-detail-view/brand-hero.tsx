@@ -1,5 +1,6 @@
 "use client";
 
+import { TYPOGRAPHY } from "@/constants/typography";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
@@ -75,7 +76,9 @@ export function BrandHero({ brand }: BrandHeroProps) {
       </motion.div>
 
       {/* Aesthetic Coordinates */}
-      <div className="absolute bottom-12 left-12 font-mono text-[10px] text-content/40 tracking-[0.4em] uppercase vertical-text hidden md:block">
+      <div
+        className={`absolute bottom-12 left-12 font-mono ${TYPOGRAPHY.badge} text-content/40 tracking-[0.4em] uppercase vertical-text hidden md:block`}
+      >
         Ref // {brand.slug.toUpperCase()} -- 2024
       </div>
 

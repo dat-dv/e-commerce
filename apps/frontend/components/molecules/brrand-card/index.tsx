@@ -1,6 +1,7 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { cn } from "@/utils/cn";
@@ -81,7 +82,9 @@ export const BrandCard = ({
                 "min-w-0 max-w-[8rem] border border-content/[0.06] bg-content/[0.03] px-2.5 py-1",
               )}
             >
-              <span className="block truncate text-[10px] font-bold uppercase tracking-wide text-content/45">
+              <span
+                className={`block truncate ${TYPOGRAPHY.badge} uppercase tracking-wide text-content/45`}
+              >
                 {t("productCount", { count: brand.productCount || 0 })}
               </span>
             </div>
@@ -100,7 +103,9 @@ export const BrandCard = ({
               </p>
             )}
 
-            <div className="mt-5 flex min-w-0 items-center gap-2 text-[11px] font-bold uppercase tracking-wide text-primary">
+            <div
+              className={`mt-5 flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} font-bold uppercase tracking-wide text-primary`}
+            >
               <span className="truncate">{t("viewArchive")}</span>
               <div className="h-px w-8 shrink-0 bg-primary/30 transition-all duration-300 group-hover:w-10" />
             </div>
