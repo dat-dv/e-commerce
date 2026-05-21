@@ -7,6 +7,7 @@ import { type LucideIcon, PackageOpen } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { cn } from "@/utils/cn";
+import { TYPOGRAPHY } from "@/constants/typography";
 
 interface EmptyStateProps {
   title?: string;
@@ -67,11 +68,13 @@ export const EmptyState = ({
           />
         </div>
 
-        <h2 className="text-3xl font-black tracking-tight text-content">
+        <h2 className={`${TYPOGRAPHY.pageTitle} tracking-tight text-content`}>
           {displayTitle}
         </h2>
 
-        <p className="mt-3 max-w-md text-sm font-medium leading-relaxed text-content/40">
+        <p
+          className={`mt-3 max-w-md ${TYPOGRAPHY.bodySmall} font-medium leading-relaxed text-content/40`}
+        >
           {displayDescription}
         </p>
 

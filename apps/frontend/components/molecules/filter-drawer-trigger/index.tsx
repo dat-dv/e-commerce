@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { SlidersHorizontal } from "lucide-react";
@@ -21,10 +22,12 @@ export function FilterDrawerTrigger({
   return (
     <div className="mb-5 flex items-center justify-between gap-3">
       <div className="min-w-0">
-        <p className="text-xs font-black uppercase tracking-[0.18em] text-primary">
+        <p
+          className={`${TYPOGRAPHY.meta} uppercase tracking-[0.18em] text-primary`}
+        >
           {eyebrow}
         </p>
-        <p className="mt-1 truncate text-sm font-medium text-content/45">
+        <p className={`mt-1 truncate ${TYPOGRAPHY.bodySmall} text-content/45`}>
           {label}
         </p>
       </div>
