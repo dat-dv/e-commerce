@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 
@@ -39,7 +40,13 @@ export function AllCategoriesButton({
         )}
       />
       <span className="relative z-10 truncate text-sm font-semibold">
-        {label}
+        <LiquidWaveText
+          isActive={active}
+          className="max-w-full truncate"
+          inactiveClassName="text-content/55"
+        >
+          {label}
+        </LiquidWaveText>
       </span>
     </Button>
   );

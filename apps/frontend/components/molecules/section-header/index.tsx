@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ViewAllButton } from "@/components/atoms/view-all-button";
 import Link from "next/link";
 import React from "react";
@@ -25,7 +26,12 @@ export const SectionHeader = ({
             <Link href={href} className="min-w-0">
               <h2 className="flex min-w-0 cursor-pointer items-center gap-2 text-base font-black capitalize leading-tight text-content transition-colors hover:text-primary sm:text-xl">
                 {icon}
-                <span className="truncate">{title}</span>
+                <LiquidWaveText
+                  className="min-w-0 truncate"
+                  inactiveClassName="text-content"
+                >
+                  {title}
+                </LiquidWaveText>
               </h2>
             </Link>
           ) : (

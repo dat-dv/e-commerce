@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { Bell, ShoppingBag, ShoppingCart, User } from "lucide-react";
@@ -83,10 +84,15 @@ export default function ProfileSidebarSection() {
                         UI_RADIUS.control,
                         pathname === subItem.href
                           ? "bg-primary/10 text-primary font-semibold"
-                          : "text-content/60 hover:text-content hover:bg-content/5",
+                          : "text-content/60 hover:bg-content/5",
                       )}
                     >
-                      {subItem.label}
+                      <LiquidWaveText
+                        isActive={pathname === subItem.href}
+                        inactiveClassName="text-content/60"
+                      >
+                        {subItem.label}
+                      </LiquidWaveText>
                     </Link>
                   </li>
                 ))}
@@ -106,7 +112,7 @@ export default function ProfileSidebarSection() {
                   UI_RADIUS.control,
                   pathname === item.href
                     ? "bg-primary/10 text-primary"
-                    : "text-content/80 hover:text-primary hover:bg-primary/5",
+                    : "text-content/80 hover:bg-primary/5",
                 )}
               >
                 {Icon && (
@@ -115,7 +121,12 @@ export default function ProfileSidebarSection() {
                     aria-hidden="true"
                   />
                 )}
-                {item.label}
+                <LiquidWaveText
+                  isActive={pathname === item.href}
+                  inactiveClassName="text-content/80"
+                >
+                  {item.label}
+                </LiquidWaveText>
               </Link>
             </div>
           );

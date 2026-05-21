@@ -8,12 +8,16 @@ interface ILiquidWaveTextProps {
   children: ReactNode;
   isActive?: boolean;
   className?: string;
+  activeClassName?: string;
+  inactiveClassName?: string;
 }
 
 export default function LiquidWaveText({
   children,
   isActive = false,
   className,
+  activeClassName = "text-primary",
+  inactiveClassName = "text-content/70",
 }: ILiquidWaveTextProps) {
   return (
     <motion.span
@@ -28,7 +32,7 @@ export default function LiquidWaveText({
       <span
         className={cn(
           "col-start-1 row-start-1 transition-colors duration-300 will-change-[color]",
-          isActive ? "text-primary" : "text-content/70",
+          isActive ? activeClassName : inactiveClassName,
         )}
       >
         {children}

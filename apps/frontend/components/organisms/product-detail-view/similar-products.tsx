@@ -1,10 +1,11 @@
 "use client";
 
-import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/components/molecules/virtual-grid/grid-presets";
+import { ProductCarousel } from "@/components/molecules/product-carousel";
+import { DiscoverySectionSkeleton } from "@/components/organisms/discovery-sections/skeletons";
+import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
-import { ProductCard } from "../../molecules/product-card";
-
-import Button from "@/components/atoms/button";
+import { useConfig } from "@/hooks/config/use-config";
+import { PackageSearch } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface SimilarProductsProps {
@@ -17,35 +18,21 @@ export const SimilarProducts = ({
   loadingSimilar,
 }: SimilarProductsProps) => {
   const t = useTranslations("ProductDetailPage");
+  const { language } = useConfig();
+
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-content">
-          {t("similarProducts")}
-        </h2>
-        <Button
-          variant="ghost"
-          className="text-sm font-semibold text-primary hover:underline hover:bg-transparent h-auto px-0 active:scale-100"
-        >
-          {t("viewAll")}
-        </Button>
-      </div>
-      <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
-        {loadingSimilar ? (
-          [...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className="animate-pulse bg-content/[0.05] rounded-xl p-3 h-64"
-            ></div>
-          ))
-        ) : similarProducts.length === 0 ? (
-          <div className="col-span-full text-center text-content/50 py-8">
-            {t("noSimilarProducts")}
-          </div>
-        ) : (
-          similarProducts.map((p) => <ProductCard key={p.id} product={p} />)
-        )}
-      </div>
-    </div>
+    <DiscoverySectionSkeleton
+      loading={loadingSimilar}
+      total={similarProducts.length}
+    >
+      <ProductCarousel
+        title={t("similarProducts")}
+        href={APP_ROUTES.PRODUCTS}
+        icon={PackageSearch}
+        products={similarProducts}
+        rows={1}
+        lang={language}
+      />
+    </DiscoverySectionSkeleton>
   );
 };

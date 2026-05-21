@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import Button from "@/components/atoms/button";
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { cn } from "@/utils/cn";
 import type { ComponentPropsWithoutRef } from "react";
@@ -63,11 +64,17 @@ export const OrderTabs = ({
                 "relative rounded-none bg-transparent px-6 py-5 text-sm font-semibold shadow-none transition-all duration-300 active:scale-100",
                 isActive
                   ? "text-primary"
-                  : "text-content/40 hover:text-content hover:bg-content/[0.02]",
+                  : "text-content/40 hover:bg-content/[0.02]",
                 tabClassName,
               )}
             >
-              <span className="relative z-10">{getTabLabel(tab.label)}</span>
+              <LiquidWaveText
+                isActive={isActive}
+                className="relative z-10"
+                inactiveClassName="text-content/40"
+              >
+                {getTabLabel(tab.label)}
+              </LiquidWaveText>
               {isActive && (
                 <motion.div
                   layoutId="activeTab"

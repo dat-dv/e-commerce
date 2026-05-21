@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { cn } from "@/utils/cn";
 
 interface ParentCategoryItemProps {
@@ -23,15 +24,16 @@ export const ParentCategoryItem = ({
       type="button"
       onClick={onClick}
       className={cn(
-        "relative whitespace-nowrap pb-2 text-left text-sm font-bold capitalize transition-all",
-        active
-          ? "text-primary"
-          : highlighted
-            ? "text-content/90"
-            : "text-content/60 hover:text-content/90",
+        "relative whitespace-nowrap pb-2 text-left text-sm font-bold capitalize",
+        active ? "text-primary" : "text-content/60",
       )}
     >
-      {name}
+      <LiquidWaveText
+        isActive={active}
+        inactiveClassName={highlighted ? "text-content/90" : "text-content/60"}
+      >
+        {name}
+      </LiquidWaveText>
 
       {active && (
         <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-primary" />

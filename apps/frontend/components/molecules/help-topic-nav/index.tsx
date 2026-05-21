@@ -1,5 +1,6 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import React, { useEffect, useMemo, useState } from "react";
@@ -78,10 +79,15 @@ export function HelpTopicNav({
               UI_RADIUS.control,
               isActive
                 ? "bg-primary/10 text-primary"
-                : "text-content/60 hover:bg-content/[0.04] hover:text-primary",
+                : "text-content/60 hover:bg-content/[0.04]",
             )}
           >
-            {topic}
+            <LiquidWaveText
+              isActive={isActive}
+              inactiveClassName="text-content/60"
+            >
+              {topic}
+            </LiquidWaveText>
           </a>
         );
       })}
