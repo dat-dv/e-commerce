@@ -1,21 +1,17 @@
 "use client";
 
-import {
-  RenderDesktopOnly,
-  RenderTabletAndBelow,
-} from "../../molecules/responsive";
 import HeaderDesktop from "./header-desktop";
 import HeaderMobile from "./header-mobile/mobile";
 
 export default function Header() {
   return (
-    <>
-      <RenderDesktopOnly>
+    <div>
+      <div className="hidden lg:block">
         <HeaderDesktop />
-      </RenderDesktopOnly>
-      <RenderTabletAndBelow>
+      </div>
+      <div className="lg:hidden">
         <HeaderMobile />
-      </RenderTabletAndBelow>
-    </>
+      </div>
+    </div>
   );
 }

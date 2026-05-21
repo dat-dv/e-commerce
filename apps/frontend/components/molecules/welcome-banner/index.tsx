@@ -15,43 +15,33 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
   const isLoggedIn = !!name;
   const t = useTranslations("HomePage.hero");
 
+  const headerLabel = isLoggedIn
+    ? t.rich("titleLoggedIn", {
+        name,
+        italic: (chunks) => (
+          <span className="italic font-light text-content/30">{chunks}</span>
+        ),
+        br: () => <br />,
+      })
+    : t.rich("titlePublic", {
+        italic: (chunks) => (
+          <span className="italic font-light text-content/30">{chunks}</span>
+        ),
+        br: () => <br />,
+      });
+
   return (
     <section className="relative mb-8 min-h-[420px] flex items-center overflow-hidden border-b border-content/[0.03]">
-      {/* ...background */}
-
       <AppContainer className="relative z-10 w-full py-16">
         <AnimationContainer className="max-w-3xl flex flex-col items-start gap-5">
           <AnimationItem>
             <h1 className="text-5xl md:text-7xl font-black tracking-[-0.05em] leading-none uppercase text-content">
-              {isLoggedIn ? (
-                <>
-                  {t.rich("titleLoggedIn", {
-                    name,
-                    italic: (chunks: React.ReactNode) => (
-                      <span className="italic font-light text-content/30">
-                        {chunks}
-                      </span>
-                    ),
-                    br: () => <br />,
-                  })}
-                </>
-              ) : (
-                <>
-                  {t.rich("titlePublic", {
-                    italic: (chunks: React.ReactNode) => (
-                      <span className="italic font-light text-content/30">
-                        {chunks}
-                      </span>
-                    ),
-                    br: () => <br />,
-                  })}
-                </>
-              )}
+              {headerLabel}
             </h1>
           </AnimationItem>
 
           <AnimationItem>
-            <p className="text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight">
+            <p className="text-base md:text-lg text-content/50 max-w-2xl font-medium leading-relaxed tracking-tight animate-in fade-in slide-in-from-bottom-3 duration-700 delay-100">
               {isLoggedIn ? t("descLoggedIn") : t("descPublic")}
             </p>
           </AnimationItem>
@@ -73,7 +63,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
 
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
-                href={isLoggedIn ? APP_ROUTES.ORDERS : APP_ROUTES.PRODUCTS}
+                href={isLoggedIn ? APP_ROUTES.ORDERS : APP_ROUTES.CATEGORIES}
                 variant="ghost"
                 size="lg"
                 className={cn(
