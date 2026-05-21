@@ -1,3 +1,4 @@
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import React from "react";
 
@@ -9,7 +10,8 @@ export const FormCard = ({ children, className, ...props }: FormCardProps) => {
   return (
     <div
       className={cn(
-        "min-w-0 p-4 sm:p-6 bg-white/80 dark:bg-surface/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/20",
+        UI_RADIUS.panel,
+        "min-w-0 p-4 sm:p-6 bg-white/80 dark:bg-surface/80 backdrop-blur-md shadow-xl border border-white/20",
         className,
       )}
       {...props}

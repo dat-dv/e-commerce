@@ -3,6 +3,7 @@
 import { InputSize } from "@/components/atoms/input/input.sizes";
 import { AppMenu, AppMenuItem } from "@/components/atoms/menu";
 import { aseanCountries } from "@/constants/countries";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -86,6 +87,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             size === "sm" && "h-8 rounded-lg text-xs",
             size === "md" && "h-10 rounded-xl text-sm",
             size === "lg" && "h-12 rounded-2xl text-base",
+            UI_RADIUS.input,
             rest.disabled
               ? "border-content/10 bg-content/5"
               : error

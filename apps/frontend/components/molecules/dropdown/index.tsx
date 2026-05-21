@@ -6,6 +6,7 @@ import {
   Popover as RACPopover,
 } from "react-aria-components";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 
 interface DropdownTriggerProps {
@@ -55,7 +56,8 @@ export const AppDropdown = ({
         placement={align === "right" ? "bottom end" : "bottom start"}
         offset={8}
         className={cn(
-          "z-[9999] w-auto min-w-[200px] overflow-hidden rounded-2xl border border-content/10",
+          UI_RADIUS.popover,
+          "z-[9999] w-auto min-w-[200px] overflow-hidden border border-content/10",
           "bg-surface/85 p-1.5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl",
           "outline-none dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)]",
           popoverClassName,
