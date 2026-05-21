@@ -34,7 +34,6 @@ export default function UserShortcuts({
         icon={Heart}
         label={t("favorites")}
         isActive={isFavoritesActive}
-        className="text-primary hover:bg-primary/5 hover:text-primary"
       />
 
       <MobileDrawerAction
@@ -59,7 +58,6 @@ export default function UserShortcuts({
         icon={Settings}
         label={t("settings")}
         isActive={isSettingsActive}
-        className="text-primary hover:bg-primary/5 hover:text-primary"
       />
 
       <MobileDrawerAction

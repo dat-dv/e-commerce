@@ -9,6 +9,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 import { useCart } from "@/hooks/cart/use-cart";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -60,7 +61,12 @@ export default function HeaderActions({
         {isFavoritesVisible && (
           <Link
             href={APP_ROUTES.FAVORITES}
-            className="relative items-center justify-center rounded-full p-2.5 text-primary transition-colors hover:bg-primary/10 hover:text-primary sm:flex"
+            className={cn(
+              "relative items-center justify-center rounded-full p-2.5 transition-colors sm:flex",
+              isFavoritesActive
+                ? "bg-primary/10 text-primary"
+                : "text-content/60 hover:bg-content/[0.05] hover:text-content",
+            )}
             title={t("favorites")}
           >
             <FavoriteIcon isActive={isFavoritesActive} />

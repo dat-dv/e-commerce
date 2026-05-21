@@ -4,8 +4,8 @@ import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
+import SettingsIcon from "@/components/atoms/settings-icon";
 import { GlobalSearch } from "@/components/organisms/global-search";
-import { Settings } from "lucide-react";
 import { CategoryMegaMenuContentWrapper } from "../../../molecules/categories-dropdown";
 
 import { RenderDesktopOnly } from "@/components/molecules/responsive";
@@ -53,11 +53,11 @@ export default function HeaderDesktop() {
                 "w-10 h-10 flex items-center justify-center rounded-full transition-colors p-0",
                 isSettingsActive
                   ? "bg-primary/10 text-primary"
-                  : "text-primary hover:text-primary hover:bg-primary/10",
+                  : "text-content/60 hover:text-content hover:bg-content/5",
               )}
               title={t("settings")}
             >
-              <Settings size={20} />
+              <SettingsIcon isActive={isSettingsActive} />
             </Button>
           </RenderDesktopOnly>
         </div>
