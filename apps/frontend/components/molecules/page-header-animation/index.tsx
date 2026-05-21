@@ -1,6 +1,7 @@
 "use client";
 
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { type LucideIcon } from "lucide-react";
 import { type MouseEvent, type ReactNode } from "react";
@@ -98,7 +99,9 @@ export function AnimatedPageHeader({
             }
           >
             <LiquidWaveText>
-              <h1 className="max-w-full break-words text-4xl font-black uppercase leading-none tracking-normal text-content sm:text-5xl md:text-7xl">
+              <h1
+                className={`max-w-full break-words ${TYPOGRAPHY.heroTitle} uppercase leading-none tracking-normal text-content`}
+              >
                 {title}{" "}
                 {highlight && (
                   <span className="italic font-light text-content/30">
@@ -112,8 +115,8 @@ export function AnimatedPageHeader({
               <p
                 className={
                   center
-                    ? "max-w-2xl text-center text-sm font-medium leading-relaxed tracking-normal text-content/50 sm:text-base md:text-lg"
-                    : "max-w-2xl text-sm font-medium leading-relaxed tracking-normal text-content/50 sm:text-base md:text-lg"
+                    ? `max-w-2xl text-center ${TYPOGRAPHY.body} font-medium leading-relaxed tracking-normal text-content/50 md:text-lg`
+                    : `max-w-2xl ${TYPOGRAPHY.body} font-medium leading-relaxed tracking-normal text-content/50 md:text-lg`
                 }
               >
                 {description}

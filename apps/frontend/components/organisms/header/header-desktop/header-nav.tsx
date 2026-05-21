@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import { CategoryHeaderNav } from "./category-header-nav";
@@ -55,7 +56,9 @@ const HeaderNav = () => {
           >
             <LiquidWaveText isActive={isActive}>{displayLabel}</LiquidWaveText>
             {link.badge && (
-              <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-[9px] text-white font-black uppercase tracking-wider animate-pulse">
+              <span
+                className={`px-1.5 py-0.5 rounded-full bg-red-500 ${TYPOGRAPHY.badge} text-white uppercase tracking-wider animate-pulse`}
+              >
                 {link.badge}
               </span>
             )}

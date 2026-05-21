@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import { ProductsProvider } from "@/components/molecules/providers/products-provider";
 import { HomeView } from "@/components/organisms/home-view";
 import { homepageUseCase } from "@/domain/homepage/use-cases";
 import { productsUseCase } from "@/domain/products/use-cases";
-import { ProductsProvider } from "@/components/molecules/providers/products-provider";
 import { safe } from "@/utils/promise";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("HomePage.metadata");

@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
-import { LucideIcon, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useMemo } from "react";
 
 interface FeatureItem {
   name: string;
@@ -66,7 +68,10 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
           <Link
             key={item.name}
             href={item.href || "#"}
-            className="group flex items-center justify-between gap-2 rounded-2xl border border-content/10 bg-surface/50 px-4 py-[14px] transition-all duration-300 hover:border-primary/20 hover:bg-primary/[0.04]"
+            className={cn(
+              "group flex items-center justify-between gap-2 border border-content/10 bg-surface/50 px-4 py-[14px] transition-all duration-300 hover:border-primary/20 hover:bg-primary/[0.04]",
+              UI_RADIUS.card,
+            )}
           >
             <div className="flex min-w-0 items-center gap-3">
               <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-content/[0.04] text-content/45 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
@@ -80,13 +85,17 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
                   </h3>
 
                   {item.badge && (
-                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.12em] text-primary">
+                    <span
+                      className={`rounded-full bg-primary/10 px-2 py-0.5 ${TYPOGRAPHY.badge} uppercase tracking-[0.12em] text-primary`}
+                    >
                       {item.badge}
                     </span>
                   )}
                 </div>
 
-                <p className="mt-0.5 truncate text-xs font-medium text-content/35">
+                <p
+                  className={`mt-0.5 truncate ${TYPOGRAPHY.caption} font-medium text-content/35`}
+                >
                   {displayDesc}
                 </p>
               </div>

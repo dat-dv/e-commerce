@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 import { type LucideIcon } from "lucide-react";
 import { type ReactNode } from "react";
@@ -49,7 +50,9 @@ export function MobileDrawerSectionTitle({
   children: ReactNode;
 }) {
   return (
-    <span className="mb-2 px-1 text-[11px] font-black uppercase tracking-[0.18em] text-content/35">
+    <span
+      className={`mb-2 px-1 ${TYPOGRAPHY.caption} font-black uppercase tracking-[0.18em] text-content/35`}
+    >
       {children}
     </span>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
+import { TYPOGRAPHY } from "@/constants/typography";
 import {
   Flame,
   Grid2X2,
@@ -64,7 +65,9 @@ export default function MobileNavLinks({ onClose }: IMobileNavLinksProps) {
             isActive={isActive}
             badge={
               link.badge ? (
-                <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[8px] font-black uppercase tracking-wider text-white">
+                <span
+                  className={`rounded-full bg-red-500 px-1.5 py-0.5 ${TYPOGRAPHY.badge} uppercase tracking-wider text-white`}
+                >
                   {link.badge}
                 </span>
               ) : undefined
