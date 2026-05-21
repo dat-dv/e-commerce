@@ -8,6 +8,7 @@ import {
 } from "react-aria-components";
 
 import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "@/constants/ui-radius";
 
 export interface ITooltipProps extends Omit<RACTooltipProps, "children"> {
   content: React.ReactNode;
@@ -29,7 +30,8 @@ export function AppTooltip({
         offset={offset}
         className={(renderProps) =>
           cn(
-            "z-50 px-3 py-1.5 text-xs font-semibold text-white bg-slate-900/90 dark:bg-slate-100/90 dark:text-slate-900 rounded-lg shadow-md backdrop-blur-sm select-none transition-all duration-200 animate-in fade-in zoom-in-95 duration-100",
+            UI_RADIUS.popover,
+            "z-50 px-3 py-1.5 text-xs font-semibold text-white bg-slate-900/90 dark:bg-slate-100/90 dark:text-slate-900 shadow-md backdrop-blur-sm select-none transition-all duration-200 animate-in fade-in zoom-in-95 duration-100",
             typeof className === "function"
               ? className(renderProps)
               : className,

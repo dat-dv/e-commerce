@@ -12,6 +12,7 @@ import {
 import { ToastContainer } from "react-toastify";
 
 import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "@/constants/ui-radius";
 
 const AppToast = () => {
   return (
@@ -27,11 +28,14 @@ const AppToast = () => {
       theme="colored"
       limit={5}
       toastClassName={(context) => {
-        const base = `relative flex min-h-[56px] w-auto min-w-[320px]
-items-center justify-between overflow-hidden rounded-2xl
+        const base = cn(
+          UI_RADIUS.modal,
+          `relative flex min-h-[56px] w-auto min-w-[320px]
+items-center justify-between overflow-hidden
 px-4 py-0 mb-4 transition-all duration-300 cursor-pointer
 hover:-translate-y-0.5 active:scale-[0.98]
-font-semibold text-[14px] tracking-tight border shadow-md`;
+font-semibold text-[14px] tracking-tight border shadow-md`,
+        );
 
         const variants: Record<string, string> = {
           success:

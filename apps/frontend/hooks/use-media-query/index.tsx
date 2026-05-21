@@ -1,22 +1,25 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
+export default function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
-    const media = window.matchMedia(query);
+    const mediaQuery = window.matchMedia(query);
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMatches(media.matches);
+    const updateMatches = () => {
+      setMatches(mediaQuery.matches);
+    };
 
-    const listener = () => setMatches(media.matches);
+    updateMatches();
 
-    media.addEventListener("change", listener);
+    mediaQuery.addEventListener("change", updateMatches);
 
-    return () => media.removeEventListener("change", listener);
+    return () => {
+      mediaQuery.removeEventListener("change", updateMatches);
+    };
   }, [query]);
 
   return matches;
 }
-
-export default useMediaQuery;

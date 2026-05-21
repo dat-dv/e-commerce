@@ -15,7 +15,7 @@ interface ResponsiveRenderProps {
 function ResponsiveRender({ children, query }: ResponsiveRenderProps) {
   const matches = useMediaQuery(query);
 
-  if (!matches) return null;
+  if (matches !== true) return null;
 
   return children;
 }
