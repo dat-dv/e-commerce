@@ -19,7 +19,8 @@ const getNotificationType = (type?: string) => {
 
 export const useFCM = () => {
   const user = useAuthStore((s) => s.user);
-  const addNotification = useNotificationStore((s) => s.addNotification);
+  const appendNotifications = useNotificationStore((s) => s.addNotification);
+  const noti = useNotificationStore((s) => s.data);
   const isInitialized = React.useRef(false);
 
   useEffect(() => {
@@ -69,17 +70,22 @@ export const useFCM = () => {
           if (payload.notification) {
             const now = new Date().toISOString();
 
-            addNotification({
-              id: payload.messageId || `fcm-${Date.now()}`,
-              userId: user.id || "",
-              title: payload.notification.title || "Notification",
-              content: payload.notification.body || "",
-              type: getNotificationType(payload.data?.type),
-              link: payload.data?.link || payload.fcmOptions?.link,
-              isRead: false,
-              metadata: payload.data,
-              createdAt: now,
-              updatedAt: now,
+            appendNotifications({
+              items: [
+                {
+                  id: payload.messageId || `fcm-${Date.now()}`,
+                  userId: user.id || "",
+                  title: payload.notification.title || "Notification",
+                  content: payload.notification.body || "",
+                  type: getNotificationType(payload.data?.type),
+                  link: payload.data?.link || payload.fcmOptions?.link,
+                  isRead: false,
+                  metadata: payload.data,
+                  createdAt: now,
+                  updatedAt: now,
+                },
+              ],
+              meta: noti.meta,
             });
             window.dispatchEvent(new Event(ENotificationClientEvent.REFRESH));
 
@@ -112,5 +118,5 @@ export const useFCM = () => {
     };
 
     setupFCM();
-  }, [addNotification, user]);
+  }, [appendNotifications, user]);
 };

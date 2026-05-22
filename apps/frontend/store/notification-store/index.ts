@@ -65,6 +65,19 @@ export const useNotificationStore = create<TNotificationStore>()(
       setIsAllRead: (isAllRead) => set({ isAllRead }),
       resetReadStatus: () => set({ readIds: new Set(), isAllRead: false }),
 
+      addNotification: (data: ApiListResponse<INotification>) =>
+        set((state) => ({
+          data: {
+            ...state.data,
+            items: [...data.items, ...state.data.items],
+            meta: {
+              ...state.data.meta,
+              total: state.data.meta.total + data.items.length,
+            },
+          },
+          unreadCount: state.unreadCount + data.items.length,
+        })),
+
       appendNotifications: (data: ApiListResponse<INotification>) =>
         set((state) => ({
           data: {

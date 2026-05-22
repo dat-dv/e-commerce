@@ -3,13 +3,18 @@
 import 'dotenv/config';
 import { defineConfig } from 'prisma/config';
 
+// DB path is environment-driven — no branching needed in config.
+// local : DATABASE_URL="file:./prisma/dev.db"
+// docker: DATABASE_URL="file:/app/apps/backend/prisma/data/prod.db"
+const DATABASE_URL = process.env.DATABASE_URL ?? 'file:./prisma/dev.db';
+
 export default defineConfig({
   schema: 'prisma/schema',
   migrations: {
     path: 'prisma/migrations',
-    seed: 'npx tsx prisma/seeds/index.ts',
+    seed: 'npx ts-node prisma/seeds/index.ts',
   },
   datasource: {
-    url: process.env['DATABASE_URL'],
+    url: DATABASE_URL,
   },
 });

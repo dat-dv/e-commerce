@@ -1,4 +1,3 @@
-import { toast } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { useTranslations } from "next-intl";
@@ -21,19 +20,19 @@ export const useUpdateAddress = () => {
               if (listRes.status === "success") {
                 setAddresses(listRes.data || []);
               }
-              toast.success(t("updateSuccess"));
+              // toast.success(t("updateSuccess"));
               resolve(true);
               return;
             }
             throw new Error(res.message);
           } catch {
-            toast.error(t("updateFailed"));
+            // toast.error(t("updateFailed"));
             resolve(false);
           }
         });
       });
     },
-    [t, setAddresses],
+    [setAddresses],
   );
 
   return {

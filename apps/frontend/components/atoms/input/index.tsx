@@ -24,7 +24,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       variant = "outline",
       size = "lg",
       maxCount,
-      value = "",
+      value,
       ...rest
     },
     ref,

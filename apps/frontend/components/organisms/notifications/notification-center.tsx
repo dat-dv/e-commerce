@@ -83,9 +83,9 @@ export const NotificationCenter = () => {
                   >
                     {t("dropdown.loadingText")}
                   </div>
-                ) : notifications.length > 0 ? (
-                  <div className="">
-                    {notifications.map((notif) => (
+                ) : notifications?.items?.length > 0 ? (
+                  <div>
+                    {notifications?.items?.map((notif) => (
                       <NotificationItem
                         key={notif.id}
                         notif={notif}

@@ -1,0 +1,62 @@
+# ── Version control ──────────────────────────
+.git
+.gitignore
+.husky
+
+# ── Dependencies (sẽ được install lại trong container) ──
+**/node_modules
+
+# ── Build outputs ────────────────────────────
+**/dist
+**/.next
+**/out
+**/build
+**/coverage
+
+# ── Database files (dùng volume thay thế) ────
+**/prisma/dev.db
+**/prisma/data
+
+# ── Env files (dùng --env-file hoặc environment trong compose) ──
+**/.env
+**/.env.local
+**/.env.*.local
+
+# ── Dev tooling ──────────────────────────────
+**/.vscode
+**/.idea
+*.md
+!README.md
+**/.prettierrc
+**/.prettierignore
+**/eslint.config.mjs
+
+# ── Logs & temp ──────────────────────────────
+**/*.log
+**/.DS_Store
+**/seedlogs-*.txt
+**/pending-files.txt
+
+# ── Test files ───────────────────────────────
+**/test
+**/*.spec.ts
+**/*.test.ts
+**/__tests__
+
+# ── Next.js cache ────────────────────────────
+**/.next/cache
+
+# ── TypeScript build info ────────────────────
+**/*.tsbuildinfo
+
+# ── Certificates (nếu chỉ dùng local dev) ────
+**/certificates
+
+# ── Gemini / AI artifacts ────────────────────
+**/.gemini
+**/skills
+**/issue
+
+# ── Misc ─────────────────────────────────────
+**/image.png
+**/prisma.md
