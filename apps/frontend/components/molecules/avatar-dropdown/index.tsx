@@ -90,12 +90,12 @@ const AvatarDropdown = ({
           </div>
           <div className="flex min-w-0 flex-col">
             <p
-              className={`text-content truncate ${TYPOGRAPHY.bodySmall} leading-none font-bold`}
+              className={`text-content truncate ${TYPOGRAPHY.bodySmall} leading-none font-semibold`}
             >
               {name || t("fallbackUser")}
             </p>
             <p
-              className={`text-content/50 mt-1 truncate ${TYPOGRAPHY.meta} leading-none`}
+              className={`text-content/60 mt-1 truncate ${TYPOGRAPHY.meta} leading-none`}
             >
               {email || t("noEmail")}
             </p>
@@ -111,10 +111,13 @@ const AvatarDropdown = ({
                 key={item.href}
                 variant="ghost"
                 size="sm"
-                className="hover:bg-content/5 group h-8 w-full justify-start rounded-lg px-2 font-bold transition-all"
+                className="hover:bg-content/5 text-content group h-8 w-full justify-start rounded-lg px-2 font-medium transition-all"
                 href={item.href}
               >
-                <Icon className="mr-2 h-3.5 w-3.5 opacity-60 transition-opacity group-hover:opacity-100" />
+                <Icon
+                  strokeWidth={1.5}
+                  className="text-content/70 group-hover:text-content mr-2 h-4 w-4 transition-colors"
+                />
                 <span className={TYPOGRAPHY.caption}>{t(item.labelKey)}</span>
               </Button>
             );
@@ -127,9 +130,12 @@ const AvatarDropdown = ({
             variant="danger"
             size="sm"
             onClick={handleClickLogout}
-            className="group h-8 w-full justify-start rounded-lg px-2 font-bold transition-all active:scale-95"
+            className="group h-8 w-full justify-start rounded-lg px-2 font-medium transition-all active:scale-95"
           >
-            <LogOut className="mr-2 h-3.5 w-3.5 opacity-80" />
+            <LogOut
+              strokeWidth={1.5}
+              className="mr-2 h-4 w-4 text-white/90 transition-colors group-hover:text-white"
+            />
             <span className={TYPOGRAPHY.caption}>{t("signOut")}</span>
           </Button>
         </div>
