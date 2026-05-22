@@ -7,7 +7,6 @@ import { cn } from "@/utils/cn";
 import SettingsIcon from "@/components/atoms/settings-icon";
 import { CategoryMegaMenuContentWrapper } from "../../../molecules/categories-dropdown";
 
-import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";
@@ -43,23 +42,21 @@ export default function HeaderDesktop() {
         </div>
 
         <div className="flex items-center gap-0">
-          <RenderDesktopOnly>
-            <HeaderActions />
-            <div className="bg-content/10 mx-2 h-6 w-px" />
-            <Button
-              variant="ghost"
-              href={APP_ROUTES.SETTINGS}
-              className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-full p-0 transition-colors",
-                isSettingsActive
-                  ? "bg-primary/10 text-primary"
-                  : "text-content/60 hover:text-content hover:bg-content/5",
-              )}
-              title={t("settings")}
-            >
-              <SettingsIcon isActive={isSettingsActive} />
-            </Button>
-          </RenderDesktopOnly>
+          <HeaderActions />
+          <div className="bg-content/10 mx-2 h-6 w-px" />
+          <Button
+            variant="ghost"
+            href={APP_ROUTES.SETTINGS}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-full p-0 transition-colors",
+              isSettingsActive
+                ? "bg-primary/10 text-primary"
+                : "text-content/60 hover:text-content hover:bg-content/5",
+            )}
+            title={t("settings")}
+          >
+            <SettingsIcon isActive={isSettingsActive} />
+          </Button>
         </div>
       </AppContainer>
       <CategoryMegaMenuContentWrapper />

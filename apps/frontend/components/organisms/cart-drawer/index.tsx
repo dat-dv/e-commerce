@@ -5,7 +5,7 @@ import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
 import { AnimatePresence, motion } from "framer-motion";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
@@ -58,7 +58,7 @@ export const CartDrawer = () => {
               {isEmpty ? (
                 <div className="flex h-full flex-col items-center justify-center py-20 text-center">
                   <div className="bg-content/[0.02] border-content/5 mb-6 flex h-20 w-20 items-center justify-center rounded-full border">
-                    <ShoppingBag
+                    <ShoppingCart
                       size={32}
                       className="text-content/10"
                       aria-hidden

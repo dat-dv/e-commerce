@@ -1,6 +1,12 @@
 "use client";
 
-import { ReactNode, RefObject, useRef, useState } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ReactNode,
+  RefObject,
+  useRef,
+  useState,
+} from "react";
 import {
   Dialog as RACDialog,
   Popover as RACPopover,
@@ -17,7 +23,7 @@ interface DropdownTriggerProps {
   close: () => void;
 }
 
-export interface IAppDropdownProps {
+export interface IAppDropdownProps extends ComponentPropsWithoutRef<"div"> {
   trigger: (props: DropdownTriggerProps) => ReactNode;
   children: ReactNode;
   align?: "left" | "right";
@@ -31,6 +37,8 @@ export const AppDropdown = ({
   align = "right",
   closeOnContentClick = true,
   popoverClassName,
+  className,
+  ...rest
 }: IAppDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -40,7 +48,7 @@ export const AppDropdown = ({
   const toggle = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="relative inline-block">
+    <div className={cn("relative h-fit", className)} {...rest}>
       {trigger({
         ref: triggerRef,
         isOpen,

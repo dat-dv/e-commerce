@@ -40,55 +40,88 @@ export default function CartIcon({
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <defs>
-          <linearGradient id="bagGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="cartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#1d4ed8" />
+            <stop offset="100%" stopColor="#8b5cf6" />
           </linearGradient>
         </defs>
+
+        {/* Path 1: Handle & Bottom Support Frame */}
         <motion.path
-          d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+          d="M2 2h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78"
           animate={
             isActive
               ? {
                   pathLength: [0, 1],
-                  stroke: "url(#bagGradient)",
+                  stroke: "url(#cartGradient)",
                 }
               : {
                   pathLength: 1,
                   stroke: "currentColor",
                 }
           }
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         />
+
+        {/* Path 2: Basket Frame */}
         <motion.path
-          d="M3 6h18"
+          d="M18.44 16l1.65-7.43H5.12"
           animate={
             isActive
               ? {
                   pathLength: [0, 1],
-                  stroke: "url(#bagGradient)",
+                  stroke: "url(#cartGradient)",
                 }
               : {
                   pathLength: 1,
                   stroke: "currentColor",
                 }
           }
-          transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
+          transition={{ duration: 0.4, delay: 0.15, ease: "easeInOut" }}
         />
-        <motion.path
-          d="M16 10a4 4 0 0 1-8 0"
+
+        {/* Wheel 1 */}
+        <motion.circle
+          cx="9"
+          cy="20.5"
+          r="1.5"
+          initial={false}
           animate={
             isActive
               ? {
-                  pathLength: [0, 1],
-                  stroke: "url(#bagGradient)",
+                  scale: [0, 1.2, 1],
+                  fill: "url(#cartGradient)",
+                  stroke: "url(#cartGradient)",
                 }
               : {
-                  pathLength: 1,
+                  scale: 1,
+                  fill: "currentColor",
                   stroke: "currentColor",
                 }
           }
-          transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+        />
+
+        {/* Wheel 2 */}
+        <motion.circle
+          cx="18"
+          cy="20.5"
+          r="1.5"
+          initial={false}
+          animate={
+            isActive
+              ? {
+                  scale: [0, 1.2, 1],
+                  fill: "url(#cartGradient)",
+                  stroke: "url(#cartGradient)",
+                }
+              : {
+                  scale: 1,
+                  fill: "currentColor",
+                  stroke: "currentColor",
+                }
+          }
+          transition={{ duration: 0.3, delay: 0.35 }}
         />
       </motion.svg>
     </div>

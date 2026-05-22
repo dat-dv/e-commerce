@@ -46,6 +46,7 @@ export default function HeaderMobile() {
             isOpen={isOpenMobileMenu}
             onClick={() => setIsOpenMobileMenu(true)}
             ariaLabel="Open navigation menu"
+            className="ml-1"
           />
         </div>
       </AppContainer>

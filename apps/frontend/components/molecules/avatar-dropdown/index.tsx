@@ -15,6 +15,8 @@ import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 
+import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "@/utils/cn";
 import { AppDropdown } from "../dropdown";
 
 interface IAvatarDropdownProps {
@@ -63,20 +65,22 @@ const AvatarDropdown = ({
   return (
     <AppDropdown
       align="right"
+      className="flex"
       popoverClassName="min-w-0 w-64"
       trigger={({ ref, toggle, isOpen }) => (
-        <button
+        <Button
           ref={ref}
           onClick={toggle}
           aria-label={t("menuLabel")}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
-          className="group relative h-10 w-10 cursor-pointer border-none bg-transparent p-0 outline-none"
+          className={cn(
+            "group border-content/10 hover:border-content/5 relative h-10 w-10 cursor-pointer overflow-hidden border bg-transparent p-0 outline-none",
+            UI_RADIUS.avatar,
+          )}
         >
-          <div className="border-content/10 size-10 overflow-hidden rounded-full border">
-            <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
-          </div>
-        </button>
+          <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
+        </Button>
       )}
     >
       <div className="flex w-full flex-col">

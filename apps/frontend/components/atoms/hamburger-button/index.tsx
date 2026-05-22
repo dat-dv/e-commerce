@@ -23,7 +23,7 @@ export default function HamburgerButton({
       variant="ghost"
       onClick={onClick}
       className={cn(
-        "text-content/60 hover:bg-content/5 hover:text-content size-10 rounded-full p-0 transition-colors",
+        "text-content/60 hover:bg-content/5 hover:text-content size-9 rounded-full p-0 transition-colors",
         className,
       )}
       aria-label={ariaLabel}

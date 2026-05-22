@@ -33,7 +33,7 @@ export default function HeaderActions({
   const isFallbackVisible = visible.includes("fallback");
 
   return (
-    <div className="ml-1 flex items-center gap-2 md:ml-2 md:gap-3">
+    <div className="ml-1 flex items-center gap-2 align-middle md:ml-2 md:gap-3">
       <ProtectedSection
         fallbackChildren={
           isFallbackVisible && (
