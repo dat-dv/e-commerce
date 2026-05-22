@@ -9,6 +9,7 @@ import {
   NotificationMetadataValue,
 } from '@ecommerce/shared';
 import { SaveTokenDto } from '../../dto/save-token.dto';
+import { GetNotificationsDto } from '../../dto/get-notifications.dto';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 
 type PersistedNotification = Omit<INotificationResponse, 'metadata'> & {
@@ -44,7 +45,9 @@ export class NotificationsRepository implements INotificationsRepository {
     });
   }
 
-  async getNotifications(userId: string, page = 1, limit = 10): Promise<INotificationListResponse> {
+  async getNotifications(userId: string, query?: GetNotificationsDto): Promise<INotificationListResponse> {
+    const page = query?.page || 1;
+    const limit = query?.limit || 10;
     const result = await this.paginationService.paginate<
       Parameters<typeof this.prisma.notification.findMany>[0],
       PersistedNotification[]

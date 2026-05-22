@@ -1,17 +1,17 @@
-import type { Request } from 'express';
-import { Controller, Post, Body, UseGuards, Req, Get, Patch, Param, Query } from '@nestjs/common';
-import { AuthGuard } from '../auth/guards/auth.guard';
-import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
-import { SaveTokenDto } from './dto/save-token.dto';
-import { Inject } from '@nestjs/common';
 import {
   IApiResponse,
   INotificationListResponse,
-  INotificationTokenResponse,
   INotificationResponse,
+  INotificationTokenResponse,
   INotificationUnreadCountResponse,
 } from '@ecommerce/shared';
+import { Body, Controller, Get, Inject, Param, Patch, Post, Query, Req, UseGuards } from '@nestjs/common';
+import type { Request } from 'express';
 import createSuccessResponse from 'src/common/respomse';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import { INotificationsRepository } from './domain/entities/notifications.repository.interface';
+import { GetNotificationsDto } from './dto/get-notifications.dto';
+import { SaveTokenDto } from './dto/save-token.dto';
 
 @Controller('notifications')
 @UseGuards(AuthGuard)
@@ -31,13 +31,10 @@ export class NotificationsController {
   @Get()
   async getNotifications(
     @Req() req: Request,
-    @Query('page') page?: string,
-    @Query('limit') limit?: string,
+    @Query() query: GetNotificationsDto,
   ): Promise<IApiResponse<INotificationListResponse>> {
     const userId = req.user?.sub;
-    const pageNum = page ? Number.parseInt(page, 10) : undefined;
-    const limitNum = limit ? Number.parseInt(limit, 10) : undefined;
-    const result = await this.notificationsRepository.getNotifications(userId, pageNum, limitNum);
+    const result = await this.notificationsRepository.getNotifications(userId, query);
     return createSuccessResponse(result);
   }
 

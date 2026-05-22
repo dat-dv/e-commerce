@@ -5,6 +5,7 @@ import {
   TRequest,
 } from "@/utils/request/request.types";
 import {
+  IGetNotificationsRequest,
   INotificationListResponse,
   INotificationResponse,
   INotificationTokenResponse,
@@ -29,13 +30,12 @@ export class NotificationsRepository implements INotificationsRepository {
     );
   }
 
-  async getNotifications(params?: {
-    page?: number;
-    limit?: number;
-  }): Promise<ApiPaginatedResponse<INotification>> {
+  async getNotifications(
+    query?: IGetNotificationsRequest,
+  ): Promise<ApiPaginatedResponse<INotification>> {
     const response = await this.request.get<INotificationListResponse>(
       API_ROUTES.NOTIFICATIONS.BASE,
-      { params },
+      { params: query },
     );
 
     return {

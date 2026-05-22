@@ -1,9 +1,10 @@
 import {
-  INotificationTokenResponse,
-  INotificationResponse,
   INotificationListResponse,
+  INotificationResponse,
+  INotificationTokenResponse,
   NotificationMetadata,
 } from '@ecommerce/shared';
+import { GetNotificationsDto } from '../../dto/get-notifications.dto';
 import { SaveTokenDto } from '../../dto/save-token.dto';
 
 export interface CreateNotificationInput {
@@ -20,7 +21,7 @@ export interface INotificationsRepository {
   removeToken(token: string): Promise<void>;
 
   // Notification History
-  getNotifications(userId: string, page?: number, limit?: number): Promise<INotificationListResponse>;
+  getNotifications(userId: string, query?: GetNotificationsDto): Promise<INotificationListResponse>;
   countUnread(userId: string): Promise<number>;
   markAsRead(userId: string, notificationId: string): Promise<INotificationResponse>;
   markAllAsRead(userId: string): Promise<void>;
