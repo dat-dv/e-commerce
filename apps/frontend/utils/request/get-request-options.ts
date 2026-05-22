@@ -18,10 +18,12 @@ export const getRequestOptionsForClientOrServer = async ({
   method: string;
 }): Promise<Parameters<typeof fetch>> => {
   const isServer = typeof window === "undefined";
+  const isFormData = body instanceof FormData;
   const headers: Record<string, string> = {
     ...((options?.headers as Record<string, string>) || {}),
+    ...(isFormData ? {} : { "Content-Type": "application/json" }),
   };
-  const isFormData = body instanceof FormData;
+
   let baseUrl = PUBLIC_ENV.NEXT_PUBLIC_API_URL;
 
   if (isServer) {
@@ -49,7 +51,6 @@ export const getRequestOptionsForClientOrServer = async ({
       method,
       credentials: "include",
       ...options,
-      ...(isFormData ? {} : { "Content-Type": "application/json" }),
       headers,
       body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
     },
