@@ -1,0 +1,42 @@
+# =====================
+# Dependencies
+# =====================
+node_modules/
+.pnp
+.pnp.js
+
+
+# =====================
+# Build output
+# =====================
+dist/
+build/
+.next/
+out/
+.turbo/
+
+.temp/
+.tmp/
+tmp/
+
+**/generated/prisma/
+**/prisma/dev.db
+**/prisma/dev.db-journal
+**/prisma/*.db
+**/prisma/*.db-journal
+
+
+apps/backend/prisma/dataset/*.json
+.gemini/
+.gemini/
+
+
+# =====================
+# Markdown
+# =====================
+*.md
+!README.md
+!issue/*.md
+
+.env.*
+.env.example!
