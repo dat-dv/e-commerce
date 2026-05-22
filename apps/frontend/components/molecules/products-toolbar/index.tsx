@@ -25,13 +25,13 @@ export function ListingProductsToolbar({
   isLoading = false,
   onPageChange,
   onSortChange,
+  sortValue,
 }: IListingProductsToolbarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const t = useTranslations("Common.toolbar");
 
-  const currentSort =
-    searchParams.get("sort") || EProductSort.DEFAULT.toString();
+  const currentSort = sortValue || EProductSort.DEFAULT.toString();
 
   const updateSort = (value: string) => {
     if (onSortChange) {

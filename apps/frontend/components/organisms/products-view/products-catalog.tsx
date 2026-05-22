@@ -23,6 +23,7 @@ interface ProductsCatalogProps<T extends string = string> {
   onResetFilters?: () => void;
   onPageChange?: (page: number) => void;
   onSortChange?: (sort: string) => void;
+  sortValue?: string;
 }
 
 export function ProductsCatalog<T extends string = string>({
@@ -38,6 +39,7 @@ export function ProductsCatalog<T extends string = string>({
   onResetFilters,
   onPageChange,
   onSortChange,
+  sortValue,
 }: ProductsCatalogProps<T>) {
   const t = useTranslations("ProductsPage");
   const currentPaginationPage = pageStr ? parseInt(pageStr) : 1;
@@ -51,6 +53,7 @@ export function ProductsCatalog<T extends string = string>({
         isLoading={loading}
         onPageChange={onPageChange}
         onSortChange={onSortChange}
+        sortValue={sortValue || ""}
       />
       {appliedFilters && onClearFilter && onResetFilters && (
         <AppliedFiltersBar<T>

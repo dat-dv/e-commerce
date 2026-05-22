@@ -129,6 +129,7 @@ export function BrandProductListSection({
           onResetFilters={resetFilters}
           onPageChange={changePage}
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
+          sortValue={filterSort || ""}
         />
       </div>
 

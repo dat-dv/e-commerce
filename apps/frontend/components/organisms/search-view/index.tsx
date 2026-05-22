@@ -165,6 +165,7 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
           onResetFilters={handleClearAllFilter}
           onPageChange={(page) => getData({ page })}
           onSortChange={(sortVal) => getData({ page: 1, sort: sortVal })}
+          sortValue={paginationRouter.routerState.sort || ""}
         />
       </div>
 

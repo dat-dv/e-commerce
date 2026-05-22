@@ -3,6 +3,7 @@ export interface IListingProductsToolbarProps {
   currentPage: number;
   totalPages: number;
   isLoading?: boolean;
+  sortValue: string;
   onPageChange?: (page: number) => void;
   onSortChange?: (sort: string) => void;
 }

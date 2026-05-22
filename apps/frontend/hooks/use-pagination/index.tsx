@@ -102,6 +102,28 @@ const usePagination = <
     [fetchPage],
   );
 
+  const onChangePagination = useCallback(
+    async (page: number) => {
+      const res = await fetchPage({
+        ...router.routerState,
+        page,
+        limit: data.meta.limit,
+      });
+      router.push(
+        {
+          ...router.routerState,
+          page,
+        },
+        { merge: true, ssr: false, scroll: true },
+      );
+
+      startTransition(() => {
+        setData(res.data);
+      });
+    },
+    [fetchPage, router, data.meta.limit],
+  );
+
   return {
     data,
     updatePaginationData,
@@ -109,6 +131,7 @@ const usePagination = <
     loading,
     getFirstPage,
     router,
+    onChangePagination,
   };
 };
 

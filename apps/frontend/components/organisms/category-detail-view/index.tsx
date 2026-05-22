@@ -62,6 +62,7 @@ export function CategoryDetailView({
     data,
     loading,
     getData,
+    onChangePagination,
     router: paginationRouter,
   } = usePagination<TProduct, CategoryProductsQueryParams>({
     initialData,
@@ -120,6 +121,7 @@ export function CategoryDetailView({
       queryString
         ? `/categories/${slug}?${queryString}`
         : `/categories/${slug}`,
+      { scroll: false },
     );
   };
   const handleDrawerCategoryChange = (slug: string) => {
@@ -183,8 +185,9 @@ export function CategoryDetailView({
           }}
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
-          onPageChange={(page) => getData({ page })}
+          onPageChange={onChangePagination}
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
+          sortValue={paginationRouter.routerState.sort || ""}
         />
       </div>
 
