@@ -33,6 +33,10 @@ export const useNotifications = () => {
   const loadMore = useCallback(async () => {
     const page = storeNotifications.meta.page + 1;
     const limit = storeNotifications.meta.limit;
+    if (page > storeNotifications.meta.totalPages) {
+      return;
+    }
+
     const response = await notificationsUseCase.getNotifications({
       page,
       limit,
