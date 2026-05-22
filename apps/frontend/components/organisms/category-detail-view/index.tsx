@@ -17,6 +17,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { useShallow } from "zustand/react/shallow";
+import DiscoveryCarouselSection from "../discovery-sections";
 import { CategoryDetailSidebar } from "./category-detail-sidebar";
 import { CategoryFilterDrawer } from "./category-filter-drawer";
 
@@ -204,6 +205,8 @@ export function CategoryDetailView({
           activeSlug={categorySlug}
         />
       </RenderTabletAndBelow>
+
+      <DiscoveryCarouselSection />
     </AppContainer>
   );
 }
