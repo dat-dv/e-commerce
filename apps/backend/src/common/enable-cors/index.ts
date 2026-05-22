@@ -1,31 +1,39 @@
 import { INestApplication } from '@nestjs/common';
 
-const LOCALHOST_PORTS = ['3000', '5173'];
+export const getBaseDomain = (urlStr: string): string | null => {
+  try {
+    const { hostname } = new URL(urlStr.startsWith('http') ? urlStr : `http://${urlStr}`);
+    const parts = hostname.split('.');
+    return parts.length >= 2 ? parts.slice(-2).join('.') : null;
+  } catch {
+    return null;
+  }
+};
 
-const LOCALHOST_REGEX = new RegExp(`^http:\\/\\/([a-z0-9-]+\\.)?localhost:(${LOCALHOST_PORTS.join('|')})$`, 'i');
+export const enableCors = (app: INestApplication): void => {
+  const isProd = process.env.NODE_ENV === 'production';
+  const baseDomain = getBaseDomain(process.env.FE_URL ?? '');
 
-const LOCAL_IP_REGEX = /^http:\/\/192\.168\.\d+\.\d+:(3000|5173)$/;
+  if (isProd && !baseDomain) {
+    throw new Error('[CORS] NODE_ENV=production nhưng FE_URL không hợp lệ hoặc chưa được set.');
+  }
 
-export const enableCors = (app: INestApplication) => {
   app.enableCors({
-    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
-      // mobile app / postman / server-side request
-      if (!origin) {
-        callback(null, true);
-        return;
-      }
-      const allowedOrigins = [process.env.FRONTEND_URL, process.env.ADMIN_URL].filter(Boolean);
-      const isAllowed = LOCALHOST_REGEX.test(origin) || LOCAL_IP_REGEX.test(origin) || allowedOrigins.includes(origin);
-
-      callback(isAllowed ? null : new Error('Not allowed by CORS'), isAllowed);
-    },
-
+    origin: !isProd
+      ? true
+      : (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+          try {
+            const hostname = new URL(origin!).hostname;
+            const allowed = hostname === baseDomain || hostname.endsWith(`.${baseDomain}`);
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            allowed ? callback(null, true) : callback(new Error(`[CORS] Blocked: ${origin}`));
+          } catch {
+            callback(new Error(`[CORS] Blocked: ${origin}`));
+          }
+        },
     credentials: true,
-
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-
     allowedHeaders: ['Content-Type', 'Authorization', 'timezone'],
-
     exposedHeaders: ['set-cookie'],
   });
 };
