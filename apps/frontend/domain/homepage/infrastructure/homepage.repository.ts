@@ -3,14 +3,20 @@ import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import { THomepageSection } from "../types/homepage.model";
 import { IHomepageRepository } from "../types/homepage.repository.interface";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
-import { IHomepageSectionResponse } from "@ecommerce/shared";
+import {
+  IGetHomepageSectionsRequest,
+  IHomepageSectionResponse,
+} from "@ecommerce/shared";
 
 export class HomepageRepository implements IHomepageRepository {
   constructor(private request: TRequest) {}
 
-  async getSections(): Promise<ApiResponse<THomepageSection[]>> {
+  async getSections(
+    query?: IGetHomepageSectionsRequest,
+  ): Promise<ApiResponse<THomepageSection[]>> {
     const response = await this.request.get<IHomepageSectionResponse[]>(
       API_ROUTES.HOMEPAGE.SECTIONS,
+      { params: query },
     );
 
     return {
