@@ -9,7 +9,7 @@ export type JsonValue =
 export type RequestBody = BodyInit | JsonValue | object | null;
 
 export interface IRequestOptions extends RequestInit {
-  responseType?: ResponseType;
+  responseType?: TResponseContent;
   skipAutoRefresh?: boolean;
   params?: Record<
     string,
@@ -92,5 +92,4 @@ export interface ApiErrorResponse {
   errors?: Record<string, string[]>;
 }
 
-export type ResponseType = "json" | "blob" | "arrayBuffer" | "text";
-export type ErrorResponseType = "json" | "other";
+export type TResponseContent = "json" | "blob" | "arrayBuffer" | "text";

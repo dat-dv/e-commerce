@@ -1,16 +1,30 @@
 import {
   ApiErrorResponse,
   ApiResponse,
-  ErrorResponseType,
   JsonValue,
-  ResponseType,
+  TResponseContent,
 } from "./request.types";
 
 type ResponsePayload = ApiResponse<JsonValue> | Blob | ArrayBuffer | string;
 type ApiErrorPayload = ApiErrorResponse & { error?: string };
 
+export function resolveContentType(res: Response): TResponseContent {
+  const contentType = res.headers.get("content-type") ?? "";
+
+  if (contentType.includes("application/json")) return "json";
+  if (contentType.includes("text/")) return "text";
+  if (
+    contentType.includes("application/pdf") ||
+    contentType.includes("application/octet-stream") ||
+    contentType.includes("image/")
+  )
+    return "blob";
+
+  return "text"; // fallback: đọc raw string, an toàn hơn
+}
+
 export const successResponseStrategies: Record<
-  ResponseType,
+  TResponseContent,
   (res: Response) => Promise<ResponsePayload>
 > = {
   blob: (res) => res.blob(),
@@ -22,7 +36,7 @@ export const successResponseStrategies: Record<
 };
 
 export const errorResponseStrategies: Record<
-  ErrorResponseType,
+  TResponseContent,
   (res: Response) => Promise<ApiErrorResponse>
 > = {
   json: async (res) => {
@@ -35,7 +49,17 @@ export const errorResponseStrategies: Record<
     };
   },
 
-  other: async (res) => {
+  text: async (res) => {
+    const text = await res.text();
+    return { message: text };
+  },
+  blob: async (res) => {
+    // BE doesnt response this type fallback
+    const text = await res.text();
+    return { message: text };
+  },
+  arrayBuffer: async (res) => {
+    // BE doesnt response this type fallback
     const text = await res.text();
     return { message: text };
   },

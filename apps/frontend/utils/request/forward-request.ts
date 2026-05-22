@@ -1,11 +1,10 @@
-import { PUBLIC_ENV } from "@/config/public.env.config";
-import { SERVER_ENV } from "@/config/server.env.config";
-
-import { getServerCookies } from "../cookies";
-import { getSubdomainByHostname } from "../sub-domain/get-client-sub-domain";
-import { getServerSubdomain } from "../sub-domain/get-server-sub-domain";
-import requestCreator from "./request-creator";
+import { APP_ROUTES } from "@/constants/routes";
+import { getRequestOptionsForClientOrServer } from "./get-request-options";
+import processRequest, { RequestError } from "./process-request";
+import { refreshToken } from "./refresh-token";
 import { ApiResponse, IRequestOptions, RequestBody } from "./request.types";
+
+let refreshPromise: Promise<void> | null = null;
 
 export const forwardClientRequest = async <T>(
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
@@ -13,54 +12,42 @@ export const forwardClientRequest = async <T>(
   body?: RequestBody,
   options?: IRequestOptions,
 ): Promise<ApiResponse<T>> => {
-  const isServer = typeof window === "undefined";
-  const headers: Record<string, string> = {
-    ...((options?.headers as Record<string, string>) || {}),
-  };
-
-  let baseUrl = PUBLIC_ENV.NEXT_PUBLIC_API_URL;
-
-  if (isServer) {
-    try {
-      baseUrl = SERVER_ENV.API_URL;
-      const cookieStore = await getServerCookies();
-      const cookieHeader = cookieStore?.toString();
-      if (cookieHeader) {
-        headers["Cookie"] = cookieHeader;
-      }
-      headers["Accept-Language"] = await getServerSubdomain();
-    } catch {
-      // Not in a request context, skip cookie forwarding
-    }
-  } else {
-    headers["Accept-Language"] =
-      headers["Accept-Language"] ?? getSubdomainByHostname();
-  }
-
-  let fullUrl = `${baseUrl}${url}`;
-
-  if (options?.params) {
-    const searchParams = new URLSearchParams();
-    Object.entries(options.params).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        value.forEach((v) => searchParams.append(key, String(v)));
-      } else if (value !== undefined) {
-        searchParams.append(key, String(value));
-      }
-    });
-    const queryString = searchParams.toString();
-    if (queryString) {
-      fullUrl += (fullUrl.includes("?") ? "&" : "?") + queryString;
-    }
-  }
-
-  return requestCreator<T>({
-    method,
-    url: fullUrl,
+  const [fullUrl, extendOptions] = await getRequestOptionsForClientOrServer({
+    url,
     body,
-    options: {
-      ...options,
-      headers,
-    },
+    options,
+    method,
+  });
+
+  return processRequest<T>(fullUrl.toString(), extendOptions).catch((error) => {
+    const isServer = typeof window === "undefined";
+    if (
+      isServer ||
+      !(error instanceof RequestError) ||
+      error.status !== 401 ||
+      options?.skipAutoRefresh
+    ) {
+      throw error;
+    }
+
+    // Tất cả request 401 cùng chờ 1 promise duy nhất
+    refreshPromise ??= refreshToken()
+      .then((response) => {
+        if (!response.ok) throw new Error("Refresh failed");
+      })
+      .catch((err) => {
+        window.location.href = APP_ROUTES.SIGN_IN;
+        throw err;
+      })
+      .finally(() => {
+        refreshPromise = null;
+      });
+
+    return refreshPromise.then(() =>
+      forwardClientRequest<T>(method, url, body, {
+        ...options,
+        skipAutoRefresh: true,
+      }),
+    );
   });
 };

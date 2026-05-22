@@ -1,7 +1,7 @@
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
-import { RequestError } from "@/utils/request/request-creator";
+import { RequestError } from "@/utils/request/process-request";
 import { useCallback } from "react";
 import { useCartStore } from "./use-cart-store";
 
