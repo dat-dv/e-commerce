@@ -1,8 +1,9 @@
+import { IBrandProductsResponse, IBrandResponse, ICategoryResponse, IPaginatedResult } from '@ecommerce/shared';
 import { Injectable } from '@nestjs/common';
-import { IBrandsRepository } from '../entities/brands.repository.interface';
-import { IBrandResponse, IPaginatedResult, IBrandProductsResponse, ICategoryResponse } from '@ecommerce/shared';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { GetBrandListDto } from '../../dto/get-brand-list.dto';
+import { IBrandsRepository } from '../entities/brands.repository.interface';
 
 @Injectable()
 export class BrandsRepository implements IBrandsRepository {
@@ -41,13 +42,8 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getTopBrands(
-    page: number,
-    limit: number,
-    languageCode = 'vi',
-    search?: string,
-  ): Promise<IPaginatedResult<IBrandResponse>> {
-    const trimmedSearch = search?.trim();
+  async getBrandList(query: GetBrandListDto, languageCode = 'vi'): Promise<IPaginatedResult<IBrandResponse>> {
+    const trimmedSearch = query.search?.trim();
     const where = {
       ...(trimmedSearch
         ? {
@@ -68,8 +64,8 @@ export class BrandsRepository implements IBrandsRepository {
         orderBy: { order: 'asc' },
         include: this.getBrandIncludeWithProductCount(languageCode),
       },
-      page,
-      limit,
+      query.page,
+      query.limit,
     );
 
     return {

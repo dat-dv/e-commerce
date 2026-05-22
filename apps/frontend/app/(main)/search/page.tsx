@@ -3,16 +3,12 @@ import { SearchView } from "@/components/organisms/search-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { allSafe } from "@/utils/promise";
-import { AsyncSearchParams } from "@/utils/request/request.types";
+import { IServerPageProps } from "@/utils/request/request.types";
 import type { Metadata } from "next";
-
-interface SearchPageProps {
-  searchParams: AsyncSearchParams;
-}
 
 export async function generateMetadata({
   searchParams,
-}: SearchPageProps): Promise<Metadata> {
+}: IServerPageProps): Promise<Metadata> {
   const sp = await searchParams;
   const q = (sp.search as string) || (sp.q as string) || "";
   return {
@@ -20,7 +16,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function SearchPage({ searchParams }: SearchPageProps) {
+export default async function SearchPage({ searchParams }: IServerPageProps) {
   const sp = await searchParams;
   const query = (sp.search as string) || (sp.q as string) || "";
   const page = sp.page ? parseInt(sp.page as string) : 1;

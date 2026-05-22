@@ -11,10 +11,7 @@ export type RequestBody = BodyInit | JsonValue | object | null;
 export interface IRequestOptions extends RequestInit {
   responseType?: TResponseContent;
   skipAutoRefresh?: boolean;
-  params?: Record<
-    string,
-    string | number | boolean | string[] | number[] | undefined
-  >;
+  params?: object;
 }
 
 export interface IRequestParams {
@@ -73,7 +70,13 @@ export type SearchParamsValue = string | string[] | undefined;
 
 export type SearchParamsRecord = Record<string, SearchParamsValue>;
 
-export type AsyncSearchParams = Promise<SearchParamsRecord>;
+export interface IServerPageProps<
+  TParams = Record<string, string>,
+  TSearchParams = SearchParamsRecord,
+> {
+  params: Promise<TParams>;
+  searchParams: Promise<TSearchParams>;
+}
 
 export interface ApiResponse<T> {
   data: T;

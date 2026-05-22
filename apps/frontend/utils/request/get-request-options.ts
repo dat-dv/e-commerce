@@ -43,7 +43,17 @@ export const getRequestOptionsForClientOrServer = async ({
       headers["Accept-Language"] ?? getSubdomainByHostname();
   }
 
-  const fullUrl = z.url().parse(`${baseUrl}${url}`);
+  const parsedUrl = new URL(`${baseUrl}${url}`);
+
+  if (options?.params && typeof options.params === "object") {
+    Object.entries(options.params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        parsedUrl.searchParams.append(key, String(value));
+      }
+    });
+  }
+
+  const fullUrl = z.url().parse(parsedUrl.toString());
 
   return [
     fullUrl,

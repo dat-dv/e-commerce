@@ -22,11 +22,11 @@ const BrandsView = ({ initialData }: TopBrandsViewProps) => {
     isSyncWithSearchParams: true,
     initialData,
     fetchPage: (params) =>
-      brandsUseCase.getTopBrands.execute(
-        params.page,
-        params.limit,
-        params.search,
-      ),
+      brandsUseCase.getTopBrands.execute({
+        page: params.page,
+        limit: params.limit,
+        search: params.search,
+      }),
   });
 
   return (

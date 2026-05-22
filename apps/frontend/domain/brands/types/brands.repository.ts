@@ -1,13 +1,12 @@
-import { ApiResponse, ApiListResponse } from "@/utils/request/request.types";
+import { TCategory } from "@/domain/categories/types/categories.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { TProduct } from "@/domain/products/types/products.model";
-import { TCategory } from "@/domain/categories/types/categories.model";
+import { ApiListResponse, ApiResponse } from "@/utils/request/request.types";
+import { IGetBrandListRequest } from "@ecommerce/shared";
 
 export interface IBrandsRepository {
-  getTopBrands(
-    page?: number,
-    limit?: number,
-    search?: string,
+  getBrandList(
+    query: IGetBrandListRequest,
   ): Promise<ApiResponse<ApiListResponse<TBrand>>>;
 
   getBrandBySlug(slug: string): Promise<ApiResponse<TBrand | undefined>>;

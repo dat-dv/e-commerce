@@ -2,20 +2,19 @@ import { BrandDetailView } from "@/components/organisms/brand-detail-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { allSafe, safe } from "@/utils/promise";
+import { IServerPageProps } from "@/utils/request/request.types";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-interface IBrandDetailPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-  searchParams: Promise<{
+type IBrandDetailPageProps = IServerPageProps<
+  { slug: string },
+  {
     page?: string;
-    q?: string;
+    search?: string;
     category?: string;
-  }>;
-}
+  }
+>;
 
 export async function generateMetadata({
   params,
@@ -38,9 +37,9 @@ export default async function BrandDetailPage({
   searchParams,
 }: IBrandDetailPageProps) {
   const { slug } = await params;
-  const { page: pageStr, q, category: categorySlug } = await searchParams;
+  const { page: pageStr, search, category: categorySlug } = await searchParams;
   const currentPage = pageStr ? Math.max(1, parseInt(pageStr, 10)) : 1;
-  const searchQuery = q?.trim() || "";
+  const searchQuery = search?.trim() || "";
 
   const [brandResult, productsResult, categoriesResult] = await allSafe([
     brandsUseCase.getBrandBySlug.execute(slug),
@@ -55,7 +54,6 @@ export default async function BrandDetailPage({
   ]);
 
   if (!brandResult?.data || !productsResult?.data) notFound();
-
   const brand = brandResult.data;
   const productsData = productsResult.data;
   const categories = categoriesResult?.data || [];

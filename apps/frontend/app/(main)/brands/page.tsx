@@ -2,7 +2,7 @@ import BrandsView from "@/components/organisms/brands-grid";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { safe } from "@/utils/promise";
-import { AsyncSearchParams } from "@/utils/request/request.types";
+import { IServerPageProps } from "@/utils/request/request.types";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
@@ -15,20 +15,15 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-interface IBrandsPageProps {
-  searchParams: AsyncSearchParams;
-}
-
-export default async function BrandsPage({ searchParams }: IBrandsPageProps) {
-  const sp = await searchParams;
-  const searchQuery = String(sp.search || "").trim();
+export default async function BrandsPage({ searchParams }: IServerPageProps) {
+  const { search } = await searchParams;
 
   const response = await safe(
-    brandsUseCase.getTopBrands.execute(
-      1,
-      PAGINATION_LIMITS.BRANDS,
-      searchQuery,
-    ),
+    brandsUseCase.getTopBrands.execute({
+      limit: PAGINATION_LIMITS.BRANDS,
+      page: 1,
+      search: search?.toString() || "",
+    }),
   );
 
   const brands = response?.data || null;

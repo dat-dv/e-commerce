@@ -1,22 +1,23 @@
-import { Controller, Get, Query, DefaultValuePipe, ParseIntPipe, Param, NotFoundException } from '@nestjs/common';
-import { Language } from 'src/common/decorators/language.decorator';
-import { GetTopBrandsUseCase } from './domain/use-cases/get-top-brands.use-case';
-import { GetBrandBySlugUseCase } from './domain/use-cases/get-brand-by-slug.use-case';
-import { GetBrandProductsUseCase } from './domain/use-cases/get-brand-products.use-case';
-import { GetBrandCategoryTreeUseCase } from './domain/use-cases/get-brand-category-tree.use-case';
-import createSuccessResponse from 'src/common/respomse';
 import {
   IApiResponse,
-  IBrandResponse,
   IBrandListResponse,
   IBrandProductsResponse,
+  IBrandResponse,
   ICategoryResponse,
 } from '@ecommerce/shared';
+import { Controller, DefaultValuePipe, Get, NotFoundException, Param, ParseIntPipe, Query } from '@nestjs/common';
+import { Language } from 'src/common/decorators/language.decorator';
+import createSuccessResponse from 'src/common/respomse';
+import { GetBrandBySlugUseCase } from './domain/use-cases/get-brand-by-slug.use-case';
+import { GetBrandCategoryTreeUseCase } from './domain/use-cases/get-brand-category-tree.use-case';
+import { GetBrandProductsUseCase } from './domain/use-cases/get-brand-products.use-case';
+import { GetBrandListUseCase } from './domain/use-cases/get-top-brands.use-case';
+import { GetBrandListDto } from './dto/get-brand-list.dto';
 
 @Controller('brands')
 export class BrandsController {
   constructor(
-    private readonly getTopBrandsUseCase: GetTopBrandsUseCase,
+    private readonly getTopBrandsUseCase: GetBrandListUseCase,
     private readonly getBrandBySlugUseCase: GetBrandBySlugUseCase,
     private readonly getBrandProductsUseCase: GetBrandProductsUseCase,
     private readonly getBrandCategoryTreeUseCase: GetBrandCategoryTreeUseCase,
@@ -24,13 +25,10 @@ export class BrandsController {
 
   @Get('top')
   async getTopBrands(
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
-    @Query('q') search: string | undefined,
+    @Query() query: GetBrandListDto,
     @Language() lang: string,
   ): Promise<IApiResponse<IBrandListResponse>> {
-    const parsedLimit = Math.min(50, limit);
-    const result = await this.getTopBrandsUseCase.execute(page, parsedLimit, lang, search);
+    const result = await this.getTopBrandsUseCase.execute(query, lang);
     return createSuccessResponse(result);
   }
 

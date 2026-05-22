@@ -9,3 +9,9 @@ export interface IGetBrandProductsRequest {
   limit?: number;
   lang?: string;
 }
+
+export interface IGetBrandListRequest {
+  page?: number;
+  limit?: number;
+  search?: string;
+}

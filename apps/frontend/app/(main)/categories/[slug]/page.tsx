@@ -6,20 +6,15 @@ import { CategoryDetailView } from "@/components/organisms/category-detail-view"
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { allSafe } from "@/utils/promise";
-import { AsyncSearchParams } from "@/utils/request/request.types";
+import { IServerPageProps } from "@/utils/request/request.types";
 
 import { EProductSort } from "@ecommerce/shared";
-
-interface ProductsPageProps {
-  params: Promise<{ slug: string }>;
-  searchParams: AsyncSearchParams;
-}
 
 const DEFAULT_SORT = EProductSort.DEFAULT.toString();
 
 export async function generateMetadata({
   params,
-}: ProductsPageProps): Promise<Metadata> {
+}: IServerPageProps<{ slug: string }>): Promise<Metadata> {
   const { slug } = await params;
   const t = await getTranslations("CategoryDetailPage.metadata");
 
@@ -32,7 +27,7 @@ export async function generateMetadata({
 export default async function CategoryProductsPage({
   params,
   searchParams,
-}: ProductsPageProps) {
+}: IServerPageProps<{ slug: string }>) {
   const [{ slug }, rawSearchParams] = await Promise.all([params, searchParams]);
 
   const [productsRes] = await allSafe([
