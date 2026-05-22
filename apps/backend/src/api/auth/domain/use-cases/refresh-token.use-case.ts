@@ -1,9 +1,8 @@
-import { Injectable, UnauthorizedException, Inject, BadRequestException } from '@nestjs/common';
-import { IAuthRepository } from '../entities/auth.repository.interface';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
-import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.constant';
 import { TokenService } from 'src/shared/services/token/token.service';
+import { IAuthRepository } from '../entities/auth.repository.interface';
 
 @Injectable()
 export class RefreshTokenUseCase {
@@ -34,7 +33,9 @@ export class RefreshTokenUseCase {
       const newRefreshToken = await this.tokenService.generateRefreshToken(payload);
       const newAccessToken = await this.tokenService.generateAccessToken(payload);
 
-      const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
+      const expiresAt = new Date(
+        Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
+      );
       await this.authRepository.saveRefreshToken(newRefreshToken, payload.sub, expiresAt);
 
       return {

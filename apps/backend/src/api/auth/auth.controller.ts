@@ -21,7 +21,6 @@ import { ConfigService } from '@nestjs/config';
 import { IApiResponse, IAuthMeResponse, ILoginResponse, IRegisterResponse } from '@ecommerce/shared';
 import { EnvVars } from 'src/config/config.validation';
 import type { TAppRequest } from 'src/shared/types/request.type';
-import { authCookieOptions } from 'src/common/constants/auth.constant';
 
 @Controller('auth')
 export class AuthController {
@@ -98,8 +97,9 @@ export class AuthController {
       throw new UnauthorizedException('Refresh token not found');
     }
     const result = await this.logoutUseCase.execute(refreshToken);
-    res.clearCookie('access_token', authCookieOptions);
-    res.clearCookie('refresh_token', authCookieOptions);
+    const cookieOptions = this.getCookieOptions();
+    res.clearCookie('access_token', cookieOptions);
+    res.clearCookie('refresh_token', cookieOptions);
     return createSuccessResponse(result);
   }
 
@@ -119,22 +119,34 @@ export class AuthController {
 
       return createSuccessResponse(true);
     } catch (error) {
-      res.clearCookie('access_token', authCookieOptions);
-      res.clearCookie('refresh_token', authCookieOptions);
+      const cookieOptions = this.getCookieOptions();
+      res.clearCookie('access_token', cookieOptions);
+      res.clearCookie('refresh_token', cookieOptions);
       throw error;
     }
   }
 
+  private getCookieOptions() {
+    const isProduction = process.env.NODE_ENV === 'production';
+    const domain = this.configService.get<string>('COOKIE_DOMAIN');
+    return {
+      httpOnly: true,
+      sameSite: 'lax' as const,
+      ...(isProduction && domain ? { domain } : {}),
+      ...(isProduction ? { secure: true } : {}),
+    };
+  }
+
   private setAccessTokenCookies(accessToken: string, res: Response) {
     res.cookie('access_token', accessToken, {
-      ...authCookieOptions,
+      ...this.getCookieOptions(),
       maxAge: this.configService.get<number>('ACCESS_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
   }
 
   private setRefreshTokenCookies(refreshToken: string, res: Response) {
     res.cookie('refresh_token', refreshToken, {
-      ...authCookieOptions,
+      ...this.getCookieOptions(),
       maxAge: this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
     });
   }

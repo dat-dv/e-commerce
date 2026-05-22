@@ -4,7 +4,6 @@ import { IAuthRepository } from '../entities/auth.repository.interface';
 import { ConfigService } from '@nestjs/config';
 import { RegisterDto } from '../../dto/register.dto';
 import { EnvVars } from 'src/config/config.validation';
-import { AUTH_REFRESH_TOKEN_EXPIRES_IN_MS } from 'src/common/constants/auth.constant';
 import { TokenService } from 'src/shared/services/token/token.service';
 
 import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
@@ -20,6 +19,7 @@ export class RegisterUseCase {
     @Inject(ICartRepository)
     private readonly cartRepository: ICartRepository,
     private readonly tokenService: TokenService,
+    private readonly configService: ConfigService<EnvVars>,
   ) {}
 
   async execute(dto: RegisterDto): Promise<{ user: IRegisterResponse; accessToken: string; refreshToken: string }> {
@@ -32,7 +32,9 @@ export class RegisterUseCase {
 
     const refreshToken = await this.tokenService.generateRefreshToken(payload);
 
-    const expiresAt = new Date(Date.now() + AUTH_REFRESH_TOKEN_EXPIRES_IN_MS);
+    const expiresAt = new Date(
+      Date.now() + this.configService.get<number>('REFRESH_TOKEN_EXPIRES_IN', { infer: true }) * 1000,
+    );
     await this.authRepository.saveRefreshToken(refreshToken, user.id, expiresAt);
 
     return {
