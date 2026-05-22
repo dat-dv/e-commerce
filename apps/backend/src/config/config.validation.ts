@@ -12,6 +12,7 @@ export const envValidationSchema = Joi.object<EnvVars>({
   FE_URL: Joi.string().uri().required(),
   GOOGLE_SMTP_USER: Joi.string().required(),
   GOOGLE_SMTP_PASS: Joi.string().required(),
+  COOKIE_DOMAIN: Joi.string().optional(),
 });
 
 export interface EnvVars {
@@ -26,4 +27,5 @@ export interface EnvVars {
   FE_URL: string;
   GOOGLE_SMTP_USER: string;
   GOOGLE_SMTP_PASS: string;
+  COOKIE_DOMAIN?: string;
 }

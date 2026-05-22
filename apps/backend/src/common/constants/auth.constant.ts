@@ -4,6 +4,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export const authCookieOptions = {
   httpOnly: true,
-  secure: isProduction,
   sameSite: 'lax' as const, // Changed to lax to allow cookie transmission on cross-subdomain transitions
+  ...(isProduction ? { domain: process.env.COOKIE_DOMAIN, secure: isProduction } : {}),
 };
