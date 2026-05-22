@@ -368,7 +368,7 @@ declare const messages: {
       "submit": "Search",
       "globalPlaceholder": "Search for premium tech & workspace essentials...",
       "placeholderWithinPage": "Search within this page...",
-      "optionWithinPage": "Within page",
+      "optionWithinPage": "In page",
       "placeholderAll": "Search products...",
       "optionAll": "All",
       "placeholderFlashSale": "Search flash sale",
