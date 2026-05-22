@@ -1,4 +1,5 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
+import { SERVER_ENV } from "@/config/server.env.config";
 
 import { getServerCookies } from "../cookies";
 import { getSubdomainByHostname } from "../sub-domain/get-client-sub-domain";
@@ -17,8 +18,11 @@ export const forwardClientRequest = async <T>(
     ...((options?.headers as Record<string, string>) || {}),
   };
 
+  let baseUrl = PUBLIC_ENV.NEXT_PUBLIC_API_URL;
+
   if (isServer) {
     try {
+      baseUrl = SERVER_ENV.API_URL || PUBLIC_ENV.NEXT_PUBLIC_API_URL;
       const cookieStore = await getServerCookies();
       const cookieHeader = cookieStore?.toString();
       if (cookieHeader) {
@@ -33,7 +37,6 @@ export const forwardClientRequest = async <T>(
       headers["Accept-Language"] ?? getSubdomainByHostname();
   }
 
-  const baseUrl = PUBLIC_ENV.NEXT_PUBLIC_API_URL;
   let fullUrl = `${baseUrl}${url}`;
 
   if (options?.params) {

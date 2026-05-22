@@ -396,7 +396,15 @@ export async function seedProductsAndCategories(prisma: PrismaClient, brandMap: 
   const fileName = process.argv[2];
   let filesToProcess: string[] = [];
 
-  const originalDatasetDir = path.join(__dirname, '../dataset/products');
+  const getProductsDatasetDir = () => {
+    const devPath = path.join(__dirname, '../dataset/products');
+    if (fs.existsSync(devPath)) return devPath;
+    const prodPath = path.join(__dirname, '../../../prisma/dataset/products');
+    if (fs.existsSync(prodPath)) return prodPath;
+    return path.join(process.cwd(), 'prisma/dataset/products');
+  };
+
+  const originalDatasetDir = getProductsDatasetDir();
   const datasetDir = originalDatasetDir;
 
   console.log('ℹ️ Đang sử dụng dữ liệu GỐC (Original) từ thư mục products');

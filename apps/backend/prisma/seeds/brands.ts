@@ -17,8 +17,16 @@ interface BrandDetailed {
 export async function seedBrands(prisma: PrismaClient) {
   console.log('📦 Đang seed dữ liệu Brand (phiên bản Detailed)...');
 
-  const detailedPath = path.join(__dirname, '../dataset/brands/brands_detailed.json');
-  const basicPath = path.join(__dirname, '../dataset/brands/brands.json');
+  const getBrandPath = (filename: string) => {
+    const devPath = path.join(__dirname, '../dataset/brands', filename);
+    if (fs.existsSync(devPath)) return devPath;
+    const prodPath = path.join(__dirname, '../../../prisma/dataset/brands', filename);
+    if (fs.existsSync(prodPath)) return prodPath;
+    return path.join(process.cwd(), 'prisma/dataset/brands', filename);
+  };
+
+  const detailedPath = getBrandPath('brands_detailed.json');
+  const basicPath = getBrandPath('brands.json');
 
   let rawData: (BrandDetailed | string)[] = [];
   let isDetailed = false;
@@ -31,7 +39,9 @@ export async function seedBrands(prisma: PrismaClient) {
     rawData = JSON.parse(fs.readFileSync(basicPath, 'utf-8')) as (BrandDetailed | string)[];
     console.log('ℹ️ Không thấy bản chi tiết. Sử dụng brands.json cơ bản.');
   } else {
-    console.warn('⚠️ Không tìm thấy bất kỳ file brand nào. Bỏ qua.');
+    console.warn(
+      `⚠️ Không tìm thấy file brand nào ở các đường dẫn đã thử:\n- ${detailedPath}\n- ${basicPath}\nBỏ qua.`,
+    );
     return {};
   }
 

@@ -1,15 +1,15 @@
+import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 import 'dotenv/config';
 import { PrismaClient } from '../../generated/prisma/client';
+import { seedBrands } from './brands';
+import { seedFlashSales } from './flash-sale';
+import { seedHomepageSections } from './homepage-sections';
+import { setupLanguage } from './language';
+import { seedNotifications } from './notifications';
 import { seedPhase1 } from './phase1';
 import { seedProductsAndCategories } from './products-n-categories';
 import { seedRBAC } from './rbac';
-import { setupLanguage } from './language';
-import { seedHomepageSections } from './homepage-sections';
-import { seedBrands } from './brands';
 import { updateTopBrands } from './update-top-brands';
-import { seedFlashSales } from './flash-sale';
-import { seedNotifications } from './notifications';
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
