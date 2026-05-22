@@ -131,7 +131,7 @@ export function CategoryDetailView({
   };
 
   return (
-    <AppContainer size="2xl" className="py-16">
+    <AppContainer size="2xl">
       <ProductsHeader
         title={categoryTitle}
         description={t("description", { category: categoryTitle })}
@@ -206,7 +206,7 @@ export function CategoryDetailView({
         />
       </RenderTabletAndBelow>
 
-      <DiscoveryCarouselSection />
+      <DiscoveryCarouselSection className="mt-12" />
     </AppContainer>
   );
 }

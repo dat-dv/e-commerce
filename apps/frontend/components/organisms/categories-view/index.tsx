@@ -1,5 +1,6 @@
 "use client";
 
+import AppContainer from "@/components/atoms/app-container";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
 import { RenderTabletAndBelow } from "@/components/molecules/responsive";
@@ -8,6 +9,7 @@ import { TCategory } from "@/domain/categories/types/categories.model";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
+import DiscoveryCarouselSection from "../discovery-sections";
 import { CategoriesFilterDrawer } from "./categories-filter-drawer";
 import CategoryHeader from "./categories-header";
 import { CategoriesContent } from "./content";
@@ -56,36 +58,41 @@ export const CategoriesView = () => {
     : categoriesTree;
 
   return (
-    <SidebarLayout
-      sidebar={
-        <CategoryNavSidebar
-          categories={parentCategories}
-          activeId={activeId}
-          setActiveId={setActiveId}
-        />
-      }
-      sidebarClassName="hidden lg:block [&>div]:lg:static [&>div]:lg:top-auto"
-      header={<CategoryHeader title={title} description={description} />}
-    >
-      <RenderTabletAndBelow>
-        <FilterDrawerTrigger
-          eyebrow={tSidebar("title")}
-          label={activeCategory?.name || tSidebar("allCategories")}
-          buttonLabel={tSidebar("filterButton")}
-          onPress={() => setIsDrawerOpen(true)}
-        />
-      </RenderTabletAndBelow>
+    <div>
+      <SidebarLayout
+        sidebar={
+          <CategoryNavSidebar
+            categories={parentCategories}
+            activeId={activeId}
+            setActiveId={setActiveId}
+          />
+        }
+        sidebarClassName="hidden lg:block [&>div]:lg:static [&>div]:lg:top-auto"
+        header={<CategoryHeader title={title} description={description} />}
+      >
+        <RenderTabletAndBelow>
+          <FilterDrawerTrigger
+            eyebrow={tSidebar("title")}
+            label={activeCategory?.name || tSidebar("allCategories")}
+            buttonLabel={tSidebar("filterButton")}
+            onPress={() => setIsDrawerOpen(true)}
+          />
+        </RenderTabletAndBelow>
 
-      <CategoriesContent categories={categories} activeId={activeId} />
-      <RenderTabletAndBelow>
-        <CategoriesFilterDrawer
-          isOpen={isDrawerOpen}
-          categories={parentCategories}
-          activeId={activeId}
-          setActiveId={setActiveId}
-          onClose={() => setIsDrawerOpen(false)}
-        />
-      </RenderTabletAndBelow>
-    </SidebarLayout>
+        <CategoriesContent categories={categories} activeId={activeId} />
+        <RenderTabletAndBelow>
+          <CategoriesFilterDrawer
+            isOpen={isDrawerOpen}
+            categories={parentCategories}
+            activeId={activeId}
+            setActiveId={setActiveId}
+            onClose={() => setIsDrawerOpen(false)}
+          />
+        </RenderTabletAndBelow>
+      </SidebarLayout>
+      <AppContainer className="mt-12">
+        <DiscoveryCarouselSection />
+      </AppContainer>
+    </div>
   );
 };
