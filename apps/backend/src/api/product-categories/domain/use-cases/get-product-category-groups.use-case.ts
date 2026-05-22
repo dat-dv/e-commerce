@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { GetCategoryGroupsDto } from '../../dto/get-category-groups.dto';
 import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
 
 @Injectable()
@@ -8,7 +9,7 @@ export class GetProductCategoryGroupsUseCase {
     private readonly categoriesRepository: IProductCategoriesRepository,
   ) {}
 
-  async execute(languageCode: string = 'vi', params?: { page?: number; limit?: number }) {
-    return this.categoriesRepository.findGroups(languageCode, params);
+  async execute(query: GetCategoryGroupsDto, languageCode = 'vi') {
+    return this.categoriesRepository.findGroups(languageCode, query);
   }
 }

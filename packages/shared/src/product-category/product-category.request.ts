@@ -27,3 +27,8 @@ export interface IGetAllCategoriesRequest {
   limit?: number;
   level?: number;
 }
+
+export interface IGetCategoryGroupsRequest {
+  page?: number;
+  limit?: number;
+}

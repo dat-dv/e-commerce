@@ -1,11 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { ICategoryResponse, IPaginatedResult } from '@ecommerce/shared';
+import { Injectable } from '@nestjs/common';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { CreateCategoryDto } from '../../dto/create-product-category.dto';
-import { UpdateCategoryDto } from '../../dto/update-product-category.dto';
 import { GetCategoriesDto } from '../../dto/get-categories.dto';
+import { GetCategoryGroupsDto } from '../../dto/get-category-groups.dto';
+import { UpdateCategoryDto } from '../../dto/update-product-category.dto';
+import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
 
 @Injectable()
 export class ProductCategoriesRepository implements IProductCategoriesRepository {
@@ -94,7 +95,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
 
   async findGroups(
     languageCode: string = 'vi',
-    params?: GetCategoriesDto,
+    params?: GetCategoryGroupsDto,
   ): Promise<IPaginatedResult<ICategoryResponse>> {
     const page = params?.page || 1;
     const limit = params?.limit || 10;

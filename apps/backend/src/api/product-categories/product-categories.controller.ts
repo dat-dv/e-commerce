@@ -1,20 +1,21 @@
-import { Controller, Post, Body, UseGuards, Get, Put, Param, Delete, Query, NotFoundException } from '@nestjs/common';
+import { IApiResponse, ICategoryListResponse, ICategoryResponse, ICategoryTreeResponse } from '@ecommerce/shared';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
-import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
-import { CreateProductCategoryUseCase } from './domain/use-cases/create-category.use-case';
-import { UpdateProductCategoryUseCase } from './domain/use-cases/update-product-category.use-case';
-import { GetAllProductCategoriesUseCase } from './domain/use-cases/get-all-product-categories.use-case';
-import { DeleteProductCategoryUseCase } from './domain/use-cases/delete-product-category.use-case';
-import { GetProductCategoryGroupsUseCase } from './domain/use-cases/get-product-category-groups.use-case';
-import { GetProductCategoryByIdUseCase } from './domain/use-cases/get-product-category-by-id.use-case';
-import { GetProductCategoryTreeUseCase } from './domain/use-cases/get-product-category-tree.use-case';
-import { GetProductCategoryTreeBySlugUseCase } from './domain/use-cases/get-product-category-tree-by-slug.use-case';
 import createSuccessResponse from 'src/common/respomse';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
+import { CreateProductCategoryUseCase } from './domain/use-cases/create-category.use-case';
+import { DeleteProductCategoryUseCase } from './domain/use-cases/delete-product-category.use-case';
+import { GetAllProductCategoriesUseCase } from './domain/use-cases/get-all-product-categories.use-case';
+import { GetProductCategoryByIdUseCase } from './domain/use-cases/get-product-category-by-id.use-case';
+import { GetProductCategoryGroupsUseCase } from './domain/use-cases/get-product-category-groups.use-case';
+import { GetProductCategoryTreeBySlugUseCase } from './domain/use-cases/get-product-category-tree-by-slug.use-case';
+import { GetProductCategoryTreeUseCase } from './domain/use-cases/get-product-category-tree.use-case';
+import { UpdateProductCategoryUseCase } from './domain/use-cases/update-product-category.use-case';
 import { CreateCategoryDto } from './dto/create-product-category.dto';
-import { UpdateCategoryDto } from './dto/update-product-category.dto';
 import { GetCategoriesDto } from './dto/get-categories.dto';
-import { IApiResponse, ICategoryResponse, ICategoryListResponse, ICategoryTreeResponse } from '@ecommerce/shared';
+import { GetCategoryGroupsDto } from './dto/get-category-groups.dto';
+import { UpdateCategoryDto } from './dto/update-product-category.dto';
 
 @Controller('product-categories')
 export class ProductCategoriesController {
@@ -55,8 +56,11 @@ export class ProductCategoriesController {
   }
 
   @Get('groups')
-  async getGroups(@Language() lang: string): Promise<IApiResponse<ICategoryListResponse>> {
-    const result = await this.getGroupsUseCase.execute(lang);
+  async getGroups(
+    @Query() query: GetCategoryGroupsDto,
+    @Language() lang: string,
+  ): Promise<IApiResponse<ICategoryListResponse>> {
+    const result = await this.getGroupsUseCase.execute(query, lang);
     return createSuccessResponse(result);
   }
 

@@ -5,23 +5,21 @@ import {
   TRequest,
 } from "@/utils/request/request.types";
 import {
-  TCategory,
-  TGetCategoriesRequest,
-  TGetGroupsRequest,
-} from "../types/categories.model";
+  ICategoryListResponse,
+  ICategoryResponse,
+  ICategoryTreeResponse,
+  IGetAllCategoriesRequest,
+  IGetCategoryGroupsRequest,
+} from "@ecommerce/shared";
+import { TCategory } from "../types/categories.model";
 import { ICategoriesRepository } from "../types/categories.repository.interface";
 import { CategoryMapper } from "./categories.mapper";
-import {
-  ICategoryResponse,
-  ICategoryListResponse,
-  ICategoryTreeResponse,
-} from "@ecommerce/shared";
 
 export class CategoriesRepository implements ICategoriesRepository {
   constructor(private request: TRequest) {}
 
   async getCategories(
-    params?: TGetCategoriesRequest,
+    params?: IGetAllCategoriesRequest,
   ): Promise<ApiResponse<ApiListResponse<TCategory>>> {
     const response = await this.request.get<ICategoryListResponse>(
       API_ROUTES.PRODUCT_CATEGORIES.BASE,
@@ -46,7 +44,7 @@ export class CategoriesRepository implements ICategoriesRepository {
   }
 
   async getGroups(
-    params?: TGetGroupsRequest,
+    params?: IGetCategoryGroupsRequest,
   ): Promise<ApiResponse<ApiListResponse<TCategory>>> {
     const response = await this.request.get<ICategoryListResponse>(
       API_ROUTES.PRODUCT_CATEGORIES.GROUPS,

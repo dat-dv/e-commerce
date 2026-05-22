@@ -1,3 +1,8 @@
+import {
+  IGetAllCategoriesRequest,
+  IGetCategoryGroupsRequest,
+} from "@ecommerce/shared";
+
 export interface TCategory {
   id: string;
   slug: string;
@@ -5,13 +10,6 @@ export interface TCategory {
   children?: TCategory[];
 }
 
-export type TGetCategoriesRequest = {
-  page?: number;
-  limit?: number;
-  level?: number;
-};
+export type TGetCategoriesRequest = IGetAllCategoriesRequest;
 
-export type TGetGroupsRequest = {
-  page?: number;
-  limit?: number;
-};
+export type TGetGroupsRequest = IGetCategoryGroupsRequest;
