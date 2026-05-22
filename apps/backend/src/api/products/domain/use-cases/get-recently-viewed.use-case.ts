@@ -11,13 +11,18 @@ export class GetRecentlyViewedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(userId: string, query?: GetRecentlyViewedDto): Promise<IPaginatedResult<IProductResponse>> {
+  async execute(
+    userId: string,
+    query?: GetRecentlyViewedDto,
+    languageCode = 'vi',
+  ): Promise<IPaginatedResult<IProductResponse>> {
     const page = query?.page || 1;
     const limit = query?.limit || 15;
     return this.productsRepository.getRecentlyViewedPaginated({
       userId,
       page,
       limit,
+      languageCode,
     });
   }
 }
