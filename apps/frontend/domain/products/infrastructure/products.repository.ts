@@ -6,7 +6,11 @@ import {
   ApiResponse,
   TRequest,
 } from "@/utils/request/request.types";
-import { IProductResponse, IReviewResponse } from "@ecommerce/shared";
+import {
+  IGetRecentlyViewedRequest,
+  IProductResponse,
+  IReviewResponse,
+} from "@ecommerce/shared";
 import {
   TCreateReviewRequest,
   TGetProductReviewsRequest,
@@ -45,17 +49,16 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async getRecentlyViewed(params?: {
-    page?: number;
-    limit?: number;
-  }): Promise<ApiPaginatedResponse<TProduct>> {
+  async getRecentlyViewed(
+    query?: IGetRecentlyViewedRequest,
+  ): Promise<ApiPaginatedResponse<TProduct>> {
     const response = await this.request.get<ApiListResponse<IProductResponse>>(
       API_ROUTES.PRODUCTS.RECENTLY_VIEWED,
-      { params },
+      { params: query },
     );
     return {
       ...response,
-      data: mapPaginatedData(response.data, ProductMapper.toDomain, params),
+      data: mapPaginatedData(response.data, ProductMapper.toDomain, query),
     };
   }
 

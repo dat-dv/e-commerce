@@ -1,6 +1,8 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { IProductsRepository } from '../entities/products.repository.interface';
 import { IPaginatedResult, IProductResponse } from '@ecommerce/shared';
+import { Inject, Injectable } from '@nestjs/common';
+import { IProductsRepository } from '../entities/products.repository.interface';
+
+import { GetRecentlyViewedDto } from '../../dto/get-recently-viewed.dto';
 
 @Injectable()
 export class GetRecentlyViewedUseCase {
@@ -9,17 +11,13 @@ export class GetRecentlyViewedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(
-    userId: string,
-    page = 1,
-    limit = 15,
-    languageCode = 'vi',
-  ): Promise<IPaginatedResult<IProductResponse>> {
+  async execute(userId: string, query?: GetRecentlyViewedDto): Promise<IPaginatedResult<IProductResponse>> {
+    const page = query?.page || 1;
+    const limit = query?.limit || 15;
     return this.productsRepository.getRecentlyViewedPaginated({
       userId,
       page,
       limit,
-      languageCode,
     });
   }
 }

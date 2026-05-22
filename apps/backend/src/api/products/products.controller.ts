@@ -21,6 +21,7 @@ import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-ca
 import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
 import { GetProductReviewsDto } from './dto/get-product-reviews.dto';
 import { GetProductsDto } from './dto/get-products.dto';
+import { GetRecentlyViewedDto } from './dto/get-recently-viewed.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -70,11 +71,10 @@ export class ProductsController {
   async getRecentlyViewed(
     @Req() req: Request,
     @Language() lang: string,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
-    @Query('limit', new DefaultValuePipe(15), ParseIntPipe) limit: number,
+    @Query() query: GetRecentlyViewedDto,
   ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
     const userId = req.user?.sub;
-    const result = await this.getRecentlyViewedUseCase.execute(userId, page, limit, lang);
+    const result = await this.getRecentlyViewedUseCase.execute(userId, query, lang);
     return createSuccessResponse(result);
   }
 

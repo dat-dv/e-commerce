@@ -13,3 +13,8 @@ export interface IGetProductsParams {
   sort?: EProductSort;
   languageCode?: string;
 }
+
+export interface IGetRecentlyViewedRequest {
+  page?: number;
+  limit?: number;
+}

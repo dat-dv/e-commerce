@@ -1,13 +1,14 @@
 import {
-  ApiResponse,
   ApiPaginatedResponse,
+  ApiResponse,
 } from "@/utils/request/request.types";
+import { IGetRecentlyViewedRequest } from "@ecommerce/shared";
 import {
+  TCreateReviewRequest,
+  TGetProductReviewsRequest,
+  TGetProductsRequest,
   TProduct,
   TReview,
-  TGetProductsRequest,
-  TGetProductReviewsRequest,
-  TCreateReviewRequest,
 } from "./products.model";
 
 export interface IProductsRepository {
@@ -18,10 +19,9 @@ export interface IProductsRepository {
 
   getBasedOnInterest(): Promise<ApiResponse<TProduct[]>>;
 
-  getRecentlyViewed(params?: {
-    page?: number;
-    limit?: number;
-  }): Promise<ApiPaginatedResponse<TProduct>>;
+  getRecentlyViewed(
+    query?: IGetRecentlyViewedRequest,
+  ): Promise<ApiPaginatedResponse<TProduct>>;
 
   getFlashSale(params?: {
     page?: number;
