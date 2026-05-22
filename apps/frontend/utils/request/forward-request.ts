@@ -22,7 +22,7 @@ export const forwardClientRequest = async <T>(
 
   if (isServer) {
     try {
-      baseUrl = SERVER_ENV.API_URL || PUBLIC_ENV.NEXT_PUBLIC_API_URL;
+      baseUrl = SERVER_ENV.API_URL;
       const cookieStore = await getServerCookies();
       const cookieHeader = cookieStore?.toString();
       if (cookieHeader) {
