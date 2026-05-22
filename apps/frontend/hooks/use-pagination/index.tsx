@@ -79,7 +79,6 @@ const usePagination = <
       }));
 
       startTransition(() => {
-        console.log("params.page", params.page);
         if (params.page && params.page > 1) {
           setData((prev) => ({
             items: [...(prev?.items || []), ...(res?.data?.items || [])],
