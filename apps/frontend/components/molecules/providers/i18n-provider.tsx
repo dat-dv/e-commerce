@@ -16,7 +16,12 @@ export function I18nProviderClient({
   messages,
 }: I18nProviderClientProps) {
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider
+      // fallback timezon to asia hcmc
+      timeZone={"Asia/Ho_Chi_Minh"}
+      locale={locale}
+      messages={messages}
+    >
       <I18nProvider locale={locale}>{children}</I18nProvider>
     </NextIntlClientProvider>
   );
