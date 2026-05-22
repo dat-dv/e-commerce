@@ -19,14 +19,17 @@ export const enableCors = (app: INestApplication): void => {
   }
 
   app.enableCors({
-    origin: !isProd
+    origin: isProd
       ? true
       : (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
           try {
             const hostname = new URL(origin!).hostname;
-            const allowed = hostname === baseDomain || hostname.endsWith(`.${baseDomain}`);
+            const browserAllowed = hostname === baseDomain || hostname.endsWith(`.${baseDomain}`);
+
+            const isSeverCall = !origin;
+            const allowOrigin = isSeverCall || browserAllowed;
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            allowed ? callback(null, true) : callback(new Error(`[CORS] Blocked: ${origin}`));
+            allowOrigin ? callback(null, true) : callback(new Error(`[CORS] Blocked: ${origin}`));
           } catch {
             callback(new Error(`[CORS] Blocked: ${origin}`));
           }
