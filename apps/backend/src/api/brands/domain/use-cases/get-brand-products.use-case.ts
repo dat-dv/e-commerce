@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { GetBrandProductsDto } from '../../dto/get-brand-products.dto';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
 
 @Injectable()
@@ -8,7 +9,7 @@ export class GetBrandProductsUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, page = 1, limit = 10, languageCode = 'vi', search?: string, category?: string) {
-    return this.brandsRepository.getBrandProducts(slug, page, limit, languageCode, search, category);
+  async execute(slug: string, query: GetBrandProductsDto, languageCode = 'vi') {
+    return this.brandsRepository.getBrandProducts(slug, query, languageCode);
   }
 }

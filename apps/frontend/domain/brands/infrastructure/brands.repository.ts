@@ -12,6 +12,7 @@ import {
   IBrandResponse,
   ICategoryResponse,
   IGetBrandListRequest,
+  IGetBrandProductsRequest,
 } from "@ecommerce/shared";
 import { CategoryMapper } from "../../categories/infrastructure/categories.mapper";
 import { ProductMapper } from "../../products/infrastructure/products.mapper";
@@ -50,20 +51,12 @@ export class BrandsRepository implements IBrandsRepository {
 
   async getBrandProducts(
     slug: string,
-    page = 1,
-    limit = 20,
-    search?: string,
-    category?: string,
+    query: IGetBrandProductsRequest,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
     const response = await this.request.get<IBrandProductsResponse>(
       `${API_ROUTES.BRAND.DETAIL(slug)}/products`,
       {
-        params: {
-          page,
-          limit,
-          search: search ?? undefined,
-          category: category ?? undefined,
-        },
+        params: query,
       },
     );
 
@@ -78,7 +71,12 @@ export class BrandsRepository implements IBrandsRepository {
           }
         : {
             items: [],
-            meta: { total: 0, page, limit, totalPages: 0 },
+            meta: {
+              total: 0,
+              page: query.page || 1,
+              limit: query.limit || 20,
+              totalPages: 0,
+            },
           },
     };
   }

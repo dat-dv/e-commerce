@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { GetBrandListDto } from '../../dto/get-brand-list.dto';
+import { GetBrandProductsDto } from '../../dto/get-brand-products.dto';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
 
 @Injectable()
@@ -83,23 +84,20 @@ export class BrandsRepository implements IBrandsRepository {
 
   async getBrandProducts(
     slug: string,
-    page: number,
-    limit: number,
+    query: GetBrandProductsDto,
     languageCode = 'vi',
-    search?: string,
-    category?: string,
   ): Promise<IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
       return {
         brand: {} as IBrandResponse,
         products: [],
-        meta: { total: 0, page, limit, totalPages: 0 },
+        meta: { total: 0, page: query.page, limit: query.limit, totalPages: 0 },
       };
     }
 
-    const trimmedSearch = search?.trim();
-    const trimmedCategory = category?.trim();
+    const trimmedSearch = query.search?.trim();
+    const trimmedCategory = query.category?.trim();
     const categoryIds = trimmedCategory ? await this.getDescendantCategoryIds(trimmedCategory) : [];
     const where = {
       brand_id: brand.id,
@@ -137,8 +135,8 @@ export class BrandsRepository implements IBrandsRepository {
           thumbnail: true,
         },
       },
-      page,
-      limit,
+      query.page,
+      query.limit,
     );
 
     return {

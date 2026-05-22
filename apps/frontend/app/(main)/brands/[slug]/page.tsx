@@ -43,13 +43,12 @@ export default async function BrandDetailPage({
 
   const [brandResult, productsResult, categoriesResult] = await allSafe([
     brandsUseCase.getBrandBySlug.execute(slug),
-    brandsUseCase.getBrandProducts.execute(
-      slug,
-      currentPage,
-      PAGINATION_LIMITS.DEFAULT,
-      searchQuery || undefined,
-      categorySlug || undefined,
-    ),
+    brandsUseCase.getBrandProducts.execute(slug, {
+      page: currentPage,
+      limit: PAGINATION_LIMITS.DEFAULT,
+      search: searchQuery || undefined,
+      category: categorySlug || undefined,
+    }),
     brandsUseCase.getBrandCategories.execute(slug),
   ]);
 

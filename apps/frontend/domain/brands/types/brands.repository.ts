@@ -2,7 +2,10 @@ import { TCategory } from "@/domain/categories/types/categories.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { TProduct } from "@/domain/products/types/products.model";
 import { ApiListResponse, ApiResponse } from "@/utils/request/request.types";
-import { IGetBrandListRequest } from "@ecommerce/shared";
+import {
+  IGetBrandListRequest,
+  IGetBrandProductsRequest,
+} from "@ecommerce/shared";
 
 export interface IBrandsRepository {
   getBrandList(
@@ -13,10 +16,7 @@ export interface IBrandsRepository {
 
   getBrandProducts(
     slug: string,
-    page?: number,
-    limit?: number,
-    search?: string,
-    category?: string,
+    query: IGetBrandProductsRequest,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>>;
 
   getBrandCategoryTree(slug: string): Promise<ApiResponse<TCategory[]>>;

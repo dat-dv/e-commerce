@@ -1,5 +1,6 @@
-import { ApiResponse, ApiListResponse } from "@/utils/request/request.types";
 import { TProduct } from "@/domain/products/types/products.model";
+import { ApiListResponse, ApiResponse } from "@/utils/request/request.types";
+import { IGetBrandProductsRequest } from "@ecommerce/shared";
 import { IBrandsRepository } from "../types/brands.repository";
 
 export class GetBrandProductsUseCase {
@@ -7,17 +8,8 @@ export class GetBrandProductsUseCase {
 
   async execute(
     slug: string,
-    page?: number,
-    limit?: number,
-    search?: string,
-    category?: string,
+    query: IGetBrandProductsRequest,
   ): Promise<ApiResponse<ApiListResponse<TProduct>>> {
-    return this.brandsRepository.getBrandProducts(
-      slug,
-      page,
-      limit,
-      search,
-      category,
-    );
+    return this.brandsRepository.getBrandProducts(slug, query);
   }
 }

@@ -7,7 +7,8 @@ export interface IGetTopBrandsRequest {
 export interface IGetBrandProductsRequest {
   page?: number;
   limit?: number;
-  lang?: string;
+  search?: string;
+  category?: string;
 }
 
 export interface IGetBrandListRequest {

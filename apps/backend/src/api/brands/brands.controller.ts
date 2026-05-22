@@ -5,7 +5,7 @@ import {
   IBrandResponse,
   ICategoryResponse,
 } from '@ecommerce/shared';
-import { Controller, DefaultValuePipe, Get, NotFoundException, Param, ParseIntPipe, Query } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param, Query } from '@nestjs/common';
 import { Language } from 'src/common/decorators/language.decorator';
 import createSuccessResponse from 'src/common/respomse';
 import { GetBrandBySlugUseCase } from './domain/use-cases/get-brand-by-slug.use-case';
@@ -13,6 +13,7 @@ import { GetBrandCategoryTreeUseCase } from './domain/use-cases/get-brand-catego
 import { GetBrandProductsUseCase } from './domain/use-cases/get-brand-products.use-case';
 import { GetBrandListUseCase } from './domain/use-cases/get-top-brands.use-case';
 import { GetBrandListDto } from './dto/get-brand-list.dto';
+import { GetBrandProductsDto } from './dto/get-brand-products.dto';
 
 @Controller('brands')
 export class BrandsController {
@@ -53,14 +54,10 @@ export class BrandsController {
   @Get(':slug/products')
   async getBrandProducts(
     @Param('slug') slug: string,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
-    @Query('limit', new DefaultValuePipe(20), ParseIntPipe) limit: number,
-    @Query('q') search: string | undefined,
-    @Query('category') category: string | undefined,
+    @Query() query: GetBrandProductsDto,
     @Language() lang: string,
   ): Promise<IApiResponse<IBrandProductsResponse>> {
-    const parsedLimit = Math.min(50, limit);
-    const result = await this.getBrandProductsUseCase.execute(slug, page, parsedLimit, lang, search, category);
+    const result = await this.getBrandProductsUseCase.execute(slug, query, lang);
     return createSuccessResponse(result);
   }
 }
