@@ -23,10 +23,10 @@ export const FavoriteSection = () => {
     initialData: null,
     isSyncWithSearchParams: false,
     fetchPage: (params) =>
-      userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
-        params.page || 1,
-        params.limit || 10,
-      ),
+      userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute({
+        page: params.page || 1,
+        limit: params.limit || 10,
+      }),
   });
 
   const fetchFavorites = useCallback(() => getData({ page: 1 }), [getData]);

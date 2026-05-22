@@ -1,7 +1,8 @@
 import {
-  ApiResponse,
   ApiPaginatedResponse,
+  ApiResponse,
 } from "@/utils/request/request.types";
+import { IGetUserFavoriteProductsRequest } from "@ecommerce/shared";
 import {
   TUserFavoriteProductItem,
   TUserFavoriteProductToggleResponse,
@@ -12,7 +13,6 @@ export interface IUserFavoriteProductsRepository {
     productId: string,
   ): Promise<ApiResponse<TUserFavoriteProductToggleResponse>>;
   getUserFavoriteProducts(
-    page: number,
-    limit: number,
+    query?: IGetUserFavoriteProductsRequest,
   ): Promise<ApiPaginatedResponse<TUserFavoriteProductItem>>;
 }

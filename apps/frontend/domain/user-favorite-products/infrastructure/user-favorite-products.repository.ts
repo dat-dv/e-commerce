@@ -1,20 +1,21 @@
-import { IUserFavoriteProductsRepository } from "../types/user-favorite-products.repository";
+import { mapPaginatedData } from "@/utils/request/pagination";
 import {
-  ApiResponse,
-  TRequest,
   ApiListResponse,
   ApiPaginatedResponse,
+  ApiResponse,
+  TRequest,
 } from "@/utils/request/request.types";
+import {
+  IGetUserFavoriteProductsRequest,
+  IToggleUserFavoriteProductResponse as IToggleDTO,
+  IUserFavoriteProductResponse,
+} from "@ecommerce/shared";
 import {
   TUserFavoriteProductItem,
   TUserFavoriteProductToggleResponse,
 } from "../types/user-favorite-products.model";
+import { IUserFavoriteProductsRepository } from "../types/user-favorite-products.repository";
 import { UserFavoriteProductsMapper } from "./user-favorite-products.mapper";
-import {
-  IUserFavoriteProductResponse,
-  IToggleUserFavoriteProductResponse as IToggleDTO,
-} from "@ecommerce/shared";
-import { mapPaginatedData } from "@/utils/request/pagination";
 
 export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepository {
   constructor(private request: TRequest) {}
@@ -33,13 +34,14 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
   }
 
   async getUserFavoriteProducts(
-    page: number,
-    limit: number,
+    query?: IGetUserFavoriteProductsRequest,
   ): Promise<ApiPaginatedResponse<TUserFavoriteProductItem>> {
+    const page = query?.page || 1;
+    const limit = query?.limit || 10;
     const response = await this.request.get<
       ApiListResponse<IUserFavoriteProductResponse>
     >("/user-favorite-products", {
-      params: { page, limit },
+      params: query,
     });
 
     return {

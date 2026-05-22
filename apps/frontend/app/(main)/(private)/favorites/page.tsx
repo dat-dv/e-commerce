@@ -17,10 +17,10 @@ const LIMIT = PAGINATION_LIMITS.FAVORITES;
 
 export default async function FavoritesPage() {
   const favoritesResponse = await safe(
-    userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
-      1,
-      LIMIT,
-    ),
+    userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute({
+      page: 1,
+      limit: LIMIT,
+    }),
   );
 
   const favoritesData =

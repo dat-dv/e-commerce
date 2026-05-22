@@ -21,10 +21,10 @@ export const FavoritesView = ({ initialData }: FavoritesViewProps) => {
     isSyncWithSearchParams: false,
     initialData,
     fetchPage: (params) =>
-      userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute(
-        params.page,
-        params.limit,
-      ),
+      userFavoriteProductsUseCase.getUserFavoriteProductsUseCase.execute({
+        page: params.page,
+        limit: params.limit,
+      }),
   });
 
   const hasMore = data.meta.page < data.meta.totalPages;

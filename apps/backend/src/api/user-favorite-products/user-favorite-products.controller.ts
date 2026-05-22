@@ -1,15 +1,16 @@
-import { Controller, Post, Get, Param, UseGuards, Req, Query, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
-import { UserFavoriteProductsService } from './user-favorite-products.service';
-import { AuthGuard } from '../auth/guards/auth.guard';
-import { Language } from 'src/common/decorators/language.decorator';
-import type { Request } from 'express';
 import {
   IApiResponse,
-  IUserFavoriteProductResponse,
-  IToggleUserFavoriteProductResponse,
   IPaginatedResult,
+  IToggleUserFavoriteProductResponse,
+  IUserFavoriteProductResponse,
 } from '@ecommerce/shared';
+import { Controller, Get, Param, Post, Query, Req, UseGuards } from '@nestjs/common';
+import type { Request } from 'express';
+import { Language } from 'src/common/decorators/language.decorator';
 import createSuccessResponse from 'src/common/respomse';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import { GetUserFavoriteProductsDto } from './dto/get-user-favorite-products.dto';
+import { UserFavoriteProductsService } from './user-favorite-products.service';
 
 @Controller('user-favorite-products')
 @UseGuards(AuthGuard)
@@ -30,12 +31,11 @@ export class UserFavoriteProductsController {
   @UseGuards(AuthGuard)
   async getUserFavoriteProducts(
     @Req() req: Request,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+    @Query() query: GetUserFavoriteProductsDto,
     @Language() lang: string,
   ): Promise<IApiResponse<IPaginatedResult<IUserFavoriteProductResponse>>> {
     const userId = req.user?.sub;
-    const result = await this.userFavoriteProductsService.getUserFavoriteProducts(userId, page, limit, lang);
+    const result = await this.userFavoriteProductsService.getUserFavoriteProducts(userId, query, lang);
     return createSuccessResponse(result);
   }
 }

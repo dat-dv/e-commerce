@@ -13,3 +13,8 @@ export interface IToggleUserFavoriteProductResponse {
   is_favorited: boolean;
   product_id: string;
 }
+
+export interface IGetUserFavoriteProductsRequest {
+  page?: number;
+  limit?: number;
+}

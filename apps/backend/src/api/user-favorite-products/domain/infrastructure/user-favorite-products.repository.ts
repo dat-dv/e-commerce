@@ -1,13 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { IUserFavoriteProductsRepository } from '../entities/user-favorite-products.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import {
-  IUserFavoriteProductResponse,
-  IToggleUserFavoriteProductResponse,
   IPaginatedResult,
+  IToggleUserFavoriteProductResponse,
+  IUserFavoriteProductResponse,
   Prisma,
 } from '@ecommerce/shared';
+import { Injectable } from '@nestjs/common';
+import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { IUserFavoriteProductsRepository } from '../entities/user-favorite-products.repository.interface';
+
+import { GetUserFavoriteProductsDto } from '../../dto/get-user-favorite-products.dto';
 
 @Injectable()
 export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepository {
@@ -66,10 +68,12 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
 
   async getUserFavoriteProducts(
     userId: string,
-    page = 1,
-    limit = 10,
+    query?: GetUserFavoriteProductsDto,
     languageCode = 'vi',
   ): Promise<IPaginatedResult<IUserFavoriteProductResponse>> {
+    const page = query?.page || 1;
+    const limit = query?.limit || 10;
+
     const args = {
       where: { user_id: userId },
       include: this.getUserFavoriteProductsInclude(languageCode),
