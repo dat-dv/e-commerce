@@ -20,10 +20,15 @@ export const AddressProvider = ({
   children,
   initState,
 }: AddressProviderProps) => {
+  const getDefaultAddressId = (addresses: TAddress[]) => {
+    const defaultAddr = addresses.find((addr) => addr.isDefault);
+    return defaultAddr?.id || addresses[0]?.id || null;
+  };
   const [store] = useState(() =>
     createAddressStore({
       addresses: initState || [],
       hasHydrated: initState ? true : false,
+      selectedAddressId: getDefaultAddressId(initState || []),
     }),
   );
   const user = useAuthStore((s) => s.user);
@@ -36,6 +41,9 @@ export const AddressProvider = ({
       const initialAddresses = res?.data || [];
       const setAddresses = store.getState().setAddresses;
       const setHasHydrated = store.getState().setHasHydrated;
+      const setSelectedAddressId = store.getState().setSelectedAddressId;
+      const defaultAddrId = getDefaultAddressId(initialAddresses);
+      setSelectedAddressId(defaultAddrId);
       setAddresses(initialAddresses);
       setHasHydrated(true);
     };
