@@ -48,7 +48,7 @@ export const OrderTabs = ({
   return (
     <div
       className={cn(
-        "scrollbar-hide border-content/[0.05] w-full overflow-x-auto border-b bg-transparent",
+        "hide-scrollbar border-content/[0.05] w-full overflow-x-auto border-b bg-transparent",
         className,
       )}
       {...props}

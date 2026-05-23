@@ -1,18 +1,19 @@
 "use client";
 
-import React from "react";
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
-import { Lock, Eye, Shield, KeyRound, LockKeyhole } from "lucide-react";
 import AppContainer from "@/components/atoms/app-container";
-import { useTranslations } from "next-intl";
+import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import { Eye, KeyRound, Lock, LockKeyhole, Shield } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import React from "react";
 
 export function PrivacyHeader(): React.ReactElement {
   const t = useTranslations("Privacy");
+  const locale = useLocale();
   const title = t("title");
   const description = t("description");
 
   const words = title.split(" ");
-  const isVi = title.toLowerCase().includes("chính");
+  const isVi = locale === "vi";
   const highlight = isVi ? words.slice(-2).join(" ") : words.pop() || "";
   const mainTitle = isVi ? words.slice(0, -2).join(" ") : words.join(" ");
 

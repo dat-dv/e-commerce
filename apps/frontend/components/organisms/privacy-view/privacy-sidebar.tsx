@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
 import TableOfContents from "@/components/molecules/toc";
 import { useTranslations } from "next-intl";
+import React from "react";
 
 interface TOCItem {
   id: string;
@@ -19,7 +19,7 @@ export function PrivacySidebar({
   const t = useTranslations("Privacy");
 
   return (
-    <div className="min-w-0">
+    <div className="w-full min-w-0">
       <h3 className="text-content/40 mb-3 text-sm font-bold tracking-wider uppercase">
         {t("toc")}
       </h3>

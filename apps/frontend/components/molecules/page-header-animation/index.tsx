@@ -105,7 +105,7 @@ export function AnimatedPageHeader({
               <LiquidWaveText>
                 {title}{" "}
                 {highlight && (
-                  <span className="text-content/30 font-light italic">
+                  <span className="font-light italic opacity-30">
                     {highlight}
                   </span>
                 )}

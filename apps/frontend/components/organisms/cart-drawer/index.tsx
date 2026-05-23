@@ -54,7 +54,7 @@ export const CartDrawer = () => {
             <CartHeader count={itemsCount} onClose={handleClose} />
 
             {/* Scrollable Item List */}
-            <div className="scrollbar-hide flex-1 overflow-y-auto px-6 py-2">
+            <div className="hide-scrollbar flex-1 overflow-y-auto px-6 py-2">
               {isEmpty ? (
                 <div className="flex h-full flex-col items-center justify-center py-20 text-center">
                   <div className="bg-content/[0.02] border-content/5 mb-6 flex h-20 w-20 items-center justify-center rounded-full border">

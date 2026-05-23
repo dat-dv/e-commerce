@@ -59,7 +59,7 @@ export function HelpTopicNav({
   return (
     <nav
       className={cn(
-        "scrollbar-hide border-content/5 bg-surface mt-5 flex max-w-full gap-2 overflow-x-auto border p-2 lg:block lg:overflow-visible",
+        "hide-scrollbar border-content/5 bg-surface mt-5 flex max-w-full gap-2 overflow-x-auto border p-2 lg:block lg:overflow-visible",
         UI_RADIUS.panel,
         className,
       )}

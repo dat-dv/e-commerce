@@ -1,24 +1,25 @@
 "use client";
 
-import React from "react";
+import AppContainer from "@/components/atoms/app-container";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import {
-  ShieldCheck,
-  Scale,
+  BookOpen,
   FileText,
   Handshake,
-  BookOpen,
+  Scale,
+  ShieldCheck,
 } from "lucide-react";
-import AppContainer from "@/components/atoms/app-container";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import React from "react";
 
 export function TermsHeader(): React.ReactElement {
   const t = useTranslations("Terms");
   const title = t("title");
   const description = t("description");
+  const locale = useLocale();
 
   const words = title.split(" ");
-  const isVi = title.toLowerCase().includes("điều");
+  const isVi = locale === "vi";
   const highlight = isVi ? words.slice(-2).join(" ") : words.pop() || "";
   const mainTitle = isVi ? words.slice(0, -2).join(" ") : words.join(" ");
 
