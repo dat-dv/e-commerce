@@ -27,6 +27,7 @@ export default function SignUpForm() {
 
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <Input
+          aria-label={t("emailLabel")}
           id="email"
           label={t("emailLabel")}
           type="email"
@@ -37,6 +38,7 @@ export default function SignUpForm() {
         />
 
         <Input
+          aria-label={t("passwordLabel")}
           id="password"
           label={t("passwordLabel")}
           type="password"
@@ -47,6 +49,7 @@ export default function SignUpForm() {
         />
 
         <Input
+          aria-label={t("confirmPasswordLabel")}
           id="confirmPassword"
           label={t("confirmPasswordLabel")}
           type="password"

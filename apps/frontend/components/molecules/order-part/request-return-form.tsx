@@ -75,6 +75,7 @@ export function RequestReturnForm({
 
       <div className="space-y-5">
         <Input
+          aria-label={labels.reason}
           {...register("title")}
           id="return-title"
           label={labels.reason}

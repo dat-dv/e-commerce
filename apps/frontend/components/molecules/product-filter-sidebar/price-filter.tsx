@@ -55,6 +55,7 @@ export function ProductPriceFilter<T extends string = string>({
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <Input
+            aria-label={t("min")}
             type="number"
             placeholder={t("min")}
             size="md"
@@ -63,6 +64,7 @@ export function ProductPriceFilter<T extends string = string>({
           />
           <span className="text-content/25 text-sm font-semibold">-</span>
           <Input
+            aria-label={t("max")}
             type="number"
             placeholder={t("max")}
             size="md"

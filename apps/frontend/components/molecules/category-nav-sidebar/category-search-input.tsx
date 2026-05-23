@@ -26,6 +26,7 @@ export function CategorySearchInput({
       />
 
       <Input
+        aria-label={placeholder}
         placeholder={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}

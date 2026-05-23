@@ -24,6 +24,7 @@ export const FormInput: React.FC<FormInputProps> = ({
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Input
+          aria-label={rest.label || rest["aria-label"] || name}
           {...rest}
           {...field}
           id={name}

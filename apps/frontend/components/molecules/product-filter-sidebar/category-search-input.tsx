@@ -29,6 +29,7 @@ export function CategorySearchInput({
       <Search className="text-content/30 h-4 w-4 shrink-0" />
 
       <Input
+        aria-label={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
