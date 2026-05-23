@@ -18,7 +18,7 @@ export async function proxy(request: NextRequest) {
     return localizedResponse;
   }
 
-  return NextResponse.next();
+  return response || NextResponse.next();
 }
 
 export const config = {
