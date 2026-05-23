@@ -20,7 +20,6 @@ interface IProfileFormDesktopProps {
   isLoading?: boolean;
   isUploading?: boolean;
   updateProfile: (user: TUpdateUserInput) => Promise<boolean | void>;
-  uploadAvatar: (avatar: File) => Promise<boolean | void>;
 }
 
 export const ProfileFormDesktop = ({
@@ -28,7 +27,6 @@ export const ProfileFormDesktop = ({
   isLoading,
   isUploading,
   updateProfile,
-  uploadAvatar,
 }: IProfileFormDesktopProps) => {
   const {
     t,
@@ -43,9 +41,7 @@ export const ProfileFormDesktop = ({
   } = useProfileFormLogic({
     user,
     isLoading,
-    isUploading,
     updateProfile,
-    uploadAvatar,
   });
 
   if (!user) return null;

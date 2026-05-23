@@ -17,17 +17,13 @@ import AvatarWrapper from "./avatar-wapper";
 interface IProfileFormMobileProps {
   user: Partial<TUser> | null;
   isLoading?: boolean;
-  isUploading?: boolean;
   updateProfile: (user: TUpdateUserInput) => Promise<boolean | void>;
-  uploadAvatar: (avatar: File) => Promise<boolean | void>;
 }
 
 export const ProfileFormMobile = ({
   user,
   isLoading,
-  isUploading,
   updateProfile,
-  uploadAvatar,
 }: IProfileFormMobileProps) => {
   const {
     t,
@@ -42,9 +38,7 @@ export const ProfileFormMobile = ({
   } = useProfileFormLogic({
     user,
     isLoading,
-    isUploading,
     updateProfile,
-    uploadAvatar,
   });
 
   if (!user) return null;

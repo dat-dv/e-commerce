@@ -15,17 +15,13 @@ import { useForm } from "react-hook-form";
 interface UseProfileFormLogicProps {
   user: Partial<TUser> | null;
   isLoading?: boolean;
-  isUploading?: boolean;
   updateProfile: (user: TUpdateUserInput) => Promise<boolean | void>;
-  uploadAvatar: (avatar: File) => Promise<boolean | void>;
 }
 
 export function useProfileFormLogic({
   user,
   isLoading,
-  isUploading,
   updateProfile,
-  uploadAvatar,
 }: UseProfileFormLogicProps) {
   const t = useTranslations("ProfilePage");
   const tValidation = useTranslations("Validation");
@@ -103,11 +99,12 @@ export function useProfileFormLogic({
   const handleSave = async (data: ProfileSchema) => {
     const finalAvatarUrl = data.avatarUrl;
 
+    let file: File | undefined;
     if (finalAvatarUrl && finalAvatarUrl.startsWith("data:image")) {
       const response = await fetch(finalAvatarUrl);
       const blob = await response.blob();
-      const file = new File([blob], "avatar.jpg", { type: blob.type });
-      await uploadAvatar(file);
+      file = new File([blob], "avatar.jpg", { type: blob.type });
+      console.log("file", file);
     }
 
     const success = await updateProfile({
@@ -118,6 +115,7 @@ export function useProfileFormLogic({
       phoneNumber: data.phone?.phoneNumber || "",
       gender: data.gender ?? undefined,
       phoneCode: data.phone?.phoneCode || "",
+      ...(file ? { avatar: file } : {}),
     });
 
     if (success) {
@@ -125,8 +123,8 @@ export function useProfileFormLogic({
     }
   };
 
-  const isFormDisabled = isLoading || isUploading || !isEditing;
-  const isSubmitLoading = isLoading || isUploading;
+  const isFormDisabled = isLoading || !isEditing;
+  const isSubmitLoading = isLoading;
 
   return {
     t,
