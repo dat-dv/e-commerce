@@ -54,6 +54,7 @@ export default function LiquidWaveText({
       initial={false}
       animate={isActive ? "active" : "rest"}
       whileHover={isActive ? "active" : "hover"}
+      whileTap={isActive ? "active" : "hover"}
     >
       <span
         className={cn(
