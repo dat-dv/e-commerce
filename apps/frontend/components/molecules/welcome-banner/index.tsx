@@ -33,15 +33,7 @@ export default function HomeHeroSection({ name }: HomeHeroSectionProps) {
   return (
     <section className="border-content/[0.03] relative mb-8 flex min-h-[420px] items-center overflow-hidden border-b">
       <AppContainer className="relative z-10 w-full py-16">
-        {/* Lớp 2: Hiệu ứng lơ lửng (Floating & Breathing) cho toàn bộ khối */}
-        <div
-          className="flex max-w-3xl flex-col items-start gap-5"
-          transition={{
-            duration: 18,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        >
+        <div className="flex max-w-3xl flex-col items-start gap-5">
           <h1 className="text-content text-5xl leading-none font-black tracking-[-0.05em] uppercase md:text-7xl">
             <LiquidWaveText>{headerLabel}</LiquidWaveText>
           </h1>
