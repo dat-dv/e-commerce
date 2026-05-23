@@ -30,33 +30,31 @@ export const CategoryCard = ({
       href={href}
       className={cn(
         UI_RADIUS.card,
-        "group border-content/10 relative flex h-32 w-full flex-col justify-between overflow-hidden border p-6 transition-all",
+        "group border-content/10 relative flex h-20 w-full items-center justify-between overflow-hidden border px-5 transition-all",
       )}
     >
       <div
-        className={`absolute top-0 right-0 h-24 w-24 bg-gradient-to-br from-current to-transparent opacity-[0.02] blur-2xl transition-opacity group-hover:opacity-[0.08] ${color}`}
+        className={`absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-current to-transparent opacity-[0.02] blur-2xl transition-opacity group-hover:opacity-[0.08] ${color}`}
       />
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="text-content group-hover:text-primary line-clamp-2 pr-1 font-bold capitalize transition-colors">
-            {name}
-          </h3>
-          {showCount && <p className="text-content/40 text-xs">{count}</p>}
-        </div>
-        {image ? (
-          <Image
-            width={100}
-            height={100}
-            src={image}
-            alt={name}
-            className={cn(UI_RADIUS.media, "h-10 w-10 object-cover")}
-          />
-        ) : (
-          <Icon
-            className={`h-6 w-6 ${color} opacity-30 transition-opacity group-hover:opacity-100`}
-          />
-        )}
+      <div className="min-w-0 flex-1 pr-3">
+        <h3 className="text-content group-hover:text-primary line-clamp-1 font-bold capitalize transition-colors">
+          {name}
+        </h3>
+        {showCount && <p className="text-content/40 mt-0.5 text-xs">{count}</p>}
       </div>
+      {image ? (
+        <Image
+          width={80}
+          height={80}
+          src={image}
+          alt={name}
+          className={cn(UI_RADIUS.media, "h-10 w-10 shrink-0 object-cover")}
+        />
+      ) : (
+        <Icon
+          className={`h-5 w-5 ${color} shrink-0 opacity-30 transition-opacity group-hover:opacity-100`}
+        />
+      )}
     </Link>
   );
 };
