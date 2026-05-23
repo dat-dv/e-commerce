@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { ProductAttributeOptions } from "./product-attribute-options";
@@ -56,9 +57,12 @@ export const ProductInfo = ({
       transition={{ delay: 0.1 }}
       className="flex flex-col gap-5 lg:col-span-8"
     >
-      <h1 className="text-content text-xl leading-snug font-semibold">
+      <LiquidWaveText
+        enableSelection
+        className="text-lg leading-tight font-bold tracking-tight"
+      >
         {name}
-      </h1>
+      </LiquidWaveText>
 
       <ProductRatingSummary
         product={product}

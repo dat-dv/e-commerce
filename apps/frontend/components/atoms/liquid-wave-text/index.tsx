@@ -1,11 +1,13 @@
 "use client";
 
+import { useTextSelectEvent } from "@/hooks/use-text-select-event";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 interface ILiquidWaveTextProps {
   children: ReactNode;
+  enableSelection?: boolean;
   isActive?: boolean;
   className?: string;
   activeClassName?: string;
@@ -40,26 +42,41 @@ const clipPathVariants = {
 
 export default function LiquidWaveText({
   children,
+  enableSelection = false,
   isActive = false,
   className,
   activeClassName = "text-primary",
   inactiveClassName = "text-content/70",
 }: ILiquidWaveTextProps) {
+  const { isSelect, selectProps } = useTextSelectEvent({
+    enabled: Boolean(enableSelection),
+  });
+
+  const isAnimate = !(enableSelection && isSelect);
+  const baseVariant = isActive && isAnimate ? "active" : "rest";
+  const interactionVariant = isActive ? "active" : "hover";
+
   return (
     <motion.span
       className={cn(
-        "relative inline-grid overflow-hidden pr-1 align-middle leading-normal select-none",
+        "relative inline-block overflow-hidden pr-1 align-middle leading-normal",
         className,
+        enableSelection
+          ? "selection:bg-primary/20 selection:text-primary select-text"
+          : "select-none",
       )}
+      {...selectProps}
       initial={false}
-      animate={isActive ? "active" : "rest"}
-      whileHover={isActive ? "active" : "hover"}
-      whileTap={isActive ? "active" : "hover"}
+      animate={baseVariant}
+      whileHover={isAnimate ? interactionVariant : undefined}
+      whileTap={isAnimate && !enableSelection ? interactionVariant : undefined}
     >
       <span
         className={cn(
-          "col-start-1 row-start-1 transition-colors duration-300",
+          "relative transition-colors duration-300",
           isActive ? activeClassName : inactiveClassName,
+          enableSelection &&
+            "selection:bg-primary/20 selection:text-primary select-text",
         )}
       >
         {children}
@@ -67,7 +84,7 @@ export default function LiquidWaveText({
 
       <motion.span
         aria-hidden="true"
-        className="text-primary pointer-events-none col-start-1 row-start-1 will-change-[clip-path]"
+        className="text-primary pointer-events-none absolute inset-0 will-change-[clip-path] select-none"
         variants={clipPathVariants}
         transition={{
           duration: 1.6,
