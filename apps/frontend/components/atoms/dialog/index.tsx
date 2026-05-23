@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 import React from "react";
 import {
+  DialogProps,
   Dialog as RACDialog,
   Heading as RACHeading,
   Modal as RACModal,
@@ -50,12 +51,16 @@ export function AppDialog({
   );
 }
 
-export interface IAppDialogPanelProps {
+export interface IAppDialogPanelProps extends DialogProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export function AppDialogPanel({ children, className }: IAppDialogPanelProps) {
+export function AppDialogPanel({
+  children,
+  className,
+  ...props
+}: IAppDialogPanelProps) {
   return (
     <MotionModal
       initial={{ opacity: 0, scale: 0.95, y: 15 }}
@@ -64,7 +69,13 @@ export function AppDialogPanel({ children, className }: IAppDialogPanelProps) {
       transition={{ duration: 0.2, ease: "easeOut" }}
       className={cn("w-full max-w-md outline-none", className)}
     >
-      <RACDialog className="h-full w-full outline-none">{children}</RACDialog>
+      <RACDialog
+        className="h-full w-full outline-none"
+        aria-label="Dialog"
+        {...props}
+      >
+        {children}
+      </RACDialog>
     </MotionModal>
   );
 }
