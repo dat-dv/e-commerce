@@ -1,10 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Button from "@/components/atoms/button";
 import { APP_ROUTES } from "@/constants/routes";
 import useLogin from "@/hooks/auth/use-login";
+import { useTranslations } from "next-intl";
 
+import { TurnstileWrapper } from "@/components/molecules/cloudflare-turnstile";
 import AppForm from "../form/app-form";
 import { FormButton } from "../form/form-button";
 import { FormInput } from "../form/form-input";
@@ -54,14 +55,19 @@ export default function SignInForm() {
           </Button>
         </div>
 
-        <FormButton
-          type="submit"
-          isLoading={isLoading}
-          loadingText={t("submitting")}
-          className="mt-2"
-        >
-          {t("submit")}
-        </FormButton>
+        <TurnstileWrapper>
+          {({ isVerified }) => (
+            <FormButton
+              type="submit"
+              isLoading={isLoading}
+              loadingText={t("submitting")}
+              className="mt-2"
+              disabled={!isVerified}
+            >
+              {t("submit")}
+            </FormButton>
+          )}
+        </TurnstileWrapper>
       </AppForm>
 
       <div className="text-center">

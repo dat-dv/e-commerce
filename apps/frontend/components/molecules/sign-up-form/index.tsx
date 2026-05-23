@@ -8,6 +8,7 @@ import Input from "@/components/atoms/input";
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { useRegister } from "@/hooks/auth/use-register";
+import { TurnstileWrapper } from "@/components/molecules/cloudflare-turnstile";
 
 export default function SignUpForm() {
   const t = useTranslations("RegisterPage");
@@ -55,15 +56,20 @@ export default function SignUpForm() {
           error={methods.formState.errors.confirmPassword?.message}
         />
 
-        <Button
-          type="submit"
-          variant="primary"
-          size="lg"
-          className="mt-2 w-full"
-          loading={loading}
-        >
-          {loading ? t("submitting") : t("submit")}
-        </Button>
+        <TurnstileWrapper>
+          {({ isVerified }) => (
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="mt-2 w-full"
+              loading={loading}
+              disabled={!isVerified}
+            >
+              {loading ? t("submitting") : t("submit")}
+            </Button>
+          )}
+        </TurnstileWrapper>
       </form>
 
       <div className="text-center">

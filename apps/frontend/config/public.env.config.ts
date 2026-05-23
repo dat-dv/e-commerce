@@ -20,6 +20,7 @@ export const publicEnvSchema = z.object({
   NODE_ENV: z
     .enum(["development", "test", "production"])
     .default("development"),
+  NEXT_PUBLIC_CF_SITE_KEY: z.string().optional(),
 });
 
 const parsed = publicEnvSchema.safeParse({
@@ -27,6 +28,9 @@ const parsed = publicEnvSchema.safeParse({
   NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   NEXT_PUBLIC_IS_DEBUG: process.env.NEXT_PUBLIC_IS_DEBUG,
+
+  // cloudflare turnstile
+  NEXT_PUBLIC_CF_SITE_KEY: process.env.NEXT_PUBLIC_CF_SITE_KEY,
 
   // firebase
   NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
