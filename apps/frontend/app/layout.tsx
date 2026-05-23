@@ -3,8 +3,10 @@ import "./globals.css";
 import AppProvider from "@/components/molecules/providers/app-provider";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { themeScript } from "@/utils/theme-script";
+import { Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -15,6 +17,12 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +32,7 @@ export default async function RootLayout({
     <html
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} bg-surface h-full antialiased`}
     >
       <head>
         {PUBLIC_ENV.IS_DEBUG && (
