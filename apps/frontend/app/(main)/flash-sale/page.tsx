@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { TProduct } from "@/domain/products/types/products.model";
-import { createEmptyPaginatedData } from "@/utils/request/pagination";
+import { createEmptyPaginatedData } from "@/utils/pagination";
 
 export default async function FlashSalePage() {
   const flashSaleResponse = await safe(

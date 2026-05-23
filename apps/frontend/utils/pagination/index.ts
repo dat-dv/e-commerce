@@ -1,4 +1,4 @@
-import { ApiListResponse } from "./request.types";
+import { ApiListResponse } from "../request/request.types";
 
 export const createEmptyPaginatedData = <T>(params?: {
   page?: number;

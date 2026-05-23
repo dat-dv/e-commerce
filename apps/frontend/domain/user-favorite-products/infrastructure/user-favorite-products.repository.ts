@@ -1,4 +1,4 @@
-import { mapPaginatedData } from "@/utils/request/pagination";
+import { mapPaginatedData } from "@/utils/pagination";
 import {
   ApiListResponse,
   ApiPaginatedResponse,

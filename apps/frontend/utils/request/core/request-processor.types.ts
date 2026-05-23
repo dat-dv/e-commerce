@@ -3,7 +3,7 @@ import {
   IRequestOptions,
   Method,
   RequestBody,
-} from "./request.types";
+} from "../request.types";
 
 export type RetryRequest = <T>(
   method: Method,

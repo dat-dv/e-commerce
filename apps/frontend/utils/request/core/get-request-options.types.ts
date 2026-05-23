@@ -1,4 +1,4 @@
-import { IRequestOptions, Method, RequestBody } from "./request.types";
+import { IRequestOptions, Method, RequestBody } from "../request.types";
 
 export type GetRequestOptionsParams = {
   url: string;

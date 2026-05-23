@@ -1,7 +1,7 @@
 import { APP_ROUTES } from "@/constants/routes";
-import processRequest from "../process-request";
-import { shouldRefresh } from "../refresh.utils";
-import { ProcessRequestParams } from "../request-processor.types";
+import processRequest from "../core/process-request";
+import { shouldRefresh } from "../core/refresh.utils";
+import { ProcessRequestParams } from "../core/request-processor.types";
 import { refreshToken } from "./refresh-token";
 
 let clientRefreshPromise: Promise<void> | null = null;

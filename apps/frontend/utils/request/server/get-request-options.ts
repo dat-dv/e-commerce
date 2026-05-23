@@ -1,11 +1,11 @@
 import { SERVER_ENV } from "@/config/server.env.config";
 import { getServerCookies } from "../../cookies";
 import { getServerSubdomain } from "../../sub-domain/get-server-sub-domain";
-import { buildRequestOptions } from "../build-request-options";
+import { buildRequestOptions } from "../core/build-request-options";
 import {
   GetRequestOptionsParams,
   RequestOptionsResult,
-} from "../get-request-options.types";
+} from "../core/get-request-options.types";
 
 export const getServerRequestOptions = async (
   params: GetRequestOptionsParams,

@@ -2,7 +2,7 @@ import {
   ApiErrorResponse,
   ApiResponse,
   IRequestOptions,
-} from "./request.types";
+} from "../request.types";
 import {
   errorResponseStrategies,
   resolveContentType,

@@ -3,7 +3,7 @@ import {
   ApiResponse,
   JsonValue,
   TResponseContent,
-} from "./request.types";
+} from "../request.types";
 
 type ResponsePayload = ApiResponse<JsonValue> | Blob | ArrayBuffer | string;
 type ApiErrorPayload = ApiErrorResponse & { error?: string };

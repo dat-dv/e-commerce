@@ -1,10 +1,10 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { getSubdomainByHostname } from "../../sub-domain/get-client-sub-domain";
-import { buildRequestOptions } from "../build-request-options";
+import { buildRequestOptions } from "../core/build-request-options";
 import {
   GetRequestOptionsParams,
   RequestOptionsResult,
-} from "../get-request-options.types";
+} from "../core/get-request-options.types";
 
 export const getClientRequestOptions = (
   params: GetRequestOptionsParams,

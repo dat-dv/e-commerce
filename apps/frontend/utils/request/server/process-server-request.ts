@@ -1,6 +1,6 @@
-import processRequest, { RequestError } from "../process-request";
-import { shouldRefresh } from "../refresh.utils";
-import { ProcessRequestParams } from "../request-processor.types";
+import processRequest, { RequestError } from "../core/process-request";
+import { shouldRefresh } from "../core/refresh.utils";
+import { ProcessRequestParams } from "../core/request-processor.types";
 import { refreshToken } from "./refresh-token";
 
 const serverRefreshPromises = new Map<string, Promise<string>>();
