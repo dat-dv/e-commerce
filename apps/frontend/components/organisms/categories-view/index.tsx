@@ -78,7 +78,6 @@ export const CategoriesView = () => {
             onPress={() => setIsDrawerOpen(true)}
           />
         </RenderTabletAndBelow>
-
         <CategoriesContent categories={categories} activeId={activeId} />
         <RenderTabletAndBelow>
           <CategoriesFilterDrawer
