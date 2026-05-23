@@ -38,6 +38,7 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
       control={control}
       render={({ field, fieldState }) => (
         <Select
+          aria-label={label || name}
           label={label}
           options={options}
           variant={variant}

@@ -93,6 +93,7 @@ export default function MapPickerModal({
           <div>
             <div className="relative mb-4">
               <Input
+                aria-label={t("searchLabel")}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
