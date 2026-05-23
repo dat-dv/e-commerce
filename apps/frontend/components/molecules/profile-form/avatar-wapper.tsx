@@ -23,7 +23,7 @@ const AvatarWrapper = ({
     <div
       {...props}
       className={cn(
-        "border-content/10 flex flex-col items-center gap-4 border-b pb-4 sm:flex-row",
+        "border-content/10 flex flex-col items-center gap-4 border-b pb-4",
         className,
       )}
     >

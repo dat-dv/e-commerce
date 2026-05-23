@@ -14,7 +14,7 @@ import dynamic from "next/dynamic";
 import { useEffect } from "react";
 
 const MapComponent = dynamic(
-  () => import("@/components/molecules/profile-form/map-component"),
+  () => import("@/components/molecules/form/form-map-picker/map-component"),
   { ssr: false },
 );
 

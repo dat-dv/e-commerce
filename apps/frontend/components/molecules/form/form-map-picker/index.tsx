@@ -1,6 +1,6 @@
 "use client";
 
-import MapPickerModal from "@/components/molecules/profile-form/map-picker-modal";
+import MapPickerModal from "@/components/molecules/form/form-map-picker/map-picker-modal";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
