@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import { cn } from "@/utils/cn";
 import {
   AlertTriangle,
   CheckCircle2,
@@ -8,7 +7,6 @@ import {
   OctagonAlert,
   X,
 } from "lucide-react";
-import { cn } from "@/utils/cn";
 import { toast as sonnerToast } from "sonner";
 
 export type ToastVariant = "success" | "error" | "warning" | "info" | "default";
@@ -55,7 +53,9 @@ export function CustomToast({
   variant,
 }: CustomToastProps) {
   const { bar, icon, Icon } = VARIANT_CONFIG[variant];
-
+  const removeToast = () => {
+    sonnerToast.dismiss(id);
+  };
   return (
     <div
       className={cn(
@@ -68,6 +68,7 @@ export function CustomToast({
         // Width to fit properly in Toaster container
         "w-full sm:w-[380px]",
       )}
+      onClick={removeToast}
     >
       {/* Left accent bar */}
       <span
@@ -92,7 +93,11 @@ export function CustomToast({
 
       {/* Close button */}
       <button
-        onClick={() => sonnerToast.dismiss(id)}
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          removeToast();
+        }}
         aria-label="Close notification"
         type="button"
         className={cn(
