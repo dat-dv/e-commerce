@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function ProfileSidebarSection() {
+export default function ProfileLayoutNavDesktop() {
   const t = useTranslations("ProfileLayout.sidebar");
   const pathname = usePathname();
 

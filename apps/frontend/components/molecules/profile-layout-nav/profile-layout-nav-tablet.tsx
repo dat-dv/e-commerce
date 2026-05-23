@@ -43,10 +43,10 @@ const PROFILE_TABS = [
   },
 ] as const;
 
-export function ProfileSettingNavTablet({
+export function ProfileLayoutNavTabletAndBelow({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   const pathname = usePathname();
   const t = useTranslations("ProfileLayout.sidebar");
@@ -91,7 +91,7 @@ export function ProfileSettingNavTablet({
         })}
       </div>
 
-      <div className="mt-12">{children}</div>
+      {children ? <div className="mt-12">{children}</div> : null}
     </div>
   );
 }
