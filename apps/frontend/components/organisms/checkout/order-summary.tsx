@@ -1,4 +1,5 @@
 import Button from "@/components/atoms/button";
+import TurnstileWrapper from "@/components/molecules/cloudflare-turnstile";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
@@ -106,20 +107,28 @@ export const OrderSummary = ({
             </div>
           </div>
 
-          <Button
-            onClick={onPlaceOrder}
-            disabled={loading || isItemsEmpty}
-            loading={loading}
-            className={cn(
-              UI_RADIUS.control,
-              `relative w-full overflow-hidden py-5 ${TYPOGRAPHY.caption} font-semibold tracking-[0.18em] uppercase transition-all md:py-6 md:tracking-[0.3em]`,
-              loading || isItemsEmpty
-                ? "bg-content/5 text-content/20 cursor-not-allowed"
-                : "bg-primary text-surface shadow-primary/20 shadow-xl transition-all hover:opacity-90 active:scale-[0.98]",
-            )}
-          >
-            {loading ? t("processing") : t("complete")}
-          </Button>
+          <TurnstileWrapper>
+            {({ isVerified, token }) => {
+              const isLoading = !isVerified && loading && !isItemsEmpty;
+              const disabled = !isVerified || isLoading || isItemsEmpty;
+              return (
+                <Button
+                  onClick={onPlaceOrder}
+                  disabled={disabled}
+                  loading={isLoading}
+                  className={cn(
+                    UI_RADIUS.control,
+                    `relative w-full overflow-hidden py-5 ${TYPOGRAPHY.caption} font-semibold tracking-[0.18em] uppercase transition-all md:py-6 md:tracking-[0.3em]`,
+                    isLoading
+                      ? "bg-content/5 text-content/20 cursor-not-allowed"
+                      : "bg-primary text-surface transition-all hover:opacity-90 active:scale-[0.98]",
+                  )}
+                >
+                  {loading ? t("processing") : t("complete")}
+                </Button>
+              );
+            }}
+          </TurnstileWrapper>
         </div>
       </motion.div>
     </div>
