@@ -7,7 +7,7 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 
 import HeaderLogo from "../header-desktop/header-logo";
-import MobileNavLinks from "./mobile-nav-links";
+import MobileNavLinks from "./tablet-nav-links";
 import UserProfileSection from "./user-profile-section";
 import UserShortcuts from "./user-shortcuts";
 

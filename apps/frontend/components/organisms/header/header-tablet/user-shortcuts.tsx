@@ -17,7 +17,7 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import MobileDrawerAction, {
   MobileDrawerSectionTitle,
-} from "./mobile-drawer-action";
+} from "./tablet-drawer-action";
 
 interface IUserShortcutsProps {
   onClose: () => void;

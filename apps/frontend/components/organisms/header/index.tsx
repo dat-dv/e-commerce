@@ -1,7 +1,7 @@
 "use client";
 
 import HeaderDesktop from "./header-desktop";
-import HeaderMobile from "./header-mobile/mobile";
+import HeaderTabletAndBellow from "./header-tablet";
 
 export default function Header() {
   return (
@@ -10,7 +10,7 @@ export default function Header() {
         <HeaderDesktop />
       </div>
       <div className="sticky top-0 z-50 lg:hidden">
-        <HeaderMobile />
+        <HeaderTabletAndBellow />
       </div>
     </>
   );

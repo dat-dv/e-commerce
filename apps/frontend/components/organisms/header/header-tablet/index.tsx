@@ -6,16 +6,13 @@ import HamburgerButton from "@/components/atoms/hamburger-button";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
-import {
-  RenderMobileOnly,
-  RenderTabletOnly,
-} from "@/components/molecules/responsive";
+import { RenderTabletAndBelow } from "@/components/molecules/responsive";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "../header-desktop/header-logo";
-import MobileNavDrawer from "./mobile-nav-drawer";
-import MobileSearchDrawer from "./mobile-search-drawer";
+import MobileNavDrawer from "./tablet-nav-drawer";
+import MobileSearchDrawer from "./tablet-search-drawer";
 
-export default function HeaderMobile() {
+export default function HeaderTabletAndBellow() {
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
   const [isOpenSearch, setIsOpenSearch] = useState(false);
 
@@ -34,14 +31,13 @@ export default function HeaderMobile() {
           >
             <Search className="size-5" aria-hidden="true" />
           </Button>
-          <RenderMobileOnly>
-            <HeaderActions visible={["notifications", "cart"]} />
-          </RenderMobileOnly>
-          <RenderTabletOnly>
-            <HeaderActions
-              visible={["avatar", "notifications", "cart", "fallback"]}
-            />
-          </RenderTabletOnly>
+          <HeaderActions
+            visible={["avatar", "notifications", "cart", "fallback"]}
+            classNames={{
+              avatar: "hidden md:contents lg:hidden",
+              fallback: "hidden md:contents lg:hidden",
+            }}
+          />
           <HamburgerButton
             isOpen={isOpenMobileMenu}
             onClick={() => setIsOpenMobileMenu(true)}
@@ -51,14 +47,16 @@ export default function HeaderMobile() {
         </div>
       </AppContainer>
 
-      <MobileNavDrawer
-        isOpen={isOpenMobileMenu}
-        onClose={() => setIsOpenMobileMenu(false)}
-      />
-      <MobileSearchDrawer
-        isOpen={isOpenSearch}
-        onClose={() => setIsOpenSearch(false)}
-      />
+      <RenderTabletAndBelow>
+        <MobileNavDrawer
+          isOpen={isOpenMobileMenu}
+          onClose={() => setIsOpenMobileMenu(false)}
+        />
+        <MobileSearchDrawer
+          isOpen={isOpenSearch}
+          onClose={() => setIsOpenSearch(false)}
+        />
+      </RenderTabletAndBelow>
     </header>
   );
 }

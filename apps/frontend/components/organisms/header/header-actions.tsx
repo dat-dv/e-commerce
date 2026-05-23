@@ -17,8 +17,15 @@ import AvatarDropdown from "../../molecules/avatar-dropdown";
 
 export default function HeaderActions({
   visible = ["cart", "avatar", "notifications", "favorites", "fallback"],
+  classNames,
 }: {
   visible?: ("cart" | "avatar" | "notifications" | "favorites" | "fallback")[];
+  classNames?: Partial<
+    Record<
+      "cart" | "avatar" | "notifications" | "favorites" | "fallback",
+      string
+    >
+  >;
 }) {
   const user = useAuthStore((store) => store.user);
   const { handleClickLogout } = useLogout();
@@ -37,7 +44,7 @@ export default function HeaderActions({
       <ProtectedSection
         fallbackChildren={
           isFallbackVisible && (
-            <>
+            <div className={cn("contents", classNames?.fallback)}>
               <Button
                 variant="ghost"
                 size="sm"
@@ -54,7 +61,7 @@ export default function HeaderActions({
               >
                 {t("signUp")}
               </Button>
-            </>
+            </div>
           )
         }
       >
@@ -66,6 +73,7 @@ export default function HeaderActions({
               isFavoritesActive
                 ? "bg-primary/10 text-primary"
                 : "text-content/60 hover:bg-content/[0.05] hover:text-content",
+              classNames?.favorites,
             )}
             title={t("favorites")}
           >
@@ -76,7 +84,10 @@ export default function HeaderActions({
           <Button
             variant="ghost"
             onClick={() => setCartOpen(true)}
-            className="text-content/60 hover:text-content hover:bg-content/[0.05] relative flex h-auto items-center justify-center rounded-full p-2.5 opacity-100 transition-colors hover:opacity-100 active:scale-95"
+            className={cn(
+              "text-content/60 hover:text-content hover:bg-content/[0.05] relative flex h-auto items-center justify-center rounded-full p-2.5 opacity-100 transition-colors hover:opacity-100 active:scale-95",
+              classNames?.cart,
+            )}
             title={t("cart")}
           >
             <CartIcon isActive={isCartOpen} itemsCount={itemsCount} />
@@ -87,14 +98,20 @@ export default function HeaderActions({
             )}
           </Button>
         )}
-        {isNotificationsVisible && <NotificationCenter />}
+        {isNotificationsVisible && (
+          <div className={cn("contents", classNames?.notifications)}>
+            <NotificationCenter />
+          </div>
+        )}
         {isAvatarVisible && (
-          <AvatarDropdown
-            name={`${user?.firstName || ""} ${user?.lastName || ""}`}
-            email={user?.email || ""}
-            avatarUrl={user?.avatarUrl || ""}
-            handleClickLogout={handleClickLogout}
-          />
+          <div className={cn("contents", classNames?.avatar)}>
+            <AvatarDropdown
+              name={`${user?.firstName || ""} ${user?.lastName || ""}`}
+              email={user?.email || ""}
+              avatarUrl={user?.avatarUrl || ""}
+              handleClickLogout={handleClickLogout}
+            />
+          </div>
         )}
       </ProtectedSection>
     </div>

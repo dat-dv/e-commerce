@@ -14,7 +14,7 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import MobileDrawerAction, {
   MobileDrawerSectionTitle,
-} from "./mobile-drawer-action";
+} from "./tablet-drawer-action";
 
 interface IMobileNavLinksProps {
   onClose: () => void;
