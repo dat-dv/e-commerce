@@ -1,4 +1,4 @@
-import { createRequest } from "../utils/request/create-request";
+import { createRequest } from "../utils/request";
 import {
   IRequestOptions,
   RequestBody,
