@@ -42,7 +42,7 @@ export const NotificationSummary = ({
       aria-label={t("summary.label")}
       className="-mx-4 mb-4 overflow-x-auto px-4 sm:mx-0 sm:mb-8 sm:px-0"
     >
-      <div className="flex gap-3 sm:grid sm:grid-cols-3 sm:gap-4">
+      <div className="flex min-w-max gap-3 sm:min-w-0 sm:gap-4">
         {summaryItems.map(({ label, value, icon, active }) => (
           <SummaryCard
             key={label}
@@ -50,28 +50,24 @@ export const NotificationSummary = ({
             value={value}
             icon={icon}
             active={active}
-            className="min-h-[88px] min-w-[140px] flex-1 rounded-2xl p-3 sm:min-h-[120px] sm:min-w-0 sm:rounded-3xl sm:p-5"
-            contentClassName="gap-4"
+            className="min-w-[148px] flex-1 shrink-0 rounded-2xl px-3 py-2.5 sm:min-w-[180px] sm:px-4 sm:py-3"
+            contentClassName="gap-5"
             labelClassName={`
-              truncate
+              whitespace-nowrap
               ${TYPOGRAPHY.badge}
               tracking-[0.12em]
-              sm:${TYPOGRAPHY.caption}
-              sm:tracking-[0.18em]
             `}
             valueClassName="
-              mt-2
+              mt-1.5
               text-2xl
-              sm:mt-3
-              sm:text-4xl
+              sm:text-3xl
             "
             iconWrapperClassName="
               size-8
               rounded-xl
-              sm:size-11
-              sm:rounded-2xl
+              sm:size-9
             "
-            iconClassName="size-4 sm:size-5"
+            iconClassName="size-4"
           />
         ))}
       </div>

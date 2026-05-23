@@ -113,10 +113,7 @@ export function AnimatedPageHeader({
             </h1>
 
             {description && (
-              <motion.p
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, ease: "easeOut", delay: 0.05 }}
+              <LiquidWaveText
                 className={
                   center
                     ? `max-w-2xl text-center ${TYPOGRAPHY.body} text-content/50 leading-relaxed font-medium tracking-normal md:text-lg`
@@ -124,7 +121,7 @@ export function AnimatedPageHeader({
                 }
               >
                 {description}
-              </motion.p>
+              </LiquidWaveText>
             )}
           </div>
           {rightContent && (
