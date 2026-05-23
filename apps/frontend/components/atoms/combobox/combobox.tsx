@@ -81,7 +81,10 @@ export function AppComboBox<
                 )
               }
             />
-            <RACButton className="text-content/40 hover:text-content absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer p-1 transition-colors outline-none">
+            <RACButton
+              className="text-content/40 hover:text-content absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer p-1 transition-colors outline-none"
+              aria-label="Toggle options dropdown"
+            >
               <ChevronDown className="h-4 w-4" />
             </RACButton>
           </div>

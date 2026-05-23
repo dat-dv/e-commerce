@@ -51,6 +51,7 @@ export function RangeCalendar<T extends DateValue>(
             UI_RADIUS.control,
             "text-content/50 hover:text-content hover:bg-content/5 cursor-pointer p-1.5 transition-colors outline-none",
           )}
+          aria-label="Previous Month"
         >
           <ChevronLeft className="h-5 w-5" />
         </RACButton>
@@ -61,6 +62,7 @@ export function RangeCalendar<T extends DateValue>(
             UI_RADIUS.control,
             "text-content/50 hover:text-content hover:bg-content/5 cursor-pointer p-1.5 transition-colors outline-none",
           )}
+          aria-label="Next Month"
         >
           <ChevronRight className="h-5 w-5" />
         </RACButton>
@@ -172,7 +174,10 @@ export function DateRangePicker<T extends DateValue>({
                 className="min-w-[110px]"
               />
             </div>
-            <RACButton className="text-content/40 hover:text-content ml-2 cursor-pointer p-1 transition-colors outline-none">
+            <RACButton
+              className="text-content/40 hover:text-content ml-2 cursor-pointer p-1 transition-colors outline-none"
+              aria-label="Open calendar picker"
+            >
               <CalendarIcon className="h-5 w-5" />
             </RACButton>
           </RACGroup>

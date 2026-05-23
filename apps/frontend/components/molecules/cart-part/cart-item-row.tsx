@@ -53,7 +53,11 @@ export const CartItemRow = ({
       <div className="relative z-10 flex flex-col gap-4 md:flex-row md:items-center">
         {/* Checkbox & Product Info */}
         <div className="flex min-w-0 flex-1 items-start gap-3 md:items-center">
-          <Checkbox checked={isSelected} onCheckedChange={onToggleSelect} />
+          <Checkbox
+            checked={isSelected}
+            onCheckedChange={onToggleSelect}
+            aria-label={`Select product ${item.name}`}
+          />
 
           <Link
             href={APP_ROUTES.PRODUCT_DETAIL(item.productId)}

@@ -76,6 +76,7 @@ export default function HeaderActions({
               classNames?.favorites,
             )}
             title={t("favorites")}
+            aria-label={t("favorites")}
           >
             <FavoriteIcon isActive={isFavoritesActive} />
           </Link>

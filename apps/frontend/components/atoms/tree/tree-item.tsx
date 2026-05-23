@@ -63,7 +63,13 @@ export function AppTreeItem({
             )}
 
             {selectionMode !== "none" && selectionBehavior === "toggle" && (
-              <Checkbox slot="selection" className="relative z-10 mr-2" />
+              <Checkbox
+                slot="selection"
+                className="relative z-10 mr-2"
+                aria-label={
+                  typeof title === "string" ? `Select ${title}` : "Select item"
+                }
+              />
             )}
             <div className="relative z-10 w-[calc(calc(var(--tree-item-level)_-_1)_*_10px)] shrink-0" />
 

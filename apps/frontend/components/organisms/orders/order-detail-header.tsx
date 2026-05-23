@@ -27,6 +27,7 @@ export function OrderDetailHeader({
         <Link
           href={APP_ROUTES.ORDERS}
           className="border-content/[0.05] hover:bg-content/[0.05] flex size-10 shrink-0 items-center justify-center rounded-full border transition-colors"
+          aria-label="Back to orders"
         >
           <ArrowLeft className="text-content/60 h-5 w-5" />
         </Link>

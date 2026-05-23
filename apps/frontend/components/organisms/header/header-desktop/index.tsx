@@ -55,6 +55,7 @@ export default function HeaderDesktop() {
                 : "text-content/60 hover:text-content hover:bg-content/5",
             )}
             title={t("settings")}
+            aria-label={t("settings")}
           >
             <SettingsIcon isActive={isSettingsActive} />
           </Button>

@@ -24,7 +24,11 @@ export const CartTableHead = ({
       )}
     >
       <div className="flex min-w-0 flex-1 items-center gap-3 md:gap-4">
-        <Checkbox checked={isAllSelected} onCheckedChange={onToggleSelectAll} />
+        <Checkbox
+          checked={isAllSelected}
+          onCheckedChange={onToggleSelectAll}
+          aria-label="Select all products"
+        />
         <span className="truncate md:ml-2">{t("product")}</span>
       </div>
       <div className="hidden w-32 text-center md:block">{t("unitPrice")}</div>

@@ -31,6 +31,7 @@ export const AddAddressModal = ({
   editingAddress,
 }: AddAddressModalProps) => {
   const t = useTranslations("ProfileAddressesPage");
+  const tCommon = useTranslations("Common.modal");
   const initialData: Partial<AddressFormInput> | undefined = editingAddress
     ? {
         receiverName: editingAddress.name,
@@ -87,6 +88,7 @@ export const AddAddressModal = ({
             size="icon"
             onClick={onClose}
             className="hover:bg-content/5 rounded-full transition-colors"
+            aria-label={tCommon("close")}
           >
             <XIcon className="h-5 w-5" />
           </Button>
