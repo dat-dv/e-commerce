@@ -111,7 +111,9 @@ export const CarouselItem = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("flex min-w-0 flex-col items-stretch", className)}>
+    <div
+      className={cn("flex h-full min-w-0 flex-col items-stretch", className)}
+    >
       {children}
     </div>
   );

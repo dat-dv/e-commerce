@@ -1,38 +1,23 @@
+"use client";
+
 import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
 import { LucideIcon } from "lucide-react";
 import { useMemo } from "react";
 import { Carousel, CarouselItem } from "../carousel";
-import { PRODUCT_CAROUSEL_ITEM_CLASS } from "../carousel/carousel.constants";
 import { ProductCard } from "../product-card";
 import { SectionHeader } from "../section-header";
-
-const ProductCardSpacer = () => (
-  <div
-    aria-hidden="true"
-    className="pointer-events-none invisible flex h-full flex-1 flex-col p-3"
-  >
-    <div className="relative aspect-square rounded-xl bg-transparent" />
-    <div className="mt-3 flex flex-grow flex-col">
-      <span className="text-[10px]">&nbsp;</span>
-      <h3 className="mt-1 text-sm font-bold">&nbsp;</h3>
-      <div className="mt-1 flex items-center gap-2">&nbsp;</div>
-      <div className="mt-auto flex items-center justify-between pt-3">
-        &nbsp;
-      </div>
-    </div>
-  </div>
-);
 
 interface IProductCarouselProps {
   title: string;
   href?: string;
   icon: LucideIcon;
   products: TProduct[];
-  rows: 1 | 2;
+  rows?: 1 | 2;
   lang: string;
-  itemClassName?: string;
 }
+
+const DESKTOP_COLUMNS = 4;
 
 export const ProductCarousel = ({
   title,
@@ -40,21 +25,19 @@ export const ProductCarousel = ({
   icon: Icon,
   products,
   rows = 1,
-  itemClassName = PRODUCT_CAROUSEL_ITEM_CLASS,
 }: IProductCarouselProps) => {
-  const carouselProducts = useMemo(() => {
-    if (rows === 1) {
-      return products.map((product) => [product]);
+  const carouselPages = useMemo(() => {
+    const itemsPerPage = rows * DESKTOP_COLUMNS;
+    const result: TProduct[][] = [];
+
+    for (let i = 0; i < products.length; i += itemsPerPage) {
+      result.push(products.slice(i, i + itemsPerPage));
     }
 
-    const chunked: TProduct[][] = [];
-
-    for (let i = 0; i < products.length; i += rows) {
-      chunked.push(products.slice(i, i + rows));
-    }
-
-    return chunked;
+    return result;
   }, [products, rows]);
+
+  if (products.length === 0) return null;
 
   return (
     <section className="flex flex-col gap-4 sm:gap-6">
@@ -65,16 +48,12 @@ export const ProductCarousel = ({
       />
 
       <Carousel options={{ align: "start" }}>
-        {carouselProducts.map((column, index) => (
-          <CarouselItem key={index} className={itemClassName}>
-            <div className="flex flex-grow flex-col gap-4 sm:gap-6">
-              {column.map((product, idx) => (
-                <ProductCard
-                  key={`${index}-${product.id || idx}`}
-                  product={product}
-                />
+        {carouselPages.map((page, pageIndex) => (
+          <CarouselItem key={pageIndex} className="flex-[0_0_100%]">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+              {page.map((product) => (
+                <ProductCard key={product.id} product={product} />
               ))}
-              {rows > 1 && column.length < rows ? <ProductCardSpacer /> : null}
             </div>
           </CarouselItem>
         ))}
