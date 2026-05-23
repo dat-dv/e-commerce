@@ -52,13 +52,14 @@ export function AnimatedPageHeader({
               rotate: i % 2 === 0 ? -10 : 10,
             }}
             animate={{
-              y: [0, -24, 0],
+              y: [0, -14, 0],
               rotate: i % 2 === 0 ? [-10, 10, -10] : [10, -10, 10],
             }}
             transition={{
-              duration: (10 + i * 2) / speed,
+              duration: (14 + i * 2) / speed,
               repeat: Infinity,
               ease: "easeInOut",
+              delay: i * 0.15,
             }}
             style={{
               left: `${15 + i * 25}%`,
@@ -83,12 +84,7 @@ export function AnimatedPageHeader({
         }}
       />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: entranceDuration }}
-        className="relative z-20 w-full"
-      >
+      <div className="relative z-20 w-full">
         <div
           className={
             center
@@ -103,21 +99,24 @@ export function AnimatedPageHeader({
                 : "flex min-w-0 flex-col items-center gap-4 sm:gap-5 md:items-start"
             }
           >
-            <LiquidWaveText>
-              <h1
-                className={`max-w-full break-words ${TYPOGRAPHY.heroTitle} text-content leading-none tracking-normal uppercase`}
-              >
+            <h1
+              className={`max-w-full break-words ${TYPOGRAPHY.heroTitle} text-content leading-none tracking-normal uppercase`}
+            >
+              <LiquidWaveText>
                 {title}{" "}
                 {highlight && (
                   <span className="text-content/30 font-light italic">
                     {highlight}
                   </span>
                 )}
-              </h1>
-            </LiquidWaveText>
+              </LiquidWaveText>
+            </h1>
 
             {description && (
-              <p
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, ease: "easeOut", delay: 0.05 }}
                 className={
                   center
                     ? `max-w-2xl text-center ${TYPOGRAPHY.body} text-content/50 leading-relaxed font-medium tracking-normal md:text-lg`
@@ -125,13 +124,21 @@ export function AnimatedPageHeader({
                 }
               >
                 {description}
-              </p>
+              </motion.p>
             )}
           </div>
-
-          {rightContent && <div className="shrink-0 pb-1">{rightContent}</div>}
+          {rightContent && (
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut", delay: 0.1 }}
+              className="shrink-0 pb-1"
+            >
+              {rightContent}
+            </motion.div>
+          )}{" "}
         </div>
-      </motion.div>
+      </div>
 
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.015]"

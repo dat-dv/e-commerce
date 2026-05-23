@@ -23,13 +23,13 @@ export const CategoriesContent = ({
 
   return (
     <div className="min-w-0 flex-1">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={activeId}
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-6">
@@ -41,7 +41,7 @@ export const CategoriesContent = ({
                   hidden: { opacity: 0 },
                   show: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.05 },
+                    transition: { staggerChildren: 0.03 },
                   },
                 }}
                 initial="hidden"
@@ -60,8 +60,12 @@ export const CategoriesContent = ({
                     <motion.section
                       key={category.id}
                       variants={{
-                        hidden: { opacity: 0, y: 14 },
-                        show: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: 8 },
+                        show: {
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.25, ease: "easeOut" },
+                        },
                       }}
                       className="group border-content/[0.07] bg-surface hover:border-primary/20 flex min-h-48 flex-col rounded-lg border p-4 transition-colors"
                     >
@@ -159,7 +163,7 @@ export const CategoriesContent = ({
                   hidden: { opacity: 0 },
                   show: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.05 },
+                    transition: { staggerChildren: 0.03 },
                   },
                 }}
                 initial="hidden"
@@ -172,8 +176,12 @@ export const CategoriesContent = ({
                     <motion.div
                       key={child.id}
                       variants={{
-                        hidden: { opacity: 0, y: 14 },
-                        show: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: 8 },
+                        show: {
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.25, ease: "easeOut" },
+                        },
                       }}
                     >
                       <Link
