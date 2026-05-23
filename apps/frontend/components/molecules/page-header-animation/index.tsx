@@ -13,6 +13,8 @@ interface AnimatedPageHeaderProps {
   icons: LucideIcon[];
   rightContent?: ReactNode;
   center?: boolean;
+  entranceDuration?: number;
+  speed?: number;
 }
 
 export function AnimatedPageHeader({
@@ -22,6 +24,8 @@ export function AnimatedPageHeader({
   icons,
   rightContent,
   center = false,
+  entranceDuration = 0.6,
+  speed = 2,
 }: AnimatedPageHeaderProps) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -34,10 +38,7 @@ export function AnimatedPageHeader({
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+    <div
       onMouseMove={handleMouseMove}
       className="group border-content/[0.03] relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b sm:mb-8 sm:min-h-[260px]"
     >
@@ -47,16 +48,15 @@ export function AnimatedPageHeader({
             key={i}
             className="text-content absolute"
             initial={{
-              x: ((i * 149) % 1000) - 500,
-              y: ((i * 73) % 500) - 250,
-              rotate: ((i * 31) % 45) - 22,
+              y: 0,
+              rotate: i % 2 === 0 ? -10 : 10,
             }}
             animate={{
               y: [0, -24, 0],
-              rotate: [i % 2 === 0 ? -10 : 10, i % 2 === 0 ? 10 : -10],
+              rotate: i % 2 === 0 ? [-10, 10, -10] : [10, -10, 10],
             }}
             transition={{
-              duration: 10 + i * 2,
+              duration: (10 + i * 2) / speed,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -83,7 +83,12 @@ export function AnimatedPageHeader({
         }}
       />
 
-      <div className="relative z-20 w-full">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: entranceDuration }}
+        className="relative z-20 w-full"
+      >
         <div
           className={
             center
@@ -126,7 +131,7 @@ export function AnimatedPageHeader({
 
           {rightContent && <div className="shrink-0 pb-1">{rightContent}</div>}
         </div>
-      </div>
+      </motion.div>
 
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.015]"
@@ -136,7 +141,7 @@ export function AnimatedPageHeader({
           backgroundSize: "32px 32px",
         }}
       />
-    </motion.div>
+    </div>
   );
 }
 

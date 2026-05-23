@@ -6,10 +6,11 @@ import {
   RenderMobileOnly,
   RenderTabletAndAbove,
 } from "@/components/molecules/responsive";
-import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useUpdateProfile } from "@/hooks/profile/use-update-profile";
 import { useUpLoadProfileAvatar } from "@/hooks/profile/use-upload-profile-avatar";
+import { ProfileViewMobileSkeleton } from "./profile-view-mobile.skeleton";
+import { ProfileViewTabletAboveSkeleton } from "./profile-view-tablet-above.skeleton";
 
 export const ProfileView = () => {
   const user = useAuthStore((state) => state.user);
@@ -18,7 +19,7 @@ export const ProfileView = () => {
 
   return (
     <>
-      <RenderTabletAndAbove>
+      <RenderTabletAndAbove fallback={<ProfileViewTabletAboveSkeleton />}>
         <div className="space-y-12">
           <ProfileFormDesktop
             user={user}
@@ -27,11 +28,10 @@ export const ProfileView = () => {
             isLoading={isUpdating}
             isUploading={isUploading}
           />
-          <DiscoveryCarouselSection />
         </div>
       </RenderTabletAndAbove>
 
-      <RenderMobileOnly>
+      <RenderMobileOnly fallback={<ProfileViewMobileSkeleton />}>
         <ProfileFormMobile
           user={user}
           updateProfile={updateProfile}
