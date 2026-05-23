@@ -62,14 +62,14 @@ export default function LiquidWaveText({
         "relative inline-block overflow-hidden pr-1 align-middle leading-normal",
         className,
         enableSelection
-          ? "selection:bg-primary/20 selection:text-primary select-text"
+          ? "selection:bg-primary/20 selection:text-primary cursor-text select-text"
           : "select-none",
       )}
-      {...selectProps}
       initial={false}
       animate={baseVariant}
       whileHover={isAnimate ? interactionVariant : undefined}
       whileTap={isAnimate && !enableSelection ? interactionVariant : undefined}
+      {...selectProps}
     >
       <span
         className={cn(
