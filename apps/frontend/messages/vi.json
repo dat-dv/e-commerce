@@ -425,7 +425,11 @@
       "description": "Khám phá bộ sưu tập sản phẩm cao cấp được tuyển chọn."
     },
     "productCard": {
-      "noImage": "Không có ảnh"
+      "noImage": "Không có ảnh",
+      "viewDetails": "Xem chi tiết",
+      "addToCart": "Thêm vào giỏ",
+      "addToWishlist": "Thêm vào yêu thích",
+      "removeFromWishlist": "Xóa khỏi yêu thích"
     },
     "virtualized": {
       "loadingMore": "Đang tải thêm...",

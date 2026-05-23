@@ -137,6 +137,7 @@ export const FlashSaleCard = ({ product }: { product: TFlashSaleProduct }) => {
           <Button
             onClick={handleAddToCart}
             variant="ghost"
+            aria-label={t("addToCart")}
             className={cn(
               UI_RADIUS.control,
               "flex h-9 w-9 items-center justify-center border border-red-500/10 p-0 text-red-500 hover:bg-red-500/10 lg:hidden",

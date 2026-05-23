@@ -6,6 +6,7 @@ import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct } from "@/domain/products/types/products.model";
 import { cn } from "@/utils/cn";
 import { Eye, Heart, ShoppingBag } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { MouseEvent, ReactNode } from "react";
@@ -39,6 +40,8 @@ export function ProductCardMedia({
   viewDetailsTitle,
   addToCartTitle,
 }: ProductCardMediaProps) {
+  const t = useTranslations("Common.productCard");
+
   return (
     <div
       className={cn(
@@ -65,6 +68,7 @@ export function ProductCardMedia({
           href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
           className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-all hover:bg-white/90"
           title={viewDetailsTitle}
+          aria-label={viewDetailsTitle || t("viewDetails")}
         >
           <Eye size={18} aria-hidden />
         </Link>
@@ -76,6 +80,7 @@ export function ProductCardMedia({
             addToCartClassName,
           )}
           title={addToCartTitle}
+          aria-label={addToCartTitle || t("addToCart")}
         >
           <ShoppingBag size={18} aria-hidden />
         </Button>
@@ -94,6 +99,9 @@ export function ProductCardMedia({
           onClick={onToggleFavorite}
           disabled={favoriteLoading}
           variant="ghost"
+          aria-label={
+            isFavorited ? t("removeFromWishlist") : t("addToWishlist")
+          }
           className={cn(
             "absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 shadow-lg duration-300 active:scale-75",
             isFavorited
@@ -107,6 +115,7 @@ export function ProductCardMedia({
               "transition-transform",
               isFavorited && "fill-current",
             )}
+            aria-hidden
           />
         </Button>
       ) : null}

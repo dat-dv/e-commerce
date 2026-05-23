@@ -87,6 +87,8 @@ export const ProductCard = ({
         isFavorited={isFavorited}
         favoriteLoading={favoriteLoading}
         onToggleFavorite={toggleFavorite}
+        viewDetailsTitle={t("viewDetails")}
+        addToCartTitle={t("addToCart")}
         badges={
           hasDiscount ? (
             <div
@@ -133,6 +135,7 @@ export const ProductCard = ({
           <Button
             onClick={handleAddToCart}
             variant="ghost"
+            aria-label={t("addToCart")}
             className={cn(
               UI_RADIUS.control,
               "text-content/20 hover:text-primary hover:bg-primary/10 border-content/5 flex h-9 w-9 items-center justify-center border p-0 lg:hidden",

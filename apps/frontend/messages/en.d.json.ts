@@ -428,7 +428,11 @@ declare const messages: {
       "description": "Explore our curated collection of premium products."
     },
     "productCard": {
-      "noImage": "No Image"
+      "noImage": "No Image",
+      "viewDetails": "View Details",
+      "addToCart": "Add to Cart",
+      "addToWishlist": "Add to Wishlist",
+      "removeFromWishlist": "Remove from Wishlist"
     },
     "virtualized": {
       "loadingMore": "Loading more...",
