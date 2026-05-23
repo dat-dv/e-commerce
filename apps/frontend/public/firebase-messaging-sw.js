@@ -29,3 +29,87 @@ messaging.onBackgroundMessage((payload) => {
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
+
+// PWA offline support & caching
+const CACHE_NAME = "shophub-pwa-cache-v1";
+const ASSETS_TO_CACHE = ["/", "/icon.svg", "/favicon.ico"];
+
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS_TO_CACHE).catch((err) => {
+        console.warn("Pre-caching failed during install:", err);
+      });
+    }),
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    Promise.all([
+      self.clients.claim(),
+      // Delete old caches
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheName !== CACHE_NAME) {
+              return caches.delete(cacheName);
+            }
+          }),
+        );
+      }),
+    ]),
+  );
+});
+
+// Cache-first with Network-fallback strategy for static assets
+self.addEventListener("fetch", (event) => {
+  // Only cache GET requests
+  if (event.request.method !== "GET") return;
+
+  const url = new URL(event.request.url);
+
+  // Don't cache API requests or NextJS internal hot-reloads
+  if (
+    url.pathname.startsWith("/api") ||
+    url.pathname.includes("/_next/webpack-hmr")
+  ) {
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // Fetch new version in background (stale-while-revalidate)
+        fetch(event.request)
+          .then((networkResponse) => {
+            if (networkResponse.status === 200) {
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, networkResponse);
+              });
+            }
+          })
+          .catch(() => {});
+        return cachedResponse;
+      }
+
+      return fetch(event.request).then((response) => {
+        // Cache static assets (fonts, images, js, css)
+        if (
+          response.status === 200 &&
+          (url.pathname.match(
+            /\.(js|css|png|jpg|jpeg|svg|woff2|woff|ttf|ico)$/,
+          ) ||
+            event.request.destination === "document")
+        ) {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return response;
+      });
+    }),
+  );
+});

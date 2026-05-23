@@ -1,6 +1,6 @@
 import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
-import { NotificationProvider } from "@/components/providers/notification-provider";
+import { NotificationProvider } from "@/components/molecules/providers/notification-provider";
 import { ToastProvider } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
 import { authUseCase } from "@/domain/auth/use-cases";
@@ -10,6 +10,7 @@ import { allSafe } from "@/utils/promise";
 import { getServerSubdomain } from "@/utils/sub-domain/get-server-sub-domain";
 import { getMessages } from "next-intl/server";
 import React from "react";
+import { PwaRegister } from "./pwa-register";
 import { AddressProvider } from "./address-provider";
 import { AuthProvider } from "./auth-provider";
 import { CartProvider } from "./cart-provider";
@@ -36,6 +37,7 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <I18nProviderClient locale={language!} messages={messages!}>
+      <PwaRegister />
       <ConfigProvider initState={{ language: language! }}>
         <CategoriesProvider initState={{ categories }}>
           <AuthProvider initState={{ user: authRes?.data, hasHydrated: true }}>
