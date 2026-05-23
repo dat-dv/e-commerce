@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import Button from "@/components/atoms/button";
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
 
@@ -13,13 +13,15 @@ export const JoinUs = () => {
       <div className="relative z-10 grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
         <div className="max-w-3xl">
           <h2 className="text-content text-4xl leading-none font-black tracking-[-0.06em] uppercase md:text-6xl">
-            {t.rich("title", {
-              br: () => <br />,
-            })}
+            <LiquidWaveText>
+              {t.rich("title", {
+                br: () => <br />,
+              })}
+            </LiquidWaveText>
           </h2>
 
           <p className="text-content/50 mt-6 max-w-xl text-base leading-relaxed font-medium md:text-lg">
-            {t("desc")}
+            <LiquidWaveText>{t("desc")}</LiquidWaveText>
           </p>
         </div>
 
