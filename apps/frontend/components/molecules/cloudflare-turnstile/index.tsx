@@ -7,45 +7,6 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 
-interface CloudflareTurnstileProps {
-  onVerify: (token: string | null) => void;
-  className?: string;
-}
-
-export function CloudflareTurnstile({
-  onVerify,
-  className,
-}: CloudflareTurnstileProps): React.ReactElement {
-  const { isDarkMode } = useConfig();
-  const siteKey = PUBLIC_ENV.NEXT_PUBLIC_CF_SITE_KEY;
-
-  if (!siteKey) {
-    console.log("NEXT_PUBLIC_CF_SITE_KEY is not defined");
-    return <></>;
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.3 }}
-      className={cn("flex w-full justify-center", className)}
-    >
-      <Turnstile
-        siteKey={siteKey}
-        options={{
-          theme: isDarkMode ? "dark" : "light",
-          size: "normal",
-        }}
-        onSuccess={(token) => onVerify(token)}
-        onExpire={() => onVerify(null)}
-        onError={() => onVerify(null)}
-      />
-    </motion.div>
-  );
-}
-
 interface TurnstileWrapperProps {
   children: (props: {
     isVerified: boolean;
@@ -58,18 +19,36 @@ export function TurnstileWrapper({
   children,
   className,
 }: TurnstileWrapperProps): React.ReactElement {
-  const siteKey = PUBLIC_ENV.NEXT_PUBLIC_CF_SITE_KEY;
+  const siteKey = PUBLIC_ENV.NEXT_PUBLIC_CF_SITE_KEY!;
   const [token, setToken] = useState<string | null>(null);
 
   const hasSiteKey = Boolean(siteKey);
   const isVerified = !hasSiteKey || Boolean(token);
+  const { isDarkMode } = useConfig();
 
   return (
     <div className="flex flex-col gap-4">
       {children({ isVerified, token })}
       {hasSiteKey && (
         <AnimatePresence>
-          <CloudflareTurnstile onVerify={setToken} className={className} />
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.3 }}
+            className={cn("flex w-full justify-center", className)}
+          >
+            <Turnstile
+              siteKey={siteKey}
+              options={{
+                theme: isDarkMode ? "dark" : "light",
+                size: "normal",
+              }}
+              onSuccess={(token) => setToken(token)}
+              onExpire={() => setToken(null)}
+              onError={() => setToken(null)}
+            />
+          </motion.div>
         </AnimatePresence>
       )}
     </div>
