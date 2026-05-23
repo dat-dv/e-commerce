@@ -74,7 +74,6 @@ export async function handleAuthRefresh(
       if (res.ok) {
         // 1. Trích xuất cookie từ Header của NestJS
         const setCookies = res.headers.getSetCookie(); // Trả về mảng ['access_token=...', 'refresh_token=...']
-        console.log(666, setCookies);
         let newAccessToken = "";
         let newRefreshToken = "";
 
