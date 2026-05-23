@@ -32,6 +32,7 @@ export default function SearchBar({ options, placeholder }: SearchBarProps) {
           size="sm"
           className={`w-24 font-bold tracking-wider uppercase ${TYPOGRAPHY.badge} text-content/60`}
           itemClassName={`px-3 py-2 ${TYPOGRAPHY.caption}`}
+          aria-label={t("routeLabel")}
         />
       </div>
 

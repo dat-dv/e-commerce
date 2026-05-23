@@ -74,6 +74,7 @@ export function AppTreeItem({
                   "hover:bg-content/[0.04] relative z-10 mr-1 flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent p-0 text-start transition-colors outline-none",
                   isDisabled && "text-content/30 cursor-not-allowed opacity-50",
                 )}
+                aria-label={isExpanded ? "Collapse" : "Expand"}
               >
                 <ChevronRight
                   aria-hidden

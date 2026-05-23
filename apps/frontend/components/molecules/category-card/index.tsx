@@ -45,6 +45,7 @@ export const CategoryCard = ({
       {image ? (
         <Image
           width={80}
+          loading="eager"
           height={80}
           src={image}
           alt={name}

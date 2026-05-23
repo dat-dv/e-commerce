@@ -74,6 +74,7 @@ export const CategoryNavSidebar = ({
 
             {filteredCategories.length > 0 ? (
               <Tree
+                aria-label={t("title")}
                 items={filteredCategories}
                 selectedKeys={selectedKeys}
                 selectionMode="single"

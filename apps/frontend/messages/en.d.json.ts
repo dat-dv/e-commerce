@@ -366,6 +366,7 @@ declare const messages: {
       "defaultPlaceholder": "Search...",
       "clear": "Clear",
       "submit": "Search",
+      "routeLabel": "Search category",
       "globalPlaceholder": "Search for premium tech & workspace essentials...",
       "placeholderWithinPage": "Search within this page...",
       "optionWithinPage": "In page",
