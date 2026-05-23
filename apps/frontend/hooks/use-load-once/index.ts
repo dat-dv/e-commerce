@@ -16,25 +16,16 @@ export const useLoadOnce = (
 
     loadedRef.current = true;
 
-    let active = true;
-
     const run = async () => {
       try {
         setLoading(true);
-
         await loader();
       } finally {
-        if (active) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
 
     void run();
-
-    return () => {
-      active = false;
-    };
   }, [enabled, loader]);
 
   return { loading };
