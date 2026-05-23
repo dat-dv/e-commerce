@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { IGetNotificationsRequest } from "@ecommerce/shared";
 import { NotificationsRepository } from "../infrastructure/notifications.repository";
 import { TSaveTokenRequest } from "../types/notifications.repository";

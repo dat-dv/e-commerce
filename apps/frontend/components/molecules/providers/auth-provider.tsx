@@ -11,12 +11,12 @@ import {
 import { useStore } from "zustand";
 
 import Loading from "@/components/atoms/loading";
+import { appRequest } from "@/constants/app-request";
 import { AuthRepository } from "@/domain/auth/infrastructure/auth.repository";
 import { FetchMeUseCase } from "@/domain/auth/use-cases/fetch-me.use-case";
 import { createUserStore } from "@/store/user-store";
 import { IAuthStoreState } from "@/store/user-store/user-store.type";
 import { safe } from "@/utils/promise";
-import { appRequest } from "@/utils/request";
 
 export type UserStore = ReturnType<typeof createUserStore>;
 export const AuthContext = createContext<UserStore | null>(null);

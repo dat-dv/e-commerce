@@ -1,11 +1,11 @@
 import { useRouter } from "next/navigation";
 
+import { appRequest } from "@/constants/app-request";
 import { APP_ROUTES } from "@/constants/routes";
 import { AuthRepository } from "@/domain/auth/infrastructure/auth.repository";
 import { LogoutUseCase } from "@/domain/auth/use-cases/logout.use-case";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useCartStore } from "@/hooks/cart/use-cart-store";
-import { appRequest } from "@/utils/request";
 
 export const useLogout = () => {
   const router = useRouter();

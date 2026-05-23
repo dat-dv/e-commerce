@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { AddressesRepository } from "./infrastructure/addresses.repository";
 import { CreateAddressUseCase } from "./use-cases/create-address.use-case";
 import {

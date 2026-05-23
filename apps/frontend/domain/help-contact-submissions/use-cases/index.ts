@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 
 import { HelpContactSubmissionsRepository } from "../infrastructure/help-contact-submissions.repository";
 import { CreateHelpContactSubmissionUseCase } from "./create-help-contact-submission.use-case";

@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { CartRepository } from "../infrastructure/cart.repository";
 import { AddToCartUseCase } from "./add-to-cart.use-case";
 import { GetCartUseCase } from "./get-cart.use-case";

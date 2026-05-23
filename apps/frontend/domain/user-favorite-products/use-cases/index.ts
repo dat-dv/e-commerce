@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { UserFavoriteProductsRepository } from "../infrastructure/user-favorite-products.repository";
 import { GetUserFavoriteProductsUseCase } from "./get-user-favorite-products.use-case";
 import { ToggleUserFavoriteProductUseCase } from "./toggle-user-favorite-product.use-case";

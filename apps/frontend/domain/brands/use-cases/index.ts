@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { BrandsRepository } from "../infrastructure/brands.repository";
 import { GetBrandBySlugUseCase } from "./get-brand-by-slug.use-case";
 import { GetBrandCategoriesUseCase } from "./get-brand-categories.use-case";

@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { CategoriesRepository } from "../infrastructure/categories.repository";
 import { GetCategoriesUseCase } from "./get-categories.use-case";
 import { GetCategoryGroupsUseCase } from "./get-category-groups.use-case";

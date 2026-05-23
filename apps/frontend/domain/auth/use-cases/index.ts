@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 
 import { UsersRepository } from "../../users/infrastructure/users.repository";
 import { UpdateProfileUseCase } from "../../users/use-cases/update-profile.use-case";

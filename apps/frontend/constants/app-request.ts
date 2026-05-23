@@ -1,5 +1,9 @@
-import { createRequest } from "./create-request";
-import { IRequestOptions, RequestBody, TRequest } from "./request.types";
+import { createRequest } from "../utils/request/create-request";
+import {
+  IRequestOptions,
+  RequestBody,
+  TRequest,
+} from "../utils/request/request.types";
 
 export const appRequest: TRequest = {
   get: <T>(url: string, options?: IRequestOptions) =>

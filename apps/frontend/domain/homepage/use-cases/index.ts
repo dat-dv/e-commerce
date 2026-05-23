@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { HomepageRepository } from "../infrastructure/homepage.repository";
 import { GetHomepageSectionsUseCase } from "./get-homepage-sections.use-case";
 

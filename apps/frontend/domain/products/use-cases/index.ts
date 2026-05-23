@@ -1,4 +1,4 @@
-import { appRequest } from "@/utils/request";
+import { appRequest } from "@/constants/app-request";
 import { ProductsRepository } from "../infrastructure/products.repository";
 import { CreateReviewUseCase } from "./create-review.use-case";
 import { GetBasedOnInterestUseCase } from "./get-based-on-interest.use-case";
