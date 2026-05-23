@@ -59,7 +59,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
   return (
     <nav
       className={cn(
-        "hide-scrollbar flex w-full gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-4 md:pb-0",
+        "hide-scrollbar flex w-full gap-3 overflow-x-auto pb-1",
         classNames,
       )}
     >
@@ -74,7 +74,7 @@ export const FeatureGrid = ({ items, classNames }: FeatureGridProps) => {
             key={item.name}
             href={item.href || "#"}
             className={cn(
-              "group border-content/10 bg-surface/50 hover:border-primary/20 hover:bg-primary/[0.04] flex w-[230px] shrink-0 items-center justify-between gap-2 border px-4 py-[14px] transition-all duration-300 md:w-auto md:shrink",
+              "group border-content/10 bg-surface/50 hover:border-primary/20 hover:bg-primary/[0.04] flex min-w-[220px] flex-1 shrink-0 items-center justify-between gap-2 border px-4 py-[14px] transition-all duration-300",
               UI_RADIUS.card,
             )}
           >
