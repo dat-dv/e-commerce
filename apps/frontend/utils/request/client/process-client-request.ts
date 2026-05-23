@@ -2,7 +2,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import processRequest from "../core/process-request";
 import { shouldRefresh } from "../core/refresh.utils";
 import { ProcessRequestParams } from "../core/request-processor.types";
-import { refreshToken } from "./refresh-token";
+import { handleRefreshToken } from "./refresh-token";
 
 let clientRefreshPromise: Promise<void> | null = null;
 
@@ -23,7 +23,7 @@ export async function processClientRequest<T>({
     }
 
     // Tất cả request 401 cùng chờ 1 promise duy nhất
-    clientRefreshPromise ??= refreshToken()
+    clientRefreshPromise ??= handleRefreshToken()
       .then((response) => {
         if (!response.ok) throw new Error("Refresh failed");
       })

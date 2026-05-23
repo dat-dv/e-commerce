@@ -1,7 +1,7 @@
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { API_ROUTES } from "@/constants/routes";
 
-export async function refreshToken() {
+export async function handleRefreshToken() {
   const options: RequestInit = {
     method: "POST",
     headers: {},

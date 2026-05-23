@@ -2,7 +2,7 @@ import { SERVER_ENV } from "@/config/server.env.config";
 import { API_ROUTES } from "@/constants/routes";
 import { getServerCookies } from "../../cookies";
 
-export async function refreshToken() {
+export async function handleRefreshToken() {
   const options: RequestInit = {
     method: "POST",
     headers: {},

@@ -13,7 +13,7 @@ export const createClientRequest = async <T>(
   body?: RequestBody,
   options?: IRequestOptions,
 ): Promise<ApiResponse<T>> => {
-  const [fullUrl, extendOptions] = await getClientRequestOptions({
+  const [fullUrl, extendOptions] = getClientRequestOptions({
     url,
     body,
     options,

@@ -1,38 +1,30 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getSubdomainByHostname } from "./utils/sub-domain/get-client-sub-domain";
+import { NextResponse } from "next/server";
+import { handleAuthRefresh } from "./utils/proxy/handle-auth-refresh";
+import { rewriteLocalizedStaticPage } from "./utils/proxy/localized-rewrite";
 
-const SSG_LOCALIZED_PAGES = [
-  "/terms",
-  "/privacy",
-  "/help",
-  "/help/faq",
-  "/help/shipping",
-  "/help/contact",
-];
+export async function proxy(request: NextRequest) {
+  const response = await handleAuthRefresh(request);
 
-export function proxy(request: NextRequest) {
-  const url = request.nextUrl.clone();
-  const cleanPathname = url.pathname.replace(/\/$/, "");
+  const cleanPathname = request.nextUrl.pathname.replace(/\/$/, "");
 
-  if (SSG_LOCALIZED_PAGES.includes(cleanPathname)) {
-    const host = request.headers.get("host") || "";
-    const lang = getSubdomainByHostname(host);
-
-    url.pathname = `/${lang}${cleanPathname}`;
-    return NextResponse.rewrite(url);
+  const localizedResponse = rewriteLocalizedStaticPage(request, cleanPathname);
+  if (localizedResponse) {
+    if (response) {
+      response.cookies.getAll().forEach((cookie) => {
+        localizedResponse.cookies.set(cookie.name, cookie.value, cookie);
+      });
+    }
+    return localizedResponse;
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    "/terms",
-    "/privacy",
-    "/help",
-    "/help/faq",
-    "/help/shipping",
-    "/help/contact",
-  ],
+  // không chạy cho /api
+  // Không chạy cho toàn bộ /_next
+  // Không chạy cho bất kỳ path có extension, ví dụ .ico, .svg, .xml, .webmanifest, .js, .css
+  // Vẫn chạy cho page routes bình thường: /, /profile, /products, /help, /terms
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
