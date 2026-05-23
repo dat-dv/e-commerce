@@ -48,7 +48,7 @@ export default function LiquidWaveText({
   return (
     <motion.span
       className={cn(
-        "relative inline-grid overflow-hidden align-middle leading-normal",
+        "relative inline-grid overflow-hidden pr-1 align-middle leading-normal",
         className,
       )}
       initial={false}
@@ -66,7 +66,7 @@ export default function LiquidWaveText({
 
       <motion.span
         aria-hidden="true"
-        className="text-primary pointer-events-none col-start-1 row-start-1 will-change-[clip-path]"
+        className="text-primary pointer-events-none col-start-1 row-start-1 pr-1 will-change-[clip-path]"
         variants={clipPathVariants}
         transition={{
           duration: 1.6,
