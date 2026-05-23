@@ -12,6 +12,12 @@ interface ResponsiveRenderProps {
   fallback?: React.ReactNode;
   fallbackClassName?: string;
   query: string;
+
+  /**
+   * true: khi media query chưa resolve thì dùng chính children làm fallback.
+   * false: dùng fallback truyền vào.
+   */
+  isFallbackChildren?: boolean;
 }
 
 function ResponsiveRender({
@@ -19,13 +25,16 @@ function ResponsiveRender({
   fallback = null,
   fallbackClassName,
   query,
+  isFallbackChildren = false,
 }: ResponsiveRenderProps) {
   const matches = useMediaQuery(query);
 
   if (matches === undefined) {
-    if (fallback === null || fallback === undefined) return null;
+    const fallbackNode = isFallbackChildren ? children : fallback;
 
-    return <div className={fallbackClassName}>{fallback}</div>;
+    if (fallbackNode === null || fallbackNode === undefined) return null;
+
+    return <div className={fallbackClassName}>{fallbackNode}</div>;
   }
 
   if (matches !== true) return null;
@@ -36,15 +45,18 @@ function ResponsiveRender({
 export function RenderDesktopOnly({
   children,
   fallback,
+  isFallbackChildren = true,
 }: {
   children: React.ReactNode;
   fallback?: React.ReactNode;
+  isFallbackChildren?: boolean;
 }) {
   return (
     <ResponsiveRender
       fallback={fallback}
       fallbackClassName="hidden lg:block"
       query={`(min-width: ${BREAKPOINTS.desktop}px)`}
+      isFallbackChildren={isFallbackChildren}
     >
       {children}
     </ResponsiveRender>
@@ -54,15 +66,18 @@ export function RenderDesktopOnly({
 export function RenderTabletAndAbove({
   children,
   fallback,
+  isFallbackChildren = true,
 }: {
   children: React.ReactNode;
   fallback?: React.ReactNode;
+  isFallbackChildren?: boolean;
 }) {
   return (
     <ResponsiveRender
       fallback={fallback}
       fallbackClassName="hidden md:block"
       query={`(min-width: ${BREAKPOINTS.tablet}px)`}
+      isFallbackChildren={isFallbackChildren}
     >
       {children}
     </ResponsiveRender>
@@ -72,15 +87,20 @@ export function RenderTabletAndAbove({
 export function RenderTabletOnly({
   children,
   fallback,
+  isFallbackChildren = true,
 }: {
   children: React.ReactNode;
   fallback?: React.ReactNode;
+  isFallbackChildren?: boolean;
 }) {
   return (
     <ResponsiveRender
       fallback={fallback}
       fallbackClassName="hidden md:block lg:hidden"
-      query={`(min-width: ${BREAKPOINTS.tablet}px) and (max-width: ${BREAKPOINTS.desktop - 1}px)`}
+      query={`(min-width: ${BREAKPOINTS.tablet}px) and (max-width: ${
+        BREAKPOINTS.desktop - 1
+      }px)`}
+      isFallbackChildren={isFallbackChildren}
     >
       {children}
     </ResponsiveRender>
@@ -90,15 +110,18 @@ export function RenderTabletOnly({
 export function RenderTabletAndBelow({
   children,
   fallback,
+  isFallbackChildren = true,
 }: {
   children: React.ReactNode;
   fallback?: React.ReactNode;
+  isFallbackChildren?: boolean;
 }) {
   return (
     <ResponsiveRender
       fallback={fallback}
       fallbackClassName="lg:hidden"
       query={`(max-width: ${BREAKPOINTS.desktop - 1}px)`}
+      isFallbackChildren={isFallbackChildren}
     >
       {children}
     </ResponsiveRender>
@@ -108,15 +131,18 @@ export function RenderTabletAndBelow({
 export function RenderMobileOnly({
   children,
   fallback,
+  isFallbackChildren = true,
 }: {
   children: React.ReactNode;
   fallback?: React.ReactNode;
+  isFallbackChildren?: boolean;
 }) {
   return (
     <ResponsiveRender
       fallback={fallback}
       fallbackClassName="md:hidden"
       query={`(max-width: ${BREAKPOINTS.tablet - 1}px)`}
+      isFallbackChildren={isFallbackChildren}
     >
       {children}
     </ResponsiveRender>

@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import SettingsIcon from "@/components/atoms/settings-icon";
 import { CategoryMegaMenuContentWrapper } from "../../../molecules/categories-dropdown";
 
+import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";
@@ -60,7 +61,9 @@ export default function HeaderDesktop() {
         </div>
       </AppContainer>
       <CategoryMegaMenuContentWrapper />
-      <GlobalSearch />
+      <RenderDesktopOnly isFallbackChildren={true}>
+        <GlobalSearch />
+      </RenderDesktopOnly>
     </header>
   );
 }
