@@ -18,14 +18,12 @@ import AvatarWrapper from "./avatar-wapper";
 interface IProfileFormDesktopProps {
   user: Partial<TUser> | null;
   isLoading?: boolean;
-  isUploading?: boolean;
   updateProfile: (user: TUpdateUserInput) => Promise<boolean | void>;
 }
 
 export const ProfileFormDesktop = ({
   user,
   isLoading,
-  isUploading,
   updateProfile,
 }: IProfileFormDesktopProps) => {
   const {
