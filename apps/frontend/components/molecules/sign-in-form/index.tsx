@@ -9,6 +9,7 @@ import { TurnstileWrapper } from "@/components/molecules/cloudflare-turnstile";
 import AppForm from "../form/app-form";
 import { FormButton } from "../form/form-button";
 import { FormInput } from "../form/form-input";
+import FormListenerDirty from "../form/form-listener-dirty";
 
 export default function SignInForm() {
   const t = useTranslations("LoginPage");
@@ -57,15 +58,19 @@ export default function SignInForm() {
 
         <TurnstileWrapper>
           {({ isVerified }) => (
-            <FormButton
-              type="submit"
-              isLoading={isLoading}
-              loadingText={t("submitting")}
-              className="mt-2"
-              disabled={!isVerified}
-            >
-              {t("submit")}
-            </FormButton>
+            <FormListenerDirty>
+              {(isDirty) => (
+                <FormButton
+                  type="submit"
+                  isLoading={isLoading}
+                  loadingText={t("submitting")}
+                  className="mt-2"
+                  disabled={isDirty && !isVerified}
+                >
+                  {t("submit")}
+                </FormButton>
+              )}
+            </FormListenerDirty>
           )}
         </TurnstileWrapper>
       </AppForm>
