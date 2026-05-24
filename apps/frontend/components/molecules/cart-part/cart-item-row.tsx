@@ -13,7 +13,7 @@ import { ShoppingBag, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { QuantitySelector } from "./quantity-selector";
+import { QuantitySelector } from "../quantity-selector";
 
 interface CartItemRowProps {
   item: TCartItem;
