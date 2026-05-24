@@ -11,6 +11,8 @@ export interface IFlashSalesRepository {
   findTimeSlotById(id: string): Promise<FlashSaleTimeSlot | null>;
   createTimeSlot(data: CreateTimeSlotDto): Promise<FlashSaleTimeSlot>;
   createTimeSlotsBatch(data: CreateTimeSlotsBatchDto): Promise<{ count: number }>;
+  findAllFlashSales(): Promise<IFlashSale[]>;
+  findAllTimeSlots(): Promise<FlashSaleTimeSlot[]>;
 }
 
 export const IFlashSalesRepository = Symbol('IFlashSalesRepository');

@@ -6,6 +6,8 @@ import { CreateFlashSaleUseCase } from './domain/use-cases/create-flash-sale.use
 import { CreateFlashSalesBatchUseCase } from './domain/use-cases/create-flash-sales-batch.use-case';
 import { CreateTimeSlotUseCase } from './domain/use-cases/create-time-slot.use-case';
 import { CreateTimeSlotsBatchUseCase } from './domain/use-cases/create-time-slots-batch.use-case';
+import { GetAllFlashSalesUseCase } from './domain/use-cases/get-all-flash-sales.use-case';
+import { GetAllTimeSlotsUseCase } from './domain/use-cases/get-all-time-slots.use-case';
 import { FlashSalesController } from './flash-sales.controller';
 
 @Module({
@@ -16,6 +18,8 @@ import { FlashSalesController } from './flash-sales.controller';
     AddProductsToFlashSaleUseCase,
     CreateTimeSlotUseCase,
     CreateTimeSlotsBatchUseCase,
+    GetAllFlashSalesUseCase,
+    GetAllTimeSlotsUseCase,
     {
       provide: IFlashSalesRepository,
       useClass: FlashSalesRepository,
@@ -27,6 +31,8 @@ import { FlashSalesController } from './flash-sales.controller';
     AddProductsToFlashSaleUseCase,
     CreateTimeSlotUseCase,
     CreateTimeSlotsBatchUseCase,
+    GetAllFlashSalesUseCase,
+    GetAllTimeSlotsUseCase,
     IFlashSalesRepository,
   ],
 })

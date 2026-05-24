@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
 import createSuccessResponse from 'src/common/respomse';
@@ -8,6 +8,8 @@ import { CreateFlashSaleUseCase } from './domain/use-cases/create-flash-sale.use
 import { CreateFlashSalesBatchUseCase } from './domain/use-cases/create-flash-sales-batch.use-case';
 import { CreateTimeSlotUseCase } from './domain/use-cases/create-time-slot.use-case';
 import { CreateTimeSlotsBatchUseCase } from './domain/use-cases/create-time-slots-batch.use-case';
+import { GetAllFlashSalesUseCase } from './domain/use-cases/get-all-flash-sales.use-case';
+import { GetAllTimeSlotsUseCase } from './domain/use-cases/get-all-time-slots.use-case';
 import { AddProductsToFlashSaleDto } from './dto/add-products-to-flash-sale.dto';
 import { CreateFlashSaleDto, CreateFlashSalesBatchDto } from './dto/create-flash-sale.dto';
 import { CreateTimeSlotDto, CreateTimeSlotsBatchDto } from './dto/create-time-slot.dto';
@@ -21,6 +23,8 @@ export class FlashSalesController {
     private readonly addProductsToFlashSaleUseCase: AddProductsToFlashSaleUseCase,
     private readonly createTimeSlotUseCase: CreateTimeSlotUseCase,
     private readonly createTimeSlotsBatchUseCase: CreateTimeSlotsBatchUseCase,
+    private readonly getAllFlashSalesUseCase: GetAllFlashSalesUseCase,
+    private readonly getAllTimeSlotsUseCase: GetAllTimeSlotsUseCase,
   ) {}
 
   @Post()
@@ -55,6 +59,20 @@ export class FlashSalesController {
   @Permissions('CREATE:FLASH_SALE')
   async createTimeSlotsBatch(@Body() createTimeSlotsBatchDto: CreateTimeSlotsBatchDto) {
     const res = await this.createTimeSlotsBatchUseCase.execute(createTimeSlotsBatchDto);
+    return createSuccessResponse(res);
+  }
+
+  @Get()
+  @Permissions('CREATE:FLASH_SALE')
+  async findAll() {
+    const res = await this.getAllFlashSalesUseCase.execute();
+    return createSuccessResponse(res);
+  }
+
+  @Get('time-slots')
+  @Permissions('CREATE:FLASH_SALE')
+  async findAllTimeSlots() {
+    const res = await this.getAllTimeSlotsUseCase.execute();
     return createSuccessResponse(res);
   }
 }

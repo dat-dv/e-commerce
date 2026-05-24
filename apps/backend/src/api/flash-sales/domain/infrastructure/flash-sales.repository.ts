@@ -137,4 +137,26 @@ export class FlashSalesRepository implements IFlashSalesRepository {
       })),
     });
   }
+
+  async findAllFlashSales(): Promise<IFlashSale[]> {
+    return this.prisma.flashSale.findMany({
+      include: {
+        products: {
+          include: {
+            sku: true,
+          },
+        },
+        time_slot: true,
+      },
+      orderBy: {
+        start_time: 'desc',
+      },
+    });
+  }
+
+  async findAllTimeSlots(): Promise<FlashSaleTimeSlot[]> {
+    return this.prisma.flashSaleTimeSlot.findMany({
+      orderBy: [{ start_hour: 'asc' }, { start_minute: 'asc' }],
+    });
+  }
 }
