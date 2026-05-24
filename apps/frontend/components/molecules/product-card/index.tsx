@@ -81,7 +81,7 @@ export const ProductCard = ({
       <ProductCardMedia
         product={product}
         noImageLabel={t("noImage")}
-        addToCartClassName="bg-primary text-surface hover:opacity-90"
+        addToCartClassName="bg-primary text-surface hover:bg-primary"
         onAddToCart={handleAddToCart}
         showFavoriteButton={showFavoriteButton}
         isFavorited={isFavorited}

@@ -63,7 +63,7 @@ export function ProductCardMedia({
         </div>
       )}
 
-      <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
+      <div className="invisible absolute inset-0 flex items-center justify-center gap-3 bg-black/40 group-hover:visible">
         <Link
           href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
           className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-all hover:bg-white/90"
@@ -76,7 +76,7 @@ export function ProductCardMedia({
           onClick={onAddToCart}
           variant="ghost"
           className={cn(
-            "flex h-10 w-10 items-center justify-center rounded-full p-0 shadow-lg active:scale-90",
+            "flex h-10 w-10 items-center justify-center rounded-full p-0 opacity-100 shadow-lg transition-all group-hover:shadow-xl group-hover:brightness-110 hover:opacity-100 active:scale-90",
             addToCartClassName,
           )}
           title={addToCartTitle}
@@ -103,10 +103,10 @@ export function ProductCardMedia({
             isFavorited ? t("removeFromWishlist") : t("addToWishlist")
           }
           className={cn(
-            "absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 shadow-lg duration-300 active:scale-75",
+            "absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 opacity-100 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110 hover:opacity-100 active:scale-75",
             isFavorited
               ? "bg-red-500 text-white shadow-red-500/20 hover:bg-red-500"
-              : "bg-surface/80 text-content/40 hover:bg-surface/80 shadow-black/5 backdrop-blur-md hover:text-red-500",
+              : "bg-surface text-content hover:bg-surface shadow-black/5 backdrop-blur-md hover:text-red-500",
           )}
         >
           <Heart
