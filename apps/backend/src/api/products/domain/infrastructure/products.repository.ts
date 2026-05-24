@@ -1,17 +1,17 @@
-import { Injectable } from '@nestjs/common';
-import { IProductsRepository } from '../entities/products.repository.interface';
 import {
   EProductSort,
+  IFlashSaleResponse,
   IPaginatedResult,
   IProductResponse,
-  IFlashSaleResponse,
   Review as IReviewResponse,
 } from '@ecommerce/shared';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { Injectable } from '@nestjs/common';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
-import { GetProductsDto } from '../../dto/get-products.dto';
 import { GetProductReviewsDto, PRODUCT_REVIEW_SORT } from '../../dto/get-product-reviews.dto';
+import { GetProductsDto } from '../../dto/get-products.dto';
+import { IProductsRepository } from '../entities/products.repository.interface';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -57,6 +57,17 @@ export class ProductsRepository implements IProductsRepository {
                   attribute: true,
                 },
               },
+            },
+          },
+          flash_sales: {
+            where: {
+              flash_sale: {
+                start_time: { lte: new Date() },
+                end_time: { gte: new Date() },
+              },
+            },
+            include: {
+              flash_sale: true,
             },
           },
         },

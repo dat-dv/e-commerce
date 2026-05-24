@@ -647,7 +647,11 @@ declare const messages: {
         "sold": "Sold Units",
         "orderLimit": "Limit/Order",
         "actions": "Actions"
-      }
+      },
+      "flashSaleTitle": "⚡ FLASH SALE",
+      "endsIn": "Ends in",
+      "soldCount": "{sold} sold",
+      "stockLeft": "{left} left"
     }
   },
   "HelpCenter": {

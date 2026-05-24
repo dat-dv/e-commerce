@@ -145,7 +145,11 @@
         "sold": "Đã bán",
         "orderLimit": "Giới hạn/Đơn",
         "actions": "Thao tác"
-      }
+      },
+      "flashSaleTitle": "⚡ CHỚP NHOÁNG",
+      "endsIn": "Kết thúc sau",
+      "soldCount": "Đã bán {sold}",
+      "stockLeft": "Còn lại {left}"
     }
   }
 }

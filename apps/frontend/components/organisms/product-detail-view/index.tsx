@@ -1,6 +1,7 @@
 "use client";
 
 import AppContainer from "@/components/atoms/app-container";
+import { useMemo } from "react";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { TProduct } from "@/domain/products/types/products.model";
 import { useProductActions } from "@/hooks/products/use-product-actions";
@@ -62,6 +63,15 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
   const originalPrice = selectedSku?.originalPrice || 0;
   const discountPercent = selectedSku?.discountPercent || 0;
 
+  const isFlashSaleActive = useMemo(() => {
+    if (!selectedSku?.flashSaleStart || !selectedSku?.flashSaleEnd)
+      return false;
+    const now = new Date();
+    const start = new Date(selectedSku.flashSaleStart);
+    const end = new Date(selectedSku.flashSaleEnd);
+    return now >= start && now <= end;
+  }, [selectedSku]);
+
   return (
     <AppContainer className="space-y-8 py-8 pb-24 lg:pb-8">
       {/* SECTION 1: TOP GRID (Image & Info) */}
@@ -91,6 +101,10 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           handleBuyNow={handleBuyNow}
           isFavorited={isFavorited}
           onToggleFavorite={() => toggleFavorite(product.id)}
+          isFlashSaleActive={isFlashSaleActive}
+          flashSaleEnd={selectedSku?.flashSaleEnd}
+          flashSaleSold={selectedSku?.sold}
+          flashSaleTotal={selectedSku?.total}
         />
       </div>
 

@@ -6,6 +6,7 @@ import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { ProductAttributeOptions } from "./product-attribute-options";
+import { ProductFlashSaleBanner } from "./product-flash-sale-banner";
 import { ProductPriceBox } from "./product-price-box";
 import { ProductPurchaseActions } from "./product-purchase-actions";
 import { ProductQuantitySelector } from "./product-quantity-selector";
@@ -29,6 +30,10 @@ interface ProductInfoProps {
   handleBuyNow: () => void;
   isFavorited?: boolean;
   onToggleFavorite?: () => void;
+  isFlashSaleActive?: boolean;
+  flashSaleEnd?: string;
+  flashSaleSold?: number;
+  flashSaleTotal?: number;
 }
 
 export const ProductInfo = ({
@@ -49,6 +54,10 @@ export const ProductInfo = ({
   handleBuyNow,
   isFavorited = false,
   onToggleFavorite,
+  isFlashSaleActive = false,
+  flashSaleEnd,
+  flashSaleSold = 0,
+  flashSaleTotal = 0,
 }: ProductInfoProps) => {
   return (
     <motion.div
@@ -69,6 +78,14 @@ export const ProductInfo = ({
         rating={rating}
         reviewsCount={reviewsCount}
       />
+
+      {isFlashSaleActive && (
+        <ProductFlashSaleBanner
+          endTime={flashSaleEnd}
+          soldCount={flashSaleSold}
+          totalStock={flashSaleTotal}
+        />
+      )}
 
       <ProductPriceBox
         originalPrice={originalPrice}
