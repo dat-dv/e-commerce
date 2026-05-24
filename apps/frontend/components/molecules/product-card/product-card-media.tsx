@@ -94,31 +94,35 @@ export function ProductCardMedia({
 
       {cornerBadge}
 
-      {showFavoriteButton ? (
+      {showFavoriteButton && (
         <Button
           onClick={onToggleFavorite}
           disabled={favoriteLoading}
-          variant="ghost"
           aria-label={
             isFavorited ? t("removeFromWishlist") : t("addToWishlist")
           }
           className={cn(
-            "absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 opacity-100 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110 hover:opacity-100 active:scale-75",
+            "group/favorite absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 opacity-100 shadow-lg transition-all duration-300",
+            "group-hover:shadow-xl group-hover:brightness-110 hover:opacity-100 active:scale-75",
+            "focus-visible:ring-0 focus-visible:ring-offset-0",
+            "[-webkit-tap-highlight-color:transparent]",
             isFavorited
-              ? "bg-red-500 text-white shadow-red-500/20 hover:bg-red-500"
-              : "bg-surface text-content hover:bg-surface shadow-black/5 backdrop-blur-md hover:text-red-500",
+              ? "bg-red-500 shadow-red-500/20 hover:bg-red-500 active:bg-red-500"
+              : "bg-surface hover:bg-surface active:bg-surface backdrop-blur-md",
           )}
         >
           <Heart
             size={16}
             className={cn(
-              "transition-transform",
-              isFavorited && "fill-current",
+              "pointer-events-none transition-colors duration-200",
+              isFavorited
+                ? "fill-white stroke-white"
+                : "stroke-content fill-transparent group-hover:stroke-red-500 group-hover/favorite:stroke-red-500",
             )}
             aria-hidden
           />
         </Button>
-      ) : null}
+      )}
     </div>
   );
 }
