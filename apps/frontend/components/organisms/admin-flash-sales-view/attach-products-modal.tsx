@@ -146,6 +146,15 @@ export function AttachProductsModal({
   }, [selectedSkuId, selectedProduct, setValue]);
 
   const handleSubmit = async (data: AttachProductsData) => {
+    const maxStock = selectedSku?.stock ?? 0;
+    if (Number(data.stock) > maxStock) {
+      methods.setError("stock", {
+        type: "manual",
+        message: t("stockExceeded", { max: String(maxStock) }),
+      });
+      return;
+    }
+
     const success = await onSubmit(data.flashSaleId, {
       products: [
         {
@@ -216,8 +225,15 @@ export function AttachProductsModal({
             )}
 
             {selectedSku && (
-              <div className="text-content/70 ml-1 text-sm font-semibold">
-                {t("originalPrice", { price: String(selectedSku.price) })}
+              <div className="text-content/70 ml-1 flex flex-col gap-1 text-sm font-semibold">
+                <div>
+                  {t("originalPrice", { price: String(selectedSku.price) })}
+                </div>
+                <div className="text-primary">
+                  {t("remainingStock", {
+                    stock: String(selectedSku.stock ?? 0),
+                  })}
+                </div>
               </div>
             )}
 

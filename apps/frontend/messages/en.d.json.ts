@@ -620,6 +620,8 @@ declare const messages: {
       "sku": "Select SKU",
       "salePrice": "Promotional Price",
       "originalPrice": "Original Price: {price}",
+      "remainingStock": "Remaining Stock: {stock}",
+      "stockExceeded": "Stock cannot exceed remaining stock ({max})",
       "stock": "Flash Sale Stock",
       "orderLimit": "Limit per Order (Optional)",
       "cancel": "Cancel",

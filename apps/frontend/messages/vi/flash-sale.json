@@ -118,6 +118,8 @@
       "sku": "Chọn mã SKU",
       "salePrice": "Giá khuyến mãi",
       "originalPrice": "Giá gốc: {price}",
+      "remainingStock": "Số lượng còn lại trong kho: {stock}",
+      "stockExceeded": "Số lượng mở bán không thể vượt quá tồn kho ({max})",
       "stock": "Số lượng mở bán",
       "orderLimit": "Giới hạn mỗi đơn hàng (Tùy chọn)",
       "cancel": "Hủy",
