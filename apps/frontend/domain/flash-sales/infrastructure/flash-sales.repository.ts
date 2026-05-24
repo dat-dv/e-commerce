@@ -74,9 +74,7 @@ export class FlashSalesRepository implements IFlashSalesRepository {
 
     return {
       ...response,
-      data: response.data
-        ? FlashSalesMapper.toDomain(response.data)
-        : undefined,
+      data: FlashSalesMapper.toDomain(response.data),
     };
   }
 
@@ -91,9 +89,7 @@ export class FlashSalesRepository implements IFlashSalesRepository {
 
     return {
       ...response,
-      data: response.data
-        ? FlashSalesMapper.toDomain(response.data)
-        : undefined,
+      data: FlashSalesMapper.toDomain(response.data),
     };
   }
 }
