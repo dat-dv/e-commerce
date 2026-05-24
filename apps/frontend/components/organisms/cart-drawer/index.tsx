@@ -4,6 +4,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
+import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -29,6 +30,8 @@ export const CartDrawer = () => {
   const isEmpty = items.length === 0;
   const shouldShowFooter = items.length > 0;
 
+  useLockBodyScroll(isOpen);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -39,7 +42,7 @@ export const CartDrawer = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md"
+            className="fixed inset-0 z-[100] h-dvh w-dvw max-w-full overflow-hidden bg-black/40 backdrop-blur-md"
           />
 
           {/* Premium Drawer */}
@@ -48,7 +51,7 @@ export const CartDrawer = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 35, stiffness: 350 }}
-            className="bg-surface/95 border-content/5 fixed top-0 right-0 z-[101] flex h-full w-full max-w-sm flex-col overflow-hidden border-l shadow-[0_0_100px_rgba(0,0,0,0.1)] backdrop-blur-3xl"
+            className="bg-surface/95 border-content/5 fixed top-0 right-0 z-[101] flex h-dvh w-full max-w-[min(24rem,100dvw)] min-w-0 flex-col overflow-hidden border-l shadow-[0_0_100px_rgba(0,0,0,0.1)] backdrop-blur-3xl"
           >
             {/* Header Section */}
             <CartHeader count={itemsCount} onClose={handleClose} />

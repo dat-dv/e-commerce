@@ -3,11 +3,11 @@
 import Button from "@/components/atoms/button";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
+import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect } from "react";
 import {
   SearchFormValues,
   useSearchForm,
@@ -29,20 +29,7 @@ export default function MobileSearchDrawer({
   const selectedOption =
     options.find((option) => option.router === selectedRoute) || options[0];
 
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const originalOverflow = document.body.style.overflow;
-    const originalWidth = document.body.style.width;
-
-    document.body.style.overflow = "hidden";
-    document.body.style.width = "100%";
-
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      document.body.style.width = originalWidth;
-    };
-  }, [isOpen]);
+  useLockBodyScroll(isOpen);
 
   const handleSubmit = (values: SearchFormValues) => {
     onSubmit(values);

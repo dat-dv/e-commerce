@@ -3,6 +3,7 @@
 import Button from "@/components/atoms/button";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import { TCategory } from "@/domain/categories/types/categories.model";
+import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -24,6 +25,8 @@ export function CategoriesFilterDrawer({
 }: ICategoriesFilterDrawerProps) {
   const t = useTranslations("CategoriesPage.sidebar");
 
+  useLockBodyScroll(isOpen);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -33,7 +36,7 @@ export function CategoriesFilterDrawer({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[90] bg-black/35 backdrop-blur-[2px] lg:hidden"
+            className="fixed inset-0 z-[90] h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px] lg:hidden"
           />
 
           <motion.aside
@@ -41,15 +44,15 @@ export function CategoriesFilterDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 26, stiffness: 230 }}
-            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[91] flex w-[88vw] max-w-[380px] flex-col border-r shadow-2xl md:max-w-[420px] lg:hidden"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[91] flex w-[88dvw] max-w-[min(380px,calc(100dvw-16px))] min-w-0 flex-col overflow-hidden border-r shadow-2xl md:max-w-[min(420px,calc(100dvw-16px))] lg:hidden"
             aria-label={t("title")}
           >
             <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
-              <div>
+              <div className="min-w-0">
                 <h2 className="text-content text-sm font-black tracking-[0.18em] uppercase">
                   {t("title")}
                 </h2>
-                <p className="text-content/45 mt-0.5 text-xs font-medium">
+                <p className="text-content/45 mt-0.5 line-clamp-1 text-xs font-medium">
                   {t("description")}
                 </p>
               </div>
@@ -57,7 +60,7 @@ export function CategoriesFilterDrawer({
               <Button
                 variant="ghost"
                 onClick={onClose}
-                className="text-content/60 hover:bg-content/5 hover:text-content size-10 rounded-full p-0"
+                className="text-content/60 hover:bg-content/5 hover:text-content size-10 shrink-0 rounded-full p-0"
                 aria-label={t("closeDrawer")}
                 title={t("closeDrawer")}
               >

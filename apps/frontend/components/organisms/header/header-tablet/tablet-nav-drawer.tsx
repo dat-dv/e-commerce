@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import HamburgerButton from "@/components/atoms/hamburger-button";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
+import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 
 import HeaderLogo from "../header-desktop/header-logo";
 import MobileNavLinks from "./tablet-nav-links";
@@ -23,6 +24,8 @@ export default function MobileNavDrawer({
   const user = useAuthStore((store) => store.user);
   const { handleClickLogout } = useLogout();
 
+  useLockBodyScroll(isOpen);
+
   const handleLogout = async () => {
     onClose();
     await handleClickLogout();
@@ -37,7 +40,7 @@ export default function MobileNavDrawer({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-50 bg-black/35 backdrop-blur-[2px]"
+            className="fixed inset-0 z-50 h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px]"
           />
 
           <motion.div
@@ -45,7 +48,7 @@ export default function MobileNavDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-50 flex w-[86vw] max-w-[360px] flex-col border-r shadow-2xl sm:max-w-[380px] md:max-w-[420px]"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-50 flex w-[86dvw] max-w-[min(360px,calc(100dvw-16px))] min-w-0 flex-col overflow-hidden border-r shadow-2xl sm:max-w-[min(380px,calc(100dvw-16px))] md:max-w-[min(420px,calc(100dvw-16px))]"
           >
             <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
               <HeaderLogo />

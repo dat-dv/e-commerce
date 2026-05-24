@@ -3,6 +3,7 @@
 import Button from "@/components/atoms/button";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { IProductFilterSidebarProps } from "@/components/molecules/product-filter-sidebar/product-filter-sidebar.types";
+import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -21,6 +22,8 @@ export function ProductFilterDrawer<T extends string = string>({
 }: ProductFilterDrawerProps<T>) {
   const t = useTranslations("ProductsPage");
 
+  useLockBodyScroll(isOpen);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -30,7 +33,7 @@ export function ProductFilterDrawer<T extends string = string>({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[90] bg-black/35 backdrop-blur-[2px] lg:hidden"
+            className="fixed inset-0 z-[90] h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px] lg:hidden"
           />
 
           <motion.aside
@@ -38,7 +41,7 @@ export function ProductFilterDrawer<T extends string = string>({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 26, stiffness: 230 }}
-            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[91] flex w-[88vw] max-w-[390px] flex-col border-r shadow-2xl md:max-w-[430px] lg:hidden"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[91] flex w-[88dvw] max-w-[min(390px,calc(100dvw-16px))] min-w-0 flex-col overflow-hidden border-r shadow-2xl md:max-w-[min(430px,calc(100dvw-16px))] lg:hidden"
             aria-label={t("filters")}
           >
             <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
