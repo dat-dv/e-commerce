@@ -32,7 +32,8 @@ export function AdminOrdersFilters({
 
   const getStatusLabel = useCallback(
     (status: number) => {
-      const label = getOrderStatusLabel(status, tStatus);
+      const key = getOrderStatusLabel(status);
+      const label = tStatus(key);
       return label === String(status) ? t("results.unknown") : label;
     },
     [t, tStatus],

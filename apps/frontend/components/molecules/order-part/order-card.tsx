@@ -58,7 +58,8 @@ export const OrderCard = ({
   const locale = useLocale();
 
   const getStatusLabel = (status: EOrderStatus) => {
-    return getOrderStatusLabel(status, tStatus);
+    const key = getOrderStatusLabel(status);
+    return tStatus(key);
   };
 
   const statusColor =

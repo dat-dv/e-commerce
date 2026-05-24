@@ -77,10 +77,11 @@ export function AppStatusDropdown({
 
   const getStatusLabel = useCallback(
     (s: number) => {
-      const label = getOrderStatusLabel(s, tStatus);
+      const key = getOrderStatusLabel(status);
+      const label = tStatus(key);
       return label === String(s) ? tResults("unknown") : label;
     },
-    [tResults, tStatus],
+    [status, tResults, tStatus],
   );
 
   const statusColor =
