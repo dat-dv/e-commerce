@@ -1,9 +1,10 @@
 "use client";
 
+import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { MouseEvent } from "react";
-import { PackagePlus, Sparkles, Clock, ShoppingBag } from "lucide-react";
+import { Clock, PackagePlus, ShoppingBag, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { MouseEvent } from "react";
 
 const FLOATING_ICONS = [PackagePlus, Sparkles, Clock, ShoppingBag];
 
@@ -71,24 +72,30 @@ export function FreshArrivalsHeader() {
       <div className="relative z-20 w-full max-w-6xl px-4 sm:px-6">
         <div className="flex min-w-0 flex-col items-center gap-4 py-8 text-center sm:gap-5 sm:py-10">
           <h1 className="text-content max-w-full text-4xl leading-none font-black uppercase sm:text-5xl md:text-7xl">
-            {t("title")}{" "}
-            <span className="text-content/30 font-light italic">
-              {t("highlight")}
-            </span>
+            <LiquidWaveText>
+              {t("title")}{" "}
+              <span className="text-content/30 font-light italic">
+                {t("highlight")}
+              </span>
+            </LiquidWaveText>
           </h1>
 
           <p className="text-content/50 max-w-2xl text-sm leading-relaxed font-medium sm:text-base md:text-lg">
-            {t.rich("description", {
-              strong: (chunks) => (
-                <span className="text-content decoration-primary/20 font-bold underline underline-offset-4">
-                  {chunks}
-                </span>
-              ),
-            })}
+            <LiquidWaveText inactiveClassName="text-content/50">
+              {t.rich("description", {
+                strong: (chunks) => (
+                  <span className="text-content decoration-primary/20 font-bold underline underline-offset-4">
+                    {chunks}
+                  </span>
+                ),
+              })}
+            </LiquidWaveText>
           </p>
 
           <p className="text-content/35 max-w-2xl text-sm leading-relaxed font-medium md:text-base">
-            {t("note")}
+            <LiquidWaveText inactiveClassName="text-content/35">
+              {t("note")}
+            </LiquidWaveText>
           </p>
         </div>
       </div>
