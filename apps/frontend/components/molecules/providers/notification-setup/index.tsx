@@ -4,9 +4,8 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useNotificationHandlers } from "@/hooks/notifications/use-notification-handlers";
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { Fragment, useCallback } from "react";
-import NotificationListener, {
-  NotificationEventData,
-} from "./notification-listener";
+import NotificationListener from "./notification-listener";
+import { NotificationEventData } from "./notification-listener.types.ts";
 import NotificationVisibleListener from "./notification-visible-listener";
 
 export default function NotificationSetup() {

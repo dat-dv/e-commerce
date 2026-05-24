@@ -1,4 +1,4 @@
-import { NotificationEventData } from "@/components/molecules/providers/notification-setup/notification-listener";
+import { NotificationEventData } from "@/components/molecules/providers/notification-setup/notification-listener.types.ts";
 import { toast } from "@/components/ui/toast";
 import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
 import { ENotificationClientEvent } from "@ecommerce/shared";

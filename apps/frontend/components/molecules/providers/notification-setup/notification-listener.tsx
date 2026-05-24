@@ -6,54 +6,72 @@ import { getFirebaseMessaging } from "@/lib/firebase";
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { getToken, onMessage } from "firebase/messaging";
 import { useEffect, useRef } from "react";
+import { NotificationListenerProps } from "./notification-listener.types.ts";
 
-export type NotificationEventData = {
-  type?: ENotificationClientEvent;
-  id?: string;
-  url?: string;
-  orderId?: string;
-  productId?: string;
-  notificationId?: string;
-  status?: string;
-  title?: string;
-  body?: string;
-  [key: string]: string | undefined;
-};
+const normalizePayload = (
+  data?: Record<string, string>,
+  notification?: { title?: string; body?: string },
+) => ({
+  ...data,
+  title: notification?.title ?? data?.title,
+  body: notification?.body ?? data?.body,
+});
 
-interface NotificationListenerProps {
-  userId: string;
-  onNotificationChanged: (
-    type: ENotificationClientEvent,
-    data?: NotificationEventData,
-  ) => void | Promise<void>;
-}
+const getClientEventType = (raw?: string): ENotificationClientEvent =>
+  (raw as ENotificationClientEvent | undefined) ??
+  ENotificationClientEvent.CHANGED;
 
 export default function NotificationListener({
   userId,
   onNotificationChanged,
 }: NotificationListenerProps) {
-  const setupRef = useRef(false);
+  const onNotificationChangedRef = useRef(onNotificationChanged);
+  const lastSavedTokenKeyRef = useRef<string | null>(null);
+  const saveTokenPromiseMapRef = useRef(new Map<string, Promise<void>>());
 
   useEffect(() => {
-    if (!userId) {
-      setupRef.current = false;
-      return;
-    }
+    onNotificationChangedRef.current = onNotificationChanged;
+  }, [onNotificationChanged]);
+
+  useEffect(() => {
     if (!PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY) return;
     if (typeof window === "undefined") return;
     if (!("Notification" in window)) return;
-
-    if (setupRef.current) return;
-    setupRef.current = true;
 
     let unsubscribeForeground: (() => void) | undefined;
     let isMounted = true;
 
     const handleServiceWorkerMessage = (event: MessageEvent) => {
-      void onNotificationChanged(event.data?.type, event.data.notification);
+      const type = getClientEventType(event.data?.type);
+      void onNotificationChangedRef.current(type, event.data?.notification);
     };
 
-    const setup = async () => {
+    const saveTokenOnce = async (token: string): Promise<void> => {
+      const tokenKey = `${userId}:${token}`;
+
+      if (lastSavedTokenKeyRef.current === tokenKey) return;
+
+      const existingPromise = saveTokenPromiseMapRef.current.get(tokenKey);
+      if (existingPromise) {
+        await existingPromise;
+        return;
+      }
+
+      const savePromise = notificationsUseCase
+        .saveToken({ token, deviceType: "web" })
+        .then(() => {
+          lastSavedTokenKeyRef.current = tokenKey;
+        })
+        .finally(() => {
+          saveTokenPromiseMapRef.current.delete(tokenKey);
+        });
+
+      saveTokenPromiseMapRef.current.set(tokenKey, savePromise);
+
+      await savePromise;
+    };
+
+    const setup = async (): Promise<void> => {
       try {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.addEventListener(
@@ -63,42 +81,28 @@ export default function NotificationListener({
         }
 
         const messaging = await getFirebaseMessaging();
-
         if (!isMounted || !messaging) return;
 
         const permission = await Notification.requestPermission();
-
-        if (permission !== "granted") return;
+        if (!isMounted || permission !== "granted") return;
 
         const token = await getToken(messaging, {
           vapidKey: PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
         });
+        if (!isMounted || !token) return;
 
-        if (!isMounted) return;
-
-        if (token) {
-          await notificationsUseCase.saveToken({
-            token,
-            deviceType: "web",
-          });
-        }
-
+        await saveTokenOnce(token);
         if (!isMounted) return;
 
         unsubscribeForeground = onMessage(messaging, (payload) => {
-          const clientEventType =
-            (payload.data?.clientEvent as ENotificationClientEvent) ||
-            ENotificationClientEvent.CHANGED;
-
-          void onNotificationChanged(clientEventType, {
-            ...payload.data,
-            title: payload.notification?.title || payload.data?.title,
-            body: payload.notification?.body || payload.data?.body,
-          });
+          const type = getClientEventType(payload.data?.clientEvent);
+          void onNotificationChangedRef.current(
+            type,
+            normalizePayload(payload.data, payload.notification),
+          );
         });
-      } catch {
-        setupRef.current = false;
-        // ignore setup error
+      } catch (error) {
+        console.warn("[NotificationListener] Setup failed:", error);
       }
     };
 
@@ -106,8 +110,6 @@ export default function NotificationListener({
 
     return () => {
       isMounted = false;
-      setupRef.current = false;
-
       unsubscribeForeground?.();
 
       if ("serviceWorker" in navigator) {
@@ -117,7 +119,7 @@ export default function NotificationListener({
         );
       }
     };
-  }, [userId, onNotificationChanged]);
+  }, [userId]);
 
   return null;
 }
