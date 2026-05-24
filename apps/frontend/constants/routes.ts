@@ -115,5 +115,9 @@ export const API_ROUTES = {
   HELP_CONTACT_SUBMISSIONS: {
     BASE: "/help-contact-submissions",
   },
+  FLASH_SALES: {
+    BASE: "/flash-sales",
+    TIME_SLOTS: "/flash-sales/time-slots",
+  },
   CONFIG: "/config",
 } as const;

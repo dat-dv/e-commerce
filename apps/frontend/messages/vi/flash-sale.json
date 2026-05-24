@@ -51,7 +51,16 @@
       "endTime": "Thời gian kết thúc",
       "status": "Trạng thái",
       "products": "Số sản phẩm",
-      "actions": "Hành động"
+      "actions": "Hành động",
+      "loading": "Đang tải chiến dịch...",
+      "empty": "Chưa có chiến dịch flash sale.",
+      "error": "Không thể tải chiến dịch flash sale.",
+      "retry": "Thử lại",
+      "statusLabel": {
+        "active": "Đang chạy",
+        "upcoming": "Sắp diễn ra",
+        "ended": "Đã kết thúc"
+      }
     },
     "timeSlots": {
       "title": "Khung giờ mở bán hàng ngày",
@@ -60,7 +69,13 @@
       "name": "Tên khung giờ",
       "startHour": "Giờ bắt đầu",
       "endHour": "Giờ kết thúc",
-      "status": "Trạng thái"
+      "status": "Trạng thái",
+      "loading": "Đang tải khung giờ...",
+      "empty": "Chưa có khung giờ.",
+      "error": "Không thể tải khung giờ.",
+      "retry": "Thử lại",
+      "active": "Đang bật",
+      "inactive": "Đang tắt"
     }
   }
 }

@@ -2,10 +2,26 @@
 
 import Button from "@/components/atoms/button";
 import { UI_RADIUS } from "@/constants/ui-radius";
-import { Clock3, Plus, Rows3 } from "lucide-react";
+import type { TFlashSaleTimeSlot } from "@/domain/flash-sales/types/flash-sale.model";
+import { cn } from "@/utils/cn";
+import { Clock3, Plus, RefreshCw, Rows3 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-export function TimeSlotsTable() {
+function formatSlotTime(hour: number, minute: number) {
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+}
+
+export function TimeSlotsTable({
+  timeSlots,
+  loading,
+  hasError,
+  onRetry,
+}: {
+  timeSlots: TFlashSaleTimeSlot[];
+  loading: boolean;
+  hasError: boolean;
+  onRetry: () => void;
+}) {
   const t = useTranslations("AdminFlashSalesPage.timeSlots");
 
   return (
@@ -37,15 +53,70 @@ export function TimeSlotsTable() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td
-                colSpan={4}
-                className="text-content/50 px-6 py-12 text-center"
-              >
-                <Clock3 aria-hidden="true" className="mx-auto mb-3 size-5" />
-                {t("title")}
-              </td>
-            </tr>
+            {loading ? (
+              <tr>
+                <td
+                  colSpan={4}
+                  className="text-content/50 px-6 py-12 text-center"
+                >
+                  {t("loading")}
+                </td>
+              </tr>
+            ) : hasError ? (
+              <tr>
+                <td colSpan={4} className="px-6 py-12 text-center">
+                  <p className="mb-4 text-sm font-semibold text-red-500">
+                    {t("error")}
+                  </p>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={onRetry}
+                  >
+                    <RefreshCw aria-hidden="true" className="size-4" />
+                    {t("retry")}
+                  </Button>
+                </td>
+              </tr>
+            ) : timeSlots.length === 0 ? (
+              <tr>
+                <td
+                  colSpan={4}
+                  className="text-content/50 px-6 py-12 text-center"
+                >
+                  <Clock3 aria-hidden="true" className="mx-auto mb-3 size-5" />
+                  {t("empty")}
+                </td>
+              </tr>
+            ) : (
+              timeSlots.map((slot) => (
+                <tr
+                  key={slot.id}
+                  className="border-content/[0.06] hover:bg-content/[0.015] border-b transition-colors"
+                >
+                  <td className="px-6 py-4 font-semibold">{slot.name}</td>
+                  <td className="text-content/65 px-6 py-4 font-mono tabular-nums">
+                    {formatSlotTime(slot.startHour, slot.startMinute)}
+                  </td>
+                  <td className="text-content/65 px-6 py-4 font-mono tabular-nums">
+                    {formatSlotTime(slot.endHour, slot.endMinute)}
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <span
+                      className={cn(
+                        "inline-flex rounded-full px-2.5 py-1 text-xs font-semibold",
+                        slot.isActive
+                          ? "bg-emerald-500/10 text-emerald-600"
+                          : "bg-content/10 text-content/55",
+                      )}
+                    >
+                      {slot.isActive ? t("active") : t("inactive")}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

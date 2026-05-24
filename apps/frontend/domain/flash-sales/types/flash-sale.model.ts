@@ -1,0 +1,34 @@
+export type TFlashSaleStatus = "active" | "upcoming" | "ended";
+
+export interface TFlashSaleProduct {
+  id: string;
+  flashSaleId: string;
+  skuId: string;
+  skuCode?: string;
+  salePrice: number;
+  stock: number;
+  soldCount: number;
+  orderLimit: number;
+}
+
+export interface TFlashSaleTimeSlot {
+  id: string;
+  name: string;
+  startHour: number;
+  startMinute: number;
+  endHour: number;
+  endMinute: number;
+  isActive: boolean;
+}
+
+export interface TFlashSale {
+  id: string;
+  name: string;
+  startTime: string;
+  endTime: string;
+  createdAt: string;
+  updatedAt: string;
+  timeSlotId: string | null;
+  timeSlot: TFlashSaleTimeSlot | null;
+  products: TFlashSaleProduct[];
+}

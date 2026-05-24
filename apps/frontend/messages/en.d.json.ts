@@ -553,7 +553,16 @@ declare const messages: {
       "endTime": "End Time",
       "status": "Status",
       "products": "Products Count",
-      "actions": "Actions"
+      "actions": "Actions",
+      "loading": "Loading campaigns...",
+      "empty": "No flash sale campaigns yet.",
+      "error": "Unable to load flash sale campaigns.",
+      "retry": "Retry",
+      "statusLabel": {
+        "active": "Active",
+        "upcoming": "Upcoming",
+        "ended": "Ended"
+      }
     },
     "timeSlots": {
       "title": "Daily Time Slots",
@@ -562,7 +571,13 @@ declare const messages: {
       "name": "Slot Name",
       "startHour": "Start Hour",
       "endHour": "End Hour",
-      "status": "Status"
+      "status": "Status",
+      "loading": "Loading time slots...",
+      "empty": "No time slots configured yet.",
+      "error": "Unable to load time slots.",
+      "retry": "Retry",
+      "active": "Active",
+      "inactive": "Inactive"
     }
   },
   "HelpCenter": {

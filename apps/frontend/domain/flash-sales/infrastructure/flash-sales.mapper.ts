@@ -1,0 +1,53 @@
+import type {
+  FlashSaleTimeSlot,
+  IFlashSale,
+  IFlashSaleProduct,
+} from "@ecommerce/shared";
+import type {
+  TFlashSale,
+  TFlashSaleProduct,
+  TFlashSaleTimeSlot,
+} from "../types/flash-sale.model";
+
+export class FlashSalesMapper {
+  static toDomain(dto: IFlashSale): TFlashSale {
+    return {
+      id: dto.id,
+      name: dto.name,
+      startTime: new Date(dto.start_time).toISOString(),
+      endTime: new Date(dto.end_time).toISOString(),
+      createdAt: new Date(dto.created_at).toISOString(),
+      updatedAt: new Date(dto.updated_at).toISOString(),
+      timeSlotId: dto.time_slot_id,
+      timeSlot: dto.time_slot
+        ? FlashSalesMapper.toTimeSlotDomain(dto.time_slot)
+        : null,
+      products: dto.products.map(FlashSalesMapper.toProductDomain),
+    };
+  }
+
+  static toProductDomain(dto: IFlashSaleProduct): TFlashSaleProduct {
+    return {
+      id: dto.id,
+      flashSaleId: dto.flash_sale_id,
+      skuId: dto.sku_id,
+      skuCode: dto.sku?.sku_code,
+      salePrice: Number(dto.sale_price),
+      stock: dto.stock,
+      soldCount: dto.sold_count,
+      orderLimit: dto.order_limit,
+    };
+  }
+
+  static toTimeSlotDomain(dto: FlashSaleTimeSlot): TFlashSaleTimeSlot {
+    return {
+      id: dto.id,
+      name: dto.name,
+      startHour: dto.start_hour,
+      startMinute: dto.start_minute,
+      endHour: dto.end_hour,
+      endMinute: dto.end_minute,
+      isActive: dto.is_active,
+    };
+  }
+}
