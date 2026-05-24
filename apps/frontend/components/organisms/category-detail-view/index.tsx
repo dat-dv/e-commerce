@@ -70,6 +70,13 @@ export function CategoryDetailView({
   } = usePagination<TProduct, CategoryProductsQueryParams>({
     initialData,
     isSyncWithSearchParams: true,
+    resetParams: {
+      search: "",
+      sort: null,
+      min_price: null,
+      max_price: null,
+      rating: null,
+    },
     fetchPage: (params) =>
       productsUseCase.getProducts.execute({
         page: params.page,
@@ -90,29 +97,6 @@ export function CategoryDetailView({
 
   const displayCategories = topCategory ? [topCategory] : categories;
   const categoryTitle = activeCategory?.name || t("fallbackTitle");
-
-  const updateFilter = (
-    filters: { key: CategoryProductsFilterKey; value: string | null }[],
-  ) => {
-    onChangeFilter(filters, { merge: true, ssr: false, scroll: false });
-  };
-
-  const clearFilter = (key: CategoryProductsFilterKey) => {
-    onClearFilter(key, { merge: true, ssr: false, scroll: false });
-  };
-
-  const resetFilters = () => {
-    onResetFilters(
-      {
-        search: "",
-        sort: null,
-        min_price: null,
-        max_price: null,
-        rating: null,
-      },
-      { merge: true, ssr: false, scroll: false },
-    );
-  };
 
   const navigateToCategory = (slug: string) => {
     const current = new URLSearchParams(window.location.search);
@@ -152,7 +136,7 @@ export function CategoryDetailView({
             <CategoryDetailSidebar
               categorySlug={categorySlug}
               categories={displayCategories}
-              onFilterChange={updateFilter}
+              onFilterChange={onChangeFilter}
               onCategoryChange={navigateToCategory}
               minPriceValue={paginationRouter.routerState.min_price || ""}
               maxPriceValue={paginationRouter.routerState.max_price || ""}
@@ -184,16 +168,10 @@ export function CategoryDetailView({
               ? Number(paginationRouter.routerState.rating)
               : undefined,
           }}
-          onClearFilter={clearFilter}
-          onResetFilters={resetFilters}
-          onPageChange={(page) =>
-            onChangePagination(page, {
-              merge: true,
-              ssr: false,
-              scroll: false,
-            })
-          }
-          onSortChange={(value) => updateFilter([{ key: "sort", value }])}
+          onClearFilter={onClearFilter}
+          onResetFilters={onResetFilters}
+          onPageChange={onChangePagination}
+          onSortChange={(value) => onChangeFilter([{ key: "sort", value }])}
           sortValue={paginationRouter.routerState.sort || ""}
         />
       </div>
@@ -203,7 +181,7 @@ export function CategoryDetailView({
           isOpen={isFilterOpen}
           onClose={() => setIsFilterOpen(false)}
           categories={displayCategories}
-          onFilterChange={updateFilter}
+          onFilterChange={onChangeFilter}
           onCategoryChange={handleDrawerCategoryChange}
           minPriceValue={paginationRouter.routerState.min_price || ""}
           maxPriceValue={paginationRouter.routerState.max_price || ""}

@@ -46,6 +46,7 @@ interface IUsePaginationParams<
     meta: IPaginationMeta;
   } | null;
   extendParams?: Partial<TParams>;
+  resetParams?: Partial<Omit<TParams, "page" | "limit">>;
   fetchPage: (params: Partial<TParams>) => Promise<ApiPaginatedResponse<T>>;
   isSyncWithSearchParams: boolean;
 }
@@ -56,6 +57,7 @@ const usePagination = <
 >({
   initialData,
   extendParams,
+  resetParams,
   fetchPage,
   isSyncWithSearchParams,
 }: IUsePaginationParams<T, TParams>) => {
@@ -157,11 +159,7 @@ const usePagination = <
   const onChangePagination = useCallback(
     async (
       page: number,
-      options = {
-        merge: true,
-        ssr: false,
-        scroll: false,
-      },
+      options: AppRouterNavigateOptions = DEFAULT_CLIENT_NAVIGATE_OPTIONS,
     ) => {
       const paginationParams = {
         page,
@@ -222,13 +220,10 @@ const usePagination = <
   );
 
   const onResetFilters = useCallback(
-    (
-      params: Partial<Omit<TParams, "page" | "limit">>,
-      options: AppRouterNavigateOptions = DEFAULT_CLIENT_NAVIGATE_OPTIONS,
-    ) => {
-      return getData({ page: 1, ...params } as Partial<TParams>, options);
+    (options: AppRouterNavigateOptions = DEFAULT_CLIENT_NAVIGATE_OPTIONS) => {
+      return getData({ page: 1, ...resetParams } as Partial<TParams>, options);
     },
-    [getData],
+    [getData, resetParams],
   );
 
   return {
