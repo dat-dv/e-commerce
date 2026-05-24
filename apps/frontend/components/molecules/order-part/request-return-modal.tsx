@@ -48,13 +48,13 @@ export const RequestReturnModal = ({
     [],
   );
 
-  const localizedSchema = useMemo(
+  const schema = useMemo(
     () => getOrderReturnRequestSchema(tValidation),
     [tValidation],
   );
 
   const methods = useForm<OrderReturnRequestFormData>({
-    resolver: zodResolver(localizedSchema),
+    resolver: zodResolver(schema),
     defaultValues,
   });
 

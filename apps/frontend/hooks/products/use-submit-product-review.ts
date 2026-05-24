@@ -2,7 +2,7 @@ import { toast } from "@/components/ui/toast";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   ReviewSubmitSchema,
@@ -25,13 +25,14 @@ export const useSubmitProductReview = ({
   const [submitReviewError, setSubmitReviewError] = useState<string | null>(
     null,
   );
+  const schema = useMemo(() => getReviewSubmitSchema(t), [t]);
 
   const getSubmitReviewErrorMessage = (error: Error) => {
     return error.message || t("submitFailed");
   };
 
   const methods = useForm<ReviewSubmitSchema>({
-    resolver: zodResolver(getReviewSubmitSchema(t)),
+    resolver: zodResolver(schema),
     defaultValues: {
       rating: 5,
       comment: "",

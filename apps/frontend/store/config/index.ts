@@ -18,7 +18,10 @@ export const configCreator =
     };
     const store: ConfigStore = {
       theme: ETheme.BLUE,
-      isDarkMode: false,
+      isDarkMode:
+        typeof window !== "undefined"
+          ? window.matchMedia("(prefers-color-scheme: dark)").matches
+          : false,
       _hasHydrated: false,
       isLoadingTransition: false,
       language: getSubdomainByHostname() || ELanguage.EN,

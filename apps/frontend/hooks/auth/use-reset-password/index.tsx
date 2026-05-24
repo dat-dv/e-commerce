@@ -1,17 +1,18 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { useRouter, useSearchParams } from "next/navigation";
-import { toast } from "@/components/ui/toast";
-import { useTranslations } from "next-intl";
 import {
   getResetPasswordSchema,
   TResetPasswordSchema,
 } from "@/components/molecules/reset-password-form/reset-password.schema";
-import { authUseCase } from "@/domain/auth/use-cases";
-import { useAuthStore } from "../use-auth-store";
+import { toast } from "@/components/ui/toast";
 import { APP_ROUTES } from "@/constants/routes";
+import { authUseCase } from "@/domain/auth/use-cases";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useMemo } from "react";
+import { useForm } from "react-hook-form";
+import { useAuthStore } from "../use-auth-store";
 
 const useResetPassword = () => {
   const router = useRouter();
@@ -21,9 +22,10 @@ const useResetPassword = () => {
 
   const setLoading = useAuthStore((state) => state.setLoading);
   const isLoading = useAuthStore((state) => state.loading);
+  const schema = useMemo(() => getResetPasswordSchema(t), [t]);
 
   const methods = useForm<TResetPasswordSchema>({
-    resolver: zodResolver(getResetPasswordSchema(t)),
+    resolver: zodResolver(schema),
     defaultValues: {
       password: "",
       confirmPassword: "",

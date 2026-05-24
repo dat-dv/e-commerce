@@ -72,7 +72,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-describedby={error ? `${id}-error` : undefined}
             maxLength={maxCount}
             {...rest}
-            value={value}
+            value={value ?? ""}
             type={isPassword && showPassword ? "text" : rest.type || "text"}
           />
 

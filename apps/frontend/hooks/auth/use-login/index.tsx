@@ -3,6 +3,7 @@
 import { toast } from "@/components/ui/toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
@@ -24,8 +25,10 @@ const useLogin = () => {
   const setLoading = useAuthStore((state) => state.setLoading);
   const isLoading = useAuthStore((state) => state.loading);
 
+  const schema = React.useMemo(() => getLoginSchema(t), [t]);
+
   const methods = useForm<LoginSchema>({
-    resolver: zodResolver(getLoginSchema(t)),
+    resolver: zodResolver(schema),
     defaultValues: {
       email: "",
       password: "",

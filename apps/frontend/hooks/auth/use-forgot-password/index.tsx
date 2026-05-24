@@ -1,15 +1,15 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { toast } from "@/components/ui/toast";
-import { useTranslations } from "next-intl";
 import {
   getForgotPasswordSchema,
   TForgotPasswordSchema,
 } from "@/components/molecules/forgot-password-form/forgot-password.schema";
+import { toast } from "@/components/ui/toast";
 import { authUseCase } from "@/domain/auth/use-cases";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useAuthStore } from "../use-auth-store";
 
 const useForgotPassword = () => {
@@ -21,9 +21,10 @@ const useForgotPassword = () => {
 
   const setLoading = useAuthStore((state) => state.setLoading);
   const isLoading = useAuthStore((state) => state.loading);
+  const schema = useMemo(() => getForgotPasswordSchema(t), [t]);
 
   const methods = useForm<TForgotPasswordSchema>({
-    resolver: zodResolver(getForgotPasswordSchema(t)),
+    resolver: zodResolver(schema),
     defaultValues: {
       email: "",
       phone: "",

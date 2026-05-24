@@ -1,15 +1,16 @@
 "use client";
 
+import { toast } from "@/components/ui/toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { toast } from "@/components/ui/toast";
 
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { authUseCase } from "@/domain/auth/use-cases";
-import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useTranslations } from "next-intl";
 
+import { useMemo } from "react";
 import { RegisterSchema, getRegisterSchema } from "./register.schema";
 
 export const useRegister = () => {
@@ -19,9 +20,10 @@ export const useRegister = () => {
 
   const setLoading = useAuthStore((state) => state.setLoading);
   const loading = useAuthStore((state) => state.loading);
+  const schema = useMemo(() => getRegisterSchema(t), [t]);
 
   const methods = useForm<RegisterSchema>({
-    resolver: zodResolver(getRegisterSchema(t)),
+    resolver: zodResolver(schema),
     defaultValues: {
       email: "",
       password: "",
