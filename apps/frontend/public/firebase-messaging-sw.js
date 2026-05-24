@@ -16,6 +16,16 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
+const postNotificationChangedMessage = () => {
+  self.clients
+    .matchAll({ type: "window", includeUncontrolled: true })
+    .then((clients) => {
+      clients.forEach((client) => {
+        client.postMessage({ type: "notifications:changed" });
+      });
+    });
+};
+
 messaging.onBackgroundMessage((payload) => {
   console.log(
     "[firebase-messaging-sw.js] Received background message ",
@@ -28,6 +38,7 @@ messaging.onBackgroundMessage((payload) => {
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
+  postNotificationChangedMessage();
 });
 
 // PWA offline support & caching

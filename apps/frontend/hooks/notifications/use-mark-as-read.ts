@@ -1,12 +1,10 @@
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useNotificationStore } from "@/store/notification-store";
+import { emitNotificationRefresh } from "./notification-sync";
 
 export const useMarkAsRead = () => {
   const storeNotifications = useNotificationStore((s) => s.data);
   const storeMarkAsRead = useNotificationStore((s) => s.markAsRead);
-  const addReadId = useNotificationStore((s) => s.addReadId);
-  const serverUnreadCount = useNotificationStore((s) => s.unreadCount);
-  const setServerUnreadCount = useNotificationStore((s) => s.setUnreadCount);
 
   const markAsRead = async (id: string) => {
     try {
@@ -14,15 +12,13 @@ export const useMarkAsRead = () => {
         (item) => item.id === id,
       );
 
-      storeMarkAsRead(id);
-      addReadId(id);
+      if (!notification || notification.isRead) return;
 
-      if (notification && !notification.isRead && !id.startsWith("fcm-")) {
-        setServerUnreadCount(Math.max(serverUnreadCount - 1, 0));
+      const response = await notificationsUseCase.markAsRead(id);
+      if (response.status === "success") {
+        storeMarkAsRead(id);
+        emitNotificationRefresh();
       }
-      if (id.startsWith("fcm-")) return;
-
-      await notificationsUseCase.markAsRead(id);
     } catch (error) {
       console.error("Error marking notification as read:", error);
     }

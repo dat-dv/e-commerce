@@ -7,4 +7,5 @@ export enum ENotificationType {
 
 export enum ENotificationClientEvent {
   REFRESH = "notifications:refresh",
+  CHANGED = "notifications:changed",
 }

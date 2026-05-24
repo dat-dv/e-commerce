@@ -9,10 +9,6 @@ export const useUnreadCount = () => {
   const serverUnreadCount = useNotificationStore((s) => s.unreadCount);
   const setServerUnreadCount = useNotificationStore((s) => s.setUnreadCount);
 
-  const notifications = useNotificationStore((s) => s.data);
-  const isAllRead = useNotificationStore((s) => s.isAllRead);
-  const readIds = useNotificationStore((s) => s.readIds);
-
   const loadUnreadCount = useCallback(async () => {
     if (!user) {
       setServerUnreadCount(0);
@@ -24,28 +20,8 @@ export const useUnreadCount = () => {
     }
   }, [user, setServerUnreadCount]);
 
-  const computedNotifications = notifications?.items?.map((notification) =>
-    isAllRead || readIds.has(notification.id)
-      ? { ...notification, isRead: true }
-      : notification,
-  );
-
-  const loadedUnreadCount = computedNotifications?.filter(
-    (n) => !n.isRead,
-  ).length;
-  const localTransientUnreadCount = computedNotifications?.filter(
-    (n) => !n.isRead && n.id.startsWith("fcm-"),
-  ).length;
-
-  const unreadCount = isAllRead
-    ? 0
-    : Math.max(
-        serverUnreadCount + localTransientUnreadCount,
-        loadedUnreadCount,
-      );
-
   return {
-    unreadCount,
+    unreadCount: serverUnreadCount,
     loadUnreadCount,
   };
 };

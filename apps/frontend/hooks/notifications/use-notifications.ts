@@ -11,9 +11,6 @@ export const useNotifications = () => {
   );
   const setNotifications = useNotificationStore((s) => s.setNotifications);
 
-  const isAllRead = useNotificationStore((s) => s.isAllRead);
-  const readIds = useNotificationStore((s) => s.readIds);
-  const resetReadStatus = useNotificationStore((s) => s.resetReadStatus);
   const loading = false;
   const [searchQuery, setSearchQuery] = useState("");
   const { loadUnreadCount } = useUnreadCount();
@@ -25,10 +22,10 @@ export const useNotifications = () => {
       page,
       limit,
     });
-    if (response.data?.items.length > 0) {
-      appendNotifications(response.data);
+    if (response.status === "success") {
+      setNotifications(response.data);
     }
-  }, [storeNotifications, appendNotifications]);
+  }, [storeNotifications.meta.limit, setNotifications]);
 
   const loadMore = useCallback(async () => {
     const page = storeNotifications.meta.page + 1;
@@ -41,15 +38,14 @@ export const useNotifications = () => {
       page,
       limit,
     });
-    if (response.data?.items.length > 0) {
-      setNotifications(response.data);
+    if (response.status === "success") {
+      appendNotifications(response.data);
     }
-  }, [storeNotifications, setNotifications]);
+  }, [storeNotifications, appendNotifications]);
 
   const refresh = useCallback(async () => {
-    resetReadStatus();
     await Promise.all([getData(), loadUnreadCount()]);
-  }, [getData, loadUnreadCount, resetReadStatus]);
+  }, [getData, loadUnreadCount]);
 
   useEffect(() => {
     const handleRefresh = () => {
@@ -65,13 +61,8 @@ export const useNotifications = () => {
   }, [refresh]);
 
   const notifications = useMemo(
-    () =>
-      storeNotifications?.items?.map((notification) =>
-        isAllRead || readIds.has(notification.id)
-          ? { ...notification, isRead: true }
-          : notification,
-      ) || [],
-    [isAllRead, readIds, storeNotifications],
+    () => storeNotifications?.items || [],
+    [storeNotifications],
   );
 
   const filteredNotifications = notifications?.filter((notification) => {
