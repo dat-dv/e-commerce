@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { AuthModule } from '../auth/auth.module';
 import { IFlashSalesRepository } from './domain/entities/flash-sales.repository.interface';
 import { FlashSalesRepository } from './domain/infrastructure/flash-sales.repository';
 import { AddProductsToFlashSaleUseCase } from './domain/use-cases/add-products-to-flash-sale.use-case';
@@ -11,6 +12,7 @@ import { GetAllTimeSlotsUseCase } from './domain/use-cases/get-all-time-slots.us
 import { FlashSalesController } from './flash-sales.controller';
 
 @Module({
+  imports: [AuthModule],
   controllers: [FlashSalesController],
   providers: [
     CreateFlashSaleUseCase,
