@@ -42,7 +42,12 @@ const RequireProfileInfoModal = () => {
   if (!show) return null;
 
   return (
-    <AppDialog isOpen onClose={() => {}} isDismissable={false}>
+    <AppDialog
+      className="z-[9999]"
+      isOpen
+      onClose={() => {}}
+      isDismissable={false}
+    >
       <AppDialogPanel className="bg-surface w-full max-w-xl rounded-3xl p-8">
         <AppDialogTitle className="mb-2 text-2xl font-bold">
           {t("title")}
