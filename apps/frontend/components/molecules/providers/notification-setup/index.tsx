@@ -35,7 +35,7 @@ export default function NotificationSetup() {
   const handleNotificationChanged = useCallback(
     (type: ENotificationClientEvent, data?: NotificationEventData) => {
       console.log("Notification received", type, data);
-      notificationHandlers[type](data);
+      notificationHandlers[type]?.(data);
     },
     [notificationHandlers],
   );

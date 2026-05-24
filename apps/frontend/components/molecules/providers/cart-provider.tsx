@@ -26,19 +26,30 @@ export const CartProvider = ({ children, initState }: CartProviderProps) => {
   );
 
   useEffect(() => {
-    const isHydrate = store.getState().hasHydrated;
-    if (!user || isHydrate) return;
+    const userId = user?.id;
+
+    if (!userId) {
+      store.getState().clearCart();
+      store.getState().setHasHydrated(false);
+      return;
+    }
+
+    const state = store.getState();
+
+    if (state.hasHydrated) return;
+
     const fetchCart = async () => {
       try {
         const res = await cartUseCase.getCart.execute();
-        const setItems = store.getState().setItems;
-        const selectItems = store.getState().selectItems;
-        const setHasHydrated = store.getState().setHasHydrated;
+
         if (res.data) {
-          setItems(res.data.items);
-          selectItems(res.data.items.map((item) => item.skuId));
+          const items = res.data.items;
+
+          store.getState().setItems(items);
+          store.getState().selectItems(items.map((item) => item.skuId));
         }
-        setHasHydrated(true);
+
+        store.getState().setHasHydrated(true);
       } catch {
         store.getState().clearCart();
         store.getState().setHasHydrated(true);
@@ -46,7 +57,7 @@ export const CartProvider = ({ children, initState }: CartProviderProps) => {
     };
 
     fetchCart();
-  }, [user, store]);
+  }, [user?.id, store]);
 
   return <CartContext.Provider value={store}>{children}</CartContext.Provider>;
 };
