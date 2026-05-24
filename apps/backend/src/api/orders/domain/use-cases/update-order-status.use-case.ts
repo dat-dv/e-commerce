@@ -1,9 +1,9 @@
-import { Injectable, Inject, UnauthorizedException, BadRequestException, NotFoundException } from '@nestjs/common';
-import { IOrdersRepository } from '../entities/orders.repository.interface';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { ENotificationType, EOrderStatus, IOrderResponse } from '@ecommerce/shared';
+import { BadRequestException, Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { NotificationService } from 'src/api/notifications/notifications.service';
-import { ENotificationType, IOrderResponse, EOrderStatus } from '@ecommerce/shared';
+import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
+import { IOrdersRepository } from '../entities/orders.repository.interface';
 
 /** Terminal statuses that block further transitions */
 const TERMINAL_STATUSES = [EOrderStatus.DELIVERED, EOrderStatus.CANCELLED, EOrderStatus.RETURNED];
