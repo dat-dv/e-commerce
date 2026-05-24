@@ -29,3 +29,7 @@ export interface ICreateTimeSlotRequest {
 export interface ICreateTimeSlotsBatchRequest {
   slots: ICreateTimeSlotRequest[];
 }
+
+export interface IAddProductsToFlashSaleRequest {
+  products: ICreateFlashSaleProductRequest[];
+}

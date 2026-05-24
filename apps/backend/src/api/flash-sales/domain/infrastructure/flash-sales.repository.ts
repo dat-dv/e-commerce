@@ -1,6 +1,7 @@
 import { FlashSaleTimeSlot, IFlashSale } from '@ecommerce/shared';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
+import { AddProductsToFlashSaleDto } from '../../dto/add-products-to-flash-sale.dto';
 import { CreateFlashSaleDto, CreateFlashSalesBatchDto } from '../../dto/create-flash-sale.dto';
 import { CreateTimeSlotDto, CreateTimeSlotsBatchDto } from '../../dto/create-time-slot.dto';
 import { IFlashSalesRepository } from '../entities/flash-sales.repository.interface';
@@ -65,6 +66,44 @@ export class FlashSalesRepository implements IFlashSalesRepository {
         }),
       ),
     );
+  }
+
+  async findFlashSaleById(id: string): Promise<IFlashSale | null> {
+    return this.prisma.flashSale.findUnique({
+      where: { id },
+      include: {
+        products: {
+          include: {
+            sku: true,
+          },
+        },
+        time_slot: true,
+      },
+    });
+  }
+
+  async addProductsToFlashSale(flashSaleId: string, data: AddProductsToFlashSaleDto): Promise<IFlashSale> {
+    return this.prisma.flashSale.update({
+      where: { id: flashSaleId },
+      data: {
+        products: {
+          create: data.products.map((p) => ({
+            sku_id: p.sku_id,
+            sale_price: p.sale_price,
+            stock: p.stock,
+            order_limit: p.order_limit ?? 1,
+          })),
+        },
+      },
+      include: {
+        products: {
+          include: {
+            sku: true,
+          },
+        },
+        time_slot: true,
+      },
+    });
   }
 
   async findTimeSlotById(id: string): Promise<FlashSaleTimeSlot | null> {
