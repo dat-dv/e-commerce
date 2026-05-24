@@ -4,11 +4,13 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 import Button from "@/components/atoms/button";
-import Input from "@/components/atoms/input";
+import { TurnstileWrapper } from "@/components/molecules/cloudflare-turnstile";
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { useRegister } from "@/hooks/auth/use-register";
-import { TurnstileWrapper } from "@/components/molecules/cloudflare-turnstile";
+import AppForm from "../form/app-form";
+import { FormInput } from "../form/form-input";
+import FormListenerDirty from "../form/form-listener-dirty";
 
 export default function SignUpForm() {
   const t = useTranslations("RegisterPage");
@@ -25,55 +27,54 @@ export default function SignUpForm() {
         </p>
       </div>
 
-      <form className="flex flex-col gap-4" onSubmit={onSubmit}>
-        <Input
-          aria-label={t("emailLabel")}
-          id="email"
+      <AppForm
+        className="flex flex-col gap-4"
+        methods={methods}
+        onSubmit={onSubmit}
+      >
+        <FormInput
+          name="email"
           label={t("emailLabel")}
           type="email"
           placeholder={t("emailPlaceholder")}
-          {...methods.register("email")}
           autoComplete="email"
-          error={methods.formState.errors.email?.message}
         />
 
-        <Input
-          aria-label={t("passwordLabel")}
-          id="password"
+        <FormInput
+          name="password"
           label={t("passwordLabel")}
           type="password"
           placeholder={t("passwordPlaceholder")}
-          {...methods.register("password")}
           autoComplete="new-password"
-          error={methods.formState.errors.password?.message}
         />
 
-        <Input
-          aria-label={t("confirmPasswordLabel")}
-          id="confirmPassword"
+        <FormInput
+          name="confirmPassword"
           label={t("confirmPasswordLabel")}
           type="password"
           placeholder={t("confirmPasswordPlaceholder")}
-          {...methods.register("confirmPassword")}
           autoComplete="new-password"
-          error={methods.formState.errors.confirmPassword?.message}
         />
 
         <TurnstileWrapper>
           {({ isVerified }) => (
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              className="mt-2 w-full"
-              loading={loading}
-              disabled={!isVerified}
-            >
-              {loading ? t("submitting") : t("submit")}
-            </Button>
+            <FormListenerDirty>
+              {(isDirty) => (
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="mt-2 w-full"
+                  loading={loading}
+                  disabled={!isVerified || !isDirty}
+                >
+                  {loading ? t("submitting") : t("submit")}
+                </Button>
+              )}
+            </FormListenerDirty>
           )}
         </TurnstileWrapper>
-      </form>
+      </AppForm>
 
       <div className="text-center">
         <p className="text-sm opacity-60">

@@ -65,7 +65,7 @@ export default function SignInForm() {
                   isLoading={isLoading}
                   loadingText={t("submitting")}
                   className="mt-2"
-                  disabled={isDirty && !isVerified}
+                  disabled={!isDirty || !isVerified}
                 >
                   {t("submit")}
                 </FormButton>

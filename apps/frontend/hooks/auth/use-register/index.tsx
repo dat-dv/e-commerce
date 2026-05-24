@@ -55,7 +55,7 @@ export const useRegister = () => {
 
   return {
     methods,
-    onSubmit: methods.handleSubmit(onSubmit),
+    onSubmit,
     loading,
   };
 };
