@@ -8,21 +8,27 @@ export const useNotifications = () => {
     (s) => s.appendNotifications,
   );
   const setNotifications = useNotificationStore((s) => s.setNotifications);
+  const loading = useNotificationStore((s) => s.loading);
+  const setLoading = useNotificationStore((s) => s.setLoading);
 
-  const loading = false;
   const [searchQuery, setSearchQuery] = useState("");
 
   const getData = useCallback(async () => {
-    const page = 1;
-    const limit = storeNotifications.meta.limit;
-    const response = await notificationsUseCase.getNotifications({
-      page,
-      limit,
-    });
-    if (response.status === "success") {
-      setNotifications(response.data);
+    setLoading(true);
+    try {
+      const page = 1;
+      const limit = storeNotifications.meta.limit;
+      const response = await notificationsUseCase.getNotifications({
+        page,
+        limit,
+      });
+      if (response.status === "success") {
+        setNotifications(response.data);
+      }
+    } finally {
+      setLoading(false);
     }
-  }, [storeNotifications.meta.limit, setNotifications]);
+  }, [storeNotifications.meta.limit, setNotifications, setLoading]);
 
   const loadMore = useCallback(async () => {
     const page = storeNotifications.meta.page + 1;

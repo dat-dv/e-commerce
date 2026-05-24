@@ -7,6 +7,7 @@ import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
 import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
+import { useLoadOnce } from "@/hooks/use-load-once";
 import { NotificationFilters } from "./parts/notification-filters";
 import { NotificationHeader } from "./parts/notification-header";
 import { NotificationList } from "./parts/notification-list";
@@ -14,11 +15,13 @@ import { NotificationPageHeader } from "./parts/notification-page-header";
 import { NotificationSummary } from "./parts/notification-summary";
 
 export const NotificationsView = () => {
-  const { data, loading, loadingMore, hasMore, loadMore, setSearch } =
+  const { data, loading, loadingMore, hasMore, loadMore, setSearch, refresh } =
     useNotifications();
   const { unreadCount } = useUnreadCount();
   const { markAsRead } = useMarkAsRead();
   const { markAllAsRead } = useMarkAllAsRead();
+
+  useLoadOnce(refresh);
 
   const totalCount = data.meta.total;
 
