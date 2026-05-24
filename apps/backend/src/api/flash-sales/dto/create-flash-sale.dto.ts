@@ -1,20 +1,21 @@
 import {
-  IsString,
-  IsNotEmpty,
-  IsOptional,
-  IsNumber,
-  IsPositive,
-  IsArray,
-  ValidateNested,
-  IsDateString,
-  Min,
-} from 'class-validator';
+  ICreateFlashSaleProductRequest,
+  ICreateFlashSaleRequest,
+  ICreateFlashSalesBatchRequest,
+} from '@ecommerce/shared';
 import { Type } from 'class-transformer';
-import { ICreateFlashSaleRequest, ICreateFlashSaleProductRequest } from '@ecommerce/shared';
+import {
+  IsArray,
+  IsDateString,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsPositive,
+  IsString,
+  Min,
+  ValidateNested,
+} from 'class-validator';
 
-/**
- * DTO for creating a product entry inside a Flash Sale.
- */
 export class CreateFlashSaleProductDto implements ICreateFlashSaleProductRequest {
   @IsString()
   @IsNotEmpty()
@@ -34,9 +35,6 @@ export class CreateFlashSaleProductDto implements ICreateFlashSaleProductRequest
   order_limit?: number;
 }
 
-/**
- * DTO for creating a Flash Sale campaign.
- */
 export class CreateFlashSaleDto implements ICreateFlashSaleRequest {
   @IsString()
   @IsNotEmpty()
@@ -56,4 +54,11 @@ export class CreateFlashSaleDto implements ICreateFlashSaleRequest {
   @ValidateNested({ each: true })
   @Type(() => CreateFlashSaleProductDto)
   products: CreateFlashSaleProductDto[];
+}
+
+export class CreateFlashSalesBatchDto implements ICreateFlashSalesBatchRequest {
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateFlashSaleDto)
+  flash_sales: CreateFlashSaleDto[];
 }
