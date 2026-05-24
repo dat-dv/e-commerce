@@ -22,6 +22,27 @@
         "price": 82650,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-36V99-DEFAULT-2",
+        "price": 82650,
+        "stock": 97,
+        "attributes": null,
+        "id": "3bd9c892-5e05-4318-85f4-300356b4a46c"
+      },
+      {
+        "sku_code": "SKU-36V99-DEFAULT-3",
+        "price": 82650,
+        "stock": 97,
+        "attributes": null,
+        "id": "c74f10f2-d530-4109-b9cf-5e8fa561e6f0"
+      },
+      {
+        "sku_code": "SKU-36V99-DEFAULT-4",
+        "price": 82650,
+        "stock": 97,
+        "attributes": null,
+        "id": "df31abed-793c-4782-8d7e-fdc2a62d438c"
       }
     ],
     "brand": "Gnawlers",
@@ -67,6 +88,27 @@
         "price": 55500,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z11OY-DEFAULT-2",
+        "price": 55500,
+        "stock": 51,
+        "attributes": null,
+        "id": "90071ed2-f08b-4974-aeb4-fda63a270e22"
+      },
+      {
+        "sku_code": "SKU-Z11OY-DEFAULT-3",
+        "price": 55500,
+        "stock": 51,
+        "attributes": null,
+        "id": "76dbc9b7-7bb3-4521-9ffa-c88fa8fa3887"
+      },
+      {
+        "sku_code": "SKU-Z11OY-DEFAULT-4",
+        "price": 55500,
+        "stock": 51,
+        "attributes": null,
+        "id": "542474f8-2f0e-4a7f-83ba-cf47e30c4fdb"
       }
     ],
     "brand": "Purepet",
@@ -108,6 +150,27 @@
         "price": 59700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3ZTXY-DEFAULT-2",
+        "price": 59700,
+        "stock": 43,
+        "attributes": null,
+        "id": "0d54c347-95c5-47bf-b932-064e1e841de5"
+      },
+      {
+        "sku_code": "SKU-3ZTXY-DEFAULT-3",
+        "price": 59700,
+        "stock": 43,
+        "attributes": null,
+        "id": "5af1e778-588c-4df1-a4f7-5764cc4ea7d4"
+      },
+      {
+        "sku_code": "SKU-3ZTXY-DEFAULT-4",
+        "price": 59700,
+        "stock": 43,
+        "attributes": null,
+        "id": "a2eb2de6-98f2-4752-b940-c2e3019d889d"
       }
     ],
     "brand": "Pedigree",
@@ -153,6 +216,27 @@
         "price": 86700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TS4ZA-DEFAULT-2",
+        "price": 86700,
+        "stock": 80,
+        "attributes": null,
+        "id": "fbcebf08-5fbe-41f1-8758-03b9b96af8e6"
+      },
+      {
+        "sku_code": "SKU-TS4ZA-DEFAULT-3",
+        "price": 86700,
+        "stock": 80,
+        "attributes": null,
+        "id": "0fa66eed-7e5d-4ce6-b71b-8e0d6a521b0e"
+      },
+      {
+        "sku_code": "SKU-TS4ZA-DEFAULT-4",
+        "price": 86700,
+        "stock": 80,
+        "attributes": null,
+        "id": "7669d290-323e-4997-a925-c6c15733f375"
       }
     ],
     "brand": "Drools",
@@ -194,6 +278,27 @@
         "price": 83700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GBWQK-DEFAULT-2",
+        "price": 83700,
+        "stock": 99,
+        "attributes": null,
+        "id": "327895c4-f6a2-46a4-a3bf-a27cdfa37599"
+      },
+      {
+        "sku_code": "SKU-GBWQK-DEFAULT-3",
+        "price": 83700,
+        "stock": 99,
+        "attributes": null,
+        "id": "446d3c47-1cf3-4c6a-b1cc-aa383dc03714"
+      },
+      {
+        "sku_code": "SKU-GBWQK-DEFAULT-4",
+        "price": 83700,
+        "stock": 99,
+        "attributes": null,
+        "id": "8b63ac44-4a87-4dcf-a6d9-01c51c25994a"
       }
     ],
     "brand": "Drools",
@@ -235,6 +340,27 @@
         "price": 44400,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XSK2C-DEFAULT-2",
+        "price": 44400,
+        "stock": 22,
+        "attributes": null,
+        "id": "13d5205f-3129-49ca-bc48-0048320a008f"
+      },
+      {
+        "sku_code": "SKU-XSK2C-DEFAULT-3",
+        "price": 44400,
+        "stock": 22,
+        "attributes": null,
+        "id": "0e9da746-bd60-4bdf-b46c-ba58c6e237ed"
+      },
+      {
+        "sku_code": "SKU-XSK2C-DEFAULT-4",
+        "price": 44400,
+        "stock": 22,
+        "attributes": null,
+        "id": "3e0bc708-3912-44a1-8f0c-a9aaa52dcbad"
       }
     ],
     "brand": "Pedigree",
@@ -276,6 +402,27 @@
         "price": 329700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O9I84-DEFAULT-2",
+        "price": 329700,
+        "stock": 24,
+        "attributes": null,
+        "id": "4030f2a7-15fd-4f6c-9dee-6d7347cd31f2"
+      },
+      {
+        "sku_code": "SKU-O9I84-DEFAULT-3",
+        "price": 329700,
+        "stock": 24,
+        "attributes": null,
+        "id": "bb0f7852-f16a-4d90-9022-ecd72e066415"
+      },
+      {
+        "sku_code": "SKU-O9I84-DEFAULT-4",
+        "price": 329700,
+        "stock": 24,
+        "attributes": null,
+        "id": "9f5a2ceb-8c6a-4b5c-8696-59fe6571225c"
       }
     ],
     "brand": "Sage",
@@ -317,6 +464,27 @@
         "price": 58200,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZMVHB-DEFAULT-2",
+        "price": 58200,
+        "stock": 106,
+        "attributes": null,
+        "id": "3c8500dc-fe4f-4aff-88a1-e49dd79d9cfb"
+      },
+      {
+        "sku_code": "SKU-ZMVHB-DEFAULT-3",
+        "price": 58200,
+        "stock": 106,
+        "attributes": null,
+        "id": "c495b06a-b56d-4b8b-b9b9-eee083ec3e2c"
+      },
+      {
+        "sku_code": "SKU-ZMVHB-DEFAULT-4",
+        "price": 58200,
+        "stock": 106,
+        "attributes": null,
+        "id": "d999ca37-18cd-44cd-be91-7931f7a48c3a"
       }
     ],
     "brand": "Foodie",
@@ -354,6 +522,27 @@
         "price": 156300,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3FLKV-DEFAULT-2",
+        "price": 156300,
+        "stock": 63,
+        "attributes": null,
+        "id": "f38ffd0d-7519-443f-8bb2-65f9fd6d7c01"
+      },
+      {
+        "sku_code": "SKU-3FLKV-DEFAULT-3",
+        "price": 156300,
+        "stock": 63,
+        "attributes": null,
+        "id": "cb8988cb-5807-4a1b-aeb1-b00373ff53a0"
+      },
+      {
+        "sku_code": "SKU-3FLKV-DEFAULT-4",
+        "price": 156300,
+        "stock": 63,
+        "attributes": null,
+        "id": "30985d28-696e-4015-8fef-bc1773a0f818"
       }
     ],
     "brand": "Sobo",
@@ -395,6 +584,27 @@
         "price": 204000,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1RUGU-DEFAULT-2",
+        "price": 204000,
+        "stock": 82,
+        "attributes": null,
+        "id": "8d6f4cb5-77fd-4fa5-920a-97125c2a35ad"
+      },
+      {
+        "sku_code": "SKU-1RUGU-DEFAULT-3",
+        "price": 204000,
+        "stock": 82,
+        "attributes": null,
+        "id": "1d46c36a-fcc0-4c36-8246-01845ffa4d6f"
+      },
+      {
+        "sku_code": "SKU-1RUGU-DEFAULT-4",
+        "price": 204000,
+        "stock": 82,
+        "attributes": null,
+        "id": "bf31e764-18b5-4a38-8472-891dc59b818e"
       }
     ],
     "brand": "Dog",
@@ -440,6 +650,27 @@
         "price": 168992.99999999997,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HM7V7-DEFAULT-2",
+        "price": 168992.99999999997,
+        "stock": 11,
+        "attributes": null,
+        "id": "dc0be81d-9d49-4db0-bb12-aacdd7188e3c"
+      },
+      {
+        "sku_code": "SKU-HM7V7-DEFAULT-3",
+        "price": 168992.99999999997,
+        "stock": 11,
+        "attributes": null,
+        "id": "de350780-b847-4f50-be46-55ab30c66928"
+      },
+      {
+        "sku_code": "SKU-HM7V7-DEFAULT-4",
+        "price": 168992.99999999997,
+        "stock": 11,
+        "attributes": null,
+        "id": "f2c908eb-0163-40b3-9e7c-63de47360b25"
       }
     ],
     "brand": "Pet",
@@ -485,6 +716,27 @@
         "price": 96000,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AXLGK-DEFAULT-2",
+        "price": 96000,
+        "stock": 95,
+        "attributes": null,
+        "id": "fe6a5417-f198-4fd6-bc23-76936a44f98b"
+      },
+      {
+        "sku_code": "SKU-AXLGK-DEFAULT-3",
+        "price": 96000,
+        "stock": 95,
+        "attributes": null,
+        "id": "9b03f98a-2c51-4038-953f-4c7a049915ea"
+      },
+      {
+        "sku_code": "SKU-AXLGK-DEFAULT-4",
+        "price": 96000,
+        "stock": 95,
+        "attributes": null,
+        "id": "dfc04b2a-2f88-4d33-a359-2a7392255b54"
       }
     ],
     "brand": "Sobo",
@@ -522,6 +774,27 @@
         "price": 89100,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LMNVT-DEFAULT-2",
+        "price": 89100,
+        "stock": 104,
+        "attributes": null,
+        "id": "ec518d13-e900-4a96-8926-ed393c9ba5a8"
+      },
+      {
+        "sku_code": "SKU-LMNVT-DEFAULT-3",
+        "price": 89100,
+        "stock": 104,
+        "attributes": null,
+        "id": "772b2b1e-d759-44ab-adc5-68ee4757bf1e"
+      },
+      {
+        "sku_code": "SKU-LMNVT-DEFAULT-4",
+        "price": 89100,
+        "stock": 104,
+        "attributes": null,
+        "id": "2f489a7b-ac2e-43ad-9b57-cd2b6c7851e5"
       }
     ],
     "brand": "Pets",
@@ -563,6 +836,27 @@
         "price": 102000,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XU7OF-DEFAULT-2",
+        "price": 102000,
+        "stock": 104,
+        "attributes": null,
+        "id": "5e3df889-a6ff-485d-bcba-a4f016eb8f6c"
+      },
+      {
+        "sku_code": "SKU-XU7OF-DEFAULT-3",
+        "price": 102000,
+        "stock": 104,
+        "attributes": null,
+        "id": "03a3268a-e839-426a-8d25-7e4979ee0d76"
+      },
+      {
+        "sku_code": "SKU-XU7OF-DEFAULT-4",
+        "price": 102000,
+        "stock": 104,
+        "attributes": null,
+        "id": "8029f789-3f65-4d9e-9fe2-8a3545d2bf49"
       }
     ],
     "brand": "Purepet",
@@ -600,6 +894,27 @@
         "price": 59700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1XKCA-DEFAULT-2",
+        "price": 59700,
+        "stock": 86,
+        "attributes": null,
+        "id": "360b4ead-f229-4d23-96bd-71114c570284"
+      },
+      {
+        "sku_code": "SKU-1XKCA-DEFAULT-3",
+        "price": 59700,
+        "stock": 86,
+        "attributes": null,
+        "id": "951944f5-7d09-447c-abe2-ddc2bdbcd638"
+      },
+      {
+        "sku_code": "SKU-1XKCA-DEFAULT-4",
+        "price": 59700,
+        "stock": 86,
+        "attributes": null,
+        "id": "7604367e-d839-4294-a3a0-f0e4e5d3e34b"
       }
     ],
     "brand": "Dog",
@@ -637,6 +952,27 @@
         "price": 80700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GD4ZB-DEFAULT-2",
+        "price": 80700,
+        "stock": 37,
+        "attributes": null,
+        "id": "7248d9c7-1209-4fda-980b-9d6f9196264f"
+      },
+      {
+        "sku_code": "SKU-GD4ZB-DEFAULT-3",
+        "price": 80700,
+        "stock": 37,
+        "attributes": null,
+        "id": "8ae0d2cb-597b-4a7c-9434-c9d1b578742e"
+      },
+      {
+        "sku_code": "SKU-GD4ZB-DEFAULT-4",
+        "price": 80700,
+        "stock": 37,
+        "attributes": null,
+        "id": "362ec4eb-0ffb-4a45-8912-776eb53238e1"
       }
     ],
     "brand": "Purepet",
@@ -682,6 +1018,27 @@
         "price": 127500,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B4BK2-DEFAULT-2",
+        "price": 127500,
+        "stock": 12,
+        "attributes": null,
+        "id": "64ba62db-60d4-4928-8712-1618fab281b6"
+      },
+      {
+        "sku_code": "SKU-B4BK2-DEFAULT-3",
+        "price": 127500,
+        "stock": 12,
+        "attributes": null,
+        "id": "663bb880-7168-4793-ac56-4cdfe640da44"
+      },
+      {
+        "sku_code": "SKU-B4BK2-DEFAULT-4",
+        "price": 127500,
+        "stock": 12,
+        "attributes": null,
+        "id": "352a3406-bfe3-4751-9313-d9ba11311011"
       }
     ],
     "brand": "Royal",
@@ -719,6 +1076,27 @@
         "price": 359400,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NRDC3-DEFAULT-2",
+        "price": 359400,
+        "stock": 20,
+        "attributes": null,
+        "id": "5522553c-c577-406e-b712-664f9bde629f"
+      },
+      {
+        "sku_code": "SKU-NRDC3-DEFAULT-3",
+        "price": 359400,
+        "stock": 20,
+        "attributes": null,
+        "id": "cf4d5c6e-dbf3-4bbe-8eb9-29d740068023"
+      },
+      {
+        "sku_code": "SKU-NRDC3-DEFAULT-4",
+        "price": 359400,
+        "stock": 20,
+        "attributes": null,
+        "id": "3c1d9c54-0fac-40c0-89c8-34546fe1dcb2"
       }
     ],
     "brand": "Dog",
@@ -764,6 +1142,27 @@
         "price": 81000,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EPZFV-DEFAULT-2",
+        "price": 81000,
+        "stock": 89,
+        "attributes": null,
+        "id": "dd2c82e8-33af-4f92-ba56-b80824357174"
+      },
+      {
+        "sku_code": "SKU-EPZFV-DEFAULT-3",
+        "price": 81000,
+        "stock": 89,
+        "attributes": null,
+        "id": "08ca3f0a-86a3-401a-8bcd-f75fd246d300"
+      },
+      {
+        "sku_code": "SKU-EPZFV-DEFAULT-4",
+        "price": 81000,
+        "stock": 89,
+        "attributes": null,
+        "id": "23614a93-fb0b-47a6-98e3-fd14fd835d1b"
       }
     ],
     "brand": "Jainsons",
@@ -809,6 +1208,27 @@
         "price": 110400,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1XQ49-DEFAULT-2",
+        "price": 110400,
+        "stock": 100,
+        "attributes": null,
+        "id": "c3aa5594-183e-4661-87b1-f54d4715275f"
+      },
+      {
+        "sku_code": "SKU-1XQ49-DEFAULT-3",
+        "price": 110400,
+        "stock": 100,
+        "attributes": null,
+        "id": "bcb44110-a674-4dda-b823-7fad7643a46f"
+      },
+      {
+        "sku_code": "SKU-1XQ49-DEFAULT-4",
+        "price": 110400,
+        "stock": 100,
+        "attributes": null,
+        "id": "5c1a2778-56be-4781-8d66-4f8f9ec1b8b3"
       }
     ],
     "brand": "Sobo",
@@ -848,6 +1268,27 @@
         "price": 209700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-77IWI-DEFAULT-2",
+        "price": 209700,
+        "stock": 106,
+        "attributes": null,
+        "id": "fae6bb7f-f03b-43a3-ab65-dabbc75b0fb9"
+      },
+      {
+        "sku_code": "SKU-77IWI-DEFAULT-3",
+        "price": 209700,
+        "stock": 106,
+        "attributes": null,
+        "id": "8be0f6c8-fe7c-493c-b08f-968c070a919f"
+      },
+      {
+        "sku_code": "SKU-77IWI-DEFAULT-4",
+        "price": 209700,
+        "stock": 106,
+        "attributes": null,
+        "id": "c12bdece-1477-4c9d-987c-74b396c0bfb0"
       }
     ],
     "brand": "Royal",
@@ -885,6 +1326,27 @@
         "price": 70800,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KTW07-DEFAULT-2",
+        "price": 70800,
+        "stock": 85,
+        "attributes": null,
+        "id": "3ea8cc1f-bd7c-41e6-a49d-b7fd50f64a32"
+      },
+      {
+        "sku_code": "SKU-KTW07-DEFAULT-3",
+        "price": 70800,
+        "stock": 85,
+        "attributes": null,
+        "id": "2890bf8e-9e64-48fc-9868-07dc0c2a421b"
+      },
+      {
+        "sku_code": "SKU-KTW07-DEFAULT-4",
+        "price": 70800,
+        "stock": 85,
+        "attributes": null,
+        "id": "efb1ff95-41e7-4c09-9d35-9046e2bec536"
       }
     ],
     "brand": "Qpets®",
@@ -922,6 +1384,27 @@
         "price": 126000,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NMEEU-DEFAULT-2",
+        "price": 126000,
+        "stock": 74,
+        "attributes": null,
+        "id": "6c892669-b9d3-4b22-bb9f-fd1bf743fe99"
+      },
+      {
+        "sku_code": "SKU-NMEEU-DEFAULT-3",
+        "price": 126000,
+        "stock": 74,
+        "attributes": null,
+        "id": "fd231d18-a726-4805-a128-629ca2241c18"
+      },
+      {
+        "sku_code": "SKU-NMEEU-DEFAULT-4",
+        "price": 126000,
+        "stock": 74,
+        "attributes": null,
+        "id": "aa8d2f3c-64a4-4580-8001-9929b9dd9e06"
       }
     ],
     "brand": "Dog",
@@ -969,6 +1452,27 @@
         "price": 149400,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-92CT3-DEFAULT-2",
+        "price": 149400,
+        "stock": 41,
+        "attributes": null,
+        "id": "dcbc0338-bc7c-47f0-a2cd-a34cb0101556"
+      },
+      {
+        "sku_code": "SKU-92CT3-DEFAULT-3",
+        "price": 149400,
+        "stock": 41,
+        "attributes": null,
+        "id": "2958a62e-8a1c-4fe2-bf04-0b4720fa46fe"
+      },
+      {
+        "sku_code": "SKU-92CT3-DEFAULT-4",
+        "price": 149400,
+        "stock": 41,
+        "attributes": null,
+        "id": "a562db56-c9c2-4cc7-b91e-f97b7037bc8e"
       }
     ],
     "brand": "Foodie",
@@ -1014,6 +1518,27 @@
         "price": 29700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-691NB-DEFAULT-2",
+        "price": 29700,
+        "stock": 39,
+        "attributes": null,
+        "id": "f20b9171-b460-4a49-b11e-69006706c4f4"
+      },
+      {
+        "sku_code": "SKU-691NB-DEFAULT-3",
+        "price": 29700,
+        "stock": 39,
+        "attributes": null,
+        "id": "e7ebea1b-7848-45f4-a704-3f10808cf952"
+      },
+      {
+        "sku_code": "SKU-691NB-DEFAULT-4",
+        "price": 29700,
+        "stock": 39,
+        "attributes": null,
+        "id": "08883854-185d-4281-917c-c4a08f7393c0"
       }
     ],
     "brand": "Sage",
@@ -1055,6 +1580,27 @@
         "price": 252000,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X0CWD-DEFAULT-2",
+        "price": 252000,
+        "stock": 99,
+        "attributes": null,
+        "id": "033036d4-49db-4b52-bb85-ee1bd785685c"
+      },
+      {
+        "sku_code": "SKU-X0CWD-DEFAULT-3",
+        "price": 252000,
+        "stock": 99,
+        "attributes": null,
+        "id": "48ca9bed-bf5a-429f-aedc-abb87703a9be"
+      },
+      {
+        "sku_code": "SKU-X0CWD-DEFAULT-4",
+        "price": 252000,
+        "stock": 99,
+        "attributes": null,
+        "id": "86d01fd8-09b9-4146-b637-52330d81a496"
       }
     ],
     "brand": "Drools",
@@ -1092,6 +1638,27 @@
         "price": 171000,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3EGCM-DEFAULT-2",
+        "price": 171000,
+        "stock": 80,
+        "attributes": null,
+        "id": "ffde7582-c45f-48ac-9277-79a27fdcdf50"
+      },
+      {
+        "sku_code": "SKU-3EGCM-DEFAULT-3",
+        "price": 171000,
+        "stock": 80,
+        "attributes": null,
+        "id": "3b702aba-3637-44eb-bd79-ed4c2cfb46a7"
+      },
+      {
+        "sku_code": "SKU-3EGCM-DEFAULT-4",
+        "price": 171000,
+        "stock": 80,
+        "attributes": null,
+        "id": "a0cf60ed-8691-4b4b-a969-8db476665036"
       }
     ],
     "brand": "Foodie",
@@ -1164,6 +1731,27 @@
         "price": 977700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R75MJ-DEFAULT-2",
+        "price": 977700,
+        "stock": 98,
+        "attributes": null,
+        "id": "de031dcf-eb77-4ece-8e24-271689dae6fd"
+      },
+      {
+        "sku_code": "SKU-R75MJ-DEFAULT-3",
+        "price": 977700,
+        "stock": 98,
+        "attributes": null,
+        "id": "c9aa7361-ef43-484c-a4ca-538f69bbd08c"
+      },
+      {
+        "sku_code": "SKU-R75MJ-DEFAULT-4",
+        "price": 977700,
+        "stock": 98,
+        "attributes": null,
+        "id": "817f3577-5ce9-4e27-9913-f2bdf388e690"
       }
     ],
     "brand": "Samsung",
@@ -1205,6 +1793,27 @@
         "price": 104700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2QXM9-DEFAULT-2",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "c0ce9971-3326-4370-8d41-2f260fb4c97b"
+      },
+      {
+        "sku_code": "SKU-2QXM9-DEFAULT-3",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "d83b7127-3b3e-4c50-8e1e-ca95423a2207"
+      },
+      {
+        "sku_code": "SKU-2QXM9-DEFAULT-4",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "e8665227-eeeb-4c98-98f0-b68e42278c34"
       }
     ],
     "brand": "Apple",
@@ -1242,6 +1851,27 @@
         "price": 127800,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CYT93-DEFAULT-2",
+        "price": 127800,
+        "stock": 91,
+        "attributes": null,
+        "id": "e701cc20-477c-403e-8560-eab309661606"
+      },
+      {
+        "sku_code": "SKU-CYT93-DEFAULT-3",
+        "price": 127800,
+        "stock": 91,
+        "attributes": null,
+        "id": "83ccd962-57e7-4d6c-8d0a-1be338a341b0"
+      },
+      {
+        "sku_code": "SKU-CYT93-DEFAULT-4",
+        "price": 127800,
+        "stock": 91,
+        "attributes": null,
+        "id": "df4fef2b-f414-46f5-9d3f-e1dee61fdcb1"
       }
     ],
     "brand": "Pedigree",
@@ -1279,6 +1909,27 @@
         "price": 188700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N2IWU-DEFAULT-2",
+        "price": 188700,
+        "stock": 26,
+        "attributes": null,
+        "id": "90bde676-4c23-4ec3-ad30-337df4610362"
+      },
+      {
+        "sku_code": "SKU-N2IWU-DEFAULT-3",
+        "price": 188700,
+        "stock": 26,
+        "attributes": null,
+        "id": "137f6f61-ed74-487b-93af-9444b5829ebe"
+      },
+      {
+        "sku_code": "SKU-N2IWU-DEFAULT-4",
+        "price": 188700,
+        "stock": 26,
+        "attributes": null,
+        "id": "24932638-6cb8-4df0-aced-3f10da5bed15"
       }
     ],
     "brand": "Purepet",
@@ -1316,6 +1967,27 @@
         "price": 74700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T213G-DEFAULT-2",
+        "price": 74700,
+        "stock": 19,
+        "attributes": null,
+        "id": "17b6249a-de3f-4dc0-b59a-675afbdf37db"
+      },
+      {
+        "sku_code": "SKU-T213G-DEFAULT-3",
+        "price": 74700,
+        "stock": 19,
+        "attributes": null,
+        "id": "45f20642-a50c-42e0-8efd-bda34102cadc"
+      },
+      {
+        "sku_code": "SKU-T213G-DEFAULT-4",
+        "price": 74700,
+        "stock": 19,
+        "attributes": null,
+        "id": "3345cb19-7f9e-4dca-adf9-7bb050e91a2f"
       }
     ],
     "brand": "Heads",
@@ -1361,6 +2033,27 @@
         "price": 171000,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9W800-DEFAULT-2",
+        "price": 171000,
+        "stock": 97,
+        "attributes": null,
+        "id": "2c42a64b-0514-4e66-9600-e2adab333e48"
+      },
+      {
+        "sku_code": "SKU-9W800-DEFAULT-3",
+        "price": 171000,
+        "stock": 97,
+        "attributes": null,
+        "id": "a692b72c-d5b7-4ccd-8516-4791b029b0c1"
+      },
+      {
+        "sku_code": "SKU-9W800-DEFAULT-4",
+        "price": 171000,
+        "stock": 97,
+        "attributes": null,
+        "id": "daea63ce-fe00-4bf6-b3f9-8c5d7183f58a"
       }
     ],
     "brand": "Sage",
@@ -1398,6 +2091,27 @@
         "price": 74100,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6R8B9-DEFAULT-2",
+        "price": 74100,
+        "stock": 45,
+        "attributes": null,
+        "id": "8ec3826c-4ef7-4dac-9d8e-c9f5bf4043f7"
+      },
+      {
+        "sku_code": "SKU-6R8B9-DEFAULT-3",
+        "price": 74100,
+        "stock": 45,
+        "attributes": null,
+        "id": "8b3f1a87-0c23-499d-bc80-7457f230e49b"
+      },
+      {
+        "sku_code": "SKU-6R8B9-DEFAULT-4",
+        "price": 74100,
+        "stock": 45,
+        "attributes": null,
+        "id": "d93bc9ea-09ff-45b3-a889-68797c8aa257"
       }
     ],
     "brand": "Whiskas",
@@ -1443,6 +2157,27 @@
         "price": 123000,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EBZEF-DEFAULT-2",
+        "price": 123000,
+        "stock": 83,
+        "attributes": null,
+        "id": "879a503c-c64e-499e-8f57-fd912e76fd72"
+      },
+      {
+        "sku_code": "SKU-EBZEF-DEFAULT-3",
+        "price": 123000,
+        "stock": 83,
+        "attributes": null,
+        "id": "cc1ba18f-8d6b-42a8-8407-448e2c7825b7"
+      },
+      {
+        "sku_code": "SKU-EBZEF-DEFAULT-4",
+        "price": 123000,
+        "stock": 83,
+        "attributes": null,
+        "id": "d1355b1c-7229-4fc7-b281-c7caad7bc542"
       }
     ],
     "brand": "Pedigree",
@@ -1488,6 +2223,27 @@
         "price": 775200,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C2PKX-DEFAULT-2",
+        "price": 775200,
+        "stock": 85,
+        "attributes": null,
+        "id": "406e1761-ff2b-4aa9-a365-81429a6f94aa"
+      },
+      {
+        "sku_code": "SKU-C2PKX-DEFAULT-3",
+        "price": 775200,
+        "stock": 85,
+        "attributes": null,
+        "id": "2558cbfb-7cd7-42fa-9ff4-91ecc3f0b54b"
+      },
+      {
+        "sku_code": "SKU-C2PKX-DEFAULT-4",
+        "price": 775200,
+        "stock": 85,
+        "attributes": null,
+        "id": "e8606426-5f75-4260-b3a1-c80c439854df"
       }
     ],
     "brand": "Pet",
@@ -1529,6 +2285,27 @@
         "price": 375300,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AOH05-DEFAULT-2",
+        "price": 375300,
+        "stock": 28,
+        "attributes": null,
+        "id": "662c641b-5c7d-4801-8d26-8cec4dc32102"
+      },
+      {
+        "sku_code": "SKU-AOH05-DEFAULT-3",
+        "price": 375300,
+        "stock": 28,
+        "attributes": null,
+        "id": "14d220a3-4ec0-45b6-b52d-b2f3e97ad423"
+      },
+      {
+        "sku_code": "SKU-AOH05-DEFAULT-4",
+        "price": 375300,
+        "stock": 28,
+        "attributes": null,
+        "id": "5cbeb091-27ae-4674-918b-a75e75bc173c"
       }
     ],
     "brand": "Sobo",
@@ -1570,6 +2347,27 @@
         "price": 240600,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8UO5A-DEFAULT-2",
+        "price": 240600,
+        "stock": 88,
+        "attributes": null,
+        "id": "4cef1185-4ac0-4db1-8279-9a351208fea3"
+      },
+      {
+        "sku_code": "SKU-8UO5A-DEFAULT-3",
+        "price": 240600,
+        "stock": 88,
+        "attributes": null,
+        "id": "98908d08-0d39-40f3-8977-a86d3317c67e"
+      },
+      {
+        "sku_code": "SKU-8UO5A-DEFAULT-4",
+        "price": 240600,
+        "stock": 88,
+        "attributes": null,
+        "id": "33f6d69e-e862-4c13-b9ee-d513310e7276"
       }
     ],
     "brand": "Sage",
@@ -1607,6 +2405,27 @@
         "price": 59700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-57V9D-DEFAULT-2",
+        "price": 59700,
+        "stock": 12,
+        "attributes": null,
+        "id": "aa87703e-7751-46e0-91c7-abce4a6dfcb7"
+      },
+      {
+        "sku_code": "SKU-57V9D-DEFAULT-3",
+        "price": 59700,
+        "stock": 12,
+        "attributes": null,
+        "id": "54db39ea-1cd9-47c7-a958-b04b2c0a22fe"
+      },
+      {
+        "sku_code": "SKU-57V9D-DEFAULT-4",
+        "price": 59700,
+        "stock": 12,
+        "attributes": null,
+        "id": "1f84f341-0183-4a12-9235-4d77f9899c03"
       }
     ],
     "brand": "Dog",
@@ -1648,6 +2467,27 @@
         "price": 29700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-160JN-DEFAULT-2",
+        "price": 29700,
+        "stock": 94,
+        "attributes": null,
+        "id": "ca332759-1fc7-4c16-9c57-fe90946f456d"
+      },
+      {
+        "sku_code": "SKU-160JN-DEFAULT-3",
+        "price": 29700,
+        "stock": 94,
+        "attributes": null,
+        "id": "36971c2c-e1be-4cd4-9974-6b6675ee3d5f"
+      },
+      {
+        "sku_code": "SKU-160JN-DEFAULT-4",
+        "price": 29700,
+        "stock": 94,
+        "attributes": null,
+        "id": "c0dae8de-f8e4-442e-b1a8-070ccf718db1"
       }
     ],
     "brand": "Sage",
@@ -1685,6 +2525,27 @@
         "price": 169500,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KIUHG-DEFAULT-2",
+        "price": 169500,
+        "stock": 67,
+        "attributes": null,
+        "id": "60fb018a-6e97-4e39-8254-132e5276df0e"
+      },
+      {
+        "sku_code": "SKU-KIUHG-DEFAULT-3",
+        "price": 169500,
+        "stock": 67,
+        "attributes": null,
+        "id": "051d1705-3352-496f-b99e-2d519b623be3"
+      },
+      {
+        "sku_code": "SKU-KIUHG-DEFAULT-4",
+        "price": 169500,
+        "stock": 67,
+        "attributes": null,
+        "id": "dc96fcaf-3975-45a3-b1a5-b02dda4c73d0"
       }
     ],
     "brand": "Sobo",
@@ -1760,6 +2621,27 @@
         "price": 384000,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JQ802-DEFAULT-2",
+        "price": 384000,
+        "stock": 79,
+        "attributes": null,
+        "id": "15b53c53-05ab-4bae-9895-1e7d7c91e2c8"
+      },
+      {
+        "sku_code": "SKU-JQ802-DEFAULT-3",
+        "price": 384000,
+        "stock": 79,
+        "attributes": null,
+        "id": "446e9866-0df0-464e-95c6-795e52a880b8"
+      },
+      {
+        "sku_code": "SKU-JQ802-DEFAULT-4",
+        "price": 384000,
+        "stock": 79,
+        "attributes": null,
+        "id": "b58a5447-08da-4c8f-9fca-773e33dd84ba"
       }
     ],
     "brand": "Garmin",
@@ -1805,6 +2687,27 @@
         "price": 105900,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8ZFOK-DEFAULT-2",
+        "price": 105900,
+        "stock": 101,
+        "attributes": null,
+        "id": "d8075755-5bd9-4de4-8d8d-0a3fd465238f"
+      },
+      {
+        "sku_code": "SKU-8ZFOK-DEFAULT-3",
+        "price": 105900,
+        "stock": 101,
+        "attributes": null,
+        "id": "503b3140-0078-437c-85e8-6343d57a9cbd"
+      },
+      {
+        "sku_code": "SKU-8ZFOK-DEFAULT-4",
+        "price": 105900,
+        "stock": 101,
+        "attributes": null,
+        "id": "557332c9-d87d-4043-bf95-06ff9655724c"
       }
     ],
     "brand": "Royal",
@@ -1842,6 +2745,27 @@
         "price": 59700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0S53H-DEFAULT-2",
+        "price": 59700,
+        "stock": 35,
+        "attributes": null,
+        "id": "65faa11b-fcbc-46e3-9b4b-6c3a5a6fa858"
+      },
+      {
+        "sku_code": "SKU-0S53H-DEFAULT-3",
+        "price": 59700,
+        "stock": 35,
+        "attributes": null,
+        "id": "19428afe-1a8f-4947-afa3-f5e22999be21"
+      },
+      {
+        "sku_code": "SKU-0S53H-DEFAULT-4",
+        "price": 59700,
+        "stock": 35,
+        "attributes": null,
+        "id": "d474127a-ba0b-4a63-b654-1b761a928fce"
       }
     ],
     "brand": "Royal",
@@ -1879,6 +2803,27 @@
         "price": 135000,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VWU40-DEFAULT-2",
+        "price": 135000,
+        "stock": 81,
+        "attributes": null,
+        "id": "6ac96960-ff15-4a9e-ba26-f1c65fc187d6"
+      },
+      {
+        "sku_code": "SKU-VWU40-DEFAULT-3",
+        "price": 135000,
+        "stock": 81,
+        "attributes": null,
+        "id": "8d0eec17-f95b-4405-97e5-ff72ff40a38a"
+      },
+      {
+        "sku_code": "SKU-VWU40-DEFAULT-4",
+        "price": 135000,
+        "stock": 81,
+        "attributes": null,
+        "id": "2c50430a-e042-4d5d-ab37-beb130447416"
       }
     ],
     "brand": "Pets",
@@ -1924,6 +2869,27 @@
         "price": 583200,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S5DWM-DEFAULT-2",
+        "price": 583200,
+        "stock": 52,
+        "attributes": null,
+        "id": "3341456a-f799-49cb-bb0a-da2518ea7e7e"
+      },
+      {
+        "sku_code": "SKU-S5DWM-DEFAULT-3",
+        "price": 583200,
+        "stock": 52,
+        "attributes": null,
+        "id": "fe917465-56f6-48ff-9f92-71c506737754"
+      },
+      {
+        "sku_code": "SKU-S5DWM-DEFAULT-4",
+        "price": 583200,
+        "stock": 52,
+        "attributes": null,
+        "id": "42dfd827-3f8c-447a-93ed-fc1864fe8940"
       }
     ],
     "brand": "Whiskas",
@@ -1961,6 +2927,27 @@
         "price": 164700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PX0T1-DEFAULT-2",
+        "price": 164700,
+        "stock": 93,
+        "attributes": null,
+        "id": "47af6db1-aeb9-4c02-b58f-4b4d891cf7ca"
+      },
+      {
+        "sku_code": "SKU-PX0T1-DEFAULT-3",
+        "price": 164700,
+        "stock": 93,
+        "attributes": null,
+        "id": "02014a72-aba2-473b-bc5d-da30e8a5810a"
+      },
+      {
+        "sku_code": "SKU-PX0T1-DEFAULT-4",
+        "price": 164700,
+        "stock": 93,
+        "attributes": null,
+        "id": "44b30058-8533-47b3-80dc-dd2ac81d5d07"
       }
     ],
     "brand": "Sage",
@@ -2002,6 +2989,27 @@
         "price": 195000,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JE6I4-DEFAULT-2",
+        "price": 195000,
+        "stock": 24,
+        "attributes": null,
+        "id": "d1044a5f-1af4-4f26-bd05-3a9c482485e8"
+      },
+      {
+        "sku_code": "SKU-JE6I4-DEFAULT-3",
+        "price": 195000,
+        "stock": 24,
+        "attributes": null,
+        "id": "5f494187-e532-4a1c-9fca-3b8d7a6c534f"
+      },
+      {
+        "sku_code": "SKU-JE6I4-DEFAULT-4",
+        "price": 195000,
+        "stock": 24,
+        "attributes": null,
+        "id": "9d229368-5913-4a06-a813-961afed91ded"
       }
     ],
     "brand": "Pets",
@@ -2039,6 +3047,27 @@
         "price": 239700,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WMD8V-DEFAULT-2",
+        "price": 239700,
+        "stock": 82,
+        "attributes": null,
+        "id": "d15ac228-eafe-4e17-a90a-a6f37906b81b"
+      },
+      {
+        "sku_code": "SKU-WMD8V-DEFAULT-3",
+        "price": 239700,
+        "stock": 82,
+        "attributes": null,
+        "id": "47b1fcda-3724-4d60-8606-e6d3a4e00007"
+      },
+      {
+        "sku_code": "SKU-WMD8V-DEFAULT-4",
+        "price": 239700,
+        "stock": 82,
+        "attributes": null,
+        "id": "9fb0fdc8-5f8f-426b-a934-61274139964b"
       }
     ],
     "brand": "Purepet",
@@ -2084,6 +3113,27 @@
         "price": 59100,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AX26D-DEFAULT-2",
+        "price": 59100,
+        "stock": 68,
+        "attributes": null,
+        "id": "4a528621-cb0b-4f77-88bc-c16ba3abcbe6"
+      },
+      {
+        "sku_code": "SKU-AX26D-DEFAULT-3",
+        "price": 59100,
+        "stock": 68,
+        "attributes": null,
+        "id": "c6afbf6e-efcc-4ea9-aa9a-cb753a40fb36"
+      },
+      {
+        "sku_code": "SKU-AX26D-DEFAULT-4",
+        "price": 59100,
+        "stock": 68,
+        "attributes": null,
+        "id": "5432151b-6e47-4b8e-b0bc-db1406430ff1"
       }
     ],
     "brand": "Whiskas",
@@ -2125,6 +3175,27 @@
         "price": 144000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6AQ0L-DEFAULT-2",
+        "price": 144000,
+        "stock": 30,
+        "attributes": null,
+        "id": "bcadfdd8-4114-440a-adc3-d1154e202799"
+      },
+      {
+        "sku_code": "SKU-6AQ0L-DEFAULT-3",
+        "price": 144000,
+        "stock": 30,
+        "attributes": null,
+        "id": "582838ac-59d9-47e5-bdb2-169dd63f60b8"
+      },
+      {
+        "sku_code": "SKU-6AQ0L-DEFAULT-4",
+        "price": 144000,
+        "stock": 30,
+        "attributes": null,
+        "id": "99deda20-bd79-4bc0-a111-9a4dfc7229b6"
       }
     ],
     "brand": "Heads",
@@ -2162,6 +3233,27 @@
         "price": 119700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6ZP3C-DEFAULT-2",
+        "price": 119700,
+        "stock": 32,
+        "attributes": null,
+        "id": "1e57c6a9-41c4-4c36-81b1-974ae44a3a1e"
+      },
+      {
+        "sku_code": "SKU-6ZP3C-DEFAULT-3",
+        "price": 119700,
+        "stock": 32,
+        "attributes": null,
+        "id": "57ce1262-a66f-45a5-8923-94362e74855c"
+      },
+      {
+        "sku_code": "SKU-6ZP3C-DEFAULT-4",
+        "price": 119700,
+        "stock": 32,
+        "attributes": null,
+        "id": "b1684401-57b9-4032-adb5-fa36d3895f26"
       }
     ],
     "brand": "Pets",
@@ -2199,6 +3291,27 @@
         "price": 104700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HYOE5-DEFAULT-2",
+        "price": 104700,
+        "stock": 64,
+        "attributes": null,
+        "id": "f7a77360-d2d4-41b2-bc7a-dc24e80b800d"
+      },
+      {
+        "sku_code": "SKU-HYOE5-DEFAULT-3",
+        "price": 104700,
+        "stock": 64,
+        "attributes": null,
+        "id": "e4991d59-4dea-451d-9d06-10f167b51549"
+      },
+      {
+        "sku_code": "SKU-HYOE5-DEFAULT-4",
+        "price": 104700,
+        "stock": 64,
+        "attributes": null,
+        "id": "d8ebd8d0-0658-4eca-8b0c-d280805213cd"
       }
     ],
     "brand": "Dog",
@@ -2244,6 +3357,27 @@
         "price": 29700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KNONJ-DEFAULT-2",
+        "price": 29700,
+        "stock": 10,
+        "attributes": null,
+        "id": "b8945536-db16-4f44-9667-c3eef7e01916"
+      },
+      {
+        "sku_code": "SKU-KNONJ-DEFAULT-3",
+        "price": 29700,
+        "stock": 10,
+        "attributes": null,
+        "id": "e7e6d648-ee64-4451-81ef-d1579f175d94"
+      },
+      {
+        "sku_code": "SKU-KNONJ-DEFAULT-4",
+        "price": 29700,
+        "stock": 10,
+        "attributes": null,
+        "id": "ef7932fb-e9e3-43ea-b731-eba3b1ec756d"
       }
     ],
     "brand": "Pet",
@@ -2281,6 +3415,27 @@
         "price": 936000,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A4CDX-DEFAULT-2",
+        "price": 936000,
+        "stock": 51,
+        "attributes": null,
+        "id": "aa7a15d4-e2eb-4853-a24c-587f01e63000"
+      },
+      {
+        "sku_code": "SKU-A4CDX-DEFAULT-3",
+        "price": 936000,
+        "stock": 51,
+        "attributes": null,
+        "id": "99336ebb-6924-43cf-b194-e03ca53a749e"
+      },
+      {
+        "sku_code": "SKU-A4CDX-DEFAULT-4",
+        "price": 936000,
+        "stock": 51,
+        "attributes": null,
+        "id": "ad9f7464-bc85-4311-8ea2-075e11b3546b"
       }
     ],
     "brand": "Pets",
@@ -2326,6 +3481,27 @@
         "price": 72000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RZGA0-DEFAULT-2",
+        "price": 72000,
+        "stock": 22,
+        "attributes": null,
+        "id": "11d5a6f8-fc34-4899-9f06-97d305b233b8"
+      },
+      {
+        "sku_code": "SKU-RZGA0-DEFAULT-3",
+        "price": 72000,
+        "stock": 22,
+        "attributes": null,
+        "id": "2b3282b2-6987-44dc-9399-dcafd56a6cfd"
+      },
+      {
+        "sku_code": "SKU-RZGA0-DEFAULT-4",
+        "price": 72000,
+        "stock": 22,
+        "attributes": null,
+        "id": "81557efc-37eb-429e-adee-7ed72cf7f080"
       }
     ],
     "brand": "Foodie",
@@ -2367,6 +3543,27 @@
         "price": 89700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SIIQD-DEFAULT-2",
+        "price": 89700,
+        "stock": 23,
+        "attributes": null,
+        "id": "e9b8d635-ccd6-4a52-80fa-70daa479bb2e"
+      },
+      {
+        "sku_code": "SKU-SIIQD-DEFAULT-3",
+        "price": 89700,
+        "stock": 23,
+        "attributes": null,
+        "id": "663c2410-cd12-4fc7-9ef0-eccb39d60a47"
+      },
+      {
+        "sku_code": "SKU-SIIQD-DEFAULT-4",
+        "price": 89700,
+        "stock": 23,
+        "attributes": null,
+        "id": "6ea4861e-1b2b-46ec-9b8d-370aed92e93a"
       }
     ],
     "brand": "Royal",
@@ -2412,6 +3609,27 @@
         "price": 160500,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q6BTH-DEFAULT-2",
+        "price": 160500,
+        "stock": 105,
+        "attributes": null,
+        "id": "d1f15238-d9e9-44a8-9bcd-8ca1ec88f59f"
+      },
+      {
+        "sku_code": "SKU-Q6BTH-DEFAULT-3",
+        "price": 160500,
+        "stock": 105,
+        "attributes": null,
+        "id": "5a82c22c-0e1b-405d-997c-eabc2b71d3d2"
+      },
+      {
+        "sku_code": "SKU-Q6BTH-DEFAULT-4",
+        "price": 160500,
+        "stock": 105,
+        "attributes": null,
+        "id": "b74fa159-187b-40f1-8017-673c331dd91a"
       }
     ],
     "brand": "Jainsons",
@@ -2457,6 +3675,27 @@
         "price": 117000,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HFO4B-DEFAULT-2",
+        "price": 117000,
+        "stock": 63,
+        "attributes": null,
+        "id": "e3826989-2201-42e7-9685-8851eade4869"
+      },
+      {
+        "sku_code": "SKU-HFO4B-DEFAULT-3",
+        "price": 117000,
+        "stock": 63,
+        "attributes": null,
+        "id": "cb4a500c-444d-4d03-8b3a-6a6ceb5a79db"
+      },
+      {
+        "sku_code": "SKU-HFO4B-DEFAULT-4",
+        "price": 117000,
+        "stock": 63,
+        "attributes": null,
+        "id": "69530512-4940-4448-979d-637ca7620ee4"
       }
     ],
     "brand": "Purepet",
@@ -2502,6 +3741,27 @@
         "price": 59700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9J482-DEFAULT-2",
+        "price": 59700,
+        "stock": 105,
+        "attributes": null,
+        "id": "c8c0c927-947d-464f-ad9a-258ce96e0851"
+      },
+      {
+        "sku_code": "SKU-9J482-DEFAULT-3",
+        "price": 59700,
+        "stock": 105,
+        "attributes": null,
+        "id": "a070d500-d65d-4dd7-9a79-d54eaabece5a"
+      },
+      {
+        "sku_code": "SKU-9J482-DEFAULT-4",
+        "price": 59700,
+        "stock": 105,
+        "attributes": null,
+        "id": "04d42af3-61cf-4e91-96f4-a1b3c9029a88"
       }
     ],
     "brand": "Pets",
@@ -2539,6 +3799,27 @@
         "price": 93000,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E27NB-DEFAULT-2",
+        "price": 93000,
+        "stock": 90,
+        "attributes": null,
+        "id": "56bf8dfe-6643-48b3-a943-78eb16b9119b"
+      },
+      {
+        "sku_code": "SKU-E27NB-DEFAULT-3",
+        "price": 93000,
+        "stock": 90,
+        "attributes": null,
+        "id": "ae1e17c1-b087-44d3-acff-5044fd8363e9"
+      },
+      {
+        "sku_code": "SKU-E27NB-DEFAULT-4",
+        "price": 93000,
+        "stock": 90,
+        "attributes": null,
+        "id": "8017fe1c-389d-41e2-96a7-ce7ea1653579"
       }
     ],
     "brand": "Qpets®",
@@ -2576,6 +3857,27 @@
         "price": 114000,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J9MVQ-DEFAULT-2",
+        "price": 114000,
+        "stock": 38,
+        "attributes": null,
+        "id": "ba1037e9-482c-46ff-8792-85a4206e4264"
+      },
+      {
+        "sku_code": "SKU-J9MVQ-DEFAULT-3",
+        "price": 114000,
+        "stock": 38,
+        "attributes": null,
+        "id": "17d81f45-56f7-4289-a1e1-2e8e344b5daf"
+      },
+      {
+        "sku_code": "SKU-J9MVQ-DEFAULT-4",
+        "price": 114000,
+        "stock": 38,
+        "attributes": null,
+        "id": "efd053ce-03f9-4b64-a250-1c4c4acd809b"
       }
     ],
     "brand": "Pedigree",
@@ -2621,6 +3923,27 @@
         "price": 1138200,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BVC0R-DEFAULT-2",
+        "price": 1138200,
+        "stock": 44,
+        "attributes": null,
+        "id": "03598a68-e21b-43cf-b3e7-bbadadb45052"
+      },
+      {
+        "sku_code": "SKU-BVC0R-DEFAULT-3",
+        "price": 1138200,
+        "stock": 44,
+        "attributes": null,
+        "id": "b7fdea0d-902d-496e-ab14-ac9a8effa398"
+      },
+      {
+        "sku_code": "SKU-BVC0R-DEFAULT-4",
+        "price": 1138200,
+        "stock": 44,
+        "attributes": null,
+        "id": "a95dde75-6cc4-42ca-81b8-49636dc9404e"
       }
     ],
     "brand": "Purepet",
@@ -2658,6 +3981,27 @@
         "price": 63000,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QMC1Z-DEFAULT-2",
+        "price": 63000,
+        "stock": 13,
+        "attributes": null,
+        "id": "855dfe40-1692-407f-97ba-459b2adc7d44"
+      },
+      {
+        "sku_code": "SKU-QMC1Z-DEFAULT-3",
+        "price": 63000,
+        "stock": 13,
+        "attributes": null,
+        "id": "7b00b095-4f00-42f9-80f6-28bc6a1017db"
+      },
+      {
+        "sku_code": "SKU-QMC1Z-DEFAULT-4",
+        "price": 63000,
+        "stock": 13,
+        "attributes": null,
+        "id": "6a46ded7-5056-44e4-aa40-38d3edeb4ed4"
       }
     ],
     "brand": "Qpets®",
@@ -2703,6 +4047,27 @@
         "price": 105000,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U1SVL-DEFAULT-2",
+        "price": 105000,
+        "stock": 101,
+        "attributes": null,
+        "id": "48b96f60-6310-4be1-a35c-ea3b48674211"
+      },
+      {
+        "sku_code": "SKU-U1SVL-DEFAULT-3",
+        "price": 105000,
+        "stock": 101,
+        "attributes": null,
+        "id": "b889115b-d385-48dd-8583-6025ba77324e"
+      },
+      {
+        "sku_code": "SKU-U1SVL-DEFAULT-4",
+        "price": 105000,
+        "stock": 101,
+        "attributes": null,
+        "id": "52a36308-eea1-4c14-acbf-53b6ee27ae57"
       }
     ],
     "brand": "Heads",
@@ -2740,6 +4105,27 @@
         "price": 179700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9RUJE-DEFAULT-2",
+        "price": 179700,
+        "stock": 19,
+        "attributes": null,
+        "id": "ef37a319-d9f2-4635-a5ec-fe7e07a2ad21"
+      },
+      {
+        "sku_code": "SKU-9RUJE-DEFAULT-3",
+        "price": 179700,
+        "stock": 19,
+        "attributes": null,
+        "id": "3d7f842a-3a29-4e23-a791-238125b06755"
+      },
+      {
+        "sku_code": "SKU-9RUJE-DEFAULT-4",
+        "price": 179700,
+        "stock": 19,
+        "attributes": null,
+        "id": "1cad6e91-ac4f-438c-97a2-bccff09d7026"
       }
     ],
     "brand": "Purepet",
@@ -2777,6 +4163,27 @@
         "price": 74700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4W11T-DEFAULT-2",
+        "price": 74700,
+        "stock": 83,
+        "attributes": null,
+        "id": "eb2cc519-6f30-407a-ab0d-04d44b5e2de9"
+      },
+      {
+        "sku_code": "SKU-4W11T-DEFAULT-3",
+        "price": 74700,
+        "stock": 83,
+        "attributes": null,
+        "id": "4799f3f7-98fc-4c29-88ad-f70358f573ff"
+      },
+      {
+        "sku_code": "SKU-4W11T-DEFAULT-4",
+        "price": 74700,
+        "stock": 83,
+        "attributes": null,
+        "id": "4c83d576-42f9-4fea-9bf6-80798ebc6212"
       }
     ],
     "brand": "Sobo",
@@ -2822,6 +4229,27 @@
         "price": 125100,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HLZVB-DEFAULT-2",
+        "price": 125100,
+        "stock": 47,
+        "attributes": null,
+        "id": "acb2e1f3-f37b-46b2-b776-f397be562d0e"
+      },
+      {
+        "sku_code": "SKU-HLZVB-DEFAULT-3",
+        "price": 125100,
+        "stock": 47,
+        "attributes": null,
+        "id": "3cc7f22d-dbf4-4b8a-a8d6-e924248837ed"
+      },
+      {
+        "sku_code": "SKU-HLZVB-DEFAULT-4",
+        "price": 125100,
+        "stock": 47,
+        "attributes": null,
+        "id": "4dccf7c9-d684-43b4-b6f5-ac28e917fff2"
       }
     ],
     "brand": "Dog",
@@ -2859,6 +4287,27 @@
         "price": 359700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VPK27-DEFAULT-2",
+        "price": 359700,
+        "stock": 71,
+        "attributes": null,
+        "id": "a55726fa-cd7e-499d-b20c-a27bd1ae3165"
+      },
+      {
+        "sku_code": "SKU-VPK27-DEFAULT-3",
+        "price": 359700,
+        "stock": 71,
+        "attributes": null,
+        "id": "2f07ef56-000a-4f39-960f-feaa5dea3f59"
+      },
+      {
+        "sku_code": "SKU-VPK27-DEFAULT-4",
+        "price": 359700,
+        "stock": 71,
+        "attributes": null,
+        "id": "d90d8a63-63f8-442d-82a4-dfb95d65effb"
       }
     ],
     "brand": "Qpets®",
@@ -2896,6 +4345,27 @@
         "price": 87000,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NVXO5-DEFAULT-2",
+        "price": 87000,
+        "stock": 42,
+        "attributes": null,
+        "id": "9136b383-cd0a-40cc-b2d4-bd87a86da84e"
+      },
+      {
+        "sku_code": "SKU-NVXO5-DEFAULT-3",
+        "price": 87000,
+        "stock": 42,
+        "attributes": null,
+        "id": "3e70d6bb-1797-4d33-8414-ad3c17a30f40"
+      },
+      {
+        "sku_code": "SKU-NVXO5-DEFAULT-4",
+        "price": 87000,
+        "stock": 42,
+        "attributes": null,
+        "id": "1c9cd814-fa78-43b7-9143-bb48863c8db9"
       }
     ],
     "brand": "Foodie",
@@ -2933,6 +4403,27 @@
         "price": 299700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QQGDP-DEFAULT-2",
+        "price": 299700,
+        "stock": 68,
+        "attributes": null,
+        "id": "57bf11f6-cb2c-4cd3-aeaa-d7bebc3ba57d"
+      },
+      {
+        "sku_code": "SKU-QQGDP-DEFAULT-3",
+        "price": 299700,
+        "stock": 68,
+        "attributes": null,
+        "id": "f6bdda42-bb52-4558-a61b-a548196192fd"
+      },
+      {
+        "sku_code": "SKU-QQGDP-DEFAULT-4",
+        "price": 299700,
+        "stock": 68,
+        "attributes": null,
+        "id": "7beab130-26fc-4c95-9353-1a38a8125d9a"
       }
     ],
     "brand": "Royal",
@@ -2978,6 +4469,27 @@
         "price": 269700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OXWUF-DEFAULT-2",
+        "price": 269700,
+        "stock": 23,
+        "attributes": null,
+        "id": "9cfa91ce-f436-49ad-9f7f-36bcb3343aa6"
+      },
+      {
+        "sku_code": "SKU-OXWUF-DEFAULT-3",
+        "price": 269700,
+        "stock": 23,
+        "attributes": null,
+        "id": "bc331b7f-e133-405d-9c73-372ad129e564"
+      },
+      {
+        "sku_code": "SKU-OXWUF-DEFAULT-4",
+        "price": 269700,
+        "stock": 23,
+        "attributes": null,
+        "id": "758e352d-a7e2-416b-9f04-2bbcb01f3df4"
       }
     ],
     "brand": "Purepet",
@@ -3023,6 +4535,27 @@
         "price": 60000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-381EP-DEFAULT-2",
+        "price": 60000,
+        "stock": 30,
+        "attributes": null,
+        "id": "b3552a74-9771-40a3-9204-1b8367dc67b0"
+      },
+      {
+        "sku_code": "SKU-381EP-DEFAULT-3",
+        "price": 60000,
+        "stock": 30,
+        "attributes": null,
+        "id": "e02a5a0a-4a89-4741-8376-deadc3426706"
+      },
+      {
+        "sku_code": "SKU-381EP-DEFAULT-4",
+        "price": 60000,
+        "stock": 30,
+        "attributes": null,
+        "id": "8d49c61c-b4d2-4b6f-bf5b-764b9101b23b"
       }
     ],
     "brand": "Purepet",
@@ -3068,6 +4601,27 @@
         "price": 691500,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WMEOF-DEFAULT-2",
+        "price": 691500,
+        "stock": 19,
+        "attributes": null,
+        "id": "74ce85dd-48ed-445c-89f4-042a6c350e8f"
+      },
+      {
+        "sku_code": "SKU-WMEOF-DEFAULT-3",
+        "price": 691500,
+        "stock": 19,
+        "attributes": null,
+        "id": "c543b2dc-6595-4fdb-b1a9-332d6c118abf"
+      },
+      {
+        "sku_code": "SKU-WMEOF-DEFAULT-4",
+        "price": 691500,
+        "stock": 19,
+        "attributes": null,
+        "id": "dd56531e-047c-462b-9a03-f0747fe32e89"
       }
     ],
     "brand": "Pets",
@@ -3105,6 +4659,27 @@
         "price": 172500,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-17ZZI-DEFAULT-2",
+        "price": 172500,
+        "stock": 106,
+        "attributes": null,
+        "id": "6dc9d82c-1450-49df-b9f1-bd46994cb201"
+      },
+      {
+        "sku_code": "SKU-17ZZI-DEFAULT-3",
+        "price": 172500,
+        "stock": 106,
+        "attributes": null,
+        "id": "ba851cef-bc4f-43f2-8925-d26c7e40a1db"
+      },
+      {
+        "sku_code": "SKU-17ZZI-DEFAULT-4",
+        "price": 172500,
+        "stock": 106,
+        "attributes": null,
+        "id": "2b9a9b99-c4c3-4c74-8396-d2f6ec8a58fd"
       }
     ],
     "brand": "Sage",
@@ -3150,6 +4725,27 @@
         "price": 40800,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YWFX6-DEFAULT-2",
+        "price": 40800,
+        "stock": 106,
+        "attributes": null,
+        "id": "f3a51b13-6f1f-4934-90f1-7ab8ebdd1634"
+      },
+      {
+        "sku_code": "SKU-YWFX6-DEFAULT-3",
+        "price": 40800,
+        "stock": 106,
+        "attributes": null,
+        "id": "8609e489-d434-4d3d-930e-bad49a563d68"
+      },
+      {
+        "sku_code": "SKU-YWFX6-DEFAULT-4",
+        "price": 40800,
+        "stock": 106,
+        "attributes": null,
+        "id": "f1f93962-e03f-4c73-9617-1d39eb355c90"
       }
     ],
     "brand": "Royal",
@@ -3195,6 +4791,27 @@
         "price": 84000,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KTFHL-DEFAULT-2",
+        "price": 84000,
+        "stock": 104,
+        "attributes": null,
+        "id": "cb26d783-3c5b-4a9a-b183-88a0cf5f47d2"
+      },
+      {
+        "sku_code": "SKU-KTFHL-DEFAULT-3",
+        "price": 84000,
+        "stock": 104,
+        "attributes": null,
+        "id": "ee2316db-ab0c-4fdb-a50d-f2c7d7a65263"
+      },
+      {
+        "sku_code": "SKU-KTFHL-DEFAULT-4",
+        "price": 84000,
+        "stock": 104,
+        "attributes": null,
+        "id": "10e9fa7b-7bb8-45cb-8dce-e8a31c6b1f9a"
       }
     ],
     "brand": "Pedigree",
@@ -3240,6 +4857,27 @@
         "price": 117300,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X2RAO-DEFAULT-2",
+        "price": 117300,
+        "stock": 30,
+        "attributes": null,
+        "id": "3dceb78c-c478-49d6-a437-d5cae77ebfbb"
+      },
+      {
+        "sku_code": "SKU-X2RAO-DEFAULT-3",
+        "price": 117300,
+        "stock": 30,
+        "attributes": null,
+        "id": "02ca0491-008f-4f3b-9307-4948f6e00498"
+      },
+      {
+        "sku_code": "SKU-X2RAO-DEFAULT-4",
+        "price": 117300,
+        "stock": 30,
+        "attributes": null,
+        "id": "43696df3-b82d-4d11-85ee-cee8500051f3"
       }
     ],
     "brand": "Jainsons",
@@ -3281,6 +4919,27 @@
         "price": 449700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-013L6-DEFAULT-2",
+        "price": 449700,
+        "stock": 99,
+        "attributes": null,
+        "id": "d8dbaeb7-e69b-41d3-996f-6dce2b88f179"
+      },
+      {
+        "sku_code": "SKU-013L6-DEFAULT-3",
+        "price": 449700,
+        "stock": 99,
+        "attributes": null,
+        "id": "2bc70d08-adf2-473e-9154-9ccfc113844a"
+      },
+      {
+        "sku_code": "SKU-013L6-DEFAULT-4",
+        "price": 449700,
+        "stock": 99,
+        "attributes": null,
+        "id": "eb993d45-6f5c-4d00-96d8-2a973e6b23c6"
       }
     ],
     "brand": "Sage",
@@ -3318,6 +4977,27 @@
         "price": 72930,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EYS22-DEFAULT-2",
+        "price": 72930,
+        "stock": 93,
+        "attributes": null,
+        "id": "a5b7626a-d2f7-4a7d-8a5a-474fc619b4a6"
+      },
+      {
+        "sku_code": "SKU-EYS22-DEFAULT-3",
+        "price": 72930,
+        "stock": 93,
+        "attributes": null,
+        "id": "4b341142-5590-48ca-97bc-c67eda44caec"
+      },
+      {
+        "sku_code": "SKU-EYS22-DEFAULT-4",
+        "price": 72930,
+        "stock": 93,
+        "attributes": null,
+        "id": "cd0dce4d-42b6-4253-9c55-3c4d313a2d21"
       }
     ],
     "brand": "Jainsons",
@@ -3355,6 +5035,27 @@
         "price": 209700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U8LZ4-DEFAULT-2",
+        "price": 209700,
+        "stock": 83,
+        "attributes": null,
+        "id": "213812a0-1c17-4e1d-9c4e-b646b5897b98"
+      },
+      {
+        "sku_code": "SKU-U8LZ4-DEFAULT-3",
+        "price": 209700,
+        "stock": 83,
+        "attributes": null,
+        "id": "1a573732-00f4-4edc-acf5-01194a7c97cc"
+      },
+      {
+        "sku_code": "SKU-U8LZ4-DEFAULT-4",
+        "price": 209700,
+        "stock": 83,
+        "attributes": null,
+        "id": "5ca0d771-96ce-4e07-983a-fba98db0d791"
       }
     ],
     "brand": "Dog",
@@ -3392,6 +5093,27 @@
         "price": 98700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PKEBX-DEFAULT-2",
+        "price": 98700,
+        "stock": 36,
+        "attributes": null,
+        "id": "aa56e377-1d97-4324-a1ec-21fd40e5fe9e"
+      },
+      {
+        "sku_code": "SKU-PKEBX-DEFAULT-3",
+        "price": 98700,
+        "stock": 36,
+        "attributes": null,
+        "id": "b8f29077-1981-4683-98a1-26dbd4a76ff2"
+      },
+      {
+        "sku_code": "SKU-PKEBX-DEFAULT-4",
+        "price": 98700,
+        "stock": 36,
+        "attributes": null,
+        "id": "73975e1c-a93f-4dd0-bedc-1f9586623f42"
       }
     ],
     "brand": "Gnawlers",
@@ -3437,6 +5159,27 @@
         "price": 178500,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KI2WY-DEFAULT-2",
+        "price": 178500,
+        "stock": 24,
+        "attributes": null,
+        "id": "4f602e48-4cf3-46b8-8ecd-d6eef89b556e"
+      },
+      {
+        "sku_code": "SKU-KI2WY-DEFAULT-3",
+        "price": 178500,
+        "stock": 24,
+        "attributes": null,
+        "id": "a86fdb63-15cf-450a-bf15-4544e4bc9efc"
+      },
+      {
+        "sku_code": "SKU-KI2WY-DEFAULT-4",
+        "price": 178500,
+        "stock": 24,
+        "attributes": null,
+        "id": "46de1e44-6407-4242-817f-53a6f2a3ace8"
       }
     ],
     "brand": "Royal",
@@ -3482,6 +5225,27 @@
         "price": 0,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RMUDO-DEFAULT-2",
+        "price": 0,
+        "stock": 18,
+        "attributes": null,
+        "id": "18cfbdfa-7e6f-444e-9c86-72892adf7878"
+      },
+      {
+        "sku_code": "SKU-RMUDO-DEFAULT-3",
+        "price": 0,
+        "stock": 18,
+        "attributes": null,
+        "id": "d3579abf-953a-4c80-abd6-f30012ac28e7"
+      },
+      {
+        "sku_code": "SKU-RMUDO-DEFAULT-4",
+        "price": 0,
+        "stock": 18,
+        "attributes": null,
+        "id": "d1e995cb-b197-4762-a79b-6900e3f865c4"
       }
     ],
     "brand": "Foodie",
@@ -3527,6 +5291,27 @@
         "price": 405000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6WMFE-DEFAULT-2",
+        "price": 405000,
+        "stock": 28,
+        "attributes": null,
+        "id": "93500400-e689-4621-bd03-140882c9cb83"
+      },
+      {
+        "sku_code": "SKU-6WMFE-DEFAULT-3",
+        "price": 405000,
+        "stock": 28,
+        "attributes": null,
+        "id": "d0bbec25-49e0-46f1-9471-4c4b6f2e26f4"
+      },
+      {
+        "sku_code": "SKU-6WMFE-DEFAULT-4",
+        "price": 405000,
+        "stock": 28,
+        "attributes": null,
+        "id": "1f1acbee-a903-46d0-9ffd-5a3c37344cc9"
       }
     ],
     "brand": "Sobo",
@@ -3572,6 +5357,27 @@
         "price": 52500,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-48X6B-DEFAULT-2",
+        "price": 52500,
+        "stock": 34,
+        "attributes": null,
+        "id": "5deed736-1a38-4574-abc6-7c34f4ab928b"
+      },
+      {
+        "sku_code": "SKU-48X6B-DEFAULT-3",
+        "price": 52500,
+        "stock": 34,
+        "attributes": null,
+        "id": "a8822a65-589c-4c82-a8f2-df0fec0f801a"
+      },
+      {
+        "sku_code": "SKU-48X6B-DEFAULT-4",
+        "price": 52500,
+        "stock": 34,
+        "attributes": null,
+        "id": "7d97016a-3dfa-4a0e-bee9-e0443ee5ca4d"
       }
     ],
     "brand": "Sage",
@@ -3609,6 +5415,27 @@
         "price": 149700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3RM0H-DEFAULT-2",
+        "price": 149700,
+        "stock": 99,
+        "attributes": null,
+        "id": "49de3236-799d-4ac6-bf38-5e42754e3ad2"
+      },
+      {
+        "sku_code": "SKU-3RM0H-DEFAULT-3",
+        "price": 149700,
+        "stock": 99,
+        "attributes": null,
+        "id": "5ff71856-eab9-4f32-a3c8-c0884dd39694"
+      },
+      {
+        "sku_code": "SKU-3RM0H-DEFAULT-4",
+        "price": 149700,
+        "stock": 99,
+        "attributes": null,
+        "id": "0ffde651-c1bf-4f49-beac-38ec142bacd2"
       }
     ],
     "brand": "Sage",
@@ -3650,6 +5477,27 @@
         "price": 242700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HCXQS-DEFAULT-2",
+        "price": 242700,
+        "stock": 71,
+        "attributes": null,
+        "id": "63212ecb-a718-405a-b8b2-a437cdcd926d"
+      },
+      {
+        "sku_code": "SKU-HCXQS-DEFAULT-3",
+        "price": 242700,
+        "stock": 71,
+        "attributes": null,
+        "id": "4467a991-834b-4d32-9ca2-16c12623a9ab"
+      },
+      {
+        "sku_code": "SKU-HCXQS-DEFAULT-4",
+        "price": 242700,
+        "stock": 71,
+        "attributes": null,
+        "id": "c72942a5-133d-42ad-b0f3-96295c401587"
       }
     ],
     "brand": "Dog",
@@ -3687,6 +5535,27 @@
         "price": 149700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UYKOJ-DEFAULT-2",
+        "price": 149700,
+        "stock": 11,
+        "attributes": null,
+        "id": "7f91ef41-23f7-4768-b846-8115a7e228fa"
+      },
+      {
+        "sku_code": "SKU-UYKOJ-DEFAULT-3",
+        "price": 149700,
+        "stock": 11,
+        "attributes": null,
+        "id": "5068be15-8dbb-4d31-bc0f-7e61cc1a02b5"
+      },
+      {
+        "sku_code": "SKU-UYKOJ-DEFAULT-4",
+        "price": 149700,
+        "stock": 11,
+        "attributes": null,
+        "id": "7c934647-caa3-444a-b8bb-ca398181072e"
       }
     ],
     "brand": "Pets",
@@ -3724,6 +5593,27 @@
         "price": 239700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H65IW-DEFAULT-2",
+        "price": 239700,
+        "stock": 29,
+        "attributes": null,
+        "id": "73e73552-232d-4127-a5ce-cf570b528a41"
+      },
+      {
+        "sku_code": "SKU-H65IW-DEFAULT-3",
+        "price": 239700,
+        "stock": 29,
+        "attributes": null,
+        "id": "f744c088-b4df-47cd-8f1a-67508188f8ab"
+      },
+      {
+        "sku_code": "SKU-H65IW-DEFAULT-4",
+        "price": 239700,
+        "stock": 29,
+        "attributes": null,
+        "id": "a02d22d6-37d2-4f17-ab08-9d122d1b50e4"
       }
     ],
     "brand": "Sobo",
@@ -3761,6 +5651,27 @@
         "price": 141000,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V7MKY-DEFAULT-2",
+        "price": 141000,
+        "stock": 91,
+        "attributes": null,
+        "id": "1a0f2378-cb67-4d1a-bff2-ec43aa7debb4"
+      },
+      {
+        "sku_code": "SKU-V7MKY-DEFAULT-3",
+        "price": 141000,
+        "stock": 91,
+        "attributes": null,
+        "id": "e564c9ff-3f48-4ea5-a26e-223f9b173e5a"
+      },
+      {
+        "sku_code": "SKU-V7MKY-DEFAULT-4",
+        "price": 141000,
+        "stock": 91,
+        "attributes": null,
+        "id": "4636e50a-5b63-4475-919e-84e5f238efa6"
       }
     ],
     "brand": "Sage",
@@ -3802,6 +5713,27 @@
         "price": 113700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YJWQ1-DEFAULT-2",
+        "price": 113700,
+        "stock": 20,
+        "attributes": null,
+        "id": "f23d41ea-8902-4c44-85d0-56a72daff56c"
+      },
+      {
+        "sku_code": "SKU-YJWQ1-DEFAULT-3",
+        "price": 113700,
+        "stock": 20,
+        "attributes": null,
+        "id": "67a849c1-1637-4305-814a-793717ae2e87"
+      },
+      {
+        "sku_code": "SKU-YJWQ1-DEFAULT-4",
+        "price": 113700,
+        "stock": 20,
+        "attributes": null,
+        "id": "5dd386e5-2330-41d1-a252-d000f7a7d553"
       }
     ],
     "brand": "Sobo",
@@ -3843,6 +5775,27 @@
         "price": 161700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-025YY-DEFAULT-2",
+        "price": 161700,
+        "stock": 51,
+        "attributes": null,
+        "id": "2f5aa2ce-e138-4608-bb20-47d27ce7ec76"
+      },
+      {
+        "sku_code": "SKU-025YY-DEFAULT-3",
+        "price": 161700,
+        "stock": 51,
+        "attributes": null,
+        "id": "75f3527c-c152-4797-85a6-bc0b3ccdf7a0"
+      },
+      {
+        "sku_code": "SKU-025YY-DEFAULT-4",
+        "price": 161700,
+        "stock": 51,
+        "attributes": null,
+        "id": "442f8304-f0b3-4aad-92e1-6772261a2199"
       }
     ],
     "brand": "Gnawlers",
@@ -3884,6 +5837,27 @@
         "price": 599700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GBCNK-DEFAULT-2",
+        "price": 599700,
+        "stock": 55,
+        "attributes": null,
+        "id": "cadddc75-2e7d-4654-ba05-feabec893c76"
+      },
+      {
+        "sku_code": "SKU-GBCNK-DEFAULT-3",
+        "price": 599700,
+        "stock": 55,
+        "attributes": null,
+        "id": "4651fc68-7860-4e15-a4d4-80cdf63b92ca"
+      },
+      {
+        "sku_code": "SKU-GBCNK-DEFAULT-4",
+        "price": 599700,
+        "stock": 55,
+        "attributes": null,
+        "id": "490204f8-f989-4f85-83cd-ee6f52f95404"
       }
     ],
     "brand": "Whiskas",
@@ -3929,6 +5903,27 @@
         "price": 599700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZBIB7-DEFAULT-2",
+        "price": 599700,
+        "stock": 27,
+        "attributes": null,
+        "id": "21b4701d-dd83-460e-b116-bb4234421925"
+      },
+      {
+        "sku_code": "SKU-ZBIB7-DEFAULT-3",
+        "price": 599700,
+        "stock": 27,
+        "attributes": null,
+        "id": "63a7e061-ce0e-4416-a6f6-b935239b358c"
+      },
+      {
+        "sku_code": "SKU-ZBIB7-DEFAULT-4",
+        "price": 599700,
+        "stock": 27,
+        "attributes": null,
+        "id": "b1757cb2-0e83-419d-9040-cf016737cd5a"
       }
     ],
     "brand": "Qpets®",
@@ -3970,6 +5965,27 @@
         "price": 46500,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GSBS3-DEFAULT-2",
+        "price": 46500,
+        "stock": 98,
+        "attributes": null,
+        "id": "6d14c08f-84e6-4e2d-9aa4-dd3ebedb350e"
+      },
+      {
+        "sku_code": "SKU-GSBS3-DEFAULT-3",
+        "price": 46500,
+        "stock": 98,
+        "attributes": null,
+        "id": "b89d552c-0a57-4a97-9f8d-22617b50284d"
+      },
+      {
+        "sku_code": "SKU-GSBS3-DEFAULT-4",
+        "price": 46500,
+        "stock": 98,
+        "attributes": null,
+        "id": "1d387ea4-813d-4335-a87d-45ac0dfc113b"
       }
     ],
     "brand": "Foodie",
@@ -4015,6 +6031,27 @@
         "price": 68400,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1U0CB-DEFAULT-2",
+        "price": 68400,
+        "stock": 107,
+        "attributes": null,
+        "id": "f666dd59-00ca-4f48-b091-adcf14910bee"
+      },
+      {
+        "sku_code": "SKU-1U0CB-DEFAULT-3",
+        "price": 68400,
+        "stock": 107,
+        "attributes": null,
+        "id": "946017af-e050-4578-a095-0287f1257f12"
+      },
+      {
+        "sku_code": "SKU-1U0CB-DEFAULT-4",
+        "price": 68400,
+        "stock": 107,
+        "attributes": null,
+        "id": "9b900fa8-c2da-4af8-9b0d-05d1830b75ad"
       }
     ],
     "brand": "Pets",
@@ -4060,6 +6097,27 @@
         "price": 32700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-67R28-DEFAULT-2",
+        "price": 32700,
+        "stock": 60,
+        "attributes": null,
+        "id": "95fa03c7-6b81-42fd-9aa2-33580f16307e"
+      },
+      {
+        "sku_code": "SKU-67R28-DEFAULT-3",
+        "price": 32700,
+        "stock": 60,
+        "attributes": null,
+        "id": "f1935f0f-8e41-42c6-9a5e-7d202d5e4fa8"
+      },
+      {
+        "sku_code": "SKU-67R28-DEFAULT-4",
+        "price": 32700,
+        "stock": 60,
+        "attributes": null,
+        "id": "9adb8362-2b4c-4dc8-a175-1c2f6cb152e1"
       }
     ],
     "brand": "Gnawlers",
@@ -4101,6 +6159,27 @@
         "price": 208500,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ECAUN-DEFAULT-2",
+        "price": 208500,
+        "stock": 10,
+        "attributes": null,
+        "id": "6d2e5d3b-c06e-4b87-ba04-43cd69c6b99d"
+      },
+      {
+        "sku_code": "SKU-ECAUN-DEFAULT-3",
+        "price": 208500,
+        "stock": 10,
+        "attributes": null,
+        "id": "04855535-810e-4dbe-b895-bdc7bb1b7e4a"
+      },
+      {
+        "sku_code": "SKU-ECAUN-DEFAULT-4",
+        "price": 208500,
+        "stock": 10,
+        "attributes": null,
+        "id": "0d762543-606b-4875-bdf1-304ad31c1853"
       }
     ],
     "brand": "Pets",
@@ -4146,6 +6225,27 @@
         "price": 119700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GU3XK-DEFAULT-2",
+        "price": 119700,
+        "stock": 77,
+        "attributes": null,
+        "id": "b80a6c5b-e702-40e0-a238-2ddae96fc763"
+      },
+      {
+        "sku_code": "SKU-GU3XK-DEFAULT-3",
+        "price": 119700,
+        "stock": 77,
+        "attributes": null,
+        "id": "79b89873-692b-49de-afb1-b16057b709f3"
+      },
+      {
+        "sku_code": "SKU-GU3XK-DEFAULT-4",
+        "price": 119700,
+        "stock": 77,
+        "attributes": null,
+        "id": "0aab5347-ca55-4d74-8834-0d1c99896fe0"
       }
     ],
     "brand": "Gnawlers",

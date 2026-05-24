@@ -22,6 +22,27 @@
         "price": 660000,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KRISY-DEFAULT-2",
+        "price": 660000,
+        "stock": 49,
+        "attributes": null,
+        "id": "715ff9da-73a3-4b51-b7f1-738a7714d29f"
+      },
+      {
+        "sku_code": "SKU-KRISY-DEFAULT-3",
+        "price": 660000,
+        "stock": 49,
+        "attributes": null,
+        "id": "b5b50dcc-d261-4ea7-9a9f-6ff48b3f68f1"
+      },
+      {
+        "sku_code": "SKU-KRISY-DEFAULT-4",
+        "price": 660000,
+        "stock": 49,
+        "attributes": null,
+        "id": "02432005-57b3-451f-9ffd-f77f00dc83f7"
       }
     ],
     "brand": "Asus",
@@ -63,6 +84,27 @@
         "price": 52500,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W44TY-DEFAULT-2",
+        "price": 52500,
+        "stock": 66,
+        "attributes": null,
+        "id": "f4842740-3e16-499a-91ef-8375ef68e97a"
+      },
+      {
+        "sku_code": "SKU-W44TY-DEFAULT-3",
+        "price": 52500,
+        "stock": 66,
+        "attributes": null,
+        "id": "704a35d5-02b0-47a8-88c2-c4c6faaf4c9d"
+      },
+      {
+        "sku_code": "SKU-W44TY-DEFAULT-4",
+        "price": 52500,
+        "stock": 66,
+        "attributes": null,
+        "id": "24a1e990-af33-4557-b690-7535164d1dfa"
       }
     ],
     "brand": "Surf",
@@ -104,6 +146,27 @@
         "price": 89700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3646O-DEFAULT-2",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "38a5aae1-963f-4866-9d38-ffea6a934a9e"
+      },
+      {
+        "sku_code": "SKU-3646O-DEFAULT-3",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "bc7fbb35-11b5-44e3-bfeb-19d3849a9d6a"
+      },
+      {
+        "sku_code": "SKU-3646O-DEFAULT-4",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "f1a25c99-a2a2-4ab7-94bc-430ddf245d54"
       }
     ],
     "brand": "Surf",
@@ -149,6 +212,27 @@
         "price": 210000,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W8TXV-DEFAULT-2",
+        "price": 210000,
+        "stock": 54,
+        "attributes": null,
+        "id": "cd1df326-f0ee-4e85-a56d-b9bb2772903a"
+      },
+      {
+        "sku_code": "SKU-W8TXV-DEFAULT-3",
+        "price": 210000,
+        "stock": 54,
+        "attributes": null,
+        "id": "3b337150-a650-4679-b675-3dbebf98fce3"
+      },
+      {
+        "sku_code": "SKU-W8TXV-DEFAULT-4",
+        "price": 210000,
+        "stock": 54,
+        "attributes": null,
+        "id": "c5ccdce1-fc59-4bb0-b88d-2b0fe8f4781a"
       }
     ],
     "brand": "Modicare",
@@ -194,6 +278,27 @@
         "price": 115500,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PSH5T-DEFAULT-2",
+        "price": 115500,
+        "stock": 88,
+        "attributes": null,
+        "id": "5a304631-7950-46f9-aeac-834dbdad42a7"
+      },
+      {
+        "sku_code": "SKU-PSH5T-DEFAULT-3",
+        "price": 115500,
+        "stock": 88,
+        "attributes": null,
+        "id": "c951cde7-2774-41c7-8dbe-89cca866853e"
+      },
+      {
+        "sku_code": "SKU-PSH5T-DEFAULT-4",
+        "price": 115500,
+        "stock": 88,
+        "attributes": null,
+        "id": "8b0b252e-273f-4973-9b50-4da0ca67c9f0"
       }
     ],
     "brand": "Dr.",
@@ -239,6 +344,27 @@
         "price": 107700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KF7CD-DEFAULT-2",
+        "price": 107700,
+        "stock": 106,
+        "attributes": null,
+        "id": "81315d94-4dd5-4e61-95f5-aba72e1ec95a"
+      },
+      {
+        "sku_code": "SKU-KF7CD-DEFAULT-3",
+        "price": 107700,
+        "stock": 106,
+        "attributes": null,
+        "id": "da44f080-4ec9-4d3b-b3e6-c5d56e88eea2"
+      },
+      {
+        "sku_code": "SKU-KF7CD-DEFAULT-4",
+        "price": 107700,
+        "stock": 106,
+        "attributes": null,
+        "id": "382a3451-2fc0-4ba7-adeb-a3a59dea98d2"
       }
     ],
     "brand": "Dr.",
@@ -284,6 +410,27 @@
         "price": 15000,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J8UZK-DEFAULT-2",
+        "price": 15000,
+        "stock": 101,
+        "attributes": null,
+        "id": "44199a3d-e3f2-42f2-93d7-4dbedf68267e"
+      },
+      {
+        "sku_code": "SKU-J8UZK-DEFAULT-3",
+        "price": 15000,
+        "stock": 101,
+        "attributes": null,
+        "id": "d00fa2f2-a80e-416c-8e4f-2f8c8543b71d"
+      },
+      {
+        "sku_code": "SKU-J8UZK-DEFAULT-4",
+        "price": 15000,
+        "stock": 101,
+        "attributes": null,
+        "id": "752ad292-1a3e-425e-a72a-ac5f0b950d8d"
       }
     ],
     "brand": "Cif",
@@ -329,6 +476,27 @@
         "price": 170700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GG8LW-DEFAULT-2",
+        "price": 170700,
+        "stock": 77,
+        "attributes": null,
+        "id": "35a52a53-7086-4a36-998d-a04f177175e6"
+      },
+      {
+        "sku_code": "SKU-GG8LW-DEFAULT-3",
+        "price": 170700,
+        "stock": 77,
+        "attributes": null,
+        "id": "ce85d29c-c7dc-44c7-9071-056f5b364a36"
+      },
+      {
+        "sku_code": "SKU-GG8LW-DEFAULT-4",
+        "price": 170700,
+        "stock": 77,
+        "attributes": null,
+        "id": "50422550-9a8a-4cc8-b915-5faa255c171a"
       }
     ],
     "brand": "Lizol",
@@ -370,6 +538,27 @@
         "price": 50700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T70LI-DEFAULT-2",
+        "price": 50700,
+        "stock": 24,
+        "attributes": null,
+        "id": "39a13a92-5e28-44bd-b1a2-f8bcedae2e4a"
+      },
+      {
+        "sku_code": "SKU-T70LI-DEFAULT-3",
+        "price": 50700,
+        "stock": 24,
+        "attributes": null,
+        "id": "0c3f81da-8e5a-4ced-868f-d0daaea1464f"
+      },
+      {
+        "sku_code": "SKU-T70LI-DEFAULT-4",
+        "price": 50700,
+        "stock": 24,
+        "attributes": null,
+        "id": "277fbf83-93c0-4d4b-ae26-20a6ef423912"
       }
     ],
     "brand": "Mr.",
@@ -411,6 +600,27 @@
         "price": 49500,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2SGLU-DEFAULT-2",
+        "price": 49500,
+        "stock": 83,
+        "attributes": null,
+        "id": "82d0d207-1cec-4788-97a0-4f15053e3471"
+      },
+      {
+        "sku_code": "SKU-2SGLU-DEFAULT-3",
+        "price": 49500,
+        "stock": 83,
+        "attributes": null,
+        "id": "399d0126-f2ea-4e19-b951-b7b2fc9e8648"
+      },
+      {
+        "sku_code": "SKU-2SGLU-DEFAULT-4",
+        "price": 49500,
+        "stock": 83,
+        "attributes": null,
+        "id": "c6ae8467-97c6-4c17-bfa3-c4f62be90e14"
       }
     ],
     "brand": "Modicare",
@@ -448,6 +658,27 @@
         "price": 47997,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CCI1Q-DEFAULT-2",
+        "price": 47997,
+        "stock": 20,
+        "attributes": null,
+        "id": "69f0550c-d220-4b16-8ee3-e12fac07100d"
+      },
+      {
+        "sku_code": "SKU-CCI1Q-DEFAULT-3",
+        "price": 47997,
+        "stock": 20,
+        "attributes": null,
+        "id": "2ddca916-de35-4e3e-830d-393b01a2cd60"
+      },
+      {
+        "sku_code": "SKU-CCI1Q-DEFAULT-4",
+        "price": 47997,
+        "stock": 20,
+        "attributes": null,
+        "id": "4c892dff-4410-499c-8439-05d024712850"
       }
     ],
     "brand": "Modicare",
@@ -485,6 +716,27 @@
         "price": 145500,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7AMJL-DEFAULT-2",
+        "price": 145500,
+        "stock": 56,
+        "attributes": null,
+        "id": "7790dde5-5de2-4a43-95ce-82fff4163d1d"
+      },
+      {
+        "sku_code": "SKU-7AMJL-DEFAULT-3",
+        "price": 145500,
+        "stock": 56,
+        "attributes": null,
+        "id": "355b2c3e-1d94-40f9-8a18-36216beae716"
+      },
+      {
+        "sku_code": "SKU-7AMJL-DEFAULT-4",
+        "price": 145500,
+        "stock": 56,
+        "attributes": null,
+        "id": "e3dae066-a975-4174-8ce4-974814726df2"
       }
     ],
     "brand": "Kitchen",
@@ -522,6 +774,27 @@
         "price": 170400,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KFSCH-DEFAULT-2",
+        "price": 170400,
+        "stock": 64,
+        "attributes": null,
+        "id": "5c3a1b95-8b7e-4ba7-b61c-0b3a84590137"
+      },
+      {
+        "sku_code": "SKU-KFSCH-DEFAULT-3",
+        "price": 170400,
+        "stock": 64,
+        "attributes": null,
+        "id": "4c1a19df-ffe6-488b-9b30-0b9d1b700e82"
+      },
+      {
+        "sku_code": "SKU-KFSCH-DEFAULT-4",
+        "price": 170400,
+        "stock": 64,
+        "attributes": null,
+        "id": "6a757ad8-31ce-44a7-bb85-a7176480b5e5"
       }
     ],
     "brand": "Mr.",
@@ -563,6 +836,27 @@
         "price": 89700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W7GWF-DEFAULT-2",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "01529015-5332-4c83-997f-771e2e0be61e"
+      },
+      {
+        "sku_code": "SKU-W7GWF-DEFAULT-3",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "2027d03f-99c3-42fc-9cb5-73af9b4a7dee"
+      },
+      {
+        "sku_code": "SKU-W7GWF-DEFAULT-4",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "1e9faf29-48cb-4b0a-a61c-8bcb0d5c9720"
       }
     ],
     "brand": "Modicare",
@@ -608,6 +902,27 @@
         "price": 59700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-31QJ1-DEFAULT-2",
+        "price": 59700,
+        "stock": 69,
+        "attributes": null,
+        "id": "ffbd72f6-cbc9-4ead-ad7d-bfd912d21161"
+      },
+      {
+        "sku_code": "SKU-31QJ1-DEFAULT-3",
+        "price": 59700,
+        "stock": 69,
+        "attributes": null,
+        "id": "36766001-9069-4b69-908e-3f69a563789c"
+      },
+      {
+        "sku_code": "SKU-31QJ1-DEFAULT-4",
+        "price": 59700,
+        "stock": 69,
+        "attributes": null,
+        "id": "19ccef72-b753-49af-81e3-b0f85059920a"
       }
     ],
     "brand": "Harpic",
@@ -653,6 +968,27 @@
         "price": 29700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QQXQZ-DEFAULT-2",
+        "price": 29700,
+        "stock": 65,
+        "attributes": null,
+        "id": "f7b812b3-a6f8-4d87-a779-6da28a07ce73"
+      },
+      {
+        "sku_code": "SKU-QQXQZ-DEFAULT-3",
+        "price": 29700,
+        "stock": 65,
+        "attributes": null,
+        "id": "91ad45e2-0f6d-4a85-974e-cb8fbb5e5d49"
+      },
+      {
+        "sku_code": "SKU-QQXQZ-DEFAULT-4",
+        "price": 29700,
+        "stock": 65,
+        "attributes": null,
+        "id": "74a9a2b2-78c8-4a9b-8788-82a0abe7b36c"
       }
     ],
     "brand": "Surf",
@@ -694,6 +1030,27 @@
         "price": 135000,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HSLG1-DEFAULT-2",
+        "price": 135000,
+        "stock": 61,
+        "attributes": null,
+        "id": "99993d4b-a123-4ce6-b7e8-95a39f3d30e8"
+      },
+      {
+        "sku_code": "SKU-HSLG1-DEFAULT-3",
+        "price": 135000,
+        "stock": 61,
+        "attributes": null,
+        "id": "b04ccd46-0c62-4ae4-b65d-4529261b6fab"
+      },
+      {
+        "sku_code": "SKU-HSLG1-DEFAULT-4",
+        "price": 135000,
+        "stock": 61,
+        "attributes": null,
+        "id": "2a8e7978-8137-442e-9c3d-def376faf2a9"
       }
     ],
     "brand": "Dettol",
@@ -731,6 +1088,27 @@
         "price": 153330,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5X973-DEFAULT-2",
+        "price": 153330,
+        "stock": 83,
+        "attributes": null,
+        "id": "e1c2a5c1-30bf-462b-b52e-046e81ffa096"
+      },
+      {
+        "sku_code": "SKU-5X973-DEFAULT-3",
+        "price": 153330,
+        "stock": 83,
+        "attributes": null,
+        "id": "d6b6adf4-7606-446d-bc21-4e0add3d4743"
+      },
+      {
+        "sku_code": "SKU-5X973-DEFAULT-4",
+        "price": 153330,
+        "stock": 83,
+        "attributes": null,
+        "id": "588f9eec-5db9-41ce-a703-3bf96fe1e4b0"
       }
     ],
     "brand": "Modicare",
@@ -772,6 +1150,27 @@
         "price": 129000,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KJM1W-DEFAULT-2",
+        "price": 129000,
+        "stock": 14,
+        "attributes": null,
+        "id": "c262f1ac-4043-4138-aec2-0a5f9c3592f8"
+      },
+      {
+        "sku_code": "SKU-KJM1W-DEFAULT-3",
+        "price": 129000,
+        "stock": 14,
+        "attributes": null,
+        "id": "f743a510-6cd8-4229-9f49-e6c477c00e26"
+      },
+      {
+        "sku_code": "SKU-KJM1W-DEFAULT-4",
+        "price": 129000,
+        "stock": 14,
+        "attributes": null,
+        "id": "6ec5bc59-daf1-46a0-95ea-6e329bb66d46"
       }
     ],
     "brand": "Mr.",
@@ -813,6 +1212,27 @@
         "price": 111000,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IY0AC-DEFAULT-2",
+        "price": 111000,
+        "stock": 37,
+        "attributes": null,
+        "id": "6bc19c5b-ccb5-4c6e-9316-50987ce74dd6"
+      },
+      {
+        "sku_code": "SKU-IY0AC-DEFAULT-3",
+        "price": 111000,
+        "stock": 37,
+        "attributes": null,
+        "id": "d2b46454-159f-405e-ab9c-6928f079f840"
+      },
+      {
+        "sku_code": "SKU-IY0AC-DEFAULT-4",
+        "price": 111000,
+        "stock": 37,
+        "attributes": null,
+        "id": "c2b3ab84-40c0-4298-b611-9fab34edb50f"
       }
     ],
     "brand": "Zimmer",
@@ -854,6 +1274,27 @@
         "price": 42000,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SKA72-DEFAULT-2",
+        "price": 42000,
+        "stock": 19,
+        "attributes": null,
+        "id": "f14d13f5-aae7-4073-ab13-7394124d9629"
+      },
+      {
+        "sku_code": "SKU-SKA72-DEFAULT-3",
+        "price": 42000,
+        "stock": 19,
+        "attributes": null,
+        "id": "902212ca-66b5-44dd-8136-8a1844078f54"
+      },
+      {
+        "sku_code": "SKU-SKA72-DEFAULT-4",
+        "price": 42000,
+        "stock": 19,
+        "attributes": null,
+        "id": "624907a5-0a38-417d-b892-cd70d8b960ef"
       }
     ],
     "brand": "Finish",
@@ -895,6 +1336,27 @@
         "price": 210000,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UKKXK-DEFAULT-2",
+        "price": 210000,
+        "stock": 103,
+        "attributes": null,
+        "id": "f3e46f2f-beec-47a3-8b59-47fdd9f16de9"
+      },
+      {
+        "sku_code": "SKU-UKKXK-DEFAULT-3",
+        "price": 210000,
+        "stock": 103,
+        "attributes": null,
+        "id": "708690f7-b84f-44d2-a55a-068bc03cdb42"
+      },
+      {
+        "sku_code": "SKU-UKKXK-DEFAULT-4",
+        "price": 210000,
+        "stock": 103,
+        "attributes": null,
+        "id": "53700f4c-6c4b-4fdc-8966-d566cebf4b02"
       }
     ],
     "brand": "Surf",
@@ -940,6 +1402,27 @@
         "price": 179700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T02OY-DEFAULT-2",
+        "price": 179700,
+        "stock": 88,
+        "attributes": null,
+        "id": "2d10bbeb-d0b5-4903-953f-a23712cfaeb6"
+      },
+      {
+        "sku_code": "SKU-T02OY-DEFAULT-3",
+        "price": 179700,
+        "stock": 88,
+        "attributes": null,
+        "id": "ec09e7de-ade0-44ea-ac04-ad1a4afbf352"
+      },
+      {
+        "sku_code": "SKU-T02OY-DEFAULT-4",
+        "price": 179700,
+        "stock": 88,
+        "attributes": null,
+        "id": "6e529e6d-b6c3-4046-bd29-4c8f38893401"
       }
     ],
     "brand": "IFB",
@@ -981,6 +1464,27 @@
         "price": 89100,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BEP6S-DEFAULT-2",
+        "price": 89100,
+        "stock": 78,
+        "attributes": null,
+        "id": "5d85fcd1-227d-4825-9be2-2b2834387194"
+      },
+      {
+        "sku_code": "SKU-BEP6S-DEFAULT-3",
+        "price": 89100,
+        "stock": 78,
+        "attributes": null,
+        "id": "879dccc0-4e1c-4d81-a8b9-621c901eb68e"
+      },
+      {
+        "sku_code": "SKU-BEP6S-DEFAULT-4",
+        "price": 89100,
+        "stock": 78,
+        "attributes": null,
+        "id": "3da9dcba-f308-4e7c-b6f5-68a3c9bdd9c7"
       }
     ],
     "brand": "Zimmer",
@@ -1026,6 +1530,27 @@
         "price": 624300,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DS5Z6-DEFAULT-2",
+        "price": 624300,
+        "stock": 87,
+        "attributes": null,
+        "id": "b3520c16-d0c2-4270-9682-da47716f046b"
+      },
+      {
+        "sku_code": "SKU-DS5Z6-DEFAULT-3",
+        "price": 624300,
+        "stock": 87,
+        "attributes": null,
+        "id": "c273fe42-2a49-4b9d-8cf7-8f739b719907"
+      },
+      {
+        "sku_code": "SKU-DS5Z6-DEFAULT-4",
+        "price": 624300,
+        "stock": 87,
+        "attributes": null,
+        "id": "a8717ca5-1cae-4ec8-b3f3-a6c1bf418d2c"
       }
     ],
     "brand": "Astonish",
@@ -1067,6 +1592,27 @@
         "price": 599700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HR4PL-DEFAULT-2",
+        "price": 599700,
+        "stock": 36,
+        "attributes": null,
+        "id": "1d498b52-f85a-48e5-8d86-566fdc2ab5ae"
+      },
+      {
+        "sku_code": "SKU-HR4PL-DEFAULT-3",
+        "price": 599700,
+        "stock": 36,
+        "attributes": null,
+        "id": "b17f3cd7-980d-4601-bda8-740ea86c6892"
+      },
+      {
+        "sku_code": "SKU-HR4PL-DEFAULT-4",
+        "price": 599700,
+        "stock": 36,
+        "attributes": null,
+        "id": "234f9b1f-825b-4018-9c3c-21759ad803a4"
       }
     ],
     "brand": "Paseo",
@@ -1104,6 +1650,27 @@
         "price": 89700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CJERB-DEFAULT-2",
+        "price": 89700,
+        "stock": 70,
+        "attributes": null,
+        "id": "4d1a3f4d-b3e5-4f58-b2d4-d962ff24ce05"
+      },
+      {
+        "sku_code": "SKU-CJERB-DEFAULT-3",
+        "price": 89700,
+        "stock": 70,
+        "attributes": null,
+        "id": "2254855c-8277-44c0-8cb9-b9ef2fbd5aee"
+      },
+      {
+        "sku_code": "SKU-CJERB-DEFAULT-4",
+        "price": 89700,
+        "stock": 70,
+        "attributes": null,
+        "id": "dcb3e1a7-1b95-46cc-b323-4a0702cae30a"
       }
     ],
     "brand": "Surf",
@@ -1149,6 +1716,27 @@
         "price": 240000,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TS9ZL-DEFAULT-2",
+        "price": 240000,
+        "stock": 79,
+        "attributes": null,
+        "id": "5f044b8f-2a11-44d4-b18b-570954032b68"
+      },
+      {
+        "sku_code": "SKU-TS9ZL-DEFAULT-3",
+        "price": 240000,
+        "stock": 79,
+        "attributes": null,
+        "id": "3af6994f-25e5-46b3-97a4-8bac937784db"
+      },
+      {
+        "sku_code": "SKU-TS9ZL-DEFAULT-4",
+        "price": 240000,
+        "stock": 79,
+        "attributes": null,
+        "id": "efd3a0a6-3e06-46e9-bc2e-3251c9dc17a0"
       }
     ],
     "brand": "Lizol",
@@ -1186,6 +1774,27 @@
         "price": 128700,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NBC0M-DEFAULT-2",
+        "price": 128700,
+        "stock": 15,
+        "attributes": null,
+        "id": "192033a9-c290-4ea3-9d7b-9a58851cbcdc"
+      },
+      {
+        "sku_code": "SKU-NBC0M-DEFAULT-3",
+        "price": 128700,
+        "stock": 15,
+        "attributes": null,
+        "id": "d73c2280-6696-4b82-b3cb-e5e69799c4bd"
+      },
+      {
+        "sku_code": "SKU-NBC0M-DEFAULT-4",
+        "price": 128700,
+        "stock": 15,
+        "attributes": null,
+        "id": "08a4fe39-a7d1-4287-ba4d-405bd8d25dfd"
       }
     ],
     "brand": "Ariel",
@@ -1231,6 +1840,27 @@
         "price": 209100,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8WJK2-DEFAULT-2",
+        "price": 209100,
+        "stock": 12,
+        "attributes": null,
+        "id": "3255ad15-df0e-4110-9639-0b98a2275bab"
+      },
+      {
+        "sku_code": "SKU-8WJK2-DEFAULT-3",
+        "price": 209100,
+        "stock": 12,
+        "attributes": null,
+        "id": "c4940659-a10f-486e-bc3f-5b29ceabf0c3"
+      },
+      {
+        "sku_code": "SKU-8WJK2-DEFAULT-4",
+        "price": 209100,
+        "stock": 12,
+        "attributes": null,
+        "id": "52599d39-aa64-4db2-a53b-7e9f0f5cb660"
       }
     ],
     "brand": "Mr.",
@@ -1276,6 +1906,27 @@
         "price": 63000,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HD427-DEFAULT-2",
+        "price": 63000,
+        "stock": 40,
+        "attributes": null,
+        "id": "3a411a30-0c88-4079-a1cd-8973ffed8134"
+      },
+      {
+        "sku_code": "SKU-HD427-DEFAULT-3",
+        "price": 63000,
+        "stock": 40,
+        "attributes": null,
+        "id": "c376db41-dd62-4c98-80a4-5ab7de6336b5"
+      },
+      {
+        "sku_code": "SKU-HD427-DEFAULT-4",
+        "price": 63000,
+        "stock": 40,
+        "attributes": null,
+        "id": "58dbc33e-280d-4f3b-b36c-c3cf463b1ce6"
       }
     ],
     "brand": "Modicare",
@@ -1317,6 +1968,27 @@
         "price": 149700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XYI9I-DEFAULT-2",
+        "price": 149700,
+        "stock": 100,
+        "attributes": null,
+        "id": "72a2a955-ba8f-4989-a89c-7e9127a5def0"
+      },
+      {
+        "sku_code": "SKU-XYI9I-DEFAULT-3",
+        "price": 149700,
+        "stock": 100,
+        "attributes": null,
+        "id": "edc9cc14-9e54-4f36-bdf3-0dbb336a2c2b"
+      },
+      {
+        "sku_code": "SKU-XYI9I-DEFAULT-4",
+        "price": 149700,
+        "stock": 100,
+        "attributes": null,
+        "id": "673117d0-49f5-4d70-bf3b-62e675592c85"
       }
     ],
     "brand": "JBL",
@@ -1358,6 +2030,27 @@
         "price": 119700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NLKUE-DEFAULT-2",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "18a9d5ac-fa6c-44ae-bf5a-79a530be76a9"
+      },
+      {
+        "sku_code": "SKU-NLKUE-DEFAULT-3",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "4645d903-4d2a-48c9-9bb0-f24b9bf9454f"
+      },
+      {
+        "sku_code": "SKU-NLKUE-DEFAULT-4",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "7adf9325-a467-4484-b1a3-a37b7aa0ff47"
       }
     ],
     "brand": "Lizol",
@@ -1399,6 +2092,27 @@
         "price": 108000,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JOOOB-DEFAULT-2",
+        "price": 108000,
+        "stock": 43,
+        "attributes": null,
+        "id": "a920f371-711a-48ac-b488-94cb97f7c251"
+      },
+      {
+        "sku_code": "SKU-JOOOB-DEFAULT-3",
+        "price": 108000,
+        "stock": 43,
+        "attributes": null,
+        "id": "a4ef9e52-6146-4791-afdb-0230cd04fa26"
+      },
+      {
+        "sku_code": "SKU-JOOOB-DEFAULT-4",
+        "price": 108000,
+        "stock": 43,
+        "attributes": null,
+        "id": "b7ae1f7f-f131-4af7-bd0e-dfd37978dde1"
       }
     ],
     "brand": "Mr.",
@@ -1436,6 +2150,27 @@
         "price": 164700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RK5XP-DEFAULT-2",
+        "price": 164700,
+        "stock": 33,
+        "attributes": null,
+        "id": "58f733ba-dfa9-459b-9bdb-cdcc5ee185dc"
+      },
+      {
+        "sku_code": "SKU-RK5XP-DEFAULT-3",
+        "price": 164700,
+        "stock": 33,
+        "attributes": null,
+        "id": "d9afc56f-f9ef-4ab8-a47d-015e69e61b93"
+      },
+      {
+        "sku_code": "SKU-RK5XP-DEFAULT-4",
+        "price": 164700,
+        "stock": 33,
+        "attributes": null,
+        "id": "e045dc48-f47a-46fd-91a4-62adf0ebc8d4"
       }
     ],
     "brand": "Kitchen",
@@ -1473,6 +2208,27 @@
         "price": 86700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-96VBZ-DEFAULT-2",
+        "price": 86700,
+        "stock": 73,
+        "attributes": null,
+        "id": "c750966d-9e40-43ab-a8fd-d88de14fa419"
+      },
+      {
+        "sku_code": "SKU-96VBZ-DEFAULT-3",
+        "price": 86700,
+        "stock": 73,
+        "attributes": null,
+        "id": "047f6593-f11c-4262-9a3a-ce3d46685fa6"
+      },
+      {
+        "sku_code": "SKU-96VBZ-DEFAULT-4",
+        "price": 86700,
+        "stock": 73,
+        "attributes": null,
+        "id": "6f1c8343-0595-4228-a7fd-b66fde3bc0fd"
       }
     ],
     "brand": "Paseo",
@@ -1510,6 +2266,27 @@
         "price": 37500,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MR8OR-DEFAULT-2",
+        "price": 37500,
+        "stock": 72,
+        "attributes": null,
+        "id": "d73ebe28-a3c6-4164-aac0-5b554f4e24da"
+      },
+      {
+        "sku_code": "SKU-MR8OR-DEFAULT-3",
+        "price": 37500,
+        "stock": 72,
+        "attributes": null,
+        "id": "4377002e-1f2c-49ca-b7d3-ca05b2d3da09"
+      },
+      {
+        "sku_code": "SKU-MR8OR-DEFAULT-4",
+        "price": 37500,
+        "stock": 72,
+        "attributes": null,
+        "id": "712c65a6-4d25-4bff-bd0b-b7c343ad194e"
       }
     ],
     "brand": "Kitchen",
@@ -1547,6 +2324,27 @@
         "price": 44700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-42I0R-DEFAULT-2",
+        "price": 44700,
+        "stock": 59,
+        "attributes": null,
+        "id": "2850941d-bbab-4d36-b755-1f16a7084193"
+      },
+      {
+        "sku_code": "SKU-42I0R-DEFAULT-3",
+        "price": 44700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0da62992-5cb4-4b1c-9eca-eee92081c28b"
+      },
+      {
+        "sku_code": "SKU-42I0R-DEFAULT-4",
+        "price": 44700,
+        "stock": 59,
+        "attributes": null,
+        "id": "605cdafb-3c7f-4cb2-8df9-dfaf707e402c"
       }
     ],
     "brand": "Modicare",
@@ -1584,6 +2382,27 @@
         "price": 59700,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BSQQA-DEFAULT-2",
+        "price": 59700,
+        "stock": 52,
+        "attributes": null,
+        "id": "7fb2957c-8d31-4ca0-990c-ae737f9aba75"
+      },
+      {
+        "sku_code": "SKU-BSQQA-DEFAULT-3",
+        "price": 59700,
+        "stock": 52,
+        "attributes": null,
+        "id": "3a1af6ce-65a3-4a2e-8de8-ffd56d59aaad"
+      },
+      {
+        "sku_code": "SKU-BSQQA-DEFAULT-4",
+        "price": 59700,
+        "stock": 52,
+        "attributes": null,
+        "id": "86b8e5f3-0c96-472f-b3de-ff2e11d12688"
       }
     ],
     "brand": "Dettol",
@@ -1625,6 +2444,27 @@
         "price": 479700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5MA5I-DEFAULT-2",
+        "price": 479700,
+        "stock": 18,
+        "attributes": null,
+        "id": "62ee8bd3-f728-447a-9bc2-5a6e4b0c1079"
+      },
+      {
+        "sku_code": "SKU-5MA5I-DEFAULT-3",
+        "price": 479700,
+        "stock": 18,
+        "attributes": null,
+        "id": "f3f85b7b-e3fb-4924-8c0b-f36efe07a1ab"
+      },
+      {
+        "sku_code": "SKU-5MA5I-DEFAULT-4",
+        "price": 479700,
+        "stock": 18,
+        "attributes": null,
+        "id": "68565199-2f18-4e1d-a2fa-52c46db79285"
       }
     ],
     "brand": "JBL",
@@ -1666,6 +2506,27 @@
         "price": 75000,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-74H5A-DEFAULT-2",
+        "price": 75000,
+        "stock": 65,
+        "attributes": null,
+        "id": "fd4dff5b-177b-4b92-a7e5-d4c8e62a554e"
+      },
+      {
+        "sku_code": "SKU-74H5A-DEFAULT-3",
+        "price": 75000,
+        "stock": 65,
+        "attributes": null,
+        "id": "6b4ce875-4c2c-4777-9c47-63903d7e45f0"
+      },
+      {
+        "sku_code": "SKU-74H5A-DEFAULT-4",
+        "price": 75000,
+        "stock": 65,
+        "attributes": null,
+        "id": "d9c464d3-90a4-4cc7-b7a5-258ee92fa9cc"
       }
     ],
     "brand": "Harpic",
@@ -1707,6 +2568,27 @@
         "price": 360000,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QKJSM-DEFAULT-2",
+        "price": 360000,
+        "stock": 44,
+        "attributes": null,
+        "id": "c9b67bcf-69ef-4d74-97ce-88f1a2fb9b98"
+      },
+      {
+        "sku_code": "SKU-QKJSM-DEFAULT-3",
+        "price": 360000,
+        "stock": 44,
+        "attributes": null,
+        "id": "0011245a-d68f-417e-8eed-47f397769b56"
+      },
+      {
+        "sku_code": "SKU-QKJSM-DEFAULT-4",
+        "price": 360000,
+        "stock": 44,
+        "attributes": null,
+        "id": "c850fe6d-27fe-4042-837d-276da443f65d"
       }
     ],
     "brand": "Harpic",
@@ -1752,6 +2634,27 @@
         "price": 419700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YZ6E6-DEFAULT-2",
+        "price": 419700,
+        "stock": 57,
+        "attributes": null,
+        "id": "c5ce7b71-fac7-463e-928a-7d17f8322d7f"
+      },
+      {
+        "sku_code": "SKU-YZ6E6-DEFAULT-3",
+        "price": 419700,
+        "stock": 57,
+        "attributes": null,
+        "id": "d0a9bd18-af0f-4e7e-8b88-479fee345eb4"
+      },
+      {
+        "sku_code": "SKU-YZ6E6-DEFAULT-4",
+        "price": 419700,
+        "stock": 57,
+        "attributes": null,
+        "id": "04f1a49d-ff22-41fe-b675-3c31c841cc1b"
       }
     ],
     "brand": "Finish",
@@ -1797,6 +2700,27 @@
         "price": 165000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IPK6Y-DEFAULT-2",
+        "price": 165000,
+        "stock": 22,
+        "attributes": null,
+        "id": "e6a75226-7894-4b32-8fdc-8139d501fb5a"
+      },
+      {
+        "sku_code": "SKU-IPK6Y-DEFAULT-3",
+        "price": 165000,
+        "stock": 22,
+        "attributes": null,
+        "id": "362dfdb2-0948-4d31-ba6d-9afc586e9737"
+      },
+      {
+        "sku_code": "SKU-IPK6Y-DEFAULT-4",
+        "price": 165000,
+        "stock": 22,
+        "attributes": null,
+        "id": "2248ca1c-0477-4686-8a37-6755712b8185"
       }
     ],
     "brand": "Surf",
@@ -1834,6 +2758,27 @@
         "price": 119700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-594UY-DEFAULT-2",
+        "price": 119700,
+        "stock": 33,
+        "attributes": null,
+        "id": "29c09502-8d8e-4133-8b87-eb3ef7e174ec"
+      },
+      {
+        "sku_code": "SKU-594UY-DEFAULT-3",
+        "price": 119700,
+        "stock": 33,
+        "attributes": null,
+        "id": "aa0d5d30-ea14-4c1e-84d9-1f546d4e8c4e"
+      },
+      {
+        "sku_code": "SKU-594UY-DEFAULT-4",
+        "price": 119700,
+        "stock": 33,
+        "attributes": null,
+        "id": "1546f25d-ae74-4783-b825-45d8fdc8d768"
       }
     ],
     "brand": "Surf",
@@ -1875,6 +2820,27 @@
         "price": 1452000,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-47G3D-DEFAULT-2",
+        "price": 1452000,
+        "stock": 55,
+        "attributes": null,
+        "id": "bf4e1d9c-26f1-4823-a53a-32e702c2af80"
+      },
+      {
+        "sku_code": "SKU-47G3D-DEFAULT-3",
+        "price": 1452000,
+        "stock": 55,
+        "attributes": null,
+        "id": "3862e64e-a340-4fe0-9aa3-7b908b2c22d0"
+      },
+      {
+        "sku_code": "SKU-47G3D-DEFAULT-4",
+        "price": 1452000,
+        "stock": 55,
+        "attributes": null,
+        "id": "f15bc57c-3875-4b67-9df0-40a624916300"
       }
     ],
     "brand": "Mr.",
@@ -1920,6 +2886,27 @@
         "price": 52500,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J3Z80-DEFAULT-2",
+        "price": 52500,
+        "stock": 30,
+        "attributes": null,
+        "id": "6158da69-6e28-488c-9ca8-55d32a279f82"
+      },
+      {
+        "sku_code": "SKU-J3Z80-DEFAULT-3",
+        "price": 52500,
+        "stock": 30,
+        "attributes": null,
+        "id": "c3adcebd-d374-42e7-8323-c42d9c6eb7f7"
+      },
+      {
+        "sku_code": "SKU-J3Z80-DEFAULT-4",
+        "price": 52500,
+        "stock": 30,
+        "attributes": null,
+        "id": "b5886291-79c6-4f6b-842f-8a03d5d57bd0"
       }
     ],
     "brand": "Modicare",
@@ -1961,6 +2948,27 @@
         "price": 72000,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KLC92-DEFAULT-2",
+        "price": 72000,
+        "stock": 29,
+        "attributes": null,
+        "id": "81cf7924-bc5b-4c10-87e3-3933ec30a7b5"
+      },
+      {
+        "sku_code": "SKU-KLC92-DEFAULT-3",
+        "price": 72000,
+        "stock": 29,
+        "attributes": null,
+        "id": "960bd82a-8fa5-48c9-a1d8-6dd126102ded"
+      },
+      {
+        "sku_code": "SKU-KLC92-DEFAULT-4",
+        "price": 72000,
+        "stock": 29,
+        "attributes": null,
+        "id": "22406b8f-56f7-4451-9512-3a249d6dcb53"
       }
     ],
     "brand": "Dettol",
@@ -2006,6 +3014,27 @@
         "price": 59700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-77HLM-DEFAULT-2",
+        "price": 59700,
+        "stock": 23,
+        "attributes": null,
+        "id": "057a5876-2dab-4186-b85d-b8c9931e8f9c"
+      },
+      {
+        "sku_code": "SKU-77HLM-DEFAULT-3",
+        "price": 59700,
+        "stock": 23,
+        "attributes": null,
+        "id": "47803c79-ae88-44fa-8ee1-d0b362662213"
+      },
+      {
+        "sku_code": "SKU-77HLM-DEFAULT-4",
+        "price": 59700,
+        "stock": 23,
+        "attributes": null,
+        "id": "f8e03e0f-4abf-4697-8efc-7a54ff3bb561"
       }
     ],
     "brand": "Cif",
@@ -2047,6 +3076,27 @@
         "price": 281700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8SAFY-DEFAULT-2",
+        "price": 281700,
+        "stock": 12,
+        "attributes": null,
+        "id": "5ab66849-512e-47e4-8f9e-345bfa742634"
+      },
+      {
+        "sku_code": "SKU-8SAFY-DEFAULT-3",
+        "price": 281700,
+        "stock": 12,
+        "attributes": null,
+        "id": "9066584c-2b83-44fa-9145-1c4da863dc85"
+      },
+      {
+        "sku_code": "SKU-8SAFY-DEFAULT-4",
+        "price": 281700,
+        "stock": 12,
+        "attributes": null,
+        "id": "0eb6cad8-722d-46de-a1c2-5ed385da73cb"
       }
     ],
     "brand": "Paseo",
@@ -2088,6 +3138,27 @@
         "price": 89700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-31Q9F-DEFAULT-2",
+        "price": 89700,
+        "stock": 37,
+        "attributes": null,
+        "id": "a110320f-a456-4760-bf00-6fcbb7f7907d"
+      },
+      {
+        "sku_code": "SKU-31Q9F-DEFAULT-3",
+        "price": 89700,
+        "stock": 37,
+        "attributes": null,
+        "id": "a3202869-b59b-49dc-8153-d74244c8c605"
+      },
+      {
+        "sku_code": "SKU-31Q9F-DEFAULT-4",
+        "price": 89700,
+        "stock": 37,
+        "attributes": null,
+        "id": "88fa34f2-2df3-43fe-9d99-972768ecaa56"
       }
     ],
     "brand": "Surf",
@@ -2125,6 +3196,27 @@
         "price": 209700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XPWK5-DEFAULT-2",
+        "price": 209700,
+        "stock": 88,
+        "attributes": null,
+        "id": "308f7071-e91c-48e7-8243-55876bfef97f"
+      },
+      {
+        "sku_code": "SKU-XPWK5-DEFAULT-3",
+        "price": 209700,
+        "stock": 88,
+        "attributes": null,
+        "id": "64d792bb-5c78-43b0-bf1a-afaf7de558d9"
+      },
+      {
+        "sku_code": "SKU-XPWK5-DEFAULT-4",
+        "price": 209700,
+        "stock": 88,
+        "attributes": null,
+        "id": "e9ba678c-4ad2-41be-9ab0-1f2fef917da1"
       }
     ],
     "brand": "Ariel",
@@ -2162,6 +3254,27 @@
         "price": 6000,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YUJGR-DEFAULT-2",
+        "price": 6000,
+        "stock": 51,
+        "attributes": null,
+        "id": "5d144ede-5af6-488c-9cf6-051687e79d1b"
+      },
+      {
+        "sku_code": "SKU-YUJGR-DEFAULT-3",
+        "price": 6000,
+        "stock": 51,
+        "attributes": null,
+        "id": "8892b9de-1b30-4180-8fd3-4d7c48759849"
+      },
+      {
+        "sku_code": "SKU-YUJGR-DEFAULT-4",
+        "price": 6000,
+        "stock": 51,
+        "attributes": null,
+        "id": "0a9e6514-6aa9-491d-bd08-3ef18955a037"
       }
     ],
     "brand": "Zimmer",
@@ -2199,6 +3312,27 @@
         "price": 24300,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H4TH7-DEFAULT-2",
+        "price": 24300,
+        "stock": 57,
+        "attributes": null,
+        "id": "565ba7d0-e202-4551-ab51-9c6c32f3ac8b"
+      },
+      {
+        "sku_code": "SKU-H4TH7-DEFAULT-3",
+        "price": 24300,
+        "stock": 57,
+        "attributes": null,
+        "id": "bbfaaaae-d208-4b6c-9859-85a6a3dec57f"
+      },
+      {
+        "sku_code": "SKU-H4TH7-DEFAULT-4",
+        "price": 24300,
+        "stock": 57,
+        "attributes": null,
+        "id": "2b6e7f9d-bfb2-4233-9128-dc9f707a5b24"
       }
     ],
     "brand": "IFB",
@@ -2236,6 +3370,27 @@
         "price": 104700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y7ECY-DEFAULT-2",
+        "price": 104700,
+        "stock": 16,
+        "attributes": null,
+        "id": "6ca2fa55-f31c-4c95-a062-40d45a707452"
+      },
+      {
+        "sku_code": "SKU-Y7ECY-DEFAULT-3",
+        "price": 104700,
+        "stock": 16,
+        "attributes": null,
+        "id": "1df31c0f-b4db-40d7-9a58-8feb61d50bc2"
+      },
+      {
+        "sku_code": "SKU-Y7ECY-DEFAULT-4",
+        "price": 104700,
+        "stock": 16,
+        "attributes": null,
+        "id": "19a79b62-9262-475b-88e2-055f1fba64df"
       }
     ],
     "brand": "Cif",
@@ -2273,6 +3428,27 @@
         "price": 86700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JVDS6-DEFAULT-2",
+        "price": 86700,
+        "stock": 70,
+        "attributes": null,
+        "id": "f5cb1481-1d00-413e-a2a0-f47da19517a1"
+      },
+      {
+        "sku_code": "SKU-JVDS6-DEFAULT-3",
+        "price": 86700,
+        "stock": 70,
+        "attributes": null,
+        "id": "f1931291-594c-42cd-87a1-28955b4876ef"
+      },
+      {
+        "sku_code": "SKU-JVDS6-DEFAULT-4",
+        "price": 86700,
+        "stock": 70,
+        "attributes": null,
+        "id": "f533ed75-c01f-48ab-9410-85378d889f89"
       }
     ],
     "brand": "Dr.",
@@ -2314,6 +3490,27 @@
         "price": 98700,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3PH5P-DEFAULT-2",
+        "price": 98700,
+        "stock": 42,
+        "attributes": null,
+        "id": "72691f19-fc37-4b3e-838c-11d2510bde82"
+      },
+      {
+        "sku_code": "SKU-3PH5P-DEFAULT-3",
+        "price": 98700,
+        "stock": 42,
+        "attributes": null,
+        "id": "3cd2cb7c-c875-44c1-a8c9-21a2b9d6e7c8"
+      },
+      {
+        "sku_code": "SKU-3PH5P-DEFAULT-4",
+        "price": 98700,
+        "stock": 42,
+        "attributes": null,
+        "id": "74b136c0-1c3d-4260-b03d-aaf16d9b0cda"
       }
     ],
     "brand": "Mr.",
@@ -2359,6 +3556,27 @@
         "price": 86400,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZZHJZ-DEFAULT-2",
+        "price": 86400,
+        "stock": 107,
+        "attributes": null,
+        "id": "e8452c55-59cd-4adc-aaa4-f6ed80980e26"
+      },
+      {
+        "sku_code": "SKU-ZZHJZ-DEFAULT-3",
+        "price": 86400,
+        "stock": 107,
+        "attributes": null,
+        "id": "a7601c08-0251-43c8-953b-8dd4ce1a3829"
+      },
+      {
+        "sku_code": "SKU-ZZHJZ-DEFAULT-4",
+        "price": 86400,
+        "stock": 107,
+        "attributes": null,
+        "id": "0bf49949-c776-4ca2-884a-441ae43c9cb0"
       }
     ],
     "brand": "Cif",
@@ -2396,6 +3614,27 @@
         "price": 39600,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0UKLO-DEFAULT-2",
+        "price": 39600,
+        "stock": 100,
+        "attributes": null,
+        "id": "dffaced4-c966-4125-a940-10ba681b831c"
+      },
+      {
+        "sku_code": "SKU-0UKLO-DEFAULT-3",
+        "price": 39600,
+        "stock": 100,
+        "attributes": null,
+        "id": "4a45b330-4d9b-4c34-800b-0b7216a3c716"
+      },
+      {
+        "sku_code": "SKU-0UKLO-DEFAULT-4",
+        "price": 39600,
+        "stock": 100,
+        "attributes": null,
+        "id": "64941b8f-43c2-4e41-baa8-2bcadfe3933d"
       }
     ],
     "brand": "IFB",
@@ -2437,6 +3676,27 @@
         "price": 495000,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3K2SL-DEFAULT-2",
+        "price": 495000,
+        "stock": 77,
+        "attributes": null,
+        "id": "2b4b29cf-f283-46a1-af5f-ac080c39a364"
+      },
+      {
+        "sku_code": "SKU-3K2SL-DEFAULT-3",
+        "price": 495000,
+        "stock": 77,
+        "attributes": null,
+        "id": "65ced0a0-5bea-49de-a8e4-93a44a5ffc4d"
+      },
+      {
+        "sku_code": "SKU-3K2SL-DEFAULT-4",
+        "price": 495000,
+        "stock": 77,
+        "attributes": null,
+        "id": "35ebd2a9-7612-4f0d-ae33-fde0ee866293"
       }
     ],
     "brand": "Lizol",
@@ -2482,6 +3742,27 @@
         "price": 126900,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q88QF-DEFAULT-2",
+        "price": 126900,
+        "stock": 66,
+        "attributes": null,
+        "id": "17c77d88-a163-4719-b00a-ce39c3501b40"
+      },
+      {
+        "sku_code": "SKU-Q88QF-DEFAULT-3",
+        "price": 126900,
+        "stock": 66,
+        "attributes": null,
+        "id": "91cd646b-cfae-4833-a219-af06548e9e77"
+      },
+      {
+        "sku_code": "SKU-Q88QF-DEFAULT-4",
+        "price": 126900,
+        "stock": 66,
+        "attributes": null,
+        "id": "a817e3f7-2f20-4d20-a5c2-1f7bb551d1fb"
       }
     ],
     "brand": "Kitchen",
@@ -2519,6 +3800,27 @@
         "price": 75000,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CQX83-DEFAULT-2",
+        "price": 75000,
+        "stock": 23,
+        "attributes": null,
+        "id": "0a470916-c829-4a60-b3fa-3291b311386c"
+      },
+      {
+        "sku_code": "SKU-CQX83-DEFAULT-3",
+        "price": 75000,
+        "stock": 23,
+        "attributes": null,
+        "id": "5b6db080-e17b-44e9-a3db-cd57c7d5f9e8"
+      },
+      {
+        "sku_code": "SKU-CQX83-DEFAULT-4",
+        "price": 75000,
+        "stock": 23,
+        "attributes": null,
+        "id": "daa98830-aefd-4803-a019-588d5d9a162e"
       }
     ],
     "brand": "Kitchen",
@@ -2560,6 +3862,27 @@
         "price": 51000,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ITDOC-DEFAULT-2",
+        "price": 51000,
+        "stock": 60,
+        "attributes": null,
+        "id": "a2419694-4802-4546-ae3a-26abe7dbee06"
+      },
+      {
+        "sku_code": "SKU-ITDOC-DEFAULT-3",
+        "price": 51000,
+        "stock": 60,
+        "attributes": null,
+        "id": "e65bfc76-1bf0-4560-b1c3-e17260c19321"
+      },
+      {
+        "sku_code": "SKU-ITDOC-DEFAULT-4",
+        "price": 51000,
+        "stock": 60,
+        "attributes": null,
+        "id": "a2fef06f-bc5a-4105-aa04-57ce1ee61e8e"
       }
     ],
     "brand": "Dettol",
@@ -2601,6 +3924,27 @@
         "price": 102000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EBCJD-DEFAULT-2",
+        "price": 102000,
+        "stock": 108,
+        "attributes": null,
+        "id": "5332bff2-b016-46f7-bf7e-7bfb937f9d6a"
+      },
+      {
+        "sku_code": "SKU-EBCJD-DEFAULT-3",
+        "price": 102000,
+        "stock": 108,
+        "attributes": null,
+        "id": "dbf2e77f-87fd-4e3c-bb1d-a3569cd18cd7"
+      },
+      {
+        "sku_code": "SKU-EBCJD-DEFAULT-4",
+        "price": 102000,
+        "stock": 108,
+        "attributes": null,
+        "id": "95effa53-62fc-48af-8944-0e4d9bbc0939"
       }
     ],
     "brand": "Surf",
@@ -2638,6 +3982,27 @@
         "price": 0,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1PMXT-DEFAULT-2",
+        "price": 0,
+        "stock": 41,
+        "attributes": null,
+        "id": "56dd0a87-3d32-41c0-882b-d474f8bd784a"
+      },
+      {
+        "sku_code": "SKU-1PMXT-DEFAULT-3",
+        "price": 0,
+        "stock": 41,
+        "attributes": null,
+        "id": "53edd468-7737-4895-8d27-e87adc3c390e"
+      },
+      {
+        "sku_code": "SKU-1PMXT-DEFAULT-4",
+        "price": 0,
+        "stock": 41,
+        "attributes": null,
+        "id": "409218bb-1140-41f6-9772-1494d55d93f5"
       }
     ],
     "brand": "Zimmer",
@@ -2679,6 +4044,27 @@
         "price": 221400,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VLB9L-DEFAULT-2",
+        "price": 221400,
+        "stock": 92,
+        "attributes": null,
+        "id": "366cd052-ca58-46f8-8ce7-2d7d0cfca1d4"
+      },
+      {
+        "sku_code": "SKU-VLB9L-DEFAULT-3",
+        "price": 221400,
+        "stock": 92,
+        "attributes": null,
+        "id": "e47db3d1-76ba-4c02-87e1-3cd4bb746b44"
+      },
+      {
+        "sku_code": "SKU-VLB9L-DEFAULT-4",
+        "price": 221400,
+        "stock": 92,
+        "attributes": null,
+        "id": "f83953e8-eebc-4499-b99b-a27c2efbe3f1"
       }
     ],
     "brand": "Dr.",
@@ -2720,6 +4106,27 @@
         "price": 173700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1DD1L-DEFAULT-2",
+        "price": 173700,
+        "stock": 102,
+        "attributes": null,
+        "id": "6088eef3-8a94-494a-8b91-92afc976b900"
+      },
+      {
+        "sku_code": "SKU-1DD1L-DEFAULT-3",
+        "price": 173700,
+        "stock": 102,
+        "attributes": null,
+        "id": "62dea5ba-bdf3-477c-8333-637e45a797e3"
+      },
+      {
+        "sku_code": "SKU-1DD1L-DEFAULT-4",
+        "price": 173700,
+        "stock": 102,
+        "attributes": null,
+        "id": "a4bec1a8-05a0-4c70-81b7-a0b793228dad"
       }
     ],
     "brand": "Mr.",
@@ -2761,6 +4168,27 @@
         "price": 1049700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N0ME2-DEFAULT-2",
+        "price": 1049700,
+        "stock": 104,
+        "attributes": null,
+        "id": "ea2b1294-952b-40ef-a420-02a0b3ba7c87"
+      },
+      {
+        "sku_code": "SKU-N0ME2-DEFAULT-3",
+        "price": 1049700,
+        "stock": 104,
+        "attributes": null,
+        "id": "dfe1781a-c501-4407-8d9e-7dd77834d793"
+      },
+      {
+        "sku_code": "SKU-N0ME2-DEFAULT-4",
+        "price": 1049700,
+        "stock": 104,
+        "attributes": null,
+        "id": "621c63ec-084e-429b-ae6b-242952423bea"
       }
     ],
     "brand": "Cif",
@@ -2798,6 +4226,27 @@
         "price": 184200,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3CTBG-DEFAULT-2",
+        "price": 184200,
+        "stock": 104,
+        "attributes": null,
+        "id": "453b79ed-9ee9-4a0c-ac90-9fefa47c7a7d"
+      },
+      {
+        "sku_code": "SKU-3CTBG-DEFAULT-3",
+        "price": 184200,
+        "stock": 104,
+        "attributes": null,
+        "id": "164ae491-fbf1-4732-add6-36297fda03b8"
+      },
+      {
+        "sku_code": "SKU-3CTBG-DEFAULT-4",
+        "price": 184200,
+        "stock": 104,
+        "attributes": null,
+        "id": "179af33c-a7d4-41e1-a7fa-8f855547ea8f"
       }
     ],
     "brand": "Mr.",
@@ -2843,6 +4292,27 @@
         "price": 47700,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8P00P-DEFAULT-2",
+        "price": 47700,
+        "stock": 40,
+        "attributes": null,
+        "id": "6f259cac-fdaa-46be-a49e-2eaf59bf954f"
+      },
+      {
+        "sku_code": "SKU-8P00P-DEFAULT-3",
+        "price": 47700,
+        "stock": 40,
+        "attributes": null,
+        "id": "05da03df-f4a1-4dc7-8005-ea44df3555e4"
+      },
+      {
+        "sku_code": "SKU-8P00P-DEFAULT-4",
+        "price": 47700,
+        "stock": 40,
+        "attributes": null,
+        "id": "eb5f8512-b55e-4681-ab2d-0b19149442b5"
       }
     ],
     "brand": "Harpic",
@@ -2884,6 +4354,27 @@
         "price": 187500,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ROE6E-DEFAULT-2",
+        "price": 187500,
+        "stock": 84,
+        "attributes": null,
+        "id": "487e9236-d329-48fa-9580-cb2be02e9994"
+      },
+      {
+        "sku_code": "SKU-ROE6E-DEFAULT-3",
+        "price": 187500,
+        "stock": 84,
+        "attributes": null,
+        "id": "3c1dad99-3f1e-460f-ae65-e4f261706eba"
+      },
+      {
+        "sku_code": "SKU-ROE6E-DEFAULT-4",
+        "price": 187500,
+        "stock": 84,
+        "attributes": null,
+        "id": "5320d4f0-2548-48e7-a5c5-476db3c25d97"
       }
     ],
     "brand": "Finish",
@@ -2929,6 +4420,27 @@
         "price": 39000,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NE1IE-DEFAULT-2",
+        "price": 39000,
+        "stock": 67,
+        "attributes": null,
+        "id": "1611d2e9-c0ed-4c96-9573-f416b6266505"
+      },
+      {
+        "sku_code": "SKU-NE1IE-DEFAULT-3",
+        "price": 39000,
+        "stock": 67,
+        "attributes": null,
+        "id": "627135ba-548f-4b01-91a3-ae5bba0c063b"
+      },
+      {
+        "sku_code": "SKU-NE1IE-DEFAULT-4",
+        "price": 39000,
+        "stock": 67,
+        "attributes": null,
+        "id": "1b216e5c-401c-4290-8650-e35d8374e61b"
       }
     ],
     "brand": "Modicare",
@@ -2966,6 +4478,27 @@
         "price": 15000,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H410Q-DEFAULT-2",
+        "price": 15000,
+        "stock": 15,
+        "attributes": null,
+        "id": "97f0ed8b-9bc7-4f37-a2cf-7355c7cffd4b"
+      },
+      {
+        "sku_code": "SKU-H410Q-DEFAULT-3",
+        "price": 15000,
+        "stock": 15,
+        "attributes": null,
+        "id": "3eeb470c-8915-4d3c-ad82-0139bc8f7390"
+      },
+      {
+        "sku_code": "SKU-H410Q-DEFAULT-4",
+        "price": 15000,
+        "stock": 15,
+        "attributes": null,
+        "id": "6c3f99a9-e3cf-4e64-9822-fe0d29324fc5"
       }
     ],
     "brand": "Cif",
@@ -3011,6 +4544,27 @@
         "price": 0,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-94SNN-DEFAULT-2",
+        "price": 0,
+        "stock": 34,
+        "attributes": null,
+        "id": "c6d2ef28-87a7-418b-930c-8f9e69f7efb4"
+      },
+      {
+        "sku_code": "SKU-94SNN-DEFAULT-3",
+        "price": 0,
+        "stock": 34,
+        "attributes": null,
+        "id": "cf8517ae-ed51-4531-a13e-dec8462fd912"
+      },
+      {
+        "sku_code": "SKU-94SNN-DEFAULT-4",
+        "price": 0,
+        "stock": 34,
+        "attributes": null,
+        "id": "158239ba-7a0e-42c6-9b51-3b0ae4195f43"
       }
     ],
     "brand": "Dettol",
@@ -3052,6 +4606,27 @@
         "price": 105000,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4REZM-DEFAULT-2",
+        "price": 105000,
+        "stock": 83,
+        "attributes": null,
+        "id": "d0a832c0-c67a-4739-93b4-ae2faf52bf80"
+      },
+      {
+        "sku_code": "SKU-4REZM-DEFAULT-3",
+        "price": 105000,
+        "stock": 83,
+        "attributes": null,
+        "id": "cc1c4178-043a-48e3-b809-1f01fd012798"
+      },
+      {
+        "sku_code": "SKU-4REZM-DEFAULT-4",
+        "price": 105000,
+        "stock": 83,
+        "attributes": null,
+        "id": "274a1412-d1b2-4dcb-a4cd-df9fd2431737"
       }
     ],
     "brand": "Modicare",
@@ -3097,6 +4672,27 @@
         "price": 26700,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G3DJ9-DEFAULT-2",
+        "price": 26700,
+        "stock": 52,
+        "attributes": null,
+        "id": "ca558026-9dce-41ed-8f05-004333ac9e95"
+      },
+      {
+        "sku_code": "SKU-G3DJ9-DEFAULT-3",
+        "price": 26700,
+        "stock": 52,
+        "attributes": null,
+        "id": "de747b44-066a-4f9d-b784-60921ebb03fe"
+      },
+      {
+        "sku_code": "SKU-G3DJ9-DEFAULT-4",
+        "price": 26700,
+        "stock": 52,
+        "attributes": null,
+        "id": "3fb21101-3447-4103-aba4-520d05988192"
       }
     ],
     "brand": "IFB",
@@ -3138,6 +4734,27 @@
         "price": 119700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YNGQ7-DEFAULT-2",
+        "price": 119700,
+        "stock": 90,
+        "attributes": null,
+        "id": "82983ed3-051c-47df-ae75-893f7d3a76c1"
+      },
+      {
+        "sku_code": "SKU-YNGQ7-DEFAULT-3",
+        "price": 119700,
+        "stock": 90,
+        "attributes": null,
+        "id": "1e5ed4b4-0bab-4966-9581-926975d21b63"
+      },
+      {
+        "sku_code": "SKU-YNGQ7-DEFAULT-4",
+        "price": 119700,
+        "stock": 90,
+        "attributes": null,
+        "id": "d2911eb1-69c1-4941-bcf9-d03ae29818b4"
       }
     ],
     "brand": "Modicare",
@@ -3175,6 +4792,27 @@
         "price": 0,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4Q2T2-DEFAULT-2",
+        "price": 0,
+        "stock": 79,
+        "attributes": null,
+        "id": "273173dc-d20e-4b9b-983e-4b2b5a73a95e"
+      },
+      {
+        "sku_code": "SKU-4Q2T2-DEFAULT-3",
+        "price": 0,
+        "stock": 79,
+        "attributes": null,
+        "id": "0f455017-52c0-448b-9672-1c5e6adab12d"
+      },
+      {
+        "sku_code": "SKU-4Q2T2-DEFAULT-4",
+        "price": 0,
+        "stock": 79,
+        "attributes": null,
+        "id": "9046ad5c-9d5d-4ac9-b1d2-1721c906cbfc"
       }
     ],
     "brand": "Surf",
@@ -3216,6 +4854,27 @@
         "price": 54600,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-843PB-DEFAULT-2",
+        "price": 54600,
+        "stock": 54,
+        "attributes": null,
+        "id": "4c90d408-7474-4414-84b4-b870671fc96b"
+      },
+      {
+        "sku_code": "SKU-843PB-DEFAULT-3",
+        "price": 54600,
+        "stock": 54,
+        "attributes": null,
+        "id": "38004a97-beec-4d68-9e89-58e6669a8bfa"
+      },
+      {
+        "sku_code": "SKU-843PB-DEFAULT-4",
+        "price": 54600,
+        "stock": 54,
+        "attributes": null,
+        "id": "010eb1b0-01f7-4349-b8c3-d3e9c999e5b4"
       }
     ],
     "brand": "Kitchen",
@@ -3257,6 +4916,27 @@
         "price": 388500,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C25KU-DEFAULT-2",
+        "price": 388500,
+        "stock": 25,
+        "attributes": null,
+        "id": "a98a03a8-b1c9-4ec2-bec4-7663f5e17a7f"
+      },
+      {
+        "sku_code": "SKU-C25KU-DEFAULT-3",
+        "price": 388500,
+        "stock": 25,
+        "attributes": null,
+        "id": "18d458dc-52cc-45f9-b613-fa0da0d1cfd7"
+      },
+      {
+        "sku_code": "SKU-C25KU-DEFAULT-4",
+        "price": 388500,
+        "stock": 25,
+        "attributes": null,
+        "id": "625403eb-118b-4291-b8a8-dc0b9c4b603b"
       }
     ],
     "brand": "Paseo",
@@ -3298,6 +4978,27 @@
         "price": 62700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GTQJF-DEFAULT-2",
+        "price": 62700,
+        "stock": 41,
+        "attributes": null,
+        "id": "a46e9409-84b4-4fb8-a5d8-8bb8d7cf90ea"
+      },
+      {
+        "sku_code": "SKU-GTQJF-DEFAULT-3",
+        "price": 62700,
+        "stock": 41,
+        "attributes": null,
+        "id": "b66bc8be-e0ff-4d98-9e03-12ce142df1cb"
+      },
+      {
+        "sku_code": "SKU-GTQJF-DEFAULT-4",
+        "price": 62700,
+        "stock": 41,
+        "attributes": null,
+        "id": "b7902ad8-07d7-4ee0-a0bf-c2530cb20821"
       }
     ],
     "brand": "Ariel",
@@ -3339,6 +5040,27 @@
         "price": 53700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UJ7PC-DEFAULT-2",
+        "price": 53700,
+        "stock": 99,
+        "attributes": null,
+        "id": "2d1ec15e-a6c5-4e82-83d6-5daacf0bdbcd"
+      },
+      {
+        "sku_code": "SKU-UJ7PC-DEFAULT-3",
+        "price": 53700,
+        "stock": 99,
+        "attributes": null,
+        "id": "3f634884-f193-4669-a044-ea460d108b2a"
+      },
+      {
+        "sku_code": "SKU-UJ7PC-DEFAULT-4",
+        "price": 53700,
+        "stock": 99,
+        "attributes": null,
+        "id": "379a45b3-21bc-4024-8291-a099599b92aa"
       }
     ],
     "brand": "Ariel",
@@ -3376,6 +5098,27 @@
         "price": 73200,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RAI3Q-DEFAULT-2",
+        "price": 73200,
+        "stock": 19,
+        "attributes": null,
+        "id": "85541971-2227-408b-b1c1-a53af88dce24"
+      },
+      {
+        "sku_code": "SKU-RAI3Q-DEFAULT-3",
+        "price": 73200,
+        "stock": 19,
+        "attributes": null,
+        "id": "16ba38b7-4844-4b7a-9ece-b508a34bfa19"
+      },
+      {
+        "sku_code": "SKU-RAI3Q-DEFAULT-4",
+        "price": 73200,
+        "stock": 19,
+        "attributes": null,
+        "id": "300e27c4-eb03-4916-856a-d94be1e8c104"
       }
     ],
     "brand": "Harpic",
@@ -3413,6 +5156,27 @@
         "price": 199200,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ONU32-DEFAULT-2",
+        "price": 199200,
+        "stock": 24,
+        "attributes": null,
+        "id": "8d981338-ffbf-41f5-bb8f-8ea10c381d54"
+      },
+      {
+        "sku_code": "SKU-ONU32-DEFAULT-3",
+        "price": 199200,
+        "stock": 24,
+        "attributes": null,
+        "id": "320dca68-c712-4812-b8dc-adf02432be23"
+      },
+      {
+        "sku_code": "SKU-ONU32-DEFAULT-4",
+        "price": 199200,
+        "stock": 24,
+        "attributes": null,
+        "id": "1cc3c0ea-5df9-4165-a0be-c81a4f2bc543"
       }
     ],
     "brand": "Modicare",
@@ -3458,6 +5222,27 @@
         "price": 44700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5PJTD-DEFAULT-2",
+        "price": 44700,
+        "stock": 108,
+        "attributes": null,
+        "id": "f17753d2-82d5-46b6-bd38-3417fd1e4853"
+      },
+      {
+        "sku_code": "SKU-5PJTD-DEFAULT-3",
+        "price": 44700,
+        "stock": 108,
+        "attributes": null,
+        "id": "07525b7e-5f3f-4d51-8a77-219cf1fb7946"
+      },
+      {
+        "sku_code": "SKU-5PJTD-DEFAULT-4",
+        "price": 44700,
+        "stock": 108,
+        "attributes": null,
+        "id": "680eb097-62d8-4bc0-9f59-700c1076d30f"
       }
     ],
     "brand": "Apple",
@@ -3503,6 +5288,27 @@
         "price": 179700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F6HO6-DEFAULT-2",
+        "price": 179700,
+        "stock": 64,
+        "attributes": null,
+        "id": "3c1b0b07-6039-4dc2-853d-d4b661143865"
+      },
+      {
+        "sku_code": "SKU-F6HO6-DEFAULT-3",
+        "price": 179700,
+        "stock": 64,
+        "attributes": null,
+        "id": "5dd5dca9-cea4-419f-bf6c-110189ffd65e"
+      },
+      {
+        "sku_code": "SKU-F6HO6-DEFAULT-4",
+        "price": 179700,
+        "stock": 64,
+        "attributes": null,
+        "id": "3c5903c3-44b0-4dc6-901d-df6f9981e5b7"
       }
     ],
     "brand": "Paseo",
@@ -3540,6 +5346,27 @@
         "price": 479700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LWQXT-DEFAULT-2",
+        "price": 479700,
+        "stock": 95,
+        "attributes": null,
+        "id": "3aaae55d-8b7f-446e-91f3-7f48e565bd7d"
+      },
+      {
+        "sku_code": "SKU-LWQXT-DEFAULT-3",
+        "price": 479700,
+        "stock": 95,
+        "attributes": null,
+        "id": "8404de2c-e59b-4840-b66a-ae46ccc933d3"
+      },
+      {
+        "sku_code": "SKU-LWQXT-DEFAULT-4",
+        "price": 479700,
+        "stock": 95,
+        "attributes": null,
+        "id": "199c175d-32e8-4971-a09d-e8b3f43dc22c"
       }
     ],
     "brand": "Paseo",
@@ -3577,6 +5404,27 @@
         "price": 71700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R8K60-DEFAULT-2",
+        "price": 71700,
+        "stock": 14,
+        "attributes": null,
+        "id": "0bd05097-05f3-439b-9abc-8fa486e7ba19"
+      },
+      {
+        "sku_code": "SKU-R8K60-DEFAULT-3",
+        "price": 71700,
+        "stock": 14,
+        "attributes": null,
+        "id": "0a896bde-5f6b-449a-a297-f4285c569894"
+      },
+      {
+        "sku_code": "SKU-R8K60-DEFAULT-4",
+        "price": 71700,
+        "stock": 14,
+        "attributes": null,
+        "id": "8daef285-8576-4457-8211-5ab2302f21df"
       }
     ],
     "brand": "Samsung",
@@ -3614,6 +5462,27 @@
         "price": 75000,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-81BRW-DEFAULT-2",
+        "price": 75000,
+        "stock": 14,
+        "attributes": null,
+        "id": "75a57a1f-ed40-4302-a092-6465c7955fe1"
+      },
+      {
+        "sku_code": "SKU-81BRW-DEFAULT-3",
+        "price": 75000,
+        "stock": 14,
+        "attributes": null,
+        "id": "22ba89cf-a35c-4ef3-8cb2-6de6d616d0fb"
+      },
+      {
+        "sku_code": "SKU-81BRW-DEFAULT-4",
+        "price": 75000,
+        "stock": 14,
+        "attributes": null,
+        "id": "4ee3c81f-50cb-453c-9a2f-6c2922d5535e"
       }
     ],
     "brand": "Finish",
@@ -3655,6 +5524,27 @@
         "price": 133500,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZB7JI-DEFAULT-2",
+        "price": 133500,
+        "stock": 90,
+        "attributes": null,
+        "id": "892e96f1-b2a2-43ec-b8ce-1f2e7adfcab0"
+      },
+      {
+        "sku_code": "SKU-ZB7JI-DEFAULT-3",
+        "price": 133500,
+        "stock": 90,
+        "attributes": null,
+        "id": "1348b494-db2c-4e86-8049-79d497d03103"
+      },
+      {
+        "sku_code": "SKU-ZB7JI-DEFAULT-4",
+        "price": 133500,
+        "stock": 90,
+        "attributes": null,
+        "id": "e898e714-8307-4b32-bbfc-4acadb11e012"
       }
     ],
     "brand": "Surf",
@@ -3696,6 +5586,27 @@
         "price": 299400,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UTCCQ-DEFAULT-2",
+        "price": 299400,
+        "stock": 49,
+        "attributes": null,
+        "id": "75a666ab-4f7c-4f14-bfd3-a0534a487c1d"
+      },
+      {
+        "sku_code": "SKU-UTCCQ-DEFAULT-3",
+        "price": 299400,
+        "stock": 49,
+        "attributes": null,
+        "id": "1bf977ac-4039-4972-81fc-176d6032ae1d"
+      },
+      {
+        "sku_code": "SKU-UTCCQ-DEFAULT-4",
+        "price": 299400,
+        "stock": 49,
+        "attributes": null,
+        "id": "d5b4c7ab-6bac-4c74-9b53-140e540c6399"
       }
     ],
     "brand": "Ariel",
@@ -3741,6 +5652,27 @@
         "price": 54000,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ADKLU-DEFAULT-2",
+        "price": 54000,
+        "stock": 75,
+        "attributes": null,
+        "id": "66d98692-c413-46ac-bc74-3662dec59031"
+      },
+      {
+        "sku_code": "SKU-ADKLU-DEFAULT-3",
+        "price": 54000,
+        "stock": 75,
+        "attributes": null,
+        "id": "bc690d0f-3d8c-499d-babc-ec2982804027"
+      },
+      {
+        "sku_code": "SKU-ADKLU-DEFAULT-4",
+        "price": 54000,
+        "stock": 75,
+        "attributes": null,
+        "id": "2a7e3ccd-7414-4e24-9bc2-e1a9c1724914"
       }
     ],
     "brand": "Zimmer",
@@ -3778,6 +5710,27 @@
         "price": 88500,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D2CVO-DEFAULT-2",
+        "price": 88500,
+        "stock": 45,
+        "attributes": null,
+        "id": "0931d362-7b2c-45fe-9312-6ceefb0137b9"
+      },
+      {
+        "sku_code": "SKU-D2CVO-DEFAULT-3",
+        "price": 88500,
+        "stock": 45,
+        "attributes": null,
+        "id": "8e3e6063-3630-4356-8b3f-1e645412c7d2"
+      },
+      {
+        "sku_code": "SKU-D2CVO-DEFAULT-4",
+        "price": 88500,
+        "stock": 45,
+        "attributes": null,
+        "id": "92591022-ca4b-4862-94ea-c8e1fa3c2acc"
       }
     ],
     "brand": "Samsung",
@@ -3819,6 +5772,27 @@
         "price": 836700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1KOP2-DEFAULT-2",
+        "price": 836700,
+        "stock": 43,
+        "attributes": null,
+        "id": "878f8916-49de-4b0b-bcd5-d292eff8d89e"
+      },
+      {
+        "sku_code": "SKU-1KOP2-DEFAULT-3",
+        "price": 836700,
+        "stock": 43,
+        "attributes": null,
+        "id": "a648e0ce-db43-48d5-ae5a-c6605f3ed706"
+      },
+      {
+        "sku_code": "SKU-1KOP2-DEFAULT-4",
+        "price": 836700,
+        "stock": 43,
+        "attributes": null,
+        "id": "a94a52ac-7977-4aa4-b8aa-170d303f63de"
       }
     ],
     "brand": "Dr.",
@@ -3864,6 +5838,27 @@
         "price": 797700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5B0JI-DEFAULT-2",
+        "price": 797700,
+        "stock": 95,
+        "attributes": null,
+        "id": "f44c0ff0-5bf0-43fb-ae4c-9ced4f270bc5"
+      },
+      {
+        "sku_code": "SKU-5B0JI-DEFAULT-3",
+        "price": 797700,
+        "stock": 95,
+        "attributes": null,
+        "id": "bd881705-246a-45c9-8a4d-4b38b1e17ce4"
+      },
+      {
+        "sku_code": "SKU-5B0JI-DEFAULT-4",
+        "price": 797700,
+        "stock": 95,
+        "attributes": null,
+        "id": "22f3c63a-10c4-40c2-8e7c-f48774eba51f"
       }
     ],
     "brand": "Lizol",
@@ -3901,6 +5896,27 @@
         "price": 213000,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SR0F5-DEFAULT-2",
+        "price": 213000,
+        "stock": 16,
+        "attributes": null,
+        "id": "156a3371-34e4-4184-a8c1-61b712b76da3"
+      },
+      {
+        "sku_code": "SKU-SR0F5-DEFAULT-3",
+        "price": 213000,
+        "stock": 16,
+        "attributes": null,
+        "id": "fe8b1aa3-dfe3-452d-aa8f-3a21cdd91457"
+      },
+      {
+        "sku_code": "SKU-SR0F5-DEFAULT-4",
+        "price": 213000,
+        "stock": 16,
+        "attributes": null,
+        "id": "72e98fc3-6424-485c-811a-95249dd17954"
       }
     ],
     "brand": "Finish",
@@ -3938,6 +5954,27 @@
         "price": 588900,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-60T6I-DEFAULT-2",
+        "price": 588900,
+        "stock": 53,
+        "attributes": null,
+        "id": "f73d1d82-4489-46fd-bee9-5cbd568a8803"
+      },
+      {
+        "sku_code": "SKU-60T6I-DEFAULT-3",
+        "price": 588900,
+        "stock": 53,
+        "attributes": null,
+        "id": "8070c9c5-3160-480d-b1c7-da3efbe14c7a"
+      },
+      {
+        "sku_code": "SKU-60T6I-DEFAULT-4",
+        "price": 588900,
+        "stock": 53,
+        "attributes": null,
+        "id": "a3712a4d-9706-4f01-a8cd-98e29a1a464b"
       }
     ],
     "brand": "Astonish",
@@ -3975,6 +6012,27 @@
         "price": 90000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZEVOV-DEFAULT-2",
+        "price": 90000,
+        "stock": 28,
+        "attributes": null,
+        "id": "1e9f94ae-d254-4d9e-a27c-68340a81bfaa"
+      },
+      {
+        "sku_code": "SKU-ZEVOV-DEFAULT-3",
+        "price": 90000,
+        "stock": 28,
+        "attributes": null,
+        "id": "7064e09d-5d3a-4552-9c77-cdb606018d1c"
+      },
+      {
+        "sku_code": "SKU-ZEVOV-DEFAULT-4",
+        "price": 90000,
+        "stock": 28,
+        "attributes": null,
+        "id": "831d76e6-8f35-4fd9-923d-64ab37f62f1b"
       }
     ],
     "brand": "Kitchen",
@@ -4012,6 +6070,27 @@
         "price": 120000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0TR0N-DEFAULT-2",
+        "price": 120000,
+        "stock": 28,
+        "attributes": null,
+        "id": "95584bbc-f611-4327-9d87-183836b6df6b"
+      },
+      {
+        "sku_code": "SKU-0TR0N-DEFAULT-3",
+        "price": 120000,
+        "stock": 28,
+        "attributes": null,
+        "id": "38a186f7-5de2-49db-a7d8-f53542368d12"
+      },
+      {
+        "sku_code": "SKU-0TR0N-DEFAULT-4",
+        "price": 120000,
+        "stock": 28,
+        "attributes": null,
+        "id": "9064985c-92fa-4f4d-84e2-760af8de69b7"
       }
     ],
     "brand": "Finish",
@@ -4049,6 +6128,27 @@
         "price": 179700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N4KJI-DEFAULT-2",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "c75c9456-44bd-4ef1-9479-6df538ad7332"
+      },
+      {
+        "sku_code": "SKU-N4KJI-DEFAULT-3",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "560d1f89-7d9e-40db-9b46-af1195e2bf66"
+      },
+      {
+        "sku_code": "SKU-N4KJI-DEFAULT-4",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "b2ada5d2-d209-4aba-9397-e340ca09359b"
       }
     ],
     "brand": "Dr.",

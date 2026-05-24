@@ -22,6 +22,27 @@
         "price": 98700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ENGF1-DEFAULT-2",
+        "price": 98700,
+        "stock": 49,
+        "attributes": null,
+        "id": "8112d16e-f72a-4c68-8ee9-53a101b7e960"
+      },
+      {
+        "sku_code": "SKU-ENGF1-DEFAULT-3",
+        "price": 98700,
+        "stock": 49,
+        "attributes": null,
+        "id": "2e65eff4-11f6-4187-93b6-1a60fe2291df"
+      },
+      {
+        "sku_code": "SKU-ENGF1-DEFAULT-4",
+        "price": 98700,
+        "stock": 49,
+        "attributes": null,
+        "id": "9a51824d-2789-4654-92d6-4270dfab0a34"
       }
     ],
     "brand": "Cello",
@@ -67,6 +88,27 @@
         "price": 839400,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U9NGQ-DEFAULT-2",
+        "price": 839400,
+        "stock": 61,
+        "attributes": null,
+        "id": "563a0d16-1ebc-4185-85cf-7de3538c3051"
+      },
+      {
+        "sku_code": "SKU-U9NGQ-DEFAULT-3",
+        "price": 839400,
+        "stock": 61,
+        "attributes": null,
+        "id": "1d76ce14-8550-43b8-8b96-a01ca1c4d863"
+      },
+      {
+        "sku_code": "SKU-U9NGQ-DEFAULT-4",
+        "price": 839400,
+        "stock": 61,
+        "attributes": null,
+        "id": "24f9520f-719d-451d-8e6e-05dd8f9aa150"
       }
     ],
     "brand": "BLUEWUD",
@@ -104,6 +146,27 @@
         "price": 359700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DM29S-DEFAULT-2",
+        "price": 359700,
+        "stock": 71,
+        "attributes": null,
+        "id": "df014c6a-38de-4222-89d2-2a542f22a062"
+      },
+      {
+        "sku_code": "SKU-DM29S-DEFAULT-3",
+        "price": 359700,
+        "stock": 71,
+        "attributes": null,
+        "id": "effff5d3-769a-410b-9787-8f8832375326"
+      },
+      {
+        "sku_code": "SKU-DM29S-DEFAULT-4",
+        "price": 359700,
+        "stock": 71,
+        "attributes": null,
+        "id": "d8b25a75-298f-43a0-82fc-5ff88eb5b047"
       }
     ],
     "brand": "Cello",
@@ -145,6 +208,27 @@
         "price": 364500,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AHIH5-DEFAULT-2",
+        "price": 364500,
+        "stock": 12,
+        "attributes": null,
+        "id": "9458c794-8224-44e8-a45f-187cc6bf0529"
+      },
+      {
+        "sku_code": "SKU-AHIH5-DEFAULT-3",
+        "price": 364500,
+        "stock": 12,
+        "attributes": null,
+        "id": "4a0dd867-1ee5-41e9-a4da-27a6d52a4058"
+      },
+      {
+        "sku_code": "SKU-AHIH5-DEFAULT-4",
+        "price": 364500,
+        "stock": 12,
+        "attributes": null,
+        "id": "b9ea7e90-5c11-4862-a5f1-86092423d19b"
       }
     ],
     "brand": "FASNO",
@@ -186,6 +270,27 @@
         "price": 940200,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K41IB-DEFAULT-2",
+        "price": 940200,
+        "stock": 96,
+        "attributes": null,
+        "id": "193b888f-0601-4ace-8523-f69bfb67e99f"
+      },
+      {
+        "sku_code": "SKU-K41IB-DEFAULT-3",
+        "price": 940200,
+        "stock": 96,
+        "attributes": null,
+        "id": "2e19df5c-be17-48ee-acf7-4caeff52865f"
+      },
+      {
+        "sku_code": "SKU-K41IB-DEFAULT-4",
+        "price": 940200,
+        "stock": 96,
+        "attributes": null,
+        "id": "c8cd7c94-460d-4f63-a43d-e57f1389292a"
       }
     ],
     "brand": "FASNO",
@@ -231,6 +336,27 @@
         "price": 194700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YX8QA-DEFAULT-2",
+        "price": 194700,
+        "stock": 33,
+        "attributes": null,
+        "id": "1cd67462-79b4-4116-a87a-5860d3d6f6a4"
+      },
+      {
+        "sku_code": "SKU-YX8QA-DEFAULT-3",
+        "price": 194700,
+        "stock": 33,
+        "attributes": null,
+        "id": "4a26a59b-c261-4348-a7d1-53ef8fbd9a10"
+      },
+      {
+        "sku_code": "SKU-YX8QA-DEFAULT-4",
+        "price": 194700,
+        "stock": 33,
+        "attributes": null,
+        "id": "ac901ea4-89f6-4379-aa4a-647a94059343"
       }
     ],
     "brand": "Samsung",
@@ -272,6 +398,27 @@
         "price": 241800,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WZX91-DEFAULT-2",
+        "price": 241800,
+        "stock": 19,
+        "attributes": null,
+        "id": "a99ca85f-93a5-4878-8f3d-6771874f8a33"
+      },
+      {
+        "sku_code": "SKU-WZX91-DEFAULT-3",
+        "price": 241800,
+        "stock": 19,
+        "attributes": null,
+        "id": "5138733f-3e69-4520-be7c-2434bd8878ec"
+      },
+      {
+        "sku_code": "SKU-WZX91-DEFAULT-4",
+        "price": 241800,
+        "stock": 19,
+        "attributes": null,
+        "id": "f37d19c2-5182-4d00-b865-eb9a27464e59"
       }
     ],
     "brand": "Samsung",
@@ -313,6 +460,27 @@
         "price": 252000,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VYJES-DEFAULT-2",
+        "price": 252000,
+        "stock": 60,
+        "attributes": null,
+        "id": "1cc5e80c-7e91-4be6-9365-92d2dafba360"
+      },
+      {
+        "sku_code": "SKU-VYJES-DEFAULT-3",
+        "price": 252000,
+        "stock": 60,
+        "attributes": null,
+        "id": "d309c5b7-7a3b-4c77-af8f-31f06addf70d"
+      },
+      {
+        "sku_code": "SKU-VYJES-DEFAULT-4",
+        "price": 252000,
+        "stock": 60,
+        "attributes": null,
+        "id": "ccb7ca08-6435-49a1-968e-fee158d8a78a"
       }
     ],
     "brand": "Samsung",
@@ -354,6 +522,27 @@
         "price": 239700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BH41H-DEFAULT-2",
+        "price": 239700,
+        "stock": 35,
+        "attributes": null,
+        "id": "0fd9ea14-e173-4aa9-9d7b-9acd6eee20ae"
+      },
+      {
+        "sku_code": "SKU-BH41H-DEFAULT-3",
+        "price": 239700,
+        "stock": 35,
+        "attributes": null,
+        "id": "418e1e60-43b2-4a64-8c8b-fa848ef927f3"
+      },
+      {
+        "sku_code": "SKU-BH41H-DEFAULT-4",
+        "price": 239700,
+        "stock": 35,
+        "attributes": null,
+        "id": "aff10dfa-9021-43b1-affc-a6b8484d5c05"
       }
     ],
     "brand": "Wooden",
@@ -396,6 +585,27 @@
         "price": 121500,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TH4W1-DEFAULT-2",
+        "price": 121500,
+        "stock": 65,
+        "attributes": null,
+        "id": "b18483ab-201b-42fc-a410-d1a49abd27b3"
+      },
+      {
+        "sku_code": "SKU-TH4W1-DEFAULT-3",
+        "price": 121500,
+        "stock": 65,
+        "attributes": null,
+        "id": "39e47bb7-fd8a-4900-8cac-f6ac6b098d2d"
+      },
+      {
+        "sku_code": "SKU-TH4W1-DEFAULT-4",
+        "price": 121500,
+        "stock": 65,
+        "attributes": null,
+        "id": "ed0f8d82-0b04-43ed-a4dd-8a452a86716f"
       }
     ],
     "brand": "Samsung",
@@ -442,6 +652,27 @@
         "price": 1287000,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EEQWB-DEFAULT-2",
+        "price": 1287000,
+        "stock": 11,
+        "attributes": null,
+        "id": "75982271-86bb-40e3-90d7-660d4678ca65"
+      },
+      {
+        "sku_code": "SKU-EEQWB-DEFAULT-3",
+        "price": 1287000,
+        "stock": 11,
+        "attributes": null,
+        "id": "97d1730b-ca21-40c1-8c2f-a252ff41a24c"
+      },
+      {
+        "sku_code": "SKU-EEQWB-DEFAULT-4",
+        "price": 1287000,
+        "stock": 11,
+        "attributes": null,
+        "id": "419536d8-91ce-4249-a836-c5d1d03dc74e"
       }
     ],
     "brand": "Bikri",
@@ -487,6 +718,27 @@
         "price": 104700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FZEUP-DEFAULT-2",
+        "price": 104700,
+        "stock": 80,
+        "attributes": null,
+        "id": "8ab396f8-887c-4d22-a240-479845630dc2"
+      },
+      {
+        "sku_code": "SKU-FZEUP-DEFAULT-3",
+        "price": 104700,
+        "stock": 80,
+        "attributes": null,
+        "id": "079b60b9-050b-43ca-9c0f-4ee7df33573a"
+      },
+      {
+        "sku_code": "SKU-FZEUP-DEFAULT-4",
+        "price": 104700,
+        "stock": 80,
+        "attributes": null,
+        "id": "68fa83d5-51be-4987-8a75-c0feb0e8c6bf"
       }
     ],
     "brand": "Green",
@@ -524,6 +776,27 @@
         "price": 264000,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HLKEG-DEFAULT-2",
+        "price": 264000,
+        "stock": 66,
+        "attributes": null,
+        "id": "075cc5eb-02dc-40b4-96ee-cb8ec925040f"
+      },
+      {
+        "sku_code": "SKU-HLKEG-DEFAULT-3",
+        "price": 264000,
+        "stock": 66,
+        "attributes": null,
+        "id": "6566a50e-63a8-4b85-95ec-9d175a1e36d3"
+      },
+      {
+        "sku_code": "SKU-HLKEG-DEFAULT-4",
+        "price": 264000,
+        "stock": 66,
+        "attributes": null,
+        "id": "b979107b-b071-4596-aa80-5f6dfaadd6bc"
       }
     ],
     "brand": "HOKIPO",
@@ -561,6 +834,27 @@
         "price": 449700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IZ8VM-DEFAULT-2",
+        "price": 449700,
+        "stock": 57,
+        "attributes": null,
+        "id": "d60cd0e2-b9a9-4621-bb68-a8ae36d2aebd"
+      },
+      {
+        "sku_code": "SKU-IZ8VM-DEFAULT-3",
+        "price": 449700,
+        "stock": 57,
+        "attributes": null,
+        "id": "c6c1165f-f528-45d3-b90d-70e36da4b266"
+      },
+      {
+        "sku_code": "SKU-IZ8VM-DEFAULT-4",
+        "price": 449700,
+        "stock": 57,
+        "attributes": null,
+        "id": "11ffb297-1e77-44e6-baba-50081f39965e"
       }
     ],
     "brand": "BLUEWUD",
@@ -602,6 +896,27 @@
         "price": 240000,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JL41K-DEFAULT-2",
+        "price": 240000,
+        "stock": 12,
+        "attributes": null,
+        "id": "87fc3477-d9a3-4ef6-b597-0b2f687e5f1b"
+      },
+      {
+        "sku_code": "SKU-JL41K-DEFAULT-3",
+        "price": 240000,
+        "stock": 12,
+        "attributes": null,
+        "id": "e7e9b535-7f5f-448c-b06a-8034d800762d"
+      },
+      {
+        "sku_code": "SKU-JL41K-DEFAULT-4",
+        "price": 240000,
+        "stock": 12,
+        "attributes": null,
+        "id": "162dbd5e-43fc-4852-9927-f299bcabf396"
       }
     ],
     "brand": "Green",
@@ -647,6 +962,27 @@
         "price": 239700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G31I7-DEFAULT-2",
+        "price": 239700,
+        "stock": 87,
+        "attributes": null,
+        "id": "a5a548d9-84e5-4e79-8e44-b25b18001a35"
+      },
+      {
+        "sku_code": "SKU-G31I7-DEFAULT-3",
+        "price": 239700,
+        "stock": 87,
+        "attributes": null,
+        "id": "fdfb0e2a-287b-4c1d-99b1-f36c199f2e9a"
+      },
+      {
+        "sku_code": "SKU-G31I7-DEFAULT-4",
+        "price": 239700,
+        "stock": 87,
+        "attributes": null,
+        "id": "4b53bd67-3e34-4e8d-8c4a-246fcd389eda"
       }
     ],
     "brand": "Cello",
@@ -684,6 +1020,27 @@
         "price": 47700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JUL4K-DEFAULT-2",
+        "price": 47700,
+        "stock": 99,
+        "attributes": null,
+        "id": "af70d575-1bc4-4f9c-8acd-4abfc710711d"
+      },
+      {
+        "sku_code": "SKU-JUL4K-DEFAULT-3",
+        "price": 47700,
+        "stock": 99,
+        "attributes": null,
+        "id": "6e82c736-a938-421d-8128-a7ef8d2e6f65"
+      },
+      {
+        "sku_code": "SKU-JUL4K-DEFAULT-4",
+        "price": 47700,
+        "stock": 99,
+        "attributes": null,
+        "id": "1c8c9163-8f54-498d-a453-8b4a91533ed9"
       }
     ],
     "brand": "Kuber",
@@ -729,6 +1086,27 @@
         "price": 410700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7J37B-DEFAULT-2",
+        "price": 410700,
+        "stock": 102,
+        "attributes": null,
+        "id": "1cfcce9e-f70e-4a86-8a69-9cf6a10f2336"
+      },
+      {
+        "sku_code": "SKU-7J37B-DEFAULT-3",
+        "price": 410700,
+        "stock": 102,
+        "attributes": null,
+        "id": "d5fcc0c6-2edb-4b36-aeef-8a3f978c4b62"
+      },
+      {
+        "sku_code": "SKU-7J37B-DEFAULT-4",
+        "price": 410700,
+        "stock": 102,
+        "attributes": null,
+        "id": "670c4656-15f6-4471-a8ee-018af23c7d17"
       }
     ],
     "brand": "FASNO",
@@ -774,6 +1152,27 @@
         "price": 341700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TXXCU-DEFAULT-2",
+        "price": 341700,
+        "stock": 25,
+        "attributes": null,
+        "id": "ff72aeaf-3f7e-41c5-83a0-882d6171db1c"
+      },
+      {
+        "sku_code": "SKU-TXXCU-DEFAULT-3",
+        "price": 341700,
+        "stock": 25,
+        "attributes": null,
+        "id": "59467d99-2b93-446c-ba0e-895bf4ab60ad"
+      },
+      {
+        "sku_code": "SKU-TXXCU-DEFAULT-4",
+        "price": 341700,
+        "stock": 25,
+        "attributes": null,
+        "id": "ec6e3fe9-cffe-4fc5-af3b-df1a17101876"
       }
     ],
     "brand": "Plantex",
@@ -815,6 +1214,27 @@
         "price": 329700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QOD69-DEFAULT-2",
+        "price": 329700,
+        "stock": 38,
+        "attributes": null,
+        "id": "198f56a2-4052-4928-ba2a-ab3d3c5e6648"
+      },
+      {
+        "sku_code": "SKU-QOD69-DEFAULT-3",
+        "price": 329700,
+        "stock": 38,
+        "attributes": null,
+        "id": "f58d7aed-6a4e-4bdd-a3c6-529cd90dbba4"
+      },
+      {
+        "sku_code": "SKU-QOD69-DEFAULT-4",
+        "price": 329700,
+        "stock": 38,
+        "attributes": null,
+        "id": "d959ec5d-f034-44fc-b37f-6d9f17085f42"
       }
     ],
     "brand": "FASNO",
@@ -860,6 +1280,27 @@
         "price": 7499700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9BIAH-DEFAULT-2",
+        "price": 7499700,
+        "stock": 89,
+        "attributes": null,
+        "id": "4619bca0-bfb2-4a20-97b1-a5b5fdb6fbb1"
+      },
+      {
+        "sku_code": "SKU-9BIAH-DEFAULT-3",
+        "price": 7499700,
+        "stock": 89,
+        "attributes": null,
+        "id": "c478ce76-1318-48a6-a0cd-20ed623b4b60"
+      },
+      {
+        "sku_code": "SKU-9BIAH-DEFAULT-4",
+        "price": 7499700,
+        "stock": 89,
+        "attributes": null,
+        "id": "e709bc90-f365-4914-a27e-3d71fcca4b23"
       }
     ],
     "brand": "Green",
@@ -901,6 +1342,27 @@
         "price": 179700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YYJDC-DEFAULT-2",
+        "price": 179700,
+        "stock": 37,
+        "attributes": null,
+        "id": "ae1fd449-644c-4832-a2d5-9859f80d50e0"
+      },
+      {
+        "sku_code": "SKU-YYJDC-DEFAULT-3",
+        "price": 179700,
+        "stock": 37,
+        "attributes": null,
+        "id": "bccbba0d-2fc7-4b50-b103-7e45ed329cbd"
+      },
+      {
+        "sku_code": "SKU-YYJDC-DEFAULT-4",
+        "price": 179700,
+        "stock": 37,
+        "attributes": null,
+        "id": "030784ff-1248-415e-afe2-98c9fa491929"
       }
     ],
     "brand": "BLUEWUD",
@@ -942,6 +1404,27 @@
         "price": 8699700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4MCPH-DEFAULT-2",
+        "price": 8699700,
+        "stock": 73,
+        "attributes": null,
+        "id": "055a82d6-0317-439b-a441-1313d84d927b"
+      },
+      {
+        "sku_code": "SKU-4MCPH-DEFAULT-3",
+        "price": 8699700,
+        "stock": 73,
+        "attributes": null,
+        "id": "57e8d7a8-70f4-43b8-b2ad-db694dbb17ea"
+      },
+      {
+        "sku_code": "SKU-4MCPH-DEFAULT-4",
+        "price": 8699700,
+        "stock": 73,
+        "attributes": null,
+        "id": "358e5668-6e71-4a8d-91ea-d9b5a1c2aba6"
       }
     ],
     "brand": "Kuber",
@@ -983,6 +1466,27 @@
         "price": 495000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UILMB-DEFAULT-2",
+        "price": 495000,
+        "stock": 22,
+        "attributes": null,
+        "id": "72568d99-96b6-48f5-95e8-6f8d800d1228"
+      },
+      {
+        "sku_code": "SKU-UILMB-DEFAULT-3",
+        "price": 495000,
+        "stock": 22,
+        "attributes": null,
+        "id": "0af7c3d2-d3e6-4fa2-8c59-93cdb435d435"
+      },
+      {
+        "sku_code": "SKU-UILMB-DEFAULT-4",
+        "price": 495000,
+        "stock": 22,
+        "attributes": null,
+        "id": "35d93936-ec10-4168-acff-a1a823c07710"
       }
     ],
     "brand": "Cello",
@@ -1024,6 +1528,27 @@
         "price": 1019700,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6XORR-DEFAULT-2",
+        "price": 1019700,
+        "stock": 45,
+        "attributes": null,
+        "id": "9404c4b3-f4d5-4962-9afb-a0a6ac2ec18f"
+      },
+      {
+        "sku_code": "SKU-6XORR-DEFAULT-3",
+        "price": 1019700,
+        "stock": 45,
+        "attributes": null,
+        "id": "d5c987c6-072e-408c-bb47-4007f907efb1"
+      },
+      {
+        "sku_code": "SKU-6XORR-DEFAULT-4",
+        "price": 1019700,
+        "stock": 45,
+        "attributes": null,
+        "id": "bc07492f-bcb1-4d70-bdda-9baf44cf703c"
       }
     ],
     "brand": "IKEA",
@@ -1061,6 +1586,27 @@
         "price": 568500,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ICQCZ-DEFAULT-2",
+        "price": 568500,
+        "stock": 16,
+        "attributes": null,
+        "id": "a4b5deea-049d-4b0b-9227-6ddc14998d8e"
+      },
+      {
+        "sku_code": "SKU-ICQCZ-DEFAULT-3",
+        "price": 568500,
+        "stock": 16,
+        "attributes": null,
+        "id": "e0b86b10-0634-4304-b811-c384d103c7fb"
+      },
+      {
+        "sku_code": "SKU-ICQCZ-DEFAULT-4",
+        "price": 568500,
+        "stock": 16,
+        "attributes": null,
+        "id": "8fdc24b9-8325-4583-b707-4c18750685d0"
       }
     ],
     "brand": "Wakefit",
@@ -1098,6 +1644,27 @@
         "price": 389700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y9NWK-DEFAULT-2",
+        "price": 389700,
+        "stock": 19,
+        "attributes": null,
+        "id": "bf1fb665-b561-411f-bfb2-32ce6e76beaa"
+      },
+      {
+        "sku_code": "SKU-Y9NWK-DEFAULT-3",
+        "price": 389700,
+        "stock": 19,
+        "attributes": null,
+        "id": "894f5041-5e35-4b4b-9abf-489010cbe073"
+      },
+      {
+        "sku_code": "SKU-Y9NWK-DEFAULT-4",
+        "price": 389700,
+        "stock": 19,
+        "attributes": null,
+        "id": "d79eca2f-30ca-405c-8cfb-bde3d0b830f3"
       }
     ],
     "brand": "Supreme",
@@ -1135,6 +1702,27 @@
         "price": 1799700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U2ABN-DEFAULT-2",
+        "price": 1799700,
+        "stock": 98,
+        "attributes": null,
+        "id": "f2b27d67-9bfa-47dd-83f9-6137e466682c"
+      },
+      {
+        "sku_code": "SKU-U2ABN-DEFAULT-3",
+        "price": 1799700,
+        "stock": 98,
+        "attributes": null,
+        "id": "bb9e765b-d5bb-4d85-8122-7cbbf0e14685"
+      },
+      {
+        "sku_code": "SKU-U2ABN-DEFAULT-4",
+        "price": 1799700,
+        "stock": 98,
+        "attributes": null,
+        "id": "fad8a9d9-1c3e-45bb-9615-986b6f856050"
       }
     ],
     "brand": "HOKIPO",
@@ -1176,6 +1764,27 @@
         "price": 270000,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R5N1U-DEFAULT-2",
+        "price": 270000,
+        "stock": 80,
+        "attributes": null,
+        "id": "2856b9b9-0bfb-4c24-8d07-895a1ff03083"
+      },
+      {
+        "sku_code": "SKU-R5N1U-DEFAULT-3",
+        "price": 270000,
+        "stock": 80,
+        "attributes": null,
+        "id": "9fa70424-7803-4f7f-973a-8464fa2b7129"
+      },
+      {
+        "sku_code": "SKU-R5N1U-DEFAULT-4",
+        "price": 270000,
+        "stock": 80,
+        "attributes": null,
+        "id": "fe209dfe-91ea-445f-915b-50f5ee36dede"
       }
     ],
     "brand": "BLUEWUD",
@@ -1217,6 +1826,27 @@
         "price": 55500,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2ZLWK-DEFAULT-2",
+        "price": 55500,
+        "stock": 81,
+        "attributes": null,
+        "id": "73bd029d-fcb9-4f26-a3f5-f7299692b664"
+      },
+      {
+        "sku_code": "SKU-2ZLWK-DEFAULT-3",
+        "price": 55500,
+        "stock": 81,
+        "attributes": null,
+        "id": "382a6e60-ff70-4ac7-8aaf-1d3ac705c6c4"
+      },
+      {
+        "sku_code": "SKU-2ZLWK-DEFAULT-4",
+        "price": 55500,
+        "stock": 81,
+        "attributes": null,
+        "id": "8334730d-0664-4aa9-acb2-afb8a0923887"
       }
     ],
     "brand": "Supreme",
@@ -1258,6 +1888,27 @@
         "price": 209700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OA1VF-DEFAULT-2",
+        "price": 209700,
+        "stock": 12,
+        "attributes": null,
+        "id": "75ee47a5-cec9-4872-a8b5-d9323091d9ab"
+      },
+      {
+        "sku_code": "SKU-OA1VF-DEFAULT-3",
+        "price": 209700,
+        "stock": 12,
+        "attributes": null,
+        "id": "44528669-3b08-40cc-a720-e5427d414a59"
+      },
+      {
+        "sku_code": "SKU-OA1VF-DEFAULT-4",
+        "price": 209700,
+        "stock": 12,
+        "attributes": null,
+        "id": "40cffacb-6c4f-4b06-999b-70c1a9424eb4"
       }
     ],
     "brand": "Cello",
@@ -1295,6 +1946,27 @@
         "price": 194700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1GT1W-DEFAULT-2",
+        "price": 194700,
+        "stock": 72,
+        "attributes": null,
+        "id": "831339ec-7174-449f-b787-d159161723bb"
+      },
+      {
+        "sku_code": "SKU-1GT1W-DEFAULT-3",
+        "price": 194700,
+        "stock": 72,
+        "attributes": null,
+        "id": "3938573b-16c8-4306-b046-696d4648e30d"
+      },
+      {
+        "sku_code": "SKU-1GT1W-DEFAULT-4",
+        "price": 194700,
+        "stock": 72,
+        "attributes": null,
+        "id": "b54235eb-1289-49db-a097-66e4e1a72675"
       }
     ],
     "brand": "Amazon",
@@ -1336,6 +2008,27 @@
         "price": 2399700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G6O7O-DEFAULT-2",
+        "price": 2399700,
+        "stock": 23,
+        "attributes": null,
+        "id": "d31702d1-807b-4491-bdbc-eacd2d356526"
+      },
+      {
+        "sku_code": "SKU-G6O7O-DEFAULT-3",
+        "price": 2399700,
+        "stock": 23,
+        "attributes": null,
+        "id": "88de2833-cf20-4f21-a338-acaeffeabcf5"
+      },
+      {
+        "sku_code": "SKU-G6O7O-DEFAULT-4",
+        "price": 2399700,
+        "stock": 23,
+        "attributes": null,
+        "id": "8ae3664b-4b67-4547-b230-84e2659e20e9"
       }
     ],
     "brand": "Patiofy",
@@ -1373,6 +2066,27 @@
         "price": 2370000,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3AZSE-DEFAULT-2",
+        "price": 2370000,
+        "stock": 102,
+        "attributes": null,
+        "id": "a54d0163-5477-4b01-aad9-70856dad5831"
+      },
+      {
+        "sku_code": "SKU-3AZSE-DEFAULT-3",
+        "price": 2370000,
+        "stock": 102,
+        "attributes": null,
+        "id": "d5a5974e-3d13-4ba6-8c2d-d80b59562c67"
+      },
+      {
+        "sku_code": "SKU-3AZSE-DEFAULT-4",
+        "price": 2370000,
+        "stock": 102,
+        "attributes": null,
+        "id": "6aa3058d-d481-4914-9e6d-f4e0f2bf8f6d"
       }
     ],
     "brand": "Cello",
@@ -1410,6 +2124,27 @@
         "price": 1799700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TCLQW-DEFAULT-2",
+        "price": 1799700,
+        "stock": 19,
+        "attributes": null,
+        "id": "0fc2fc9f-8a6b-42eb-b762-bbfbd23106af"
+      },
+      {
+        "sku_code": "SKU-TCLQW-DEFAULT-3",
+        "price": 1799700,
+        "stock": 19,
+        "attributes": null,
+        "id": "5b7c6b21-71e8-4a9b-bc8e-feb4524d25c2"
+      },
+      {
+        "sku_code": "SKU-TCLQW-DEFAULT-4",
+        "price": 1799700,
+        "stock": 19,
+        "attributes": null,
+        "id": "5ea6af92-92e0-40bc-a592-2aa27e52112b"
       }
     ],
     "brand": "Amazon",
@@ -1455,6 +2190,27 @@
         "price": 134700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3R0UJ-DEFAULT-2",
+        "price": 134700,
+        "stock": 60,
+        "attributes": null,
+        "id": "dce6121a-df75-4fe6-8c11-2c9848e232d8"
+      },
+      {
+        "sku_code": "SKU-3R0UJ-DEFAULT-3",
+        "price": 134700,
+        "stock": 60,
+        "attributes": null,
+        "id": "f778845b-60bf-40ce-a214-46c63cf243a5"
+      },
+      {
+        "sku_code": "SKU-3R0UJ-DEFAULT-4",
+        "price": 134700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0128a8ba-609a-4234-983a-99643e9a43e1"
       }
     ],
     "brand": "Kuber",
@@ -1496,6 +2252,27 @@
         "price": 64200,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OP0YR-DEFAULT-2",
+        "price": 64200,
+        "stock": 24,
+        "attributes": null,
+        "id": "142bbc06-3f0e-41de-b4e2-852aa39ecb5a"
+      },
+      {
+        "sku_code": "SKU-OP0YR-DEFAULT-3",
+        "price": 64200,
+        "stock": 24,
+        "attributes": null,
+        "id": "1a92b266-99e4-4e99-8427-6f6ce5a104bb"
+      },
+      {
+        "sku_code": "SKU-OP0YR-DEFAULT-4",
+        "price": 64200,
+        "stock": 24,
+        "attributes": null,
+        "id": "7dce5480-4df8-41ce-8193-bd1cd33282c2"
       }
     ],
     "brand": "Cello",
@@ -1533,6 +2310,27 @@
         "price": 176700,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z24HZ-DEFAULT-2",
+        "price": 176700,
+        "stock": 17,
+        "attributes": null,
+        "id": "07b68d20-671e-4f69-b161-56b2cfb0e84d"
+      },
+      {
+        "sku_code": "SKU-Z24HZ-DEFAULT-3",
+        "price": 176700,
+        "stock": 17,
+        "attributes": null,
+        "id": "4abc66c2-7c23-45df-9fb3-f8c9bfde3118"
+      },
+      {
+        "sku_code": "SKU-Z24HZ-DEFAULT-4",
+        "price": 176700,
+        "stock": 17,
+        "attributes": null,
+        "id": "b2fdcd8f-5513-48ae-b7ab-30c29e36d9ff"
       }
     ],
     "brand": "Wooden",
@@ -1578,6 +2376,27 @@
         "price": 110700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z3UJF-DEFAULT-2",
+        "price": 110700,
+        "stock": 104,
+        "attributes": null,
+        "id": "8e31d587-3b3f-444a-a190-0389563c2227"
+      },
+      {
+        "sku_code": "SKU-Z3UJF-DEFAULT-3",
+        "price": 110700,
+        "stock": 104,
+        "attributes": null,
+        "id": "a142dc9d-f07e-4334-ad4e-22a1db9de3b1"
+      },
+      {
+        "sku_code": "SKU-Z3UJF-DEFAULT-4",
+        "price": 110700,
+        "stock": 104,
+        "attributes": null,
+        "id": "824c023b-248e-4c82-9978-94581350a1fb"
       }
     ],
     "brand": "Wakefit",
@@ -1619,6 +2438,27 @@
         "price": 870000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X9Y4G-DEFAULT-2",
+        "price": 870000,
+        "stock": 108,
+        "attributes": null,
+        "id": "f8eb7e12-ffab-4c1b-8ed3-2c964f4683f2"
+      },
+      {
+        "sku_code": "SKU-X9Y4G-DEFAULT-3",
+        "price": 870000,
+        "stock": 108,
+        "attributes": null,
+        "id": "a9d24323-f993-470b-8cd0-fc83ea938741"
+      },
+      {
+        "sku_code": "SKU-X9Y4G-DEFAULT-4",
+        "price": 870000,
+        "stock": 108,
+        "attributes": null,
+        "id": "41a12bd2-0ecd-4bdb-a0a6-dc82c126eefe"
       }
     ],
     "brand": "Nilkamal",
@@ -1664,6 +2504,27 @@
         "price": 233700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7DHH3-DEFAULT-2",
+        "price": 233700,
+        "stock": 39,
+        "attributes": null,
+        "id": "56b3a803-6cd0-4f3d-a135-2a6146ab33af"
+      },
+      {
+        "sku_code": "SKU-7DHH3-DEFAULT-3",
+        "price": 233700,
+        "stock": 39,
+        "attributes": null,
+        "id": "59f1d0b3-7f0b-47f1-aeee-c569ec80c321"
+      },
+      {
+        "sku_code": "SKU-7DHH3-DEFAULT-4",
+        "price": 233700,
+        "stock": 39,
+        "attributes": null,
+        "id": "e246db4d-17f4-4045-8830-7085ba772d6e"
       }
     ],
     "brand": "Wooden",
@@ -1701,6 +2562,27 @@
         "price": 449700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8T95E-DEFAULT-2",
+        "price": 449700,
+        "stock": 27,
+        "attributes": null,
+        "id": "72bc4602-8107-4e07-afa7-c8afb8421e0a"
+      },
+      {
+        "sku_code": "SKU-8T95E-DEFAULT-3",
+        "price": 449700,
+        "stock": 27,
+        "attributes": null,
+        "id": "cdc36bb4-e257-4ea4-ab78-5370c71a37a8"
+      },
+      {
+        "sku_code": "SKU-8T95E-DEFAULT-4",
+        "price": 449700,
+        "stock": 27,
+        "attributes": null,
+        "id": "c6e82892-09a4-40c3-85a9-73c79eaaab84"
       }
     ],
     "brand": "Amazon",
@@ -1746,6 +2628,27 @@
         "price": 479700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MDVVW-DEFAULT-2",
+        "price": 479700,
+        "stock": 94,
+        "attributes": null,
+        "id": "2c38aadd-4c2f-466f-a36f-af7fe2675acc"
+      },
+      {
+        "sku_code": "SKU-MDVVW-DEFAULT-3",
+        "price": 479700,
+        "stock": 94,
+        "attributes": null,
+        "id": "6272e6c9-6674-462b-aa4a-4494c0dc29ff"
+      },
+      {
+        "sku_code": "SKU-MDVVW-DEFAULT-4",
+        "price": 479700,
+        "stock": 94,
+        "attributes": null,
+        "id": "2582bca7-1271-460a-b228-d43482cb2fa8"
       }
     ],
     "brand": "Samsung",
@@ -1787,6 +2690,27 @@
         "price": 1259700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YGRS7-DEFAULT-2",
+        "price": 1259700,
+        "stock": 31,
+        "attributes": null,
+        "id": "22cd92e7-a64b-462e-a814-2772ca3036af"
+      },
+      {
+        "sku_code": "SKU-YGRS7-DEFAULT-3",
+        "price": 1259700,
+        "stock": 31,
+        "attributes": null,
+        "id": "e218c6bd-dbc6-4f07-ad86-d0785bcb2c4c"
+      },
+      {
+        "sku_code": "SKU-YGRS7-DEFAULT-4",
+        "price": 1259700,
+        "stock": 31,
+        "attributes": null,
+        "id": "93d1cc74-02b1-4d95-9669-4b1721875440"
       }
     ],
     "brand": "Plantex",
@@ -1860,6 +2784,27 @@
         "price": 299700,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3GJ4S-DEFAULT-2",
+        "price": 299700,
+        "stock": 75,
+        "attributes": null,
+        "id": "2638ac20-46e1-49b6-a8bb-d5e692047036"
+      },
+      {
+        "sku_code": "SKU-3GJ4S-DEFAULT-3",
+        "price": 299700,
+        "stock": 75,
+        "attributes": null,
+        "id": "ce442236-bcbb-46fc-b5a0-5592d3f99d43"
+      },
+      {
+        "sku_code": "SKU-3GJ4S-DEFAULT-4",
+        "price": 299700,
+        "stock": 75,
+        "attributes": null,
+        "id": "0046d89f-91f0-4fc4-bbb5-6e788984d830"
       }
     ],
     "brand": "Samsung",
@@ -1905,6 +2850,27 @@
         "price": 2699700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WVIF1-DEFAULT-2",
+        "price": 2699700,
+        "stock": 101,
+        "attributes": null,
+        "id": "f9109237-414b-4fe8-8098-d19683d9bcf1"
+      },
+      {
+        "sku_code": "SKU-WVIF1-DEFAULT-3",
+        "price": 2699700,
+        "stock": 101,
+        "attributes": null,
+        "id": "13e599c7-6ffb-4c93-951b-df564df2c5be"
+      },
+      {
+        "sku_code": "SKU-WVIF1-DEFAULT-4",
+        "price": 2699700,
+        "stock": 101,
+        "attributes": null,
+        "id": "16b48115-5c09-4478-ab52-8d7450ab62d3"
       }
     ],
     "brand": "Plantex",
@@ -1950,6 +2916,27 @@
         "price": 220500,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SR8YT-DEFAULT-2",
+        "price": 220500,
+        "stock": 78,
+        "attributes": null,
+        "id": "df55ab66-3a20-4dc6-aba8-4cbc77213653"
+      },
+      {
+        "sku_code": "SKU-SR8YT-DEFAULT-3",
+        "price": 220500,
+        "stock": 78,
+        "attributes": null,
+        "id": "f412b8a0-b1c7-4aac-a8fe-b9758fc27555"
+      },
+      {
+        "sku_code": "SKU-SR8YT-DEFAULT-4",
+        "price": 220500,
+        "stock": 78,
+        "attributes": null,
+        "id": "27556e84-71a0-45a1-82b4-3552d27eddab"
       }
     ],
     "brand": "Plantex",
@@ -1995,6 +2982,27 @@
         "price": 180000,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7TIXS-DEFAULT-2",
+        "price": 180000,
+        "stock": 94,
+        "attributes": null,
+        "id": "0feb7026-dfcf-4143-8708-c2c404a3ef13"
+      },
+      {
+        "sku_code": "SKU-7TIXS-DEFAULT-3",
+        "price": 180000,
+        "stock": 94,
+        "attributes": null,
+        "id": "056a6dde-bdde-451b-a6db-5c2bee8bbe95"
+      },
+      {
+        "sku_code": "SKU-7TIXS-DEFAULT-4",
+        "price": 180000,
+        "stock": 94,
+        "attributes": null,
+        "id": "ac7619b4-9cf0-4e16-830a-ac984a0b5066"
       }
     ],
     "brand": "HOKIPO",
@@ -2032,6 +3040,27 @@
         "price": 218700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JV4GL-DEFAULT-2",
+        "price": 218700,
+        "stock": 79,
+        "attributes": null,
+        "id": "6b49e652-706d-407b-8ecf-99f60a2fb3a4"
+      },
+      {
+        "sku_code": "SKU-JV4GL-DEFAULT-3",
+        "price": 218700,
+        "stock": 79,
+        "attributes": null,
+        "id": "e09384fa-4bd9-45d9-bd9a-06adf77db1de"
+      },
+      {
+        "sku_code": "SKU-JV4GL-DEFAULT-4",
+        "price": 218700,
+        "stock": 79,
+        "attributes": null,
+        "id": "e485a3f1-9ec8-44aa-867f-29a8b496bb0a"
       }
     ],
     "brand": "Wakefit",
@@ -2073,6 +3102,27 @@
         "price": 89700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4F3FK-DEFAULT-2",
+        "price": 89700,
+        "stock": 33,
+        "attributes": null,
+        "id": "70b603a9-d6e7-44c0-9473-5c996b71d9c4"
+      },
+      {
+        "sku_code": "SKU-4F3FK-DEFAULT-3",
+        "price": 89700,
+        "stock": 33,
+        "attributes": null,
+        "id": "65ad348a-da0e-4a48-9066-5b4463d0c2dd"
+      },
+      {
+        "sku_code": "SKU-4F3FK-DEFAULT-4",
+        "price": 89700,
+        "stock": 33,
+        "attributes": null,
+        "id": "7e409b45-0993-46b5-af0a-a47d739de8f3"
       }
     ],
     "brand": "Samsung",
@@ -2114,6 +3164,27 @@
         "price": 239700,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BP34L-DEFAULT-2",
+        "price": 239700,
+        "stock": 53,
+        "attributes": null,
+        "id": "a1bbec2d-b3eb-45bc-a364-c332bdf6926e"
+      },
+      {
+        "sku_code": "SKU-BP34L-DEFAULT-3",
+        "price": 239700,
+        "stock": 53,
+        "attributes": null,
+        "id": "6deb7043-db4f-4af0-86d3-4eafbf04e10c"
+      },
+      {
+        "sku_code": "SKU-BP34L-DEFAULT-4",
+        "price": 239700,
+        "stock": 53,
+        "attributes": null,
+        "id": "84377096-e83a-49e7-8d22-d1af09147dfb"
       }
     ],
     "brand": "Patiofy",
@@ -2159,6 +3230,27 @@
         "price": 749100,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O7ZOQ-DEFAULT-2",
+        "price": 749100,
+        "stock": 17,
+        "attributes": null,
+        "id": "d01e4cea-244d-4d27-b45f-141227bbc881"
+      },
+      {
+        "sku_code": "SKU-O7ZOQ-DEFAULT-3",
+        "price": 749100,
+        "stock": 17,
+        "attributes": null,
+        "id": "90b6301b-f5e0-48fa-886a-44a2e852b851"
+      },
+      {
+        "sku_code": "SKU-O7ZOQ-DEFAULT-4",
+        "price": 749100,
+        "stock": 17,
+        "attributes": null,
+        "id": "2c3f9d7d-b627-4b5a-80f4-fe73842a4cd0"
       }
     ],
     "brand": "FASNO",
@@ -2204,6 +3296,27 @@
         "price": 110700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HW19Y-DEFAULT-2",
+        "price": 110700,
+        "stock": 67,
+        "attributes": null,
+        "id": "63c43db0-9ff8-4202-83e5-66fa7029180f"
+      },
+      {
+        "sku_code": "SKU-HW19Y-DEFAULT-3",
+        "price": 110700,
+        "stock": 67,
+        "attributes": null,
+        "id": "85e30027-0975-4899-89a5-f76b16883973"
+      },
+      {
+        "sku_code": "SKU-HW19Y-DEFAULT-4",
+        "price": 110700,
+        "stock": 67,
+        "attributes": null,
+        "id": "638dd235-b21b-44c8-9275-6b59638aed97"
       }
     ],
     "brand": "HOKIPO",
@@ -2241,6 +3354,27 @@
         "price": 104700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZZVQ8-DEFAULT-2",
+        "price": 104700,
+        "stock": 79,
+        "attributes": null,
+        "id": "66e4163c-f80a-4bb6-8649-7fdc9462027c"
+      },
+      {
+        "sku_code": "SKU-ZZVQ8-DEFAULT-3",
+        "price": 104700,
+        "stock": 79,
+        "attributes": null,
+        "id": "e225ee6a-86c0-4e9a-a431-b62390b2cd49"
+      },
+      {
+        "sku_code": "SKU-ZZVQ8-DEFAULT-4",
+        "price": 104700,
+        "stock": 79,
+        "attributes": null,
+        "id": "500d4eea-ac07-4143-bb44-851201c2946a"
       }
     ],
     "brand": "HOKIPO",
@@ -2278,6 +3412,27 @@
         "price": 1127700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M58IB-DEFAULT-2",
+        "price": 1127700,
+        "stock": 10,
+        "attributes": null,
+        "id": "420d487b-83a3-4dfe-a7d6-0e370d3d12b8"
+      },
+      {
+        "sku_code": "SKU-M58IB-DEFAULT-3",
+        "price": 1127700,
+        "stock": 10,
+        "attributes": null,
+        "id": "c3f843d9-85af-4012-baeb-cbc417001a53"
+      },
+      {
+        "sku_code": "SKU-M58IB-DEFAULT-4",
+        "price": 1127700,
+        "stock": 10,
+        "attributes": null,
+        "id": "6355d19c-c9bc-4c4d-91dc-af0297b39808"
       }
     ],
     "brand": "DeckUp",
@@ -2323,6 +3478,27 @@
         "price": 599700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KTXC7-DEFAULT-2",
+        "price": 599700,
+        "stock": 12,
+        "attributes": null,
+        "id": "2f6ad77b-6efc-403e-9473-a6e44bcaebc5"
+      },
+      {
+        "sku_code": "SKU-KTXC7-DEFAULT-3",
+        "price": 599700,
+        "stock": 12,
+        "attributes": null,
+        "id": "165ad577-f7bc-433d-a262-7ffa95b2bcaf"
+      },
+      {
+        "sku_code": "SKU-KTXC7-DEFAULT-4",
+        "price": 599700,
+        "stock": 12,
+        "attributes": null,
+        "id": "c6a6b66a-2194-4e59-939d-9eb8c9f9cc81"
       }
     ],
     "brand": "DeckUp",
@@ -2364,6 +3540,27 @@
         "price": 119700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PH7QJ-DEFAULT-2",
+        "price": 119700,
+        "stock": 68,
+        "attributes": null,
+        "id": "75a7340e-51fe-4163-b334-e4383dd77a1e"
+      },
+      {
+        "sku_code": "SKU-PH7QJ-DEFAULT-3",
+        "price": 119700,
+        "stock": 68,
+        "attributes": null,
+        "id": "fbf7db67-17c3-4001-9f04-07108d5033fe"
+      },
+      {
+        "sku_code": "SKU-PH7QJ-DEFAULT-4",
+        "price": 119700,
+        "stock": 68,
+        "attributes": null,
+        "id": "1aaf4c5d-a88d-4f51-94b2-1365f53aa218"
       }
     ],
     "brand": "Wooden",
@@ -2409,6 +3606,27 @@
         "price": 5397300,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NU5ZW-DEFAULT-2",
+        "price": 5397300,
+        "stock": 17,
+        "attributes": null,
+        "id": "160d6550-798f-4a93-aabc-bb488073b410"
+      },
+      {
+        "sku_code": "SKU-NU5ZW-DEFAULT-3",
+        "price": 5397300,
+        "stock": 17,
+        "attributes": null,
+        "id": "48e288a2-e8c9-4a9d-b67f-d1dcbb5ed2c5"
+      },
+      {
+        "sku_code": "SKU-NU5ZW-DEFAULT-4",
+        "price": 5397300,
+        "stock": 17,
+        "attributes": null,
+        "id": "3bbc3646-4e6b-403b-8d90-f71b3dfa172e"
       }
     ],
     "brand": "Kuber",
@@ -2454,6 +3672,27 @@
         "price": 659700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1GR2U-DEFAULT-2",
+        "price": 659700,
+        "stock": 101,
+        "attributes": null,
+        "id": "a201d69d-d91a-427d-b9fb-cd39101ce484"
+      },
+      {
+        "sku_code": "SKU-1GR2U-DEFAULT-3",
+        "price": 659700,
+        "stock": 101,
+        "attributes": null,
+        "id": "59b2c22a-efac-418d-acfd-6a49f61950d9"
+      },
+      {
+        "sku_code": "SKU-1GR2U-DEFAULT-4",
+        "price": 659700,
+        "stock": 101,
+        "attributes": null,
+        "id": "bef599aa-1386-40cd-a1fe-db708002dbfe"
       }
     ],
     "brand": "Cello",
@@ -2499,6 +3738,27 @@
         "price": 359700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4Z7RP-DEFAULT-2",
+        "price": 359700,
+        "stock": 30,
+        "attributes": null,
+        "id": "49c50395-e8a2-43c8-914a-ced2db9bc306"
+      },
+      {
+        "sku_code": "SKU-4Z7RP-DEFAULT-3",
+        "price": 359700,
+        "stock": 30,
+        "attributes": null,
+        "id": "f363666e-d804-4e36-901e-bab1b8cb5336"
+      },
+      {
+        "sku_code": "SKU-4Z7RP-DEFAULT-4",
+        "price": 359700,
+        "stock": 30,
+        "attributes": null,
+        "id": "dd9935ab-78ac-4200-933c-4b48047300fc"
       }
     ],
     "brand": "Kuber",
@@ -2544,6 +3804,27 @@
         "price": 224700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EYUJY-DEFAULT-2",
+        "price": 224700,
+        "stock": 87,
+        "attributes": null,
+        "id": "787605f5-bb15-4b48-a38e-d2a5d512c175"
+      },
+      {
+        "sku_code": "SKU-EYUJY-DEFAULT-3",
+        "price": 224700,
+        "stock": 87,
+        "attributes": null,
+        "id": "56fe8a7a-067a-4244-82d7-1b5b6593d49f"
+      },
+      {
+        "sku_code": "SKU-EYUJY-DEFAULT-4",
+        "price": 224700,
+        "stock": 87,
+        "attributes": null,
+        "id": "77ba5af7-03b4-4ba6-b714-abeb451666a6"
       }
     ],
     "brand": "Samsung",
@@ -2581,6 +3862,27 @@
         "price": 72000,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UMHA7-DEFAULT-2",
+        "price": 72000,
+        "stock": 53,
+        "attributes": null,
+        "id": "5f12b0c1-4a07-44ce-8703-a5d9559138be"
+      },
+      {
+        "sku_code": "SKU-UMHA7-DEFAULT-3",
+        "price": 72000,
+        "stock": 53,
+        "attributes": null,
+        "id": "5bceb936-9245-4693-9440-aef91caca2da"
+      },
+      {
+        "sku_code": "SKU-UMHA7-DEFAULT-4",
+        "price": 72000,
+        "stock": 53,
+        "attributes": null,
+        "id": "2c1646c8-0b05-460a-8a83-e58a49e3a63a"
       }
     ],
     "brand": "Bikri",
@@ -2626,6 +3928,27 @@
         "price": 331200,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PZD1G-DEFAULT-2",
+        "price": 331200,
+        "stock": 55,
+        "attributes": null,
+        "id": "68ebc066-6e03-4713-981d-aaa3a63b56d2"
+      },
+      {
+        "sku_code": "SKU-PZD1G-DEFAULT-3",
+        "price": 331200,
+        "stock": 55,
+        "attributes": null,
+        "id": "eb644b7f-f8f6-4328-83cc-521e52efef1d"
+      },
+      {
+        "sku_code": "SKU-PZD1G-DEFAULT-4",
+        "price": 331200,
+        "stock": 55,
+        "attributes": null,
+        "id": "70f8c005-162b-4a4b-bf85-fb18521d6b39"
       }
     ],
     "brand": "Patiofy",
@@ -2671,6 +3994,27 @@
         "price": 599700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6XAHZ-DEFAULT-2",
+        "price": 599700,
+        "stock": 28,
+        "attributes": null,
+        "id": "8c5263aa-c771-4680-83fb-c35160eb6f0f"
+      },
+      {
+        "sku_code": "SKU-6XAHZ-DEFAULT-3",
+        "price": 599700,
+        "stock": 28,
+        "attributes": null,
+        "id": "ee7d6835-0138-4205-9d54-006c9f51897a"
+      },
+      {
+        "sku_code": "SKU-6XAHZ-DEFAULT-4",
+        "price": 599700,
+        "stock": 28,
+        "attributes": null,
+        "id": "b427f5f3-9099-4a4f-a446-40d8cdb5ac08"
       }
     ],
     "brand": "Samsung",
@@ -2708,6 +4052,27 @@
         "price": 52554,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O4VVT-DEFAULT-2",
+        "price": 52554,
+        "stock": 41,
+        "attributes": null,
+        "id": "27c3eaf0-330b-449f-b9ff-bb814e3378d9"
+      },
+      {
+        "sku_code": "SKU-O4VVT-DEFAULT-3",
+        "price": 52554,
+        "stock": 41,
+        "attributes": null,
+        "id": "4c40098f-7341-4563-b429-1beeee1d8c8c"
+      },
+      {
+        "sku_code": "SKU-O4VVT-DEFAULT-4",
+        "price": 52554,
+        "stock": 41,
+        "attributes": null,
+        "id": "1c6e5bf6-2246-443d-87d3-d2822cd97063"
       }
     ],
     "brand": "Green",
@@ -2749,6 +4114,27 @@
         "price": 113700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AHSDY-DEFAULT-2",
+        "price": 113700,
+        "stock": 69,
+        "attributes": null,
+        "id": "3e74f692-774b-4642-b702-e6d9f0cd3b71"
+      },
+      {
+        "sku_code": "SKU-AHSDY-DEFAULT-3",
+        "price": 113700,
+        "stock": 69,
+        "attributes": null,
+        "id": "d2be1276-6f7e-4b3b-8d51-cc85d6dbb141"
+      },
+      {
+        "sku_code": "SKU-AHSDY-DEFAULT-4",
+        "price": 113700,
+        "stock": 69,
+        "attributes": null,
+        "id": "bec962e5-761f-4ec3-bb2b-21eacf02a7c7"
       }
     ],
     "brand": "Wakefit",
@@ -2790,6 +4176,27 @@
         "price": 597000,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N3R53-DEFAULT-2",
+        "price": 597000,
+        "stock": 38,
+        "attributes": null,
+        "id": "9c32e4f8-c20e-43cc-80e8-add23aa09b9f"
+      },
+      {
+        "sku_code": "SKU-N3R53-DEFAULT-3",
+        "price": 597000,
+        "stock": 38,
+        "attributes": null,
+        "id": "85871e5c-7db3-413e-98be-41e3cb6f9b5b"
+      },
+      {
+        "sku_code": "SKU-N3R53-DEFAULT-4",
+        "price": 597000,
+        "stock": 38,
+        "attributes": null,
+        "id": "76cf062a-f471-488d-abf9-ab1bb54c7072"
       }
     ],
     "brand": "Nilkamal",
@@ -2831,6 +4238,27 @@
         "price": 299700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R03HK-DEFAULT-2",
+        "price": 299700,
+        "stock": 69,
+        "attributes": null,
+        "id": "9ae6caf5-6b8d-4bdc-a8fb-99289c2fc264"
+      },
+      {
+        "sku_code": "SKU-R03HK-DEFAULT-3",
+        "price": 299700,
+        "stock": 69,
+        "attributes": null,
+        "id": "169bdea2-5a64-4baf-afe5-5f9cc356022a"
+      },
+      {
+        "sku_code": "SKU-R03HK-DEFAULT-4",
+        "price": 299700,
+        "stock": 69,
+        "attributes": null,
+        "id": "4786032e-817d-4adf-8315-66944371c501"
       }
     ],
     "brand": "Kuber",

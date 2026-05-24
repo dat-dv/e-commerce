@@ -22,6 +22,27 @@
         "price": 284700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HRFAS-DEFAULT-2",
+        "price": 284700,
+        "stock": 71,
+        "attributes": null,
+        "id": "ee3f665c-5c75-46af-b7a0-4269605c6de1"
+      },
+      {
+        "sku_code": "SKU-HRFAS-DEFAULT-3",
+        "price": 284700,
+        "stock": 71,
+        "attributes": null,
+        "id": "f8e2306d-41d3-47bb-9410-27f56137373d"
+      },
+      {
+        "sku_code": "SKU-HRFAS-DEFAULT-4",
+        "price": 284700,
+        "stock": 71,
+        "attributes": null,
+        "id": "3001133d-d282-4132-9da8-69b2b283b3a2"
       }
     ],
     "brand": "Samsung",
@@ -59,6 +80,27 @@
         "price": 577200,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WMXDF-DEFAULT-2",
+        "price": 577200,
+        "stock": 43,
+        "attributes": null,
+        "id": "0792e2ea-ca8c-4f17-8c8d-e74038e281b3"
+      },
+      {
+        "sku_code": "SKU-WMXDF-DEFAULT-3",
+        "price": 577200,
+        "stock": 43,
+        "attributes": null,
+        "id": "bd4bc1c1-ab5b-471e-bd47-3e75e8514bb5"
+      },
+      {
+        "sku_code": "SKU-WMXDF-DEFAULT-4",
+        "price": 577200,
+        "stock": 43,
+        "attributes": null,
+        "id": "55dd7e9b-c3a6-4270-aa09-b920848d1b2d"
       }
     ],
     "brand": "Casio",
@@ -104,6 +146,27 @@
         "price": 56700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-20FKE-DEFAULT-2",
+        "price": 56700,
+        "stock": 65,
+        "attributes": null,
+        "id": "aa399c73-ce18-4449-bfe1-b18af14fe096"
+      },
+      {
+        "sku_code": "SKU-20FKE-DEFAULT-3",
+        "price": 56700,
+        "stock": 65,
+        "attributes": null,
+        "id": "0f8b453b-9e72-4530-9b9c-4cf5156d1c0a"
+      },
+      {
+        "sku_code": "SKU-20FKE-DEFAULT-4",
+        "price": 56700,
+        "stock": 65,
+        "attributes": null,
+        "id": "54404949-5a7f-4aa0-8055-42f8b4f57b29"
       }
     ],
     "brand": "Softsens",
@@ -141,6 +204,27 @@
         "price": 179700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DQLQC-DEFAULT-2",
+        "price": 179700,
+        "stock": 34,
+        "attributes": null,
+        "id": "61c1c6a9-cd5a-40ce-a38d-fcbf1d50e4e7"
+      },
+      {
+        "sku_code": "SKU-DQLQC-DEFAULT-3",
+        "price": 179700,
+        "stock": 34,
+        "attributes": null,
+        "id": "44d2c173-dbc3-48af-967c-aa9b2bcd4162"
+      },
+      {
+        "sku_code": "SKU-DQLQC-DEFAULT-4",
+        "price": 179700,
+        "stock": 34,
+        "attributes": null,
+        "id": "60fbe6b9-2956-413c-8eba-d49564c23cef"
       }
     ],
     "brand": "Little",
@@ -182,6 +266,27 @@
         "price": 73500,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2SAR8-DEFAULT-2",
+        "price": 73500,
+        "stock": 81,
+        "attributes": null,
+        "id": "823f2796-d665-4f5d-aaee-5de8a1c6f765"
+      },
+      {
+        "sku_code": "SKU-2SAR8-DEFAULT-3",
+        "price": 73500,
+        "stock": 81,
+        "attributes": null,
+        "id": "b127b093-84be-4f6b-b5dd-ece8935d392f"
+      },
+      {
+        "sku_code": "SKU-2SAR8-DEFAULT-4",
+        "price": 73500,
+        "stock": 81,
+        "attributes": null,
+        "id": "ad20367f-a89b-4a9e-92d1-7cf3c76eb3d3"
       }
     ],
     "brand": "MOM",
@@ -219,6 +324,27 @@
         "price": 352200,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QWUAS-DEFAULT-2",
+        "price": 352200,
+        "stock": 56,
+        "attributes": null,
+        "id": "a396c9e4-ad78-4925-ab33-846c12113599"
+      },
+      {
+        "sku_code": "SKU-QWUAS-DEFAULT-3",
+        "price": 352200,
+        "stock": 56,
+        "attributes": null,
+        "id": "c251a992-079c-443d-b7fb-24f407ca13aa"
+      },
+      {
+        "sku_code": "SKU-QWUAS-DEFAULT-4",
+        "price": 352200,
+        "stock": 56,
+        "attributes": null,
+        "id": "46373715-de05-4b41-8bfd-995fafb567c4"
       }
     ],
     "brand": "LuvLap",
@@ -256,6 +382,27 @@
         "price": 149700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T2TAR-DEFAULT-2",
+        "price": 149700,
+        "stock": 46,
+        "attributes": null,
+        "id": "75a9da69-b2ac-43c6-bdcb-676acdf1ade1"
+      },
+      {
+        "sku_code": "SKU-T2TAR-DEFAULT-3",
+        "price": 149700,
+        "stock": 46,
+        "attributes": null,
+        "id": "f1f91433-f263-4beb-bed6-d9e66d0754db"
+      },
+      {
+        "sku_code": "SKU-T2TAR-DEFAULT-4",
+        "price": 149700,
+        "stock": 46,
+        "attributes": null,
+        "id": "fad2c54c-4007-4094-95b5-e198f7e89ed5"
       }
     ],
     "brand": "Himalaya",
@@ -297,6 +444,27 @@
         "price": 72900,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1V6HX-DEFAULT-2",
+        "price": 72900,
+        "stock": 53,
+        "attributes": null,
+        "id": "3a9d0b59-84ce-4493-85bf-1fc00bb35859"
+      },
+      {
+        "sku_code": "SKU-1V6HX-DEFAULT-3",
+        "price": 72900,
+        "stock": 53,
+        "attributes": null,
+        "id": "2fece2b0-3605-407f-a1da-3f6fcf6501b0"
+      },
+      {
+        "sku_code": "SKU-1V6HX-DEFAULT-4",
+        "price": 72900,
+        "stock": 53,
+        "attributes": null,
+        "id": "c0c87931-a64a-4632-8868-e6eec6766a82"
       }
     ],
     "brand": "Pigeon",
@@ -334,6 +502,27 @@
         "price": 67200,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LPV59-DEFAULT-2",
+        "price": 67200,
+        "stock": 11,
+        "attributes": null,
+        "id": "55cb29d9-0259-4b29-9618-3d86a3be79ae"
+      },
+      {
+        "sku_code": "SKU-LPV59-DEFAULT-3",
+        "price": 67200,
+        "stock": 11,
+        "attributes": null,
+        "id": "f5f8b72b-db5a-439c-8ba5-4a4c83dc23d5"
+      },
+      {
+        "sku_code": "SKU-LPV59-DEFAULT-4",
+        "price": 67200,
+        "stock": 11,
+        "attributes": null,
+        "id": "e5e228bc-194f-4ebe-8bf1-941d5f44af3b"
       }
     ],
     "brand": "LuvLap",
@@ -379,6 +568,27 @@
         "price": 269700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RDJ1U-DEFAULT-2",
+        "price": 269700,
+        "stock": 103,
+        "attributes": null,
+        "id": "19ca387b-4392-462b-9d7f-0fc90b74a83d"
+      },
+      {
+        "sku_code": "SKU-RDJ1U-DEFAULT-3",
+        "price": 269700,
+        "stock": 103,
+        "attributes": null,
+        "id": "6bc3de62-4496-4a5a-9fbd-9f2a348cef93"
+      },
+      {
+        "sku_code": "SKU-RDJ1U-DEFAULT-4",
+        "price": 269700,
+        "stock": 103,
+        "attributes": null,
+        "id": "5b18b5bb-6b58-44c7-b1c1-0d37eca78da3"
       }
     ],
     "brand": "First",
@@ -420,6 +630,27 @@
         "price": 104700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GKIQ7-DEFAULT-2",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "c3074bcf-35fa-44ff-baee-c5499fa8819f"
+      },
+      {
+        "sku_code": "SKU-GKIQ7-DEFAULT-3",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "6277fc87-bf43-4564-9a60-1b4ed22c0a47"
+      },
+      {
+        "sku_code": "SKU-GKIQ7-DEFAULT-4",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "5032c7c9-be79-4e68-bc81-39edb04ceb93"
       }
     ],
     "brand": "Himalaya",
@@ -465,6 +696,27 @@
         "price": 59700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H7ZIV-DEFAULT-2",
+        "price": 59700,
+        "stock": 10,
+        "attributes": null,
+        "id": "bef7cd1f-ed10-4809-a5e6-5bf047d66495"
+      },
+      {
+        "sku_code": "SKU-H7ZIV-DEFAULT-3",
+        "price": 59700,
+        "stock": 10,
+        "attributes": null,
+        "id": "ac5b153f-39d7-4929-b08a-f5c60b70ebb4"
+      },
+      {
+        "sku_code": "SKU-H7ZIV-DEFAULT-4",
+        "price": 59700,
+        "stock": 10,
+        "attributes": null,
+        "id": "731806fe-1833-453f-8a0d-f17cb1a68981"
       }
     ],
     "brand": "Asus",
@@ -502,6 +754,27 @@
         "price": 68700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5A0F7-DEFAULT-2",
+        "price": 68700,
+        "stock": 85,
+        "attributes": null,
+        "id": "8b54891a-48cb-4224-87d4-42c836c49dfe"
+      },
+      {
+        "sku_code": "SKU-5A0F7-DEFAULT-3",
+        "price": 68700,
+        "stock": 85,
+        "attributes": null,
+        "id": "cc25e588-689c-4ba2-a75a-626179dde88b"
+      },
+      {
+        "sku_code": "SKU-5A0F7-DEFAULT-4",
+        "price": 68700,
+        "stock": 85,
+        "attributes": null,
+        "id": "3735cbeb-efa0-4698-8364-e0ea196f96a2"
       }
     ],
     "brand": "Baby",
@@ -547,6 +820,27 @@
         "price": 0,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WA40W-DEFAULT-2",
+        "price": 0,
+        "stock": 33,
+        "attributes": null,
+        "id": "4771cb86-6d19-4169-ba64-25ac56df50a1"
+      },
+      {
+        "sku_code": "SKU-WA40W-DEFAULT-3",
+        "price": 0,
+        "stock": 33,
+        "attributes": null,
+        "id": "8901b43c-59ca-42be-b121-9b4db4da5639"
+      },
+      {
+        "sku_code": "SKU-WA40W-DEFAULT-4",
+        "price": 0,
+        "stock": 33,
+        "attributes": null,
+        "id": "16ed1d58-7509-4f48-8734-ae826e38f149"
       }
     ],
     "brand": "First",
@@ -584,6 +878,27 @@
         "price": 1396500,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DGMEA-DEFAULT-2",
+        "price": 1396500,
+        "stock": 100,
+        "attributes": null,
+        "id": "820bfce7-d50a-4c2e-9e8d-b194d4319ae3"
+      },
+      {
+        "sku_code": "SKU-DGMEA-DEFAULT-3",
+        "price": 1396500,
+        "stock": 100,
+        "attributes": null,
+        "id": "ccb1d8e5-a87b-4220-8c2f-a81d078c72f6"
+      },
+      {
+        "sku_code": "SKU-DGMEA-DEFAULT-4",
+        "price": 1396500,
+        "stock": 100,
+        "attributes": null,
+        "id": "95c02be1-c1c4-484e-ab51-72f01a9d441c"
       }
     ],
     "brand": "MOM",
@@ -621,6 +936,27 @@
         "price": 164700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A32TP-DEFAULT-2",
+        "price": 164700,
+        "stock": 73,
+        "attributes": null,
+        "id": "379ad725-aeb3-4350-9632-d7bec788e946"
+      },
+      {
+        "sku_code": "SKU-A32TP-DEFAULT-3",
+        "price": 164700,
+        "stock": 73,
+        "attributes": null,
+        "id": "d6e5067b-b669-4e7b-b7ed-24df0aa51b6f"
+      },
+      {
+        "sku_code": "SKU-A32TP-DEFAULT-4",
+        "price": 164700,
+        "stock": 73,
+        "attributes": null,
+        "id": "22f6cfef-5cb3-4460-918f-8a1fe17b990d"
       }
     ],
     "brand": "Mothercare",
@@ -658,6 +994,27 @@
         "price": 56700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0MMD1-DEFAULT-2",
+        "price": 56700,
+        "stock": 88,
+        "attributes": null,
+        "id": "a58a4a82-9874-428a-8e01-4eae4eebeba2"
+      },
+      {
+        "sku_code": "SKU-0MMD1-DEFAULT-3",
+        "price": 56700,
+        "stock": 88,
+        "attributes": null,
+        "id": "64c64c36-b1ac-4683-ad4c-8cc4d4e03866"
+      },
+      {
+        "sku_code": "SKU-0MMD1-DEFAULT-4",
+        "price": 56700,
+        "stock": 88,
+        "attributes": null,
+        "id": "7a598f84-d9cb-42e1-a2f7-85d189c00d85"
       }
     ],
     "brand": "Softsens",
@@ -695,6 +1052,27 @@
         "price": 74700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IUZPC-DEFAULT-2",
+        "price": 74700,
+        "stock": 26,
+        "attributes": null,
+        "id": "9df93bac-a02d-4f17-865c-4f56bb19ceb9"
+      },
+      {
+        "sku_code": "SKU-IUZPC-DEFAULT-3",
+        "price": 74700,
+        "stock": 26,
+        "attributes": null,
+        "id": "0c7c10e3-f8c3-4bc4-9b87-290c67859c98"
+      },
+      {
+        "sku_code": "SKU-IUZPC-DEFAULT-4",
+        "price": 74700,
+        "stock": 26,
+        "attributes": null,
+        "id": "af145cf3-fe11-4484-84f2-ba58010e02ae"
       }
     ],
     "brand": "First",
@@ -732,6 +1110,27 @@
         "price": 449700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9IGNR-DEFAULT-2",
+        "price": 449700,
+        "stock": 24,
+        "attributes": null,
+        "id": "03ef8446-ae3a-4b7a-b472-f4781bd4268b"
+      },
+      {
+        "sku_code": "SKU-9IGNR-DEFAULT-3",
+        "price": 449700,
+        "stock": 24,
+        "attributes": null,
+        "id": "51657da3-5502-4256-ac4b-516887dbc178"
+      },
+      {
+        "sku_code": "SKU-9IGNR-DEFAULT-4",
+        "price": 449700,
+        "stock": 24,
+        "attributes": null,
+        "id": "33507bda-4c2b-472b-bfe9-083e8734b012"
       }
     ],
     "brand": "Baby",
@@ -773,6 +1172,27 @@
         "price": 1408200,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1B53E-DEFAULT-2",
+        "price": 1408200,
+        "stock": 90,
+        "attributes": null,
+        "id": "d4fa0e77-09b3-4359-bd2e-93329134c8cc"
+      },
+      {
+        "sku_code": "SKU-1B53E-DEFAULT-3",
+        "price": 1408200,
+        "stock": 90,
+        "attributes": null,
+        "id": "fbf6cf78-c709-408f-a4f3-579e33a29c9c"
+      },
+      {
+        "sku_code": "SKU-1B53E-DEFAULT-4",
+        "price": 1408200,
+        "stock": 90,
+        "attributes": null,
+        "id": "d294bdda-88c5-4950-9135-a3a0e6649c4f"
       }
     ],
     "brand": "Baby",
@@ -818,6 +1238,27 @@
         "price": 150000,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ELFIR-DEFAULT-2",
+        "price": 150000,
+        "stock": 80,
+        "attributes": null,
+        "id": "e5414f62-f182-4db2-8d07-2f4fd3142c3b"
+      },
+      {
+        "sku_code": "SKU-ELFIR-DEFAULT-3",
+        "price": 150000,
+        "stock": 80,
+        "attributes": null,
+        "id": "b333aece-708a-48a0-9929-7863f1f2e911"
+      },
+      {
+        "sku_code": "SKU-ELFIR-DEFAULT-4",
+        "price": 150000,
+        "stock": 80,
+        "attributes": null,
+        "id": "ba4f7cdb-1a11-480f-8375-3bb62cdc99d5"
       }
     ],
     "brand": "First",
@@ -863,6 +1304,27 @@
         "price": 1181700,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y4H9J-DEFAULT-2",
+        "price": 1181700,
+        "stock": 50,
+        "attributes": null,
+        "id": "77f23f70-9fae-47dc-b57b-8c526ce10348"
+      },
+      {
+        "sku_code": "SKU-Y4H9J-DEFAULT-3",
+        "price": 1181700,
+        "stock": 50,
+        "attributes": null,
+        "id": "14b48129-d423-490a-ae63-9c83d47721da"
+      },
+      {
+        "sku_code": "SKU-Y4H9J-DEFAULT-4",
+        "price": 1181700,
+        "stock": 50,
+        "attributes": null,
+        "id": "2e575c5f-352d-437d-8f49-007196dbe395"
       }
     ],
     "brand": "Mamaearth",
@@ -908,6 +1370,27 @@
         "price": 1047900,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1OIU6-DEFAULT-2",
+        "price": 1047900,
+        "stock": 107,
+        "attributes": null,
+        "id": "99529e77-6a2e-4590-9b33-4b8cbb4a981f"
+      },
+      {
+        "sku_code": "SKU-1OIU6-DEFAULT-3",
+        "price": 1047900,
+        "stock": 107,
+        "attributes": null,
+        "id": "56c0e074-60f6-48b4-9335-fd032456e1cd"
+      },
+      {
+        "sku_code": "SKU-1OIU6-DEFAULT-4",
+        "price": 1047900,
+        "stock": 107,
+        "attributes": null,
+        "id": "523067de-51ae-4e1c-8fd0-e38e659fb441"
       }
     ],
     "brand": "First",
@@ -949,6 +1432,27 @@
         "price": 0,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GANR1-DEFAULT-2",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "3c5939e5-79f7-4c2f-b6d3-5ad53be0a820"
+      },
+      {
+        "sku_code": "SKU-GANR1-DEFAULT-3",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "f13ff4b2-2474-4762-bcfd-d84e2e92a54c"
+      },
+      {
+        "sku_code": "SKU-GANR1-DEFAULT-4",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "1ff838e2-8352-482b-b104-176eef3b4c11"
       }
     ],
     "brand": "Little",
@@ -986,6 +1490,27 @@
         "price": 77700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3DBCR-DEFAULT-2",
+        "price": 77700,
+        "stock": 100,
+        "attributes": null,
+        "id": "3fd012b3-847d-4716-acf9-a535c75cd5aa"
+      },
+      {
+        "sku_code": "SKU-3DBCR-DEFAULT-3",
+        "price": 77700,
+        "stock": 100,
+        "attributes": null,
+        "id": "344b704b-267b-4e6d-91ba-239b7e5349b8"
+      },
+      {
+        "sku_code": "SKU-3DBCR-DEFAULT-4",
+        "price": 77700,
+        "stock": 100,
+        "attributes": null,
+        "id": "b61d8f2d-f35c-4685-bb35-5a039d44443c"
       }
     ],
     "brand": "Chicco",
@@ -1031,6 +1556,27 @@
         "price": 104700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IHMGU-DEFAULT-2",
+        "price": 104700,
+        "stock": 25,
+        "attributes": null,
+        "id": "90813b4f-be0a-40e2-94bd-cb935879c937"
+      },
+      {
+        "sku_code": "SKU-IHMGU-DEFAULT-3",
+        "price": 104700,
+        "stock": 25,
+        "attributes": null,
+        "id": "819d122e-ab7b-4288-b5eb-9df321e1523a"
+      },
+      {
+        "sku_code": "SKU-IHMGU-DEFAULT-4",
+        "price": 104700,
+        "stock": 25,
+        "attributes": null,
+        "id": "b5a646dd-0b35-4327-aee9-6f4e1d9e75ef"
       }
     ],
     "brand": "Mamaearth",
@@ -1076,6 +1622,27 @@
         "price": 48000,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DHH3T-DEFAULT-2",
+        "price": 48000,
+        "stock": 98,
+        "attributes": null,
+        "id": "3a61ca21-e651-43bd-a195-554a318db941"
+      },
+      {
+        "sku_code": "SKU-DHH3T-DEFAULT-3",
+        "price": 48000,
+        "stock": 98,
+        "attributes": null,
+        "id": "0a8e2c63-5343-4064-a4e5-c6eee91cb867"
+      },
+      {
+        "sku_code": "SKU-DHH3T-DEFAULT-4",
+        "price": 48000,
+        "stock": 98,
+        "attributes": null,
+        "id": "36aa8da7-b3d0-4833-95af-027cad670cc9"
       }
     ],
     "brand": "Baby",
@@ -1121,6 +1688,27 @@
         "price": 110700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X3LS9-DEFAULT-2",
+        "price": 110700,
+        "stock": 41,
+        "attributes": null,
+        "id": "2cd13f86-3259-477d-acd9-62967af41b16"
+      },
+      {
+        "sku_code": "SKU-X3LS9-DEFAULT-3",
+        "price": 110700,
+        "stock": 41,
+        "attributes": null,
+        "id": "e35f5ef8-c15e-4ded-9507-84609cdb6b55"
+      },
+      {
+        "sku_code": "SKU-X3LS9-DEFAULT-4",
+        "price": 110700,
+        "stock": 41,
+        "attributes": null,
+        "id": "47c25959-a888-47d5-aba6-7f6f26e64b69"
       }
     ],
     "brand": "Mothercare",
@@ -1158,6 +1746,27 @@
         "price": 232800,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZN0O2-DEFAULT-2",
+        "price": 232800,
+        "stock": 55,
+        "attributes": null,
+        "id": "d1af2cae-cf16-4bd1-b047-aefb8b1a1b80"
+      },
+      {
+        "sku_code": "SKU-ZN0O2-DEFAULT-3",
+        "price": 232800,
+        "stock": 55,
+        "attributes": null,
+        "id": "32ca93d8-26bb-4233-a459-8b49afe1f008"
+      },
+      {
+        "sku_code": "SKU-ZN0O2-DEFAULT-4",
+        "price": 232800,
+        "stock": 55,
+        "attributes": null,
+        "id": "931d5a38-3f04-4cf6-8f6f-be8f713f39fd"
       }
     ],
     "brand": "Johnson's",
@@ -1195,6 +1804,27 @@
         "price": 59700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GAUHT-DEFAULT-2",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "3e0a251a-9012-4daf-af84-664ace460dc4"
+      },
+      {
+        "sku_code": "SKU-GAUHT-DEFAULT-3",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "ed87d863-a0e7-4a92-8aba-0d7dafe87bd2"
+      },
+      {
+        "sku_code": "SKU-GAUHT-DEFAULT-4",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "2b2572a4-98fd-4985-9e3c-588d05e61a58"
       }
     ],
     "brand": "Himalaya",
@@ -1232,6 +1862,27 @@
         "price": 119700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L94UB-DEFAULT-2",
+        "price": 119700,
+        "stock": 65,
+        "attributes": null,
+        "id": "5d244d72-42c8-4145-9287-e0373788eae7"
+      },
+      {
+        "sku_code": "SKU-L94UB-DEFAULT-3",
+        "price": 119700,
+        "stock": 65,
+        "attributes": null,
+        "id": "bb79d10f-2284-459e-a34b-cfbee15c6227"
+      },
+      {
+        "sku_code": "SKU-L94UB-DEFAULT-4",
+        "price": 119700,
+        "stock": 65,
+        "attributes": null,
+        "id": "6b35648b-2e3e-430e-ae90-b1fceca8f3a1"
       }
     ],
     "brand": "Baby",
@@ -1269,6 +1920,27 @@
         "price": 1259400,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CGAGJ-DEFAULT-2",
+        "price": 1259400,
+        "stock": 56,
+        "attributes": null,
+        "id": "9f5af269-6131-4cc0-b5ad-60ab1dd77bb9"
+      },
+      {
+        "sku_code": "SKU-CGAGJ-DEFAULT-3",
+        "price": 1259400,
+        "stock": 56,
+        "attributes": null,
+        "id": "ebde0a89-bd74-4dad-93df-ed4bfb400534"
+      },
+      {
+        "sku_code": "SKU-CGAGJ-DEFAULT-4",
+        "price": 1259400,
+        "stock": 56,
+        "attributes": null,
+        "id": "9b9b728a-79b7-4ea1-9d24-af025ac9af9a"
       }
     ],
     "brand": "Mee",
@@ -1314,6 +1986,27 @@
         "price": 83400,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XNP9C-DEFAULT-2",
+        "price": 83400,
+        "stock": 31,
+        "attributes": null,
+        "id": "c976c744-702d-4659-b528-a4bd1da25a2f"
+      },
+      {
+        "sku_code": "SKU-XNP9C-DEFAULT-3",
+        "price": 83400,
+        "stock": 31,
+        "attributes": null,
+        "id": "f2b48327-3ec1-45ec-8e47-c7e21a70c163"
+      },
+      {
+        "sku_code": "SKU-XNP9C-DEFAULT-4",
+        "price": 83400,
+        "stock": 31,
+        "attributes": null,
+        "id": "4fe479e0-d0f2-4cfa-a12b-e9549880fc4c"
       }
     ],
     "brand": "Baby",
@@ -1359,6 +2052,27 @@
         "price": 119700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9PM6R-DEFAULT-2",
+        "price": 119700,
+        "stock": 46,
+        "attributes": null,
+        "id": "b9d969d4-a774-4586-b271-c4c9d91276f2"
+      },
+      {
+        "sku_code": "SKU-9PM6R-DEFAULT-3",
+        "price": 119700,
+        "stock": 46,
+        "attributes": null,
+        "id": "623b2f86-06a2-4dc3-8ab2-1f3cb718e2cf"
+      },
+      {
+        "sku_code": "SKU-9PM6R-DEFAULT-4",
+        "price": 119700,
+        "stock": 46,
+        "attributes": null,
+        "id": "9aec1436-0afe-4a58-af12-c0016fb11d14"
       }
     ],
     "brand": "Sebamed",
@@ -1396,6 +2110,27 @@
         "price": 149700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JP624-DEFAULT-2",
+        "price": 149700,
+        "stock": 107,
+        "attributes": null,
+        "id": "bc274f20-5407-4d59-ba9b-038cdbecc4be"
+      },
+      {
+        "sku_code": "SKU-JP624-DEFAULT-3",
+        "price": 149700,
+        "stock": 107,
+        "attributes": null,
+        "id": "bf56bf68-4e20-46bc-9d2b-932d99405b9b"
+      },
+      {
+        "sku_code": "SKU-JP624-DEFAULT-4",
+        "price": 149700,
+        "stock": 107,
+        "attributes": null,
+        "id": "8e8ac908-acc8-462f-a1da-328f97325895"
       }
     ],
     "brand": "Mothercare",
@@ -1433,6 +2168,27 @@
         "price": 56700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SHTJT-DEFAULT-2",
+        "price": 56700,
+        "stock": 65,
+        "attributes": null,
+        "id": "16bdbd68-6efa-41be-aee5-87be8fb5df68"
+      },
+      {
+        "sku_code": "SKU-SHTJT-DEFAULT-3",
+        "price": 56700,
+        "stock": 65,
+        "attributes": null,
+        "id": "2e6cf767-87e2-4f99-817f-789cfc41da7a"
+      },
+      {
+        "sku_code": "SKU-SHTJT-DEFAULT-4",
+        "price": 56700,
+        "stock": 65,
+        "attributes": null,
+        "id": "56116435-22ea-4317-9911-6370e916347c"
       }
     ],
     "brand": "SYGA",
@@ -1470,6 +2226,27 @@
         "price": 68700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U7ALN-DEFAULT-2",
+        "price": 68700,
+        "stock": 102,
+        "attributes": null,
+        "id": "7ae87bb8-2ec2-4ca1-b2a6-65be91fa41a6"
+      },
+      {
+        "sku_code": "SKU-U7ALN-DEFAULT-3",
+        "price": 68700,
+        "stock": 102,
+        "attributes": null,
+        "id": "d363e64f-bd18-4c8e-ba64-5858c28c8afa"
+      },
+      {
+        "sku_code": "SKU-U7ALN-DEFAULT-4",
+        "price": 68700,
+        "stock": 102,
+        "attributes": null,
+        "id": "dc95d772-c9ce-4047-9f06-d3723abe8fdf"
       }
     ],
     "brand": "Pigeon",
@@ -1507,6 +2284,27 @@
         "price": 259200,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G7765-DEFAULT-2",
+        "price": 259200,
+        "stock": 15,
+        "attributes": null,
+        "id": "3dc16f6a-7ae5-4271-adc1-0cc79ed8f5e2"
+      },
+      {
+        "sku_code": "SKU-G7765-DEFAULT-3",
+        "price": 259200,
+        "stock": 15,
+        "attributes": null,
+        "id": "3a7d2543-f447-43ab-b740-b220d3f2df2b"
+      },
+      {
+        "sku_code": "SKU-G7765-DEFAULT-4",
+        "price": 259200,
+        "stock": 15,
+        "attributes": null,
+        "id": "faed3f04-dcfa-4a3f-b25b-49ce67c9781b"
       }
     ],
     "brand": "Sebamed",
@@ -1544,6 +2342,27 @@
         "price": 89700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YIVSV-DEFAULT-2",
+        "price": 89700,
+        "stock": 49,
+        "attributes": null,
+        "id": "884a4106-0f09-45a0-9f0a-9adb0141d1f8"
+      },
+      {
+        "sku_code": "SKU-YIVSV-DEFAULT-3",
+        "price": 89700,
+        "stock": 49,
+        "attributes": null,
+        "id": "3623b9e9-0b37-48f9-9b37-b54d0fa75406"
+      },
+      {
+        "sku_code": "SKU-YIVSV-DEFAULT-4",
+        "price": 89700,
+        "stock": 49,
+        "attributes": null,
+        "id": "349da6b3-5deb-4006-a4a1-f28a58b639c8"
       }
     ],
     "brand": "Chicco",
@@ -1589,6 +2408,27 @@
         "price": 97500,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TFYJT-DEFAULT-2",
+        "price": 97500,
+        "stock": 60,
+        "attributes": null,
+        "id": "23fd8c9e-0978-4f34-ac03-283cffdcfb62"
+      },
+      {
+        "sku_code": "SKU-TFYJT-DEFAULT-3",
+        "price": 97500,
+        "stock": 60,
+        "attributes": null,
+        "id": "eb2b5166-8a49-4f9e-be17-710c8c424fc8"
+      },
+      {
+        "sku_code": "SKU-TFYJT-DEFAULT-4",
+        "price": 97500,
+        "stock": 60,
+        "attributes": null,
+        "id": "82973363-0e7e-493b-afe5-8eba6627833c"
       }
     ],
     "brand": "MOM",
@@ -1626,6 +2466,27 @@
         "price": 535500,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CI73H-DEFAULT-2",
+        "price": 535500,
+        "stock": 45,
+        "attributes": null,
+        "id": "6d9e3c0d-db79-4937-b56d-cd01fc53a54d"
+      },
+      {
+        "sku_code": "SKU-CI73H-DEFAULT-3",
+        "price": 535500,
+        "stock": 45,
+        "attributes": null,
+        "id": "657d0a8c-a283-4321-9513-071904cca7b6"
+      },
+      {
+        "sku_code": "SKU-CI73H-DEFAULT-4",
+        "price": 535500,
+        "stock": 45,
+        "attributes": null,
+        "id": "9c564ae2-afdf-4e57-a4b5-38e63d128607"
       }
     ],
     "brand": "Mamaearth",
@@ -1671,6 +2532,27 @@
         "price": 119700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JRMYB-DEFAULT-2",
+        "price": 119700,
+        "stock": 74,
+        "attributes": null,
+        "id": "38a6f2c8-ebb3-49d8-ae4a-2bd521f404df"
+      },
+      {
+        "sku_code": "SKU-JRMYB-DEFAULT-3",
+        "price": 119700,
+        "stock": 74,
+        "attributes": null,
+        "id": "9b9496cb-662e-4a5c-a3d6-4219222e3935"
+      },
+      {
+        "sku_code": "SKU-JRMYB-DEFAULT-4",
+        "price": 119700,
+        "stock": 74,
+        "attributes": null,
+        "id": "b60ba62d-a761-4eee-9b1d-0b8498f98039"
       }
     ],
     "brand": "Pigeon",
@@ -1716,6 +2598,27 @@
         "price": 223800,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5HK4Z-DEFAULT-2",
+        "price": 223800,
+        "stock": 64,
+        "attributes": null,
+        "id": "b642143b-2533-4ee4-ab5b-480ead76bd90"
+      },
+      {
+        "sku_code": "SKU-5HK4Z-DEFAULT-3",
+        "price": 223800,
+        "stock": 64,
+        "attributes": null,
+        "id": "6bf5e305-8382-47d8-99ac-d408477626e5"
+      },
+      {
+        "sku_code": "SKU-5HK4Z-DEFAULT-4",
+        "price": 223800,
+        "stock": 64,
+        "attributes": null,
+        "id": "d5b97fff-dc4d-4535-ad9f-0796aa4f83cd"
       }
     ],
     "brand": "MOM",
@@ -1753,6 +2656,27 @@
         "price": 89700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-93RUP-DEFAULT-2",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "a91d776d-2614-4f9a-a034-f7b5aa864426"
+      },
+      {
+        "sku_code": "SKU-93RUP-DEFAULT-3",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "2ba53adb-65e9-400a-8e14-6b20f7ff5664"
+      },
+      {
+        "sku_code": "SKU-93RUP-DEFAULT-4",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "bd0ee988-f6a3-48b9-b7a9-8729c4f443c0"
       }
     ],
     "brand": "Nike",
@@ -1798,6 +2722,27 @@
         "price": 2958362.9999999995,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-13U0P-DEFAULT-2",
+        "price": 2958362.9999999995,
+        "stock": 17,
+        "attributes": null,
+        "id": "a054fed5-e585-4f18-b281-faf37c419e37"
+      },
+      {
+        "sku_code": "SKU-13U0P-DEFAULT-3",
+        "price": 2958362.9999999995,
+        "stock": 17,
+        "attributes": null,
+        "id": "ae521083-b806-41cd-bdd7-b00e00513d29"
+      },
+      {
+        "sku_code": "SKU-13U0P-DEFAULT-4",
+        "price": 2958362.9999999995,
+        "stock": 17,
+        "attributes": null,
+        "id": "0eb42f02-d8f7-4af4-99ce-c72d3e028561"
       }
     ],
     "brand": "SYGA",
@@ -1839,6 +2784,27 @@
         "price": 86700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1B5T5-DEFAULT-2",
+        "price": 86700,
+        "stock": 62,
+        "attributes": null,
+        "id": "bf5f23f6-5541-4cfc-bf1b-5b42320839fd"
+      },
+      {
+        "sku_code": "SKU-1B5T5-DEFAULT-3",
+        "price": 86700,
+        "stock": 62,
+        "attributes": null,
+        "id": "be942dfc-e418-4827-bcd7-39f21df87e1b"
+      },
+      {
+        "sku_code": "SKU-1B5T5-DEFAULT-4",
+        "price": 86700,
+        "stock": 62,
+        "attributes": null,
+        "id": "2cbd0748-c1e0-488b-a5f4-e60c3f66407d"
       }
     ],
     "brand": "Nike",
@@ -1876,6 +2842,27 @@
         "price": 51600,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H00Q7-DEFAULT-2",
+        "price": 51600,
+        "stock": 77,
+        "attributes": null,
+        "id": "749ce9c9-eac2-4b4b-a99f-0cb041cebfb8"
+      },
+      {
+        "sku_code": "SKU-H00Q7-DEFAULT-3",
+        "price": 51600,
+        "stock": 77,
+        "attributes": null,
+        "id": "e5cb4bb4-2104-48e9-80ab-0f34bf445790"
+      },
+      {
+        "sku_code": "SKU-H00Q7-DEFAULT-4",
+        "price": 51600,
+        "stock": 77,
+        "attributes": null,
+        "id": "7339ef2c-749a-45a6-bfbf-0d12f84f09a9"
       }
     ],
     "brand": "MOM",
@@ -1917,6 +2904,27 @@
         "price": 179700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-20JP7-DEFAULT-2",
+        "price": 179700,
+        "stock": 61,
+        "attributes": null,
+        "id": "c918951e-a1db-49b5-b9cb-a7c81f6907de"
+      },
+      {
+        "sku_code": "SKU-20JP7-DEFAULT-3",
+        "price": 179700,
+        "stock": 61,
+        "attributes": null,
+        "id": "52fdc4af-2737-488e-9d1c-1145da1a561e"
+      },
+      {
+        "sku_code": "SKU-20JP7-DEFAULT-4",
+        "price": 179700,
+        "stock": 61,
+        "attributes": null,
+        "id": "fee780b1-2679-4809-b10f-5e50da273863"
       }
     ],
     "brand": "Sebamed",
@@ -1954,6 +2962,27 @@
         "price": 107700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OBD5K-DEFAULT-2",
+        "price": 107700,
+        "stock": 69,
+        "attributes": null,
+        "id": "9bd77dc5-c49e-4dd6-985f-e8b30d4cbcb3"
+      },
+      {
+        "sku_code": "SKU-OBD5K-DEFAULT-3",
+        "price": 107700,
+        "stock": 69,
+        "attributes": null,
+        "id": "9d7fe221-4a99-430c-a29c-306be6bd478a"
+      },
+      {
+        "sku_code": "SKU-OBD5K-DEFAULT-4",
+        "price": 107700,
+        "stock": 69,
+        "attributes": null,
+        "id": "a488727f-3c6e-48ec-8bbc-f577698e4f90"
       }
     ],
     "brand": "Chicco",
@@ -1991,6 +3020,27 @@
         "price": 112500,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MWLTV-DEFAULT-2",
+        "price": 112500,
+        "stock": 103,
+        "attributes": null,
+        "id": "b98ac169-5659-4962-8f84-e18445802e81"
+      },
+      {
+        "sku_code": "SKU-MWLTV-DEFAULT-3",
+        "price": 112500,
+        "stock": 103,
+        "attributes": null,
+        "id": "c794b404-35fb-4bc7-bc65-05f830a8365a"
+      },
+      {
+        "sku_code": "SKU-MWLTV-DEFAULT-4",
+        "price": 112500,
+        "stock": 103,
+        "attributes": null,
+        "id": "41eafeae-223f-46ba-ac47-f597a4bb0432"
       }
     ],
     "brand": "Pigeon",
@@ -2028,6 +3078,27 @@
         "price": 119400,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ERKYG-DEFAULT-2",
+        "price": 119400,
+        "stock": 90,
+        "attributes": null,
+        "id": "42218726-d5e8-4b6e-87f1-cd6ae0d7af33"
+      },
+      {
+        "sku_code": "SKU-ERKYG-DEFAULT-3",
+        "price": 119400,
+        "stock": 90,
+        "attributes": null,
+        "id": "2b92c18e-e77d-44ec-bcbd-7824caa7a0fa"
+      },
+      {
+        "sku_code": "SKU-ERKYG-DEFAULT-4",
+        "price": 119400,
+        "stock": 90,
+        "attributes": null,
+        "id": "e887130f-81c9-451c-8f33-d28970662f3a"
       }
     ],
     "brand": "Chicco",
@@ -2065,6 +3136,27 @@
         "price": 532500,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KGPNI-DEFAULT-2",
+        "price": 532500,
+        "stock": 95,
+        "attributes": null,
+        "id": "48bf1346-a864-4102-973d-24eab8fb0c0e"
+      },
+      {
+        "sku_code": "SKU-KGPNI-DEFAULT-3",
+        "price": 532500,
+        "stock": 95,
+        "attributes": null,
+        "id": "61c58cd9-5d35-4f6d-9066-908df70312c1"
+      },
+      {
+        "sku_code": "SKU-KGPNI-DEFAULT-4",
+        "price": 532500,
+        "stock": 95,
+        "attributes": null,
+        "id": "662d5511-c2f8-4338-917d-4f303e349fdd"
       }
     ],
     "brand": "Himalaya",
@@ -2110,6 +3202,27 @@
         "price": 89700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-13F8F-DEFAULT-2",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "5fc942a8-9102-4639-8be1-ad936130ea26"
+      },
+      {
+        "sku_code": "SKU-13F8F-DEFAULT-3",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "cf744569-6c93-4800-aa80-47f8266f86fa"
+      },
+      {
+        "sku_code": "SKU-13F8F-DEFAULT-4",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "4f1b4ca6-7638-46a1-a18f-821685a4a524"
       }
     ],
     "brand": "Little",
@@ -2155,6 +3268,27 @@
         "price": 899700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-22RVQ-DEFAULT-2",
+        "price": 899700,
+        "stock": 68,
+        "attributes": null,
+        "id": "5a4cfc1a-92c4-4d2a-b98d-a18a92276217"
+      },
+      {
+        "sku_code": "SKU-22RVQ-DEFAULT-3",
+        "price": 899700,
+        "stock": 68,
+        "attributes": null,
+        "id": "ed98b8a1-ed45-4f11-91c8-618f10adf9e4"
+      },
+      {
+        "sku_code": "SKU-22RVQ-DEFAULT-4",
+        "price": 899700,
+        "stock": 68,
+        "attributes": null,
+        "id": "5fcde8da-ca1f-4a49-af33-06c54415e7b1"
       }
     ],
     "brand": "Pigeon",
@@ -2200,6 +3334,27 @@
         "price": 74700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0PWT7-DEFAULT-2",
+        "price": 74700,
+        "stock": 72,
+        "attributes": null,
+        "id": "d744990a-7e0a-4ee5-be46-10e8d8a267cf"
+      },
+      {
+        "sku_code": "SKU-0PWT7-DEFAULT-3",
+        "price": 74700,
+        "stock": 72,
+        "attributes": null,
+        "id": "da309376-a9e6-42e3-9cf2-ac5beb8a60f3"
+      },
+      {
+        "sku_code": "SKU-0PWT7-DEFAULT-4",
+        "price": 74700,
+        "stock": 72,
+        "attributes": null,
+        "id": "4e29d916-ae3d-4523-876a-02f30127a744"
       }
     ],
     "brand": "First",
@@ -2245,6 +3400,27 @@
         "price": 89700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NKDS3-DEFAULT-2",
+        "price": 89700,
+        "stock": 90,
+        "attributes": null,
+        "id": "eeb4b504-23fa-431c-9f4c-0832f2edc551"
+      },
+      {
+        "sku_code": "SKU-NKDS3-DEFAULT-3",
+        "price": 89700,
+        "stock": 90,
+        "attributes": null,
+        "id": "1a505214-be9e-4334-b73b-6c9f50e6cf5a"
+      },
+      {
+        "sku_code": "SKU-NKDS3-DEFAULT-4",
+        "price": 89700,
+        "stock": 90,
+        "attributes": null,
+        "id": "c32596d5-f4c8-4544-9b1c-947b03a58104"
       }
     ],
     "brand": "Softsens",
@@ -2286,6 +3462,27 @@
         "price": 104700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-539D4-DEFAULT-2",
+        "price": 104700,
+        "stock": 19,
+        "attributes": null,
+        "id": "53c57b52-e47c-490d-9d68-53270c77b2b9"
+      },
+      {
+        "sku_code": "SKU-539D4-DEFAULT-3",
+        "price": 104700,
+        "stock": 19,
+        "attributes": null,
+        "id": "9005283b-8e0c-4d32-bba5-494bd1157390"
+      },
+      {
+        "sku_code": "SKU-539D4-DEFAULT-4",
+        "price": 104700,
+        "stock": 19,
+        "attributes": null,
+        "id": "00b54cd2-4eb7-4e9d-8c03-2293cdfc5654"
       }
     ],
     "brand": "Himalaya",
@@ -2331,6 +3528,27 @@
         "price": 74700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S8OD3-DEFAULT-2",
+        "price": 74700,
+        "stock": 24,
+        "attributes": null,
+        "id": "3d0815d4-0179-484b-b0bb-b43ff802597a"
+      },
+      {
+        "sku_code": "SKU-S8OD3-DEFAULT-3",
+        "price": 74700,
+        "stock": 24,
+        "attributes": null,
+        "id": "ff8d0ba2-37cd-47e2-ad1e-9fadd2acf437"
+      },
+      {
+        "sku_code": "SKU-S8OD3-DEFAULT-4",
+        "price": 74700,
+        "stock": 24,
+        "attributes": null,
+        "id": "63fade78-3798-42f0-adab-e13a6674e85a"
       }
     ],
     "brand": "Baby",
@@ -2372,6 +3590,27 @@
         "price": 143700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GHKZR-DEFAULT-2",
+        "price": 143700,
+        "stock": 36,
+        "attributes": null,
+        "id": "f809dac7-cedc-4075-88fc-2523ec1edf93"
+      },
+      {
+        "sku_code": "SKU-GHKZR-DEFAULT-3",
+        "price": 143700,
+        "stock": 36,
+        "attributes": null,
+        "id": "2e7e82d2-7632-4ae9-b17f-707668c11657"
+      },
+      {
+        "sku_code": "SKU-GHKZR-DEFAULT-4",
+        "price": 143700,
+        "stock": 36,
+        "attributes": null,
+        "id": "e1bfff88-a1c9-4e96-a99f-7caa39e8d964"
       }
     ],
     "brand": "Little",
@@ -2413,6 +3652,27 @@
         "price": 119700,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3G2Z0-DEFAULT-2",
+        "price": 119700,
+        "stock": 40,
+        "attributes": null,
+        "id": "940219a8-76bc-4c36-bbe4-4b3f69da4c63"
+      },
+      {
+        "sku_code": "SKU-3G2Z0-DEFAULT-3",
+        "price": 119700,
+        "stock": 40,
+        "attributes": null,
+        "id": "e96ad870-2827-4254-9dc1-8bbfd92b6a12"
+      },
+      {
+        "sku_code": "SKU-3G2Z0-DEFAULT-4",
+        "price": 119700,
+        "stock": 40,
+        "attributes": null,
+        "id": "e4193e7f-a1fc-474c-a76b-14beb16ec949"
       }
     ],
     "brand": "MOM",
@@ -2458,6 +3718,27 @@
         "price": 144600,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9H52O-DEFAULT-2",
+        "price": 144600,
+        "stock": 16,
+        "attributes": null,
+        "id": "331a81a8-e48c-4405-a251-d8f504dad9db"
+      },
+      {
+        "sku_code": "SKU-9H52O-DEFAULT-3",
+        "price": 144600,
+        "stock": 16,
+        "attributes": null,
+        "id": "845b9dc5-ecc6-4492-912c-4ad854f5902a"
+      },
+      {
+        "sku_code": "SKU-9H52O-DEFAULT-4",
+        "price": 144600,
+        "stock": 16,
+        "attributes": null,
+        "id": "c53f0750-4612-4d0b-8d9c-625b7c54f98b"
       }
     ],
     "brand": "Apple",
@@ -2499,6 +3780,27 @@
         "price": 94500,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LIXRP-DEFAULT-2",
+        "price": 94500,
+        "stock": 80,
+        "attributes": null,
+        "id": "91f7c565-a382-4b8f-acd4-d7e9ac66ab67"
+      },
+      {
+        "sku_code": "SKU-LIXRP-DEFAULT-3",
+        "price": 94500,
+        "stock": 80,
+        "attributes": null,
+        "id": "9b06ab6e-7139-4d21-8d67-4ded339fbba3"
+      },
+      {
+        "sku_code": "SKU-LIXRP-DEFAULT-4",
+        "price": 94500,
+        "stock": 80,
+        "attributes": null,
+        "id": "4f963a44-10a7-4017-b880-0e8c7c7fe951"
       }
     ],
     "brand": "Little",
@@ -2544,6 +3846,27 @@
         "price": 89700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QKW91-DEFAULT-2",
+        "price": 89700,
+        "stock": 65,
+        "attributes": null,
+        "id": "ed1bd4f8-2de9-4460-8e2b-218c889644dc"
+      },
+      {
+        "sku_code": "SKU-QKW91-DEFAULT-3",
+        "price": 89700,
+        "stock": 65,
+        "attributes": null,
+        "id": "e74f6877-c677-4fc1-bf6f-018d076c7dfb"
+      },
+      {
+        "sku_code": "SKU-QKW91-DEFAULT-4",
+        "price": 89700,
+        "stock": 65,
+        "attributes": null,
+        "id": "3abc6c61-aa7e-463e-be01-9348fd27d1c7"
       }
     ],
     "brand": "Sebamed",
@@ -2581,6 +3904,27 @@
         "price": 89700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U4YT3-DEFAULT-2",
+        "price": 89700,
+        "stock": 57,
+        "attributes": null,
+        "id": "bfa5150b-1b0d-4907-9cca-ecaee26a26ef"
+      },
+      {
+        "sku_code": "SKU-U4YT3-DEFAULT-3",
+        "price": 89700,
+        "stock": 57,
+        "attributes": null,
+        "id": "bce19570-48c9-40b0-a1b4-c62e06bc2754"
+      },
+      {
+        "sku_code": "SKU-U4YT3-DEFAULT-4",
+        "price": 89700,
+        "stock": 57,
+        "attributes": null,
+        "id": "863201b2-8d8d-4ba8-810c-dbb00a62876c"
       }
     ],
     "brand": "HP",
@@ -2622,6 +3966,27 @@
         "price": 74700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0MR6E-DEFAULT-2",
+        "price": 74700,
+        "stock": 63,
+        "attributes": null,
+        "id": "f783475b-f9d1-49af-b9b1-06a229dc15c3"
+      },
+      {
+        "sku_code": "SKU-0MR6E-DEFAULT-3",
+        "price": 74700,
+        "stock": 63,
+        "attributes": null,
+        "id": "5a6e8804-61fb-4334-bc89-8004c82c4e82"
+      },
+      {
+        "sku_code": "SKU-0MR6E-DEFAULT-4",
+        "price": 74700,
+        "stock": 63,
+        "attributes": null,
+        "id": "2201f43b-1ddd-4d48-bc91-3860273f30db"
       }
     ],
     "brand": "Johnson's",
@@ -2667,6 +4032,27 @@
         "price": 50700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-70AA4-DEFAULT-2",
+        "price": 50700,
+        "stock": 41,
+        "attributes": null,
+        "id": "ea643448-20f6-44f7-ae6c-e276c203afbe"
+      },
+      {
+        "sku_code": "SKU-70AA4-DEFAULT-3",
+        "price": 50700,
+        "stock": 41,
+        "attributes": null,
+        "id": "e381f707-5c3d-48ff-97ae-d6fe3e0f9fe4"
+      },
+      {
+        "sku_code": "SKU-70AA4-DEFAULT-4",
+        "price": 50700,
+        "stock": 41,
+        "attributes": null,
+        "id": "001c29e5-c09f-41e0-aeb0-4083cb4e7982"
       }
     ],
     "brand": "Mothercare",
@@ -2708,6 +4094,27 @@
         "price": 72600,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZXE0I-DEFAULT-2",
+        "price": 72600,
+        "stock": 99,
+        "attributes": null,
+        "id": "8e09229f-a41e-47f4-9e1c-cae4142924fe"
+      },
+      {
+        "sku_code": "SKU-ZXE0I-DEFAULT-3",
+        "price": 72600,
+        "stock": 99,
+        "attributes": null,
+        "id": "be668bf4-c002-4603-9952-37cab52a035c"
+      },
+      {
+        "sku_code": "SKU-ZXE0I-DEFAULT-4",
+        "price": 72600,
+        "stock": 99,
+        "attributes": null,
+        "id": "40623567-f9ba-4f8e-9703-56337e4de3fb"
       }
     ],
     "brand": "Chicco",
@@ -2745,6 +4152,27 @@
         "price": 426300,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6J33G-DEFAULT-2",
+        "price": 426300,
+        "stock": 103,
+        "attributes": null,
+        "id": "34fdd173-10cd-4bed-bf03-34f58d43d76e"
+      },
+      {
+        "sku_code": "SKU-6J33G-DEFAULT-3",
+        "price": 426300,
+        "stock": 103,
+        "attributes": null,
+        "id": "a37a7f8a-7833-4d6b-a6be-8c3c8e87a468"
+      },
+      {
+        "sku_code": "SKU-6J33G-DEFAULT-4",
+        "price": 426300,
+        "stock": 103,
+        "attributes": null,
+        "id": "ddab12fb-56fd-4402-9556-63c688502d6d"
       }
     ],
     "brand": "Chicco",
@@ -2790,6 +4218,27 @@
         "price": 497250,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WGHPH-DEFAULT-2",
+        "price": 497250,
+        "stock": 104,
+        "attributes": null,
+        "id": "0b1df5bc-dc27-495a-941a-f9658cfb020c"
+      },
+      {
+        "sku_code": "SKU-WGHPH-DEFAULT-3",
+        "price": 497250,
+        "stock": 104,
+        "attributes": null,
+        "id": "09e8cd89-8ac9-4e17-96e4-c11c78ced6d9"
+      },
+      {
+        "sku_code": "SKU-WGHPH-DEFAULT-4",
+        "price": 497250,
+        "stock": 104,
+        "attributes": null,
+        "id": "b2cb11f7-a44d-4d2e-9d8d-2b147e3f7ad1"
       }
     ],
     "brand": "Johnson's",
@@ -2827,6 +4276,27 @@
         "price": 99600,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0IWNN-DEFAULT-2",
+        "price": 99600,
+        "stock": 34,
+        "attributes": null,
+        "id": "51f91d73-e9fc-4ce0-8328-84ba59e00833"
+      },
+      {
+        "sku_code": "SKU-0IWNN-DEFAULT-3",
+        "price": 99600,
+        "stock": 34,
+        "attributes": null,
+        "id": "69be0e40-88bf-42fa-b0c4-9831639955e4"
+      },
+      {
+        "sku_code": "SKU-0IWNN-DEFAULT-4",
+        "price": 99600,
+        "stock": 34,
+        "attributes": null,
+        "id": "a3d36c2f-106a-40d7-bdc0-aa3d7ea1219b"
       }
     ],
     "brand": "Baby",
@@ -2864,6 +4334,27 @@
         "price": 209700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QGPPI-DEFAULT-2",
+        "price": 209700,
+        "stock": 102,
+        "attributes": null,
+        "id": "946c9dd6-b2fc-487b-8519-cce01a619b96"
+      },
+      {
+        "sku_code": "SKU-QGPPI-DEFAULT-3",
+        "price": 209700,
+        "stock": 102,
+        "attributes": null,
+        "id": "f15a3388-59d5-4698-a02a-252f6ee831c4"
+      },
+      {
+        "sku_code": "SKU-QGPPI-DEFAULT-4",
+        "price": 209700,
+        "stock": 102,
+        "attributes": null,
+        "id": "4f8ffd47-83ec-4566-aeef-149562216237"
       }
     ],
     "brand": "Apple",
@@ -2905,6 +4396,27 @@
         "price": 161700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y5P50-DEFAULT-2",
+        "price": 161700,
+        "stock": 76,
+        "attributes": null,
+        "id": "411aba32-184a-4819-a7e9-49a1d0e1299c"
+      },
+      {
+        "sku_code": "SKU-Y5P50-DEFAULT-3",
+        "price": 161700,
+        "stock": 76,
+        "attributes": null,
+        "id": "89d78723-d30f-42d4-92da-5e7a5774ee40"
+      },
+      {
+        "sku_code": "SKU-Y5P50-DEFAULT-4",
+        "price": 161700,
+        "stock": 76,
+        "attributes": null,
+        "id": "ab7a4780-2269-46d6-a7fc-d09f49397ef3"
       }
     ],
     "brand": "Softsens",
@@ -2942,6 +4454,27 @@
         "price": 44100,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IOWXZ-DEFAULT-2",
+        "price": 44100,
+        "stock": 26,
+        "attributes": null,
+        "id": "4a2077de-e7cd-4684-b183-97d09a243f98"
+      },
+      {
+        "sku_code": "SKU-IOWXZ-DEFAULT-3",
+        "price": 44100,
+        "stock": 26,
+        "attributes": null,
+        "id": "3209a7c7-5088-4e35-b436-362c3fc2b78b"
+      },
+      {
+        "sku_code": "SKU-IOWXZ-DEFAULT-4",
+        "price": 44100,
+        "stock": 26,
+        "attributes": null,
+        "id": "60ad85a1-d9bc-4548-b971-69a5d23bb396"
       }
     ],
     "brand": "Mamaearth",
@@ -2979,6 +4512,27 @@
         "price": 314700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SV5W1-DEFAULT-2",
+        "price": 314700,
+        "stock": 94,
+        "attributes": null,
+        "id": "4b4ab3e5-2070-4ec5-9af5-3b5602a32a26"
+      },
+      {
+        "sku_code": "SKU-SV5W1-DEFAULT-3",
+        "price": 314700,
+        "stock": 94,
+        "attributes": null,
+        "id": "cbb6b683-02f7-4325-a991-b6b031651ebb"
+      },
+      {
+        "sku_code": "SKU-SV5W1-DEFAULT-4",
+        "price": 314700,
+        "stock": 94,
+        "attributes": null,
+        "id": "438cf9ea-b49b-4109-be03-a7d5ac142168"
       }
     ],
     "brand": "Baby",
@@ -3016,6 +4570,27 @@
         "price": 101400,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LBFL3-DEFAULT-2",
+        "price": 101400,
+        "stock": 31,
+        "attributes": null,
+        "id": "efb13440-e3cf-4aa9-9162-75ff065456e4"
+      },
+      {
+        "sku_code": "SKU-LBFL3-DEFAULT-3",
+        "price": 101400,
+        "stock": 31,
+        "attributes": null,
+        "id": "1d6cc46e-a797-4a06-bcae-8976c7e6dfeb"
+      },
+      {
+        "sku_code": "SKU-LBFL3-DEFAULT-4",
+        "price": 101400,
+        "stock": 31,
+        "attributes": null,
+        "id": "ee6de976-0070-483c-92f2-d48cc17835f6"
       }
     ],
     "brand": "LuvLap",
@@ -3057,6 +4632,27 @@
         "price": 74700,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6FREH-DEFAULT-2",
+        "price": 74700,
+        "stock": 47,
+        "attributes": null,
+        "id": "3b852aa6-7fbe-4b54-be32-56e9d56f48af"
+      },
+      {
+        "sku_code": "SKU-6FREH-DEFAULT-3",
+        "price": 74700,
+        "stock": 47,
+        "attributes": null,
+        "id": "1d534578-4b9a-4c1c-a5d2-8cce864560ac"
+      },
+      {
+        "sku_code": "SKU-6FREH-DEFAULT-4",
+        "price": 74700,
+        "stock": 47,
+        "attributes": null,
+        "id": "39249306-6964-4bf5-b1bc-73e565c2b470"
       }
     ],
     "brand": "Johnson's",
@@ -3098,6 +4694,27 @@
         "price": 100500,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RPRID-DEFAULT-2",
+        "price": 100500,
+        "stock": 33,
+        "attributes": null,
+        "id": "30f93f0c-9a7c-4726-91b3-3d29830e99c2"
+      },
+      {
+        "sku_code": "SKU-RPRID-DEFAULT-3",
+        "price": 100500,
+        "stock": 33,
+        "attributes": null,
+        "id": "830d8320-88c1-4ede-b766-872875ed8a48"
+      },
+      {
+        "sku_code": "SKU-RPRID-DEFAULT-4",
+        "price": 100500,
+        "stock": 33,
+        "attributes": null,
+        "id": "0a73d9cd-989b-45f3-83b4-e77294a0810b"
       }
     ],
     "brand": "Apple",
@@ -3135,6 +4752,27 @@
         "price": 290700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2RLNR-DEFAULT-2",
+        "price": 290700,
+        "stock": 69,
+        "attributes": null,
+        "id": "3a3dc1e3-7916-46c1-9046-bceea8bb407f"
+      },
+      {
+        "sku_code": "SKU-2RLNR-DEFAULT-3",
+        "price": 290700,
+        "stock": 69,
+        "attributes": null,
+        "id": "6409f1bd-ba0e-4df9-9afa-74b3c3a5d765"
+      },
+      {
+        "sku_code": "SKU-2RLNR-DEFAULT-4",
+        "price": 290700,
+        "stock": 69,
+        "attributes": null,
+        "id": "00afcf00-b7b0-424b-9603-2ca4013339a8"
       }
     ],
     "brand": "Mothercare",
@@ -3172,6 +4810,27 @@
         "price": 59400,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5VORK-DEFAULT-2",
+        "price": 59400,
+        "stock": 62,
+        "attributes": null,
+        "id": "48d3c90b-c59d-4226-a4dd-e2011232d0e5"
+      },
+      {
+        "sku_code": "SKU-5VORK-DEFAULT-3",
+        "price": 59400,
+        "stock": 62,
+        "attributes": null,
+        "id": "c806cae2-7deb-4454-a84e-2b629fee22dc"
+      },
+      {
+        "sku_code": "SKU-5VORK-DEFAULT-4",
+        "price": 59400,
+        "stock": 62,
+        "attributes": null,
+        "id": "2b02df07-8385-457d-b40d-c975bb095de4"
       }
     ],
     "brand": "Mee",
@@ -3211,6 +4870,27 @@
         "price": 88500,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4RPCW-DEFAULT-2",
+        "price": 88500,
+        "stock": 39,
+        "attributes": null,
+        "id": "ce17705a-80b9-4d96-9e98-071eb38a6c6f"
+      },
+      {
+        "sku_code": "SKU-4RPCW-DEFAULT-3",
+        "price": 88500,
+        "stock": 39,
+        "attributes": null,
+        "id": "42c226af-b529-49cd-9017-12fd1b195452"
+      },
+      {
+        "sku_code": "SKU-4RPCW-DEFAULT-4",
+        "price": 88500,
+        "stock": 39,
+        "attributes": null,
+        "id": "df7046c6-b391-4099-98a8-8e90ab509fc1"
       }
     ],
     "brand": "Nike",
@@ -3248,6 +4928,27 @@
         "price": 879000,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8NC8R-DEFAULT-2",
+        "price": 879000,
+        "stock": 84,
+        "attributes": null,
+        "id": "64e6f724-79e4-4093-b083-77df0dd4ca39"
+      },
+      {
+        "sku_code": "SKU-8NC8R-DEFAULT-3",
+        "price": 879000,
+        "stock": 84,
+        "attributes": null,
+        "id": "2a1af745-69e2-4365-82c4-a992a4084bc3"
+      },
+      {
+        "sku_code": "SKU-8NC8R-DEFAULT-4",
+        "price": 879000,
+        "stock": 84,
+        "attributes": null,
+        "id": "28ef0b70-dda2-4bdb-b13a-2aab47c73ee8"
       }
     ],
     "brand": "Mamaearth",
@@ -3289,6 +4990,27 @@
         "price": 479700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IRCQZ-DEFAULT-2",
+        "price": 479700,
+        "stock": 93,
+        "attributes": null,
+        "id": "8cbc6488-0f25-4785-81d8-32101563fefa"
+      },
+      {
+        "sku_code": "SKU-IRCQZ-DEFAULT-3",
+        "price": 479700,
+        "stock": 93,
+        "attributes": null,
+        "id": "96348813-b65b-45f1-a916-32afa82a9330"
+      },
+      {
+        "sku_code": "SKU-IRCQZ-DEFAULT-4",
+        "price": 479700,
+        "stock": 93,
+        "attributes": null,
+        "id": "91570ed5-b59f-4e94-a8b7-8b4a695f29d6"
       }
     ],
     "brand": "First",
@@ -3326,6 +5048,27 @@
         "price": 629700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6WDZJ-DEFAULT-2",
+        "price": 629700,
+        "stock": 48,
+        "attributes": null,
+        "id": "e8ff3b2f-ebbf-4794-83aa-463c2515b5c2"
+      },
+      {
+        "sku_code": "SKU-6WDZJ-DEFAULT-3",
+        "price": 629700,
+        "stock": 48,
+        "attributes": null,
+        "id": "451f9471-6e98-4e47-9c7c-2e587846b9a6"
+      },
+      {
+        "sku_code": "SKU-6WDZJ-DEFAULT-4",
+        "price": 629700,
+        "stock": 48,
+        "attributes": null,
+        "id": "6bd4ffe6-4588-484e-ac61-da2546db9a9b"
       }
     ],
     "brand": "MOM",
@@ -3371,6 +5114,27 @@
         "price": 407400,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5OR2D-DEFAULT-2",
+        "price": 407400,
+        "stock": 107,
+        "attributes": null,
+        "id": "a1317d70-0d52-429e-bb32-02952affa864"
+      },
+      {
+        "sku_code": "SKU-5OR2D-DEFAULT-3",
+        "price": 407400,
+        "stock": 107,
+        "attributes": null,
+        "id": "78e4eb87-7172-4048-af22-a7cdf89f874c"
+      },
+      {
+        "sku_code": "SKU-5OR2D-DEFAULT-4",
+        "price": 407400,
+        "stock": 107,
+        "attributes": null,
+        "id": "2682f56c-546a-433c-99b4-80276a64f40f"
       }
     ],
     "brand": "Softsens",
@@ -3408,6 +5172,27 @@
         "price": 787800,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EOWY9-DEFAULT-2",
+        "price": 787800,
+        "stock": 15,
+        "attributes": null,
+        "id": "33854012-bc24-4ec9-a5fe-6529791dcd48"
+      },
+      {
+        "sku_code": "SKU-EOWY9-DEFAULT-3",
+        "price": 787800,
+        "stock": 15,
+        "attributes": null,
+        "id": "f56319c6-cd66-413b-b3f6-0e32bc0f8afe"
+      },
+      {
+        "sku_code": "SKU-EOWY9-DEFAULT-4",
+        "price": 787800,
+        "stock": 15,
+        "attributes": null,
+        "id": "1f01468f-fcca-4b2e-bacf-18035a5faaf4"
       }
     ],
     "brand": "Johnson's",
@@ -3455,6 +5240,27 @@
         "price": 176700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H8NKN-DEFAULT-2",
+        "price": 176700,
+        "stock": 38,
+        "attributes": null,
+        "id": "ebc79c1a-4654-412e-8f98-2267d07bff57"
+      },
+      {
+        "sku_code": "SKU-H8NKN-DEFAULT-3",
+        "price": 176700,
+        "stock": 38,
+        "attributes": null,
+        "id": "c83ce4ff-c54a-4ce4-80b0-f8002af5a62d"
+      },
+      {
+        "sku_code": "SKU-H8NKN-DEFAULT-4",
+        "price": 176700,
+        "stock": 38,
+        "attributes": null,
+        "id": "13c4266e-04e2-47ae-aed4-0f30d0cdc04b"
       }
     ],
     "brand": "Samsung",
@@ -3492,6 +5298,27 @@
         "price": 74700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GBE32-DEFAULT-2",
+        "price": 74700,
+        "stock": 97,
+        "attributes": null,
+        "id": "331db3ba-adea-4ef7-8a55-ff188ae08198"
+      },
+      {
+        "sku_code": "SKU-GBE32-DEFAULT-3",
+        "price": 74700,
+        "stock": 97,
+        "attributes": null,
+        "id": "d85d2468-da80-4289-9b87-dcb5ae57fb08"
+      },
+      {
+        "sku_code": "SKU-GBE32-DEFAULT-4",
+        "price": 74700,
+        "stock": 97,
+        "attributes": null,
+        "id": "276f8483-b320-4968-bbc5-86a63dcbc52b"
       }
     ],
     "brand": "Himalaya",
@@ -3529,6 +5356,27 @@
         "price": 89700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SQS79-DEFAULT-2",
+        "price": 89700,
+        "stock": 92,
+        "attributes": null,
+        "id": "eb9ef7de-873d-476a-b32a-c72235c3f8df"
+      },
+      {
+        "sku_code": "SKU-SQS79-DEFAULT-3",
+        "price": 89700,
+        "stock": 92,
+        "attributes": null,
+        "id": "b40abaae-0000-44d4-8f91-6abec1380b57"
+      },
+      {
+        "sku_code": "SKU-SQS79-DEFAULT-4",
+        "price": 89700,
+        "stock": 92,
+        "attributes": null,
+        "id": "b71dfda9-fd9b-4670-84ab-b2f37d201c73"
       }
     ],
     "brand": "Mamaearth",
@@ -3570,6 +5418,27 @@
         "price": 59700,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y398W-DEFAULT-2",
+        "price": 59700,
+        "stock": 82,
+        "attributes": null,
+        "id": "b745200c-adf4-4ddf-b6a9-479fd1cda762"
+      },
+      {
+        "sku_code": "SKU-Y398W-DEFAULT-3",
+        "price": 59700,
+        "stock": 82,
+        "attributes": null,
+        "id": "0f46100f-3963-4c4b-a8c2-111242193b99"
+      },
+      {
+        "sku_code": "SKU-Y398W-DEFAULT-4",
+        "price": 59700,
+        "stock": 82,
+        "attributes": null,
+        "id": "b931af71-3539-445c-a948-13a74881726c"
       }
     ],
     "brand": "Little",
@@ -3607,6 +5476,27 @@
         "price": 112500,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2WBLK-DEFAULT-2",
+        "price": 112500,
+        "stock": 64,
+        "attributes": null,
+        "id": "31c73a9c-6961-41ce-864d-7bc1fe3bdde4"
+      },
+      {
+        "sku_code": "SKU-2WBLK-DEFAULT-3",
+        "price": 112500,
+        "stock": 64,
+        "attributes": null,
+        "id": "fd844ab2-f824-4e04-924c-330ff1aa580d"
+      },
+      {
+        "sku_code": "SKU-2WBLK-DEFAULT-4",
+        "price": 112500,
+        "stock": 64,
+        "attributes": null,
+        "id": "3d8fb7e4-89ff-4ebe-ad5a-4bf8faf7b092"
       }
     ],
     "brand": "Mamaearth",
@@ -3652,6 +5542,27 @@
         "price": 74700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z2UCT-DEFAULT-2",
+        "price": 74700,
+        "stock": 56,
+        "attributes": null,
+        "id": "3adbf6a7-f179-4af4-9cae-cd90063d750f"
+      },
+      {
+        "sku_code": "SKU-Z2UCT-DEFAULT-3",
+        "price": 74700,
+        "stock": 56,
+        "attributes": null,
+        "id": "cc41fdb3-f25e-4636-bb04-641f32d0a910"
+      },
+      {
+        "sku_code": "SKU-Z2UCT-DEFAULT-4",
+        "price": 74700,
+        "stock": 56,
+        "attributes": null,
+        "id": "8b53589e-8106-4d23-b216-96ba305696ce"
       }
     ],
     "brand": "Mamaearth",
@@ -3689,6 +5600,27 @@
         "price": 89700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WQEJS-DEFAULT-2",
+        "price": 89700,
+        "stock": 20,
+        "attributes": null,
+        "id": "9353c380-05c1-48bf-9617-1f8a499c33ac"
+      },
+      {
+        "sku_code": "SKU-WQEJS-DEFAULT-3",
+        "price": 89700,
+        "stock": 20,
+        "attributes": null,
+        "id": "94ba57d6-b84a-401b-9513-7d94b84ce784"
+      },
+      {
+        "sku_code": "SKU-WQEJS-DEFAULT-4",
+        "price": 89700,
+        "stock": 20,
+        "attributes": null,
+        "id": "d8c19907-f705-4b60-88df-3ccfe38ef923"
       }
     ],
     "brand": "Sebamed",
@@ -3734,6 +5666,27 @@
         "price": 124500,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PDXMD-DEFAULT-2",
+        "price": 124500,
+        "stock": 89,
+        "attributes": null,
+        "id": "dac13430-775d-4235-b4ff-904e46d7538e"
+      },
+      {
+        "sku_code": "SKU-PDXMD-DEFAULT-3",
+        "price": 124500,
+        "stock": 89,
+        "attributes": null,
+        "id": "0c5545f4-ba64-4bb8-b727-a4fa3f2aa6a7"
+      },
+      {
+        "sku_code": "SKU-PDXMD-DEFAULT-4",
+        "price": 124500,
+        "stock": 89,
+        "attributes": null,
+        "id": "f60013b0-0af0-4313-b8ac-ea8795d657bb"
       }
     ],
     "brand": "Pigeon",
@@ -3771,6 +5724,27 @@
         "price": 134700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6BYEO-DEFAULT-2",
+        "price": 134700,
+        "stock": 100,
+        "attributes": null,
+        "id": "5e6540f2-e33f-4fb3-b85a-123a0c4f2da4"
+      },
+      {
+        "sku_code": "SKU-6BYEO-DEFAULT-3",
+        "price": 134700,
+        "stock": 100,
+        "attributes": null,
+        "id": "b55db571-78a9-4e6a-bcd9-4ae366732aa0"
+      },
+      {
+        "sku_code": "SKU-6BYEO-DEFAULT-4",
+        "price": 134700,
+        "stock": 100,
+        "attributes": null,
+        "id": "cfc86112-737e-4a28-a649-9464dc96dbe2"
       }
     ],
     "brand": "Chicco",
@@ -3816,6 +5790,27 @@
         "price": 87000,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y9EVK-DEFAULT-2",
+        "price": 87000,
+        "stock": 11,
+        "attributes": null,
+        "id": "271ec8c9-e76a-4276-9e84-df24d43eff35"
+      },
+      {
+        "sku_code": "SKU-Y9EVK-DEFAULT-3",
+        "price": 87000,
+        "stock": 11,
+        "attributes": null,
+        "id": "ad59dd5b-f1c1-4c0c-bca2-8082c945345a"
+      },
+      {
+        "sku_code": "SKU-Y9EVK-DEFAULT-4",
+        "price": 87000,
+        "stock": 11,
+        "attributes": null,
+        "id": "2900c263-cbb4-4c22-9a4e-2fe26e9521a7"
       }
     ],
     "brand": "First",
@@ -3857,6 +5852,27 @@
         "price": 59700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2XBY5-DEFAULT-2",
+        "price": 59700,
+        "stock": 46,
+        "attributes": null,
+        "id": "b4de5b57-4715-4394-9d13-08d7b122125c"
+      },
+      {
+        "sku_code": "SKU-2XBY5-DEFAULT-3",
+        "price": 59700,
+        "stock": 46,
+        "attributes": null,
+        "id": "d53d2096-2065-4085-b558-d50cd3f8fb77"
+      },
+      {
+        "sku_code": "SKU-2XBY5-DEFAULT-4",
+        "price": 59700,
+        "stock": 46,
+        "attributes": null,
+        "id": "7d08258a-141a-494b-b691-c6fe92cdfb56"
       }
     ],
     "brand": "Johnson's",
@@ -3894,6 +5910,27 @@
         "price": 59700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CB3VX-DEFAULT-2",
+        "price": 59700,
+        "stock": 76,
+        "attributes": null,
+        "id": "73d65270-7322-4b03-b025-1daae1a81004"
+      },
+      {
+        "sku_code": "SKU-CB3VX-DEFAULT-3",
+        "price": 59700,
+        "stock": 76,
+        "attributes": null,
+        "id": "a6c321af-2634-40d1-a311-f6139d007f11"
+      },
+      {
+        "sku_code": "SKU-CB3VX-DEFAULT-4",
+        "price": 59700,
+        "stock": 76,
+        "attributes": null,
+        "id": "511a23f0-ce46-4a67-85b4-1b1ab9965d9a"
       }
     ],
     "brand": "Sebamed",
@@ -3939,6 +5976,27 @@
         "price": 97500,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-747D2-DEFAULT-2",
+        "price": 97500,
+        "stock": 81,
+        "attributes": null,
+        "id": "e451f4c9-fdc8-4f13-9af3-e9aaa1cbba31"
+      },
+      {
+        "sku_code": "SKU-747D2-DEFAULT-3",
+        "price": 97500,
+        "stock": 81,
+        "attributes": null,
+        "id": "952b6f9e-5cd1-4861-8833-ac344720e976"
+      },
+      {
+        "sku_code": "SKU-747D2-DEFAULT-4",
+        "price": 97500,
+        "stock": 81,
+        "attributes": null,
+        "id": "e970949e-fa00-43b2-a0ab-8d7cb945834c"
       }
     ],
     "brand": "Mee",
@@ -3984,6 +6042,27 @@
         "price": 0,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8L8LY-DEFAULT-2",
+        "price": 0,
+        "stock": 71,
+        "attributes": null,
+        "id": "9948c066-01e0-4f45-be98-ff7c73810505"
+      },
+      {
+        "sku_code": "SKU-8L8LY-DEFAULT-3",
+        "price": 0,
+        "stock": 71,
+        "attributes": null,
+        "id": "9ee84d86-2aaa-45a0-862c-37b50428e90d"
+      },
+      {
+        "sku_code": "SKU-8L8LY-DEFAULT-4",
+        "price": 0,
+        "stock": 71,
+        "attributes": null,
+        "id": "0117b9b4-91ee-4239-9899-5d6b0f404fa7"
       }
     ],
     "brand": "Sebamed",
@@ -4021,6 +6100,27 @@
         "price": 127500,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RNTBW-DEFAULT-2",
+        "price": 127500,
+        "stock": 88,
+        "attributes": null,
+        "id": "957d45d6-15cf-4f4c-94e6-40b554e2de37"
+      },
+      {
+        "sku_code": "SKU-RNTBW-DEFAULT-3",
+        "price": 127500,
+        "stock": 88,
+        "attributes": null,
+        "id": "0bd30b9f-f1be-4fc0-bb19-9de03766cf97"
+      },
+      {
+        "sku_code": "SKU-RNTBW-DEFAULT-4",
+        "price": 127500,
+        "stock": 88,
+        "attributes": null,
+        "id": "ba479613-b26b-4b97-bccd-7f3b89119a65"
       }
     ],
     "brand": "Johnson's",

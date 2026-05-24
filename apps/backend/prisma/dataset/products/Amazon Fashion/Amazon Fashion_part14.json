@@ -22,6 +22,27 @@
         "price": 134700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RC1BH-DEFAULT-2",
+        "price": 134700,
+        "stock": 91,
+        "attributes": null,
+        "id": "6b24a793-bd46-417d-9047-abf49560d461"
+      },
+      {
+        "sku_code": "SKU-RC1BH-DEFAULT-3",
+        "price": 134700,
+        "stock": 91,
+        "attributes": null,
+        "id": "df96b0da-5a7d-4e6b-b0e3-c9d15cea2d58"
+      },
+      {
+        "sku_code": "SKU-RC1BH-DEFAULT-4",
+        "price": 134700,
+        "stock": 91,
+        "attributes": null,
+        "id": "8c14b323-b0c4-461e-8fa8-bc3cfbe84d38"
       }
     ],
     "brand": "Fastrack",
@@ -75,6 +96,27 @@
         "price": 50100,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B74QX-DEFAULT-2",
+        "price": 50100,
+        "stock": 81,
+        "attributes": null,
+        "id": "5158ebbe-7840-4f66-a079-3fe6024986a3"
+      },
+      {
+        "sku_code": "SKU-B74QX-DEFAULT-3",
+        "price": 50100,
+        "stock": 81,
+        "attributes": null,
+        "id": "736baebe-da06-465c-ac79-443e38fecc4b"
+      },
+      {
+        "sku_code": "SKU-B74QX-DEFAULT-4",
+        "price": 50100,
+        "stock": 81,
+        "attributes": null,
+        "id": "0aa08aa7-e1f0-47cd-9e51-7e1c1fb8a601"
       }
     ],
     "brand": "Sparx",
@@ -112,6 +154,27 @@
         "price": 149700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OMS4I-DEFAULT-2",
+        "price": 149700,
+        "stock": 23,
+        "attributes": null,
+        "id": "f36679cd-b8b0-4655-add5-5b59d6cd51ec"
+      },
+      {
+        "sku_code": "SKU-OMS4I-DEFAULT-3",
+        "price": 149700,
+        "stock": 23,
+        "attributes": null,
+        "id": "a95abb23-0ee4-4e1d-866c-9f78af08ee7e"
+      },
+      {
+        "sku_code": "SKU-OMS4I-DEFAULT-4",
+        "price": 149700,
+        "stock": 23,
+        "attributes": null,
+        "id": "83ff4faa-ec07-4eb8-92b7-27923b1eed88"
       }
     ],
     "brand": "Yellow",
@@ -157,6 +220,27 @@
         "price": 296043,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BZKJ0-DEFAULT-2",
+        "price": 296043,
+        "stock": 20,
+        "attributes": null,
+        "id": "9faeff3c-73e4-4db7-8a83-69e7204065ec"
+      },
+      {
+        "sku_code": "SKU-BZKJ0-DEFAULT-3",
+        "price": 296043,
+        "stock": 20,
+        "attributes": null,
+        "id": "38bc3e46-c782-4b39-8aae-094973ff9e87"
+      },
+      {
+        "sku_code": "SKU-BZKJ0-DEFAULT-4",
+        "price": 296043,
+        "stock": 20,
+        "attributes": null,
+        "id": "caa35176-ca1b-4af9-b0bb-6bdbc9f20c7f"
       }
     ],
     "brand": "Shining",
@@ -194,6 +278,27 @@
         "price": 44700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1GVTK-DEFAULT-2",
+        "price": 44700,
+        "stock": 95,
+        "attributes": null,
+        "id": "f2ec2fee-c4db-45e4-a1a7-bec74cf3b60c"
+      },
+      {
+        "sku_code": "SKU-1GVTK-DEFAULT-3",
+        "price": 44700,
+        "stock": 95,
+        "attributes": null,
+        "id": "81ef8f71-ff91-4f6c-b902-7f67cc9be37c"
+      },
+      {
+        "sku_code": "SKU-1GVTK-DEFAULT-4",
+        "price": 44700,
+        "stock": 95,
+        "attributes": null,
+        "id": "f24f8e35-2da0-4adc-9bad-34eb7f4639df"
       }
     ],
     "brand": "Kuber",
@@ -236,6 +341,27 @@
         "price": 59700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W7W4O-DEFAULT-2",
+        "price": 59700,
+        "stock": 95,
+        "attributes": null,
+        "id": "300b1461-742f-4911-a0f2-078614d6d5e8"
+      },
+      {
+        "sku_code": "SKU-W7W4O-DEFAULT-3",
+        "price": 59700,
+        "stock": 95,
+        "attributes": null,
+        "id": "462d48b4-18ea-48e1-ad43-3888741176cd"
+      },
+      {
+        "sku_code": "SKU-W7W4O-DEFAULT-4",
+        "price": 59700,
+        "stock": 95,
+        "attributes": null,
+        "id": "e95211c8-1cf6-4d05-9d3c-29aa5c52b602"
       }
     ],
     "brand": "Amazon",
@@ -277,6 +403,27 @@
         "price": 168000,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PJ1RW-DEFAULT-2",
+        "price": 168000,
+        "stock": 17,
+        "attributes": null,
+        "id": "7b7745d1-3913-4953-85b7-d8fc328c5e9e"
+      },
+      {
+        "sku_code": "SKU-PJ1RW-DEFAULT-3",
+        "price": 168000,
+        "stock": 17,
+        "attributes": null,
+        "id": "1d335764-5230-46d6-95cf-dc4e107fabb6"
+      },
+      {
+        "sku_code": "SKU-PJ1RW-DEFAULT-4",
+        "price": 168000,
+        "stock": 17,
+        "attributes": null,
+        "id": "523a1834-c806-40f8-bb9a-4101441ca87f"
       }
     ],
     "brand": "BATA",
@@ -338,6 +485,27 @@
         "price": 448500,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O3HTG-DEFAULT-2",
+        "price": 448500,
+        "stock": 25,
+        "attributes": null,
+        "id": "f09f9b7b-e177-4fc3-b866-69be28872470"
+      },
+      {
+        "sku_code": "SKU-O3HTG-DEFAULT-3",
+        "price": 448500,
+        "stock": 25,
+        "attributes": null,
+        "id": "95b8bd2b-68f7-4717-9949-709f4f8398b8"
+      },
+      {
+        "sku_code": "SKU-O3HTG-DEFAULT-4",
+        "price": 448500,
+        "stock": 25,
+        "attributes": null,
+        "id": "ca16524a-3a59-4deb-8950-ae168cbd196b"
       }
     ],
     "brand": "Titan",
@@ -375,6 +543,27 @@
         "price": 194700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CJQ0G-DEFAULT-2",
+        "price": 194700,
+        "stock": 10,
+        "attributes": null,
+        "id": "c37e3aef-f972-4e8a-89f9-20e1a5937f43"
+      },
+      {
+        "sku_code": "SKU-CJQ0G-DEFAULT-3",
+        "price": 194700,
+        "stock": 10,
+        "attributes": null,
+        "id": "80357b03-fd92-44ad-b934-5163b8fda284"
+      },
+      {
+        "sku_code": "SKU-CJQ0G-DEFAULT-4",
+        "price": 194700,
+        "stock": 10,
+        "attributes": null,
+        "id": "9f31e474-c88d-4164-a08b-61a0fd53b466"
       }
     ],
     "brand": "Yellow",
@@ -420,6 +609,27 @@
         "price": 89700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UFP4P-DEFAULT-2",
+        "price": 89700,
+        "stock": 65,
+        "attributes": null,
+        "id": "5ca453d0-bcc5-4f20-9976-1af86012f816"
+      },
+      {
+        "sku_code": "SKU-UFP4P-DEFAULT-3",
+        "price": 89700,
+        "stock": 65,
+        "attributes": null,
+        "id": "3fd3b52d-3418-47ba-bf59-c14c4fd7e51f"
+      },
+      {
+        "sku_code": "SKU-UFP4P-DEFAULT-4",
+        "price": 89700,
+        "stock": 65,
+        "attributes": null,
+        "id": "08ccd496-da63-404b-b074-7cc92d11fa73"
       }
     ],
     "brand": "Sparx",
@@ -457,6 +667,27 @@
         "price": 854700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0QR7Z-DEFAULT-2",
+        "price": 854700,
+        "stock": 69,
+        "attributes": null,
+        "id": "fcfe4ed2-017f-485d-ab43-5734fef51c61"
+      },
+      {
+        "sku_code": "SKU-0QR7Z-DEFAULT-3",
+        "price": 854700,
+        "stock": 69,
+        "attributes": null,
+        "id": "266c74f6-1eeb-4f05-956a-e5e7c60cf10b"
+      },
+      {
+        "sku_code": "SKU-0QR7Z-DEFAULT-4",
+        "price": 854700,
+        "stock": 69,
+        "attributes": null,
+        "id": "d63d891b-2914-4b37-b307-974766c5491e"
       }
     ],
     "brand": "Casio",
@@ -494,6 +725,27 @@
         "price": 149400,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2OBKB-DEFAULT-2",
+        "price": 149400,
+        "stock": 66,
+        "attributes": null,
+        "id": "46acc1a5-2b32-47b0-9abe-4096e023cd3e"
+      },
+      {
+        "sku_code": "SKU-2OBKB-DEFAULT-3",
+        "price": 149400,
+        "stock": 66,
+        "attributes": null,
+        "id": "6a11486b-fc8a-496c-8d62-e2da38771600"
+      },
+      {
+        "sku_code": "SKU-2OBKB-DEFAULT-4",
+        "price": 149400,
+        "stock": 66,
+        "attributes": null,
+        "id": "f6859bdf-60c0-43d3-9b9c-b7d14fd55eab"
       }
     ],
     "brand": "Casio",
@@ -539,6 +791,27 @@
         "price": 208500,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0RJSR-DEFAULT-2",
+        "price": 208500,
+        "stock": 84,
+        "attributes": null,
+        "id": "58166af8-3810-42f4-bf35-66efc2a184e9"
+      },
+      {
+        "sku_code": "SKU-0RJSR-DEFAULT-3",
+        "price": 208500,
+        "stock": 84,
+        "attributes": null,
+        "id": "9aa06327-cb13-48a3-a343-cad25b76f4b1"
+      },
+      {
+        "sku_code": "SKU-0RJSR-DEFAULT-4",
+        "price": 208500,
+        "stock": 84,
+        "attributes": null,
+        "id": "676a7a91-22c5-44b3-a9f3-0b7a9b537f1a"
       }
     ],
     "brand": "Fastrack",
@@ -580,6 +853,27 @@
         "price": 129000,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-67NIN-DEFAULT-2",
+        "price": 129000,
+        "stock": 35,
+        "attributes": null,
+        "id": "355a08db-5b0f-442e-a61f-4bda1d8f0cde"
+      },
+      {
+        "sku_code": "SKU-67NIN-DEFAULT-3",
+        "price": 129000,
+        "stock": 35,
+        "attributes": null,
+        "id": "8ec7da42-a911-4c75-a42d-8695487a1ea2"
+      },
+      {
+        "sku_code": "SKU-67NIN-DEFAULT-4",
+        "price": 129000,
+        "stock": 35,
+        "attributes": null,
+        "id": "99085b0a-fb9d-416d-aa57-6b1a634fa076"
       }
     ],
     "brand": "Sparx",
@@ -625,6 +919,27 @@
         "price": 147000,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1L44Y-DEFAULT-2",
+        "price": 147000,
+        "stock": 52,
+        "attributes": null,
+        "id": "09a22426-ffb3-4365-8aa3-203a49bb0fa7"
+      },
+      {
+        "sku_code": "SKU-1L44Y-DEFAULT-3",
+        "price": 147000,
+        "stock": 52,
+        "attributes": null,
+        "id": "fa7a6195-6ea0-4caf-abf6-00d3e9d7c081"
+      },
+      {
+        "sku_code": "SKU-1L44Y-DEFAULT-4",
+        "price": 147000,
+        "stock": 52,
+        "attributes": null,
+        "id": "077b7369-eb6b-484c-9806-8461854da799"
       }
     ],
     "brand": "Shining",
@@ -666,6 +981,27 @@
         "price": 2699100,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3WEY5-DEFAULT-2",
+        "price": 2699100,
+        "stock": 54,
+        "attributes": null,
+        "id": "ade7f1fa-3d7e-469e-93af-690c70f2d8b2"
+      },
+      {
+        "sku_code": "SKU-3WEY5-DEFAULT-3",
+        "price": 2699100,
+        "stock": 54,
+        "attributes": null,
+        "id": "3ea8a589-8bdf-4887-bdb5-e90c55606fc4"
+      },
+      {
+        "sku_code": "SKU-3WEY5-DEFAULT-4",
+        "price": 2699100,
+        "stock": 54,
+        "attributes": null,
+        "id": "300c6f60-20a0-42b6-bfc6-2da688d5654a"
       }
     ],
     "brand": "IndiWeaves�",
@@ -711,6 +1047,27 @@
         "price": 134700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IEIBS-DEFAULT-2",
+        "price": 134700,
+        "stock": 37,
+        "attributes": null,
+        "id": "1e0afcfa-413a-4736-a3d7-ebf9c20dffe7"
+      },
+      {
+        "sku_code": "SKU-IEIBS-DEFAULT-3",
+        "price": 134700,
+        "stock": 37,
+        "attributes": null,
+        "id": "e1366e96-63d4-4fe9-ad51-b9797b9f7bd5"
+      },
+      {
+        "sku_code": "SKU-IEIBS-DEFAULT-4",
+        "price": 134700,
+        "stock": 37,
+        "attributes": null,
+        "id": "0c1acb2f-1895-4583-ad9c-8a8b953aa102"
       }
     ],
     "brand": "Fastrack",
@@ -756,6 +1113,27 @@
         "price": 209700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EIFRS-DEFAULT-2",
+        "price": 209700,
+        "stock": 62,
+        "attributes": null,
+        "id": "9b9e6ad9-a2e7-4097-a699-a2a38b0ce9a8"
+      },
+      {
+        "sku_code": "SKU-EIFRS-DEFAULT-3",
+        "price": 209700,
+        "stock": 62,
+        "attributes": null,
+        "id": "645c6760-eace-4bb7-a571-f9bb32ffcba5"
+      },
+      {
+        "sku_code": "SKU-EIFRS-DEFAULT-4",
+        "price": 209700,
+        "stock": 62,
+        "attributes": null,
+        "id": "ff678c72-240e-4966-ba9a-6bdd01c6278a"
       }
     ],
     "brand": "Casio",
@@ -793,6 +1171,27 @@
         "price": 179700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7U5H7-DEFAULT-2",
+        "price": 179700,
+        "stock": 46,
+        "attributes": null,
+        "id": "f41e655b-f46d-4758-adf1-872d9b2e24cd"
+      },
+      {
+        "sku_code": "SKU-7U5H7-DEFAULT-3",
+        "price": 179700,
+        "stock": 46,
+        "attributes": null,
+        "id": "14c18687-1bcf-40d8-839c-5c20bdddc024"
+      },
+      {
+        "sku_code": "SKU-7U5H7-DEFAULT-4",
+        "price": 179700,
+        "stock": 46,
+        "attributes": null,
+        "id": "51738fbf-3a66-48af-9304-0f7a4e4eb96b"
       }
     ],
     "brand": "KAYU™",
@@ -834,6 +1233,27 @@
         "price": 107400,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OTXKN-DEFAULT-2",
+        "price": 107400,
+        "stock": 105,
+        "attributes": null,
+        "id": "c510255c-e69d-41af-931a-8b1329090d8f"
+      },
+      {
+        "sku_code": "SKU-OTXKN-DEFAULT-3",
+        "price": 107400,
+        "stock": 105,
+        "attributes": null,
+        "id": "237b6df8-a804-4f4f-999e-f7f53f9fd49c"
+      },
+      {
+        "sku_code": "SKU-OTXKN-DEFAULT-4",
+        "price": 107400,
+        "stock": 105,
+        "attributes": null,
+        "id": "fa6bff13-4a38-4270-95a3-fd20dd1cd377"
       }
     ],
     "brand": "Titan",
@@ -871,6 +1291,27 @@
         "price": 55800,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7F0YB-DEFAULT-2",
+        "price": 55800,
+        "stock": 40,
+        "attributes": null,
+        "id": "0cb7f3fb-5f96-4536-a58f-4f5b560e7a83"
+      },
+      {
+        "sku_code": "SKU-7F0YB-DEFAULT-3",
+        "price": 55800,
+        "stock": 40,
+        "attributes": null,
+        "id": "923cc4fb-f2e0-48aa-96aa-a8a7acbff7ab"
+      },
+      {
+        "sku_code": "SKU-7F0YB-DEFAULT-4",
+        "price": 55800,
+        "stock": 40,
+        "attributes": null,
+        "id": "3b79a376-7a71-4121-8b08-64d2fb620edd"
       }
     ],
     "brand": "Casio",
@@ -916,6 +1357,27 @@
         "price": 119700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BACDZ-DEFAULT-2",
+        "price": 119700,
+        "stock": 101,
+        "attributes": null,
+        "id": "d6db9d3d-7092-47b4-aef0-cfa7485fec56"
+      },
+      {
+        "sku_code": "SKU-BACDZ-DEFAULT-3",
+        "price": 119700,
+        "stock": 101,
+        "attributes": null,
+        "id": "494d0b2f-641f-4757-8bc5-9c70c47ea255"
+      },
+      {
+        "sku_code": "SKU-BACDZ-DEFAULT-4",
+        "price": 119700,
+        "stock": 101,
+        "attributes": null,
+        "id": "1e758ae2-ffc6-4b7a-9131-b2b07eecc43b"
       }
     ],
     "brand": "IndiWeaves�",
@@ -953,6 +1415,27 @@
         "price": 128700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C8IXW-DEFAULT-2",
+        "price": 128700,
+        "stock": 11,
+        "attributes": null,
+        "id": "a47f8e2d-e3e8-4495-9c38-a2a97c276202"
+      },
+      {
+        "sku_code": "SKU-C8IXW-DEFAULT-3",
+        "price": 128700,
+        "stock": 11,
+        "attributes": null,
+        "id": "22deead8-bc8c-4728-87da-ef6bbc4fcadb"
+      },
+      {
+        "sku_code": "SKU-C8IXW-DEFAULT-4",
+        "price": 128700,
+        "stock": 11,
+        "attributes": null,
+        "id": "3cf28598-1aba-4522-814b-b97933a1504f"
       }
     ],
     "brand": "Sparx",
@@ -990,6 +1473,27 @@
         "price": 239700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LB4OV-DEFAULT-2",
+        "price": 239700,
+        "stock": 69,
+        "attributes": null,
+        "id": "159c2eb8-e396-4494-9720-aa1840169af9"
+      },
+      {
+        "sku_code": "SKU-LB4OV-DEFAULT-3",
+        "price": 239700,
+        "stock": 69,
+        "attributes": null,
+        "id": "c60e9300-1810-4e26-ab15-75ba60f2817d"
+      },
+      {
+        "sku_code": "SKU-LB4OV-DEFAULT-4",
+        "price": 239700,
+        "stock": 69,
+        "attributes": null,
+        "id": "8be0d80c-ee78-4e3e-b773-426769528247"
       }
     ],
     "brand": "IndiWeaves�",
@@ -1031,6 +1535,27 @@
         "price": 107700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C3NSA-DEFAULT-2",
+        "price": 107700,
+        "stock": 41,
+        "attributes": null,
+        "id": "4f7e4293-8683-49c9-a0e5-916950d9da7e"
+      },
+      {
+        "sku_code": "SKU-C3NSA-DEFAULT-3",
+        "price": 107700,
+        "stock": 41,
+        "attributes": null,
+        "id": "72e3c082-8a11-4b16-816b-1448bff05e85"
+      },
+      {
+        "sku_code": "SKU-C3NSA-DEFAULT-4",
+        "price": 107700,
+        "stock": 41,
+        "attributes": null,
+        "id": "28a4c87a-90d0-4eec-9214-3c4649e8a77b"
       }
     ],
     "brand": "BATA",
@@ -1072,6 +1597,27 @@
         "price": 119700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GB9BA-DEFAULT-2",
+        "price": 119700,
+        "stock": 106,
+        "attributes": null,
+        "id": "1ecfdea2-aa7e-4cb4-8a59-a734195d1984"
+      },
+      {
+        "sku_code": "SKU-GB9BA-DEFAULT-3",
+        "price": 119700,
+        "stock": 106,
+        "attributes": null,
+        "id": "ba124c48-9c7b-4b59-a9af-6a63b6d2c528"
+      },
+      {
+        "sku_code": "SKU-GB9BA-DEFAULT-4",
+        "price": 119700,
+        "stock": 106,
+        "attributes": null,
+        "id": "fb78fcf4-651a-464e-845a-93db28df374a"
       }
     ],
     "brand": "Amazon",
@@ -1117,6 +1663,27 @@
         "price": 58500,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7CAI9-DEFAULT-2",
+        "price": 58500,
+        "stock": 13,
+        "attributes": null,
+        "id": "8bd06cea-2b2d-4ea1-9f88-693f8776f2c6"
+      },
+      {
+        "sku_code": "SKU-7CAI9-DEFAULT-3",
+        "price": 58500,
+        "stock": 13,
+        "attributes": null,
+        "id": "947ba381-c346-43f0-9a52-eaa737f8d83b"
+      },
+      {
+        "sku_code": "SKU-7CAI9-DEFAULT-4",
+        "price": 58500,
+        "stock": 13,
+        "attributes": null,
+        "id": "725d9d38-ad86-4449-b9c9-159a877e6a19"
       }
     ],
     "brand": "KAYU™",
@@ -1162,6 +1729,27 @@
         "price": 86700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MFKBZ-DEFAULT-2",
+        "price": 86700,
+        "stock": 87,
+        "attributes": null,
+        "id": "33186a34-ba49-4476-912d-d0a372e32b0e"
+      },
+      {
+        "sku_code": "SKU-MFKBZ-DEFAULT-3",
+        "price": 86700,
+        "stock": 87,
+        "attributes": null,
+        "id": "5cffc5d9-0b3c-45dd-9259-16bfbf48e8f8"
+      },
+      {
+        "sku_code": "SKU-MFKBZ-DEFAULT-4",
+        "price": 86700,
+        "stock": 87,
+        "attributes": null,
+        "id": "d091aa9c-f4e9-433e-8bf3-0504f5b825f6"
       }
     ],
     "brand": "Shining",
@@ -1228,6 +1816,27 @@
         "price": 268500,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-31TZE-DEFAULT-2",
+        "price": 268500,
+        "stock": 103,
+        "attributes": null,
+        "id": "2d50b01c-5bef-4872-a971-59951447a9e9"
+      },
+      {
+        "sku_code": "SKU-31TZE-DEFAULT-3",
+        "price": 268500,
+        "stock": 103,
+        "attributes": null,
+        "id": "03412f01-2f3c-478e-9952-f66cf5c92231"
+      },
+      {
+        "sku_code": "SKU-31TZE-DEFAULT-4",
+        "price": 268500,
+        "stock": 103,
+        "attributes": null,
+        "id": "a920ad57-5e94-497a-8614-32b22179ed8b"
       }
     ],
     "brand": "BATA",
@@ -1265,6 +1874,27 @@
         "price": 78300,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W8RF5-DEFAULT-2",
+        "price": 78300,
+        "stock": 105,
+        "attributes": null,
+        "id": "6a689835-b861-4e60-aee1-492de755bbbe"
+      },
+      {
+        "sku_code": "SKU-W8RF5-DEFAULT-3",
+        "price": 78300,
+        "stock": 105,
+        "attributes": null,
+        "id": "7cec8ce7-42cb-4b0f-b588-c0874989cf50"
+      },
+      {
+        "sku_code": "SKU-W8RF5-DEFAULT-4",
+        "price": 78300,
+        "stock": 105,
+        "attributes": null,
+        "id": "46de7f2b-7dc8-462c-b0bf-c759f8b0c9df"
       }
     ],
     "brand": "ZAVERI",
@@ -1306,6 +1936,27 @@
         "price": 203700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-35FU8-DEFAULT-2",
+        "price": 203700,
+        "stock": 80,
+        "attributes": null,
+        "id": "b5faa2b0-b9d7-4cc7-91c6-23bbfc1bf254"
+      },
+      {
+        "sku_code": "SKU-35FU8-DEFAULT-3",
+        "price": 203700,
+        "stock": 80,
+        "attributes": null,
+        "id": "377d2b3e-aa18-474c-9292-f888734c1865"
+      },
+      {
+        "sku_code": "SKU-35FU8-DEFAULT-4",
+        "price": 203700,
+        "stock": 80,
+        "attributes": null,
+        "id": "669dd7fc-2518-480f-a446-bdb06287b8a7"
       }
     ],
     "brand": "KAYU™",
@@ -1351,6 +2002,27 @@
         "price": 479400,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M01P7-DEFAULT-2",
+        "price": 479400,
+        "stock": 109,
+        "attributes": null,
+        "id": "7af72430-4202-470d-9d6d-cbb0012e2181"
+      },
+      {
+        "sku_code": "SKU-M01P7-DEFAULT-3",
+        "price": 479400,
+        "stock": 109,
+        "attributes": null,
+        "id": "1f490dc3-092e-45ea-a18d-a547239ac269"
+      },
+      {
+        "sku_code": "SKU-M01P7-DEFAULT-4",
+        "price": 479400,
+        "stock": 109,
+        "attributes": null,
+        "id": "c248269d-611a-4c09-b3f3-bd587bff9771"
       }
     ],
     "brand": "Yellow",
@@ -1392,6 +2064,27 @@
         "price": 77700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ARVME-DEFAULT-2",
+        "price": 77700,
+        "stock": 32,
+        "attributes": null,
+        "id": "c29038c5-f89d-443a-b420-ea574585b9a8"
+      },
+      {
+        "sku_code": "SKU-ARVME-DEFAULT-3",
+        "price": 77700,
+        "stock": 32,
+        "attributes": null,
+        "id": "c458cf4b-64c9-47a8-b9d7-e8dc05e19287"
+      },
+      {
+        "sku_code": "SKU-ARVME-DEFAULT-4",
+        "price": 77700,
+        "stock": 32,
+        "attributes": null,
+        "id": "55e96cd7-9d75-4a0b-9874-abd674a52091"
       }
     ],
     "brand": "Shining",
@@ -1437,6 +2130,27 @@
         "price": 111300,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EV6CI-DEFAULT-2",
+        "price": 111300,
+        "stock": 89,
+        "attributes": null,
+        "id": "e5017c18-dad2-4bd8-a9e0-d46b35236096"
+      },
+      {
+        "sku_code": "SKU-EV6CI-DEFAULT-3",
+        "price": 111300,
+        "stock": 89,
+        "attributes": null,
+        "id": "4e5ba9cb-619a-4ec0-9aae-fce5bc0f8d7c"
+      },
+      {
+        "sku_code": "SKU-EV6CI-DEFAULT-4",
+        "price": 111300,
+        "stock": 89,
+        "attributes": null,
+        "id": "a8966d63-d069-4752-9272-47c8ced6921a"
       }
     ],
     "brand": "KAYU™",
@@ -1478,6 +2192,27 @@
         "price": 371400,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GQ5EC-DEFAULT-2",
+        "price": 371400,
+        "stock": 19,
+        "attributes": null,
+        "id": "c3d7ba13-11b0-4924-8a44-9307eaa6ba88"
+      },
+      {
+        "sku_code": "SKU-GQ5EC-DEFAULT-3",
+        "price": 371400,
+        "stock": 19,
+        "attributes": null,
+        "id": "344c7f37-6d85-40f4-9881-fad24e917716"
+      },
+      {
+        "sku_code": "SKU-GQ5EC-DEFAULT-4",
+        "price": 371400,
+        "stock": 19,
+        "attributes": null,
+        "id": "8ab6424c-3526-4ba1-ba7f-234afea05093"
       }
     ],
     "brand": "Sparx",
@@ -1523,6 +2258,27 @@
         "price": 170700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8L7BM-DEFAULT-2",
+        "price": 170700,
+        "stock": 11,
+        "attributes": null,
+        "id": "b5df23e6-b341-489c-a1fb-222eecf99de2"
+      },
+      {
+        "sku_code": "SKU-8L7BM-DEFAULT-3",
+        "price": 170700,
+        "stock": 11,
+        "attributes": null,
+        "id": "6c54af6b-294d-4600-9dd5-b93a1f281837"
+      },
+      {
+        "sku_code": "SKU-8L7BM-DEFAULT-4",
+        "price": 170700,
+        "stock": 11,
+        "attributes": null,
+        "id": "fe917d6e-930a-4749-bb66-d5199c33ca81"
       }
     ],
     "brand": "Sparx",
@@ -1564,6 +2320,27 @@
         "price": 43500,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C0QG0-DEFAULT-2",
+        "price": 43500,
+        "stock": 93,
+        "attributes": null,
+        "id": "e921b45e-dd59-42a2-aaf0-94f4669f8ad3"
+      },
+      {
+        "sku_code": "SKU-C0QG0-DEFAULT-3",
+        "price": 43500,
+        "stock": 93,
+        "attributes": null,
+        "id": "3c9e0690-b155-4eaa-ae03-7afcc79e8b5c"
+      },
+      {
+        "sku_code": "SKU-C0QG0-DEFAULT-4",
+        "price": 43500,
+        "stock": 93,
+        "attributes": null,
+        "id": "97342c92-3f07-40fe-85ba-e321560672e2"
       }
     ],
     "brand": "Casio",
@@ -1605,6 +2382,27 @@
         "price": 212700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V11UI-DEFAULT-2",
+        "price": 212700,
+        "stock": 67,
+        "attributes": null,
+        "id": "1d8ccead-20e4-4dbc-8080-c41dd879e8c3"
+      },
+      {
+        "sku_code": "SKU-V11UI-DEFAULT-3",
+        "price": 212700,
+        "stock": 67,
+        "attributes": null,
+        "id": "31b70266-5f12-4f95-aacc-554fc3b64df2"
+      },
+      {
+        "sku_code": "SKU-V11UI-DEFAULT-4",
+        "price": 212700,
+        "stock": 67,
+        "attributes": null,
+        "id": "c70432dc-3890-4520-8502-c881be156dfd"
       }
     ],
     "brand": "YouBella",
@@ -1650,6 +2448,27 @@
         "price": 1199700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZW1UK-DEFAULT-2",
+        "price": 1199700,
+        "stock": 107,
+        "attributes": null,
+        "id": "c06932f8-fc96-4825-a2ce-bdcbe9a80fd2"
+      },
+      {
+        "sku_code": "SKU-ZW1UK-DEFAULT-3",
+        "price": 1199700,
+        "stock": 107,
+        "attributes": null,
+        "id": "34e5cc50-db73-4887-bee2-dbde70bc2035"
+      },
+      {
+        "sku_code": "SKU-ZW1UK-DEFAULT-4",
+        "price": 1199700,
+        "stock": 107,
+        "attributes": null,
+        "id": "1e5d8509-5331-4175-91fd-20f8cc368a5a"
       }
     ],
     "brand": "ZAVERI",
@@ -1695,6 +2514,27 @@
         "price": 113700,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S7AOG-DEFAULT-2",
+        "price": 113700,
+        "stock": 58,
+        "attributes": null,
+        "id": "8289f392-58f3-4bfe-8368-8a68f84a2edd"
+      },
+      {
+        "sku_code": "SKU-S7AOG-DEFAULT-3",
+        "price": 113700,
+        "stock": 58,
+        "attributes": null,
+        "id": "b623dc03-c302-49a3-8c18-cb1ef87aeef4"
+      },
+      {
+        "sku_code": "SKU-S7AOG-DEFAULT-4",
+        "price": 113700,
+        "stock": 58,
+        "attributes": null,
+        "id": "8c2c8604-adfa-401e-8787-906d7989c8ef"
       }
     ],
     "brand": "Sonata",
@@ -1736,6 +2576,27 @@
         "price": 59700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GCN46-DEFAULT-2",
+        "price": 59700,
+        "stock": 100,
+        "attributes": null,
+        "id": "fa776495-cf4c-4a94-add0-7573e94f51b6"
+      },
+      {
+        "sku_code": "SKU-GCN46-DEFAULT-3",
+        "price": 59700,
+        "stock": 100,
+        "attributes": null,
+        "id": "18652cf1-c7ea-4e58-89ed-8d7b4acba476"
+      },
+      {
+        "sku_code": "SKU-GCN46-DEFAULT-4",
+        "price": 59700,
+        "stock": 100,
+        "attributes": null,
+        "id": "5e2e326d-f9cb-414d-9c21-83e3b918304c"
       }
     ],
     "brand": "IndiWeaves�",
@@ -1781,6 +2642,27 @@
         "price": 89700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CNJGM-DEFAULT-2",
+        "price": 89700,
+        "stock": 70,
+        "attributes": null,
+        "id": "edd2bbd7-2c36-4ec4-84e5-86b720200b56"
+      },
+      {
+        "sku_code": "SKU-CNJGM-DEFAULT-3",
+        "price": 89700,
+        "stock": 70,
+        "attributes": null,
+        "id": "6fdc2ebf-e026-4838-8cfa-936ee5099039"
+      },
+      {
+        "sku_code": "SKU-CNJGM-DEFAULT-4",
+        "price": 89700,
+        "stock": 70,
+        "attributes": null,
+        "id": "cb2e1f5b-765e-4afa-965d-d397209e6193"
       }
     ],
     "brand": "Titan",
@@ -1826,6 +2708,27 @@
         "price": 87000,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8JEMJ-DEFAULT-2",
+        "price": 87000,
+        "stock": 29,
+        "attributes": null,
+        "id": "e63ee515-e449-4ad6-b089-99a46e4d4a80"
+      },
+      {
+        "sku_code": "SKU-8JEMJ-DEFAULT-3",
+        "price": 87000,
+        "stock": 29,
+        "attributes": null,
+        "id": "5d313a73-d7d2-4d36-9f57-4cf44fce08b4"
+      },
+      {
+        "sku_code": "SKU-8JEMJ-DEFAULT-4",
+        "price": 87000,
+        "stock": 29,
+        "attributes": null,
+        "id": "5de40565-e126-4446-b1cc-5eda52f04cbc"
       }
     ],
     "brand": "Sonata",
@@ -1863,6 +2766,27 @@
         "price": 59700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-589MM-DEFAULT-2",
+        "price": 59700,
+        "stock": 64,
+        "attributes": null,
+        "id": "957e4e13-e1f1-4812-a71f-603dca5252f0"
+      },
+      {
+        "sku_code": "SKU-589MM-DEFAULT-3",
+        "price": 59700,
+        "stock": 64,
+        "attributes": null,
+        "id": "97fccde0-c2c1-4822-aec8-959f4d812f0b"
+      },
+      {
+        "sku_code": "SKU-589MM-DEFAULT-4",
+        "price": 59700,
+        "stock": 64,
+        "attributes": null,
+        "id": "13a84f13-d82c-4f8f-a2e6-69bf9e03961d"
       }
     ],
     "brand": "Amazon",
@@ -1908,6 +2832,27 @@
         "price": 85215,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KRSM8-DEFAULT-2",
+        "price": 85215,
+        "stock": 98,
+        "attributes": null,
+        "id": "4662c7ea-bbe7-4052-8ed4-d518e542636a"
+      },
+      {
+        "sku_code": "SKU-KRSM8-DEFAULT-3",
+        "price": 85215,
+        "stock": 98,
+        "attributes": null,
+        "id": "a7199024-be59-4862-8179-0069a1afc425"
+      },
+      {
+        "sku_code": "SKU-KRSM8-DEFAULT-4",
+        "price": 85215,
+        "stock": 98,
+        "attributes": null,
+        "id": "473a0c05-2d68-422f-81a5-ef2e4c959d94"
       }
     ],
     "brand": "Sonata",
@@ -1945,6 +2890,27 @@
         "price": 2061600,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YFHA3-DEFAULT-2",
+        "price": 2061600,
+        "stock": 96,
+        "attributes": null,
+        "id": "770aca3a-ee4b-4296-92a0-2e975967b99a"
+      },
+      {
+        "sku_code": "SKU-YFHA3-DEFAULT-3",
+        "price": 2061600,
+        "stock": 96,
+        "attributes": null,
+        "id": "68f3ff85-eca7-4903-a0ee-7654e1af6226"
+      },
+      {
+        "sku_code": "SKU-YFHA3-DEFAULT-4",
+        "price": 2061600,
+        "stock": 96,
+        "attributes": null,
+        "id": "7956b874-899b-427a-a9f9-d04d4d5aa3e5"
       }
     ],
     "brand": "IndiWeaves�",
@@ -1994,6 +2960,27 @@
         "price": 209700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K6OGQ-DEFAULT-2",
+        "price": 209700,
+        "stock": 80,
+        "attributes": null,
+        "id": "101b0301-74fc-4b09-ad71-45cf348bfc0f"
+      },
+      {
+        "sku_code": "SKU-K6OGQ-DEFAULT-3",
+        "price": 209700,
+        "stock": 80,
+        "attributes": null,
+        "id": "01db63db-53c8-4e44-bf3e-8f87c191133d"
+      },
+      {
+        "sku_code": "SKU-K6OGQ-DEFAULT-4",
+        "price": 209700,
+        "stock": 80,
+        "attributes": null,
+        "id": "b6bbc8f1-fa3f-48ed-a7ea-4702612ad6d1"
       }
     ],
     "brand": "Yellow",
@@ -2039,6 +3026,27 @@
         "price": 50700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CQTRR-DEFAULT-2",
+        "price": 50700,
+        "stock": 22,
+        "attributes": null,
+        "id": "20226282-ffcb-4408-a387-f9ba6c59fd74"
+      },
+      {
+        "sku_code": "SKU-CQTRR-DEFAULT-3",
+        "price": 50700,
+        "stock": 22,
+        "attributes": null,
+        "id": "b6221247-af65-49f8-8ed6-b403840b0b03"
+      },
+      {
+        "sku_code": "SKU-CQTRR-DEFAULT-4",
+        "price": 50700,
+        "stock": 22,
+        "attributes": null,
+        "id": "6abdca76-46fc-40f3-aca4-4d2eea102caf"
       }
     ],
     "brand": "Fastrack",
@@ -2080,6 +3088,27 @@
         "price": 86400,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0IPYF-DEFAULT-2",
+        "price": 86400,
+        "stock": 20,
+        "attributes": null,
+        "id": "8d08f0b9-c42f-439f-9656-10cb986ac920"
+      },
+      {
+        "sku_code": "SKU-0IPYF-DEFAULT-3",
+        "price": 86400,
+        "stock": 20,
+        "attributes": null,
+        "id": "a4f526ab-9578-4182-8217-2ad06ab60855"
+      },
+      {
+        "sku_code": "SKU-0IPYF-DEFAULT-4",
+        "price": 86400,
+        "stock": 20,
+        "attributes": null,
+        "id": "49254f8d-3c29-4060-9b35-56e9e9b8d2dd"
       }
     ],
     "brand": "Casio",
@@ -2125,6 +3154,27 @@
         "price": 131700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AGSTU-DEFAULT-2",
+        "price": 131700,
+        "stock": 106,
+        "attributes": null,
+        "id": "b31621d4-f952-4708-bb94-a8d027a312d2"
+      },
+      {
+        "sku_code": "SKU-AGSTU-DEFAULT-3",
+        "price": 131700,
+        "stock": 106,
+        "attributes": null,
+        "id": "3958614f-378d-42a9-8e08-1611b95bbb26"
+      },
+      {
+        "sku_code": "SKU-AGSTU-DEFAULT-4",
+        "price": 131700,
+        "stock": 106,
+        "attributes": null,
+        "id": "fd117202-542f-4101-85d5-8c8e20b0b0ce"
       }
     ],
     "brand": "Shining",
@@ -2162,6 +3212,27 @@
         "price": 838800,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZYMYG-DEFAULT-2",
+        "price": 838800,
+        "stock": 65,
+        "attributes": null,
+        "id": "ba24dbc7-54ac-4b26-8350-8ccb9da6000c"
+      },
+      {
+        "sku_code": "SKU-ZYMYG-DEFAULT-3",
+        "price": 838800,
+        "stock": 65,
+        "attributes": null,
+        "id": "6a2a0e31-6925-43c3-bc34-571d7704e49d"
+      },
+      {
+        "sku_code": "SKU-ZYMYG-DEFAULT-4",
+        "price": 838800,
+        "stock": 65,
+        "attributes": null,
+        "id": "94c61716-ebbc-4e8e-8674-4e1eb72a5ead"
       }
     ],
     "brand": "Sparx",
@@ -2203,6 +3274,27 @@
         "price": 554700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6868Y-DEFAULT-2",
+        "price": 554700,
+        "stock": 93,
+        "attributes": null,
+        "id": "f9d34746-0fee-42d7-8052-90ecc27bac8c"
+      },
+      {
+        "sku_code": "SKU-6868Y-DEFAULT-3",
+        "price": 554700,
+        "stock": 93,
+        "attributes": null,
+        "id": "8608c4a9-4b0b-4bd6-9dd4-ee1b10f06939"
+      },
+      {
+        "sku_code": "SKU-6868Y-DEFAULT-4",
+        "price": 554700,
+        "stock": 93,
+        "attributes": null,
+        "id": "2042bde9-a414-4c75-ad6c-7a05403ed769"
       }
     ],
     "brand": "KAYU™",
@@ -2248,6 +3340,27 @@
         "price": 25500,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0MV0M-DEFAULT-2",
+        "price": 25500,
+        "stock": 33,
+        "attributes": null,
+        "id": "92d9405b-6776-45cb-87f2-e48ce26025f3"
+      },
+      {
+        "sku_code": "SKU-0MV0M-DEFAULT-3",
+        "price": 25500,
+        "stock": 33,
+        "attributes": null,
+        "id": "54cf4820-4f36-4f36-98ca-c0d056914f93"
+      },
+      {
+        "sku_code": "SKU-0MV0M-DEFAULT-4",
+        "price": 25500,
+        "stock": 33,
+        "attributes": null,
+        "id": "3241cbbe-8166-4564-b004-81c1282282b7"
       }
     ],
     "brand": "TIMEX",
@@ -2285,6 +3398,27 @@
         "price": 299700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GE63Q-DEFAULT-2",
+        "price": 299700,
+        "stock": 99,
+        "attributes": null,
+        "id": "f2dac2fe-569e-4843-bf59-0dcab416256e"
+      },
+      {
+        "sku_code": "SKU-GE63Q-DEFAULT-3",
+        "price": 299700,
+        "stock": 99,
+        "attributes": null,
+        "id": "87a0054c-86de-43ed-b189-aafe5dad45b5"
+      },
+      {
+        "sku_code": "SKU-GE63Q-DEFAULT-4",
+        "price": 299700,
+        "stock": 99,
+        "attributes": null,
+        "id": "b6a45abc-a3fc-43d3-9d22-dfb9db40f284"
       }
     ],
     "brand": "ZAVERI",
@@ -2322,6 +3456,27 @@
         "price": 53100,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZV6W9-DEFAULT-2",
+        "price": 53100,
+        "stock": 59,
+        "attributes": null,
+        "id": "22c156aa-b291-4e62-b0c0-14e8e6b6a792"
+      },
+      {
+        "sku_code": "SKU-ZV6W9-DEFAULT-3",
+        "price": 53100,
+        "stock": 59,
+        "attributes": null,
+        "id": "afe6e6fe-2210-480a-a1c7-d49769103a03"
+      },
+      {
+        "sku_code": "SKU-ZV6W9-DEFAULT-4",
+        "price": 53100,
+        "stock": 59,
+        "attributes": null,
+        "id": "6742f3d3-c97c-4ab9-8dcf-d85afe58c6fa"
       }
     ],
     "brand": "Shining",
@@ -2363,6 +3518,27 @@
         "price": 145200,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KXGJY-DEFAULT-2",
+        "price": 145200,
+        "stock": 65,
+        "attributes": null,
+        "id": "5d0885f1-bc95-42d7-bffe-d7e14edf74f8"
+      },
+      {
+        "sku_code": "SKU-KXGJY-DEFAULT-3",
+        "price": 145200,
+        "stock": 65,
+        "attributes": null,
+        "id": "35e197d2-2386-44cb-bb86-af25e72abc20"
+      },
+      {
+        "sku_code": "SKU-KXGJY-DEFAULT-4",
+        "price": 145200,
+        "stock": 65,
+        "attributes": null,
+        "id": "2a25857f-0cd5-4835-92f0-e715beba3487"
       }
     ],
     "brand": "Fastrack",
@@ -2404,6 +3580,27 @@
         "price": 157800,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XH9EK-DEFAULT-2",
+        "price": 157800,
+        "stock": 69,
+        "attributes": null,
+        "id": "9902c335-1cde-48c5-aed4-4bc35195668d"
+      },
+      {
+        "sku_code": "SKU-XH9EK-DEFAULT-3",
+        "price": 157800,
+        "stock": 69,
+        "attributes": null,
+        "id": "482e7eec-a51d-497a-8b51-223636b3c321"
+      },
+      {
+        "sku_code": "SKU-XH9EK-DEFAULT-4",
+        "price": 157800,
+        "stock": 69,
+        "attributes": null,
+        "id": "043679dd-633f-4c39-a340-6f0d5d726725"
       }
     ],
     "brand": "Shining",
@@ -2449,6 +3646,27 @@
         "price": 82500,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ASQXO-DEFAULT-2",
+        "price": 82500,
+        "stock": 51,
+        "attributes": null,
+        "id": "08a8e855-7d11-4550-b056-a8a407f7b927"
+      },
+      {
+        "sku_code": "SKU-ASQXO-DEFAULT-3",
+        "price": 82500,
+        "stock": 51,
+        "attributes": null,
+        "id": "597c42d4-c3d5-4ccb-9c8b-ac84da888242"
+      },
+      {
+        "sku_code": "SKU-ASQXO-DEFAULT-4",
+        "price": 82500,
+        "stock": 51,
+        "attributes": null,
+        "id": "2c155ff6-59de-49fd-8076-6917a557e722"
       }
     ],
     "brand": "Fastrack",
@@ -2490,6 +3708,27 @@
         "price": 359700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1OYBQ-DEFAULT-2",
+        "price": 359700,
+        "stock": 81,
+        "attributes": null,
+        "id": "f832aef0-a01a-4453-8667-7c81e5cc24ce"
+      },
+      {
+        "sku_code": "SKU-1OYBQ-DEFAULT-3",
+        "price": 359700,
+        "stock": 81,
+        "attributes": null,
+        "id": "85532108-db5f-4b83-8ff2-2c106f92eba4"
+      },
+      {
+        "sku_code": "SKU-1OYBQ-DEFAULT-4",
+        "price": 359700,
+        "stock": 81,
+        "attributes": null,
+        "id": "4c7abd31-4b2c-4847-b26c-2218cc9150b6"
       }
     ],
     "brand": "Sparx",
@@ -2531,6 +3770,27 @@
         "price": 74700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FHKJL-DEFAULT-2",
+        "price": 74700,
+        "stock": 51,
+        "attributes": null,
+        "id": "b787ded2-1b0f-462c-8610-19bd76762ded"
+      },
+      {
+        "sku_code": "SKU-FHKJL-DEFAULT-3",
+        "price": 74700,
+        "stock": 51,
+        "attributes": null,
+        "id": "08efa64d-42fd-4564-9094-583b12dcb97f"
+      },
+      {
+        "sku_code": "SKU-FHKJL-DEFAULT-4",
+        "price": 74700,
+        "stock": 51,
+        "attributes": null,
+        "id": "b3c77344-02d0-4626-a875-e42e17209f3a"
       }
     ],
     "brand": "Casio",
@@ -2576,6 +3836,27 @@
         "price": 65100,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F16XK-DEFAULT-2",
+        "price": 65100,
+        "stock": 11,
+        "attributes": null,
+        "id": "e6377e04-117b-414d-b238-e4c9d845f3dd"
+      },
+      {
+        "sku_code": "SKU-F16XK-DEFAULT-3",
+        "price": 65100,
+        "stock": 11,
+        "attributes": null,
+        "id": "4836f7e6-5bf6-40db-9bb5-5179bdaee0a1"
+      },
+      {
+        "sku_code": "SKU-F16XK-DEFAULT-4",
+        "price": 65100,
+        "stock": 11,
+        "attributes": null,
+        "id": "ddbba309-cfa0-4523-9ea6-6264528ed60e"
       }
     ],
     "brand": "Sonata",
@@ -2621,6 +3902,27 @@
         "price": 659700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QNH6V-DEFAULT-2",
+        "price": 659700,
+        "stock": 80,
+        "attributes": null,
+        "id": "34b6da4e-1f4b-4728-8866-259754f6b659"
+      },
+      {
+        "sku_code": "SKU-QNH6V-DEFAULT-3",
+        "price": 659700,
+        "stock": 80,
+        "attributes": null,
+        "id": "d4f01d4a-cffc-46f4-8671-3a1f92b9f40a"
+      },
+      {
+        "sku_code": "SKU-QNH6V-DEFAULT-4",
+        "price": 659700,
+        "stock": 80,
+        "attributes": null,
+        "id": "513f5985-53d6-4aba-b970-4a5b31e8b510"
       }
     ],
     "brand": "IndiWeaves�",
@@ -2666,6 +3968,27 @@
         "price": 80700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UDN6R-DEFAULT-2",
+        "price": 80700,
+        "stock": 80,
+        "attributes": null,
+        "id": "6e4b4189-549e-495b-b618-83c64e8d4d15"
+      },
+      {
+        "sku_code": "SKU-UDN6R-DEFAULT-3",
+        "price": 80700,
+        "stock": 80,
+        "attributes": null,
+        "id": "c21fdafb-c8a8-498f-a087-56564d5cc439"
+      },
+      {
+        "sku_code": "SKU-UDN6R-DEFAULT-4",
+        "price": 80700,
+        "stock": 80,
+        "attributes": null,
+        "id": "745ca061-315d-4b96-a702-781fe7b0e66e"
       }
     ],
     "brand": "Amazon",
@@ -2711,6 +4034,27 @@
         "price": 67200,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KCU4T-DEFAULT-2",
+        "price": 67200,
+        "stock": 58,
+        "attributes": null,
+        "id": "bfef3d06-bf1d-47c3-9778-03aa6645eb01"
+      },
+      {
+        "sku_code": "SKU-KCU4T-DEFAULT-3",
+        "price": 67200,
+        "stock": 58,
+        "attributes": null,
+        "id": "f1df364e-0079-4edf-b450-27e41ac90575"
+      },
+      {
+        "sku_code": "SKU-KCU4T-DEFAULT-4",
+        "price": 67200,
+        "stock": 58,
+        "attributes": null,
+        "id": "6abb0644-d34a-4c47-b3ab-79b12a65c94c"
       }
     ],
     "brand": "Yellow",
@@ -2748,6 +4092,27 @@
         "price": 479700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2KVGR-DEFAULT-2",
+        "price": 479700,
+        "stock": 93,
+        "attributes": null,
+        "id": "c1e5e104-a694-40a7-98f5-136d6d84b3b8"
+      },
+      {
+        "sku_code": "SKU-2KVGR-DEFAULT-3",
+        "price": 479700,
+        "stock": 93,
+        "attributes": null,
+        "id": "cf22b4bd-1c81-45da-b6e0-36dca27d15b0"
+      },
+      {
+        "sku_code": "SKU-2KVGR-DEFAULT-4",
+        "price": 479700,
+        "stock": 93,
+        "attributes": null,
+        "id": "1361103a-1c6d-4fbd-ac67-932e9ae281ba"
       }
     ],
     "brand": "Shining",
@@ -2793,6 +4158,27 @@
         "price": 149700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-87X8K-DEFAULT-2",
+        "price": 149700,
+        "stock": 76,
+        "attributes": null,
+        "id": "d31cb15f-2bc4-4fb4-9a9c-ac90d5c5a4ab"
+      },
+      {
+        "sku_code": "SKU-87X8K-DEFAULT-3",
+        "price": 149700,
+        "stock": 76,
+        "attributes": null,
+        "id": "3f09205f-ee24-4e64-aa49-7fdbbed2be25"
+      },
+      {
+        "sku_code": "SKU-87X8K-DEFAULT-4",
+        "price": 149700,
+        "stock": 76,
+        "attributes": null,
+        "id": "e2ba6088-5543-4ee0-b934-1e6b423fd6c9"
       }
     ],
     "brand": "TIMEX",
@@ -2830,6 +4216,27 @@
         "price": 632700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JM6XO-DEFAULT-2",
+        "price": 632700,
+        "stock": 89,
+        "attributes": null,
+        "id": "f6ba4085-c716-42d4-a744-a37162693304"
+      },
+      {
+        "sku_code": "SKU-JM6XO-DEFAULT-3",
+        "price": 632700,
+        "stock": 89,
+        "attributes": null,
+        "id": "02e71152-13f1-46bc-a643-bb3f9f0dde67"
+      },
+      {
+        "sku_code": "SKU-JM6XO-DEFAULT-4",
+        "price": 632700,
+        "stock": 89,
+        "attributes": null,
+        "id": "6604e0a5-90e7-4235-8393-1fb1dc308e2d"
       }
     ],
     "brand": "Sonata",
@@ -2871,6 +4278,27 @@
         "price": 84000,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SMT79-DEFAULT-2",
+        "price": 84000,
+        "stock": 106,
+        "attributes": null,
+        "id": "03eaed13-9269-4820-bcfd-a0e0236b3aba"
+      },
+      {
+        "sku_code": "SKU-SMT79-DEFAULT-3",
+        "price": 84000,
+        "stock": 106,
+        "attributes": null,
+        "id": "97285250-c9cc-46bf-bd48-4c02f9d8ec28"
+      },
+      {
+        "sku_code": "SKU-SMT79-DEFAULT-4",
+        "price": 84000,
+        "stock": 106,
+        "attributes": null,
+        "id": "d038c69a-be07-4b3d-a34e-b5d6bddb03b8"
       }
     ],
     "brand": "Yellow",
@@ -2916,6 +4344,27 @@
         "price": 299700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QC8N6-DEFAULT-2",
+        "price": 299700,
+        "stock": 34,
+        "attributes": null,
+        "id": "92d99288-061c-488f-a6fd-9234130301ed"
+      },
+      {
+        "sku_code": "SKU-QC8N6-DEFAULT-3",
+        "price": 299700,
+        "stock": 34,
+        "attributes": null,
+        "id": "6f05c5cb-fb6d-4a6f-a551-f31d2a5c88bc"
+      },
+      {
+        "sku_code": "SKU-QC8N6-DEFAULT-4",
+        "price": 299700,
+        "stock": 34,
+        "attributes": null,
+        "id": "2087cdc1-6ac6-4a06-bee4-214427a25027"
       }
     ],
     "brand": "Casio",
@@ -2953,6 +4402,27 @@
         "price": 86400,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LI1B1-DEFAULT-2",
+        "price": 86400,
+        "stock": 104,
+        "attributes": null,
+        "id": "a08d67af-e4df-4720-9638-0b1f42c7489b"
+      },
+      {
+        "sku_code": "SKU-LI1B1-DEFAULT-3",
+        "price": 86400,
+        "stock": 104,
+        "attributes": null,
+        "id": "41eda465-8b63-459c-99a6-26fff075dd92"
+      },
+      {
+        "sku_code": "SKU-LI1B1-DEFAULT-4",
+        "price": 86400,
+        "stock": 104,
+        "attributes": null,
+        "id": "072847bf-93f2-43cc-8334-e843d9aa6764"
       }
     ],
     "brand": "BATA",
@@ -2990,6 +4460,27 @@
         "price": 177300,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2V8IS-DEFAULT-2",
+        "price": 177300,
+        "stock": 20,
+        "attributes": null,
+        "id": "f28e891a-752a-4eed-adcf-933f0be38d71"
+      },
+      {
+        "sku_code": "SKU-2V8IS-DEFAULT-3",
+        "price": 177300,
+        "stock": 20,
+        "attributes": null,
+        "id": "ed7a8ab4-2977-4d2e-aa17-9f49017c8ab7"
+      },
+      {
+        "sku_code": "SKU-2V8IS-DEFAULT-4",
+        "price": 177300,
+        "stock": 20,
+        "attributes": null,
+        "id": "cf85537f-d834-4d95-988a-05c3ab524e6d"
       }
     ],
     "brand": "Shining",
@@ -3031,6 +4522,27 @@
         "price": 102000,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BTVE6-DEFAULT-2",
+        "price": 102000,
+        "stock": 93,
+        "attributes": null,
+        "id": "0db1c8bf-271b-4101-9deb-4a3cfb379028"
+      },
+      {
+        "sku_code": "SKU-BTVE6-DEFAULT-3",
+        "price": 102000,
+        "stock": 93,
+        "attributes": null,
+        "id": "8918fef6-7dc2-40ff-9765-3d5d6841f6b2"
+      },
+      {
+        "sku_code": "SKU-BTVE6-DEFAULT-4",
+        "price": 102000,
+        "stock": 93,
+        "attributes": null,
+        "id": "eba81ef6-8ed3-4e0c-9dcf-7a820ff3da18"
       }
     ],
     "brand": "IndiWeaves�",
@@ -3076,6 +4588,27 @@
         "price": 344700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4WXKR-DEFAULT-2",
+        "price": 344700,
+        "stock": 65,
+        "attributes": null,
+        "id": "3c71a6e8-50e1-4413-ac09-e750e72062c6"
+      },
+      {
+        "sku_code": "SKU-4WXKR-DEFAULT-3",
+        "price": 344700,
+        "stock": 65,
+        "attributes": null,
+        "id": "ec0430c0-066f-4d42-b037-a0ab29f23ec2"
+      },
+      {
+        "sku_code": "SKU-4WXKR-DEFAULT-4",
+        "price": 344700,
+        "stock": 65,
+        "attributes": null,
+        "id": "fc06e406-d940-4245-9983-76c19d320f4b"
       }
     ],
     "brand": "Sparx",
@@ -3123,6 +4656,27 @@
         "price": 96000,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JCH8W-DEFAULT-2",
+        "price": 96000,
+        "stock": 41,
+        "attributes": null,
+        "id": "c6b09d65-c47d-4d87-9eef-cb553a8e8923"
+      },
+      {
+        "sku_code": "SKU-JCH8W-DEFAULT-3",
+        "price": 96000,
+        "stock": 41,
+        "attributes": null,
+        "id": "26b51d2e-e232-4b4f-8cda-92ede598a37c"
+      },
+      {
+        "sku_code": "SKU-JCH8W-DEFAULT-4",
+        "price": 96000,
+        "stock": 41,
+        "attributes": null,
+        "id": "a8d7c5d0-1fb5-4336-bb30-83c9ecf175c8"
       }
     ],
     "brand": "Sonata",
@@ -3160,6 +4714,27 @@
         "price": 281700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GBYBR-DEFAULT-2",
+        "price": 281700,
+        "stock": 13,
+        "attributes": null,
+        "id": "2cbd25f5-373b-4ed4-9168-652332fcfe0a"
+      },
+      {
+        "sku_code": "SKU-GBYBR-DEFAULT-3",
+        "price": 281700,
+        "stock": 13,
+        "attributes": null,
+        "id": "bf761e3b-93f2-4508-9710-a5950c19f222"
+      },
+      {
+        "sku_code": "SKU-GBYBR-DEFAULT-4",
+        "price": 281700,
+        "stock": 13,
+        "attributes": null,
+        "id": "d14c9b3c-11ba-41a7-8f94-385da4fab538"
       }
     ],
     "brand": "Kuber",
@@ -3205,6 +4780,27 @@
         "price": 116700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZV6VO-DEFAULT-2",
+        "price": 116700,
+        "stock": 85,
+        "attributes": null,
+        "id": "94b36d49-6d34-46e4-be6d-27e9cfae496e"
+      },
+      {
+        "sku_code": "SKU-ZV6VO-DEFAULT-3",
+        "price": 116700,
+        "stock": 85,
+        "attributes": null,
+        "id": "51021c68-d1b9-49f9-83a4-8ad414550bb7"
+      },
+      {
+        "sku_code": "SKU-ZV6VO-DEFAULT-4",
+        "price": 116700,
+        "stock": 85,
+        "attributes": null,
+        "id": "13da309d-033e-46f3-b3fc-65bc12dc55ff"
       }
     ],
     "brand": "Sparx",
@@ -3250,6 +4846,27 @@
         "price": 45000,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U4Y8A-DEFAULT-2",
+        "price": 45000,
+        "stock": 34,
+        "attributes": null,
+        "id": "00712945-49dd-4082-bf09-24869c58a24e"
+      },
+      {
+        "sku_code": "SKU-U4Y8A-DEFAULT-3",
+        "price": 45000,
+        "stock": 34,
+        "attributes": null,
+        "id": "e1f04f17-fe39-420d-ac97-6e3660c3a6b0"
+      },
+      {
+        "sku_code": "SKU-U4Y8A-DEFAULT-4",
+        "price": 45000,
+        "stock": 34,
+        "attributes": null,
+        "id": "36e2fdfc-5d4e-4c2a-9d4b-1a31cd5c4264"
       }
     ],
     "brand": "Fastrack",
@@ -3287,6 +4904,27 @@
         "price": 374700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5CUE8-DEFAULT-2",
+        "price": 374700,
+        "stock": 34,
+        "attributes": null,
+        "id": "0a1ff0ee-1b1d-4c52-b8cc-6b5cf1690f56"
+      },
+      {
+        "sku_code": "SKU-5CUE8-DEFAULT-3",
+        "price": 374700,
+        "stock": 34,
+        "attributes": null,
+        "id": "a336fc4a-4c48-44bf-8201-df14c66e8e8a"
+      },
+      {
+        "sku_code": "SKU-5CUE8-DEFAULT-4",
+        "price": 374700,
+        "stock": 34,
+        "attributes": null,
+        "id": "b38bae56-c09e-41ce-b693-ff886ef5d96c"
       }
     ],
     "brand": "KAYU™",
@@ -3351,6 +4989,27 @@
         "price": 388500,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BA22S-DEFAULT-2",
+        "price": 388500,
+        "stock": 108,
+        "attributes": null,
+        "id": "aea0af1c-0115-40bc-bab5-0961928c2732"
+      },
+      {
+        "sku_code": "SKU-BA22S-DEFAULT-3",
+        "price": 388500,
+        "stock": 108,
+        "attributes": null,
+        "id": "f8e10495-23c3-4a0f-ab3c-af923c709005"
+      },
+      {
+        "sku_code": "SKU-BA22S-DEFAULT-4",
+        "price": 388500,
+        "stock": 108,
+        "attributes": null,
+        "id": "20bec3b6-6e46-4793-9098-3e32db8cbe44"
       }
     ],
     "brand": "YouBella",
@@ -3396,6 +5055,27 @@
         "price": 54810,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MVSCR-DEFAULT-2",
+        "price": 54810,
+        "stock": 18,
+        "attributes": null,
+        "id": "79117f8f-e5c8-4ca1-b069-951f19c695e1"
+      },
+      {
+        "sku_code": "SKU-MVSCR-DEFAULT-3",
+        "price": 54810,
+        "stock": 18,
+        "attributes": null,
+        "id": "6d9921dc-a58d-4fb1-bae3-915710cf93bc"
+      },
+      {
+        "sku_code": "SKU-MVSCR-DEFAULT-4",
+        "price": 54810,
+        "stock": 18,
+        "attributes": null,
+        "id": "d461e38c-cf2c-48fc-b7a2-e142ddac3906"
       }
     ],
     "brand": "Sonata",
@@ -3433,6 +5113,27 @@
         "price": 101700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XL8Z2-DEFAULT-2",
+        "price": 101700,
+        "stock": 72,
+        "attributes": null,
+        "id": "5a2b1be1-fc40-4061-938b-3a2aefeb3c10"
+      },
+      {
+        "sku_code": "SKU-XL8Z2-DEFAULT-3",
+        "price": 101700,
+        "stock": 72,
+        "attributes": null,
+        "id": "33d8efca-eed4-4f9c-8a6b-254da212cd6f"
+      },
+      {
+        "sku_code": "SKU-XL8Z2-DEFAULT-4",
+        "price": 101700,
+        "stock": 72,
+        "attributes": null,
+        "id": "4991c508-7e52-416d-9eb7-0dad90192597"
       }
     ],
     "brand": "BATA",
@@ -3478,6 +5179,27 @@
         "price": 134700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RG6W7-DEFAULT-2",
+        "price": 134700,
+        "stock": 87,
+        "attributes": null,
+        "id": "650f56fc-8ad2-4109-a00c-22151c7ee922"
+      },
+      {
+        "sku_code": "SKU-RG6W7-DEFAULT-3",
+        "price": 134700,
+        "stock": 87,
+        "attributes": null,
+        "id": "66752dea-6f66-4536-b861-6a4c814b6b37"
+      },
+      {
+        "sku_code": "SKU-RG6W7-DEFAULT-4",
+        "price": 134700,
+        "stock": 87,
+        "attributes": null,
+        "id": "a4ad2479-f28e-476f-bce6-60b565685ee7"
       }
     ],
     "brand": "BATA",
@@ -3515,6 +5237,27 @@
         "price": 530700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A3T81-DEFAULT-2",
+        "price": 530700,
+        "stock": 35,
+        "attributes": null,
+        "id": "fbba4e60-fb4d-4256-be46-4b5b96128831"
+      },
+      {
+        "sku_code": "SKU-A3T81-DEFAULT-3",
+        "price": 530700,
+        "stock": 35,
+        "attributes": null,
+        "id": "81777b18-61fc-4b3d-b1df-5cee79e7b049"
+      },
+      {
+        "sku_code": "SKU-A3T81-DEFAULT-4",
+        "price": 530700,
+        "stock": 35,
+        "attributes": null,
+        "id": "1736d1b7-9e3d-4e09-9a3b-a5ed52e4bebe"
       }
     ],
     "brand": "TIMEX",
@@ -3556,6 +5299,27 @@
         "price": 59700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7NIS6-DEFAULT-2",
+        "price": 59700,
+        "stock": 55,
+        "attributes": null,
+        "id": "3e1d25de-a8e8-499e-880e-bf80f5811a4b"
+      },
+      {
+        "sku_code": "SKU-7NIS6-DEFAULT-3",
+        "price": 59700,
+        "stock": 55,
+        "attributes": null,
+        "id": "9c4a01de-feab-4f5f-8aa4-463f5a8433d3"
+      },
+      {
+        "sku_code": "SKU-7NIS6-DEFAULT-4",
+        "price": 59700,
+        "stock": 55,
+        "attributes": null,
+        "id": "c55fd74f-17c0-474a-a15a-a52da03a7320"
       }
     ],
     "brand": "IndiWeaves�",
@@ -3593,6 +5357,27 @@
         "price": 538500,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RRU9S-DEFAULT-2",
+        "price": 538500,
+        "stock": 70,
+        "attributes": null,
+        "id": "62867d58-a183-438a-babe-41634b0df364"
+      },
+      {
+        "sku_code": "SKU-RRU9S-DEFAULT-3",
+        "price": 538500,
+        "stock": 70,
+        "attributes": null,
+        "id": "f314b26f-53de-4f7b-a98f-e5f6e5cacea0"
+      },
+      {
+        "sku_code": "SKU-RRU9S-DEFAULT-4",
+        "price": 538500,
+        "stock": 70,
+        "attributes": null,
+        "id": "cf3e854b-c605-4802-87e5-c1c71fdce207"
       }
     ],
     "brand": "YouBella",
@@ -3645,6 +5430,27 @@
         "price": 112800,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GQP3T-DEFAULT-2",
+        "price": 112800,
+        "stock": 66,
+        "attributes": null,
+        "id": "6c4cabb1-8bb9-454b-8be5-300beb04d8f0"
+      },
+      {
+        "sku_code": "SKU-GQP3T-DEFAULT-3",
+        "price": 112800,
+        "stock": 66,
+        "attributes": null,
+        "id": "fe92eab0-2cf3-4857-99e6-f85ac32240ac"
+      },
+      {
+        "sku_code": "SKU-GQP3T-DEFAULT-4",
+        "price": 112800,
+        "stock": 66,
+        "attributes": null,
+        "id": "9e98be14-4dc3-4acf-898e-c6df3796f73e"
       }
     ],
     "brand": "Fastrack",
@@ -3686,6 +5492,27 @@
         "price": 119700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NX4W0-DEFAULT-2",
+        "price": 119700,
+        "stock": 70,
+        "attributes": null,
+        "id": "498f725b-3207-4069-9988-e4511dc25b57"
+      },
+      {
+        "sku_code": "SKU-NX4W0-DEFAULT-3",
+        "price": 119700,
+        "stock": 70,
+        "attributes": null,
+        "id": "297ae90c-bed0-425c-bf1b-b22e5914fd67"
+      },
+      {
+        "sku_code": "SKU-NX4W0-DEFAULT-4",
+        "price": 119700,
+        "stock": 70,
+        "attributes": null,
+        "id": "eaf90018-8917-4b07-bb17-a413e16cefd8"
       }
     ],
     "brand": "Sparx",
@@ -3731,6 +5558,27 @@
         "price": 239700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FVGNR-DEFAULT-2",
+        "price": 239700,
+        "stock": 36,
+        "attributes": null,
+        "id": "07827389-7bf1-463d-8bdd-d80e72c1d26d"
+      },
+      {
+        "sku_code": "SKU-FVGNR-DEFAULT-3",
+        "price": 239700,
+        "stock": 36,
+        "attributes": null,
+        "id": "e3fcf277-9398-4bc9-ae89-8363e7b577bb"
+      },
+      {
+        "sku_code": "SKU-FVGNR-DEFAULT-4",
+        "price": 239700,
+        "stock": 36,
+        "attributes": null,
+        "id": "23895560-b278-40bc-9fbd-a33fe5f9b245"
       }
     ],
     "brand": "Yellow",
@@ -3782,6 +5630,27 @@
         "price": 149700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LNNGD-DEFAULT-2",
+        "price": 149700,
+        "stock": 101,
+        "attributes": null,
+        "id": "48af285b-521e-4a8e-abdc-528fc88461ff"
+      },
+      {
+        "sku_code": "SKU-LNNGD-DEFAULT-3",
+        "price": 149700,
+        "stock": 101,
+        "attributes": null,
+        "id": "ac9f8149-7dbe-40c2-860b-000667029c9a"
+      },
+      {
+        "sku_code": "SKU-LNNGD-DEFAULT-4",
+        "price": 149700,
+        "stock": 101,
+        "attributes": null,
+        "id": "4121b964-b69d-422a-aced-2cb5e8a2bef9"
       }
     ],
     "brand": "ZAVERI",
@@ -3827,6 +5696,27 @@
         "price": 254700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3EV7O-DEFAULT-2",
+        "price": 254700,
+        "stock": 32,
+        "attributes": null,
+        "id": "d57e13db-1a33-4c06-983c-a6b1dc5501db"
+      },
+      {
+        "sku_code": "SKU-3EV7O-DEFAULT-3",
+        "price": 254700,
+        "stock": 32,
+        "attributes": null,
+        "id": "944f3f09-eb0f-42a8-aeb5-1df89732d991"
+      },
+      {
+        "sku_code": "SKU-3EV7O-DEFAULT-4",
+        "price": 254700,
+        "stock": 32,
+        "attributes": null,
+        "id": "07c023ba-5d83-487d-8050-d9de3ceaefdb"
       }
     ],
     "brand": "Kuber",
@@ -3868,6 +5758,27 @@
         "price": 40200,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R2TD3-DEFAULT-2",
+        "price": 40200,
+        "stock": 21,
+        "attributes": null,
+        "id": "959fa243-56ac-461d-a8a4-6eeff6eecf0d"
+      },
+      {
+        "sku_code": "SKU-R2TD3-DEFAULT-3",
+        "price": 40200,
+        "stock": 21,
+        "attributes": null,
+        "id": "38362ddf-a0c5-4bce-9173-b217958e5944"
+      },
+      {
+        "sku_code": "SKU-R2TD3-DEFAULT-4",
+        "price": 40200,
+        "stock": 21,
+        "attributes": null,
+        "id": "c14a1a58-6285-4203-918a-a49d8d1f5ccd"
       }
     ],
     "brand": "Shining",
@@ -3909,6 +5820,27 @@
         "price": 146700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5K5C5-DEFAULT-2",
+        "price": 146700,
+        "stock": 94,
+        "attributes": null,
+        "id": "34c8221d-d787-4085-aeff-7bd45fd1bcef"
+      },
+      {
+        "sku_code": "SKU-5K5C5-DEFAULT-3",
+        "price": 146700,
+        "stock": 94,
+        "attributes": null,
+        "id": "f9887e0d-c969-4079-b526-ca01b758d51a"
+      },
+      {
+        "sku_code": "SKU-5K5C5-DEFAULT-4",
+        "price": 146700,
+        "stock": 94,
+        "attributes": null,
+        "id": "3c1f9801-1ecb-483e-844a-3137708e31b5"
       }
     ],
     "brand": "Sonata",
@@ -3950,6 +5882,27 @@
         "price": 337500,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N7XAC-DEFAULT-2",
+        "price": 337500,
+        "stock": 58,
+        "attributes": null,
+        "id": "aac16331-ee70-4865-ab28-52f3c668f1ef"
+      },
+      {
+        "sku_code": "SKU-N7XAC-DEFAULT-3",
+        "price": 337500,
+        "stock": 58,
+        "attributes": null,
+        "id": "fbcf7531-9a30-468c-a85b-695966bc84c3"
+      },
+      {
+        "sku_code": "SKU-N7XAC-DEFAULT-4",
+        "price": 337500,
+        "stock": 58,
+        "attributes": null,
+        "id": "be8ef086-bdc1-4285-bbaf-7f547930a4ed"
       }
     ],
     "brand": "Yellow",
@@ -3987,6 +5940,27 @@
         "price": 140400,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CFXWH-DEFAULT-2",
+        "price": 140400,
+        "stock": 91,
+        "attributes": null,
+        "id": "0e312656-29fa-46a5-8bf7-b1e45d86ec7c"
+      },
+      {
+        "sku_code": "SKU-CFXWH-DEFAULT-3",
+        "price": 140400,
+        "stock": 91,
+        "attributes": null,
+        "id": "f9193591-a9f4-4a82-87b9-590b480ef255"
+      },
+      {
+        "sku_code": "SKU-CFXWH-DEFAULT-4",
+        "price": 140400,
+        "stock": 91,
+        "attributes": null,
+        "id": "a567f009-3e2c-4cda-b5bd-fb7383feef33"
       }
     ],
     "brand": "Sparx",
@@ -4032,6 +6006,27 @@
         "price": 718200,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U2HUK-DEFAULT-2",
+        "price": 718200,
+        "stock": 31,
+        "attributes": null,
+        "id": "260ddb5b-42e2-4016-9665-6602b8ed7d8c"
+      },
+      {
+        "sku_code": "SKU-U2HUK-DEFAULT-3",
+        "price": 718200,
+        "stock": 31,
+        "attributes": null,
+        "id": "c1e3c890-952f-4180-8ccc-994668cf44a2"
+      },
+      {
+        "sku_code": "SKU-U2HUK-DEFAULT-4",
+        "price": 718200,
+        "stock": 31,
+        "attributes": null,
+        "id": "54bebcb8-3973-4f19-9753-d805059101b2"
       }
     ],
     "brand": "Amazon",
@@ -4077,6 +6072,27 @@
         "price": 73500,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GKH0S-DEFAULT-2",
+        "price": 73500,
+        "stock": 55,
+        "attributes": null,
+        "id": "ead6928d-0450-4e93-9db7-e3b2b2b9845a"
+      },
+      {
+        "sku_code": "SKU-GKH0S-DEFAULT-3",
+        "price": 73500,
+        "stock": 55,
+        "attributes": null,
+        "id": "abf1bb0d-7802-402b-b6cd-d9b7b58bc241"
+      },
+      {
+        "sku_code": "SKU-GKH0S-DEFAULT-4",
+        "price": 73500,
+        "stock": 55,
+        "attributes": null,
+        "id": "7c8d0d0b-68b5-4baf-91d9-53cd3937e0da"
       }
     ],
     "brand": "Fastrack",
@@ -4114,6 +6130,27 @@
         "price": 305400,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-46MBL-DEFAULT-2",
+        "price": 305400,
+        "stock": 73,
+        "attributes": null,
+        "id": "9c951726-0594-4112-9085-e4be752b7881"
+      },
+      {
+        "sku_code": "SKU-46MBL-DEFAULT-3",
+        "price": 305400,
+        "stock": 73,
+        "attributes": null,
+        "id": "9887220c-c921-4188-b6e1-bf8b0951e4fc"
+      },
+      {
+        "sku_code": "SKU-46MBL-DEFAULT-4",
+        "price": 305400,
+        "stock": 73,
+        "attributes": null,
+        "id": "88d87d5c-05db-4e8a-950b-0237d540d52e"
       }
     ],
     "brand": "ZAVERI",
@@ -4159,6 +6196,27 @@
         "price": 89700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V56WY-DEFAULT-2",
+        "price": 89700,
+        "stock": 91,
+        "attributes": null,
+        "id": "549f7c70-4c6c-4a3c-8f4a-ec57f357e004"
+      },
+      {
+        "sku_code": "SKU-V56WY-DEFAULT-3",
+        "price": 89700,
+        "stock": 91,
+        "attributes": null,
+        "id": "27b4ad4d-ce49-4596-be2b-31bf1b897d50"
+      },
+      {
+        "sku_code": "SKU-V56WY-DEFAULT-4",
+        "price": 89700,
+        "stock": 91,
+        "attributes": null,
+        "id": "227c2d11-84ea-4fe2-9581-cd4bcdeec632"
       }
     ],
     "brand": "Sparx",
@@ -4224,6 +6282,27 @@
         "price": 42894,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MMNL5-DEFAULT-2",
+        "price": 42894,
+        "stock": 95,
+        "attributes": null,
+        "id": "8894992a-65d0-4895-9977-518a7ca0d13f"
+      },
+      {
+        "sku_code": "SKU-MMNL5-DEFAULT-3",
+        "price": 42894,
+        "stock": 95,
+        "attributes": null,
+        "id": "7c1b52a5-2d39-4f91-942d-7743aa1fa3c9"
+      },
+      {
+        "sku_code": "SKU-MMNL5-DEFAULT-4",
+        "price": 42894,
+        "stock": 95,
+        "attributes": null,
+        "id": "bbdb9739-f2b4-4f8e-a441-313bb37854c5"
       }
     ],
     "brand": "Fastrack",
@@ -4265,6 +6344,27 @@
         "price": 64800,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R5O9F-DEFAULT-2",
+        "price": 64800,
+        "stock": 37,
+        "attributes": null,
+        "id": "a61c44d3-307e-4e7d-85b6-5f0cc9b16e48"
+      },
+      {
+        "sku_code": "SKU-R5O9F-DEFAULT-3",
+        "price": 64800,
+        "stock": 37,
+        "attributes": null,
+        "id": "4fba5289-b11e-40b0-818f-83adabab3542"
+      },
+      {
+        "sku_code": "SKU-R5O9F-DEFAULT-4",
+        "price": 64800,
+        "stock": 37,
+        "attributes": null,
+        "id": "2e8e3741-bb4d-44ea-8ce5-30bedebb2b51"
       }
     ],
     "brand": "YouBella",

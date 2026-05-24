@@ -43,6 +43,16 @@
           "color": "Black",
           "storage": "256GB"
         }
+      },
+      {
+        "sku_code": "SKU-GSN9N-BLK-128-4",
+        "price": 136500,
+        "stock": 36,
+        "attributes": {
+          "color": "Black",
+          "storage": "128GB"
+        },
+        "id": "0e72b273-3a4b-4bd6-a4ba-6851432a9ecc"
       }
     ],
     "brand": "Pinaaki",
@@ -105,6 +115,16 @@
           "color": "Black",
           "storage": "256GB"
         }
+      },
+      {
+        "sku_code": "SKU-CXPOE-BLK-128-4",
+        "price": 232500,
+        "stock": 41,
+        "attributes": {
+          "color": "Black",
+          "storage": "128GB"
+        },
+        "id": "0238e87e-2ddc-40cc-99b1-efb525e99f9d"
       }
     ],
     "brand": "JBL",
@@ -167,6 +187,16 @@
           "color": "Black",
           "storage": "256GB"
         }
+      },
+      {
+        "sku_code": "SKU-LENXH-BLK-128-4",
+        "price": 30000,
+        "stock": 22,
+        "attributes": {
+          "color": "Black",
+          "storage": "128GB"
+        },
+        "id": "24d7688f-7023-412b-b11f-95f6a8bf90d0"
       }
     ],
     "brand": "Car",
@@ -233,6 +263,16 @@
           "color": "Black",
           "storage": "256GB"
         }
+      },
+      {
+        "sku_code": "SKU-7R3XR-BLK-128-4",
+        "price": 89700,
+        "stock": 34,
+        "attributes": {
+          "color": "Black",
+          "storage": "128GB"
+        },
+        "id": "cbde4910-859a-4cff-9598-698fbd892f29"
       }
     ],
     "brand": "Pinaaki",

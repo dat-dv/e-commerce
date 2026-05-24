@@ -20,6 +20,27 @@
         "price": 179700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2NDC5-DEFAULT-2",
+        "price": 179700,
+        "stock": 62,
+        "attributes": null,
+        "id": "3d207fde-548a-4ce9-a171-bd6ae77f166c"
+      },
+      {
+        "sku_code": "SKU-2NDC5-DEFAULT-3",
+        "price": 179700,
+        "stock": 62,
+        "attributes": null,
+        "id": "b08a5a7f-5547-4bc3-b90f-175ea58a02d4"
+      },
+      {
+        "sku_code": "SKU-2NDC5-DEFAULT-4",
+        "price": 179700,
+        "stock": 62,
+        "attributes": null,
+        "id": "acbceb4d-ed30-42aa-80ad-472a24470ed6"
       }
     ],
     "brand": "Prestige",
@@ -61,6 +82,27 @@
         "price": 739200,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FUZ1L-DEFAULT-2",
+        "price": 739200,
+        "stock": 44,
+        "attributes": null,
+        "id": "7fcdb6b1-3015-44df-ab78-ac799b0e2112"
+      },
+      {
+        "sku_code": "SKU-FUZ1L-DEFAULT-3",
+        "price": 739200,
+        "stock": 44,
+        "attributes": null,
+        "id": "c76267ff-dfdb-441e-9e41-1f1d46cdba8c"
+      },
+      {
+        "sku_code": "SKU-FUZ1L-DEFAULT-4",
+        "price": 739200,
+        "stock": 44,
+        "attributes": null,
+        "id": "95fdcd96-07bf-4cf9-a977-46f118c092ec"
       }
     ],
     "brand": "Kuber",
@@ -98,6 +140,27 @@
         "price": 7500,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5B94Y-DEFAULT-2",
+        "price": 7500,
+        "stock": 47,
+        "attributes": null,
+        "id": "e0ad9208-f23b-4447-8b83-cc78a14b2b0e"
+      },
+      {
+        "sku_code": "SKU-5B94Y-DEFAULT-3",
+        "price": 7500,
+        "stock": 47,
+        "attributes": null,
+        "id": "fe41b523-e5c2-441a-b296-6dab79f40928"
+      },
+      {
+        "sku_code": "SKU-5B94Y-DEFAULT-4",
+        "price": 7500,
+        "stock": 47,
+        "attributes": null,
+        "id": "d3b97567-2661-4b88-9b72-bd0b455fdc0a"
       }
     ],
     "brand": "Taparia",
@@ -137,6 +200,27 @@
         "price": 3477000,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-63BYW-DEFAULT-2",
+        "price": 3477000,
+        "stock": 99,
+        "attributes": null,
+        "id": "78a928e3-8967-41f8-b417-47de7437cf2d"
+      },
+      {
+        "sku_code": "SKU-63BYW-DEFAULT-3",
+        "price": 3477000,
+        "stock": 99,
+        "attributes": null,
+        "id": "6a9d4511-7f81-40c4-b069-864c030f4867"
+      },
+      {
+        "sku_code": "SKU-63BYW-DEFAULT-4",
+        "price": 3477000,
+        "stock": 99,
+        "attributes": null,
+        "id": "9a54f9a2-64ec-4d89-bbc9-37ba7b2a7654"
       }
     ],
     "brand": "Samsung",
@@ -182,6 +266,27 @@
         "price": 170700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AV7O5-DEFAULT-2",
+        "price": 170700,
+        "stock": 25,
+        "attributes": null,
+        "id": "f20bacdf-fcbd-4292-9b48-78537b186263"
+      },
+      {
+        "sku_code": "SKU-AV7O5-DEFAULT-3",
+        "price": 170700,
+        "stock": 25,
+        "attributes": null,
+        "id": "bd4c4e59-3b34-4470-9812-2310f97d8ac8"
+      },
+      {
+        "sku_code": "SKU-AV7O5-DEFAULT-4",
+        "price": 170700,
+        "stock": 25,
+        "attributes": null,
+        "id": "17c0806d-727b-42ec-9487-ba508c17932b"
       }
     ],
     "brand": "Milton",
@@ -227,6 +332,27 @@
         "price": 105300,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BCG0A-DEFAULT-2",
+        "price": 105300,
+        "stock": 92,
+        "attributes": null,
+        "id": "e8e2acbb-72d6-43c2-a296-d75c5e73e09e"
+      },
+      {
+        "sku_code": "SKU-BCG0A-DEFAULT-3",
+        "price": 105300,
+        "stock": 92,
+        "attributes": null,
+        "id": "9442bea7-1154-4e27-803e-86cbc2906fd2"
+      },
+      {
+        "sku_code": "SKU-BCG0A-DEFAULT-4",
+        "price": 105300,
+        "stock": 92,
+        "attributes": null,
+        "id": "44b698cc-38ed-4f14-96d2-a8aa72927ab0"
       }
     ],
     "brand": "Samsung",
@@ -264,6 +390,27 @@
         "price": 1512000,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OLQVY-DEFAULT-2",
+        "price": 1512000,
+        "stock": 101,
+        "attributes": null,
+        "id": "57056c7c-a18c-41f5-8ba0-8aa58cafc5d8"
+      },
+      {
+        "sku_code": "SKU-OLQVY-DEFAULT-3",
+        "price": 1512000,
+        "stock": 101,
+        "attributes": null,
+        "id": "84867a25-3f10-41e3-9f0c-3791eb0ad807"
+      },
+      {
+        "sku_code": "SKU-OLQVY-DEFAULT-4",
+        "price": 1512000,
+        "stock": 101,
+        "attributes": null,
+        "id": "0e3f4813-2cae-409a-a28b-32f9f21d6915"
       }
     ],
     "brand": "Pigeon",
@@ -309,6 +456,27 @@
         "price": 569700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2E9B5-DEFAULT-2",
+        "price": 569700,
+        "stock": 100,
+        "attributes": null,
+        "id": "c0020c48-209e-4105-bcea-7e964215d68d"
+      },
+      {
+        "sku_code": "SKU-2E9B5-DEFAULT-3",
+        "price": 569700,
+        "stock": 100,
+        "attributes": null,
+        "id": "4a512a69-4fe5-49ff-819b-b091450b636d"
+      },
+      {
+        "sku_code": "SKU-2E9B5-DEFAULT-4",
+        "price": 569700,
+        "stock": 100,
+        "attributes": null,
+        "id": "f2375a82-227b-4e32-bb03-760190cb6cf5"
       }
     ],
     "brand": "Philips",
@@ -346,6 +514,27 @@
         "price": 209700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HQHRE-DEFAULT-2",
+        "price": 209700,
+        "stock": 12,
+        "attributes": null,
+        "id": "1fe8cffd-a2da-407c-b289-935f02446151"
+      },
+      {
+        "sku_code": "SKU-HQHRE-DEFAULT-3",
+        "price": 209700,
+        "stock": 12,
+        "attributes": null,
+        "id": "cc05ac79-8227-40d7-a0ef-5bd56f9b404e"
+      },
+      {
+        "sku_code": "SKU-HQHRE-DEFAULT-4",
+        "price": 209700,
+        "stock": 12,
+        "attributes": null,
+        "id": "98fb08d0-2596-440a-b974-34a639429161"
       }
     ],
     "brand": "Bajaj",
@@ -391,6 +580,27 @@
         "price": 20700,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8E9CO-DEFAULT-2",
+        "price": 20700,
+        "stock": 58,
+        "attributes": null,
+        "id": "aa3c5b67-3d8f-4dfc-a031-97830ebc1a59"
+      },
+      {
+        "sku_code": "SKU-8E9CO-DEFAULT-3",
+        "price": 20700,
+        "stock": 58,
+        "attributes": null,
+        "id": "ed2dc484-c29b-4a87-84dc-9511c977efb3"
+      },
+      {
+        "sku_code": "SKU-8E9CO-DEFAULT-4",
+        "price": 20700,
+        "stock": 58,
+        "attributes": null,
+        "id": "6fe4fa3c-7554-45a2-b328-9797d3436817"
       }
     ],
     "brand": "Pigeon",
@@ -428,6 +638,27 @@
         "price": 453000,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TW7E8-DEFAULT-2",
+        "price": 453000,
+        "stock": 102,
+        "attributes": null,
+        "id": "a5456d5a-8218-4bfc-b301-2125910b825a"
+      },
+      {
+        "sku_code": "SKU-TW7E8-DEFAULT-3",
+        "price": 453000,
+        "stock": 102,
+        "attributes": null,
+        "id": "eb63f71e-1518-4ad7-8e22-c77b2e800b70"
+      },
+      {
+        "sku_code": "SKU-TW7E8-DEFAULT-4",
+        "price": 453000,
+        "stock": 102,
+        "attributes": null,
+        "id": "20687377-e3e1-4705-9ec5-3d90921eb250"
       }
     ],
     "brand": "Philips",
@@ -465,6 +696,27 @@
         "price": 68700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6ZWLM-DEFAULT-2",
+        "price": 68700,
+        "stock": 37,
+        "attributes": null,
+        "id": "c32cba43-30c9-4196-87d3-c521bd71ffcb"
+      },
+      {
+        "sku_code": "SKU-6ZWLM-DEFAULT-3",
+        "price": 68700,
+        "stock": 37,
+        "attributes": null,
+        "id": "1d0667ff-637a-4119-99e6-1e0e7c597a07"
+      },
+      {
+        "sku_code": "SKU-6ZWLM-DEFAULT-4",
+        "price": 68700,
+        "stock": 37,
+        "attributes": null,
+        "id": "2f3ce3d6-b3b8-46ca-b940-a944fcb695e7"
       }
     ],
     "brand": "Hawkins",
@@ -506,6 +758,27 @@
         "price": 47700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7AZR2-DEFAULT-2",
+        "price": 47700,
+        "stock": 19,
+        "attributes": null,
+        "id": "0296d378-a8e3-4760-8454-5d2e21bc63d0"
+      },
+      {
+        "sku_code": "SKU-7AZR2-DEFAULT-3",
+        "price": 47700,
+        "stock": 19,
+        "attributes": null,
+        "id": "cc1d7417-1cda-453c-ac14-6620aacd312d"
+      },
+      {
+        "sku_code": "SKU-7AZR2-DEFAULT-4",
+        "price": 47700,
+        "stock": 19,
+        "attributes": null,
+        "id": "a268251e-32c3-4ef5-b407-0f5c3ab676d6"
       }
     ],
     "brand": "Philips",
@@ -551,6 +824,27 @@
         "price": 88500,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UNY02-DEFAULT-2",
+        "price": 88500,
+        "stock": 59,
+        "attributes": null,
+        "id": "797d649b-50a8-46dd-87b1-0ad86e5a2dfa"
+      },
+      {
+        "sku_code": "SKU-UNY02-DEFAULT-3",
+        "price": 88500,
+        "stock": 59,
+        "attributes": null,
+        "id": "15c029b3-75b5-4e51-b7ba-44fd4a7c8081"
+      },
+      {
+        "sku_code": "SKU-UNY02-DEFAULT-4",
+        "price": 88500,
+        "stock": 59,
+        "attributes": null,
+        "id": "aac5890e-782a-4a52-9dba-3a01317c60c3"
       }
     ],
     "brand": "Prestige",
@@ -622,6 +916,27 @@
         "price": 164700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QTM3O-DEFAULT-2",
+        "price": 164700,
+        "stock": 22,
+        "attributes": null,
+        "id": "1a7ee000-8d36-40c3-90f2-3b00786e0e7c"
+      },
+      {
+        "sku_code": "SKU-QTM3O-DEFAULT-3",
+        "price": 164700,
+        "stock": 22,
+        "attributes": null,
+        "id": "58a69bb7-3a5b-4dc4-8a46-052de929fc2c"
+      },
+      {
+        "sku_code": "SKU-QTM3O-DEFAULT-4",
+        "price": 164700,
+        "stock": 22,
+        "attributes": null,
+        "id": "cce82ff5-5f93-4182-8220-68e814da175d"
       }
     ],
     "brand": "Samsung",
@@ -659,6 +974,27 @@
         "price": 89700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H6O2P-DEFAULT-2",
+        "price": 89700,
+        "stock": 35,
+        "attributes": null,
+        "id": "7ceeabef-c4fc-4bc2-9279-f2c4e08911d9"
+      },
+      {
+        "sku_code": "SKU-H6O2P-DEFAULT-3",
+        "price": 89700,
+        "stock": 35,
+        "attributes": null,
+        "id": "f0787645-c4b3-45d4-961e-c0cdc211078d"
+      },
+      {
+        "sku_code": "SKU-H6O2P-DEFAULT-4",
+        "price": 89700,
+        "stock": 35,
+        "attributes": null,
+        "id": "60fd7521-5e83-4687-89c8-6a1309f1cf70"
       }
     ],
     "brand": "AmazonBasics",
@@ -696,6 +1032,27 @@
         "price": 1754700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J0KD0-DEFAULT-2",
+        "price": 1754700,
+        "stock": 68,
+        "attributes": null,
+        "id": "a2cff4f0-b018-4461-9833-9285f0d403a6"
+      },
+      {
+        "sku_code": "SKU-J0KD0-DEFAULT-3",
+        "price": 1754700,
+        "stock": 68,
+        "attributes": null,
+        "id": "63d3fa7a-cd8c-4cdb-95f7-48c1e28bbbfb"
+      },
+      {
+        "sku_code": "SKU-J0KD0-DEFAULT-4",
+        "price": 1754700,
+        "stock": 68,
+        "attributes": null,
+        "id": "4f65975c-271f-4f03-9316-246eab7f6285"
       }
     ],
     "brand": "Hawkins",
@@ -733,6 +1090,27 @@
         "price": 146700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UO1ER-DEFAULT-2",
+        "price": 146700,
+        "stock": 83,
+        "attributes": null,
+        "id": "fcafff72-dd74-4983-bfdb-71993b206546"
+      },
+      {
+        "sku_code": "SKU-UO1ER-DEFAULT-3",
+        "price": 146700,
+        "stock": 83,
+        "attributes": null,
+        "id": "507f851c-605d-43a5-a7b3-02dd38ba16fb"
+      },
+      {
+        "sku_code": "SKU-UO1ER-DEFAULT-4",
+        "price": 146700,
+        "stock": 83,
+        "attributes": null,
+        "id": "e9a1c0a0-4695-445d-bdf2-d2f44f142405"
       }
     ],
     "brand": "Philips",
@@ -770,6 +1148,27 @@
         "price": 85200,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C7892-DEFAULT-2",
+        "price": 85200,
+        "stock": 98,
+        "attributes": null,
+        "id": "7772e78f-903e-4d25-907b-e9d71ff7d846"
+      },
+      {
+        "sku_code": "SKU-C7892-DEFAULT-3",
+        "price": 85200,
+        "stock": 98,
+        "attributes": null,
+        "id": "7a61bf98-0c58-45e7-8f82-0983b9bb8e3b"
+      },
+      {
+        "sku_code": "SKU-C7892-DEFAULT-4",
+        "price": 85200,
+        "stock": 98,
+        "attributes": null,
+        "id": "0a91516e-4c2e-487e-8217-653e3be2705e"
       }
     ],
     "brand": "Hawkins",
@@ -807,6 +1206,27 @@
         "price": 44700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JBR2N-DEFAULT-2",
+        "price": 44700,
+        "stock": 54,
+        "attributes": null,
+        "id": "bcc294dc-ebbf-422e-b143-0867e1b02376"
+      },
+      {
+        "sku_code": "SKU-JBR2N-DEFAULT-3",
+        "price": 44700,
+        "stock": 54,
+        "attributes": null,
+        "id": "d64bc7fe-4f17-4438-bc12-26c54e8b72cf"
+      },
+      {
+        "sku_code": "SKU-JBR2N-DEFAULT-4",
+        "price": 44700,
+        "stock": 54,
+        "attributes": null,
+        "id": "1d11763f-e564-44a9-bd32-f785813070c0"
       }
     ],
     "brand": "Amazon",
@@ -844,6 +1264,27 @@
         "price": 42600,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SQ97N-DEFAULT-2",
+        "price": 42600,
+        "stock": 43,
+        "attributes": null,
+        "id": "4a62e3ed-3055-4356-8c9f-1ecd156424b8"
+      },
+      {
+        "sku_code": "SKU-SQ97N-DEFAULT-3",
+        "price": 42600,
+        "stock": 43,
+        "attributes": null,
+        "id": "873176b4-1c59-4bba-b8e1-ea98f50432f2"
+      },
+      {
+        "sku_code": "SKU-SQ97N-DEFAULT-4",
+        "price": 42600,
+        "stock": 43,
+        "attributes": null,
+        "id": "3bd48130-f3fd-4d2d-9906-4ba99e4ce922"
       }
     ],
     "brand": "Dettol",
@@ -885,6 +1326,27 @@
         "price": 433200,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N1A71-DEFAULT-2",
+        "price": 433200,
+        "stock": 64,
+        "attributes": null,
+        "id": "3857c743-595b-45ce-8880-ebeae2191f61"
+      },
+      {
+        "sku_code": "SKU-N1A71-DEFAULT-3",
+        "price": 433200,
+        "stock": 64,
+        "attributes": null,
+        "id": "a82a122c-7362-49b8-b708-466d3fcefad7"
+      },
+      {
+        "sku_code": "SKU-N1A71-DEFAULT-4",
+        "price": 433200,
+        "stock": 64,
+        "attributes": null,
+        "id": "ef740d9d-6396-4ae0-b629-84f8f40597d0"
       }
     ],
     "brand": "SYSKA",
@@ -922,6 +1384,27 @@
         "price": 23700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DXROI-DEFAULT-2",
+        "price": 23700,
+        "stock": 96,
+        "attributes": null,
+        "id": "dbad9f6e-6e8d-449c-bd54-eb939256c800"
+      },
+      {
+        "sku_code": "SKU-DXROI-DEFAULT-3",
+        "price": 23700,
+        "stock": 96,
+        "attributes": null,
+        "id": "99ef4678-e30f-4aaa-a865-d0f09a8eb8db"
+      },
+      {
+        "sku_code": "SKU-DXROI-DEFAULT-4",
+        "price": 23700,
+        "stock": 96,
+        "attributes": null,
+        "id": "9588495b-6c62-4b8a-a354-5b1e95975580"
       }
     ],
     "brand": "AmazonBasics",
@@ -963,6 +1446,27 @@
         "price": 239700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5Y4OW-DEFAULT-2",
+        "price": 239700,
+        "stock": 54,
+        "attributes": null,
+        "id": "31d62df1-b3d7-4184-95f8-5a8e8eaa0a42"
+      },
+      {
+        "sku_code": "SKU-5Y4OW-DEFAULT-3",
+        "price": 239700,
+        "stock": 54,
+        "attributes": null,
+        "id": "3eaf7cdc-6ff0-402e-95da-ade534edebd3"
+      },
+      {
+        "sku_code": "SKU-5Y4OW-DEFAULT-4",
+        "price": 239700,
+        "stock": 54,
+        "attributes": null,
+        "id": "2a9ade01-d4b3-4cdf-bdc3-6d97a27f1eca"
       }
     ],
     "brand": "PrettyKrafts",
@@ -1000,6 +1504,27 @@
         "price": 134700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7AGFX-DEFAULT-2",
+        "price": 134700,
+        "stock": 88,
+        "attributes": null,
+        "id": "a5b93c43-bc0a-499d-9566-6748a20ac368"
+      },
+      {
+        "sku_code": "SKU-7AGFX-DEFAULT-3",
+        "price": 134700,
+        "stock": 88,
+        "attributes": null,
+        "id": "5ebf804c-8097-4c53-8251-8fd3c4659642"
+      },
+      {
+        "sku_code": "SKU-7AGFX-DEFAULT-4",
+        "price": 134700,
+        "stock": 88,
+        "attributes": null,
+        "id": "569eedcd-5b80-44fb-8516-c2e8f288186d"
       }
     ],
     "brand": "Prestige",
@@ -1062,6 +1587,27 @@
         "price": 239700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MNHDO-DEFAULT-2",
+        "price": 239700,
+        "stock": 85,
+        "attributes": null,
+        "id": "f89a2b53-c5a8-4154-a5f8-41f6440a34ac"
+      },
+      {
+        "sku_code": "SKU-MNHDO-DEFAULT-3",
+        "price": 239700,
+        "stock": 85,
+        "attributes": null,
+        "id": "d7ff9713-4cce-451e-985c-513bd2389b9f"
+      },
+      {
+        "sku_code": "SKU-MNHDO-DEFAULT-4",
+        "price": 239700,
+        "stock": 85,
+        "attributes": null,
+        "id": "015855e7-077c-4f38-a6b3-40a6178b4472"
       }
     ],
     "brand": "Samsung",
@@ -1100,6 +1646,27 @@
         "price": 115500,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0V91R-DEFAULT-2",
+        "price": 115500,
+        "stock": 74,
+        "attributes": null,
+        "id": "6820db67-6f14-410d-8b94-455dbb34ca02"
+      },
+      {
+        "sku_code": "SKU-0V91R-DEFAULT-3",
+        "price": 115500,
+        "stock": 74,
+        "attributes": null,
+        "id": "0a3537a2-b6a3-4d65-bed2-e15fed1af42f"
+      },
+      {
+        "sku_code": "SKU-0V91R-DEFAULT-4",
+        "price": 115500,
+        "stock": 74,
+        "attributes": null,
+        "id": "3b2991fa-4a2d-40ee-8f9d-f90629c647b8"
       }
     ],
     "brand": "Amazon",
@@ -1137,6 +1704,27 @@
         "price": 449700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YJFXN-DEFAULT-2",
+        "price": 449700,
+        "stock": 33,
+        "attributes": null,
+        "id": "c6f3dbfb-c7ec-4253-b752-16ec8c4694d2"
+      },
+      {
+        "sku_code": "SKU-YJFXN-DEFAULT-3",
+        "price": 449700,
+        "stock": 33,
+        "attributes": null,
+        "id": "936c2d20-bad4-47c7-8d8e-57edf714b198"
+      },
+      {
+        "sku_code": "SKU-YJFXN-DEFAULT-4",
+        "price": 449700,
+        "stock": 33,
+        "attributes": null,
+        "id": "1bb46fa0-9a46-491e-acef-829abcd0c371"
       }
     ],
     "brand": "Pigeon",
@@ -1182,6 +1770,27 @@
         "price": 213300,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WJEZI-DEFAULT-2",
+        "price": 213300,
+        "stock": 40,
+        "attributes": null,
+        "id": "ee138c85-f5be-447e-9908-9634291d4dc2"
+      },
+      {
+        "sku_code": "SKU-WJEZI-DEFAULT-3",
+        "price": 213300,
+        "stock": 40,
+        "attributes": null,
+        "id": "ae363dcc-40e6-47ca-b113-b80d68419472"
+      },
+      {
+        "sku_code": "SKU-WJEZI-DEFAULT-4",
+        "price": 213300,
+        "stock": 40,
+        "attributes": null,
+        "id": "6f97e8d1-dac4-40b8-924a-ff825ae60dc1"
       }
     ],
     "brand": "Philips",
@@ -1223,6 +1832,27 @@
         "price": 344700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z2HJ2-DEFAULT-2",
+        "price": 344700,
+        "stock": 88,
+        "attributes": null,
+        "id": "ccd6dcc5-00e8-4d32-b006-a4cc532ba974"
+      },
+      {
+        "sku_code": "SKU-Z2HJ2-DEFAULT-3",
+        "price": 344700,
+        "stock": 88,
+        "attributes": null,
+        "id": "c0597834-c7e6-42de-aac9-bc9c5ff43493"
+      },
+      {
+        "sku_code": "SKU-Z2HJ2-DEFAULT-4",
+        "price": 344700,
+        "stock": 88,
+        "attributes": null,
+        "id": "e4394a8a-d88a-4ec9-9bcb-82dd4a385ec9"
       }
     ],
     "brand": "Hawkins",
@@ -1264,6 +1894,27 @@
         "price": 449700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WS83X-DEFAULT-2",
+        "price": 449700,
+        "stock": 88,
+        "attributes": null,
+        "id": "43fe07d9-6159-4dcb-b3cf-6ea20fe5a0e4"
+      },
+      {
+        "sku_code": "SKU-WS83X-DEFAULT-3",
+        "price": 449700,
+        "stock": 88,
+        "attributes": null,
+        "id": "093f5fd5-7a19-4a16-939c-570a67d31e91"
+      },
+      {
+        "sku_code": "SKU-WS83X-DEFAULT-4",
+        "price": 449700,
+        "stock": 88,
+        "attributes": null,
+        "id": "d7d4e938-e763-4a7a-a963-06ed8f208004"
       }
     ],
     "brand": "AGARO",
@@ -1301,6 +1952,27 @@
         "price": 357000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KUF1U-DEFAULT-2",
+        "price": 357000,
+        "stock": 28,
+        "attributes": null,
+        "id": "76667910-dd08-40aa-92e6-390dea5bf178"
+      },
+      {
+        "sku_code": "SKU-KUF1U-DEFAULT-3",
+        "price": 357000,
+        "stock": 28,
+        "attributes": null,
+        "id": "33f7cea0-9372-446d-bde7-f7b9a86aaf89"
+      },
+      {
+        "sku_code": "SKU-KUF1U-DEFAULT-4",
+        "price": 357000,
+        "stock": 28,
+        "attributes": null,
+        "id": "36c132ab-3394-4d39-b743-3c5822a953d4"
       }
     ],
     "brand": "PrettyKrafts",
@@ -1342,6 +2014,27 @@
         "price": 145500,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VH87Y-DEFAULT-2",
+        "price": 145500,
+        "stock": 108,
+        "attributes": null,
+        "id": "1e187fbe-337e-4be0-8483-7b594759ecc9"
+      },
+      {
+        "sku_code": "SKU-VH87Y-DEFAULT-3",
+        "price": 145500,
+        "stock": 108,
+        "attributes": null,
+        "id": "a617d8e7-b16c-40bc-92d2-02ddf85ab0fb"
+      },
+      {
+        "sku_code": "SKU-VH87Y-DEFAULT-4",
+        "price": 145500,
+        "stock": 108,
+        "attributes": null,
+        "id": "77c2f08e-7901-4fd9-b57b-686bf90d4457"
       }
     ],
     "brand": "Samsung",
@@ -1383,6 +2076,27 @@
         "price": 158700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PTO61-DEFAULT-2",
+        "price": 158700,
+        "stock": 48,
+        "attributes": null,
+        "id": "2b2a5dcf-421f-4b78-b19b-d3c22226ad3d"
+      },
+      {
+        "sku_code": "SKU-PTO61-DEFAULT-3",
+        "price": 158700,
+        "stock": 48,
+        "attributes": null,
+        "id": "f9173e40-e032-40ed-b396-8a31ab99073c"
+      },
+      {
+        "sku_code": "SKU-PTO61-DEFAULT-4",
+        "price": 158700,
+        "stock": 48,
+        "attributes": null,
+        "id": "060eb360-4ad4-476c-85f8-29dee46e9653"
       }
     ],
     "brand": "Milton",
@@ -1420,6 +2134,27 @@
         "price": 209700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U33IZ-DEFAULT-2",
+        "price": 209700,
+        "stock": 36,
+        "attributes": null,
+        "id": "84ed557a-c8f3-42a1-8fce-eb305bf3ebe7"
+      },
+      {
+        "sku_code": "SKU-U33IZ-DEFAULT-3",
+        "price": 209700,
+        "stock": 36,
+        "attributes": null,
+        "id": "527062db-2a73-4edc-85ec-00de654b004c"
+      },
+      {
+        "sku_code": "SKU-U33IZ-DEFAULT-4",
+        "price": 209700,
+        "stock": 36,
+        "attributes": null,
+        "id": "d96c3f17-9a1b-4a83-b6e2-7e131bfd1eb2"
       }
     ],
     "brand": "SYSKA",
@@ -1461,6 +2196,27 @@
         "price": 38700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NXDWC-DEFAULT-2",
+        "price": 38700,
+        "stock": 90,
+        "attributes": null,
+        "id": "0aa969b3-3480-43cd-a7c4-d6e51d8dbe3d"
+      },
+      {
+        "sku_code": "SKU-NXDWC-DEFAULT-3",
+        "price": 38700,
+        "stock": 90,
+        "attributes": null,
+        "id": "2f25e340-fbdb-4b72-8157-f810abd1338b"
+      },
+      {
+        "sku_code": "SKU-NXDWC-DEFAULT-4",
+        "price": 38700,
+        "stock": 90,
+        "attributes": null,
+        "id": "03c86d98-233e-4dc5-a7d8-a8856ae43f76"
       }
     ],
     "brand": "Prestige",
@@ -1506,6 +2262,27 @@
         "price": 78600,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I3SRQ-DEFAULT-2",
+        "price": 78600,
+        "stock": 51,
+        "attributes": null,
+        "id": "6b3cbb30-5459-46d5-a653-9a46f8ebe23d"
+      },
+      {
+        "sku_code": "SKU-I3SRQ-DEFAULT-3",
+        "price": 78600,
+        "stock": 51,
+        "attributes": null,
+        "id": "96731a9f-4731-48d3-baf4-2625b0781e80"
+      },
+      {
+        "sku_code": "SKU-I3SRQ-DEFAULT-4",
+        "price": 78600,
+        "stock": 51,
+        "attributes": null,
+        "id": "898ecfc0-2a0e-4490-853e-47836255fd36"
       }
     ],
     "brand": "Hawkins",
@@ -1562,6 +2339,27 @@
         "price": 101700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8WS0U-DEFAULT-2",
+        "price": 101700,
+        "stock": 48,
+        "attributes": null,
+        "id": "dd93f2e9-3ae9-4cd4-8171-6eed22783c1f"
+      },
+      {
+        "sku_code": "SKU-8WS0U-DEFAULT-3",
+        "price": 101700,
+        "stock": 48,
+        "attributes": null,
+        "id": "7213b560-f2fa-42c3-9e96-3e403bb490b9"
+      },
+      {
+        "sku_code": "SKU-8WS0U-DEFAULT-4",
+        "price": 101700,
+        "stock": 48,
+        "attributes": null,
+        "id": "554a8aa9-4a3e-4b40-bc33-69df34d24cea"
       }
     ],
     "brand": "Asus",
@@ -1608,6 +2406,27 @@
         "price": 76500,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CDY42-DEFAULT-2",
+        "price": 76500,
+        "stock": 32,
+        "attributes": null,
+        "id": "bf3c53d3-b292-44d8-84fd-dab5b4b2678a"
+      },
+      {
+        "sku_code": "SKU-CDY42-DEFAULT-3",
+        "price": 76500,
+        "stock": 32,
+        "attributes": null,
+        "id": "19c5958e-5643-44e5-89f4-33665c696574"
+      },
+      {
+        "sku_code": "SKU-CDY42-DEFAULT-4",
+        "price": 76500,
+        "stock": 32,
+        "attributes": null,
+        "id": "a3224ac6-88f4-4538-a6ce-398b1eb692b8"
       }
     ],
     "brand": "Amazon",
@@ -1713,6 +2532,27 @@
         "price": 254700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7AUG9-DEFAULT-2",
+        "price": 254700,
+        "stock": 20,
+        "attributes": null,
+        "id": "c089b270-6f23-4a76-aa26-6e9088ee4b90"
+      },
+      {
+        "sku_code": "SKU-7AUG9-DEFAULT-3",
+        "price": 254700,
+        "stock": 20,
+        "attributes": null,
+        "id": "c51c4011-6ebf-4eec-98a9-aba32df29364"
+      },
+      {
+        "sku_code": "SKU-7AUG9-DEFAULT-4",
+        "price": 254700,
+        "stock": 20,
+        "attributes": null,
+        "id": "0680a44e-7d7d-4e70-b852-00bb64662adf"
       }
     ],
     "brand": "JBL",
@@ -1755,6 +2595,27 @@
         "price": 1739700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RGISI-DEFAULT-2",
+        "price": 1739700,
+        "stock": 69,
+        "attributes": null,
+        "id": "f997592a-ac0c-4cf8-ae9e-e7b864a505cc"
+      },
+      {
+        "sku_code": "SKU-RGISI-DEFAULT-3",
+        "price": 1739700,
+        "stock": 69,
+        "attributes": null,
+        "id": "e5e4de96-27fc-4d8a-9640-9547b5c0599f"
+      },
+      {
+        "sku_code": "SKU-RGISI-DEFAULT-4",
+        "price": 1739700,
+        "stock": 69,
+        "attributes": null,
+        "id": "9cd14f0d-69c5-4d48-80f3-ff93f8cc5d46"
       }
     ],
     "brand": "Pigeon",
@@ -1823,6 +2684,27 @@
         "price": 89700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YS56T-DEFAULT-2",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "27dab44c-8959-4749-a207-4c8538bae1ea"
+      },
+      {
+        "sku_code": "SKU-YS56T-DEFAULT-3",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "66113f7a-3d88-47aa-8e77-f189c92aa1e7"
+      },
+      {
+        "sku_code": "SKU-YS56T-DEFAULT-4",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "e274bb60-d4c3-4d6c-8d70-b08f8ba52212"
       }
     ],
     "brand": "Canon",
@@ -1860,6 +2742,27 @@
         "price": 961800,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P2ZZ0-DEFAULT-2",
+        "price": 961800,
+        "stock": 29,
+        "attributes": null,
+        "id": "e74bbdd5-031a-4530-be24-df19d118e32a"
+      },
+      {
+        "sku_code": "SKU-P2ZZ0-DEFAULT-3",
+        "price": 961800,
+        "stock": 29,
+        "attributes": null,
+        "id": "909f635f-39e1-4045-9058-b5f66adc3134"
+      },
+      {
+        "sku_code": "SKU-P2ZZ0-DEFAULT-4",
+        "price": 961800,
+        "stock": 29,
+        "attributes": null,
+        "id": "0c867c05-d944-43b4-9ce0-9d7b7249d55d"
       }
     ],
     "brand": "Dettol",
@@ -1914,6 +2817,27 @@
         "price": 524700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IE7HD-DEFAULT-2",
+        "price": 524700,
+        "stock": 41,
+        "attributes": null,
+        "id": "f5184ffd-d823-47a6-8a85-45a26321af62"
+      },
+      {
+        "sku_code": "SKU-IE7HD-DEFAULT-3",
+        "price": 524700,
+        "stock": 41,
+        "attributes": null,
+        "id": "dcf2560c-8746-48de-a843-5234653e4938"
+      },
+      {
+        "sku_code": "SKU-IE7HD-DEFAULT-4",
+        "price": 524700,
+        "stock": 41,
+        "attributes": null,
+        "id": "b51118be-baa8-4b3b-84c8-5991bf551a6d"
       }
     ],
     "brand": "Apple",
@@ -1956,6 +2880,27 @@
         "price": 171600,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0Z7XN-DEFAULT-2",
+        "price": 171600,
+        "stock": 49,
+        "attributes": null,
+        "id": "6c82467f-1bde-4bdd-abb2-77b83424d6a4"
+      },
+      {
+        "sku_code": "SKU-0Z7XN-DEFAULT-3",
+        "price": 171600,
+        "stock": 49,
+        "attributes": null,
+        "id": "f4e7541a-b761-473b-b74a-6362d902e9e8"
+      },
+      {
+        "sku_code": "SKU-0Z7XN-DEFAULT-4",
+        "price": 171600,
+        "stock": 49,
+        "attributes": null,
+        "id": "c1557cb5-b481-4a0f-b8e3-1dff6216c42c"
       }
     ],
     "brand": "AGARO",
@@ -1993,6 +2938,27 @@
         "price": 179700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LRQH7-DEFAULT-2",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "6bc824c0-a9d6-4bd6-95c4-951141ba1eb3"
+      },
+      {
+        "sku_code": "SKU-LRQH7-DEFAULT-3",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "cc0140b3-637a-4478-94c6-fb66a1518f4e"
+      },
+      {
+        "sku_code": "SKU-LRQH7-DEFAULT-4",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "28251a72-6b0f-490f-a427-9a3d0e5b8140"
       }
     ],
     "brand": "Bajaj",
@@ -2030,6 +2996,27 @@
         "price": 573600,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J35NS-DEFAULT-2",
+        "price": 573600,
+        "stock": 17,
+        "attributes": null,
+        "id": "2329472b-9704-483f-bf80-1cefa101a3a7"
+      },
+      {
+        "sku_code": "SKU-J35NS-DEFAULT-3",
+        "price": 573600,
+        "stock": 17,
+        "attributes": null,
+        "id": "22214132-830d-4ad7-9f39-236268f30500"
+      },
+      {
+        "sku_code": "SKU-J35NS-DEFAULT-4",
+        "price": 573600,
+        "stock": 17,
+        "attributes": null,
+        "id": "3f9acec3-c775-4f86-84dd-df545fbd2bf6"
       }
     ],
     "brand": "Milton",
@@ -2075,6 +3062,27 @@
         "price": 57300,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UQI2G-DEFAULT-2",
+        "price": 57300,
+        "stock": 11,
+        "attributes": null,
+        "id": "be6013e2-463b-4f9d-87d2-1865838d2f78"
+      },
+      {
+        "sku_code": "SKU-UQI2G-DEFAULT-3",
+        "price": 57300,
+        "stock": 11,
+        "attributes": null,
+        "id": "dd1381de-139c-4081-8114-34af20f91fc1"
+      },
+      {
+        "sku_code": "SKU-UQI2G-DEFAULT-4",
+        "price": 57300,
+        "stock": 11,
+        "attributes": null,
+        "id": "a5ceaffc-c4c7-43a2-a539-5188a3e9b0f9"
       }
     ],
     "brand": "Philips",
@@ -2120,6 +3128,27 @@
         "price": 73200,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VNEJJ-DEFAULT-2",
+        "price": 73200,
+        "stock": 17,
+        "attributes": null,
+        "id": "b12faf9f-4dc7-458a-a253-3b15739c40ef"
+      },
+      {
+        "sku_code": "SKU-VNEJJ-DEFAULT-3",
+        "price": 73200,
+        "stock": 17,
+        "attributes": null,
+        "id": "9b26720d-1f56-4313-9e8d-d16ba090d127"
+      },
+      {
+        "sku_code": "SKU-VNEJJ-DEFAULT-4",
+        "price": 73200,
+        "stock": 17,
+        "attributes": null,
+        "id": "42232581-2e64-4ec7-90b7-1ebeccee72c8"
       }
     ],
     "brand": "Bajaj",
@@ -2157,6 +3186,27 @@
         "price": 134700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GR6QS-DEFAULT-2",
+        "price": 134700,
+        "stock": 38,
+        "attributes": null,
+        "id": "26276ace-5f66-4351-838e-6341df4972bb"
+      },
+      {
+        "sku_code": "SKU-GR6QS-DEFAULT-3",
+        "price": 134700,
+        "stock": 38,
+        "attributes": null,
+        "id": "2fe30a52-8ad3-40f9-abfe-ebdf2c95098c"
+      },
+      {
+        "sku_code": "SKU-GR6QS-DEFAULT-4",
+        "price": 134700,
+        "stock": 38,
+        "attributes": null,
+        "id": "7118b461-7611-4f3d-9de4-561429475583"
       }
     ],
     "brand": "Prestige",
@@ -2202,6 +3252,27 @@
         "price": 560100,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CELOW-DEFAULT-2",
+        "price": 560100,
+        "stock": 106,
+        "attributes": null,
+        "id": "b37e948d-8519-4c96-afd0-582f87bc7c53"
+      },
+      {
+        "sku_code": "SKU-CELOW-DEFAULT-3",
+        "price": 560100,
+        "stock": 106,
+        "attributes": null,
+        "id": "cf51272b-b230-45e3-b7d9-1029b2a1a401"
+      },
+      {
+        "sku_code": "SKU-CELOW-DEFAULT-4",
+        "price": 560100,
+        "stock": 106,
+        "attributes": null,
+        "id": "f5113bd0-3e05-4e58-b9bc-ecc7ac8fc627"
       }
     ],
     "brand": "Prestige",
@@ -2239,6 +3310,27 @@
         "price": 127500,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z9OWM-DEFAULT-2",
+        "price": 127500,
+        "stock": 97,
+        "attributes": null,
+        "id": "f621cebc-e367-4c01-b6b4-c59e5ed8d587"
+      },
+      {
+        "sku_code": "SKU-Z9OWM-DEFAULT-3",
+        "price": 127500,
+        "stock": 97,
+        "attributes": null,
+        "id": "19eed2cd-5c5b-401d-a15c-84eda2c002f0"
+      },
+      {
+        "sku_code": "SKU-Z9OWM-DEFAULT-4",
+        "price": 127500,
+        "stock": 97,
+        "attributes": null,
+        "id": "029b0ba6-4fd2-49f0-938a-1c78e7896c22"
       }
     ],
     "brand": "Hawkins",
@@ -2284,6 +3376,27 @@
         "price": 39702,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GW0Q8-DEFAULT-2",
+        "price": 39702,
+        "stock": 109,
+        "attributes": null,
+        "id": "0c6ccf09-1298-4ea2-a55a-5f549a12d0d0"
+      },
+      {
+        "sku_code": "SKU-GW0Q8-DEFAULT-3",
+        "price": 39702,
+        "stock": 109,
+        "attributes": null,
+        "id": "354d915a-dc3c-4d9b-8b5c-cd9986794f83"
+      },
+      {
+        "sku_code": "SKU-GW0Q8-DEFAULT-4",
+        "price": 39702,
+        "stock": 109,
+        "attributes": null,
+        "id": "4b2cbb97-c6ce-4480-ac41-7131730f969d"
       }
     ],
     "brand": "SYSKA",
@@ -2329,6 +3442,27 @@
         "price": 89700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MLKEN-DEFAULT-2",
+        "price": 89700,
+        "stock": 13,
+        "attributes": null,
+        "id": "2f11a376-86f3-4039-9e9f-73ceb9f25019"
+      },
+      {
+        "sku_code": "SKU-MLKEN-DEFAULT-3",
+        "price": 89700,
+        "stock": 13,
+        "attributes": null,
+        "id": "2fbb5bcc-7b74-4478-acdb-de79b6b51c17"
+      },
+      {
+        "sku_code": "SKU-MLKEN-DEFAULT-4",
+        "price": 89700,
+        "stock": 13,
+        "attributes": null,
+        "id": "cb86474c-818f-41f9-888c-694c0ca31ab8"
       }
     ],
     "brand": "AmazonBasics",
@@ -2374,6 +3508,27 @@
         "price": 104700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2IYW4-DEFAULT-2",
+        "price": 104700,
+        "stock": 84,
+        "attributes": null,
+        "id": "de928228-cd69-4c4a-b372-5c4f8ebac503"
+      },
+      {
+        "sku_code": "SKU-2IYW4-DEFAULT-3",
+        "price": 104700,
+        "stock": 84,
+        "attributes": null,
+        "id": "647aeecc-21bb-478a-b7d8-9c4688d5e22e"
+      },
+      {
+        "sku_code": "SKU-2IYW4-DEFAULT-4",
+        "price": 104700,
+        "stock": 84,
+        "attributes": null,
+        "id": "60d592c1-f20a-41dd-9320-c5f57a92045a"
       }
     ],
     "brand": "Pigeon",
@@ -2411,6 +3566,27 @@
         "price": 104700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NLMI4-DEFAULT-2",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "e86caa91-4b47-4b6c-9379-d86a9a20561f"
+      },
+      {
+        "sku_code": "SKU-NLMI4-DEFAULT-3",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "3507cb71-5d0c-4d70-8a63-a7ccb6ef4821"
+      },
+      {
+        "sku_code": "SKU-NLMI4-DEFAULT-4",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "9e92461f-8658-4e3a-b84e-56dbfbb6edb7"
       }
     ],
     "brand": "Dettol",
@@ -2448,6 +3624,27 @@
         "price": 89700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FI8LJ-DEFAULT-2",
+        "price": 89700,
+        "stock": 88,
+        "attributes": null,
+        "id": "55d0f563-9275-4f2a-ac4e-fb0395dd5b2d"
+      },
+      {
+        "sku_code": "SKU-FI8LJ-DEFAULT-3",
+        "price": 89700,
+        "stock": 88,
+        "attributes": null,
+        "id": "17c6537d-df39-482e-af3f-30ed3c2c4579"
+      },
+      {
+        "sku_code": "SKU-FI8LJ-DEFAULT-4",
+        "price": 89700,
+        "stock": 88,
+        "attributes": null,
+        "id": "5b650476-7c3c-456c-9f09-acbc983c2a72"
       }
     ],
     "brand": "AmazonBasics",
@@ -2489,6 +3686,27 @@
         "price": 116700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BR1QZ-DEFAULT-2",
+        "price": 116700,
+        "stock": 62,
+        "attributes": null,
+        "id": "99aa651d-804a-464c-96b8-94f7d5e58e6f"
+      },
+      {
+        "sku_code": "SKU-BR1QZ-DEFAULT-3",
+        "price": 116700,
+        "stock": 62,
+        "attributes": null,
+        "id": "216688d7-3ed2-4008-8dc0-5d980c0c0fd6"
+      },
+      {
+        "sku_code": "SKU-BR1QZ-DEFAULT-4",
+        "price": 116700,
+        "stock": 62,
+        "attributes": null,
+        "id": "251ba6d7-f29b-4352-bc84-235e1f765f55"
       }
     ],
     "brand": "Bajaj",
@@ -2526,6 +3744,27 @@
         "price": 67200,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IQW26-DEFAULT-2",
+        "price": 67200,
+        "stock": 109,
+        "attributes": null,
+        "id": "7726432e-718b-4bc3-85c6-7e063a745734"
+      },
+      {
+        "sku_code": "SKU-IQW26-DEFAULT-3",
+        "price": 67200,
+        "stock": 109,
+        "attributes": null,
+        "id": "858a5082-e1aa-4c50-8cd3-7bc6310d1988"
+      },
+      {
+        "sku_code": "SKU-IQW26-DEFAULT-4",
+        "price": 67200,
+        "stock": 109,
+        "attributes": null,
+        "id": "38008930-c2fa-481f-a987-ebe1dad09e8b"
       }
     ],
     "brand": "Philips",
@@ -2563,6 +3802,27 @@
         "price": 119700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0E1WM-DEFAULT-2",
+        "price": 119700,
+        "stock": 38,
+        "attributes": null,
+        "id": "d13fff51-3527-4e0a-9812-88a5b31c53fa"
+      },
+      {
+        "sku_code": "SKU-0E1WM-DEFAULT-3",
+        "price": 119700,
+        "stock": 38,
+        "attributes": null,
+        "id": "242645ce-c750-48a5-b723-9247e3d26e88"
+      },
+      {
+        "sku_code": "SKU-0E1WM-DEFAULT-4",
+        "price": 119700,
+        "stock": 38,
+        "attributes": null,
+        "id": "f35d4f88-67e4-4684-8784-c5770a7fc97b"
       }
     ],
     "brand": "Amazon",
@@ -2602,6 +3862,27 @@
         "price": 3899700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O724F-DEFAULT-2",
+        "price": 3899700,
+        "stock": 69,
+        "attributes": null,
+        "id": "37f31ddc-b2ba-4480-8362-8a38f6301e24"
+      },
+      {
+        "sku_code": "SKU-O724F-DEFAULT-3",
+        "price": 3899700,
+        "stock": 69,
+        "attributes": null,
+        "id": "2a390c35-34a6-45a1-8e13-2e82882f91cc"
+      },
+      {
+        "sku_code": "SKU-O724F-DEFAULT-4",
+        "price": 3899700,
+        "stock": 69,
+        "attributes": null,
+        "id": "2afaebe6-cabc-444e-803b-a71026e9e247"
       }
     ],
     "brand": "Prestige",
@@ -2643,6 +3924,27 @@
         "price": 821100,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IFYVV-DEFAULT-2",
+        "price": 821100,
+        "stock": 74,
+        "attributes": null,
+        "id": "3b518e6d-7a55-481e-8573-ccd4b21464f7"
+      },
+      {
+        "sku_code": "SKU-IFYVV-DEFAULT-3",
+        "price": 821100,
+        "stock": 74,
+        "attributes": null,
+        "id": "df8d5db2-bc52-428c-a2ae-e77479dce0c3"
+      },
+      {
+        "sku_code": "SKU-IFYVV-DEFAULT-4",
+        "price": 821100,
+        "stock": 74,
+        "attributes": null,
+        "id": "a9163909-3aef-4087-8e84-42812b6b612f"
       }
     ],
     "brand": "Kuber",
@@ -2688,6 +3990,27 @@
         "price": 96000,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V9G8H-DEFAULT-2",
+        "price": 96000,
+        "stock": 90,
+        "attributes": null,
+        "id": "65a43f8e-9f3b-4926-bbf8-af261a770c4b"
+      },
+      {
+        "sku_code": "SKU-V9G8H-DEFAULT-3",
+        "price": 96000,
+        "stock": 90,
+        "attributes": null,
+        "id": "201beace-88c2-41aa-89a6-287dbd38d860"
+      },
+      {
+        "sku_code": "SKU-V9G8H-DEFAULT-4",
+        "price": 96000,
+        "stock": 90,
+        "attributes": null,
+        "id": "9e398080-a4d0-4460-91e5-b16e4d89a3c8"
       }
     ],
     "brand": "Milton",
@@ -2735,6 +4058,27 @@
         "price": 89700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W4CWO-DEFAULT-2",
+        "price": 89700,
+        "stock": 24,
+        "attributes": null,
+        "id": "c389d71a-b00d-4361-865e-7b4022565438"
+      },
+      {
+        "sku_code": "SKU-W4CWO-DEFAULT-3",
+        "price": 89700,
+        "stock": 24,
+        "attributes": null,
+        "id": "3a11b91e-3b9f-496c-a5d3-2a7fec411911"
+      },
+      {
+        "sku_code": "SKU-W4CWO-DEFAULT-4",
+        "price": 89700,
+        "stock": 24,
+        "attributes": null,
+        "id": "aa6b5cfa-298b-416b-8030-eaa07d848eee"
       }
     ],
     "brand": "SYSKA",
@@ -2776,6 +4120,27 @@
         "price": 150000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N34WK-DEFAULT-2",
+        "price": 150000,
+        "stock": 108,
+        "attributes": null,
+        "id": "51b9ef35-5077-489a-b326-d288f142d6e2"
+      },
+      {
+        "sku_code": "SKU-N34WK-DEFAULT-3",
+        "price": 150000,
+        "stock": 108,
+        "attributes": null,
+        "id": "e23c1b59-ef56-47f3-a6fb-9434f4f63dea"
+      },
+      {
+        "sku_code": "SKU-N34WK-DEFAULT-4",
+        "price": 150000,
+        "stock": 108,
+        "attributes": null,
+        "id": "c3e39354-0a8c-4dcd-af8e-8c2ba75e06fb"
       }
     ],
     "brand": "Dettol",
@@ -2822,6 +4187,27 @@
         "price": 643200,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8MZLG-DEFAULT-2",
+        "price": 643200,
+        "stock": 78,
+        "attributes": null,
+        "id": "b7356555-f9ff-43d8-b2e4-37f396a48780"
+      },
+      {
+        "sku_code": "SKU-8MZLG-DEFAULT-3",
+        "price": 643200,
+        "stock": 78,
+        "attributes": null,
+        "id": "2f37b5fa-c069-4c62-a5fd-8d7584b5a8e3"
+      },
+      {
+        "sku_code": "SKU-8MZLG-DEFAULT-4",
+        "price": 643200,
+        "stock": 78,
+        "attributes": null,
+        "id": "c9e60a41-6574-4f5e-9c33-c9be37f4b7a4"
       }
     ],
     "brand": "Samsung",
@@ -2867,6 +4253,27 @@
         "price": 5217000,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QZL18-DEFAULT-2",
+        "price": 5217000,
+        "stock": 73,
+        "attributes": null,
+        "id": "292f88f9-b91d-40c5-aa96-bf3389201cbe"
+      },
+      {
+        "sku_code": "SKU-QZL18-DEFAULT-3",
+        "price": 5217000,
+        "stock": 73,
+        "attributes": null,
+        "id": "482270b0-2da8-465d-99fc-6ad3d86562f1"
+      },
+      {
+        "sku_code": "SKU-QZL18-DEFAULT-4",
+        "price": 5217000,
+        "stock": 73,
+        "attributes": null,
+        "id": "535e3874-ff1b-46d5-8358-e9028f295789"
       }
     ],
     "brand": "Samsung",
@@ -2912,6 +4319,27 @@
         "price": 149700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OKHEE-DEFAULT-2",
+        "price": 149700,
+        "stock": 65,
+        "attributes": null,
+        "id": "9eac27e5-56ac-4c84-b204-08152d1111fc"
+      },
+      {
+        "sku_code": "SKU-OKHEE-DEFAULT-3",
+        "price": 149700,
+        "stock": 65,
+        "attributes": null,
+        "id": "2ebdf9ac-7e55-4dae-8cfd-dda236d15a66"
+      },
+      {
+        "sku_code": "SKU-OKHEE-DEFAULT-4",
+        "price": 149700,
+        "stock": 65,
+        "attributes": null,
+        "id": "f077b5dc-baec-4d2f-966d-ab901de76ac4"
       }
     ],
     "brand": "Milton",
@@ -2949,6 +4377,27 @@
         "price": 471000,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PA1IC-DEFAULT-2",
+        "price": 471000,
+        "stock": 32,
+        "attributes": null,
+        "id": "c08975c2-e7b8-4317-81c7-c99bc5adbc39"
+      },
+      {
+        "sku_code": "SKU-PA1IC-DEFAULT-3",
+        "price": 471000,
+        "stock": 32,
+        "attributes": null,
+        "id": "e28a521e-b97f-47df-9c4c-8b1ef04035f3"
+      },
+      {
+        "sku_code": "SKU-PA1IC-DEFAULT-4",
+        "price": 471000,
+        "stock": 32,
+        "attributes": null,
+        "id": "b1c6e295-8d23-43f5-81db-b4b1aa2bf874"
       }
     ],
     "brand": "Samsung",
@@ -2990,6 +4439,27 @@
         "price": 72000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DEQJ7-DEFAULT-2",
+        "price": 72000,
+        "stock": 87,
+        "attributes": null,
+        "id": "db15b60b-8a69-43a8-bfc0-45526550867d"
+      },
+      {
+        "sku_code": "SKU-DEQJ7-DEFAULT-3",
+        "price": 72000,
+        "stock": 87,
+        "attributes": null,
+        "id": "c043e997-ef74-4102-baba-6bd83f7878bf"
+      },
+      {
+        "sku_code": "SKU-DEQJ7-DEFAULT-4",
+        "price": 72000,
+        "stock": 87,
+        "attributes": null,
+        "id": "f76ac79e-1d2c-41f2-8a88-486f5f351229"
       }
     ],
     "brand": "AGARO",
@@ -3027,6 +4497,27 @@
         "price": 68700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MIMXZ-DEFAULT-2",
+        "price": 68700,
+        "stock": 108,
+        "attributes": null,
+        "id": "9ee36b9b-56ba-42dc-bafc-3d6ccc822f43"
+      },
+      {
+        "sku_code": "SKU-MIMXZ-DEFAULT-3",
+        "price": 68700,
+        "stock": 108,
+        "attributes": null,
+        "id": "b7c30ba8-01bb-4be5-9d76-aba6304690ae"
+      },
+      {
+        "sku_code": "SKU-MIMXZ-DEFAULT-4",
+        "price": 68700,
+        "stock": 108,
+        "attributes": null,
+        "id": "055667b0-fde9-4ab1-9b11-16525f5050d8"
       }
     ],
     "brand": "Hawkins",
@@ -3072,6 +4563,27 @@
         "price": 149400,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EA3E4-DEFAULT-2",
+        "price": 149400,
+        "stock": 41,
+        "attributes": null,
+        "id": "7ca95619-ea61-4c43-874f-585909a1847b"
+      },
+      {
+        "sku_code": "SKU-EA3E4-DEFAULT-3",
+        "price": 149400,
+        "stock": 41,
+        "attributes": null,
+        "id": "caaa670d-c7af-4a7c-8c94-4e047cfa0d97"
+      },
+      {
+        "sku_code": "SKU-EA3E4-DEFAULT-4",
+        "price": 149400,
+        "stock": 41,
+        "attributes": null,
+        "id": "87cf3433-1d1d-4319-8b1c-fd61d1f27cc0"
       }
     ],
     "brand": "Milton",
@@ -3113,6 +4625,27 @@
         "price": 284700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9I1U1-DEFAULT-2",
+        "price": 284700,
+        "stock": 28,
+        "attributes": null,
+        "id": "8dd1085b-c6cc-428b-89c3-328b34ca046a"
+      },
+      {
+        "sku_code": "SKU-9I1U1-DEFAULT-3",
+        "price": 284700,
+        "stock": 28,
+        "attributes": null,
+        "id": "ed27297a-8d9f-4ede-b364-4d9419860f22"
+      },
+      {
+        "sku_code": "SKU-9I1U1-DEFAULT-4",
+        "price": 284700,
+        "stock": 28,
+        "attributes": null,
+        "id": "70332fb9-8056-4444-ae3a-e97d86889416"
       }
     ],
     "brand": "Prestige",
@@ -3154,6 +4687,27 @@
         "price": 119400,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JQN2D-DEFAULT-2",
+        "price": 119400,
+        "stock": 23,
+        "attributes": null,
+        "id": "3ca414c3-d74a-4177-9b05-b38f29fb45e4"
+      },
+      {
+        "sku_code": "SKU-JQN2D-DEFAULT-3",
+        "price": 119400,
+        "stock": 23,
+        "attributes": null,
+        "id": "c3e2233b-bcec-485c-ac56-af463e4eb5d6"
+      },
+      {
+        "sku_code": "SKU-JQN2D-DEFAULT-4",
+        "price": 119400,
+        "stock": 23,
+        "attributes": null,
+        "id": "52782dd3-c9f8-44f4-8e19-bc1a1960cf45"
       }
     ],
     "brand": "Bajaj",
@@ -3195,6 +4749,27 @@
         "price": 85500,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IRILU-DEFAULT-2",
+        "price": 85500,
+        "stock": 93,
+        "attributes": null,
+        "id": "20ce5120-7765-4441-8f86-8c0957899c9c"
+      },
+      {
+        "sku_code": "SKU-IRILU-DEFAULT-3",
+        "price": 85500,
+        "stock": 93,
+        "attributes": null,
+        "id": "40f9478b-1eaf-458b-ae80-7b3959c58495"
+      },
+      {
+        "sku_code": "SKU-IRILU-DEFAULT-4",
+        "price": 85500,
+        "stock": 93,
+        "attributes": null,
+        "id": "ea8e0aff-5a2c-489d-bbc4-3ea6763f1fc0"
       }
     ],
     "brand": "Hawkins",
@@ -3232,6 +4807,27 @@
         "price": 359700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I9EL4-DEFAULT-2",
+        "price": 359700,
+        "stock": 64,
+        "attributes": null,
+        "id": "9d1985ed-31fa-452f-9fbf-b05a1cfef02d"
+      },
+      {
+        "sku_code": "SKU-I9EL4-DEFAULT-3",
+        "price": 359700,
+        "stock": 64,
+        "attributes": null,
+        "id": "0c82c254-8069-4e78-8624-e2af1e46ba3b"
+      },
+      {
+        "sku_code": "SKU-I9EL4-DEFAULT-4",
+        "price": 359700,
+        "stock": 64,
+        "attributes": null,
+        "id": "62162bbe-352f-4335-8899-ac3a14f16f7e"
       }
     ],
     "brand": "Prestige",
@@ -3269,6 +4865,27 @@
         "price": 132900,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1G80Q-DEFAULT-2",
+        "price": 132900,
+        "stock": 39,
+        "attributes": null,
+        "id": "8ee82b44-7430-4c7e-860a-fd4c86640db2"
+      },
+      {
+        "sku_code": "SKU-1G80Q-DEFAULT-3",
+        "price": 132900,
+        "stock": 39,
+        "attributes": null,
+        "id": "e18f5c40-0911-41f7-a481-93e22f36ee8b"
+      },
+      {
+        "sku_code": "SKU-1G80Q-DEFAULT-4",
+        "price": 132900,
+        "stock": 39,
+        "attributes": null,
+        "id": "577ead6f-1eeb-4b8e-bf72-4a6354336e27"
       }
     ],
     "brand": "Philips",
@@ -3314,6 +4931,27 @@
         "price": 1040700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G3M7A-DEFAULT-2",
+        "price": 1040700,
+        "stock": 106,
+        "attributes": null,
+        "id": "d13b1560-2191-4d47-9442-063419a66115"
+      },
+      {
+        "sku_code": "SKU-G3M7A-DEFAULT-3",
+        "price": 1040700,
+        "stock": 106,
+        "attributes": null,
+        "id": "b904f4a3-dad1-4b43-a796-4569d58cdca4"
+      },
+      {
+        "sku_code": "SKU-G3M7A-DEFAULT-4",
+        "price": 1040700,
+        "stock": 106,
+        "attributes": null,
+        "id": "1691de35-6a72-4c16-927a-b0e4c4b3aff4"
       }
     ],
     "brand": "Pigeon",
@@ -3351,6 +4989,27 @@
         "price": 110700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O0WCA-DEFAULT-2",
+        "price": 110700,
+        "stock": 85,
+        "attributes": null,
+        "id": "50086185-3dfc-484a-a3f4-e81ea846c55f"
+      },
+      {
+        "sku_code": "SKU-O0WCA-DEFAULT-3",
+        "price": 110700,
+        "stock": 85,
+        "attributes": null,
+        "id": "b16e3e61-d3c5-4b77-bc4f-47282f6faf34"
+      },
+      {
+        "sku_code": "SKU-O0WCA-DEFAULT-4",
+        "price": 110700,
+        "stock": 85,
+        "attributes": null,
+        "id": "1a5d17f0-e1d5-497e-814a-3f67ea11d8d3"
       }
     ],
     "brand": "Prestige",
@@ -3396,6 +5055,27 @@
         "price": 172500,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1SBEA-DEFAULT-2",
+        "price": 172500,
+        "stock": 65,
+        "attributes": null,
+        "id": "73c24b87-9cc2-4c72-a176-01fe5cc18c2c"
+      },
+      {
+        "sku_code": "SKU-1SBEA-DEFAULT-3",
+        "price": 172500,
+        "stock": 65,
+        "attributes": null,
+        "id": "2a4f44ed-8d1f-4cb8-8b3d-b158ec53cd10"
+      },
+      {
+        "sku_code": "SKU-1SBEA-DEFAULT-4",
+        "price": 172500,
+        "stock": 65,
+        "attributes": null,
+        "id": "a4aeb28d-7b48-4d71-824d-c5603770edee"
       }
     ],
     "brand": "Samsung",
@@ -3433,6 +5113,27 @@
         "price": 117900,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QUSM8-DEFAULT-2",
+        "price": 117900,
+        "stock": 50,
+        "attributes": null,
+        "id": "2e49fb1b-35b9-4da2-a8d4-1acad3f2d1a9"
+      },
+      {
+        "sku_code": "SKU-QUSM8-DEFAULT-3",
+        "price": 117900,
+        "stock": 50,
+        "attributes": null,
+        "id": "f2ac62a8-8ed0-455b-9120-2c4b2d015678"
+      },
+      {
+        "sku_code": "SKU-QUSM8-DEFAULT-4",
+        "price": 117900,
+        "stock": 50,
+        "attributes": null,
+        "id": "5c08aa00-dd0c-4d3e-91de-0db0cfe73c2d"
       }
     ],
     "brand": "Taparia",
@@ -3470,6 +5171,27 @@
         "price": 59700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KHDRI-DEFAULT-2",
+        "price": 59700,
+        "stock": 61,
+        "attributes": null,
+        "id": "0a36587f-5490-49ef-ab22-f4e18454b292"
+      },
+      {
+        "sku_code": "SKU-KHDRI-DEFAULT-3",
+        "price": 59700,
+        "stock": 61,
+        "attributes": null,
+        "id": "baff9658-7c33-40e3-9f07-f76b603585b1"
+      },
+      {
+        "sku_code": "SKU-KHDRI-DEFAULT-4",
+        "price": 59700,
+        "stock": 61,
+        "attributes": null,
+        "id": "a12c6079-1235-4b26-8fd0-4986d04c30d7"
       }
     ],
     "brand": "Pigeon",
@@ -3511,6 +5233,27 @@
         "price": 83700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K3XUX-DEFAULT-2",
+        "price": 83700,
+        "stock": 92,
+        "attributes": null,
+        "id": "80d46234-210a-48b0-bc8c-46b9a4b7500a"
+      },
+      {
+        "sku_code": "SKU-K3XUX-DEFAULT-3",
+        "price": 83700,
+        "stock": 92,
+        "attributes": null,
+        "id": "6dca4ad8-4e43-4aa0-a4bf-9439c07a6802"
+      },
+      {
+        "sku_code": "SKU-K3XUX-DEFAULT-4",
+        "price": 83700,
+        "stock": 92,
+        "attributes": null,
+        "id": "adfd8f20-3f97-4b23-a4ab-2c48a1393bf9"
       }
     ],
     "brand": "Bajaj",
@@ -3548,6 +5291,27 @@
         "price": 67500,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GCC90-DEFAULT-2",
+        "price": 67500,
+        "stock": 93,
+        "attributes": null,
+        "id": "ed38b914-61f2-46b7-8cae-0cfaaaa9816e"
+      },
+      {
+        "sku_code": "SKU-GCC90-DEFAULT-3",
+        "price": 67500,
+        "stock": 93,
+        "attributes": null,
+        "id": "50ae63c6-deb6-45ac-a9f4-bc637c066466"
+      },
+      {
+        "sku_code": "SKU-GCC90-DEFAULT-4",
+        "price": 67500,
+        "stock": 93,
+        "attributes": null,
+        "id": "1579a828-bf83-452f-882a-7c1c01ec073a"
       }
     ],
     "brand": "Pigeon",
@@ -3585,6 +5349,27 @@
         "price": 281700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K8T0C-DEFAULT-2",
+        "price": 281700,
+        "stock": 65,
+        "attributes": null,
+        "id": "1df36ab1-3e0e-4e5e-b8b4-2fe4fdd05bbf"
+      },
+      {
+        "sku_code": "SKU-K8T0C-DEFAULT-3",
+        "price": 281700,
+        "stock": 65,
+        "attributes": null,
+        "id": "5f5e6706-7f81-41c0-978b-47323c226d35"
+      },
+      {
+        "sku_code": "SKU-K8T0C-DEFAULT-4",
+        "price": 281700,
+        "stock": 65,
+        "attributes": null,
+        "id": "e131cf0e-10f2-4c03-a568-7cdfc284b2c0"
       }
     ],
     "brand": "Dettol",
@@ -3630,6 +5415,27 @@
         "price": 175500,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XRZ8F-DEFAULT-2",
+        "price": 175500,
+        "stock": 14,
+        "attributes": null,
+        "id": "72f6d9e3-77a6-45bf-9873-09e23d644275"
+      },
+      {
+        "sku_code": "SKU-XRZ8F-DEFAULT-3",
+        "price": 175500,
+        "stock": 14,
+        "attributes": null,
+        "id": "3018cc37-8c72-4dde-9348-45c757f5afa1"
+      },
+      {
+        "sku_code": "SKU-XRZ8F-DEFAULT-4",
+        "price": 175500,
+        "stock": 14,
+        "attributes": null,
+        "id": "0db7604f-ca18-4b4b-bcef-947d746922fa"
       }
     ],
     "brand": "PrettyKrafts",
@@ -3675,6 +5481,27 @@
         "price": 107700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-55AJM-DEFAULT-2",
+        "price": 107700,
+        "stock": 105,
+        "attributes": null,
+        "id": "0c80717e-bd37-41d3-bc0e-a221697877f6"
+      },
+      {
+        "sku_code": "SKU-55AJM-DEFAULT-3",
+        "price": 107700,
+        "stock": 105,
+        "attributes": null,
+        "id": "c77d7ce9-8f44-41ce-b763-68cbec6707fa"
+      },
+      {
+        "sku_code": "SKU-55AJM-DEFAULT-4",
+        "price": 107700,
+        "stock": 105,
+        "attributes": null,
+        "id": "94346bfa-4383-426b-bced-82837739199c"
       }
     ],
     "brand": "Philips",
@@ -3716,6 +5543,27 @@
         "price": 158700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G18AA-DEFAULT-2",
+        "price": 158700,
+        "stock": 22,
+        "attributes": null,
+        "id": "c503f12e-b843-433e-95c8-fced5ba43874"
+      },
+      {
+        "sku_code": "SKU-G18AA-DEFAULT-3",
+        "price": 158700,
+        "stock": 22,
+        "attributes": null,
+        "id": "52f126a5-6484-426f-a7f8-9b3c203ad8d6"
+      },
+      {
+        "sku_code": "SKU-G18AA-DEFAULT-4",
+        "price": 158700,
+        "stock": 22,
+        "attributes": null,
+        "id": "8bb6399f-ba77-418b-8013-050be2255541"
       }
     ],
     "brand": "Samsung",
@@ -3761,6 +5609,27 @@
         "price": 119700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DLY8L-DEFAULT-2",
+        "price": 119700,
+        "stock": 72,
+        "attributes": null,
+        "id": "3da325e9-e3d8-4f8a-8f55-6a69e6d66f6f"
+      },
+      {
+        "sku_code": "SKU-DLY8L-DEFAULT-3",
+        "price": 119700,
+        "stock": 72,
+        "attributes": null,
+        "id": "81ed4272-d231-4535-b9fe-17aef1663d00"
+      },
+      {
+        "sku_code": "SKU-DLY8L-DEFAULT-4",
+        "price": 119700,
+        "stock": 72,
+        "attributes": null,
+        "id": "06649a05-41d2-495c-b0de-d0ca9d9b1337"
       }
     ],
     "brand": "Philips",
@@ -3806,6 +5675,27 @@
         "price": 101700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C3CE3-DEFAULT-2",
+        "price": 101700,
+        "stock": 108,
+        "attributes": null,
+        "id": "12a4741b-6dc5-410f-af4c-0df9f121ab3a"
+      },
+      {
+        "sku_code": "SKU-C3CE3-DEFAULT-3",
+        "price": 101700,
+        "stock": 108,
+        "attributes": null,
+        "id": "5739d1e4-d6bf-46ab-897d-b6b56c64c088"
+      },
+      {
+        "sku_code": "SKU-C3CE3-DEFAULT-4",
+        "price": 101700,
+        "stock": 108,
+        "attributes": null,
+        "id": "3847f939-9a55-4620-8346-f8bf7fe18e42"
       }
     ],
     "brand": "Dettol",
@@ -3847,6 +5737,27 @@
         "price": 89700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZX9VA-DEFAULT-2",
+        "price": 89700,
+        "stock": 97,
+        "attributes": null,
+        "id": "f9037f9d-d2da-491c-a7ab-63d6c883d1d2"
+      },
+      {
+        "sku_code": "SKU-ZX9VA-DEFAULT-3",
+        "price": 89700,
+        "stock": 97,
+        "attributes": null,
+        "id": "a76a9fc4-13a5-4fba-a973-9428f82fa1fd"
+      },
+      {
+        "sku_code": "SKU-ZX9VA-DEFAULT-4",
+        "price": 89700,
+        "stock": 97,
+        "attributes": null,
+        "id": "dee1c2e1-85c0-4904-af5c-678acd180a38"
       }
     ],
     "brand": "Hawkins",
@@ -3888,6 +5799,27 @@
         "price": 66000,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZRK51-DEFAULT-2",
+        "price": 66000,
+        "stock": 17,
+        "attributes": null,
+        "id": "896d1fff-f5bf-434a-8e6f-b56d0c3f56af"
+      },
+      {
+        "sku_code": "SKU-ZRK51-DEFAULT-3",
+        "price": 66000,
+        "stock": 17,
+        "attributes": null,
+        "id": "5bdda47b-49f1-4771-8cd8-1e4aad9f630f"
+      },
+      {
+        "sku_code": "SKU-ZRK51-DEFAULT-4",
+        "price": 66000,
+        "stock": 17,
+        "attributes": null,
+        "id": "a0d4bcac-1e40-4a8d-91e3-38b7c74575ab"
       }
     ],
     "brand": "AmazonBasics",
@@ -3929,6 +5861,27 @@
         "price": 76500,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NRFB9-DEFAULT-2",
+        "price": 76500,
+        "stock": 15,
+        "attributes": null,
+        "id": "37ddbff4-c488-45f2-bc86-966f070baea0"
+      },
+      {
+        "sku_code": "SKU-NRFB9-DEFAULT-3",
+        "price": 76500,
+        "stock": 15,
+        "attributes": null,
+        "id": "3268dc85-7288-4903-8ea4-64f31f37c969"
+      },
+      {
+        "sku_code": "SKU-NRFB9-DEFAULT-4",
+        "price": 76500,
+        "stock": 15,
+        "attributes": null,
+        "id": "d0d5d87a-c4fe-4ec7-b317-b9b6f3da9438"
       }
     ],
     "brand": "AGARO",
@@ -3974,6 +5927,27 @@
         "price": 110700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GIB93-DEFAULT-2",
+        "price": 110700,
+        "stock": 104,
+        "attributes": null,
+        "id": "1145c577-982e-465d-80df-840b536fc1c3"
+      },
+      {
+        "sku_code": "SKU-GIB93-DEFAULT-3",
+        "price": 110700,
+        "stock": 104,
+        "attributes": null,
+        "id": "7247d5bf-04e7-42cb-9e74-d30e1dbeb3c1"
+      },
+      {
+        "sku_code": "SKU-GIB93-DEFAULT-4",
+        "price": 110700,
+        "stock": 104,
+        "attributes": null,
+        "id": "b6be9ad0-03f0-4d2c-819c-c9531ef71025"
       }
     ],
     "brand": "Amazon",
@@ -4019,6 +5993,27 @@
         "price": 117000,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V9EIP-DEFAULT-2",
+        "price": 117000,
+        "stock": 34,
+        "attributes": null,
+        "id": "2f34f618-dad3-4109-bf22-c66403ef721e"
+      },
+      {
+        "sku_code": "SKU-V9EIP-DEFAULT-3",
+        "price": 117000,
+        "stock": 34,
+        "attributes": null,
+        "id": "af089c01-d490-484c-adc1-13cc15c60fba"
+      },
+      {
+        "sku_code": "SKU-V9EIP-DEFAULT-4",
+        "price": 117000,
+        "stock": 34,
+        "attributes": null,
+        "id": "6a1bfd4b-d3f8-42d3-84a1-89e46b5d77db"
       }
     ],
     "brand": "SYSKA",
@@ -4064,6 +6059,27 @@
         "price": 227700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7VN46-DEFAULT-2",
+        "price": 227700,
+        "stock": 29,
+        "attributes": null,
+        "id": "3d2a5212-4c3c-4ef3-9a66-3c1e8b2c8783"
+      },
+      {
+        "sku_code": "SKU-7VN46-DEFAULT-3",
+        "price": 227700,
+        "stock": 29,
+        "attributes": null,
+        "id": "d4313284-0958-4a1a-83c2-29e8e2cba249"
+      },
+      {
+        "sku_code": "SKU-7VN46-DEFAULT-4",
+        "price": 227700,
+        "stock": 29,
+        "attributes": null,
+        "id": "131c67d7-8f64-4f6e-821a-c708adbed0f8"
       }
     ],
     "brand": "Philips",
@@ -4101,6 +6117,27 @@
         "price": 44100,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WFG1V-DEFAULT-2",
+        "price": 44100,
+        "stock": 17,
+        "attributes": null,
+        "id": "39c8ebee-ea06-4119-b771-bca7f4227706"
+      },
+      {
+        "sku_code": "SKU-WFG1V-DEFAULT-3",
+        "price": 44100,
+        "stock": 17,
+        "attributes": null,
+        "id": "3be4fc86-5885-48a6-aca8-8ac968b489a3"
+      },
+      {
+        "sku_code": "SKU-WFG1V-DEFAULT-4",
+        "price": 44100,
+        "stock": 17,
+        "attributes": null,
+        "id": "1e3b0ddc-3cf7-485d-b4f8-053fd4c8886c"
       }
     ],
     "brand": "AmazonBasics",
@@ -4146,6 +6183,27 @@
         "price": 44400,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P98HI-DEFAULT-2",
+        "price": 44400,
+        "stock": 103,
+        "attributes": null,
+        "id": "aa5b40ef-580a-4926-b614-7e0a8a6a3326"
+      },
+      {
+        "sku_code": "SKU-P98HI-DEFAULT-3",
+        "price": 44400,
+        "stock": 103,
+        "attributes": null,
+        "id": "1091bf0c-bb27-40a3-82fb-40a51dde2140"
+      },
+      {
+        "sku_code": "SKU-P98HI-DEFAULT-4",
+        "price": 44400,
+        "stock": 103,
+        "attributes": null,
+        "id": "3e20c6da-1dc0-4b0f-80b9-5b8aee4cd6aa"
       }
     ],
     "brand": "Hawkins",
@@ -4191,6 +6249,27 @@
         "price": 59700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F28PU-DEFAULT-2",
+        "price": 59700,
+        "stock": 106,
+        "attributes": null,
+        "id": "95fef6d1-fa3a-408a-9ec8-9aab41c79420"
+      },
+      {
+        "sku_code": "SKU-F28PU-DEFAULT-3",
+        "price": 59700,
+        "stock": 106,
+        "attributes": null,
+        "id": "cfec02a5-a314-408c-8ffb-f5c501686bb8"
+      },
+      {
+        "sku_code": "SKU-F28PU-DEFAULT-4",
+        "price": 59700,
+        "stock": 106,
+        "attributes": null,
+        "id": "1f45f2ac-e412-4e09-862f-f13154edf869"
       }
     ],
     "brand": "Dettol",
@@ -4228,6 +6307,27 @@
         "price": 59700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AV2GS-DEFAULT-2",
+        "price": 59700,
+        "stock": 22,
+        "attributes": null,
+        "id": "af564176-059c-4b50-a0f5-de5672b3f464"
+      },
+      {
+        "sku_code": "SKU-AV2GS-DEFAULT-3",
+        "price": 59700,
+        "stock": 22,
+        "attributes": null,
+        "id": "b1ce23a9-e0e8-4e7e-b74a-1e04f70f21ba"
+      },
+      {
+        "sku_code": "SKU-AV2GS-DEFAULT-4",
+        "price": 59700,
+        "stock": 22,
+        "attributes": null,
+        "id": "b59763d8-649e-4710-b05c-0cad47dbaf41"
       }
     ],
     "brand": "Hawkins",

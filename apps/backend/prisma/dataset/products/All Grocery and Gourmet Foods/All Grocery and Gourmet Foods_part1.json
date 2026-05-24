@@ -22,6 +22,27 @@
         "price": 205800,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GTOXN-DEFAULT-2",
+        "price": 205800,
+        "stock": 61,
+        "attributes": null,
+        "id": "62211fb5-3541-4972-9e0a-3cc1238ff137"
+      },
+      {
+        "sku_code": "SKU-GTOXN-DEFAULT-3",
+        "price": 205800,
+        "stock": 61,
+        "attributes": null,
+        "id": "128fa2b0-322e-47cc-a469-eb308a3ea4ba"
+      },
+      {
+        "sku_code": "SKU-GTOXN-DEFAULT-4",
+        "price": 205800,
+        "stock": 61,
+        "attributes": null,
+        "id": "61468543-d42a-40c5-8393-fb9b1011991d"
       }
     ],
     "brand": "Cadbury",
@@ -59,6 +80,27 @@
         "price": 105900,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4DF73-DEFAULT-2",
+        "price": 105900,
+        "stock": 33,
+        "attributes": null,
+        "id": "7a4f401b-da96-4074-85d8-2e7feba155d8"
+      },
+      {
+        "sku_code": "SKU-4DF73-DEFAULT-3",
+        "price": 105900,
+        "stock": 33,
+        "attributes": null,
+        "id": "7a41e8e7-98d0-4e43-9372-97df798adf9e"
+      },
+      {
+        "sku_code": "SKU-4DF73-DEFAULT-4",
+        "price": 105900,
+        "stock": 33,
+        "attributes": null,
+        "id": "bb6d98fd-7136-4732-a17e-5109774bb48d"
       }
     ],
     "brand": "Amazon",
@@ -104,6 +146,27 @@
         "price": 48600,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-85EPI-DEFAULT-2",
+        "price": 48600,
+        "stock": 62,
+        "attributes": null,
+        "id": "38ffde08-6b90-4344-af37-d03ced02c4cf"
+      },
+      {
+        "sku_code": "SKU-85EPI-DEFAULT-3",
+        "price": 48600,
+        "stock": 62,
+        "attributes": null,
+        "id": "9e7a0c74-9c84-4437-b9b4-b4f52ac51a63"
+      },
+      {
+        "sku_code": "SKU-85EPI-DEFAULT-4",
+        "price": 48600,
+        "stock": 62,
+        "attributes": null,
+        "id": "fe056a5b-5965-49e8-a625-6f33e2ba3d36"
       }
     ],
     "brand": "Fresh",
@@ -145,6 +208,27 @@
         "price": 41400,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-POLQB-DEFAULT-2",
+        "price": 41400,
+        "stock": 41,
+        "attributes": null,
+        "id": "6cc84cb3-f8a2-412d-99af-cc2dd3249919"
+      },
+      {
+        "sku_code": "SKU-POLQB-DEFAULT-3",
+        "price": 41400,
+        "stock": 41,
+        "attributes": null,
+        "id": "540895c7-1cf8-4de3-89e6-3fb99482e387"
+      },
+      {
+        "sku_code": "SKU-POLQB-DEFAULT-4",
+        "price": 41400,
+        "stock": 41,
+        "attributes": null,
+        "id": "c2d90ce7-60b8-48c0-b04a-0dbc929f9887"
       }
     ],
     "brand": "Fresh",
@@ -190,6 +274,27 @@
         "price": 84900,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A9W67-DEFAULT-2",
+        "price": 84900,
+        "stock": 69,
+        "attributes": null,
+        "id": "6b6cb2cb-dcb3-4494-b022-0900ca13e772"
+      },
+      {
+        "sku_code": "SKU-A9W67-DEFAULT-3",
+        "price": 84900,
+        "stock": 69,
+        "attributes": null,
+        "id": "a599b03e-ed07-4311-acbc-24c231a40793"
+      },
+      {
+        "sku_code": "SKU-A9W67-DEFAULT-4",
+        "price": 84900,
+        "stock": 69,
+        "attributes": null,
+        "id": "12c9fe23-9493-41ff-bced-4afd96f64324"
       }
     ],
     "brand": "Urban",
@@ -235,6 +340,27 @@
         "price": 84300,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PCKIM-DEFAULT-2",
+        "price": 84300,
+        "stock": 48,
+        "attributes": null,
+        "id": "18e5d93a-29d6-47ea-9438-b9e045351b04"
+      },
+      {
+        "sku_code": "SKU-PCKIM-DEFAULT-3",
+        "price": 84300,
+        "stock": 48,
+        "attributes": null,
+        "id": "a3068958-f769-4d18-9396-12228ad5e473"
+      },
+      {
+        "sku_code": "SKU-PCKIM-DEFAULT-4",
+        "price": 84300,
+        "stock": 48,
+        "attributes": null,
+        "id": "edaf7313-ad14-439e-83b6-b5e34429a4f0"
       }
     ],
     "brand": "Manna",
@@ -276,6 +402,27 @@
         "price": 61500,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8BLTB-DEFAULT-2",
+        "price": 61500,
+        "stock": 42,
+        "attributes": null,
+        "id": "29fd9d8d-2d52-4518-ba8c-4a4d1f0748be"
+      },
+      {
+        "sku_code": "SKU-8BLTB-DEFAULT-3",
+        "price": 61500,
+        "stock": 42,
+        "attributes": null,
+        "id": "85712861-9eaa-4a45-ab40-d81561cd1485"
+      },
+      {
+        "sku_code": "SKU-8BLTB-DEFAULT-4",
+        "price": 61500,
+        "stock": 42,
+        "attributes": null,
+        "id": "867b0aca-f675-4188-ad84-65e1882918e8"
       }
     ],
     "brand": "LG",
@@ -313,6 +460,27 @@
         "price": 187800,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UE9KG-DEFAULT-2",
+        "price": 187800,
+        "stock": 51,
+        "attributes": null,
+        "id": "cb058261-34bf-49ea-9f48-a4f8587d1881"
+      },
+      {
+        "sku_code": "SKU-UE9KG-DEFAULT-3",
+        "price": 187800,
+        "stock": 51,
+        "attributes": null,
+        "id": "34782a69-a157-475d-b80d-04ab4503ba33"
+      },
+      {
+        "sku_code": "SKU-UE9KG-DEFAULT-4",
+        "price": 187800,
+        "stock": 51,
+        "attributes": null,
+        "id": "e5c39946-44d4-49e0-a76a-bd760f134bdd"
       }
     ],
     "brand": "Fresh",
@@ -350,6 +518,27 @@
         "price": 56700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S5XJI-DEFAULT-2",
+        "price": 56700,
+        "stock": 28,
+        "attributes": null,
+        "id": "430553b7-6de2-4f9f-b59b-2972b7229be1"
+      },
+      {
+        "sku_code": "SKU-S5XJI-DEFAULT-3",
+        "price": 56700,
+        "stock": 28,
+        "attributes": null,
+        "id": "78e51f25-9460-4a9f-9796-c9dae9529ca4"
+      },
+      {
+        "sku_code": "SKU-S5XJI-DEFAULT-4",
+        "price": 56700,
+        "stock": 28,
+        "attributes": null,
+        "id": "caab4f47-d28a-478d-a66e-bef807e9064e"
       }
     ],
     "brand": "Tata",
@@ -387,6 +576,27 @@
         "price": 16500,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B2UPC-DEFAULT-2",
+        "price": 16500,
+        "stock": 29,
+        "attributes": null,
+        "id": "90c80a0b-bfc9-434d-8ab0-21e0335c1e44"
+      },
+      {
+        "sku_code": "SKU-B2UPC-DEFAULT-3",
+        "price": 16500,
+        "stock": 29,
+        "attributes": null,
+        "id": "e9e3ea57-07a8-460b-8ca2-8f25b6713d3f"
+      },
+      {
+        "sku_code": "SKU-B2UPC-DEFAULT-4",
+        "price": 16500,
+        "stock": 29,
+        "attributes": null,
+        "id": "0e58998a-439f-410b-be03-5adbd8749f29"
       }
     ],
     "brand": "Urban",
@@ -432,6 +642,27 @@
         "price": 38400,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P1WZB-DEFAULT-2",
+        "price": 38400,
+        "stock": 13,
+        "attributes": null,
+        "id": "14578c20-997b-47c4-bc83-34abd36c7def"
+      },
+      {
+        "sku_code": "SKU-P1WZB-DEFAULT-3",
+        "price": 38400,
+        "stock": 13,
+        "attributes": null,
+        "id": "7778ab6a-d3a2-4486-a5c7-f14bcc6be606"
+      },
+      {
+        "sku_code": "SKU-P1WZB-DEFAULT-4",
+        "price": 38400,
+        "stock": 13,
+        "attributes": null,
+        "id": "fd0382e2-f2f6-47bf-8727-ef18870048fc"
       }
     ],
     "brand": "Krishna's",
@@ -473,6 +704,27 @@
         "price": 105600,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3KCWR-DEFAULT-2",
+        "price": 105600,
+        "stock": 53,
+        "attributes": null,
+        "id": "f1e009a8-9d67-4efb-acbf-2da94f9b1511"
+      },
+      {
+        "sku_code": "SKU-3KCWR-DEFAULT-3",
+        "price": 105600,
+        "stock": 53,
+        "attributes": null,
+        "id": "356cefa3-c88c-4af6-ba73-1cccfc6a41fd"
+      },
+      {
+        "sku_code": "SKU-3KCWR-DEFAULT-4",
+        "price": 105600,
+        "stock": 53,
+        "attributes": null,
+        "id": "050393d2-a2a8-486d-ada4-6dbd01e21ddd"
       }
     ],
     "brand": "Britannia",
@@ -518,6 +770,27 @@
         "price": 177000,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4ER34-DEFAULT-2",
+        "price": 177000,
+        "stock": 70,
+        "attributes": null,
+        "id": "8ba5b6b4-cbc7-47a2-b4bb-d6c141ddf24e"
+      },
+      {
+        "sku_code": "SKU-4ER34-DEFAULT-3",
+        "price": 177000,
+        "stock": 70,
+        "attributes": null,
+        "id": "a648f301-cf2e-4cbe-b784-b16cb8b2142d"
+      },
+      {
+        "sku_code": "SKU-4ER34-DEFAULT-4",
+        "price": 177000,
+        "stock": 70,
+        "attributes": null,
+        "id": "04448c43-2b1e-4c9f-a9ce-81d6ebbec039"
       }
     ],
     "brand": "Britannia",
@@ -559,6 +832,27 @@
         "price": 18600,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G1P61-DEFAULT-2",
+        "price": 18600,
+        "stock": 64,
+        "attributes": null,
+        "id": "7700adb4-475b-4941-95c7-5e341b1defd0"
+      },
+      {
+        "sku_code": "SKU-G1P61-DEFAULT-3",
+        "price": 18600,
+        "stock": 64,
+        "attributes": null,
+        "id": "04a0dfc3-15db-4cea-bc57-82c317d6c140"
+      },
+      {
+        "sku_code": "SKU-G1P61-DEFAULT-4",
+        "price": 18600,
+        "stock": 64,
+        "attributes": null,
+        "id": "717c171f-588c-4147-9719-e0fa3b4a27e8"
       }
     ],
     "brand": "Pro",
@@ -604,6 +898,27 @@
         "price": 51600,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T3Y19-DEFAULT-2",
+        "price": 51600,
+        "stock": 93,
+        "attributes": null,
+        "id": "4820e9f9-4e0f-4833-8bb3-e034efa64af0"
+      },
+      {
+        "sku_code": "SKU-T3Y19-DEFAULT-3",
+        "price": 51600,
+        "stock": 93,
+        "attributes": null,
+        "id": "81d9a60e-b6a4-49b9-9ce9-485a8ed248dd"
+      },
+      {
+        "sku_code": "SKU-T3Y19-DEFAULT-4",
+        "price": 51600,
+        "stock": 93,
+        "attributes": null,
+        "id": "4de7a5d8-6082-40c1-a3f0-121327edb15d"
       }
     ],
     "brand": "Pro",
@@ -649,6 +964,27 @@
         "price": 18900,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QASZ3-DEFAULT-2",
+        "price": 18900,
+        "stock": 66,
+        "attributes": null,
+        "id": "d7986ec2-99d1-42c3-9c41-3979cccae371"
+      },
+      {
+        "sku_code": "SKU-QASZ3-DEFAULT-3",
+        "price": 18900,
+        "stock": 66,
+        "attributes": null,
+        "id": "8ee6208e-e460-445b-85c7-03d90138267c"
+      },
+      {
+        "sku_code": "SKU-QASZ3-DEFAULT-4",
+        "price": 18900,
+        "stock": 66,
+        "attributes": null,
+        "id": "d0a1bd8e-80b5-4e51-8b92-58a891ab48a5"
       }
     ],
     "brand": "Parle",
@@ -694,6 +1030,27 @@
         "price": 295200,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0WRJ4-DEFAULT-2",
+        "price": 295200,
+        "stock": 37,
+        "attributes": null,
+        "id": "0d7b38a3-6b2a-4d0f-92e2-5edcc315c1ae"
+      },
+      {
+        "sku_code": "SKU-0WRJ4-DEFAULT-3",
+        "price": 295200,
+        "stock": 37,
+        "attributes": null,
+        "id": "c0b61cd4-a4ac-4b10-b3dd-4b406895633a"
+      },
+      {
+        "sku_code": "SKU-0WRJ4-DEFAULT-4",
+        "price": 295200,
+        "stock": 37,
+        "attributes": null,
+        "id": "5c7a211d-406d-428b-9d30-69f3f1a5e874"
       }
     ],
     "brand": "Haldiram's",
@@ -739,6 +1096,27 @@
         "price": 0,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BZGWB-DEFAULT-2",
+        "price": 0,
+        "stock": 87,
+        "attributes": null,
+        "id": "d9f3147f-05ee-4fb9-a3e5-417ccc1e8109"
+      },
+      {
+        "sku_code": "SKU-BZGWB-DEFAULT-3",
+        "price": 0,
+        "stock": 87,
+        "attributes": null,
+        "id": "a6bea560-c229-4429-ba6a-2be0840503be"
+      },
+      {
+        "sku_code": "SKU-BZGWB-DEFAULT-4",
+        "price": 0,
+        "stock": 87,
+        "attributes": null,
+        "id": "d41f0316-85b7-483e-bf55-0e02291266a2"
       }
     ],
     "brand": "Cadbury",
@@ -784,6 +1162,27 @@
         "price": 7500,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9EOR8-DEFAULT-2",
+        "price": 7500,
+        "stock": 13,
+        "attributes": null,
+        "id": "3680861e-98d4-4943-b1fd-8f1b5df999a9"
+      },
+      {
+        "sku_code": "SKU-9EOR8-DEFAULT-3",
+        "price": 7500,
+        "stock": 13,
+        "attributes": null,
+        "id": "b5ca046a-544b-4af5-9901-3201d9a5b12c"
+      },
+      {
+        "sku_code": "SKU-9EOR8-DEFAULT-4",
+        "price": 7500,
+        "stock": 13,
+        "attributes": null,
+        "id": "af359ccf-f550-42c6-9112-a9faef3e4320"
       }
     ],
     "brand": "Parle",
@@ -825,6 +1224,27 @@
         "price": 180000,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F8YT9-DEFAULT-2",
+        "price": 180000,
+        "stock": 33,
+        "attributes": null,
+        "id": "4b7d0a6a-7c6a-47fc-9d7d-5f9d0daeac59"
+      },
+      {
+        "sku_code": "SKU-F8YT9-DEFAULT-3",
+        "price": 180000,
+        "stock": 33,
+        "attributes": null,
+        "id": "3275da8a-7571-4664-b902-db73e9c0076f"
+      },
+      {
+        "sku_code": "SKU-F8YT9-DEFAULT-4",
+        "price": 180000,
+        "stock": 33,
+        "attributes": null,
+        "id": "47163038-ea34-4454-aeeb-19e788fe564f"
       }
     ],
     "brand": "Cadbury",
@@ -866,6 +1286,27 @@
         "price": 250500,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K4APW-DEFAULT-2",
+        "price": 250500,
+        "stock": 14,
+        "attributes": null,
+        "id": "29f06531-f65b-4ebd-a240-d48d9719fd9b"
+      },
+      {
+        "sku_code": "SKU-K4APW-DEFAULT-3",
+        "price": 250500,
+        "stock": 14,
+        "attributes": null,
+        "id": "fc44545c-5fef-43a6-977c-20b096ae71b6"
+      },
+      {
+        "sku_code": "SKU-K4APW-DEFAULT-4",
+        "price": 250500,
+        "stock": 14,
+        "attributes": null,
+        "id": "adda6f8a-2967-48a9-816f-d250697ba4dc"
       }
     ],
     "brand": "Tata",
@@ -911,6 +1352,27 @@
         "price": 9000,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LNZG5-DEFAULT-2",
+        "price": 9000,
+        "stock": 68,
+        "attributes": null,
+        "id": "f60bb145-50f3-43f3-94fe-7bbd90324c8f"
+      },
+      {
+        "sku_code": "SKU-LNZG5-DEFAULT-3",
+        "price": 9000,
+        "stock": 68,
+        "attributes": null,
+        "id": "efd77a1c-d023-4d86-9e80-ae6abd03f1fc"
+      },
+      {
+        "sku_code": "SKU-LNZG5-DEFAULT-4",
+        "price": 9000,
+        "stock": 68,
+        "attributes": null,
+        "id": "3ad6c82e-26e1-4da6-9c57-245da75daf24"
       }
     ],
     "brand": "Cadbury",
@@ -952,6 +1414,27 @@
         "price": 68100,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I98F7-DEFAULT-2",
+        "price": 68100,
+        "stock": 18,
+        "attributes": null,
+        "id": "27bed0e6-03f0-48f2-b892-877758f98245"
+      },
+      {
+        "sku_code": "SKU-I98F7-DEFAULT-3",
+        "price": 68100,
+        "stock": 18,
+        "attributes": null,
+        "id": "8917f963-f3aa-4424-a3ec-fcb69412594b"
+      },
+      {
+        "sku_code": "SKU-I98F7-DEFAULT-4",
+        "price": 68100,
+        "stock": 18,
+        "attributes": null,
+        "id": "d3946be2-cdf0-4864-84a7-52dfd32574a7"
       }
     ],
     "brand": "Urban",
@@ -993,6 +1476,27 @@
         "price": 27300,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZSZQF-DEFAULT-2",
+        "price": 27300,
+        "stock": 59,
+        "attributes": null,
+        "id": "df372dc3-0f21-4d9d-8704-bdf20d5c4eab"
+      },
+      {
+        "sku_code": "SKU-ZSZQF-DEFAULT-3",
+        "price": 27300,
+        "stock": 59,
+        "attributes": null,
+        "id": "33db24cb-ae04-4ca6-a48e-d1a1f9279594"
+      },
+      {
+        "sku_code": "SKU-ZSZQF-DEFAULT-4",
+        "price": 27300,
+        "stock": 59,
+        "attributes": null,
+        "id": "f5460a23-97e2-4ca8-8588-c8e29bc43085"
       }
     ],
     "brand": "Krishna's",
@@ -1030,6 +1534,27 @@
         "price": 23700,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-82PZI-DEFAULT-2",
+        "price": 23700,
+        "stock": 21,
+        "attributes": null,
+        "id": "448d0ae3-fd45-469b-adab-acfea59e5174"
+      },
+      {
+        "sku_code": "SKU-82PZI-DEFAULT-3",
+        "price": 23700,
+        "stock": 21,
+        "attributes": null,
+        "id": "e9ac1225-f081-41f5-829c-fc21a6791410"
+      },
+      {
+        "sku_code": "SKU-82PZI-DEFAULT-4",
+        "price": 23700,
+        "stock": 21,
+        "attributes": null,
+        "id": "713168ef-654c-4061-848b-5eba872bacac"
       }
     ],
     "brand": "Fresh",
@@ -1075,6 +1600,27 @@
         "price": 37800,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P9QJB-DEFAULT-2",
+        "price": 37800,
+        "stock": 17,
+        "attributes": null,
+        "id": "15f3fe76-fcc7-40a0-8f91-0e8e6e02c66c"
+      },
+      {
+        "sku_code": "SKU-P9QJB-DEFAULT-3",
+        "price": 37800,
+        "stock": 17,
+        "attributes": null,
+        "id": "b5ebca3d-4b64-411b-89a9-91aaeda30867"
+      },
+      {
+        "sku_code": "SKU-P9QJB-DEFAULT-4",
+        "price": 37800,
+        "stock": 17,
+        "attributes": null,
+        "id": "f3af246a-4dbb-43e4-aca5-8b93eac40a11"
       }
     ],
     "brand": "Cadbury",
@@ -1112,6 +1658,27 @@
         "price": 174000,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GA27F-DEFAULT-2",
+        "price": 174000,
+        "stock": 78,
+        "attributes": null,
+        "id": "d563945d-5f61-4767-a56b-047a8b38f1c9"
+      },
+      {
+        "sku_code": "SKU-GA27F-DEFAULT-3",
+        "price": 174000,
+        "stock": 78,
+        "attributes": null,
+        "id": "8a532fdb-59bc-43c1-805c-62ea373548a9"
+      },
+      {
+        "sku_code": "SKU-GA27F-DEFAULT-4",
+        "price": 174000,
+        "stock": 78,
+        "attributes": null,
+        "id": "b45b99ad-83bb-442a-b53e-eac7edc6515c"
       }
     ],
     "brand": "Haldiram's",
@@ -1153,6 +1720,27 @@
         "price": 23700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MG0HC-DEFAULT-2",
+        "price": 23700,
+        "stock": 62,
+        "attributes": null,
+        "id": "2bdc0e53-23b3-4727-adf6-17750e8bccde"
+      },
+      {
+        "sku_code": "SKU-MG0HC-DEFAULT-3",
+        "price": 23700,
+        "stock": 62,
+        "attributes": null,
+        "id": "46790d56-d4da-4082-a3ee-0eca0fd0ac1d"
+      },
+      {
+        "sku_code": "SKU-MG0HC-DEFAULT-4",
+        "price": 23700,
+        "stock": 62,
+        "attributes": null,
+        "id": "3789886c-78a7-4d0d-8e59-eee011438b6a"
       }
     ],
     "brand": "Urban",
@@ -1190,6 +1778,27 @@
         "price": 5100,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6D0X0-DEFAULT-2",
+        "price": 5100,
+        "stock": 35,
+        "attributes": null,
+        "id": "99ed1f3e-02e1-49de-be35-032540ab47e7"
+      },
+      {
+        "sku_code": "SKU-6D0X0-DEFAULT-3",
+        "price": 5100,
+        "stock": 35,
+        "attributes": null,
+        "id": "9ca810b0-021a-466f-8e32-5b58d20cab91"
+      },
+      {
+        "sku_code": "SKU-6D0X0-DEFAULT-4",
+        "price": 5100,
+        "stock": 35,
+        "attributes": null,
+        "id": "73589e63-0255-4d41-a4fb-e7523a758aab"
       }
     ],
     "brand": "Urban",
@@ -1231,6 +1840,27 @@
         "price": 29700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1BGPG-DEFAULT-2",
+        "price": 29700,
+        "stock": 34,
+        "attributes": null,
+        "id": "a321b75c-3b69-48ba-a4d0-32609f4c8575"
+      },
+      {
+        "sku_code": "SKU-1BGPG-DEFAULT-3",
+        "price": 29700,
+        "stock": 34,
+        "attributes": null,
+        "id": "3f51bd6d-2727-48b4-8967-12dc655ef5b4"
+      },
+      {
+        "sku_code": "SKU-1BGPG-DEFAULT-4",
+        "price": 29700,
+        "stock": 34,
+        "attributes": null,
+        "id": "7a3f607f-313c-4bf6-b240-3dd3ed749674"
       }
     ],
     "brand": "Tata",
@@ -1276,6 +1906,27 @@
         "price": 240600,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0BL7Z-DEFAULT-2",
+        "price": 240600,
+        "stock": 89,
+        "attributes": null,
+        "id": "89870a7e-088d-42f8-abf1-3d27c068bd81"
+      },
+      {
+        "sku_code": "SKU-0BL7Z-DEFAULT-3",
+        "price": 240600,
+        "stock": 89,
+        "attributes": null,
+        "id": "d5da6385-32eb-4768-83a9-b051f2979397"
+      },
+      {
+        "sku_code": "SKU-0BL7Z-DEFAULT-4",
+        "price": 240600,
+        "stock": 89,
+        "attributes": null,
+        "id": "bc6b2825-e453-4815-9b32-eef0f554d60e"
       }
     ],
     "brand": "Urban",
@@ -1321,6 +1972,27 @@
         "price": 175200,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-81BKP-DEFAULT-2",
+        "price": 175200,
+        "stock": 83,
+        "attributes": null,
+        "id": "48fd3af8-af79-4ad2-aeb6-747ca581deb0"
+      },
+      {
+        "sku_code": "SKU-81BKP-DEFAULT-3",
+        "price": 175200,
+        "stock": 83,
+        "attributes": null,
+        "id": "23304423-3e03-4f0c-b4fb-7afae9638212"
+      },
+      {
+        "sku_code": "SKU-81BKP-DEFAULT-4",
+        "price": 175200,
+        "stock": 83,
+        "attributes": null,
+        "id": "61256b68-2402-40d9-b074-d08992983f52"
       }
     ],
     "brand": "Manna",
@@ -1358,6 +2030,27 @@
         "price": 25500,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KNX40-DEFAULT-2",
+        "price": 25500,
+        "stock": 28,
+        "attributes": null,
+        "id": "cb1aef53-1e45-42cd-9b1c-378a4b557b31"
+      },
+      {
+        "sku_code": "SKU-KNX40-DEFAULT-3",
+        "price": 25500,
+        "stock": 28,
+        "attributes": null,
+        "id": "5e1e98b0-971c-465c-a646-dac5cb9ca585"
+      },
+      {
+        "sku_code": "SKU-KNX40-DEFAULT-4",
+        "price": 25500,
+        "stock": 28,
+        "attributes": null,
+        "id": "46520bb8-d0f4-4cb9-8f68-36699edbe20e"
       }
     ],
     "brand": "Parle",
@@ -1399,6 +2092,27 @@
         "price": 21600,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-63467-DEFAULT-2",
+        "price": 21600,
+        "stock": 109,
+        "attributes": null,
+        "id": "f433eb13-a9a7-42d7-b257-4d07546a88ab"
+      },
+      {
+        "sku_code": "SKU-63467-DEFAULT-3",
+        "price": 21600,
+        "stock": 109,
+        "attributes": null,
+        "id": "c5b8bfd3-1b06-433e-a8fa-5acb66acc8b4"
+      },
+      {
+        "sku_code": "SKU-63467-DEFAULT-4",
+        "price": 21600,
+        "stock": 109,
+        "attributes": null,
+        "id": "d85d7f90-85ae-44b0-aee3-d5d0fe587cee"
       }
     ],
     "brand": "Taj",
@@ -1444,6 +2158,27 @@
         "price": 9000,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VLHI4-DEFAULT-2",
+        "price": 9000,
+        "stock": 101,
+        "attributes": null,
+        "id": "8f972fb4-2c36-42f8-8e07-059b7afcb436"
+      },
+      {
+        "sku_code": "SKU-VLHI4-DEFAULT-3",
+        "price": 9000,
+        "stock": 101,
+        "attributes": null,
+        "id": "5a8f5f0d-8426-4982-b0c4-7dea7540af81"
+      },
+      {
+        "sku_code": "SKU-VLHI4-DEFAULT-4",
+        "price": 9000,
+        "stock": 101,
+        "attributes": null,
+        "id": "78c9904f-3fc7-4d11-b91a-8434da730344"
       }
     ],
     "brand": "Britannia",
@@ -1485,6 +2220,27 @@
         "price": 78300,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UJAQ1-DEFAULT-2",
+        "price": 78300,
+        "stock": 84,
+        "attributes": null,
+        "id": "59405ca3-c190-4146-a21c-71bf53b5191b"
+      },
+      {
+        "sku_code": "SKU-UJAQ1-DEFAULT-3",
+        "price": 78300,
+        "stock": 84,
+        "attributes": null,
+        "id": "3ec0ec73-ec6f-44e0-8f59-ab0ac97b1238"
+      },
+      {
+        "sku_code": "SKU-UJAQ1-DEFAULT-4",
+        "price": 78300,
+        "stock": 84,
+        "attributes": null,
+        "id": "60ee82ea-c748-4c1b-ae80-44bf21f95044"
       }
     ],
     "brand": "Cadbury",
@@ -1530,6 +2286,27 @@
         "price": 47100,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PI8GZ-DEFAULT-2",
+        "price": 47100,
+        "stock": 74,
+        "attributes": null,
+        "id": "89bd090b-6dd1-438c-8d8a-6b748b7ea6e7"
+      },
+      {
+        "sku_code": "SKU-PI8GZ-DEFAULT-3",
+        "price": 47100,
+        "stock": 74,
+        "attributes": null,
+        "id": "f00fd0ff-e86b-4587-81ff-d63fc2a7bbee"
+      },
+      {
+        "sku_code": "SKU-PI8GZ-DEFAULT-4",
+        "price": 47100,
+        "stock": 74,
+        "attributes": null,
+        "id": "d2a7bcec-244c-4f7e-bfcb-04e66464959a"
       }
     ],
     "brand": "Pro",
@@ -1567,6 +2344,27 @@
         "price": 11400,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QVB6A-DEFAULT-2",
+        "price": 11400,
+        "stock": 80,
+        "attributes": null,
+        "id": "79489329-8c54-4813-99a5-60af37394495"
+      },
+      {
+        "sku_code": "SKU-QVB6A-DEFAULT-3",
+        "price": 11400,
+        "stock": 80,
+        "attributes": null,
+        "id": "81712e3c-8ac0-4e5a-b0e9-ad768624f615"
+      },
+      {
+        "sku_code": "SKU-QVB6A-DEFAULT-4",
+        "price": 11400,
+        "stock": 80,
+        "attributes": null,
+        "id": "5dbe4ebd-7c7a-4dee-9b8d-26c9f29aae47"
       }
     ],
     "brand": "Haldiram's",
@@ -1608,6 +2406,27 @@
         "price": 40440,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1EG6Y-DEFAULT-2",
+        "price": 40440,
+        "stock": 92,
+        "attributes": null,
+        "id": "708f9601-8246-4dbf-a4ae-b4f7d4c3d33b"
+      },
+      {
+        "sku_code": "SKU-1EG6Y-DEFAULT-3",
+        "price": 40440,
+        "stock": 92,
+        "attributes": null,
+        "id": "d327ce51-9c38-4a06-b4e7-3b2f09870c78"
+      },
+      {
+        "sku_code": "SKU-1EG6Y-DEFAULT-4",
+        "price": 40440,
+        "stock": 92,
+        "attributes": null,
+        "id": "eb832345-760f-48d4-a3d6-45e7f6b5f74a"
       }
     ],
     "brand": "Amazon",
@@ -1645,6 +2464,27 @@
         "price": 10800,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WVAUW-DEFAULT-2",
+        "price": 10800,
+        "stock": 89,
+        "attributes": null,
+        "id": "ed517f4e-b5ae-400d-96f8-667edd4d637e"
+      },
+      {
+        "sku_code": "SKU-WVAUW-DEFAULT-3",
+        "price": 10800,
+        "stock": 89,
+        "attributes": null,
+        "id": "983fe5fb-d945-465f-a07a-36dfbd660994"
+      },
+      {
+        "sku_code": "SKU-WVAUW-DEFAULT-4",
+        "price": 10800,
+        "stock": 89,
+        "attributes": null,
+        "id": "71d0b403-766c-4943-a41d-855c297e4e1e"
       }
     ],
     "brand": "Taj",
@@ -1690,6 +2530,27 @@
         "price": 24831,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZVZXF-DEFAULT-2",
+        "price": 24831,
+        "stock": 74,
+        "attributes": null,
+        "id": "0c7d1c69-ec8c-48ca-92e0-97cdd52cbd19"
+      },
+      {
+        "sku_code": "SKU-ZVZXF-DEFAULT-3",
+        "price": 24831,
+        "stock": 74,
+        "attributes": null,
+        "id": "7ff76fc9-d6b5-4a2c-bca2-81229f2e4fc4"
+      },
+      {
+        "sku_code": "SKU-ZVZXF-DEFAULT-4",
+        "price": 24831,
+        "stock": 74,
+        "attributes": null,
+        "id": "aa085448-e134-4d2d-a42f-66c24dd2279f"
       }
     ],
     "brand": "Haldiram's",
@@ -1735,6 +2596,27 @@
         "price": 15000,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SEB08-DEFAULT-2",
+        "price": 15000,
+        "stock": 92,
+        "attributes": null,
+        "id": "1e96b660-be96-4192-bb52-3f320242605e"
+      },
+      {
+        "sku_code": "SKU-SEB08-DEFAULT-3",
+        "price": 15000,
+        "stock": 92,
+        "attributes": null,
+        "id": "d41990e8-1f0d-4718-9aa0-2ad72dd04a36"
+      },
+      {
+        "sku_code": "SKU-SEB08-DEFAULT-4",
+        "price": 15000,
+        "stock": 92,
+        "attributes": null,
+        "id": "f748194d-6218-49b3-bdab-0478d51f8403"
       }
     ],
     "brand": "Weikfield",
@@ -1776,6 +2658,27 @@
         "price": 112500,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HSF3E-DEFAULT-2",
+        "price": 112500,
+        "stock": 62,
+        "attributes": null,
+        "id": "b92399b0-0841-42ea-871a-705eaea4f2e6"
+      },
+      {
+        "sku_code": "SKU-HSF3E-DEFAULT-3",
+        "price": 112500,
+        "stock": 62,
+        "attributes": null,
+        "id": "c4f36a9a-c195-456b-946d-bf2b64f049e6"
+      },
+      {
+        "sku_code": "SKU-HSF3E-DEFAULT-4",
+        "price": 112500,
+        "stock": 62,
+        "attributes": null,
+        "id": "3ac4abec-1832-4ced-8a66-e8d8ca06ddb0"
       }
     ],
     "brand": "Krishna's",
@@ -1821,6 +2724,27 @@
         "price": 118500,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1E847-DEFAULT-2",
+        "price": 118500,
+        "stock": 17,
+        "attributes": null,
+        "id": "91cadda8-4e35-4b42-8cde-fef3c032622e"
+      },
+      {
+        "sku_code": "SKU-1E847-DEFAULT-3",
+        "price": 118500,
+        "stock": 17,
+        "attributes": null,
+        "id": "dbe1bf94-2ea7-4bc1-9290-ecf337ada528"
+      },
+      {
+        "sku_code": "SKU-1E847-DEFAULT-4",
+        "price": 118500,
+        "stock": 17,
+        "attributes": null,
+        "id": "c772aa4b-1219-46c0-9b35-5963bf34229e"
       }
     ],
     "brand": "Saffola",
@@ -1866,6 +2790,27 @@
         "price": 56700,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SX9F7-DEFAULT-2",
+        "price": 56700,
+        "stock": 21,
+        "attributes": null,
+        "id": "a9c607a1-1915-48c7-8868-2055601f28af"
+      },
+      {
+        "sku_code": "SKU-SX9F7-DEFAULT-3",
+        "price": 56700,
+        "stock": 21,
+        "attributes": null,
+        "id": "40071497-9a25-4b64-b978-789bd2674a02"
+      },
+      {
+        "sku_code": "SKU-SX9F7-DEFAULT-4",
+        "price": 56700,
+        "stock": 21,
+        "attributes": null,
+        "id": "1bb3fea9-4db0-49d3-9ac6-f5aec9e177c1"
       }
     ],
     "brand": "Britannia",
@@ -1911,6 +2856,27 @@
         "price": 24900,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EPPL1-DEFAULT-2",
+        "price": 24900,
+        "stock": 75,
+        "attributes": null,
+        "id": "50ff8db7-3b3a-4adc-b4ec-8b8b1b82ca0e"
+      },
+      {
+        "sku_code": "SKU-EPPL1-DEFAULT-3",
+        "price": 24900,
+        "stock": 75,
+        "attributes": null,
+        "id": "a44ffad8-57c6-4cf8-8e9c-cc4e655415ba"
+      },
+      {
+        "sku_code": "SKU-EPPL1-DEFAULT-4",
+        "price": 24900,
+        "stock": 75,
+        "attributes": null,
+        "id": "274ec441-2459-4461-9380-3ba6ca9dd266"
       }
     ],
     "brand": "Weikfield",
@@ -1948,6 +2914,27 @@
         "price": 65700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RPITP-DEFAULT-2",
+        "price": 65700,
+        "stock": 76,
+        "attributes": null,
+        "id": "bc69b93c-9573-4ffd-9b9f-f1b76016e596"
+      },
+      {
+        "sku_code": "SKU-RPITP-DEFAULT-3",
+        "price": 65700,
+        "stock": 76,
+        "attributes": null,
+        "id": "54a33cd7-a1ca-407c-aa6d-55ec4d7af986"
+      },
+      {
+        "sku_code": "SKU-RPITP-DEFAULT-4",
+        "price": 65700,
+        "stock": 76,
+        "attributes": null,
+        "id": "51a9902b-3703-450e-bc13-1f44e107b5b0"
       }
     ],
     "brand": "Cadbury",
@@ -1992,6 +2979,27 @@
         "price": 15000,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-75R31-DEFAULT-2",
+        "price": 15000,
+        "stock": 19,
+        "attributes": null,
+        "id": "ef6dfbdd-831e-44a7-a168-2756e9232f14"
+      },
+      {
+        "sku_code": "SKU-75R31-DEFAULT-3",
+        "price": 15000,
+        "stock": 19,
+        "attributes": null,
+        "id": "3cf523e1-328c-4a95-be1b-204959aed077"
+      },
+      {
+        "sku_code": "SKU-75R31-DEFAULT-4",
+        "price": 15000,
+        "stock": 19,
+        "attributes": null,
+        "id": "c2f1060d-ff14-42ea-b0d7-1d6566f30817"
       }
     ],
     "brand": "Amazon",
@@ -2030,6 +3038,27 @@
         "price": 135000,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VQ0X3-DEFAULT-2",
+        "price": 135000,
+        "stock": 49,
+        "attributes": null,
+        "id": "70205abd-040f-4f98-8a89-c8d0c19389d5"
+      },
+      {
+        "sku_code": "SKU-VQ0X3-DEFAULT-3",
+        "price": 135000,
+        "stock": 49,
+        "attributes": null,
+        "id": "ecfa6488-f81c-40ee-bfbc-69166674a5ab"
+      },
+      {
+        "sku_code": "SKU-VQ0X3-DEFAULT-4",
+        "price": 135000,
+        "stock": 49,
+        "attributes": null,
+        "id": "1679c505-c1fc-48e5-9835-fd6f181dfcea"
       }
     ],
     "brand": "Haldiram's",
@@ -2071,6 +3100,27 @@
         "price": 164700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L82P3-DEFAULT-2",
+        "price": 164700,
+        "stock": 35,
+        "attributes": null,
+        "id": "59da0842-815a-4bb3-8caf-4d0fbe43b684"
+      },
+      {
+        "sku_code": "SKU-L82P3-DEFAULT-3",
+        "price": 164700,
+        "stock": 35,
+        "attributes": null,
+        "id": "cda44d51-414a-47fe-bb7b-b72ad5f92408"
+      },
+      {
+        "sku_code": "SKU-L82P3-DEFAULT-4",
+        "price": 164700,
+        "stock": 35,
+        "attributes": null,
+        "id": "7cc56837-5095-4a18-953d-348c13792c24"
       }
     ],
     "brand": "Cadbury",
@@ -2112,6 +3162,27 @@
         "price": 15000,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C8O0U-DEFAULT-2",
+        "price": 15000,
+        "stock": 29,
+        "attributes": null,
+        "id": "dffecb05-5e84-409c-be6e-c5931ee94160"
+      },
+      {
+        "sku_code": "SKU-C8O0U-DEFAULT-3",
+        "price": 15000,
+        "stock": 29,
+        "attributes": null,
+        "id": "e11bd861-d8bc-42e4-b139-1b3a387c71de"
+      },
+      {
+        "sku_code": "SKU-C8O0U-DEFAULT-4",
+        "price": 15000,
+        "stock": 29,
+        "attributes": null,
+        "id": "b56687e8-31a2-4995-8563-4895cbb79d1f"
       }
     ],
     "brand": "Manna",
@@ -2153,6 +3224,27 @@
         "price": 22200,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I586F-DEFAULT-2",
+        "price": 22200,
+        "stock": 87,
+        "attributes": null,
+        "id": "a666e237-edd1-4a9d-9c55-3c78a67a3b78"
+      },
+      {
+        "sku_code": "SKU-I586F-DEFAULT-3",
+        "price": 22200,
+        "stock": 87,
+        "attributes": null,
+        "id": "5d97911e-9453-4fc5-8d0e-1abaf01c2a05"
+      },
+      {
+        "sku_code": "SKU-I586F-DEFAULT-4",
+        "price": 22200,
+        "stock": 87,
+        "attributes": null,
+        "id": "73f8a240-54d5-470a-b561-17adda1e1eb0"
       }
     ],
     "brand": "Urban",
@@ -2190,6 +3282,27 @@
         "price": 149700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RUJ14-DEFAULT-2",
+        "price": 149700,
+        "stock": 91,
+        "attributes": null,
+        "id": "10527834-3ee7-4aa7-a327-68971b5605fd"
+      },
+      {
+        "sku_code": "SKU-RUJ14-DEFAULT-3",
+        "price": 149700,
+        "stock": 91,
+        "attributes": null,
+        "id": "269de5fb-bb4d-4cf3-bbc6-5bf22d5933dd"
+      },
+      {
+        "sku_code": "SKU-RUJ14-DEFAULT-4",
+        "price": 149700,
+        "stock": 91,
+        "attributes": null,
+        "id": "86a00fc4-e22a-4020-b10c-9c9a267405f3"
       }
     ],
     "brand": "Pro",
@@ -2235,6 +3348,27 @@
         "price": 20400,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MTH0B-DEFAULT-2",
+        "price": 20400,
+        "stock": 86,
+        "attributes": null,
+        "id": "02b32b9d-df2d-44ef-ae1d-80976cc05d6a"
+      },
+      {
+        "sku_code": "SKU-MTH0B-DEFAULT-3",
+        "price": 20400,
+        "stock": 86,
+        "attributes": null,
+        "id": "56788499-6ec3-4bba-86ff-46e5bdd438a1"
+      },
+      {
+        "sku_code": "SKU-MTH0B-DEFAULT-4",
+        "price": 20400,
+        "stock": 86,
+        "attributes": null,
+        "id": "a2a76651-e406-4dbe-b6eb-132695aa493b"
       }
     ],
     "brand": "Taj",
@@ -2272,6 +3406,27 @@
         "price": 44100,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-51Z29-DEFAULT-2",
+        "price": 44100,
+        "stock": 26,
+        "attributes": null,
+        "id": "9ca77fa3-3860-4b05-b272-0e233d307fd4"
+      },
+      {
+        "sku_code": "SKU-51Z29-DEFAULT-3",
+        "price": 44100,
+        "stock": 26,
+        "attributes": null,
+        "id": "1f87a0b5-f10a-462e-821d-e125e825799d"
+      },
+      {
+        "sku_code": "SKU-51Z29-DEFAULT-4",
+        "price": 44100,
+        "stock": 26,
+        "attributes": null,
+        "id": "37aa9df6-ec95-4b5a-8b50-6575e5baa45e"
       }
     ],
     "brand": "LG",
@@ -2309,6 +3464,27 @@
         "price": 89700,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VZQ7W-DEFAULT-2",
+        "price": 89700,
+        "stock": 53,
+        "attributes": null,
+        "id": "8d821e00-5c04-4ee6-ac49-b9b77db54779"
+      },
+      {
+        "sku_code": "SKU-VZQ7W-DEFAULT-3",
+        "price": 89700,
+        "stock": 53,
+        "attributes": null,
+        "id": "cb4070f9-df0f-4a4c-b38f-3cd63d569455"
+      },
+      {
+        "sku_code": "SKU-VZQ7W-DEFAULT-4",
+        "price": 89700,
+        "stock": 53,
+        "attributes": null,
+        "id": "c7d48c9c-12a8-42d2-a6b8-5bfd2227058d"
       }
     ],
     "brand": "Saffola",
@@ -2354,6 +3530,27 @@
         "price": 156000,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7GKW4-DEFAULT-2",
+        "price": 156000,
+        "stock": 38,
+        "attributes": null,
+        "id": "0a2a6e65-2179-4875-8455-9b335c685dbb"
+      },
+      {
+        "sku_code": "SKU-7GKW4-DEFAULT-3",
+        "price": 156000,
+        "stock": 38,
+        "attributes": null,
+        "id": "cbd731a0-b59d-4b2c-85ec-62927b39b828"
+      },
+      {
+        "sku_code": "SKU-7GKW4-DEFAULT-4",
+        "price": 156000,
+        "stock": 38,
+        "attributes": null,
+        "id": "dc4d8864-b86b-44ba-883a-f5ce5183d468"
       }
     ],
     "brand": "Amazon",
@@ -2399,6 +3596,27 @@
         "price": 224700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GXC93-DEFAULT-2",
+        "price": 224700,
+        "stock": 63,
+        "attributes": null,
+        "id": "664424fa-cc46-4385-a5ca-ec1e10b82f97"
+      },
+      {
+        "sku_code": "SKU-GXC93-DEFAULT-3",
+        "price": 224700,
+        "stock": 63,
+        "attributes": null,
+        "id": "03e917f9-2b78-4b9f-b2e0-f077b96fddb3"
+      },
+      {
+        "sku_code": "SKU-GXC93-DEFAULT-4",
+        "price": 224700,
+        "stock": 63,
+        "attributes": null,
+        "id": "53232f5c-39a7-4ba7-bbee-1eaefdb0f5ef"
       }
     ],
     "brand": "Urban",
@@ -2440,6 +3658,27 @@
         "price": 42000,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V82DP-DEFAULT-2",
+        "price": 42000,
+        "stock": 40,
+        "attributes": null,
+        "id": "a946f71d-946c-48dc-ac27-4ed2cad3029e"
+      },
+      {
+        "sku_code": "SKU-V82DP-DEFAULT-3",
+        "price": 42000,
+        "stock": 40,
+        "attributes": null,
+        "id": "f5986d8b-c902-4b48-8901-08ea156b893b"
+      },
+      {
+        "sku_code": "SKU-V82DP-DEFAULT-4",
+        "price": 42000,
+        "stock": 40,
+        "attributes": null,
+        "id": "fc157798-9d0d-4d2f-8dcd-9ce863b50f5d"
       }
     ],
     "brand": "Organic",
@@ -2481,6 +3720,27 @@
         "price": 34200,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E10DR-DEFAULT-2",
+        "price": 34200,
+        "stock": 101,
+        "attributes": null,
+        "id": "3e4a0320-89fd-4013-9459-5e602c2257f4"
+      },
+      {
+        "sku_code": "SKU-E10DR-DEFAULT-3",
+        "price": 34200,
+        "stock": 101,
+        "attributes": null,
+        "id": "11cdaa45-d515-4d5a-a7a6-daf209a50431"
+      },
+      {
+        "sku_code": "SKU-E10DR-DEFAULT-4",
+        "price": 34200,
+        "stock": 101,
+        "attributes": null,
+        "id": "e3892057-05fa-459c-9bfd-27d93446d8ee"
       }
     ],
     "brand": "Pro",
@@ -2518,6 +3778,27 @@
         "price": 45000,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X6CR3-DEFAULT-2",
+        "price": 45000,
+        "stock": 85,
+        "attributes": null,
+        "id": "84d09b3f-e8bb-41d4-89c6-763557a20ccf"
+      },
+      {
+        "sku_code": "SKU-X6CR3-DEFAULT-3",
+        "price": 45000,
+        "stock": 85,
+        "attributes": null,
+        "id": "67eed9d0-319a-4fa4-915d-0077ca1e91a5"
+      },
+      {
+        "sku_code": "SKU-X6CR3-DEFAULT-4",
+        "price": 45000,
+        "stock": 85,
+        "attributes": null,
+        "id": "27d635c2-d55c-4482-85b0-d9c120b23d26"
       }
     ],
     "brand": "Apple",
@@ -2555,6 +3836,27 @@
         "price": 26400,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z8IIZ-DEFAULT-2",
+        "price": 26400,
+        "stock": 33,
+        "attributes": null,
+        "id": "49350611-897b-4dad-a231-afed0040d91b"
+      },
+      {
+        "sku_code": "SKU-Z8IIZ-DEFAULT-3",
+        "price": 26400,
+        "stock": 33,
+        "attributes": null,
+        "id": "69e464e8-182e-4731-a716-737ed19c809b"
+      },
+      {
+        "sku_code": "SKU-Z8IIZ-DEFAULT-4",
+        "price": 26400,
+        "stock": 33,
+        "attributes": null,
+        "id": "a86ff2e6-33a5-40fc-b012-dc1b59fdb759"
       }
     ],
     "brand": "Tata",
@@ -2600,6 +3902,27 @@
         "price": 37500,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SK88E-DEFAULT-2",
+        "price": 37500,
+        "stock": 50,
+        "attributes": null,
+        "id": "391b6965-ab6e-4b9d-a087-36108777a1a1"
+      },
+      {
+        "sku_code": "SKU-SK88E-DEFAULT-3",
+        "price": 37500,
+        "stock": 50,
+        "attributes": null,
+        "id": "3487b309-bc68-4bb8-84d1-01e6126f5db7"
+      },
+      {
+        "sku_code": "SKU-SK88E-DEFAULT-4",
+        "price": 37500,
+        "stock": 50,
+        "attributes": null,
+        "id": "09e26202-6ec2-40db-9638-840728696cc6"
       }
     ],
     "brand": "Amazon",
@@ -2641,6 +3964,27 @@
         "price": 48300,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QQ0J0-DEFAULT-2",
+        "price": 48300,
+        "stock": 51,
+        "attributes": null,
+        "id": "4ff4d846-4d15-4b67-a174-b4bfafbc9aa9"
+      },
+      {
+        "sku_code": "SKU-QQ0J0-DEFAULT-3",
+        "price": 48300,
+        "stock": 51,
+        "attributes": null,
+        "id": "2ed6ed21-0dcf-432a-8d59-0304292d38ab"
+      },
+      {
+        "sku_code": "SKU-QQ0J0-DEFAULT-4",
+        "price": 48300,
+        "stock": 51,
+        "attributes": null,
+        "id": "19ad2d67-d86c-41fb-a337-093fabea3859"
       }
     ],
     "brand": "Parle",
@@ -2686,6 +4030,27 @@
         "price": 23100,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N4SOT-DEFAULT-2",
+        "price": 23100,
+        "stock": 39,
+        "attributes": null,
+        "id": "afd56637-0514-4f41-b970-981125e087f1"
+      },
+      {
+        "sku_code": "SKU-N4SOT-DEFAULT-3",
+        "price": 23100,
+        "stock": 39,
+        "attributes": null,
+        "id": "6fb984f4-9466-4476-b6d8-bccbe552e05c"
+      },
+      {
+        "sku_code": "SKU-N4SOT-DEFAULT-4",
+        "price": 23100,
+        "stock": 39,
+        "attributes": null,
+        "id": "cd8b044e-19e7-4b9d-b6d2-96765d6db1d7"
       }
     ],
     "brand": "Krishna's",
@@ -2762,6 +4127,27 @@
         "price": 49500,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FTMHC-DEFAULT-2",
+        "price": 49500,
+        "stock": 43,
+        "attributes": null,
+        "id": "2c4159d9-dcfe-4ec7-ae17-abb327d2f603"
+      },
+      {
+        "sku_code": "SKU-FTMHC-DEFAULT-3",
+        "price": 49500,
+        "stock": 43,
+        "attributes": null,
+        "id": "0af46183-f2b3-4925-a370-5b6e83b68987"
+      },
+      {
+        "sku_code": "SKU-FTMHC-DEFAULT-4",
+        "price": 49500,
+        "stock": 43,
+        "attributes": null,
+        "id": "6151eb07-11b9-416b-b322-7564b5bf3d6a"
       }
     ],
     "brand": "HP",
@@ -2799,6 +4185,27 @@
         "price": 57000,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IRZDF-DEFAULT-2",
+        "price": 57000,
+        "stock": 79,
+        "attributes": null,
+        "id": "2d6a0025-3e39-4e42-8ca3-b70c200c836a"
+      },
+      {
+        "sku_code": "SKU-IRZDF-DEFAULT-3",
+        "price": 57000,
+        "stock": 79,
+        "attributes": null,
+        "id": "a7b3ee82-6721-4bdd-86fe-3930791ba28b"
+      },
+      {
+        "sku_code": "SKU-IRZDF-DEFAULT-4",
+        "price": 57000,
+        "stock": 79,
+        "attributes": null,
+        "id": "02a148ca-2d79-44c1-87bb-4cc33bb2ad88"
       }
     ],
     "brand": "Taj",
@@ -2836,6 +4243,27 @@
         "price": 44700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X3CML-DEFAULT-2",
+        "price": 44700,
+        "stock": 63,
+        "attributes": null,
+        "id": "8a8d3e77-481f-442a-af9b-ba89992d038b"
+      },
+      {
+        "sku_code": "SKU-X3CML-DEFAULT-3",
+        "price": 44700,
+        "stock": 63,
+        "attributes": null,
+        "id": "9c87e3db-14a4-4af1-adf5-8f930d1f279a"
+      },
+      {
+        "sku_code": "SKU-X3CML-DEFAULT-4",
+        "price": 44700,
+        "stock": 63,
+        "attributes": null,
+        "id": "8e684736-0e9f-4bce-9a62-dc4caee3445d"
       }
     ],
     "brand": "Organic",
@@ -2881,6 +4309,27 @@
         "price": 58500,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y1HM8-DEFAULT-2",
+        "price": 58500,
+        "stock": 28,
+        "attributes": null,
+        "id": "1a5338fd-c0b6-4221-8f26-4c59f3edf015"
+      },
+      {
+        "sku_code": "SKU-Y1HM8-DEFAULT-3",
+        "price": 58500,
+        "stock": 28,
+        "attributes": null,
+        "id": "41535fe0-477b-45d8-b1c7-be2ada901a1d"
+      },
+      {
+        "sku_code": "SKU-Y1HM8-DEFAULT-4",
+        "price": 58500,
+        "stock": 28,
+        "attributes": null,
+        "id": "988ea4cb-f44b-455b-b2e0-7c194def025f"
       }
     ],
     "brand": "Cadbury",
@@ -2926,6 +4375,27 @@
         "price": 51000,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0P17Y-DEFAULT-2",
+        "price": 51000,
+        "stock": 97,
+        "attributes": null,
+        "id": "73043aca-d32a-4276-b6ee-2e01e27c0f61"
+      },
+      {
+        "sku_code": "SKU-0P17Y-DEFAULT-3",
+        "price": 51000,
+        "stock": 97,
+        "attributes": null,
+        "id": "627b39b8-0ff5-4f32-ad11-587dfd5d7fa2"
+      },
+      {
+        "sku_code": "SKU-0P17Y-DEFAULT-4",
+        "price": 51000,
+        "stock": 97,
+        "attributes": null,
+        "id": "b1aec8dd-d2a5-470e-bb1d-5a55b4ed97cb"
       }
     ],
     "brand": "Krishna's",
@@ -2967,6 +4437,27 @@
         "price": 149700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YSO8A-DEFAULT-2",
+        "price": 149700,
+        "stock": 32,
+        "attributes": null,
+        "id": "af7e9a08-57cb-4343-880e-efdd94792274"
+      },
+      {
+        "sku_code": "SKU-YSO8A-DEFAULT-3",
+        "price": 149700,
+        "stock": 32,
+        "attributes": null,
+        "id": "e7cb0ce9-fc72-4299-a8c4-3e6d74d11a23"
+      },
+      {
+        "sku_code": "SKU-YSO8A-DEFAULT-4",
+        "price": 149700,
+        "stock": 32,
+        "attributes": null,
+        "id": "01d1a1b8-090e-41b2-adf6-ce930f01279b"
       }
     ],
     "brand": "Amazon",
@@ -3004,6 +4495,27 @@
         "price": 53700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3X5DO-DEFAULT-2",
+        "price": 53700,
+        "stock": 86,
+        "attributes": null,
+        "id": "5ad43cd5-bcfd-42ee-8f8f-215095af2245"
+      },
+      {
+        "sku_code": "SKU-3X5DO-DEFAULT-3",
+        "price": 53700,
+        "stock": 86,
+        "attributes": null,
+        "id": "7d1cb78f-8433-4afa-aa74-2ca65030daa6"
+      },
+      {
+        "sku_code": "SKU-3X5DO-DEFAULT-4",
+        "price": 53700,
+        "stock": 86,
+        "attributes": null,
+        "id": "f1acd737-43fc-4d94-b973-470936cb6505"
       }
     ],
     "brand": "Britannia",
@@ -3041,6 +4553,27 @@
         "price": 207900,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IES7X-DEFAULT-2",
+        "price": 207900,
+        "stock": 91,
+        "attributes": null,
+        "id": "e9caaeed-a0f8-411c-a5a2-b5c25cd12fd1"
+      },
+      {
+        "sku_code": "SKU-IES7X-DEFAULT-3",
+        "price": 207900,
+        "stock": 91,
+        "attributes": null,
+        "id": "077b58d9-64f3-4d28-8d9d-39c8e440f3a2"
+      },
+      {
+        "sku_code": "SKU-IES7X-DEFAULT-4",
+        "price": 207900,
+        "stock": 91,
+        "attributes": null,
+        "id": "f105c672-9b6d-43fe-8118-3be510d185a2"
       }
     ],
     "brand": "Organic",
@@ -3086,6 +4619,27 @@
         "price": 55200,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YCR4Q-DEFAULT-2",
+        "price": 55200,
+        "stock": 62,
+        "attributes": null,
+        "id": "e4db8610-32aa-43e0-96d1-c55e3a900678"
+      },
+      {
+        "sku_code": "SKU-YCR4Q-DEFAULT-3",
+        "price": 55200,
+        "stock": 62,
+        "attributes": null,
+        "id": "ae82be8c-ca9c-49e5-adb8-1422f77b1494"
+      },
+      {
+        "sku_code": "SKU-YCR4Q-DEFAULT-4",
+        "price": 55200,
+        "stock": 62,
+        "attributes": null,
+        "id": "b3693290-bac6-4a20-b992-55b52791077a"
       }
     ],
     "brand": "LG",
@@ -3127,6 +4681,27 @@
         "price": 18000,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7Q6YA-DEFAULT-2",
+        "price": 18000,
+        "stock": 55,
+        "attributes": null,
+        "id": "538b6c94-f61a-4273-ac19-3512a0046d83"
+      },
+      {
+        "sku_code": "SKU-7Q6YA-DEFAULT-3",
+        "price": 18000,
+        "stock": 55,
+        "attributes": null,
+        "id": "d3b767b9-5dc8-4d62-bf7b-901e73b84c6d"
+      },
+      {
+        "sku_code": "SKU-7Q6YA-DEFAULT-4",
+        "price": 18000,
+        "stock": 55,
+        "attributes": null,
+        "id": "82f02b19-9827-4a50-a162-dc72716904d4"
       }
     ],
     "brand": "Amazon",
@@ -3172,6 +4747,27 @@
         "price": 6900,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WWPH9-DEFAULT-2",
+        "price": 6900,
+        "stock": 94,
+        "attributes": null,
+        "id": "ff13a520-4376-49ad-bebd-e846ea16b553"
+      },
+      {
+        "sku_code": "SKU-WWPH9-DEFAULT-3",
+        "price": 6900,
+        "stock": 94,
+        "attributes": null,
+        "id": "e3377eab-115d-4b9d-8ca2-250664417dcc"
+      },
+      {
+        "sku_code": "SKU-WWPH9-DEFAULT-4",
+        "price": 6900,
+        "stock": 94,
+        "attributes": null,
+        "id": "3a67f969-766a-49df-b1fe-3ebd70afc2ea"
       }
     ],
     "brand": "Organic",
@@ -3209,6 +4805,27 @@
         "price": 4169700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S4AAA-DEFAULT-2",
+        "price": 4169700,
+        "stock": 70,
+        "attributes": null,
+        "id": "0502cbc9-faa8-4748-b73e-f1c19c6a5623"
+      },
+      {
+        "sku_code": "SKU-S4AAA-DEFAULT-3",
+        "price": 4169700,
+        "stock": 70,
+        "attributes": null,
+        "id": "44650382-760e-4bb4-ac2d-8857529cb78f"
+      },
+      {
+        "sku_code": "SKU-S4AAA-DEFAULT-4",
+        "price": 4169700,
+        "stock": 70,
+        "attributes": null,
+        "id": "370f4067-894e-49cb-acfa-5de0109e1b7f"
       }
     ],
     "brand": "Haldiram's",
@@ -3246,6 +4863,27 @@
         "price": 53700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-00I2T-DEFAULT-2",
+        "price": 53700,
+        "stock": 87,
+        "attributes": null,
+        "id": "09ef6b04-4e24-477f-8f30-f3bdc8542743"
+      },
+      {
+        "sku_code": "SKU-00I2T-DEFAULT-3",
+        "price": 53700,
+        "stock": 87,
+        "attributes": null,
+        "id": "9eeb5462-ad93-495b-9a2c-26cb905ade48"
+      },
+      {
+        "sku_code": "SKU-00I2T-DEFAULT-4",
+        "price": 53700,
+        "stock": 87,
+        "attributes": null,
+        "id": "3daf3827-8030-4d2c-808b-00cfe490582e"
       }
     ],
     "brand": "Parle",
@@ -3287,6 +4925,27 @@
         "price": 207000,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A7IHX-DEFAULT-2",
+        "price": 207000,
+        "stock": 84,
+        "attributes": null,
+        "id": "8e8c0d9d-cb8a-4c81-b1b0-7a9088c05991"
+      },
+      {
+        "sku_code": "SKU-A7IHX-DEFAULT-3",
+        "price": 207000,
+        "stock": 84,
+        "attributes": null,
+        "id": "f5dff9da-f25e-493d-b782-d87d06021720"
+      },
+      {
+        "sku_code": "SKU-A7IHX-DEFAULT-4",
+        "price": 207000,
+        "stock": 84,
+        "attributes": null,
+        "id": "553ab294-bf01-4199-82cc-4b1390187a95"
       }
     ],
     "brand": "Krishna's",
@@ -3332,6 +4991,27 @@
         "price": 71400,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HUIJH-DEFAULT-2",
+        "price": 71400,
+        "stock": 29,
+        "attributes": null,
+        "id": "fa33bef4-0bb0-483c-9f1a-f0227af13642"
+      },
+      {
+        "sku_code": "SKU-HUIJH-DEFAULT-3",
+        "price": 71400,
+        "stock": 29,
+        "attributes": null,
+        "id": "1e787fb8-5eba-48bd-bd96-ef3e3c43826d"
+      },
+      {
+        "sku_code": "SKU-HUIJH-DEFAULT-4",
+        "price": 71400,
+        "stock": 29,
+        "attributes": null,
+        "id": "2d1dd199-4da2-439e-b164-4647ac58f074"
       }
     ],
     "brand": "Britannia",
@@ -3373,6 +5053,27 @@
         "price": 134700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-032PR-DEFAULT-2",
+        "price": 134700,
+        "stock": 101,
+        "attributes": null,
+        "id": "57eae40d-53a3-4b05-9e48-152578d75b8e"
+      },
+      {
+        "sku_code": "SKU-032PR-DEFAULT-3",
+        "price": 134700,
+        "stock": 101,
+        "attributes": null,
+        "id": "630aa681-161a-47bb-a085-ea659b8ef618"
+      },
+      {
+        "sku_code": "SKU-032PR-DEFAULT-4",
+        "price": 134700,
+        "stock": 101,
+        "attributes": null,
+        "id": "6eadae79-c229-482a-86c8-0dd70153754c"
       }
     ],
     "brand": "Haldiram's",
@@ -3414,6 +5115,27 @@
         "price": 20700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WYX1J-DEFAULT-2",
+        "price": 20700,
+        "stock": 56,
+        "attributes": null,
+        "id": "bcd43631-489c-4943-a608-eb84b10542f3"
+      },
+      {
+        "sku_code": "SKU-WYX1J-DEFAULT-3",
+        "price": 20700,
+        "stock": 56,
+        "attributes": null,
+        "id": "2bd93317-b920-46bf-a854-c3a0cf230dca"
+      },
+      {
+        "sku_code": "SKU-WYX1J-DEFAULT-4",
+        "price": 20700,
+        "stock": 56,
+        "attributes": null,
+        "id": "2e310985-0627-48bb-a756-a1b256cb2648"
       }
     ],
     "brand": "Urban",
@@ -3459,6 +5181,27 @@
         "price": 51000,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L406X-DEFAULT-2",
+        "price": 51000,
+        "stock": 25,
+        "attributes": null,
+        "id": "839364dc-dcd9-4835-a4f3-8d85c93b8113"
+      },
+      {
+        "sku_code": "SKU-L406X-DEFAULT-3",
+        "price": 51000,
+        "stock": 25,
+        "attributes": null,
+        "id": "89e14780-2b2d-4136-a8a3-5baac55ee316"
+      },
+      {
+        "sku_code": "SKU-L406X-DEFAULT-4",
+        "price": 51000,
+        "stock": 25,
+        "attributes": null,
+        "id": "7984ff41-1738-4014-a809-01236613edd2"
       }
     ],
     "brand": "Pro",
@@ -3496,6 +5239,27 @@
         "price": 78300,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I5GOM-DEFAULT-2",
+        "price": 78300,
+        "stock": 42,
+        "attributes": null,
+        "id": "4b036aef-a1f6-4465-95c1-49f9e91a9a5c"
+      },
+      {
+        "sku_code": "SKU-I5GOM-DEFAULT-3",
+        "price": 78300,
+        "stock": 42,
+        "attributes": null,
+        "id": "38562f2b-cfa5-49da-a5c6-e28c441edd6a"
+      },
+      {
+        "sku_code": "SKU-I5GOM-DEFAULT-4",
+        "price": 78300,
+        "stock": 42,
+        "attributes": null,
+        "id": "8eb8a4ea-90a8-4efe-8db7-d7e4ca10a68f"
       }
     ],
     "brand": "Saffola",
@@ -3541,6 +5305,27 @@
         "price": 52770,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8S4QA-DEFAULT-2",
+        "price": 52770,
+        "stock": 62,
+        "attributes": null,
+        "id": "08c0a2b6-d293-4eda-b7c9-f3c7918eacc8"
+      },
+      {
+        "sku_code": "SKU-8S4QA-DEFAULT-3",
+        "price": 52770,
+        "stock": 62,
+        "attributes": null,
+        "id": "9987f240-a326-48f6-8555-f74acc2b5431"
+      },
+      {
+        "sku_code": "SKU-8S4QA-DEFAULT-4",
+        "price": 52770,
+        "stock": 62,
+        "attributes": null,
+        "id": "ad6e5ca2-033a-411f-8809-5abfd0dd4830"
       }
     ],
     "brand": "Krishna's",
@@ -3586,6 +5371,27 @@
         "price": 120000,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-56JG6-DEFAULT-2",
+        "price": 120000,
+        "stock": 47,
+        "attributes": null,
+        "id": "0ae06315-722c-4717-921b-388b9ceaac03"
+      },
+      {
+        "sku_code": "SKU-56JG6-DEFAULT-3",
+        "price": 120000,
+        "stock": 47,
+        "attributes": null,
+        "id": "cd2b21af-ab04-491c-9efa-4982be71c072"
+      },
+      {
+        "sku_code": "SKU-56JG6-DEFAULT-4",
+        "price": 120000,
+        "stock": 47,
+        "attributes": null,
+        "id": "c68d138f-430e-42df-b30c-4a1276f4eba8"
       }
     ],
     "brand": "Organic",
@@ -3623,6 +5429,27 @@
         "price": 55500,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H7QA4-DEFAULT-2",
+        "price": 55500,
+        "stock": 11,
+        "attributes": null,
+        "id": "260d3e3c-cf3e-4c5a-a819-3729c0287e2d"
+      },
+      {
+        "sku_code": "SKU-H7QA4-DEFAULT-3",
+        "price": 55500,
+        "stock": 11,
+        "attributes": null,
+        "id": "4776f6ef-2ad2-49cb-ba44-44a94970c674"
+      },
+      {
+        "sku_code": "SKU-H7QA4-DEFAULT-4",
+        "price": 55500,
+        "stock": 11,
+        "attributes": null,
+        "id": "a9baa274-b1d1-4286-b582-de0cd25fa7e3"
       }
     ],
     "brand": "Haldiram's",
@@ -3660,6 +5487,27 @@
         "price": 89700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WBIU2-DEFAULT-2",
+        "price": 89700,
+        "stock": 86,
+        "attributes": null,
+        "id": "802393da-a137-43e5-994b-b2686e78998f"
+      },
+      {
+        "sku_code": "SKU-WBIU2-DEFAULT-3",
+        "price": 89700,
+        "stock": 86,
+        "attributes": null,
+        "id": "80300c5b-c763-4d4c-ba29-e59186a2a6e8"
+      },
+      {
+        "sku_code": "SKU-WBIU2-DEFAULT-4",
+        "price": 89700,
+        "stock": 86,
+        "attributes": null,
+        "id": "916594a4-14e1-49f9-b6ba-3838d3b629f3"
       }
     ],
     "brand": "Cadbury",
@@ -3697,6 +5545,27 @@
         "price": 9600,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5WN0F-DEFAULT-2",
+        "price": 9600,
+        "stock": 18,
+        "attributes": null,
+        "id": "eb6c6ebe-8833-4b38-88da-f803c80a4240"
+      },
+      {
+        "sku_code": "SKU-5WN0F-DEFAULT-3",
+        "price": 9600,
+        "stock": 18,
+        "attributes": null,
+        "id": "129ec883-cbed-4e08-8708-66b410f6f543"
+      },
+      {
+        "sku_code": "SKU-5WN0F-DEFAULT-4",
+        "price": 9600,
+        "stock": 18,
+        "attributes": null,
+        "id": "ad3506d0-2600-4f99-b3ec-a5209d7b158d"
       }
     ],
     "brand": "Cadbury",
@@ -3734,6 +5603,27 @@
         "price": 21600,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7FUX5-DEFAULT-2",
+        "price": 21600,
+        "stock": 29,
+        "attributes": null,
+        "id": "15081972-1dee-43ce-8991-1329028b1403"
+      },
+      {
+        "sku_code": "SKU-7FUX5-DEFAULT-3",
+        "price": 21600,
+        "stock": 29,
+        "attributes": null,
+        "id": "35fe290e-f995-415d-8350-60b4a02af461"
+      },
+      {
+        "sku_code": "SKU-7FUX5-DEFAULT-4",
+        "price": 21600,
+        "stock": 29,
+        "attributes": null,
+        "id": "549ff4c4-5772-4ae0-8786-cb73c7f55e43"
       }
     ],
     "brand": "Britannia",
@@ -3779,6 +5669,27 @@
         "price": 149700,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YSRAZ-DEFAULT-2",
+        "price": 149700,
+        "stock": 17,
+        "attributes": null,
+        "id": "ccd60670-4de9-4a1e-a75d-d9d556caa731"
+      },
+      {
+        "sku_code": "SKU-YSRAZ-DEFAULT-3",
+        "price": 149700,
+        "stock": 17,
+        "attributes": null,
+        "id": "fc98d312-2bb7-401d-ae68-3653e5993a41"
+      },
+      {
+        "sku_code": "SKU-YSRAZ-DEFAULT-4",
+        "price": 149700,
+        "stock": 17,
+        "attributes": null,
+        "id": "2c01d0ce-3849-460d-9e8b-0f9ef01c1581"
       }
     ],
     "brand": "Taj",
@@ -3824,6 +5735,27 @@
         "price": 74700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N399X-DEFAULT-2",
+        "price": 74700,
+        "stock": 68,
+        "attributes": null,
+        "id": "907f6147-9bd8-4c85-b65d-cbd01e51628e"
+      },
+      {
+        "sku_code": "SKU-N399X-DEFAULT-3",
+        "price": 74700,
+        "stock": 68,
+        "attributes": null,
+        "id": "d27131bf-f3c0-4ef1-b3b3-781424813b4d"
+      },
+      {
+        "sku_code": "SKU-N399X-DEFAULT-4",
+        "price": 74700,
+        "stock": 68,
+        "attributes": null,
+        "id": "9cf8ffeb-8f03-422a-bf85-20cd48ef101b"
       }
     ],
     "brand": "Amazon",
@@ -3861,6 +5793,27 @@
         "price": 52500,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XK1RT-DEFAULT-2",
+        "price": 52500,
+        "stock": 108,
+        "attributes": null,
+        "id": "569c54b9-844f-47e0-9edb-038bb0bba2f5"
+      },
+      {
+        "sku_code": "SKU-XK1RT-DEFAULT-3",
+        "price": 52500,
+        "stock": 108,
+        "attributes": null,
+        "id": "d0807d22-2126-47bc-9403-0dca5375c12a"
+      },
+      {
+        "sku_code": "SKU-XK1RT-DEFAULT-4",
+        "price": 52500,
+        "stock": 108,
+        "attributes": null,
+        "id": "bd092f16-d5f6-46e1-acdc-a69fded7661e"
       }
     ],
     "brand": "Haldiram's",
@@ -3934,6 +5887,27 @@
         "price": 179700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GT9PT-DEFAULT-2",
+        "price": 179700,
+        "stock": 37,
+        "attributes": null,
+        "id": "1db0db62-2925-4b7d-acbe-430cca0546d8"
+      },
+      {
+        "sku_code": "SKU-GT9PT-DEFAULT-3",
+        "price": 179700,
+        "stock": 37,
+        "attributes": null,
+        "id": "26396818-5295-4035-9627-dc2aa720c5b7"
+      },
+      {
+        "sku_code": "SKU-GT9PT-DEFAULT-4",
+        "price": 179700,
+        "stock": 37,
+        "attributes": null,
+        "id": "e1588c7e-4137-425e-ae07-4a790fde416b"
       }
     ],
     "brand": "Lenovo",
@@ -3975,6 +5949,27 @@
         "price": 26700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BPUD3-DEFAULT-2",
+        "price": 26700,
+        "stock": 73,
+        "attributes": null,
+        "id": "6f83bd2a-c882-4f08-b688-a5fddec46881"
+      },
+      {
+        "sku_code": "SKU-BPUD3-DEFAULT-3",
+        "price": 26700,
+        "stock": 73,
+        "attributes": null,
+        "id": "022b7588-fb48-4b8d-865e-98e0b869c4d1"
+      },
+      {
+        "sku_code": "SKU-BPUD3-DEFAULT-4",
+        "price": 26700,
+        "stock": 73,
+        "attributes": null,
+        "id": "ec7bcd88-d90e-4d93-ab47-4efdecf6d6b0"
       }
     ],
     "brand": "Amazon",
@@ -4012,6 +6007,27 @@
         "price": 40500,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ADU16-DEFAULT-2",
+        "price": 40500,
+        "stock": 80,
+        "attributes": null,
+        "id": "6ab9637d-fdaa-43b4-b7da-b1c573bbb80f"
+      },
+      {
+        "sku_code": "SKU-ADU16-DEFAULT-3",
+        "price": 40500,
+        "stock": 80,
+        "attributes": null,
+        "id": "ed1dcc63-631b-4ace-9601-bbe8c78ede5c"
+      },
+      {
+        "sku_code": "SKU-ADU16-DEFAULT-4",
+        "price": 40500,
+        "stock": 80,
+        "attributes": null,
+        "id": "9a5e2b6c-04c7-4a80-bfb0-8842c8a769ff"
       }
     ],
     "brand": "Saffola",
@@ -4098,6 +6114,27 @@
         "price": 85200,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3QCWZ-DEFAULT-2",
+        "price": 85200,
+        "stock": 90,
+        "attributes": null,
+        "id": "9a0ec373-7706-431f-b423-073b861cc1b1"
+      },
+      {
+        "sku_code": "SKU-3QCWZ-DEFAULT-3",
+        "price": 85200,
+        "stock": 90,
+        "attributes": null,
+        "id": "f293b4f1-f5e9-42c1-b202-fabe3342c822"
+      },
+      {
+        "sku_code": "SKU-3QCWZ-DEFAULT-4",
+        "price": 85200,
+        "stock": 90,
+        "attributes": null,
+        "id": "1677ac9f-060e-4ee8-8c29-b5e2944db9b7"
       }
     ],
     "brand": "Apple",
@@ -4135,6 +6172,27 @@
         "price": 187500,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P0OZ1-DEFAULT-2",
+        "price": 187500,
+        "stock": 71,
+        "attributes": null,
+        "id": "c9b755f7-f043-40cc-8151-cedc12bf889b"
+      },
+      {
+        "sku_code": "SKU-P0OZ1-DEFAULT-3",
+        "price": 187500,
+        "stock": 71,
+        "attributes": null,
+        "id": "7586a194-6f94-4b04-ae19-5aa42bfdb237"
+      },
+      {
+        "sku_code": "SKU-P0OZ1-DEFAULT-4",
+        "price": 187500,
+        "stock": 71,
+        "attributes": null,
+        "id": "1f39bdd5-879e-40db-8c04-5ffaa9715fda"
       }
     ],
     "brand": "Amazon",
@@ -4172,6 +6230,27 @@
         "price": 74700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4FT9F-DEFAULT-2",
+        "price": 74700,
+        "stock": 26,
+        "attributes": null,
+        "id": "c729cfae-b638-4510-946f-9713ce05a356"
+      },
+      {
+        "sku_code": "SKU-4FT9F-DEFAULT-3",
+        "price": 74700,
+        "stock": 26,
+        "attributes": null,
+        "id": "7a57147d-a871-4862-b205-8b2ad166ec80"
+      },
+      {
+        "sku_code": "SKU-4FT9F-DEFAULT-4",
+        "price": 74700,
+        "stock": 26,
+        "attributes": null,
+        "id": "8e1cdd5b-0ac7-40c5-82d6-9c8f93ceb6a5"
       }
     ],
     "brand": "Manna",
@@ -4217,6 +6296,27 @@
         "price": 371700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-68NAL-DEFAULT-2",
+        "price": 371700,
+        "stock": 60,
+        "attributes": null,
+        "id": "385f3751-5375-4dae-b226-a6a4703aa689"
+      },
+      {
+        "sku_code": "SKU-68NAL-DEFAULT-3",
+        "price": 371700,
+        "stock": 60,
+        "attributes": null,
+        "id": "4eefc774-3d68-44e6-ac5b-664f2aa707d7"
+      },
+      {
+        "sku_code": "SKU-68NAL-DEFAULT-4",
+        "price": 371700,
+        "stock": 60,
+        "attributes": null,
+        "id": "6886cf7d-100e-4071-a03b-d9f2b09123e7"
       }
     ],
     "brand": "Saffola",

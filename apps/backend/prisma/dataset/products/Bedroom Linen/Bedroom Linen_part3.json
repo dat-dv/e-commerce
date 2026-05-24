@@ -22,6 +22,27 @@
         "price": 197100,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8FODK-DEFAULT-2",
+        "price": 197100,
+        "stock": 107,
+        "attributes": null,
+        "id": "0578537b-cf12-4d25-9be7-9ea7c155af6a"
+      },
+      {
+        "sku_code": "SKU-8FODK-DEFAULT-3",
+        "price": 197100,
+        "stock": 107,
+        "attributes": null,
+        "id": "6785ff0c-c0f3-4e27-84c7-a020ce3180cc"
+      },
+      {
+        "sku_code": "SKU-8FODK-DEFAULT-4",
+        "price": 197100,
+        "stock": 107,
+        "attributes": null,
+        "id": "218722dd-36f1-4e1e-a3a0-3ce38df2fcfe"
       }
     ],
     "brand": "Trance",
@@ -63,6 +84,27 @@
         "price": 344400,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KUIXX-DEFAULT-2",
+        "price": 344400,
+        "stock": 55,
+        "attributes": null,
+        "id": "c75c9a64-1a5b-4698-b552-5a60fb24d74f"
+      },
+      {
+        "sku_code": "SKU-KUIXX-DEFAULT-3",
+        "price": 344400,
+        "stock": 55,
+        "attributes": null,
+        "id": "42c9452d-6094-4a96-a0a3-790631978450"
+      },
+      {
+        "sku_code": "SKU-KUIXX-DEFAULT-4",
+        "price": 344400,
+        "stock": 55,
+        "attributes": null,
+        "id": "c1b8ecda-9256-47a2-9345-51c28a58f4a5"
       }
     ],
     "brand": "First",
@@ -108,6 +150,27 @@
         "price": 149700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZSQS0-DEFAULT-2",
+        "price": 149700,
+        "stock": 68,
+        "attributes": null,
+        "id": "39e17d6b-937f-4043-b487-15cca9d1e2f3"
+      },
+      {
+        "sku_code": "SKU-ZSQS0-DEFAULT-3",
+        "price": 149700,
+        "stock": 68,
+        "attributes": null,
+        "id": "657bb65f-8dc1-46e4-85a8-15008490835e"
+      },
+      {
+        "sku_code": "SKU-ZSQS0-DEFAULT-4",
+        "price": 149700,
+        "stock": 68,
+        "attributes": null,
+        "id": "3ba02e30-9537-4c75-bda4-57df4b09484c"
       }
     ],
     "brand": "Amazon",
@@ -145,6 +208,27 @@
         "price": 110700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SCYCV-DEFAULT-2",
+        "price": 110700,
+        "stock": 46,
+        "attributes": null,
+        "id": "549288e1-b266-461f-adb4-7dc2d704767b"
+      },
+      {
+        "sku_code": "SKU-SCYCV-DEFAULT-3",
+        "price": 110700,
+        "stock": 46,
+        "attributes": null,
+        "id": "b11b6cc8-3b70-4030-88ae-41a3a577256f"
+      },
+      {
+        "sku_code": "SKU-SCYCV-DEFAULT-4",
+        "price": 110700,
+        "stock": 46,
+        "attributes": null,
+        "id": "beca01eb-4a4e-4ab2-9a13-155024b9b390"
       }
     ],
     "brand": "BSB",
@@ -182,6 +266,27 @@
         "price": 284700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AVHO8-DEFAULT-2",
+        "price": 284700,
+        "stock": 104,
+        "attributes": null,
+        "id": "41e4a7ed-be5d-41a4-acfd-9d207e4d1f6a"
+      },
+      {
+        "sku_code": "SKU-AVHO8-DEFAULT-3",
+        "price": 284700,
+        "stock": 104,
+        "attributes": null,
+        "id": "3db3c52c-6ba9-4571-9ff5-63fd50d22dd7"
+      },
+      {
+        "sku_code": "SKU-AVHO8-DEFAULT-4",
+        "price": 284700,
+        "stock": 104,
+        "attributes": null,
+        "id": "766d63c5-118d-402f-af2a-7118ec20870a"
       }
     ],
     "brand": "VAS",
@@ -223,6 +328,27 @@
         "price": 133800,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9N0DM-DEFAULT-2",
+        "price": 133800,
+        "stock": 78,
+        "attributes": null,
+        "id": "6b040eea-2b46-4c9d-b12d-7dac945c0ffd"
+      },
+      {
+        "sku_code": "SKU-9N0DM-DEFAULT-3",
+        "price": 133800,
+        "stock": 78,
+        "attributes": null,
+        "id": "a43da905-e304-4675-bf74-7d60c4caa9dc"
+      },
+      {
+        "sku_code": "SKU-9N0DM-DEFAULT-4",
+        "price": 133800,
+        "stock": 78,
+        "attributes": null,
+        "id": "004a4414-9671-4fb3-8f96-3c8d6894004b"
       }
     ],
     "brand": "VAS",
@@ -260,6 +386,27 @@
         "price": 863700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M10K9-DEFAULT-2",
+        "price": 863700,
+        "stock": 28,
+        "attributes": null,
+        "id": "7b4d5b6d-47a2-4200-a2f4-5bc295f7f0e2"
+      },
+      {
+        "sku_code": "SKU-M10K9-DEFAULT-3",
+        "price": 863700,
+        "stock": 28,
+        "attributes": null,
+        "id": "2e9f6420-d003-407e-b68c-ea99053c73ba"
+      },
+      {
+        "sku_code": "SKU-M10K9-DEFAULT-4",
+        "price": 863700,
+        "stock": 28,
+        "attributes": null,
+        "id": "f0dadf88-31e4-4350-9a8c-5b00c8cc258c"
       }
     ],
     "brand": "Cotton",
@@ -301,6 +448,27 @@
         "price": 179700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C9CCP-DEFAULT-2",
+        "price": 179700,
+        "stock": 13,
+        "attributes": null,
+        "id": "b697e9ae-bc67-4e74-b48f-8702f8bedbdf"
+      },
+      {
+        "sku_code": "SKU-C9CCP-DEFAULT-3",
+        "price": 179700,
+        "stock": 13,
+        "attributes": null,
+        "id": "c6cf391c-b447-42d5-a589-f6a588e3b82e"
+      },
+      {
+        "sku_code": "SKU-C9CCP-DEFAULT-4",
+        "price": 179700,
+        "stock": 13,
+        "attributes": null,
+        "id": "32ac75f5-7c67-4956-bb21-f3d0094cf706"
       }
     ],
     "brand": "Bombay",
@@ -346,6 +514,27 @@
         "price": 194700,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N6K4H-DEFAULT-2",
+        "price": 194700,
+        "stock": 47,
+        "attributes": null,
+        "id": "f4eb67dd-7ac3-401e-8c59-55fb1f6b12cb"
+      },
+      {
+        "sku_code": "SKU-N6K4H-DEFAULT-3",
+        "price": 194700,
+        "stock": 47,
+        "attributes": null,
+        "id": "79ddb9d2-042e-4213-9eae-5f57afe762f4"
+      },
+      {
+        "sku_code": "SKU-N6K4H-DEFAULT-4",
+        "price": 194700,
+        "stock": 47,
+        "attributes": null,
+        "id": "7bdb9072-2906-43bd-9fb9-d3280de855ff"
       }
     ],
     "brand": "AmazonBasics",
@@ -391,6 +580,27 @@
         "price": 165000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-61RL3-DEFAULT-2",
+        "price": 165000,
+        "stock": 22,
+        "attributes": null,
+        "id": "a0444613-1f75-4ea9-9dce-d18821d1f4bc"
+      },
+      {
+        "sku_code": "SKU-61RL3-DEFAULT-3",
+        "price": 165000,
+        "stock": 22,
+        "attributes": null,
+        "id": "1c57cdbc-63f1-4877-bcb0-2e16ea644615"
+      },
+      {
+        "sku_code": "SKU-61RL3-DEFAULT-4",
+        "price": 165000,
+        "stock": 22,
+        "attributes": null,
+        "id": "c4375d9b-f877-4999-8290-8652de09aa0c"
       }
     ],
     "brand": "BSB",
@@ -436,6 +646,27 @@
         "price": 209700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WODAI-DEFAULT-2",
+        "price": 209700,
+        "stock": 77,
+        "attributes": null,
+        "id": "9a715eea-fc63-4625-a985-ff68a219dd35"
+      },
+      {
+        "sku_code": "SKU-WODAI-DEFAULT-3",
+        "price": 209700,
+        "stock": 77,
+        "attributes": null,
+        "id": "c4f1cd99-6486-4fe0-b54a-d312b55c5000"
+      },
+      {
+        "sku_code": "SKU-WODAI-DEFAULT-4",
+        "price": 209700,
+        "stock": 77,
+        "attributes": null,
+        "id": "49b675c5-b4de-403f-9e9f-fb6fc6153cbd"
       }
     ],
     "brand": "Shri",
@@ -477,6 +708,27 @@
         "price": 149700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JM8DO-DEFAULT-2",
+        "price": 149700,
+        "stock": 12,
+        "attributes": null,
+        "id": "4c15e80e-b450-4d55-b8df-54c809f3e699"
+      },
+      {
+        "sku_code": "SKU-JM8DO-DEFAULT-3",
+        "price": 149700,
+        "stock": 12,
+        "attributes": null,
+        "id": "7455e664-a461-4db7-80c6-bd082d0bab4a"
+      },
+      {
+        "sku_code": "SKU-JM8DO-DEFAULT-4",
+        "price": 149700,
+        "stock": 12,
+        "attributes": null,
+        "id": "2b507300-9f56-472a-b083-b7783f38c17d"
       }
     ],
     "brand": "AmazonBasics",
@@ -514,6 +766,27 @@
         "price": 434700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DJA9G-DEFAULT-2",
+        "price": 434700,
+        "stock": 56,
+        "attributes": null,
+        "id": "8e87c4c8-1a0e-4dbb-b371-c7f9dc062711"
+      },
+      {
+        "sku_code": "SKU-DJA9G-DEFAULT-3",
+        "price": 434700,
+        "stock": 56,
+        "attributes": null,
+        "id": "653d20c1-7591-4d43-9fe1-4ac76eb19527"
+      },
+      {
+        "sku_code": "SKU-DJA9G-DEFAULT-4",
+        "price": 434700,
+        "stock": 56,
+        "attributes": null,
+        "id": "4b64be13-f1f2-4b8b-9aad-2cc82d6f6482"
       }
     ],
     "brand": "Bombay",
@@ -555,6 +828,27 @@
         "price": 146700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8GMQI-DEFAULT-2",
+        "price": 146700,
+        "stock": 57,
+        "attributes": null,
+        "id": "807321e7-eb51-4239-9620-ff7e30fd8a66"
+      },
+      {
+        "sku_code": "SKU-8GMQI-DEFAULT-3",
+        "price": 146700,
+        "stock": 57,
+        "attributes": null,
+        "id": "e897c504-ad5d-48da-ae12-d90b7048d8c1"
+      },
+      {
+        "sku_code": "SKU-8GMQI-DEFAULT-4",
+        "price": 146700,
+        "stock": 57,
+        "attributes": null,
+        "id": "8fdedb7e-92f6-4e85-92bc-eefce0303061"
       }
     ],
     "brand": "Trance",
@@ -592,6 +886,27 @@
         "price": 1131480,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EQ2M9-DEFAULT-2",
+        "price": 1131480,
+        "stock": 94,
+        "attributes": null,
+        "id": "be4e971d-c51c-4860-b132-bd9bfe4b00bd"
+      },
+      {
+        "sku_code": "SKU-EQ2M9-DEFAULT-3",
+        "price": 1131480,
+        "stock": 94,
+        "attributes": null,
+        "id": "8be4eb63-f535-480a-abf8-a92db60c93a3"
+      },
+      {
+        "sku_code": "SKU-EQ2M9-DEFAULT-4",
+        "price": 1131480,
+        "stock": 94,
+        "attributes": null,
+        "id": "ef4c45b3-40ea-4c23-bc22-81610a302dbd"
       }
     ],
     "brand": "RD",
@@ -637,6 +952,27 @@
         "price": 1130283,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-35T0V-DEFAULT-2",
+        "price": 1130283,
+        "stock": 29,
+        "attributes": null,
+        "id": "2d02478a-63e9-4f5d-8e1e-8be60718d0d9"
+      },
+      {
+        "sku_code": "SKU-35T0V-DEFAULT-3",
+        "price": 1130283,
+        "stock": 29,
+        "attributes": null,
+        "id": "a2d7c66a-78c2-4cfc-a83e-9294ba5eb1d9"
+      },
+      {
+        "sku_code": "SKU-35T0V-DEFAULT-4",
+        "price": 1130283,
+        "stock": 29,
+        "attributes": null,
+        "id": "10e41fa1-74d4-4846-806e-9341301702df"
       }
     ],
     "brand": "VAS",
@@ -682,6 +1018,27 @@
         "price": 239700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VWLB3-DEFAULT-2",
+        "price": 239700,
+        "stock": 55,
+        "attributes": null,
+        "id": "d067782c-7c39-42c9-836e-b74bcb3fed28"
+      },
+      {
+        "sku_code": "SKU-VWLB3-DEFAULT-3",
+        "price": 239700,
+        "stock": 55,
+        "attributes": null,
+        "id": "2417ceff-830c-4ca0-af27-b1ab82b12f9e"
+      },
+      {
+        "sku_code": "SKU-VWLB3-DEFAULT-4",
+        "price": 239700,
+        "stock": 55,
+        "attributes": null,
+        "id": "16f284a9-b95b-4762-bd19-7f4ec7356955"
       }
     ],
     "brand": "VAS",
@@ -719,6 +1076,27 @@
         "price": 179700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DTDM8-DEFAULT-2",
+        "price": 179700,
+        "stock": 73,
+        "attributes": null,
+        "id": "8b83c6ed-2689-4dc6-b421-381365918499"
+      },
+      {
+        "sku_code": "SKU-DTDM8-DEFAULT-3",
+        "price": 179700,
+        "stock": 73,
+        "attributes": null,
+        "id": "b07be986-e56f-4f5d-88b2-64c5a709db3e"
+      },
+      {
+        "sku_code": "SKU-DTDM8-DEFAULT-4",
+        "price": 179700,
+        "stock": 73,
+        "attributes": null,
+        "id": "42f66698-da19-4733-9e58-9cb521869f92"
       }
     ],
     "brand": "Cotton",
@@ -760,6 +1138,27 @@
         "price": 149700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-690CO-DEFAULT-2",
+        "price": 149700,
+        "stock": 60,
+        "attributes": null,
+        "id": "eec634bd-85e3-4e63-80b0-a4dd30826a80"
+      },
+      {
+        "sku_code": "SKU-690CO-DEFAULT-3",
+        "price": 149700,
+        "stock": 60,
+        "attributes": null,
+        "id": "165bf8fc-4e3b-4370-b167-9a54dadee834"
+      },
+      {
+        "sku_code": "SKU-690CO-DEFAULT-4",
+        "price": 149700,
+        "stock": 60,
+        "attributes": null,
+        "id": "46472f11-8845-41a9-8187-942876820a19"
       }
     ],
     "brand": "Fareto",
@@ -797,6 +1196,27 @@
         "price": 1094700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ERJQX-DEFAULT-2",
+        "price": 1094700,
+        "stock": 64,
+        "attributes": null,
+        "id": "37125c98-da80-47f4-a6ea-44d9c4730add"
+      },
+      {
+        "sku_code": "SKU-ERJQX-DEFAULT-3",
+        "price": 1094700,
+        "stock": 64,
+        "attributes": null,
+        "id": "3763ee66-b77f-4e13-a9ae-4d2d2268c219"
+      },
+      {
+        "sku_code": "SKU-ERJQX-DEFAULT-4",
+        "price": 1094700,
+        "stock": 64,
+        "attributes": null,
+        "id": "c23663ed-037f-4282-ac72-ef37431a1708"
       }
     ],
     "brand": "Shri",
@@ -838,6 +1258,27 @@
         "price": 146400,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YH1IV-DEFAULT-2",
+        "price": 146400,
+        "stock": 14,
+        "attributes": null,
+        "id": "5bcc1e3d-87cb-4bde-8fc6-6bf660887940"
+      },
+      {
+        "sku_code": "SKU-YH1IV-DEFAULT-3",
+        "price": 146400,
+        "stock": 14,
+        "attributes": null,
+        "id": "b4788d80-0226-492b-a901-517664ef9d4a"
+      },
+      {
+        "sku_code": "SKU-YH1IV-DEFAULT-4",
+        "price": 146400,
+        "stock": 14,
+        "attributes": null,
+        "id": "d7ad7795-45ce-493e-ad1f-06bf5b016abf"
       }
     ],
     "brand": "Trance",
@@ -879,6 +1320,27 @@
         "price": 84000,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GV2I2-DEFAULT-2",
+        "price": 84000,
+        "stock": 83,
+        "attributes": null,
+        "id": "692b98ae-e91b-411b-b9e1-80272ea96201"
+      },
+      {
+        "sku_code": "SKU-GV2I2-DEFAULT-3",
+        "price": 84000,
+        "stock": 83,
+        "attributes": null,
+        "id": "57038607-d6d4-49e4-a8d1-0af86b7afe72"
+      },
+      {
+        "sku_code": "SKU-GV2I2-DEFAULT-4",
+        "price": 84000,
+        "stock": 83,
+        "attributes": null,
+        "id": "6215df45-aac9-471c-85e3-7984cb043cce"
       }
     ],
     "brand": "First",
@@ -960,6 +1422,27 @@
         "price": 84900,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8NNDQ-DEFAULT-2",
+        "price": 84900,
+        "stock": 99,
+        "attributes": null,
+        "id": "58f25a5b-a1c4-484f-be20-6f6d0111b23c"
+      },
+      {
+        "sku_code": "SKU-8NNDQ-DEFAULT-3",
+        "price": 84900,
+        "stock": 99,
+        "attributes": null,
+        "id": "3d47cd74-2df1-49cf-b2c3-2865fa36d552"
+      },
+      {
+        "sku_code": "SKU-8NNDQ-DEFAULT-4",
+        "price": 84900,
+        "stock": 99,
+        "attributes": null,
+        "id": "8f53f935-dc75-40f9-9590-050aea5fce14"
       }
     ],
     "brand": "Logitech",
@@ -1005,6 +1488,27 @@
         "price": 107100,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QEC8E-DEFAULT-2",
+        "price": 107100,
+        "stock": 99,
+        "attributes": null,
+        "id": "dcbecfb0-c349-4926-be8d-c37737550a4d"
+      },
+      {
+        "sku_code": "SKU-QEC8E-DEFAULT-3",
+        "price": 107100,
+        "stock": 99,
+        "attributes": null,
+        "id": "b217d1fb-f3a3-4935-96f2-ad890f5b4832"
+      },
+      {
+        "sku_code": "SKU-QEC8E-DEFAULT-4",
+        "price": 107100,
+        "stock": 99,
+        "attributes": null,
+        "id": "cce41460-d568-4704-8c3c-d73fdc6230c0"
       }
     ],
     "brand": "Soniasaa",
@@ -1042,6 +1546,27 @@
         "price": 104100,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XW4O0-DEFAULT-2",
+        "price": 104100,
+        "stock": 73,
+        "attributes": null,
+        "id": "c333203d-40b9-4b5f-8081-eea9fb91c0c4"
+      },
+      {
+        "sku_code": "SKU-XW4O0-DEFAULT-3",
+        "price": 104100,
+        "stock": 73,
+        "attributes": null,
+        "id": "a0d7d14d-286c-4871-9ea1-25ff81315a6b"
+      },
+      {
+        "sku_code": "SKU-XW4O0-DEFAULT-4",
+        "price": 104100,
+        "stock": 73,
+        "attributes": null,
+        "id": "40ac98c7-3801-47e2-b8a9-1add93972be4"
       }
     ],
     "brand": "BSB",
@@ -1087,6 +1612,27 @@
         "price": 626400,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8H08B-DEFAULT-2",
+        "price": 626400,
+        "stock": 72,
+        "attributes": null,
+        "id": "9b287668-a80a-402b-8243-92f467162f51"
+      },
+      {
+        "sku_code": "SKU-8H08B-DEFAULT-3",
+        "price": 626400,
+        "stock": 72,
+        "attributes": null,
+        "id": "a526fdb2-fc1c-445d-99ef-d925ca34e9d0"
+      },
+      {
+        "sku_code": "SKU-8H08B-DEFAULT-4",
+        "price": 626400,
+        "stock": 72,
+        "attributes": null,
+        "id": "90ff5557-35c2-44f1-ae82-edce66044c5d"
       }
     ],
     "brand": "Trance",
@@ -1132,6 +1678,27 @@
         "price": 173700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-58HVV-DEFAULT-2",
+        "price": 173700,
+        "stock": 99,
+        "attributes": null,
+        "id": "f68c352c-e741-46fc-96f6-66730b87be26"
+      },
+      {
+        "sku_code": "SKU-58HVV-DEFAULT-3",
+        "price": 173700,
+        "stock": 99,
+        "attributes": null,
+        "id": "cb58d2e2-e0f7-40ac-9ac0-24a4095be0e0"
+      },
+      {
+        "sku_code": "SKU-58HVV-DEFAULT-4",
+        "price": 173700,
+        "stock": 99,
+        "attributes": null,
+        "id": "b861859c-446b-41b1-a362-dec33744d1c5"
       }
     ],
     "brand": "VAS",
@@ -1169,6 +1736,27 @@
         "price": 329700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ULEQ6-DEFAULT-2",
+        "price": 329700,
+        "stock": 23,
+        "attributes": null,
+        "id": "4eb8e6dd-27d5-46fb-a89f-91b744cb9c1d"
+      },
+      {
+        "sku_code": "SKU-ULEQ6-DEFAULT-3",
+        "price": 329700,
+        "stock": 23,
+        "attributes": null,
+        "id": "725afd8b-0080-4f5b-ba0f-b48d82db449e"
+      },
+      {
+        "sku_code": "SKU-ULEQ6-DEFAULT-4",
+        "price": 329700,
+        "stock": 23,
+        "attributes": null,
+        "id": "14f3ba07-be07-4dc8-913c-1c403c23b24e"
       }
     ],
     "brand": "Bombay",
@@ -1206,6 +1794,27 @@
         "price": 131700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZFX9G-DEFAULT-2",
+        "price": 131700,
+        "stock": 90,
+        "attributes": null,
+        "id": "e0cb14db-3256-43a9-ba45-d81e0b41a54c"
+      },
+      {
+        "sku_code": "SKU-ZFX9G-DEFAULT-3",
+        "price": 131700,
+        "stock": 90,
+        "attributes": null,
+        "id": "7cf7e494-b9d8-499e-a4bd-56594582f8d0"
+      },
+      {
+        "sku_code": "SKU-ZFX9G-DEFAULT-4",
+        "price": 131700,
+        "stock": 90,
+        "attributes": null,
+        "id": "eb5afe61-c699-41d2-a01d-59296337bbb5"
       }
     ],
     "brand": "BSB",
@@ -1247,6 +1856,27 @@
         "price": 254700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VD7BD-DEFAULT-2",
+        "price": 254700,
+        "stock": 24,
+        "attributes": null,
+        "id": "3e7ecdff-409f-4429-a288-f1d3f5bd613c"
+      },
+      {
+        "sku_code": "SKU-VD7BD-DEFAULT-3",
+        "price": 254700,
+        "stock": 24,
+        "attributes": null,
+        "id": "716b3117-0a82-4ff3-b920-7a664e5d28ff"
+      },
+      {
+        "sku_code": "SKU-VD7BD-DEFAULT-4",
+        "price": 254700,
+        "stock": 24,
+        "attributes": null,
+        "id": "70fab1bb-d968-4d5a-86c1-06037b0f780b"
       }
     ],
     "brand": "AmazonBasics",
@@ -1288,6 +1918,27 @@
         "price": 299700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V0XXW-DEFAULT-2",
+        "price": 299700,
+        "stock": 78,
+        "attributes": null,
+        "id": "011ef013-8c07-45b0-ba70-491ac541ab7f"
+      },
+      {
+        "sku_code": "SKU-V0XXW-DEFAULT-3",
+        "price": 299700,
+        "stock": 78,
+        "attributes": null,
+        "id": "62e8e67e-3e21-40f7-a998-dec979ea668a"
+      },
+      {
+        "sku_code": "SKU-V0XXW-DEFAULT-4",
+        "price": 299700,
+        "stock": 78,
+        "attributes": null,
+        "id": "3482409d-dc32-460d-bd2b-96f811bcae0c"
       }
     ],
     "brand": "BSB",
@@ -1325,6 +1976,27 @@
         "price": 149700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CRP7L-DEFAULT-2",
+        "price": 149700,
+        "stock": 60,
+        "attributes": null,
+        "id": "17f50d5d-85af-4553-a3b9-6baab72e3dfc"
+      },
+      {
+        "sku_code": "SKU-CRP7L-DEFAULT-3",
+        "price": 149700,
+        "stock": 60,
+        "attributes": null,
+        "id": "5750f6a4-f410-4d04-8001-43f804ca096c"
+      },
+      {
+        "sku_code": "SKU-CRP7L-DEFAULT-4",
+        "price": 149700,
+        "stock": 60,
+        "attributes": null,
+        "id": "374e994f-6885-46dd-b5d2-291388bd8d42"
       }
     ],
     "brand": "Bombay",
@@ -1366,6 +2038,27 @@
         "price": 370200,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MMGKM-DEFAULT-2",
+        "price": 370200,
+        "stock": 13,
+        "attributes": null,
+        "id": "380badef-7a18-43f2-9d79-32e78150d555"
+      },
+      {
+        "sku_code": "SKU-MMGKM-DEFAULT-3",
+        "price": 370200,
+        "stock": 13,
+        "attributes": null,
+        "id": "c81e08e2-cb32-4ec5-ab9c-e1759f563e82"
+      },
+      {
+        "sku_code": "SKU-MMGKM-DEFAULT-4",
+        "price": 370200,
+        "stock": 13,
+        "attributes": null,
+        "id": "fecc9e4c-6537-457c-bd0c-0ca2623f4fbf"
       }
     ],
     "brand": "RD",
@@ -1407,6 +2100,27 @@
         "price": 57300,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9R6RQ-DEFAULT-2",
+        "price": 57300,
+        "stock": 28,
+        "attributes": null,
+        "id": "94312fb6-d6a5-40dc-9418-dd05f3838b43"
+      },
+      {
+        "sku_code": "SKU-9R6RQ-DEFAULT-3",
+        "price": 57300,
+        "stock": 28,
+        "attributes": null,
+        "id": "81722ff2-6798-4aad-9be7-3bf2c70320f5"
+      },
+      {
+        "sku_code": "SKU-9R6RQ-DEFAULT-4",
+        "price": 57300,
+        "stock": 28,
+        "attributes": null,
+        "id": "b4e5660a-b016-421d-a803-b4b8b7fcfce7"
       }
     ],
     "brand": "Bombay",
@@ -1448,6 +2162,27 @@
         "price": 379791,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K9AQ0-DEFAULT-2",
+        "price": 379791,
+        "stock": 83,
+        "attributes": null,
+        "id": "59f474ec-5fbd-4521-9b85-79a7c9e3c49e"
+      },
+      {
+        "sku_code": "SKU-K9AQ0-DEFAULT-3",
+        "price": 379791,
+        "stock": 83,
+        "attributes": null,
+        "id": "edb79490-3262-4d2a-ad5b-5199ac882b31"
+      },
+      {
+        "sku_code": "SKU-K9AQ0-DEFAULT-4",
+        "price": 379791,
+        "stock": 83,
+        "attributes": null,
+        "id": "48530c0e-d031-4b69-91f8-9721f6e4a3a1"
       }
     ],
     "brand": "BSB",
@@ -1489,6 +2224,27 @@
         "price": 797400,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EEGSI-DEFAULT-2",
+        "price": 797400,
+        "stock": 26,
+        "attributes": null,
+        "id": "880a4b5a-904f-49e3-b7fc-0faad62524d6"
+      },
+      {
+        "sku_code": "SKU-EEGSI-DEFAULT-3",
+        "price": 797400,
+        "stock": 26,
+        "attributes": null,
+        "id": "39b1c452-8ec5-4208-bea6-b607c147b2b7"
+      },
+      {
+        "sku_code": "SKU-EEGSI-DEFAULT-4",
+        "price": 797400,
+        "stock": 26,
+        "attributes": null,
+        "id": "6dc927b1-ffbf-4af1-a826-8a3e08912000"
       }
     ],
     "brand": "AmazonBasics",
@@ -1530,6 +2286,27 @@
         "price": 97500,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QKMTB-DEFAULT-2",
+        "price": 97500,
+        "stock": 108,
+        "attributes": null,
+        "id": "71b7afa0-a11f-4d0b-962e-acaab4870f26"
+      },
+      {
+        "sku_code": "SKU-QKMTB-DEFAULT-3",
+        "price": 97500,
+        "stock": 108,
+        "attributes": null,
+        "id": "5f9bc64f-955b-48b0-b69d-48c2f0e8677e"
+      },
+      {
+        "sku_code": "SKU-QKMTB-DEFAULT-4",
+        "price": 97500,
+        "stock": 108,
+        "attributes": null,
+        "id": "4518395d-7192-41d8-b189-9ac7a2495549"
       }
     ],
     "brand": "VAS",
@@ -1571,6 +2348,27 @@
         "price": 108000,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0GLAI-DEFAULT-2",
+        "price": 108000,
+        "stock": 76,
+        "attributes": null,
+        "id": "08ab4dde-1460-4db3-99a2-f8b5254fbeb4"
+      },
+      {
+        "sku_code": "SKU-0GLAI-DEFAULT-3",
+        "price": 108000,
+        "stock": 76,
+        "attributes": null,
+        "id": "80dae806-b23e-404a-95fa-7cb1b77aa074"
+      },
+      {
+        "sku_code": "SKU-0GLAI-DEFAULT-4",
+        "price": 108000,
+        "stock": 76,
+        "attributes": null,
+        "id": "08b7a2d3-3c2e-48d5-93f2-3025ac8ae63a"
       }
     ],
     "brand": "VAS",
@@ -1608,6 +2406,27 @@
         "price": 1124700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KQ645-DEFAULT-2",
+        "price": 1124700,
+        "stock": 44,
+        "attributes": null,
+        "id": "83139471-aaf0-4bb8-9527-bacb78aa347d"
+      },
+      {
+        "sku_code": "SKU-KQ645-DEFAULT-3",
+        "price": 1124700,
+        "stock": 44,
+        "attributes": null,
+        "id": "fbea6ce8-fd02-4675-a239-eb16cf850aee"
+      },
+      {
+        "sku_code": "SKU-KQ645-DEFAULT-4",
+        "price": 1124700,
+        "stock": 44,
+        "attributes": null,
+        "id": "29a2dcf4-7b7b-4f00-acf5-369428601dd9"
       }
     ],
     "brand": "Fareto",
@@ -1645,6 +2464,27 @@
         "price": 201000,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9RURF-DEFAULT-2",
+        "price": 201000,
+        "stock": 109,
+        "attributes": null,
+        "id": "ad3d084f-929d-43f4-969f-49d68e3cab97"
+      },
+      {
+        "sku_code": "SKU-9RURF-DEFAULT-3",
+        "price": 201000,
+        "stock": 109,
+        "attributes": null,
+        "id": "bdace397-0932-423c-a62f-3d3e148c4bde"
+      },
+      {
+        "sku_code": "SKU-9RURF-DEFAULT-4",
+        "price": 201000,
+        "stock": 109,
+        "attributes": null,
+        "id": "c60aa0f0-d169-4b2b-8921-5df4d86d374a"
       }
     ],
     "brand": "AmazonBasics",
@@ -1682,6 +2522,27 @@
         "price": 140100,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6K3T5-DEFAULT-2",
+        "price": 140100,
+        "stock": 35,
+        "attributes": null,
+        "id": "7484db37-d4e2-483e-bc02-5dc48111bbb0"
+      },
+      {
+        "sku_code": "SKU-6K3T5-DEFAULT-3",
+        "price": 140100,
+        "stock": 35,
+        "attributes": null,
+        "id": "9372d000-505b-4c38-9282-a857745889a7"
+      },
+      {
+        "sku_code": "SKU-6K3T5-DEFAULT-4",
+        "price": 140100,
+        "stock": 35,
+        "attributes": null,
+        "id": "692e7767-90ce-4aed-b0a1-5803b85c5831"
       }
     ],
     "brand": "Story@Home",
@@ -1723,6 +2584,27 @@
         "price": 72000,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-35IE0-DEFAULT-2",
+        "price": 72000,
+        "stock": 102,
+        "attributes": null,
+        "id": "e210470e-2e7a-49a7-861c-56ee6676557f"
+      },
+      {
+        "sku_code": "SKU-35IE0-DEFAULT-3",
+        "price": 72000,
+        "stock": 102,
+        "attributes": null,
+        "id": "1656ba32-18d5-4f1a-b3a5-6e175a0cb079"
+      },
+      {
+        "sku_code": "SKU-35IE0-DEFAULT-4",
+        "price": 72000,
+        "stock": 102,
+        "attributes": null,
+        "id": "0cda00cd-c235-40bc-9fda-645cbb0d1188"
       }
     ],
     "brand": "Fareto",
@@ -1764,6 +2646,27 @@
         "price": 885300,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B9DZI-DEFAULT-2",
+        "price": 885300,
+        "stock": 41,
+        "attributes": null,
+        "id": "c2550d3b-13f5-4376-b197-f5bb2520ca66"
+      },
+      {
+        "sku_code": "SKU-B9DZI-DEFAULT-3",
+        "price": 885300,
+        "stock": 41,
+        "attributes": null,
+        "id": "496c0e2b-66a8-4111-91d7-2fa62ccee269"
+      },
+      {
+        "sku_code": "SKU-B9DZI-DEFAULT-4",
+        "price": 885300,
+        "stock": 41,
+        "attributes": null,
+        "id": "8f2e6e1c-4515-4469-b075-d80a157cfc7d"
       }
     ],
     "brand": "VAS",
@@ -1805,6 +2708,27 @@
         "price": 237000,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9EIR2-DEFAULT-2",
+        "price": 237000,
+        "stock": 81,
+        "attributes": null,
+        "id": "dc90a783-31c5-4190-b6cf-00af28b359e3"
+      },
+      {
+        "sku_code": "SKU-9EIR2-DEFAULT-3",
+        "price": 237000,
+        "stock": 81,
+        "attributes": null,
+        "id": "82139c07-9cda-464f-8217-6b1f65e9dfb7"
+      },
+      {
+        "sku_code": "SKU-9EIR2-DEFAULT-4",
+        "price": 237000,
+        "stock": 81,
+        "attributes": null,
+        "id": "702bfc61-5814-4a4a-8ef6-7c2441a1891c"
       }
     ],
     "brand": "AmazonBasics",
@@ -1846,6 +2770,27 @@
         "price": 299700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TS70H-DEFAULT-2",
+        "price": 299700,
+        "stock": 51,
+        "attributes": null,
+        "id": "04f852d4-f5c8-426e-857f-161cac9ef97e"
+      },
+      {
+        "sku_code": "SKU-TS70H-DEFAULT-3",
+        "price": 299700,
+        "stock": 51,
+        "attributes": null,
+        "id": "89178154-a81a-4bfd-b06f-2e7be5dc2cf3"
+      },
+      {
+        "sku_code": "SKU-TS70H-DEFAULT-4",
+        "price": 299700,
+        "stock": 51,
+        "attributes": null,
+        "id": "3cca3904-6c85-421a-a8d6-b27e6ae2a3c3"
       }
     ],
     "brand": "Home",
@@ -1887,6 +2832,27 @@
         "price": 148500,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S8O2D-DEFAULT-2",
+        "price": 148500,
+        "stock": 105,
+        "attributes": null,
+        "id": "3f08d916-f374-40f6-b9f9-d3c876490c4d"
+      },
+      {
+        "sku_code": "SKU-S8O2D-DEFAULT-3",
+        "price": 148500,
+        "stock": 105,
+        "attributes": null,
+        "id": "3334422a-a680-4aa4-bc43-b30c4dfb0791"
+      },
+      {
+        "sku_code": "SKU-S8O2D-DEFAULT-4",
+        "price": 148500,
+        "stock": 105,
+        "attributes": null,
+        "id": "1e092d0a-3c7c-492e-bc84-f9972d3696cc"
       }
     ],
     "brand": "VAS",
@@ -1928,6 +2894,27 @@
         "price": 104700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YLB7V-DEFAULT-2",
+        "price": 104700,
+        "stock": 19,
+        "attributes": null,
+        "id": "b9f4c809-2321-4e09-ad63-6fa5208ee1ed"
+      },
+      {
+        "sku_code": "SKU-YLB7V-DEFAULT-3",
+        "price": 104700,
+        "stock": 19,
+        "attributes": null,
+        "id": "9683459a-8bef-436a-a806-7d9c9c57494b"
+      },
+      {
+        "sku_code": "SKU-YLB7V-DEFAULT-4",
+        "price": 104700,
+        "stock": 19,
+        "attributes": null,
+        "id": "5b3a70eb-6a1e-4745-9333-18a656ab8917"
       }
     ],
     "brand": "VAS",
@@ -1969,6 +2956,27 @@
         "price": 179700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5Z7S5-DEFAULT-2",
+        "price": 179700,
+        "stock": 33,
+        "attributes": null,
+        "id": "a589594d-6101-4c1c-b151-95946c35e923"
+      },
+      {
+        "sku_code": "SKU-5Z7S5-DEFAULT-3",
+        "price": 179700,
+        "stock": 33,
+        "attributes": null,
+        "id": "9da03341-f840-4d25-91a9-c29469032494"
+      },
+      {
+        "sku_code": "SKU-5Z7S5-DEFAULT-4",
+        "price": 179700,
+        "stock": 33,
+        "attributes": null,
+        "id": "84db9bb6-96a4-4b7c-aab3-17951253f71e"
       }
     ],
     "brand": "BSB",
@@ -2014,6 +3022,27 @@
         "price": 1029000,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LM372-DEFAULT-2",
+        "price": 1029000,
+        "stock": 41,
+        "attributes": null,
+        "id": "fa26f721-3484-46a5-a6c8-514ad634a42e"
+      },
+      {
+        "sku_code": "SKU-LM372-DEFAULT-3",
+        "price": 1029000,
+        "stock": 41,
+        "attributes": null,
+        "id": "7b3680a1-c7f0-4a96-904a-2004c0ad4036"
+      },
+      {
+        "sku_code": "SKU-LM372-DEFAULT-4",
+        "price": 1029000,
+        "stock": 41,
+        "attributes": null,
+        "id": "36d0947d-55e4-445e-b656-1e7c39495267"
       }
     ],
     "brand": "Soniasaa",
@@ -2059,6 +3088,27 @@
         "price": 140400,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-279T8-DEFAULT-2",
+        "price": 140400,
+        "stock": 82,
+        "attributes": null,
+        "id": "34bfb316-b707-4291-b70d-54d062c90c6f"
+      },
+      {
+        "sku_code": "SKU-279T8-DEFAULT-3",
+        "price": 140400,
+        "stock": 82,
+        "attributes": null,
+        "id": "8e5213b8-0774-493e-b36f-b2c3ddf6ef8b"
+      },
+      {
+        "sku_code": "SKU-279T8-DEFAULT-4",
+        "price": 140400,
+        "stock": 82,
+        "attributes": null,
+        "id": "ce23a05d-2297-4a38-b7ec-d9242b732f0f"
       }
     ],
     "brand": "Fareto",
@@ -2100,6 +3150,27 @@
         "price": 126000,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1EVF3-DEFAULT-2",
+        "price": 126000,
+        "stock": 103,
+        "attributes": null,
+        "id": "c2aebd11-5970-4c96-9589-b5f36ab71c6f"
+      },
+      {
+        "sku_code": "SKU-1EVF3-DEFAULT-3",
+        "price": 126000,
+        "stock": 103,
+        "attributes": null,
+        "id": "392adb3d-558e-4e54-9eed-490955a75cec"
+      },
+      {
+        "sku_code": "SKU-1EVF3-DEFAULT-4",
+        "price": 126000,
+        "stock": 103,
+        "attributes": null,
+        "id": "5c9434be-ce1e-408c-a8f6-8957d165544c"
       }
     ],
     "brand": "Bombay",
@@ -2145,6 +3216,27 @@
         "price": 98700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NHLDV-DEFAULT-2",
+        "price": 98700,
+        "stock": 55,
+        "attributes": null,
+        "id": "309eb0dc-502a-4478-a92e-f455a983f194"
+      },
+      {
+        "sku_code": "SKU-NHLDV-DEFAULT-3",
+        "price": 98700,
+        "stock": 55,
+        "attributes": null,
+        "id": "6485ece8-d585-4c25-a9cb-b942d19400c1"
+      },
+      {
+        "sku_code": "SKU-NHLDV-DEFAULT-4",
+        "price": 98700,
+        "stock": 55,
+        "attributes": null,
+        "id": "14682ba2-84a2-4c68-9564-8930dc1edb3d"
       }
     ],
     "brand": "Shri",
@@ -2190,6 +3282,27 @@
         "price": 449700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TG8EZ-DEFAULT-2",
+        "price": 449700,
+        "stock": 14,
+        "attributes": null,
+        "id": "a6064597-1ec9-4364-992b-bff756393815"
+      },
+      {
+        "sku_code": "SKU-TG8EZ-DEFAULT-3",
+        "price": 449700,
+        "stock": 14,
+        "attributes": null,
+        "id": "7222c24b-0fe5-42f5-8412-55e28f5923c0"
+      },
+      {
+        "sku_code": "SKU-TG8EZ-DEFAULT-4",
+        "price": 449700,
+        "stock": 14,
+        "attributes": null,
+        "id": "aeb1a19f-6578-46d1-bb8d-871e87697098"
       }
     ],
     "brand": "Story@Home",
@@ -2227,6 +3340,27 @@
         "price": 59700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I28LQ-DEFAULT-2",
+        "price": 59700,
+        "stock": 109,
+        "attributes": null,
+        "id": "3e19b520-effc-4ce5-a381-8f22a6ce9673"
+      },
+      {
+        "sku_code": "SKU-I28LQ-DEFAULT-3",
+        "price": 59700,
+        "stock": 109,
+        "attributes": null,
+        "id": "36e12feb-51f9-4084-8095-b93e84d46b39"
+      },
+      {
+        "sku_code": "SKU-I28LQ-DEFAULT-4",
+        "price": 59700,
+        "stock": 109,
+        "attributes": null,
+        "id": "1cb55aa4-3ab6-4d27-8df2-90ee273bd74a"
       }
     ],
     "brand": "RD",
@@ -2272,6 +3406,27 @@
         "price": 239700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZRO6Q-DEFAULT-2",
+        "price": 239700,
+        "stock": 83,
+        "attributes": null,
+        "id": "f3125629-48c0-41fe-a588-38ef580c8af3"
+      },
+      {
+        "sku_code": "SKU-ZRO6Q-DEFAULT-3",
+        "price": 239700,
+        "stock": 83,
+        "attributes": null,
+        "id": "e13601d0-6ecb-4ef8-817e-e964e30187e3"
+      },
+      {
+        "sku_code": "SKU-ZRO6Q-DEFAULT-4",
+        "price": 239700,
+        "stock": 83,
+        "attributes": null,
+        "id": "d410b572-05dd-433d-905d-128d30c65291"
       }
     ],
     "brand": "Cotton",
@@ -2313,6 +3468,27 @@
         "price": 449700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E5XNE-DEFAULT-2",
+        "price": 449700,
+        "stock": 19,
+        "attributes": null,
+        "id": "7968fa73-1ae2-4c2f-90bf-3fa397c7073a"
+      },
+      {
+        "sku_code": "SKU-E5XNE-DEFAULT-3",
+        "price": 449700,
+        "stock": 19,
+        "attributes": null,
+        "id": "d59574b4-2779-4ee9-9f1d-e2748dec4225"
+      },
+      {
+        "sku_code": "SKU-E5XNE-DEFAULT-4",
+        "price": 449700,
+        "stock": 19,
+        "attributes": null,
+        "id": "f1f0653d-547e-4860-864e-514a68b65afd"
       }
     ],
     "brand": "Home",
@@ -2350,6 +3526,27 @@
         "price": 102000,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DV7I4-DEFAULT-2",
+        "price": 102000,
+        "stock": 43,
+        "attributes": null,
+        "id": "b3507776-8cc1-4593-a2c4-2bdc734352c7"
+      },
+      {
+        "sku_code": "SKU-DV7I4-DEFAULT-3",
+        "price": 102000,
+        "stock": 43,
+        "attributes": null,
+        "id": "5ce0caa5-cbf6-4c9c-b377-13de6c16f55b"
+      },
+      {
+        "sku_code": "SKU-DV7I4-DEFAULT-4",
+        "price": 102000,
+        "stock": 43,
+        "attributes": null,
+        "id": "af2a465c-0e2a-49a2-bc08-fd72022f8497"
       }
     ],
     "brand": "Kuber",
@@ -2387,6 +3584,27 @@
         "price": 479700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JX5HM-DEFAULT-2",
+        "price": 479700,
+        "stock": 31,
+        "attributes": null,
+        "id": "06d0e9ea-706a-443e-a433-a5903eb4ab6d"
+      },
+      {
+        "sku_code": "SKU-JX5HM-DEFAULT-3",
+        "price": 479700,
+        "stock": 31,
+        "attributes": null,
+        "id": "f012dff9-d43b-46be-ab2b-5d9badba5c3a"
+      },
+      {
+        "sku_code": "SKU-JX5HM-DEFAULT-4",
+        "price": 479700,
+        "stock": 31,
+        "attributes": null,
+        "id": "298b5a0e-71e8-43d4-9b7e-a19a22a650df"
       }
     ],
     "brand": "Fareto",
@@ -2432,6 +3650,27 @@
         "price": 98700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MAQ5L-DEFAULT-2",
+        "price": 98700,
+        "stock": 83,
+        "attributes": null,
+        "id": "a12af3e2-b53a-47f6-b556-003facf106fb"
+      },
+      {
+        "sku_code": "SKU-MAQ5L-DEFAULT-3",
+        "price": 98700,
+        "stock": 83,
+        "attributes": null,
+        "id": "80752ee5-5def-411f-81cb-c8dc57e9221a"
+      },
+      {
+        "sku_code": "SKU-MAQ5L-DEFAULT-4",
+        "price": 98700,
+        "stock": 83,
+        "attributes": null,
+        "id": "554d43fc-ef42-4bd4-b61e-0cae88f8fcb3"
       }
     ],
     "brand": "BSB",
@@ -2469,6 +3708,27 @@
         "price": 239700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZQGP8-DEFAULT-2",
+        "price": 239700,
+        "stock": 46,
+        "attributes": null,
+        "id": "6da14050-f458-4a52-bbb9-3bdf40265ce9"
+      },
+      {
+        "sku_code": "SKU-ZQGP8-DEFAULT-3",
+        "price": 239700,
+        "stock": 46,
+        "attributes": null,
+        "id": "9cc3a5b6-068e-467c-8acf-797c0ccb6958"
+      },
+      {
+        "sku_code": "SKU-ZQGP8-DEFAULT-4",
+        "price": 239700,
+        "stock": 46,
+        "attributes": null,
+        "id": "75ce49ad-d4ac-4c8c-88cf-21b9daaf0a90"
       }
     ],
     "brand": "First",
@@ -2506,6 +3766,27 @@
         "price": 179700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9QP3E-DEFAULT-2",
+        "price": 179700,
+        "stock": 27,
+        "attributes": null,
+        "id": "6c079afe-1bab-4c25-8e65-191c786f310d"
+      },
+      {
+        "sku_code": "SKU-9QP3E-DEFAULT-3",
+        "price": 179700,
+        "stock": 27,
+        "attributes": null,
+        "id": "3e7db58d-0ce6-495e-9efe-20052d9a060a"
+      },
+      {
+        "sku_code": "SKU-9QP3E-DEFAULT-4",
+        "price": 179700,
+        "stock": 27,
+        "attributes": null,
+        "id": "604a7ac4-7675-4989-870c-ebd0d5b81f67"
       }
     ],
     "brand": "Home",
@@ -2547,6 +3828,27 @@
         "price": 149700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DWFHI-DEFAULT-2",
+        "price": 149700,
+        "stock": 54,
+        "attributes": null,
+        "id": "6a86911f-283a-4533-a86f-ede02e29f31f"
+      },
+      {
+        "sku_code": "SKU-DWFHI-DEFAULT-3",
+        "price": 149700,
+        "stock": 54,
+        "attributes": null,
+        "id": "46ae6717-e382-4c58-a716-365316a9f2d6"
+      },
+      {
+        "sku_code": "SKU-DWFHI-DEFAULT-4",
+        "price": 149700,
+        "stock": 54,
+        "attributes": null,
+        "id": "674bd6f5-675e-4d8b-9850-18e3d5973a29"
       }
     ],
     "brand": "Trance",
@@ -2584,6 +3886,27 @@
         "price": 194700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HLTAY-DEFAULT-2",
+        "price": 194700,
+        "stock": 106,
+        "attributes": null,
+        "id": "a49114e9-44ae-48c2-8314-bc58b3a68a01"
+      },
+      {
+        "sku_code": "SKU-HLTAY-DEFAULT-3",
+        "price": 194700,
+        "stock": 106,
+        "attributes": null,
+        "id": "70972326-0495-4ea1-ab2e-6ab364d2fe16"
+      },
+      {
+        "sku_code": "SKU-HLTAY-DEFAULT-4",
+        "price": 194700,
+        "stock": 106,
+        "attributes": null,
+        "id": "145e2d1d-3c59-4455-8627-89793817b333"
       }
     ],
     "brand": "Home",
@@ -2625,6 +3948,27 @@
         "price": 689700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MLFDF-DEFAULT-2",
+        "price": 689700,
+        "stock": 93,
+        "attributes": null,
+        "id": "78627821-94c6-4b9c-bc14-005ade2cd1ba"
+      },
+      {
+        "sku_code": "SKU-MLFDF-DEFAULT-3",
+        "price": 689700,
+        "stock": 93,
+        "attributes": null,
+        "id": "0d98a2c0-afa0-46f6-9928-c42d3eb0006e"
+      },
+      {
+        "sku_code": "SKU-MLFDF-DEFAULT-4",
+        "price": 689700,
+        "stock": 93,
+        "attributes": null,
+        "id": "5ba5b586-78a7-43a1-b9c4-7ced22b97b2f"
       }
     ],
     "brand": "Shri",
@@ -2666,6 +4010,27 @@
         "price": 482100,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2INV9-DEFAULT-2",
+        "price": 482100,
+        "stock": 21,
+        "attributes": null,
+        "id": "9859d55d-9e52-4096-84be-b3262faa658e"
+      },
+      {
+        "sku_code": "SKU-2INV9-DEFAULT-3",
+        "price": 482100,
+        "stock": 21,
+        "attributes": null,
+        "id": "35d52183-5b1e-421f-a94a-23cca0194464"
+      },
+      {
+        "sku_code": "SKU-2INV9-DEFAULT-4",
+        "price": 482100,
+        "stock": 21,
+        "attributes": null,
+        "id": "84410b60-6356-42b3-acd6-f9f4856d9b15"
       }
     ],
     "brand": "AmazonBasics",
@@ -2711,6 +4076,27 @@
         "price": 194700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2G5U3-DEFAULT-2",
+        "price": 194700,
+        "stock": 13,
+        "attributes": null,
+        "id": "df16dcb6-55e6-4892-b5ea-77bd81d57d49"
+      },
+      {
+        "sku_code": "SKU-2G5U3-DEFAULT-3",
+        "price": 194700,
+        "stock": 13,
+        "attributes": null,
+        "id": "f876f776-3b43-414c-bcc7-1df0cd91269a"
+      },
+      {
+        "sku_code": "SKU-2G5U3-DEFAULT-4",
+        "price": 194700,
+        "stock": 13,
+        "attributes": null,
+        "id": "41189365-f2bc-43df-907b-b7c6ecb9e2e0"
       }
     ],
     "brand": "RD",
@@ -2748,6 +4134,27 @@
         "price": 140700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KGF25-DEFAULT-2",
+        "price": 140700,
+        "stock": 81,
+        "attributes": null,
+        "id": "f02b4b18-c282-4874-bdd8-0ea040047bad"
+      },
+      {
+        "sku_code": "SKU-KGF25-DEFAULT-3",
+        "price": 140700,
+        "stock": 81,
+        "attributes": null,
+        "id": "3b41826e-a7d3-4095-9ae5-4b024657d277"
+      },
+      {
+        "sku_code": "SKU-KGF25-DEFAULT-4",
+        "price": 140700,
+        "stock": 81,
+        "attributes": null,
+        "id": "b92708ce-ed9c-452a-aebf-ed74c06ee467"
       }
     ],
     "brand": "RD",
@@ -2785,6 +4192,27 @@
         "price": 172500,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AX4P4-DEFAULT-2",
+        "price": 172500,
+        "stock": 76,
+        "attributes": null,
+        "id": "c18421c5-5387-4746-8819-45dc0b23bc60"
+      },
+      {
+        "sku_code": "SKU-AX4P4-DEFAULT-3",
+        "price": 172500,
+        "stock": 76,
+        "attributes": null,
+        "id": "ddfc5b42-ef89-45b7-bfa5-e90b535c4287"
+      },
+      {
+        "sku_code": "SKU-AX4P4-DEFAULT-4",
+        "price": 172500,
+        "stock": 76,
+        "attributes": null,
+        "id": "c3bb0790-73ba-4bac-87bd-15512e52862f"
       }
     ],
     "brand": "First",
@@ -2822,6 +4250,27 @@
         "price": 74700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2KLIQ-DEFAULT-2",
+        "price": 74700,
+        "stock": 31,
+        "attributes": null,
+        "id": "76f87ad0-dd6e-412f-9b8b-a5ec005aa2a9"
+      },
+      {
+        "sku_code": "SKU-2KLIQ-DEFAULT-3",
+        "price": 74700,
+        "stock": 31,
+        "attributes": null,
+        "id": "2bfb631e-4f09-432b-83fd-143c066da71c"
+      },
+      {
+        "sku_code": "SKU-2KLIQ-DEFAULT-4",
+        "price": 74700,
+        "stock": 31,
+        "attributes": null,
+        "id": "3cc46fd2-f181-48fc-b3d0-ec7b6b64633d"
       }
     ],
     "brand": "Cotton",
@@ -2859,6 +4308,27 @@
         "price": 419700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HM1MO-DEFAULT-2",
+        "price": 419700,
+        "stock": 101,
+        "attributes": null,
+        "id": "f85de441-e58e-449a-bc63-b73ba5395784"
+      },
+      {
+        "sku_code": "SKU-HM1MO-DEFAULT-3",
+        "price": 419700,
+        "stock": 101,
+        "attributes": null,
+        "id": "01f78cf9-4c0f-4091-84ca-dbbcac3c1bdc"
+      },
+      {
+        "sku_code": "SKU-HM1MO-DEFAULT-4",
+        "price": 419700,
+        "stock": 101,
+        "attributes": null,
+        "id": "aa3fc9fa-db94-495d-9ba0-6cd6c87e7201"
       }
     ],
     "brand": "VAS",
@@ -2900,6 +4370,27 @@
         "price": 449700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ED6TD-DEFAULT-2",
+        "price": 449700,
+        "stock": 72,
+        "attributes": null,
+        "id": "9001c7dd-883a-4c80-a711-2fd661ef9dea"
+      },
+      {
+        "sku_code": "SKU-ED6TD-DEFAULT-3",
+        "price": 449700,
+        "stock": 72,
+        "attributes": null,
+        "id": "a022ed9b-d2db-4997-88d2-b73cb8f66e81"
+      },
+      {
+        "sku_code": "SKU-ED6TD-DEFAULT-4",
+        "price": 449700,
+        "stock": 72,
+        "attributes": null,
+        "id": "15dbdda6-0d8e-40b7-b183-749b6f46edfa"
       }
     ],
     "brand": "Fareto",
@@ -2945,6 +4436,27 @@
         "price": 507600,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P6FZO-DEFAULT-2",
+        "price": 507600,
+        "stock": 36,
+        "attributes": null,
+        "id": "6a9aff7f-b780-45bf-9524-8e8eb28cb734"
+      },
+      {
+        "sku_code": "SKU-P6FZO-DEFAULT-3",
+        "price": 507600,
+        "stock": 36,
+        "attributes": null,
+        "id": "1710a3c0-55aa-4ad4-be56-c9b44ccdd56f"
+      },
+      {
+        "sku_code": "SKU-P6FZO-DEFAULT-4",
+        "price": 507600,
+        "stock": 36,
+        "attributes": null,
+        "id": "016ecca2-0d76-48b5-8a78-229d05dea349"
       }
     ],
     "brand": "Shri",
@@ -2982,6 +4494,27 @@
         "price": 159000,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RRIN9-DEFAULT-2",
+        "price": 159000,
+        "stock": 103,
+        "attributes": null,
+        "id": "3a4faab8-b06f-4e13-b536-c3960e711b2f"
+      },
+      {
+        "sku_code": "SKU-RRIN9-DEFAULT-3",
+        "price": 159000,
+        "stock": 103,
+        "attributes": null,
+        "id": "d15e6476-755e-46f0-8366-119465fd3c9b"
+      },
+      {
+        "sku_code": "SKU-RRIN9-DEFAULT-4",
+        "price": 159000,
+        "stock": 103,
+        "attributes": null,
+        "id": "ba1f0823-f2a2-4011-9e39-a1256d44e978"
       }
     ],
     "brand": "VAS",
@@ -3027,6 +4560,27 @@
         "price": 149700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7UQXW-DEFAULT-2",
+        "price": 149700,
+        "stock": 46,
+        "attributes": null,
+        "id": "31dfe2c3-6a19-4047-85b5-030705fbeff8"
+      },
+      {
+        "sku_code": "SKU-7UQXW-DEFAULT-3",
+        "price": 149700,
+        "stock": 46,
+        "attributes": null,
+        "id": "dfb5e2ff-3477-4513-9773-2c661d0a7724"
+      },
+      {
+        "sku_code": "SKU-7UQXW-DEFAULT-4",
+        "price": 149700,
+        "stock": 46,
+        "attributes": null,
+        "id": "f5bd3e82-9dde-4fbc-99ec-483045c29d9a"
       }
     ],
     "brand": "Soniasaa",
@@ -3064,6 +4618,27 @@
         "price": 148500,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9UP0P-DEFAULT-2",
+        "price": 148500,
+        "stock": 67,
+        "attributes": null,
+        "id": "adbb44ad-93f3-4eeb-b5ad-eaa5af264298"
+      },
+      {
+        "sku_code": "SKU-9UP0P-DEFAULT-3",
+        "price": 148500,
+        "stock": 67,
+        "attributes": null,
+        "id": "1157cb89-fd30-4ee5-b7c5-32414a074152"
+      },
+      {
+        "sku_code": "SKU-9UP0P-DEFAULT-4",
+        "price": 148500,
+        "stock": 67,
+        "attributes": null,
+        "id": "d430134e-9ac9-42d1-aed7-e6698c1388ac"
       }
     ],
     "brand": "VAS",
@@ -3109,6 +4684,27 @@
         "price": 374700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RNB3H-DEFAULT-2",
+        "price": 374700,
+        "stock": 14,
+        "attributes": null,
+        "id": "4c3cd4c7-c3c9-4614-bfd7-1159dfcdcc18"
+      },
+      {
+        "sku_code": "SKU-RNB3H-DEFAULT-3",
+        "price": 374700,
+        "stock": 14,
+        "attributes": null,
+        "id": "27b8a56a-62f1-4813-8514-d255ae59ce92"
+      },
+      {
+        "sku_code": "SKU-RNB3H-DEFAULT-4",
+        "price": 374700,
+        "stock": 14,
+        "attributes": null,
+        "id": "12cb0b35-9f7a-4a1b-8af3-301533144c67"
       }
     ],
     "brand": "VAS",
@@ -3154,6 +4750,27 @@
         "price": 898200,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4H8LU-DEFAULT-2",
+        "price": 898200,
+        "stock": 87,
+        "attributes": null,
+        "id": "743dc0ec-a0b1-46c5-8320-0524d24ad046"
+      },
+      {
+        "sku_code": "SKU-4H8LU-DEFAULT-3",
+        "price": 898200,
+        "stock": 87,
+        "attributes": null,
+        "id": "89d4dc4f-7c56-4b40-9794-037826c613cc"
+      },
+      {
+        "sku_code": "SKU-4H8LU-DEFAULT-4",
+        "price": 898200,
+        "stock": 87,
+        "attributes": null,
+        "id": "ed145c9c-70d8-4693-be53-6aad84373b1e"
       }
     ],
     "brand": "BSB",
@@ -3191,6 +4808,27 @@
         "price": 179700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EFQOV-DEFAULT-2",
+        "price": 179700,
+        "stock": 101,
+        "attributes": null,
+        "id": "19dd1f93-f0d8-46fe-85f4-2b5939b890f7"
+      },
+      {
+        "sku_code": "SKU-EFQOV-DEFAULT-3",
+        "price": 179700,
+        "stock": 101,
+        "attributes": null,
+        "id": "ed434d6f-eb11-480d-975f-32f29db87974"
+      },
+      {
+        "sku_code": "SKU-EFQOV-DEFAULT-4",
+        "price": 179700,
+        "stock": 101,
+        "attributes": null,
+        "id": "138bf63c-ac3e-491a-8429-1b9212f32031"
       }
     ],
     "brand": "Shri",
@@ -3228,6 +4866,27 @@
         "price": 134700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IXHBQ-DEFAULT-2",
+        "price": 134700,
+        "stock": 74,
+        "attributes": null,
+        "id": "47bf840f-6673-4a20-b0bc-8d5597261f29"
+      },
+      {
+        "sku_code": "SKU-IXHBQ-DEFAULT-3",
+        "price": 134700,
+        "stock": 74,
+        "attributes": null,
+        "id": "afc9a4ea-11ce-4be6-83c9-399be436b39b"
+      },
+      {
+        "sku_code": "SKU-IXHBQ-DEFAULT-4",
+        "price": 134700,
+        "stock": 74,
+        "attributes": null,
+        "id": "205f26f0-1a49-4fb5-9002-07ea49a442c7"
       }
     ],
     "brand": "VAS",
@@ -3273,6 +4932,27 @@
         "price": 74700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QXCOU-DEFAULT-2",
+        "price": 74700,
+        "stock": 22,
+        "attributes": null,
+        "id": "f572fda3-74ec-4bff-9d8f-348950a6b824"
+      },
+      {
+        "sku_code": "SKU-QXCOU-DEFAULT-3",
+        "price": 74700,
+        "stock": 22,
+        "attributes": null,
+        "id": "ba4430f0-982d-485a-80e8-446bedebcd4e"
+      },
+      {
+        "sku_code": "SKU-QXCOU-DEFAULT-4",
+        "price": 74700,
+        "stock": 22,
+        "attributes": null,
+        "id": "a938a68d-5ceb-4d17-a5f0-466a63e3987a"
       }
     ],
     "brand": "BSB",
@@ -3318,6 +4998,27 @@
         "price": 134700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X5MG0-DEFAULT-2",
+        "price": 134700,
+        "stock": 105,
+        "attributes": null,
+        "id": "5d794af1-7cc6-435d-ba50-b7a74e17a5cc"
+      },
+      {
+        "sku_code": "SKU-X5MG0-DEFAULT-3",
+        "price": 134700,
+        "stock": 105,
+        "attributes": null,
+        "id": "8c1ea9a5-288d-4bc2-a705-9f48ffc215c5"
+      },
+      {
+        "sku_code": "SKU-X5MG0-DEFAULT-4",
+        "price": 134700,
+        "stock": 105,
+        "attributes": null,
+        "id": "935451bc-2002-4de3-ada5-5c6623ec32e8"
       }
     ],
     "brand": "Amazon",
@@ -3363,6 +5064,27 @@
         "price": 329700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q14HY-DEFAULT-2",
+        "price": 329700,
+        "stock": 32,
+        "attributes": null,
+        "id": "e9697a0f-ad1a-4266-bd1f-43a1977b5843"
+      },
+      {
+        "sku_code": "SKU-Q14HY-DEFAULT-3",
+        "price": 329700,
+        "stock": 32,
+        "attributes": null,
+        "id": "271ac43f-af50-4f9c-8249-57f679d8a09b"
+      },
+      {
+        "sku_code": "SKU-Q14HY-DEFAULT-4",
+        "price": 329700,
+        "stock": 32,
+        "attributes": null,
+        "id": "6041c1ad-2390-4f9c-a6b3-1fe3dee4cb29"
       }
     ],
     "brand": "RD",
@@ -3404,6 +5126,27 @@
         "price": 89700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EAQR6-DEFAULT-2",
+        "price": 89700,
+        "stock": 81,
+        "attributes": null,
+        "id": "79908c5c-5d63-4e81-90be-a9dde353bbda"
+      },
+      {
+        "sku_code": "SKU-EAQR6-DEFAULT-3",
+        "price": 89700,
+        "stock": 81,
+        "attributes": null,
+        "id": "8e575be8-99fc-4179-ae02-3a986db8173c"
+      },
+      {
+        "sku_code": "SKU-EAQR6-DEFAULT-4",
+        "price": 89700,
+        "stock": 81,
+        "attributes": null,
+        "id": "b4bca22b-6d6f-496f-935e-c53ec6afd329"
       }
     ],
     "brand": "Bombay",
@@ -3441,6 +5184,27 @@
         "price": 359700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JP930-DEFAULT-2",
+        "price": 359700,
+        "stock": 48,
+        "attributes": null,
+        "id": "6c01ec93-feca-4349-ac76-b7fdb2cb99bf"
+      },
+      {
+        "sku_code": "SKU-JP930-DEFAULT-3",
+        "price": 359700,
+        "stock": 48,
+        "attributes": null,
+        "id": "d9bb0154-33a8-4d9a-8636-b75d669fe9ae"
+      },
+      {
+        "sku_code": "SKU-JP930-DEFAULT-4",
+        "price": 359700,
+        "stock": 48,
+        "attributes": null,
+        "id": "af518e27-3d78-472f-ae8d-fd3a578bbc20"
       }
     ],
     "brand": "Fareto",
@@ -3482,6 +5246,27 @@
         "price": 202200,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BI6R6-DEFAULT-2",
+        "price": 202200,
+        "stock": 21,
+        "attributes": null,
+        "id": "ffee9c30-1376-481c-8341-dba7ebb6c0dd"
+      },
+      {
+        "sku_code": "SKU-BI6R6-DEFAULT-3",
+        "price": 202200,
+        "stock": 21,
+        "attributes": null,
+        "id": "cb4cae70-2c23-467a-92fe-a46e3b172e68"
+      },
+      {
+        "sku_code": "SKU-BI6R6-DEFAULT-4",
+        "price": 202200,
+        "stock": 21,
+        "attributes": null,
+        "id": "0cf6b861-e1a0-4346-994b-97edc83c437d"
       }
     ],
     "brand": "Story@Home",
@@ -3523,6 +5308,27 @@
         "price": 459300,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K6ULT-DEFAULT-2",
+        "price": 459300,
+        "stock": 50,
+        "attributes": null,
+        "id": "004ce6b3-6e06-4eb5-8e21-256dc50f5dbb"
+      },
+      {
+        "sku_code": "SKU-K6ULT-DEFAULT-3",
+        "price": 459300,
+        "stock": 50,
+        "attributes": null,
+        "id": "e1efd4dd-74ba-4042-9a8e-2d8afb36a27f"
+      },
+      {
+        "sku_code": "SKU-K6ULT-DEFAULT-4",
+        "price": 459300,
+        "stock": 50,
+        "attributes": null,
+        "id": "6432fac0-49c8-4cf4-81b6-678081e84df8"
       }
     ],
     "brand": "HP",
@@ -3568,6 +5374,27 @@
         "price": 239700,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2VJXR-DEFAULT-2",
+        "price": 239700,
+        "stock": 75,
+        "attributes": null,
+        "id": "4b5ecf26-d27b-4222-b5e9-8e0c0303b823"
+      },
+      {
+        "sku_code": "SKU-2VJXR-DEFAULT-3",
+        "price": 239700,
+        "stock": 75,
+        "attributes": null,
+        "id": "922c67ec-0520-423e-bb32-499b41d4764d"
+      },
+      {
+        "sku_code": "SKU-2VJXR-DEFAULT-4",
+        "price": 239700,
+        "stock": 75,
+        "attributes": null,
+        "id": "93cf568f-adfa-494d-bcd9-a7ab9d5fc1bc"
       }
     ],
     "brand": "Story@Home",
@@ -3609,6 +5436,27 @@
         "price": 107700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZNTPU-DEFAULT-2",
+        "price": 107700,
+        "stock": 64,
+        "attributes": null,
+        "id": "5c1b5f12-88e0-44f7-a9f3-105e5d75d0b3"
+      },
+      {
+        "sku_code": "SKU-ZNTPU-DEFAULT-3",
+        "price": 107700,
+        "stock": 64,
+        "attributes": null,
+        "id": "4dadcab7-a6de-4096-a53c-6a7718736fab"
+      },
+      {
+        "sku_code": "SKU-ZNTPU-DEFAULT-4",
+        "price": 107700,
+        "stock": 64,
+        "attributes": null,
+        "id": "1a02f877-112a-4be5-83c2-0cf98f9fc0fc"
       }
     ],
     "brand": "Fareto",
@@ -3650,6 +5498,27 @@
         "price": 359700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GOAO3-DEFAULT-2",
+        "price": 359700,
+        "stock": 54,
+        "attributes": null,
+        "id": "7cd6e025-da5c-4ec4-bf62-0ec1976f42e8"
+      },
+      {
+        "sku_code": "SKU-GOAO3-DEFAULT-3",
+        "price": 359700,
+        "stock": 54,
+        "attributes": null,
+        "id": "755800c6-48ff-4708-b026-236e72b7000a"
+      },
+      {
+        "sku_code": "SKU-GOAO3-DEFAULT-4",
+        "price": 359700,
+        "stock": 54,
+        "attributes": null,
+        "id": "bf1bd15a-c866-48f1-b433-f08453143513"
       }
     ],
     "brand": "First",
@@ -3695,6 +5564,27 @@
         "price": 479700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DGOS5-DEFAULT-2",
+        "price": 479700,
+        "stock": 56,
+        "attributes": null,
+        "id": "4db20441-0255-4107-8d33-98c7181c41eb"
+      },
+      {
+        "sku_code": "SKU-DGOS5-DEFAULT-3",
+        "price": 479700,
+        "stock": 56,
+        "attributes": null,
+        "id": "1f9a752e-9b61-44ac-baa3-f8d2a32eacea"
+      },
+      {
+        "sku_code": "SKU-DGOS5-DEFAULT-4",
+        "price": 479700,
+        "stock": 56,
+        "attributes": null,
+        "id": "7eb72148-1215-44e1-b2cd-a5416a2c91eb"
       }
     ],
     "brand": "Trance",
@@ -3732,6 +5622,27 @@
         "price": 149700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-23NC7-DEFAULT-2",
+        "price": 149700,
+        "stock": 44,
+        "attributes": null,
+        "id": "365ce78a-d22b-46f7-828d-97003fd73f9d"
+      },
+      {
+        "sku_code": "SKU-23NC7-DEFAULT-3",
+        "price": 149700,
+        "stock": 44,
+        "attributes": null,
+        "id": "67f55967-0638-4129-afe4-50ec47b87985"
+      },
+      {
+        "sku_code": "SKU-23NC7-DEFAULT-4",
+        "price": 149700,
+        "stock": 44,
+        "attributes": null,
+        "id": "baa14ec5-c895-4cbf-9034-bc4924e68104"
       }
     ],
     "brand": "BSB",
@@ -3777,6 +5688,27 @@
         "price": 329700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-13MJL-DEFAULT-2",
+        "price": 329700,
+        "stock": 68,
+        "attributes": null,
+        "id": "f5ea3b8b-4321-4d25-a49f-a4855eebf501"
+      },
+      {
+        "sku_code": "SKU-13MJL-DEFAULT-3",
+        "price": 329700,
+        "stock": 68,
+        "attributes": null,
+        "id": "0a3e4892-aa37-45ed-be7f-3195040359a8"
+      },
+      {
+        "sku_code": "SKU-13MJL-DEFAULT-4",
+        "price": 329700,
+        "stock": 68,
+        "attributes": null,
+        "id": "debc3857-0cde-4fa3-a4c3-c03eafd9e94f"
       }
     ],
     "brand": "VAS",
@@ -3814,6 +5746,27 @@
         "price": 446100,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5T7NY-DEFAULT-2",
+        "price": 446100,
+        "stock": 34,
+        "attributes": null,
+        "id": "bb5d6e1d-63a7-4c72-b623-17c393c09776"
+      },
+      {
+        "sku_code": "SKU-5T7NY-DEFAULT-3",
+        "price": 446100,
+        "stock": 34,
+        "attributes": null,
+        "id": "f809991e-f59c-4a04-a5fb-c52f00fc6303"
+      },
+      {
+        "sku_code": "SKU-5T7NY-DEFAULT-4",
+        "price": 446100,
+        "stock": 34,
+        "attributes": null,
+        "id": "d5db912a-e3b8-42cb-a745-1c0b8dbd00b2"
       }
     ],
     "brand": "Kuber",
@@ -3859,6 +5812,27 @@
         "price": 104700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KJ62R-DEFAULT-2",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "9bcb1dc6-17b3-4b4f-b69c-e0474077cb7e"
+      },
+      {
+        "sku_code": "SKU-KJ62R-DEFAULT-3",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "e15d2187-78da-49f4-bec8-a2260c26f63b"
+      },
+      {
+        "sku_code": "SKU-KJ62R-DEFAULT-4",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "6822ef9d-7fb9-49fa-849b-09581e28aa7f"
       }
     ],
     "brand": "AmazonBasics",
@@ -3900,6 +5874,27 @@
         "price": 99600,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HFGAZ-DEFAULT-2",
+        "price": 99600,
+        "stock": 19,
+        "attributes": null,
+        "id": "3f9fe9c6-0de9-45b9-955e-3a825e6d7a36"
+      },
+      {
+        "sku_code": "SKU-HFGAZ-DEFAULT-3",
+        "price": 99600,
+        "stock": 19,
+        "attributes": null,
+        "id": "ce948646-8392-4e67-8957-d45c4d4bb280"
+      },
+      {
+        "sku_code": "SKU-HFGAZ-DEFAULT-4",
+        "price": 99600,
+        "stock": 19,
+        "attributes": null,
+        "id": "425d39f8-db3c-4261-ac19-417f5eb6e269"
       }
     ],
     "brand": "AmazonBasics",
@@ -3945,6 +5940,27 @@
         "price": 370200,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DKJNX-DEFAULT-2",
+        "price": 370200,
+        "stock": 82,
+        "attributes": null,
+        "id": "88e2fc85-c5d4-414d-b78a-e93be181b4a2"
+      },
+      {
+        "sku_code": "SKU-DKJNX-DEFAULT-3",
+        "price": 370200,
+        "stock": 82,
+        "attributes": null,
+        "id": "e34831ad-12f5-41a5-bc23-99b3dfa14e63"
+      },
+      {
+        "sku_code": "SKU-DKJNX-DEFAULT-4",
+        "price": 370200,
+        "stock": 82,
+        "attributes": null,
+        "id": "5efac949-3aa6-4262-b9c9-378b93dd6783"
       }
     ],
     "brand": "Fareto",
@@ -3982,6 +5998,27 @@
         "price": 135000,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7TXFA-DEFAULT-2",
+        "price": 135000,
+        "stock": 109,
+        "attributes": null,
+        "id": "ee683e02-f717-4028-9392-248cce8d8c8d"
+      },
+      {
+        "sku_code": "SKU-7TXFA-DEFAULT-3",
+        "price": 135000,
+        "stock": 109,
+        "attributes": null,
+        "id": "2c01bf24-7ca7-427a-b356-4ac2ed1275a8"
+      },
+      {
+        "sku_code": "SKU-7TXFA-DEFAULT-4",
+        "price": 135000,
+        "stock": 109,
+        "attributes": null,
+        "id": "bb637f44-1420-49d5-8bec-f373c39dadf7"
       }
     ],
     "brand": "Home",
@@ -4023,6 +6060,27 @@
         "price": 214170,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HGR1L-DEFAULT-2",
+        "price": 214170,
+        "stock": 32,
+        "attributes": null,
+        "id": "a8563b33-8ce4-41ab-a0d6-f9fb6f9cdabf"
+      },
+      {
+        "sku_code": "SKU-HGR1L-DEFAULT-3",
+        "price": 214170,
+        "stock": 32,
+        "attributes": null,
+        "id": "dbc77441-dcd5-451b-9f7e-ad5d5116b6f3"
+      },
+      {
+        "sku_code": "SKU-HGR1L-DEFAULT-4",
+        "price": 214170,
+        "stock": 32,
+        "attributes": null,
+        "id": "c420bbd0-2b81-473e-947d-0cbb525694aa"
       }
     ],
     "brand": "Story@Home",
@@ -4060,6 +6118,27 @@
         "price": 599700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ENKWT-DEFAULT-2",
+        "price": 599700,
+        "stock": 86,
+        "attributes": null,
+        "id": "1d816280-baeb-4fe2-92e2-bc3d77d7b929"
+      },
+      {
+        "sku_code": "SKU-ENKWT-DEFAULT-3",
+        "price": 599700,
+        "stock": 86,
+        "attributes": null,
+        "id": "ac99c2f5-f9bf-4189-8657-6412272cbbcd"
+      },
+      {
+        "sku_code": "SKU-ENKWT-DEFAULT-4",
+        "price": 599700,
+        "stock": 86,
+        "attributes": null,
+        "id": "1a361540-c427-491d-84dd-f46f24d2313c"
       }
     ],
     "brand": "Home",
@@ -4097,6 +6176,27 @@
         "price": 689700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MK8LA-DEFAULT-2",
+        "price": 689700,
+        "stock": 98,
+        "attributes": null,
+        "id": "7c20008b-e8bc-41de-addf-70c8125056fa"
+      },
+      {
+        "sku_code": "SKU-MK8LA-DEFAULT-3",
+        "price": 689700,
+        "stock": 98,
+        "attributes": null,
+        "id": "9ece0a6d-0390-4ac0-bd30-36c5c153c481"
+      },
+      {
+        "sku_code": "SKU-MK8LA-DEFAULT-4",
+        "price": 689700,
+        "stock": 98,
+        "attributes": null,
+        "id": "e21ad0b4-18e8-43da-9106-a3e42ddf2a71"
       }
     ],
     "brand": "Soniasaa",

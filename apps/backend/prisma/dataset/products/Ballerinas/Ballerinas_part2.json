@@ -22,6 +22,27 @@
         "price": 179700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HXBAY-DEFAULT-2",
+        "price": 179700,
+        "stock": 39,
+        "attributes": null,
+        "id": "c2bece16-d3ec-4d2d-833c-c80874ae3833"
+      },
+      {
+        "sku_code": "SKU-HXBAY-DEFAULT-3",
+        "price": 179700,
+        "stock": 39,
+        "attributes": null,
+        "id": "8e6a174f-4fb8-425f-98a0-00d59a42d879"
+      },
+      {
+        "sku_code": "SKU-HXBAY-DEFAULT-4",
+        "price": 179700,
+        "stock": 39,
+        "attributes": null,
+        "id": "c1f778bc-d84f-4703-8855-eed473c3a078"
       }
     ],
     "brand": "Metro",
@@ -63,6 +84,27 @@
         "price": 161700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5YBRI-DEFAULT-2",
+        "price": 161700,
+        "stock": 12,
+        "attributes": null,
+        "id": "c168c7af-95e1-4238-a40e-4d0c293f398b"
+      },
+      {
+        "sku_code": "SKU-5YBRI-DEFAULT-3",
+        "price": 161700,
+        "stock": 12,
+        "attributes": null,
+        "id": "72f41611-37ce-428c-afb6-d1719bd85b80"
+      },
+      {
+        "sku_code": "SKU-5YBRI-DEFAULT-4",
+        "price": 161700,
+        "stock": 12,
+        "attributes": null,
+        "id": "4fc4176c-1b78-4fca-9891-c8cb1a9fa575"
       }
     ],
     "brand": "LILY",
@@ -104,6 +146,27 @@
         "price": 389700,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RIMKE-DEFAULT-2",
+        "price": 389700,
+        "stock": 52,
+        "attributes": null,
+        "id": "a828499e-2e1f-47c8-8835-ca47c33bff77"
+      },
+      {
+        "sku_code": "SKU-RIMKE-DEFAULT-3",
+        "price": 389700,
+        "stock": 52,
+        "attributes": null,
+        "id": "aa16ede9-90e7-4830-bd2f-e43df1f145a4"
+      },
+      {
+        "sku_code": "SKU-RIMKE-DEFAULT-4",
+        "price": 389700,
+        "stock": 52,
+        "attributes": null,
+        "id": "77e9a9f1-7cea-4f39-babf-ea30b9ee1db9"
       }
     ],
     "brand": "Rubi",
@@ -149,6 +212,27 @@
         "price": 149700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E4D31-DEFAULT-2",
+        "price": 149700,
+        "stock": 41,
+        "attributes": null,
+        "id": "40da897f-4c45-49f2-b2c0-2cf1f99df114"
+      },
+      {
+        "sku_code": "SKU-E4D31-DEFAULT-3",
+        "price": 149700,
+        "stock": 41,
+        "attributes": null,
+        "id": "b41d6393-8c49-4278-974b-62ba9dece57a"
+      },
+      {
+        "sku_code": "SKU-E4D31-DEFAULT-4",
+        "price": 149700,
+        "stock": 41,
+        "attributes": null,
+        "id": "bd1d226b-d066-4b52-98e7-317e3aca236d"
       }
     ],
     "brand": "EAGLE",
@@ -194,6 +278,27 @@
         "price": 161700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HEBCK-DEFAULT-2",
+        "price": 161700,
+        "stock": 54,
+        "attributes": null,
+        "id": "34e59e90-0dd4-4cbf-b638-baa15a3b4b79"
+      },
+      {
+        "sku_code": "SKU-HEBCK-DEFAULT-3",
+        "price": 161700,
+        "stock": 54,
+        "attributes": null,
+        "id": "e8827953-7225-4dd0-81f4-1c66257fd7ea"
+      },
+      {
+        "sku_code": "SKU-HEBCK-DEFAULT-4",
+        "price": 161700,
+        "stock": 54,
+        "attributes": null,
+        "id": "a791aef5-49d1-47c1-ac6b-aeb664109d74"
       }
     ],
     "brand": "Rubi",
@@ -231,6 +336,27 @@
         "price": 179700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WAIY2-DEFAULT-2",
+        "price": 179700,
+        "stock": 20,
+        "attributes": null,
+        "id": "16c19cb1-d203-4990-ba95-d8e2e735885e"
+      },
+      {
+        "sku_code": "SKU-WAIY2-DEFAULT-3",
+        "price": 179700,
+        "stock": 20,
+        "attributes": null,
+        "id": "04484409-2b0a-4978-b0ce-5e39dd5ec2f1"
+      },
+      {
+        "sku_code": "SKU-WAIY2-DEFAULT-4",
+        "price": 179700,
+        "stock": 20,
+        "attributes": null,
+        "id": "7a0b5622-f6c6-4ebc-9226-5ac21ad67409"
       }
     ],
     "brand": "SANDYCRAFT",
@@ -268,6 +394,27 @@
         "price": 179700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5QFX4-DEFAULT-2",
+        "price": 179700,
+        "stock": 71,
+        "attributes": null,
+        "id": "92de0a5b-b40e-43d8-9582-eb60c4fb1e2d"
+      },
+      {
+        "sku_code": "SKU-5QFX4-DEFAULT-3",
+        "price": 179700,
+        "stock": 71,
+        "attributes": null,
+        "id": "bee9aeb9-a718-41ec-9349-dd0b73720f1b"
+      },
+      {
+        "sku_code": "SKU-5QFX4-DEFAULT-4",
+        "price": 179700,
+        "stock": 71,
+        "attributes": null,
+        "id": "9abeca2a-d962-4f33-b30a-44f2127e5c7a"
       }
     ],
     "brand": "Liberty",
@@ -313,6 +460,27 @@
         "price": 202500,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KXC17-DEFAULT-2",
+        "price": 202500,
+        "stock": 88,
+        "attributes": null,
+        "id": "021d1ebd-59a5-4a23-996e-2520c6d910cd"
+      },
+      {
+        "sku_code": "SKU-KXC17-DEFAULT-3",
+        "price": 202500,
+        "stock": 88,
+        "attributes": null,
+        "id": "00a54812-b54d-48c3-837a-3bef0b2408fd"
+      },
+      {
+        "sku_code": "SKU-KXC17-DEFAULT-4",
+        "price": 202500,
+        "stock": 88,
+        "attributes": null,
+        "id": "591b48ec-c790-4ffa-9b2e-3454845150ab"
       }
     ],
     "brand": "Dollphin",
@@ -354,6 +522,27 @@
         "price": 298500,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3538R-DEFAULT-2",
+        "price": 298500,
+        "stock": 84,
+        "attributes": null,
+        "id": "efbe4f3b-49b0-4172-97dd-35c65043c278"
+      },
+      {
+        "sku_code": "SKU-3538R-DEFAULT-3",
+        "price": 298500,
+        "stock": 84,
+        "attributes": null,
+        "id": "5385cec7-77c1-4b79-96ad-96792304e891"
+      },
+      {
+        "sku_code": "SKU-3538R-DEFAULT-4",
+        "price": 298500,
+        "stock": 84,
+        "attributes": null,
+        "id": "92bbfd3c-3206-4ac1-8d77-31e1c8558b17"
       }
     ],
     "brand": "Rubi",
@@ -399,6 +588,27 @@
         "price": 143400,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5UM1C-DEFAULT-2",
+        "price": 143400,
+        "stock": 24,
+        "attributes": null,
+        "id": "392a54f0-9ef2-4dbc-9976-4da655dbf228"
+      },
+      {
+        "sku_code": "SKU-5UM1C-DEFAULT-3",
+        "price": 143400,
+        "stock": 24,
+        "attributes": null,
+        "id": "d3abf943-1045-41b5-829c-ddd0b19bdd2a"
+      },
+      {
+        "sku_code": "SKU-5UM1C-DEFAULT-4",
+        "price": 143400,
+        "stock": 24,
+        "attributes": null,
+        "id": "e0ca9bcf-3daa-4ccb-9a08-93060b6ce0f9"
       }
     ],
     "brand": "BATA",
@@ -469,6 +679,27 @@
         "price": 143400,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6DMZW-DEFAULT-2",
+        "price": 143400,
+        "stock": 30,
+        "attributes": null,
+        "id": "efa2cf01-c5f5-45dc-8204-c7e0ebcd99f7"
+      },
+      {
+        "sku_code": "SKU-6DMZW-DEFAULT-3",
+        "price": 143400,
+        "stock": 30,
+        "attributes": null,
+        "id": "5aecee21-b49a-4440-97f9-ff8298164bfa"
+      },
+      {
+        "sku_code": "SKU-6DMZW-DEFAULT-4",
+        "price": 143400,
+        "stock": 30,
+        "attributes": null,
+        "id": "17d32022-2af2-4550-9abd-1636626bbe1b"
       }
     ],
     "brand": "Dollphin",
@@ -514,6 +745,27 @@
         "price": 191700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K3OMY-DEFAULT-2",
+        "price": 191700,
+        "stock": 10,
+        "attributes": null,
+        "id": "b5a0d73d-3788-46c5-9d71-5bb39adc94be"
+      },
+      {
+        "sku_code": "SKU-K3OMY-DEFAULT-3",
+        "price": 191700,
+        "stock": 10,
+        "attributes": null,
+        "id": "4cd76f28-64ee-4323-a990-2add164ef82a"
+      },
+      {
+        "sku_code": "SKU-K3OMY-DEFAULT-4",
+        "price": 191700,
+        "stock": 10,
+        "attributes": null,
+        "id": "1d87ce7c-74c4-403f-89b8-8441c13b4bd8"
       }
     ],
     "brand": "Metro",
@@ -555,6 +807,27 @@
         "price": 0,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8YBI2-DEFAULT-2",
+        "price": 0,
+        "stock": 98,
+        "attributes": null,
+        "id": "9df1fc14-6f53-4ea0-af45-ea8882c763fc"
+      },
+      {
+        "sku_code": "SKU-8YBI2-DEFAULT-3",
+        "price": 0,
+        "stock": 98,
+        "attributes": null,
+        "id": "106d6f9d-8178-41c1-ba8f-cc594630d877"
+      },
+      {
+        "sku_code": "SKU-8YBI2-DEFAULT-4",
+        "price": 0,
+        "stock": 98,
+        "attributes": null,
+        "id": "cd34563f-d4e8-4209-8bab-308af7c02c9c"
       }
     ],
     "brand": "KOMOPT",
@@ -596,6 +869,27 @@
         "price": 209700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HFE9T-DEFAULT-2",
+        "price": 209700,
+        "stock": 88,
+        "attributes": null,
+        "id": "4d939b4c-85f3-4ce4-8c62-3c8c3ec09293"
+      },
+      {
+        "sku_code": "SKU-HFE9T-DEFAULT-3",
+        "price": 209700,
+        "stock": 88,
+        "attributes": null,
+        "id": "44d9825d-931c-4228-b128-76c01d1d8bd0"
+      },
+      {
+        "sku_code": "SKU-HFE9T-DEFAULT-4",
+        "price": 209700,
+        "stock": 88,
+        "attributes": null,
+        "id": "f45e6657-2589-41f0-981c-c706eb0eae19"
       }
     ],
     "brand": "BATA",
@@ -648,6 +942,27 @@
         "price": 245700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BPAI7-DEFAULT-2",
+        "price": 245700,
+        "stock": 93,
+        "attributes": null,
+        "id": "6ce0928f-f21a-4298-8020-fd8e2ad06bed"
+      },
+      {
+        "sku_code": "SKU-BPAI7-DEFAULT-3",
+        "price": 245700,
+        "stock": 93,
+        "attributes": null,
+        "id": "0b629ab0-b888-4a35-ab87-7cf2f2e62fba"
+      },
+      {
+        "sku_code": "SKU-BPAI7-DEFAULT-4",
+        "price": 245700,
+        "stock": 93,
+        "attributes": null,
+        "id": "d5c3337c-9b93-4d16-9b2d-f3e6cfaeaecc"
       }
     ],
     "brand": "LILY",
@@ -693,6 +1008,27 @@
         "price": 164700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1YAHN-DEFAULT-2",
+        "price": 164700,
+        "stock": 109,
+        "attributes": null,
+        "id": "e2685737-5a6d-4d9f-8c35-c5bb5c868e4a"
+      },
+      {
+        "sku_code": "SKU-1YAHN-DEFAULT-3",
+        "price": 164700,
+        "stock": 109,
+        "attributes": null,
+        "id": "2b5b1b0a-a518-4aed-b5f3-30273f773a33"
+      },
+      {
+        "sku_code": "SKU-1YAHN-DEFAULT-4",
+        "price": 164700,
+        "stock": 109,
+        "attributes": null,
+        "id": "fd42e3dd-bf5d-43eb-8508-d244fad29dab"
       }
     ],
     "brand": "Liberty",
@@ -734,6 +1070,27 @@
         "price": 209700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U8M5H-DEFAULT-2",
+        "price": 209700,
+        "stock": 101,
+        "attributes": null,
+        "id": "3b46c021-c355-4df0-bf14-0445927eeff4"
+      },
+      {
+        "sku_code": "SKU-U8M5H-DEFAULT-3",
+        "price": 209700,
+        "stock": 101,
+        "attributes": null,
+        "id": "15d95642-070a-4080-99ea-94618affa4e8"
+      },
+      {
+        "sku_code": "SKU-U8M5H-DEFAULT-4",
+        "price": 209700,
+        "stock": 101,
+        "attributes": null,
+        "id": "74cd46be-707c-4230-a64d-fe5729805f7e"
       }
     ],
     "brand": "Rubi",
@@ -771,6 +1128,27 @@
         "price": 323400,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EXII5-DEFAULT-2",
+        "price": 323400,
+        "stock": 73,
+        "attributes": null,
+        "id": "8c4ed4bb-441f-433c-8e02-2ee4ac3d09f9"
+      },
+      {
+        "sku_code": "SKU-EXII5-DEFAULT-3",
+        "price": 323400,
+        "stock": 73,
+        "attributes": null,
+        "id": "6fe28c61-607b-4bf3-a073-dabcadc2f7e6"
+      },
+      {
+        "sku_code": "SKU-EXII5-DEFAULT-4",
+        "price": 323400,
+        "stock": 73,
+        "attributes": null,
+        "id": "aca55149-fa08-4a49-b4d8-b81c6f33f5bd"
       }
     ],
     "brand": "WILDFEET",
@@ -808,6 +1186,27 @@
         "price": 337800,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-910V7-DEFAULT-2",
+        "price": 337800,
+        "stock": 82,
+        "attributes": null,
+        "id": "2c75663a-9b2b-4b91-bc27-939b723821f1"
+      },
+      {
+        "sku_code": "SKU-910V7-DEFAULT-3",
+        "price": 337800,
+        "stock": 82,
+        "attributes": null,
+        "id": "a4d1d73b-ef6d-48ee-b3f5-bd1b1929f8cf"
+      },
+      {
+        "sku_code": "SKU-910V7-DEFAULT-4",
+        "price": 337800,
+        "stock": 82,
+        "attributes": null,
+        "id": "0e03360b-69ba-46d6-9e58-722bb4a4a25d"
       }
     ],
     "brand": "EAGLE",
@@ -853,6 +1252,27 @@
         "price": 0,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KC9B8-DEFAULT-2",
+        "price": 0,
+        "stock": 37,
+        "attributes": null,
+        "id": "5d71faca-3c50-4883-a3e0-07631b9b43af"
+      },
+      {
+        "sku_code": "SKU-KC9B8-DEFAULT-3",
+        "price": 0,
+        "stock": 37,
+        "attributes": null,
+        "id": "10c95ee1-daa2-4581-bc3c-63045f468418"
+      },
+      {
+        "sku_code": "SKU-KC9B8-DEFAULT-4",
+        "price": 0,
+        "stock": 37,
+        "attributes": null,
+        "id": "3cdc8547-46a4-4599-9040-c55341ac4e57"
       }
     ],
     "brand": "LILY",
@@ -890,6 +1310,27 @@
         "price": 125700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KUWUE-DEFAULT-2",
+        "price": 125700,
+        "stock": 43,
+        "attributes": null,
+        "id": "4c44493d-fc0d-4534-96f2-966f32348629"
+      },
+      {
+        "sku_code": "SKU-KUWUE-DEFAULT-3",
+        "price": 125700,
+        "stock": 43,
+        "attributes": null,
+        "id": "ec22e35f-5eb9-4a19-92e8-0ccc077c52d7"
+      },
+      {
+        "sku_code": "SKU-KUWUE-DEFAULT-4",
+        "price": 125700,
+        "stock": 43,
+        "attributes": null,
+        "id": "c41c6219-20cc-488d-8991-1ad52fccfab3"
       }
     ],
     "brand": "Carlton",
@@ -935,6 +1376,27 @@
         "price": 197700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RIX7U-DEFAULT-2",
+        "price": 197700,
+        "stock": 105,
+        "attributes": null,
+        "id": "ff822dbb-57f2-4206-b2de-5db4e2987ced"
+      },
+      {
+        "sku_code": "SKU-RIX7U-DEFAULT-3",
+        "price": 197700,
+        "stock": 105,
+        "attributes": null,
+        "id": "86db0c59-b4da-471b-84c7-233dbc46cc02"
+      },
+      {
+        "sku_code": "SKU-RIX7U-DEFAULT-4",
+        "price": 197700,
+        "stock": 105,
+        "attributes": null,
+        "id": "1a6be67d-7c6f-4b11-9682-539f22579203"
       }
     ],
     "brand": "KOMOPT",
@@ -976,6 +1438,27 @@
         "price": 95700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TWP7F-DEFAULT-2",
+        "price": 95700,
+        "stock": 90,
+        "attributes": null,
+        "id": "55914301-27b0-4a50-80bd-30ea43f60da5"
+      },
+      {
+        "sku_code": "SKU-TWP7F-DEFAULT-3",
+        "price": 95700,
+        "stock": 90,
+        "attributes": null,
+        "id": "99fdac05-1c58-48fd-ab26-de58f83cb77a"
+      },
+      {
+        "sku_code": "SKU-TWP7F-DEFAULT-4",
+        "price": 95700,
+        "stock": 90,
+        "attributes": null,
+        "id": "2ddf9729-a4d2-48f5-a096-5f20fae4cebe"
       }
     ],
     "brand": "Dollphin",
@@ -1013,6 +1496,27 @@
         "price": 217359,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YYWWY-DEFAULT-2",
+        "price": 217359,
+        "stock": 71,
+        "attributes": null,
+        "id": "495919fc-6a60-4ec6-a708-3f35c6be05f5"
+      },
+      {
+        "sku_code": "SKU-YYWWY-DEFAULT-3",
+        "price": 217359,
+        "stock": 71,
+        "attributes": null,
+        "id": "33a2fba0-bddb-4ec2-a4a7-2dd758564774"
+      },
+      {
+        "sku_code": "SKU-YYWWY-DEFAULT-4",
+        "price": 217359,
+        "stock": 71,
+        "attributes": null,
+        "id": "19e3c469-12f5-44cd-871d-446abc953977"
       }
     ],
     "brand": "Carlton",
@@ -1058,6 +1562,27 @@
         "price": 336900,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IOOB8-DEFAULT-2",
+        "price": 336900,
+        "stock": 100,
+        "attributes": null,
+        "id": "58070fd2-3084-4524-97a3-cc70eaa59e7f"
+      },
+      {
+        "sku_code": "SKU-IOOB8-DEFAULT-3",
+        "price": 336900,
+        "stock": 100,
+        "attributes": null,
+        "id": "8eef23e9-8003-4f0a-9c31-fa3e0a97c799"
+      },
+      {
+        "sku_code": "SKU-IOOB8-DEFAULT-4",
+        "price": 336900,
+        "stock": 100,
+        "attributes": null,
+        "id": "39914da3-7487-4124-a56f-18aa9d6f00c8"
       }
     ],
     "brand": "EAGLE",
@@ -1095,6 +1620,27 @@
         "price": 447000,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WL23E-DEFAULT-2",
+        "price": 447000,
+        "stock": 64,
+        "attributes": null,
+        "id": "af867fbc-12a3-4442-8649-e3526ecd0c73"
+      },
+      {
+        "sku_code": "SKU-WL23E-DEFAULT-3",
+        "price": 447000,
+        "stock": 64,
+        "attributes": null,
+        "id": "a322ba4e-a45b-4382-9146-3665802fd0c4"
+      },
+      {
+        "sku_code": "SKU-WL23E-DEFAULT-4",
+        "price": 447000,
+        "stock": 64,
+        "attributes": null,
+        "id": "b48e7ac9-4908-48cc-b524-be19d3a19144"
       }
     ],
     "brand": "EAGLE",
@@ -1140,6 +1686,27 @@
         "price": 160200,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VN2Z4-DEFAULT-2",
+        "price": 160200,
+        "stock": 105,
+        "attributes": null,
+        "id": "c9b441a1-2584-4ce2-a3dd-292ea7aa7d88"
+      },
+      {
+        "sku_code": "SKU-VN2Z4-DEFAULT-3",
+        "price": 160200,
+        "stock": 105,
+        "attributes": null,
+        "id": "7e682ce1-debc-4909-93b7-0e39d7003649"
+      },
+      {
+        "sku_code": "SKU-VN2Z4-DEFAULT-4",
+        "price": 160200,
+        "stock": 105,
+        "attributes": null,
+        "id": "f652ab27-2155-4b80-953e-392b1e1d5b8a"
       }
     ],
     "brand": "LILY",
@@ -1181,6 +1748,27 @@
         "price": 179700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0Z68M-DEFAULT-2",
+        "price": 179700,
+        "stock": 105,
+        "attributes": null,
+        "id": "0b14b331-8f46-4654-9827-aa60bd5dcde5"
+      },
+      {
+        "sku_code": "SKU-0Z68M-DEFAULT-3",
+        "price": 179700,
+        "stock": 105,
+        "attributes": null,
+        "id": "a06f41eb-14d1-455c-b041-6fdce4d28898"
+      },
+      {
+        "sku_code": "SKU-0Z68M-DEFAULT-4",
+        "price": 179700,
+        "stock": 105,
+        "attributes": null,
+        "id": "7b91efa6-b627-4578-b198-d7e18e511f94"
       }
     ],
     "brand": "LILY",
@@ -1222,6 +1810,27 @@
         "price": 104700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OVH1E-DEFAULT-2",
+        "price": 104700,
+        "stock": 12,
+        "attributes": null,
+        "id": "3c25b65f-66ba-4cdd-b47b-155f479cfe2b"
+      },
+      {
+        "sku_code": "SKU-OVH1E-DEFAULT-3",
+        "price": 104700,
+        "stock": 12,
+        "attributes": null,
+        "id": "f130d258-44e2-472b-9f43-9ae194e4b2f9"
+      },
+      {
+        "sku_code": "SKU-OVH1E-DEFAULT-4",
+        "price": 104700,
+        "stock": 12,
+        "attributes": null,
+        "id": "c2dc9e16-23ab-4f6f-845a-35f46a5703c6"
       }
     ],
     "brand": "Planet",
@@ -1259,6 +1868,27 @@
         "price": 298500,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FS2MI-DEFAULT-2",
+        "price": 298500,
+        "stock": 106,
+        "attributes": null,
+        "id": "9233b4c2-18c3-41cc-a302-048b5a47580d"
+      },
+      {
+        "sku_code": "SKU-FS2MI-DEFAULT-3",
+        "price": 298500,
+        "stock": 106,
+        "attributes": null,
+        "id": "49056a45-1c6a-436b-8b30-9242a7ed8ccd"
+      },
+      {
+        "sku_code": "SKU-FS2MI-DEFAULT-4",
+        "price": 298500,
+        "stock": 106,
+        "attributes": null,
+        "id": "29375171-d013-403d-976a-3e75960a09d8"
       }
     ],
     "brand": "Walktrendy",
@@ -1304,6 +1934,27 @@
         "price": 170700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VFIKN-DEFAULT-2",
+        "price": 170700,
+        "stock": 96,
+        "attributes": null,
+        "id": "75b7c8d1-eff9-4f2f-8665-28478342c977"
+      },
+      {
+        "sku_code": "SKU-VFIKN-DEFAULT-3",
+        "price": 170700,
+        "stock": 96,
+        "attributes": null,
+        "id": "ee614585-200e-42a9-91b6-5ff99691aaa8"
+      },
+      {
+        "sku_code": "SKU-VFIKN-DEFAULT-4",
+        "price": 170700,
+        "stock": 96,
+        "attributes": null,
+        "id": "1842d1fa-55a3-4768-b23c-9b014140db8a"
       }
     ],
     "brand": "Rubi",
@@ -1345,6 +1996,27 @@
         "price": 154767,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2IBUN-DEFAULT-2",
+        "price": 154767,
+        "stock": 11,
+        "attributes": null,
+        "id": "d8c0e44f-2afe-4917-892c-955eb2f2742c"
+      },
+      {
+        "sku_code": "SKU-2IBUN-DEFAULT-3",
+        "price": 154767,
+        "stock": 11,
+        "attributes": null,
+        "id": "573f477a-2bb5-4102-b116-ba7f38a4dad1"
+      },
+      {
+        "sku_code": "SKU-2IBUN-DEFAULT-4",
+        "price": 154767,
+        "stock": 11,
+        "attributes": null,
+        "id": "0cb146de-709b-4fa9-906c-3f7e565c7e82"
       }
     ],
     "brand": "EAGLE",
@@ -1382,6 +2054,27 @@
         "price": 239400,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GEH5E-DEFAULT-2",
+        "price": 239400,
+        "stock": 88,
+        "attributes": null,
+        "id": "4e6f36d6-af22-4e45-946c-9171b816aaf4"
+      },
+      {
+        "sku_code": "SKU-GEH5E-DEFAULT-3",
+        "price": 239400,
+        "stock": 88,
+        "attributes": null,
+        "id": "d699a822-e118-4869-a5cb-e3b31e38733c"
+      },
+      {
+        "sku_code": "SKU-GEH5E-DEFAULT-4",
+        "price": 239400,
+        "stock": 88,
+        "attributes": null,
+        "id": "0e68373c-819e-4fd6-8545-bbe7629be4d4"
       }
     ],
     "brand": "EAGLE",
@@ -1427,6 +2120,27 @@
         "price": 1050000,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NLK5G-DEFAULT-2",
+        "price": 1050000,
+        "stock": 92,
+        "attributes": null,
+        "id": "8b9bef89-2b62-43f6-b748-7a6af6fc2936"
+      },
+      {
+        "sku_code": "SKU-NLK5G-DEFAULT-3",
+        "price": 1050000,
+        "stock": 92,
+        "attributes": null,
+        "id": "a99d9e6e-f487-45c4-a8ca-b9f18ebed19b"
+      },
+      {
+        "sku_code": "SKU-NLK5G-DEFAULT-4",
+        "price": 1050000,
+        "stock": 92,
+        "attributes": null,
+        "id": "383e01d4-d627-4eb1-a7f0-405b53c751ac"
       }
     ],
     "brand": "Rubi",
@@ -1472,6 +2186,27 @@
         "price": 118500,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FITDU-DEFAULT-2",
+        "price": 118500,
+        "stock": 68,
+        "attributes": null,
+        "id": "efb8d18f-cce0-46b3-858e-d1f7f75824f9"
+      },
+      {
+        "sku_code": "SKU-FITDU-DEFAULT-3",
+        "price": 118500,
+        "stock": 68,
+        "attributes": null,
+        "id": "721b83b5-b5f9-4fbc-a4f6-7b88e63eeec6"
+      },
+      {
+        "sku_code": "SKU-FITDU-DEFAULT-4",
+        "price": 118500,
+        "stock": 68,
+        "attributes": null,
+        "id": "fe1598f0-bcf6-43be-ae6b-d3db0927b376"
       }
     ],
     "brand": "EAGLE",
@@ -1517,6 +2252,27 @@
         "price": 218700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0XCJ5-DEFAULT-2",
+        "price": 218700,
+        "stock": 83,
+        "attributes": null,
+        "id": "54aaedf5-ea53-4f42-9fc6-14abc9ef3200"
+      },
+      {
+        "sku_code": "SKU-0XCJ5-DEFAULT-3",
+        "price": 218700,
+        "stock": 83,
+        "attributes": null,
+        "id": "09ffd8c1-fc72-4336-afc4-21786b3d8cb8"
+      },
+      {
+        "sku_code": "SKU-0XCJ5-DEFAULT-4",
+        "price": 218700,
+        "stock": 83,
+        "attributes": null,
+        "id": "279d2d86-4f87-4bc1-a195-2f3f374c8fe6"
       }
     ],
     "brand": "SANDYCRAFT",
@@ -1591,6 +2347,27 @@
         "price": 297000,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X5XBN-DEFAULT-2",
+        "price": 297000,
+        "stock": 32,
+        "attributes": null,
+        "id": "f0c51988-e98b-4cbd-ba3e-172741b57c40"
+      },
+      {
+        "sku_code": "SKU-X5XBN-DEFAULT-3",
+        "price": 297000,
+        "stock": 32,
+        "attributes": null,
+        "id": "d34caeae-37cc-490d-94cb-3a4ce70d42de"
+      },
+      {
+        "sku_code": "SKU-X5XBN-DEFAULT-4",
+        "price": 297000,
+        "stock": 32,
+        "attributes": null,
+        "id": "f016ebb0-1633-4b0b-b8e1-5edcafc34e7e"
       }
     ],
     "brand": "EAGLE",
@@ -1636,6 +2413,27 @@
         "price": 134700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YSP9X-DEFAULT-2",
+        "price": 134700,
+        "stock": 46,
+        "attributes": null,
+        "id": "277b7796-77f0-460a-a5a6-b6d197154ac5"
+      },
+      {
+        "sku_code": "SKU-YSP9X-DEFAULT-3",
+        "price": 134700,
+        "stock": 46,
+        "attributes": null,
+        "id": "51e9ed00-73ee-4642-9b1d-b1e4c5ef15ed"
+      },
+      {
+        "sku_code": "SKU-YSP9X-DEFAULT-4",
+        "price": 134700,
+        "stock": 46,
+        "attributes": null,
+        "id": "bd4debc0-2f6f-4afb-9b18-a43fddd37513"
       }
     ],
     "brand": "WILDFEET",
@@ -1677,6 +2475,27 @@
         "price": 104700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z5QPM-DEFAULT-2",
+        "price": 104700,
+        "stock": 94,
+        "attributes": null,
+        "id": "ff3d3878-93f5-49be-bb38-c824c9a724d1"
+      },
+      {
+        "sku_code": "SKU-Z5QPM-DEFAULT-3",
+        "price": 104700,
+        "stock": 94,
+        "attributes": null,
+        "id": "f11fb9e3-e2fe-4431-bcaa-b0209786907e"
+      },
+      {
+        "sku_code": "SKU-Z5QPM-DEFAULT-4",
+        "price": 104700,
+        "stock": 94,
+        "attributes": null,
+        "id": "aea1b5b1-dd4e-4cd5-a704-9b7ccc259766"
       }
     ],
     "brand": "SANDYCRAFT",
@@ -1721,6 +2540,27 @@
         "price": 359700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OZANN-DEFAULT-2",
+        "price": 359700,
+        "stock": 39,
+        "attributes": null,
+        "id": "15ca9b2f-1e7a-416d-bef2-07a4a02b3f14"
+      },
+      {
+        "sku_code": "SKU-OZANN-DEFAULT-3",
+        "price": 359700,
+        "stock": 39,
+        "attributes": null,
+        "id": "60094c4b-5731-47be-a334-0705be3f405f"
+      },
+      {
+        "sku_code": "SKU-OZANN-DEFAULT-4",
+        "price": 359700,
+        "stock": 39,
+        "attributes": null,
+        "id": "03a88cd7-4271-4883-a6c0-32a5419a3fa5"
       }
     ],
     "brand": "WILDFEET",
@@ -1766,6 +2606,27 @@
         "price": 179400,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-127AU-DEFAULT-2",
+        "price": 179400,
+        "stock": 92,
+        "attributes": null,
+        "id": "95196f2b-8a57-4207-95d3-3556f6c48c4a"
+      },
+      {
+        "sku_code": "SKU-127AU-DEFAULT-3",
+        "price": 179400,
+        "stock": 92,
+        "attributes": null,
+        "id": "a9dd764f-8ffe-4d5f-bcaa-36c5c79573c5"
+      },
+      {
+        "sku_code": "SKU-127AU-DEFAULT-4",
+        "price": 179400,
+        "stock": 92,
+        "attributes": null,
+        "id": "9c1fcaf7-2f30-4a3a-ab77-8663892b68a2"
       }
     ],
     "brand": "Metro",
@@ -1803,6 +2664,27 @@
         "price": 149700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3IB9E-DEFAULT-2",
+        "price": 149700,
+        "stock": 20,
+        "attributes": null,
+        "id": "64a54450-113e-4179-8b33-54de241469a1"
+      },
+      {
+        "sku_code": "SKU-3IB9E-DEFAULT-3",
+        "price": 149700,
+        "stock": 20,
+        "attributes": null,
+        "id": "5a0ff9ef-d94c-4307-9f05-ef71dc035b5e"
+      },
+      {
+        "sku_code": "SKU-3IB9E-DEFAULT-4",
+        "price": 149700,
+        "stock": 20,
+        "attributes": null,
+        "id": "488b8020-08bf-43fb-8044-dd9e8151d633"
       }
     ],
     "brand": "LILY",
@@ -1844,6 +2726,27 @@
         "price": 212700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ESENX-DEFAULT-2",
+        "price": 212700,
+        "stock": 36,
+        "attributes": null,
+        "id": "59b5e05a-e298-4629-ae82-5e865468cf1e"
+      },
+      {
+        "sku_code": "SKU-ESENX-DEFAULT-3",
+        "price": 212700,
+        "stock": 36,
+        "attributes": null,
+        "id": "aaab01a8-9dcc-49aa-8ecc-9c5e171c4ed3"
+      },
+      {
+        "sku_code": "SKU-ESENX-DEFAULT-4",
+        "price": 212700,
+        "stock": 36,
+        "attributes": null,
+        "id": "19323b2d-82b4-4cd0-a416-b2b8c0447aa0"
       }
     ],
     "brand": "BATA",
@@ -1889,6 +2792,27 @@
         "price": 254700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RGMKV-DEFAULT-2",
+        "price": 254700,
+        "stock": 26,
+        "attributes": null,
+        "id": "9e3bb16c-b93c-48e7-9625-37656ebef440"
+      },
+      {
+        "sku_code": "SKU-RGMKV-DEFAULT-3",
+        "price": 254700,
+        "stock": 26,
+        "attributes": null,
+        "id": "be5a5287-e8c5-42d4-8074-c4fd58ec3c3f"
+      },
+      {
+        "sku_code": "SKU-RGMKV-DEFAULT-4",
+        "price": 254700,
+        "stock": 26,
+        "attributes": null,
+        "id": "edbcf619-08ff-445f-920a-8e2493d1cade"
       }
     ],
     "brand": "LILY",
@@ -1934,6 +2858,27 @@
         "price": 389700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N78O5-DEFAULT-2",
+        "price": 389700,
+        "stock": 11,
+        "attributes": null,
+        "id": "263f99f0-1606-4fbf-87fa-8d778fde804c"
+      },
+      {
+        "sku_code": "SKU-N78O5-DEFAULT-3",
+        "price": 389700,
+        "stock": 11,
+        "attributes": null,
+        "id": "1102e07c-ee2f-445a-b78f-198fd9904732"
+      },
+      {
+        "sku_code": "SKU-N78O5-DEFAULT-4",
+        "price": 389700,
+        "stock": 11,
+        "attributes": null,
+        "id": "39c619b3-db33-4da7-b341-6b69832768d8"
       }
     ],
     "brand": "BATA",
@@ -1971,6 +2916,27 @@
         "price": 419700,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UEVCP-DEFAULT-2",
+        "price": 419700,
+        "stock": 52,
+        "attributes": null,
+        "id": "5be51119-e14b-4bad-94fe-938d0e796ba2"
+      },
+      {
+        "sku_code": "SKU-UEVCP-DEFAULT-3",
+        "price": 419700,
+        "stock": 52,
+        "attributes": null,
+        "id": "deeab209-6da9-41be-ac3b-d547850f42a5"
+      },
+      {
+        "sku_code": "SKU-UEVCP-DEFAULT-4",
+        "price": 419700,
+        "stock": 52,
+        "attributes": null,
+        "id": "8d9bf80a-b968-49be-a0c3-16de887fdd39"
       }
     ],
     "brand": "Denim",
@@ -2008,6 +2974,27 @@
         "price": 194700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XS3LG-DEFAULT-2",
+        "price": 194700,
+        "stock": 91,
+        "attributes": null,
+        "id": "1a532bd6-748c-4b60-8b49-c12fcc4f225f"
+      },
+      {
+        "sku_code": "SKU-XS3LG-DEFAULT-3",
+        "price": 194700,
+        "stock": 91,
+        "attributes": null,
+        "id": "4c5a9695-df13-46a8-91dd-1868a117f47b"
+      },
+      {
+        "sku_code": "SKU-XS3LG-DEFAULT-4",
+        "price": 194700,
+        "stock": 91,
+        "attributes": null,
+        "id": "1eaf1314-2d2e-49cb-9d18-d81b5b2c795b"
       }
     ],
     "brand": "Denim",
@@ -2045,6 +3032,27 @@
         "price": 107700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U7SF8-DEFAULT-2",
+        "price": 107700,
+        "stock": 101,
+        "attributes": null,
+        "id": "00abd1cc-2f18-459b-82e6-bbff679a8b9b"
+      },
+      {
+        "sku_code": "SKU-U7SF8-DEFAULT-3",
+        "price": 107700,
+        "stock": 101,
+        "attributes": null,
+        "id": "91af4fc3-7235-4d49-a7ad-dd6edabfe2e5"
+      },
+      {
+        "sku_code": "SKU-U7SF8-DEFAULT-4",
+        "price": 107700,
+        "stock": 101,
+        "attributes": null,
+        "id": "cbc4b004-08e1-4a86-86f6-3e59db37f4c9"
       }
     ],
     "brand": "Liberty",
@@ -2090,6 +3098,27 @@
         "price": 293700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F4SIL-DEFAULT-2",
+        "price": 293700,
+        "stock": 54,
+        "attributes": null,
+        "id": "22795838-bee9-4ae7-a34b-49324dbff680"
+      },
+      {
+        "sku_code": "SKU-F4SIL-DEFAULT-3",
+        "price": 293700,
+        "stock": 54,
+        "attributes": null,
+        "id": "174e47b8-0564-432e-9a58-62210d5ad931"
+      },
+      {
+        "sku_code": "SKU-F4SIL-DEFAULT-4",
+        "price": 293700,
+        "stock": 54,
+        "attributes": null,
+        "id": "3bfadfdc-fa3b-4cb7-9e98-cb53c03dd729"
       }
     ],
     "brand": "EAGLE",
@@ -2127,6 +3156,27 @@
         "price": 179700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4YG3A-DEFAULT-2",
+        "price": 179700,
+        "stock": 43,
+        "attributes": null,
+        "id": "26719edc-b20d-40d0-8c8b-b0bcfdfe21f1"
+      },
+      {
+        "sku_code": "SKU-4YG3A-DEFAULT-3",
+        "price": 179700,
+        "stock": 43,
+        "attributes": null,
+        "id": "9569c54d-b049-494b-b99b-4b2e18ae8f88"
+      },
+      {
+        "sku_code": "SKU-4YG3A-DEFAULT-4",
+        "price": 179700,
+        "stock": 43,
+        "attributes": null,
+        "id": "37e29805-b2a5-410b-b3fc-b8a5472e16ee"
       }
     ],
     "brand": "BATA",
@@ -2168,6 +3218,27 @@
         "price": 254700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YX4Y3-DEFAULT-2",
+        "price": 254700,
+        "stock": 103,
+        "attributes": null,
+        "id": "83315d06-3e06-4334-9a89-b404d280f3a3"
+      },
+      {
+        "sku_code": "SKU-YX4Y3-DEFAULT-3",
+        "price": 254700,
+        "stock": 103,
+        "attributes": null,
+        "id": "00013672-12b4-4fc9-a322-46ac3e886df5"
+      },
+      {
+        "sku_code": "SKU-YX4Y3-DEFAULT-4",
+        "price": 254700,
+        "stock": 103,
+        "attributes": null,
+        "id": "0cce89c6-9093-496f-a40c-f2aaeb871ca1"
       }
     ],
     "brand": "Planet",
@@ -2209,6 +3280,27 @@
         "price": 149700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IEVN9-DEFAULT-2",
+        "price": 149700,
+        "stock": 26,
+        "attributes": null,
+        "id": "ac3c692c-28f2-46a3-af44-fbbb3b92cf83"
+      },
+      {
+        "sku_code": "SKU-IEVN9-DEFAULT-3",
+        "price": 149700,
+        "stock": 26,
+        "attributes": null,
+        "id": "21cb3b70-f0ca-4f38-b5ad-cb44874a98a4"
+      },
+      {
+        "sku_code": "SKU-IEVN9-DEFAULT-4",
+        "price": 149700,
+        "stock": 26,
+        "attributes": null,
+        "id": "416929a1-a409-4d23-a486-a34f74813bb1"
       }
     ],
     "brand": "Carlton",
@@ -2246,6 +3338,27 @@
         "price": 149700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EETC1-DEFAULT-2",
+        "price": 149700,
+        "stock": 106,
+        "attributes": null,
+        "id": "deae05e5-62fb-49c4-bbec-11e630376a11"
+      },
+      {
+        "sku_code": "SKU-EETC1-DEFAULT-3",
+        "price": 149700,
+        "stock": 106,
+        "attributes": null,
+        "id": "739e9586-f48e-4bc4-987b-5713459c8c19"
+      },
+      {
+        "sku_code": "SKU-EETC1-DEFAULT-4",
+        "price": 149700,
+        "stock": 106,
+        "attributes": null,
+        "id": "baa29e87-7ee1-46a0-a1e6-13e9def83f3c"
       }
     ],
     "brand": "KOMOPT",
@@ -2287,6 +3400,27 @@
         "price": 119700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KU4I2-DEFAULT-2",
+        "price": 119700,
+        "stock": 27,
+        "attributes": null,
+        "id": "fed87387-027f-45df-acf5-dafb394e2d80"
+      },
+      {
+        "sku_code": "SKU-KU4I2-DEFAULT-3",
+        "price": 119700,
+        "stock": 27,
+        "attributes": null,
+        "id": "6abae961-b41b-459d-a049-b3f96bc919b8"
+      },
+      {
+        "sku_code": "SKU-KU4I2-DEFAULT-4",
+        "price": 119700,
+        "stock": 27,
+        "attributes": null,
+        "id": "6ed710e2-dfe4-4922-923b-6898d1103ae6"
       }
     ],
     "brand": "Liberty",
@@ -2334,6 +3468,27 @@
         "price": 149700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KUSLW-DEFAULT-2",
+        "price": 149700,
+        "stock": 78,
+        "attributes": null,
+        "id": "c31a4b22-2e9d-46d3-983b-e8ac0e55b4cc"
+      },
+      {
+        "sku_code": "SKU-KUSLW-DEFAULT-3",
+        "price": 149700,
+        "stock": 78,
+        "attributes": null,
+        "id": "5cb8fe6b-5829-4114-885b-785650697e2a"
+      },
+      {
+        "sku_code": "SKU-KUSLW-DEFAULT-4",
+        "price": 149700,
+        "stock": 78,
+        "attributes": null,
+        "id": "89a988b6-aa88-40e5-8a63-6e0bfc2d6fb8"
       }
     ],
     "brand": "Carlton",
@@ -2375,6 +3530,27 @@
         "price": 156600,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NXSSM-DEFAULT-2",
+        "price": 156600,
+        "stock": 109,
+        "attributes": null,
+        "id": "129d91b1-0029-474f-bfdb-a135e04a47ad"
+      },
+      {
+        "sku_code": "SKU-NXSSM-DEFAULT-3",
+        "price": 156600,
+        "stock": 109,
+        "attributes": null,
+        "id": "9cc64b8c-f392-4742-87e7-dde4ca8dec41"
+      },
+      {
+        "sku_code": "SKU-NXSSM-DEFAULT-4",
+        "price": 156600,
+        "stock": 109,
+        "attributes": null,
+        "id": "7ac0c75d-6b22-4436-9a73-793cc6367502"
       }
     ],
     "brand": "Walktrendy",
@@ -2420,6 +3596,27 @@
         "price": 119700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UQ5UT-DEFAULT-2",
+        "price": 119700,
+        "stock": 67,
+        "attributes": null,
+        "id": "b09b735f-b60f-4445-a7e9-4c222875a50f"
+      },
+      {
+        "sku_code": "SKU-UQ5UT-DEFAULT-3",
+        "price": 119700,
+        "stock": 67,
+        "attributes": null,
+        "id": "b3936fed-6ac7-4cd2-9469-b39fa5bb8c33"
+      },
+      {
+        "sku_code": "SKU-UQ5UT-DEFAULT-4",
+        "price": 119700,
+        "stock": 67,
+        "attributes": null,
+        "id": "7fa70a2b-e8f6-437e-8452-16dd3d2e3e9d"
       }
     ],
     "brand": "Planet",
@@ -2465,6 +3662,27 @@
         "price": 89700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0O3L3-DEFAULT-2",
+        "price": 89700,
+        "stock": 55,
+        "attributes": null,
+        "id": "6eabd6a1-5258-4b63-86a8-d1479472619c"
+      },
+      {
+        "sku_code": "SKU-0O3L3-DEFAULT-3",
+        "price": 89700,
+        "stock": 55,
+        "attributes": null,
+        "id": "0b364155-c752-4b09-ab2a-365d955b21ee"
+      },
+      {
+        "sku_code": "SKU-0O3L3-DEFAULT-4",
+        "price": 89700,
+        "stock": 55,
+        "attributes": null,
+        "id": "7a93a031-a5a5-4793-9745-5737d7099523"
       }
     ],
     "brand": "Rubi",
@@ -2502,6 +3720,27 @@
         "price": 119700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2S8D6-DEFAULT-2",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "519acd57-d56e-4321-9d72-f37ac651f5cf"
+      },
+      {
+        "sku_code": "SKU-2S8D6-DEFAULT-3",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "5db8d20f-3549-46f5-be93-b11fb518bdaf"
+      },
+      {
+        "sku_code": "SKU-2S8D6-DEFAULT-4",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "012926a5-323c-4af4-8f03-8fdcb8c54f50"
       }
     ],
     "brand": "LILY",
@@ -2539,6 +3778,27 @@
         "price": 597000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1RA87-DEFAULT-2",
+        "price": 597000,
+        "stock": 30,
+        "attributes": null,
+        "id": "57048d68-e09e-41cc-af33-094669fe3b09"
+      },
+      {
+        "sku_code": "SKU-1RA87-DEFAULT-3",
+        "price": 597000,
+        "stock": 30,
+        "attributes": null,
+        "id": "46a4331c-2ad7-41b8-ad9d-75a6857687fb"
+      },
+      {
+        "sku_code": "SKU-1RA87-DEFAULT-4",
+        "price": 597000,
+        "stock": 30,
+        "attributes": null,
+        "id": "ff6bc0f7-9da8-4079-bf18-31d3a418b791"
       }
     ],
     "brand": "Metro",
@@ -2576,6 +3836,27 @@
         "price": 104700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M9650-DEFAULT-2",
+        "price": 104700,
+        "stock": 83,
+        "attributes": null,
+        "id": "e99595b4-ca37-4f30-8d93-c326a50342dc"
+      },
+      {
+        "sku_code": "SKU-M9650-DEFAULT-3",
+        "price": 104700,
+        "stock": 83,
+        "attributes": null,
+        "id": "0fc42ad1-0b5a-4b67-a0a3-dc1ee4b05000"
+      },
+      {
+        "sku_code": "SKU-M9650-DEFAULT-4",
+        "price": 104700,
+        "stock": 83,
+        "attributes": null,
+        "id": "3762a1dd-8831-4354-ad8a-cc2d5a25ca82"
       }
     ],
     "brand": "Dollphin",
@@ -2621,6 +3902,27 @@
         "price": 112200,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D6I1H-DEFAULT-2",
+        "price": 112200,
+        "stock": 41,
+        "attributes": null,
+        "id": "35e7672b-71ad-47aa-ba84-8e1e27f835ea"
+      },
+      {
+        "sku_code": "SKU-D6I1H-DEFAULT-3",
+        "price": 112200,
+        "stock": 41,
+        "attributes": null,
+        "id": "b6bea60e-108b-4018-88ec-08f328816d6b"
+      },
+      {
+        "sku_code": "SKU-D6I1H-DEFAULT-4",
+        "price": 112200,
+        "stock": 41,
+        "attributes": null,
+        "id": "40ff1578-74ac-4f69-b3a5-63e8333b122c"
       }
     ],
     "brand": "SANDYCRAFT",
@@ -2666,6 +3968,27 @@
         "price": 232482.00000000003,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-58977-DEFAULT-2",
+        "price": 232482.00000000003,
+        "stock": 104,
+        "attributes": null,
+        "id": "f16e2b33-3a10-4209-92e1-039b491a99d8"
+      },
+      {
+        "sku_code": "SKU-58977-DEFAULT-3",
+        "price": 232482.00000000003,
+        "stock": 104,
+        "attributes": null,
+        "id": "c1b8714b-e3c3-4ddf-8f9d-0fd03543da50"
+      },
+      {
+        "sku_code": "SKU-58977-DEFAULT-4",
+        "price": 232482.00000000003,
+        "stock": 104,
+        "attributes": null,
+        "id": "e0ef6d15-07d7-4812-9b4f-ec55107938a2"
       }
     ],
     "brand": "Carlton",
@@ -2703,6 +4026,27 @@
         "price": 269400,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BTG6E-DEFAULT-2",
+        "price": 269400,
+        "stock": 33,
+        "attributes": null,
+        "id": "986da023-d374-41ca-bf52-f0ae40fef264"
+      },
+      {
+        "sku_code": "SKU-BTG6E-DEFAULT-3",
+        "price": 269400,
+        "stock": 33,
+        "attributes": null,
+        "id": "e04420a7-7cef-4928-bc15-58e66c80160b"
+      },
+      {
+        "sku_code": "SKU-BTG6E-DEFAULT-4",
+        "price": 269400,
+        "stock": 33,
+        "attributes": null,
+        "id": "0eaaaffb-aaf4-4e2e-8df1-0486c40a24ab"
       }
     ],
     "brand": "STEFANOFOOT",
@@ -2748,6 +4092,27 @@
         "price": 149700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XSSUK-DEFAULT-2",
+        "price": 149700,
+        "stock": 77,
+        "attributes": null,
+        "id": "14c35c9a-9817-45c6-bf9d-c7b796fc88c5"
+      },
+      {
+        "sku_code": "SKU-XSSUK-DEFAULT-3",
+        "price": 149700,
+        "stock": 77,
+        "attributes": null,
+        "id": "577bf9da-55bf-4901-89b6-8ad48c72e4c3"
+      },
+      {
+        "sku_code": "SKU-XSSUK-DEFAULT-4",
+        "price": 149700,
+        "stock": 77,
+        "attributes": null,
+        "id": "d0b6c546-57db-4525-a426-4d68b0185d12"
       }
     ],
     "brand": "Liberty",
@@ -2785,6 +4150,27 @@
         "price": 209700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JMK4C-DEFAULT-2",
+        "price": 209700,
+        "stock": 16,
+        "attributes": null,
+        "id": "839525f3-ea16-4c2c-bdb8-2e2e776989a9"
+      },
+      {
+        "sku_code": "SKU-JMK4C-DEFAULT-3",
+        "price": 209700,
+        "stock": 16,
+        "attributes": null,
+        "id": "722b13bf-353b-423f-841c-e139939fba6f"
+      },
+      {
+        "sku_code": "SKU-JMK4C-DEFAULT-4",
+        "price": 209700,
+        "stock": 16,
+        "attributes": null,
+        "id": "7769b612-26b3-4dfa-af84-22c015f4c187"
       }
     ],
     "brand": "Planet",
@@ -2830,6 +4216,27 @@
         "price": 89700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6TGSX-DEFAULT-2",
+        "price": 89700,
+        "stock": 63,
+        "attributes": null,
+        "id": "1330741c-5607-4837-acbc-2cbf28802430"
+      },
+      {
+        "sku_code": "SKU-6TGSX-DEFAULT-3",
+        "price": 89700,
+        "stock": 63,
+        "attributes": null,
+        "id": "a91830dc-7f5e-4807-ac0a-b8430317f484"
+      },
+      {
+        "sku_code": "SKU-6TGSX-DEFAULT-4",
+        "price": 89700,
+        "stock": 63,
+        "attributes": null,
+        "id": "5f2d9acd-77ed-4f49-ba7a-ff6d7afe076d"
       }
     ],
     "brand": "WILDFEET",
@@ -2871,6 +4278,27 @@
         "price": 107700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KSVEH-DEFAULT-2",
+        "price": 107700,
+        "stock": 89,
+        "attributes": null,
+        "id": "04ec90af-5469-48ed-821c-6128fb2e940b"
+      },
+      {
+        "sku_code": "SKU-KSVEH-DEFAULT-3",
+        "price": 107700,
+        "stock": 89,
+        "attributes": null,
+        "id": "ec692566-d835-4826-9968-85c54b46fe27"
+      },
+      {
+        "sku_code": "SKU-KSVEH-DEFAULT-4",
+        "price": 107700,
+        "stock": 89,
+        "attributes": null,
+        "id": "27f9bdff-dfea-4b40-a586-5bf0e1ddea99"
       }
     ],
     "brand": "Rubi",
@@ -2908,6 +4336,27 @@
         "price": 86400,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZGVDY-DEFAULT-2",
+        "price": 86400,
+        "stock": 92,
+        "attributes": null,
+        "id": "ebc5d193-6d48-4ca7-bd53-98f6526c89ab"
+      },
+      {
+        "sku_code": "SKU-ZGVDY-DEFAULT-3",
+        "price": 86400,
+        "stock": 92,
+        "attributes": null,
+        "id": "7f94f2b8-57c9-4201-9e20-8a9ef3f38905"
+      },
+      {
+        "sku_code": "SKU-ZGVDY-DEFAULT-4",
+        "price": 86400,
+        "stock": 92,
+        "attributes": null,
+        "id": "a24383d5-135e-4225-82a5-b2acfe74b8ee"
       }
     ],
     "brand": "BATA",
@@ -2953,6 +4402,27 @@
         "price": 104700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-18WA2-DEFAULT-2",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "093e319b-4882-4016-aaeb-45b98c8509b7"
+      },
+      {
+        "sku_code": "SKU-18WA2-DEFAULT-3",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "e4beb473-e50f-4c09-b2be-0cab1f865026"
+      },
+      {
+        "sku_code": "SKU-18WA2-DEFAULT-4",
+        "price": 104700,
+        "stock": 106,
+        "attributes": null,
+        "id": "1b95db3e-c15e-400f-b30b-d38d6492064d"
       }
     ],
     "brand": "STEFANOFOOT",
@@ -2990,6 +4460,27 @@
         "price": 232800,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F9JO7-DEFAULT-2",
+        "price": 232800,
+        "stock": 22,
+        "attributes": null,
+        "id": "4e0a8a70-c654-4763-bea3-960e3c366a85"
+      },
+      {
+        "sku_code": "SKU-F9JO7-DEFAULT-3",
+        "price": 232800,
+        "stock": 22,
+        "attributes": null,
+        "id": "bbde2eaa-8add-49d9-9185-f7809a71b769"
+      },
+      {
+        "sku_code": "SKU-F9JO7-DEFAULT-4",
+        "price": 232800,
+        "stock": 22,
+        "attributes": null,
+        "id": "effc314b-68a4-434c-9e52-62f15e87f79a"
       }
     ],
     "brand": "BATA",
@@ -3035,6 +4526,27 @@
         "price": 119700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EHZ90-DEFAULT-2",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "dfb5bdfb-e75b-467e-a953-af2fab6c2481"
+      },
+      {
+        "sku_code": "SKU-EHZ90-DEFAULT-3",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "d6c7b1dc-4aa0-476b-bcc1-a2e84d7ec8be"
+      },
+      {
+        "sku_code": "SKU-EHZ90-DEFAULT-4",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "a6c94bd6-2e32-4885-8a3b-235214fd9345"
       }
     ],
     "brand": "Planet",
@@ -3072,6 +4584,27 @@
         "price": 179700,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R4FNL-DEFAULT-2",
+        "price": 179700,
+        "stock": 82,
+        "attributes": null,
+        "id": "1a2a8701-b393-4c0b-b60a-894b8790fc0a"
+      },
+      {
+        "sku_code": "SKU-R4FNL-DEFAULT-3",
+        "price": 179700,
+        "stock": 82,
+        "attributes": null,
+        "id": "e066ffc0-0277-44b1-a218-ecd507b08d95"
+      },
+      {
+        "sku_code": "SKU-R4FNL-DEFAULT-4",
+        "price": 179700,
+        "stock": 82,
+        "attributes": null,
+        "id": "ee4309d0-cba4-492a-a567-38d19ebbd9d1"
       }
     ],
     "brand": "Dollphin",
@@ -3116,6 +4649,27 @@
         "price": 142200,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2W0RJ-DEFAULT-2",
+        "price": 142200,
+        "stock": 17,
+        "attributes": null,
+        "id": "4ecdc28d-7bb2-4848-ae69-2a15a66e19bb"
+      },
+      {
+        "sku_code": "SKU-2W0RJ-DEFAULT-3",
+        "price": 142200,
+        "stock": 17,
+        "attributes": null,
+        "id": "66fa2edc-866a-4d64-902c-f468c8b4d8f1"
+      },
+      {
+        "sku_code": "SKU-2W0RJ-DEFAULT-4",
+        "price": 142200,
+        "stock": 17,
+        "attributes": null,
+        "id": "83ef3bbb-e203-4f42-ae36-cb7be46072b1"
       }
     ],
     "brand": "Denim",
@@ -3157,6 +4711,27 @@
         "price": 389700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JZ367-DEFAULT-2",
+        "price": 389700,
+        "stock": 69,
+        "attributes": null,
+        "id": "cddb43b7-f3b4-4d9c-9311-2291f5944a79"
+      },
+      {
+        "sku_code": "SKU-JZ367-DEFAULT-3",
+        "price": 389700,
+        "stock": 69,
+        "attributes": null,
+        "id": "cd1ae743-da58-4837-ab85-ecd4bbd10bea"
+      },
+      {
+        "sku_code": "SKU-JZ367-DEFAULT-4",
+        "price": 389700,
+        "stock": 69,
+        "attributes": null,
+        "id": "402596cb-b8f0-45db-8b58-a7ec08f2d225"
       }
     ],
     "brand": "LILY",
@@ -3198,6 +4773,27 @@
         "price": 89700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2D5EG-DEFAULT-2",
+        "price": 89700,
+        "stock": 28,
+        "attributes": null,
+        "id": "5fb02a12-9601-4eb2-95ea-c6f0ea3ba159"
+      },
+      {
+        "sku_code": "SKU-2D5EG-DEFAULT-3",
+        "price": 89700,
+        "stock": 28,
+        "attributes": null,
+        "id": "62486646-500d-40ff-af57-6e8aae34210d"
+      },
+      {
+        "sku_code": "SKU-2D5EG-DEFAULT-4",
+        "price": 89700,
+        "stock": 28,
+        "attributes": null,
+        "id": "91f82873-1ca1-4ed1-a57c-e877b2ec3828"
       }
     ],
     "brand": "Rubi",
@@ -3239,6 +4835,27 @@
         "price": 459900,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L31BM-DEFAULT-2",
+        "price": 459900,
+        "stock": 108,
+        "attributes": null,
+        "id": "166b114c-c8f0-461e-ac4e-069fe87e23d7"
+      },
+      {
+        "sku_code": "SKU-L31BM-DEFAULT-3",
+        "price": 459900,
+        "stock": 108,
+        "attributes": null,
+        "id": "e55cb2ce-5440-4250-9730-d1d21c584651"
+      },
+      {
+        "sku_code": "SKU-L31BM-DEFAULT-4",
+        "price": 459900,
+        "stock": 108,
+        "attributes": null,
+        "id": "70f4eab4-3dfa-4cf8-ab15-dd5a32e527c6"
       }
     ],
     "brand": "LILY",
@@ -3280,6 +4897,27 @@
         "price": 119700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-668MP-DEFAULT-2",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "8dd9adb9-ee44-4d1b-b6a8-c382fea61280"
+      },
+      {
+        "sku_code": "SKU-668MP-DEFAULT-3",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "59d3a36a-2950-40bf-b8a4-f03f69d37328"
+      },
+      {
+        "sku_code": "SKU-668MP-DEFAULT-4",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "839c9cd9-0a74-4b5b-a2a0-f45361517802"
       }
     ],
     "brand": "Liberty",
@@ -3325,6 +4963,27 @@
         "price": 118200,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZIW9C-DEFAULT-2",
+        "price": 118200,
+        "stock": 24,
+        "attributes": null,
+        "id": "1c9d2e8e-88e1-4c03-991f-aa81f40174ae"
+      },
+      {
+        "sku_code": "SKU-ZIW9C-DEFAULT-3",
+        "price": 118200,
+        "stock": 24,
+        "attributes": null,
+        "id": "59fe6135-eee3-4e18-8418-e3bd1af9b78a"
+      },
+      {
+        "sku_code": "SKU-ZIW9C-DEFAULT-4",
+        "price": 118200,
+        "stock": 24,
+        "attributes": null,
+        "id": "bb0c4df9-c27e-464f-b55a-d5f4d6273f84"
       }
     ],
     "brand": "LILY",
@@ -3377,6 +5036,27 @@
         "price": 0,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E14PP-DEFAULT-2",
+        "price": 0,
+        "stock": 91,
+        "attributes": null,
+        "id": "67fb4bb2-fa4e-4fab-a247-4634ec859985"
+      },
+      {
+        "sku_code": "SKU-E14PP-DEFAULT-3",
+        "price": 0,
+        "stock": 91,
+        "attributes": null,
+        "id": "8ad02247-0b50-420e-9b95-fc65af5078b5"
+      },
+      {
+        "sku_code": "SKU-E14PP-DEFAULT-4",
+        "price": 0,
+        "stock": 91,
+        "attributes": null,
+        "id": "b0f7843d-348a-4002-a7ae-b2f1c4c84930"
       }
     ],
     "brand": "Rubi",
@@ -3414,6 +5094,27 @@
         "price": 179700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IU5IP-DEFAULT-2",
+        "price": 179700,
+        "stock": 31,
+        "attributes": null,
+        "id": "2447fe1b-53a9-403c-900d-ee1b2cc6399d"
+      },
+      {
+        "sku_code": "SKU-IU5IP-DEFAULT-3",
+        "price": 179700,
+        "stock": 31,
+        "attributes": null,
+        "id": "a3be1572-1439-4f55-b6d1-81d11eb2e59d"
+      },
+      {
+        "sku_code": "SKU-IU5IP-DEFAULT-4",
+        "price": 179700,
+        "stock": 31,
+        "attributes": null,
+        "id": "1dd4262d-b5b6-4ae9-8cec-9e25d6b06a8f"
       }
     ],
     "brand": "KOMOPT",
@@ -3459,6 +5160,27 @@
         "price": 705600,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F33Z9-DEFAULT-2",
+        "price": 705600,
+        "stock": 26,
+        "attributes": null,
+        "id": "f5b873b3-40bc-4989-8ea1-75f31408b1b7"
+      },
+      {
+        "sku_code": "SKU-F33Z9-DEFAULT-3",
+        "price": 705600,
+        "stock": 26,
+        "attributes": null,
+        "id": "449d9bc4-a11f-40e9-b3b6-b734832b025a"
+      },
+      {
+        "sku_code": "SKU-F33Z9-DEFAULT-4",
+        "price": 705600,
+        "stock": 26,
+        "attributes": null,
+        "id": "9e8abfec-815f-4bdf-a250-5252547b6b64"
       }
     ],
     "brand": "Metro",
@@ -3500,6 +5222,27 @@
         "price": 298500,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M9K2U-DEFAULT-2",
+        "price": 298500,
+        "stock": 41,
+        "attributes": null,
+        "id": "ccb1da09-8b46-46c2-8781-25ea7bd8d700"
+      },
+      {
+        "sku_code": "SKU-M9K2U-DEFAULT-3",
+        "price": 298500,
+        "stock": 41,
+        "attributes": null,
+        "id": "15e1b1ff-2e1f-4646-8c4e-71e3f81fcef4"
+      },
+      {
+        "sku_code": "SKU-M9K2U-DEFAULT-4",
+        "price": 298500,
+        "stock": 41,
+        "attributes": null,
+        "id": "169b2480-ed74-4e96-b314-614f9f4e96d5"
       }
     ],
     "brand": "STEFANOFOOT",
@@ -3548,6 +5291,27 @@
         "price": 717300,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C0KG7-DEFAULT-2",
+        "price": 717300,
+        "stock": 22,
+        "attributes": null,
+        "id": "b0ac396e-03e7-4688-95ec-9a4b432e152f"
+      },
+      {
+        "sku_code": "SKU-C0KG7-DEFAULT-3",
+        "price": 717300,
+        "stock": 22,
+        "attributes": null,
+        "id": "2c22e6d5-6880-4c1d-a8ec-bdf1b228b0ba"
+      },
+      {
+        "sku_code": "SKU-C0KG7-DEFAULT-4",
+        "price": 717300,
+        "stock": 22,
+        "attributes": null,
+        "id": "e240f49f-e434-49fb-a0fb-1472bf8830fd"
       }
     ],
     "brand": "WILDFEET",
@@ -3591,6 +5355,27 @@
         "price": 146700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KWAO2-DEFAULT-2",
+        "price": 146700,
+        "stock": 109,
+        "attributes": null,
+        "id": "988f1c81-07b1-4a35-ba2d-62f63f262698"
+      },
+      {
+        "sku_code": "SKU-KWAO2-DEFAULT-3",
+        "price": 146700,
+        "stock": 109,
+        "attributes": null,
+        "id": "8020ebc3-2c23-43e7-b3ec-5fe80e35a190"
+      },
+      {
+        "sku_code": "SKU-KWAO2-DEFAULT-4",
+        "price": 146700,
+        "stock": 109,
+        "attributes": null,
+        "id": "ad663f89-7955-4a79-acc5-9367c1754a3f"
       }
     ],
     "brand": "Walktrendy",
@@ -3637,6 +5422,27 @@
         "price": 134700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-138M1-DEFAULT-2",
+        "price": 134700,
+        "stock": 66,
+        "attributes": null,
+        "id": "20049441-0622-4562-8ff7-d721b783c732"
+      },
+      {
+        "sku_code": "SKU-138M1-DEFAULT-3",
+        "price": 134700,
+        "stock": 66,
+        "attributes": null,
+        "id": "cbc4fd7e-9fe7-4ef0-9073-b66768083327"
+      },
+      {
+        "sku_code": "SKU-138M1-DEFAULT-4",
+        "price": 134700,
+        "stock": 66,
+        "attributes": null,
+        "id": "604e29e8-cecd-4f30-82c8-92599699ed3a"
       }
     ],
     "brand": "STEFANOFOOT",
@@ -3674,6 +5480,27 @@
         "price": 209700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XLAHJ-DEFAULT-2",
+        "price": 209700,
+        "stock": 80,
+        "attributes": null,
+        "id": "7602f4a9-f0d1-4f6d-82a2-c325cf7c6d83"
+      },
+      {
+        "sku_code": "SKU-XLAHJ-DEFAULT-3",
+        "price": 209700,
+        "stock": 80,
+        "attributes": null,
+        "id": "ef4919ab-eb07-4458-9b51-fc4dbde0b646"
+      },
+      {
+        "sku_code": "SKU-XLAHJ-DEFAULT-4",
+        "price": 209700,
+        "stock": 80,
+        "attributes": null,
+        "id": "54535ef5-77a7-4432-90b3-de62c5e4e9e3"
       }
     ],
     "brand": "Dollphin",
@@ -3719,6 +5546,27 @@
         "price": 507000,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BKJ39-DEFAULT-2",
+        "price": 507000,
+        "stock": 10,
+        "attributes": null,
+        "id": "d9cb56d7-a8a1-46d1-950c-5080a0ebe4d4"
+      },
+      {
+        "sku_code": "SKU-BKJ39-DEFAULT-3",
+        "price": 507000,
+        "stock": 10,
+        "attributes": null,
+        "id": "dc9bcc1b-c2e7-417a-8e7b-68d66df0288a"
+      },
+      {
+        "sku_code": "SKU-BKJ39-DEFAULT-4",
+        "price": 507000,
+        "stock": 10,
+        "attributes": null,
+        "id": "aad079c5-0106-4a1d-8a96-e80f375ebf61"
       }
     ],
     "brand": "Planet",
@@ -3764,6 +5612,27 @@
         "price": 176700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P6NZ2-DEFAULT-2",
+        "price": 176700,
+        "stock": 63,
+        "attributes": null,
+        "id": "b9d6799b-a424-4508-84de-59b02f323553"
+      },
+      {
+        "sku_code": "SKU-P6NZ2-DEFAULT-3",
+        "price": 176700,
+        "stock": 63,
+        "attributes": null,
+        "id": "e556b15e-a3ae-47c7-a7f9-97c5d1aee692"
+      },
+      {
+        "sku_code": "SKU-P6NZ2-DEFAULT-4",
+        "price": 176700,
+        "stock": 63,
+        "attributes": null,
+        "id": "534a890f-4afc-4700-ac9b-5758cc77461a"
       }
     ],
     "brand": "KOMOPT",
@@ -3805,6 +5674,27 @@
         "price": 378000,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PHJEP-DEFAULT-2",
+        "price": 378000,
+        "stock": 27,
+        "attributes": null,
+        "id": "08a7c0d6-158d-4c1d-8876-f438501bb1b0"
+      },
+      {
+        "sku_code": "SKU-PHJEP-DEFAULT-3",
+        "price": 378000,
+        "stock": 27,
+        "attributes": null,
+        "id": "6fe86109-8087-4924-b0a9-c98ff519a4bf"
+      },
+      {
+        "sku_code": "SKU-PHJEP-DEFAULT-4",
+        "price": 378000,
+        "stock": 27,
+        "attributes": null,
+        "id": "01479228-a48c-4825-96a8-002d296e3bfe"
       }
     ],
     "brand": "Denim",
@@ -3850,6 +5740,27 @@
         "price": 279000,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D5V87-DEFAULT-2",
+        "price": 279000,
+        "stock": 80,
+        "attributes": null,
+        "id": "f3512783-7a88-4108-8c0f-e1ab1932f45a"
+      },
+      {
+        "sku_code": "SKU-D5V87-DEFAULT-3",
+        "price": 279000,
+        "stock": 80,
+        "attributes": null,
+        "id": "13febf0c-f496-4efa-9cd4-c58edccd98d6"
+      },
+      {
+        "sku_code": "SKU-D5V87-DEFAULT-4",
+        "price": 279000,
+        "stock": 80,
+        "attributes": null,
+        "id": "ba2a1495-f28d-466e-a6a2-f9f0939547a0"
       }
     ],
     "brand": "SANDYCRAFT",
@@ -3891,6 +5802,27 @@
         "price": 104700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YBL1W-DEFAULT-2",
+        "price": 104700,
+        "stock": 28,
+        "attributes": null,
+        "id": "99b452ea-a7cd-4b33-83ad-1ecfa1fc421b"
+      },
+      {
+        "sku_code": "SKU-YBL1W-DEFAULT-3",
+        "price": 104700,
+        "stock": 28,
+        "attributes": null,
+        "id": "39e52365-059a-4b1b-aaad-96b5d6db70a3"
+      },
+      {
+        "sku_code": "SKU-YBL1W-DEFAULT-4",
+        "price": 104700,
+        "stock": 28,
+        "attributes": null,
+        "id": "f891e72b-049c-4cf1-bdc3-7669328c3014"
       }
     ],
     "brand": "Walktrendy",
@@ -3932,6 +5864,27 @@
         "price": 509700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HWARC-DEFAULT-2",
+        "price": 509700,
+        "stock": 105,
+        "attributes": null,
+        "id": "c60404f3-69e1-425b-a9bc-c1b291f1f982"
+      },
+      {
+        "sku_code": "SKU-HWARC-DEFAULT-3",
+        "price": 509700,
+        "stock": 105,
+        "attributes": null,
+        "id": "2a0fb0b6-6786-4666-9915-5377f7b5b7e7"
+      },
+      {
+        "sku_code": "SKU-HWARC-DEFAULT-4",
+        "price": 509700,
+        "stock": 105,
+        "attributes": null,
+        "id": "6536fd94-f001-4dce-b6c5-0cb0ea3e8410"
       }
     ],
     "brand": "Dollphin",
@@ -3977,6 +5930,27 @@
         "price": 389700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P0YDS-DEFAULT-2",
+        "price": 389700,
+        "stock": 22,
+        "attributes": null,
+        "id": "3c17fc37-d6c4-4e04-9f8d-768f8bda06fc"
+      },
+      {
+        "sku_code": "SKU-P0YDS-DEFAULT-3",
+        "price": 389700,
+        "stock": 22,
+        "attributes": null,
+        "id": "8233e664-7d3e-4487-a65d-3fc8222a3616"
+      },
+      {
+        "sku_code": "SKU-P0YDS-DEFAULT-4",
+        "price": 389700,
+        "stock": 22,
+        "attributes": null,
+        "id": "1919f551-86ff-4359-80ee-5946eaaa3f28"
       }
     ],
     "brand": "Walktrendy",
@@ -4014,6 +5988,27 @@
         "price": 298500,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VIN0E-DEFAULT-2",
+        "price": 298500,
+        "stock": 19,
+        "attributes": null,
+        "id": "dcc0efa1-0f1c-41bd-8164-ea7de1e250aa"
+      },
+      {
+        "sku_code": "SKU-VIN0E-DEFAULT-3",
+        "price": 298500,
+        "stock": 19,
+        "attributes": null,
+        "id": "37853bb2-3397-49a5-84be-c4039131b472"
+      },
+      {
+        "sku_code": "SKU-VIN0E-DEFAULT-4",
+        "price": 298500,
+        "stock": 19,
+        "attributes": null,
+        "id": "2239de93-33a4-4925-9d11-28143c48e402"
       }
     ],
     "brand": "Carlton",
@@ -4059,6 +6054,27 @@
         "price": 0,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X1QZW-DEFAULT-2",
+        "price": 0,
+        "stock": 11,
+        "attributes": null,
+        "id": "6ceddc02-2db5-4f91-927d-b3ce3a5b3f76"
+      },
+      {
+        "sku_code": "SKU-X1QZW-DEFAULT-3",
+        "price": 0,
+        "stock": 11,
+        "attributes": null,
+        "id": "2086dea8-01fd-4776-a8b0-16d5a096a3a9"
+      },
+      {
+        "sku_code": "SKU-X1QZW-DEFAULT-4",
+        "price": 0,
+        "stock": 11,
+        "attributes": null,
+        "id": "78f4af3a-1f0b-47e7-a60d-1991445d025a"
       }
     ],
     "brand": "EAGLE",
@@ -4109,6 +6125,27 @@
         "price": 119700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E7FQW-DEFAULT-2",
+        "price": 119700,
+        "stock": 62,
+        "attributes": null,
+        "id": "dfadd096-cab9-4c0c-b160-e169e2081a94"
+      },
+      {
+        "sku_code": "SKU-E7FQW-DEFAULT-3",
+        "price": 119700,
+        "stock": 62,
+        "attributes": null,
+        "id": "ba944b57-2a44-40aa-94e4-3014431d125b"
+      },
+      {
+        "sku_code": "SKU-E7FQW-DEFAULT-4",
+        "price": 119700,
+        "stock": 62,
+        "attributes": null,
+        "id": "78412133-583a-4e8b-99d7-45e0e2b595fb"
       }
     ],
     "brand": "Carlton",
@@ -4150,6 +6187,27 @@
         "price": 119700,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T8239-DEFAULT-2",
+        "price": 119700,
+        "stock": 47,
+        "attributes": null,
+        "id": "806dca7a-060d-48f5-93ea-ec552d3799e2"
+      },
+      {
+        "sku_code": "SKU-T8239-DEFAULT-3",
+        "price": 119700,
+        "stock": 47,
+        "attributes": null,
+        "id": "32cf26f2-37ab-41a2-a60c-f5c26658c28c"
+      },
+      {
+        "sku_code": "SKU-T8239-DEFAULT-4",
+        "price": 119700,
+        "stock": 47,
+        "attributes": null,
+        "id": "5568674b-e20c-4e7f-9591-c7d7a3100287"
       }
     ],
     "brand": "STEFANOFOOT",
@@ -4191,6 +6249,27 @@
         "price": 89700,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W0K5F-DEFAULT-2",
+        "price": 89700,
+        "stock": 42,
+        "attributes": null,
+        "id": "1ec1e33b-b1cc-4879-bec1-7fb5a3f129ca"
+      },
+      {
+        "sku_code": "SKU-W0K5F-DEFAULT-3",
+        "price": 89700,
+        "stock": 42,
+        "attributes": null,
+        "id": "b51192a4-b508-4f88-842b-e397ec8db170"
+      },
+      {
+        "sku_code": "SKU-W0K5F-DEFAULT-4",
+        "price": 89700,
+        "stock": 42,
+        "attributes": null,
+        "id": "6e8c073c-6b54-460e-9a1e-7b0082926e26"
       }
     ],
     "brand": "Liberty",
@@ -4232,6 +6311,27 @@
         "price": 209700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9Z81A-DEFAULT-2",
+        "price": 209700,
+        "stock": 104,
+        "attributes": null,
+        "id": "5a40f9c1-3b44-4dfb-a606-4918b0e7ec75"
+      },
+      {
+        "sku_code": "SKU-9Z81A-DEFAULT-3",
+        "price": 209700,
+        "stock": 104,
+        "attributes": null,
+        "id": "903fd871-098e-44bc-9d3a-c025e8572973"
+      },
+      {
+        "sku_code": "SKU-9Z81A-DEFAULT-4",
+        "price": 209700,
+        "stock": 104,
+        "attributes": null,
+        "id": "514e37fa-4618-47f5-bd92-1eb711019476"
       }
     ],
     "brand": "Metro",

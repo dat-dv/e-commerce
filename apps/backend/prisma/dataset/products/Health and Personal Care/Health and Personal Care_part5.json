@@ -22,6 +22,27 @@
         "price": 29700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1Y02R-DEFAULT-2",
+        "price": 29700,
+        "stock": 68,
+        "attributes": null,
+        "id": "ecfc1fce-7c87-4bfd-ad37-e4e6345864a7"
+      },
+      {
+        "sku_code": "SKU-1Y02R-DEFAULT-3",
+        "price": 29700,
+        "stock": 68,
+        "attributes": null,
+        "id": "65999d46-6aa0-4532-a459-8dddaecfda18"
+      },
+      {
+        "sku_code": "SKU-1Y02R-DEFAULT-4",
+        "price": 29700,
+        "stock": 68,
+        "attributes": null,
+        "id": "b5fc4a46-1657-4d8f-a9db-c9e5720153ce"
       }
     ],
     "brand": "Mamaearth",
@@ -59,6 +80,27 @@
         "price": 103200,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3OBQI-DEFAULT-2",
+        "price": 103200,
+        "stock": 38,
+        "attributes": null,
+        "id": "021c8cca-45fc-406e-88b4-f3eff13e445b"
+      },
+      {
+        "sku_code": "SKU-3OBQI-DEFAULT-3",
+        "price": 103200,
+        "stock": 38,
+        "attributes": null,
+        "id": "24eb287f-4931-41cd-abd6-bc40a000352c"
+      },
+      {
+        "sku_code": "SKU-3OBQI-DEFAULT-4",
+        "price": 103200,
+        "stock": 38,
+        "attributes": null,
+        "id": "6f7c7d99-d7f6-4221-a8dd-8243b5e0d978"
       }
     ],
     "brand": "Dabur",
@@ -100,6 +142,27 @@
         "price": 46200,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VAXIK-DEFAULT-2",
+        "price": 46200,
+        "stock": 107,
+        "attributes": null,
+        "id": "d45e2283-053b-4a4f-be58-898125bacc54"
+      },
+      {
+        "sku_code": "SKU-VAXIK-DEFAULT-3",
+        "price": 46200,
+        "stock": 107,
+        "attributes": null,
+        "id": "292f9393-bc81-49e4-834a-b4c25deb763b"
+      },
+      {
+        "sku_code": "SKU-VAXIK-DEFAULT-4",
+        "price": 46200,
+        "stock": 107,
+        "attributes": null,
+        "id": "7fdab72c-e19e-4225-b914-db1bae2db883"
       }
     ],
     "brand": "Dettol",
@@ -141,6 +204,27 @@
         "price": 80700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HVJSD-DEFAULT-2",
+        "price": 80700,
+        "stock": 19,
+        "attributes": null,
+        "id": "300d2aa3-131a-4731-ba08-6d932a5d54ff"
+      },
+      {
+        "sku_code": "SKU-HVJSD-DEFAULT-3",
+        "price": 80700,
+        "stock": 19,
+        "attributes": null,
+        "id": "75e4f5e5-8f07-4aa9-a946-c56560e505c9"
+      },
+      {
+        "sku_code": "SKU-HVJSD-DEFAULT-4",
+        "price": 80700,
+        "stock": 19,
+        "attributes": null,
+        "id": "0444ba0f-7e4d-4968-acc3-f45433971fa4"
       }
     ],
     "brand": "Godrej",
@@ -182,6 +266,27 @@
         "price": 60300,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GDWEH-DEFAULT-2",
+        "price": 60300,
+        "stock": 106,
+        "attributes": null,
+        "id": "46e3162e-e33e-4430-9a40-c20ddbb08a00"
+      },
+      {
+        "sku_code": "SKU-GDWEH-DEFAULT-3",
+        "price": 60300,
+        "stock": 106,
+        "attributes": null,
+        "id": "537e6696-a525-4ef7-9f32-e04145d0c7ce"
+      },
+      {
+        "sku_code": "SKU-GDWEH-DEFAULT-4",
+        "price": 60300,
+        "stock": 106,
+        "attributes": null,
+        "id": "bfd05c4c-7278-40eb-bf48-af0ae40488a0"
       }
     ],
     "brand": "Kapiva",
@@ -227,6 +332,27 @@
         "price": 196500,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A0FYF-DEFAULT-2",
+        "price": 196500,
+        "stock": 86,
+        "attributes": null,
+        "id": "7ce5eed4-228e-40e7-9f99-5566cd4c6cd2"
+      },
+      {
+        "sku_code": "SKU-A0FYF-DEFAULT-3",
+        "price": 196500,
+        "stock": 86,
+        "attributes": null,
+        "id": "316ac477-a9bd-4620-8c33-f6d48009e0be"
+      },
+      {
+        "sku_code": "SKU-A0FYF-DEFAULT-4",
+        "price": 196500,
+        "stock": 86,
+        "attributes": null,
+        "id": "d1688769-43d9-4b02-bd9f-f2c281bb20e2"
       }
     ],
     "brand": "Mamaearth",
@@ -264,6 +390,27 @@
         "price": 131400,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PM5KZ-DEFAULT-2",
+        "price": 131400,
+        "stock": 52,
+        "attributes": null,
+        "id": "c8b891fb-6fc4-4cd0-b0d5-1b9213960d81"
+      },
+      {
+        "sku_code": "SKU-PM5KZ-DEFAULT-3",
+        "price": 131400,
+        "stock": 52,
+        "attributes": null,
+        "id": "0b842cb7-97ff-453e-9e6d-f220281974ee"
+      },
+      {
+        "sku_code": "SKU-PM5KZ-DEFAULT-4",
+        "price": 131400,
+        "stock": 52,
+        "attributes": null,
+        "id": "974cd506-4799-46c3-a60e-67a7fdfc9ee4"
       }
     ],
     "brand": "Dr",
@@ -309,6 +456,27 @@
         "price": 48000,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1KYOF-DEFAULT-2",
+        "price": 48000,
+        "stock": 64,
+        "attributes": null,
+        "id": "2ce26b50-4d80-4b9a-b89c-0bcbd026e0ee"
+      },
+      {
+        "sku_code": "SKU-1KYOF-DEFAULT-3",
+        "price": 48000,
+        "stock": 64,
+        "attributes": null,
+        "id": "7ed22915-ffc3-4a01-aa9f-e301993267fd"
+      },
+      {
+        "sku_code": "SKU-1KYOF-DEFAULT-4",
+        "price": 48000,
+        "stock": 64,
+        "attributes": null,
+        "id": "388bf8f5-7029-452e-abcf-3fba0149ad65"
       }
     ],
     "brand": "Nivea",
@@ -350,6 +518,27 @@
         "price": 105000,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LBER5-DEFAULT-2",
+        "price": 105000,
+        "stock": 107,
+        "attributes": null,
+        "id": "46d20360-e4ef-40b9-83b2-43e28891df2b"
+      },
+      {
+        "sku_code": "SKU-LBER5-DEFAULT-3",
+        "price": 105000,
+        "stock": 107,
+        "attributes": null,
+        "id": "cdfd0792-93aa-4bd9-b2af-0822ec0c65ac"
+      },
+      {
+        "sku_code": "SKU-LBER5-DEFAULT-4",
+        "price": 105000,
+        "stock": 107,
+        "attributes": null,
+        "id": "cc7b9472-b526-4301-8883-5ae0ab841f67"
       }
     ],
     "brand": "HP",
@@ -391,6 +580,27 @@
         "price": 109500,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TEGMQ-DEFAULT-2",
+        "price": 109500,
+        "stock": 99,
+        "attributes": null,
+        "id": "43a7c12d-da14-44d6-8adf-9af27606b6e3"
+      },
+      {
+        "sku_code": "SKU-TEGMQ-DEFAULT-3",
+        "price": 109500,
+        "stock": 99,
+        "attributes": null,
+        "id": "a5fad221-be48-4e07-9025-29055f426b37"
+      },
+      {
+        "sku_code": "SKU-TEGMQ-DEFAULT-4",
+        "price": 109500,
+        "stock": 99,
+        "attributes": null,
+        "id": "6c4a49a3-bc2a-41f5-8e79-e0ff707a9389"
       }
     ],
     "brand": "Mamaearth",
@@ -428,6 +638,27 @@
         "price": 329700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TJ1HU-DEFAULT-2",
+        "price": 329700,
+        "stock": 70,
+        "attributes": null,
+        "id": "cdb9bff8-7940-4d87-ba0f-e3e0efaebcc3"
+      },
+      {
+        "sku_code": "SKU-TJ1HU-DEFAULT-3",
+        "price": 329700,
+        "stock": 70,
+        "attributes": null,
+        "id": "0e7a8682-63b7-4fe0-b44a-36e1d996c3e4"
+      },
+      {
+        "sku_code": "SKU-TJ1HU-DEFAULT-4",
+        "price": 329700,
+        "stock": 70,
+        "attributes": null,
+        "id": "54eaec74-93fd-4247-aad9-c5cb64139569"
       }
     ],
     "brand": "Razer",
@@ -469,6 +700,27 @@
         "price": 63300,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9EBNY-DEFAULT-2",
+        "price": 63300,
+        "stock": 95,
+        "attributes": null,
+        "id": "d9de6e56-e421-4c5b-86c3-41984e867358"
+      },
+      {
+        "sku_code": "SKU-9EBNY-DEFAULT-3",
+        "price": 63300,
+        "stock": 95,
+        "attributes": null,
+        "id": "01488d10-61ab-48b7-a7ed-4f30ac62484c"
+      },
+      {
+        "sku_code": "SKU-9EBNY-DEFAULT-4",
+        "price": 63300,
+        "stock": 95,
+        "attributes": null,
+        "id": "8c3c4573-fe22-4890-a60c-a95af9d12d5e"
       }
     ],
     "brand": "Dettol",
@@ -514,6 +766,27 @@
         "price": 28500,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H2R76-DEFAULT-2",
+        "price": 28500,
+        "stock": 80,
+        "attributes": null,
+        "id": "ee996c10-4790-44bc-8874-1bc158dec5a8"
+      },
+      {
+        "sku_code": "SKU-H2R76-DEFAULT-3",
+        "price": 28500,
+        "stock": 80,
+        "attributes": null,
+        "id": "7a06ec89-ce6d-4b19-943f-09a5aba4cb4d"
+      },
+      {
+        "sku_code": "SKU-H2R76-DEFAULT-4",
+        "price": 28500,
+        "stock": 80,
+        "attributes": null,
+        "id": "9d8aa91b-b9b0-43a0-a6de-2c9cfa724538"
       }
     ],
     "brand": "Himalaya",
@@ -559,6 +832,27 @@
         "price": 117600,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C4835-DEFAULT-2",
+        "price": 117600,
+        "stock": 55,
+        "attributes": null,
+        "id": "13a72538-248a-45ad-aa6f-cf9e4f3f145f"
+      },
+      {
+        "sku_code": "SKU-C4835-DEFAULT-3",
+        "price": 117600,
+        "stock": 55,
+        "attributes": null,
+        "id": "1eee5316-7e6c-4d7e-9665-7b695cb4dbaa"
+      },
+      {
+        "sku_code": "SKU-C4835-DEFAULT-4",
+        "price": 117600,
+        "stock": 55,
+        "attributes": null,
+        "id": "00742c22-c3ca-48f8-b74a-bb0a81bd04e7"
       }
     ],
     "brand": "Cetaphil",
@@ -600,6 +894,27 @@
         "price": 9690,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6ZETP-DEFAULT-2",
+        "price": 9690,
+        "stock": 73,
+        "attributes": null,
+        "id": "ecfd861f-48e4-4547-90e9-d769c3607b10"
+      },
+      {
+        "sku_code": "SKU-6ZETP-DEFAULT-3",
+        "price": 9690,
+        "stock": 73,
+        "attributes": null,
+        "id": "1fe00751-e973-4c69-800b-61ed2492643d"
+      },
+      {
+        "sku_code": "SKU-6ZETP-DEFAULT-4",
+        "price": 9690,
+        "stock": 73,
+        "attributes": null,
+        "id": "28af5f15-374f-45e5-b1b7-530a5439e04f"
       }
     ],
     "brand": "Dettol",
@@ -645,6 +960,27 @@
         "price": 50700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6ZJV1-DEFAULT-2",
+        "price": 50700,
+        "stock": 39,
+        "attributes": null,
+        "id": "bfa9ce5f-07eb-4fc0-b672-850ff2e6f129"
+      },
+      {
+        "sku_code": "SKU-6ZJV1-DEFAULT-3",
+        "price": 50700,
+        "stock": 39,
+        "attributes": null,
+        "id": "237a2022-a185-4b2b-9dc2-8116a2e377b9"
+      },
+      {
+        "sku_code": "SKU-6ZJV1-DEFAULT-4",
+        "price": 50700,
+        "stock": 39,
+        "attributes": null,
+        "id": "2890e63c-23c3-42b4-b59f-8c5e119a4bf9"
       }
     ],
     "brand": "Dabur",
@@ -690,6 +1026,27 @@
         "price": 118650,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V2W1U-DEFAULT-2",
+        "price": 118650,
+        "stock": 80,
+        "attributes": null,
+        "id": "9242a957-bf21-4088-955f-8350f15681c0"
+      },
+      {
+        "sku_code": "SKU-V2W1U-DEFAULT-3",
+        "price": 118650,
+        "stock": 80,
+        "attributes": null,
+        "id": "ab68d30f-deac-431a-a6b7-5149c3a7a0f6"
+      },
+      {
+        "sku_code": "SKU-V2W1U-DEFAULT-4",
+        "price": 118650,
+        "stock": 80,
+        "attributes": null,
+        "id": "6adedd66-3178-4431-8205-f2b229749715"
       }
     ],
     "brand": "Dr",
@@ -735,6 +1092,27 @@
         "price": 23400,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YYVAU-DEFAULT-2",
+        "price": 23400,
+        "stock": 99,
+        "attributes": null,
+        "id": "adc4a654-4443-459b-8a09-9e69702f4f9a"
+      },
+      {
+        "sku_code": "SKU-YYVAU-DEFAULT-3",
+        "price": 23400,
+        "stock": 99,
+        "attributes": null,
+        "id": "4fb1c3ad-7f2f-410c-8b16-1c0969fc9a35"
+      },
+      {
+        "sku_code": "SKU-YYVAU-DEFAULT-4",
+        "price": 23400,
+        "stock": 99,
+        "attributes": null,
+        "id": "c7c52dd4-d68e-4c68-b870-bb73ea3f5369"
       }
     ],
     "brand": "Godrej",
@@ -776,6 +1154,27 @@
         "price": 208500,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BMA4H-DEFAULT-2",
+        "price": 208500,
+        "stock": 25,
+        "attributes": null,
+        "id": "cda07871-088f-4c42-812f-0fc799f61784"
+      },
+      {
+        "sku_code": "SKU-BMA4H-DEFAULT-3",
+        "price": 208500,
+        "stock": 25,
+        "attributes": null,
+        "id": "6a38ed7b-0a4d-4721-b6cd-606064f1a4a9"
+      },
+      {
+        "sku_code": "SKU-BMA4H-DEFAULT-4",
+        "price": 208500,
+        "stock": 25,
+        "attributes": null,
+        "id": "f492c6e0-324d-496a-a897-aa9a54459c4e"
       }
     ],
     "brand": "Kapiva",
@@ -821,6 +1220,27 @@
         "price": 49500,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G3C4F-DEFAULT-2",
+        "price": 49500,
+        "stock": 43,
+        "attributes": null,
+        "id": "4a624c9c-5320-43b6-aa53-bedea74ada69"
+      },
+      {
+        "sku_code": "SKU-G3C4F-DEFAULT-3",
+        "price": 49500,
+        "stock": 43,
+        "attributes": null,
+        "id": "9fc6c1d2-18fb-4ad7-9713-1141d57fe8cc"
+      },
+      {
+        "sku_code": "SKU-G3C4F-DEFAULT-4",
+        "price": 49500,
+        "stock": 43,
+        "attributes": null,
+        "id": "1ebba301-6d1a-47e5-aaa2-5396c0e666bc"
       }
     ],
     "brand": "Colgate",
@@ -866,6 +1286,27 @@
         "price": 436500,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CQO3J-DEFAULT-2",
+        "price": 436500,
+        "stock": 40,
+        "attributes": null,
+        "id": "2936c978-acc8-412d-b8fe-7274b3bf3ffd"
+      },
+      {
+        "sku_code": "SKU-CQO3J-DEFAULT-3",
+        "price": 436500,
+        "stock": 40,
+        "attributes": null,
+        "id": "47f8645d-b746-4936-80e3-fafd175c9b5e"
+      },
+      {
+        "sku_code": "SKU-CQO3J-DEFAULT-4",
+        "price": 436500,
+        "stock": 40,
+        "attributes": null,
+        "id": "8fcc5274-9539-4f7e-bd33-9fad17b4bb16"
       }
     ],
     "brand": "Nivea",
@@ -945,6 +1386,27 @@
         "price": 145500,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LLG2I-DEFAULT-2",
+        "price": 145500,
+        "stock": 23,
+        "attributes": null,
+        "id": "b2cb75b6-c2b1-4821-ad52-ec74308f3f57"
+      },
+      {
+        "sku_code": "SKU-LLG2I-DEFAULT-3",
+        "price": 145500,
+        "stock": 23,
+        "attributes": null,
+        "id": "1a42216e-f221-4d9c-97c0-1d1027c6c9d6"
+      },
+      {
+        "sku_code": "SKU-LLG2I-DEFAULT-4",
+        "price": 145500,
+        "stock": 23,
+        "attributes": null,
+        "id": "efee94d4-58b1-4d6e-ab05-33a99938f807"
       }
     ],
     "brand": "HP",
@@ -986,6 +1448,27 @@
         "price": 220200,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B834N-DEFAULT-2",
+        "price": 220200,
+        "stock": 80,
+        "attributes": null,
+        "id": "f71697ed-f90b-4a77-96cc-300174077c91"
+      },
+      {
+        "sku_code": "SKU-B834N-DEFAULT-3",
+        "price": 220200,
+        "stock": 80,
+        "attributes": null,
+        "id": "b476b5b4-c7e2-4eb3-83de-660fffa3267a"
+      },
+      {
+        "sku_code": "SKU-B834N-DEFAULT-4",
+        "price": 220200,
+        "stock": 80,
+        "attributes": null,
+        "id": "6d498c5a-629c-40b7-975e-92277f6f4bba"
       }
     ],
     "brand": "Kapiva",
@@ -1027,6 +1510,27 @@
         "price": 285000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KGOWQ-DEFAULT-2",
+        "price": 285000,
+        "stock": 22,
+        "attributes": null,
+        "id": "1098c637-b228-4c17-a0ba-a37fdd163487"
+      },
+      {
+        "sku_code": "SKU-KGOWQ-DEFAULT-3",
+        "price": 285000,
+        "stock": 22,
+        "attributes": null,
+        "id": "a6c4229d-6841-476c-a25a-338152fc490a"
+      },
+      {
+        "sku_code": "SKU-KGOWQ-DEFAULT-4",
+        "price": 285000,
+        "stock": 22,
+        "attributes": null,
+        "id": "7cd6b382-aa4e-499b-bc45-468a9ccc8de8"
       }
     ],
     "brand": "Lotus",
@@ -1068,6 +1572,27 @@
         "price": 11700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EN3E1-DEFAULT-2",
+        "price": 11700,
+        "stock": 105,
+        "attributes": null,
+        "id": "74e36b34-74ed-435a-bdcf-2d9933093121"
+      },
+      {
+        "sku_code": "SKU-EN3E1-DEFAULT-3",
+        "price": 11700,
+        "stock": 105,
+        "attributes": null,
+        "id": "ffbbba35-15a1-4134-af64-3eb3cbfea340"
+      },
+      {
+        "sku_code": "SKU-EN3E1-DEFAULT-4",
+        "price": 11700,
+        "stock": 105,
+        "attributes": null,
+        "id": "c3d72bfe-ff16-49b4-a933-e1c71bdba508"
       }
     ],
     "brand": "Dettol",
@@ -1113,6 +1638,27 @@
         "price": 344700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NKEWL-DEFAULT-2",
+        "price": 344700,
+        "stock": 39,
+        "attributes": null,
+        "id": "550cd7e7-0b1a-47a2-b075-7822f44c29b2"
+      },
+      {
+        "sku_code": "SKU-NKEWL-DEFAULT-3",
+        "price": 344700,
+        "stock": 39,
+        "attributes": null,
+        "id": "c4eb7cbd-b0f7-41d6-9e42-d00c4618595a"
+      },
+      {
+        "sku_code": "SKU-NKEWL-DEFAULT-4",
+        "price": 344700,
+        "stock": 39,
+        "attributes": null,
+        "id": "3b31761d-c922-4cdc-aa4f-b3cd64388267"
       }
     ],
     "brand": "Godrej",
@@ -1158,6 +1704,27 @@
         "price": 65700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GGIOT-DEFAULT-2",
+        "price": 65700,
+        "stock": 95,
+        "attributes": null,
+        "id": "872ba9ef-fca9-4c3a-a58b-c0caaa6de47b"
+      },
+      {
+        "sku_code": "SKU-GGIOT-DEFAULT-3",
+        "price": 65700,
+        "stock": 95,
+        "attributes": null,
+        "id": "dc4af72c-0213-40db-abf8-e0b8f59f7f74"
+      },
+      {
+        "sku_code": "SKU-GGIOT-DEFAULT-4",
+        "price": 65700,
+        "stock": 95,
+        "attributes": null,
+        "id": "391ae2ab-c9a5-4383-a245-20027378b5e1"
       }
     ],
     "brand": "Godrej",
@@ -1203,6 +1770,27 @@
         "price": 164700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-02POI-DEFAULT-2",
+        "price": 164700,
+        "stock": 90,
+        "attributes": null,
+        "id": "e4a94d93-f82f-4dac-a46d-d4dedcf93717"
+      },
+      {
+        "sku_code": "SKU-02POI-DEFAULT-3",
+        "price": 164700,
+        "stock": 90,
+        "attributes": null,
+        "id": "53977031-c081-450f-93b9-51d032c0b021"
+      },
+      {
+        "sku_code": "SKU-02POI-DEFAULT-4",
+        "price": 164700,
+        "stock": 90,
+        "attributes": null,
+        "id": "95cdf3fc-2838-4750-9129-c0c02c182128"
       }
     ],
     "brand": "Godrej",
@@ -1248,6 +1836,27 @@
         "price": 299700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9GS4I-DEFAULT-2",
+        "price": 299700,
+        "stock": 36,
+        "attributes": null,
+        "id": "d39d51b5-b51b-4350-afda-4d789b3c8b93"
+      },
+      {
+        "sku_code": "SKU-9GS4I-DEFAULT-3",
+        "price": 299700,
+        "stock": 36,
+        "attributes": null,
+        "id": "2230da96-7e4d-4954-bfc3-b1126bb7f5f8"
+      },
+      {
+        "sku_code": "SKU-9GS4I-DEFAULT-4",
+        "price": 299700,
+        "stock": 36,
+        "attributes": null,
+        "id": "813bc1b6-fe38-4bd0-9213-48bc07bb391f"
       }
     ],
     "brand": "Kapiva",
@@ -1293,6 +1902,27 @@
         "price": 326100,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6VL6Y-DEFAULT-2",
+        "price": 326100,
+        "stock": 44,
+        "attributes": null,
+        "id": "27bc496d-e92a-4859-b031-096ea26772bd"
+      },
+      {
+        "sku_code": "SKU-6VL6Y-DEFAULT-3",
+        "price": 326100,
+        "stock": 44,
+        "attributes": null,
+        "id": "9d0c3dcd-e34e-4b6a-aceb-8141afe395e3"
+      },
+      {
+        "sku_code": "SKU-6VL6Y-DEFAULT-4",
+        "price": 326100,
+        "stock": 44,
+        "attributes": null,
+        "id": "cd2e3d37-619e-4eba-affc-50f73999bb2c"
       }
     ],
     "brand": "Lotus",
@@ -1334,6 +1964,27 @@
         "price": 39000,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-43Z8S-DEFAULT-2",
+        "price": 39000,
+        "stock": 40,
+        "attributes": null,
+        "id": "999a8057-5334-4da7-a0cf-ac057ac5daf5"
+      },
+      {
+        "sku_code": "SKU-43Z8S-DEFAULT-3",
+        "price": 39000,
+        "stock": 40,
+        "attributes": null,
+        "id": "855e4ccb-a636-4424-a821-635c2c48e271"
+      },
+      {
+        "sku_code": "SKU-43Z8S-DEFAULT-4",
+        "price": 39000,
+        "stock": 40,
+        "attributes": null,
+        "id": "c88d4596-3ad5-436f-a203-1afe3d5e8eea"
       }
     ],
     "brand": "Dettol",
@@ -1371,6 +2022,27 @@
         "price": 239700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W25AS-DEFAULT-2",
+        "price": 239700,
+        "stock": 37,
+        "attributes": null,
+        "id": "ec48e18a-71a9-4625-a1e4-1ffcbb599c30"
+      },
+      {
+        "sku_code": "SKU-W25AS-DEFAULT-3",
+        "price": 239700,
+        "stock": 37,
+        "attributes": null,
+        "id": "10bb1b02-5e54-4d93-a6e4-cf5579b25dd0"
+      },
+      {
+        "sku_code": "SKU-W25AS-DEFAULT-4",
+        "price": 239700,
+        "stock": 37,
+        "attributes": null,
+        "id": "b0ddf11b-a1e7-48b4-87cd-1bd316abac39"
       }
     ],
     "brand": "Dr",
@@ -1412,6 +2084,27 @@
         "price": 141600,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UNQUO-DEFAULT-2",
+        "price": 141600,
+        "stock": 56,
+        "attributes": null,
+        "id": "8adade76-8dfc-4a43-bc6b-91dadbd7e093"
+      },
+      {
+        "sku_code": "SKU-UNQUO-DEFAULT-3",
+        "price": 141600,
+        "stock": 56,
+        "attributes": null,
+        "id": "9147ed78-ae50-47b3-8e29-3c6310331bd3"
+      },
+      {
+        "sku_code": "SKU-UNQUO-DEFAULT-4",
+        "price": 141600,
+        "stock": 56,
+        "attributes": null,
+        "id": "f2699216-947d-446c-bb2b-fe550b86a4c3"
       }
     ],
     "brand": "Biotique",
@@ -1449,6 +2142,27 @@
         "price": 27600,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4PG26-DEFAULT-2",
+        "price": 27600,
+        "stock": 76,
+        "attributes": null,
+        "id": "95829912-aa01-44cb-ad33-90d6c1ab7477"
+      },
+      {
+        "sku_code": "SKU-4PG26-DEFAULT-3",
+        "price": 27600,
+        "stock": 76,
+        "attributes": null,
+        "id": "2ffc29cf-166b-46c2-b771-337ca3ef4100"
+      },
+      {
+        "sku_code": "SKU-4PG26-DEFAULT-4",
+        "price": 27600,
+        "stock": 76,
+        "attributes": null,
+        "id": "49ff915b-d3cc-4827-a727-26696d6c39a9"
       }
     ],
     "brand": "Carbamide",
@@ -1486,6 +2200,27 @@
         "price": 78300,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MYLBA-DEFAULT-2",
+        "price": 78300,
+        "stock": 107,
+        "attributes": null,
+        "id": "7055c549-091d-4728-a4ab-3f5c7695f788"
+      },
+      {
+        "sku_code": "SKU-MYLBA-DEFAULT-3",
+        "price": 78300,
+        "stock": 107,
+        "attributes": null,
+        "id": "e3e0c86c-f2eb-423b-bfe9-252628296a72"
+      },
+      {
+        "sku_code": "SKU-MYLBA-DEFAULT-4",
+        "price": 78300,
+        "stock": 107,
+        "attributes": null,
+        "id": "d182d917-f610-45f1-bf4f-957ebc4d41b2"
       }
     ],
     "brand": "Dabur",
@@ -1527,6 +2262,27 @@
         "price": 148500,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KZW2V-DEFAULT-2",
+        "price": 148500,
+        "stock": 103,
+        "attributes": null,
+        "id": "d6929188-dbb7-4716-9cd1-4412b497bcf7"
+      },
+      {
+        "sku_code": "SKU-KZW2V-DEFAULT-3",
+        "price": 148500,
+        "stock": 103,
+        "attributes": null,
+        "id": "b7073b19-17b4-452e-b3c0-2bd04d5b6e40"
+      },
+      {
+        "sku_code": "SKU-KZW2V-DEFAULT-4",
+        "price": 148500,
+        "stock": 103,
+        "attributes": null,
+        "id": "e0a113e2-dd53-44a6-b5fb-a513fd50fa3d"
       }
     ],
     "brand": "Dabur",
@@ -1600,6 +2356,27 @@
         "price": 36000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LK684-DEFAULT-2",
+        "price": 36000,
+        "stock": 30,
+        "attributes": null,
+        "id": "f9de4e15-cc5a-4208-af72-44b6e2212325"
+      },
+      {
+        "sku_code": "SKU-LK684-DEFAULT-3",
+        "price": 36000,
+        "stock": 30,
+        "attributes": null,
+        "id": "97116b5d-4696-482d-8350-7967c909a9a6"
+      },
+      {
+        "sku_code": "SKU-LK684-DEFAULT-4",
+        "price": 36000,
+        "stock": 30,
+        "attributes": null,
+        "id": "d7a6a644-2b16-4843-9736-4758d1ac684f"
       }
     ],
     "brand": "HP",
@@ -1645,6 +2422,27 @@
         "price": 54648,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V2XEV-DEFAULT-2",
+        "price": 54648,
+        "stock": 38,
+        "attributes": null,
+        "id": "e80e49a7-47d7-4576-9f9b-79e76b81e9f2"
+      },
+      {
+        "sku_code": "SKU-V2XEV-DEFAULT-3",
+        "price": 54648,
+        "stock": 38,
+        "attributes": null,
+        "id": "954b3f58-704d-4027-8314-4fe03a5fb68f"
+      },
+      {
+        "sku_code": "SKU-V2XEV-DEFAULT-4",
+        "price": 54648,
+        "stock": 38,
+        "attributes": null,
+        "id": "98b093b6-1b3e-4cd8-8ef3-8cc09953feee"
       }
     ],
     "brand": "Dr",
@@ -1690,6 +2488,27 @@
         "price": 152400,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YY5UR-DEFAULT-2",
+        "price": 152400,
+        "stock": 79,
+        "attributes": null,
+        "id": "83f054d9-5b4f-4830-9fda-db616b6c8e88"
+      },
+      {
+        "sku_code": "SKU-YY5UR-DEFAULT-3",
+        "price": 152400,
+        "stock": 79,
+        "attributes": null,
+        "id": "6ea98035-35cb-42c7-9230-b147f975876d"
+      },
+      {
+        "sku_code": "SKU-YY5UR-DEFAULT-4",
+        "price": 152400,
+        "stock": 79,
+        "attributes": null,
+        "id": "8d7c5af7-b2da-4ca3-893a-fd761d2b6d2c"
       }
     ],
     "brand": "Lotus",
@@ -1727,6 +2546,27 @@
         "price": 100500,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DDOEI-DEFAULT-2",
+        "price": 100500,
+        "stock": 60,
+        "attributes": null,
+        "id": "8649b3dd-c4d2-40a9-819a-068ef59de32c"
+      },
+      {
+        "sku_code": "SKU-DDOEI-DEFAULT-3",
+        "price": 100500,
+        "stock": 60,
+        "attributes": null,
+        "id": "967b9737-710d-48f6-a73e-f2493dcd5af4"
+      },
+      {
+        "sku_code": "SKU-DDOEI-DEFAULT-4",
+        "price": 100500,
+        "stock": 60,
+        "attributes": null,
+        "id": "6095c56f-bf53-45b8-bddf-459e298ba753"
       }
     ],
     "brand": "HP",
@@ -1768,6 +2608,27 @@
         "price": 140700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KXLB0-DEFAULT-2",
+        "price": 140700,
+        "stock": 27,
+        "attributes": null,
+        "id": "4163e909-021b-4a4c-a841-dcc556ed6261"
+      },
+      {
+        "sku_code": "SKU-KXLB0-DEFAULT-3",
+        "price": 140700,
+        "stock": 27,
+        "attributes": null,
+        "id": "8521034e-d457-4fde-8c23-9449db780588"
+      },
+      {
+        "sku_code": "SKU-KXLB0-DEFAULT-4",
+        "price": 140700,
+        "stock": 27,
+        "attributes": null,
+        "id": "d35d9f0a-b520-4197-96c6-f77f9622c801"
       }
     ],
     "brand": "Nivea",
@@ -1809,6 +2670,27 @@
         "price": 86700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W9DF3-DEFAULT-2",
+        "price": 86700,
+        "stock": 24,
+        "attributes": null,
+        "id": "5465bfcc-a438-47a7-9ffc-804d97444b69"
+      },
+      {
+        "sku_code": "SKU-W9DF3-DEFAULT-3",
+        "price": 86700,
+        "stock": 24,
+        "attributes": null,
+        "id": "c59e8ae4-3a84-407e-9221-f6534afe20ce"
+      },
+      {
+        "sku_code": "SKU-W9DF3-DEFAULT-4",
+        "price": 86700,
+        "stock": 24,
+        "attributes": null,
+        "id": "923b0ca7-a974-4756-a9bb-a30e2e0bcbd8"
       }
     ],
     "brand": "HP",
@@ -1854,6 +2736,27 @@
         "price": 161400,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PEMAM-DEFAULT-2",
+        "price": 161400,
+        "stock": 14,
+        "attributes": null,
+        "id": "2120aa9b-3932-4b29-a683-4bed168d5174"
+      },
+      {
+        "sku_code": "SKU-PEMAM-DEFAULT-3",
+        "price": 161400,
+        "stock": 14,
+        "attributes": null,
+        "id": "c2ec9245-2269-4c7a-8c1d-eb67ada0930e"
+      },
+      {
+        "sku_code": "SKU-PEMAM-DEFAULT-4",
+        "price": 161400,
+        "stock": 14,
+        "attributes": null,
+        "id": "ecd8dd80-8ef2-45c6-a2bf-a3cca6d2d4a7"
       }
     ],
     "brand": "Colgate",
@@ -1895,6 +2798,27 @@
         "price": 238800,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q3XKB-DEFAULT-2",
+        "price": 238800,
+        "stock": 80,
+        "attributes": null,
+        "id": "8a088b0d-930a-43a1-b565-6cdc954301a2"
+      },
+      {
+        "sku_code": "SKU-Q3XKB-DEFAULT-3",
+        "price": 238800,
+        "stock": 80,
+        "attributes": null,
+        "id": "40dde2fe-4982-49dc-bf3f-b58618a0ed19"
+      },
+      {
+        "sku_code": "SKU-Q3XKB-DEFAULT-4",
+        "price": 238800,
+        "stock": 80,
+        "attributes": null,
+        "id": "9cd7db8e-bfea-4c0e-a3c9-8e66c0b31907"
       }
     ],
     "brand": "HP",
@@ -1936,6 +2860,27 @@
         "price": 194700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JZTJH-DEFAULT-2",
+        "price": 194700,
+        "stock": 109,
+        "attributes": null,
+        "id": "04d5a1b7-14c8-4573-a9c0-716791138185"
+      },
+      {
+        "sku_code": "SKU-JZTJH-DEFAULT-3",
+        "price": 194700,
+        "stock": 109,
+        "attributes": null,
+        "id": "b0ec0c99-7bb6-4506-ac49-c7623df2bed4"
+      },
+      {
+        "sku_code": "SKU-JZTJH-DEFAULT-4",
+        "price": 194700,
+        "stock": 109,
+        "attributes": null,
+        "id": "2bb23da1-74d5-47a9-a4bf-c551d2439e7f"
       }
     ],
     "brand": "Harpic",
@@ -1973,6 +2918,27 @@
         "price": 76500,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3JEO4-DEFAULT-2",
+        "price": 76500,
+        "stock": 85,
+        "attributes": null,
+        "id": "9ca60233-75b8-409d-bbb2-588b03590488"
+      },
+      {
+        "sku_code": "SKU-3JEO4-DEFAULT-3",
+        "price": 76500,
+        "stock": 85,
+        "attributes": null,
+        "id": "524053e2-a2bd-4544-948d-ccf232232f1a"
+      },
+      {
+        "sku_code": "SKU-3JEO4-DEFAULT-4",
+        "price": 76500,
+        "stock": 85,
+        "attributes": null,
+        "id": "04a62f90-eb3c-4196-ab2a-a40b706d15ae"
       }
     ],
     "brand": "Nivea",
@@ -2018,6 +2984,27 @@
         "price": 359700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WITBV-DEFAULT-2",
+        "price": 359700,
+        "stock": 107,
+        "attributes": null,
+        "id": "38a39399-a972-4b40-b19a-abdce9c1a1be"
+      },
+      {
+        "sku_code": "SKU-WITBV-DEFAULT-3",
+        "price": 359700,
+        "stock": 107,
+        "attributes": null,
+        "id": "e77706bb-d72b-43ae-8b01-c6106f3a23be"
+      },
+      {
+        "sku_code": "SKU-WITBV-DEFAULT-4",
+        "price": 359700,
+        "stock": 107,
+        "attributes": null,
+        "id": "50fa538c-079d-458c-9aae-724e40b44da6"
       }
     ],
     "brand": "HP",
@@ -2055,6 +3042,27 @@
         "price": 58200,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AIVOV-DEFAULT-2",
+        "price": 58200,
+        "stock": 10,
+        "attributes": null,
+        "id": "021ab635-50ba-4563-abba-bc5a9099c703"
+      },
+      {
+        "sku_code": "SKU-AIVOV-DEFAULT-3",
+        "price": 58200,
+        "stock": 10,
+        "attributes": null,
+        "id": "cc9a3bc4-789b-49b9-a095-44d423c15ac9"
+      },
+      {
+        "sku_code": "SKU-AIVOV-DEFAULT-4",
+        "price": 58200,
+        "stock": 10,
+        "attributes": null,
+        "id": "00609501-fa03-4be8-997a-2630457bc00e"
       }
     ],
     "brand": "Harpic",
@@ -2096,6 +3104,27 @@
         "price": 58500,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JU5FG-DEFAULT-2",
+        "price": 58500,
+        "stock": 14,
+        "attributes": null,
+        "id": "dd604655-14bd-4ded-950d-3746b2c523a5"
+      },
+      {
+        "sku_code": "SKU-JU5FG-DEFAULT-3",
+        "price": 58500,
+        "stock": 14,
+        "attributes": null,
+        "id": "a6a39772-2b8a-455f-8d6d-140abaec510e"
+      },
+      {
+        "sku_code": "SKU-JU5FG-DEFAULT-4",
+        "price": 58500,
+        "stock": 14,
+        "attributes": null,
+        "id": "0f27e80c-5656-4afd-a731-92209c1b73ca"
       }
     ],
     "brand": "Mamaearth",
@@ -2163,6 +3192,27 @@
         "price": 40200,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-79CSZ-DEFAULT-2",
+        "price": 40200,
+        "stock": 84,
+        "attributes": null,
+        "id": "72fb3792-c512-43bc-a31a-9e39db6f2ef8"
+      },
+      {
+        "sku_code": "SKU-79CSZ-DEFAULT-3",
+        "price": 40200,
+        "stock": 84,
+        "attributes": null,
+        "id": "1a0e7f9d-3de3-40ea-b692-ae89e8766069"
+      },
+      {
+        "sku_code": "SKU-79CSZ-DEFAULT-4",
+        "price": 40200,
+        "stock": 84,
+        "attributes": null,
+        "id": "b770d725-ec64-4c3f-b834-f866cbbc5954"
       }
     ],
     "brand": "HP",
@@ -2200,6 +3250,27 @@
         "price": 63000,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S0KMX-DEFAULT-2",
+        "price": 63000,
+        "stock": 105,
+        "attributes": null,
+        "id": "255512f8-926f-45f7-94ea-28eb3c823008"
+      },
+      {
+        "sku_code": "SKU-S0KMX-DEFAULT-3",
+        "price": 63000,
+        "stock": 105,
+        "attributes": null,
+        "id": "566dd13f-9e0c-4164-8e35-53d804c8a806"
+      },
+      {
+        "sku_code": "SKU-S0KMX-DEFAULT-4",
+        "price": 63000,
+        "stock": 105,
+        "attributes": null,
+        "id": "5b08e561-3ea1-4f3d-87ed-577f43c191d6"
       }
     ],
     "brand": "Colgate",
@@ -2274,6 +3345,27 @@
         "price": 68700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-989LR-DEFAULT-2",
+        "price": 68700,
+        "stock": 28,
+        "attributes": null,
+        "id": "13a7b811-414d-466d-8935-0fd05cc20d44"
+      },
+      {
+        "sku_code": "SKU-989LR-DEFAULT-3",
+        "price": 68700,
+        "stock": 28,
+        "attributes": null,
+        "id": "e65e450f-21e1-439e-9cc0-3b2aa2953688"
+      },
+      {
+        "sku_code": "SKU-989LR-DEFAULT-4",
+        "price": 68700,
+        "stock": 28,
+        "attributes": null,
+        "id": "2770838f-587f-4f48-b0fd-704a367bd712"
       }
     ],
     "brand": "HP",
@@ -2315,6 +3407,27 @@
         "price": 56700,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MOQI7-DEFAULT-2",
+        "price": 56700,
+        "stock": 42,
+        "attributes": null,
+        "id": "c60f35e9-d35e-417c-87d5-c2edae757cfb"
+      },
+      {
+        "sku_code": "SKU-MOQI7-DEFAULT-3",
+        "price": 56700,
+        "stock": 42,
+        "attributes": null,
+        "id": "4ea34f1a-0664-470a-9de3-a90c9528ab7c"
+      },
+      {
+        "sku_code": "SKU-MOQI7-DEFAULT-4",
+        "price": 56700,
+        "stock": 42,
+        "attributes": null,
+        "id": "c271dc00-0da9-4e7f-a731-4650e4f2a185"
       }
     ],
     "brand": "HP",
@@ -2352,6 +3465,27 @@
         "price": 43500,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BRL93-DEFAULT-2",
+        "price": 43500,
+        "stock": 96,
+        "attributes": null,
+        "id": "a7c80be7-df0b-4053-89b5-9abe4da65c15"
+      },
+      {
+        "sku_code": "SKU-BRL93-DEFAULT-3",
+        "price": 43500,
+        "stock": 96,
+        "attributes": null,
+        "id": "399db1ec-0fb9-41de-88dc-212161f28722"
+      },
+      {
+        "sku_code": "SKU-BRL93-DEFAULT-4",
+        "price": 43500,
+        "stock": 96,
+        "attributes": null,
+        "id": "73ff3218-0452-4d7c-b446-3cffc35e4471"
       }
     ],
     "brand": "Asus",
@@ -2397,6 +3531,27 @@
         "price": 87000,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MPERV-DEFAULT-2",
+        "price": 87000,
+        "stock": 54,
+        "attributes": null,
+        "id": "dbbcb293-db93-4966-92e0-ba909c9d8464"
+      },
+      {
+        "sku_code": "SKU-MPERV-DEFAULT-3",
+        "price": 87000,
+        "stock": 54,
+        "attributes": null,
+        "id": "a5c3ba50-aa41-4c24-b066-79b8b25b144c"
+      },
+      {
+        "sku_code": "SKU-MPERV-DEFAULT-4",
+        "price": 87000,
+        "stock": 54,
+        "attributes": null,
+        "id": "6229cbdf-b02f-4dd0-ba6e-d750196e3d41"
       }
     ],
     "brand": "Dabur",
@@ -2442,6 +3597,27 @@
         "price": 75000,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UR392-DEFAULT-2",
+        "price": 75000,
+        "stock": 83,
+        "attributes": null,
+        "id": "e4e58a4f-8654-4258-b57d-e15aea6f992d"
+      },
+      {
+        "sku_code": "SKU-UR392-DEFAULT-3",
+        "price": 75000,
+        "stock": 83,
+        "attributes": null,
+        "id": "310c2b11-ebd9-4172-a4ac-ad385edd7735"
+      },
+      {
+        "sku_code": "SKU-UR392-DEFAULT-4",
+        "price": 75000,
+        "stock": 83,
+        "attributes": null,
+        "id": "cca78c0f-2092-436d-88e2-f71814abc677"
       }
     ],
     "brand": "Dabur",
@@ -2483,6 +3659,27 @@
         "price": 68400,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YBCSO-DEFAULT-2",
+        "price": 68400,
+        "stock": 23,
+        "attributes": null,
+        "id": "3b2a7437-783b-46af-964f-91df0cb1ef3a"
+      },
+      {
+        "sku_code": "SKU-YBCSO-DEFAULT-3",
+        "price": 68400,
+        "stock": 23,
+        "attributes": null,
+        "id": "9db554b2-82e0-4c1a-9264-f8740d0bf38e"
+      },
+      {
+        "sku_code": "SKU-YBCSO-DEFAULT-4",
+        "price": 68400,
+        "stock": 23,
+        "attributes": null,
+        "id": "dc235e3e-a785-48f6-b79e-6f1b61a97af5"
       }
     ],
     "brand": "Carbamide",
@@ -2524,6 +3721,27 @@
         "price": 57600,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AZCR7-DEFAULT-2",
+        "price": 57600,
+        "stock": 24,
+        "attributes": null,
+        "id": "bcf98a62-bf78-472c-ae5e-2b6bd36d5018"
+      },
+      {
+        "sku_code": "SKU-AZCR7-DEFAULT-3",
+        "price": 57600,
+        "stock": 24,
+        "attributes": null,
+        "id": "c39e9cdb-b249-4e43-8a12-43e6e8148d27"
+      },
+      {
+        "sku_code": "SKU-AZCR7-DEFAULT-4",
+        "price": 57600,
+        "stock": 24,
+        "attributes": null,
+        "id": "e429bc08-6e2c-47e2-94b3-4baf3a4932f0"
       }
     ],
     "brand": "Carbamide",
@@ -2565,6 +3783,27 @@
         "price": 179700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AHN3F-DEFAULT-2",
+        "price": 179700,
+        "stock": 54,
+        "attributes": null,
+        "id": "3ed5aff7-5770-4daa-b6b8-ce0f89958232"
+      },
+      {
+        "sku_code": "SKU-AHN3F-DEFAULT-3",
+        "price": 179700,
+        "stock": 54,
+        "attributes": null,
+        "id": "266285c4-b5a0-4b1c-a069-35b561f733b8"
+      },
+      {
+        "sku_code": "SKU-AHN3F-DEFAULT-4",
+        "price": 179700,
+        "stock": 54,
+        "attributes": null,
+        "id": "f5dfc25d-0e34-46a8-af1a-b00ddc039152"
       }
     ],
     "brand": "JBL",
@@ -2610,6 +3849,27 @@
         "price": 57300,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-30N68-DEFAULT-2",
+        "price": 57300,
+        "stock": 104,
+        "attributes": null,
+        "id": "93eb96b4-6747-4cae-89db-87bf8bbd603b"
+      },
+      {
+        "sku_code": "SKU-30N68-DEFAULT-3",
+        "price": 57300,
+        "stock": 104,
+        "attributes": null,
+        "id": "3bf6416a-6fa3-4f43-b016-1551de318850"
+      },
+      {
+        "sku_code": "SKU-30N68-DEFAULT-4",
+        "price": 57300,
+        "stock": 104,
+        "attributes": null,
+        "id": "0e55129b-605e-4d97-8d68-e82127b43963"
       }
     ],
     "brand": "Dabur",
@@ -2647,6 +3907,27 @@
         "price": 59700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4PNM1-DEFAULT-2",
+        "price": 59700,
+        "stock": 71,
+        "attributes": null,
+        "id": "4f638c0b-fe13-4e5e-b8e7-df48f92a5ba8"
+      },
+      {
+        "sku_code": "SKU-4PNM1-DEFAULT-3",
+        "price": 59700,
+        "stock": 71,
+        "attributes": null,
+        "id": "b85e1f49-85da-4c88-bbd0-f13d7fdd1b73"
+      },
+      {
+        "sku_code": "SKU-4PNM1-DEFAULT-4",
+        "price": 59700,
+        "stock": 71,
+        "attributes": null,
+        "id": "314761ad-0a27-4390-abe3-9cd63060b737"
       }
     ],
     "brand": "HP",
@@ -2688,6 +3969,27 @@
         "price": 149700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9MKWL-DEFAULT-2",
+        "price": 149700,
+        "stock": 11,
+        "attributes": null,
+        "id": "bfeaabc4-8cb7-472e-a957-0c07f40efb2b"
+      },
+      {
+        "sku_code": "SKU-9MKWL-DEFAULT-3",
+        "price": 149700,
+        "stock": 11,
+        "attributes": null,
+        "id": "56a5ec2c-edda-485b-b0f1-c10b709a1b7e"
+      },
+      {
+        "sku_code": "SKU-9MKWL-DEFAULT-4",
+        "price": 149700,
+        "stock": 11,
+        "attributes": null,
+        "id": "6b6f502d-6aed-4268-b402-ec05922fcfba"
       }
     ],
     "brand": "Nivea",
@@ -2729,6 +4031,27 @@
         "price": 206400,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D0HQM-DEFAULT-2",
+        "price": 206400,
+        "stock": 108,
+        "attributes": null,
+        "id": "e6219f75-a8a9-414f-a3db-210a8ca6ffc0"
+      },
+      {
+        "sku_code": "SKU-D0HQM-DEFAULT-3",
+        "price": 206400,
+        "stock": 108,
+        "attributes": null,
+        "id": "c5fec62b-7e2a-46f4-8fcb-4f3e9c6338db"
+      },
+      {
+        "sku_code": "SKU-D0HQM-DEFAULT-4",
+        "price": 206400,
+        "stock": 108,
+        "attributes": null,
+        "id": "95bf24a0-be62-41f5-9125-802a6ad6281d"
       }
     ],
     "brand": "Harpic",
@@ -2766,6 +4089,27 @@
         "price": 89400,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-96J2P-DEFAULT-2",
+        "price": 89400,
+        "stock": 99,
+        "attributes": null,
+        "id": "87563899-1e0f-4b96-9031-4573695d49f9"
+      },
+      {
+        "sku_code": "SKU-96J2P-DEFAULT-3",
+        "price": 89400,
+        "stock": 99,
+        "attributes": null,
+        "id": "e5c2af21-de7d-4415-86bf-b628bab7d966"
+      },
+      {
+        "sku_code": "SKU-96J2P-DEFAULT-4",
+        "price": 89400,
+        "stock": 99,
+        "attributes": null,
+        "id": "8663e107-f322-4808-9545-6aaad69e325e"
       }
     ],
     "brand": "Nivea",
@@ -2803,6 +4147,27 @@
         "price": 239700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WLRKD-DEFAULT-2",
+        "price": 239700,
+        "stock": 69,
+        "attributes": null,
+        "id": "92f1cf85-e3e3-4e6f-9dc1-739b9b21b5ae"
+      },
+      {
+        "sku_code": "SKU-WLRKD-DEFAULT-3",
+        "price": 239700,
+        "stock": 69,
+        "attributes": null,
+        "id": "be43ab19-4af1-448e-bee8-2db116754ca0"
+      },
+      {
+        "sku_code": "SKU-WLRKD-DEFAULT-4",
+        "price": 239700,
+        "stock": 69,
+        "attributes": null,
+        "id": "8a9a7718-4c62-4f01-b1ac-2b22a37228df"
       }
     ],
     "brand": "Lotus",
@@ -2844,6 +4209,27 @@
         "price": 239700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8L2D1-DEFAULT-2",
+        "price": 239700,
+        "stock": 71,
+        "attributes": null,
+        "id": "7c3d27b0-fd22-42a9-8253-8df67606ee3c"
+      },
+      {
+        "sku_code": "SKU-8L2D1-DEFAULT-3",
+        "price": 239700,
+        "stock": 71,
+        "attributes": null,
+        "id": "fb46fc8a-4f13-48ab-b865-3526dd9304b1"
+      },
+      {
+        "sku_code": "SKU-8L2D1-DEFAULT-4",
+        "price": 239700,
+        "stock": 71,
+        "attributes": null,
+        "id": "957cf7c3-2ecb-4a90-9b1d-faaf22c27644"
       }
     ],
     "brand": "Amazon",
@@ -2885,6 +4271,27 @@
         "price": 63000,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-83R5S-DEFAULT-2",
+        "price": 63000,
+        "stock": 81,
+        "attributes": null,
+        "id": "9543fd98-f16d-45b4-8e4f-a799eea4c6ed"
+      },
+      {
+        "sku_code": "SKU-83R5S-DEFAULT-3",
+        "price": 63000,
+        "stock": 81,
+        "attributes": null,
+        "id": "9ee0a6f2-1b92-450c-a97c-86b31ede3945"
+      },
+      {
+        "sku_code": "SKU-83R5S-DEFAULT-4",
+        "price": 63000,
+        "stock": 81,
+        "attributes": null,
+        "id": "fab9bbf5-2223-478a-9742-6eb19c7f8fd4"
       }
     ],
     "brand": "Kapiva",
@@ -2943,6 +4350,27 @@
         "price": 103500,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4F4FB-DEFAULT-2",
+        "price": 103500,
+        "stock": 69,
+        "attributes": null,
+        "id": "34938404-f19b-417e-953f-865c190e0680"
+      },
+      {
+        "sku_code": "SKU-4F4FB-DEFAULT-3",
+        "price": 103500,
+        "stock": 69,
+        "attributes": null,
+        "id": "ff81663b-a727-4a3c-9c84-124b58ca2174"
+      },
+      {
+        "sku_code": "SKU-4F4FB-DEFAULT-4",
+        "price": 103500,
+        "stock": 69,
+        "attributes": null,
+        "id": "2e8a81cf-7eaa-4bf7-9e77-961568e01642"
       }
     ],
     "brand": "HP",
@@ -2984,6 +4412,27 @@
         "price": 67200,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VA1RN-DEFAULT-2",
+        "price": 67200,
+        "stock": 81,
+        "attributes": null,
+        "id": "04d9fef0-f28a-4d5d-9c98-f4117c536f5f"
+      },
+      {
+        "sku_code": "SKU-VA1RN-DEFAULT-3",
+        "price": 67200,
+        "stock": 81,
+        "attributes": null,
+        "id": "4f05caff-6b0c-4ed1-9e6c-a87ea7084fdd"
+      },
+      {
+        "sku_code": "SKU-VA1RN-DEFAULT-4",
+        "price": 67200,
+        "stock": 81,
+        "attributes": null,
+        "id": "d6f87f7b-2f88-4540-b783-efb935a15035"
       }
     ],
     "brand": "Cetaphil",
@@ -3025,6 +4474,27 @@
         "price": 119700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1F6GO-DEFAULT-2",
+        "price": 119700,
+        "stock": 25,
+        "attributes": null,
+        "id": "33c7c5db-8c4b-4722-abab-d0c4c6652b2a"
+      },
+      {
+        "sku_code": "SKU-1F6GO-DEFAULT-3",
+        "price": 119700,
+        "stock": 25,
+        "attributes": null,
+        "id": "2850b8d1-fb66-472e-9e1e-0e0b216b1736"
+      },
+      {
+        "sku_code": "SKU-1F6GO-DEFAULT-4",
+        "price": 119700,
+        "stock": 25,
+        "attributes": null,
+        "id": "4712f51c-4d0d-4511-b2bb-144936ef51be"
       }
     ],
     "brand": "Kapiva",
@@ -3070,6 +4540,27 @@
         "price": 594000,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SOQSD-DEFAULT-2",
+        "price": 594000,
+        "stock": 15,
+        "attributes": null,
+        "id": "d7296faf-db31-4313-8e4a-6be5f6c327b2"
+      },
+      {
+        "sku_code": "SKU-SOQSD-DEFAULT-3",
+        "price": 594000,
+        "stock": 15,
+        "attributes": null,
+        "id": "6b01a632-f536-46d7-825a-e15156b36a02"
+      },
+      {
+        "sku_code": "SKU-SOQSD-DEFAULT-4",
+        "price": 594000,
+        "stock": 15,
+        "attributes": null,
+        "id": "90bb80bf-0206-43f2-86e2-679f0ba0fce3"
       }
     ],
     "brand": "Cetaphil",
@@ -3111,6 +4602,27 @@
         "price": 121230,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OZ4TD-DEFAULT-2",
+        "price": 121230,
+        "stock": 40,
+        "attributes": null,
+        "id": "bf21a639-d64d-4ccd-96f4-7a16186aca8d"
+      },
+      {
+        "sku_code": "SKU-OZ4TD-DEFAULT-3",
+        "price": 121230,
+        "stock": 40,
+        "attributes": null,
+        "id": "97cd6314-669e-4501-a7e7-fe8ce8b07b15"
+      },
+      {
+        "sku_code": "SKU-OZ4TD-DEFAULT-4",
+        "price": 121230,
+        "stock": 40,
+        "attributes": null,
+        "id": "ecd6fb0e-4bec-4499-95cd-33056ab731f1"
       }
     ],
     "brand": "Godrej",
@@ -3156,6 +4668,27 @@
         "price": 59700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UOWEH-DEFAULT-2",
+        "price": 59700,
+        "stock": 63,
+        "attributes": null,
+        "id": "f2c176d8-ffa3-4b82-9467-1dfe93e65505"
+      },
+      {
+        "sku_code": "SKU-UOWEH-DEFAULT-3",
+        "price": 59700,
+        "stock": 63,
+        "attributes": null,
+        "id": "314394d1-bd95-4f96-b75d-113cbf22ee2b"
+      },
+      {
+        "sku_code": "SKU-UOWEH-DEFAULT-4",
+        "price": 59700,
+        "stock": 63,
+        "attributes": null,
+        "id": "c7ebd95a-2567-4774-9f72-ec025acf1d78"
       }
     ],
     "brand": "Carbamide",
@@ -3201,6 +4734,27 @@
         "price": 209100,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3W7PE-DEFAULT-2",
+        "price": 209100,
+        "stock": 53,
+        "attributes": null,
+        "id": "c7ab3c7b-a0d6-4747-8f75-70dd4b961104"
+      },
+      {
+        "sku_code": "SKU-3W7PE-DEFAULT-3",
+        "price": 209100,
+        "stock": 53,
+        "attributes": null,
+        "id": "3b520c76-c5b5-4c81-9373-97819a14ba17"
+      },
+      {
+        "sku_code": "SKU-3W7PE-DEFAULT-4",
+        "price": 209100,
+        "stock": 53,
+        "attributes": null,
+        "id": "9c4cf0b9-ac91-4997-95c5-b3081f9d8c83"
       }
     ],
     "brand": "Mamaearth",
@@ -3242,6 +4796,27 @@
         "price": 150000,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X2RT3-DEFAULT-2",
+        "price": 150000,
+        "stock": 95,
+        "attributes": null,
+        "id": "392387d2-b207-4992-8ba7-0f6158f7465a"
+      },
+      {
+        "sku_code": "SKU-X2RT3-DEFAULT-3",
+        "price": 150000,
+        "stock": 95,
+        "attributes": null,
+        "id": "a65f5993-cac1-4edd-82f2-438da5c335d0"
+      },
+      {
+        "sku_code": "SKU-X2RT3-DEFAULT-4",
+        "price": 150000,
+        "stock": 95,
+        "attributes": null,
+        "id": "353db975-1181-4d32-ad4a-07a5bb80f3e8"
       }
     ],
     "brand": "Godrej",
@@ -3283,6 +4858,27 @@
         "price": 89700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T4AZ4-DEFAULT-2",
+        "price": 89700,
+        "stock": 66,
+        "attributes": null,
+        "id": "7b56dee0-a4d4-4783-a8a5-45835f600a08"
+      },
+      {
+        "sku_code": "SKU-T4AZ4-DEFAULT-3",
+        "price": 89700,
+        "stock": 66,
+        "attributes": null,
+        "id": "c2ab3779-b151-4e02-b067-71ab064cddbc"
+      },
+      {
+        "sku_code": "SKU-T4AZ4-DEFAULT-4",
+        "price": 89700,
+        "stock": 66,
+        "attributes": null,
+        "id": "4afc4d54-db48-4d21-b09c-2f27161667a6"
       }
     ],
     "brand": "Amazon",
@@ -3320,6 +4916,27 @@
         "price": 149400,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YUS2A-DEFAULT-2",
+        "price": 149400,
+        "stock": 20,
+        "attributes": null,
+        "id": "6fbf51cc-1aa7-46c3-a314-c251bea6a3c6"
+      },
+      {
+        "sku_code": "SKU-YUS2A-DEFAULT-3",
+        "price": 149400,
+        "stock": 20,
+        "attributes": null,
+        "id": "2e427475-3c0c-4b58-9cff-f3498ca61d6a"
+      },
+      {
+        "sku_code": "SKU-YUS2A-DEFAULT-4",
+        "price": 149400,
+        "stock": 20,
+        "attributes": null,
+        "id": "903f041e-f420-44c9-8f4f-63267bba9a26"
       }
     ],
     "brand": "Mamaearth",
@@ -3357,6 +4974,27 @@
         "price": 254700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NM2SN-DEFAULT-2",
+        "price": 254700,
+        "stock": 44,
+        "attributes": null,
+        "id": "9da18101-620f-42fa-a15b-83105759f53d"
+      },
+      {
+        "sku_code": "SKU-NM2SN-DEFAULT-3",
+        "price": 254700,
+        "stock": 44,
+        "attributes": null,
+        "id": "e709fde2-930b-4b12-8d4a-73b7d566d036"
+      },
+      {
+        "sku_code": "SKU-NM2SN-DEFAULT-4",
+        "price": 254700,
+        "stock": 44,
+        "attributes": null,
+        "id": "a40b1156-76f1-42e6-ab51-6b9be4e36fc2"
       }
     ],
     "brand": "Lotus",
@@ -3402,6 +5040,27 @@
         "price": 119400,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2BAVR-DEFAULT-2",
+        "price": 119400,
+        "stock": 55,
+        "attributes": null,
+        "id": "7a035eeb-45d4-4d6f-939d-52178640d26e"
+      },
+      {
+        "sku_code": "SKU-2BAVR-DEFAULT-3",
+        "price": 119400,
+        "stock": 55,
+        "attributes": null,
+        "id": "4704923f-6ec0-4bbe-8bb5-4305bb548035"
+      },
+      {
+        "sku_code": "SKU-2BAVR-DEFAULT-4",
+        "price": 119400,
+        "stock": 55,
+        "attributes": null,
+        "id": "e0b2642b-4730-454e-9987-cabb4e3651e4"
       }
     ],
     "brand": "Colgate",
@@ -3443,6 +5102,27 @@
         "price": 127245,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0CI5J-DEFAULT-2",
+        "price": 127245,
+        "stock": 10,
+        "attributes": null,
+        "id": "6f0218ba-a570-466a-b1d4-8adc14aaa347"
+      },
+      {
+        "sku_code": "SKU-0CI5J-DEFAULT-3",
+        "price": 127245,
+        "stock": 10,
+        "attributes": null,
+        "id": "fa4b670c-9453-4ce7-b981-7d1ca85e4deb"
+      },
+      {
+        "sku_code": "SKU-0CI5J-DEFAULT-4",
+        "price": 127245,
+        "stock": 10,
+        "attributes": null,
+        "id": "7c25259f-7aa1-45b3-ab51-6ed88f6f336f"
       }
     ],
     "brand": "Carbamide",
@@ -3480,6 +5160,27 @@
         "price": 65700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RVU8W-DEFAULT-2",
+        "price": 65700,
+        "stock": 10,
+        "attributes": null,
+        "id": "d8611011-5bc0-457a-9653-8286dd79bf76"
+      },
+      {
+        "sku_code": "SKU-RVU8W-DEFAULT-3",
+        "price": 65700,
+        "stock": 10,
+        "attributes": null,
+        "id": "a101d975-00a3-486a-b18d-b20d9242d9f8"
+      },
+      {
+        "sku_code": "SKU-RVU8W-DEFAULT-4",
+        "price": 65700,
+        "stock": 10,
+        "attributes": null,
+        "id": "ebeeb927-d737-4417-ac74-29a6ae79dcfe"
       }
     ],
     "brand": "Biotique",
@@ -3517,6 +5218,27 @@
         "price": 132300,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5AC6E-DEFAULT-2",
+        "price": 132300,
+        "stock": 28,
+        "attributes": null,
+        "id": "31e33dbe-3a85-4716-95ed-a3d250754cba"
+      },
+      {
+        "sku_code": "SKU-5AC6E-DEFAULT-3",
+        "price": 132300,
+        "stock": 28,
+        "attributes": null,
+        "id": "d8235e6e-e2f4-44d2-861d-03beeb5b7138"
+      },
+      {
+        "sku_code": "SKU-5AC6E-DEFAULT-4",
+        "price": 132300,
+        "stock": 28,
+        "attributes": null,
+        "id": "b3ac2303-1bcb-4e49-8a69-5943e748b597"
       }
     ],
     "brand": "Dettol",
@@ -3558,6 +5280,27 @@
         "price": 299700,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KO9QU-DEFAULT-2",
+        "price": 299700,
+        "stock": 21,
+        "attributes": null,
+        "id": "c0c7e010-631c-4631-b3d5-b332d99d8356"
+      },
+      {
+        "sku_code": "SKU-KO9QU-DEFAULT-3",
+        "price": 299700,
+        "stock": 21,
+        "attributes": null,
+        "id": "134b26b0-bf59-429e-b93e-144d84216cc3"
+      },
+      {
+        "sku_code": "SKU-KO9QU-DEFAULT-4",
+        "price": 299700,
+        "stock": 21,
+        "attributes": null,
+        "id": "d6e51e9e-325c-4093-bcbf-7ad4fdd1137c"
       }
     ],
     "brand": "Nivea",
@@ -3595,6 +5338,27 @@
         "price": 39900,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YFUKF-DEFAULT-2",
+        "price": 39900,
+        "stock": 40,
+        "attributes": null,
+        "id": "dcbc99ee-6beb-499e-930e-10efdb829a57"
+      },
+      {
+        "sku_code": "SKU-YFUKF-DEFAULT-3",
+        "price": 39900,
+        "stock": 40,
+        "attributes": null,
+        "id": "9baf2f7a-decd-44a9-90c2-39107ed9b3b5"
+      },
+      {
+        "sku_code": "SKU-YFUKF-DEFAULT-4",
+        "price": 39900,
+        "stock": 40,
+        "attributes": null,
+        "id": "3cb1b61e-2e96-4df9-a1fc-5c7a5d33b46c"
       }
     ],
     "brand": "Himalaya",
@@ -3640,6 +5404,27 @@
         "price": 30000,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EBWPA-DEFAULT-2",
+        "price": 30000,
+        "stock": 97,
+        "attributes": null,
+        "id": "a4039bc3-5ec7-4ad1-baf8-feb292c61195"
+      },
+      {
+        "sku_code": "SKU-EBWPA-DEFAULT-3",
+        "price": 30000,
+        "stock": 97,
+        "attributes": null,
+        "id": "45a6e566-301c-4d2b-97b5-6092aa67cc96"
+      },
+      {
+        "sku_code": "SKU-EBWPA-DEFAULT-4",
+        "price": 30000,
+        "stock": 97,
+        "attributes": null,
+        "id": "ee3a90aa-8837-4ef0-9db7-38c6bb1dc2c0"
       }
     ],
     "brand": "Colgate",
@@ -3681,6 +5466,27 @@
         "price": 187800,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0OQA8-DEFAULT-2",
+        "price": 187800,
+        "stock": 87,
+        "attributes": null,
+        "id": "54426167-b92f-4c38-a0f0-3c9c714a2c08"
+      },
+      {
+        "sku_code": "SKU-0OQA8-DEFAULT-3",
+        "price": 187800,
+        "stock": 87,
+        "attributes": null,
+        "id": "5dbfbbf2-964b-4213-bfb1-f7c08cea1f12"
+      },
+      {
+        "sku_code": "SKU-0OQA8-DEFAULT-4",
+        "price": 187800,
+        "stock": 87,
+        "attributes": null,
+        "id": "a539df52-12ef-400a-b9bd-9c514d83e520"
       }
     ],
     "brand": "Harpic",
@@ -3722,6 +5528,27 @@
         "price": 115500,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L3W50-DEFAULT-2",
+        "price": 115500,
+        "stock": 31,
+        "attributes": null,
+        "id": "2f1e3aef-60c3-4ad8-9b70-5c3f9932d85a"
+      },
+      {
+        "sku_code": "SKU-L3W50-DEFAULT-3",
+        "price": 115500,
+        "stock": 31,
+        "attributes": null,
+        "id": "fdf5b5a6-cf31-4603-9d8a-193a65249181"
+      },
+      {
+        "sku_code": "SKU-L3W50-DEFAULT-4",
+        "price": 115500,
+        "stock": 31,
+        "attributes": null,
+        "id": "dfba062c-bc8a-4970-a4de-a503b7eae923"
       }
     ],
     "brand": "Harpic",
@@ -3767,6 +5594,27 @@
         "price": 134700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PMNYP-DEFAULT-2",
+        "price": 134700,
+        "stock": 104,
+        "attributes": null,
+        "id": "f6d78253-c836-4b5e-9712-83d0663f7e26"
+      },
+      {
+        "sku_code": "SKU-PMNYP-DEFAULT-3",
+        "price": 134700,
+        "stock": 104,
+        "attributes": null,
+        "id": "23ee8e23-7e5c-4205-ad03-47c810ccd4c8"
+      },
+      {
+        "sku_code": "SKU-PMNYP-DEFAULT-4",
+        "price": 134700,
+        "stock": 104,
+        "attributes": null,
+        "id": "c99ee763-b7b3-4c22-a111-fd91a9c5bbf1"
       }
     ],
     "brand": "Amazon",
@@ -3808,6 +5656,27 @@
         "price": 22500,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OI3LK-DEFAULT-2",
+        "price": 22500,
+        "stock": 69,
+        "attributes": null,
+        "id": "d61f65f3-7bd1-4f06-86c8-1c5101b6a83f"
+      },
+      {
+        "sku_code": "SKU-OI3LK-DEFAULT-3",
+        "price": 22500,
+        "stock": 69,
+        "attributes": null,
+        "id": "eb053d38-a442-4e5f-9665-b94fed9f950b"
+      },
+      {
+        "sku_code": "SKU-OI3LK-DEFAULT-4",
+        "price": 22500,
+        "stock": 69,
+        "attributes": null,
+        "id": "dc3aed29-a6e4-4ec8-821a-1a4b88536f05"
       }
     ],
     "brand": "Godrej",
@@ -3845,6 +5714,27 @@
         "price": 310500,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y1M3H-DEFAULT-2",
+        "price": 310500,
+        "stock": 18,
+        "attributes": null,
+        "id": "7832dcf5-cf55-48cd-b0f9-c4e57f2239d2"
+      },
+      {
+        "sku_code": "SKU-Y1M3H-DEFAULT-3",
+        "price": 310500,
+        "stock": 18,
+        "attributes": null,
+        "id": "a0e1308f-bbe9-4e7c-a192-5079e7cfe90a"
+      },
+      {
+        "sku_code": "SKU-Y1M3H-DEFAULT-4",
+        "price": 310500,
+        "stock": 18,
+        "attributes": null,
+        "id": "cf17545b-7222-4559-a80b-29cce43f291a"
       }
     ],
     "brand": "Himalaya",
@@ -3882,6 +5772,27 @@
         "price": 32400,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JKYU5-DEFAULT-2",
+        "price": 32400,
+        "stock": 33,
+        "attributes": null,
+        "id": "9091e73a-a58c-408e-8f57-93b3a4234311"
+      },
+      {
+        "sku_code": "SKU-JKYU5-DEFAULT-3",
+        "price": 32400,
+        "stock": 33,
+        "attributes": null,
+        "id": "7bfcf45d-77fb-4efd-9fb7-bdd68e67c1ff"
+      },
+      {
+        "sku_code": "SKU-JKYU5-DEFAULT-4",
+        "price": 32400,
+        "stock": 33,
+        "attributes": null,
+        "id": "f4d7f8e3-28e9-4689-9934-90d1e99aae41"
       }
     ],
     "brand": "Lotus",
@@ -3946,6 +5857,27 @@
         "price": 239700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GQ43V-DEFAULT-2",
+        "price": 239700,
+        "stock": 86,
+        "attributes": null,
+        "id": "5f0838d9-42b0-4e76-bcf0-65b7646218e9"
+      },
+      {
+        "sku_code": "SKU-GQ43V-DEFAULT-3",
+        "price": 239700,
+        "stock": 86,
+        "attributes": null,
+        "id": "0b1c981b-e525-4d94-b588-9e36a253556a"
+      },
+      {
+        "sku_code": "SKU-GQ43V-DEFAULT-4",
+        "price": 239700,
+        "stock": 86,
+        "attributes": null,
+        "id": "4414fe27-40af-4a48-8ae7-a011a3f0c662"
       }
     ],
     "brand": "HP",
@@ -3987,6 +5919,27 @@
         "price": 59700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G4UVT-DEFAULT-2",
+        "price": 59700,
+        "stock": 72,
+        "attributes": null,
+        "id": "db7873cb-3c23-4cba-b1a9-dacf36229426"
+      },
+      {
+        "sku_code": "SKU-G4UVT-DEFAULT-3",
+        "price": 59700,
+        "stock": 72,
+        "attributes": null,
+        "id": "5bcf7f01-3077-4e63-8b07-46c1d6727796"
+      },
+      {
+        "sku_code": "SKU-G4UVT-DEFAULT-4",
+        "price": 59700,
+        "stock": 72,
+        "attributes": null,
+        "id": "38643137-d74a-4642-a9c7-ff12e6a99951"
       }
     ],
     "brand": "Amazon",
@@ -4032,6 +5985,27 @@
         "price": 13500,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0BE18-DEFAULT-2",
+        "price": 13500,
+        "stock": 41,
+        "attributes": null,
+        "id": "646de99a-379f-49fc-96ce-718b2d99f91f"
+      },
+      {
+        "sku_code": "SKU-0BE18-DEFAULT-3",
+        "price": 13500,
+        "stock": 41,
+        "attributes": null,
+        "id": "91f5d255-0424-4f09-a14e-7069f847f443"
+      },
+      {
+        "sku_code": "SKU-0BE18-DEFAULT-4",
+        "price": 13500,
+        "stock": 41,
+        "attributes": null,
+        "id": "7412a139-862e-4fca-9cb9-1ef7c5a23074"
       }
     ],
     "brand": "Dettol",
@@ -4103,6 +6077,27 @@
         "price": 299700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4HGNH-DEFAULT-2",
+        "price": 299700,
+        "stock": 103,
+        "attributes": null,
+        "id": "5f2b8e63-adde-4f93-92bf-9f76af83dbff"
+      },
+      {
+        "sku_code": "SKU-4HGNH-DEFAULT-3",
+        "price": 299700,
+        "stock": 103,
+        "attributes": null,
+        "id": "8b9daea2-faf5-4fcd-80b3-8219b0418b11"
+      },
+      {
+        "sku_code": "SKU-4HGNH-DEFAULT-4",
+        "price": 299700,
+        "stock": 103,
+        "attributes": null,
+        "id": "bff7b841-3aa1-4edc-8a46-2eac3d4d6f4e"
       }
     ],
     "brand": "JBL",
@@ -4148,6 +6143,27 @@
         "price": 111720,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RTKQG-DEFAULT-2",
+        "price": 111720,
+        "stock": 41,
+        "attributes": null,
+        "id": "65ce43ad-0c8e-41b3-a719-57bc99778fea"
+      },
+      {
+        "sku_code": "SKU-RTKQG-DEFAULT-3",
+        "price": 111720,
+        "stock": 41,
+        "attributes": null,
+        "id": "dd3ace9b-0c31-476f-8e6f-57188d9f50c4"
+      },
+      {
+        "sku_code": "SKU-RTKQG-DEFAULT-4",
+        "price": 111720,
+        "stock": 41,
+        "attributes": null,
+        "id": "36773007-0266-4dc5-a85a-cc4102fc6bb6"
       }
     ],
     "brand": "Dabur",
@@ -4193,6 +6209,27 @@
         "price": 89700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0N6J7-DEFAULT-2",
+        "price": 89700,
+        "stock": 74,
+        "attributes": null,
+        "id": "93544216-f69a-4675-ad51-b479fdb25218"
+      },
+      {
+        "sku_code": "SKU-0N6J7-DEFAULT-3",
+        "price": 89700,
+        "stock": 74,
+        "attributes": null,
+        "id": "9ef0f7db-caff-453b-91d9-265b9344a203"
+      },
+      {
+        "sku_code": "SKU-0N6J7-DEFAULT-4",
+        "price": 89700,
+        "stock": 74,
+        "attributes": null,
+        "id": "cbc81f33-0f1e-46ad-bb27-7d4a20c84dd6"
       }
     ],
     "brand": "Kapiva",
@@ -4230,6 +6267,27 @@
         "price": 113700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UEXTS-DEFAULT-2",
+        "price": 113700,
+        "stock": 89,
+        "attributes": null,
+        "id": "0aae5418-5140-4085-a6cd-9ea5497cd720"
+      },
+      {
+        "sku_code": "SKU-UEXTS-DEFAULT-3",
+        "price": 113700,
+        "stock": 89,
+        "attributes": null,
+        "id": "f33d4157-0654-48de-83c4-fe152326c87b"
+      },
+      {
+        "sku_code": "SKU-UEXTS-DEFAULT-4",
+        "price": 113700,
+        "stock": 89,
+        "attributes": null,
+        "id": "9e35fa17-60b6-4df3-be1e-c0c6d1f91e92"
       }
     ],
     "brand": "Dettol",
@@ -4267,6 +6325,27 @@
         "price": 40500,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UMJOK-DEFAULT-2",
+        "price": 40500,
+        "stock": 95,
+        "attributes": null,
+        "id": "7f9a0f2b-688d-42ca-87d2-5f4954b1f90f"
+      },
+      {
+        "sku_code": "SKU-UMJOK-DEFAULT-3",
+        "price": 40500,
+        "stock": 95,
+        "attributes": null,
+        "id": "51853751-4603-4f84-a7a4-45b2d1bcce37"
+      },
+      {
+        "sku_code": "SKU-UMJOK-DEFAULT-4",
+        "price": 40500,
+        "stock": 95,
+        "attributes": null,
+        "id": "e6d3151c-2163-4b8b-9433-7e89f8a13a99"
       }
     ],
     "brand": "HP",
@@ -4304,6 +6383,27 @@
         "price": 52755,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2PN9J-DEFAULT-2",
+        "price": 52755,
+        "stock": 17,
+        "attributes": null,
+        "id": "28959cdc-aca9-4a55-a93e-6bca6d3d98ac"
+      },
+      {
+        "sku_code": "SKU-2PN9J-DEFAULT-3",
+        "price": 52755,
+        "stock": 17,
+        "attributes": null,
+        "id": "43548529-03dc-40e1-9432-b050363d38c9"
+      },
+      {
+        "sku_code": "SKU-2PN9J-DEFAULT-4",
+        "price": 52755,
+        "stock": 17,
+        "attributes": null,
+        "id": "e700976d-4db0-4a54-bcf4-9e98a065ec75"
       }
     ],
     "brand": "Dabur",

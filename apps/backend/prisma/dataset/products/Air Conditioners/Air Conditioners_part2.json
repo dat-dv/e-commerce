@@ -54,6 +54,27 @@
         "price": 0,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2GPE7-DEFAULT-2",
+        "price": 0,
+        "stock": 35,
+        "attributes": null,
+        "id": "c55f3aa4-f201-48c4-95ac-cbd800bf1c09"
+      },
+      {
+        "sku_code": "SKU-2GPE7-DEFAULT-3",
+        "price": 0,
+        "stock": 35,
+        "attributes": null,
+        "id": "dad39181-d206-413b-9fea-d49eba229871"
+      },
+      {
+        "sku_code": "SKU-2GPE7-DEFAULT-4",
+        "price": 0,
+        "stock": 35,
+        "attributes": null,
+        "id": "7b9f0a2b-8828-422a-992f-76c24c326635"
       }
     ],
     "brand": "Panasonic",
@@ -118,6 +139,27 @@
         "price": 11667000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EY8QL-DEFAULT-2",
+        "price": 11667000,
+        "stock": 87,
+        "attributes": null,
+        "id": "e4c90b77-653f-4103-8372-62705418baa2"
+      },
+      {
+        "sku_code": "SKU-EY8QL-DEFAULT-3",
+        "price": 11667000,
+        "stock": 87,
+        "attributes": null,
+        "id": "5730947a-589e-4238-a13c-42b328bd1ed9"
+      },
+      {
+        "sku_code": "SKU-EY8QL-DEFAULT-4",
+        "price": 11667000,
+        "stock": 87,
+        "attributes": null,
+        "id": "8ecd4991-1a4a-4999-a611-e6eda559af67"
       }
     ],
     "brand": "LG",
@@ -160,6 +202,27 @@
         "price": 12897000,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TZNV2-DEFAULT-2",
+        "price": 12897000,
+        "stock": 103,
+        "attributes": null,
+        "id": "8790238c-c0c8-4ca1-bb6a-0bb957156335"
+      },
+      {
+        "sku_code": "SKU-TZNV2-DEFAULT-3",
+        "price": 12897000,
+        "stock": 103,
+        "attributes": null,
+        "id": "2fa14b66-8c36-4f0c-8279-5e920ef49a13"
+      },
+      {
+        "sku_code": "SKU-TZNV2-DEFAULT-4",
+        "price": 12897000,
+        "stock": 103,
+        "attributes": null,
+        "id": "c1d57629-86cf-4c74-9cff-b505082516b0"
       }
     ],
     "brand": "Whirlpool",
@@ -205,6 +268,27 @@
         "price": 13167000,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7UXO6-DEFAULT-2",
+        "price": 13167000,
+        "stock": 41,
+        "attributes": null,
+        "id": "fe374438-b044-479f-b845-dfb444eca687"
+      },
+      {
+        "sku_code": "SKU-7UXO6-DEFAULT-3",
+        "price": 13167000,
+        "stock": 41,
+        "attributes": null,
+        "id": "e49711a4-295f-46c6-9dd0-f4753d6f0769"
+      },
+      {
+        "sku_code": "SKU-7UXO6-DEFAULT-4",
+        "price": 13167000,
+        "stock": 41,
+        "attributes": null,
+        "id": "4f7a23f5-198d-47a9-8d42-e135c369732c"
       }
     ],
     "brand": "Panasonic",
@@ -250,6 +334,27 @@
         "price": 8454000,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KGIU6-DEFAULT-2",
+        "price": 8454000,
+        "stock": 26,
+        "attributes": null,
+        "id": "88d53b79-2f72-418a-ad97-c93154f96696"
+      },
+      {
+        "sku_code": "SKU-KGIU6-DEFAULT-3",
+        "price": 8454000,
+        "stock": 26,
+        "attributes": null,
+        "id": "d9658340-40d2-4a9f-b5da-de72aaabf03b"
+      },
+      {
+        "sku_code": "SKU-KGIU6-DEFAULT-4",
+        "price": 8454000,
+        "stock": 26,
+        "attributes": null,
+        "id": "5af1aebb-d37e-44c1-96f9-fa84dba36862"
       }
     ],
     "brand": "Daikin",
@@ -304,6 +409,27 @@
         "price": 14997000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BCQU2-DEFAULT-2",
+        "price": 14997000,
+        "stock": 28,
+        "attributes": null,
+        "id": "d72aae53-aef4-49c9-bf65-65ed99700b7c"
+      },
+      {
+        "sku_code": "SKU-BCQU2-DEFAULT-3",
+        "price": 14997000,
+        "stock": 28,
+        "attributes": null,
+        "id": "447bf38f-953a-458d-bc27-adb4283ed27a"
+      },
+      {
+        "sku_code": "SKU-BCQU2-DEFAULT-4",
+        "price": 14997000,
+        "stock": 28,
+        "attributes": null,
+        "id": "1ea4848e-4336-4520-9fc1-be028915b156"
       }
     ],
     "brand": "Panasonic",
@@ -344,6 +470,27 @@
         "price": 749700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JNM5I-DEFAULT-2",
+        "price": 749700,
+        "stock": 38,
+        "attributes": null,
+        "id": "af09e41d-18e3-4377-9f15-28fc735a6d64"
+      },
+      {
+        "sku_code": "SKU-JNM5I-DEFAULT-3",
+        "price": 749700,
+        "stock": 38,
+        "attributes": null,
+        "id": "f2c5256e-677d-40c2-9f6e-6682578e9c33"
+      },
+      {
+        "sku_code": "SKU-JNM5I-DEFAULT-4",
+        "price": 749700,
+        "stock": 38,
+        "attributes": null,
+        "id": "9185989e-35ac-49b7-82fa-55729bbf753d"
       }
     ],
     "brand": "LG",
@@ -399,6 +546,27 @@
         "price": 10725000,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PXV0C-DEFAULT-2",
+        "price": 10725000,
+        "stock": 65,
+        "attributes": null,
+        "id": "fdeb90e7-6c46-4b79-b219-9cf84b2a63f8"
+      },
+      {
+        "sku_code": "SKU-PXV0C-DEFAULT-3",
+        "price": 10725000,
+        "stock": 65,
+        "attributes": null,
+        "id": "9f5a493d-ff77-4170-a743-37555a9f8842"
+      },
+      {
+        "sku_code": "SKU-PXV0C-DEFAULT-4",
+        "price": 10725000,
+        "stock": 65,
+        "attributes": null,
+        "id": "0680aaaa-0abe-4f0e-affc-cfc65460e2dd"
       }
     ],
     "brand": "Panasonic",
@@ -459,6 +627,27 @@
         "price": 16347000,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1TQHJ-DEFAULT-2",
+        "price": 16347000,
+        "stock": 100,
+        "attributes": null,
+        "id": "ec9e9f08-1919-4eab-b439-8ca788207068"
+      },
+      {
+        "sku_code": "SKU-1TQHJ-DEFAULT-3",
+        "price": 16347000,
+        "stock": 100,
+        "attributes": null,
+        "id": "760fef2e-6685-4223-9bed-42e940ed8cc0"
+      },
+      {
+        "sku_code": "SKU-1TQHJ-DEFAULT-4",
+        "price": 16347000,
+        "stock": 100,
+        "attributes": null,
+        "id": "e3cace37-109a-4daa-8501-20620d4f2370"
       }
     ],
     "brand": "Panasonic",
@@ -511,6 +700,27 @@
         "price": 11097000,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6XI2V-DEFAULT-2",
+        "price": 11097000,
+        "stock": 33,
+        "attributes": null,
+        "id": "b5703d0b-a7c0-469d-bdce-b36ec2171987"
+      },
+      {
+        "sku_code": "SKU-6XI2V-DEFAULT-3",
+        "price": 11097000,
+        "stock": 33,
+        "attributes": null,
+        "id": "55a57a17-bf9b-4f73-8393-e441101a7076"
+      },
+      {
+        "sku_code": "SKU-6XI2V-DEFAULT-4",
+        "price": 11097000,
+        "stock": 33,
+        "attributes": null,
+        "id": "a9aca2bd-e9b5-461c-929e-87cc552412e6"
       }
     ],
     "brand": "Panasonic",
@@ -553,6 +763,27 @@
         "price": 10530000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VRRBG-DEFAULT-2",
+        "price": 10530000,
+        "stock": 87,
+        "attributes": null,
+        "id": "67892483-988f-4e6d-a5b9-ce38ab673bdd"
+      },
+      {
+        "sku_code": "SKU-VRRBG-DEFAULT-3",
+        "price": 10530000,
+        "stock": 87,
+        "attributes": null,
+        "id": "3f6fec82-cdbd-4582-a0ce-501be94e9712"
+      },
+      {
+        "sku_code": "SKU-VRRBG-DEFAULT-4",
+        "price": 10530000,
+        "stock": 87,
+        "attributes": null,
+        "id": "fce7492a-a498-4283-bcd6-768947fa1d78"
       }
     ],
     "brand": "Portable",
@@ -597,6 +828,27 @@
         "price": 9450000,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EN5ZM-DEFAULT-2",
+        "price": 9450000,
+        "stock": 70,
+        "attributes": null,
+        "id": "1b21a651-302a-4887-aed4-6e498328aa35"
+      },
+      {
+        "sku_code": "SKU-EN5ZM-DEFAULT-3",
+        "price": 9450000,
+        "stock": 70,
+        "attributes": null,
+        "id": "b2b378a8-ebde-4ddb-923f-40572838469c"
+      },
+      {
+        "sku_code": "SKU-EN5ZM-DEFAULT-4",
+        "price": 9450000,
+        "stock": 70,
+        "attributes": null,
+        "id": "11734826-37d2-4db0-81f1-094c388a5107"
       }
     ],
     "brand": "Blue",
@@ -631,6 +883,27 @@
         "price": 7647000,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TUQAS-DEFAULT-2",
+        "price": 7647000,
+        "stock": 83,
+        "attributes": null,
+        "id": "1e836266-c738-4415-8ef5-8b7066714894"
+      },
+      {
+        "sku_code": "SKU-TUQAS-DEFAULT-3",
+        "price": 7647000,
+        "stock": 83,
+        "attributes": null,
+        "id": "123633d7-1f79-4408-b5e8-f1f6018a1d4c"
+      },
+      {
+        "sku_code": "SKU-TUQAS-DEFAULT-4",
+        "price": 7647000,
+        "stock": 83,
+        "attributes": null,
+        "id": "df65566f-652c-40d2-8acf-2418672c76e1"
       }
     ],
     "brand": "Godrej",
@@ -690,6 +963,27 @@
         "price": 17667000,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1SFW2-DEFAULT-2",
+        "price": 17667000,
+        "stock": 62,
+        "attributes": null,
+        "id": "f4e7761a-30d0-4fa7-8e71-b5a72d27430e"
+      },
+      {
+        "sku_code": "SKU-1SFW2-DEFAULT-3",
+        "price": 17667000,
+        "stock": 62,
+        "attributes": null,
+        "id": "27700673-98d1-4639-88ef-8ad981df1ee4"
+      },
+      {
+        "sku_code": "SKU-1SFW2-DEFAULT-4",
+        "price": 17667000,
+        "stock": 62,
+        "attributes": null,
+        "id": "6f216a6d-fadc-45f0-b1ec-5f207c514a9a"
       }
     ],
     "brand": "Panasonic",
@@ -765,6 +1059,27 @@
         "price": 0,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y0CZK-DEFAULT-2",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "a321ba49-7462-4160-8061-5bf34218e9dc"
+      },
+      {
+        "sku_code": "SKU-Y0CZK-DEFAULT-3",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "698f8774-105e-4888-9e22-ecccfe852a0f"
+      },
+      {
+        "sku_code": "SKU-Y0CZK-DEFAULT-4",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "dd82b6df-95f6-4188-89f5-31d48178094f"
       }
     ],
     "brand": "Panasonic",
@@ -841,6 +1156,27 @@
         "price": 11397000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LKIEP-DEFAULT-2",
+        "price": 11397000,
+        "stock": 87,
+        "attributes": null,
+        "id": "9d9c57dc-f83f-4077-bdf1-32aec6c90282"
+      },
+      {
+        "sku_code": "SKU-LKIEP-DEFAULT-3",
+        "price": 11397000,
+        "stock": 87,
+        "attributes": null,
+        "id": "5df809f9-ed18-4cd1-9050-9609c6342748"
+      },
+      {
+        "sku_code": "SKU-LKIEP-DEFAULT-4",
+        "price": 11397000,
+        "stock": 87,
+        "attributes": null,
+        "id": "9be8e365-1e41-4a9a-9d02-f9c1e59b2e88"
       }
     ],
     "brand": "Panasonic",
@@ -876,6 +1212,27 @@
         "price": 15749700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1OO5R-DEFAULT-2",
+        "price": 15749700,
+        "stock": 72,
+        "attributes": null,
+        "id": "8c7661a2-9bd5-45fd-a3af-d4370942cf19"
+      },
+      {
+        "sku_code": "SKU-1OO5R-DEFAULT-3",
+        "price": 15749700,
+        "stock": 72,
+        "attributes": null,
+        "id": "374ebe2d-d2b8-46e0-bdbc-6a2b0cc2142a"
+      },
+      {
+        "sku_code": "SKU-1OO5R-DEFAULT-4",
+        "price": 15749700,
+        "stock": 72,
+        "attributes": null,
+        "id": "ad4317d5-ae59-4cf5-aef4-d908249f3255"
       }
     ],
     "brand": "Panasonic",
@@ -950,6 +1307,27 @@
         "price": 11187000,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FHT4I-DEFAULT-2",
+        "price": 11187000,
+        "stock": 78,
+        "attributes": null,
+        "id": "ff4854c1-7524-44b3-8200-0e8970db79c9"
+      },
+      {
+        "sku_code": "SKU-FHT4I-DEFAULT-3",
+        "price": 11187000,
+        "stock": 78,
+        "attributes": null,
+        "id": "99efc3c4-d4dc-4447-ad18-61d724326514"
+      },
+      {
+        "sku_code": "SKU-FHT4I-DEFAULT-4",
+        "price": 11187000,
+        "stock": 78,
+        "attributes": null,
+        "id": "207ce223-0b3a-4839-97c8-d704b350526c"
       }
     ],
     "brand": "Panasonic",
@@ -1014,6 +1392,27 @@
         "price": 14247000,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0KFEM-DEFAULT-2",
+        "price": 14247000,
+        "stock": 29,
+        "attributes": null,
+        "id": "63a9405b-39a5-4045-b03a-afcc6ffd0f26"
+      },
+      {
+        "sku_code": "SKU-0KFEM-DEFAULT-3",
+        "price": 14247000,
+        "stock": 29,
+        "attributes": null,
+        "id": "58686d49-f53f-4b60-b716-9a69dd590da4"
+      },
+      {
+        "sku_code": "SKU-0KFEM-DEFAULT-4",
+        "price": 14247000,
+        "stock": 29,
+        "attributes": null,
+        "id": "830b552a-2dae-43b2-8ef0-4536385dfc8e"
       }
     ],
     "brand": "LG",
@@ -1075,6 +1474,27 @@
         "price": 13497000,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GQ314-DEFAULT-2",
+        "price": 13497000,
+        "stock": 27,
+        "attributes": null,
+        "id": "3d0e5e08-6f20-4366-ae3a-6b5e72b05d07"
+      },
+      {
+        "sku_code": "SKU-GQ314-DEFAULT-3",
+        "price": 13497000,
+        "stock": 27,
+        "attributes": null,
+        "id": "02a5f881-36b6-431b-9ce7-9e3530590744"
+      },
+      {
+        "sku_code": "SKU-GQ314-DEFAULT-4",
+        "price": 13497000,
+        "stock": 27,
+        "attributes": null,
+        "id": "927f2461-b750-4e69-b483-4257e584606b"
       }
     ],
     "brand": "Panasonic",
@@ -1147,6 +1567,27 @@
         "price": 9297000,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PQSAA-DEFAULT-2",
+        "price": 9297000,
+        "stock": 37,
+        "attributes": null,
+        "id": "c18c4569-c3e7-43a6-b3c4-7f826831bfdf"
+      },
+      {
+        "sku_code": "SKU-PQSAA-DEFAULT-3",
+        "price": 9297000,
+        "stock": 37,
+        "attributes": null,
+        "id": "2488d4d1-c131-48ae-8a1e-77046e87f3ce"
+      },
+      {
+        "sku_code": "SKU-PQSAA-DEFAULT-4",
+        "price": 9297000,
+        "stock": 37,
+        "attributes": null,
+        "id": "4295440a-97d4-4ccd-9ef2-e506f8ae9735"
       }
     ],
     "brand": "Panasonic",
@@ -1197,6 +1638,27 @@
         "price": 13737000,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R7184-DEFAULT-2",
+        "price": 13737000,
+        "stock": 106,
+        "attributes": null,
+        "id": "0311143d-0c96-4c9a-996c-b9de0c6b1ca9"
+      },
+      {
+        "sku_code": "SKU-R7184-DEFAULT-3",
+        "price": 13737000,
+        "stock": 106,
+        "attributes": null,
+        "id": "41706c04-0ca6-4568-be84-2e2083b1e816"
+      },
+      {
+        "sku_code": "SKU-R7184-DEFAULT-4",
+        "price": 13737000,
+        "stock": 106,
+        "attributes": null,
+        "id": "aa606822-f1e1-4f14-9aa4-3b654c7207d0"
       }
     ],
     "brand": "LG",
@@ -1256,6 +1718,27 @@
         "price": 19047000,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MTTMZ-DEFAULT-2",
+        "price": 19047000,
+        "stock": 31,
+        "attributes": null,
+        "id": "7e93eb30-a269-4a7f-9d02-a6c106c93bbd"
+      },
+      {
+        "sku_code": "SKU-MTTMZ-DEFAULT-3",
+        "price": 19047000,
+        "stock": 31,
+        "attributes": null,
+        "id": "7651a1e2-377a-4b3a-ae39-90cef5887cea"
+      },
+      {
+        "sku_code": "SKU-MTTMZ-DEFAULT-4",
+        "price": 19047000,
+        "stock": 31,
+        "attributes": null,
+        "id": "ecadb997-9a44-4337-8f90-cdfb9d978015"
       }
     ],
     "brand": "LG",
@@ -1298,6 +1781,27 @@
         "price": 194100,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8NSIV-DEFAULT-2",
+        "price": 194100,
+        "stock": 49,
+        "attributes": null,
+        "id": "2f4e7ab6-20c6-4bd0-9a6c-ccaabc41d577"
+      },
+      {
+        "sku_code": "SKU-8NSIV-DEFAULT-3",
+        "price": 194100,
+        "stock": 49,
+        "attributes": null,
+        "id": "08a5df91-cbf5-45c5-b8fa-4c97bf6c122c"
+      },
+      {
+        "sku_code": "SKU-8NSIV-DEFAULT-4",
+        "price": 194100,
+        "stock": 49,
+        "attributes": null,
+        "id": "91ad7b19-c0d6-4757-8580-1bb2338b3d6e"
       }
     ],
     "brand": "White",
@@ -1357,6 +1861,27 @@
         "price": 15597000,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7DNZT-DEFAULT-2",
+        "price": 15597000,
+        "stock": 82,
+        "attributes": null,
+        "id": "384bfb32-6262-4e6b-8a92-92be7bf824a7"
+      },
+      {
+        "sku_code": "SKU-7DNZT-DEFAULT-3",
+        "price": 15597000,
+        "stock": 82,
+        "attributes": null,
+        "id": "b6f04cbf-fe38-4952-a127-3c0e9ac6613a"
+      },
+      {
+        "sku_code": "SKU-7DNZT-DEFAULT-4",
+        "price": 15597000,
+        "stock": 82,
+        "attributes": null,
+        "id": "b9680b1e-78af-46d8-ac1a-04ed68aaddf9"
       }
     ],
     "brand": "Panasonic",
@@ -1402,6 +1927,27 @@
         "price": 203700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CYEXJ-DEFAULT-2",
+        "price": 203700,
+        "stock": 95,
+        "attributes": null,
+        "id": "6581d3c2-aadf-416b-906a-95b11e147d07"
+      },
+      {
+        "sku_code": "SKU-CYEXJ-DEFAULT-3",
+        "price": 203700,
+        "stock": 95,
+        "attributes": null,
+        "id": "e728f28e-37f5-4647-a4ab-fb208c5a9072"
+      },
+      {
+        "sku_code": "SKU-CYEXJ-DEFAULT-4",
+        "price": 203700,
+        "stock": 95,
+        "attributes": null,
+        "id": "5c5f6c2d-f8af-46cc-a284-da80e179d411"
       }
     ],
     "brand": "VESTAR",
@@ -1443,6 +1989,27 @@
         "price": 14790000,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CT1IO-DEFAULT-2",
+        "price": 14790000,
+        "stock": 71,
+        "attributes": null,
+        "id": "e094a810-0d69-4c0f-811d-22fca5f30a62"
+      },
+      {
+        "sku_code": "SKU-CT1IO-DEFAULT-3",
+        "price": 14790000,
+        "stock": 71,
+        "attributes": null,
+        "id": "26af6738-aa4a-4d1a-8d9d-bbc7bbe484f1"
+      },
+      {
+        "sku_code": "SKU-CT1IO-DEFAULT-4",
+        "price": 14790000,
+        "stock": 71,
+        "attributes": null,
+        "id": "4b448f90-ea9b-43da-8045-0d1fcee44277"
       }
     ],
     "brand": "Daikin",
@@ -1518,6 +2085,27 @@
         "price": 11517000,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9KR6F-DEFAULT-2",
+        "price": 11517000,
+        "stock": 57,
+        "attributes": null,
+        "id": "a49067e1-1f7a-423e-8e2c-4614df26a768"
+      },
+      {
+        "sku_code": "SKU-9KR6F-DEFAULT-3",
+        "price": 11517000,
+        "stock": 57,
+        "attributes": null,
+        "id": "2ff30db4-530c-43c8-882f-03dc0acd2b2a"
+      },
+      {
+        "sku_code": "SKU-9KR6F-DEFAULT-4",
+        "price": 11517000,
+        "stock": 57,
+        "attributes": null,
+        "id": "ff811d55-8f46-434d-8a06-8f4628d1a43c"
       }
     ],
     "brand": "Panasonic",
@@ -1576,6 +2164,27 @@
         "price": 17097000,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6LWSX-DEFAULT-2",
+        "price": 17097000,
+        "stock": 24,
+        "attributes": null,
+        "id": "9e200916-9859-4891-b566-d727daa79c5d"
+      },
+      {
+        "sku_code": "SKU-6LWSX-DEFAULT-3",
+        "price": 17097000,
+        "stock": 24,
+        "attributes": null,
+        "id": "ec832a51-f83e-424c-ac8e-019d250d00a6"
+      },
+      {
+        "sku_code": "SKU-6LWSX-DEFAULT-4",
+        "price": 17097000,
+        "stock": 24,
+        "attributes": null,
+        "id": "96449c83-7a61-4b84-aea9-b64b523ab947"
       }
     ],
     "brand": "Panasonic",
@@ -1646,6 +2255,27 @@
         "price": 9597000,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9ECR1-DEFAULT-2",
+        "price": 9597000,
+        "stock": 76,
+        "attributes": null,
+        "id": "53ac8378-2416-4016-99ff-0c7049e50d6c"
+      },
+      {
+        "sku_code": "SKU-9ECR1-DEFAULT-3",
+        "price": 9597000,
+        "stock": 76,
+        "attributes": null,
+        "id": "86125a7d-37f7-48d6-9df6-8d306b0194bc"
+      },
+      {
+        "sku_code": "SKU-9ECR1-DEFAULT-4",
+        "price": 9597000,
+        "stock": 76,
+        "attributes": null,
+        "id": "0477138d-2c12-49b1-9252-41726fa6465c"
       }
     ],
     "brand": "Panasonic",
@@ -1715,6 +2345,27 @@
         "price": 10947000,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5ZZJO-DEFAULT-2",
+        "price": 10947000,
+        "stock": 109,
+        "attributes": null,
+        "id": "8e49b973-a922-40d6-a871-485767ac5f08"
+      },
+      {
+        "sku_code": "SKU-5ZZJO-DEFAULT-3",
+        "price": 10947000,
+        "stock": 109,
+        "attributes": null,
+        "id": "7a69b831-784a-49ff-8204-914284213af7"
+      },
+      {
+        "sku_code": "SKU-5ZZJO-DEFAULT-4",
+        "price": 10947000,
+        "stock": 109,
+        "attributes": null,
+        "id": "0948a601-3e52-4513-989e-7f46693ec554"
       }
     ],
     "brand": "Panasonic",
@@ -1772,6 +2423,27 @@
         "price": 9447000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C5ZRX-DEFAULT-2",
+        "price": 9447000,
+        "stock": 30,
+        "attributes": null,
+        "id": "ac3e44f6-280f-4371-a4b0-7cbc25ff7453"
+      },
+      {
+        "sku_code": "SKU-C5ZRX-DEFAULT-3",
+        "price": 9447000,
+        "stock": 30,
+        "attributes": null,
+        "id": "d57996e7-5017-4408-ab52-5c1f8adbd243"
+      },
+      {
+        "sku_code": "SKU-C5ZRX-DEFAULT-4",
+        "price": 9447000,
+        "stock": 30,
+        "attributes": null,
+        "id": "d699dcbc-ffbf-431b-b657-d8ed758f6b49"
       }
     ],
     "brand": "Panasonic",
@@ -1838,6 +2510,27 @@
         "price": 11397000,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1LB7U-DEFAULT-2",
+        "price": 11397000,
+        "stock": 13,
+        "attributes": null,
+        "id": "3c33554a-3d06-4cd1-b6b2-f50e71e764dd"
+      },
+      {
+        "sku_code": "SKU-1LB7U-DEFAULT-3",
+        "price": 11397000,
+        "stock": 13,
+        "attributes": null,
+        "id": "3b18d05c-cf1b-4d72-99ea-4433401eac0e"
+      },
+      {
+        "sku_code": "SKU-1LB7U-DEFAULT-4",
+        "price": 11397000,
+        "stock": 13,
+        "attributes": null,
+        "id": "40dfdd17-9ee0-4f08-8d77-34637a1aef1b"
       }
     ],
     "brand": "Panasonic",
@@ -1915,6 +2608,27 @@
         "price": 11399700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q8805-DEFAULT-2",
+        "price": 11399700,
+        "stock": 51,
+        "attributes": null,
+        "id": "323f4180-5193-4170-b52e-b00a9289bf02"
+      },
+      {
+        "sku_code": "SKU-Q8805-DEFAULT-3",
+        "price": 11399700,
+        "stock": 51,
+        "attributes": null,
+        "id": "e1eec9a7-5524-4573-b11b-62381b89de6f"
+      },
+      {
+        "sku_code": "SKU-Q8805-DEFAULT-4",
+        "price": 11399700,
+        "stock": 51,
+        "attributes": null,
+        "id": "49a1212b-335a-4655-8a60-d54ab3e3664d"
       }
     ],
     "brand": "Panasonic",
@@ -1964,6 +2678,27 @@
         "price": 18300000,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OH2W7-DEFAULT-2",
+        "price": 18300000,
+        "stock": 42,
+        "attributes": null,
+        "id": "6ca8268c-316f-44e5-b321-e9555ea0e790"
+      },
+      {
+        "sku_code": "SKU-OH2W7-DEFAULT-3",
+        "price": 18300000,
+        "stock": 42,
+        "attributes": null,
+        "id": "ebd823c3-1ba2-4c01-b086-5b90a9e369fb"
+      },
+      {
+        "sku_code": "SKU-OH2W7-DEFAULT-4",
+        "price": 18300000,
+        "stock": 42,
+        "attributes": null,
+        "id": "8c74db43-e33b-4d98-854f-63f5e30582ca"
       }
     ],
     "brand": "Panasonic",
@@ -2006,6 +2741,27 @@
         "price": 12117000,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FONY3-DEFAULT-2",
+        "price": 12117000,
+        "stock": 105,
+        "attributes": null,
+        "id": "c01924c6-0e84-4cd4-9663-95fcf198f7b0"
+      },
+      {
+        "sku_code": "SKU-FONY3-DEFAULT-3",
+        "price": 12117000,
+        "stock": 105,
+        "attributes": null,
+        "id": "12ef103c-b1dd-4dcf-bc35-ccc97f6d151f"
+      },
+      {
+        "sku_code": "SKU-FONY3-DEFAULT-4",
+        "price": 12117000,
+        "stock": 105,
+        "attributes": null,
+        "id": "03cd2fe8-cb70-4765-890f-9d3690df620c"
       }
     ],
     "brand": "Haier",
@@ -2077,6 +2833,27 @@
         "price": 10197000,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7PTX8-DEFAULT-2",
+        "price": 10197000,
+        "stock": 71,
+        "attributes": null,
+        "id": "0683c0ee-4042-4e59-8d0d-a4dbc814de73"
+      },
+      {
+        "sku_code": "SKU-7PTX8-DEFAULT-3",
+        "price": 10197000,
+        "stock": 71,
+        "attributes": null,
+        "id": "df0c4b69-8563-4423-86f4-fa4c032786a8"
+      },
+      {
+        "sku_code": "SKU-7PTX8-DEFAULT-4",
+        "price": 10197000,
+        "stock": 71,
+        "attributes": null,
+        "id": "2858891b-e4a5-45d4-9393-0096dd3d808c"
       }
     ],
     "brand": "Panasonic",
@@ -2117,6 +2894,27 @@
         "price": 2175000,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FFQSI-DEFAULT-2",
+        "price": 2175000,
+        "stock": 109,
+        "attributes": null,
+        "id": "44c07328-e940-4f5e-803f-d27a0421b1bb"
+      },
+      {
+        "sku_code": "SKU-FFQSI-DEFAULT-3",
+        "price": 2175000,
+        "stock": 109,
+        "attributes": null,
+        "id": "f90b7f7f-7e6c-4251-bf08-a4c3fe041262"
+      },
+      {
+        "sku_code": "SKU-FFQSI-DEFAULT-4",
+        "price": 2175000,
+        "stock": 109,
+        "attributes": null,
+        "id": "e08b21ea-6835-4b3a-90f0-ad9a204bd0dc"
       }
     ],
     "brand": "Panasonic",
@@ -2155,6 +2953,27 @@
         "price": 16497000,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HQ3UI-DEFAULT-2",
+        "price": 16497000,
+        "stock": 26,
+        "attributes": null,
+        "id": "02d5d026-019b-44c5-a172-8e907bdd8628"
+      },
+      {
+        "sku_code": "SKU-HQ3UI-DEFAULT-3",
+        "price": 16497000,
+        "stock": 26,
+        "attributes": null,
+        "id": "6de671ed-61ad-4b38-942a-d786c9e92bf2"
+      },
+      {
+        "sku_code": "SKU-HQ3UI-DEFAULT-4",
+        "price": 16497000,
+        "stock": 26,
+        "attributes": null,
+        "id": "b7f76468-b6b7-471e-ad10-afac0e58f8ce"
       }
     ],
     "brand": "Daikin",
@@ -2207,6 +3026,27 @@
         "price": 12297000,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-25S0C-DEFAULT-2",
+        "price": 12297000,
+        "stock": 77,
+        "attributes": null,
+        "id": "d3c76f29-e313-45e5-b490-3a3a3a9b89ce"
+      },
+      {
+        "sku_code": "SKU-25S0C-DEFAULT-3",
+        "price": 12297000,
+        "stock": 77,
+        "attributes": null,
+        "id": "de889757-cf10-48f9-a061-279072212c6a"
+      },
+      {
+        "sku_code": "SKU-25S0C-DEFAULT-4",
+        "price": 12297000,
+        "stock": 77,
+        "attributes": null,
+        "id": "33eeca66-e7ef-494f-ac48-041866d41e04"
       }
     ],
     "brand": "Panasonic",
@@ -2267,6 +3107,27 @@
         "price": 8399700,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YU5PA-DEFAULT-2",
+        "price": 8399700,
+        "stock": 42,
+        "attributes": null,
+        "id": "00808c9f-bfd4-4c99-a114-8e94f1357989"
+      },
+      {
+        "sku_code": "SKU-YU5PA-DEFAULT-3",
+        "price": 8399700,
+        "stock": 42,
+        "attributes": null,
+        "id": "4e43c79c-85b3-432e-a349-cd681f1152e3"
+      },
+      {
+        "sku_code": "SKU-YU5PA-DEFAULT-4",
+        "price": 8399700,
+        "stock": 42,
+        "attributes": null,
+        "id": "c24d3b14-66c3-4da1-9a30-bb9d9e777951"
       }
     ],
     "brand": "Panasonic",
@@ -2307,6 +3168,27 @@
         "price": 14070000,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-119AL-DEFAULT-2",
+        "price": 14070000,
+        "stock": 58,
+        "attributes": null,
+        "id": "5b1e6d2e-283c-4f1b-a6e5-ee5c79ef42e5"
+      },
+      {
+        "sku_code": "SKU-119AL-DEFAULT-3",
+        "price": 14070000,
+        "stock": 58,
+        "attributes": null,
+        "id": "9f9a5b37-cb69-49b1-976b-63d98bc4f925"
+      },
+      {
+        "sku_code": "SKU-119AL-DEFAULT-4",
+        "price": 14070000,
+        "stock": 58,
+        "attributes": null,
+        "id": "b3662621-9b6a-4f1d-ac1d-211d219cb5c7"
       }
     ],
     "brand": "Samsung",
@@ -2356,6 +3238,27 @@
         "price": 8970000,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UKAUV-DEFAULT-2",
+        "price": 8970000,
+        "stock": 95,
+        "attributes": null,
+        "id": "fbb4bbf3-ad1d-4ddd-9d23-acfb11b64a89"
+      },
+      {
+        "sku_code": "SKU-UKAUV-DEFAULT-3",
+        "price": 8970000,
+        "stock": 95,
+        "attributes": null,
+        "id": "18559f9a-c03f-4230-971a-4b04ecfe60ba"
+      },
+      {
+        "sku_code": "SKU-UKAUV-DEFAULT-4",
+        "price": 8970000,
+        "stock": 95,
+        "attributes": null,
+        "id": "71adf42c-8074-4095-959c-075377e1016d"
       }
     ],
     "brand": "Panasonic",
@@ -2396,6 +3299,27 @@
         "price": 13467000,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ULGK7-DEFAULT-2",
+        "price": 13467000,
+        "stock": 65,
+        "attributes": null,
+        "id": "713d1f68-3d44-4bf4-a233-09326f8090f3"
+      },
+      {
+        "sku_code": "SKU-ULGK7-DEFAULT-3",
+        "price": 13467000,
+        "stock": 65,
+        "attributes": null,
+        "id": "b5b19efd-5518-44ec-9cee-67e28ab285ba"
+      },
+      {
+        "sku_code": "SKU-ULGK7-DEFAULT-4",
+        "price": 13467000,
+        "stock": 65,
+        "attributes": null,
+        "id": "e8990832-fc40-45d9-99a8-1b7c865f3b31"
       }
     ],
     "brand": "Panasonic",
@@ -2458,6 +3382,27 @@
         "price": 11849700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S6B30-DEFAULT-2",
+        "price": 11849700,
+        "stock": 54,
+        "attributes": null,
+        "id": "2456060e-66df-44c7-a64a-1d08e2a5b650"
+      },
+      {
+        "sku_code": "SKU-S6B30-DEFAULT-3",
+        "price": 11849700,
+        "stock": 54,
+        "attributes": null,
+        "id": "edb8e3d4-2007-40f2-8828-1790c456b981"
+      },
+      {
+        "sku_code": "SKU-S6B30-DEFAULT-4",
+        "price": 11849700,
+        "stock": 54,
+        "attributes": null,
+        "id": "860bc15e-7137-423a-a980-3bbbbbf0cf92"
       }
     ],
     "brand": "Panasonic",
@@ -2503,6 +3448,27 @@
         "price": 11159700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S0ZUD-DEFAULT-2",
+        "price": 11159700,
+        "stock": 31,
+        "attributes": null,
+        "id": "0077f123-7cd8-4b38-8473-4e2bd0048290"
+      },
+      {
+        "sku_code": "SKU-S0ZUD-DEFAULT-3",
+        "price": 11159700,
+        "stock": 31,
+        "attributes": null,
+        "id": "e4d66126-f5b7-4e60-8541-6061e6a90729"
+      },
+      {
+        "sku_code": "SKU-S0ZUD-DEFAULT-4",
+        "price": 11159700,
+        "stock": 31,
+        "attributes": null,
+        "id": "31458738-d2e4-4153-9f5d-21f4e03eb8f4"
       }
     ],
     "brand": "Panasonic",
@@ -2547,6 +3513,27 @@
         "price": 0,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QEXL2-DEFAULT-2",
+        "price": 0,
+        "stock": 100,
+        "attributes": null,
+        "id": "c2399d25-90bf-48b2-9208-df94c141ea2c"
+      },
+      {
+        "sku_code": "SKU-QEXL2-DEFAULT-3",
+        "price": 0,
+        "stock": 100,
+        "attributes": null,
+        "id": "99c17245-b18c-4a21-bbcb-b4f5f005de6d"
+      },
+      {
+        "sku_code": "SKU-QEXL2-DEFAULT-4",
+        "price": 0,
+        "stock": 100,
+        "attributes": null,
+        "id": "e6659064-c5c0-4b7e-98d4-e6ab416d2432"
       }
     ],
     "brand": "Panasonic",
@@ -2593,6 +3580,27 @@
         "price": 18675000,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4J3ZI-DEFAULT-2",
+        "price": 18675000,
+        "stock": 84,
+        "attributes": null,
+        "id": "8553b990-a489-42f1-b05c-e4a2bc813233"
+      },
+      {
+        "sku_code": "SKU-4J3ZI-DEFAULT-3",
+        "price": 18675000,
+        "stock": 84,
+        "attributes": null,
+        "id": "b1b1a843-d9e5-4698-9d10-378e2394417e"
+      },
+      {
+        "sku_code": "SKU-4J3ZI-DEFAULT-4",
+        "price": 18675000,
+        "stock": 84,
+        "attributes": null,
+        "id": "5a15a610-63c8-4c3f-839f-aedcc942b28e"
       }
     ],
     "brand": "Panasonic",
@@ -2649,6 +3657,27 @@
         "price": 12474000,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6POBL-DEFAULT-2",
+        "price": 12474000,
+        "stock": 43,
+        "attributes": null,
+        "id": "e970eb97-c4d0-4d2a-b1c5-8e542ab5d2ed"
+      },
+      {
+        "sku_code": "SKU-6POBL-DEFAULT-3",
+        "price": 12474000,
+        "stock": 43,
+        "attributes": null,
+        "id": "5f35c782-0e7a-4086-ac4e-c147820ccfa2"
+      },
+      {
+        "sku_code": "SKU-6POBL-DEFAULT-4",
+        "price": 12474000,
+        "stock": 43,
+        "attributes": null,
+        "id": "d7ee6f4b-1066-4665-b3b9-e525c413282a"
       }
     ],
     "brand": "Panasonic",
@@ -2702,6 +3731,27 @@
         "price": 13167000,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AJ7FC-DEFAULT-2",
+        "price": 13167000,
+        "stock": 66,
+        "attributes": null,
+        "id": "17b3bb3f-08af-4407-ad1c-37a1727ab823"
+      },
+      {
+        "sku_code": "SKU-AJ7FC-DEFAULT-3",
+        "price": 13167000,
+        "stock": 66,
+        "attributes": null,
+        "id": "bf7f6a5a-4935-4d69-9548-b8609eb18557"
+      },
+      {
+        "sku_code": "SKU-AJ7FC-DEFAULT-4",
+        "price": 13167000,
+        "stock": 66,
+        "attributes": null,
+        "id": "582b27eb-e125-48f5-b68b-cebd3aeaaa99"
       }
     ],
     "brand": "LG",
@@ -2767,6 +3817,27 @@
         "price": 9297000,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VGR96-DEFAULT-2",
+        "price": 9297000,
+        "stock": 46,
+        "attributes": null,
+        "id": "f96ec689-1b2c-4b35-af96-d672852785b0"
+      },
+      {
+        "sku_code": "SKU-VGR96-DEFAULT-3",
+        "price": 9297000,
+        "stock": 46,
+        "attributes": null,
+        "id": "e1de66b5-14a3-4647-88be-43c437c4e53c"
+      },
+      {
+        "sku_code": "SKU-VGR96-DEFAULT-4",
+        "price": 9297000,
+        "stock": 46,
+        "attributes": null,
+        "id": "2eeab281-a46a-4f27-8d58-389d6f01c532"
       }
     ],
     "brand": "Panasonic",
@@ -2832,6 +3903,27 @@
         "price": 19497000,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EU2GU-DEFAULT-2",
+        "price": 19497000,
+        "stock": 24,
+        "attributes": null,
+        "id": "20f4c2b8-97a5-4280-b90d-6f296f7447db"
+      },
+      {
+        "sku_code": "SKU-EU2GU-DEFAULT-3",
+        "price": 19497000,
+        "stock": 24,
+        "attributes": null,
+        "id": "daa50f69-ec20-47c9-8d2d-30d89796ff8a"
+      },
+      {
+        "sku_code": "SKU-EU2GU-DEFAULT-4",
+        "price": 19497000,
+        "stock": 24,
+        "attributes": null,
+        "id": "0c8c00a9-43a9-492e-bd49-97b47a33032a"
       }
     ],
     "brand": "Panasonic",
@@ -2874,6 +3966,27 @@
         "price": 8697000,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X1FCQ-DEFAULT-2",
+        "price": 8697000,
+        "stock": 58,
+        "attributes": null,
+        "id": "48b03225-12f6-48bd-8f3f-a4dc0a3a83c9"
+      },
+      {
+        "sku_code": "SKU-X1FCQ-DEFAULT-3",
+        "price": 8697000,
+        "stock": 58,
+        "attributes": null,
+        "id": "28171f17-d968-4a52-a6d0-cefdc49f6fdd"
+      },
+      {
+        "sku_code": "SKU-X1FCQ-DEFAULT-4",
+        "price": 8697000,
+        "stock": 58,
+        "attributes": null,
+        "id": "e28a1c49-fd72-461a-9d74-9803688c8cdb"
       }
     ],
     "brand": "LG",
@@ -2935,6 +4048,27 @@
         "price": 9600000,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D3MDC-DEFAULT-2",
+        "price": 9600000,
+        "stock": 106,
+        "attributes": null,
+        "id": "61abcb83-56d5-429d-9313-a06447699ede"
+      },
+      {
+        "sku_code": "SKU-D3MDC-DEFAULT-3",
+        "price": 9600000,
+        "stock": 106,
+        "attributes": null,
+        "id": "92a4b062-eb6d-45bc-b2ad-03332608861a"
+      },
+      {
+        "sku_code": "SKU-D3MDC-DEFAULT-4",
+        "price": 9600000,
+        "stock": 106,
+        "attributes": null,
+        "id": "9b8c4be1-e693-40a2-a558-b1313a86eff9"
       }
     ],
     "brand": "Panasonic",
@@ -2996,6 +4130,27 @@
         "price": 20993700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FITVE-DEFAULT-2",
+        "price": 20993700,
+        "stock": 33,
+        "attributes": null,
+        "id": "5d085684-4a18-4632-a4d3-edf79d068341"
+      },
+      {
+        "sku_code": "SKU-FITVE-DEFAULT-3",
+        "price": 20993700,
+        "stock": 33,
+        "attributes": null,
+        "id": "dbe25c92-a787-467e-91e2-3f53aea26dee"
+      },
+      {
+        "sku_code": "SKU-FITVE-DEFAULT-4",
+        "price": 20993700,
+        "stock": 33,
+        "attributes": null,
+        "id": "2ca69794-bd49-4a1c-a01e-7c0b13dd6a86"
       }
     ],
     "brand": "Panasonic",
@@ -3069,6 +4224,27 @@
         "price": 10797000,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CQL95-DEFAULT-2",
+        "price": 10797000,
+        "stock": 64,
+        "attributes": null,
+        "id": "5ffe8981-4415-4327-ab72-a1833fee49af"
+      },
+      {
+        "sku_code": "SKU-CQL95-DEFAULT-3",
+        "price": 10797000,
+        "stock": 64,
+        "attributes": null,
+        "id": "148346af-4c9e-409b-b1b4-94b207d5ff50"
+      },
+      {
+        "sku_code": "SKU-CQL95-DEFAULT-4",
+        "price": 10797000,
+        "stock": 64,
+        "attributes": null,
+        "id": "7e2939b8-7b51-464c-b295-91a48930d4a6"
       }
     ],
     "brand": "Panasonic",
@@ -3106,6 +4282,27 @@
         "price": 0,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XVW8Z-DEFAULT-2",
+        "price": 0,
+        "stock": 85,
+        "attributes": null,
+        "id": "f1be756c-8fbc-478d-87ee-950ff7e0e232"
+      },
+      {
+        "sku_code": "SKU-XVW8Z-DEFAULT-3",
+        "price": 0,
+        "stock": 85,
+        "attributes": null,
+        "id": "69e0d22d-1ccf-4a9b-8764-f6de0a301e7e"
+      },
+      {
+        "sku_code": "SKU-XVW8Z-DEFAULT-4",
+        "price": 0,
+        "stock": 85,
+        "attributes": null,
+        "id": "e51b1779-563f-442f-bace-edf0cfd444c1"
       }
     ],
     "brand": "Blue",
@@ -3143,6 +4340,27 @@
         "price": 0,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZG6U0-DEFAULT-2",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "3cf8808d-4457-419d-ae80-116f7cb12a3b"
+      },
+      {
+        "sku_code": "SKU-ZG6U0-DEFAULT-3",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "c240c536-d21c-4b72-a5b9-c75d95d5549d"
+      },
+      {
+        "sku_code": "SKU-ZG6U0-DEFAULT-4",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "1045adbc-60c8-4827-aa97-c18873dcdad4"
       }
     ],
     "brand": "Samsung",
@@ -3193,6 +4411,27 @@
         "price": 15090000,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9AITI-DEFAULT-2",
+        "price": 15090000,
+        "stock": 82,
+        "attributes": null,
+        "id": "8f7ddae7-4436-404a-9cb1-46d61afa7fed"
+      },
+      {
+        "sku_code": "SKU-9AITI-DEFAULT-3",
+        "price": 15090000,
+        "stock": 82,
+        "attributes": null,
+        "id": "6785978b-720d-4c78-9781-ed7a6df630bb"
+      },
+      {
+        "sku_code": "SKU-9AITI-DEFAULT-4",
+        "price": 15090000,
+        "stock": 82,
+        "attributes": null,
+        "id": "8d7ce3ab-b204-40d8-94e4-2c0f2c1ddf82"
       }
     ],
     "brand": "Panasonic",
@@ -3247,6 +4486,27 @@
         "price": 15893700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M83U7-DEFAULT-2",
+        "price": 15893700,
+        "stock": 90,
+        "attributes": null,
+        "id": "1e4a996d-4074-4c39-af24-4742df8139fc"
+      },
+      {
+        "sku_code": "SKU-M83U7-DEFAULT-3",
+        "price": 15893700,
+        "stock": 90,
+        "attributes": null,
+        "id": "69a157fb-82bd-4e89-8ffa-d389b206fccf"
+      },
+      {
+        "sku_code": "SKU-M83U7-DEFAULT-4",
+        "price": 15893700,
+        "stock": 90,
+        "attributes": null,
+        "id": "6feb861f-d4da-4aa8-8dca-358193b813fe"
       }
     ],
     "brand": "Panasonic",
@@ -3306,6 +4566,27 @@
         "price": 13317000,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U6ODJ-DEFAULT-2",
+        "price": 13317000,
+        "stock": 40,
+        "attributes": null,
+        "id": "a613d2db-4c98-47d2-949d-ac311dda8437"
+      },
+      {
+        "sku_code": "SKU-U6ODJ-DEFAULT-3",
+        "price": 13317000,
+        "stock": 40,
+        "attributes": null,
+        "id": "ee8ed175-5c08-4f7e-bd16-db3517b48a0a"
+      },
+      {
+        "sku_code": "SKU-U6ODJ-DEFAULT-4",
+        "price": 13317000,
+        "stock": 40,
+        "attributes": null,
+        "id": "c2e79569-7b5d-4a3c-ae03-495c320ba938"
       }
     ],
     "brand": "LG",
@@ -3357,6 +4638,27 @@
         "price": 11307000,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BO50H-DEFAULT-2",
+        "price": 11307000,
+        "stock": 18,
+        "attributes": null,
+        "id": "4042c9fb-ddd5-4b05-8db1-4578740bf8e2"
+      },
+      {
+        "sku_code": "SKU-BO50H-DEFAULT-3",
+        "price": 11307000,
+        "stock": 18,
+        "attributes": null,
+        "id": "e99d8972-5d41-47e8-874e-c56a0b20a7f0"
+      },
+      {
+        "sku_code": "SKU-BO50H-DEFAULT-4",
+        "price": 11307000,
+        "stock": 18,
+        "attributes": null,
+        "id": "b7e1e1a2-1f18-4a1f-87bd-aa87bc91146b"
       }
     ],
     "brand": "Panasonic",
@@ -3410,6 +4712,27 @@
         "price": 10317000,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ELH8X-DEFAULT-2",
+        "price": 10317000,
+        "stock": 104,
+        "attributes": null,
+        "id": "5329586c-44a8-497e-9660-fb3071b954e8"
+      },
+      {
+        "sku_code": "SKU-ELH8X-DEFAULT-3",
+        "price": 10317000,
+        "stock": 104,
+        "attributes": null,
+        "id": "3d07ffe7-68b6-48ce-94a2-b75cc8c2531e"
+      },
+      {
+        "sku_code": "SKU-ELH8X-DEFAULT-4",
+        "price": 10317000,
+        "stock": 104,
+        "attributes": null,
+        "id": "7a0707e7-1d8f-4610-b471-386c39dec259"
       }
     ],
     "brand": "Panasonic",
@@ -3458,6 +4781,27 @@
         "price": 365700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4H5IV-DEFAULT-2",
+        "price": 365700,
+        "stock": 95,
+        "attributes": null,
+        "id": "e03a958e-3854-4b1a-a2d6-71a96841c711"
+      },
+      {
+        "sku_code": "SKU-4H5IV-DEFAULT-3",
+        "price": 365700,
+        "stock": 95,
+        "attributes": null,
+        "id": "c811bfa6-52b4-4a69-9523-61ab45f28d36"
+      },
+      {
+        "sku_code": "SKU-4H5IV-DEFAULT-4",
+        "price": 365700,
+        "stock": 95,
+        "attributes": null,
+        "id": "5bbdf527-1096-4dd7-81bc-91f8bb40d6d3"
       }
     ],
     "brand": "JBL",
@@ -3519,6 +4863,27 @@
         "price": 17370000,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5NYPQ-DEFAULT-2",
+        "price": 17370000,
+        "stock": 92,
+        "attributes": null,
+        "id": "0f6fdb7f-a1a4-4899-baaf-17731c8f0588"
+      },
+      {
+        "sku_code": "SKU-5NYPQ-DEFAULT-3",
+        "price": 17370000,
+        "stock": 92,
+        "attributes": null,
+        "id": "6db82994-86b5-43f3-adc9-54ff572a336e"
+      },
+      {
+        "sku_code": "SKU-5NYPQ-DEFAULT-4",
+        "price": 17370000,
+        "stock": 92,
+        "attributes": null,
+        "id": "8e5d5dba-385d-4498-85d2-d933191ec096"
       }
     ],
     "brand": "LG",
@@ -3588,6 +4953,27 @@
         "price": 20997000,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G8HMO-DEFAULT-2",
+        "price": 20997000,
+        "stock": 74,
+        "attributes": null,
+        "id": "99ef8a2e-6519-4bcd-b353-622531410c7a"
+      },
+      {
+        "sku_code": "SKU-G8HMO-DEFAULT-3",
+        "price": 20997000,
+        "stock": 74,
+        "attributes": null,
+        "id": "ed0eba65-1449-4a05-b613-0f1944cd8578"
+      },
+      {
+        "sku_code": "SKU-G8HMO-DEFAULT-4",
+        "price": 20997000,
+        "stock": 74,
+        "attributes": null,
+        "id": "2e390e56-cec9-4af5-8a77-7a20d31ab6d7"
       }
     ],
     "brand": "Panasonic",
@@ -3623,6 +5009,27 @@
         "price": 13797000,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BGECP-DEFAULT-2",
+        "price": 13797000,
+        "stock": 26,
+        "attributes": null,
+        "id": "5355a05e-8598-4a05-80e7-7d6002c418ca"
+      },
+      {
+        "sku_code": "SKU-BGECP-DEFAULT-3",
+        "price": 13797000,
+        "stock": 26,
+        "attributes": null,
+        "id": "cd7391f8-3837-47c2-bf72-9dad017fb899"
+      },
+      {
+        "sku_code": "SKU-BGECP-DEFAULT-4",
+        "price": 13797000,
+        "stock": 26,
+        "attributes": null,
+        "id": "ae792217-7ca3-4907-8f21-f77e5cdb949a"
       }
     ],
     "brand": "Blue",
@@ -3698,6 +5105,27 @@
         "price": 14670000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RHER7-DEFAULT-2",
+        "price": 14670000,
+        "stock": 28,
+        "attributes": null,
+        "id": "954d35d0-3957-4694-bf0f-8dd082652826"
+      },
+      {
+        "sku_code": "SKU-RHER7-DEFAULT-3",
+        "price": 14670000,
+        "stock": 28,
+        "attributes": null,
+        "id": "cdc3f3e4-bb5f-4f9b-9e18-b8e0b542560f"
+      },
+      {
+        "sku_code": "SKU-RHER7-DEFAULT-4",
+        "price": 14670000,
+        "stock": 28,
+        "attributes": null,
+        "id": "a5bc1cf9-9354-4f5d-9333-1fac14ae6b07"
       }
     ],
     "brand": "Panasonic",
@@ -3751,6 +5179,27 @@
         "price": 11457000,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HKD9M-DEFAULT-2",
+        "price": 11457000,
+        "stock": 47,
+        "attributes": null,
+        "id": "0d8725af-8744-4447-93c8-12481c785248"
+      },
+      {
+        "sku_code": "SKU-HKD9M-DEFAULT-3",
+        "price": 11457000,
+        "stock": 47,
+        "attributes": null,
+        "id": "a17cfaf8-cb4b-498e-b9f7-99f7f554a32c"
+      },
+      {
+        "sku_code": "SKU-HKD9M-DEFAULT-4",
+        "price": 11457000,
+        "stock": 47,
+        "attributes": null,
+        "id": "0a7ea4ef-bf7e-483a-9bc3-cccb4bf6b5e0"
       }
     ],
     "brand": "Panasonic",
@@ -3789,6 +5238,27 @@
         "price": 12867000,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZGPZS-DEFAULT-2",
+        "price": 12867000,
+        "stock": 96,
+        "attributes": null,
+        "id": "594f8e81-060f-437e-9c6f-798c30351c9f"
+      },
+      {
+        "sku_code": "SKU-ZGPZS-DEFAULT-3",
+        "price": 12867000,
+        "stock": 96,
+        "attributes": null,
+        "id": "82a75f12-a53e-420b-a7c9-9a28ceeb775a"
+      },
+      {
+        "sku_code": "SKU-ZGPZS-DEFAULT-4",
+        "price": 12867000,
+        "stock": 96,
+        "attributes": null,
+        "id": "8db41848-0ee2-4dde-9ad0-191e8ce9c504"
       }
     ],
     "brand": "Haier",
@@ -3833,6 +5303,27 @@
         "price": 14697000,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SHPX3-DEFAULT-2",
+        "price": 14697000,
+        "stock": 52,
+        "attributes": null,
+        "id": "c2b68425-1750-495a-8502-45241764022b"
+      },
+      {
+        "sku_code": "SKU-SHPX3-DEFAULT-3",
+        "price": 14697000,
+        "stock": 52,
+        "attributes": null,
+        "id": "2d6d0374-c3e4-49bd-9090-031f8d120b1d"
+      },
+      {
+        "sku_code": "SKU-SHPX3-DEFAULT-4",
+        "price": 14697000,
+        "stock": 52,
+        "attributes": null,
+        "id": "ec7881eb-acce-404f-8be7-b900b0d768ed"
       }
     ],
     "brand": "Carrier",
@@ -3890,6 +5381,27 @@
         "price": 17520000,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BF1KT-DEFAULT-2",
+        "price": 17520000,
+        "stock": 109,
+        "attributes": null,
+        "id": "621bfa6d-f25c-4c6f-a4f7-65d27c74bcb0"
+      },
+      {
+        "sku_code": "SKU-BF1KT-DEFAULT-3",
+        "price": 17520000,
+        "stock": 109,
+        "attributes": null,
+        "id": "3bb684e4-38fb-44cd-8008-48d09465493b"
+      },
+      {
+        "sku_code": "SKU-BF1KT-DEFAULT-4",
+        "price": 17520000,
+        "stock": 109,
+        "attributes": null,
+        "id": "ceb075af-d54e-4e9f-9a47-6d503baa3716"
       }
     ],
     "brand": "Panasonic",
@@ -3942,6 +5454,27 @@
         "price": 0,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EY6I8-DEFAULT-2",
+        "price": 0,
+        "stock": 63,
+        "attributes": null,
+        "id": "20126a6d-17a2-4443-a24d-01a5e73de808"
+      },
+      {
+        "sku_code": "SKU-EY6I8-DEFAULT-3",
+        "price": 0,
+        "stock": 63,
+        "attributes": null,
+        "id": "177a3b8d-133a-493e-97a9-e32f328b9bb4"
+      },
+      {
+        "sku_code": "SKU-EY6I8-DEFAULT-4",
+        "price": 0,
+        "stock": 63,
+        "attributes": null,
+        "id": "7d802784-706c-4a1f-965f-cf1cc8778f5b"
       }
     ],
     "brand": "Panasonic",
@@ -3977,6 +5510,27 @@
         "price": 9597000,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M2JE3-DEFAULT-2",
+        "price": 9597000,
+        "stock": 64,
+        "attributes": null,
+        "id": "9a3033fb-c1d0-4d1b-9e85-be7db0cce92f"
+      },
+      {
+        "sku_code": "SKU-M2JE3-DEFAULT-3",
+        "price": 9597000,
+        "stock": 64,
+        "attributes": null,
+        "id": "db92add3-1594-4ba9-9876-ccbc8833fa95"
+      },
+      {
+        "sku_code": "SKU-M2JE3-DEFAULT-4",
+        "price": 9597000,
+        "stock": 64,
+        "attributes": null,
+        "id": "74d34af6-e4fa-4be7-a166-1316e33f2960"
       }
     ],
     "brand": "Panasonic",
@@ -4055,6 +5609,27 @@
         "price": 10665000,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PED42-DEFAULT-2",
+        "price": 10665000,
+        "stock": 90,
+        "attributes": null,
+        "id": "7548f7cb-c5cc-4fa3-9316-38bc5d92e401"
+      },
+      {
+        "sku_code": "SKU-PED42-DEFAULT-3",
+        "price": 10665000,
+        "stock": 90,
+        "attributes": null,
+        "id": "b9bb5a5d-d293-4086-82cd-35507e218b5d"
+      },
+      {
+        "sku_code": "SKU-PED42-DEFAULT-4",
+        "price": 10665000,
+        "stock": 90,
+        "attributes": null,
+        "id": "2088c11e-4722-488f-841c-0cb77905d87a"
       }
     ],
     "brand": "Panasonic",
@@ -4125,6 +5700,27 @@
         "price": 14543700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2WAMQ-DEFAULT-2",
+        "price": 14543700,
+        "stock": 61,
+        "attributes": null,
+        "id": "0a41fd05-9330-4c1f-aea1-6cbc84d73d0a"
+      },
+      {
+        "sku_code": "SKU-2WAMQ-DEFAULT-3",
+        "price": 14543700,
+        "stock": 61,
+        "attributes": null,
+        "id": "687761e1-6a05-4f3d-a910-d099653e99d8"
+      },
+      {
+        "sku_code": "SKU-2WAMQ-DEFAULT-4",
+        "price": 14543700,
+        "stock": 61,
+        "attributes": null,
+        "id": "5b7588e0-8454-43bb-adec-90e3cf39aa8f"
       }
     ],
     "brand": "Panasonic",
@@ -4200,6 +5796,27 @@
         "price": 0,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AQ1A1-DEFAULT-2",
+        "price": 0,
+        "stock": 32,
+        "attributes": null,
+        "id": "116cae83-4973-4036-b71e-60b4918dee09"
+      },
+      {
+        "sku_code": "SKU-AQ1A1-DEFAULT-3",
+        "price": 0,
+        "stock": 32,
+        "attributes": null,
+        "id": "79109404-4f89-4360-a136-2a8dc977ecee"
+      },
+      {
+        "sku_code": "SKU-AQ1A1-DEFAULT-4",
+        "price": 0,
+        "stock": 32,
+        "attributes": null,
+        "id": "48afe2c4-588a-4849-aafa-a51a680cfcd8"
       }
     ],
     "brand": "Panasonic",
@@ -4246,6 +5863,27 @@
         "price": 20037000,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SNG8N-DEFAULT-2",
+        "price": 20037000,
+        "stock": 19,
+        "attributes": null,
+        "id": "c79a6812-88ef-4140-b619-877e72613daf"
+      },
+      {
+        "sku_code": "SKU-SNG8N-DEFAULT-3",
+        "price": 20037000,
+        "stock": 19,
+        "attributes": null,
+        "id": "3e34eb98-b9dc-455c-a74f-b8f20cc2d0ca"
+      },
+      {
+        "sku_code": "SKU-SNG8N-DEFAULT-4",
+        "price": 20037000,
+        "stock": 19,
+        "attributes": null,
+        "id": "a3605f48-a567-43d7-a456-729352ff6ca0"
       }
     ],
     "brand": "Panasonic",
@@ -4281,6 +5919,27 @@
         "price": 11502000,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2OW9D-DEFAULT-2",
+        "price": 11502000,
+        "stock": 71,
+        "attributes": null,
+        "id": "ab7b254a-3223-4331-a8d5-b9106eb63c44"
+      },
+      {
+        "sku_code": "SKU-2OW9D-DEFAULT-3",
+        "price": 11502000,
+        "stock": 71,
+        "attributes": null,
+        "id": "edae93b7-fd54-42ce-8227-98b146039670"
+      },
+      {
+        "sku_code": "SKU-2OW9D-DEFAULT-4",
+        "price": 11502000,
+        "stock": 71,
+        "attributes": null,
+        "id": "60d05d98-0c1b-43b0-b321-4ab449462849"
       }
     ],
     "brand": "Daikin",
@@ -4325,6 +5984,27 @@
         "price": 11997000,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CYVQT-DEFAULT-2",
+        "price": 11997000,
+        "stock": 31,
+        "attributes": null,
+        "id": "6ef52a76-0558-4948-b0bf-8e0ad86d4096"
+      },
+      {
+        "sku_code": "SKU-CYVQT-DEFAULT-3",
+        "price": 11997000,
+        "stock": 31,
+        "attributes": null,
+        "id": "06f7d69f-36b4-4e80-b865-619d11d99ff2"
+      },
+      {
+        "sku_code": "SKU-CYVQT-DEFAULT-4",
+        "price": 11997000,
+        "stock": 31,
+        "attributes": null,
+        "id": "8e8690a5-0ac4-457d-9460-33b70972d317"
       }
     ],
     "brand": "LG",
@@ -4369,6 +6049,27 @@
         "price": 11399700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OANTO-DEFAULT-2",
+        "price": 11399700,
+        "stock": 80,
+        "attributes": null,
+        "id": "c6d59db0-3e6e-45df-aa16-9be362ad644a"
+      },
+      {
+        "sku_code": "SKU-OANTO-DEFAULT-3",
+        "price": 11399700,
+        "stock": 80,
+        "attributes": null,
+        "id": "6f623dd7-563a-4b09-a73a-206558090259"
+      },
+      {
+        "sku_code": "SKU-OANTO-DEFAULT-4",
+        "price": 11399700,
+        "stock": 80,
+        "attributes": null,
+        "id": "0181b2d2-760b-435d-b7b2-710286058e22"
       }
     ],
     "brand": "Panasonic",
@@ -4419,6 +6120,27 @@
         "price": 20993700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RR42S-DEFAULT-2",
+        "price": 20993700,
+        "stock": 71,
+        "attributes": null,
+        "id": "146ca25a-8a33-47d4-a003-786eb194a3df"
+      },
+      {
+        "sku_code": "SKU-RR42S-DEFAULT-3",
+        "price": 20993700,
+        "stock": 71,
+        "attributes": null,
+        "id": "f608633b-cf99-42d6-b1d6-96e9f40cfbad"
+      },
+      {
+        "sku_code": "SKU-RR42S-DEFAULT-4",
+        "price": 20993700,
+        "stock": 71,
+        "attributes": null,
+        "id": "72e249a5-199a-4dc9-b849-8bb9b31d8e1e"
       }
     ],
     "brand": "Panasonic",
@@ -4464,6 +6186,27 @@
         "price": 0,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T2K8P-DEFAULT-2",
+        "price": 0,
+        "stock": 101,
+        "attributes": null,
+        "id": "d03cac39-9b7e-4c45-a2eb-1738a26699fd"
+      },
+      {
+        "sku_code": "SKU-T2K8P-DEFAULT-3",
+        "price": 0,
+        "stock": 101,
+        "attributes": null,
+        "id": "3a54d4a6-924a-4177-9b92-d72230a15347"
+      },
+      {
+        "sku_code": "SKU-T2K8P-DEFAULT-4",
+        "price": 0,
+        "stock": 101,
+        "attributes": null,
+        "id": "576fab19-4893-419c-96eb-7a8429cb4d1e"
       }
     ],
     "brand": "Hitachi",
@@ -4508,6 +6251,27 @@
         "price": 9525000,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FHHRR-DEFAULT-2",
+        "price": 9525000,
+        "stock": 12,
+        "attributes": null,
+        "id": "d371823b-4349-4ceb-be1e-a6087837b299"
+      },
+      {
+        "sku_code": "SKU-FHHRR-DEFAULT-3",
+        "price": 9525000,
+        "stock": 12,
+        "attributes": null,
+        "id": "0a81e2b0-00c2-43ef-9d2c-5ad1016aa859"
+      },
+      {
+        "sku_code": "SKU-FHHRR-DEFAULT-4",
+        "price": 9525000,
+        "stock": 12,
+        "attributes": null,
+        "id": "e65f0018-3811-4dd2-958c-f8dd4e7e9d5e"
       }
     ],
     "brand": "Voltas",
@@ -4573,6 +6337,27 @@
         "price": 9297000,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X8E1P-DEFAULT-2",
+        "price": 9297000,
+        "stock": 39,
+        "attributes": null,
+        "id": "7b86f060-28f8-4f15-a6ee-3e7f9cc00f33"
+      },
+      {
+        "sku_code": "SKU-X8E1P-DEFAULT-3",
+        "price": 9297000,
+        "stock": 39,
+        "attributes": null,
+        "id": "c3cb03ab-348d-45c8-8d02-d16db69ffe69"
+      },
+      {
+        "sku_code": "SKU-X8E1P-DEFAULT-4",
+        "price": 9297000,
+        "stock": 39,
+        "attributes": null,
+        "id": "5ba0ee41-ffc9-47fe-ba2b-f4809fc8fdd8"
       }
     ],
     "brand": "Panasonic",
@@ -4635,6 +6420,27 @@
         "price": 13167000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8H95B-DEFAULT-2",
+        "price": 13167000,
+        "stock": 28,
+        "attributes": null,
+        "id": "4433905e-8d28-41bc-a08b-e1b90f598143"
+      },
+      {
+        "sku_code": "SKU-8H95B-DEFAULT-3",
+        "price": 13167000,
+        "stock": 28,
+        "attributes": null,
+        "id": "7913e1e3-9295-4fbc-a4fb-918bc70afd75"
+      },
+      {
+        "sku_code": "SKU-8H95B-DEFAULT-4",
+        "price": 13167000,
+        "stock": 28,
+        "attributes": null,
+        "id": "e00f76f6-32ee-4697-95be-45a922a4b105"
       }
     ],
     "brand": "LG",
@@ -4697,6 +6503,27 @@
         "price": 15780000,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G89II-DEFAULT-2",
+        "price": 15780000,
+        "stock": 76,
+        "attributes": null,
+        "id": "ef671025-ba67-45f0-8afe-5fea7a4b2d35"
+      },
+      {
+        "sku_code": "SKU-G89II-DEFAULT-3",
+        "price": 15780000,
+        "stock": 76,
+        "attributes": null,
+        "id": "e764a810-3cc3-46dd-bf03-e9312ee24ece"
+      },
+      {
+        "sku_code": "SKU-G89II-DEFAULT-4",
+        "price": 15780000,
+        "stock": 76,
+        "attributes": null,
+        "id": "ebdd683b-a074-4e43-8110-c23c9c662770"
       }
     ],
     "brand": "Panasonic",
@@ -4741,6 +6568,27 @@
         "price": 14331000,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3FJA4-DEFAULT-2",
+        "price": 14331000,
+        "stock": 97,
+        "attributes": null,
+        "id": "18738d1d-a15a-4ea1-bbfa-2d0e836f8cda"
+      },
+      {
+        "sku_code": "SKU-3FJA4-DEFAULT-3",
+        "price": 14331000,
+        "stock": 97,
+        "attributes": null,
+        "id": "e3417bd1-f70c-4747-a3f5-1ac3e7fe7ae0"
+      },
+      {
+        "sku_code": "SKU-3FJA4-DEFAULT-4",
+        "price": 14331000,
+        "stock": 97,
+        "attributes": null,
+        "id": "302d88d2-421c-4dd0-9383-4579fde9bac3"
       }
     ],
     "brand": "Panasonic",
@@ -4786,6 +6634,27 @@
         "price": 2694000,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XKGRG-DEFAULT-2",
+        "price": 2694000,
+        "stock": 106,
+        "attributes": null,
+        "id": "37c0f1cc-c804-42fb-a207-07da7c505e2a"
+      },
+      {
+        "sku_code": "SKU-XKGRG-DEFAULT-3",
+        "price": 2694000,
+        "stock": 106,
+        "attributes": null,
+        "id": "f6e45524-756e-4e76-9222-0ac346117fe5"
+      },
+      {
+        "sku_code": "SKU-XKGRG-DEFAULT-4",
+        "price": 2694000,
+        "stock": 106,
+        "attributes": null,
+        "id": "1af02d0a-5fa2-437f-8fb2-b2b15ab0399e"
       }
     ],
     "brand": "Samsung",
@@ -4827,6 +6696,27 @@
         "price": 1490700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LW8NA-DEFAULT-2",
+        "price": 1490700,
+        "stock": 60,
+        "attributes": null,
+        "id": "94e26809-ff99-40c9-98e6-51b6e32c4cb7"
+      },
+      {
+        "sku_code": "SKU-LW8NA-DEFAULT-3",
+        "price": 1490700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0a51c79b-67bb-4ddf-ae5b-f4f065c9dbda"
+      },
+      {
+        "sku_code": "SKU-LW8NA-DEFAULT-4",
+        "price": 1490700,
+        "stock": 60,
+        "attributes": null,
+        "id": "6546ccf0-3816-4134-b18f-afb294d8bef6"
       }
     ],
     "brand": "Panasonic",
@@ -4893,6 +6783,27 @@
         "price": 0,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EJ151-DEFAULT-2",
+        "price": 0,
+        "stock": 81,
+        "attributes": null,
+        "id": "b3ae7560-ad7d-4c01-9ec9-133122f4e032"
+      },
+      {
+        "sku_code": "SKU-EJ151-DEFAULT-3",
+        "price": 0,
+        "stock": 81,
+        "attributes": null,
+        "id": "fe64d864-944b-4bc5-a18e-acc449311438"
+      },
+      {
+        "sku_code": "SKU-EJ151-DEFAULT-4",
+        "price": 0,
+        "stock": 81,
+        "attributes": null,
+        "id": "e58cc39e-1e6e-48b7-9f2d-3d16b13878e5"
       }
     ],
     "brand": "LG",
@@ -4936,6 +6847,27 @@
         "price": 11637000,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QQLXK-DEFAULT-2",
+        "price": 11637000,
+        "stock": 105,
+        "attributes": null,
+        "id": "17e050d7-ea48-4246-97f3-b1520ed6dc21"
+      },
+      {
+        "sku_code": "SKU-QQLXK-DEFAULT-3",
+        "price": 11637000,
+        "stock": 105,
+        "attributes": null,
+        "id": "726a6e71-19f2-44f8-af50-115c5fe1bfc7"
+      },
+      {
+        "sku_code": "SKU-QQLXK-DEFAULT-4",
+        "price": 11637000,
+        "stock": 105,
+        "attributes": null,
+        "id": "9cff435c-19e2-483c-a960-d630f45ba08a"
       }
     ],
     "brand": "LG",
@@ -4988,6 +6920,27 @@
         "price": 0,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0SMAC-DEFAULT-2",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "4cbc2991-24aa-4aca-b49e-24f61b2e9ed8"
+      },
+      {
+        "sku_code": "SKU-0SMAC-DEFAULT-3",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "0a43c5d4-eb02-44f7-8439-ac1482fd59a4"
+      },
+      {
+        "sku_code": "SKU-0SMAC-DEFAULT-4",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "2cd89ee0-c5c1-44ca-8b75-784d5a1f81f8"
       }
     ],
     "brand": "LG",
@@ -5044,6 +6997,27 @@
         "price": 14547000,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6SWM0-DEFAULT-2",
+        "price": 14547000,
+        "stock": 26,
+        "attributes": null,
+        "id": "5875159e-b9fb-4ba9-8da4-8682816f1648"
+      },
+      {
+        "sku_code": "SKU-6SWM0-DEFAULT-3",
+        "price": 14547000,
+        "stock": 26,
+        "attributes": null,
+        "id": "103ac93b-512e-4d85-899e-f46956634632"
+      },
+      {
+        "sku_code": "SKU-6SWM0-DEFAULT-4",
+        "price": 14547000,
+        "stock": 26,
+        "attributes": null,
+        "id": "949a92d8-cf14-4220-8976-0e247e53a6c3"
       }
     ],
     "brand": "LG",
@@ -5084,6 +7058,27 @@
         "price": 11847000,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2EPPR-DEFAULT-2",
+        "price": 11847000,
+        "stock": 69,
+        "attributes": null,
+        "id": "35b25f6c-4b57-41da-a35a-58f7c48810fc"
+      },
+      {
+        "sku_code": "SKU-2EPPR-DEFAULT-3",
+        "price": 11847000,
+        "stock": 69,
+        "attributes": null,
+        "id": "c6837e03-26c3-4fb4-b7d5-531cc5a9b736"
+      },
+      {
+        "sku_code": "SKU-2EPPR-DEFAULT-4",
+        "price": 11847000,
+        "stock": 69,
+        "attributes": null,
+        "id": "b5360964-13e9-4ff3-a461-966e9d914b28"
       }
     ],
     "brand": "Hitachi",
@@ -5150,6 +7145,27 @@
         "price": 17997000,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WRRUD-DEFAULT-2",
+        "price": 17997000,
+        "stock": 105,
+        "attributes": null,
+        "id": "45e75d65-c72e-4127-a77a-bfb754d86b7d"
+      },
+      {
+        "sku_code": "SKU-WRRUD-DEFAULT-3",
+        "price": 17997000,
+        "stock": 105,
+        "attributes": null,
+        "id": "29dae769-daf9-4ffc-abe8-950badc4f7ba"
+      },
+      {
+        "sku_code": "SKU-WRRUD-DEFAULT-4",
+        "price": 17997000,
+        "stock": 105,
+        "attributes": null,
+        "id": "21369e23-4e67-46a5-9320-497c3a76eaee"
       }
     ],
     "brand": "Panasonic",
@@ -5185,6 +7201,27 @@
         "price": 19800000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3ZDGD-DEFAULT-2",
+        "price": 19800000,
+        "stock": 87,
+        "attributes": null,
+        "id": "323206e1-095f-4262-bd47-ec6653bed564"
+      },
+      {
+        "sku_code": "SKU-3ZDGD-DEFAULT-3",
+        "price": 19800000,
+        "stock": 87,
+        "attributes": null,
+        "id": "b3e72141-5ba3-40f6-9244-eff5424807d9"
+      },
+      {
+        "sku_code": "SKU-3ZDGD-DEFAULT-4",
+        "price": 19800000,
+        "stock": 87,
+        "attributes": null,
+        "id": "5cc14c45-1e26-45d1-94a2-f4533dbdde14"
       }
     ],
     "brand": "Portable",
@@ -5233,6 +7270,27 @@
         "price": 15870000,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VJMZ8-DEFAULT-2",
+        "price": 15870000,
+        "stock": 12,
+        "attributes": null,
+        "id": "3510eb19-4238-45ae-98eb-3c3286597fcc"
+      },
+      {
+        "sku_code": "SKU-VJMZ8-DEFAULT-3",
+        "price": 15870000,
+        "stock": 12,
+        "attributes": null,
+        "id": "2869cb96-c798-490d-91d8-de2866a2cce7"
+      },
+      {
+        "sku_code": "SKU-VJMZ8-DEFAULT-4",
+        "price": 15870000,
+        "stock": 12,
+        "attributes": null,
+        "id": "b90fd5f2-a4ee-459f-94d4-3fa7b43e9fc8"
       }
     ],
     "brand": "Samsung",
@@ -5279,6 +7337,27 @@
         "price": 0,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EKK7G-DEFAULT-2",
+        "price": 0,
+        "stock": 61,
+        "attributes": null,
+        "id": "f3f65db2-8d94-48b3-b792-2a7922fdf970"
+      },
+      {
+        "sku_code": "SKU-EKK7G-DEFAULT-3",
+        "price": 0,
+        "stock": 61,
+        "attributes": null,
+        "id": "8f47e8cd-4259-4f2e-bb6d-2395f934adc0"
+      },
+      {
+        "sku_code": "SKU-EKK7G-DEFAULT-4",
+        "price": 0,
+        "stock": 61,
+        "attributes": null,
+        "id": "3678cec0-423d-43b3-b1f4-7ad34360c324"
       }
     ],
     "brand": "Panasonic",
@@ -5326,6 +7405,27 @@
         "price": 13797000,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NCT13-DEFAULT-2",
+        "price": 13797000,
+        "stock": 41,
+        "attributes": null,
+        "id": "f6b68b9c-97c8-4947-bfb3-4da05ecda739"
+      },
+      {
+        "sku_code": "SKU-NCT13-DEFAULT-3",
+        "price": 13797000,
+        "stock": 41,
+        "attributes": null,
+        "id": "98dd9369-53bd-4a88-a64f-38b572c42563"
+      },
+      {
+        "sku_code": "SKU-NCT13-DEFAULT-4",
+        "price": 13797000,
+        "stock": 41,
+        "attributes": null,
+        "id": "8072bc0b-364e-4e8e-af7e-1e1e5fce15f7"
       }
     ],
     "brand": "LG",

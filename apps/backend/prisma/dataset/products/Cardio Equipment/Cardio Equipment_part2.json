@@ -22,6 +22,27 @@
         "price": 17999700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8ZNNJ-DEFAULT-2",
+        "price": 17999700,
+        "stock": 60,
+        "attributes": null,
+        "id": "5b057e52-00ee-4983-b286-087164118dd3"
+      },
+      {
+        "sku_code": "SKU-8ZNNJ-DEFAULT-3",
+        "price": 17999700,
+        "stock": 60,
+        "attributes": null,
+        "id": "fa26cd36-dae6-4c65-a762-8045977d600b"
+      },
+      {
+        "sku_code": "SKU-8ZNNJ-DEFAULT-4",
+        "price": 17999700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0c3c33be-659a-4b40-bc69-31960cfab0d6"
       }
     ],
     "brand": "HP",
@@ -63,6 +84,27 @@
         "price": 3554400,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SVRWY-DEFAULT-2",
+        "price": 3554400,
+        "stock": 107,
+        "attributes": null,
+        "id": "9dc2cd11-99a1-4a83-955d-ff20ded39bc4"
+      },
+      {
+        "sku_code": "SKU-SVRWY-DEFAULT-3",
+        "price": 3554400,
+        "stock": 107,
+        "attributes": null,
+        "id": "94e2dc52-a07c-4f59-b6ae-bd0c5a0cb2cc"
+      },
+      {
+        "sku_code": "SKU-SVRWY-DEFAULT-4",
+        "price": 3554400,
+        "stock": 107,
+        "attributes": null,
+        "id": "a3248de0-077b-473e-8b0a-e0ed333fb6bd"
       }
     ],
     "brand": "Lifelong",
@@ -104,6 +146,27 @@
         "price": 43470000,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0YEDX-DEFAULT-2",
+        "price": 43470000,
+        "stock": 17,
+        "attributes": null,
+        "id": "c3e509c2-2f18-4a50-8eb6-00f26c0746b6"
+      },
+      {
+        "sku_code": "SKU-0YEDX-DEFAULT-3",
+        "price": 43470000,
+        "stock": 17,
+        "attributes": null,
+        "id": "26ed0cf6-ff3a-4379-a45f-165828dd05cd"
+      },
+      {
+        "sku_code": "SKU-0YEDX-DEFAULT-4",
+        "price": 43470000,
+        "stock": 17,
+        "attributes": null,
+        "id": "a5680dc9-e583-496f-a901-a9b7283c99fa"
       }
     ],
     "brand": "FITNESS",
@@ -149,6 +212,27 @@
         "price": 29970000,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-13RY5-DEFAULT-2",
+        "price": 29970000,
+        "stock": 84,
+        "attributes": null,
+        "id": "ac330aea-c9ad-4729-84f8-aadf9de2cea9"
+      },
+      {
+        "sku_code": "SKU-13RY5-DEFAULT-3",
+        "price": 29970000,
+        "stock": 84,
+        "attributes": null,
+        "id": "824c86f7-3fbd-427f-acfb-4b8fcd65a974"
+      },
+      {
+        "sku_code": "SKU-13RY5-DEFAULT-4",
+        "price": 29970000,
+        "stock": 84,
+        "attributes": null,
+        "id": "899c2c75-88ad-4d3e-8f70-5851f142af2d"
       }
     ],
     "brand": "Lifelong",
@@ -186,6 +270,27 @@
         "price": 28470000,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KSJGL-DEFAULT-2",
+        "price": 28470000,
+        "stock": 92,
+        "attributes": null,
+        "id": "3f5dcb25-042a-410f-9fc9-2e18308c0712"
+      },
+      {
+        "sku_code": "SKU-KSJGL-DEFAULT-3",
+        "price": 28470000,
+        "stock": 92,
+        "attributes": null,
+        "id": "b7729e70-f05a-4b32-acac-87bd5fab00cf"
+      },
+      {
+        "sku_code": "SKU-KSJGL-DEFAULT-4",
+        "price": 28470000,
+        "stock": 92,
+        "attributes": null,
+        "id": "76adf033-c9c1-4049-81d0-f10f8a1aa3ed"
       }
     ],
     "brand": "Health",
@@ -227,6 +332,27 @@
         "price": 7499700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EUSFY-DEFAULT-2",
+        "price": 7499700,
+        "stock": 81,
+        "attributes": null,
+        "id": "f139baf0-713f-4246-916f-1dff602eb084"
+      },
+      {
+        "sku_code": "SKU-EUSFY-DEFAULT-3",
+        "price": 7499700,
+        "stock": 81,
+        "attributes": null,
+        "id": "b47fe25f-e5b5-4c9e-9ce1-cbaa8620c0c2"
+      },
+      {
+        "sku_code": "SKU-EUSFY-DEFAULT-4",
+        "price": 7499700,
+        "stock": 81,
+        "attributes": null,
+        "id": "77e50ec8-9860-4b67-b71c-09c96b6902ee"
       }
     ],
     "brand": "Stunner",
@@ -264,6 +390,27 @@
         "price": 1346400,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CQE8Y-DEFAULT-2",
+        "price": 1346400,
+        "stock": 87,
+        "attributes": null,
+        "id": "53e4c6ba-7018-4a97-8117-20884c27d0c4"
+      },
+      {
+        "sku_code": "SKU-CQE8Y-DEFAULT-3",
+        "price": 1346400,
+        "stock": 87,
+        "attributes": null,
+        "id": "254c0d59-507a-4cba-9fdb-c23658285b8e"
+      },
+      {
+        "sku_code": "SKU-CQE8Y-DEFAULT-4",
+        "price": 1346400,
+        "stock": 87,
+        "attributes": null,
+        "id": "fc9c3af6-20bf-4402-8777-b15e88bcb820"
       }
     ],
     "brand": "FITNESS",
@@ -305,6 +452,27 @@
         "price": 0,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EZMW7-DEFAULT-2",
+        "price": 0,
+        "stock": 70,
+        "attributes": null,
+        "id": "4dee1efa-dd38-40b6-a83e-ef6feb48350e"
+      },
+      {
+        "sku_code": "SKU-EZMW7-DEFAULT-3",
+        "price": 0,
+        "stock": 70,
+        "attributes": null,
+        "id": "d32bab31-04b1-428b-a7ab-424232210a43"
+      },
+      {
+        "sku_code": "SKU-EZMW7-DEFAULT-4",
+        "price": 0,
+        "stock": 70,
+        "attributes": null,
+        "id": "3ad9d46c-2ab4-4c51-bcf8-8826b87ac318"
       }
     ],
     "brand": "FITTYFY",
@@ -350,6 +518,27 @@
         "price": 0,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1PY4J-DEFAULT-2",
+        "price": 0,
+        "stock": 52,
+        "attributes": null,
+        "id": "6560c55a-0dc6-4408-b197-31ee4a1f3b68"
+      },
+      {
+        "sku_code": "SKU-1PY4J-DEFAULT-3",
+        "price": 0,
+        "stock": 52,
+        "attributes": null,
+        "id": "52eaeda8-be64-4ef0-b9c7-637b4ca9f369"
+      },
+      {
+        "sku_code": "SKU-1PY4J-DEFAULT-4",
+        "price": 0,
+        "stock": 52,
+        "attributes": null,
+        "id": "11f66819-e661-4ba0-8e1b-24fe3077fe1b"
       }
     ],
     "brand": "Samsung",
@@ -387,6 +576,27 @@
         "price": 0,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-15UCU-DEFAULT-2",
+        "price": 0,
+        "stock": 56,
+        "attributes": null,
+        "id": "5faf2c33-0f30-4222-88f2-f093897b42a9"
+      },
+      {
+        "sku_code": "SKU-15UCU-DEFAULT-3",
+        "price": 0,
+        "stock": 56,
+        "attributes": null,
+        "id": "84b3c512-b74a-46ab-8256-5f86664bdb76"
+      },
+      {
+        "sku_code": "SKU-15UCU-DEFAULT-4",
+        "price": 0,
+        "stock": 56,
+        "attributes": null,
+        "id": "82cace59-c636-4221-90b5-ff5d44d3d325"
       }
     ],
     "brand": "Reach",
@@ -424,6 +634,27 @@
         "price": 13096500,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QX4R5-DEFAULT-2",
+        "price": 13096500,
+        "stock": 85,
+        "attributes": null,
+        "id": "0ad0c464-a8a1-47db-a008-07c73fa24e09"
+      },
+      {
+        "sku_code": "SKU-QX4R5-DEFAULT-3",
+        "price": 13096500,
+        "stock": 85,
+        "attributes": null,
+        "id": "ae90b590-9210-454d-943d-455ec5865c1a"
+      },
+      {
+        "sku_code": "SKU-QX4R5-DEFAULT-4",
+        "price": 13096500,
+        "stock": 85,
+        "attributes": null,
+        "id": "e8fc4d0f-1a67-4d17-b083-f0cd9acd2192"
       }
     ],
     "brand": "HP",
@@ -461,6 +692,27 @@
         "price": 37500000,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y8CCV-DEFAULT-2",
+        "price": 37500000,
+        "stock": 57,
+        "attributes": null,
+        "id": "4684368a-4a5b-45e4-a787-d2cc6daf4c6c"
+      },
+      {
+        "sku_code": "SKU-Y8CCV-DEFAULT-3",
+        "price": 37500000,
+        "stock": 57,
+        "attributes": null,
+        "id": "c9f4521d-8e01-4688-8ae4-c932d9f5891e"
+      },
+      {
+        "sku_code": "SKU-Y8CCV-DEFAULT-4",
+        "price": 37500000,
+        "stock": 57,
+        "attributes": null,
+        "id": "2ff5906f-cdd7-4cba-aa73-8f29d7602d5b"
       }
     ],
     "brand": "Dolphy",
@@ -498,6 +750,27 @@
         "price": 13410000,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TTVNY-DEFAULT-2",
+        "price": 13410000,
+        "stock": 55,
+        "attributes": null,
+        "id": "2e6c62a7-611f-4e6d-b9e9-95140f56972d"
+      },
+      {
+        "sku_code": "SKU-TTVNY-DEFAULT-3",
+        "price": 13410000,
+        "stock": 55,
+        "attributes": null,
+        "id": "f9c5136d-f274-431e-8e14-25c6be84c0d2"
+      },
+      {
+        "sku_code": "SKU-TTVNY-DEFAULT-4",
+        "price": 13410000,
+        "stock": 55,
+        "attributes": null,
+        "id": "c3064768-4574-440a-9121-8889db8ece81"
       }
     ],
     "brand": "HP",
@@ -539,6 +812,27 @@
         "price": 13860000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T4AST-DEFAULT-2",
+        "price": 13860000,
+        "stock": 108,
+        "attributes": null,
+        "id": "4ba6e2d8-609f-450e-958c-bbce2b72b2c5"
+      },
+      {
+        "sku_code": "SKU-T4AST-DEFAULT-3",
+        "price": 13860000,
+        "stock": 108,
+        "attributes": null,
+        "id": "0e2d0977-1ff0-4234-99cd-c3dbfa4c9dd3"
+      },
+      {
+        "sku_code": "SKU-T4AST-DEFAULT-4",
+        "price": 13860000,
+        "stock": 108,
+        "attributes": null,
+        "id": "831f780e-a428-43ac-86b7-01cfdb40c789"
       }
     ],
     "brand": "HP",
@@ -576,6 +870,27 @@
         "price": 0,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M4RZT-DEFAULT-2",
+        "price": 0,
+        "stock": 68,
+        "attributes": null,
+        "id": "9223ba89-765d-4120-ae79-d67808841c5a"
+      },
+      {
+        "sku_code": "SKU-M4RZT-DEFAULT-3",
+        "price": 0,
+        "stock": 68,
+        "attributes": null,
+        "id": "09393b62-4c8e-4a46-93f9-82df2a85b070"
+      },
+      {
+        "sku_code": "SKU-M4RZT-DEFAULT-4",
+        "price": 0,
+        "stock": 68,
+        "attributes": null,
+        "id": "363c7678-7451-4d79-9225-1cce13878659"
       }
     ],
     "brand": "AGARO",
@@ -617,6 +932,27 @@
         "price": 10170000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WNMKT-DEFAULT-2",
+        "price": 10170000,
+        "stock": 22,
+        "attributes": null,
+        "id": "50735f06-562a-4b4e-8c19-c59ba51c5cfb"
+      },
+      {
+        "sku_code": "SKU-WNMKT-DEFAULT-3",
+        "price": 10170000,
+        "stock": 22,
+        "attributes": null,
+        "id": "264efa9e-63e1-4d40-860c-c45f81400189"
+      },
+      {
+        "sku_code": "SKU-WNMKT-DEFAULT-4",
+        "price": 10170000,
+        "stock": 22,
+        "attributes": null,
+        "id": "62fb584b-231d-42b9-ad33-0f1c41661d0c"
       }
     ],
     "brand": "Samsung",
@@ -658,6 +994,27 @@
         "price": 19349700,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YB573-DEFAULT-2",
+        "price": 19349700,
+        "stock": 47,
+        "attributes": null,
+        "id": "af874033-936b-4ba4-93a4-1002145aae6d"
+      },
+      {
+        "sku_code": "SKU-YB573-DEFAULT-3",
+        "price": 19349700,
+        "stock": 47,
+        "attributes": null,
+        "id": "5e7076e0-7da0-470d-9e71-e91bfc08085d"
+      },
+      {
+        "sku_code": "SKU-YB573-DEFAULT-4",
+        "price": 19349700,
+        "stock": 47,
+        "attributes": null,
+        "id": "a9d79e58-f3f9-418f-8d46-62a53e9c7b3d"
       }
     ],
     "brand": "Samsung",
@@ -703,6 +1060,27 @@
         "price": 16500000,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3DR13-DEFAULT-2",
+        "price": 16500000,
+        "stock": 10,
+        "attributes": null,
+        "id": "5284e402-c437-4ef2-81bb-26d69a62ab68"
+      },
+      {
+        "sku_code": "SKU-3DR13-DEFAULT-3",
+        "price": 16500000,
+        "stock": 10,
+        "attributes": null,
+        "id": "0663f24f-f1a8-4e80-b219-445e5207fcf3"
+      },
+      {
+        "sku_code": "SKU-3DR13-DEFAULT-4",
+        "price": 16500000,
+        "stock": 10,
+        "attributes": null,
+        "id": "951c5a76-a77c-40d2-a026-00b907aaf396"
       }
     ],
     "brand": "Samsung",
@@ -744,6 +1122,27 @@
         "price": 26970000,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z1M34-DEFAULT-2",
+        "price": 26970000,
+        "stock": 62,
+        "attributes": null,
+        "id": "1d968f14-f22c-4a45-837b-339d0ae7c86c"
+      },
+      {
+        "sku_code": "SKU-Z1M34-DEFAULT-3",
+        "price": 26970000,
+        "stock": 62,
+        "attributes": null,
+        "id": "05aacbb2-ce31-451b-9b38-f3ed19a1f79d"
+      },
+      {
+        "sku_code": "SKU-Z1M34-DEFAULT-4",
+        "price": 26970000,
+        "stock": 62,
+        "attributes": null,
+        "id": "35b5473b-b1b2-4bb9-af99-c8b8b73fda17"
       }
     ],
     "brand": "AGARO",
@@ -785,6 +1184,27 @@
         "price": 1520400,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RQ44I-DEFAULT-2",
+        "price": 1520400,
+        "stock": 97,
+        "attributes": null,
+        "id": "dcf24f39-bd5c-42c1-ad87-fbf856899c8e"
+      },
+      {
+        "sku_code": "SKU-RQ44I-DEFAULT-3",
+        "price": 1520400,
+        "stock": 97,
+        "attributes": null,
+        "id": "92e8f6b4-14df-415f-95da-7f1d5ef8d85c"
+      },
+      {
+        "sku_code": "SKU-RQ44I-DEFAULT-4",
+        "price": 1520400,
+        "stock": 97,
+        "attributes": null,
+        "id": "1577ca41-86e6-42a4-9ee9-c9dfd2da5013"
       }
     ],
     "brand": "AGARO",

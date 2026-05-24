@@ -22,6 +22,27 @@
         "price": 301800,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M09GS-DEFAULT-2",
+        "price": 301800,
+        "stock": 35,
+        "attributes": null,
+        "id": "68b0a304-d668-4bfc-82ba-75b94a926d5e"
+      },
+      {
+        "sku_code": "SKU-M09GS-DEFAULT-3",
+        "price": 301800,
+        "stock": 35,
+        "attributes": null,
+        "id": "c24665a8-43b4-4256-a60f-54ff6675ddac"
+      },
+      {
+        "sku_code": "SKU-M09GS-DEFAULT-4",
+        "price": 301800,
+        "stock": 35,
+        "attributes": null,
+        "id": "85f41de0-78e0-4559-86b5-e5241625e942"
       }
     ],
     "brand": "Amazon",
@@ -59,6 +80,27 @@
         "price": 182700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RF43P-DEFAULT-2",
+        "price": 182700,
+        "stock": 64,
+        "attributes": null,
+        "id": "b4d4651b-bef3-423f-b5aa-64f5ca1890e0"
+      },
+      {
+        "sku_code": "SKU-RF43P-DEFAULT-3",
+        "price": 182700,
+        "stock": 64,
+        "attributes": null,
+        "id": "33ca480d-af7b-40cb-9d7b-7ec60b479d10"
+      },
+      {
+        "sku_code": "SKU-RF43P-DEFAULT-4",
+        "price": 182700,
+        "stock": 64,
+        "attributes": null,
+        "id": "00ce6a65-b709-43ae-bb00-ce6b5c766e34"
       }
     ],
     "brand": "SOFTSPUN",
@@ -100,6 +142,27 @@
         "price": 52200,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DZJ59-DEFAULT-2",
+        "price": 52200,
+        "stock": 46,
+        "attributes": null,
+        "id": "d85182f9-60f1-4430-9d08-985ac8cba542"
+      },
+      {
+        "sku_code": "SKU-DZJ59-DEFAULT-3",
+        "price": 52200,
+        "stock": 46,
+        "attributes": null,
+        "id": "aae5ebe7-9331-4a73-aa3a-f01e1c756bc5"
+      },
+      {
+        "sku_code": "SKU-DZJ59-DEFAULT-4",
+        "price": 52200,
+        "stock": 46,
+        "attributes": null,
+        "id": "8047631c-038d-4932-a2fd-e489f690b64d"
       }
     ],
     "brand": "Godrej",
@@ -137,6 +200,27 @@
         "price": 119700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B3WUU-DEFAULT-2",
+        "price": 119700,
+        "stock": 95,
+        "attributes": null,
+        "id": "17229ffb-3b01-4581-af3f-d23321b39888"
+      },
+      {
+        "sku_code": "SKU-B3WUU-DEFAULT-3",
+        "price": 119700,
+        "stock": 95,
+        "attributes": null,
+        "id": "20e3b4d8-55a4-4e30-bd4c-f8c7e8bf4f2f"
+      },
+      {
+        "sku_code": "SKU-B3WUU-DEFAULT-4",
+        "price": 119700,
+        "stock": 95,
+        "attributes": null,
+        "id": "9986558b-d3a8-4f78-87e9-bb5cbcb4bcfc"
       }
     ],
     "brand": "Plantex",
@@ -178,6 +262,27 @@
         "price": 73500,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0WGCC-DEFAULT-2",
+        "price": 73500,
+        "stock": 37,
+        "attributes": null,
+        "id": "795fa4f3-7759-4ed3-8d59-f4a676ff8ee6"
+      },
+      {
+        "sku_code": "SKU-0WGCC-DEFAULT-3",
+        "price": 73500,
+        "stock": 37,
+        "attributes": null,
+        "id": "f5d80d1a-d7d6-4086-92c8-7bbfb8dfd397"
+      },
+      {
+        "sku_code": "SKU-0WGCC-DEFAULT-4",
+        "price": 73500,
+        "stock": 37,
+        "attributes": null,
+        "id": "fe4b83e4-4f17-40fb-ac02-c500f292f755"
       }
     ],
     "brand": "ALTON",
@@ -215,6 +320,27 @@
         "price": 389700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CN17C-DEFAULT-2",
+        "price": 389700,
+        "stock": 55,
+        "attributes": null,
+        "id": "4f9abff4-9194-4153-bd80-d5c5538fadff"
+      },
+      {
+        "sku_code": "SKU-CN17C-DEFAULT-3",
+        "price": 389700,
+        "stock": 55,
+        "attributes": null,
+        "id": "bc2a7c8d-7dd7-41cd-b003-73b52b6a0bec"
+      },
+      {
+        "sku_code": "SKU-CN17C-DEFAULT-4",
+        "price": 389700,
+        "stock": 55,
+        "attributes": null,
+        "id": "48d3b648-36a4-46d3-a358-4ce3b90e18fc"
       }
     ],
     "brand": "Spotzero",
@@ -252,6 +378,27 @@
         "price": 1898100,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2UKLD-DEFAULT-2",
+        "price": 1898100,
+        "stock": 62,
+        "attributes": null,
+        "id": "2a32d61b-694e-487d-9779-18dead2047c8"
+      },
+      {
+        "sku_code": "SKU-2UKLD-DEFAULT-3",
+        "price": 1898100,
+        "stock": 62,
+        "attributes": null,
+        "id": "893be15d-7e80-4853-be96-e19279b089b7"
+      },
+      {
+        "sku_code": "SKU-2UKLD-DEFAULT-4",
+        "price": 1898100,
+        "stock": 62,
+        "attributes": null,
+        "id": "c04260f7-4159-417b-ba95-55c675b1ed26"
       }
     ],
     "brand": "ALTON",
@@ -297,6 +444,27 @@
         "price": 496500,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JQIFZ-DEFAULT-2",
+        "price": 496500,
+        "stock": 89,
+        "attributes": null,
+        "id": "0710397d-0353-48c7-805c-bd8b01dec412"
+      },
+      {
+        "sku_code": "SKU-JQIFZ-DEFAULT-3",
+        "price": 496500,
+        "stock": 89,
+        "attributes": null,
+        "id": "750fe94e-0237-4225-b5aa-355bc53d45da"
+      },
+      {
+        "sku_code": "SKU-JQIFZ-DEFAULT-4",
+        "price": 496500,
+        "stock": 89,
+        "attributes": null,
+        "id": "eefb9c52-ffed-40df-80d2-2a9a3c07cd65"
       }
     ],
     "brand": "Kohler",
@@ -338,6 +506,27 @@
         "price": 101700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZM3Z1-DEFAULT-2",
+        "price": 101700,
+        "stock": 19,
+        "attributes": null,
+        "id": "ffeb80b4-9fc3-469c-b169-b05c5f49f8c4"
+      },
+      {
+        "sku_code": "SKU-ZM3Z1-DEFAULT-3",
+        "price": 101700,
+        "stock": 19,
+        "attributes": null,
+        "id": "bfa56900-e2f4-4b3f-91e0-407614fb5013"
+      },
+      {
+        "sku_code": "SKU-ZM3Z1-DEFAULT-4",
+        "price": 101700,
+        "stock": 19,
+        "attributes": null,
+        "id": "002a4de3-4e02-4366-9cab-bcf28d121da5"
       }
     ],
     "brand": "Amazon",
@@ -379,6 +568,27 @@
         "price": 134700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FVZ8Z-DEFAULT-2",
+        "price": 134700,
+        "stock": 29,
+        "attributes": null,
+        "id": "b02bf8b1-fc11-4ad9-8a68-f9a0914d2106"
+      },
+      {
+        "sku_code": "SKU-FVZ8Z-DEFAULT-3",
+        "price": 134700,
+        "stock": 29,
+        "attributes": null,
+        "id": "2ba73c35-3380-48fb-97e8-84867a0c6cb7"
+      },
+      {
+        "sku_code": "SKU-FVZ8Z-DEFAULT-4",
+        "price": 134700,
+        "stock": 29,
+        "attributes": null,
+        "id": "2410cb53-e349-4455-8e53-81509986f31f"
       }
     ],
     "brand": "Plantex",
@@ -424,6 +634,27 @@
         "price": 179700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DK1HM-DEFAULT-2",
+        "price": 179700,
+        "stock": 80,
+        "attributes": null,
+        "id": "6a0466fb-1194-4cec-b8a4-04dc72b42eb1"
+      },
+      {
+        "sku_code": "SKU-DK1HM-DEFAULT-3",
+        "price": 179700,
+        "stock": 80,
+        "attributes": null,
+        "id": "65ef1277-968d-43f4-b8b4-8fb7d13dfb60"
+      },
+      {
+        "sku_code": "SKU-DK1HM-DEFAULT-4",
+        "price": 179700,
+        "stock": 80,
+        "attributes": null,
+        "id": "6e8fc246-43bf-42ea-849b-14731dd34086"
       }
     ],
     "brand": "Samsung",
@@ -465,6 +696,27 @@
         "price": 463200,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SGYPF-DEFAULT-2",
+        "price": 463200,
+        "stock": 64,
+        "attributes": null,
+        "id": "ce8f9398-88d4-4992-adbd-9e1603aeaa80"
+      },
+      {
+        "sku_code": "SKU-SGYPF-DEFAULT-3",
+        "price": 463200,
+        "stock": 64,
+        "attributes": null,
+        "id": "2180d648-f912-425e-95b3-7c10aaab97e5"
+      },
+      {
+        "sku_code": "SKU-SGYPF-DEFAULT-4",
+        "price": 463200,
+        "stock": 64,
+        "attributes": null,
+        "id": "2b3eb9a8-b50c-49f5-921c-26731d4ca219"
       }
     ],
     "brand": "Scotch-Brite",
@@ -510,6 +762,27 @@
         "price": 44700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZUV7U-DEFAULT-2",
+        "price": 44700,
+        "stock": 90,
+        "attributes": null,
+        "id": "a202ae11-7305-4817-b981-171f63dc4420"
+      },
+      {
+        "sku_code": "SKU-ZUV7U-DEFAULT-3",
+        "price": 44700,
+        "stock": 90,
+        "attributes": null,
+        "id": "794d2471-54f3-477b-9bf5-0fbe90fe8d75"
+      },
+      {
+        "sku_code": "SKU-ZUV7U-DEFAULT-4",
+        "price": 44700,
+        "stock": 90,
+        "attributes": null,
+        "id": "3198339d-b212-43e7-81d8-6be5c97f6358"
       }
     ],
     "brand": "Godrej",
@@ -555,6 +828,27 @@
         "price": 168000,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GYUW6-DEFAULT-2",
+        "price": 168000,
+        "stock": 100,
+        "attributes": null,
+        "id": "2f80da5b-6e62-42be-a3f8-41d90caa1983"
+      },
+      {
+        "sku_code": "SKU-GYUW6-DEFAULT-3",
+        "price": 168000,
+        "stock": 100,
+        "attributes": null,
+        "id": "be31dede-9fa6-4ac7-b4da-9f0c054f145b"
+      },
+      {
+        "sku_code": "SKU-GYUW6-DEFAULT-4",
+        "price": 168000,
+        "stock": 100,
+        "attributes": null,
+        "id": "e742d26f-494e-4b12-a497-5b6971fe8aa5"
       }
     ],
     "brand": "Amazon",
@@ -600,6 +894,27 @@
         "price": 615000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QTSUY-DEFAULT-2",
+        "price": 615000,
+        "stock": 30,
+        "attributes": null,
+        "id": "601dc14f-3651-45bc-bc11-ed7c82a7925e"
+      },
+      {
+        "sku_code": "SKU-QTSUY-DEFAULT-3",
+        "price": 615000,
+        "stock": 30,
+        "attributes": null,
+        "id": "5a52cb4e-e650-4efb-9939-f7cff3ec8cf2"
+      },
+      {
+        "sku_code": "SKU-QTSUY-DEFAULT-4",
+        "price": 615000,
+        "stock": 30,
+        "attributes": null,
+        "id": "28c7b0d0-3029-4c27-b73c-86afcd032608"
       }
     ],
     "brand": "Honda",
@@ -641,6 +956,27 @@
         "price": 239700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6FS0B-DEFAULT-2",
+        "price": 239700,
+        "stock": 24,
+        "attributes": null,
+        "id": "4f37d0b5-6f86-4238-baa9-db2699ecb262"
+      },
+      {
+        "sku_code": "SKU-6FS0B-DEFAULT-3",
+        "price": 239700,
+        "stock": 24,
+        "attributes": null,
+        "id": "52ffdb2f-029c-44bc-9533-24bfa8f7a0f5"
+      },
+      {
+        "sku_code": "SKU-6FS0B-DEFAULT-4",
+        "price": 239700,
+        "stock": 24,
+        "attributes": null,
+        "id": "ee0d3ea5-6cff-4b16-b8d2-2a1836027bd6"
       }
     ],
     "brand": "Plantex",
@@ -686,6 +1022,27 @@
         "price": 74700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9BL3E-DEFAULT-2",
+        "price": 74700,
+        "stock": 96,
+        "attributes": null,
+        "id": "e68754f4-163e-4f17-ac38-c73a00ace7dc"
+      },
+      {
+        "sku_code": "SKU-9BL3E-DEFAULT-3",
+        "price": 74700,
+        "stock": 96,
+        "attributes": null,
+        "id": "dd09f8e5-a17e-4afe-b394-64d6111ff388"
+      },
+      {
+        "sku_code": "SKU-9BL3E-DEFAULT-4",
+        "price": 74700,
+        "stock": 96,
+        "attributes": null,
+        "id": "f6417d2a-123f-4e1a-9241-2e50fb1d6894"
       }
     ],
     "brand": "Kohler",
@@ -727,6 +1084,27 @@
         "price": 479700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HOWKK-DEFAULT-2",
+        "price": 479700,
+        "stock": 44,
+        "attributes": null,
+        "id": "cf9c77d4-2ab2-4f41-a6b6-70c5f5b4da50"
+      },
+      {
+        "sku_code": "SKU-HOWKK-DEFAULT-3",
+        "price": 479700,
+        "stock": 44,
+        "attributes": null,
+        "id": "9c58a263-3960-436e-89d0-6cb46096f26e"
+      },
+      {
+        "sku_code": "SKU-HOWKK-DEFAULT-4",
+        "price": 479700,
+        "stock": 44,
+        "attributes": null,
+        "id": "0b161a82-a792-4c92-b293-44e13719de7b"
       }
     ],
     "brand": "Homdum",
@@ -764,6 +1142,27 @@
         "price": 116700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1Q9H8-DEFAULT-2",
+        "price": 116700,
+        "stock": 33,
+        "attributes": null,
+        "id": "fa52b77a-a68a-4e1e-84a6-bca7dcddd025"
+      },
+      {
+        "sku_code": "SKU-1Q9H8-DEFAULT-3",
+        "price": 116700,
+        "stock": 33,
+        "attributes": null,
+        "id": "82e54970-df72-4458-9d51-2b6ef1d3227f"
+      },
+      {
+        "sku_code": "SKU-1Q9H8-DEFAULT-4",
+        "price": 116700,
+        "stock": 33,
+        "attributes": null,
+        "id": "8cc9365f-39e6-4245-b4d3-9a8abe7bb045"
       }
     ],
     "brand": "Scotch-Brite",
@@ -805,6 +1204,27 @@
         "price": 726300,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J9C67-DEFAULT-2",
+        "price": 726300,
+        "stock": 34,
+        "attributes": null,
+        "id": "3fe90d33-2079-4d13-b644-830569432c65"
+      },
+      {
+        "sku_code": "SKU-J9C67-DEFAULT-3",
+        "price": 726300,
+        "stock": 34,
+        "attributes": null,
+        "id": "08bb57cd-1882-4d8c-863a-c898142bc15b"
+      },
+      {
+        "sku_code": "SKU-J9C67-DEFAULT-4",
+        "price": 726300,
+        "stock": 34,
+        "attributes": null,
+        "id": "35f4f220-db62-44cf-9a26-ef9dc6258bc4"
       }
     ],
     "brand": "Spotzero",

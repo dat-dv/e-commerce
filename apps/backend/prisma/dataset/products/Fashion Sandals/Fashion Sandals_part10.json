@@ -22,6 +22,27 @@
         "price": 119700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AIK2W-DEFAULT-2",
+        "price": 119700,
+        "stock": 70,
+        "attributes": null,
+        "id": "f7ae7e8d-2caf-42e2-a2d8-585707f094e2"
+      },
+      {
+        "sku_code": "SKU-AIK2W-DEFAULT-3",
+        "price": 119700,
+        "stock": 70,
+        "attributes": null,
+        "id": "6d1175c3-9f02-4af4-b144-9d43aae72093"
+      },
+      {
+        "sku_code": "SKU-AIK2W-DEFAULT-4",
+        "price": 119700,
+        "stock": 70,
+        "attributes": null,
+        "id": "72b2d263-0abd-40a3-964c-152206332a86"
       }
     ],
     "brand": "Carlton",
@@ -59,6 +80,27 @@
         "price": 209700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C2EDV-DEFAULT-2",
+        "price": 209700,
+        "stock": 54,
+        "attributes": null,
+        "id": "ae85f220-1fa4-47e0-be25-72a7849ff349"
+      },
+      {
+        "sku_code": "SKU-C2EDV-DEFAULT-3",
+        "price": 209700,
+        "stock": 54,
+        "attributes": null,
+        "id": "f943cd25-1ee7-42f2-8bac-cd7627a9d6a0"
+      },
+      {
+        "sku_code": "SKU-C2EDV-DEFAULT-4",
+        "price": 209700,
+        "stock": 54,
+        "attributes": null,
+        "id": "990e15a9-fc9e-4541-88e0-f2726a61f8be"
       }
     ],
     "brand": "Mochi",
@@ -104,6 +146,27 @@
         "price": 665700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CDUW0-DEFAULT-2",
+        "price": 665700,
+        "stock": 104,
+        "attributes": null,
+        "id": "62ff2378-b206-41b2-9fb8-81ceb97597f7"
+      },
+      {
+        "sku_code": "SKU-CDUW0-DEFAULT-3",
+        "price": 665700,
+        "stock": 104,
+        "attributes": null,
+        "id": "aebdfa5a-5041-4efb-9e32-b46f1ab13527"
+      },
+      {
+        "sku_code": "SKU-CDUW0-DEFAULT-4",
+        "price": 665700,
+        "stock": 104,
+        "attributes": null,
+        "id": "8bd73932-26b1-456d-a9ac-c76b7cd8c13c"
       }
     ],
     "brand": "Shoetopia",
@@ -149,6 +212,27 @@
         "price": 186900,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R4Q2Z-DEFAULT-2",
+        "price": 186900,
+        "stock": 72,
+        "attributes": null,
+        "id": "9cb3a4a5-1204-4213-a2bb-93b702ea7113"
+      },
+      {
+        "sku_code": "SKU-R4Q2Z-DEFAULT-3",
+        "price": 186900,
+        "stock": 72,
+        "attributes": null,
+        "id": "3fdc82db-a075-4ce7-b206-7d496f502efc"
+      },
+      {
+        "sku_code": "SKU-R4Q2Z-DEFAULT-4",
+        "price": 186900,
+        "stock": 72,
+        "attributes": null,
+        "id": "ca09584a-833a-4bd5-890a-f08eee9e7396"
       }
     ],
     "brand": "Shezone",
@@ -186,6 +270,27 @@
         "price": 359820,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ESXCM-DEFAULT-2",
+        "price": 359820,
+        "stock": 16,
+        "attributes": null,
+        "id": "c7a610b7-9baf-4322-8554-e785adc01f77"
+      },
+      {
+        "sku_code": "SKU-ESXCM-DEFAULT-3",
+        "price": 359820,
+        "stock": 16,
+        "attributes": null,
+        "id": "83e5f5c9-6e9b-48cd-9582-f90701f09a99"
+      },
+      {
+        "sku_code": "SKU-ESXCM-DEFAULT-4",
+        "price": 359820,
+        "stock": 16,
+        "attributes": null,
+        "id": "a4496df5-b2ee-4762-b8c6-3a6ad1043e51"
       }
     ],
     "brand": "MONROW",
@@ -231,6 +336,27 @@
         "price": 149700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SYQYC-DEFAULT-2",
+        "price": 149700,
+        "stock": 90,
+        "attributes": null,
+        "id": "be42250f-b1f2-4040-9428-f61dcab87c6b"
+      },
+      {
+        "sku_code": "SKU-SYQYC-DEFAULT-3",
+        "price": 149700,
+        "stock": 90,
+        "attributes": null,
+        "id": "31872ef3-a238-4d57-aadc-a3d5a10631e2"
+      },
+      {
+        "sku_code": "SKU-SYQYC-DEFAULT-4",
+        "price": 149700,
+        "stock": 90,
+        "attributes": null,
+        "id": "0afd7160-36e3-44f2-ac71-d65ada2eb876"
       }
     ],
     "brand": "Mochi",
@@ -268,6 +394,27 @@
         "price": 343500,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-45L8V-DEFAULT-2",
+        "price": 343500,
+        "stock": 33,
+        "attributes": null,
+        "id": "28efbcd6-cdd1-49b8-87a7-bb7085ffb98b"
+      },
+      {
+        "sku_code": "SKU-45L8V-DEFAULT-3",
+        "price": 343500,
+        "stock": 33,
+        "attributes": null,
+        "id": "2fada65e-449b-4143-a2d7-139a72b1447c"
+      },
+      {
+        "sku_code": "SKU-45L8V-DEFAULT-4",
+        "price": 343500,
+        "stock": 33,
+        "attributes": null,
+        "id": "005a29d3-1434-4787-9b2c-b7378642bdaa"
       }
     ],
     "brand": "MONROW",
@@ -313,6 +460,27 @@
         "price": 179700,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PUQC6-DEFAULT-2",
+        "price": 179700,
+        "stock": 50,
+        "attributes": null,
+        "id": "a3613d55-3f0e-4c21-a03c-81de2d999360"
+      },
+      {
+        "sku_code": "SKU-PUQC6-DEFAULT-3",
+        "price": 179700,
+        "stock": 50,
+        "attributes": null,
+        "id": "96887e95-4c6d-42b5-b62e-fa92203729af"
+      },
+      {
+        "sku_code": "SKU-PUQC6-DEFAULT-4",
+        "price": 179700,
+        "stock": 50,
+        "attributes": null,
+        "id": "ed5c0034-2af5-410b-8b26-6fce7072eaf9"
       }
     ],
     "brand": "Bruno",
@@ -358,6 +526,27 @@
         "price": 107700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-498RY-DEFAULT-2",
+        "price": 107700,
+        "stock": 71,
+        "attributes": null,
+        "id": "5a3ce8ff-0dcc-42bf-a2e5-222d1d154290"
+      },
+      {
+        "sku_code": "SKU-498RY-DEFAULT-3",
+        "price": 107700,
+        "stock": 71,
+        "attributes": null,
+        "id": "38262906-4954-4d72-aeba-ef051d2ef61d"
+      },
+      {
+        "sku_code": "SKU-498RY-DEFAULT-4",
+        "price": 107700,
+        "stock": 71,
+        "attributes": null,
+        "id": "11aae729-6c34-4b80-a67c-63d346166aad"
       }
     ],
     "brand": "Carlton",
@@ -403,6 +592,27 @@
         "price": 107700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GLVUJ-DEFAULT-2",
+        "price": 107700,
+        "stock": 60,
+        "attributes": null,
+        "id": "d2000069-d337-43b1-8f0f-defedb4c2a11"
+      },
+      {
+        "sku_code": "SKU-GLVUJ-DEFAULT-3",
+        "price": 107700,
+        "stock": 60,
+        "attributes": null,
+        "id": "e83112d0-acd8-400d-8c54-13ece55d37ba"
+      },
+      {
+        "sku_code": "SKU-GLVUJ-DEFAULT-4",
+        "price": 107700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0a36e30b-bb3a-491e-89ef-4a1af1e153cc"
       }
     ],
     "brand": "Inc.5",
@@ -448,6 +658,27 @@
         "price": 134700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5NUX5-DEFAULT-2",
+        "price": 134700,
+        "stock": 59,
+        "attributes": null,
+        "id": "85368c23-2b52-47c2-942c-9b3f99b112ac"
+      },
+      {
+        "sku_code": "SKU-5NUX5-DEFAULT-3",
+        "price": 134700,
+        "stock": 59,
+        "attributes": null,
+        "id": "3d39babb-72c3-4a55-961e-fff55d7b1f24"
+      },
+      {
+        "sku_code": "SKU-5NUX5-DEFAULT-4",
+        "price": 134700,
+        "stock": 59,
+        "attributes": null,
+        "id": "40761bba-7f7b-4206-969e-9419e6830fdd"
       }
     ],
     "brand": "Catwalk",
@@ -485,6 +716,27 @@
         "price": 509700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C96B2-DEFAULT-2",
+        "price": 509700,
+        "stock": 102,
+        "attributes": null,
+        "id": "56b90552-b017-4e6c-81ae-8b29cfc02256"
+      },
+      {
+        "sku_code": "SKU-C96B2-DEFAULT-3",
+        "price": 509700,
+        "stock": 102,
+        "attributes": null,
+        "id": "8a94a3f6-a4bb-4f85-b147-f3f3bd53874e"
+      },
+      {
+        "sku_code": "SKU-C96B2-DEFAULT-4",
+        "price": 509700,
+        "stock": 102,
+        "attributes": null,
+        "id": "1a0e7546-36af-4e49-a990-ae51429b0771"
       }
     ],
     "brand": "MONROW",
@@ -538,6 +790,27 @@
         "price": 134700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P6LGE-DEFAULT-2",
+        "price": 134700,
+        "stock": 29,
+        "attributes": null,
+        "id": "338674fa-27f9-4b86-967a-87ca08564fa2"
+      },
+      {
+        "sku_code": "SKU-P6LGE-DEFAULT-3",
+        "price": 134700,
+        "stock": 29,
+        "attributes": null,
+        "id": "ba10964a-8634-4919-af84-a146ebc4c05f"
+      },
+      {
+        "sku_code": "SKU-P6LGE-DEFAULT-4",
+        "price": 134700,
+        "stock": 29,
+        "attributes": null,
+        "id": "83162659-a1a4-4f71-b583-09b7b4a701b9"
       }
     ],
     "brand": "Shoetopia",
@@ -575,6 +848,27 @@
         "price": 509700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U362D-DEFAULT-2",
+        "price": 509700,
+        "stock": 59,
+        "attributes": null,
+        "id": "d340b251-40d6-4989-bdc9-ab72f3e10172"
+      },
+      {
+        "sku_code": "SKU-U362D-DEFAULT-3",
+        "price": 509700,
+        "stock": 59,
+        "attributes": null,
+        "id": "032cb2ee-cecf-425c-b408-81f51be70287"
+      },
+      {
+        "sku_code": "SKU-U362D-DEFAULT-4",
+        "price": 509700,
+        "stock": 59,
+        "attributes": null,
+        "id": "da32e18d-9f0e-470b-bc77-2e95f70e0b10"
       }
     ],
     "brand": "MONROW",
@@ -616,6 +910,27 @@
         "price": 299700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7LRBA-DEFAULT-2",
+        "price": 299700,
+        "stock": 107,
+        "attributes": null,
+        "id": "5760e0a4-95bc-40f1-b337-522a760d9e77"
+      },
+      {
+        "sku_code": "SKU-7LRBA-DEFAULT-3",
+        "price": 299700,
+        "stock": 107,
+        "attributes": null,
+        "id": "38792ec1-0734-4ea1-90d4-01f645b91b6f"
+      },
+      {
+        "sku_code": "SKU-7LRBA-DEFAULT-4",
+        "price": 299700,
+        "stock": 107,
+        "attributes": null,
+        "id": "25f594c4-7f1a-4ce3-9641-43c79a0f3a94"
       }
     ],
     "brand": "Inc.5",
@@ -657,6 +972,27 @@
         "price": 179700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HVYZG-DEFAULT-2",
+        "price": 179700,
+        "stock": 13,
+        "attributes": null,
+        "id": "be3ef73d-16e0-49da-a955-599e551d4b20"
+      },
+      {
+        "sku_code": "SKU-HVYZG-DEFAULT-3",
+        "price": 179700,
+        "stock": 13,
+        "attributes": null,
+        "id": "9d6ad01c-72fe-4c4b-8950-44b2d8511a4d"
+      },
+      {
+        "sku_code": "SKU-HVYZG-DEFAULT-4",
+        "price": 179700,
+        "stock": 13,
+        "attributes": null,
+        "id": "c3fa99a3-8f6f-4276-ba19-b748f2a31e5b"
       }
     ],
     "brand": "Khadim's",
@@ -704,6 +1040,27 @@
         "price": 123651,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W4D1L-DEFAULT-2",
+        "price": 123651,
+        "stock": 77,
+        "attributes": null,
+        "id": "31243e8e-155d-4075-a7b5-90bea138fc09"
+      },
+      {
+        "sku_code": "SKU-W4D1L-DEFAULT-3",
+        "price": 123651,
+        "stock": 77,
+        "attributes": null,
+        "id": "248290ab-f1a5-42ae-945e-778c84daea32"
+      },
+      {
+        "sku_code": "SKU-W4D1L-DEFAULT-4",
+        "price": 123651,
+        "stock": 77,
+        "attributes": null,
+        "id": "adaa26e2-1ff1-4c6a-82d4-b3e95abd9239"
       }
     ],
     "brand": "Khadim's",
@@ -749,6 +1106,27 @@
         "price": 119700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2RF0Z-DEFAULT-2",
+        "price": 119700,
+        "stock": 74,
+        "attributes": null,
+        "id": "a14a7e27-37e0-4d93-b42c-11d869af3c9e"
+      },
+      {
+        "sku_code": "SKU-2RF0Z-DEFAULT-3",
+        "price": 119700,
+        "stock": 74,
+        "attributes": null,
+        "id": "e646ea43-1e3c-425f-932f-62479fd9145d"
+      },
+      {
+        "sku_code": "SKU-2RF0Z-DEFAULT-4",
+        "price": 119700,
+        "stock": 74,
+        "attributes": null,
+        "id": "d6b4794e-8c60-4daa-a525-aeaf05f8525e"
       }
     ],
     "brand": "Bruno",
@@ -794,6 +1172,27 @@
         "price": 148800,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8UZ9R-DEFAULT-2",
+        "price": 148800,
+        "stock": 99,
+        "attributes": null,
+        "id": "4b84a43d-b10d-423d-93e9-a7309f5f8d3b"
+      },
+      {
+        "sku_code": "SKU-8UZ9R-DEFAULT-3",
+        "price": 148800,
+        "stock": 99,
+        "attributes": null,
+        "id": "f137ee86-ddab-4745-b872-092133163aea"
+      },
+      {
+        "sku_code": "SKU-8UZ9R-DEFAULT-4",
+        "price": 148800,
+        "stock": 99,
+        "attributes": null,
+        "id": "ead0ba51-4673-4782-be38-97ec771c0651"
       }
     ],
     "brand": "Carlton",
@@ -835,6 +1234,27 @@
         "price": 217500,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TWCHQ-DEFAULT-2",
+        "price": 217500,
+        "stock": 63,
+        "attributes": null,
+        "id": "d1e0e360-94c4-4192-bab6-2cc431c3d0c1"
+      },
+      {
+        "sku_code": "SKU-TWCHQ-DEFAULT-3",
+        "price": 217500,
+        "stock": 63,
+        "attributes": null,
+        "id": "d41bf0dd-0f9a-4516-b007-465c3f57a341"
+      },
+      {
+        "sku_code": "SKU-TWCHQ-DEFAULT-4",
+        "price": 217500,
+        "stock": 63,
+        "attributes": null,
+        "id": "9ae78d12-d65a-445e-ad9d-004bb20950a6"
       }
     ],
     "brand": "Stylish",
@@ -876,6 +1296,27 @@
         "price": 134700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8UNBG-DEFAULT-2",
+        "price": 134700,
+        "stock": 94,
+        "attributes": null,
+        "id": "fb73f1ec-f45e-4368-be88-1d8969082eb2"
+      },
+      {
+        "sku_code": "SKU-8UNBG-DEFAULT-3",
+        "price": 134700,
+        "stock": 94,
+        "attributes": null,
+        "id": "65f66daf-ad43-4b0b-84d7-51e9fdbcdd0f"
+      },
+      {
+        "sku_code": "SKU-8UNBG-DEFAULT-4",
+        "price": 134700,
+        "stock": 94,
+        "attributes": null,
+        "id": "8d929c91-28ac-441f-b9f0-f6537503562d"
       }
     ],
     "brand": "Shoetopia",
@@ -923,6 +1364,27 @@
         "price": 149400,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D9EDK-DEFAULT-2",
+        "price": 149400,
+        "stock": 100,
+        "attributes": null,
+        "id": "fb67021c-91e3-48e3-980e-a6bed168c829"
+      },
+      {
+        "sku_code": "SKU-D9EDK-DEFAULT-3",
+        "price": 149400,
+        "stock": 100,
+        "attributes": null,
+        "id": "839f6674-4f45-4e63-88a2-7e4f2dfc700e"
+      },
+      {
+        "sku_code": "SKU-D9EDK-DEFAULT-4",
+        "price": 149400,
+        "stock": 100,
+        "attributes": null,
+        "id": "c9c66b9a-7d90-4650-ae81-c32138bb0127"
       }
     ],
     "brand": "Stylish",
@@ -960,6 +1422,27 @@
         "price": 201900,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q8JB9-DEFAULT-2",
+        "price": 201900,
+        "stock": 98,
+        "attributes": null,
+        "id": "2d4ea574-1110-476f-b867-1af4c34dde1f"
+      },
+      {
+        "sku_code": "SKU-Q8JB9-DEFAULT-3",
+        "price": 201900,
+        "stock": 98,
+        "attributes": null,
+        "id": "49707c79-f5f3-4a35-afe0-ba4cdc1376fe"
+      },
+      {
+        "sku_code": "SKU-Q8JB9-DEFAULT-4",
+        "price": 201900,
+        "stock": 98,
+        "attributes": null,
+        "id": "68d84f1e-650c-48be-927b-237bb04d43f5"
       }
     ],
     "brand": "Stylish",
@@ -1005,6 +1488,27 @@
         "price": 179700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-02212-DEFAULT-2",
+        "price": 179700,
+        "stock": 35,
+        "attributes": null,
+        "id": "465b58e8-c5b8-4043-8dc7-23696855b015"
+      },
+      {
+        "sku_code": "SKU-02212-DEFAULT-3",
+        "price": 179700,
+        "stock": 35,
+        "attributes": null,
+        "id": "20360c5e-bdd4-4a9c-bc60-b66fcdeb307b"
+      },
+      {
+        "sku_code": "SKU-02212-DEFAULT-4",
+        "price": 179700,
+        "stock": 35,
+        "attributes": null,
+        "id": "8257e0d3-a4fc-4a89-8a98-68c8c5920c80"
       }
     ],
     "brand": "Bruno",
@@ -1046,6 +1550,27 @@
         "price": 326100,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2CRT3-DEFAULT-2",
+        "price": 326100,
+        "stock": 54,
+        "attributes": null,
+        "id": "64cc49d7-837c-433f-ab5f-3fb4058cf61e"
+      },
+      {
+        "sku_code": "SKU-2CRT3-DEFAULT-3",
+        "price": 326100,
+        "stock": 54,
+        "attributes": null,
+        "id": "1402ecec-0a96-4c0a-9c98-b85696eda499"
+      },
+      {
+        "sku_code": "SKU-2CRT3-DEFAULT-4",
+        "price": 326100,
+        "stock": 54,
+        "attributes": null,
+        "id": "74370c19-f7b0-454c-9fb3-75ec25d6357f"
       }
     ],
     "brand": "Carlton",
@@ -1094,6 +1619,27 @@
         "price": 119700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L7D81-DEFAULT-2",
+        "price": 119700,
+        "stock": 43,
+        "attributes": null,
+        "id": "18e3de89-58f3-45a0-9246-a7de5b310245"
+      },
+      {
+        "sku_code": "SKU-L7D81-DEFAULT-3",
+        "price": 119700,
+        "stock": 43,
+        "attributes": null,
+        "id": "e3f7f3ee-498d-4f32-b3e7-33f2ce21d8ad"
+      },
+      {
+        "sku_code": "SKU-L7D81-DEFAULT-4",
+        "price": 119700,
+        "stock": 43,
+        "attributes": null,
+        "id": "9d2bebc6-a7af-4e6f-aac1-711ddc21f806"
       }
     ],
     "brand": "MONROW",
@@ -1139,6 +1685,27 @@
         "price": 748500,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L3UND-DEFAULT-2",
+        "price": 748500,
+        "stock": 66,
+        "attributes": null,
+        "id": "1f9a414f-5b7b-4b25-aad4-05e0c82768ff"
+      },
+      {
+        "sku_code": "SKU-L3UND-DEFAULT-3",
+        "price": 748500,
+        "stock": 66,
+        "attributes": null,
+        "id": "f4c3b3be-776e-4604-9dc7-9d659abc412e"
+      },
+      {
+        "sku_code": "SKU-L3UND-DEFAULT-4",
+        "price": 748500,
+        "stock": 66,
+        "attributes": null,
+        "id": "073bad19-b6ca-4257-8bf1-13ab2f6995c9"
       }
     ],
     "brand": "Shezone",
@@ -1176,6 +1743,27 @@
         "price": 89700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5DQFT-DEFAULT-2",
+        "price": 89700,
+        "stock": 13,
+        "attributes": null,
+        "id": "2d48bb1b-35d8-4a0c-be9f-1c4857acc86a"
+      },
+      {
+        "sku_code": "SKU-5DQFT-DEFAULT-3",
+        "price": 89700,
+        "stock": 13,
+        "attributes": null,
+        "id": "b7fb0be4-d525-4c08-98c7-45ecbdf38b18"
+      },
+      {
+        "sku_code": "SKU-5DQFT-DEFAULT-4",
+        "price": 89700,
+        "stock": 13,
+        "attributes": null,
+        "id": "32cc2cff-a46f-4362-af48-17a351ead859"
       }
     ],
     "brand": "Bruno",
@@ -1213,6 +1801,27 @@
         "price": 298500,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-32NUE-DEFAULT-2",
+        "price": 298500,
+        "stock": 85,
+        "attributes": null,
+        "id": "71ea14f4-56e9-4ccf-aa7e-31e9ff67c191"
+      },
+      {
+        "sku_code": "SKU-32NUE-DEFAULT-3",
+        "price": 298500,
+        "stock": 85,
+        "attributes": null,
+        "id": "4d215b53-d6b3-4cda-926b-e0b7549c33d2"
+      },
+      {
+        "sku_code": "SKU-32NUE-DEFAULT-4",
+        "price": 298500,
+        "stock": 85,
+        "attributes": null,
+        "id": "821b55b8-52ff-4ba1-84a6-d2f2033113d4"
       }
     ],
     "brand": "MONROW",
@@ -1254,6 +1863,27 @@
         "price": 179700,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NCWFG-DEFAULT-2",
+        "price": 179700,
+        "stock": 40,
+        "attributes": null,
+        "id": "c0221f36-6c16-4556-bb1f-b3e8ed840b6d"
+      },
+      {
+        "sku_code": "SKU-NCWFG-DEFAULT-3",
+        "price": 179700,
+        "stock": 40,
+        "attributes": null,
+        "id": "69a0c973-b62d-46af-8881-3d62166e5281"
+      },
+      {
+        "sku_code": "SKU-NCWFG-DEFAULT-4",
+        "price": 179700,
+        "stock": 40,
+        "attributes": null,
+        "id": "8242a8f9-13da-40a4-810f-91340c4dd93f"
       }
     ],
     "brand": "Carlton",
@@ -1299,6 +1929,27 @@
         "price": 3239136.0000000005,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7CPSX-DEFAULT-2",
+        "price": 3239136.0000000005,
+        "stock": 59,
+        "attributes": null,
+        "id": "35515f26-a741-40f5-a419-4a7a55f9a5c6"
+      },
+      {
+        "sku_code": "SKU-7CPSX-DEFAULT-3",
+        "price": 3239136.0000000005,
+        "stock": 59,
+        "attributes": null,
+        "id": "93c21fe9-3c6b-4864-9a3e-8943fc1a98c3"
+      },
+      {
+        "sku_code": "SKU-7CPSX-DEFAULT-4",
+        "price": 3239136.0000000005,
+        "stock": 59,
+        "attributes": null,
+        "id": "351ccc39-6d0a-4801-9e3e-b6ceaa9bceda"
       }
     ],
     "brand": "BATA",
@@ -1340,6 +1991,27 @@
         "price": 388200,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W4WV1-DEFAULT-2",
+        "price": 388200,
+        "stock": 100,
+        "attributes": null,
+        "id": "44ae854a-63a9-4ab6-85d9-9196f2c86d52"
+      },
+      {
+        "sku_code": "SKU-W4WV1-DEFAULT-3",
+        "price": 388200,
+        "stock": 100,
+        "attributes": null,
+        "id": "54431cf7-c118-444c-b7b4-49c907e14fa0"
+      },
+      {
+        "sku_code": "SKU-W4WV1-DEFAULT-4",
+        "price": 388200,
+        "stock": 100,
+        "attributes": null,
+        "id": "3930096f-12d9-40b4-bd70-70cc66747b01"
       }
     ],
     "brand": "Catwalk",
@@ -1381,6 +2053,27 @@
         "price": 197400,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KOAD9-DEFAULT-2",
+        "price": 197400,
+        "stock": 68,
+        "attributes": null,
+        "id": "7cd21145-abb2-47ab-b17a-3a9b72d3c408"
+      },
+      {
+        "sku_code": "SKU-KOAD9-DEFAULT-3",
+        "price": 197400,
+        "stock": 68,
+        "attributes": null,
+        "id": "d2101e22-0f61-4261-9877-f7e5412783c8"
+      },
+      {
+        "sku_code": "SKU-KOAD9-DEFAULT-4",
+        "price": 197400,
+        "stock": 68,
+        "attributes": null,
+        "id": "b742692a-b261-4f45-b19e-c621e23bcbf6"
       }
     ],
     "brand": "GNIST",
@@ -1418,6 +2111,27 @@
         "price": 224700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J40C6-DEFAULT-2",
+        "price": 224700,
+        "stock": 69,
+        "attributes": null,
+        "id": "f34c3c8b-5e01-443a-9aa0-ad38d4115c53"
+      },
+      {
+        "sku_code": "SKU-J40C6-DEFAULT-3",
+        "price": 224700,
+        "stock": 69,
+        "attributes": null,
+        "id": "98902210-98b8-4e20-9433-1bfddc34ddf1"
+      },
+      {
+        "sku_code": "SKU-J40C6-DEFAULT-4",
+        "price": 224700,
+        "stock": 69,
+        "attributes": null,
+        "id": "26089130-2db4-41b0-917c-42d3d8a42c68"
       }
     ],
     "brand": "GNIST",
@@ -1455,6 +2169,27 @@
         "price": 95700,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-30LPC-DEFAULT-2",
+        "price": 95700,
+        "stock": 82,
+        "attributes": null,
+        "id": "119f2201-796a-46f9-85d7-804f7f4224e3"
+      },
+      {
+        "sku_code": "SKU-30LPC-DEFAULT-3",
+        "price": 95700,
+        "stock": 82,
+        "attributes": null,
+        "id": "93425605-df41-4fa3-ac91-455090b86f20"
+      },
+      {
+        "sku_code": "SKU-30LPC-DEFAULT-4",
+        "price": 95700,
+        "stock": 82,
+        "attributes": null,
+        "id": "caccafd7-576a-419e-a8e6-04565f7ee735"
       }
     ],
     "brand": "Bruno",
@@ -1496,6 +2231,27 @@
         "price": 209700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G3L8Z-DEFAULT-2",
+        "price": 209700,
+        "stock": 66,
+        "attributes": null,
+        "id": "714e0f94-2ce7-46c0-9f56-33c09e0362ab"
+      },
+      {
+        "sku_code": "SKU-G3L8Z-DEFAULT-3",
+        "price": 209700,
+        "stock": 66,
+        "attributes": null,
+        "id": "fcc78a69-fa59-48e2-8faa-43a625cbbc3f"
+      },
+      {
+        "sku_code": "SKU-G3L8Z-DEFAULT-4",
+        "price": 209700,
+        "stock": 66,
+        "attributes": null,
+        "id": "dcab7fc9-8df8-447f-afc9-6b26f87320dd"
       }
     ],
     "brand": "Metro",
@@ -1537,6 +2293,27 @@
         "price": 641400,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UL19N-DEFAULT-2",
+        "price": 641400,
+        "stock": 109,
+        "attributes": null,
+        "id": "33606d9d-96ae-4651-8c5c-9a305bdf56cf"
+      },
+      {
+        "sku_code": "SKU-UL19N-DEFAULT-3",
+        "price": 641400,
+        "stock": 109,
+        "attributes": null,
+        "id": "37b652c3-5f54-4f84-a7cd-c8f9e7a14f21"
+      },
+      {
+        "sku_code": "SKU-UL19N-DEFAULT-4",
+        "price": 641400,
+        "stock": 109,
+        "attributes": null,
+        "id": "08a184d3-232a-4970-9f0d-34317afb98b1"
       }
     ],
     "brand": "Bruno",
@@ -1586,6 +2363,27 @@
         "price": 412800,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EM57X-DEFAULT-2",
+        "price": 412800,
+        "stock": 22,
+        "attributes": null,
+        "id": "ff42d621-5844-4ff4-bff2-193fc5cce4fe"
+      },
+      {
+        "sku_code": "SKU-EM57X-DEFAULT-3",
+        "price": 412800,
+        "stock": 22,
+        "attributes": null,
+        "id": "aa7a1392-81fe-421b-96bc-a81733a39cf2"
+      },
+      {
+        "sku_code": "SKU-EM57X-DEFAULT-4",
+        "price": 412800,
+        "stock": 22,
+        "attributes": null,
+        "id": "caa384f8-c63c-44d7-825b-e8659f556cfa"
       }
     ],
     "brand": "Women",
@@ -1623,6 +2421,27 @@
         "price": 195000,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R6J0O-DEFAULT-2",
+        "price": 195000,
+        "stock": 94,
+        "attributes": null,
+        "id": "2ac57692-b17c-4d71-9fab-61ac346dd93b"
+      },
+      {
+        "sku_code": "SKU-R6J0O-DEFAULT-3",
+        "price": 195000,
+        "stock": 94,
+        "attributes": null,
+        "id": "8ae0bf72-2b6d-40ab-b343-e9775ceb7e20"
+      },
+      {
+        "sku_code": "SKU-R6J0O-DEFAULT-4",
+        "price": 195000,
+        "stock": 94,
+        "attributes": null,
+        "id": "93a5be14-d7d7-4620-b49a-07c087792451"
       }
     ],
     "brand": "Inc.5",
@@ -1660,6 +2479,27 @@
         "price": 701700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GEQML-DEFAULT-2",
+        "price": 701700,
+        "stock": 104,
+        "attributes": null,
+        "id": "861c6594-e9bf-447f-8144-80bd2e379ac6"
+      },
+      {
+        "sku_code": "SKU-GEQML-DEFAULT-3",
+        "price": 701700,
+        "stock": 104,
+        "attributes": null,
+        "id": "ece8a49d-35c6-45fd-8752-736299320949"
+      },
+      {
+        "sku_code": "SKU-GEQML-DEFAULT-4",
+        "price": 701700,
+        "stock": 104,
+        "attributes": null,
+        "id": "f5b0ea20-bfc5-4eab-b3f0-525f5fd13d75"
       }
     ],
     "brand": "Shezone",
@@ -1701,6 +2541,27 @@
         "price": 89700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9EBG2-DEFAULT-2",
+        "price": 89700,
+        "stock": 91,
+        "attributes": null,
+        "id": "eb575af2-0a85-427e-8f86-f44905b749fe"
+      },
+      {
+        "sku_code": "SKU-9EBG2-DEFAULT-3",
+        "price": 89700,
+        "stock": 91,
+        "attributes": null,
+        "id": "9857109f-fd4e-4cdc-833d-96ec85db77a9"
+      },
+      {
+        "sku_code": "SKU-9EBG2-DEFAULT-4",
+        "price": 89700,
+        "stock": 91,
+        "attributes": null,
+        "id": "2bca15d7-d0ad-436c-a79a-478b7b5a75ee"
       }
     ],
     "brand": "Carlton",
@@ -1746,6 +2607,27 @@
         "price": 119700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BKA2M-DEFAULT-2",
+        "price": 119700,
+        "stock": 100,
+        "attributes": null,
+        "id": "89e9d9a9-e3a0-425e-92e8-11d79ca50217"
+      },
+      {
+        "sku_code": "SKU-BKA2M-DEFAULT-3",
+        "price": 119700,
+        "stock": 100,
+        "attributes": null,
+        "id": "120a2b67-1f46-46f5-aa9e-e07c8c909be5"
+      },
+      {
+        "sku_code": "SKU-BKA2M-DEFAULT-4",
+        "price": 119700,
+        "stock": 100,
+        "attributes": null,
+        "id": "559aa5ac-2bab-4945-bde3-699eea4cdfad"
       }
     ],
     "brand": "Inc.5",
@@ -1791,6 +2673,27 @@
         "price": 143700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-21RBK-DEFAULT-2",
+        "price": 143700,
+        "stock": 10,
+        "attributes": null,
+        "id": "9d549719-0d60-402b-b360-83ae5ff783b1"
+      },
+      {
+        "sku_code": "SKU-21RBK-DEFAULT-3",
+        "price": 143700,
+        "stock": 10,
+        "attributes": null,
+        "id": "302e9767-8ed5-4946-9f4e-608c6fd8968c"
+      },
+      {
+        "sku_code": "SKU-21RBK-DEFAULT-4",
+        "price": 143700,
+        "stock": 10,
+        "attributes": null,
+        "id": "47e94c10-54ed-43e8-a762-ab2f5ef8620c"
       }
     ],
     "brand": "Inc.5",
@@ -1832,6 +2735,27 @@
         "price": 479700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U9IZR-DEFAULT-2",
+        "price": 479700,
+        "stock": 76,
+        "attributes": null,
+        "id": "9534fb68-9be1-440e-abd2-0bc9820d35c7"
+      },
+      {
+        "sku_code": "SKU-U9IZR-DEFAULT-3",
+        "price": 479700,
+        "stock": 76,
+        "attributes": null,
+        "id": "500c9620-4157-4c03-a410-7287bf5dfdae"
+      },
+      {
+        "sku_code": "SKU-U9IZR-DEFAULT-4",
+        "price": 479700,
+        "stock": 76,
+        "attributes": null,
+        "id": "a32d8c2a-fc7c-4929-becd-00f1955ff0b9"
       }
     ],
     "brand": "Catwalk",
@@ -1869,6 +2793,27 @@
         "price": 204900,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-44NZL-DEFAULT-2",
+        "price": 204900,
+        "stock": 105,
+        "attributes": null,
+        "id": "1a98259c-12ca-4276-b1e0-797578c979de"
+      },
+      {
+        "sku_code": "SKU-44NZL-DEFAULT-3",
+        "price": 204900,
+        "stock": 105,
+        "attributes": null,
+        "id": "aa6f0f9e-0137-4ef8-860d-76da8a6c8598"
+      },
+      {
+        "sku_code": "SKU-44NZL-DEFAULT-4",
+        "price": 204900,
+        "stock": 105,
+        "attributes": null,
+        "id": "bb38b0dd-2ef2-4b18-872b-05168c02d3ad"
       }
     ],
     "brand": "Metro",
@@ -1914,6 +2859,27 @@
         "price": 178200,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IQFVX-DEFAULT-2",
+        "price": 178200,
+        "stock": 75,
+        "attributes": null,
+        "id": "d9571879-8377-414a-9797-9d8c9fa26f00"
+      },
+      {
+        "sku_code": "SKU-IQFVX-DEFAULT-3",
+        "price": 178200,
+        "stock": 75,
+        "attributes": null,
+        "id": "0365eda8-de6e-47ab-8a48-d2d5bdb8cd8d"
+      },
+      {
+        "sku_code": "SKU-IQFVX-DEFAULT-4",
+        "price": 178200,
+        "stock": 75,
+        "attributes": null,
+        "id": "738716b6-c4ce-4c87-ace5-e3dd76d3ebfe"
       }
     ],
     "brand": "MONROW",
@@ -1951,6 +2917,27 @@
         "price": 179700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8RW4Y-DEFAULT-2",
+        "price": 179700,
+        "stock": 74,
+        "attributes": null,
+        "id": "5db12659-91e0-464d-8c7d-ee39de72ab44"
+      },
+      {
+        "sku_code": "SKU-8RW4Y-DEFAULT-3",
+        "price": 179700,
+        "stock": 74,
+        "attributes": null,
+        "id": "4f39d738-71ee-432c-9c72-4e64cc690b93"
+      },
+      {
+        "sku_code": "SKU-8RW4Y-DEFAULT-4",
+        "price": 179700,
+        "stock": 74,
+        "attributes": null,
+        "id": "35de27c1-4764-4ae9-9b03-af0cd409dedd"
       }
     ],
     "brand": "Bruno",
@@ -1988,6 +2975,27 @@
         "price": 2999700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BHQRQ-DEFAULT-2",
+        "price": 2999700,
+        "stock": 29,
+        "attributes": null,
+        "id": "dc88c05a-ff9e-4827-ad9b-e3eb58696875"
+      },
+      {
+        "sku_code": "SKU-BHQRQ-DEFAULT-3",
+        "price": 2999700,
+        "stock": 29,
+        "attributes": null,
+        "id": "5481b5bf-e33d-4b8f-ab26-20991ac2e3d8"
+      },
+      {
+        "sku_code": "SKU-BHQRQ-DEFAULT-4",
+        "price": 2999700,
+        "stock": 29,
+        "attributes": null,
+        "id": "bd5b449b-12e9-4bc3-9ee6-954aca90c54a"
       }
     ],
     "brand": "Stylish",
@@ -2033,6 +3041,27 @@
         "price": 172500,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YQYEH-DEFAULT-2",
+        "price": 172500,
+        "stock": 51,
+        "attributes": null,
+        "id": "78dd1207-5f33-400e-a6a0-df3a549bd5f5"
+      },
+      {
+        "sku_code": "SKU-YQYEH-DEFAULT-3",
+        "price": 172500,
+        "stock": 51,
+        "attributes": null,
+        "id": "7c12d345-902c-4e66-97d8-113851879db9"
+      },
+      {
+        "sku_code": "SKU-YQYEH-DEFAULT-4",
+        "price": 172500,
+        "stock": 51,
+        "attributes": null,
+        "id": "d63e42cc-3967-438f-80d0-df158e3f06d0"
       }
     ],
     "brand": "Stylish",
@@ -2070,6 +3099,27 @@
         "price": 580500,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-27A57-DEFAULT-2",
+        "price": 580500,
+        "stock": 71,
+        "attributes": null,
+        "id": "ac147143-f1a6-4f43-ae69-ab2d19ae3f7a"
+      },
+      {
+        "sku_code": "SKU-27A57-DEFAULT-3",
+        "price": 580500,
+        "stock": 71,
+        "attributes": null,
+        "id": "83659cfb-fea2-4ad9-93da-dbe3f892ec23"
+      },
+      {
+        "sku_code": "SKU-27A57-DEFAULT-4",
+        "price": 580500,
+        "stock": 71,
+        "attributes": null,
+        "id": "1394713f-9f79-4e79-b7cc-9c479aaee7d2"
       }
     ],
     "brand": "Shoetopia",
@@ -2115,6 +3165,27 @@
         "price": 299700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JRMNM-DEFAULT-2",
+        "price": 299700,
+        "stock": 91,
+        "attributes": null,
+        "id": "352e31f7-23f0-4fdb-bce5-0fcd68edec27"
+      },
+      {
+        "sku_code": "SKU-JRMNM-DEFAULT-3",
+        "price": 299700,
+        "stock": 91,
+        "attributes": null,
+        "id": "4961cf9c-307b-4b71-8c9c-6435b88fc1c6"
+      },
+      {
+        "sku_code": "SKU-JRMNM-DEFAULT-4",
+        "price": 299700,
+        "stock": 91,
+        "attributes": null,
+        "id": "6b02cf69-1ce9-4175-9315-dffd20cff5d4"
       }
     ],
     "brand": "Catwalk",
@@ -2160,6 +3231,27 @@
         "price": 480900,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NKUD6-DEFAULT-2",
+        "price": 480900,
+        "stock": 55,
+        "attributes": null,
+        "id": "38ac6f60-19fb-4384-b551-47406be97be0"
+      },
+      {
+        "sku_code": "SKU-NKUD6-DEFAULT-3",
+        "price": 480900,
+        "stock": 55,
+        "attributes": null,
+        "id": "b57c5e66-e469-4b6c-b281-6831828ecddf"
+      },
+      {
+        "sku_code": "SKU-NKUD6-DEFAULT-4",
+        "price": 480900,
+        "stock": 55,
+        "attributes": null,
+        "id": "a6f0f34e-7d00-4e4a-9e2f-d697566076df"
       }
     ],
     "brand": "Inc.5",
@@ -2205,6 +3297,27 @@
         "price": 447000,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JQHZ1-DEFAULT-2",
+        "price": 447000,
+        "stock": 73,
+        "attributes": null,
+        "id": "d8d264ed-ce82-42df-9437-0022d79c8dcc"
+      },
+      {
+        "sku_code": "SKU-JQHZ1-DEFAULT-3",
+        "price": 447000,
+        "stock": 73,
+        "attributes": null,
+        "id": "c1840843-31f3-4fae-9e29-ae64c233af10"
+      },
+      {
+        "sku_code": "SKU-JQHZ1-DEFAULT-4",
+        "price": 447000,
+        "stock": 73,
+        "attributes": null,
+        "id": "82fc6752-151f-4bf1-b58f-b501db0a0125"
       }
     ],
     "brand": "Khadim's",
@@ -2250,6 +3363,27 @@
         "price": 343500,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KDUH8-DEFAULT-2",
+        "price": 343500,
+        "stock": 91,
+        "attributes": null,
+        "id": "39c89424-4330-4078-96e9-7c349467161a"
+      },
+      {
+        "sku_code": "SKU-KDUH8-DEFAULT-3",
+        "price": 343500,
+        "stock": 91,
+        "attributes": null,
+        "id": "589ce1d1-f10e-4e11-80f6-5a365a770143"
+      },
+      {
+        "sku_code": "SKU-KDUH8-DEFAULT-4",
+        "price": 343500,
+        "stock": 91,
+        "attributes": null,
+        "id": "39a72969-0592-4a8f-b924-dfa7288dec74"
       }
     ],
     "brand": "Women",
@@ -2287,6 +3421,27 @@
         "price": 283500,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H9LRG-DEFAULT-2",
+        "price": 283500,
+        "stock": 72,
+        "attributes": null,
+        "id": "52cdc433-aa7e-4d60-a54a-59454c53a556"
+      },
+      {
+        "sku_code": "SKU-H9LRG-DEFAULT-3",
+        "price": 283500,
+        "stock": 72,
+        "attributes": null,
+        "id": "e866b8ec-fdb3-40c2-908d-3ac6c9969c99"
+      },
+      {
+        "sku_code": "SKU-H9LRG-DEFAULT-4",
+        "price": 283500,
+        "stock": 72,
+        "attributes": null,
+        "id": "9de33ebb-9f68-4956-8ca2-8bd44b9ec5d4"
       }
     ],
     "brand": "Inc.5",
@@ -2324,6 +3479,27 @@
         "price": 89100,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9E7VI-DEFAULT-2",
+        "price": 89100,
+        "stock": 99,
+        "attributes": null,
+        "id": "8784024d-bdf3-4b28-976f-4a23ecdb6ea8"
+      },
+      {
+        "sku_code": "SKU-9E7VI-DEFAULT-3",
+        "price": 89100,
+        "stock": 99,
+        "attributes": null,
+        "id": "84fa336f-16c2-41ca-b3fe-92f42f8e95c8"
+      },
+      {
+        "sku_code": "SKU-9E7VI-DEFAULT-4",
+        "price": 89100,
+        "stock": 99,
+        "attributes": null,
+        "id": "07f5711a-d9f9-4ee7-b01a-b565321c99e3"
       }
     ],
     "brand": "Stylish",
@@ -2365,6 +3541,27 @@
         "price": 253500,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-067V8-DEFAULT-2",
+        "price": 253500,
+        "stock": 20,
+        "attributes": null,
+        "id": "63e62da1-9619-4567-88c2-942093307c5f"
+      },
+      {
+        "sku_code": "SKU-067V8-DEFAULT-3",
+        "price": 253500,
+        "stock": 20,
+        "attributes": null,
+        "id": "02a7a36c-c9bd-4503-bf01-2c6a8ceb6bf3"
+      },
+      {
+        "sku_code": "SKU-067V8-DEFAULT-4",
+        "price": 253500,
+        "stock": 20,
+        "attributes": null,
+        "id": "b4098ec3-150a-4c87-ba00-ebba34fbe42c"
       }
     ],
     "brand": "Metro",
@@ -2402,6 +3599,27 @@
         "price": 298500,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4HEQQ-DEFAULT-2",
+        "price": 298500,
+        "stock": 94,
+        "attributes": null,
+        "id": "d7e55931-6a9d-4ec6-beef-f03c4911f9de"
+      },
+      {
+        "sku_code": "SKU-4HEQQ-DEFAULT-3",
+        "price": 298500,
+        "stock": 94,
+        "attributes": null,
+        "id": "4f5d40dd-6903-4866-bb7d-d493ca6e0d2c"
+      },
+      {
+        "sku_code": "SKU-4HEQQ-DEFAULT-4",
+        "price": 298500,
+        "stock": 94,
+        "attributes": null,
+        "id": "a31db485-e6a5-4fc5-ad80-499673ad12c6"
       }
     ],
     "brand": "Catwalk",
@@ -2439,6 +3657,27 @@
         "price": 567000,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BBWPD-DEFAULT-2",
+        "price": 567000,
+        "stock": 23,
+        "attributes": null,
+        "id": "3a1c3795-ffb9-43df-b4ad-b6570eb624e6"
+      },
+      {
+        "sku_code": "SKU-BBWPD-DEFAULT-3",
+        "price": 567000,
+        "stock": 23,
+        "attributes": null,
+        "id": "af437f99-6ff9-4e75-9591-c57557cdaadb"
+      },
+      {
+        "sku_code": "SKU-BBWPD-DEFAULT-4",
+        "price": 567000,
+        "stock": 23,
+        "attributes": null,
+        "id": "23ec8100-df0a-4fb9-9ccc-851208e49c66"
       }
     ],
     "brand": "Carlton",
@@ -2480,6 +3719,27 @@
         "price": 343500,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XKHGE-DEFAULT-2",
+        "price": 343500,
+        "stock": 61,
+        "attributes": null,
+        "id": "c82d12c1-104f-456c-a5fc-843e3fbe3e5b"
+      },
+      {
+        "sku_code": "SKU-XKHGE-DEFAULT-3",
+        "price": 343500,
+        "stock": 61,
+        "attributes": null,
+        "id": "d4e2670b-a2c2-44cf-b81f-c371965a56a9"
+      },
+      {
+        "sku_code": "SKU-XKHGE-DEFAULT-4",
+        "price": 343500,
+        "stock": 61,
+        "attributes": null,
+        "id": "81c287b2-ff01-44d8-bea9-6c02cba6174f"
       }
     ],
     "brand": "Bruno",
@@ -2525,6 +3785,27 @@
         "price": 479700,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QZL3T-DEFAULT-2",
+        "price": 479700,
+        "stock": 17,
+        "attributes": null,
+        "id": "8aa9ce3b-6a20-48de-bd0d-188755932b68"
+      },
+      {
+        "sku_code": "SKU-QZL3T-DEFAULT-3",
+        "price": 479700,
+        "stock": 17,
+        "attributes": null,
+        "id": "c68ff22e-b1e0-4416-aa3b-a75d62f796d9"
+      },
+      {
+        "sku_code": "SKU-QZL3T-DEFAULT-4",
+        "price": 479700,
+        "stock": 17,
+        "attributes": null,
+        "id": "d848e500-37f6-4024-a48c-16ef473d04d8"
       }
     ],
     "brand": "Mochi",
@@ -2562,6 +3843,27 @@
         "price": 539700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U7NFJ-DEFAULT-2",
+        "price": 539700,
+        "stock": 67,
+        "attributes": null,
+        "id": "24b7ce3c-752d-4cd3-b583-27607a008631"
+      },
+      {
+        "sku_code": "SKU-U7NFJ-DEFAULT-3",
+        "price": 539700,
+        "stock": 67,
+        "attributes": null,
+        "id": "3b6752f9-f9e6-485c-b752-506d5bb572f7"
+      },
+      {
+        "sku_code": "SKU-U7NFJ-DEFAULT-4",
+        "price": 539700,
+        "stock": 67,
+        "attributes": null,
+        "id": "d78280c2-cf12-406a-ab35-1f3f266ede87"
       }
     ],
     "brand": "Do",
@@ -2599,6 +3901,27 @@
         "price": 539700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3M1LK-DEFAULT-2",
+        "price": 539700,
+        "stock": 72,
+        "attributes": null,
+        "id": "a0ea28c9-0c90-4e1f-9739-0475df94cf37"
+      },
+      {
+        "sku_code": "SKU-3M1LK-DEFAULT-3",
+        "price": 539700,
+        "stock": 72,
+        "attributes": null,
+        "id": "b00ba50d-26de-48ad-b5ec-79aa97c295b2"
+      },
+      {
+        "sku_code": "SKU-3M1LK-DEFAULT-4",
+        "price": 539700,
+        "stock": 72,
+        "attributes": null,
+        "id": "436085ac-aa9f-4045-b15f-3c02fefd9eeb"
       }
     ],
     "brand": "Shoetopia",
@@ -2640,6 +3963,27 @@
         "price": 899700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZNQRK-DEFAULT-2",
+        "price": 899700,
+        "stock": 13,
+        "attributes": null,
+        "id": "0f7ae481-363c-4db6-af89-4268d7fcbca8"
+      },
+      {
+        "sku_code": "SKU-ZNQRK-DEFAULT-3",
+        "price": 899700,
+        "stock": 13,
+        "attributes": null,
+        "id": "f60f6e09-eb22-46c3-b2b3-413d1582c371"
+      },
+      {
+        "sku_code": "SKU-ZNQRK-DEFAULT-4",
+        "price": 899700,
+        "stock": 13,
+        "attributes": null,
+        "id": "2591423c-a3df-4833-aa01-c50c73356c26"
       }
     ],
     "brand": "Khadim's",
@@ -2686,6 +4030,27 @@
         "price": 0,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RBWQU-DEFAULT-2",
+        "price": 0,
+        "stock": 43,
+        "attributes": null,
+        "id": "74372f5e-4220-44ab-a39a-39e589e6b5da"
+      },
+      {
+        "sku_code": "SKU-RBWQU-DEFAULT-3",
+        "price": 0,
+        "stock": 43,
+        "attributes": null,
+        "id": "4f3bcd71-e339-4577-9a03-1b53aea24bd6"
+      },
+      {
+        "sku_code": "SKU-RBWQU-DEFAULT-4",
+        "price": 0,
+        "stock": 43,
+        "attributes": null,
+        "id": "3b469483-2162-499d-b231-90ee84caeeb0"
       }
     ],
     "brand": "Khadim's",
@@ -2731,6 +4096,27 @@
         "price": 239700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OFJM3-DEFAULT-2",
+        "price": 239700,
+        "stock": 44,
+        "attributes": null,
+        "id": "3e51f7f6-7e59-4330-b8ec-7b7539c5dd99"
+      },
+      {
+        "sku_code": "SKU-OFJM3-DEFAULT-3",
+        "price": 239700,
+        "stock": 44,
+        "attributes": null,
+        "id": "084ae94b-e800-49eb-81cd-3f9f13493f2a"
+      },
+      {
+        "sku_code": "SKU-OFJM3-DEFAULT-4",
+        "price": 239700,
+        "stock": 44,
+        "attributes": null,
+        "id": "be37018a-1239-4bf0-ba90-d8c9fd3d5bce"
       }
     ],
     "brand": "Shezone",
@@ -2776,6 +4162,27 @@
         "price": 313914.00000000006,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0ZO5Q-DEFAULT-2",
+        "price": 313914.00000000006,
+        "stock": 66,
+        "attributes": null,
+        "id": "558c7130-26f3-4236-90d8-b3799bd01e4c"
+      },
+      {
+        "sku_code": "SKU-0ZO5Q-DEFAULT-3",
+        "price": 313914.00000000006,
+        "stock": 66,
+        "attributes": null,
+        "id": "d2a84d9b-8d00-489e-be6f-7950c2df1e65"
+      },
+      {
+        "sku_code": "SKU-0ZO5Q-DEFAULT-4",
+        "price": 313914.00000000006,
+        "stock": 66,
+        "attributes": null,
+        "id": "2fec0305-3b2b-4260-b5d8-fddececa0594"
       }
     ],
     "brand": "BATA",
@@ -2817,6 +4224,27 @@
         "price": 98700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OUBJO-DEFAULT-2",
+        "price": 98700,
+        "stock": 25,
+        "attributes": null,
+        "id": "ad1b0e05-5800-4f69-87f0-c7278bf6b5b5"
+      },
+      {
+        "sku_code": "SKU-OUBJO-DEFAULT-3",
+        "price": 98700,
+        "stock": 25,
+        "attributes": null,
+        "id": "3c07aa74-0959-431a-b45a-df55a7174d15"
+      },
+      {
+        "sku_code": "SKU-OUBJO-DEFAULT-4",
+        "price": 98700,
+        "stock": 25,
+        "attributes": null,
+        "id": "6d30b8e1-90cc-4329-8cfd-13eb01c1e3c5"
       }
     ],
     "brand": "Catwalk",
@@ -2858,6 +4286,27 @@
         "price": 179700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ITW8B-DEFAULT-2",
+        "price": 179700,
+        "stock": 79,
+        "attributes": null,
+        "id": "9a3620ea-250b-464a-b94d-891c17b6b7af"
+      },
+      {
+        "sku_code": "SKU-ITW8B-DEFAULT-3",
+        "price": 179700,
+        "stock": 79,
+        "attributes": null,
+        "id": "f56cbc5c-ed7e-409a-9db8-e41ec0d5c936"
+      },
+      {
+        "sku_code": "SKU-ITW8B-DEFAULT-4",
+        "price": 179700,
+        "stock": 79,
+        "attributes": null,
+        "id": "0dbdadc2-d61d-4165-a794-ba84293e6a5a"
       }
     ],
     "brand": "Stylish",
@@ -2899,6 +4348,27 @@
         "price": 0,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9LQYA-DEFAULT-2",
+        "price": 0,
+        "stock": 85,
+        "attributes": null,
+        "id": "08f6498f-bad8-4eed-9d08-d4d05c397126"
+      },
+      {
+        "sku_code": "SKU-9LQYA-DEFAULT-3",
+        "price": 0,
+        "stock": 85,
+        "attributes": null,
+        "id": "2393a369-0d09-429a-9655-3e884ef5ee47"
+      },
+      {
+        "sku_code": "SKU-9LQYA-DEFAULT-4",
+        "price": 0,
+        "stock": 85,
+        "attributes": null,
+        "id": "47f95bd9-d6c6-4f8e-8052-99dd4ba2b595"
       }
     ],
     "brand": "MONROW",
@@ -2944,6 +4414,27 @@
         "price": 0,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UEP80-DEFAULT-2",
+        "price": 0,
+        "stock": 29,
+        "attributes": null,
+        "id": "36ba7612-72de-4d76-b4a5-f1f347d5d939"
+      },
+      {
+        "sku_code": "SKU-UEP80-DEFAULT-3",
+        "price": 0,
+        "stock": 29,
+        "attributes": null,
+        "id": "0639d8db-a30d-4ce1-a1f0-d7f72e53bbfd"
+      },
+      {
+        "sku_code": "SKU-UEP80-DEFAULT-4",
+        "price": 0,
+        "stock": 29,
+        "attributes": null,
+        "id": "b77a1423-3f44-40a4-8de9-bbf12734baed"
       }
     ],
     "brand": "Inc.5",
@@ -2985,6 +4476,27 @@
         "price": 719700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0GE5Q-DEFAULT-2",
+        "price": 719700,
+        "stock": 80,
+        "attributes": null,
+        "id": "d277548b-92dc-4c72-8c0d-f64fcdff5f73"
+      },
+      {
+        "sku_code": "SKU-0GE5Q-DEFAULT-3",
+        "price": 719700,
+        "stock": 80,
+        "attributes": null,
+        "id": "3e77abbb-6980-4c84-bf81-c6cb38dcd9e8"
+      },
+      {
+        "sku_code": "SKU-0GE5Q-DEFAULT-4",
+        "price": 719700,
+        "stock": 80,
+        "attributes": null,
+        "id": "751e5ce3-9bac-4567-8b2d-ef45c69864f9"
       }
     ],
     "brand": "Metro",
@@ -3032,6 +4544,27 @@
         "price": 193500,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XSEYT-DEFAULT-2",
+        "price": 193500,
+        "stock": 67,
+        "attributes": null,
+        "id": "4fae6d6e-d408-4026-a78f-0a35aab8f073"
+      },
+      {
+        "sku_code": "SKU-XSEYT-DEFAULT-3",
+        "price": 193500,
+        "stock": 67,
+        "attributes": null,
+        "id": "3ee2efe3-859f-47d3-8121-90c032059ffd"
+      },
+      {
+        "sku_code": "SKU-XSEYT-DEFAULT-4",
+        "price": 193500,
+        "stock": 67,
+        "attributes": null,
+        "id": "d5fff8b5-b8db-4a8c-9cd1-4a6265176965"
       }
     ],
     "brand": "Inc.5",
@@ -3069,6 +4602,27 @@
         "price": 89700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7JGL9-DEFAULT-2",
+        "price": 89700,
+        "stock": 76,
+        "attributes": null,
+        "id": "45368038-0a54-4816-bb4d-0b3b76a4645a"
+      },
+      {
+        "sku_code": "SKU-7JGL9-DEFAULT-3",
+        "price": 89700,
+        "stock": 76,
+        "attributes": null,
+        "id": "d3305d7b-afeb-421e-ab10-a68d9e28c42d"
+      },
+      {
+        "sku_code": "SKU-7JGL9-DEFAULT-4",
+        "price": 89700,
+        "stock": 76,
+        "attributes": null,
+        "id": "3850155c-a8f6-45e6-b96f-7b0bd27acc42"
       }
     ],
     "brand": "Metro",
@@ -3110,6 +4664,27 @@
         "price": 298500,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WHE1M-DEFAULT-2",
+        "price": 298500,
+        "stock": 60,
+        "attributes": null,
+        "id": "a261380f-4be0-4f54-8d9d-953e810b24f2"
+      },
+      {
+        "sku_code": "SKU-WHE1M-DEFAULT-3",
+        "price": 298500,
+        "stock": 60,
+        "attributes": null,
+        "id": "e15c4664-3240-4c5c-bf43-dde5b84cb41f"
+      },
+      {
+        "sku_code": "SKU-WHE1M-DEFAULT-4",
+        "price": 298500,
+        "stock": 60,
+        "attributes": null,
+        "id": "c6796e47-5c13-48df-aa33-6ab100d96b9e"
       }
     ],
     "brand": "Shezone",
@@ -3155,6 +4730,27 @@
         "price": 228000,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GAL11-DEFAULT-2",
+        "price": 228000,
+        "stock": 84,
+        "attributes": null,
+        "id": "0e21a617-5efb-4e27-b380-1011e15c7206"
+      },
+      {
+        "sku_code": "SKU-GAL11-DEFAULT-3",
+        "price": 228000,
+        "stock": 84,
+        "attributes": null,
+        "id": "190037df-51f6-41af-af74-e29bc890a9cb"
+      },
+      {
+        "sku_code": "SKU-GAL11-DEFAULT-4",
+        "price": 228000,
+        "stock": 84,
+        "attributes": null,
+        "id": "289ed5b9-0ba7-40be-8251-87400168a396"
       }
     ],
     "brand": "Bruno",
@@ -3192,6 +4788,27 @@
         "price": 625200,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BC9HH-DEFAULT-2",
+        "price": 625200,
+        "stock": 106,
+        "attributes": null,
+        "id": "3d17bf67-1f6c-408f-856f-835aa084bffe"
+      },
+      {
+        "sku_code": "SKU-BC9HH-DEFAULT-3",
+        "price": 625200,
+        "stock": 106,
+        "attributes": null,
+        "id": "8ecc6337-c26f-48fb-855d-3c2a68194870"
+      },
+      {
+        "sku_code": "SKU-BC9HH-DEFAULT-4",
+        "price": 625200,
+        "stock": 106,
+        "attributes": null,
+        "id": "c27d4ec8-1412-4e7b-80a9-ded6f3e11e2e"
       }
     ],
     "brand": "Carlton",
@@ -3237,6 +4854,27 @@
         "price": 349800,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZYUKZ-DEFAULT-2",
+        "price": 349800,
+        "stock": 61,
+        "attributes": null,
+        "id": "356e2508-b753-468d-86ec-211fa1efb6e4"
+      },
+      {
+        "sku_code": "SKU-ZYUKZ-DEFAULT-3",
+        "price": 349800,
+        "stock": 61,
+        "attributes": null,
+        "id": "3cb517d1-c410-4748-b405-2df79fdec6c0"
+      },
+      {
+        "sku_code": "SKU-ZYUKZ-DEFAULT-4",
+        "price": 349800,
+        "stock": 61,
+        "attributes": null,
+        "id": "e703c7f6-6ef9-4f02-8438-a9b81d43059a"
       }
     ],
     "brand": "Catwalk",
@@ -3278,6 +4916,27 @@
         "price": 209700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QT5S5-DEFAULT-2",
+        "price": 209700,
+        "stock": 18,
+        "attributes": null,
+        "id": "249af0e2-c6ed-4dca-853f-50aed62ad648"
+      },
+      {
+        "sku_code": "SKU-QT5S5-DEFAULT-3",
+        "price": 209700,
+        "stock": 18,
+        "attributes": null,
+        "id": "8a47cb0b-1a4e-487d-8a24-fb0ec8e75042"
+      },
+      {
+        "sku_code": "SKU-QT5S5-DEFAULT-4",
+        "price": 209700,
+        "stock": 18,
+        "attributes": null,
+        "id": "5aae7582-5d99-4bcb-accd-6ae87b38bc7c"
       }
     ],
     "brand": "Shoetopia",
@@ -3319,6 +4978,27 @@
         "price": 209700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FWLBJ-DEFAULT-2",
+        "price": 209700,
+        "stock": 93,
+        "attributes": null,
+        "id": "ef287e03-9872-4375-bd5f-15c351e6b34a"
+      },
+      {
+        "sku_code": "SKU-FWLBJ-DEFAULT-3",
+        "price": 209700,
+        "stock": 93,
+        "attributes": null,
+        "id": "7d48c550-7667-41ff-a9b2-a93f9a5988f2"
+      },
+      {
+        "sku_code": "SKU-FWLBJ-DEFAULT-4",
+        "price": 209700,
+        "stock": 93,
+        "attributes": null,
+        "id": "7c19fa3f-1bf7-45f8-b9dc-5cc69765a978"
       }
     ],
     "brand": "MONROW",
@@ -3360,6 +5040,27 @@
         "price": 74700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F3G54-DEFAULT-2",
+        "price": 74700,
+        "stock": 46,
+        "attributes": null,
+        "id": "7338c262-a802-4225-9963-7778974a3ce1"
+      },
+      {
+        "sku_code": "SKU-F3G54-DEFAULT-3",
+        "price": 74700,
+        "stock": 46,
+        "attributes": null,
+        "id": "055d3811-9a5e-4a2e-b5d2-c9b6a8bd88e5"
+      },
+      {
+        "sku_code": "SKU-F3G54-DEFAULT-4",
+        "price": 74700,
+        "stock": 46,
+        "attributes": null,
+        "id": "18c1b716-d78a-45b6-9e13-198e2d9c210a"
       }
     ],
     "brand": "Shezone",
@@ -3397,6 +5098,27 @@
         "price": 104700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GZWXW-DEFAULT-2",
+        "price": 104700,
+        "stock": 49,
+        "attributes": null,
+        "id": "bcdc3097-e566-48bc-854a-ad46a2f57db2"
+      },
+      {
+        "sku_code": "SKU-GZWXW-DEFAULT-3",
+        "price": 104700,
+        "stock": 49,
+        "attributes": null,
+        "id": "eef838fe-f4fd-40c5-a174-0911c399c340"
+      },
+      {
+        "sku_code": "SKU-GZWXW-DEFAULT-4",
+        "price": 104700,
+        "stock": 49,
+        "attributes": null,
+        "id": "9c0d21a6-2be1-456f-b922-acd37f19e066"
       }
     ],
     "brand": "Bruno",
@@ -3438,6 +5160,27 @@
         "price": 149700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FXZ8V-DEFAULT-2",
+        "price": 149700,
+        "stock": 63,
+        "attributes": null,
+        "id": "2a7f5c32-f6c2-43b1-86a9-cea10769f324"
+      },
+      {
+        "sku_code": "SKU-FXZ8V-DEFAULT-3",
+        "price": 149700,
+        "stock": 63,
+        "attributes": null,
+        "id": "b50e92d9-b309-4723-8a34-ee384411b001"
+      },
+      {
+        "sku_code": "SKU-FXZ8V-DEFAULT-4",
+        "price": 149700,
+        "stock": 63,
+        "attributes": null,
+        "id": "fb6496bf-d51c-470c-bfdf-90d8a99f9250"
       }
     ],
     "brand": "Do",
@@ -3475,6 +5218,27 @@
         "price": 158700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ONLTI-DEFAULT-2",
+        "price": 158700,
+        "stock": 33,
+        "attributes": null,
+        "id": "e539d2ce-c09f-43ee-9451-7034c9b6fbd0"
+      },
+      {
+        "sku_code": "SKU-ONLTI-DEFAULT-3",
+        "price": 158700,
+        "stock": 33,
+        "attributes": null,
+        "id": "96483cae-ee1d-4334-917c-eb4aed4b8df3"
+      },
+      {
+        "sku_code": "SKU-ONLTI-DEFAULT-4",
+        "price": 158700,
+        "stock": 33,
+        "attributes": null,
+        "id": "e1e18981-d4d6-4971-bc38-6f9a35ad4c94"
       }
     ],
     "brand": "Inc.5",
@@ -3512,6 +5276,27 @@
         "price": 114000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4C3DV-DEFAULT-2",
+        "price": 114000,
+        "stock": 30,
+        "attributes": null,
+        "id": "ede4979d-9c7f-4b93-9911-59c5e36a4808"
+      },
+      {
+        "sku_code": "SKU-4C3DV-DEFAULT-3",
+        "price": 114000,
+        "stock": 30,
+        "attributes": null,
+        "id": "fffecef3-723a-463c-9142-bc0090e562ec"
+      },
+      {
+        "sku_code": "SKU-4C3DV-DEFAULT-4",
+        "price": 114000,
+        "stock": 30,
+        "attributes": null,
+        "id": "26dec63d-283b-4c3c-9d89-a2aa612e580d"
       }
     ],
     "brand": "Women",
@@ -3558,6 +5343,27 @@
         "price": 179400,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GQE3T-DEFAULT-2",
+        "price": 179400,
+        "stock": 107,
+        "attributes": null,
+        "id": "5e900de0-d296-4a79-a84b-2f27206a80e9"
+      },
+      {
+        "sku_code": "SKU-GQE3T-DEFAULT-3",
+        "price": 179400,
+        "stock": 107,
+        "attributes": null,
+        "id": "d1879234-b499-4f00-81e0-f14994ca673b"
+      },
+      {
+        "sku_code": "SKU-GQE3T-DEFAULT-4",
+        "price": 179400,
+        "stock": 107,
+        "attributes": null,
+        "id": "f6f78549-7323-4960-b382-47d83de5e8a1"
       }
     ],
     "brand": "Women",
@@ -3603,6 +5409,27 @@
         "price": 142800,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TBTR0-DEFAULT-2",
+        "price": 142800,
+        "stock": 26,
+        "attributes": null,
+        "id": "e10034c1-7853-4cb8-9d80-c9dd1cb93742"
+      },
+      {
+        "sku_code": "SKU-TBTR0-DEFAULT-3",
+        "price": 142800,
+        "stock": 26,
+        "attributes": null,
+        "id": "c2bb2114-3534-4e8d-b610-11d58124e6cf"
+      },
+      {
+        "sku_code": "SKU-TBTR0-DEFAULT-4",
+        "price": 142800,
+        "stock": 26,
+        "attributes": null,
+        "id": "72ae59c5-6b63-4830-82f9-f1e08770f173"
       }
     ],
     "brand": "MONROW",
@@ -3644,6 +5471,27 @@
         "price": 176700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KAKUS-DEFAULT-2",
+        "price": 176700,
+        "stock": 61,
+        "attributes": null,
+        "id": "8a813825-d8fb-4e1d-82e4-f7a56930da72"
+      },
+      {
+        "sku_code": "SKU-KAKUS-DEFAULT-3",
+        "price": 176700,
+        "stock": 61,
+        "attributes": null,
+        "id": "9c6be7f2-4b9f-40e9-b84b-d9e2e6997a12"
+      },
+      {
+        "sku_code": "SKU-KAKUS-DEFAULT-4",
+        "price": 176700,
+        "stock": 61,
+        "attributes": null,
+        "id": "c8964c25-bb21-43ba-8317-f45b1833bb42"
       }
     ],
     "brand": "Shoetopia",
@@ -3681,6 +5529,27 @@
         "price": 134700,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NFOEK-DEFAULT-2",
+        "price": 134700,
+        "stock": 95,
+        "attributes": null,
+        "id": "6c45dc8d-dd87-4cad-bc7b-841319f274fe"
+      },
+      {
+        "sku_code": "SKU-NFOEK-DEFAULT-3",
+        "price": 134700,
+        "stock": 95,
+        "attributes": null,
+        "id": "8823595d-7421-4cea-aff5-3903412923e9"
+      },
+      {
+        "sku_code": "SKU-NFOEK-DEFAULT-4",
+        "price": 134700,
+        "stock": 95,
+        "attributes": null,
+        "id": "5538e3e7-579f-48b7-9551-a0f66aff2dc0"
       }
     ],
     "brand": "GNIST",
@@ -3726,6 +5595,27 @@
         "price": 134700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K0XNE-DEFAULT-2",
+        "price": 134700,
+        "stock": 12,
+        "attributes": null,
+        "id": "403213bd-f22f-4b2d-91a2-3e3e4ff86652"
+      },
+      {
+        "sku_code": "SKU-K0XNE-DEFAULT-3",
+        "price": 134700,
+        "stock": 12,
+        "attributes": null,
+        "id": "44629f9b-21b3-41be-9a17-96ef80b5c0b2"
+      },
+      {
+        "sku_code": "SKU-K0XNE-DEFAULT-4",
+        "price": 134700,
+        "stock": 12,
+        "attributes": null,
+        "id": "bd50c27d-495a-4029-8c81-a645744c9099"
       }
     ],
     "brand": "BATA",
@@ -3767,6 +5657,27 @@
         "price": 747000,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P2EWQ-DEFAULT-2",
+        "price": 747000,
+        "stock": 76,
+        "attributes": null,
+        "id": "62f1e45e-dacb-49b7-940b-c938bc90be7c"
+      },
+      {
+        "sku_code": "SKU-P2EWQ-DEFAULT-3",
+        "price": 747000,
+        "stock": 76,
+        "attributes": null,
+        "id": "c355d979-1f7d-40e8-b937-586fe79f0e47"
+      },
+      {
+        "sku_code": "SKU-P2EWQ-DEFAULT-4",
+        "price": 747000,
+        "stock": 76,
+        "attributes": null,
+        "id": "4b09581f-545b-4ef9-87b8-153f21bf3b2c"
       }
     ],
     "brand": "Inc.5",
@@ -3808,6 +5719,27 @@
         "price": 206700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3ZMIJ-DEFAULT-2",
+        "price": 206700,
+        "stock": 37,
+        "attributes": null,
+        "id": "1ae2f2aa-7c67-4e34-8c23-b6e4565b1c27"
+      },
+      {
+        "sku_code": "SKU-3ZMIJ-DEFAULT-3",
+        "price": 206700,
+        "stock": 37,
+        "attributes": null,
+        "id": "2a0fd5c9-bd81-4a0d-8cd4-2d683d35afea"
+      },
+      {
+        "sku_code": "SKU-3ZMIJ-DEFAULT-4",
+        "price": 206700,
+        "stock": 37,
+        "attributes": null,
+        "id": "d3058d05-c52e-47c7-a52d-d2fcd27b1070"
       }
     ],
     "brand": "Carlton",
@@ -3845,6 +5777,27 @@
         "price": 191700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F9XIA-DEFAULT-2",
+        "price": 191700,
+        "stock": 98,
+        "attributes": null,
+        "id": "fd0984f4-8c9d-424c-a239-787b62602f14"
+      },
+      {
+        "sku_code": "SKU-F9XIA-DEFAULT-3",
+        "price": 191700,
+        "stock": 98,
+        "attributes": null,
+        "id": "f3a0c8e9-5991-49ee-8dee-08de2f715545"
+      },
+      {
+        "sku_code": "SKU-F9XIA-DEFAULT-4",
+        "price": 191700,
+        "stock": 98,
+        "attributes": null,
+        "id": "ff66370e-7acc-43dd-9b3b-f39bb940efee"
       }
     ],
     "brand": "BATA",
@@ -3890,6 +5843,27 @@
         "price": 1679700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-46JDC-DEFAULT-2",
+        "price": 1679700,
+        "stock": 27,
+        "attributes": null,
+        "id": "7a5fee4d-cd11-46e1-a009-24a7bbca16a3"
+      },
+      {
+        "sku_code": "SKU-46JDC-DEFAULT-3",
+        "price": 1679700,
+        "stock": 27,
+        "attributes": null,
+        "id": "263bc7ab-8721-442f-a71a-0ad895377a32"
+      },
+      {
+        "sku_code": "SKU-46JDC-DEFAULT-4",
+        "price": 1679700,
+        "stock": 27,
+        "attributes": null,
+        "id": "4fa7ab66-4b40-48fc-9933-6c3f35931eb9"
       }
     ],
     "brand": "Shoetopia",
@@ -3931,6 +5905,27 @@
         "price": 125700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NI7EN-DEFAULT-2",
+        "price": 125700,
+        "stock": 109,
+        "attributes": null,
+        "id": "c4064d7d-24e7-4775-843c-5f9d9b3dc07a"
+      },
+      {
+        "sku_code": "SKU-NI7EN-DEFAULT-3",
+        "price": 125700,
+        "stock": 109,
+        "attributes": null,
+        "id": "06fd4f2c-b17e-4d97-8b2e-77a647251a8c"
+      },
+      {
+        "sku_code": "SKU-NI7EN-DEFAULT-4",
+        "price": 125700,
+        "stock": 109,
+        "attributes": null,
+        "id": "8daeec86-0bda-4ed4-9c11-2b6acd02330e"
       }
     ],
     "brand": "Metro",
@@ -3976,6 +5971,27 @@
         "price": 389700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SRBJV-DEFAULT-2",
+        "price": 389700,
+        "stock": 35,
+        "attributes": null,
+        "id": "846976ac-1ae5-4e67-893c-4297f33bd278"
+      },
+      {
+        "sku_code": "SKU-SRBJV-DEFAULT-3",
+        "price": 389700,
+        "stock": 35,
+        "attributes": null,
+        "id": "2802955f-1232-4954-bc05-00351dd9b2fe"
+      },
+      {
+        "sku_code": "SKU-SRBJV-DEFAULT-4",
+        "price": 389700,
+        "stock": 35,
+        "attributes": null,
+        "id": "375366b3-56aa-4754-a537-5b59ffd3f018"
       }
     ],
     "brand": "Stylish",
@@ -4013,6 +6029,27 @@
         "price": 157500,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZO5CD-DEFAULT-2",
+        "price": 157500,
+        "stock": 89,
+        "attributes": null,
+        "id": "3ca0292a-45f5-46f0-851c-91779f34b567"
+      },
+      {
+        "sku_code": "SKU-ZO5CD-DEFAULT-3",
+        "price": 157500,
+        "stock": 89,
+        "attributes": null,
+        "id": "d8aec57f-2446-4f42-9c91-f2a40426f124"
+      },
+      {
+        "sku_code": "SKU-ZO5CD-DEFAULT-4",
+        "price": 157500,
+        "stock": 89,
+        "attributes": null,
+        "id": "5ada01fc-6fd7-450a-953e-417c13cb5dea"
       }
     ],
     "brand": "Khadim's",
@@ -4058,6 +6095,27 @@
         "price": 157500,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D3WE9-DEFAULT-2",
+        "price": 157500,
+        "stock": 10,
+        "attributes": null,
+        "id": "b5211aab-7a40-439b-996e-2fa1767e837c"
+      },
+      {
+        "sku_code": "SKU-D3WE9-DEFAULT-3",
+        "price": 157500,
+        "stock": 10,
+        "attributes": null,
+        "id": "20873371-2435-4624-b312-ab9d5c0ade2f"
+      },
+      {
+        "sku_code": "SKU-D3WE9-DEFAULT-4",
+        "price": 157500,
+        "stock": 10,
+        "attributes": null,
+        "id": "f833ab84-4050-453d-9562-5f5465acef89"
       }
     ],
     "brand": "Shoetopia",
@@ -4111,6 +6169,27 @@
         "price": 157500,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y5NQY-DEFAULT-2",
+        "price": 157500,
+        "stock": 88,
+        "attributes": null,
+        "id": "bcf5db60-4eb5-4fc0-8cd2-023e94b15122"
+      },
+      {
+        "sku_code": "SKU-Y5NQY-DEFAULT-3",
+        "price": 157500,
+        "stock": 88,
+        "attributes": null,
+        "id": "9127a41b-aaed-43e3-8e08-cc9f91e4e505"
+      },
+      {
+        "sku_code": "SKU-Y5NQY-DEFAULT-4",
+        "price": 157500,
+        "stock": 88,
+        "attributes": null,
+        "id": "fe050bc8-8e8a-49b6-ac15-0b11e8a2ea68"
       }
     ],
     "brand": "Do",
@@ -4163,6 +6242,27 @@
         "price": 374700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y86ZA-DEFAULT-2",
+        "price": 374700,
+        "stock": 77,
+        "attributes": null,
+        "id": "1a5b910c-45db-48de-a77a-d48cc5d5f9f7"
+      },
+      {
+        "sku_code": "SKU-Y86ZA-DEFAULT-3",
+        "price": 374700,
+        "stock": 77,
+        "attributes": null,
+        "id": "9a6aa26c-51f2-434b-b5e8-06ee3445ce4a"
+      },
+      {
+        "sku_code": "SKU-Y86ZA-DEFAULT-4",
+        "price": 374700,
+        "stock": 77,
+        "attributes": null,
+        "id": "e5681824-a1f7-4ac0-9393-defb1b23c639"
       }
     ],
     "brand": "Khadim's",

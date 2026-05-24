@@ -22,6 +22,27 @@
         "price": 104700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZT35R-DEFAULT-2",
+        "price": 104700,
+        "stock": 100,
+        "attributes": null,
+        "id": "e07290a3-0e0f-4171-be18-465e7bb430cc"
+      },
+      {
+        "sku_code": "SKU-ZT35R-DEFAULT-3",
+        "price": 104700,
+        "stock": 100,
+        "attributes": null,
+        "id": "93e8dba8-b8cf-4c19-8121-49ec8ac7c335"
+      },
+      {
+        "sku_code": "SKU-ZT35R-DEFAULT-4",
+        "price": 104700,
+        "stock": 100,
+        "attributes": null,
+        "id": "41cb4d7d-9199-4fcf-9c76-ce14ea9b6bfb"
       }
     ],
     "brand": "TrustBasket",
@@ -67,6 +88,27 @@
         "price": 155700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-16NDY-DEFAULT-2",
+        "price": 155700,
+        "stock": 27,
+        "attributes": null,
+        "id": "53c23098-6619-4b96-8373-84075268cfb3"
+      },
+      {
+        "sku_code": "SKU-16NDY-DEFAULT-3",
+        "price": 155700,
+        "stock": 27,
+        "attributes": null,
+        "id": "44d4f4cc-df28-4f4b-a418-74d1538fba72"
+      },
+      {
+        "sku_code": "SKU-16NDY-DEFAULT-4",
+        "price": 155700,
+        "stock": 27,
+        "attributes": null,
+        "id": "c6f30ba4-a14f-4df2-abb2-8829e571c637"
       }
     ],
     "brand": "Ugaoo",
@@ -112,6 +154,27 @@
         "price": 97500,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2DA3W-DEFAULT-2",
+        "price": 97500,
+        "stock": 55,
+        "attributes": null,
+        "id": "fd195203-ac9f-49ce-9a50-969b6c7e1a07"
+      },
+      {
+        "sku_code": "SKU-2DA3W-DEFAULT-3",
+        "price": 97500,
+        "stock": 55,
+        "attributes": null,
+        "id": "6ac8ae64-168f-4a02-83bd-07f5a58de91e"
+      },
+      {
+        "sku_code": "SKU-2DA3W-DEFAULT-4",
+        "price": 97500,
+        "stock": 55,
+        "attributes": null,
+        "id": "118b7d96-e167-4af8-902a-d01de5ed42e0"
       }
     ],
     "brand": "Leafy",
@@ -153,6 +216,27 @@
         "price": 749700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E2EP1-DEFAULT-2",
+        "price": 749700,
+        "stock": 98,
+        "attributes": null,
+        "id": "20f3c992-1582-46f8-9a47-bcef196cbe3c"
+      },
+      {
+        "sku_code": "SKU-E2EP1-DEFAULT-3",
+        "price": 749700,
+        "stock": 98,
+        "attributes": null,
+        "id": "0ee5db53-a4f0-4ada-9092-3d1c61b4da03"
+      },
+      {
+        "sku_code": "SKU-E2EP1-DEFAULT-4",
+        "price": 749700,
+        "stock": 98,
+        "attributes": null,
+        "id": "a8486637-88e2-4c72-b7e2-7c263d1205da"
       }
     ],
     "brand": "Green",
@@ -190,6 +274,27 @@
         "price": 142200,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A1B1O-DEFAULT-2",
+        "price": 142200,
+        "stock": 12,
+        "attributes": null,
+        "id": "e050f65f-2dc0-491d-8c34-af58b8716116"
+      },
+      {
+        "sku_code": "SKU-A1B1O-DEFAULT-3",
+        "price": 142200,
+        "stock": 12,
+        "attributes": null,
+        "id": "ed476b2c-f0c2-4f4e-92fb-e46cff151c85"
+      },
+      {
+        "sku_code": "SKU-A1B1O-DEFAULT-4",
+        "price": 142200,
+        "stock": 12,
+        "attributes": null,
+        "id": "ec73c3d9-ae1e-416d-9ffa-018fea79134b"
       }
     ],
     "brand": "TrustBasket",
@@ -235,6 +340,27 @@
         "price": 157500,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UXQWW-DEFAULT-2",
+        "price": 157500,
+        "stock": 56,
+        "attributes": null,
+        "id": "ed35b517-4179-4fe8-9936-6e40669339c9"
+      },
+      {
+        "sku_code": "SKU-UXQWW-DEFAULT-3",
+        "price": 157500,
+        "stock": 56,
+        "attributes": null,
+        "id": "841a45f6-855f-4616-bb40-d4df018bbaab"
+      },
+      {
+        "sku_code": "SKU-UXQWW-DEFAULT-4",
+        "price": 157500,
+        "stock": 56,
+        "attributes": null,
+        "id": "0dd175a6-2a13-4e96-b735-7eba86efd717"
       }
     ],
     "brand": "TrustBasket",
@@ -276,6 +402,27 @@
         "price": 89700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-204IR-DEFAULT-2",
+        "price": 89700,
+        "stock": 48,
+        "attributes": null,
+        "id": "7a31e8dd-a479-4793-ab40-432b2ea8f112"
+      },
+      {
+        "sku_code": "SKU-204IR-DEFAULT-3",
+        "price": 89700,
+        "stock": 48,
+        "attributes": null,
+        "id": "a468b49a-32c9-4ff8-8c46-4ae47dee9328"
+      },
+      {
+        "sku_code": "SKU-204IR-DEFAULT-4",
+        "price": 89700,
+        "stock": 48,
+        "attributes": null,
+        "id": "940390e9-5299-49a1-9bd9-2620354e5611"
       }
     ],
     "brand": "Green",
@@ -317,6 +464,27 @@
         "price": 59700,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5DRV3-DEFAULT-2",
+        "price": 59700,
+        "stock": 47,
+        "attributes": null,
+        "id": "8821e94f-84e3-483b-95b0-7007c8e378bb"
+      },
+      {
+        "sku_code": "SKU-5DRV3-DEFAULT-3",
+        "price": 59700,
+        "stock": 47,
+        "attributes": null,
+        "id": "f16deed5-58e2-4622-b3fd-d136f602826f"
+      },
+      {
+        "sku_code": "SKU-5DRV3-DEFAULT-4",
+        "price": 59700,
+        "stock": 47,
+        "attributes": null,
+        "id": "14734a48-097c-4602-a2c9-00aa963a0157"
       }
     ],
     "brand": "CAPPL",
@@ -354,6 +522,27 @@
         "price": 22500,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S46GF-DEFAULT-2",
+        "price": 22500,
+        "stock": 96,
+        "attributes": null,
+        "id": "9f431931-5ed4-4f6c-92af-dfce9695e405"
+      },
+      {
+        "sku_code": "SKU-S46GF-DEFAULT-3",
+        "price": 22500,
+        "stock": 96,
+        "attributes": null,
+        "id": "a69ca1ff-3b63-4556-96f5-d93172778c26"
+      },
+      {
+        "sku_code": "SKU-S46GF-DEFAULT-4",
+        "price": 22500,
+        "stock": 96,
+        "attributes": null,
+        "id": "a8db14e1-ff52-49b7-972b-f2dfbe02b6d9"
       }
     ],
     "brand": "Kraft",
@@ -391,6 +580,27 @@
         "price": 74700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YS0K3-DEFAULT-2",
+        "price": 74700,
+        "stock": 61,
+        "attributes": null,
+        "id": "4e35f824-c8ac-4cb4-8daf-3ebaf8aabdf7"
+      },
+      {
+        "sku_code": "SKU-YS0K3-DEFAULT-3",
+        "price": 74700,
+        "stock": 61,
+        "attributes": null,
+        "id": "20d7fa65-f328-4024-af83-aac16aef79db"
+      },
+      {
+        "sku_code": "SKU-YS0K3-DEFAULT-4",
+        "price": 74700,
+        "stock": 61,
+        "attributes": null,
+        "id": "717d1ae5-198c-42e0-9f22-6a7ef00a88db"
       }
     ],
     "brand": "Creative",
@@ -432,6 +642,27 @@
         "price": 59400,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GGVR1-DEFAULT-2",
+        "price": 59400,
+        "stock": 50,
+        "attributes": null,
+        "id": "502a37f7-297a-474f-9591-e271dcaff615"
+      },
+      {
+        "sku_code": "SKU-GGVR1-DEFAULT-3",
+        "price": 59400,
+        "stock": 50,
+        "attributes": null,
+        "id": "9f2899d2-17e2-424b-b6a9-c63db3650d21"
+      },
+      {
+        "sku_code": "SKU-GGVR1-DEFAULT-4",
+        "price": 59400,
+        "stock": 50,
+        "attributes": null,
+        "id": "346ee6e4-f9e6-4718-9c40-b5c95c877596"
       }
     ],
     "brand": "Leafy",
@@ -469,6 +700,27 @@
         "price": 359700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L7PQU-DEFAULT-2",
+        "price": 359700,
+        "stock": 12,
+        "attributes": null,
+        "id": "c121e980-0ed9-4117-afdd-0e69bd481612"
+      },
+      {
+        "sku_code": "SKU-L7PQU-DEFAULT-3",
+        "price": 359700,
+        "stock": 12,
+        "attributes": null,
+        "id": "de365f13-da11-4a8b-afc9-1a4d73354474"
+      },
+      {
+        "sku_code": "SKU-L7PQU-DEFAULT-4",
+        "price": 359700,
+        "stock": 12,
+        "attributes": null,
+        "id": "0e172062-1331-489e-b864-b1a492d1e265"
       }
     ],
     "brand": "Kraft",
@@ -514,6 +766,27 @@
         "price": 199200,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JMF2T-DEFAULT-2",
+        "price": 199200,
+        "stock": 50,
+        "attributes": null,
+        "id": "c474bd94-7a7a-4bae-8029-7e1d3915f90a"
+      },
+      {
+        "sku_code": "SKU-JMF2T-DEFAULT-3",
+        "price": 199200,
+        "stock": 50,
+        "attributes": null,
+        "id": "c0e54f9f-2d21-4358-9a34-b956b860aea0"
+      },
+      {
+        "sku_code": "SKU-JMF2T-DEFAULT-4",
+        "price": 199200,
+        "stock": 50,
+        "attributes": null,
+        "id": "57b3aedb-be03-4233-8598-596385b4a108"
       }
     ],
     "brand": "BIO",
@@ -551,6 +824,27 @@
         "price": 70500,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JS602-DEFAULT-2",
+        "price": 70500,
+        "stock": 43,
+        "attributes": null,
+        "id": "bbdc9d09-54ae-42f5-8d01-b64eaa89cd7f"
+      },
+      {
+        "sku_code": "SKU-JS602-DEFAULT-3",
+        "price": 70500,
+        "stock": 43,
+        "attributes": null,
+        "id": "d3235484-11c3-4d8c-aca0-6d28e54fa5f0"
+      },
+      {
+        "sku_code": "SKU-JS602-DEFAULT-4",
+        "price": 70500,
+        "stock": 43,
+        "attributes": null,
+        "id": "7ba09607-28cb-4dd3-a82a-0c473aa4a5ff"
       }
     ],
     "brand": "Garden",
@@ -596,6 +890,27 @@
         "price": 105000,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1U9HT-DEFAULT-2",
+        "price": 105000,
+        "stock": 13,
+        "attributes": null,
+        "id": "ccc93ddc-044d-4a0f-90ab-8f9db0cb1656"
+      },
+      {
+        "sku_code": "SKU-1U9HT-DEFAULT-3",
+        "price": 105000,
+        "stock": 13,
+        "attributes": null,
+        "id": "8717012a-a504-4fb2-bc3d-c6548760b0e9"
+      },
+      {
+        "sku_code": "SKU-1U9HT-DEFAULT-4",
+        "price": 105000,
+        "stock": 13,
+        "attributes": null,
+        "id": "6fbbd3a1-eb7c-42c4-b301-32085119c5b7"
       }
     ],
     "brand": "Leafy",
@@ -637,6 +952,27 @@
         "price": 58050,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GC2FV-DEFAULT-2",
+        "price": 58050,
+        "stock": 50,
+        "attributes": null,
+        "id": "d10023db-c253-4a56-94a1-96df400bcfb0"
+      },
+      {
+        "sku_code": "SKU-GC2FV-DEFAULT-3",
+        "price": 58050,
+        "stock": 50,
+        "attributes": null,
+        "id": "843a7ba4-1fec-4d8a-94af-14a71834517a"
+      },
+      {
+        "sku_code": "SKU-GC2FV-DEFAULT-4",
+        "price": 58050,
+        "stock": 50,
+        "attributes": null,
+        "id": "45520731-59f9-464b-9797-5d91447b45ef"
       }
     ],
     "brand": "Green",
@@ -678,6 +1014,27 @@
         "price": 227700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P1H88-DEFAULT-2",
+        "price": 227700,
+        "stock": 107,
+        "attributes": null,
+        "id": "71dd9361-44c9-4e39-8b48-eba315d8d99d"
+      },
+      {
+        "sku_code": "SKU-P1H88-DEFAULT-3",
+        "price": 227700,
+        "stock": 107,
+        "attributes": null,
+        "id": "75f1b482-e704-4b4c-99e4-d6eb960fb59e"
+      },
+      {
+        "sku_code": "SKU-P1H88-DEFAULT-4",
+        "price": 227700,
+        "stock": 107,
+        "attributes": null,
+        "id": "2badb616-8df8-449f-aa08-7de0afe404da"
       }
     ],
     "brand": "BIO",
@@ -715,6 +1072,27 @@
         "price": 89700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U5XTO-DEFAULT-2",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "d1871fa9-b149-408c-9a0d-1035437fdd0a"
+      },
+      {
+        "sku_code": "SKU-U5XTO-DEFAULT-3",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "1cea3eca-8a97-431c-ab0e-ce60b843fb67"
+      },
+      {
+        "sku_code": "SKU-U5XTO-DEFAULT-4",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "871ae495-0bca-444b-90ba-369d548093e5"
       }
     ],
     "brand": "Bayer",
@@ -756,6 +1134,27 @@
         "price": 59700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3YUBC-DEFAULT-2",
+        "price": 59700,
+        "stock": 29,
+        "attributes": null,
+        "id": "9812f8cc-3191-4e83-ab33-efc93d35d461"
+      },
+      {
+        "sku_code": "SKU-3YUBC-DEFAULT-3",
+        "price": 59700,
+        "stock": 29,
+        "attributes": null,
+        "id": "7dddec30-c154-475b-9079-8fa7035041f1"
+      },
+      {
+        "sku_code": "SKU-3YUBC-DEFAULT-4",
+        "price": 59700,
+        "stock": 29,
+        "attributes": null,
+        "id": "1131205b-ccdf-4044-b1e0-19659d9b2949"
       }
     ],
     "brand": "CAPPL",
@@ -801,6 +1200,27 @@
         "price": 45000,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IHKKF-DEFAULT-2",
+        "price": 45000,
+        "stock": 102,
+        "attributes": null,
+        "id": "f7e90ace-c14d-4d02-b556-d64d21adced5"
+      },
+      {
+        "sku_code": "SKU-IHKKF-DEFAULT-3",
+        "price": 45000,
+        "stock": 102,
+        "attributes": null,
+        "id": "9c1c5079-46e2-4248-9c97-1690aaf264f8"
+      },
+      {
+        "sku_code": "SKU-IHKKF-DEFAULT-4",
+        "price": 45000,
+        "stock": 102,
+        "attributes": null,
+        "id": "31e16979-d2f9-401d-835c-9c61c08eef70"
       }
     ],
     "brand": "Leafy",
@@ -846,6 +1266,27 @@
         "price": 98700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EH1TC-DEFAULT-2",
+        "price": 98700,
+        "stock": 28,
+        "attributes": null,
+        "id": "480b5aaf-ef39-4f8b-a912-0cd4dd00ba19"
+      },
+      {
+        "sku_code": "SKU-EH1TC-DEFAULT-3",
+        "price": 98700,
+        "stock": 28,
+        "attributes": null,
+        "id": "40129654-8739-487e-840b-c384df598638"
+      },
+      {
+        "sku_code": "SKU-EH1TC-DEFAULT-4",
+        "price": 98700,
+        "stock": 28,
+        "attributes": null,
+        "id": "6b2a2fd1-4e4d-45cd-a720-30bfa1216b8e"
       }
     ],
     "brand": "BIO",
@@ -883,6 +1324,27 @@
         "price": 63900,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-42MEK-DEFAULT-2",
+        "price": 63900,
+        "stock": 23,
+        "attributes": null,
+        "id": "35451130-f6d5-420b-aa5f-ba9e64b55a32"
+      },
+      {
+        "sku_code": "SKU-42MEK-DEFAULT-3",
+        "price": 63900,
+        "stock": 23,
+        "attributes": null,
+        "id": "65ef3c99-2da2-4e22-88c4-3e74e4b30620"
+      },
+      {
+        "sku_code": "SKU-42MEK-DEFAULT-4",
+        "price": 63900,
+        "stock": 23,
+        "attributes": null,
+        "id": "1acb0d35-8a19-4aa9-91e2-205b578a6095"
       }
     ],
     "brand": "Green",
@@ -920,6 +1382,27 @@
         "price": 56700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8473I-DEFAULT-2",
+        "price": 56700,
+        "stock": 71,
+        "attributes": null,
+        "id": "dc42a79c-1f8f-4eae-9b5d-62d07a39d719"
+      },
+      {
+        "sku_code": "SKU-8473I-DEFAULT-3",
+        "price": 56700,
+        "stock": 71,
+        "attributes": null,
+        "id": "af49d61b-cc90-48ae-b00e-90bc6fa8cc58"
+      },
+      {
+        "sku_code": "SKU-8473I-DEFAULT-4",
+        "price": 56700,
+        "stock": 71,
+        "attributes": null,
+        "id": "891f3c0a-1854-47bc-aa19-af389c0dbd7c"
       }
     ],
     "brand": "Mphmi",
@@ -961,6 +1444,27 @@
         "price": 162000,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-08YP1-DEFAULT-2",
+        "price": 162000,
+        "stock": 42,
+        "attributes": null,
+        "id": "f790d60e-8585-4a37-b63c-bea158ff814d"
+      },
+      {
+        "sku_code": "SKU-08YP1-DEFAULT-3",
+        "price": 162000,
+        "stock": 42,
+        "attributes": null,
+        "id": "684a2c18-4b17-4624-a276-ba8d32d45519"
+      },
+      {
+        "sku_code": "SKU-08YP1-DEFAULT-4",
+        "price": 162000,
+        "stock": 42,
+        "attributes": null,
+        "id": "3ac85a05-0741-498e-97d9-99d2605a0b3d"
       }
     ],
     "brand": "Kraft",
@@ -1002,6 +1506,27 @@
         "price": 52500,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2IL2V-DEFAULT-2",
+        "price": 52500,
+        "stock": 39,
+        "attributes": null,
+        "id": "3524496b-9175-459a-9bdf-a13134c85d46"
+      },
+      {
+        "sku_code": "SKU-2IL2V-DEFAULT-3",
+        "price": 52500,
+        "stock": 39,
+        "attributes": null,
+        "id": "3b05d968-cc3c-46d1-ab0d-3d4cbc2cefa3"
+      },
+      {
+        "sku_code": "SKU-2IL2V-DEFAULT-4",
+        "price": 52500,
+        "stock": 39,
+        "attributes": null,
+        "id": "67d9fb8b-79c5-4e06-a9e1-9fb6e9e2b110"
       }
     ],
     "brand": "Leafy",
@@ -1039,6 +1564,27 @@
         "price": 59700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QYTUG-DEFAULT-2",
+        "price": 59700,
+        "stock": 81,
+        "attributes": null,
+        "id": "74040ba3-092d-42ef-b916-f5622acd4817"
+      },
+      {
+        "sku_code": "SKU-QYTUG-DEFAULT-3",
+        "price": 59700,
+        "stock": 81,
+        "attributes": null,
+        "id": "c7875548-134c-48f1-98f6-15df7d9778b8"
+      },
+      {
+        "sku_code": "SKU-QYTUG-DEFAULT-4",
+        "price": 59700,
+        "stock": 81,
+        "attributes": null,
+        "id": "81641f69-6085-4eea-8cd2-603908018f30"
       }
     ],
     "brand": "Garden",
@@ -1076,6 +1622,27 @@
         "price": 62100,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L4V13-DEFAULT-2",
+        "price": 62100,
+        "stock": 49,
+        "attributes": null,
+        "id": "11d04fb0-93fb-44b8-8878-3ccb6b58520a"
+      },
+      {
+        "sku_code": "SKU-L4V13-DEFAULT-3",
+        "price": 62100,
+        "stock": 49,
+        "attributes": null,
+        "id": "865b377b-2815-4ccd-ae48-25c7c87738d9"
+      },
+      {
+        "sku_code": "SKU-L4V13-DEFAULT-4",
+        "price": 62100,
+        "stock": 49,
+        "attributes": null,
+        "id": "d6aedaf3-7906-41cf-b223-85ab250d5c4a"
       }
     ],
     "brand": "Green",
@@ -1117,6 +1684,27 @@
         "price": 0,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KXOFR-DEFAULT-2",
+        "price": 0,
+        "stock": 62,
+        "attributes": null,
+        "id": "160fa790-6584-4ee8-a05b-eb4e1dad573a"
+      },
+      {
+        "sku_code": "SKU-KXOFR-DEFAULT-3",
+        "price": 0,
+        "stock": 62,
+        "attributes": null,
+        "id": "763df024-13b2-4722-9c0d-02347d4998ce"
+      },
+      {
+        "sku_code": "SKU-KXOFR-DEFAULT-4",
+        "price": 0,
+        "stock": 62,
+        "attributes": null,
+        "id": "2c0d1346-e6d6-4911-beba-72b4a1880ad0"
       }
     ],
     "brand": "Green",
@@ -1158,6 +1746,27 @@
         "price": 93000,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZL6XC-DEFAULT-2",
+        "price": 93000,
+        "stock": 16,
+        "attributes": null,
+        "id": "30e72862-b49d-45e9-a1d6-be94596cee74"
+      },
+      {
+        "sku_code": "SKU-ZL6XC-DEFAULT-3",
+        "price": 93000,
+        "stock": 16,
+        "attributes": null,
+        "id": "2aa8f720-ab66-4b3e-b022-e8541056c5bf"
+      },
+      {
+        "sku_code": "SKU-ZL6XC-DEFAULT-4",
+        "price": 93000,
+        "stock": 16,
+        "attributes": null,
+        "id": "70eced68-4931-4081-9c57-d72c98e5b426"
       }
     ],
     "brand": "Golden",
@@ -1203,6 +1812,27 @@
         "price": 65700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CGCK3-DEFAULT-2",
+        "price": 65700,
+        "stock": 70,
+        "attributes": null,
+        "id": "a4926d74-4c7a-4f44-829f-123abfee0cad"
+      },
+      {
+        "sku_code": "SKU-CGCK3-DEFAULT-3",
+        "price": 65700,
+        "stock": 70,
+        "attributes": null,
+        "id": "bc4fba9e-ce23-46cc-9033-dd6bc0200d0b"
+      },
+      {
+        "sku_code": "SKU-CGCK3-DEFAULT-4",
+        "price": 65700,
+        "stock": 70,
+        "attributes": null,
+        "id": "0f0cd254-cb0b-4595-89b7-9f728867e4aa"
       }
     ],
     "brand": "Creative",
@@ -1240,6 +1870,27 @@
         "price": 119700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EHDKF-DEFAULT-2",
+        "price": 119700,
+        "stock": 35,
+        "attributes": null,
+        "id": "8d74b418-7c23-4695-9146-ef4b987acad8"
+      },
+      {
+        "sku_code": "SKU-EHDKF-DEFAULT-3",
+        "price": 119700,
+        "stock": 35,
+        "attributes": null,
+        "id": "516c5bcc-9742-4444-8ce1-5203282d4a6c"
+      },
+      {
+        "sku_code": "SKU-EHDKF-DEFAULT-4",
+        "price": 119700,
+        "stock": 35,
+        "attributes": null,
+        "id": "c3ed2c84-e479-4be5-a781-e1b12f70fc5d"
       }
     ],
     "brand": "Green",
@@ -1277,6 +1928,27 @@
         "price": 59700,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7ZFFY-DEFAULT-2",
+        "price": 59700,
+        "stock": 75,
+        "attributes": null,
+        "id": "8aac5e50-7e3d-4ea7-b252-0213441d6ec3"
+      },
+      {
+        "sku_code": "SKU-7ZFFY-DEFAULT-3",
+        "price": 59700,
+        "stock": 75,
+        "attributes": null,
+        "id": "905d8ec1-fa51-4279-a3c5-16f03b560f6f"
+      },
+      {
+        "sku_code": "SKU-7ZFFY-DEFAULT-4",
+        "price": 59700,
+        "stock": 75,
+        "attributes": null,
+        "id": "64d38a88-7f38-4fb9-9f34-09d3dfb2bcba"
       }
     ],
     "brand": "Garden",
@@ -1314,6 +1986,27 @@
         "price": 21600,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IIY2B-DEFAULT-2",
+        "price": 21600,
+        "stock": 58,
+        "attributes": null,
+        "id": "c59b172f-490a-442a-aa99-dbd8f3f38142"
+      },
+      {
+        "sku_code": "SKU-IIY2B-DEFAULT-3",
+        "price": 21600,
+        "stock": 58,
+        "attributes": null,
+        "id": "482a8d2b-99cc-4e9f-9aa8-06f273e8cfed"
+      },
+      {
+        "sku_code": "SKU-IIY2B-DEFAULT-4",
+        "price": 21600,
+        "stock": 58,
+        "attributes": null,
+        "id": "e5c0d6ed-9fe9-474c-b9f2-6503fa98f961"
       }
     ],
     "brand": "Jakmister",
@@ -1359,6 +2052,27 @@
         "price": 239700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TUXDV-DEFAULT-2",
+        "price": 239700,
+        "stock": 73,
+        "attributes": null,
+        "id": "bdd27bd4-fe58-4ba0-9ba8-d27f081fc8d1"
+      },
+      {
+        "sku_code": "SKU-TUXDV-DEFAULT-3",
+        "price": 239700,
+        "stock": 73,
+        "attributes": null,
+        "id": "ff0405b2-1e72-41a5-8582-85922920a6f1"
+      },
+      {
+        "sku_code": "SKU-TUXDV-DEFAULT-4",
+        "price": 239700,
+        "stock": 73,
+        "attributes": null,
+        "id": "0a527644-6771-4e3e-841f-d073c9485207"
       }
     ],
     "brand": "BIO",
@@ -1396,6 +2110,27 @@
         "price": 59997,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BUTSQ-DEFAULT-2",
+        "price": 59997,
+        "stock": 89,
+        "attributes": null,
+        "id": "c2992efa-cc81-4e00-a41f-3094de48ac99"
+      },
+      {
+        "sku_code": "SKU-BUTSQ-DEFAULT-3",
+        "price": 59997,
+        "stock": 89,
+        "attributes": null,
+        "id": "44b96d3b-42e9-483d-a0c1-8c24966a2609"
+      },
+      {
+        "sku_code": "SKU-BUTSQ-DEFAULT-4",
+        "price": 59997,
+        "stock": 89,
+        "attributes": null,
+        "id": "76cf5b76-f8cb-4565-b506-09e30db6f028"
       }
     ],
     "brand": "Golden",
@@ -1441,6 +2176,27 @@
         "price": 179700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DNGED-DEFAULT-2",
+        "price": 179700,
+        "stock": 57,
+        "attributes": null,
+        "id": "fad8b293-a70f-4ac8-943f-ffd5f6fdde82"
+      },
+      {
+        "sku_code": "SKU-DNGED-DEFAULT-3",
+        "price": 179700,
+        "stock": 57,
+        "attributes": null,
+        "id": "4d611f23-e6ad-416f-b7ce-823ff627ff83"
+      },
+      {
+        "sku_code": "SKU-DNGED-DEFAULT-4",
+        "price": 179700,
+        "stock": 57,
+        "attributes": null,
+        "id": "ddcae1df-841f-4d89-bc6e-9a9a874fcd02"
       }
     ],
     "brand": "Golden",
@@ -1482,6 +2238,27 @@
         "price": 239700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G3GQI-DEFAULT-2",
+        "price": 239700,
+        "stock": 102,
+        "attributes": null,
+        "id": "4d8ab8db-0d1d-489f-99e7-2120941929b8"
+      },
+      {
+        "sku_code": "SKU-G3GQI-DEFAULT-3",
+        "price": 239700,
+        "stock": 102,
+        "attributes": null,
+        "id": "ae89ea2e-c3b3-4be4-85c5-975e048d2d94"
+      },
+      {
+        "sku_code": "SKU-G3GQI-DEFAULT-4",
+        "price": 239700,
+        "stock": 102,
+        "attributes": null,
+        "id": "29ab4f33-3134-414f-9727-43e8b6277342"
       }
     ],
     "brand": "Creative",
@@ -1519,6 +2296,27 @@
         "price": 173700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HCLN6-DEFAULT-2",
+        "price": 173700,
+        "stock": 28,
+        "attributes": null,
+        "id": "55c6e3be-6ce7-4d70-891e-764f6275e7f2"
+      },
+      {
+        "sku_code": "SKU-HCLN6-DEFAULT-3",
+        "price": 173700,
+        "stock": 28,
+        "attributes": null,
+        "id": "3729d1c8-7c9c-4f84-a18e-c356d66a2f43"
+      },
+      {
+        "sku_code": "SKU-HCLN6-DEFAULT-4",
+        "price": 173700,
+        "stock": 28,
+        "attributes": null,
+        "id": "458918c5-1766-4fc5-8124-3d0c1c762444"
       }
     ],
     "brand": "OhhSome",
@@ -1564,6 +2362,27 @@
         "price": 407100,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BL2L1-DEFAULT-2",
+        "price": 407100,
+        "stock": 102,
+        "attributes": null,
+        "id": "b53acbd5-79f9-42d6-a91e-e25ab5419f69"
+      },
+      {
+        "sku_code": "SKU-BL2L1-DEFAULT-3",
+        "price": 407100,
+        "stock": 102,
+        "attributes": null,
+        "id": "a9f315b4-7cd0-4eae-bf44-3f343506c693"
+      },
+      {
+        "sku_code": "SKU-BL2L1-DEFAULT-4",
+        "price": 407100,
+        "stock": 102,
+        "attributes": null,
+        "id": "c12c5aba-8bb4-4b6a-ae89-a9047442a8be"
       }
     ],
     "brand": "Mphmi",
@@ -1601,6 +2420,27 @@
         "price": 119400,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OHAT1-DEFAULT-2",
+        "price": 119400,
+        "stock": 81,
+        "attributes": null,
+        "id": "1adfe172-d8ed-4611-9778-2b7f8bd17342"
+      },
+      {
+        "sku_code": "SKU-OHAT1-DEFAULT-3",
+        "price": 119400,
+        "stock": 81,
+        "attributes": null,
+        "id": "202a3204-a97f-4301-8961-3df3916f2a0f"
+      },
+      {
+        "sku_code": "SKU-OHAT1-DEFAULT-4",
+        "price": 119400,
+        "stock": 81,
+        "attributes": null,
+        "id": "835d8581-c84d-4984-b379-b2e04437d712"
       }
     ],
     "brand": "Leafy",
@@ -1642,6 +2482,27 @@
         "price": 179400,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FHBG5-DEFAULT-2",
+        "price": 179400,
+        "stock": 75,
+        "attributes": null,
+        "id": "3be12345-d576-4e64-997b-4a4a6ccfa952"
+      },
+      {
+        "sku_code": "SKU-FHBG5-DEFAULT-3",
+        "price": 179400,
+        "stock": 75,
+        "attributes": null,
+        "id": "680ca2ad-532b-4bd1-8059-d54518476508"
+      },
+      {
+        "sku_code": "SKU-FHBG5-DEFAULT-4",
+        "price": 179400,
+        "stock": 75,
+        "attributes": null,
+        "id": "321974aa-3468-4bc2-843d-c3278d120845"
       }
     ],
     "brand": "Creative",
@@ -1683,6 +2544,27 @@
         "price": 66000,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N4F1U-DEFAULT-2",
+        "price": 66000,
+        "stock": 73,
+        "attributes": null,
+        "id": "ff9cb955-85a8-4c7a-8c90-06d2e78dad3c"
+      },
+      {
+        "sku_code": "SKU-N4F1U-DEFAULT-3",
+        "price": 66000,
+        "stock": 73,
+        "attributes": null,
+        "id": "3f1cd66b-4efc-4dc2-87c9-e9b821b42b34"
+      },
+      {
+        "sku_code": "SKU-N4F1U-DEFAULT-4",
+        "price": 66000,
+        "stock": 73,
+        "attributes": null,
+        "id": "5c48aeac-be6b-4301-89fb-81e23ebabce6"
       }
     ],
     "brand": "Bayer",
@@ -1720,6 +2602,27 @@
         "price": 89700,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4PJKG-DEFAULT-2",
+        "price": 89700,
+        "stock": 76,
+        "attributes": null,
+        "id": "b6923fbf-8784-4fe0-89ce-383482a99ddc"
+      },
+      {
+        "sku_code": "SKU-4PJKG-DEFAULT-3",
+        "price": 89700,
+        "stock": 76,
+        "attributes": null,
+        "id": "9f424e23-384f-4c5c-9380-009756155ac3"
+      },
+      {
+        "sku_code": "SKU-4PJKG-DEFAULT-4",
+        "price": 89700,
+        "stock": 76,
+        "attributes": null,
+        "id": "ca01259c-411c-47d1-81a9-310f7264cf06"
       }
     ],
     "brand": "Kraft",
@@ -1761,6 +2664,27 @@
         "price": 615000,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F5CRJ-DEFAULT-2",
+        "price": 615000,
+        "stock": 90,
+        "attributes": null,
+        "id": "63f6a659-2808-42fd-b2a1-3d0258b3b199"
+      },
+      {
+        "sku_code": "SKU-F5CRJ-DEFAULT-3",
+        "price": 615000,
+        "stock": 90,
+        "attributes": null,
+        "id": "2f2cbee6-74d6-4317-98b2-fcd6aadcd7fa"
+      },
+      {
+        "sku_code": "SKU-F5CRJ-DEFAULT-4",
+        "price": 615000,
+        "stock": 90,
+        "attributes": null,
+        "id": "0b6c4ef5-ecf4-4727-a89f-3f5b064eca79"
       }
     ],
     "brand": "Bayer",
@@ -1806,6 +2730,27 @@
         "price": 47700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I97DH-DEFAULT-2",
+        "price": 47700,
+        "stock": 88,
+        "attributes": null,
+        "id": "9905d440-e99e-41bc-98bb-7bdf5f8ba226"
+      },
+      {
+        "sku_code": "SKU-I97DH-DEFAULT-3",
+        "price": 47700,
+        "stock": 88,
+        "attributes": null,
+        "id": "238acdae-8766-4506-bc1f-4aab672effd3"
+      },
+      {
+        "sku_code": "SKU-I97DH-DEFAULT-4",
+        "price": 47700,
+        "stock": 88,
+        "attributes": null,
+        "id": "086ba825-643d-4193-9e2d-93bc4b00776a"
       }
     ],
     "brand": "OhhSome",
@@ -1843,6 +2788,27 @@
         "price": 64200,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GW2TV-DEFAULT-2",
+        "price": 64200,
+        "stock": 19,
+        "attributes": null,
+        "id": "cce79840-2186-4389-83aa-197f50c5cd03"
+      },
+      {
+        "sku_code": "SKU-GW2TV-DEFAULT-3",
+        "price": 64200,
+        "stock": 19,
+        "attributes": null,
+        "id": "e0a0f88a-7475-407a-b744-8aace3ce512a"
+      },
+      {
+        "sku_code": "SKU-GW2TV-DEFAULT-4",
+        "price": 64200,
+        "stock": 19,
+        "attributes": null,
+        "id": "04f84428-a204-4c16-8650-9a7badc457b6"
       }
     ],
     "brand": "Mphmi",
@@ -1880,6 +2846,27 @@
         "price": 34500,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E4AFD-DEFAULT-2",
+        "price": 34500,
+        "stock": 10,
+        "attributes": null,
+        "id": "fa340964-5fce-4976-b13b-ea35424cac3a"
+      },
+      {
+        "sku_code": "SKU-E4AFD-DEFAULT-3",
+        "price": 34500,
+        "stock": 10,
+        "attributes": null,
+        "id": "f23ee770-68cd-46be-a395-fdf3d26a0cbc"
+      },
+      {
+        "sku_code": "SKU-E4AFD-DEFAULT-4",
+        "price": 34500,
+        "stock": 10,
+        "attributes": null,
+        "id": "fa1447e2-2d5f-4ba2-9baf-d34990a0e4ed"
       }
     ],
     "brand": "OhhSome",
@@ -1925,6 +2912,27 @@
         "price": 59700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2O3UR-DEFAULT-2",
+        "price": 59700,
+        "stock": 103,
+        "attributes": null,
+        "id": "70fd3828-1e30-4c6c-ba4d-98805ff33c5a"
+      },
+      {
+        "sku_code": "SKU-2O3UR-DEFAULT-3",
+        "price": 59700,
+        "stock": 103,
+        "attributes": null,
+        "id": "45b9b024-5efb-41db-b411-a8870eb8781a"
+      },
+      {
+        "sku_code": "SKU-2O3UR-DEFAULT-4",
+        "price": 59700,
+        "stock": 103,
+        "attributes": null,
+        "id": "1a40a636-298f-4efa-88c3-1a43883a3ddd"
       }
     ],
     "brand": "Leafy",
@@ -1970,6 +2978,27 @@
         "price": 179700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LIOQ7-DEFAULT-2",
+        "price": 179700,
+        "stock": 71,
+        "attributes": null,
+        "id": "f96405b7-18c8-4686-b407-da8dd59a4065"
+      },
+      {
+        "sku_code": "SKU-LIOQ7-DEFAULT-3",
+        "price": 179700,
+        "stock": 71,
+        "attributes": null,
+        "id": "649fef7c-9575-4903-a5d4-4868d8b386fd"
+      },
+      {
+        "sku_code": "SKU-LIOQ7-DEFAULT-4",
+        "price": 179700,
+        "stock": 71,
+        "attributes": null,
+        "id": "4ed073ec-364a-4463-be8b-b6eea6763378"
       }
     ],
     "brand": "Garden",
@@ -2007,6 +3036,27 @@
         "price": 119700,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L1ZWA-DEFAULT-2",
+        "price": 119700,
+        "stock": 47,
+        "attributes": null,
+        "id": "6409cf62-9a04-49a4-b3aa-f2f364f48fca"
+      },
+      {
+        "sku_code": "SKU-L1ZWA-DEFAULT-3",
+        "price": 119700,
+        "stock": 47,
+        "attributes": null,
+        "id": "b4aef47e-7814-4f05-b9a0-c01024346fd1"
+      },
+      {
+        "sku_code": "SKU-L1ZWA-DEFAULT-4",
+        "price": 119700,
+        "stock": 47,
+        "attributes": null,
+        "id": "5c1cb626-f12f-45a0-abe5-a51d88f0c069"
       }
     ],
     "brand": "Garden",
@@ -2048,6 +3098,27 @@
         "price": 49500,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DF2J9-DEFAULT-2",
+        "price": 49500,
+        "stock": 70,
+        "attributes": null,
+        "id": "cbb45541-a019-4c4e-9737-d939048f0aa5"
+      },
+      {
+        "sku_code": "SKU-DF2J9-DEFAULT-3",
+        "price": 49500,
+        "stock": 70,
+        "attributes": null,
+        "id": "8dcd1b78-2680-449a-ac72-31558bfafdce"
+      },
+      {
+        "sku_code": "SKU-DF2J9-DEFAULT-4",
+        "price": 49500,
+        "stock": 70,
+        "attributes": null,
+        "id": "6d5d00a1-8eeb-4960-a9c0-572f3d0823e3"
       }
     ],
     "brand": "Garden",
@@ -2089,6 +3160,27 @@
         "price": 29700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7I7WK-DEFAULT-2",
+        "price": 29700,
+        "stock": 18,
+        "attributes": null,
+        "id": "1ffd8c5e-a308-43f3-a947-475d47ec44d8"
+      },
+      {
+        "sku_code": "SKU-7I7WK-DEFAULT-3",
+        "price": 29700,
+        "stock": 18,
+        "attributes": null,
+        "id": "53e04a8a-6cc8-4174-a34b-f28187220e10"
+      },
+      {
+        "sku_code": "SKU-7I7WK-DEFAULT-4",
+        "price": 29700,
+        "stock": 18,
+        "attributes": null,
+        "id": "9b3780da-5383-46de-b02b-9c3b005f9cd0"
       }
     ],
     "brand": "Golden",
@@ -2134,6 +3226,27 @@
         "price": 357000,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TFAAZ-DEFAULT-2",
+        "price": 357000,
+        "stock": 43,
+        "attributes": null,
+        "id": "b4d28bbb-113f-4609-8ec4-694832a5fe32"
+      },
+      {
+        "sku_code": "SKU-TFAAZ-DEFAULT-3",
+        "price": 357000,
+        "stock": 43,
+        "attributes": null,
+        "id": "70a077a3-be12-48b1-af42-abd41a0fa9cf"
+      },
+      {
+        "sku_code": "SKU-TFAAZ-DEFAULT-4",
+        "price": 357000,
+        "stock": 43,
+        "attributes": null,
+        "id": "38632716-20fb-4bc9-8c6e-36fe4bbbb624"
       }
     ],
     "brand": "OhhSome",
@@ -2179,6 +3292,27 @@
         "price": 599700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y48BF-DEFAULT-2",
+        "price": 599700,
+        "stock": 104,
+        "attributes": null,
+        "id": "fc086e4e-02ec-4baa-8841-27ba16de7187"
+      },
+      {
+        "sku_code": "SKU-Y48BF-DEFAULT-3",
+        "price": 599700,
+        "stock": 104,
+        "attributes": null,
+        "id": "a3cb35ab-a38e-4035-9a8f-d44c306d669b"
+      },
+      {
+        "sku_code": "SKU-Y48BF-DEFAULT-4",
+        "price": 599700,
+        "stock": 104,
+        "attributes": null,
+        "id": "fd07f0cc-4934-4118-b741-5df93eaaccac"
       }
     ],
     "brand": "Ugaoo",
@@ -2216,6 +3350,27 @@
         "price": 140343,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KM1CK-DEFAULT-2",
+        "price": 140343,
+        "stock": 27,
+        "attributes": null,
+        "id": "7696a1cb-8847-4851-be6d-ed60e271c392"
+      },
+      {
+        "sku_code": "SKU-KM1CK-DEFAULT-3",
+        "price": 140343,
+        "stock": 27,
+        "attributes": null,
+        "id": "0bf910fe-6259-48e5-bba3-2fafb3880909"
+      },
+      {
+        "sku_code": "SKU-KM1CK-DEFAULT-4",
+        "price": 140343,
+        "stock": 27,
+        "attributes": null,
+        "id": "f08aa924-4b4a-4203-be1f-1baa1aa5d1b4"
       }
     ],
     "brand": "Mphmi",
@@ -2261,6 +3416,27 @@
         "price": 52500,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0H8E4-DEFAULT-2",
+        "price": 52500,
+        "stock": 97,
+        "attributes": null,
+        "id": "4f999c59-5b06-4134-983b-6aaf349f3486"
+      },
+      {
+        "sku_code": "SKU-0H8E4-DEFAULT-3",
+        "price": 52500,
+        "stock": 97,
+        "attributes": null,
+        "id": "f6eb7f51-bc18-438e-bca3-b3d63b49da65"
+      },
+      {
+        "sku_code": "SKU-0H8E4-DEFAULT-4",
+        "price": 52500,
+        "stock": 97,
+        "attributes": null,
+        "id": "dfeeb116-1800-4a3b-9e41-7120f4bc8277"
       }
     ],
     "brand": "CAPPL",
@@ -2306,6 +3482,27 @@
         "price": 53700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MI523-DEFAULT-2",
+        "price": 53700,
+        "stock": 103,
+        "attributes": null,
+        "id": "c0ab755f-3138-4c5a-a2f0-1e97d76dbb94"
+      },
+      {
+        "sku_code": "SKU-MI523-DEFAULT-3",
+        "price": 53700,
+        "stock": 103,
+        "attributes": null,
+        "id": "fe0b8d5d-95b2-4bd0-9ca5-078d32ba9262"
+      },
+      {
+        "sku_code": "SKU-MI523-DEFAULT-4",
+        "price": 53700,
+        "stock": 103,
+        "attributes": null,
+        "id": "2d5d2fa4-76b9-44c7-8882-c273227d2778"
       }
     ],
     "brand": "CAPPL",
@@ -2343,6 +3540,27 @@
         "price": 29400,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4KBO3-DEFAULT-2",
+        "price": 29400,
+        "stock": 55,
+        "attributes": null,
+        "id": "d2dd08c7-b8dd-4a19-8d32-655e28873e75"
+      },
+      {
+        "sku_code": "SKU-4KBO3-DEFAULT-3",
+        "price": 29400,
+        "stock": 55,
+        "attributes": null,
+        "id": "5a61d23e-088e-49d3-8ae5-b59fcb4ef885"
+      },
+      {
+        "sku_code": "SKU-4KBO3-DEFAULT-4",
+        "price": 29400,
+        "stock": 55,
+        "attributes": null,
+        "id": "87e1bf31-b64c-4c36-adc6-cca9af8a2071"
       }
     ],
     "brand": "Bayer",
@@ -2388,6 +3606,27 @@
         "price": 201600,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5J65F-DEFAULT-2",
+        "price": 201600,
+        "stock": 73,
+        "attributes": null,
+        "id": "bd918155-6a7a-4384-be8b-02471bbf0fa4"
+      },
+      {
+        "sku_code": "SKU-5J65F-DEFAULT-3",
+        "price": 201600,
+        "stock": 73,
+        "attributes": null,
+        "id": "50c8e769-2901-4217-9cfb-f51935ede7db"
+      },
+      {
+        "sku_code": "SKU-5J65F-DEFAULT-4",
+        "price": 201600,
+        "stock": 73,
+        "attributes": null,
+        "id": "38161736-569c-4f9f-8316-0c4f2acac30f"
       }
     ],
     "brand": "Leafy",
@@ -2429,6 +3668,27 @@
         "price": 99000,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OSWJF-DEFAULT-2",
+        "price": 99000,
+        "stock": 37,
+        "attributes": null,
+        "id": "5ec71ceb-9ccc-4838-bcf2-1e21b2f28c35"
+      },
+      {
+        "sku_code": "SKU-OSWJF-DEFAULT-3",
+        "price": 99000,
+        "stock": 37,
+        "attributes": null,
+        "id": "5f7ba254-dc77-45d6-9979-96431e8b2e4a"
+      },
+      {
+        "sku_code": "SKU-OSWJF-DEFAULT-4",
+        "price": 99000,
+        "stock": 37,
+        "attributes": null,
+        "id": "f80043e0-baa6-43d1-97c0-f25231359382"
       }
     ],
     "brand": "Bayer",
@@ -2474,6 +3734,27 @@
         "price": 232500,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E9U71-DEFAULT-2",
+        "price": 232500,
+        "stock": 70,
+        "attributes": null,
+        "id": "65f22326-e9e3-4ae1-9536-4380d4aab5bb"
+      },
+      {
+        "sku_code": "SKU-E9U71-DEFAULT-3",
+        "price": 232500,
+        "stock": 70,
+        "attributes": null,
+        "id": "7fee044d-d18b-4075-b489-5bb959c16ae9"
+      },
+      {
+        "sku_code": "SKU-E9U71-DEFAULT-4",
+        "price": 232500,
+        "stock": 70,
+        "attributes": null,
+        "id": "01eda617-0c3f-4f92-8f06-3b386e949b5a"
       }
     ],
     "brand": "CAPPL",
@@ -2515,6 +3796,27 @@
         "price": 84000,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-48E1B-DEFAULT-2",
+        "price": 84000,
+        "stock": 64,
+        "attributes": null,
+        "id": "d649f640-9bdc-4e0a-ba56-a52cc3047cc3"
+      },
+      {
+        "sku_code": "SKU-48E1B-DEFAULT-3",
+        "price": 84000,
+        "stock": 64,
+        "attributes": null,
+        "id": "d1354b6c-0f42-4cdf-b7b0-26fbc4cdd332"
+      },
+      {
+        "sku_code": "SKU-48E1B-DEFAULT-4",
+        "price": 84000,
+        "stock": 64,
+        "attributes": null,
+        "id": "ba264ba5-384e-4430-985a-6e77c2daafa1"
       }
     ],
     "brand": "Green",
@@ -2556,6 +3858,27 @@
         "price": 119700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U2C3B-DEFAULT-2",
+        "price": 119700,
+        "stock": 64,
+        "attributes": null,
+        "id": "452f7acb-14fb-4187-a4ef-ce9777c585ee"
+      },
+      {
+        "sku_code": "SKU-U2C3B-DEFAULT-3",
+        "price": 119700,
+        "stock": 64,
+        "attributes": null,
+        "id": "945b90a6-b220-4785-b582-664bb825151b"
+      },
+      {
+        "sku_code": "SKU-U2C3B-DEFAULT-4",
+        "price": 119700,
+        "stock": 64,
+        "attributes": null,
+        "id": "b23fe51e-a34c-49cb-bb8b-e7dacf870285"
       }
     ],
     "brand": "Green",
@@ -2601,6 +3924,27 @@
         "price": 74700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JE1VJ-DEFAULT-2",
+        "price": 74700,
+        "stock": 94,
+        "attributes": null,
+        "id": "a861b42d-958a-4252-b6eb-db5c0b3cd577"
+      },
+      {
+        "sku_code": "SKU-JE1VJ-DEFAULT-3",
+        "price": 74700,
+        "stock": 94,
+        "attributes": null,
+        "id": "ddd87cf0-179a-4acf-b9d7-0b2b35164ec8"
+      },
+      {
+        "sku_code": "SKU-JE1VJ-DEFAULT-4",
+        "price": 74700,
+        "stock": 94,
+        "attributes": null,
+        "id": "3942702f-c8b5-4ce4-993f-652829bc25b3"
       }
     ],
     "brand": "OhhSome",
@@ -2646,6 +3990,27 @@
         "price": 44100,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5N243-DEFAULT-2",
+        "price": 44100,
+        "stock": 51,
+        "attributes": null,
+        "id": "fb869754-a157-4b7b-a9ec-560c8da30d33"
+      },
+      {
+        "sku_code": "SKU-5N243-DEFAULT-3",
+        "price": 44100,
+        "stock": 51,
+        "attributes": null,
+        "id": "173146f1-96c3-4c75-933b-38dfc68dbb2a"
+      },
+      {
+        "sku_code": "SKU-5N243-DEFAULT-4",
+        "price": 44100,
+        "stock": 51,
+        "attributes": null,
+        "id": "5d7a1b17-0435-4812-a3b3-3ec6704e7cc8"
       }
     ],
     "brand": "Creative",
@@ -2683,6 +4048,27 @@
         "price": 196800,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZVUQV-DEFAULT-2",
+        "price": 196800,
+        "stock": 28,
+        "attributes": null,
+        "id": "4834fff7-dc70-4961-80ab-ae01c5cb2373"
+      },
+      {
+        "sku_code": "SKU-ZVUQV-DEFAULT-3",
+        "price": 196800,
+        "stock": 28,
+        "attributes": null,
+        "id": "3a0bbab1-50c6-4062-96bf-463503a62df0"
+      },
+      {
+        "sku_code": "SKU-ZVUQV-DEFAULT-4",
+        "price": 196800,
+        "stock": 28,
+        "attributes": null,
+        "id": "bed29d60-52c2-44ea-977c-99686d069ac0"
       }
     ],
     "brand": "TrustBasket",
@@ -2724,6 +4110,27 @@
         "price": 29700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8WNRA-DEFAULT-2",
+        "price": 29700,
+        "stock": 74,
+        "attributes": null,
+        "id": "0de1cd15-7a21-4920-98f6-e06e76f95be7"
+      },
+      {
+        "sku_code": "SKU-8WNRA-DEFAULT-3",
+        "price": 29700,
+        "stock": 74,
+        "attributes": null,
+        "id": "32c82e78-4e31-4664-a978-6cad06ea2290"
+      },
+      {
+        "sku_code": "SKU-8WNRA-DEFAULT-4",
+        "price": 29700,
+        "stock": 74,
+        "attributes": null,
+        "id": "48e7b11e-fca0-4c71-beec-a75c559ab829"
       }
     ],
     "brand": "Green",
@@ -2765,6 +4172,27 @@
         "price": 51000,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TG6IJ-DEFAULT-2",
+        "price": 51000,
+        "stock": 88,
+        "attributes": null,
+        "id": "447fc402-88a1-48fa-b4e5-3f5eee683800"
+      },
+      {
+        "sku_code": "SKU-TG6IJ-DEFAULT-3",
+        "price": 51000,
+        "stock": 88,
+        "attributes": null,
+        "id": "714f0f27-2ce1-4972-9255-ec1d034b9d6f"
+      },
+      {
+        "sku_code": "SKU-TG6IJ-DEFAULT-4",
+        "price": 51000,
+        "stock": 88,
+        "attributes": null,
+        "id": "9b2a0ec3-0c4a-4cd3-a964-7106e46d172f"
       }
     ],
     "brand": "Bayer",
@@ -2802,6 +4230,27 @@
         "price": 20700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VYVWH-DEFAULT-2",
+        "price": 20700,
+        "stock": 24,
+        "attributes": null,
+        "id": "2f79c02f-2036-41e2-a67c-30f75ac6c312"
+      },
+      {
+        "sku_code": "SKU-VYVWH-DEFAULT-3",
+        "price": 20700,
+        "stock": 24,
+        "attributes": null,
+        "id": "fadd2320-66a5-4908-ac8e-c274688ec466"
+      },
+      {
+        "sku_code": "SKU-VYVWH-DEFAULT-4",
+        "price": 20700,
+        "stock": 24,
+        "attributes": null,
+        "id": "2c544029-6f93-41b0-92a9-4d025c9ac332"
       }
     ],
     "brand": "UGAOO",
@@ -2847,6 +4296,27 @@
         "price": 179700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2RQIY-DEFAULT-2",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "d6472c89-6505-4008-8692-b35786920f06"
+      },
+      {
+        "sku_code": "SKU-2RQIY-DEFAULT-3",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "e6daca62-f194-4a07-aa60-e8ddeb44948e"
+      },
+      {
+        "sku_code": "SKU-2RQIY-DEFAULT-4",
+        "price": 179700,
+        "stock": 97,
+        "attributes": null,
+        "id": "03253969-7015-4d65-bf58-5c9eebf30bd9"
       }
     ],
     "brand": "Golden",
@@ -2888,6 +4358,27 @@
         "price": 53700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7JSI2-DEFAULT-2",
+        "price": 53700,
+        "stock": 60,
+        "attributes": null,
+        "id": "41098530-3130-40ca-9c54-13ed8e392baa"
+      },
+      {
+        "sku_code": "SKU-7JSI2-DEFAULT-3",
+        "price": 53700,
+        "stock": 60,
+        "attributes": null,
+        "id": "b221ad56-e040-48ed-99f8-e127b0d5cac9"
+      },
+      {
+        "sku_code": "SKU-7JSI2-DEFAULT-4",
+        "price": 53700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0490a35e-6f52-4074-9222-dabed062eef2"
       }
     ],
     "brand": "OhhSome",
@@ -2933,6 +4424,27 @@
         "price": 74700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MY5JM-DEFAULT-2",
+        "price": 74700,
+        "stock": 18,
+        "attributes": null,
+        "id": "cfe0d206-6bab-402d-9a03-4795a1b500f8"
+      },
+      {
+        "sku_code": "SKU-MY5JM-DEFAULT-3",
+        "price": 74700,
+        "stock": 18,
+        "attributes": null,
+        "id": "77e7e57f-a6e9-4802-9484-68b6ddb8f347"
+      },
+      {
+        "sku_code": "SKU-MY5JM-DEFAULT-4",
+        "price": 74700,
+        "stock": 18,
+        "attributes": null,
+        "id": "d8628b07-cd46-402b-8f34-7f5ee58ee408"
       }
     ],
     "brand": "OhhSome",
@@ -2970,6 +4482,27 @@
         "price": 59700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NV3QL-DEFAULT-2",
+        "price": 59700,
+        "stock": 10,
+        "attributes": null,
+        "id": "05d6dcd0-9cfe-4324-81b4-a201c99744a6"
+      },
+      {
+        "sku_code": "SKU-NV3QL-DEFAULT-3",
+        "price": 59700,
+        "stock": 10,
+        "attributes": null,
+        "id": "ef6e2df8-46eb-469a-a95b-0adf9d784eae"
+      },
+      {
+        "sku_code": "SKU-NV3QL-DEFAULT-4",
+        "price": 59700,
+        "stock": 10,
+        "attributes": null,
+        "id": "67364533-ed7d-436e-830d-f12eb96b55c9"
       }
     ],
     "brand": "Mphmi",
@@ -3007,6 +4540,27 @@
         "price": 59700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VQXVX-DEFAULT-2",
+        "price": 59700,
+        "stock": 106,
+        "attributes": null,
+        "id": "e26d8958-519b-47ac-9e4f-2cd9a71e0400"
+      },
+      {
+        "sku_code": "SKU-VQXVX-DEFAULT-3",
+        "price": 59700,
+        "stock": 106,
+        "attributes": null,
+        "id": "600c82e5-8179-4e3d-a032-fb191dedf40d"
+      },
+      {
+        "sku_code": "SKU-VQXVX-DEFAULT-4",
+        "price": 59700,
+        "stock": 106,
+        "attributes": null,
+        "id": "ecdac232-6fc4-49d3-a05b-aa589463f542"
       }
     ],
     "brand": "Garden",
@@ -3044,6 +4598,27 @@
         "price": 98700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9XSG2-DEFAULT-2",
+        "price": 98700,
+        "stock": 91,
+        "attributes": null,
+        "id": "6216d334-7918-4d57-b396-eb51e0ea5d48"
+      },
+      {
+        "sku_code": "SKU-9XSG2-DEFAULT-3",
+        "price": 98700,
+        "stock": 91,
+        "attributes": null,
+        "id": "944e6aa4-b121-459b-a7e2-7cec88f387d1"
+      },
+      {
+        "sku_code": "SKU-9XSG2-DEFAULT-4",
+        "price": 98700,
+        "stock": 91,
+        "attributes": null,
+        "id": "ead82ba6-7fe7-4139-9510-ffa9fdd20804"
       }
     ],
     "brand": "Kraft",
@@ -3085,6 +4660,27 @@
         "price": 142200,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5ZOMT-DEFAULT-2",
+        "price": 142200,
+        "stock": 67,
+        "attributes": null,
+        "id": "420284e2-d6af-45b3-a2a5-ca8c31c73df6"
+      },
+      {
+        "sku_code": "SKU-5ZOMT-DEFAULT-3",
+        "price": 142200,
+        "stock": 67,
+        "attributes": null,
+        "id": "f2302026-8469-4806-9a40-cfc86dfe3bfa"
+      },
+      {
+        "sku_code": "SKU-5ZOMT-DEFAULT-4",
+        "price": 142200,
+        "stock": 67,
+        "attributes": null,
+        "id": "6629f5c0-6a1f-4295-8636-ed19f9757b30"
       }
     ],
     "brand": "BIO",
@@ -3126,6 +4722,27 @@
         "price": 50700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RFW9J-DEFAULT-2",
+        "price": 50700,
+        "stock": 30,
+        "attributes": null,
+        "id": "8f869363-af0e-4bcf-9dd4-e827951a0b52"
+      },
+      {
+        "sku_code": "SKU-RFW9J-DEFAULT-3",
+        "price": 50700,
+        "stock": 30,
+        "attributes": null,
+        "id": "5141c45d-bbcd-427d-b8a4-a379346485ea"
+      },
+      {
+        "sku_code": "SKU-RFW9J-DEFAULT-4",
+        "price": 50700,
+        "stock": 30,
+        "attributes": null,
+        "id": "6fcdf701-96d0-4d1b-8fb2-91d942ae7bb5"
       }
     ],
     "brand": "CAPPL",
@@ -3171,6 +4788,27 @@
         "price": 225000,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I5AVF-DEFAULT-2",
+        "price": 225000,
+        "stock": 50,
+        "attributes": null,
+        "id": "d63c4ed2-1c8c-401f-a642-197b20c6a5ac"
+      },
+      {
+        "sku_code": "SKU-I5AVF-DEFAULT-3",
+        "price": 225000,
+        "stock": 50,
+        "attributes": null,
+        "id": "e405462a-5564-4197-b1f8-2c7ab09f34da"
+      },
+      {
+        "sku_code": "SKU-I5AVF-DEFAULT-4",
+        "price": 225000,
+        "stock": 50,
+        "attributes": null,
+        "id": "de42c7e0-b428-4170-a203-765e0212b714"
       }
     ],
     "brand": "Bayer",
@@ -3208,6 +4846,27 @@
         "price": 149700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W1P37-DEFAULT-2",
+        "price": 149700,
+        "stock": 56,
+        "attributes": null,
+        "id": "4e4e001b-c8d9-4a61-ab70-009e6d238068"
+      },
+      {
+        "sku_code": "SKU-W1P37-DEFAULT-3",
+        "price": 149700,
+        "stock": 56,
+        "attributes": null,
+        "id": "5e174e99-c52b-4051-8a8f-65ba12f5b3a6"
+      },
+      {
+        "sku_code": "SKU-W1P37-DEFAULT-4",
+        "price": 149700,
+        "stock": 56,
+        "attributes": null,
+        "id": "d77549ba-8b3c-4cab-862c-182a7c6bda21"
       }
     ],
     "brand": "UGAOO",
@@ -3245,6 +4904,27 @@
         "price": 134700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IJ07S-DEFAULT-2",
+        "price": 134700,
+        "stock": 88,
+        "attributes": null,
+        "id": "595f0b7a-a4d2-475e-8f22-5b237ae349a6"
+      },
+      {
+        "sku_code": "SKU-IJ07S-DEFAULT-3",
+        "price": 134700,
+        "stock": 88,
+        "attributes": null,
+        "id": "d537c362-d701-4aa6-ac54-a3228e256cb8"
+      },
+      {
+        "sku_code": "SKU-IJ07S-DEFAULT-4",
+        "price": 134700,
+        "stock": 88,
+        "attributes": null,
+        "id": "2ffb779f-2c04-44c2-ad78-b9d329167f42"
       }
     ],
     "brand": "CAPPL",
@@ -3282,6 +4962,27 @@
         "price": 64500,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5N7AI-DEFAULT-2",
+        "price": 64500,
+        "stock": 46,
+        "attributes": null,
+        "id": "921c61eb-db07-459e-9300-311a5bdfc5c8"
+      },
+      {
+        "sku_code": "SKU-5N7AI-DEFAULT-3",
+        "price": 64500,
+        "stock": 46,
+        "attributes": null,
+        "id": "11188d49-5c82-44c5-92da-402c28ca91d8"
+      },
+      {
+        "sku_code": "SKU-5N7AI-DEFAULT-4",
+        "price": 64500,
+        "stock": 46,
+        "attributes": null,
+        "id": "cce74473-0a29-4c7c-afcd-812894b287e6"
       }
     ],
     "brand": "CAPPL",
@@ -3323,6 +5024,27 @@
         "price": 125700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RH4DR-DEFAULT-2",
+        "price": 125700,
+        "stock": 39,
+        "attributes": null,
+        "id": "8c182692-8108-4419-beba-1a1a84f969ae"
+      },
+      {
+        "sku_code": "SKU-RH4DR-DEFAULT-3",
+        "price": 125700,
+        "stock": 39,
+        "attributes": null,
+        "id": "413eeeaf-219a-4e4b-afdf-0f077c8f346c"
+      },
+      {
+        "sku_code": "SKU-RH4DR-DEFAULT-4",
+        "price": 125700,
+        "stock": 39,
+        "attributes": null,
+        "id": "d4a442d4-9332-426f-8e18-a91a735ef702"
       }
     ],
     "brand": "CAPPL",
@@ -3364,6 +5086,27 @@
         "price": 209700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MJTFA-DEFAULT-2",
+        "price": 209700,
+        "stock": 35,
+        "attributes": null,
+        "id": "0fcfe2a7-49ff-4f85-a227-6ced62c60d4c"
+      },
+      {
+        "sku_code": "SKU-MJTFA-DEFAULT-3",
+        "price": 209700,
+        "stock": 35,
+        "attributes": null,
+        "id": "0ddeeff5-0360-4f16-81da-40b41ecae8f9"
+      },
+      {
+        "sku_code": "SKU-MJTFA-DEFAULT-4",
+        "price": 209700,
+        "stock": 35,
+        "attributes": null,
+        "id": "5330d789-3531-4568-8e88-cb1352ab2cdd"
       }
     ],
     "brand": "OhhSome",
@@ -3409,6 +5152,27 @@
         "price": 3509700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PZXNJ-DEFAULT-2",
+        "price": 3509700,
+        "stock": 69,
+        "attributes": null,
+        "id": "6d854f50-5f52-47bd-9d15-4513c7f0cfe5"
+      },
+      {
+        "sku_code": "SKU-PZXNJ-DEFAULT-3",
+        "price": 3509700,
+        "stock": 69,
+        "attributes": null,
+        "id": "8537e084-d27a-4f84-bddc-c75b573b1abd"
+      },
+      {
+        "sku_code": "SKU-PZXNJ-DEFAULT-4",
+        "price": 3509700,
+        "stock": 69,
+        "attributes": null,
+        "id": "75057f82-db45-4cd3-a00c-6f0a504ce27f"
       }
     ],
     "brand": "TrustBasket",
@@ -3450,6 +5214,27 @@
         "price": 90000,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AQIPO-DEFAULT-2",
+        "price": 90000,
+        "stock": 34,
+        "attributes": null,
+        "id": "425fd98e-7ba8-49c8-a181-4bf9d3345c06"
+      },
+      {
+        "sku_code": "SKU-AQIPO-DEFAULT-3",
+        "price": 90000,
+        "stock": 34,
+        "attributes": null,
+        "id": "231f0cfc-5c09-469d-9ab6-01c3b53e0932"
+      },
+      {
+        "sku_code": "SKU-AQIPO-DEFAULT-4",
+        "price": 90000,
+        "stock": 34,
+        "attributes": null,
+        "id": "1bdbd6f0-98af-454e-890d-0e70ed481087"
       }
     ],
     "brand": "Mphmi",
@@ -3487,6 +5272,27 @@
         "price": 104700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ANVRK-DEFAULT-2",
+        "price": 104700,
+        "stock": 38,
+        "attributes": null,
+        "id": "0289acd5-6d98-4aeb-a50f-c31db5d0a2c9"
+      },
+      {
+        "sku_code": "SKU-ANVRK-DEFAULT-3",
+        "price": 104700,
+        "stock": 38,
+        "attributes": null,
+        "id": "c8eaf2d0-bc43-47fa-8f25-04c9bc3d31ea"
+      },
+      {
+        "sku_code": "SKU-ANVRK-DEFAULT-4",
+        "price": 104700,
+        "stock": 38,
+        "attributes": null,
+        "id": "f39dab8f-2522-4d10-b448-23f69120063d"
       }
     ],
     "brand": "Green",
@@ -3532,6 +5338,27 @@
         "price": 119400,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6CF2B-DEFAULT-2",
+        "price": 119400,
+        "stock": 98,
+        "attributes": null,
+        "id": "c16bf2a9-9736-4cf1-871b-abcc901f0935"
+      },
+      {
+        "sku_code": "SKU-6CF2B-DEFAULT-3",
+        "price": 119400,
+        "stock": 98,
+        "attributes": null,
+        "id": "56c7c9e4-f197-4abc-a4ed-c03f3a978b95"
+      },
+      {
+        "sku_code": "SKU-6CF2B-DEFAULT-4",
+        "price": 119400,
+        "stock": 98,
+        "attributes": null,
+        "id": "8d942e60-5d68-48e9-8e98-16214b1784c1"
       }
     ],
     "brand": "BIO",
@@ -3577,6 +5404,27 @@
         "price": 149700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N37OH-DEFAULT-2",
+        "price": 149700,
+        "stock": 16,
+        "attributes": null,
+        "id": "c61f1eb4-bf13-40df-8d1c-a235af3463f5"
+      },
+      {
+        "sku_code": "SKU-N37OH-DEFAULT-3",
+        "price": 149700,
+        "stock": 16,
+        "attributes": null,
+        "id": "91661229-8abe-4320-8277-4c3b789103a8"
+      },
+      {
+        "sku_code": "SKU-N37OH-DEFAULT-4",
+        "price": 149700,
+        "stock": 16,
+        "attributes": null,
+        "id": "9ea8d060-283b-4ec3-8727-fa87f895c3af"
       }
     ],
     "brand": "TrustBasket",
@@ -3614,6 +5462,27 @@
         "price": 41700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3B1Q5-DEFAULT-2",
+        "price": 41700,
+        "stock": 36,
+        "attributes": null,
+        "id": "5385a5ba-be20-4da5-b6b8-fa0a6c029ad1"
+      },
+      {
+        "sku_code": "SKU-3B1Q5-DEFAULT-3",
+        "price": 41700,
+        "stock": 36,
+        "attributes": null,
+        "id": "3f19e26b-f2d3-4f63-a391-d6896679a97b"
+      },
+      {
+        "sku_code": "SKU-3B1Q5-DEFAULT-4",
+        "price": 41700,
+        "stock": 36,
+        "attributes": null,
+        "id": "60b85675-96c7-4256-8ef6-5f2633456489"
       }
     ],
     "brand": "Kraft",
@@ -3659,6 +5528,27 @@
         "price": 36300,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MR9OJ-DEFAULT-2",
+        "price": 36300,
+        "stock": 104,
+        "attributes": null,
+        "id": "ebab079c-e99e-457d-8e7a-e90d354cb76f"
+      },
+      {
+        "sku_code": "SKU-MR9OJ-DEFAULT-3",
+        "price": 36300,
+        "stock": 104,
+        "attributes": null,
+        "id": "e2fb6eb7-543a-42b5-9500-73b4ba88902f"
+      },
+      {
+        "sku_code": "SKU-MR9OJ-DEFAULT-4",
+        "price": 36300,
+        "stock": 104,
+        "attributes": null,
+        "id": "ad85b123-e44d-4828-92c5-11c803eabbd1"
       }
     ],
     "brand": "TrustBasket",
@@ -3704,6 +5594,27 @@
         "price": 89700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LTKUG-DEFAULT-2",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "fa5f56b5-c2cf-4a9f-872b-acab5d95d3e9"
+      },
+      {
+        "sku_code": "SKU-LTKUG-DEFAULT-3",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "f5e82df3-87e6-446a-a669-1072c70cf999"
+      },
+      {
+        "sku_code": "SKU-LTKUG-DEFAULT-4",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "effee128-9e00-409a-85b6-25b93574f368"
       }
     ],
     "brand": "TrustBasket",
@@ -3749,6 +5660,27 @@
         "price": 92700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BOHUM-DEFAULT-2",
+        "price": 92700,
+        "stock": 48,
+        "attributes": null,
+        "id": "ec04f0ca-060e-4e0f-9d3f-1cb69a3cca54"
+      },
+      {
+        "sku_code": "SKU-BOHUM-DEFAULT-3",
+        "price": 92700,
+        "stock": 48,
+        "attributes": null,
+        "id": "65eb26cb-db6c-459a-b68c-29b73c48455b"
+      },
+      {
+        "sku_code": "SKU-BOHUM-DEFAULT-4",
+        "price": 92700,
+        "stock": 48,
+        "attributes": null,
+        "id": "2fadcb50-370b-4448-a293-0b7388d3116f"
       }
     ],
     "brand": "Samsung",
@@ -3790,6 +5722,27 @@
         "price": 22200,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6CUUT-DEFAULT-2",
+        "price": 22200,
+        "stock": 70,
+        "attributes": null,
+        "id": "130d0bc6-8117-44a0-90e5-2c4eb97303ef"
+      },
+      {
+        "sku_code": "SKU-6CUUT-DEFAULT-3",
+        "price": 22200,
+        "stock": 70,
+        "attributes": null,
+        "id": "b9534eab-91d8-4a7c-aa93-b5dfb03f0191"
+      },
+      {
+        "sku_code": "SKU-6CUUT-DEFAULT-4",
+        "price": 22200,
+        "stock": 70,
+        "attributes": null,
+        "id": "8b382e6d-7b0c-461b-84a7-ccdd0f381bf2"
       }
     ],
     "brand": "TrustBasket",
@@ -3835,6 +5788,27 @@
         "price": 113100,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZJJDS-DEFAULT-2",
+        "price": 113100,
+        "stock": 70,
+        "attributes": null,
+        "id": "23e62e25-966c-4277-a046-83140265e4d4"
+      },
+      {
+        "sku_code": "SKU-ZJJDS-DEFAULT-3",
+        "price": 113100,
+        "stock": 70,
+        "attributes": null,
+        "id": "50ff19b1-7c97-4978-8896-0f64eb712a7e"
+      },
+      {
+        "sku_code": "SKU-ZJJDS-DEFAULT-4",
+        "price": 113100,
+        "stock": 70,
+        "attributes": null,
+        "id": "4c39cf27-2172-41ae-b32f-b63db43c3749"
       }
     ],
     "brand": "Leafy",
@@ -3872,6 +5846,27 @@
         "price": 97500,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UC6Y1-DEFAULT-2",
+        "price": 97500,
+        "stock": 99,
+        "attributes": null,
+        "id": "fa3338af-5163-44af-bb9d-6452afe6f30f"
+      },
+      {
+        "sku_code": "SKU-UC6Y1-DEFAULT-3",
+        "price": 97500,
+        "stock": 99,
+        "attributes": null,
+        "id": "ef89d0d5-deed-46d6-8c21-82e876925cc4"
+      },
+      {
+        "sku_code": "SKU-UC6Y1-DEFAULT-4",
+        "price": 97500,
+        "stock": 99,
+        "attributes": null,
+        "id": "1b17330e-2e86-4a0c-973b-4e82b5d3762a"
       }
     ],
     "brand": "BIO",
@@ -3909,6 +5904,27 @@
         "price": 29700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JXHXX-DEFAULT-2",
+        "price": 29700,
+        "stock": 64,
+        "attributes": null,
+        "id": "3bdc9a18-1ead-42b7-9ead-c68e0ac1fd0c"
+      },
+      {
+        "sku_code": "SKU-JXHXX-DEFAULT-3",
+        "price": 29700,
+        "stock": 64,
+        "attributes": null,
+        "id": "1dae9d7a-aed3-4300-87c1-71c8df6ce900"
+      },
+      {
+        "sku_code": "SKU-JXHXX-DEFAULT-4",
+        "price": 29700,
+        "stock": 64,
+        "attributes": null,
+        "id": "8c5208b4-ec09-4bc8-a5a2-92440386c338"
       }
     ],
     "brand": "Green",
@@ -3950,6 +5966,27 @@
         "price": 85200,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ROLPW-DEFAULT-2",
+        "price": 85200,
+        "stock": 92,
+        "attributes": null,
+        "id": "6bb75bc7-2a5b-45c9-bf3d-1ffbe9321032"
+      },
+      {
+        "sku_code": "SKU-ROLPW-DEFAULT-3",
+        "price": 85200,
+        "stock": 92,
+        "attributes": null,
+        "id": "d79322db-d0ec-4c7b-9016-61afadc1dd87"
+      },
+      {
+        "sku_code": "SKU-ROLPW-DEFAULT-4",
+        "price": 85200,
+        "stock": 92,
+        "attributes": null,
+        "id": "5660b06e-182e-4f43-89f9-8db507c9680d"
       }
     ],
     "brand": "Creative",
@@ -3987,6 +6024,27 @@
         "price": 56700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1RA0B-DEFAULT-2",
+        "price": 56700,
+        "stock": 107,
+        "attributes": null,
+        "id": "123e6a50-8e0f-4f29-8a0b-5d653b5d9a23"
+      },
+      {
+        "sku_code": "SKU-1RA0B-DEFAULT-3",
+        "price": 56700,
+        "stock": 107,
+        "attributes": null,
+        "id": "da75474a-ad03-4c28-9dc8-c418ba9bbe70"
+      },
+      {
+        "sku_code": "SKU-1RA0B-DEFAULT-4",
+        "price": 56700,
+        "stock": 107,
+        "attributes": null,
+        "id": "f5ec39c2-5cf6-4852-8139-54589c7c9ca0"
       }
     ],
     "brand": "OhhSome",
@@ -4028,6 +6086,27 @@
         "price": 103500,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3AVDJ-DEFAULT-2",
+        "price": 103500,
+        "stock": 78,
+        "attributes": null,
+        "id": "e4c21f8a-fb28-4eb4-a6b0-b8368ea535b9"
+      },
+      {
+        "sku_code": "SKU-3AVDJ-DEFAULT-3",
+        "price": 103500,
+        "stock": 78,
+        "attributes": null,
+        "id": "cd799967-0e34-45e4-b833-cdb4bf2412a2"
+      },
+      {
+        "sku_code": "SKU-3AVDJ-DEFAULT-4",
+        "price": 103500,
+        "stock": 78,
+        "attributes": null,
+        "id": "25214cc5-8db0-4104-b1c7-0c77e3ff72ea"
       }
     ],
     "brand": "CAPPL",
@@ -4065,6 +6144,27 @@
         "price": 89700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AAVLI-DEFAULT-2",
+        "price": 89700,
+        "stock": 23,
+        "attributes": null,
+        "id": "c4067a55-952a-4d77-a70a-979ceb61fb83"
+      },
+      {
+        "sku_code": "SKU-AAVLI-DEFAULT-3",
+        "price": 89700,
+        "stock": 23,
+        "attributes": null,
+        "id": "0557d681-729b-4ba8-8e81-746007bab9ba"
+      },
+      {
+        "sku_code": "SKU-AAVLI-DEFAULT-4",
+        "price": 89700,
+        "stock": 23,
+        "attributes": null,
+        "id": "5d6ef2bf-47c1-4b2f-b0fd-0f9e348fe63d"
       }
     ],
     "brand": "Creative",

@@ -30,6 +30,27 @@
         "price": 12000000,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SI42O-DEFAULT-2",
+        "price": 12000000,
+        "stock": 97,
+        "attributes": null,
+        "id": "7f2276ee-e8d6-43aa-ba5d-281cd3aa5a22"
+      },
+      {
+        "sku_code": "SKU-SI42O-DEFAULT-3",
+        "price": 12000000,
+        "stock": 97,
+        "attributes": null,
+        "id": "d7c3ac9e-a10c-4ea8-8aec-1e3a13fc5635"
+      },
+      {
+        "sku_code": "SKU-SI42O-DEFAULT-4",
+        "price": 12000000,
+        "stock": 97,
+        "attributes": null,
+        "id": "592009f6-09a2-4f6f-9769-3c2a058ae0bc"
       }
     ],
     "brand": "Samsung",
@@ -74,6 +95,27 @@
         "price": 0,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W8GFN-DEFAULT-2",
+        "price": 0,
+        "stock": 54,
+        "attributes": null,
+        "id": "6e1b44fd-256e-4cf2-a024-3ec12f3819b3"
+      },
+      {
+        "sku_code": "SKU-W8GFN-DEFAULT-3",
+        "price": 0,
+        "stock": 54,
+        "attributes": null,
+        "id": "0425ce32-9ea0-4b20-bb2f-f5696137606c"
+      },
+      {
+        "sku_code": "SKU-W8GFN-DEFAULT-4",
+        "price": 0,
+        "stock": 54,
+        "attributes": null,
+        "id": "c78e3590-283b-4943-a879-9e386d461c31"
       }
     ],
     "brand": "LG",
@@ -118,6 +160,27 @@
         "price": 0,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q8WR1-DEFAULT-2",
+        "price": 0,
+        "stock": 38,
+        "attributes": null,
+        "id": "1b040a6b-ca36-416c-a12a-ac054363caef"
+      },
+      {
+        "sku_code": "SKU-Q8WR1-DEFAULT-3",
+        "price": 0,
+        "stock": 38,
+        "attributes": null,
+        "id": "ea27465a-335a-4111-ba62-27de9ff6d818"
+      },
+      {
+        "sku_code": "SKU-Q8WR1-DEFAULT-4",
+        "price": 0,
+        "stock": 38,
+        "attributes": null,
+        "id": "746e2f20-dce1-45b8-9585-3feec2e172a3"
       }
     ],
     "brand": "LG",
@@ -162,6 +225,27 @@
         "price": 2086200,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CH5HG-DEFAULT-2",
+        "price": 2086200,
+        "stock": 37,
+        "attributes": null,
+        "id": "58f24ce9-1317-4994-a448-a9dcc6106507"
+      },
+      {
+        "sku_code": "SKU-CH5HG-DEFAULT-3",
+        "price": 2086200,
+        "stock": 37,
+        "attributes": null,
+        "id": "aaf9905e-ed51-461a-aa8c-270b6c34db28"
+      },
+      {
+        "sku_code": "SKU-CH5HG-DEFAULT-4",
+        "price": 2086200,
+        "stock": 37,
+        "attributes": null,
+        "id": "32037fbd-5a4a-49ed-9b65-0d9dea0b18fa"
       }
     ],
     "brand": "LG",
@@ -206,6 +290,27 @@
         "price": 2820900,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YV2TK-DEFAULT-2",
+        "price": 2820900,
+        "stock": 26,
+        "attributes": null,
+        "id": "d054a6d6-2a41-45f5-8773-97bb22e45059"
+      },
+      {
+        "sku_code": "SKU-YV2TK-DEFAULT-3",
+        "price": 2820900,
+        "stock": 26,
+        "attributes": null,
+        "id": "aa10e1f3-946e-4a58-8236-751cf7fe8719"
+      },
+      {
+        "sku_code": "SKU-YV2TK-DEFAULT-4",
+        "price": 2820900,
+        "stock": 26,
+        "attributes": null,
+        "id": "8abb9a60-19ae-4b73-a8d6-2f7df10e3121"
       }
     ],
     "brand": "Voltas",
@@ -250,6 +355,27 @@
         "price": 1983000,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M75LL-DEFAULT-2",
+        "price": 1983000,
+        "stock": 14,
+        "attributes": null,
+        "id": "b88b3894-3337-46e2-bad8-4820d3b4e0b0"
+      },
+      {
+        "sku_code": "SKU-M75LL-DEFAULT-3",
+        "price": 1983000,
+        "stock": 14,
+        "attributes": null,
+        "id": "50cffcda-fe3c-4a1f-9cdc-3e7913278e6b"
+      },
+      {
+        "sku_code": "SKU-M75LL-DEFAULT-4",
+        "price": 1983000,
+        "stock": 14,
+        "attributes": null,
+        "id": "20d2bbef-e2a3-4daa-b3d9-16df7c6fca76"
       }
     ],
     "brand": "Portable",
@@ -289,6 +415,27 @@
         "price": 3463686.0000000005,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EIP6U-DEFAULT-2",
+        "price": 3463686.0000000005,
+        "stock": 92,
+        "attributes": null,
+        "id": "77dc0426-8737-4008-9de4-f40071f27b02"
+      },
+      {
+        "sku_code": "SKU-EIP6U-DEFAULT-3",
+        "price": 3463686.0000000005,
+        "stock": 92,
+        "attributes": null,
+        "id": "b5357b51-eccb-41de-bb38-9046e07cec50"
+      },
+      {
+        "sku_code": "SKU-EIP6U-DEFAULT-4",
+        "price": 3463686.0000000005,
+        "stock": 92,
+        "attributes": null,
+        "id": "a232e7bc-9af6-47b4-9a54-bb9773118e3d"
       }
     ],
     "brand": "White",
@@ -326,6 +473,27 @@
         "price": 3227400,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IR7LT-DEFAULT-2",
+        "price": 3227400,
+        "stock": 109,
+        "attributes": null,
+        "id": "d3fe4677-84c5-4a40-bf34-4f8cd23c75e1"
+      },
+      {
+        "sku_code": "SKU-IR7LT-DEFAULT-3",
+        "price": 3227400,
+        "stock": 109,
+        "attributes": null,
+        "id": "5fc7919f-7f8c-4353-919a-8af50a80119b"
+      },
+      {
+        "sku_code": "SKU-IR7LT-DEFAULT-4",
+        "price": 3227400,
+        "stock": 109,
+        "attributes": null,
+        "id": "238e749e-c823-4cbe-9638-57f34dab52ac"
       }
     ],
     "brand": "VESTAR",
@@ -370,6 +538,27 @@
         "price": 2453700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O4C58-DEFAULT-2",
+        "price": 2453700,
+        "stock": 72,
+        "attributes": null,
+        "id": "168ae08d-7702-48ff-bcaf-d01fee78b311"
+      },
+      {
+        "sku_code": "SKU-O4C58-DEFAULT-3",
+        "price": 2453700,
+        "stock": 72,
+        "attributes": null,
+        "id": "9c893983-02b3-4016-8481-188a20073f9a"
+      },
+      {
+        "sku_code": "SKU-O4C58-DEFAULT-4",
+        "price": 2453700,
+        "stock": 72,
+        "attributes": null,
+        "id": "46e37eaf-40f2-4e8c-b154-7cdd2cda5f81"
       }
     ],
     "brand": "Portable",
@@ -414,6 +603,27 @@
         "price": 2674500,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OPB08-DEFAULT-2",
+        "price": 2674500,
+        "stock": 106,
+        "attributes": null,
+        "id": "d92a43ce-4f20-4ec1-bf28-4574dfa052a6"
+      },
+      {
+        "sku_code": "SKU-OPB08-DEFAULT-3",
+        "price": 2674500,
+        "stock": 106,
+        "attributes": null,
+        "id": "c7507cd9-91bb-48e3-9c73-5fb97d8c3c83"
+      },
+      {
+        "sku_code": "SKU-OPB08-DEFAULT-4",
+        "price": 2674500,
+        "stock": 106,
+        "attributes": null,
+        "id": "7298b496-8e0a-435e-a523-cc879ff5c0ab"
       }
     ],
     "brand": "Lloyd",
@@ -463,6 +673,27 @@
         "price": 3497400,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5FJGX-DEFAULT-2",
+        "price": 3497400,
+        "stock": 15,
+        "attributes": null,
+        "id": "98e16193-12ea-46dc-99be-e203c4bcd003"
+      },
+      {
+        "sku_code": "SKU-5FJGX-DEFAULT-3",
+        "price": 3497400,
+        "stock": 15,
+        "attributes": null,
+        "id": "9376b592-b9fa-4580-ac9b-6de438108ca4"
+      },
+      {
+        "sku_code": "SKU-5FJGX-DEFAULT-4",
+        "price": 3497400,
+        "stock": 15,
+        "attributes": null,
+        "id": "dc4942db-b630-4486-99df-03e2f1a866b0"
       }
     ],
     "brand": "JBL",
@@ -504,6 +735,27 @@
         "price": 1494600,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I6Z9Q-DEFAULT-2",
+        "price": 1494600,
+        "stock": 104,
+        "attributes": null,
+        "id": "3912ec0f-1f0b-4dff-b8a9-21ebbd7bfed8"
+      },
+      {
+        "sku_code": "SKU-I6Z9Q-DEFAULT-3",
+        "price": 1494600,
+        "stock": 104,
+        "attributes": null,
+        "id": "1bb63a3a-c887-4470-b21a-0d987e2157df"
+      },
+      {
+        "sku_code": "SKU-I6Z9Q-DEFAULT-4",
+        "price": 1494600,
+        "stock": 104,
+        "attributes": null,
+        "id": "a167d328-e10c-42ca-a769-9a08491dcdb1"
       }
     ],
     "brand": "LG",
@@ -548,6 +800,27 @@
         "price": 2978100,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A16OX-DEFAULT-2",
+        "price": 2978100,
+        "stock": 16,
+        "attributes": null,
+        "id": "fca2ab66-e667-4b79-b98d-e00917f75544"
+      },
+      {
+        "sku_code": "SKU-A16OX-DEFAULT-3",
+        "price": 2978100,
+        "stock": 16,
+        "attributes": null,
+        "id": "1980c8d7-2705-4d50-95b8-781aa3304212"
+      },
+      {
+        "sku_code": "SKU-A16OX-DEFAULT-4",
+        "price": 2978100,
+        "stock": 16,
+        "attributes": null,
+        "id": "00c75e92-1c0b-4b0b-9b69-5073694c84a3"
       }
     ],
     "brand": "Panasonic",
@@ -592,6 +865,27 @@
         "price": 1860600,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WZ2TX-DEFAULT-2",
+        "price": 1860600,
+        "stock": 26,
+        "attributes": null,
+        "id": "90297f2a-4368-4607-b662-780f8b8a68a0"
+      },
+      {
+        "sku_code": "SKU-WZ2TX-DEFAULT-3",
+        "price": 1860600,
+        "stock": 26,
+        "attributes": null,
+        "id": "8fae247a-5b4a-42af-9e30-d205b31909a1"
+      },
+      {
+        "sku_code": "SKU-WZ2TX-DEFAULT-4",
+        "price": 1860600,
+        "stock": 26,
+        "attributes": null,
+        "id": "0b509852-0cc4-43ba-8787-acc977104ce3"
       }
     ],
     "brand": "LG",
@@ -633,6 +927,27 @@
         "price": 1319400,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0LVIX-DEFAULT-2",
+        "price": 1319400,
+        "stock": 84,
+        "attributes": null,
+        "id": "e3693842-8d6c-402a-8876-5cb263d70a59"
+      },
+      {
+        "sku_code": "SKU-0LVIX-DEFAULT-3",
+        "price": 1319400,
+        "stock": 84,
+        "attributes": null,
+        "id": "25177bee-ac37-4325-832e-aa387b459c02"
+      },
+      {
+        "sku_code": "SKU-0LVIX-DEFAULT-4",
+        "price": 1319400,
+        "stock": 84,
+        "attributes": null,
+        "id": "6f85efe3-9144-4490-93b7-7f2df132aa5d"
       }
     ],
     "brand": "Carrier",
@@ -667,6 +982,27 @@
         "price": 1810800,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RYTCE-DEFAULT-2",
+        "price": 1810800,
+        "stock": 13,
+        "attributes": null,
+        "id": "ceb4987b-36e3-4ca3-88a2-87521cd741ba"
+      },
+      {
+        "sku_code": "SKU-RYTCE-DEFAULT-3",
+        "price": 1810800,
+        "stock": 13,
+        "attributes": null,
+        "id": "c49a0fe7-ebb5-413d-ac31-b1da00d7b007"
+      },
+      {
+        "sku_code": "SKU-RYTCE-DEFAULT-4",
+        "price": 1810800,
+        "stock": 13,
+        "attributes": null,
+        "id": "9a1560ba-2d3e-440e-8443-515ba2bc3adc"
       }
     ],
     "brand": "White",
@@ -700,6 +1036,27 @@
         "price": 1441500,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LMR7L-DEFAULT-2",
+        "price": 1441500,
+        "stock": 69,
+        "attributes": null,
+        "id": "505af17f-c115-4a37-ade4-8987888ef7ec"
+      },
+      {
+        "sku_code": "SKU-LMR7L-DEFAULT-3",
+        "price": 1441500,
+        "stock": 69,
+        "attributes": null,
+        "id": "f50c3f73-c23b-4059-9239-1ba563f589b4"
+      },
+      {
+        "sku_code": "SKU-LMR7L-DEFAULT-4",
+        "price": 1441500,
+        "stock": 69,
+        "attributes": null,
+        "id": "a22eb061-44ae-4fae-b4ac-5993b41f79cf"
       }
     ],
     "brand": "Blue",
@@ -739,6 +1096,27 @@
         "price": 2103900,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LTYXL-DEFAULT-2",
+        "price": 2103900,
+        "stock": 38,
+        "attributes": null,
+        "id": "feea2d72-904a-46e5-80c3-985f50c45dcf"
+      },
+      {
+        "sku_code": "SKU-LTYXL-DEFAULT-3",
+        "price": 2103900,
+        "stock": 38,
+        "attributes": null,
+        "id": "c0e87192-9c5c-471f-922b-f0116d2a8757"
+      },
+      {
+        "sku_code": "SKU-LTYXL-DEFAULT-4",
+        "price": 2103900,
+        "stock": 38,
+        "attributes": null,
+        "id": "868554d6-edb6-440e-88e5-e50a8856e369"
       }
     ],
     "brand": "Daikin",
@@ -791,6 +1169,27 @@
         "price": 4648200,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A8AK2-DEFAULT-2",
+        "price": 4648200,
+        "stock": 76,
+        "attributes": null,
+        "id": "f0dbd1df-a7a4-41fe-86e9-fb6a1c3589e0"
+      },
+      {
+        "sku_code": "SKU-A8AK2-DEFAULT-3",
+        "price": 4648200,
+        "stock": 76,
+        "attributes": null,
+        "id": "b432cc72-0483-458f-a3fd-04346f5cfd6d"
+      },
+      {
+        "sku_code": "SKU-A8AK2-DEFAULT-4",
+        "price": 4648200,
+        "stock": 76,
+        "attributes": null,
+        "id": "cbe395d4-32c1-4bd8-a324-cee27d457cc9"
       }
     ],
     "brand": "Samsung",
@@ -840,6 +1239,27 @@
         "price": 2030100,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2XUQQ-DEFAULT-2",
+        "price": 2030100,
+        "stock": 74,
+        "attributes": null,
+        "id": "485ff47f-862d-4c4e-884c-d2bdccc5f7a3"
+      },
+      {
+        "sku_code": "SKU-2XUQQ-DEFAULT-3",
+        "price": 2030100,
+        "stock": 74,
+        "attributes": null,
+        "id": "74ebd244-ff9e-48e9-934d-2b6ba1482166"
+      },
+      {
+        "sku_code": "SKU-2XUQQ-DEFAULT-4",
+        "price": 2030100,
+        "stock": 74,
+        "attributes": null,
+        "id": "adab6053-63ce-48ba-b76a-00734f455dff"
       }
     ],
     "brand": "JBL",
@@ -873,6 +1293,27 @@
         "price": 11204100,
         "stock": 95,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-US67X-DEFAULT-2",
+        "price": 11204100,
+        "stock": 95,
+        "attributes": null,
+        "id": "c5d98624-ef73-4c7c-b518-a32ea69cd82c"
+      },
+      {
+        "sku_code": "SKU-US67X-DEFAULT-3",
+        "price": 11204100,
+        "stock": 95,
+        "attributes": null,
+        "id": "92052319-124b-4b42-8c20-c434caed08a1"
+      },
+      {
+        "sku_code": "SKU-US67X-DEFAULT-4",
+        "price": 11204100,
+        "stock": 95,
+        "attributes": null,
+        "id": "8b823523-5b2f-4484-819a-23442eb4825f"
       }
     ],
     "brand": "LG",
@@ -917,6 +1358,27 @@
         "price": 2046300,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2BX22-DEFAULT-2",
+        "price": 2046300,
+        "stock": 12,
+        "attributes": null,
+        "id": "8eeb55b7-e683-47d4-ac26-11fccce7dd8b"
+      },
+      {
+        "sku_code": "SKU-2BX22-DEFAULT-3",
+        "price": 2046300,
+        "stock": 12,
+        "attributes": null,
+        "id": "cb509495-3f2f-43ae-8fc8-f8903b3263cc"
+      },
+      {
+        "sku_code": "SKU-2BX22-DEFAULT-4",
+        "price": 2046300,
+        "stock": 12,
+        "attributes": null,
+        "id": "f736fa31-a6fa-4408-b626-4366d0870d8d"
       }
     ],
     "brand": "Portable",
@@ -961,6 +1423,27 @@
         "price": 1567200,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CU0HZ-DEFAULT-2",
+        "price": 1567200,
+        "stock": 86,
+        "attributes": null,
+        "id": "1271a06f-afee-4065-86c7-a38da8c8a594"
+      },
+      {
+        "sku_code": "SKU-CU0HZ-DEFAULT-3",
+        "price": 1567200,
+        "stock": 86,
+        "attributes": null,
+        "id": "c62dbfdd-f1a3-4328-8cb5-e5e96e785a25"
+      },
+      {
+        "sku_code": "SKU-CU0HZ-DEFAULT-4",
+        "price": 1567200,
+        "stock": 86,
+        "attributes": null,
+        "id": "0f6f4339-8a52-4dd9-8966-4761da52c8f9"
       }
     ],
     "brand": "Portable",
@@ -1002,6 +1485,27 @@
         "price": 3070200,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I6MCW-DEFAULT-2",
+        "price": 3070200,
+        "stock": 37,
+        "attributes": null,
+        "id": "4f3adece-56fd-48a3-8f8e-7dee686b1a40"
+      },
+      {
+        "sku_code": "SKU-I6MCW-DEFAULT-3",
+        "price": 3070200,
+        "stock": 37,
+        "attributes": null,
+        "id": "d43f2732-0990-412f-9e86-67a8aea00718"
+      },
+      {
+        "sku_code": "SKU-I6MCW-DEFAULT-4",
+        "price": 3070200,
+        "stock": 37,
+        "attributes": null,
+        "id": "d05a3c73-b71d-4e03-a3ed-4c2d2037200d"
       }
     ],
     "brand": "Blue",
@@ -1041,6 +1545,27 @@
         "price": 2964300,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1ANA5-DEFAULT-2",
+        "price": 2964300,
+        "stock": 108,
+        "attributes": null,
+        "id": "3a148f95-b625-49fc-878d-537ab9995306"
+      },
+      {
+        "sku_code": "SKU-1ANA5-DEFAULT-3",
+        "price": 2964300,
+        "stock": 108,
+        "attributes": null,
+        "id": "8fc032de-9b34-42c1-8b43-afb353cd0c51"
+      },
+      {
+        "sku_code": "SKU-1ANA5-DEFAULT-4",
+        "price": 2964300,
+        "stock": 108,
+        "attributes": null,
+        "id": "24f46bb2-66dc-449c-b3dc-7a3e030a1e40"
       }
     ],
     "brand": "LG",
@@ -1085,6 +1610,27 @@
         "price": 1908300,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-83JLP-DEFAULT-2",
+        "price": 1908300,
+        "stock": 62,
+        "attributes": null,
+        "id": "bc0a1501-87d2-4e05-b045-464b251a653b"
+      },
+      {
+        "sku_code": "SKU-83JLP-DEFAULT-3",
+        "price": 1908300,
+        "stock": 62,
+        "attributes": null,
+        "id": "83847a66-d03b-4aff-9c1d-e306e9901e62"
+      },
+      {
+        "sku_code": "SKU-83JLP-DEFAULT-4",
+        "price": 1908300,
+        "stock": 62,
+        "attributes": null,
+        "id": "df71c015-6a7a-4faa-bec9-fd6477f64290"
       }
     ],
     "brand": "VESTAR",
@@ -1126,6 +1672,27 @@
         "price": 2301300,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E53SQ-DEFAULT-2",
+        "price": 2301300,
+        "stock": 93,
+        "attributes": null,
+        "id": "abb59416-3e0f-407e-bd5e-7192adf13060"
+      },
+      {
+        "sku_code": "SKU-E53SQ-DEFAULT-3",
+        "price": 2301300,
+        "stock": 93,
+        "attributes": null,
+        "id": "1e0e3707-0434-4cfd-bd71-4feea2040f25"
+      },
+      {
+        "sku_code": "SKU-E53SQ-DEFAULT-4",
+        "price": 2301300,
+        "stock": 93,
+        "attributes": null,
+        "id": "b107cabd-3eb3-4e68-a82a-825ca55c98d8"
       }
     ],
     "brand": "Daikin",
@@ -1167,6 +1734,27 @@
         "price": 2577600,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-29P1C-DEFAULT-2",
+        "price": 2577600,
+        "stock": 11,
+        "attributes": null,
+        "id": "2e05d5c8-5efe-449e-a836-37e04cd7e2aa"
+      },
+      {
+        "sku_code": "SKU-29P1C-DEFAULT-3",
+        "price": 2577600,
+        "stock": 11,
+        "attributes": null,
+        "id": "8468b61e-3ba3-417e-9ecd-14579e065479"
+      },
+      {
+        "sku_code": "SKU-29P1C-DEFAULT-4",
+        "price": 2577600,
+        "stock": 11,
+        "attributes": null,
+        "id": "6fe7aaf6-de2c-46f5-aedd-63cb330dc057"
       }
     ],
     "brand": "Portable",

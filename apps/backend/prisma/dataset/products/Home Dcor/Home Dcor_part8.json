@@ -22,6 +22,27 @@
         "price": 140700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WHEUU-DEFAULT-2",
+        "price": 140700,
+        "stock": 61,
+        "attributes": null,
+        "id": "f5a41944-c159-48c4-8aad-ac890bff32bd"
+      },
+      {
+        "sku_code": "SKU-WHEUU-DEFAULT-3",
+        "price": 140700,
+        "stock": 61,
+        "attributes": null,
+        "id": "22217f4a-890d-4ef1-bb8d-4a7ad41dcbbb"
+      },
+      {
+        "sku_code": "SKU-WHEUU-DEFAULT-4",
+        "price": 140700,
+        "stock": 61,
+        "attributes": null,
+        "id": "71bd4c62-e3d3-4485-95da-0fad9b4aa54b"
       }
     ],
     "brand": "Generic",
@@ -63,6 +84,27 @@
         "price": 212700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0ZV2W-DEFAULT-2",
+        "price": 212700,
+        "stock": 109,
+        "attributes": null,
+        "id": "5f8a29c3-b2a1-4f19-9fbd-fd7712baca8f"
+      },
+      {
+        "sku_code": "SKU-0ZV2W-DEFAULT-3",
+        "price": 212700,
+        "stock": 109,
+        "attributes": null,
+        "id": "445894cd-614e-46df-a917-a7efd5b66291"
+      },
+      {
+        "sku_code": "SKU-0ZV2W-DEFAULT-4",
+        "price": 212700,
+        "stock": 109,
+        "attributes": null,
+        "id": "1182d547-cd43-46dc-86df-9c66b671369a"
       }
     ],
     "brand": "SAF",
@@ -108,6 +150,27 @@
         "price": 299700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y314L-DEFAULT-2",
+        "price": 299700,
+        "stock": 85,
+        "attributes": null,
+        "id": "20b26b91-1510-49a9-b8cd-3da660175f1c"
+      },
+      {
+        "sku_code": "SKU-Y314L-DEFAULT-3",
+        "price": 299700,
+        "stock": 85,
+        "attributes": null,
+        "id": "834fcca2-e6eb-428c-8b3f-c31c292155cb"
+      },
+      {
+        "sku_code": "SKU-Y314L-DEFAULT-4",
+        "price": 299700,
+        "stock": 85,
+        "attributes": null,
+        "id": "325dc5fd-4ba8-4287-9c81-b9c5593e36cc"
       }
     ],
     "brand": "CraftVatika",
@@ -149,6 +212,27 @@
         "price": 167100,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GU20C-DEFAULT-2",
+        "price": 167100,
+        "stock": 34,
+        "attributes": null,
+        "id": "678f75ce-220d-4660-a60d-135761e19b74"
+      },
+      {
+        "sku_code": "SKU-GU20C-DEFAULT-3",
+        "price": 167100,
+        "stock": 34,
+        "attributes": null,
+        "id": "4bc23f92-f242-4a13-a1d1-6c968b94774e"
+      },
+      {
+        "sku_code": "SKU-GU20C-DEFAULT-4",
+        "price": 167100,
+        "stock": 34,
+        "attributes": null,
+        "id": "0a6849cd-d941-454f-896c-0b0eb6c2b4ab"
       }
     ],
     "brand": "Art",
@@ -194,6 +278,27 @@
         "price": 209700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DINHL-DEFAULT-2",
+        "price": 209700,
+        "stock": 61,
+        "attributes": null,
+        "id": "ab794439-771a-4c5d-8f17-3c741a32a1a3"
+      },
+      {
+        "sku_code": "SKU-DINHL-DEFAULT-3",
+        "price": 209700,
+        "stock": 61,
+        "attributes": null,
+        "id": "fc49ec50-39b4-47f3-8984-0e7d38dca54c"
+      },
+      {
+        "sku_code": "SKU-DINHL-DEFAULT-4",
+        "price": 209700,
+        "stock": 61,
+        "attributes": null,
+        "id": "20742322-4bf9-4945-949f-b4b58ef86cfd"
       }
     ],
     "brand": "Pure",
@@ -235,6 +340,27 @@
         "price": 28200,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0CVA2-DEFAULT-2",
+        "price": 28200,
+        "stock": 43,
+        "attributes": null,
+        "id": "d18648ef-d867-4ec6-9b0a-491ec896b1ef"
+      },
+      {
+        "sku_code": "SKU-0CVA2-DEFAULT-3",
+        "price": 28200,
+        "stock": 43,
+        "attributes": null,
+        "id": "2f0a216f-9ed4-4996-b125-7676b31be30b"
+      },
+      {
+        "sku_code": "SKU-0CVA2-DEFAULT-4",
+        "price": 28200,
+        "stock": 43,
+        "attributes": null,
+        "id": "18cfb0d3-bb3c-4532-a523-52f9d859a880"
       }
     ],
     "brand": "Rangoli",
@@ -276,6 +402,27 @@
         "price": 80700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KY1LC-DEFAULT-2",
+        "price": 80700,
+        "stock": 59,
+        "attributes": null,
+        "id": "3c038293-1634-41a6-87c1-614bc8353dbb"
+      },
+      {
+        "sku_code": "SKU-KY1LC-DEFAULT-3",
+        "price": 80700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0f4043d3-975c-48b3-a8ff-237ab7d515f2"
+      },
+      {
+        "sku_code": "SKU-KY1LC-DEFAULT-4",
+        "price": 80700,
+        "stock": 59,
+        "attributes": null,
+        "id": "ec8a1bf9-f93d-4e7c-be79-f805d1d437dd"
       }
     ],
     "brand": "Amazon",
@@ -313,6 +460,27 @@
         "price": 224700,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RWAUU-DEFAULT-2",
+        "price": 224700,
+        "stock": 82,
+        "attributes": null,
+        "id": "7d224fd8-40dd-4f97-b2f1-a8608908d1de"
+      },
+      {
+        "sku_code": "SKU-RWAUU-DEFAULT-3",
+        "price": 224700,
+        "stock": 82,
+        "attributes": null,
+        "id": "8a972c61-5faa-41cc-9b05-94a9e0ec88f5"
+      },
+      {
+        "sku_code": "SKU-RWAUU-DEFAULT-4",
+        "price": 224700,
+        "stock": 82,
+        "attributes": null,
+        "id": "07e19ba6-d526-45d0-a971-a00696b7f45d"
       }
     ],
     "brand": "Asian",
@@ -354,6 +522,27 @@
         "price": 43500,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9AT5G-DEFAULT-2",
+        "price": 43500,
+        "stock": 104,
+        "attributes": null,
+        "id": "92a8e3d1-7e30-4cb0-bcce-36f88a0b2f68"
+      },
+      {
+        "sku_code": "SKU-9AT5G-DEFAULT-3",
+        "price": 43500,
+        "stock": 104,
+        "attributes": null,
+        "id": "5016f975-eb5a-4373-9f8a-75593b1e9aa7"
+      },
+      {
+        "sku_code": "SKU-9AT5G-DEFAULT-4",
+        "price": 43500,
+        "stock": 104,
+        "attributes": null,
+        "id": "903d567d-f8cd-4bc9-a35f-ff028de36406"
       }
     ],
     "brand": "Generic",
@@ -391,6 +580,27 @@
         "price": 67500,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WW8II-DEFAULT-2",
+        "price": 67500,
+        "stock": 83,
+        "attributes": null,
+        "id": "39dcfcf6-f11f-4dc4-a47d-b31abb442f83"
+      },
+      {
+        "sku_code": "SKU-WW8II-DEFAULT-3",
+        "price": 67500,
+        "stock": 83,
+        "attributes": null,
+        "id": "90b7b828-eedc-4044-bccc-d0fd924f135b"
+      },
+      {
+        "sku_code": "SKU-WW8II-DEFAULT-4",
+        "price": 67500,
+        "stock": 83,
+        "attributes": null,
+        "id": "b12ae68d-2c69-4116-b69a-da65a5bb8fab"
       }
     ],
     "brand": "ArtX",
@@ -428,6 +638,27 @@
         "price": 164700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VKZSB-DEFAULT-2",
+        "price": 164700,
+        "stock": 77,
+        "attributes": null,
+        "id": "6d6ab61d-e3d6-4e9e-875a-b85a63b0e3d6"
+      },
+      {
+        "sku_code": "SKU-VKZSB-DEFAULT-3",
+        "price": 164700,
+        "stock": 77,
+        "attributes": null,
+        "id": "a1947bbc-0f79-4ebc-8a26-ee0eba89773c"
+      },
+      {
+        "sku_code": "SKU-VKZSB-DEFAULT-4",
+        "price": 164700,
+        "stock": 77,
+        "attributes": null,
+        "id": "da220d4a-b214-4e14-b2a1-0b2e5df026e2"
       }
     ],
     "brand": "Art",
@@ -469,6 +700,27 @@
         "price": 119700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NVMZQ-DEFAULT-2",
+        "price": 119700,
+        "stock": 61,
+        "attributes": null,
+        "id": "20b2aee9-2447-4779-82f3-8467b6a9869d"
+      },
+      {
+        "sku_code": "SKU-NVMZQ-DEFAULT-3",
+        "price": 119700,
+        "stock": 61,
+        "attributes": null,
+        "id": "2a643f28-f7be-4755-a611-1c41155bb542"
+      },
+      {
+        "sku_code": "SKU-NVMZQ-DEFAULT-4",
+        "price": 119700,
+        "stock": 61,
+        "attributes": null,
+        "id": "e7c44ed4-9199-4aca-9147-c48f2d8062a6"
       }
     ],
     "brand": "Ajanta",
@@ -510,6 +762,27 @@
         "price": 53700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G8RCM-DEFAULT-2",
+        "price": 53700,
+        "stock": 16,
+        "attributes": null,
+        "id": "7bb10ced-2ead-4bbb-b84c-5e6a1393f345"
+      },
+      {
+        "sku_code": "SKU-G8RCM-DEFAULT-3",
+        "price": 53700,
+        "stock": 16,
+        "attributes": null,
+        "id": "442fd246-8606-4fe1-a6e2-04e2293eef5e"
+      },
+      {
+        "sku_code": "SKU-G8RCM-DEFAULT-4",
+        "price": 53700,
+        "stock": 16,
+        "attributes": null,
+        "id": "8d5610f0-9e58-4c79-b75c-6d57b9f538d0"
       }
     ],
     "brand": "SPHINX",
@@ -547,6 +820,27 @@
         "price": 86700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TAD7C-DEFAULT-2",
+        "price": 86700,
+        "stock": 104,
+        "attributes": null,
+        "id": "4de261e1-3e7d-48f6-9b52-804c3564e404"
+      },
+      {
+        "sku_code": "SKU-TAD7C-DEFAULT-3",
+        "price": 86700,
+        "stock": 104,
+        "attributes": null,
+        "id": "f5df64fe-63ac-44e8-a199-e8ad014fe39b"
+      },
+      {
+        "sku_code": "SKU-TAD7C-DEFAULT-4",
+        "price": 86700,
+        "stock": 104,
+        "attributes": null,
+        "id": "7af34f3f-b9e7-4030-af9a-955b32d104cc"
       }
     ],
     "brand": "Rangoli",
@@ -588,6 +882,27 @@
         "price": 41700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8T2ZB-DEFAULT-2",
+        "price": 41700,
+        "stock": 60,
+        "attributes": null,
+        "id": "bbeb75f5-a27d-44ee-973d-89e36c5228fe"
+      },
+      {
+        "sku_code": "SKU-8T2ZB-DEFAULT-3",
+        "price": 41700,
+        "stock": 60,
+        "attributes": null,
+        "id": "93b8d0c9-5f9e-4742-adb9-31bc8f7f405f"
+      },
+      {
+        "sku_code": "SKU-8T2ZB-DEFAULT-4",
+        "price": 41700,
+        "stock": 60,
+        "attributes": null,
+        "id": "867ddfb8-4325-4f0b-9b06-0da32f16b154"
       }
     ],
     "brand": "PAPER",
@@ -629,6 +944,27 @@
         "price": 418500,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D4Q0D-DEFAULT-2",
+        "price": 418500,
+        "stock": 50,
+        "attributes": null,
+        "id": "b2bc9477-a8b0-438f-b857-b4c2a7fabd1e"
+      },
+      {
+        "sku_code": "SKU-D4Q0D-DEFAULT-3",
+        "price": 418500,
+        "stock": 50,
+        "attributes": null,
+        "id": "e9426612-3467-488f-9ff5-0720f6dbb96c"
+      },
+      {
+        "sku_code": "SKU-D4Q0D-DEFAULT-4",
+        "price": 418500,
+        "stock": 50,
+        "attributes": null,
+        "id": "1d1221e1-ddcd-4b58-9983-9ade0e194826"
       }
     ],
     "brand": "PAPER",
@@ -666,6 +1002,27 @@
         "price": 239700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WJ99T-DEFAULT-2",
+        "price": 239700,
+        "stock": 83,
+        "attributes": null,
+        "id": "ff6be3ae-937b-4985-9400-ce351728294e"
+      },
+      {
+        "sku_code": "SKU-WJ99T-DEFAULT-3",
+        "price": 239700,
+        "stock": 83,
+        "attributes": null,
+        "id": "7049c7b3-facc-4bbc-b816-fc87e7ef2faa"
+      },
+      {
+        "sku_code": "SKU-WJ99T-DEFAULT-4",
+        "price": 239700,
+        "stock": 83,
+        "attributes": null,
+        "id": "e313afd8-3ea3-4e88-aa9e-00a9bf379352"
       }
     ],
     "brand": "Indianara",
@@ -703,6 +1060,27 @@
         "price": 209700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IRZ3G-DEFAULT-2",
+        "price": 209700,
+        "stock": 99,
+        "attributes": null,
+        "id": "658d65e7-6d91-4835-b75c-373a0d648ad7"
+      },
+      {
+        "sku_code": "SKU-IRZ3G-DEFAULT-3",
+        "price": 209700,
+        "stock": 99,
+        "attributes": null,
+        "id": "da083a20-12b9-496b-ac2f-2dfa4f48d872"
+      },
+      {
+        "sku_code": "SKU-IRZ3G-DEFAULT-4",
+        "price": 209700,
+        "stock": 99,
+        "attributes": null,
+        "id": "b6577905-716c-4c0d-a3a6-a6951d08a2e3"
       }
     ],
     "brand": "SAF",
@@ -748,6 +1126,27 @@
         "price": 101700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LIVX9-DEFAULT-2",
+        "price": 101700,
+        "stock": 35,
+        "attributes": null,
+        "id": "6fd26acc-9fd9-4c4c-aa8a-12657c7b1b56"
+      },
+      {
+        "sku_code": "SKU-LIVX9-DEFAULT-3",
+        "price": 101700,
+        "stock": 35,
+        "attributes": null,
+        "id": "48b74f10-aa5c-43b5-b240-7701aa9d446e"
+      },
+      {
+        "sku_code": "SKU-LIVX9-DEFAULT-4",
+        "price": 101700,
+        "stock": 35,
+        "attributes": null,
+        "id": "6f1335df-6fae-48fc-8e60-6a702fd30ffe"
       }
     ],
     "brand": "Pure",
@@ -789,6 +1188,27 @@
         "price": 68700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VYB12-DEFAULT-2",
+        "price": 68700,
+        "stock": 101,
+        "attributes": null,
+        "id": "c060bfaa-5696-4056-9d6f-f3cef5ae8840"
+      },
+      {
+        "sku_code": "SKU-VYB12-DEFAULT-3",
+        "price": 68700,
+        "stock": 101,
+        "attributes": null,
+        "id": "0bce0ece-a356-4f8a-88b2-6ecace49d5dd"
+      },
+      {
+        "sku_code": "SKU-VYB12-DEFAULT-4",
+        "price": 68700,
+        "stock": 101,
+        "attributes": null,
+        "id": "e35e9f2c-7fba-4636-8361-60d552065d79"
       }
     ],
     "brand": "SPHINX",
@@ -834,6 +1254,27 @@
         "price": 206100,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XG1DG-DEFAULT-2",
+        "price": 206100,
+        "stock": 80,
+        "attributes": null,
+        "id": "3f610ec1-aa95-4f9a-833b-388da4e19d40"
+      },
+      {
+        "sku_code": "SKU-XG1DG-DEFAULT-3",
+        "price": 206100,
+        "stock": 80,
+        "attributes": null,
+        "id": "b5865d79-5717-4ae6-976c-eb142c89a832"
+      },
+      {
+        "sku_code": "SKU-XG1DG-DEFAULT-4",
+        "price": 206100,
+        "stock": 80,
+        "attributes": null,
+        "id": "c8fe69e4-50d3-48c5-904b-210cdcc63a8e"
       }
     ],
     "brand": "TIED",
@@ -875,6 +1316,27 @@
         "price": 89700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LOW8M-DEFAULT-2",
+        "price": 89700,
+        "stock": 31,
+        "attributes": null,
+        "id": "ab802230-901f-4788-bbd2-ea96fca0e626"
+      },
+      {
+        "sku_code": "SKU-LOW8M-DEFAULT-3",
+        "price": 89700,
+        "stock": 31,
+        "attributes": null,
+        "id": "05a6093e-3105-414d-a2a8-88068de13fec"
+      },
+      {
+        "sku_code": "SKU-LOW8M-DEFAULT-4",
+        "price": 89700,
+        "stock": 31,
+        "attributes": null,
+        "id": "b538a7ae-46c7-4626-8d07-8b20cbc872ec"
       }
     ],
     "brand": "SAF",
@@ -920,6 +1382,27 @@
         "price": 64200,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NDFX5-DEFAULT-2",
+        "price": 64200,
+        "stock": 62,
+        "attributes": null,
+        "id": "db175f47-563b-40fa-a570-807e58a7971d"
+      },
+      {
+        "sku_code": "SKU-NDFX5-DEFAULT-3",
+        "price": 64200,
+        "stock": 62,
+        "attributes": null,
+        "id": "2c1575a0-ba32-47c4-9b28-c00be4725da9"
+      },
+      {
+        "sku_code": "SKU-NDFX5-DEFAULT-4",
+        "price": 64200,
+        "stock": 62,
+        "attributes": null,
+        "id": "a33a1654-30d4-4d03-be2a-b91ae24d9891"
       }
     ],
     "brand": "Generic",
@@ -961,6 +1444,27 @@
         "price": 56700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LQ43D-DEFAULT-2",
+        "price": 56700,
+        "stock": 94,
+        "attributes": null,
+        "id": "5ee2aa39-b9a5-41d7-8b34-655d60c8f239"
+      },
+      {
+        "sku_code": "SKU-LQ43D-DEFAULT-3",
+        "price": 56700,
+        "stock": 94,
+        "attributes": null,
+        "id": "07064595-75a5-407c-80e6-ca605f0defbf"
+      },
+      {
+        "sku_code": "SKU-LQ43D-DEFAULT-4",
+        "price": 56700,
+        "stock": 94,
+        "attributes": null,
+        "id": "a6250599-bd3c-4e3a-8ac6-5485f3e8d320"
       }
     ],
     "brand": "CraftVatika",
@@ -1006,6 +1510,27 @@
         "price": 136515,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QTTWK-DEFAULT-2",
+        "price": 136515,
+        "stock": 93,
+        "attributes": null,
+        "id": "8b503259-459b-4d6e-80b5-cb277010ff04"
+      },
+      {
+        "sku_code": "SKU-QTTWK-DEFAULT-3",
+        "price": 136515,
+        "stock": 93,
+        "attributes": null,
+        "id": "137e7d23-65bd-465a-be4c-649004a5befc"
+      },
+      {
+        "sku_code": "SKU-QTTWK-DEFAULT-4",
+        "price": 136515,
+        "stock": 93,
+        "attributes": null,
+        "id": "09bae8ee-9fb0-4855-a3aa-a3fd6212e99a"
       }
     ],
     "brand": "ArtX",
@@ -1043,6 +1568,27 @@
         "price": 299100,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YSUS9-DEFAULT-2",
+        "price": 299100,
+        "stock": 49,
+        "attributes": null,
+        "id": "570d1ff9-3a74-4fff-aee0-7b6aab4cf903"
+      },
+      {
+        "sku_code": "SKU-YSUS9-DEFAULT-3",
+        "price": 299100,
+        "stock": 49,
+        "attributes": null,
+        "id": "99048559-7c08-4980-8c8c-804765604991"
+      },
+      {
+        "sku_code": "SKU-YSUS9-DEFAULT-4",
+        "price": 299100,
+        "stock": 49,
+        "attributes": null,
+        "id": "bedcdd6f-1db8-4c4a-b0ef-bc04538b78f9"
       }
     ],
     "brand": "Generic",
@@ -1080,6 +1626,27 @@
         "price": 74100,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y7L3P-DEFAULT-2",
+        "price": 74100,
+        "stock": 80,
+        "attributes": null,
+        "id": "2dbe9da8-1704-4704-92c5-107b8f79ef14"
+      },
+      {
+        "sku_code": "SKU-Y7L3P-DEFAULT-3",
+        "price": 74100,
+        "stock": 80,
+        "attributes": null,
+        "id": "8e193d67-6099-4a11-ac2d-e9086d1cc888"
+      },
+      {
+        "sku_code": "SKU-Y7L3P-DEFAULT-4",
+        "price": 74100,
+        "stock": 80,
+        "attributes": null,
+        "id": "8223a2ec-0baf-4f69-bfb7-d7db596f4a37"
       }
     ],
     "brand": "ArtX",
@@ -1121,6 +1688,27 @@
         "price": 59700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OFLK4-DEFAULT-2",
+        "price": 59700,
+        "stock": 49,
+        "attributes": null,
+        "id": "1c8399e0-1205-4c20-8a86-273248c01d05"
+      },
+      {
+        "sku_code": "SKU-OFLK4-DEFAULT-3",
+        "price": 59700,
+        "stock": 49,
+        "attributes": null,
+        "id": "6a416621-3ef6-4c66-a4b0-fe6b8c11bd0a"
+      },
+      {
+        "sku_code": "SKU-OFLK4-DEFAULT-4",
+        "price": 59700,
+        "stock": 49,
+        "attributes": null,
+        "id": "49f5c89f-606b-4edf-a38c-054be21de38b"
       }
     ],
     "brand": "Generic",
@@ -1162,6 +1750,27 @@
         "price": 78000,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2G0EM-DEFAULT-2",
+        "price": 78000,
+        "stock": 49,
+        "attributes": null,
+        "id": "16b894b7-5091-4459-a903-85fa98cacd98"
+      },
+      {
+        "sku_code": "SKU-2G0EM-DEFAULT-3",
+        "price": 78000,
+        "stock": 49,
+        "attributes": null,
+        "id": "ce0d8cc1-1cfd-4fe6-8c6c-09b1218f83e9"
+      },
+      {
+        "sku_code": "SKU-2G0EM-DEFAULT-4",
+        "price": 78000,
+        "stock": 49,
+        "attributes": null,
+        "id": "218fff9d-aa93-4a5c-9a12-d9694e6f4515"
       }
     ],
     "brand": "Generic",
@@ -1199,6 +1808,27 @@
         "price": 56700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0T1UY-DEFAULT-2",
+        "price": 56700,
+        "stock": 59,
+        "attributes": null,
+        "id": "2b37aec0-dbe3-43a4-885e-f52cf5c5faa0"
+      },
+      {
+        "sku_code": "SKU-0T1UY-DEFAULT-3",
+        "price": 56700,
+        "stock": 59,
+        "attributes": null,
+        "id": "d0008557-a06e-49d4-a959-e2597f909278"
+      },
+      {
+        "sku_code": "SKU-0T1UY-DEFAULT-4",
+        "price": 56700,
+        "stock": 59,
+        "attributes": null,
+        "id": "d92aca73-ba83-48a5-82ee-27b2392aae6b"
       }
     ],
     "brand": "Amazon",
@@ -1244,6 +1874,27 @@
         "price": 47700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HNA2E-DEFAULT-2",
+        "price": 47700,
+        "stock": 103,
+        "attributes": null,
+        "id": "e3ff9a09-fb01-4b39-bd50-7bb807144524"
+      },
+      {
+        "sku_code": "SKU-HNA2E-DEFAULT-3",
+        "price": 47700,
+        "stock": 103,
+        "attributes": null,
+        "id": "984c5ca8-6244-4779-95d7-66954327ef3f"
+      },
+      {
+        "sku_code": "SKU-HNA2E-DEFAULT-4",
+        "price": 47700,
+        "stock": 103,
+        "attributes": null,
+        "id": "24c04e09-fe53-4b33-a909-4f55e40e81d1"
       }
     ],
     "brand": "Generic",
@@ -1304,6 +1955,27 @@
         "price": 134700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SP0OG-DEFAULT-2",
+        "price": 134700,
+        "stock": 107,
+        "attributes": null,
+        "id": "bf048f39-8c6a-4592-812f-bfc21baf8fbe"
+      },
+      {
+        "sku_code": "SKU-SP0OG-DEFAULT-3",
+        "price": 134700,
+        "stock": 107,
+        "attributes": null,
+        "id": "e9a0a932-1bc1-4497-b554-11a2ffadc492"
+      },
+      {
+        "sku_code": "SKU-SP0OG-DEFAULT-4",
+        "price": 134700,
+        "stock": 107,
+        "attributes": null,
+        "id": "361fcae0-ae79-44f2-bd23-23551eecdf31"
       }
     ],
     "brand": "Lenovo",
@@ -1341,6 +2013,27 @@
         "price": 96300,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-898QA-DEFAULT-2",
+        "price": 96300,
+        "stock": 43,
+        "attributes": null,
+        "id": "9358e134-567d-43a6-a335-3025ff0275e8"
+      },
+      {
+        "sku_code": "SKU-898QA-DEFAULT-3",
+        "price": 96300,
+        "stock": 43,
+        "attributes": null,
+        "id": "4e5bb5e3-0400-4c35-8142-a71d77d6cf09"
+      },
+      {
+        "sku_code": "SKU-898QA-DEFAULT-4",
+        "price": 96300,
+        "stock": 43,
+        "attributes": null,
+        "id": "e8ca6af9-8276-494b-8894-57fe11c7a191"
       }
     ],
     "brand": "Pure",
@@ -1382,6 +2075,27 @@
         "price": 74400,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WJS9Q-DEFAULT-2",
+        "price": 74400,
+        "stock": 80,
+        "attributes": null,
+        "id": "f910e10b-ac19-48a9-a333-8d2fe647b9de"
+      },
+      {
+        "sku_code": "SKU-WJS9Q-DEFAULT-3",
+        "price": 74400,
+        "stock": 80,
+        "attributes": null,
+        "id": "74f4f1cd-c994-4e4a-811f-a8dd63ae7da8"
+      },
+      {
+        "sku_code": "SKU-WJS9Q-DEFAULT-4",
+        "price": 74400,
+        "stock": 80,
+        "attributes": null,
+        "id": "475136e1-3400-4464-939e-a1a99c4a840e"
       }
     ],
     "brand": "PAPER",
@@ -1419,6 +2133,27 @@
         "price": 612600,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KBY7N-DEFAULT-2",
+        "price": 612600,
+        "stock": 76,
+        "attributes": null,
+        "id": "cac41661-f835-4ec2-8f44-1b0dbc932b41"
+      },
+      {
+        "sku_code": "SKU-KBY7N-DEFAULT-3",
+        "price": 612600,
+        "stock": 76,
+        "attributes": null,
+        "id": "b01481af-11b7-475a-8a1c-f5b949372a95"
+      },
+      {
+        "sku_code": "SKU-KBY7N-DEFAULT-4",
+        "price": 612600,
+        "stock": 76,
+        "attributes": null,
+        "id": "fa73f62f-45f7-48a9-9f6e-b333c6ba0f48"
       }
     ],
     "brand": "Indianara",
@@ -1456,6 +2191,27 @@
         "price": 194700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZKMJO-DEFAULT-2",
+        "price": 194700,
+        "stock": 94,
+        "attributes": null,
+        "id": "f2144ea4-3544-44dc-a198-316f9385c2d0"
+      },
+      {
+        "sku_code": "SKU-ZKMJO-DEFAULT-3",
+        "price": 194700,
+        "stock": 94,
+        "attributes": null,
+        "id": "5fc0026a-f562-49d3-bf55-241c03a48c74"
+      },
+      {
+        "sku_code": "SKU-ZKMJO-DEFAULT-4",
+        "price": 194700,
+        "stock": 94,
+        "attributes": null,
+        "id": "d7c7c68d-8d1b-453d-99eb-167e5a972b03"
       }
     ],
     "brand": "Amazon",
@@ -1493,6 +2249,27 @@
         "price": 65700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7KVP3-DEFAULT-2",
+        "price": 65700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0b4c7942-b26e-4508-96a8-cce801b51601"
+      },
+      {
+        "sku_code": "SKU-7KVP3-DEFAULT-3",
+        "price": 65700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0e427b48-e1d4-4d89-b5fe-484ac32b2ddf"
+      },
+      {
+        "sku_code": "SKU-7KVP3-DEFAULT-4",
+        "price": 65700,
+        "stock": 59,
+        "attributes": null,
+        "id": "e4bf0e87-b588-42b1-b325-f538e3f7763e"
       }
     ],
     "brand": "Art",
@@ -1534,6 +2311,27 @@
         "price": 99900,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4HTYT-DEFAULT-2",
+        "price": 99900,
+        "stock": 101,
+        "attributes": null,
+        "id": "20b755ec-d7ae-4277-a6b5-fd33a0fbd6dc"
+      },
+      {
+        "sku_code": "SKU-4HTYT-DEFAULT-3",
+        "price": 99900,
+        "stock": 101,
+        "attributes": null,
+        "id": "ea8b44c2-d69c-4d41-bafa-b4218ccc462d"
+      },
+      {
+        "sku_code": "SKU-4HTYT-DEFAULT-4",
+        "price": 99900,
+        "stock": 101,
+        "attributes": null,
+        "id": "2db5e36f-e0d5-4696-afe3-ca035e6026ee"
       }
     ],
     "brand": "CraftVatika",
@@ -1571,6 +2369,27 @@
         "price": 77700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6XCW1-DEFAULT-2",
+        "price": 77700,
+        "stock": 59,
+        "attributes": null,
+        "id": "7a5adaea-1c0c-401d-8fdb-6799e04af8b7"
+      },
+      {
+        "sku_code": "SKU-6XCW1-DEFAULT-3",
+        "price": 77700,
+        "stock": 59,
+        "attributes": null,
+        "id": "ca0aab8e-3275-441f-ab00-2cbfedfdf906"
+      },
+      {
+        "sku_code": "SKU-6XCW1-DEFAULT-4",
+        "price": 77700,
+        "stock": 59,
+        "attributes": null,
+        "id": "ec37ff25-65a4-4898-9540-098fba459aa3"
       }
     ],
     "brand": "IKEA",
@@ -1608,6 +2427,27 @@
         "price": 107700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DULON-DEFAULT-2",
+        "price": 107700,
+        "stock": 11,
+        "attributes": null,
+        "id": "90cad499-fe61-433c-b666-c0e9d96f0954"
+      },
+      {
+        "sku_code": "SKU-DULON-DEFAULT-3",
+        "price": 107700,
+        "stock": 11,
+        "attributes": null,
+        "id": "40114c3d-ee49-4335-814e-5c51dbf84b20"
+      },
+      {
+        "sku_code": "SKU-DULON-DEFAULT-4",
+        "price": 107700,
+        "stock": 11,
+        "attributes": null,
+        "id": "3a690356-3ca8-4e17-8d08-a8df36777522"
       }
     ],
     "brand": "Art",
@@ -1645,6 +2485,27 @@
         "price": 149700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-99UJT-DEFAULT-2",
+        "price": 149700,
+        "stock": 96,
+        "attributes": null,
+        "id": "23ee0dfa-5d53-4d57-b3c2-f5a449830466"
+      },
+      {
+        "sku_code": "SKU-99UJT-DEFAULT-3",
+        "price": 149700,
+        "stock": 96,
+        "attributes": null,
+        "id": "40d0049a-765c-4c9e-87f4-8a0c06ae5b08"
+      },
+      {
+        "sku_code": "SKU-99UJT-DEFAULT-4",
+        "price": 149700,
+        "stock": 96,
+        "attributes": null,
+        "id": "351bc8d5-30bc-457d-ac0b-ef245c48a870"
       }
     ],
     "brand": "Decals",
@@ -1690,6 +2551,27 @@
         "price": 149700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3H0Q1-DEFAULT-2",
+        "price": 149700,
+        "stock": 24,
+        "attributes": null,
+        "id": "42ee0f6d-a31e-4682-97a5-656e23ecdcae"
+      },
+      {
+        "sku_code": "SKU-3H0Q1-DEFAULT-3",
+        "price": 149700,
+        "stock": 24,
+        "attributes": null,
+        "id": "207d7e10-9990-4557-a024-6169ed49c038"
+      },
+      {
+        "sku_code": "SKU-3H0Q1-DEFAULT-4",
+        "price": 149700,
+        "stock": 24,
+        "attributes": null,
+        "id": "9de2295c-e45e-4582-9346-dde2b6cddc31"
       }
     ],
     "brand": "CraftVatika",
@@ -1731,6 +2613,27 @@
         "price": 104700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0F4GY-DEFAULT-2",
+        "price": 104700,
+        "stock": 26,
+        "attributes": null,
+        "id": "713aaef7-ff3c-4db1-90fd-55712f532bcf"
+      },
+      {
+        "sku_code": "SKU-0F4GY-DEFAULT-3",
+        "price": 104700,
+        "stock": 26,
+        "attributes": null,
+        "id": "335ae840-9d9d-4e8e-998d-642ab5f2a424"
+      },
+      {
+        "sku_code": "SKU-0F4GY-DEFAULT-4",
+        "price": 104700,
+        "stock": 26,
+        "attributes": null,
+        "id": "9531daf3-e4d1-419f-b0ba-eeff92e08c07"
       }
     ],
     "brand": "SPHINX",
@@ -1776,6 +2679,27 @@
         "price": 146700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L2FZ6-DEFAULT-2",
+        "price": 146700,
+        "stock": 16,
+        "attributes": null,
+        "id": "8de282d8-4af8-4397-b8f0-73dbaaa531c9"
+      },
+      {
+        "sku_code": "SKU-L2FZ6-DEFAULT-3",
+        "price": 146700,
+        "stock": 16,
+        "attributes": null,
+        "id": "ad406873-7b03-4286-b1eb-fa6db17cc469"
+      },
+      {
+        "sku_code": "SKU-L2FZ6-DEFAULT-4",
+        "price": 146700,
+        "stock": 16,
+        "attributes": null,
+        "id": "16d4837d-1ae8-4cc4-b37d-05b4f27060f2"
       }
     ],
     "brand": "CraftVatika",
@@ -1813,6 +2737,27 @@
         "price": 74400,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6XWIM-DEFAULT-2",
+        "price": 74400,
+        "stock": 65,
+        "attributes": null,
+        "id": "6fea25d4-9879-4ede-b6c9-ffb21b144594"
+      },
+      {
+        "sku_code": "SKU-6XWIM-DEFAULT-3",
+        "price": 74400,
+        "stock": 65,
+        "attributes": null,
+        "id": "9336ae86-a76f-45ab-84e2-5d5e38ef664a"
+      },
+      {
+        "sku_code": "SKU-6XWIM-DEFAULT-4",
+        "price": 74400,
+        "stock": 65,
+        "attributes": null,
+        "id": "f00df8f0-d0d1-4104-b971-3a187cc8c580"
       }
     ],
     "brand": "Asian",
@@ -1858,6 +2803,27 @@
         "price": 59700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D4U6J-DEFAULT-2",
+        "price": 59700,
+        "stock": 109,
+        "attributes": null,
+        "id": "cc1968a7-3d43-4c74-81d8-bb8023ce8959"
+      },
+      {
+        "sku_code": "SKU-D4U6J-DEFAULT-3",
+        "price": 59700,
+        "stock": 109,
+        "attributes": null,
+        "id": "9c3deeec-efd9-4eb8-ae38-cf386b77d0a2"
+      },
+      {
+        "sku_code": "SKU-D4U6J-DEFAULT-4",
+        "price": 59700,
+        "stock": 109,
+        "attributes": null,
+        "id": "c16dd1eb-6695-4762-b6a0-f739ed46103e"
       }
     ],
     "brand": "TIED",
@@ -1903,6 +2869,27 @@
         "price": 187200,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WEIVZ-DEFAULT-2",
+        "price": 187200,
+        "stock": 89,
+        "attributes": null,
+        "id": "be1dd496-498f-4286-8144-63a9489b19cf"
+      },
+      {
+        "sku_code": "SKU-WEIVZ-DEFAULT-3",
+        "price": 187200,
+        "stock": 89,
+        "attributes": null,
+        "id": "0828088a-76f2-4e32-96e6-ac6f76f5d8f9"
+      },
+      {
+        "sku_code": "SKU-WEIVZ-DEFAULT-4",
+        "price": 187200,
+        "stock": 89,
+        "attributes": null,
+        "id": "461efc77-127e-457e-aad6-8c1408d6b41a"
       }
     ],
     "brand": "TIED",
@@ -1940,6 +2927,27 @@
         "price": 119700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NQKVV-DEFAULT-2",
+        "price": 119700,
+        "stock": 39,
+        "attributes": null,
+        "id": "2491716a-703e-41b0-933c-02eeb91529f7"
+      },
+      {
+        "sku_code": "SKU-NQKVV-DEFAULT-3",
+        "price": 119700,
+        "stock": 39,
+        "attributes": null,
+        "id": "4f9ae785-8a76-475d-a92e-2da45bb209f4"
+      },
+      {
+        "sku_code": "SKU-NQKVV-DEFAULT-4",
+        "price": 119700,
+        "stock": 39,
+        "attributes": null,
+        "id": "63d363f6-4240-4376-b23c-025282115c07"
       }
     ],
     "brand": "Ajanta",
@@ -1981,6 +2989,27 @@
         "price": 89700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8XAY1-DEFAULT-2",
+        "price": 89700,
+        "stock": 72,
+        "attributes": null,
+        "id": "4c5ae02b-55a5-45c0-ae58-e425d2bdbe3b"
+      },
+      {
+        "sku_code": "SKU-8XAY1-DEFAULT-3",
+        "price": 89700,
+        "stock": 72,
+        "attributes": null,
+        "id": "7c219d72-9711-4604-8136-5fc7de82fe7a"
+      },
+      {
+        "sku_code": "SKU-8XAY1-DEFAULT-4",
+        "price": 89700,
+        "stock": 72,
+        "attributes": null,
+        "id": "445d4472-fe1c-42a6-91a7-b2934f58c019"
       }
     ],
     "brand": "TIED",
@@ -2018,6 +3047,27 @@
         "price": 180000,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-01D3X-DEFAULT-2",
+        "price": 180000,
+        "stock": 39,
+        "attributes": null,
+        "id": "fe5c5014-02c8-4353-b6a9-087a4786860b"
+      },
+      {
+        "sku_code": "SKU-01D3X-DEFAULT-3",
+        "price": 180000,
+        "stock": 39,
+        "attributes": null,
+        "id": "3f374d36-868c-4633-ae76-b7a2f3c2164c"
+      },
+      {
+        "sku_code": "SKU-01D3X-DEFAULT-4",
+        "price": 180000,
+        "stock": 39,
+        "attributes": null,
+        "id": "b6b3f191-c31e-46be-8ddf-b50a56109247"
       }
     ],
     "brand": "Amazon",
@@ -2059,6 +3109,27 @@
         "price": 569700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GG81B-DEFAULT-2",
+        "price": 569700,
+        "stock": 84,
+        "attributes": null,
+        "id": "dc4a35d3-dbc8-4d5c-abc5-0717fee678c2"
+      },
+      {
+        "sku_code": "SKU-GG81B-DEFAULT-3",
+        "price": 569700,
+        "stock": 84,
+        "attributes": null,
+        "id": "96d67f10-8e60-4a79-8e9c-b0823a084346"
+      },
+      {
+        "sku_code": "SKU-GG81B-DEFAULT-4",
+        "price": 569700,
+        "stock": 84,
+        "attributes": null,
+        "id": "61e07af8-15e2-4605-b0d4-2e47d8d1a459"
       }
     ],
     "brand": "Asian",
@@ -2104,6 +3175,27 @@
         "price": 359700,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LMS3M-DEFAULT-2",
+        "price": 359700,
+        "stock": 53,
+        "attributes": null,
+        "id": "28a26f1e-6d81-48c5-add0-0204870a387e"
+      },
+      {
+        "sku_code": "SKU-LMS3M-DEFAULT-3",
+        "price": 359700,
+        "stock": 53,
+        "attributes": null,
+        "id": "25092bbe-6832-4e32-8655-8bfd946ebd36"
+      },
+      {
+        "sku_code": "SKU-LMS3M-DEFAULT-4",
+        "price": 359700,
+        "stock": 53,
+        "attributes": null,
+        "id": "46973f5e-3525-46c8-802a-551d3d14b7bc"
       }
     ],
     "brand": "Rangoli",
@@ -2145,6 +3237,27 @@
         "price": 389700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BUBUI-DEFAULT-2",
+        "price": 389700,
+        "stock": 44,
+        "attributes": null,
+        "id": "ead8eede-768f-4eb6-a629-9242367d3785"
+      },
+      {
+        "sku_code": "SKU-BUBUI-DEFAULT-3",
+        "price": 389700,
+        "stock": 44,
+        "attributes": null,
+        "id": "015c7486-c514-4bd4-97e1-af38c15f7d8c"
+      },
+      {
+        "sku_code": "SKU-BUBUI-DEFAULT-4",
+        "price": 389700,
+        "stock": 44,
+        "attributes": null,
+        "id": "3561ff01-d2a8-4ac9-8a97-8f94937201e6"
       }
     ],
     "brand": "SPHINX",
@@ -2182,6 +3295,27 @@
         "price": 59700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HPCCK-DEFAULT-2",
+        "price": 59700,
+        "stock": 104,
+        "attributes": null,
+        "id": "6ef45b8a-643d-4e5b-ac4f-05d340ac242f"
+      },
+      {
+        "sku_code": "SKU-HPCCK-DEFAULT-3",
+        "price": 59700,
+        "stock": 104,
+        "attributes": null,
+        "id": "42373a0a-6521-4c9c-a3c2-acd936b3fae0"
+      },
+      {
+        "sku_code": "SKU-HPCCK-DEFAULT-4",
+        "price": 59700,
+        "stock": 104,
+        "attributes": null,
+        "id": "24009980-fe4e-4b29-a33b-8f4ffb8405dd"
       }
     ],
     "brand": "Generic",
@@ -2227,6 +3361,27 @@
         "price": 84000,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HTC89-DEFAULT-2",
+        "price": 84000,
+        "stock": 47,
+        "attributes": null,
+        "id": "54b35887-159a-486f-b21a-07d1620fbdb8"
+      },
+      {
+        "sku_code": "SKU-HTC89-DEFAULT-3",
+        "price": 84000,
+        "stock": 47,
+        "attributes": null,
+        "id": "e05b8a80-28e4-48f3-83c4-189139bf19b4"
+      },
+      {
+        "sku_code": "SKU-HTC89-DEFAULT-4",
+        "price": 84000,
+        "stock": 47,
+        "attributes": null,
+        "id": "3faa105d-bdb1-4d6b-9b23-24091f527624"
       }
     ],
     "brand": "Lenovo",
@@ -2268,6 +3423,27 @@
         "price": 111000,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-URA0C-DEFAULT-2",
+        "price": 111000,
+        "stock": 91,
+        "attributes": null,
+        "id": "c328a6b3-f00e-491b-8ff2-06aed9394525"
+      },
+      {
+        "sku_code": "SKU-URA0C-DEFAULT-3",
+        "price": 111000,
+        "stock": 91,
+        "attributes": null,
+        "id": "ea8c8f66-c1a4-461e-b24d-dddcea8400bd"
+      },
+      {
+        "sku_code": "SKU-URA0C-DEFAULT-4",
+        "price": 111000,
+        "stock": 91,
+        "attributes": null,
+        "id": "518e5e17-f13b-4913-aef9-37e94630098d"
       }
     ],
     "brand": "Asian",
@@ -2305,6 +3481,27 @@
         "price": 209700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C7CNH-DEFAULT-2",
+        "price": 209700,
+        "stock": 68,
+        "attributes": null,
+        "id": "935524a0-7aec-49dc-afc2-55c33eff181f"
+      },
+      {
+        "sku_code": "SKU-C7CNH-DEFAULT-3",
+        "price": 209700,
+        "stock": 68,
+        "attributes": null,
+        "id": "a1c37723-8140-420b-9054-a12811b02dc7"
+      },
+      {
+        "sku_code": "SKU-C7CNH-DEFAULT-4",
+        "price": 209700,
+        "stock": 68,
+        "attributes": null,
+        "id": "f8e3a20a-79fa-4303-980b-306c0aec9dc9"
       }
     ],
     "brand": "Indianara",
@@ -2346,6 +3543,27 @@
         "price": 54000,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JYQM9-DEFAULT-2",
+        "price": 54000,
+        "stock": 92,
+        "attributes": null,
+        "id": "5d0f0914-25ff-407c-bfb0-5cb7dc240615"
+      },
+      {
+        "sku_code": "SKU-JYQM9-DEFAULT-3",
+        "price": 54000,
+        "stock": 92,
+        "attributes": null,
+        "id": "edc81889-414a-497d-b659-01b62645d897"
+      },
+      {
+        "sku_code": "SKU-JYQM9-DEFAULT-4",
+        "price": 54000,
+        "stock": 92,
+        "attributes": null,
+        "id": "66467edc-cf70-4e49-a77a-45775ee9a671"
       }
     ],
     "brand": "Amazon",
@@ -2387,6 +3605,27 @@
         "price": 54000,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P6ECH-DEFAULT-2",
+        "price": 54000,
+        "stock": 16,
+        "attributes": null,
+        "id": "cf57e265-0bf1-4281-8967-e05920e3cc00"
+      },
+      {
+        "sku_code": "SKU-P6ECH-DEFAULT-3",
+        "price": 54000,
+        "stock": 16,
+        "attributes": null,
+        "id": "ef4559bd-d46c-4aa9-86f5-67ab3722f804"
+      },
+      {
+        "sku_code": "SKU-P6ECH-DEFAULT-4",
+        "price": 54000,
+        "stock": 16,
+        "attributes": null,
+        "id": "8749812a-61f5-4adf-adba-084b23374431"
       }
     ],
     "brand": "SPHINX",
@@ -2432,6 +3671,27 @@
         "price": 167700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-11U2U-DEFAULT-2",
+        "price": 167700,
+        "stock": 48,
+        "attributes": null,
+        "id": "63ba023a-5d26-4766-973b-5835f173d8cb"
+      },
+      {
+        "sku_code": "SKU-11U2U-DEFAULT-3",
+        "price": 167700,
+        "stock": 48,
+        "attributes": null,
+        "id": "889bc852-3835-4cf7-961b-200d65c460ce"
+      },
+      {
+        "sku_code": "SKU-11U2U-DEFAULT-4",
+        "price": 167700,
+        "stock": 48,
+        "attributes": null,
+        "id": "0a7217b4-3d32-4c92-8d82-3f6ed2e6c524"
       }
     ],
     "brand": "Asian",
@@ -2477,6 +3737,27 @@
         "price": 54000,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C5XFR-DEFAULT-2",
+        "price": 54000,
+        "stock": 54,
+        "attributes": null,
+        "id": "f3a2f57a-79a4-4213-96df-4a9141d8841c"
+      },
+      {
+        "sku_code": "SKU-C5XFR-DEFAULT-3",
+        "price": 54000,
+        "stock": 54,
+        "attributes": null,
+        "id": "a1b1f607-d5a8-42d6-8df6-8be298f797f9"
+      },
+      {
+        "sku_code": "SKU-C5XFR-DEFAULT-4",
+        "price": 54000,
+        "stock": 54,
+        "attributes": null,
+        "id": "35db1f25-05cb-4108-8739-ef47800dbf80"
       }
     ],
     "brand": "Amazon",
@@ -2522,6 +3803,27 @@
         "price": 381560.99999999994,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GZAV1-DEFAULT-2",
+        "price": 381560.99999999994,
+        "stock": 67,
+        "attributes": null,
+        "id": "c96a37be-1a95-46bf-9ce5-e27e585e072f"
+      },
+      {
+        "sku_code": "SKU-GZAV1-DEFAULT-3",
+        "price": 381560.99999999994,
+        "stock": 67,
+        "attributes": null,
+        "id": "5b4b9cfc-79b8-4098-bdb5-ae2bd8a4c552"
+      },
+      {
+        "sku_code": "SKU-GZAV1-DEFAULT-4",
+        "price": 381560.99999999994,
+        "stock": 67,
+        "attributes": null,
+        "id": "ad0d88fe-2f4e-4119-875b-f3732453aa99"
       }
     ],
     "brand": "Indianara",
@@ -2559,6 +3861,27 @@
         "price": 50700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YDBW9-DEFAULT-2",
+        "price": 50700,
+        "stock": 12,
+        "attributes": null,
+        "id": "bb530bce-442e-47c9-941f-5007992021eb"
+      },
+      {
+        "sku_code": "SKU-YDBW9-DEFAULT-3",
+        "price": 50700,
+        "stock": 12,
+        "attributes": null,
+        "id": "44e252ff-afdf-495f-8511-d34ce0567e9e"
+      },
+      {
+        "sku_code": "SKU-YDBW9-DEFAULT-4",
+        "price": 50700,
+        "stock": 12,
+        "attributes": null,
+        "id": "cb2ce2a4-9f6b-4148-b323-fe9554c84c47"
       }
     ],
     "brand": "SPHINX",
@@ -2600,6 +3923,27 @@
         "price": 104700,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B89IV-DEFAULT-2",
+        "price": 104700,
+        "stock": 53,
+        "attributes": null,
+        "id": "6ad9d257-cd86-4ca9-853d-f6bd845355a6"
+      },
+      {
+        "sku_code": "SKU-B89IV-DEFAULT-3",
+        "price": 104700,
+        "stock": 53,
+        "attributes": null,
+        "id": "31cbb681-8481-4285-81a9-502294d9c14b"
+      },
+      {
+        "sku_code": "SKU-B89IV-DEFAULT-4",
+        "price": 104700,
+        "stock": 53,
+        "attributes": null,
+        "id": "c3742730-1ddd-4bfb-8d36-e764d8ae78ab"
       }
     ],
     "brand": "Ajanta",
@@ -2641,6 +3985,27 @@
         "price": 227700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DB6H3-DEFAULT-2",
+        "price": 227700,
+        "stock": 84,
+        "attributes": null,
+        "id": "66e6cce2-ab3b-4ed2-9da9-6a0e37031d5c"
+      },
+      {
+        "sku_code": "SKU-DB6H3-DEFAULT-3",
+        "price": 227700,
+        "stock": 84,
+        "attributes": null,
+        "id": "810ccf25-908e-4c68-8733-11f29185e6fd"
+      },
+      {
+        "sku_code": "SKU-DB6H3-DEFAULT-4",
+        "price": 227700,
+        "stock": 84,
+        "attributes": null,
+        "id": "78dbb113-4301-400d-8b56-118517856f98"
       }
     ],
     "brand": "SAF",
@@ -2686,6 +4051,27 @@
         "price": 134700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L9T9W-DEFAULT-2",
+        "price": 134700,
+        "stock": 92,
+        "attributes": null,
+        "id": "65b19c54-cafc-4313-baa4-29d377bb92aa"
+      },
+      {
+        "sku_code": "SKU-L9T9W-DEFAULT-3",
+        "price": 134700,
+        "stock": 92,
+        "attributes": null,
+        "id": "c2272f00-c3a0-4677-ab62-5e69ce0a6548"
+      },
+      {
+        "sku_code": "SKU-L9T9W-DEFAULT-4",
+        "price": 134700,
+        "stock": 92,
+        "attributes": null,
+        "id": "6876d7f7-890b-42fb-a85a-17d795f75da1"
       }
     ],
     "brand": "TIED",
@@ -2727,6 +4113,27 @@
         "price": 234000,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SHQ6U-DEFAULT-2",
+        "price": 234000,
+        "stock": 68,
+        "attributes": null,
+        "id": "868df729-2b61-4055-a2bc-258a6fe08dba"
+      },
+      {
+        "sku_code": "SKU-SHQ6U-DEFAULT-3",
+        "price": 234000,
+        "stock": 68,
+        "attributes": null,
+        "id": "6a5d7dfe-ce12-4ba3-9458-e496d4b83814"
+      },
+      {
+        "sku_code": "SKU-SHQ6U-DEFAULT-4",
+        "price": 234000,
+        "stock": 68,
+        "attributes": null,
+        "id": "bf7043c0-a55b-4a8d-badf-3201827aeda0"
       }
     ],
     "brand": "ArtX",
@@ -2772,6 +4179,27 @@
         "price": 104700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7X7JS-DEFAULT-2",
+        "price": 104700,
+        "stock": 48,
+        "attributes": null,
+        "id": "a18f9649-0f58-49bc-b4cc-e576fded1b44"
+      },
+      {
+        "sku_code": "SKU-7X7JS-DEFAULT-3",
+        "price": 104700,
+        "stock": 48,
+        "attributes": null,
+        "id": "995f49b3-64fe-4437-b469-c13f8972c870"
+      },
+      {
+        "sku_code": "SKU-7X7JS-DEFAULT-4",
+        "price": 104700,
+        "stock": 48,
+        "attributes": null,
+        "id": "9f26ce90-08c1-4987-a6e9-c485f9a7d233"
       }
     ],
     "brand": "SPHINX",
@@ -2809,6 +4237,27 @@
         "price": 119700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T98E1-DEFAULT-2",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "ec69ca0d-14fb-4fdf-a0b8-aeef25519a03"
+      },
+      {
+        "sku_code": "SKU-T98E1-DEFAULT-3",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "9d56488d-59c5-4dda-998f-ef63993d61ee"
+      },
+      {
+        "sku_code": "SKU-T98E1-DEFAULT-4",
+        "price": 119700,
+        "stock": 30,
+        "attributes": null,
+        "id": "1bc4193d-9854-4c83-91ce-564aa75c9127"
       }
     ],
     "brand": "Rangoli",
@@ -2854,6 +4303,27 @@
         "price": 134700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SI13M-DEFAULT-2",
+        "price": 134700,
+        "stock": 68,
+        "attributes": null,
+        "id": "490bdad4-bd43-4e8c-9765-5a21759e9e71"
+      },
+      {
+        "sku_code": "SKU-SI13M-DEFAULT-3",
+        "price": 134700,
+        "stock": 68,
+        "attributes": null,
+        "id": "9b5b0cdd-8b99-41a9-a5f5-2ce3930a57c4"
+      },
+      {
+        "sku_code": "SKU-SI13M-DEFAULT-4",
+        "price": 134700,
+        "stock": 68,
+        "attributes": null,
+        "id": "56a2b934-4ea0-4f5d-acac-3934900140f6"
       }
     ],
     "brand": "Decals",
@@ -2891,6 +4361,27 @@
         "price": 119700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UK84J-DEFAULT-2",
+        "price": 119700,
+        "stock": 72,
+        "attributes": null,
+        "id": "91eb6ea2-c76a-4adc-8ef7-3872782fc4d3"
+      },
+      {
+        "sku_code": "SKU-UK84J-DEFAULT-3",
+        "price": 119700,
+        "stock": 72,
+        "attributes": null,
+        "id": "66b96957-651e-4b13-8d74-58aa80d4d0e9"
+      },
+      {
+        "sku_code": "SKU-UK84J-DEFAULT-4",
+        "price": 119700,
+        "stock": 72,
+        "attributes": null,
+        "id": "d15e5b4a-3090-4765-9865-53d76b3aa4b3"
       }
     ],
     "brand": "Amazon",
@@ -2928,6 +4419,27 @@
         "price": 77700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6E50V-DEFAULT-2",
+        "price": 77700,
+        "stock": 86,
+        "attributes": null,
+        "id": "037becc4-5c94-488a-b83a-7ca2ccc33cbc"
+      },
+      {
+        "sku_code": "SKU-6E50V-DEFAULT-3",
+        "price": 77700,
+        "stock": 86,
+        "attributes": null,
+        "id": "5f26517c-b6f9-4c58-881e-f7147334cf28"
+      },
+      {
+        "sku_code": "SKU-6E50V-DEFAULT-4",
+        "price": 77700,
+        "stock": 86,
+        "attributes": null,
+        "id": "9517806b-9a4c-4f8b-a122-5ad0c171d1e2"
       }
     ],
     "brand": "SPHINX",
@@ -2965,6 +4477,27 @@
         "price": 389700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7273C-DEFAULT-2",
+        "price": 389700,
+        "stock": 79,
+        "attributes": null,
+        "id": "46497b47-09a3-483e-a838-7eb38136ac82"
+      },
+      {
+        "sku_code": "SKU-7273C-DEFAULT-3",
+        "price": 389700,
+        "stock": 79,
+        "attributes": null,
+        "id": "c24b954d-5208-4329-b616-f9fc2fee6220"
+      },
+      {
+        "sku_code": "SKU-7273C-DEFAULT-4",
+        "price": 389700,
+        "stock": 79,
+        "attributes": null,
+        "id": "98dca729-b922-4587-9229-f174992dcc59"
       }
     ],
     "brand": "Asus",
@@ -3006,6 +4539,27 @@
         "price": 87000,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6PVPW-DEFAULT-2",
+        "price": 87000,
+        "stock": 66,
+        "attributes": null,
+        "id": "7afe3350-dd54-4b79-83b1-4baf3f6b19c8"
+      },
+      {
+        "sku_code": "SKU-6PVPW-DEFAULT-3",
+        "price": 87000,
+        "stock": 66,
+        "attributes": null,
+        "id": "d21cccae-309a-4ec8-bcf5-539cee054ef1"
+      },
+      {
+        "sku_code": "SKU-6PVPW-DEFAULT-4",
+        "price": 87000,
+        "stock": 66,
+        "attributes": null,
+        "id": "45a12558-e38d-44ec-8631-b4f7e3722b5e"
       }
     ],
     "brand": "TIED",
@@ -3043,6 +4597,27 @@
         "price": 133500,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0AGPU-DEFAULT-2",
+        "price": 133500,
+        "stock": 14,
+        "attributes": null,
+        "id": "6b38a523-a5fd-451f-9e4d-4d1d23c62b63"
+      },
+      {
+        "sku_code": "SKU-0AGPU-DEFAULT-3",
+        "price": 133500,
+        "stock": 14,
+        "attributes": null,
+        "id": "80617cf5-1ff0-4007-b5bd-c6e3fa6b9358"
+      },
+      {
+        "sku_code": "SKU-0AGPU-DEFAULT-4",
+        "price": 133500,
+        "stock": 14,
+        "attributes": null,
+        "id": "88c9d893-6782-414b-ad20-fe85431cfda7"
       }
     ],
     "brand": "Rangoli",
@@ -3088,6 +4663,27 @@
         "price": 127500,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CB0N8-DEFAULT-2",
+        "price": 127500,
+        "stock": 64,
+        "attributes": null,
+        "id": "96147f24-f4c5-4a10-9101-d641eba9bd1f"
+      },
+      {
+        "sku_code": "SKU-CB0N8-DEFAULT-3",
+        "price": 127500,
+        "stock": 64,
+        "attributes": null,
+        "id": "50250b04-cf05-44d0-b373-a24621476fe1"
+      },
+      {
+        "sku_code": "SKU-CB0N8-DEFAULT-4",
+        "price": 127500,
+        "stock": 64,
+        "attributes": null,
+        "id": "b4040500-24d0-4f5c-a759-19710aeaa3c5"
       }
     ],
     "brand": "Ajanta",
@@ -3129,6 +4725,27 @@
         "price": 1739700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EB5VK-DEFAULT-2",
+        "price": 1739700,
+        "stock": 27,
+        "attributes": null,
+        "id": "e89c37ab-a22a-4a91-93c4-c581a92ffa25"
+      },
+      {
+        "sku_code": "SKU-EB5VK-DEFAULT-3",
+        "price": 1739700,
+        "stock": 27,
+        "attributes": null,
+        "id": "76a9c355-1605-471b-9e4e-e1cbaca93c70"
+      },
+      {
+        "sku_code": "SKU-EB5VK-DEFAULT-4",
+        "price": 1739700,
+        "stock": 27,
+        "attributes": null,
+        "id": "e6732cd4-86b8-43c3-b7e9-2a9e690f1542"
       }
     ],
     "brand": "CraftVatika",
@@ -3166,6 +4783,27 @@
         "price": 90900,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5SQSL-DEFAULT-2",
+        "price": 90900,
+        "stock": 12,
+        "attributes": null,
+        "id": "b3c85796-d509-4b80-8ab0-0c9ffa74d418"
+      },
+      {
+        "sku_code": "SKU-5SQSL-DEFAULT-3",
+        "price": 90900,
+        "stock": 12,
+        "attributes": null,
+        "id": "909488f2-c1b5-4dc8-8264-8d86b83c48db"
+      },
+      {
+        "sku_code": "SKU-5SQSL-DEFAULT-4",
+        "price": 90900,
+        "stock": 12,
+        "attributes": null,
+        "id": "3728300e-4173-4aa8-8417-44e90e2eb385"
       }
     ],
     "brand": "ArtX",
@@ -3203,6 +4841,27 @@
         "price": 412500,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M7HA5-DEFAULT-2",
+        "price": 412500,
+        "stock": 41,
+        "attributes": null,
+        "id": "f16c0e76-26ab-4b66-b08c-0bb840d22bf7"
+      },
+      {
+        "sku_code": "SKU-M7HA5-DEFAULT-3",
+        "price": 412500,
+        "stock": 41,
+        "attributes": null,
+        "id": "997ba6fb-1399-42a0-a79f-77697c2f5d5a"
+      },
+      {
+        "sku_code": "SKU-M7HA5-DEFAULT-4",
+        "price": 412500,
+        "stock": 41,
+        "attributes": null,
+        "id": "cf6596f3-9dd0-46c0-bb3f-e735a6d3a956"
       }
     ],
     "brand": "SAF",
@@ -3248,6 +4907,27 @@
         "price": 119700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OOUGJ-DEFAULT-2",
+        "price": 119700,
+        "stock": 64,
+        "attributes": null,
+        "id": "b354233c-477d-4367-97d5-cadddd7d97c3"
+      },
+      {
+        "sku_code": "SKU-OOUGJ-DEFAULT-3",
+        "price": 119700,
+        "stock": 64,
+        "attributes": null,
+        "id": "0d794262-f1d2-4e53-89c4-8071c55de64b"
+      },
+      {
+        "sku_code": "SKU-OOUGJ-DEFAULT-4",
+        "price": 119700,
+        "stock": 64,
+        "attributes": null,
+        "id": "4c0add42-d34e-49b2-b383-9a5225ecf94e"
       }
     ],
     "brand": "CraftVatika",
@@ -3293,6 +4973,27 @@
         "price": 119700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SEMJL-DEFAULT-2",
+        "price": 119700,
+        "stock": 19,
+        "attributes": null,
+        "id": "f1b145f9-8d38-4215-bce7-4c3572ae22ff"
+      },
+      {
+        "sku_code": "SKU-SEMJL-DEFAULT-3",
+        "price": 119700,
+        "stock": 19,
+        "attributes": null,
+        "id": "3e32626c-2c45-4769-8676-dd99d5db9be1"
+      },
+      {
+        "sku_code": "SKU-SEMJL-DEFAULT-4",
+        "price": 119700,
+        "stock": 19,
+        "attributes": null,
+        "id": "664d2500-8b38-4c46-9997-1df61301b4b1"
       }
     ],
     "brand": "CraftVatika",
@@ -3330,6 +5031,27 @@
         "price": 53700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3YM70-DEFAULT-2",
+        "price": 53700,
+        "stock": 11,
+        "attributes": null,
+        "id": "b0da1b4c-e7f4-49ee-89fd-8fc3a9aadd8a"
+      },
+      {
+        "sku_code": "SKU-3YM70-DEFAULT-3",
+        "price": 53700,
+        "stock": 11,
+        "attributes": null,
+        "id": "06530eef-3c55-4d3c-90e3-44c657c542e4"
+      },
+      {
+        "sku_code": "SKU-3YM70-DEFAULT-4",
+        "price": 53700,
+        "stock": 11,
+        "attributes": null,
+        "id": "9b2b1439-7344-439f-bd7f-5999a6d6f970"
       }
     ],
     "brand": "SAF",
@@ -3367,6 +5089,27 @@
         "price": 263700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7DPIM-DEFAULT-2",
+        "price": 263700,
+        "stock": 32,
+        "attributes": null,
+        "id": "169be0fa-526d-4b97-b248-1427b692b545"
+      },
+      {
+        "sku_code": "SKU-7DPIM-DEFAULT-3",
+        "price": 263700,
+        "stock": 32,
+        "attributes": null,
+        "id": "1ec3e565-9709-4ef8-8f67-b09e19743355"
+      },
+      {
+        "sku_code": "SKU-7DPIM-DEFAULT-4",
+        "price": 263700,
+        "stock": 32,
+        "attributes": null,
+        "id": "24e2d368-796f-4f01-bc86-c0a43e1ff484"
       }
     ],
     "brand": "Indianara",
@@ -3408,6 +5151,27 @@
         "price": 89700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BCDS7-DEFAULT-2",
+        "price": 89700,
+        "stock": 86,
+        "attributes": null,
+        "id": "6be43301-175e-45ab-8df4-2dd1776737fc"
+      },
+      {
+        "sku_code": "SKU-BCDS7-DEFAULT-3",
+        "price": 89700,
+        "stock": 86,
+        "attributes": null,
+        "id": "da263b0b-fdf7-463f-bf36-c59e833ba8f5"
+      },
+      {
+        "sku_code": "SKU-BCDS7-DEFAULT-4",
+        "price": 89700,
+        "stock": 86,
+        "attributes": null,
+        "id": "fb7707f1-dca5-4511-a8b9-3ede65008993"
       }
     ],
     "brand": "SAF",
@@ -3449,6 +5213,27 @@
         "price": 62700,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2JT2I-DEFAULT-2",
+        "price": 62700,
+        "stock": 52,
+        "attributes": null,
+        "id": "b8c5869f-b600-455b-ac41-ea53837c5631"
+      },
+      {
+        "sku_code": "SKU-2JT2I-DEFAULT-3",
+        "price": 62700,
+        "stock": 52,
+        "attributes": null,
+        "id": "9b48e76a-a1d3-4fc8-a9c9-c22551333153"
+      },
+      {
+        "sku_code": "SKU-2JT2I-DEFAULT-4",
+        "price": 62700,
+        "stock": 52,
+        "attributes": null,
+        "id": "778295ca-f9e5-4202-a4ee-d0749c2458c0"
       }
     ],
     "brand": "ArtX",
@@ -3494,6 +5279,27 @@
         "price": 1214700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0DQIL-DEFAULT-2",
+        "price": 1214700,
+        "stock": 48,
+        "attributes": null,
+        "id": "2cd6cb93-93de-4c72-ac84-8b6193f7357f"
+      },
+      {
+        "sku_code": "SKU-0DQIL-DEFAULT-3",
+        "price": 1214700,
+        "stock": 48,
+        "attributes": null,
+        "id": "deb2ba14-cfa0-4fe0-b754-3188507efee3"
+      },
+      {
+        "sku_code": "SKU-0DQIL-DEFAULT-4",
+        "price": 1214700,
+        "stock": 48,
+        "attributes": null,
+        "id": "d908ca9d-8677-499b-9ec0-98b891609890"
       }
     ],
     "brand": "Amazon",
@@ -3531,6 +5337,27 @@
         "price": 81000,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1RAAZ-DEFAULT-2",
+        "price": 81000,
+        "stock": 64,
+        "attributes": null,
+        "id": "ac08c751-0c84-41b9-8f6a-688ec4e6ee80"
+      },
+      {
+        "sku_code": "SKU-1RAAZ-DEFAULT-3",
+        "price": 81000,
+        "stock": 64,
+        "attributes": null,
+        "id": "89b11d4b-7a1c-49c4-bae3-b7fd582ff43f"
+      },
+      {
+        "sku_code": "SKU-1RAAZ-DEFAULT-4",
+        "price": 81000,
+        "stock": 64,
+        "attributes": null,
+        "id": "9f55e38a-3e92-494a-b0ec-96418323e499"
       }
     ],
     "brand": "Pure",
@@ -3568,6 +5395,27 @@
         "price": 44700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P6IAP-DEFAULT-2",
+        "price": 44700,
+        "stock": 51,
+        "attributes": null,
+        "id": "83622649-e9e5-462b-905b-df523ddb4eec"
+      },
+      {
+        "sku_code": "SKU-P6IAP-DEFAULT-3",
+        "price": 44700,
+        "stock": 51,
+        "attributes": null,
+        "id": "d7a2020d-dd7e-4a16-8e68-612d7b208e62"
+      },
+      {
+        "sku_code": "SKU-P6IAP-DEFAULT-4",
+        "price": 44700,
+        "stock": 51,
+        "attributes": null,
+        "id": "d6a2e0aa-c81e-403d-bfbf-0728077c1d75"
       }
     ],
     "brand": "Indianara",
@@ -3609,6 +5457,27 @@
         "price": 158700,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZB61J-DEFAULT-2",
+        "price": 158700,
+        "stock": 17,
+        "attributes": null,
+        "id": "a232d0fc-3feb-4891-b294-1f6777527073"
+      },
+      {
+        "sku_code": "SKU-ZB61J-DEFAULT-3",
+        "price": 158700,
+        "stock": 17,
+        "attributes": null,
+        "id": "ee451633-8f51-4a0e-9561-40e504f4e4c3"
+      },
+      {
+        "sku_code": "SKU-ZB61J-DEFAULT-4",
+        "price": 158700,
+        "stock": 17,
+        "attributes": null,
+        "id": "7980ad89-63f6-49a0-b399-622d8342a71b"
       }
     ],
     "brand": "ArtX",
@@ -3646,6 +5515,27 @@
         "price": 209400,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9WVXL-DEFAULT-2",
+        "price": 209400,
+        "stock": 40,
+        "attributes": null,
+        "id": "3c4b523c-aa74-4ba4-90d5-893bcc25052c"
+      },
+      {
+        "sku_code": "SKU-9WVXL-DEFAULT-3",
+        "price": 209400,
+        "stock": 40,
+        "attributes": null,
+        "id": "43fad36f-4b27-41c3-8cfc-b620c141cb3f"
+      },
+      {
+        "sku_code": "SKU-9WVXL-DEFAULT-4",
+        "price": 209400,
+        "stock": 40,
+        "attributes": null,
+        "id": "918c56aa-e5b2-4caa-a00a-0e6e2ff72f90"
       }
     ],
     "brand": "TIED",
@@ -3683,6 +5573,27 @@
         "price": 239700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L0KL0-DEFAULT-2",
+        "price": 239700,
+        "stock": 19,
+        "attributes": null,
+        "id": "fa685629-838b-474a-a2d2-50d4040aa0e6"
+      },
+      {
+        "sku_code": "SKU-L0KL0-DEFAULT-3",
+        "price": 239700,
+        "stock": 19,
+        "attributes": null,
+        "id": "7c2d7da5-a5bd-43a8-9555-36d98d8dc95e"
+      },
+      {
+        "sku_code": "SKU-L0KL0-DEFAULT-4",
+        "price": 239700,
+        "stock": 19,
+        "attributes": null,
+        "id": "01af8934-f602-43f9-9d9f-6878aec2887d"
       }
     ],
     "brand": "Rangoli",
@@ -3728,6 +5639,27 @@
         "price": 329700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UPK5P-DEFAULT-2",
+        "price": 329700,
+        "stock": 79,
+        "attributes": null,
+        "id": "074cef0a-b25b-4975-a423-363ee889d6a9"
+      },
+      {
+        "sku_code": "SKU-UPK5P-DEFAULT-3",
+        "price": 329700,
+        "stock": 79,
+        "attributes": null,
+        "id": "28a5b956-278c-460e-887d-e0527714fab1"
+      },
+      {
+        "sku_code": "SKU-UPK5P-DEFAULT-4",
+        "price": 329700,
+        "stock": 79,
+        "attributes": null,
+        "id": "5b135551-23f0-4d20-852f-1f8c7823bd4c"
       }
     ],
     "brand": "Indianara",
@@ -3769,6 +5701,27 @@
         "price": 284700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D8CUC-DEFAULT-2",
+        "price": 284700,
+        "stock": 33,
+        "attributes": null,
+        "id": "7a9851f2-88b7-43bb-9369-696f0e00bc1c"
+      },
+      {
+        "sku_code": "SKU-D8CUC-DEFAULT-3",
+        "price": 284700,
+        "stock": 33,
+        "attributes": null,
+        "id": "2779d379-5e6e-4c28-b69f-e7436398b3b7"
+      },
+      {
+        "sku_code": "SKU-D8CUC-DEFAULT-4",
+        "price": 284700,
+        "stock": 33,
+        "attributes": null,
+        "id": "55dfb1b0-55b5-4faf-bb96-49ba7af5cb9c"
       }
     ],
     "brand": "CraftVatika",
@@ -3810,6 +5763,27 @@
         "price": 179700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YPXQL-DEFAULT-2",
+        "price": 179700,
+        "stock": 34,
+        "attributes": null,
+        "id": "e417e47b-1e7f-4f82-9cf1-e43e7eeeb957"
+      },
+      {
+        "sku_code": "SKU-YPXQL-DEFAULT-3",
+        "price": 179700,
+        "stock": 34,
+        "attributes": null,
+        "id": "b2f5a004-e7e5-4e14-b7d6-5698ee10a465"
+      },
+      {
+        "sku_code": "SKU-YPXQL-DEFAULT-4",
+        "price": 179700,
+        "stock": 34,
+        "attributes": null,
+        "id": "fa877dbf-f715-4bef-a9ec-ad89ca9933b9"
       }
     ],
     "brand": "Pure",
@@ -3855,6 +5829,27 @@
         "price": 20700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1IINN-DEFAULT-2",
+        "price": 20700,
+        "stock": 43,
+        "attributes": null,
+        "id": "8d7c27b0-04f0-4848-b02b-0b11f2d24377"
+      },
+      {
+        "sku_code": "SKU-1IINN-DEFAULT-3",
+        "price": 20700,
+        "stock": 43,
+        "attributes": null,
+        "id": "47454238-7b99-4eae-9d07-1c9be42d534e"
+      },
+      {
+        "sku_code": "SKU-1IINN-DEFAULT-4",
+        "price": 20700,
+        "stock": 43,
+        "attributes": null,
+        "id": "4a07422f-5898-4d31-b8d1-545fd1e2fabb"
       }
     ],
     "brand": "Decals",
@@ -3896,6 +5891,27 @@
         "price": 68700,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LLKJ5-DEFAULT-2",
+        "price": 68700,
+        "stock": 75,
+        "attributes": null,
+        "id": "29e55f68-4bab-486b-a33d-de341216cdfc"
+      },
+      {
+        "sku_code": "SKU-LLKJ5-DEFAULT-3",
+        "price": 68700,
+        "stock": 75,
+        "attributes": null,
+        "id": "610b9448-ada5-4313-b1d5-566648ff9b04"
+      },
+      {
+        "sku_code": "SKU-LLKJ5-DEFAULT-4",
+        "price": 68700,
+        "stock": 75,
+        "attributes": null,
+        "id": "92540518-9b3d-4862-8649-f3c60e85110e"
       }
     ],
     "brand": "Ajanta",
@@ -3937,6 +5953,27 @@
         "price": 194700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4RO5Q-DEFAULT-2",
+        "price": 194700,
+        "stock": 74,
+        "attributes": null,
+        "id": "55d52ed2-5c4d-4efb-96ef-c23fec4a16f1"
+      },
+      {
+        "sku_code": "SKU-4RO5Q-DEFAULT-3",
+        "price": 194700,
+        "stock": 74,
+        "attributes": null,
+        "id": "643e1b48-1d77-4a94-987b-5313e94746bf"
+      },
+      {
+        "sku_code": "SKU-4RO5Q-DEFAULT-4",
+        "price": 194700,
+        "stock": 74,
+        "attributes": null,
+        "id": "9586a64a-9fb1-4419-bbae-c94ecc56d0c0"
       }
     ],
     "brand": "SPHINX",
@@ -3982,6 +6019,27 @@
         "price": 106500,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U8BLA-DEFAULT-2",
+        "price": 106500,
+        "stock": 65,
+        "attributes": null,
+        "id": "524271f8-0122-441c-90ac-366b59e9f5d6"
+      },
+      {
+        "sku_code": "SKU-U8BLA-DEFAULT-3",
+        "price": 106500,
+        "stock": 65,
+        "attributes": null,
+        "id": "00da6b3d-4285-47a4-b045-da212fe0cbc2"
+      },
+      {
+        "sku_code": "SKU-U8BLA-DEFAULT-4",
+        "price": 106500,
+        "stock": 65,
+        "attributes": null,
+        "id": "c5d5d86a-f426-498b-a78b-2bf59a65d9f4"
       }
     ],
     "brand": "SPHINX",
@@ -4027,6 +6085,27 @@
         "price": 175800,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CMX56-DEFAULT-2",
+        "price": 175800,
+        "stock": 89,
+        "attributes": null,
+        "id": "7e0e0223-e538-4977-a8be-e05c1c3d4e91"
+      },
+      {
+        "sku_code": "SKU-CMX56-DEFAULT-3",
+        "price": 175800,
+        "stock": 89,
+        "attributes": null,
+        "id": "eea06c9e-9e5b-4531-bb82-5c82c54d5e7f"
+      },
+      {
+        "sku_code": "SKU-CMX56-DEFAULT-4",
+        "price": 175800,
+        "stock": 89,
+        "attributes": null,
+        "id": "ff181fa2-8a04-4db7-9d78-20a7bc0b86e1"
       }
     ],
     "brand": "Pure",
@@ -4064,6 +6143,27 @@
         "price": 188700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UK7WA-DEFAULT-2",
+        "price": 188700,
+        "stock": 107,
+        "attributes": null,
+        "id": "06d651c8-eb6a-4694-9fc3-81efcfee2b95"
+      },
+      {
+        "sku_code": "SKU-UK7WA-DEFAULT-3",
+        "price": 188700,
+        "stock": 107,
+        "attributes": null,
+        "id": "622b43da-c1e6-4fb9-9cc8-3510782f4c02"
+      },
+      {
+        "sku_code": "SKU-UK7WA-DEFAULT-4",
+        "price": 188700,
+        "stock": 107,
+        "attributes": null,
+        "id": "6c5095aa-7def-4364-8e30-99ffe2e39979"
       }
     ],
     "brand": "TIED",

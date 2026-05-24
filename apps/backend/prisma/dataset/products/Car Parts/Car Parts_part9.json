@@ -22,6 +22,27 @@
         "price": 33000,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZRXLD-DEFAULT-2",
+        "price": 33000,
+        "stock": 91,
+        "attributes": null,
+        "id": "71926e3b-d016-4d7a-bb5c-f4e733d6bf5b"
+      },
+      {
+        "sku_code": "SKU-ZRXLD-DEFAULT-3",
+        "price": 33000,
+        "stock": 91,
+        "attributes": null,
+        "id": "f6754c6e-e414-4fbe-b85b-b8cb2d633505"
+      },
+      {
+        "sku_code": "SKU-ZRXLD-DEFAULT-4",
+        "price": 33000,
+        "stock": 91,
+        "attributes": null,
+        "id": "15178c6b-608c-4961-bd10-15dfff4c0290"
       }
     ],
     "brand": "Automaze",
@@ -63,6 +84,27 @@
         "price": 299700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HN2RD-DEFAULT-2",
+        "price": 299700,
+        "stock": 16,
+        "attributes": null,
+        "id": "cc44adbb-dffd-4e7b-86a4-c46ccb990e71"
+      },
+      {
+        "sku_code": "SKU-HN2RD-DEFAULT-3",
+        "price": 299700,
+        "stock": 16,
+        "attributes": null,
+        "id": "0d4d8eaa-bd2e-42a5-9b52-5e65de53a295"
+      },
+      {
+        "sku_code": "SKU-HN2RD-DEFAULT-4",
+        "price": 299700,
+        "stock": 16,
+        "attributes": null,
+        "id": "121a8569-9b46-4221-9086-c73219c48f81"
       }
     ],
     "brand": "Allextreme",
@@ -104,6 +146,27 @@
         "price": 89700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5A7JA-DEFAULT-2",
+        "price": 89700,
+        "stock": 64,
+        "attributes": null,
+        "id": "2df74492-4255-498e-8ad3-61391189585a"
+      },
+      {
+        "sku_code": "SKU-5A7JA-DEFAULT-3",
+        "price": 89700,
+        "stock": 64,
+        "attributes": null,
+        "id": "ac46c140-b662-400f-8055-34df9c7b20a8"
+      },
+      {
+        "sku_code": "SKU-5A7JA-DEFAULT-4",
+        "price": 89700,
+        "stock": 64,
+        "attributes": null,
+        "id": "1d5ab564-17a8-469f-bf99-f863be1251e1"
       }
     ],
     "brand": "UNO",
@@ -141,6 +204,27 @@
         "price": 604500,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N3V9R-DEFAULT-2",
+        "price": 604500,
+        "stock": 36,
+        "attributes": null,
+        "id": "540d5cf6-1608-4b42-a0c2-28dd99ff61d4"
+      },
+      {
+        "sku_code": "SKU-N3V9R-DEFAULT-3",
+        "price": 604500,
+        "stock": 36,
+        "attributes": null,
+        "id": "c0c8c859-d306-4230-9368-b81a36718b42"
+      },
+      {
+        "sku_code": "SKU-N3V9R-DEFAULT-4",
+        "price": 604500,
+        "stock": 36,
+        "attributes": null,
+        "id": "c559aeb4-de28-4123-8a87-fc2b408189fd"
       }
     ],
     "brand": "Allextreme",
@@ -186,6 +270,27 @@
         "price": 58500,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D0J60-DEFAULT-2",
+        "price": 58500,
+        "stock": 86,
+        "attributes": null,
+        "id": "fed295d9-00d5-4098-991d-8f8fb2bf63cf"
+      },
+      {
+        "sku_code": "SKU-D0J60-DEFAULT-3",
+        "price": 58500,
+        "stock": 86,
+        "attributes": null,
+        "id": "62d5e76b-1b66-48da-87af-19b1f5e4d294"
+      },
+      {
+        "sku_code": "SKU-D0J60-DEFAULT-4",
+        "price": 58500,
+        "stock": 86,
+        "attributes": null,
+        "id": "ddc1b3ce-0bc7-4bc3-8dfb-0b8d6c6a394d"
       }
     ],
     "brand": "Kozdiko",
@@ -231,6 +336,27 @@
         "price": 299700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PF7N0-DEFAULT-2",
+        "price": 299700,
+        "stock": 41,
+        "attributes": null,
+        "id": "2f9d4f0f-bf2f-4d76-9f84-661fe2007099"
+      },
+      {
+        "sku_code": "SKU-PF7N0-DEFAULT-3",
+        "price": 299700,
+        "stock": 41,
+        "attributes": null,
+        "id": "bbe9105d-73f2-4c31-81f2-78ed71d65cbd"
+      },
+      {
+        "sku_code": "SKU-PF7N0-DEFAULT-4",
+        "price": 299700,
+        "stock": 41,
+        "attributes": null,
+        "id": "c6af3e80-a6f9-4078-8909-2eed21956ed1"
       }
     ],
     "brand": "AUTO",
@@ -272,6 +398,27 @@
         "price": 239700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C8G35-DEFAULT-2",
+        "price": 239700,
+        "stock": 25,
+        "attributes": null,
+        "id": "25396df5-a246-45f7-8a14-1080e37206a9"
+      },
+      {
+        "sku_code": "SKU-C8G35-DEFAULT-3",
+        "price": 239700,
+        "stock": 25,
+        "attributes": null,
+        "id": "13295f3a-16ba-4827-9eba-c51f1a322450"
+      },
+      {
+        "sku_code": "SKU-C8G35-DEFAULT-4",
+        "price": 239700,
+        "stock": 25,
+        "attributes": null,
+        "id": "5a097d43-b7c2-4606-85f8-d530d56b08b2"
       }
     ],
     "brand": "Allextreme",
@@ -309,6 +456,27 @@
         "price": 750000,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OL1C2-DEFAULT-2",
+        "price": 750000,
+        "stock": 39,
+        "attributes": null,
+        "id": "1be2944b-da96-4510-945b-f948f37b0c13"
+      },
+      {
+        "sku_code": "SKU-OL1C2-DEFAULT-3",
+        "price": 750000,
+        "stock": 39,
+        "attributes": null,
+        "id": "37620ee7-4039-4b7d-b98b-b20255ad9b92"
+      },
+      {
+        "sku_code": "SKU-OL1C2-DEFAULT-4",
+        "price": 750000,
+        "stock": 39,
+        "attributes": null,
+        "id": "7342e29f-ea2c-41e7-8a40-9165539d50a4"
       }
     ],
     "brand": "AutoClean",
@@ -354,6 +522,27 @@
         "price": 299700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FOUTR-DEFAULT-2",
+        "price": 299700,
+        "stock": 10,
+        "attributes": null,
+        "id": "8e3c7cda-4f2f-4029-b5a4-cbeddafd4bda"
+      },
+      {
+        "sku_code": "SKU-FOUTR-DEFAULT-3",
+        "price": 299700,
+        "stock": 10,
+        "attributes": null,
+        "id": "2cbdbf73-8185-453a-ae4a-550156639ce9"
+      },
+      {
+        "sku_code": "SKU-FOUTR-DEFAULT-4",
+        "price": 299700,
+        "stock": 10,
+        "attributes": null,
+        "id": "09da2f8c-91c8-45af-91e3-f31bd25a5c85"
       }
     ],
     "brand": "Speedwav",
@@ -399,6 +588,27 @@
         "price": 716700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ISEBH-DEFAULT-2",
+        "price": 716700,
+        "stock": 77,
+        "attributes": null,
+        "id": "c332140a-79a2-4d75-8647-18b1a8ae1891"
+      },
+      {
+        "sku_code": "SKU-ISEBH-DEFAULT-3",
+        "price": 716700,
+        "stock": 77,
+        "attributes": null,
+        "id": "edcde6df-dfa8-4196-8ec0-12f7b3d7c835"
+      },
+      {
+        "sku_code": "SKU-ISEBH-DEFAULT-4",
+        "price": 716700,
+        "stock": 77,
+        "attributes": null,
+        "id": "f8ee7c30-f147-43a8-819a-4ef1e3fcb6e2"
       }
     ],
     "brand": "Speedwav",
@@ -440,6 +650,27 @@
         "price": 122700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CZ6M6-DEFAULT-2",
+        "price": 122700,
+        "stock": 62,
+        "attributes": null,
+        "id": "dee0a3d1-2bd8-4c9d-b27a-3af2e35082f0"
+      },
+      {
+        "sku_code": "SKU-CZ6M6-DEFAULT-3",
+        "price": 122700,
+        "stock": 62,
+        "attributes": null,
+        "id": "127a78f3-df32-4437-8e79-86d3bb93da74"
+      },
+      {
+        "sku_code": "SKU-CZ6M6-DEFAULT-4",
+        "price": 122700,
+        "stock": 62,
+        "attributes": null,
+        "id": "8833580b-71c1-436c-80df-8e28888bef13"
       }
     ],
     "brand": "Car",
@@ -485,6 +716,27 @@
         "price": 1197000,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-506Q6-DEFAULT-2",
+        "price": 1197000,
+        "stock": 57,
+        "attributes": null,
+        "id": "25e99c8a-fcf5-4295-a77f-a4cf1f7cb20a"
+      },
+      {
+        "sku_code": "SKU-506Q6-DEFAULT-3",
+        "price": 1197000,
+        "stock": 57,
+        "attributes": null,
+        "id": "0f8efe26-a17d-4566-b1a5-7407b182ed18"
+      },
+      {
+        "sku_code": "SKU-506Q6-DEFAULT-4",
+        "price": 1197000,
+        "stock": 57,
+        "attributes": null,
+        "id": "831514a6-80d9-4feb-ab47-92d8f5282c67"
       }
     ],
     "brand": "AutoClean",
@@ -530,6 +782,27 @@
         "price": 554700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G5GIY-DEFAULT-2",
+        "price": 554700,
+        "stock": 107,
+        "attributes": null,
+        "id": "b4da82a7-92cf-4a3d-8d49-752a1fe2b8ff"
+      },
+      {
+        "sku_code": "SKU-G5GIY-DEFAULT-3",
+        "price": 554700,
+        "stock": 107,
+        "attributes": null,
+        "id": "af36114a-190c-4c37-99e5-efdc25b07231"
+      },
+      {
+        "sku_code": "SKU-G5GIY-DEFAULT-4",
+        "price": 554700,
+        "stock": 107,
+        "attributes": null,
+        "id": "b0b11385-653e-46c4-b01e-be55837797df"
       }
     ],
     "brand": "Automaze",
@@ -571,6 +844,27 @@
         "price": 1680000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H70ZM-DEFAULT-2",
+        "price": 1680000,
+        "stock": 87,
+        "attributes": null,
+        "id": "bd6c54d2-ee1c-49e4-81ae-0700430d260a"
+      },
+      {
+        "sku_code": "SKU-H70ZM-DEFAULT-3",
+        "price": 1680000,
+        "stock": 87,
+        "attributes": null,
+        "id": "ec411461-88af-44cc-826e-40a3b374cd82"
+      },
+      {
+        "sku_code": "SKU-H70ZM-DEFAULT-4",
+        "price": 1680000,
+        "stock": 87,
+        "attributes": null,
+        "id": "93bf1a14-421a-4bfb-bbce-bf77a651e8a2"
       }
     ],
     "brand": "Kozdiko",
@@ -612,6 +906,27 @@
         "price": 66000,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OAFC6-DEFAULT-2",
+        "price": 66000,
+        "stock": 76,
+        "attributes": null,
+        "id": "11ed8327-976c-4ba3-9a06-df881348eb3a"
+      },
+      {
+        "sku_code": "SKU-OAFC6-DEFAULT-3",
+        "price": 66000,
+        "stock": 76,
+        "attributes": null,
+        "id": "b16b44f8-3b0d-4bd0-8d3b-ce389622fa5d"
+      },
+      {
+        "sku_code": "SKU-OAFC6-DEFAULT-4",
+        "price": 66000,
+        "stock": 76,
+        "attributes": null,
+        "id": "0a6b96e2-6149-4890-b517-db7aadc61d8b"
       }
     ],
     "brand": "Automaze",
@@ -649,6 +964,27 @@
         "price": 1947000,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-43NSN-DEFAULT-2",
+        "price": 1947000,
+        "stock": 48,
+        "attributes": null,
+        "id": "fa1d82ee-7566-4460-a706-d9fbe385bae9"
+      },
+      {
+        "sku_code": "SKU-43NSN-DEFAULT-3",
+        "price": 1947000,
+        "stock": 48,
+        "attributes": null,
+        "id": "c06213cb-97b7-49ec-ac39-acbaddc57759"
+      },
+      {
+        "sku_code": "SKU-43NSN-DEFAULT-4",
+        "price": 1947000,
+        "stock": 48,
+        "attributes": null,
+        "id": "e75198bb-9164-44c0-942c-faad2d3ecbe9"
       }
     ],
     "brand": "Vagary",
@@ -690,6 +1026,27 @@
         "price": 89700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KY39B-DEFAULT-2",
+        "price": 89700,
+        "stock": 67,
+        "attributes": null,
+        "id": "4aee145d-1d8d-4bab-97ad-c750f4e5b664"
+      },
+      {
+        "sku_code": "SKU-KY39B-DEFAULT-3",
+        "price": 89700,
+        "stock": 67,
+        "attributes": null,
+        "id": "4f0a6016-3fae-4fed-ac49-df294b232a38"
+      },
+      {
+        "sku_code": "SKU-KY39B-DEFAULT-4",
+        "price": 89700,
+        "stock": 67,
+        "attributes": null,
+        "id": "fe7877bd-4bbf-466e-b781-60ca687acf0f"
       }
     ],
     "brand": "NIKAVI",
@@ -731,6 +1088,27 @@
         "price": 59700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y2451-DEFAULT-2",
+        "price": 59700,
+        "stock": 20,
+        "attributes": null,
+        "id": "0c4f6e1f-91e6-40d0-a3a3-cff108bd658b"
+      },
+      {
+        "sku_code": "SKU-Y2451-DEFAULT-3",
+        "price": 59700,
+        "stock": 20,
+        "attributes": null,
+        "id": "6bc3b874-e30f-434d-ad7f-781bdc1d87ff"
+      },
+      {
+        "sku_code": "SKU-Y2451-DEFAULT-4",
+        "price": 59700,
+        "stock": 20,
+        "attributes": null,
+        "id": "3bcb34e6-c011-4ebd-849b-3ee065c7a80c"
       }
     ],
     "brand": "Allextreme",
@@ -772,6 +1150,27 @@
         "price": 329700,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SKBYD-DEFAULT-2",
+        "price": 329700,
+        "stock": 40,
+        "attributes": null,
+        "id": "a70ae533-813d-47c8-ac29-98678f611df3"
+      },
+      {
+        "sku_code": "SKU-SKBYD-DEFAULT-3",
+        "price": 329700,
+        "stock": 40,
+        "attributes": null,
+        "id": "dd9f1a1e-58e2-490b-8d58-c5700d7f76de"
+      },
+      {
+        "sku_code": "SKU-SKBYD-DEFAULT-4",
+        "price": 329700,
+        "stock": 40,
+        "attributes": null,
+        "id": "e27969bf-a643-4a69-940e-41ef1b8ae6a4"
       }
     ],
     "brand": "Bosch",
@@ -809,6 +1208,27 @@
         "price": 119700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZDK6A-DEFAULT-2",
+        "price": 119700,
+        "stock": 65,
+        "attributes": null,
+        "id": "a08bf764-520b-465c-bb47-738782009f43"
+      },
+      {
+        "sku_code": "SKU-ZDK6A-DEFAULT-3",
+        "price": 119700,
+        "stock": 65,
+        "attributes": null,
+        "id": "b88868d3-3d15-4261-b26e-0e47f9e8ccef"
+      },
+      {
+        "sku_code": "SKU-ZDK6A-DEFAULT-4",
+        "price": 119700,
+        "stock": 65,
+        "attributes": null,
+        "id": "01d4a2b9-1af9-4aa5-8a92-da2186fa3351"
       }
     ],
     "brand": "Automaze",
@@ -846,6 +1266,27 @@
         "price": 160800,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ATJMN-DEFAULT-2",
+        "price": 160800,
+        "stock": 33,
+        "attributes": null,
+        "id": "9f40cf00-1aa9-483b-9688-8c0d34c0c47d"
+      },
+      {
+        "sku_code": "SKU-ATJMN-DEFAULT-3",
+        "price": 160800,
+        "stock": 33,
+        "attributes": null,
+        "id": "d4a2d106-7045-461a-9691-714174c57694"
+      },
+      {
+        "sku_code": "SKU-ATJMN-DEFAULT-4",
+        "price": 160800,
+        "stock": 33,
+        "attributes": null,
+        "id": "1e475d32-f83d-4db9-90c4-1b34a1f2c009"
       }
     ],
     "brand": "Car",
@@ -887,6 +1328,27 @@
         "price": 75000,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3V2UD-DEFAULT-2",
+        "price": 75000,
+        "stock": 35,
+        "attributes": null,
+        "id": "102e0ead-c896-40a5-8130-916af0348c30"
+      },
+      {
+        "sku_code": "SKU-3V2UD-DEFAULT-3",
+        "price": 75000,
+        "stock": 35,
+        "attributes": null,
+        "id": "ee94f1a4-450c-4841-bbaf-97cd7b8bdbbd"
+      },
+      {
+        "sku_code": "SKU-3V2UD-DEFAULT-4",
+        "price": 75000,
+        "stock": 35,
+        "attributes": null,
+        "id": "0b23d264-94cd-450a-a0a8-23d2b45539d7"
       }
     ],
     "brand": "CARIZO",
@@ -924,6 +1386,27 @@
         "price": 112500,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DCRGC-DEFAULT-2",
+        "price": 112500,
+        "stock": 53,
+        "attributes": null,
+        "id": "19c43e0e-c213-4670-9d79-27baa96c1b41"
+      },
+      {
+        "sku_code": "SKU-DCRGC-DEFAULT-3",
+        "price": 112500,
+        "stock": 53,
+        "attributes": null,
+        "id": "cde3c5bd-29e9-4b6a-a980-7b8ad7661536"
+      },
+      {
+        "sku_code": "SKU-DCRGC-DEFAULT-4",
+        "price": 112500,
+        "stock": 53,
+        "attributes": null,
+        "id": "becb9b70-1441-4f5c-bb20-1b4d63448940"
       }
     ],
     "brand": "UNO",
@@ -969,6 +1452,27 @@
         "price": 686400,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OMYGT-DEFAULT-2",
+        "price": 686400,
+        "stock": 65,
+        "attributes": null,
+        "id": "e50a1309-681e-43f4-b6e2-bcba3e29a3a9"
+      },
+      {
+        "sku_code": "SKU-OMYGT-DEFAULT-3",
+        "price": 686400,
+        "stock": 65,
+        "attributes": null,
+        "id": "7172cdb6-cdd3-4453-90ca-690c7ce07aa0"
+      },
+      {
+        "sku_code": "SKU-OMYGT-DEFAULT-4",
+        "price": 686400,
+        "stock": 65,
+        "attributes": null,
+        "id": "b18f1e82-0227-4fdf-8352-4385380d4a06"
       }
     ],
     "brand": "AUTO",
@@ -1014,6 +1518,27 @@
         "price": 269700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3XFO6-DEFAULT-2",
+        "price": 269700,
+        "stock": 22,
+        "attributes": null,
+        "id": "651f1899-4d9a-4394-b633-994eafdf75eb"
+      },
+      {
+        "sku_code": "SKU-3XFO6-DEFAULT-3",
+        "price": 269700,
+        "stock": 22,
+        "attributes": null,
+        "id": "e2fcb812-ec84-4db0-b32e-3011728b9e6a"
+      },
+      {
+        "sku_code": "SKU-3XFO6-DEFAULT-4",
+        "price": 269700,
+        "stock": 22,
+        "attributes": null,
+        "id": "fc3b2edb-4f65-49c7-974d-191229b5a895"
       }
     ],
     "brand": "AUTO",
@@ -1059,6 +1584,27 @@
         "price": 135000,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SQQGU-DEFAULT-2",
+        "price": 135000,
+        "stock": 100,
+        "attributes": null,
+        "id": "97de6627-147c-42da-8594-6453b1c64e66"
+      },
+      {
+        "sku_code": "SKU-SQQGU-DEFAULT-3",
+        "price": 135000,
+        "stock": 100,
+        "attributes": null,
+        "id": "83b6bd65-dc91-4b4e-bbdb-0112aa757800"
+      },
+      {
+        "sku_code": "SKU-SQQGU-DEFAULT-4",
+        "price": 135000,
+        "stock": 100,
+        "attributes": null,
+        "id": "711977f8-2a57-44a1-a937-1fb554350f9e"
       }
     ],
     "brand": "NIKAVI",
@@ -1100,6 +1646,27 @@
         "price": 598200,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K1YHU-DEFAULT-2",
+        "price": 598200,
+        "stock": 32,
+        "attributes": null,
+        "id": "395a22bb-0954-4255-a5f1-b67eda3ece4f"
+      },
+      {
+        "sku_code": "SKU-K1YHU-DEFAULT-3",
+        "price": 598200,
+        "stock": 32,
+        "attributes": null,
+        "id": "d32589cc-7e0a-4a21-8a5d-91239c4b6695"
+      },
+      {
+        "sku_code": "SKU-K1YHU-DEFAULT-4",
+        "price": 598200,
+        "stock": 32,
+        "attributes": null,
+        "id": "862a1658-b4c7-4fee-b2ee-a647dbd17459"
       }
     ],
     "brand": "Bosch",
@@ -1145,6 +1712,27 @@
         "price": 159000,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KAF4I-DEFAULT-2",
+        "price": 159000,
+        "stock": 106,
+        "attributes": null,
+        "id": "e84ba784-5493-43f6-9eac-b7220ae5f54f"
+      },
+      {
+        "sku_code": "SKU-KAF4I-DEFAULT-3",
+        "price": 159000,
+        "stock": 106,
+        "attributes": null,
+        "id": "4d330fe1-5cfc-47f1-97d7-ddc555115571"
+      },
+      {
+        "sku_code": "SKU-KAF4I-DEFAULT-4",
+        "price": 159000,
+        "stock": 106,
+        "attributes": null,
+        "id": "753384b7-9f6c-4a4f-bf97-c4a0bae8291e"
       }
     ],
     "brand": "Uno",
@@ -1182,6 +1770,27 @@
         "price": 119700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EN8GH-DEFAULT-2",
+        "price": 119700,
+        "stock": 23,
+        "attributes": null,
+        "id": "c10177b2-ec9e-45b8-9cb2-22b938abbc5e"
+      },
+      {
+        "sku_code": "SKU-EN8GH-DEFAULT-3",
+        "price": 119700,
+        "stock": 23,
+        "attributes": null,
+        "id": "684a1b10-2638-436c-bc5f-ba853df1af4c"
+      },
+      {
+        "sku_code": "SKU-EN8GH-DEFAULT-4",
+        "price": 119700,
+        "stock": 23,
+        "attributes": null,
+        "id": "6345e6e4-7805-41fc-b92f-d15e249d8087"
       }
     ],
     "brand": "Bosch",
@@ -1227,6 +1836,27 @@
         "price": 6625500,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5R8GL-DEFAULT-2",
+        "price": 6625500,
+        "stock": 14,
+        "attributes": null,
+        "id": "ebeaa96f-b76c-4736-a81e-faac001b2298"
+      },
+      {
+        "sku_code": "SKU-5R8GL-DEFAULT-3",
+        "price": 6625500,
+        "stock": 14,
+        "attributes": null,
+        "id": "94584130-7026-4aef-9d36-d7b495aa2f8b"
+      },
+      {
+        "sku_code": "SKU-5R8GL-DEFAULT-4",
+        "price": 6625500,
+        "stock": 14,
+        "attributes": null,
+        "id": "092c728e-0da5-4112-9e95-83efc7f33828"
       }
     ],
     "brand": "Vagary",
@@ -1264,6 +1894,27 @@
         "price": 58500,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XGNWN-DEFAULT-2",
+        "price": 58500,
+        "stock": 99,
+        "attributes": null,
+        "id": "98d18ad4-8d01-4a94-8751-994d21910ec7"
+      },
+      {
+        "sku_code": "SKU-XGNWN-DEFAULT-3",
+        "price": 58500,
+        "stock": 99,
+        "attributes": null,
+        "id": "bcc3d822-13f8-4173-b9b3-7ca69495f7ce"
+      },
+      {
+        "sku_code": "SKU-XGNWN-DEFAULT-4",
+        "price": 58500,
+        "stock": 99,
+        "attributes": null,
+        "id": "2f8e34a8-b545-43e3-ba11-4654b959f894"
       }
     ],
     "brand": "Bosch",
@@ -1305,6 +1956,27 @@
         "price": 104700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4Y61V-DEFAULT-2",
+        "price": 104700,
+        "stock": 34,
+        "attributes": null,
+        "id": "ffc7a422-b97e-43fa-af84-1eef30376615"
+      },
+      {
+        "sku_code": "SKU-4Y61V-DEFAULT-3",
+        "price": 104700,
+        "stock": 34,
+        "attributes": null,
+        "id": "25448ca1-dcec-497e-8840-7aefd37c3227"
+      },
+      {
+        "sku_code": "SKU-4Y61V-DEFAULT-4",
+        "price": 104700,
+        "stock": 34,
+        "attributes": null,
+        "id": "bf1b9c6e-2af5-4035-b244-42c0dbf54111"
       }
     ],
     "brand": "Speedwav",
@@ -1346,6 +2018,27 @@
         "price": 267000,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JWUQY-DEFAULT-2",
+        "price": 267000,
+        "stock": 87,
+        "attributes": null,
+        "id": "ab33f5d5-c96a-48fa-8753-cd722390145c"
+      },
+      {
+        "sku_code": "SKU-JWUQY-DEFAULT-3",
+        "price": 267000,
+        "stock": 87,
+        "attributes": null,
+        "id": "90a6225a-ea10-416d-b551-4fb8ecbfe76a"
+      },
+      {
+        "sku_code": "SKU-JWUQY-DEFAULT-4",
+        "price": 267000,
+        "stock": 87,
+        "attributes": null,
+        "id": "fd9fc7c9-ed20-4b51-8773-55cbd40eff36"
       }
     ],
     "brand": "Auto",
@@ -1387,6 +2080,27 @@
         "price": 1364700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-026JN-DEFAULT-2",
+        "price": 1364700,
+        "stock": 31,
+        "attributes": null,
+        "id": "098419cf-64ce-43f9-8b2d-b5ae023e5b0a"
+      },
+      {
+        "sku_code": "SKU-026JN-DEFAULT-3",
+        "price": 1364700,
+        "stock": 31,
+        "attributes": null,
+        "id": "a05083a5-8ff3-4e67-beb7-691253fa7559"
+      },
+      {
+        "sku_code": "SKU-026JN-DEFAULT-4",
+        "price": 1364700,
+        "stock": 31,
+        "attributes": null,
+        "id": "3f573de1-5181-4419-80e9-c9c7e0528107"
       }
     ],
     "brand": "Speedwav",
@@ -1432,6 +2146,27 @@
         "price": 59700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T4174-DEFAULT-2",
+        "price": 59700,
+        "stock": 18,
+        "attributes": null,
+        "id": "9c5c0e09-6d9b-4857-8e16-f0aed50768bb"
+      },
+      {
+        "sku_code": "SKU-T4174-DEFAULT-3",
+        "price": 59700,
+        "stock": 18,
+        "attributes": null,
+        "id": "de729146-d5af-4e21-af37-6e76fd01b3ec"
+      },
+      {
+        "sku_code": "SKU-T4174-DEFAULT-4",
+        "price": 59700,
+        "stock": 18,
+        "attributes": null,
+        "id": "805a51e1-4a5e-4071-9acc-082485918a2e"
       }
     ],
     "brand": "Car",
@@ -1477,6 +2212,27 @@
         "price": 299700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-28PT5-DEFAULT-2",
+        "price": 299700,
+        "stock": 88,
+        "attributes": null,
+        "id": "dc9f3479-e7db-41e0-96e6-8ba80649b893"
+      },
+      {
+        "sku_code": "SKU-28PT5-DEFAULT-3",
+        "price": 299700,
+        "stock": 88,
+        "attributes": null,
+        "id": "65dc093c-b49e-4f17-9ce6-2b2ef53e43c2"
+      },
+      {
+        "sku_code": "SKU-28PT5-DEFAULT-4",
+        "price": 299700,
+        "stock": 88,
+        "attributes": null,
+        "id": "000aaa82-6c47-4989-97fc-7d12ca5852f2"
       }
     ],
     "brand": "Car",
@@ -1514,6 +2270,27 @@
         "price": 50700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HS6RQ-DEFAULT-2",
+        "price": 50700,
+        "stock": 31,
+        "attributes": null,
+        "id": "3c0e9c5e-86b1-499a-adb2-1b7e14291836"
+      },
+      {
+        "sku_code": "SKU-HS6RQ-DEFAULT-3",
+        "price": 50700,
+        "stock": 31,
+        "attributes": null,
+        "id": "3ea1af09-86f0-49db-ac2a-ee81e54e160f"
+      },
+      {
+        "sku_code": "SKU-HS6RQ-DEFAULT-4",
+        "price": 50700,
+        "stock": 31,
+        "attributes": null,
+        "id": "fe8e5460-1ee0-4cf1-942f-27025599298b"
       }
     ],
     "brand": "Allextreme",
@@ -1555,6 +2332,27 @@
         "price": 284700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PXB6U-DEFAULT-2",
+        "price": 284700,
+        "stock": 84,
+        "attributes": null,
+        "id": "8775c4d4-7e62-41e2-8d53-266633cdf623"
+      },
+      {
+        "sku_code": "SKU-PXB6U-DEFAULT-3",
+        "price": 284700,
+        "stock": 84,
+        "attributes": null,
+        "id": "be60cd32-9d9d-47fb-b7bd-d44ed3d72697"
+      },
+      {
+        "sku_code": "SKU-PXB6U-DEFAULT-4",
+        "price": 284700,
+        "stock": 84,
+        "attributes": null,
+        "id": "73200d5b-a35c-4b79-8be7-3f13e1d908d4"
       }
     ],
     "brand": "Kozdiko",
@@ -1596,6 +2394,27 @@
         "price": 75000,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EM75M-DEFAULT-2",
+        "price": 75000,
+        "stock": 54,
+        "attributes": null,
+        "id": "5abfa4af-33b3-40b4-a024-06d4b1af0e48"
+      },
+      {
+        "sku_code": "SKU-EM75M-DEFAULT-3",
+        "price": 75000,
+        "stock": 54,
+        "attributes": null,
+        "id": "7dbb03a1-e496-49dd-9c7e-3728f8760212"
+      },
+      {
+        "sku_code": "SKU-EM75M-DEFAULT-4",
+        "price": 75000,
+        "stock": 54,
+        "attributes": null,
+        "id": "d5a9b6ce-2060-4a89-b0c7-8ea8be7c6ea3"
       }
     ],
     "brand": "Oshotto",
@@ -1637,6 +2456,27 @@
         "price": 98700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5H5GF-DEFAULT-2",
+        "price": 98700,
+        "stock": 74,
+        "attributes": null,
+        "id": "0abf8755-cbea-49b1-b967-f63b86403418"
+      },
+      {
+        "sku_code": "SKU-5H5GF-DEFAULT-3",
+        "price": 98700,
+        "stock": 74,
+        "attributes": null,
+        "id": "19597971-5713-4d83-ad34-87059180d9b4"
+      },
+      {
+        "sku_code": "SKU-5H5GF-DEFAULT-4",
+        "price": 98700,
+        "stock": 74,
+        "attributes": null,
+        "id": "cbd6680e-9923-4bfd-a53b-22ba72d0f3b7"
       }
     ],
     "brand": "Car",
@@ -1682,6 +2522,27 @@
         "price": 159600,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-90LYA-DEFAULT-2",
+        "price": 159600,
+        "stock": 45,
+        "attributes": null,
+        "id": "db5a88cd-82a6-4a0e-a518-346874e83d6f"
+      },
+      {
+        "sku_code": "SKU-90LYA-DEFAULT-3",
+        "price": 159600,
+        "stock": 45,
+        "attributes": null,
+        "id": "8f02fd49-dab1-4dfe-b596-ef0472beabdf"
+      },
+      {
+        "sku_code": "SKU-90LYA-DEFAULT-4",
+        "price": 159600,
+        "stock": 45,
+        "attributes": null,
+        "id": "54aeb9ca-5f28-4a45-8c1c-a6e66dc9f7e9"
       }
     ],
     "brand": "CARIZO",
@@ -1723,6 +2584,27 @@
         "price": 269700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CP5RA-DEFAULT-2",
+        "price": 269700,
+        "stock": 61,
+        "attributes": null,
+        "id": "86ead451-b4b8-475b-af49-929dbe6b26ec"
+      },
+      {
+        "sku_code": "SKU-CP5RA-DEFAULT-3",
+        "price": 269700,
+        "stock": 61,
+        "attributes": null,
+        "id": "485247c9-17c1-4a0b-9a24-8809251e2627"
+      },
+      {
+        "sku_code": "SKU-CP5RA-DEFAULT-4",
+        "price": 269700,
+        "stock": 61,
+        "attributes": null,
+        "id": "7e3ba715-606a-42b9-8345-4426b4ddf813"
       }
     ],
     "brand": "Vagary",
@@ -1760,6 +2642,27 @@
         "price": 63000,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-437XY-DEFAULT-2",
+        "price": 63000,
+        "stock": 39,
+        "attributes": null,
+        "id": "898eb9a4-cf46-49b3-b210-5ca42e32a064"
+      },
+      {
+        "sku_code": "SKU-437XY-DEFAULT-3",
+        "price": 63000,
+        "stock": 39,
+        "attributes": null,
+        "id": "5363bbb1-4541-4b02-ac9a-6521e43f4fd4"
+      },
+      {
+        "sku_code": "SKU-437XY-DEFAULT-4",
+        "price": 63000,
+        "stock": 39,
+        "attributes": null,
+        "id": "7e418fcf-19b0-4032-b4d3-92b161daadac"
       }
     ],
     "brand": "Uno",
@@ -1801,6 +2704,27 @@
         "price": 0,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LZE85-DEFAULT-2",
+        "price": 0,
+        "stock": 99,
+        "attributes": null,
+        "id": "09d52e99-5fea-4fe1-a62d-434a43cdf00b"
+      },
+      {
+        "sku_code": "SKU-LZE85-DEFAULT-3",
+        "price": 0,
+        "stock": 99,
+        "attributes": null,
+        "id": "f2051a09-6b75-4071-b3c2-33ef97785a94"
+      },
+      {
+        "sku_code": "SKU-LZE85-DEFAULT-4",
+        "price": 0,
+        "stock": 99,
+        "attributes": null,
+        "id": "ca964fee-0db7-44ae-b771-87ba90b5839c"
       }
     ],
     "brand": "Auto",
@@ -1838,6 +2762,27 @@
         "price": 116700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8UP33-DEFAULT-2",
+        "price": 116700,
+        "stock": 36,
+        "attributes": null,
+        "id": "4d333285-796c-4a71-a203-bba04ad2eff5"
+      },
+      {
+        "sku_code": "SKU-8UP33-DEFAULT-3",
+        "price": 116700,
+        "stock": 36,
+        "attributes": null,
+        "id": "0b2a7c6d-ed8a-4c03-adc9-f47dc133e7d3"
+      },
+      {
+        "sku_code": "SKU-8UP33-DEFAULT-4",
+        "price": 116700,
+        "stock": 36,
+        "attributes": null,
+        "id": "e7e94525-0dea-4b89-8d6a-11cf4cad5520"
       }
     ],
     "brand": "Speedwav",
@@ -1883,6 +2828,27 @@
         "price": 0,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VK987-DEFAULT-2",
+        "price": 0,
+        "stock": 30,
+        "attributes": null,
+        "id": "981e922f-4b3a-4727-8483-7cc20382563b"
+      },
+      {
+        "sku_code": "SKU-VK987-DEFAULT-3",
+        "price": 0,
+        "stock": 30,
+        "attributes": null,
+        "id": "326c2ee8-c7a9-450b-8435-6496df8cc7eb"
+      },
+      {
+        "sku_code": "SKU-VK987-DEFAULT-4",
+        "price": 0,
+        "stock": 30,
+        "attributes": null,
+        "id": "f67d7073-d0e2-46db-b129-4e2f39c4baed"
       }
     ],
     "brand": "UNO",
@@ -1920,6 +2886,27 @@
         "price": 119700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3DBMO-DEFAULT-2",
+        "price": 119700,
+        "stock": 80,
+        "attributes": null,
+        "id": "e923f0f3-4269-486d-acb3-aa899e412545"
+      },
+      {
+        "sku_code": "SKU-3DBMO-DEFAULT-3",
+        "price": 119700,
+        "stock": 80,
+        "attributes": null,
+        "id": "8146b8fa-8d9c-4abc-a669-a82231c43fca"
+      },
+      {
+        "sku_code": "SKU-3DBMO-DEFAULT-4",
+        "price": 119700,
+        "stock": 80,
+        "attributes": null,
+        "id": "d903a853-7db9-4b66-a2ec-2e5afaeb6439"
       }
     ],
     "brand": "Vagary",
@@ -1965,6 +2952,27 @@
         "price": 0,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VPL0C-DEFAULT-2",
+        "price": 0,
+        "stock": 98,
+        "attributes": null,
+        "id": "545d98a2-2b8c-417a-8200-6bc12227f089"
+      },
+      {
+        "sku_code": "SKU-VPL0C-DEFAULT-3",
+        "price": 0,
+        "stock": 98,
+        "attributes": null,
+        "id": "b848733b-8925-4ea2-8abc-77c5916f3801"
+      },
+      {
+        "sku_code": "SKU-VPL0C-DEFAULT-4",
+        "price": 0,
+        "stock": 98,
+        "attributes": null,
+        "id": "84336389-d9d8-4f36-a723-62d13df341ba"
       }
     ],
     "brand": "Car",
@@ -2002,6 +3010,27 @@
         "price": 96000,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C9Y12-DEFAULT-2",
+        "price": 96000,
+        "stock": 24,
+        "attributes": null,
+        "id": "47dc11dc-237d-49a2-b1d0-29c132e5463c"
+      },
+      {
+        "sku_code": "SKU-C9Y12-DEFAULT-3",
+        "price": 96000,
+        "stock": 24,
+        "attributes": null,
+        "id": "fcef5715-99a4-4766-8074-7a8fc1d7da07"
+      },
+      {
+        "sku_code": "SKU-C9Y12-DEFAULT-4",
+        "price": 96000,
+        "stock": 24,
+        "attributes": null,
+        "id": "fed21347-d3a3-4a75-b65d-3b897b5177c1"
       }
     ],
     "brand": "Allextreme",
@@ -2039,6 +3068,27 @@
         "price": 119700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-65GY7-DEFAULT-2",
+        "price": 119700,
+        "stock": 61,
+        "attributes": null,
+        "id": "9779d5a2-549a-476b-9395-449cace7699c"
+      },
+      {
+        "sku_code": "SKU-65GY7-DEFAULT-3",
+        "price": 119700,
+        "stock": 61,
+        "attributes": null,
+        "id": "9ecd2c59-e4c0-4483-9fbf-8763edd1c029"
+      },
+      {
+        "sku_code": "SKU-65GY7-DEFAULT-4",
+        "price": 119700,
+        "stock": 61,
+        "attributes": null,
+        "id": "516e3546-b28f-465e-ab1c-5acb975f6fe8"
       }
     ],
     "brand": "CARIZO",
@@ -2080,6 +3130,27 @@
         "price": 112500,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MIAJ8-DEFAULT-2",
+        "price": 112500,
+        "stock": 41,
+        "attributes": null,
+        "id": "eaca3cd6-8a58-4063-ade1-36f4386797b8"
+      },
+      {
+        "sku_code": "SKU-MIAJ8-DEFAULT-3",
+        "price": 112500,
+        "stock": 41,
+        "attributes": null,
+        "id": "f42277fb-70ca-47f4-b2a3-65f83fbe677e"
+      },
+      {
+        "sku_code": "SKU-MIAJ8-DEFAULT-4",
+        "price": 112500,
+        "stock": 41,
+        "attributes": null,
+        "id": "7b039005-4f70-4f76-910d-57114bf2476b"
       }
     ],
     "brand": "Allextreme",
@@ -2121,6 +3192,27 @@
         "price": 99300,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OLC4E-DEFAULT-2",
+        "price": 99300,
+        "stock": 15,
+        "attributes": null,
+        "id": "e29ac1db-1845-4746-941a-63496d345bec"
+      },
+      {
+        "sku_code": "SKU-OLC4E-DEFAULT-3",
+        "price": 99300,
+        "stock": 15,
+        "attributes": null,
+        "id": "a870c358-355e-46cc-8079-1f646ef2fd12"
+      },
+      {
+        "sku_code": "SKU-OLC4E-DEFAULT-4",
+        "price": 99300,
+        "stock": 15,
+        "attributes": null,
+        "id": "30f69741-69f7-4ee6-bd57-a2c8f7b1ee37"
       }
     ],
     "brand": "NIKAVI",
@@ -2162,6 +3254,27 @@
         "price": 104700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-15QF4-DEFAULT-2",
+        "price": 104700,
+        "stock": 54,
+        "attributes": null,
+        "id": "32f04fa9-202b-49d1-8ad1-c4c2ad6e1e0d"
+      },
+      {
+        "sku_code": "SKU-15QF4-DEFAULT-3",
+        "price": 104700,
+        "stock": 54,
+        "attributes": null,
+        "id": "3e1e14fc-cadc-4962-8558-89bfac1d8224"
+      },
+      {
+        "sku_code": "SKU-15QF4-DEFAULT-4",
+        "price": 104700,
+        "stock": 54,
+        "attributes": null,
+        "id": "74b53a74-d2eb-48bc-9cf1-54630cb1b800"
       }
     ],
     "brand": "CARIZO",
@@ -2203,6 +3316,27 @@
         "price": 104700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D86UH-DEFAULT-2",
+        "price": 104700,
+        "stock": 35,
+        "attributes": null,
+        "id": "6d9f8385-6590-44a5-9430-7a826ae4c757"
+      },
+      {
+        "sku_code": "SKU-D86UH-DEFAULT-3",
+        "price": 104700,
+        "stock": 35,
+        "attributes": null,
+        "id": "3748e47c-a91c-494a-bebf-08b7bd6335f7"
+      },
+      {
+        "sku_code": "SKU-D86UH-DEFAULT-4",
+        "price": 104700,
+        "stock": 35,
+        "attributes": null,
+        "id": "9b405970-bb26-4c79-8142-5e328e370c0f"
       }
     ],
     "brand": "Bosch",
@@ -2240,6 +3374,27 @@
         "price": 225000,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WM4VN-DEFAULT-2",
+        "price": 225000,
+        "stock": 91,
+        "attributes": null,
+        "id": "511b06d1-4679-4c6c-92ae-eadd8ec4face"
+      },
+      {
+        "sku_code": "SKU-WM4VN-DEFAULT-3",
+        "price": 225000,
+        "stock": 91,
+        "attributes": null,
+        "id": "05011dc4-493f-4fce-80fd-4a2eb347214c"
+      },
+      {
+        "sku_code": "SKU-WM4VN-DEFAULT-4",
+        "price": 225000,
+        "stock": 91,
+        "attributes": null,
+        "id": "c94491bf-6b25-4a63-bcdb-6e676a689b70"
       }
     ],
     "brand": "Vagary",
@@ -2277,6 +3432,27 @@
         "price": 149700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NHGRR-DEFAULT-2",
+        "price": 149700,
+        "stock": 54,
+        "attributes": null,
+        "id": "5d3890cb-c66e-4f80-a4a5-0736077630f7"
+      },
+      {
+        "sku_code": "SKU-NHGRR-DEFAULT-3",
+        "price": 149700,
+        "stock": 54,
+        "attributes": null,
+        "id": "ed115f16-4444-4505-8859-64723cc7299e"
+      },
+      {
+        "sku_code": "SKU-NHGRR-DEFAULT-4",
+        "price": 149700,
+        "stock": 54,
+        "attributes": null,
+        "id": "e6de84ed-74df-478a-a2ec-c99ad29e8044"
       }
     ],
     "brand": "Auto",
@@ -2314,6 +3490,27 @@
         "price": 386400,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DPYAV-DEFAULT-2",
+        "price": 386400,
+        "stock": 81,
+        "attributes": null,
+        "id": "f1c704d4-9b2d-4e1d-aea2-9f13efe8e6c9"
+      },
+      {
+        "sku_code": "SKU-DPYAV-DEFAULT-3",
+        "price": 386400,
+        "stock": 81,
+        "attributes": null,
+        "id": "7d2716ec-8844-4252-9eb8-479dcb416b6b"
+      },
+      {
+        "sku_code": "SKU-DPYAV-DEFAULT-4",
+        "price": 386400,
+        "stock": 81,
+        "attributes": null,
+        "id": "daaa4f97-094c-4e7a-a0d8-36a131c11198"
       }
     ],
     "brand": "Oshotto",
@@ -2359,6 +3556,27 @@
         "price": 509700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BF3ZF-DEFAULT-2",
+        "price": 509700,
+        "stock": 102,
+        "attributes": null,
+        "id": "3917ac63-909a-461d-8426-f2289cef097e"
+      },
+      {
+        "sku_code": "SKU-BF3ZF-DEFAULT-3",
+        "price": 509700,
+        "stock": 102,
+        "attributes": null,
+        "id": "8fea5741-ebe6-4210-acd6-077190641183"
+      },
+      {
+        "sku_code": "SKU-BF3ZF-DEFAULT-4",
+        "price": 509700,
+        "stock": 102,
+        "attributes": null,
+        "id": "28503ea0-309b-4fad-bad3-03295acae32c"
       }
     ],
     "brand": "Oshotto",
@@ -2400,6 +3618,27 @@
         "price": 600000,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H1TW7-DEFAULT-2",
+        "price": 600000,
+        "stock": 59,
+        "attributes": null,
+        "id": "e3bfd2bd-dbf9-4ffd-8a01-077e3b7a7355"
+      },
+      {
+        "sku_code": "SKU-H1TW7-DEFAULT-3",
+        "price": 600000,
+        "stock": 59,
+        "attributes": null,
+        "id": "2bf4491c-d249-4374-b648-67f40f392742"
+      },
+      {
+        "sku_code": "SKU-H1TW7-DEFAULT-4",
+        "price": 600000,
+        "stock": 59,
+        "attributes": null,
+        "id": "e794a1dd-0430-4ecb-ad08-35983c46a3fc"
       }
     ],
     "brand": "Car",
@@ -2441,6 +3680,27 @@
         "price": 94500,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JX170-DEFAULT-2",
+        "price": 94500,
+        "stock": 13,
+        "attributes": null,
+        "id": "2451ebb0-0d78-4705-a1e1-c2030aee153a"
+      },
+      {
+        "sku_code": "SKU-JX170-DEFAULT-3",
+        "price": 94500,
+        "stock": 13,
+        "attributes": null,
+        "id": "c3415beb-55a8-418f-a979-807b58e58ae7"
+      },
+      {
+        "sku_code": "SKU-JX170-DEFAULT-4",
+        "price": 94500,
+        "stock": 13,
+        "attributes": null,
+        "id": "a8e24691-7470-4fac-a97a-01ae461b70f2"
       }
     ],
     "brand": "Kozdiko",
@@ -2478,6 +3738,27 @@
         "price": 349500,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-42HXG-DEFAULT-2",
+        "price": 349500,
+        "stock": 70,
+        "attributes": null,
+        "id": "34827931-244d-49d1-8a48-533c01776eb8"
+      },
+      {
+        "sku_code": "SKU-42HXG-DEFAULT-3",
+        "price": 349500,
+        "stock": 70,
+        "attributes": null,
+        "id": "14d2243a-3e3e-4b9a-ad05-f00b1f6345ce"
+      },
+      {
+        "sku_code": "SKU-42HXG-DEFAULT-4",
+        "price": 349500,
+        "stock": 70,
+        "attributes": null,
+        "id": "7f230acb-9935-4ec8-8ff4-1f6af055b07a"
       }
     ],
     "brand": "Vagary",
@@ -2522,6 +3803,27 @@
         "price": 154500,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TKHPG-DEFAULT-2",
+        "price": 154500,
+        "stock": 49,
+        "attributes": null,
+        "id": "8c9af3ab-c02d-4bae-89e0-df5c9c9ad8b1"
+      },
+      {
+        "sku_code": "SKU-TKHPG-DEFAULT-3",
+        "price": 154500,
+        "stock": 49,
+        "attributes": null,
+        "id": "06f94573-4154-4be3-967a-a8720d3680ec"
+      },
+      {
+        "sku_code": "SKU-TKHPG-DEFAULT-4",
+        "price": 154500,
+        "stock": 49,
+        "attributes": null,
+        "id": "81c85d00-90dd-41f4-a7e7-beb66d1c5f95"
       }
     ],
     "brand": "Vagary",
@@ -2559,6 +3861,27 @@
         "price": 48357,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9OZJX-DEFAULT-2",
+        "price": 48357,
+        "stock": 90,
+        "attributes": null,
+        "id": "144ecaba-bc18-4ecd-bb24-39b3b3c3a597"
+      },
+      {
+        "sku_code": "SKU-9OZJX-DEFAULT-3",
+        "price": 48357,
+        "stock": 90,
+        "attributes": null,
+        "id": "28ac1454-df89-45bc-a237-d13851a6ecfd"
+      },
+      {
+        "sku_code": "SKU-9OZJX-DEFAULT-4",
+        "price": 48357,
+        "stock": 90,
+        "attributes": null,
+        "id": "c861fd9e-5a8b-4fc1-9277-762a5f877b97"
       }
     ],
     "brand": "Oshotto",
@@ -2596,6 +3919,27 @@
         "price": 249450,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7PKAG-DEFAULT-2",
+        "price": 249450,
+        "stock": 78,
+        "attributes": null,
+        "id": "01f416b1-f62f-4c13-94cd-66fc15c5b061"
+      },
+      {
+        "sku_code": "SKU-7PKAG-DEFAULT-3",
+        "price": 249450,
+        "stock": 78,
+        "attributes": null,
+        "id": "8e8f9473-9b52-4c45-a485-b0e46c674efb"
+      },
+      {
+        "sku_code": "SKU-7PKAG-DEFAULT-4",
+        "price": 249450,
+        "stock": 78,
+        "attributes": null,
+        "id": "14e37086-bdd4-43bf-9d02-279a9006838f"
       }
     ],
     "brand": "Automaze",
@@ -2638,6 +3982,27 @@
         "price": 176700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G640K-DEFAULT-2",
+        "price": 176700,
+        "stock": 24,
+        "attributes": null,
+        "id": "8deb85f6-7f3e-4973-80f1-bc5a56aae460"
+      },
+      {
+        "sku_code": "SKU-G640K-DEFAULT-3",
+        "price": 176700,
+        "stock": 24,
+        "attributes": null,
+        "id": "546bab93-a9ae-4de7-8d0e-682b18859842"
+      },
+      {
+        "sku_code": "SKU-G640K-DEFAULT-4",
+        "price": 176700,
+        "stock": 24,
+        "attributes": null,
+        "id": "8313ee13-b0ea-4f63-93c3-4d923e7c7ec9"
       }
     ],
     "brand": "AutoClean",
@@ -2683,6 +4048,27 @@
         "price": 209400,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SX1X9-DEFAULT-2",
+        "price": 209400,
+        "stock": 54,
+        "attributes": null,
+        "id": "7d00b591-00cf-4420-b63a-e6e935e5b30c"
+      },
+      {
+        "sku_code": "SKU-SX1X9-DEFAULT-3",
+        "price": 209400,
+        "stock": 54,
+        "attributes": null,
+        "id": "2eeec2ba-b54f-454a-821d-0d6346740e9a"
+      },
+      {
+        "sku_code": "SKU-SX1X9-DEFAULT-4",
+        "price": 209400,
+        "stock": 54,
+        "attributes": null,
+        "id": "17f2ed68-e142-4efd-aa84-1f93e102d08f"
       }
     ],
     "brand": "UNO",
@@ -2724,6 +4110,27 @@
         "price": 105600,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CR4X4-DEFAULT-2",
+        "price": 105600,
+        "stock": 41,
+        "attributes": null,
+        "id": "59feaffe-4c71-4d61-b5f8-370a1ce9b043"
+      },
+      {
+        "sku_code": "SKU-CR4X4-DEFAULT-3",
+        "price": 105600,
+        "stock": 41,
+        "attributes": null,
+        "id": "2a40c11f-2829-413e-ae8f-2d3e8981858a"
+      },
+      {
+        "sku_code": "SKU-CR4X4-DEFAULT-4",
+        "price": 105600,
+        "stock": 41,
+        "attributes": null,
+        "id": "ce485476-5120-4ab5-9605-8c9e1ae52f65"
       }
     ],
     "brand": "UNO",
@@ -2769,6 +4176,27 @@
         "price": 116700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YKMHP-DEFAULT-2",
+        "price": 116700,
+        "stock": 79,
+        "attributes": null,
+        "id": "9b6e0e67-d020-4113-84a9-f6f348004057"
+      },
+      {
+        "sku_code": "SKU-YKMHP-DEFAULT-3",
+        "price": 116700,
+        "stock": 79,
+        "attributes": null,
+        "id": "596b76e7-edae-4bd9-8285-dbb5a6404a59"
+      },
+      {
+        "sku_code": "SKU-YKMHP-DEFAULT-4",
+        "price": 116700,
+        "stock": 79,
+        "attributes": null,
+        "id": "fe44186b-99c1-4b85-947a-573fdab72801"
       }
     ],
     "brand": "AutoClean",
@@ -2810,6 +4238,27 @@
         "price": 209700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HU6R5-DEFAULT-2",
+        "price": 209700,
+        "stock": 49,
+        "attributes": null,
+        "id": "4eb94c2b-1041-41d5-bf6d-20516c15619f"
+      },
+      {
+        "sku_code": "SKU-HU6R5-DEFAULT-3",
+        "price": 209700,
+        "stock": 49,
+        "attributes": null,
+        "id": "fc892da3-017b-498c-8bd2-cb4bf09207ea"
+      },
+      {
+        "sku_code": "SKU-HU6R5-DEFAULT-4",
+        "price": 209700,
+        "stock": 49,
+        "attributes": null,
+        "id": "9be70593-99ba-4d0c-97d7-b397355034e3"
       }
     ],
     "brand": "Speedwav",
@@ -2847,6 +4296,27 @@
         "price": 449700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UVH91-DEFAULT-2",
+        "price": 449700,
+        "stock": 59,
+        "attributes": null,
+        "id": "91ea1c47-3d0c-405f-ac74-4c971b18558e"
+      },
+      {
+        "sku_code": "SKU-UVH91-DEFAULT-3",
+        "price": 449700,
+        "stock": 59,
+        "attributes": null,
+        "id": "1b6d244f-d567-4e83-b96f-c860271f3f09"
+      },
+      {
+        "sku_code": "SKU-UVH91-DEFAULT-4",
+        "price": 449700,
+        "stock": 59,
+        "attributes": null,
+        "id": "678c99fe-85de-4150-83bb-24ab06bd63d0"
       }
     ],
     "brand": "CARIZO",
@@ -2892,6 +4362,27 @@
         "price": 209700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-01U60-DEFAULT-2",
+        "price": 209700,
+        "stock": 86,
+        "attributes": null,
+        "id": "afbea6ed-bb53-43d8-bfe0-5d537d5da2b3"
+      },
+      {
+        "sku_code": "SKU-01U60-DEFAULT-3",
+        "price": 209700,
+        "stock": 86,
+        "attributes": null,
+        "id": "e651cbda-912b-4d88-8bdd-d649307a58e2"
+      },
+      {
+        "sku_code": "SKU-01U60-DEFAULT-4",
+        "price": 209700,
+        "stock": 86,
+        "attributes": null,
+        "id": "591dcc54-fc81-4b52-838b-e1f0ff265e4e"
       }
     ],
     "brand": "CARIZO",
@@ -2929,6 +4420,27 @@
         "price": 62100,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SSLRG-DEFAULT-2",
+        "price": 62100,
+        "stock": 78,
+        "attributes": null,
+        "id": "c96332d2-8e65-4845-ba37-c6fb358f52b7"
+      },
+      {
+        "sku_code": "SKU-SSLRG-DEFAULT-3",
+        "price": 62100,
+        "stock": 78,
+        "attributes": null,
+        "id": "fd9d68dd-4d17-42b6-ac77-56d690ed9966"
+      },
+      {
+        "sku_code": "SKU-SSLRG-DEFAULT-4",
+        "price": 62100,
+        "stock": 78,
+        "attributes": null,
+        "id": "fa07b5cc-dc52-45e3-8991-fb9e5142c723"
       }
     ],
     "brand": "Auto",
@@ -2966,6 +4478,27 @@
         "price": 103200,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O13KA-DEFAULT-2",
+        "price": 103200,
+        "stock": 54,
+        "attributes": null,
+        "id": "b5d10c70-672a-4b7a-9545-31f0141347d6"
+      },
+      {
+        "sku_code": "SKU-O13KA-DEFAULT-3",
+        "price": 103200,
+        "stock": 54,
+        "attributes": null,
+        "id": "d551c077-ff2b-4996-a87f-fbeb5cb0fa9d"
+      },
+      {
+        "sku_code": "SKU-O13KA-DEFAULT-4",
+        "price": 103200,
+        "stock": 54,
+        "attributes": null,
+        "id": "138cb9b0-a03c-47b5-8728-e02a303c079b"
       }
     ],
     "brand": "Bosch",
@@ -3007,6 +4540,27 @@
         "price": 330000,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AO0DF-DEFAULT-2",
+        "price": 330000,
+        "stock": 98,
+        "attributes": null,
+        "id": "e7ceff2e-8b56-4ebf-9117-03aa75537034"
+      },
+      {
+        "sku_code": "SKU-AO0DF-DEFAULT-3",
+        "price": 330000,
+        "stock": 98,
+        "attributes": null,
+        "id": "4b21b09f-616b-479c-92cb-3e5412ba757f"
+      },
+      {
+        "sku_code": "SKU-AO0DF-DEFAULT-4",
+        "price": 330000,
+        "stock": 98,
+        "attributes": null,
+        "id": "731c46bb-95d8-4de8-8c5b-8ad9215817a0"
       }
     ],
     "brand": "Speedwav",
@@ -3052,6 +4606,27 @@
         "price": 89700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-URSOZ-DEFAULT-2",
+        "price": 89700,
+        "stock": 108,
+        "attributes": null,
+        "id": "7dbf2d97-1596-40aa-aab7-c9162c6a745f"
+      },
+      {
+        "sku_code": "SKU-URSOZ-DEFAULT-3",
+        "price": 89700,
+        "stock": 108,
+        "attributes": null,
+        "id": "cb7a79df-f87d-4867-aceb-b18caa57515a"
+      },
+      {
+        "sku_code": "SKU-URSOZ-DEFAULT-4",
+        "price": 89700,
+        "stock": 108,
+        "attributes": null,
+        "id": "409f434d-7d80-447d-99fe-ba852404a241"
       }
     ],
     "brand": "Automaze",
@@ -3089,6 +4664,27 @@
         "price": 389700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MHMJ7-DEFAULT-2",
+        "price": 389700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0a308a55-4189-49e0-b8ff-9031cae91851"
+      },
+      {
+        "sku_code": "SKU-MHMJ7-DEFAULT-3",
+        "price": 389700,
+        "stock": 59,
+        "attributes": null,
+        "id": "6e1aac5a-81a4-4258-b1d5-8457d072f756"
+      },
+      {
+        "sku_code": "SKU-MHMJ7-DEFAULT-4",
+        "price": 389700,
+        "stock": 59,
+        "attributes": null,
+        "id": "8d49866f-922e-4434-9598-adb67ed669c3"
       }
     ],
     "brand": "UNO",
@@ -3126,6 +4722,27 @@
         "price": 177000,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6M8DE-DEFAULT-2",
+        "price": 177000,
+        "stock": 16,
+        "attributes": null,
+        "id": "2a6d22b2-f7f5-4365-86f1-e968edd7df1a"
+      },
+      {
+        "sku_code": "SKU-6M8DE-DEFAULT-3",
+        "price": 177000,
+        "stock": 16,
+        "attributes": null,
+        "id": "90ac7649-8c38-4533-9959-ae6e3d49a65c"
+      },
+      {
+        "sku_code": "SKU-6M8DE-DEFAULT-4",
+        "price": 177000,
+        "stock": 16,
+        "attributes": null,
+        "id": "5e681147-c385-4619-9a0f-1117e3b762bb"
       }
     ],
     "brand": "AutoClean",
@@ -3171,6 +4788,27 @@
         "price": 119700,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J3SPB-DEFAULT-2",
+        "price": 119700,
+        "stock": 31,
+        "attributes": null,
+        "id": "63d47d5b-6ef7-4322-a37a-62373367fa02"
+      },
+      {
+        "sku_code": "SKU-J3SPB-DEFAULT-3",
+        "price": 119700,
+        "stock": 31,
+        "attributes": null,
+        "id": "021c0a02-2827-449d-918f-75b6f9d19296"
+      },
+      {
+        "sku_code": "SKU-J3SPB-DEFAULT-4",
+        "price": 119700,
+        "stock": 31,
+        "attributes": null,
+        "id": "9021478b-2a69-4727-abde-b4e335908431"
       }
     ],
     "brand": "UNO",
@@ -3212,6 +4850,27 @@
         "price": 997500,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QB5OA-DEFAULT-2",
+        "price": 997500,
+        "stock": 108,
+        "attributes": null,
+        "id": "7ee2d283-02aa-4c99-924e-2f1559bf09ec"
+      },
+      {
+        "sku_code": "SKU-QB5OA-DEFAULT-3",
+        "price": 997500,
+        "stock": 108,
+        "attributes": null,
+        "id": "21614210-3c3d-44da-92b2-c290531589e4"
+      },
+      {
+        "sku_code": "SKU-QB5OA-DEFAULT-4",
+        "price": 997500,
+        "stock": 108,
+        "attributes": null,
+        "id": "2f7e96cf-2927-4bbc-a233-a93caa97d031"
       }
     ],
     "brand": "AutoClean",
@@ -3257,6 +4916,27 @@
         "price": 103500,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-93QM2-DEFAULT-2",
+        "price": 103500,
+        "stock": 31,
+        "attributes": null,
+        "id": "00f9c9e1-a074-40dc-8430-443b86cbd66b"
+      },
+      {
+        "sku_code": "SKU-93QM2-DEFAULT-3",
+        "price": 103500,
+        "stock": 31,
+        "attributes": null,
+        "id": "ee7b5274-f896-4570-afbc-5636afa9deae"
+      },
+      {
+        "sku_code": "SKU-93QM2-DEFAULT-4",
+        "price": 103500,
+        "stock": 31,
+        "attributes": null,
+        "id": "19978146-88d2-4304-bc64-f4110bf9e125"
       }
     ],
     "brand": "Uno",
@@ -3294,6 +4974,27 @@
         "price": 138900,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XHE19-DEFAULT-2",
+        "price": 138900,
+        "stock": 33,
+        "attributes": null,
+        "id": "732eb29b-ee45-44fe-a2a2-f62d0b0834ed"
+      },
+      {
+        "sku_code": "SKU-XHE19-DEFAULT-3",
+        "price": 138900,
+        "stock": 33,
+        "attributes": null,
+        "id": "ca4fa24b-e549-460b-a010-4f958e399497"
+      },
+      {
+        "sku_code": "SKU-XHE19-DEFAULT-4",
+        "price": 138900,
+        "stock": 33,
+        "attributes": null,
+        "id": "006b662a-33e4-4757-89c5-58b153969cc5"
       }
     ],
     "brand": "AutoClean",
@@ -3335,6 +5036,27 @@
         "price": 164400,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1HMLY-DEFAULT-2",
+        "price": 164400,
+        "stock": 33,
+        "attributes": null,
+        "id": "c3af51f2-e123-4ebb-bf64-4c80991904c4"
+      },
+      {
+        "sku_code": "SKU-1HMLY-DEFAULT-3",
+        "price": 164400,
+        "stock": 33,
+        "attributes": null,
+        "id": "203a9fc2-f184-4533-8592-5800b600b7e5"
+      },
+      {
+        "sku_code": "SKU-1HMLY-DEFAULT-4",
+        "price": 164400,
+        "stock": 33,
+        "attributes": null,
+        "id": "7e128997-4525-4299-b597-0894b4cf6e4a"
       }
     ],
     "brand": "CARIZO",
@@ -3380,6 +5102,27 @@
         "price": 808800,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BSN36-DEFAULT-2",
+        "price": 808800,
+        "stock": 64,
+        "attributes": null,
+        "id": "6fe8bf44-902a-4d5d-a86c-65dbfc71d37c"
+      },
+      {
+        "sku_code": "SKU-BSN36-DEFAULT-3",
+        "price": 808800,
+        "stock": 64,
+        "attributes": null,
+        "id": "946e4749-dca4-4306-9156-6c91e286563d"
+      },
+      {
+        "sku_code": "SKU-BSN36-DEFAULT-4",
+        "price": 808800,
+        "stock": 64,
+        "attributes": null,
+        "id": "b00ea6b4-acaf-4d77-aea2-2212f4514788"
       }
     ],
     "brand": "UNO",
@@ -3417,6 +5160,27 @@
         "price": 299700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-59QKJ-DEFAULT-2",
+        "price": 299700,
+        "stock": 103,
+        "attributes": null,
+        "id": "0455b727-ba5e-4310-b6cf-161880242ee9"
+      },
+      {
+        "sku_code": "SKU-59QKJ-DEFAULT-3",
+        "price": 299700,
+        "stock": 103,
+        "attributes": null,
+        "id": "be0d33d0-026c-4d1a-a271-1e5c16f9a3fb"
+      },
+      {
+        "sku_code": "SKU-59QKJ-DEFAULT-4",
+        "price": 299700,
+        "stock": 103,
+        "attributes": null,
+        "id": "2a64c279-d2c9-4856-bcd1-8030f68aba3c"
       }
     ],
     "brand": "Auto",
@@ -3464,6 +5228,27 @@
         "price": 601443,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KX51C-DEFAULT-2",
+        "price": 601443,
+        "stock": 36,
+        "attributes": null,
+        "id": "9e3f1aea-bc86-4770-a465-88d2bb9d42d6"
+      },
+      {
+        "sku_code": "SKU-KX51C-DEFAULT-3",
+        "price": 601443,
+        "stock": 36,
+        "attributes": null,
+        "id": "0a0950a5-95e9-456e-b06f-c3be9799e72f"
+      },
+      {
+        "sku_code": "SKU-KX51C-DEFAULT-4",
+        "price": 601443,
+        "stock": 36,
+        "attributes": null,
+        "id": "f5c9fbe6-85bd-4acf-9f05-c26023fff0a7"
       }
     ],
     "brand": "Bosch",
@@ -3509,6 +5294,27 @@
         "price": 328500,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ITCOR-DEFAULT-2",
+        "price": 328500,
+        "stock": 45,
+        "attributes": null,
+        "id": "57eadd19-8c8a-4e3b-b79e-db57e525c222"
+      },
+      {
+        "sku_code": "SKU-ITCOR-DEFAULT-3",
+        "price": 328500,
+        "stock": 45,
+        "attributes": null,
+        "id": "97123116-224b-413a-ac62-18391de42769"
+      },
+      {
+        "sku_code": "SKU-ITCOR-DEFAULT-4",
+        "price": 328500,
+        "stock": 45,
+        "attributes": null,
+        "id": "3d9ae46e-8790-4ad1-8e58-29a1db9c07a9"
       }
     ],
     "brand": "NIKAVI",
@@ -3546,6 +5352,27 @@
         "price": 119700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OOOHH-DEFAULT-2",
+        "price": 119700,
+        "stock": 11,
+        "attributes": null,
+        "id": "e457733f-cb64-42f0-8e2f-c2cc783a15a6"
+      },
+      {
+        "sku_code": "SKU-OOOHH-DEFAULT-3",
+        "price": 119700,
+        "stock": 11,
+        "attributes": null,
+        "id": "84b305e4-0cc3-40ee-857a-bb9d5f36c727"
+      },
+      {
+        "sku_code": "SKU-OOOHH-DEFAULT-4",
+        "price": 119700,
+        "stock": 11,
+        "attributes": null,
+        "id": "2ab52a5e-e50e-4182-aa14-f4b68058d0dc"
       }
     ],
     "brand": "Speedwav",
@@ -3587,6 +5414,27 @@
         "price": 299700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3DH6W-DEFAULT-2",
+        "price": 299700,
+        "stock": 78,
+        "attributes": null,
+        "id": "acde179e-86fc-43f1-ba86-081c6bba4944"
+      },
+      {
+        "sku_code": "SKU-3DH6W-DEFAULT-3",
+        "price": 299700,
+        "stock": 78,
+        "attributes": null,
+        "id": "dc060e25-e567-499b-9f03-689d2888a4a0"
+      },
+      {
+        "sku_code": "SKU-3DH6W-DEFAULT-4",
+        "price": 299700,
+        "stock": 78,
+        "attributes": null,
+        "id": "317e0038-4a78-480b-961b-549cdbeb8db4"
       }
     ],
     "brand": "Uno",
@@ -3624,6 +5472,27 @@
         "price": 68700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZVKBX-DEFAULT-2",
+        "price": 68700,
+        "stock": 101,
+        "attributes": null,
+        "id": "ecde0781-58f4-4d9b-b471-4b3c3983fc20"
+      },
+      {
+        "sku_code": "SKU-ZVKBX-DEFAULT-3",
+        "price": 68700,
+        "stock": 101,
+        "attributes": null,
+        "id": "dfeee085-151b-4a8a-9033-72a8372c9730"
+      },
+      {
+        "sku_code": "SKU-ZVKBX-DEFAULT-4",
+        "price": 68700,
+        "stock": 101,
+        "attributes": null,
+        "id": "375beee6-9a84-4792-8dcc-31a93d375455"
       }
     ],
     "brand": "NIKAVI",
@@ -3661,6 +5530,27 @@
         "price": 343500,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JYW0Q-DEFAULT-2",
+        "price": 343500,
+        "stock": 48,
+        "attributes": null,
+        "id": "f0274b1a-688f-4343-8f62-5c9e23f59e9a"
+      },
+      {
+        "sku_code": "SKU-JYW0Q-DEFAULT-3",
+        "price": 343500,
+        "stock": 48,
+        "attributes": null,
+        "id": "3607adbb-7533-4467-a9cd-732ce0e594e4"
+      },
+      {
+        "sku_code": "SKU-JYW0Q-DEFAULT-4",
+        "price": 343500,
+        "stock": 48,
+        "attributes": null,
+        "id": "5d6045d9-aaf5-4033-94b2-f1f33bf1678e"
       }
     ],
     "brand": "Automaze",
@@ -3698,6 +5588,27 @@
         "price": 149700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T5DEQ-DEFAULT-2",
+        "price": 149700,
+        "stock": 57,
+        "attributes": null,
+        "id": "3dade800-ff54-4d9d-b5d0-e244d9c4cdcc"
+      },
+      {
+        "sku_code": "SKU-T5DEQ-DEFAULT-3",
+        "price": 149700,
+        "stock": 57,
+        "attributes": null,
+        "id": "008e27d0-0df2-4ed7-b41b-9fae6f2536d0"
+      },
+      {
+        "sku_code": "SKU-T5DEQ-DEFAULT-4",
+        "price": 149700,
+        "stock": 57,
+        "attributes": null,
+        "id": "6b390d98-f404-45ce-8dfb-4a4ddaf11776"
       }
     ],
     "brand": "AUTO",
@@ -3739,6 +5650,27 @@
         "price": 208500,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3UXUF-DEFAULT-2",
+        "price": 208500,
+        "stock": 89,
+        "attributes": null,
+        "id": "c1f11314-dc1b-4890-a316-2dd7f0c71bd8"
+      },
+      {
+        "sku_code": "SKU-3UXUF-DEFAULT-3",
+        "price": 208500,
+        "stock": 89,
+        "attributes": null,
+        "id": "923f1651-b100-4f28-a4f9-eb1529d91497"
+      },
+      {
+        "sku_code": "SKU-3UXUF-DEFAULT-4",
+        "price": 208500,
+        "stock": 89,
+        "attributes": null,
+        "id": "a3307d9f-4a7d-468d-9d73-ff4d5a0ab16a"
       }
     ],
     "brand": "Allextreme",
@@ -3780,6 +5712,27 @@
         "price": 119700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BD5T6-DEFAULT-2",
+        "price": 119700,
+        "stock": 103,
+        "attributes": null,
+        "id": "b42e73f8-eaf5-4a4e-8b2f-c2be9214690a"
+      },
+      {
+        "sku_code": "SKU-BD5T6-DEFAULT-3",
+        "price": 119700,
+        "stock": 103,
+        "attributes": null,
+        "id": "063d41a9-c277-4e79-a318-ee24393c4bcc"
+      },
+      {
+        "sku_code": "SKU-BD5T6-DEFAULT-4",
+        "price": 119700,
+        "stock": 103,
+        "attributes": null,
+        "id": "90958598-ec29-4021-bf25-286722280150"
       }
     ],
     "brand": "AUTO",
@@ -3821,6 +5774,27 @@
         "price": 144600,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RSPKN-DEFAULT-2",
+        "price": 144600,
+        "stock": 85,
+        "attributes": null,
+        "id": "4c35a223-026d-414f-bd29-0572a4fc16e5"
+      },
+      {
+        "sku_code": "SKU-RSPKN-DEFAULT-3",
+        "price": 144600,
+        "stock": 85,
+        "attributes": null,
+        "id": "552e37ef-3b88-48e6-aaa0-c54532b7ad8f"
+      },
+      {
+        "sku_code": "SKU-RSPKN-DEFAULT-4",
+        "price": 144600,
+        "stock": 85,
+        "attributes": null,
+        "id": "1d065fe4-bdf3-43e1-862e-05e09f651114"
       }
     ],
     "brand": "NIKAVI",
@@ -3866,6 +5840,27 @@
         "price": 68700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RM3Y9-DEFAULT-2",
+        "price": 68700,
+        "stock": 34,
+        "attributes": null,
+        "id": "e0b03863-a781-40c4-a791-da8222757b1e"
+      },
+      {
+        "sku_code": "SKU-RM3Y9-DEFAULT-3",
+        "price": 68700,
+        "stock": 34,
+        "attributes": null,
+        "id": "a7795d63-0af9-4a10-a1d8-f7608fce7f75"
+      },
+      {
+        "sku_code": "SKU-RM3Y9-DEFAULT-4",
+        "price": 68700,
+        "stock": 34,
+        "attributes": null,
+        "id": "e18693bd-35b9-40d5-9b12-26468d81fa23"
       }
     ],
     "brand": "Auto",
@@ -3903,6 +5898,27 @@
         "price": 273000,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JXAZL-DEFAULT-2",
+        "price": 273000,
+        "stock": 67,
+        "attributes": null,
+        "id": "68299a48-9d01-4eea-8211-906c427063f0"
+      },
+      {
+        "sku_code": "SKU-JXAZL-DEFAULT-3",
+        "price": 273000,
+        "stock": 67,
+        "attributes": null,
+        "id": "4a47b8f7-f47d-45a7-a534-6cddba89eefc"
+      },
+      {
+        "sku_code": "SKU-JXAZL-DEFAULT-4",
+        "price": 273000,
+        "stock": 67,
+        "attributes": null,
+        "id": "c7515918-2790-41b7-9141-0fea19f9c991"
       }
     ],
     "brand": "CARIZO",
@@ -3944,6 +5960,27 @@
         "price": 149700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V2F1K-DEFAULT-2",
+        "price": 149700,
+        "stock": 106,
+        "attributes": null,
+        "id": "46d4cd21-b5e2-404c-bcd2-594b4efa1e43"
+      },
+      {
+        "sku_code": "SKU-V2F1K-DEFAULT-3",
+        "price": 149700,
+        "stock": 106,
+        "attributes": null,
+        "id": "1d90ca08-193a-4d7c-99d3-9d0e5458601e"
+      },
+      {
+        "sku_code": "SKU-V2F1K-DEFAULT-4",
+        "price": 149700,
+        "stock": 106,
+        "attributes": null,
+        "id": "a7c3019a-2e18-4db4-988c-25a932c79f17"
       }
     ],
     "brand": "Bosch",
@@ -3985,6 +6022,27 @@
         "price": 239700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5TP9X-DEFAULT-2",
+        "price": 239700,
+        "stock": 74,
+        "attributes": null,
+        "id": "08fa8437-d98d-44ff-8e84-e58a3f7882a5"
+      },
+      {
+        "sku_code": "SKU-5TP9X-DEFAULT-3",
+        "price": 239700,
+        "stock": 74,
+        "attributes": null,
+        "id": "c0bdbe24-dc2f-4cde-ae46-dfe1b2afad8c"
+      },
+      {
+        "sku_code": "SKU-5TP9X-DEFAULT-4",
+        "price": 239700,
+        "stock": 74,
+        "attributes": null,
+        "id": "8c23e2bb-c70f-4c5f-bd11-42910daf8a92"
       }
     ],
     "brand": "UNO",
@@ -4030,6 +6088,27 @@
         "price": 128700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1130I-DEFAULT-2",
+        "price": 128700,
+        "stock": 26,
+        "attributes": null,
+        "id": "9988e969-3d0e-43f8-af87-e7c71a87bcb7"
+      },
+      {
+        "sku_code": "SKU-1130I-DEFAULT-3",
+        "price": 128700,
+        "stock": 26,
+        "attributes": null,
+        "id": "bdc0ef84-1279-41f2-b992-e8bc5c5c6df3"
+      },
+      {
+        "sku_code": "SKU-1130I-DEFAULT-4",
+        "price": 128700,
+        "stock": 26,
+        "attributes": null,
+        "id": "5622df1a-cb09-4edc-9dbe-80c96f5e2e43"
       }
     ],
     "brand": "NIKAVI",
@@ -4075,6 +6154,27 @@
         "price": 40500,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CINBE-DEFAULT-2",
+        "price": 40500,
+        "stock": 93,
+        "attributes": null,
+        "id": "499e2884-516d-4b18-aea6-1ca6a7fd6906"
+      },
+      {
+        "sku_code": "SKU-CINBE-DEFAULT-3",
+        "price": 40500,
+        "stock": 93,
+        "attributes": null,
+        "id": "13c4cbc9-3f61-46eb-ab46-3e17efc1516d"
+      },
+      {
+        "sku_code": "SKU-CINBE-DEFAULT-4",
+        "price": 40500,
+        "stock": 93,
+        "attributes": null,
+        "id": "d40e36ea-8d68-4a21-a314-d72af3377fb7"
       }
     ],
     "brand": "Vagary",

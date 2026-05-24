@@ -22,6 +22,27 @@
         "price": 119700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4MXLU-DEFAULT-2",
+        "price": 119700,
+        "stock": 96,
+        "attributes": null,
+        "id": "0074a835-4930-4e39-8c58-eee1fc057433"
+      },
+      {
+        "sku_code": "SKU-4MXLU-DEFAULT-3",
+        "price": 119700,
+        "stock": 96,
+        "attributes": null,
+        "id": "58b9873c-6f26-4de5-b7b4-33117aa03ab7"
+      },
+      {
+        "sku_code": "SKU-4MXLU-DEFAULT-4",
+        "price": 119700,
+        "stock": 96,
+        "attributes": null,
+        "id": "99167f33-fed5-439e-955e-1875294edabd"
       }
     ],
     "brand": "Puma",
@@ -63,6 +84,27 @@
         "price": 455400,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NSUTR-DEFAULT-2",
+        "price": 455400,
+        "stock": 63,
+        "attributes": null,
+        "id": "4518bdd0-89b4-4d8b-aae4-9c8a0080a224"
+      },
+      {
+        "sku_code": "SKU-NSUTR-DEFAULT-3",
+        "price": 455400,
+        "stock": 63,
+        "attributes": null,
+        "id": "2010050f-779c-483d-90ee-1873b2f41514"
+      },
+      {
+        "sku_code": "SKU-NSUTR-DEFAULT-4",
+        "price": 455400,
+        "stock": 63,
+        "attributes": null,
+        "id": "19c89faf-7575-40c7-ae8c-f8eb53cb839d"
       }
     ],
     "brand": "HP",
@@ -100,6 +142,27 @@
         "price": 158700,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V90D8-DEFAULT-2",
+        "price": 158700,
+        "stock": 90,
+        "attributes": null,
+        "id": "88392717-0c52-48f2-bdd5-3c6e435951d7"
+      },
+      {
+        "sku_code": "SKU-V90D8-DEFAULT-3",
+        "price": 158700,
+        "stock": 90,
+        "attributes": null,
+        "id": "db8a51ed-8e1e-4579-b12d-20bf9d337922"
+      },
+      {
+        "sku_code": "SKU-V90D8-DEFAULT-4",
+        "price": 158700,
+        "stock": 90,
+        "attributes": null,
+        "id": "2891bed6-bb33-4f88-9428-380c4282c6f5"
       }
     ],
     "brand": "Puma",
@@ -145,6 +208,27 @@
         "price": 214200,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7E1FI-DEFAULT-2",
+        "price": 214200,
+        "stock": 65,
+        "attributes": null,
+        "id": "677c7aad-56df-420d-a159-821b41bffe07"
+      },
+      {
+        "sku_code": "SKU-7E1FI-DEFAULT-3",
+        "price": 214200,
+        "stock": 65,
+        "attributes": null,
+        "id": "f316d80d-fb57-44d5-87ca-0cd0249b2aa9"
+      },
+      {
+        "sku_code": "SKU-7E1FI-DEFAULT-4",
+        "price": 214200,
+        "stock": 65,
+        "attributes": null,
+        "id": "93c0fe07-ab92-4854-ac0e-77e888e8c375"
       }
     ],
     "brand": "GM",
@@ -186,6 +270,27 @@
         "price": 539700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KFVLA-DEFAULT-2",
+        "price": 539700,
+        "stock": 18,
+        "attributes": null,
+        "id": "233ec101-3958-48f1-8a35-d6ddde9fa9ff"
+      },
+      {
+        "sku_code": "SKU-KFVLA-DEFAULT-3",
+        "price": 539700,
+        "stock": 18,
+        "attributes": null,
+        "id": "38dfb969-f2eb-4b98-bf44-a5968d79f980"
+      },
+      {
+        "sku_code": "SKU-KFVLA-DEFAULT-4",
+        "price": 539700,
+        "stock": 18,
+        "attributes": null,
+        "id": "fc3e9a26-c257-4171-88cd-923441782944"
       }
     ],
     "brand": "Monte",
@@ -231,6 +336,27 @@
         "price": 95400,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7OZN0-DEFAULT-2",
+        "price": 95400,
+        "stock": 80,
+        "attributes": null,
+        "id": "69da972c-8480-4b76-a2af-2f9b37cc5aa6"
+      },
+      {
+        "sku_code": "SKU-7OZN0-DEFAULT-3",
+        "price": 95400,
+        "stock": 80,
+        "attributes": null,
+        "id": "134886ba-06b9-4bae-8e36-39068acb424b"
+      },
+      {
+        "sku_code": "SKU-7OZN0-DEFAULT-4",
+        "price": 95400,
+        "stock": 80,
+        "attributes": null,
+        "id": "6c1a3db3-1385-4050-9681-000c35471860"
       }
     ],
     "brand": "Allen",
@@ -276,6 +402,27 @@
         "price": 161700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K3KPO-DEFAULT-2",
+        "price": 161700,
+        "stock": 29,
+        "attributes": null,
+        "id": "b0b3bf59-19ad-499d-b6a2-1d06ef2a2570"
+      },
+      {
+        "sku_code": "SKU-K3KPO-DEFAULT-3",
+        "price": 161700,
+        "stock": 29,
+        "attributes": null,
+        "id": "6d714d4a-e35d-4860-9631-38b0a79138ea"
+      },
+      {
+        "sku_code": "SKU-K3KPO-DEFAULT-4",
+        "price": 161700,
+        "stock": 29,
+        "attributes": null,
+        "id": "c528f37e-1dcc-44e2-ba7c-9efe15529dd8"
       }
     ],
     "brand": "HP",
@@ -321,6 +468,27 @@
         "price": 179700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6SE35-DEFAULT-2",
+        "price": 179700,
+        "stock": 25,
+        "attributes": null,
+        "id": "35af23cf-5a8b-435a-9f2c-e92add3c5ea8"
+      },
+      {
+        "sku_code": "SKU-6SE35-DEFAULT-3",
+        "price": 179700,
+        "stock": 25,
+        "attributes": null,
+        "id": "d65c4adf-ab33-461d-8803-e904342c4e21"
+      },
+      {
+        "sku_code": "SKU-6SE35-DEFAULT-4",
+        "price": 179700,
+        "stock": 25,
+        "attributes": null,
+        "id": "8cc91dd4-91dd-457c-9c47-9400b0b915fc"
       }
     ],
     "brand": "TOSKA",
@@ -366,6 +534,27 @@
         "price": 612600,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BC1WX-DEFAULT-2",
+        "price": 612600,
+        "stock": 21,
+        "attributes": null,
+        "id": "e9d63358-af00-4644-9678-dcf5dfe7764a"
+      },
+      {
+        "sku_code": "SKU-BC1WX-DEFAULT-3",
+        "price": 612600,
+        "stock": 21,
+        "attributes": null,
+        "id": "606755a0-d026-4c17-97e7-073fb2843323"
+      },
+      {
+        "sku_code": "SKU-BC1WX-DEFAULT-4",
+        "price": 612600,
+        "stock": 21,
+        "attributes": null,
+        "id": "b570db0e-fd2b-42e8-9fde-4a9674f0da61"
       }
     ],
     "brand": "CW",
@@ -407,6 +596,27 @@
         "price": 209700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TDJ1Q-DEFAULT-2",
+        "price": 209700,
+        "stock": 11,
+        "attributes": null,
+        "id": "88c57ad1-0d00-470b-b971-8d53f19ebaf3"
+      },
+      {
+        "sku_code": "SKU-TDJ1Q-DEFAULT-3",
+        "price": 209700,
+        "stock": 11,
+        "attributes": null,
+        "id": "944565da-8b4f-4f8d-9495-2a7892e3b371"
+      },
+      {
+        "sku_code": "SKU-TDJ1Q-DEFAULT-4",
+        "price": 209700,
+        "stock": 11,
+        "attributes": null,
+        "id": "f81b50c1-9af7-42c8-b2e1-4fc1e5d700b9"
       }
     ],
     "brand": "GM",
@@ -448,6 +658,27 @@
         "price": 544500,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8P6F5-DEFAULT-2",
+        "price": 544500,
+        "stock": 93,
+        "attributes": null,
+        "id": "e6ba19d0-538b-49f4-841d-ffcad62bccdd"
+      },
+      {
+        "sku_code": "SKU-8P6F5-DEFAULT-3",
+        "price": 544500,
+        "stock": 93,
+        "attributes": null,
+        "id": "d69debd5-dc91-471a-b9e6-4d7acfec2a1a"
+      },
+      {
+        "sku_code": "SKU-8P6F5-DEFAULT-4",
+        "price": 544500,
+        "stock": 93,
+        "attributes": null,
+        "id": "e0f0cb6d-4fad-4a81-bc63-a5ae43103b03"
       }
     ],
     "brand": "U.S.",
@@ -489,6 +720,27 @@
         "price": 1440111,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7WF9B-DEFAULT-2",
+        "price": 1440111,
+        "stock": 103,
+        "attributes": null,
+        "id": "0d243662-7955-4129-b1ae-324947c7b3ff"
+      },
+      {
+        "sku_code": "SKU-7WF9B-DEFAULT-3",
+        "price": 1440111,
+        "stock": 103,
+        "attributes": null,
+        "id": "96442b83-8b4f-4d13-9f37-f7788ec03d0f"
+      },
+      {
+        "sku_code": "SKU-7WF9B-DEFAULT-4",
+        "price": 1440111,
+        "stock": 103,
+        "attributes": null,
+        "id": "d0837461-4ca6-4ea8-bcf8-cff9812d36e4"
       }
     ],
     "brand": "GM",
@@ -530,6 +782,27 @@
         "price": 263700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4Z66H-DEFAULT-2",
+        "price": 263700,
+        "stock": 63,
+        "attributes": null,
+        "id": "c1a3fb80-aeac-44b3-b011-928c911d48c1"
+      },
+      {
+        "sku_code": "SKU-4Z66H-DEFAULT-3",
+        "price": 263700,
+        "stock": 63,
+        "attributes": null,
+        "id": "30518cbc-30d3-402e-b027-7c87ae3afee0"
+      },
+      {
+        "sku_code": "SKU-4Z66H-DEFAULT-4",
+        "price": 263700,
+        "stock": 63,
+        "attributes": null,
+        "id": "ee55ca8b-8b2e-4363-b2e4-5117cbe231b3"
       }
     ],
     "brand": "Levi's",
@@ -567,6 +840,27 @@
         "price": 220500,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y6ZQG-DEFAULT-2",
+        "price": 220500,
+        "stock": 79,
+        "attributes": null,
+        "id": "d654d644-f3e1-4997-ba21-1ec013980359"
+      },
+      {
+        "sku_code": "SKU-Y6ZQG-DEFAULT-3",
+        "price": 220500,
+        "stock": 79,
+        "attributes": null,
+        "id": "499149b6-2b6f-4a9f-8fc3-38fae23e231a"
+      },
+      {
+        "sku_code": "SKU-Y6ZQG-DEFAULT-4",
+        "price": 220500,
+        "stock": 79,
+        "attributes": null,
+        "id": "6ad9b609-79ad-4366-8465-def550bc2682"
       }
     ],
     "brand": "HP",
@@ -612,6 +906,27 @@
         "price": 149700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZR3AX-DEFAULT-2",
+        "price": 149700,
+        "stock": 87,
+        "attributes": null,
+        "id": "e701518d-aa20-4c5a-8946-15c59d9e22ac"
+      },
+      {
+        "sku_code": "SKU-ZR3AX-DEFAULT-3",
+        "price": 149700,
+        "stock": 87,
+        "attributes": null,
+        "id": "4f8c17f0-6b7a-445e-8643-cf46aa2b3702"
+      },
+      {
+        "sku_code": "SKU-ZR3AX-DEFAULT-4",
+        "price": 149700,
+        "stock": 87,
+        "attributes": null,
+        "id": "0c4a0667-6483-4bbe-95ed-828cd29f33d8"
       }
     ],
     "brand": "Monte",
@@ -653,6 +968,27 @@
         "price": 97500,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ECQ0S-DEFAULT-2",
+        "price": 97500,
+        "stock": 85,
+        "attributes": null,
+        "id": "25f37f4a-39be-4931-920a-e2b54cf74e69"
+      },
+      {
+        "sku_code": "SKU-ECQ0S-DEFAULT-3",
+        "price": 97500,
+        "stock": 85,
+        "attributes": null,
+        "id": "d6784f25-681c-40c9-a505-b290f01a3174"
+      },
+      {
+        "sku_code": "SKU-ECQ0S-DEFAULT-4",
+        "price": 97500,
+        "stock": 85,
+        "attributes": null,
+        "id": "0f2126fa-58d0-4e88-8b18-a8f0ce2dde2c"
       }
     ],
     "brand": "SS",
@@ -698,6 +1034,27 @@
         "price": 89700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6VORR-DEFAULT-2",
+        "price": 89700,
+        "stock": 12,
+        "attributes": null,
+        "id": "d95603a9-bdef-44da-a1bc-6404630b2995"
+      },
+      {
+        "sku_code": "SKU-6VORR-DEFAULT-3",
+        "price": 89700,
+        "stock": 12,
+        "attributes": null,
+        "id": "a2161b3e-54a4-44d6-8f86-abc72fb202c1"
+      },
+      {
+        "sku_code": "SKU-6VORR-DEFAULT-4",
+        "price": 89700,
+        "stock": 12,
+        "attributes": null,
+        "id": "864521d2-7891-41d4-beb5-3753a8006d99"
       }
     ],
     "brand": "Puma",
@@ -739,6 +1096,27 @@
         "price": 284700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F90M6-DEFAULT-2",
+        "price": 284700,
+        "stock": 10,
+        "attributes": null,
+        "id": "027df1c3-87c3-4f45-acb5-4f13d3bd2cdd"
+      },
+      {
+        "sku_code": "SKU-F90M6-DEFAULT-3",
+        "price": 284700,
+        "stock": 10,
+        "attributes": null,
+        "id": "0b273d77-8bf0-423d-b9c2-df1c84dae9ae"
+      },
+      {
+        "sku_code": "SKU-F90M6-DEFAULT-4",
+        "price": 284700,
+        "stock": 10,
+        "attributes": null,
+        "id": "be0c8ac6-37cd-41c7-92a2-8816f5209a8a"
       }
     ],
     "brand": "Monte",
@@ -784,6 +1162,27 @@
         "price": 119700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OD1E5-DEFAULT-2",
+        "price": 119700,
+        "stock": 66,
+        "attributes": null,
+        "id": "7f37caf2-38f0-4ea3-9cfb-d278c118aefd"
+      },
+      {
+        "sku_code": "SKU-OD1E5-DEFAULT-3",
+        "price": 119700,
+        "stock": 66,
+        "attributes": null,
+        "id": "f04f0e03-5543-4d6e-86ad-cc56071737ab"
+      },
+      {
+        "sku_code": "SKU-OD1E5-DEFAULT-4",
+        "price": 119700,
+        "stock": 66,
+        "attributes": null,
+        "id": "d115536b-2828-4917-b048-82408f3ce705"
       }
     ],
     "brand": "GM",
@@ -829,6 +1228,27 @@
         "price": 149700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XPVYQ-DEFAULT-2",
+        "price": 149700,
+        "stock": 49,
+        "attributes": null,
+        "id": "0c8b69f7-51f2-459a-8707-236db65e368f"
+      },
+      {
+        "sku_code": "SKU-XPVYQ-DEFAULT-3",
+        "price": 149700,
+        "stock": 49,
+        "attributes": null,
+        "id": "73dad289-73e9-4f0b-97f9-d236748535e9"
+      },
+      {
+        "sku_code": "SKU-XPVYQ-DEFAULT-4",
+        "price": 149700,
+        "stock": 49,
+        "attributes": null,
+        "id": "5d4c21fd-d77c-408c-a222-b8be0f3ebb18"
       }
     ],
     "brand": "DSC",
@@ -870,6 +1290,27 @@
         "price": 742200,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BC4UY-DEFAULT-2",
+        "price": 742200,
+        "stock": 14,
+        "attributes": null,
+        "id": "2077c9a2-b5dd-4048-8c80-8e6bed4e8edf"
+      },
+      {
+        "sku_code": "SKU-BC4UY-DEFAULT-3",
+        "price": 742200,
+        "stock": 14,
+        "attributes": null,
+        "id": "0f89d092-a9a6-42ba-a2d9-dd5589fc42b4"
+      },
+      {
+        "sku_code": "SKU-BC4UY-DEFAULT-4",
+        "price": 742200,
+        "stock": 14,
+        "attributes": null,
+        "id": "4af07b9c-2201-42b4-a99d-87db7a3faff1"
       }
     ],
     "brand": "Gigabyte",
@@ -915,6 +1356,27 @@
         "price": 963345,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O4SBB-DEFAULT-2",
+        "price": 963345,
+        "stock": 83,
+        "attributes": null,
+        "id": "7662ce14-6778-42ea-8b67-249c2ae4ac66"
+      },
+      {
+        "sku_code": "SKU-O4SBB-DEFAULT-3",
+        "price": 963345,
+        "stock": 83,
+        "attributes": null,
+        "id": "dac39bec-793d-41cd-8b45-b35456085b51"
+      },
+      {
+        "sku_code": "SKU-O4SBB-DEFAULT-4",
+        "price": 963345,
+        "stock": 83,
+        "attributes": null,
+        "id": "0a4815b5-b119-4698-9677-809ea705df33"
       }
     ],
     "brand": "SG",
@@ -952,6 +1414,27 @@
         "price": 89700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UVJ9X-DEFAULT-2",
+        "price": 89700,
+        "stock": 14,
+        "attributes": null,
+        "id": "608ff828-dd89-4700-9131-a818f69698b0"
+      },
+      {
+        "sku_code": "SKU-UVJ9X-DEFAULT-3",
+        "price": 89700,
+        "stock": 14,
+        "attributes": null,
+        "id": "f37f2a88-f6da-4a50-ac79-f9f94facd201"
+      },
+      {
+        "sku_code": "SKU-UVJ9X-DEFAULT-4",
+        "price": 89700,
+        "stock": 14,
+        "attributes": null,
+        "id": "c8f819d7-e4a7-41b9-9ba6-1649c4fcc965"
       }
     ],
     "brand": "Levi's",
@@ -997,6 +1480,27 @@
         "price": 485700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3SC6U-DEFAULT-2",
+        "price": 485700,
+        "stock": 104,
+        "attributes": null,
+        "id": "623c94f6-bf79-478e-8bbe-dcb9a4533fb9"
+      },
+      {
+        "sku_code": "SKU-3SC6U-DEFAULT-3",
+        "price": 485700,
+        "stock": 104,
+        "attributes": null,
+        "id": "ce2d28db-d8ae-49bf-87e6-2d3be1005ea6"
+      },
+      {
+        "sku_code": "SKU-3SC6U-DEFAULT-4",
+        "price": 485700,
+        "stock": 104,
+        "attributes": null,
+        "id": "a3af2a6b-2c16-4ffa-ab21-4ec3b1a9edea"
       }
     ],
     "brand": "TRIUMPH",
@@ -1034,6 +1538,27 @@
         "price": 71700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BTLN9-DEFAULT-2",
+        "price": 71700,
+        "stock": 34,
+        "attributes": null,
+        "id": "8c63e284-2097-41bd-8269-c1e6036cd83f"
+      },
+      {
+        "sku_code": "SKU-BTLN9-DEFAULT-3",
+        "price": 71700,
+        "stock": 34,
+        "attributes": null,
+        "id": "48eef6e2-dc1a-4687-a140-45b9c583cd75"
+      },
+      {
+        "sku_code": "SKU-BTLN9-DEFAULT-4",
+        "price": 71700,
+        "stock": 34,
+        "attributes": null,
+        "id": "8e22a0ca-2dfa-47bf-86a6-8ee41ff1ec6f"
       }
     ],
     "brand": "Max",
@@ -1079,6 +1604,27 @@
         "price": 141000,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CTMBL-DEFAULT-2",
+        "price": 141000,
+        "stock": 66,
+        "attributes": null,
+        "id": "c060b587-6a0a-4969-931b-543ed0728ad9"
+      },
+      {
+        "sku_code": "SKU-CTMBL-DEFAULT-3",
+        "price": 141000,
+        "stock": 66,
+        "attributes": null,
+        "id": "6d8df79b-a737-41ee-be02-0f3208380bd3"
+      },
+      {
+        "sku_code": "SKU-CTMBL-DEFAULT-4",
+        "price": 141000,
+        "stock": 66,
+        "attributes": null,
+        "id": "6507838f-36fa-4be9-893e-ea9395f8c82c"
       }
     ],
     "brand": "JRS",
@@ -1120,6 +1666,27 @@
         "price": 59700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5PSIL-DEFAULT-2",
+        "price": 59700,
+        "stock": 14,
+        "attributes": null,
+        "id": "8a86efd8-8afc-462f-9b86-2199a3d1e3c1"
+      },
+      {
+        "sku_code": "SKU-5PSIL-DEFAULT-3",
+        "price": 59700,
+        "stock": 14,
+        "attributes": null,
+        "id": "b744421d-acce-4e1e-8290-889a9f99ce40"
+      },
+      {
+        "sku_code": "SKU-5PSIL-DEFAULT-4",
+        "price": 59700,
+        "stock": 14,
+        "attributes": null,
+        "id": "01999c9d-f481-4ef2-885f-0265ae6cb39e"
       }
     ],
     "brand": "DSC",
@@ -1157,6 +1724,27 @@
         "price": 389700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A19T5-DEFAULT-2",
+        "price": 389700,
+        "stock": 46,
+        "attributes": null,
+        "id": "c13fdb4d-1a85-4116-81f8-011e31377fb7"
+      },
+      {
+        "sku_code": "SKU-A19T5-DEFAULT-3",
+        "price": 389700,
+        "stock": 46,
+        "attributes": null,
+        "id": "a8f8fdce-bf96-4681-9ded-77f66da4e52e"
+      },
+      {
+        "sku_code": "SKU-A19T5-DEFAULT-4",
+        "price": 389700,
+        "stock": 46,
+        "attributes": null,
+        "id": "94422393-ee79-4f1b-8da4-6fce580d5209"
       }
     ],
     "brand": "Asus",
@@ -1194,6 +1782,27 @@
         "price": 183000,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4NIOI-DEFAULT-2",
+        "price": 183000,
+        "stock": 45,
+        "attributes": null,
+        "id": "ae02893c-7d86-4eae-9b75-8f7ff5f27861"
+      },
+      {
+        "sku_code": "SKU-4NIOI-DEFAULT-3",
+        "price": 183000,
+        "stock": 45,
+        "attributes": null,
+        "id": "acde23e5-9a2e-4c2a-a6a9-cb1eb9279263"
+      },
+      {
+        "sku_code": "SKU-4NIOI-DEFAULT-4",
+        "price": 183000,
+        "stock": 45,
+        "attributes": null,
+        "id": "ba4b6f4b-54d7-4aa1-8850-5106becff5ef"
       }
     ],
     "brand": "U.S.",
@@ -1231,6 +1840,27 @@
         "price": 195000,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YJ5AG-DEFAULT-2",
+        "price": 195000,
+        "stock": 38,
+        "attributes": null,
+        "id": "20960bda-af0b-40cb-ad36-edf6574c8d67"
+      },
+      {
+        "sku_code": "SKU-YJ5AG-DEFAULT-3",
+        "price": 195000,
+        "stock": 38,
+        "attributes": null,
+        "id": "f7f32b1c-ceca-4f30-bece-44c40202a8f7"
+      },
+      {
+        "sku_code": "SKU-YJ5AG-DEFAULT-4",
+        "price": 195000,
+        "stock": 38,
+        "attributes": null,
+        "id": "7cd4eff0-d7b6-4d55-a30a-0be3ac2ea2fd"
       }
     ],
     "brand": "JRS",
@@ -1268,6 +1898,27 @@
         "price": 341700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y2X6V-DEFAULT-2",
+        "price": 341700,
+        "stock": 48,
+        "attributes": null,
+        "id": "523e2a60-1f74-48c0-a78b-a0f4775e56db"
+      },
+      {
+        "sku_code": "SKU-Y2X6V-DEFAULT-3",
+        "price": 341700,
+        "stock": 48,
+        "attributes": null,
+        "id": "ade559d9-f379-48d5-a7c4-85a29cdcd2c0"
+      },
+      {
+        "sku_code": "SKU-Y2X6V-DEFAULT-4",
+        "price": 341700,
+        "stock": 48,
+        "attributes": null,
+        "id": "d98362e5-0b4d-4178-9a25-b1a0384ee501"
       }
     ],
     "brand": "SS",
@@ -1313,6 +1964,27 @@
         "price": 233700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L9MMC-DEFAULT-2",
+        "price": 233700,
+        "stock": 38,
+        "attributes": null,
+        "id": "62e8f0af-fad1-4dff-88c2-4d1848151826"
+      },
+      {
+        "sku_code": "SKU-L9MMC-DEFAULT-3",
+        "price": 233700,
+        "stock": 38,
+        "attributes": null,
+        "id": "b40b98ad-6748-4c3e-b008-764f88729e04"
+      },
+      {
+        "sku_code": "SKU-L9MMC-DEFAULT-4",
+        "price": 233700,
+        "stock": 38,
+        "attributes": null,
+        "id": "eea3efb1-2cd1-49a5-a288-ee7d0769a1c8"
       }
     ],
     "brand": "CW",
@@ -1354,6 +2026,27 @@
         "price": 89700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SZ9NZ-DEFAULT-2",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "729ea92b-eb4b-494b-babe-c86635750ea5"
+      },
+      {
+        "sku_code": "SKU-SZ9NZ-DEFAULT-3",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "8874619f-37b1-4f6e-9071-d2a944c95b9b"
+      },
+      {
+        "sku_code": "SKU-SZ9NZ-DEFAULT-4",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "3b629cc0-26b2-4e5a-b1f3-a0daac3cf037"
       }
     ],
     "brand": "Puma",
@@ -1395,6 +2088,27 @@
         "price": 191400,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-29OIX-DEFAULT-2",
+        "price": 191400,
+        "stock": 97,
+        "attributes": null,
+        "id": "5231d6d5-2466-479b-b3d9-1a4fd7f8b229"
+      },
+      {
+        "sku_code": "SKU-29OIX-DEFAULT-3",
+        "price": 191400,
+        "stock": 97,
+        "attributes": null,
+        "id": "c413e30b-40d5-4efa-81da-a35972acfad2"
+      },
+      {
+        "sku_code": "SKU-29OIX-DEFAULT-4",
+        "price": 191400,
+        "stock": 97,
+        "attributes": null,
+        "id": "965e4aba-32bf-42e6-87ca-4e6433e856df"
       }
     ],
     "brand": "HP",
@@ -1436,6 +2150,27 @@
         "price": 1799700,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N2AXC-DEFAULT-2",
+        "price": 1799700,
+        "stock": 45,
+        "attributes": null,
+        "id": "3e4ea6f3-443c-4c8b-9dd5-24a33eb92913"
+      },
+      {
+        "sku_code": "SKU-N2AXC-DEFAULT-3",
+        "price": 1799700,
+        "stock": 45,
+        "attributes": null,
+        "id": "11e55c34-40a6-4b27-ab6e-0a58c2a9c3c4"
+      },
+      {
+        "sku_code": "SKU-N2AXC-DEFAULT-4",
+        "price": 1799700,
+        "stock": 45,
+        "attributes": null,
+        "id": "b8e8fe65-24d5-4878-8269-cc5334d1fbee"
       }
     ],
     "brand": "SG",
@@ -1481,6 +2216,27 @@
         "price": 0,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E332Q-DEFAULT-2",
+        "price": 0,
+        "stock": 84,
+        "attributes": null,
+        "id": "ef45e78f-3751-46b2-aaa8-edb9cf20fec0"
+      },
+      {
+        "sku_code": "SKU-E332Q-DEFAULT-3",
+        "price": 0,
+        "stock": 84,
+        "attributes": null,
+        "id": "06bd8483-b68b-4cd2-ba34-639647aeba29"
+      },
+      {
+        "sku_code": "SKU-E332Q-DEFAULT-4",
+        "price": 0,
+        "stock": 84,
+        "attributes": null,
+        "id": "939bb657-7525-4f0c-88c4-8ce374b8f4d4"
       }
     ],
     "brand": "HP",
@@ -1518,6 +2274,27 @@
         "price": 239700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YGPE0-DEFAULT-2",
+        "price": 239700,
+        "stock": 22,
+        "attributes": null,
+        "id": "48aa96b9-43d3-489f-981b-516de8aea78d"
+      },
+      {
+        "sku_code": "SKU-YGPE0-DEFAULT-3",
+        "price": 239700,
+        "stock": 22,
+        "attributes": null,
+        "id": "5462f1a8-229c-4ce6-b37d-b0e51e669c73"
+      },
+      {
+        "sku_code": "SKU-YGPE0-DEFAULT-4",
+        "price": 239700,
+        "stock": 22,
+        "attributes": null,
+        "id": "e90829da-2f15-457d-8de3-b055d8f8422f"
       }
     ],
     "brand": "SG",
@@ -1559,6 +2336,27 @@
         "price": 215700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QG62O-DEFAULT-2",
+        "price": 215700,
+        "stock": 61,
+        "attributes": null,
+        "id": "b769d83a-f399-4d4d-b523-f73bd9969ff6"
+      },
+      {
+        "sku_code": "SKU-QG62O-DEFAULT-3",
+        "price": 215700,
+        "stock": 61,
+        "attributes": null,
+        "id": "ecd6a616-bc73-48e7-88f8-ee07e340e063"
+      },
+      {
+        "sku_code": "SKU-QG62O-DEFAULT-4",
+        "price": 215700,
+        "stock": 61,
+        "attributes": null,
+        "id": "8a1a9091-9908-4df4-ab9c-88fbbc7f8c60"
       }
     ],
     "brand": "Puma",
@@ -1596,6 +2394,27 @@
         "price": 88200,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4QQL7-DEFAULT-2",
+        "price": 88200,
+        "stock": 99,
+        "attributes": null,
+        "id": "4edaf4d5-1aeb-40d8-9ca8-118f55334413"
+      },
+      {
+        "sku_code": "SKU-4QQL7-DEFAULT-3",
+        "price": 88200,
+        "stock": 99,
+        "attributes": null,
+        "id": "9ffb024f-749f-4133-9cc6-bbbdbdb33844"
+      },
+      {
+        "sku_code": "SKU-4QQL7-DEFAULT-4",
+        "price": 88200,
+        "stock": 99,
+        "attributes": null,
+        "id": "d9e5fee8-cdfd-47d7-b4b4-4055889baab8"
       }
     ],
     "brand": "Max",
@@ -1633,6 +2452,27 @@
         "price": 168900,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BIZHI-DEFAULT-2",
+        "price": 168900,
+        "stock": 64,
+        "attributes": null,
+        "id": "7ba6e817-aba1-4c2e-9b91-0485edbc5ad3"
+      },
+      {
+        "sku_code": "SKU-BIZHI-DEFAULT-3",
+        "price": 168900,
+        "stock": 64,
+        "attributes": null,
+        "id": "d6a76292-8784-4cba-ada6-e7d2ca89ae43"
+      },
+      {
+        "sku_code": "SKU-BIZHI-DEFAULT-4",
+        "price": 168900,
+        "stock": 64,
+        "attributes": null,
+        "id": "cf15fa3a-d9c5-494e-bb94-3d0db4502f34"
       }
     ],
     "brand": "GM",
@@ -1674,6 +2514,27 @@
         "price": 421800,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YWDPN-DEFAULT-2",
+        "price": 421800,
+        "stock": 56,
+        "attributes": null,
+        "id": "89262725-d2eb-48c7-87bd-fa0437d1728f"
+      },
+      {
+        "sku_code": "SKU-YWDPN-DEFAULT-3",
+        "price": 421800,
+        "stock": 56,
+        "attributes": null,
+        "id": "d8ced5b9-9244-46d4-89fe-03388f6c2757"
+      },
+      {
+        "sku_code": "SKU-YWDPN-DEFAULT-4",
+        "price": 421800,
+        "stock": 56,
+        "attributes": null,
+        "id": "8aa4e477-4916-4723-be30-02f33b9c2366"
       }
     ],
     "brand": "JRS",
@@ -1715,6 +2576,27 @@
         "price": 119700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RF09S-DEFAULT-2",
+        "price": 119700,
+        "stock": 87,
+        "attributes": null,
+        "id": "6fcfad11-6e71-44f7-af14-432228d18e91"
+      },
+      {
+        "sku_code": "SKU-RF09S-DEFAULT-3",
+        "price": 119700,
+        "stock": 87,
+        "attributes": null,
+        "id": "22de700d-7b18-4047-b4a0-5362721657d4"
+      },
+      {
+        "sku_code": "SKU-RF09S-DEFAULT-4",
+        "price": 119700,
+        "stock": 87,
+        "attributes": null,
+        "id": "5be4b027-e6cc-42f3-81c9-ddd3f66b4045"
       }
     ],
     "brand": "SG",
@@ -1760,6 +2642,27 @@
         "price": 3779700,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Z35T7-DEFAULT-2",
+        "price": 3779700,
+        "stock": 21,
+        "attributes": null,
+        "id": "bf88295e-cfa2-4806-a3a1-747a14134aa9"
+      },
+      {
+        "sku_code": "SKU-Z35T7-DEFAULT-3",
+        "price": 3779700,
+        "stock": 21,
+        "attributes": null,
+        "id": "417f834f-e2be-4e4d-9d35-cf3729d5041e"
+      },
+      {
+        "sku_code": "SKU-Z35T7-DEFAULT-4",
+        "price": 3779700,
+        "stock": 21,
+        "attributes": null,
+        "id": "0e36b163-29a4-4007-936b-d0805e2b1df8"
       }
     ],
     "brand": "SG",
@@ -1801,6 +2704,27 @@
         "price": 545700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5VQ51-DEFAULT-2",
+        "price": 545700,
+        "stock": 48,
+        "attributes": null,
+        "id": "175b46a1-296d-472e-a566-5c7ea73f54f2"
+      },
+      {
+        "sku_code": "SKU-5VQ51-DEFAULT-3",
+        "price": 545700,
+        "stock": 48,
+        "attributes": null,
+        "id": "94872e1a-d651-4646-b4f5-52b2b8a9a838"
+      },
+      {
+        "sku_code": "SKU-5VQ51-DEFAULT-4",
+        "price": 545700,
+        "stock": 48,
+        "attributes": null,
+        "id": "45ee45b2-fafb-4466-bb76-c43d444a434a"
       }
     ],
     "brand": "Nike",
@@ -1838,6 +2762,27 @@
         "price": 89700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-51GCP-DEFAULT-2",
+        "price": 89700,
+        "stock": 67,
+        "attributes": null,
+        "id": "36ccdfe1-2a0a-4d77-846b-97489f7ffc79"
+      },
+      {
+        "sku_code": "SKU-51GCP-DEFAULT-3",
+        "price": 89700,
+        "stock": 67,
+        "attributes": null,
+        "id": "9b39118c-f292-4375-8936-293ddd588b0b"
+      },
+      {
+        "sku_code": "SKU-51GCP-DEFAULT-4",
+        "price": 89700,
+        "stock": 67,
+        "attributes": null,
+        "id": "cee33e3f-3ee6-4b8b-8c1a-a679c010d702"
       }
     ],
     "brand": "CW",
@@ -1875,6 +2820,27 @@
         "price": 305700,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TOG1G-DEFAULT-2",
+        "price": 305700,
+        "stock": 65,
+        "attributes": null,
+        "id": "960c5a7b-36bd-48d4-9fff-ba401e76f6ac"
+      },
+      {
+        "sku_code": "SKU-TOG1G-DEFAULT-3",
+        "price": 305700,
+        "stock": 65,
+        "attributes": null,
+        "id": "664961f3-9342-42e8-9f84-af248cc0bd69"
+      },
+      {
+        "sku_code": "SKU-TOG1G-DEFAULT-4",
+        "price": 305700,
+        "stock": 65,
+        "attributes": null,
+        "id": "ed73fa3f-d12a-4e0c-866f-04038b5b5ddc"
       }
     ],
     "brand": "Levi's",
@@ -1916,6 +2882,27 @@
         "price": 149700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4D1ZT-DEFAULT-2",
+        "price": 149700,
+        "stock": 19,
+        "attributes": null,
+        "id": "e6a18a7f-dff8-4dcc-9da1-ed482cba4fe5"
+      },
+      {
+        "sku_code": "SKU-4D1ZT-DEFAULT-3",
+        "price": 149700,
+        "stock": 19,
+        "attributes": null,
+        "id": "ec6a344e-d965-4cae-b09c-74acabc9ab7e"
+      },
+      {
+        "sku_code": "SKU-4D1ZT-DEFAULT-4",
+        "price": 149700,
+        "stock": 19,
+        "attributes": null,
+        "id": "88fa58db-74fa-4500-8fdc-d0800a110b62"
       }
     ],
     "brand": "TOSKA",
@@ -1957,6 +2944,27 @@
         "price": 296700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CHT4Z-DEFAULT-2",
+        "price": 296700,
+        "stock": 44,
+        "attributes": null,
+        "id": "6383a1ab-4177-4a8b-8843-7a9a72b531d8"
+      },
+      {
+        "sku_code": "SKU-CHT4Z-DEFAULT-3",
+        "price": 296700,
+        "stock": 44,
+        "attributes": null,
+        "id": "769ded26-18a0-4757-8b52-b4c183de2858"
+      },
+      {
+        "sku_code": "SKU-CHT4Z-DEFAULT-4",
+        "price": 296700,
+        "stock": 44,
+        "attributes": null,
+        "id": "ae7c7c58-2dd4-419f-85f1-92be9997ac2c"
       }
     ],
     "brand": "HP",
@@ -1994,6 +3002,27 @@
         "price": 729000,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LQZS3-DEFAULT-2",
+        "price": 729000,
+        "stock": 94,
+        "attributes": null,
+        "id": "b34904e3-9136-4c1b-8dd2-e25f2a636555"
+      },
+      {
+        "sku_code": "SKU-LQZS3-DEFAULT-3",
+        "price": 729000,
+        "stock": 94,
+        "attributes": null,
+        "id": "d846076d-f736-45e3-a153-39e021adf317"
+      },
+      {
+        "sku_code": "SKU-LQZS3-DEFAULT-4",
+        "price": 729000,
+        "stock": 94,
+        "attributes": null,
+        "id": "b442f0a7-34a1-40c9-a4c5-b12c3688feed"
       }
     ],
     "brand": "DSC",
@@ -2035,6 +3064,27 @@
         "price": 164700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VCIPI-DEFAULT-2",
+        "price": 164700,
+        "stock": 102,
+        "attributes": null,
+        "id": "91d235eb-03c8-44cd-97a1-44535d379f17"
+      },
+      {
+        "sku_code": "SKU-VCIPI-DEFAULT-3",
+        "price": 164700,
+        "stock": 102,
+        "attributes": null,
+        "id": "1e25fb04-29b4-4e7e-88fa-3e83081f674d"
+      },
+      {
+        "sku_code": "SKU-VCIPI-DEFAULT-4",
+        "price": 164700,
+        "stock": 102,
+        "attributes": null,
+        "id": "b9e0cb23-3b1f-4c15-9f3c-75ed5f991d75"
       }
     ],
     "brand": "HP",
@@ -2076,6 +3126,27 @@
         "price": 110700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NN5ZW-DEFAULT-2",
+        "price": 110700,
+        "stock": 70,
+        "attributes": null,
+        "id": "5d000cb0-97b1-40f3-978f-86001b0948ec"
+      },
+      {
+        "sku_code": "SKU-NN5ZW-DEFAULT-3",
+        "price": 110700,
+        "stock": 70,
+        "attributes": null,
+        "id": "3a385532-5098-4827-b465-49f22a358a08"
+      },
+      {
+        "sku_code": "SKU-NN5ZW-DEFAULT-4",
+        "price": 110700,
+        "stock": 70,
+        "attributes": null,
+        "id": "6aaef18c-89da-4e78-8d67-154284b4c8ff"
       }
     ],
     "brand": "DSC",
@@ -2121,6 +3192,27 @@
         "price": 113700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YVOFM-DEFAULT-2",
+        "price": 113700,
+        "stock": 77,
+        "attributes": null,
+        "id": "0aa45e6f-e172-41eb-9a79-39bc78aa4a4e"
+      },
+      {
+        "sku_code": "SKU-YVOFM-DEFAULT-3",
+        "price": 113700,
+        "stock": 77,
+        "attributes": null,
+        "id": "496e5d73-acc3-4203-94a4-e2c4e9d4404e"
+      },
+      {
+        "sku_code": "SKU-YVOFM-DEFAULT-4",
+        "price": 113700,
+        "stock": 77,
+        "attributes": null,
+        "id": "c067425d-7ce7-408d-8acc-d5a02dd5f11f"
       }
     ],
     "brand": "SS",
@@ -2162,6 +3254,27 @@
         "price": 1409700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4YLJC-DEFAULT-2",
+        "price": 1409700,
+        "stock": 73,
+        "attributes": null,
+        "id": "4366d452-5590-4366-9beb-711afc66d05e"
+      },
+      {
+        "sku_code": "SKU-4YLJC-DEFAULT-3",
+        "price": 1409700,
+        "stock": 73,
+        "attributes": null,
+        "id": "afbf8768-a27e-4fa0-a60b-93e188cae9bc"
+      },
+      {
+        "sku_code": "SKU-4YLJC-DEFAULT-4",
+        "price": 1409700,
+        "stock": 73,
+        "attributes": null,
+        "id": "09a2febf-7049-4611-8a0a-0126f93ce687"
       }
     ],
     "brand": "TRIUMPH",
@@ -2199,6 +3312,27 @@
         "price": 88500,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8GWH1-DEFAULT-2",
+        "price": 88500,
+        "stock": 43,
+        "attributes": null,
+        "id": "68b2fc84-3fb8-46e5-b56b-3a554c8b4fce"
+      },
+      {
+        "sku_code": "SKU-8GWH1-DEFAULT-3",
+        "price": 88500,
+        "stock": 43,
+        "attributes": null,
+        "id": "30f2b694-400a-41ff-859a-e41b1c679f89"
+      },
+      {
+        "sku_code": "SKU-8GWH1-DEFAULT-4",
+        "price": 88500,
+        "stock": 43,
+        "attributes": null,
+        "id": "1e050e96-837a-4280-8805-7b64a511087b"
       }
     ],
     "brand": "Razer",
@@ -2244,6 +3378,27 @@
         "price": 74400,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V0Z4G-DEFAULT-2",
+        "price": 74400,
+        "stock": 66,
+        "attributes": null,
+        "id": "20b32334-244a-462b-96a3-7be2ed5719a6"
+      },
+      {
+        "sku_code": "SKU-V0Z4G-DEFAULT-3",
+        "price": 74400,
+        "stock": 66,
+        "attributes": null,
+        "id": "96ce2558-11c1-4325-aa60-bc2ca92633b4"
+      },
+      {
+        "sku_code": "SKU-V0Z4G-DEFAULT-4",
+        "price": 74400,
+        "stock": 66,
+        "attributes": null,
+        "id": "085d34d8-e26b-479c-89ff-8c9d428ab0f5"
       }
     ],
     "brand": "Levi's",
@@ -2285,6 +3440,27 @@
         "price": 479700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8TN57-DEFAULT-2",
+        "price": 479700,
+        "stock": 51,
+        "attributes": null,
+        "id": "66583a96-b9fa-49ca-8821-c59b313300a4"
+      },
+      {
+        "sku_code": "SKU-8TN57-DEFAULT-3",
+        "price": 479700,
+        "stock": 51,
+        "attributes": null,
+        "id": "8217f365-9855-41a1-b0bf-5222f7df4861"
+      },
+      {
+        "sku_code": "SKU-8TN57-DEFAULT-4",
+        "price": 479700,
+        "stock": 51,
+        "attributes": null,
+        "id": "080cc014-e134-4934-8284-5f37775d2cde"
       }
     ],
     "brand": "SS",
@@ -2326,6 +3502,27 @@
         "price": 419700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8T0EO-DEFAULT-2",
+        "price": 419700,
+        "stock": 88,
+        "attributes": null,
+        "id": "d2d45505-f45c-4a57-8d47-be7052560254"
+      },
+      {
+        "sku_code": "SKU-8T0EO-DEFAULT-3",
+        "price": 419700,
+        "stock": 88,
+        "attributes": null,
+        "id": "0ff95b13-8c12-4331-a986-73596c7ff350"
+      },
+      {
+        "sku_code": "SKU-8T0EO-DEFAULT-4",
+        "price": 419700,
+        "stock": 88,
+        "attributes": null,
+        "id": "08406d6c-1bd8-4828-a45e-661f74a18320"
       }
     ],
     "brand": "Levi's",
@@ -2371,6 +3568,27 @@
         "price": 188700,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3J3HY-DEFAULT-2",
+        "price": 188700,
+        "stock": 88,
+        "attributes": null,
+        "id": "660a2ae7-e387-4a75-83d4-cb8c84dfdca1"
+      },
+      {
+        "sku_code": "SKU-3J3HY-DEFAULT-3",
+        "price": 188700,
+        "stock": 88,
+        "attributes": null,
+        "id": "1fb8cd69-9e00-49f3-a662-eea365220e58"
+      },
+      {
+        "sku_code": "SKU-3J3HY-DEFAULT-4",
+        "price": 188700,
+        "stock": 88,
+        "attributes": null,
+        "id": "21fb70dd-3db0-4ddf-9138-f18f0353197c"
       }
     ],
     "brand": "DSC",
@@ -2408,6 +3626,27 @@
         "price": 299700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CSE5H-DEFAULT-2",
+        "price": 299700,
+        "stock": 109,
+        "attributes": null,
+        "id": "3e0b7cd7-1fa5-4826-aebd-8c0b1d3c3cfa"
+      },
+      {
+        "sku_code": "SKU-CSE5H-DEFAULT-3",
+        "price": 299700,
+        "stock": 109,
+        "attributes": null,
+        "id": "4c9f4ada-e799-4673-8054-73bd09b53581"
+      },
+      {
+        "sku_code": "SKU-CSE5H-DEFAULT-4",
+        "price": 299700,
+        "stock": 109,
+        "attributes": null,
+        "id": "dcf8e46e-3737-4b7a-b702-617210663d6d"
       }
     ],
     "brand": "Levi's",
@@ -2453,6 +3692,27 @@
         "price": 68700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YZOWS-DEFAULT-2",
+        "price": 68700,
+        "stock": 71,
+        "attributes": null,
+        "id": "5c4f624c-897a-422a-930a-f41fbdd3f6e9"
+      },
+      {
+        "sku_code": "SKU-YZOWS-DEFAULT-3",
+        "price": 68700,
+        "stock": 71,
+        "attributes": null,
+        "id": "48175216-6472-4fd1-bc13-55bb1e38524a"
+      },
+      {
+        "sku_code": "SKU-YZOWS-DEFAULT-4",
+        "price": 68700,
+        "stock": 71,
+        "attributes": null,
+        "id": "52f8763d-0d63-4348-af61-36527c16aa94"
       }
     ],
     "brand": "Amazon",
@@ -2498,6 +3758,27 @@
         "price": 89700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BEG30-DEFAULT-2",
+        "price": 89700,
+        "stock": 94,
+        "attributes": null,
+        "id": "90425eba-a406-4087-bcc2-a66a5434ac4a"
+      },
+      {
+        "sku_code": "SKU-BEG30-DEFAULT-3",
+        "price": 89700,
+        "stock": 94,
+        "attributes": null,
+        "id": "4b39ee7f-d586-4dd2-946e-2b0de7e0aef2"
+      },
+      {
+        "sku_code": "SKU-BEG30-DEFAULT-4",
+        "price": 89700,
+        "stock": 94,
+        "attributes": null,
+        "id": "957c88d5-44a7-4542-a416-a1d241cb8df4"
       }
     ],
     "brand": "CW",
@@ -2543,6 +3824,27 @@
         "price": 194700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B6MYW-DEFAULT-2",
+        "price": 194700,
+        "stock": 73,
+        "attributes": null,
+        "id": "747bc561-44dc-49b6-a8c9-6a4b5e61a8f7"
+      },
+      {
+        "sku_code": "SKU-B6MYW-DEFAULT-3",
+        "price": 194700,
+        "stock": 73,
+        "attributes": null,
+        "id": "52d4b6de-dbcd-4a48-bc6f-669994459952"
+      },
+      {
+        "sku_code": "SKU-B6MYW-DEFAULT-4",
+        "price": 194700,
+        "stock": 73,
+        "attributes": null,
+        "id": "fdf04c23-abe9-4fd5-bd5c-815a9b8aa312"
       }
     ],
     "brand": "TOSKA",
@@ -2580,6 +3882,27 @@
         "price": 236700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CVXC9-DEFAULT-2",
+        "price": 236700,
+        "stock": 86,
+        "attributes": null,
+        "id": "1f19ffc5-d360-47ae-bda3-1b6851bed2ac"
+      },
+      {
+        "sku_code": "SKU-CVXC9-DEFAULT-3",
+        "price": 236700,
+        "stock": 86,
+        "attributes": null,
+        "id": "de80272f-6b6d-474a-aede-7fde1a8bcec2"
+      },
+      {
+        "sku_code": "SKU-CVXC9-DEFAULT-4",
+        "price": 236700,
+        "stock": 86,
+        "attributes": null,
+        "id": "bdc66162-9f39-4b31-85c7-12df8f763499"
       }
     ],
     "brand": "Puma",
@@ -2625,6 +3948,27 @@
         "price": 149700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NIAVW-DEFAULT-2",
+        "price": 149700,
+        "stock": 38,
+        "attributes": null,
+        "id": "b2962e05-cded-4bdd-b16c-ea21c0d1e73f"
+      },
+      {
+        "sku_code": "SKU-NIAVW-DEFAULT-3",
+        "price": 149700,
+        "stock": 38,
+        "attributes": null,
+        "id": "253d95f4-a2cb-4d93-9dea-7cde84bc0088"
+      },
+      {
+        "sku_code": "SKU-NIAVW-DEFAULT-4",
+        "price": 149700,
+        "stock": 38,
+        "attributes": null,
+        "id": "484aff3a-b10c-47ee-89ff-846e463d088d"
       }
     ],
     "brand": "Monte",
@@ -2666,6 +4010,27 @@
         "price": 149700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EZN6B-DEFAULT-2",
+        "price": 149700,
+        "stock": 97,
+        "attributes": null,
+        "id": "da639189-2882-4e21-9d98-ea54fe76395c"
+      },
+      {
+        "sku_code": "SKU-EZN6B-DEFAULT-3",
+        "price": 149700,
+        "stock": 97,
+        "attributes": null,
+        "id": "ac2668b7-a5cc-44be-bee9-18cb5883fd46"
+      },
+      {
+        "sku_code": "SKU-EZN6B-DEFAULT-4",
+        "price": 149700,
+        "stock": 97,
+        "attributes": null,
+        "id": "d2d9d503-65df-481c-885f-56c0b52f57e1"
       }
     ],
     "brand": "TRIUMPH",
@@ -2703,6 +4068,27 @@
         "price": 161700,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FFNXE-DEFAULT-2",
+        "price": 161700,
+        "stock": 53,
+        "attributes": null,
+        "id": "8460b0c3-1f90-43de-a392-5235e9e88ecd"
+      },
+      {
+        "sku_code": "SKU-FFNXE-DEFAULT-3",
+        "price": 161700,
+        "stock": 53,
+        "attributes": null,
+        "id": "301aa22c-91d9-432e-a7a1-e0a0aeeaf61d"
+      },
+      {
+        "sku_code": "SKU-FFNXE-DEFAULT-4",
+        "price": 161700,
+        "stock": 53,
+        "attributes": null,
+        "id": "e7807603-911e-4b62-a9a1-74ab34ef55b1"
       }
     ],
     "brand": "GM",
@@ -2744,6 +4130,27 @@
         "price": 69000,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V0ZJH-DEFAULT-2",
+        "price": 69000,
+        "stock": 32,
+        "attributes": null,
+        "id": "dce7ddb0-db53-43f7-80fb-d04c8a547226"
+      },
+      {
+        "sku_code": "SKU-V0ZJH-DEFAULT-3",
+        "price": 69000,
+        "stock": 32,
+        "attributes": null,
+        "id": "e2a46a74-ec16-4f5e-8e60-5c9454a49a66"
+      },
+      {
+        "sku_code": "SKU-V0ZJH-DEFAULT-4",
+        "price": 69000,
+        "stock": 32,
+        "attributes": null,
+        "id": "67bb129b-ea30-475d-9e15-e5dc26e1013b"
       }
     ],
     "brand": "CW",
@@ -2789,6 +4196,27 @@
         "price": 225000,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AAB3M-DEFAULT-2",
+        "price": 225000,
+        "stock": 59,
+        "attributes": null,
+        "id": "359a0130-acf7-452c-a9ba-ff8560ad46bc"
+      },
+      {
+        "sku_code": "SKU-AAB3M-DEFAULT-3",
+        "price": 225000,
+        "stock": 59,
+        "attributes": null,
+        "id": "88519011-0974-4f00-8827-e79817154d36"
+      },
+      {
+        "sku_code": "SKU-AAB3M-DEFAULT-4",
+        "price": 225000,
+        "stock": 59,
+        "attributes": null,
+        "id": "12b53fab-f596-4bf6-a944-f80569c6a143"
       }
     ],
     "brand": "HP",
@@ -2834,6 +4262,27 @@
         "price": 209700,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5CDVT-DEFAULT-2",
+        "price": 209700,
+        "stock": 17,
+        "attributes": null,
+        "id": "7f548749-0072-4051-a22d-9c749ad1fb28"
+      },
+      {
+        "sku_code": "SKU-5CDVT-DEFAULT-3",
+        "price": 209700,
+        "stock": 17,
+        "attributes": null,
+        "id": "9e32bcf2-9b27-47d3-913a-e6bd0a3c296e"
+      },
+      {
+        "sku_code": "SKU-5CDVT-DEFAULT-4",
+        "price": 209700,
+        "stock": 17,
+        "attributes": null,
+        "id": "d0e3137d-9b71-4a6d-9f11-c38964092c11"
       }
     ],
     "brand": "SS",
@@ -2879,6 +4328,27 @@
         "price": 251100,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9INYZ-DEFAULT-2",
+        "price": 251100,
+        "stock": 77,
+        "attributes": null,
+        "id": "2f3a25c8-277b-49ca-a3ab-90bf5457f8d5"
+      },
+      {
+        "sku_code": "SKU-9INYZ-DEFAULT-3",
+        "price": 251100,
+        "stock": 77,
+        "attributes": null,
+        "id": "5714aa08-5184-46bf-a4e9-408e42219f77"
+      },
+      {
+        "sku_code": "SKU-9INYZ-DEFAULT-4",
+        "price": 251100,
+        "stock": 77,
+        "attributes": null,
+        "id": "beabcb8d-92c3-4d95-9458-561c49e523a6"
       }
     ],
     "brand": "HP",
@@ -2924,6 +4394,27 @@
         "price": 252000,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7RHU4-DEFAULT-2",
+        "price": 252000,
+        "stock": 104,
+        "attributes": null,
+        "id": "488cc360-e5ae-4a14-8761-c6ebfa2fd1eb"
+      },
+      {
+        "sku_code": "SKU-7RHU4-DEFAULT-3",
+        "price": 252000,
+        "stock": 104,
+        "attributes": null,
+        "id": "2c5a9212-22c9-4504-810e-63760b704ea6"
+      },
+      {
+        "sku_code": "SKU-7RHU4-DEFAULT-4",
+        "price": 252000,
+        "stock": 104,
+        "attributes": null,
+        "id": "cd7e03b1-6f46-4d5e-b0bb-4c3dd9d810ee"
       }
     ],
     "brand": "HP",
@@ -2970,6 +4461,27 @@
         "price": 239700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2I53Q-DEFAULT-2",
+        "price": 239700,
+        "stock": 86,
+        "attributes": null,
+        "id": "d0433082-3524-479c-800c-a1ddb24dcb0b"
+      },
+      {
+        "sku_code": "SKU-2I53Q-DEFAULT-3",
+        "price": 239700,
+        "stock": 86,
+        "attributes": null,
+        "id": "18ff771f-d32c-4ded-b799-7bf7d72955f6"
+      },
+      {
+        "sku_code": "SKU-2I53Q-DEFAULT-4",
+        "price": 239700,
+        "stock": 86,
+        "attributes": null,
+        "id": "ed125fc8-db50-480f-869e-a3aba5bf35f7"
       }
     ],
     "brand": "HP",
@@ -3011,6 +4523,27 @@
         "price": 124800,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QZHK4-DEFAULT-2",
+        "price": 124800,
+        "stock": 17,
+        "attributes": null,
+        "id": "6f5f3fa5-4c7f-4f94-9543-cd40d3c0b29c"
+      },
+      {
+        "sku_code": "SKU-QZHK4-DEFAULT-3",
+        "price": 124800,
+        "stock": 17,
+        "attributes": null,
+        "id": "f8845379-3151-47f1-9820-15f7cb2ecb2d"
+      },
+      {
+        "sku_code": "SKU-QZHK4-DEFAULT-4",
+        "price": 124800,
+        "stock": 17,
+        "attributes": null,
+        "id": "b01323c9-2d58-434a-be35-507e6260cc8a"
       }
     ],
     "brand": "TRIUMPH",
@@ -3052,6 +4585,27 @@
         "price": 107700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DUZ5X-DEFAULT-2",
+        "price": 107700,
+        "stock": 41,
+        "attributes": null,
+        "id": "fe702ebd-0e18-4166-8165-8dfc2f8148f2"
+      },
+      {
+        "sku_code": "SKU-DUZ5X-DEFAULT-3",
+        "price": 107700,
+        "stock": 41,
+        "attributes": null,
+        "id": "535b27eb-a8bd-456a-855d-0d4cae89a74c"
+      },
+      {
+        "sku_code": "SKU-DUZ5X-DEFAULT-4",
+        "price": 107700,
+        "stock": 41,
+        "attributes": null,
+        "id": "b452caa4-a164-42b0-af46-c9be85b44de1"
       }
     ],
     "brand": "Puma",
@@ -3095,6 +4649,27 @@
         "price": 350100,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PUV9Z-DEFAULT-2",
+        "price": 350100,
+        "stock": 104,
+        "attributes": null,
+        "id": "8b6df964-281e-422f-8684-b5fd09344cb2"
+      },
+      {
+        "sku_code": "SKU-PUV9Z-DEFAULT-3",
+        "price": 350100,
+        "stock": 104,
+        "attributes": null,
+        "id": "51ed31ef-4a7a-4fe3-ab6c-adedc139755b"
+      },
+      {
+        "sku_code": "SKU-PUV9Z-DEFAULT-4",
+        "price": 350100,
+        "stock": 104,
+        "attributes": null,
+        "id": "26ef1413-d231-401a-8889-f9ff327d5f9a"
       }
     ],
     "brand": "HP",
@@ -3132,6 +4707,27 @@
         "price": 149700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UX1GV-DEFAULT-2",
+        "price": 149700,
+        "stock": 74,
+        "attributes": null,
+        "id": "d40a22f7-b04c-4024-ae9d-fa8acf8d570d"
+      },
+      {
+        "sku_code": "SKU-UX1GV-DEFAULT-3",
+        "price": 149700,
+        "stock": 74,
+        "attributes": null,
+        "id": "47264a6d-0c93-4a79-b209-9c07974f8baa"
+      },
+      {
+        "sku_code": "SKU-UX1GV-DEFAULT-4",
+        "price": 149700,
+        "stock": 74,
+        "attributes": null,
+        "id": "2a530c6a-98e2-4d09-adc9-933c244854b1"
       }
     ],
     "brand": "CW",
@@ -3177,6 +4773,27 @@
         "price": 59700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I5594-DEFAULT-2",
+        "price": 59700,
+        "stock": 28,
+        "attributes": null,
+        "id": "80c21bef-435e-4b83-82a5-ab3c79eb178a"
+      },
+      {
+        "sku_code": "SKU-I5594-DEFAULT-3",
+        "price": 59700,
+        "stock": 28,
+        "attributes": null,
+        "id": "21f982d3-1917-4971-802b-265de70d98d1"
+      },
+      {
+        "sku_code": "SKU-I5594-DEFAULT-4",
+        "price": 59700,
+        "stock": 28,
+        "attributes": null,
+        "id": "3ee97b5b-ddc2-4de5-af12-73cd0f1a74e5"
       }
     ],
     "brand": "Max",
@@ -3222,6 +4839,27 @@
         "price": 1694700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MZ1UQ-DEFAULT-2",
+        "price": 1694700,
+        "stock": 98,
+        "attributes": null,
+        "id": "a0b2685e-213f-4335-921d-258d52985f61"
+      },
+      {
+        "sku_code": "SKU-MZ1UQ-DEFAULT-3",
+        "price": 1694700,
+        "stock": 98,
+        "attributes": null,
+        "id": "6956b66c-d28e-4f27-81d1-a4e436c2a1ce"
+      },
+      {
+        "sku_code": "SKU-MZ1UQ-DEFAULT-4",
+        "price": 1694700,
+        "stock": 98,
+        "attributes": null,
+        "id": "d2c0c07d-8b21-4921-96d8-eee6898bb2ab"
       }
     ],
     "brand": "Puma",
@@ -3267,6 +4905,27 @@
         "price": 179700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W4ARX-DEFAULT-2",
+        "price": 179700,
+        "stock": 20,
+        "attributes": null,
+        "id": "5a343427-6b37-413b-bd8e-69eea473a182"
+      },
+      {
+        "sku_code": "SKU-W4ARX-DEFAULT-3",
+        "price": 179700,
+        "stock": 20,
+        "attributes": null,
+        "id": "95f02d07-b2f4-4325-8710-f25b309816d4"
+      },
+      {
+        "sku_code": "SKU-W4ARX-DEFAULT-4",
+        "price": 179700,
+        "stock": 20,
+        "attributes": null,
+        "id": "114d17fc-a023-4d2b-ad44-d217af5b2306"
       }
     ],
     "brand": "HP",
@@ -3312,6 +4971,27 @@
         "price": 119700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BD6IU-DEFAULT-2",
+        "price": 119700,
+        "stock": 78,
+        "attributes": null,
+        "id": "d1c4b2d4-2dad-4513-ae93-856b522efd15"
+      },
+      {
+        "sku_code": "SKU-BD6IU-DEFAULT-3",
+        "price": 119700,
+        "stock": 78,
+        "attributes": null,
+        "id": "f2b3f7ea-68e4-4e59-8eeb-4cbf70f74daa"
+      },
+      {
+        "sku_code": "SKU-BD6IU-DEFAULT-4",
+        "price": 119700,
+        "stock": 78,
+        "attributes": null,
+        "id": "9f756818-7cdc-4a4e-91a5-753cfebe516e"
       }
     ],
     "brand": "JRS",
@@ -3358,6 +5038,27 @@
         "price": 143700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TZH3E-DEFAULT-2",
+        "price": 143700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0068de70-f25e-4699-9045-4d16768bcdc1"
+      },
+      {
+        "sku_code": "SKU-TZH3E-DEFAULT-3",
+        "price": 143700,
+        "stock": 59,
+        "attributes": null,
+        "id": "a06edbae-6f39-4d10-803b-cd9c336bea12"
+      },
+      {
+        "sku_code": "SKU-TZH3E-DEFAULT-4",
+        "price": 143700,
+        "stock": 59,
+        "attributes": null,
+        "id": "0747bba9-a40d-4708-91b4-e112e3451624"
       }
     ],
     "brand": "HP",
@@ -3399,6 +5100,27 @@
         "price": 99000,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GH15T-DEFAULT-2",
+        "price": 99000,
+        "stock": 96,
+        "attributes": null,
+        "id": "993533ec-7726-44d9-83d9-8d05012658de"
+      },
+      {
+        "sku_code": "SKU-GH15T-DEFAULT-3",
+        "price": 99000,
+        "stock": 96,
+        "attributes": null,
+        "id": "40c2d115-ed77-4a08-bde0-823de7bfa325"
+      },
+      {
+        "sku_code": "SKU-GH15T-DEFAULT-4",
+        "price": 99000,
+        "stock": 96,
+        "attributes": null,
+        "id": "a7676626-1a19-4c4b-bcfd-3feade2715dd"
       }
     ],
     "brand": "DSC",
@@ -3444,6 +5166,27 @@
         "price": 815100,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-22VSD-DEFAULT-2",
+        "price": 815100,
+        "stock": 97,
+        "attributes": null,
+        "id": "9b007dee-098a-45fb-814c-461ba428a2a6"
+      },
+      {
+        "sku_code": "SKU-22VSD-DEFAULT-3",
+        "price": 815100,
+        "stock": 97,
+        "attributes": null,
+        "id": "4a7cf99f-90e5-47de-8129-0f6fb17329f3"
+      },
+      {
+        "sku_code": "SKU-22VSD-DEFAULT-4",
+        "price": 815100,
+        "stock": 97,
+        "attributes": null,
+        "id": "c00dd079-fff0-4fa6-a1a0-3923bba7a9c6"
       }
     ],
     "brand": "Puma",
@@ -3481,6 +5224,27 @@
         "price": 128700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1IOHB-DEFAULT-2",
+        "price": 128700,
+        "stock": 92,
+        "attributes": null,
+        "id": "8c037236-e539-419d-baba-da14a8cfa905"
+      },
+      {
+        "sku_code": "SKU-1IOHB-DEFAULT-3",
+        "price": 128700,
+        "stock": 92,
+        "attributes": null,
+        "id": "a9c1c6bc-0635-4df6-90bc-ac18f688c9cc"
+      },
+      {
+        "sku_code": "SKU-1IOHB-DEFAULT-4",
+        "price": 128700,
+        "stock": 92,
+        "attributes": null,
+        "id": "99c8084e-5a81-4711-9fd0-226e69b0d1fc"
       }
     ],
     "brand": "SG",
@@ -3518,6 +5282,27 @@
         "price": 679800,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-58JU7-DEFAULT-2",
+        "price": 679800,
+        "stock": 18,
+        "attributes": null,
+        "id": "76d92a21-604c-4886-98ae-a233b562aa94"
+      },
+      {
+        "sku_code": "SKU-58JU7-DEFAULT-3",
+        "price": 679800,
+        "stock": 18,
+        "attributes": null,
+        "id": "21db96c8-d023-4090-8a73-6f1b2c752431"
+      },
+      {
+        "sku_code": "SKU-58JU7-DEFAULT-4",
+        "price": 679800,
+        "stock": 18,
+        "attributes": null,
+        "id": "901ba593-9e53-4b82-a472-de91d711888e"
       }
     ],
     "brand": "Max",
@@ -3555,6 +5340,27 @@
         "price": 149700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IEEJ7-DEFAULT-2",
+        "price": 149700,
+        "stock": 19,
+        "attributes": null,
+        "id": "f909c7fd-0bff-489f-a501-9d5589d794cb"
+      },
+      {
+        "sku_code": "SKU-IEEJ7-DEFAULT-3",
+        "price": 149700,
+        "stock": 19,
+        "attributes": null,
+        "id": "0dc26457-93bf-4a7e-93e3-099ef6cd5c17"
+      },
+      {
+        "sku_code": "SKU-IEEJ7-DEFAULT-4",
+        "price": 149700,
+        "stock": 19,
+        "attributes": null,
+        "id": "147db208-60e4-4238-8c8b-0b0a3c9d27c3"
       }
     ],
     "brand": "Amazon",
@@ -3600,6 +5406,27 @@
         "price": 109500,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OX8C5-DEFAULT-2",
+        "price": 109500,
+        "stock": 68,
+        "attributes": null,
+        "id": "1b5baaea-af4e-4322-a475-0338daa41fb2"
+      },
+      {
+        "sku_code": "SKU-OX8C5-DEFAULT-3",
+        "price": 109500,
+        "stock": 68,
+        "attributes": null,
+        "id": "e6190a9a-9942-44f8-822f-f0685ed91ad1"
+      },
+      {
+        "sku_code": "SKU-OX8C5-DEFAULT-4",
+        "price": 109500,
+        "stock": 68,
+        "attributes": null,
+        "id": "5f6b355c-6167-4050-a516-242e3efe14e3"
       }
     ],
     "brand": "DSC",
@@ -3637,6 +5464,27 @@
         "price": 249900,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R8V75-DEFAULT-2",
+        "price": 249900,
+        "stock": 42,
+        "attributes": null,
+        "id": "bca0e0b6-3837-4867-b315-04d6630f06a7"
+      },
+      {
+        "sku_code": "SKU-R8V75-DEFAULT-3",
+        "price": 249900,
+        "stock": 42,
+        "attributes": null,
+        "id": "25f8b4e7-3fb7-496b-9c07-be5cf588a35f"
+      },
+      {
+        "sku_code": "SKU-R8V75-DEFAULT-4",
+        "price": 249900,
+        "stock": 42,
+        "attributes": null,
+        "id": "b72c24d6-326e-4986-b42e-7523376acb5b"
       }
     ],
     "brand": "HP",
@@ -3678,6 +5526,27 @@
         "price": 521700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TPIBK-DEFAULT-2",
+        "price": 521700,
+        "stock": 92,
+        "attributes": null,
+        "id": "7785150d-6efb-4eb0-888a-23f95a075db3"
+      },
+      {
+        "sku_code": "SKU-TPIBK-DEFAULT-3",
+        "price": 521700,
+        "stock": 92,
+        "attributes": null,
+        "id": "6b3e2138-37ca-4080-add3-36603021f287"
+      },
+      {
+        "sku_code": "SKU-TPIBK-DEFAULT-4",
+        "price": 521700,
+        "stock": 92,
+        "attributes": null,
+        "id": "819c28a6-f968-4786-b298-0611223b72f9"
       }
     ],
     "brand": "Nike",
@@ -3715,6 +5584,27 @@
         "price": 72504,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P6S3T-DEFAULT-2",
+        "price": 72504,
+        "stock": 70,
+        "attributes": null,
+        "id": "11838dde-ec33-409d-a457-b6525c3cbb71"
+      },
+      {
+        "sku_code": "SKU-P6S3T-DEFAULT-3",
+        "price": 72504,
+        "stock": 70,
+        "attributes": null,
+        "id": "5cdbec66-322d-40b0-9e2a-692d62e52bdc"
+      },
+      {
+        "sku_code": "SKU-P6S3T-DEFAULT-4",
+        "price": 72504,
+        "stock": 70,
+        "attributes": null,
+        "id": "0c26fb9f-bb1e-43c9-a9a1-d6238314bda6"
       }
     ],
     "brand": "HP",
@@ -3756,6 +5646,27 @@
         "price": 397200,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HN0KO-DEFAULT-2",
+        "price": 397200,
+        "stock": 44,
+        "attributes": null,
+        "id": "722acaec-6df2-4ecf-8bbf-6c246c534b17"
+      },
+      {
+        "sku_code": "SKU-HN0KO-DEFAULT-3",
+        "price": 397200,
+        "stock": 44,
+        "attributes": null,
+        "id": "670639c4-d952-4722-aecd-7e1b9d048cb1"
+      },
+      {
+        "sku_code": "SKU-HN0KO-DEFAULT-4",
+        "price": 397200,
+        "stock": 44,
+        "attributes": null,
+        "id": "47c53182-63e8-4f8a-a4b9-6b04234d701a"
       }
     ],
     "brand": "Allen",
@@ -3797,6 +5708,27 @@
         "price": 238500,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-22NHC-DEFAULT-2",
+        "price": 238500,
+        "stock": 57,
+        "attributes": null,
+        "id": "8fb9a0c0-2662-494f-bdf1-e5afb54dcee0"
+      },
+      {
+        "sku_code": "SKU-22NHC-DEFAULT-3",
+        "price": 238500,
+        "stock": 57,
+        "attributes": null,
+        "id": "5b22e313-1435-4a42-a029-0f56172380be"
+      },
+      {
+        "sku_code": "SKU-22NHC-DEFAULT-4",
+        "price": 238500,
+        "stock": 57,
+        "attributes": null,
+        "id": "135e88a1-80d4-4adc-a291-145860623748"
       }
     ],
     "brand": "SS",
@@ -3842,6 +5774,27 @@
         "price": 540000,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FM9LH-DEFAULT-2",
+        "price": 540000,
+        "stock": 73,
+        "attributes": null,
+        "id": "6dcaa127-ec9b-4b3d-a806-e91f5429c386"
+      },
+      {
+        "sku_code": "SKU-FM9LH-DEFAULT-3",
+        "price": 540000,
+        "stock": 73,
+        "attributes": null,
+        "id": "d4fee02a-5ec1-48ce-923c-c509264e9c37"
+      },
+      {
+        "sku_code": "SKU-FM9LH-DEFAULT-4",
+        "price": 540000,
+        "stock": 73,
+        "attributes": null,
+        "id": "eb0c2483-95f7-4e2d-8d57-a8b952d6976e"
       }
     ],
     "brand": "DSC",
@@ -3879,6 +5832,27 @@
         "price": 269700,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6IZQ2-DEFAULT-2",
+        "price": 269700,
+        "stock": 45,
+        "attributes": null,
+        "id": "0aacc58e-3a47-472f-b31f-8579f34432d7"
+      },
+      {
+        "sku_code": "SKU-6IZQ2-DEFAULT-3",
+        "price": 269700,
+        "stock": 45,
+        "attributes": null,
+        "id": "6fed2f19-0a73-4821-98f5-0021b279dab5"
+      },
+      {
+        "sku_code": "SKU-6IZQ2-DEFAULT-4",
+        "price": 269700,
+        "stock": 45,
+        "attributes": null,
+        "id": "66d009d8-d9e8-4871-80f5-c8ec6f58de30"
       }
     ],
     "brand": "U.S.",
@@ -3920,6 +5894,27 @@
         "price": 269700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YC64G-DEFAULT-2",
+        "price": 269700,
+        "stock": 25,
+        "attributes": null,
+        "id": "9f24960f-298e-403a-aab3-516b52a31356"
+      },
+      {
+        "sku_code": "SKU-YC64G-DEFAULT-3",
+        "price": 269700,
+        "stock": 25,
+        "attributes": null,
+        "id": "1fe8a5c8-83fd-4a5a-83d7-753cd280af2a"
+      },
+      {
+        "sku_code": "SKU-YC64G-DEFAULT-4",
+        "price": 269700,
+        "stock": 25,
+        "attributes": null,
+        "id": "fcf563d4-32bd-402a-ac04-3e2bb1ce8e47"
       }
     ],
     "brand": "Puma",
@@ -3961,6 +5956,27 @@
         "price": 498000,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1BJ0N-DEFAULT-2",
+        "price": 498000,
+        "stock": 48,
+        "attributes": null,
+        "id": "11d579a0-1322-40ab-b9a4-139b18162693"
+      },
+      {
+        "sku_code": "SKU-1BJ0N-DEFAULT-3",
+        "price": 498000,
+        "stock": 48,
+        "attributes": null,
+        "id": "57724bf8-f17b-402d-97d1-d1494b72bc61"
+      },
+      {
+        "sku_code": "SKU-1BJ0N-DEFAULT-4",
+        "price": 498000,
+        "stock": 48,
+        "attributes": null,
+        "id": "fab386e0-cd44-4638-a147-386564c2e813"
       }
     ],
     "brand": "TRIUMPH",
@@ -4002,6 +6018,27 @@
         "price": 195000,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NI8SQ-DEFAULT-2",
+        "price": 195000,
+        "stock": 91,
+        "attributes": null,
+        "id": "d931d475-bc22-40e3-8553-2b4ad6765928"
+      },
+      {
+        "sku_code": "SKU-NI8SQ-DEFAULT-3",
+        "price": 195000,
+        "stock": 91,
+        "attributes": null,
+        "id": "8f21a223-b0ca-4fe7-8749-c1cb76aef82c"
+      },
+      {
+        "sku_code": "SKU-NI8SQ-DEFAULT-4",
+        "price": 195000,
+        "stock": 91,
+        "attributes": null,
+        "id": "8afde5f0-8c7c-4456-b7b0-36b993db66dc"
       }
     ],
     "brand": "CW",
@@ -4047,6 +6084,27 @@
         "price": 192000,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-60T6Y-DEFAULT-2",
+        "price": 192000,
+        "stock": 26,
+        "attributes": null,
+        "id": "48021357-dad9-4e11-b599-6671392ed90a"
+      },
+      {
+        "sku_code": "SKU-60T6Y-DEFAULT-3",
+        "price": 192000,
+        "stock": 26,
+        "attributes": null,
+        "id": "8cce3a31-cb31-48be-9e6b-48455ed89500"
+      },
+      {
+        "sku_code": "SKU-60T6Y-DEFAULT-4",
+        "price": 192000,
+        "stock": 26,
+        "attributes": null,
+        "id": "f1c1b856-1b73-4cf3-984b-fd6561aa675f"
       }
     ],
     "brand": "JRS",
@@ -4084,6 +6142,27 @@
         "price": 89700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OFM3H-DEFAULT-2",
+        "price": 89700,
+        "stock": 57,
+        "attributes": null,
+        "id": "f39da3fd-b22a-4610-88bb-77b4623b56a7"
+      },
+      {
+        "sku_code": "SKU-OFM3H-DEFAULT-3",
+        "price": 89700,
+        "stock": 57,
+        "attributes": null,
+        "id": "57b2db2b-6e07-4a0e-bc1f-b47ff88c4176"
+      },
+      {
+        "sku_code": "SKU-OFM3H-DEFAULT-4",
+        "price": 89700,
+        "stock": 57,
+        "attributes": null,
+        "id": "ad1cceda-01a6-4e02-b726-693a404ad2e4"
       }
     ],
     "brand": "SG",
@@ -4125,6 +6204,27 @@
         "price": 194700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GZRQZ-DEFAULT-2",
+        "price": 194700,
+        "stock": 51,
+        "attributes": null,
+        "id": "79da9f81-83c7-40ce-a5fd-11ae45894d5d"
+      },
+      {
+        "sku_code": "SKU-GZRQZ-DEFAULT-3",
+        "price": 194700,
+        "stock": 51,
+        "attributes": null,
+        "id": "ad88f901-33a5-43be-a705-c61be9013f80"
+      },
+      {
+        "sku_code": "SKU-GZRQZ-DEFAULT-4",
+        "price": 194700,
+        "stock": 51,
+        "attributes": null,
+        "id": "3dc0d26c-c234-44d2-bd3b-dbed1f9cc01b"
       }
     ],
     "brand": "HP",

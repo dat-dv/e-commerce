@@ -22,6 +22,27 @@
         "price": 1333200,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UL4DH-DEFAULT-2",
+        "price": 1333200,
+        "stock": 20,
+        "attributes": null,
+        "id": "d855c976-e7f1-4b95-9078-e8a22bcd0c69"
+      },
+      {
+        "sku_code": "SKU-UL4DH-DEFAULT-3",
+        "price": 1333200,
+        "stock": 20,
+        "attributes": null,
+        "id": "cc330979-b8cc-43d2-abc7-9a7f3581c0a3"
+      },
+      {
+        "sku_code": "SKU-UL4DH-DEFAULT-4",
+        "price": 1333200,
+        "stock": 20,
+        "attributes": null,
+        "id": "c92444af-5fba-409c-9e3f-022657b428ad"
       }
     ],
     "brand": "Tech-lobby",
@@ -59,6 +80,27 @@
         "price": 0,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DT6N2-DEFAULT-2",
+        "price": 0,
+        "stock": 43,
+        "attributes": null,
+        "id": "af069ea2-ed43-41f7-aff7-a4f7185fcc3b"
+      },
+      {
+        "sku_code": "SKU-DT6N2-DEFAULT-3",
+        "price": 0,
+        "stock": 43,
+        "attributes": null,
+        "id": "8bfd701e-43d5-4c33-b897-45bb9711fcc1"
+      },
+      {
+        "sku_code": "SKU-DT6N2-DEFAULT-4",
+        "price": 0,
+        "stock": 43,
+        "attributes": null,
+        "id": "c3740d74-b2d2-4aa1-a9bf-9d67cc097b55"
       }
     ],
     "brand": "Panasonic",
@@ -100,6 +142,27 @@
         "price": 807000,
         "stock": 90,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GNJGE-DEFAULT-2",
+        "price": 807000,
+        "stock": 90,
+        "attributes": null,
+        "id": "16152ee2-4067-476a-99c6-b79aa5084aed"
+      },
+      {
+        "sku_code": "SKU-GNJGE-DEFAULT-3",
+        "price": 807000,
+        "stock": 90,
+        "attributes": null,
+        "id": "1a377179-01c6-4174-93e1-cecfb1f86541"
+      },
+      {
+        "sku_code": "SKU-GNJGE-DEFAULT-4",
+        "price": 807000,
+        "stock": 90,
+        "attributes": null,
+        "id": "7e667eea-a03c-47f3-b2ae-e5fd214adcdd"
       }
     ],
     "brand": "BRIVIN",
@@ -145,6 +208,27 @@
         "price": 81600,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MX9XY-DEFAULT-2",
+        "price": 81600,
+        "stock": 13,
+        "attributes": null,
+        "id": "9c6fb1d6-39a7-4d15-8344-e7a189a10e53"
+      },
+      {
+        "sku_code": "SKU-MX9XY-DEFAULT-3",
+        "price": 81600,
+        "stock": 13,
+        "attributes": null,
+        "id": "786733a0-9817-47ac-8f03-e417d3b8bf01"
+      },
+      {
+        "sku_code": "SKU-MX9XY-DEFAULT-4",
+        "price": 81600,
+        "stock": 13,
+        "attributes": null,
+        "id": "739ba792-0959-4b3d-b7b9-67f4fffaf2b9"
       }
     ],
     "brand": "Drunkers",
@@ -190,6 +274,27 @@
         "price": 989700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LM0J3-DEFAULT-2",
+        "price": 989700,
+        "stock": 73,
+        "attributes": null,
+        "id": "bae22da2-644b-4a84-8dfd-2731d191ec87"
+      },
+      {
+        "sku_code": "SKU-LM0J3-DEFAULT-3",
+        "price": 989700,
+        "stock": 73,
+        "attributes": null,
+        "id": "2471325d-6003-4a60-bfa4-b267955f41c6"
+      },
+      {
+        "sku_code": "SKU-LM0J3-DEFAULT-4",
+        "price": 989700,
+        "stock": 73,
+        "attributes": null,
+        "id": "45cce949-ab25-4a59-9cea-1994c123369f"
       }
     ],
     "brand": "BRIVIN",
@@ -227,6 +332,27 @@
         "price": 629700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TA457-DEFAULT-2",
+        "price": 629700,
+        "stock": 66,
+        "attributes": null,
+        "id": "3e096aa6-064b-4d1b-9bf9-59d05c5746e5"
+      },
+      {
+        "sku_code": "SKU-TA457-DEFAULT-3",
+        "price": 629700,
+        "stock": 66,
+        "attributes": null,
+        "id": "2c8165ff-c48a-4500-9102-c51463e255ec"
+      },
+      {
+        "sku_code": "SKU-TA457-DEFAULT-4",
+        "price": 629700,
+        "stock": 66,
+        "attributes": null,
+        "id": "2f1052e6-87e7-4c6e-aebb-bf472aa70dd1"
       }
     ],
     "brand": "BRIVIN",
@@ -272,6 +398,27 @@
         "price": 689700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YPIUT-DEFAULT-2",
+        "price": 689700,
+        "stock": 84,
+        "attributes": null,
+        "id": "88260f5f-8dc9-45cf-a02f-90eec90805a8"
+      },
+      {
+        "sku_code": "SKU-YPIUT-DEFAULT-3",
+        "price": 689700,
+        "stock": 84,
+        "attributes": null,
+        "id": "52a4217a-055b-46de-9e70-597c4fb3d0ed"
+      },
+      {
+        "sku_code": "SKU-YPIUT-DEFAULT-4",
+        "price": 689700,
+        "stock": 84,
+        "attributes": null,
+        "id": "73ca4a21-4316-4963-ad58-f9f268e4e456"
       }
     ],
     "brand": "Optimuss",
@@ -313,6 +460,27 @@
         "price": 899700,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XMAR2-DEFAULT-2",
+        "price": 899700,
+        "stock": 75,
+        "attributes": null,
+        "id": "65cbb909-20bd-42fd-b50b-8fe70662d2d8"
+      },
+      {
+        "sku_code": "SKU-XMAR2-DEFAULT-3",
+        "price": 899700,
+        "stock": 75,
+        "attributes": null,
+        "id": "f5e354b5-4a68-4c1a-af88-96ec7ebd05e2"
+      },
+      {
+        "sku_code": "SKU-XMAR2-DEFAULT-4",
+        "price": 899700,
+        "stock": 75,
+        "attributes": null,
+        "id": "b6513b09-a440-4e62-bd33-05049f76a797"
       }
     ],
     "brand": "Drunkers",
@@ -350,6 +518,27 @@
         "price": 1169700,
         "stock": 48,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QVY5G-DEFAULT-2",
+        "price": 1169700,
+        "stock": 48,
+        "attributes": null,
+        "id": "0f8c2857-a035-4d10-8b60-dcf8e6571f91"
+      },
+      {
+        "sku_code": "SKU-QVY5G-DEFAULT-3",
+        "price": 1169700,
+        "stock": 48,
+        "attributes": null,
+        "id": "2f070ba2-deeb-436a-a57f-7b41d8c09ca9"
+      },
+      {
+        "sku_code": "SKU-QVY5G-DEFAULT-4",
+        "price": 1169700,
+        "stock": 48,
+        "attributes": null,
+        "id": "ebdaa1fe-33fe-4f78-b305-c10b1208417a"
       }
     ],
     "brand": "Trendy",
@@ -391,6 +580,27 @@
         "price": 1019700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SIKYS-DEFAULT-2",
+        "price": 1019700,
+        "stock": 104,
+        "attributes": null,
+        "id": "b4d7fbbe-5f26-4292-919a-b7524893bb86"
+      },
+      {
+        "sku_code": "SKU-SIKYS-DEFAULT-3",
+        "price": 1019700,
+        "stock": 104,
+        "attributes": null,
+        "id": "0df7c804-474c-4e23-9e02-6a99e245875d"
+      },
+      {
+        "sku_code": "SKU-SIKYS-DEFAULT-4",
+        "price": 1019700,
+        "stock": 104,
+        "attributes": null,
+        "id": "1d89d462-2ff1-47c0-aa4b-5d3fb1b35c1f"
       }
     ],
     "brand": "Tronica",
@@ -432,6 +642,27 @@
         "price": 629700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SXMND-DEFAULT-2",
+        "price": 629700,
+        "stock": 23,
+        "attributes": null,
+        "id": "a6122625-0995-48e8-ad78-82cac3f21f48"
+      },
+      {
+        "sku_code": "SKU-SXMND-DEFAULT-3",
+        "price": 629700,
+        "stock": 23,
+        "attributes": null,
+        "id": "4a5c19a7-e510-4d0b-96ee-11db25f9d7e9"
+      },
+      {
+        "sku_code": "SKU-SXMND-DEFAULT-4",
+        "price": 629700,
+        "stock": 23,
+        "attributes": null,
+        "id": "b075b613-d7b1-44a0-9171-4331ad469b45"
       }
     ],
     "brand": "TRONICA",
@@ -477,6 +708,27 @@
         "price": 779700,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B6AQR-DEFAULT-2",
+        "price": 779700,
+        "stock": 21,
+        "attributes": null,
+        "id": "0bc34ad0-c9ca-495c-a6cb-8e93391cb180"
+      },
+      {
+        "sku_code": "SKU-B6AQR-DEFAULT-3",
+        "price": 779700,
+        "stock": 21,
+        "attributes": null,
+        "id": "80e7132c-b3fd-43c9-823f-d12804a7f321"
+      },
+      {
+        "sku_code": "SKU-B6AQR-DEFAULT-4",
+        "price": 779700,
+        "stock": 21,
+        "attributes": null,
+        "id": "bbaba46e-86bb-4e3d-baf5-0c24246f856d"
       }
     ],
     "brand": "Cyruss",
@@ -522,6 +774,27 @@
         "price": 629700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C4I4U-DEFAULT-2",
+        "price": 629700,
+        "stock": 91,
+        "attributes": null,
+        "id": "c22a126b-02ff-4211-b446-c0aeec42f29d"
+      },
+      {
+        "sku_code": "SKU-C4I4U-DEFAULT-3",
+        "price": 629700,
+        "stock": 91,
+        "attributes": null,
+        "id": "68349393-f9ea-4535-8b56-5b904b142117"
+      },
+      {
+        "sku_code": "SKU-C4I4U-DEFAULT-4",
+        "price": 629700,
+        "stock": 91,
+        "attributes": null,
+        "id": "ad0624bb-5fbb-40b9-bcbb-d94248b4aaa9"
       }
     ],
     "brand": "Trendy",
@@ -563,6 +836,27 @@
         "price": 716400,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8GUMC-DEFAULT-2",
+        "price": 716400,
+        "stock": 53,
+        "attributes": null,
+        "id": "26a2f966-cb22-4013-a739-4fbbb23b0e9a"
+      },
+      {
+        "sku_code": "SKU-8GUMC-DEFAULT-3",
+        "price": 716400,
+        "stock": 53,
+        "attributes": null,
+        "id": "9791ac30-d435-4f7b-a49d-68b0d42020ec"
+      },
+      {
+        "sku_code": "SKU-8GUMC-DEFAULT-4",
+        "price": 716400,
+        "stock": 53,
+        "attributes": null,
+        "id": "c4d4638e-f9f8-4920-bd53-cda4a2425c9f"
       }
     ],
     "brand": "Tronica",
@@ -604,6 +898,27 @@
         "price": 860700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WKCP7-DEFAULT-2",
+        "price": 860700,
+        "stock": 92,
+        "attributes": null,
+        "id": "840a905d-bb54-4730-b5c6-bdecdd3ebc0d"
+      },
+      {
+        "sku_code": "SKU-WKCP7-DEFAULT-3",
+        "price": 860700,
+        "stock": 92,
+        "attributes": null,
+        "id": "fdf573de-0216-48cc-864e-10b2afc5d609"
+      },
+      {
+        "sku_code": "SKU-WKCP7-DEFAULT-4",
+        "price": 860700,
+        "stock": 92,
+        "attributes": null,
+        "id": "9118dae5-289c-4c9b-8346-643a180b195d"
       }
     ],
     "brand": "Rambutan",
@@ -649,6 +964,27 @@
         "price": 929700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6VTY9-DEFAULT-2",
+        "price": 929700,
+        "stock": 28,
+        "attributes": null,
+        "id": "db2e14fd-5e1c-4002-ba96-f3cec507f5a7"
+      },
+      {
+        "sku_code": "SKU-6VTY9-DEFAULT-3",
+        "price": 929700,
+        "stock": 28,
+        "attributes": null,
+        "id": "7475524f-4930-4cf8-9d43-54ea22206185"
+      },
+      {
+        "sku_code": "SKU-6VTY9-DEFAULT-4",
+        "price": 929700,
+        "stock": 28,
+        "attributes": null,
+        "id": "ee02a7c5-c0d1-410b-b8d1-f24d9fbf01f8"
       }
     ],
     "brand": "BRIVIN",
@@ -694,6 +1030,27 @@
         "price": 599700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6R5ZA-DEFAULT-2",
+        "price": 599700,
+        "stock": 39,
+        "attributes": null,
+        "id": "a9f93858-0a5b-4bbc-8685-87b1f66f61dc"
+      },
+      {
+        "sku_code": "SKU-6R5ZA-DEFAULT-3",
+        "price": 599700,
+        "stock": 39,
+        "attributes": null,
+        "id": "e2580107-6c19-4fb1-9d61-53cc0cd9eb54"
+      },
+      {
+        "sku_code": "SKU-6R5ZA-DEFAULT-4",
+        "price": 599700,
+        "stock": 39,
+        "attributes": null,
+        "id": "5de0bb10-9019-4a02-870a-4e7ca7080957"
       }
     ],
     "brand": "Drunkers",
@@ -731,6 +1088,27 @@
         "price": 749700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9MMVQ-DEFAULT-2",
+        "price": 749700,
+        "stock": 32,
+        "attributes": null,
+        "id": "cd686aaa-ba0d-4bfd-a99e-6dce92a35772"
+      },
+      {
+        "sku_code": "SKU-9MMVQ-DEFAULT-3",
+        "price": 749700,
+        "stock": 32,
+        "attributes": null,
+        "id": "6d07cf53-463e-40f4-bf02-acee5b8efffd"
+      },
+      {
+        "sku_code": "SKU-9MMVQ-DEFAULT-4",
+        "price": 749700,
+        "stock": 32,
+        "attributes": null,
+        "id": "a9e94459-8d6f-422a-a046-4936f2c90a03"
       }
     ],
     "brand": "TRONICA",
@@ -776,6 +1154,27 @@
         "price": 6180000,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XWWRC-DEFAULT-2",
+        "price": 6180000,
+        "stock": 88,
+        "attributes": null,
+        "id": "afffeb5c-f3cc-443e-8c2c-b51016401dbc"
+      },
+      {
+        "sku_code": "SKU-XWWRC-DEFAULT-3",
+        "price": 6180000,
+        "stock": 88,
+        "attributes": null,
+        "id": "2e86ff0b-d0ed-4dce-be2f-9d683780a33b"
+      },
+      {
+        "sku_code": "SKU-XWWRC-DEFAULT-4",
+        "price": 6180000,
+        "stock": 88,
+        "attributes": null,
+        "id": "e5017c76-be1d-41af-ab95-22b6a1c1875a"
       }
     ],
     "brand": "Trendy",
@@ -817,6 +1216,27 @@
         "price": 1199700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P64VM-DEFAULT-2",
+        "price": 1199700,
+        "stock": 63,
+        "attributes": null,
+        "id": "00c913e8-7f51-4300-ab96-26bd77e57205"
+      },
+      {
+        "sku_code": "SKU-P64VM-DEFAULT-3",
+        "price": 1199700,
+        "stock": 63,
+        "attributes": null,
+        "id": "06e9e99b-d523-4c98-ae2b-4f16311bd08b"
+      },
+      {
+        "sku_code": "SKU-P64VM-DEFAULT-4",
+        "price": 1199700,
+        "stock": 63,
+        "attributes": null,
+        "id": "9fceeecd-0bfe-4a39-a053-e4ce27474ecc"
       }
     ],
     "brand": "Tech-lobby",
@@ -858,6 +1278,27 @@
         "price": 644700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZXEI4-DEFAULT-2",
+        "price": 644700,
+        "stock": 109,
+        "attributes": null,
+        "id": "7528074e-9ef0-4320-a905-39c5a0240cf6"
+      },
+      {
+        "sku_code": "SKU-ZXEI4-DEFAULT-3",
+        "price": 644700,
+        "stock": 109,
+        "attributes": null,
+        "id": "f197a427-a1cc-4510-9d5b-fd68b4ff5d27"
+      },
+      {
+        "sku_code": "SKU-ZXEI4-DEFAULT-4",
+        "price": 644700,
+        "stock": 109,
+        "attributes": null,
+        "id": "ff827440-fc0e-4377-9ce3-04ce981e73b7"
       }
     ],
     "brand": "Rambutan",
@@ -903,6 +1344,27 @@
         "price": 659700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2HTHA-DEFAULT-2",
+        "price": 659700,
+        "stock": 87,
+        "attributes": null,
+        "id": "71cb6115-b5e6-4ca3-b8c0-29b9c9234931"
+      },
+      {
+        "sku_code": "SKU-2HTHA-DEFAULT-3",
+        "price": 659700,
+        "stock": 87,
+        "attributes": null,
+        "id": "fc25ccd3-6624-48da-bedd-940954354c38"
+      },
+      {
+        "sku_code": "SKU-2HTHA-DEFAULT-4",
+        "price": 659700,
+        "stock": 87,
+        "attributes": null,
+        "id": "78b4ac6a-d7e3-4a22-bac9-ccfe7ff46c80"
       }
     ],
     "brand": "Trendy",
@@ -940,6 +1402,27 @@
         "price": 749700,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V9XEL-DEFAULT-2",
+        "price": 749700,
+        "stock": 104,
+        "attributes": null,
+        "id": "7924edda-6234-4401-a63d-8bec4e1c6571"
+      },
+      {
+        "sku_code": "SKU-V9XEL-DEFAULT-3",
+        "price": 749700,
+        "stock": 104,
+        "attributes": null,
+        "id": "16cf9fc2-6176-40d2-ba1e-ad1ddf9509e2"
+      },
+      {
+        "sku_code": "SKU-V9XEL-DEFAULT-4",
+        "price": 749700,
+        "stock": 104,
+        "attributes": null,
+        "id": "fb19f5c1-dac7-4cf8-962a-92354dede829"
       }
     ],
     "brand": "TRONICA",
@@ -985,6 +1468,27 @@
         "price": 1514400,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MYWC7-DEFAULT-2",
+        "price": 1514400,
+        "stock": 22,
+        "attributes": null,
+        "id": "fe39a204-94e8-4d64-b03d-d89585ffc1b5"
+      },
+      {
+        "sku_code": "SKU-MYWC7-DEFAULT-3",
+        "price": 1514400,
+        "stock": 22,
+        "attributes": null,
+        "id": "67e44b36-70f1-4f4c-a3f8-0c8b35e98dd8"
+      },
+      {
+        "sku_code": "SKU-MYWC7-DEFAULT-4",
+        "price": 1514400,
+        "stock": 22,
+        "attributes": null,
+        "id": "049e416c-60ea-4b42-a313-661191701589"
       }
     ],
     "brand": "Bose",
@@ -1022,6 +1526,27 @@
         "price": 689700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MNVA4-DEFAULT-2",
+        "price": 689700,
+        "stock": 63,
+        "attributes": null,
+        "id": "b0101cd4-4604-4b32-bbd9-2909441ce7ea"
+      },
+      {
+        "sku_code": "SKU-MNVA4-DEFAULT-3",
+        "price": 689700,
+        "stock": 63,
+        "attributes": null,
+        "id": "9fcc7d7d-f020-4fe6-b817-cbe6786b8ac3"
+      },
+      {
+        "sku_code": "SKU-MNVA4-DEFAULT-4",
+        "price": 689700,
+        "stock": 63,
+        "attributes": null,
+        "id": "f4ab1943-0295-4e79-937b-a6357eb6be02"
       }
     ],
     "brand": "TRONICA",
@@ -1063,6 +1588,27 @@
         "price": 659700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LPISB-DEFAULT-2",
+        "price": 659700,
+        "stock": 49,
+        "attributes": null,
+        "id": "8640d199-e1b0-44df-8851-193a0e2a0fa6"
+      },
+      {
+        "sku_code": "SKU-LPISB-DEFAULT-3",
+        "price": 659700,
+        "stock": 49,
+        "attributes": null,
+        "id": "13cfcd6d-0790-47ba-8f1a-b0d480d9a25a"
+      },
+      {
+        "sku_code": "SKU-LPISB-DEFAULT-4",
+        "price": 659700,
+        "stock": 49,
+        "attributes": null,
+        "id": "fd3b7f2d-efd6-4d1c-bf36-25fd503c089d"
       }
     ],
     "brand": "TRONICA",
@@ -1108,6 +1654,27 @@
         "price": 28500000,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PQMG4-DEFAULT-2",
+        "price": 28500000,
+        "stock": 103,
+        "attributes": null,
+        "id": "1278c08e-b87b-48ee-b32e-f71b6bbc8c41"
+      },
+      {
+        "sku_code": "SKU-PQMG4-DEFAULT-3",
+        "price": 28500000,
+        "stock": 103,
+        "attributes": null,
+        "id": "948d7580-7908-4b7b-9f16-ab73a0b6f70c"
+      },
+      {
+        "sku_code": "SKU-PQMG4-DEFAULT-4",
+        "price": 28500000,
+        "stock": 103,
+        "attributes": null,
+        "id": "77efe2bc-d993-4134-9d20-ca95fd42dea0"
       }
     ],
     "brand": "Shayaan",
@@ -1149,6 +1716,27 @@
         "price": 749700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5O0F3-DEFAULT-2",
+        "price": 749700,
+        "stock": 61,
+        "attributes": null,
+        "id": "8e15a9bf-cea3-4c07-93ab-5fb3280a5727"
+      },
+      {
+        "sku_code": "SKU-5O0F3-DEFAULT-3",
+        "price": 749700,
+        "stock": 61,
+        "attributes": null,
+        "id": "dbcef118-14aa-4dd2-8e55-b2b33bd8b9dd"
+      },
+      {
+        "sku_code": "SKU-5O0F3-DEFAULT-4",
+        "price": 749700,
+        "stock": 61,
+        "attributes": null,
+        "id": "19fd7284-0f7b-40f2-a10c-baa8539b5485"
       }
     ],
     "brand": "BRIVIN",
@@ -1186,6 +1774,27 @@
         "price": 2922600,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2FYOI-DEFAULT-2",
+        "price": 2922600,
+        "stock": 60,
+        "attributes": null,
+        "id": "16c404a0-fd0b-4b4e-b6aa-569db4e46d1c"
+      },
+      {
+        "sku_code": "SKU-2FYOI-DEFAULT-3",
+        "price": 2922600,
+        "stock": 60,
+        "attributes": null,
+        "id": "2e8dd9d1-abf4-441f-a606-b9590e447416"
+      },
+      {
+        "sku_code": "SKU-2FYOI-DEFAULT-4",
+        "price": 2922600,
+        "stock": 60,
+        "attributes": null,
+        "id": "665d0096-ee63-4387-9d74-8bc2c436f8e0"
       }
     ],
     "brand": "Panasonic",
@@ -1227,6 +1836,27 @@
         "price": 644700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1PZVC-DEFAULT-2",
+        "price": 644700,
+        "stock": 62,
+        "attributes": null,
+        "id": "0e0b6535-9dad-4484-8830-89fe747d0975"
+      },
+      {
+        "sku_code": "SKU-1PZVC-DEFAULT-3",
+        "price": 644700,
+        "stock": 62,
+        "attributes": null,
+        "id": "743bd905-8b56-49a7-80c5-9d41b3f92f7c"
+      },
+      {
+        "sku_code": "SKU-1PZVC-DEFAULT-4",
+        "price": 644700,
+        "stock": 62,
+        "attributes": null,
+        "id": "48da30b8-b6a3-4680-a276-0999d7919f59"
       }
     ],
     "brand": "JACK",
@@ -1264,6 +1894,27 @@
         "price": 899700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A6XSP-DEFAULT-2",
+        "price": 899700,
+        "stock": 28,
+        "attributes": null,
+        "id": "113609f0-61ad-4422-b3da-e84b2dc5edee"
+      },
+      {
+        "sku_code": "SKU-A6XSP-DEFAULT-3",
+        "price": 899700,
+        "stock": 28,
+        "attributes": null,
+        "id": "efa594a7-0490-47d8-8944-73e138c1e74e"
+      },
+      {
+        "sku_code": "SKU-A6XSP-DEFAULT-4",
+        "price": 899700,
+        "stock": 28,
+        "attributes": null,
+        "id": "f16a943c-365c-4b72-8de6-41055a834796"
       }
     ],
     "brand": "NYLSA",
@@ -1301,6 +1952,27 @@
         "price": 777000,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-86O60-DEFAULT-2",
+        "price": 777000,
+        "stock": 78,
+        "attributes": null,
+        "id": "6be2db47-9825-4aad-858d-7fd5b57d06ad"
+      },
+      {
+        "sku_code": "SKU-86O60-DEFAULT-3",
+        "price": 777000,
+        "stock": 78,
+        "attributes": null,
+        "id": "bdfbdd01-bc51-49ca-950f-626c41d6e680"
+      },
+      {
+        "sku_code": "SKU-86O60-DEFAULT-4",
+        "price": 777000,
+        "stock": 78,
+        "attributes": null,
+        "id": "4c2b6cf3-b1b6-492f-835a-e6b29cd06b90"
       }
     ],
     "brand": "Tronica",
@@ -1345,6 +2017,27 @@
         "price": 128700,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0MXI1-DEFAULT-2",
+        "price": 128700,
+        "stock": 45,
+        "attributes": null,
+        "id": "f1fe20e7-43bc-412d-be71-048ddfc8fa3c"
+      },
+      {
+        "sku_code": "SKU-0MXI1-DEFAULT-3",
+        "price": 128700,
+        "stock": 45,
+        "attributes": null,
+        "id": "a5f9c5ea-db96-4482-8ae9-7d4ae01a2675"
+      },
+      {
+        "sku_code": "SKU-0MXI1-DEFAULT-4",
+        "price": 128700,
+        "stock": 45,
+        "attributes": null,
+        "id": "49d02c82-4804-4760-8664-319ea5324c0a"
       }
     ],
     "brand": "JBL",
@@ -1390,6 +2083,27 @@
         "price": 659700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VPMPW-DEFAULT-2",
+        "price": 659700,
+        "stock": 54,
+        "attributes": null,
+        "id": "05140808-b691-432b-ace0-70dce11aee80"
+      },
+      {
+        "sku_code": "SKU-VPMPW-DEFAULT-3",
+        "price": 659700,
+        "stock": 54,
+        "attributes": null,
+        "id": "9dd9e982-7bf3-4f0c-b14f-7b08281fa6b1"
+      },
+      {
+        "sku_code": "SKU-VPMPW-DEFAULT-4",
+        "price": 659700,
+        "stock": 54,
+        "attributes": null,
+        "id": "7f745c21-1510-4338-ad84-69ebeff06310"
       }
     ],
     "brand": "TRONICA",
@@ -1431,6 +2145,27 @@
         "price": 10200000,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y0D5K-DEFAULT-2",
+        "price": 10200000,
+        "stock": 79,
+        "attributes": null,
+        "id": "72bc8ec8-e773-45e4-9771-d1445a1d76f5"
+      },
+      {
+        "sku_code": "SKU-Y0D5K-DEFAULT-3",
+        "price": 10200000,
+        "stock": 79,
+        "attributes": null,
+        "id": "55e19b76-6885-455a-98c0-31612914638d"
+      },
+      {
+        "sku_code": "SKU-Y0D5K-DEFAULT-4",
+        "price": 10200000,
+        "stock": 79,
+        "attributes": null,
+        "id": "99fff77b-85b6-4e7a-8b56-aca0bab73390"
       }
     ],
     "brand": "Yamaha",
@@ -1472,6 +2207,27 @@
         "price": 2699700,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TDRSA-DEFAULT-2",
+        "price": 2699700,
+        "stock": 77,
+        "attributes": null,
+        "id": "c5f89940-1f1b-427e-a05d-9bdc0547bb00"
+      },
+      {
+        "sku_code": "SKU-TDRSA-DEFAULT-3",
+        "price": 2699700,
+        "stock": 77,
+        "attributes": null,
+        "id": "917dadd0-0c6d-49a9-be76-09a75e11e855"
+      },
+      {
+        "sku_code": "SKU-TDRSA-DEFAULT-4",
+        "price": 2699700,
+        "stock": 77,
+        "attributes": null,
+        "id": "6110a940-2e76-480f-97b6-c9f8e40f91f8"
       }
     ],
     "brand": "NYLSA",
@@ -1509,6 +2265,27 @@
         "price": 44970000,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SN6B1-DEFAULT-2",
+        "price": 44970000,
+        "stock": 45,
+        "attributes": null,
+        "id": "9e35f7f7-78f1-4c69-ac62-cb15f6a8c5c2"
+      },
+      {
+        "sku_code": "SKU-SN6B1-DEFAULT-3",
+        "price": 44970000,
+        "stock": 45,
+        "attributes": null,
+        "id": "2f5fc1e3-2658-45f5-b756-d4e02d54e0dd"
+      },
+      {
+        "sku_code": "SKU-SN6B1-DEFAULT-4",
+        "price": 44970000,
+        "stock": 45,
+        "attributes": null,
+        "id": "ae54bef5-1f09-45c1-a344-a088cec0fba6"
       }
     ],
     "brand": "NYLSA",
@@ -1546,6 +2323,27 @@
         "price": 257700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TMD96-DEFAULT-2",
+        "price": 257700,
+        "stock": 34,
+        "attributes": null,
+        "id": "b0cd655c-3ce9-467a-986c-45ec1838fe59"
+      },
+      {
+        "sku_code": "SKU-TMD96-DEFAULT-3",
+        "price": 257700,
+        "stock": 34,
+        "attributes": null,
+        "id": "490806a7-2517-4f6f-9171-a0b2c5360737"
+      },
+      {
+        "sku_code": "SKU-TMD96-DEFAULT-4",
+        "price": 257700,
+        "stock": 34,
+        "attributes": null,
+        "id": "59029cf9-0594-4f3b-b43f-cff31de4363a"
       }
     ],
     "brand": "Krisons",
@@ -1591,6 +2389,27 @@
         "price": 1347000,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HPL0H-DEFAULT-2",
+        "price": 1347000,
+        "stock": 103,
+        "attributes": null,
+        "id": "36a00749-e87a-46e3-b2e3-c0ecfd192b01"
+      },
+      {
+        "sku_code": "SKU-HPL0H-DEFAULT-3",
+        "price": 1347000,
+        "stock": 103,
+        "attributes": null,
+        "id": "2cc62c02-85db-4228-89db-1a01f56eb223"
+      },
+      {
+        "sku_code": "SKU-HPL0H-DEFAULT-4",
+        "price": 1347000,
+        "stock": 103,
+        "attributes": null,
+        "id": "4714923c-9c86-48a7-97c8-3b71999a3107"
       }
     ],
     "brand": "Cyruss",
@@ -1636,6 +2455,27 @@
         "price": 2069400,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6ONE4-DEFAULT-2",
+        "price": 2069400,
+        "stock": 22,
+        "attributes": null,
+        "id": "bb8af8d4-a2fb-45c3-9722-45235fb23192"
+      },
+      {
+        "sku_code": "SKU-6ONE4-DEFAULT-3",
+        "price": 2069400,
+        "stock": 22,
+        "attributes": null,
+        "id": "a9ed890f-fbb5-4d53-85cf-6a6064916b34"
+      },
+      {
+        "sku_code": "SKU-6ONE4-DEFAULT-4",
+        "price": 2069400,
+        "stock": 22,
+        "attributes": null,
+        "id": "7fbb1ba0-d15d-4730-90d7-4b1fbe78f939"
       }
     ],
     "brand": "Shayaan",
@@ -1681,6 +2521,27 @@
         "price": 1979700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4CAR3-DEFAULT-2",
+        "price": 1979700,
+        "stock": 91,
+        "attributes": null,
+        "id": "88c338f5-f506-4df7-bfb4-a48fb247b87e"
+      },
+      {
+        "sku_code": "SKU-4CAR3-DEFAULT-3",
+        "price": 1979700,
+        "stock": 91,
+        "attributes": null,
+        "id": "e1178aca-9d1a-4041-8d9c-c4b67f4d8530"
+      },
+      {
+        "sku_code": "SKU-4CAR3-DEFAULT-4",
+        "price": 1979700,
+        "stock": 91,
+        "attributes": null,
+        "id": "ba1f0419-71fd-477f-97d9-c4c152313e7a"
       }
     ],
     "brand": "Drunkers",
@@ -1722,6 +2583,27 @@
         "price": 2696700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RFPZE-DEFAULT-2",
+        "price": 2696700,
+        "stock": 81,
+        "attributes": null,
+        "id": "a283a29e-0e36-49f6-b604-b314aa78d654"
+      },
+      {
+        "sku_code": "SKU-RFPZE-DEFAULT-3",
+        "price": 2696700,
+        "stock": 81,
+        "attributes": null,
+        "id": "dfb79d9b-cf85-4ad8-98fd-a31a30b8e265"
+      },
+      {
+        "sku_code": "SKU-RFPZE-DEFAULT-4",
+        "price": 2696700,
+        "stock": 81,
+        "attributes": null,
+        "id": "dbc0ee45-d5f3-4952-9042-547313ca90e6"
       }
     ],
     "brand": "FLAWISH",
@@ -1763,6 +2645,27 @@
         "price": 298500,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WNF32-DEFAULT-2",
+        "price": 298500,
+        "stock": 31,
+        "attributes": null,
+        "id": "23dc6069-af83-440d-a45b-40b88ae01f5f"
+      },
+      {
+        "sku_code": "SKU-WNF32-DEFAULT-3",
+        "price": 298500,
+        "stock": 31,
+        "attributes": null,
+        "id": "48426b7d-11cb-4a4a-a1c6-9785a8cf095a"
+      },
+      {
+        "sku_code": "SKU-WNF32-DEFAULT-4",
+        "price": 298500,
+        "stock": 31,
+        "attributes": null,
+        "id": "6d445c4d-993b-4e03-ac42-23c33e4819a2"
       }
     ],
     "brand": "SPACE",
@@ -1808,6 +2711,27 @@
         "price": 599400,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QJW2J-DEFAULT-2",
+        "price": 599400,
+        "stock": 43,
+        "attributes": null,
+        "id": "4948ff33-fd12-4d22-8973-855ee56b20f5"
+      },
+      {
+        "sku_code": "SKU-QJW2J-DEFAULT-3",
+        "price": 599400,
+        "stock": 43,
+        "attributes": null,
+        "id": "35cfbfc5-9a1a-453a-a1c2-94e264e3d394"
+      },
+      {
+        "sku_code": "SKU-QJW2J-DEFAULT-4",
+        "price": 599400,
+        "stock": 43,
+        "attributes": null,
+        "id": "d222347c-9ecb-46ce-ae2f-171ed1997659"
       }
     ],
     "brand": "SPACE",
@@ -1845,6 +2769,27 @@
         "price": 38700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BD2EO-DEFAULT-2",
+        "price": 38700,
+        "stock": 33,
+        "attributes": null,
+        "id": "c600b60d-d65d-426f-9641-f48f0cf5fd73"
+      },
+      {
+        "sku_code": "SKU-BD2EO-DEFAULT-3",
+        "price": 38700,
+        "stock": 33,
+        "attributes": null,
+        "id": "70b4968b-f1b1-49e2-a8ee-343a63cecba8"
+      },
+      {
+        "sku_code": "SKU-BD2EO-DEFAULT-4",
+        "price": 38700,
+        "stock": 33,
+        "attributes": null,
+        "id": "4ac30a6f-016c-4471-b112-c659a02bc091"
       }
     ],
     "brand": "SPACE",
@@ -1886,6 +2831,27 @@
         "price": 716400,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UT72O-DEFAULT-2",
+        "price": 716400,
+        "stock": 88,
+        "attributes": null,
+        "id": "ac024ef5-a621-4ae1-8ef7-eb16bc6338a1"
+      },
+      {
+        "sku_code": "SKU-UT72O-DEFAULT-3",
+        "price": 716400,
+        "stock": 88,
+        "attributes": null,
+        "id": "3f8fd305-ad57-4d2a-8906-217ed0efe7b9"
+      },
+      {
+        "sku_code": "SKU-UT72O-DEFAULT-4",
+        "price": 716400,
+        "stock": 88,
+        "attributes": null,
+        "id": "6753006e-1cb9-4248-b113-0691e0041cc0"
       }
     ],
     "brand": "Drunkers",
@@ -1931,6 +2897,27 @@
         "price": 1017000,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CCUU4-DEFAULT-2",
+        "price": 1017000,
+        "stock": 21,
+        "attributes": null,
+        "id": "5cdf285d-9823-443c-9884-11fac8336a3b"
+      },
+      {
+        "sku_code": "SKU-CCUU4-DEFAULT-3",
+        "price": 1017000,
+        "stock": 21,
+        "attributes": null,
+        "id": "07111d72-24ac-4d5b-b220-c49fa9fa44f9"
+      },
+      {
+        "sku_code": "SKU-CCUU4-DEFAULT-4",
+        "price": 1017000,
+        "stock": 21,
+        "attributes": null,
+        "id": "c660a6eb-c92d-4f58-8f3e-f10c037b33dc"
       }
     ],
     "brand": "Krisons",
@@ -1968,6 +2955,27 @@
         "price": 689700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JE23I-DEFAULT-2",
+        "price": 689700,
+        "stock": 41,
+        "attributes": null,
+        "id": "3b6912d7-534b-4395-9da9-bf27e1657035"
+      },
+      {
+        "sku_code": "SKU-JE23I-DEFAULT-3",
+        "price": 689700,
+        "stock": 41,
+        "attributes": null,
+        "id": "c3294198-ab8a-40c4-8b09-6cd855ed4d63"
+      },
+      {
+        "sku_code": "SKU-JE23I-DEFAULT-4",
+        "price": 689700,
+        "stock": 41,
+        "attributes": null,
+        "id": "24a68b19-7c8e-44ca-bd6b-1e7c7120d1ba"
       }
     ],
     "brand": "Optimuss",
@@ -2009,6 +3017,27 @@
         "price": 2099700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y80OI-DEFAULT-2",
+        "price": 2099700,
+        "stock": 74,
+        "attributes": null,
+        "id": "c07f3250-1e1e-4537-8d3c-80a22690975d"
+      },
+      {
+        "sku_code": "SKU-Y80OI-DEFAULT-3",
+        "price": 2099700,
+        "stock": 74,
+        "attributes": null,
+        "id": "a64e7d32-0c3a-4bd7-abb6-e7fe03897fd1"
+      },
+      {
+        "sku_code": "SKU-Y80OI-DEFAULT-4",
+        "price": 2099700,
+        "stock": 74,
+        "attributes": null,
+        "id": "cd0ea4bd-b8df-4296-8d05-014b129ddb67"
       }
     ],
     "brand": "FLAWISH",
@@ -2046,6 +3075,27 @@
         "price": 719700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9KBTX-DEFAULT-2",
+        "price": 719700,
+        "stock": 86,
+        "attributes": null,
+        "id": "11bbe8b0-3bb4-44e5-9321-fac2086bdf86"
+      },
+      {
+        "sku_code": "SKU-9KBTX-DEFAULT-3",
+        "price": 719700,
+        "stock": 86,
+        "attributes": null,
+        "id": "e77b1e5c-f752-4cbf-b80a-131be0d7efc8"
+      },
+      {
+        "sku_code": "SKU-9KBTX-DEFAULT-4",
+        "price": 719700,
+        "stock": 86,
+        "attributes": null,
+        "id": "27e36279-56ea-4c95-9ace-98106ace1d61"
       }
     ],
     "brand": "TRONICA",
@@ -2091,6 +3141,27 @@
         "price": 599700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YTOE0-DEFAULT-2",
+        "price": 599700,
+        "stock": 94,
+        "attributes": null,
+        "id": "6869106f-8e65-4863-91dd-eacfda325fa3"
+      },
+      {
+        "sku_code": "SKU-YTOE0-DEFAULT-3",
+        "price": 599700,
+        "stock": 94,
+        "attributes": null,
+        "id": "259eea8b-7e8a-44f5-87f0-7c469c162a17"
+      },
+      {
+        "sku_code": "SKU-YTOE0-DEFAULT-4",
+        "price": 599700,
+        "stock": 94,
+        "attributes": null,
+        "id": "795582b9-67fa-4159-86a3-639b20f5fa75"
       }
     ],
     "brand": "Cyruss",
@@ -2128,6 +3199,27 @@
         "price": 4770000,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7IQR6-DEFAULT-2",
+        "price": 4770000,
+        "stock": 102,
+        "attributes": null,
+        "id": "0ed5fe7f-625b-4c0b-aa3b-81f892ebd0d0"
+      },
+      {
+        "sku_code": "SKU-7IQR6-DEFAULT-3",
+        "price": 4770000,
+        "stock": 102,
+        "attributes": null,
+        "id": "5534ecca-77ee-4ea6-a59d-70c961ab6ba8"
+      },
+      {
+        "sku_code": "SKU-7IQR6-DEFAULT-4",
+        "price": 4770000,
+        "stock": 102,
+        "attributes": null,
+        "id": "eecae62d-2e22-496a-a9eb-38196b42ee73"
       }
     ],
     "brand": "TRONICA",
@@ -2173,6 +3265,27 @@
         "price": 3599700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6MQS6-DEFAULT-2",
+        "price": 3599700,
+        "stock": 23,
+        "attributes": null,
+        "id": "c42dcb1c-3a64-4f76-87e9-2c3346a027ce"
+      },
+      {
+        "sku_code": "SKU-6MQS6-DEFAULT-3",
+        "price": 3599700,
+        "stock": 23,
+        "attributes": null,
+        "id": "23fdd3ec-3fa6-4ad8-8de6-35da00aee150"
+      },
+      {
+        "sku_code": "SKU-6MQS6-DEFAULT-4",
+        "price": 3599700,
+        "stock": 23,
+        "attributes": null,
+        "id": "b051eb43-fc17-48d7-8df7-09b1fbcbc6c3"
       }
     ],
     "brand": "SPACE",
@@ -2218,6 +3331,27 @@
         "price": 15000000,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NPJGD-DEFAULT-2",
+        "price": 15000000,
+        "stock": 58,
+        "attributes": null,
+        "id": "6bfd63d2-e3fb-4854-9221-7fc14eb29558"
+      },
+      {
+        "sku_code": "SKU-NPJGD-DEFAULT-3",
+        "price": 15000000,
+        "stock": 58,
+        "attributes": null,
+        "id": "1729f907-5f3b-446d-8947-cbaf41392542"
+      },
+      {
+        "sku_code": "SKU-NPJGD-DEFAULT-4",
+        "price": 15000000,
+        "stock": 58,
+        "attributes": null,
+        "id": "e539f324-34c2-470d-b09d-d50f14abbc34"
       }
     ],
     "brand": "FLAWISH",
@@ -2255,6 +3389,27 @@
         "price": 689700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LTM9F-DEFAULT-2",
+        "price": 689700,
+        "stock": 81,
+        "attributes": null,
+        "id": "e4845774-71f3-4aed-b67b-0025e895a573"
+      },
+      {
+        "sku_code": "SKU-LTM9F-DEFAULT-3",
+        "price": 689700,
+        "stock": 81,
+        "attributes": null,
+        "id": "05170230-a63b-4a9a-8147-919c048f0876"
+      },
+      {
+        "sku_code": "SKU-LTM9F-DEFAULT-4",
+        "price": 689700,
+        "stock": 81,
+        "attributes": null,
+        "id": "58a1de32-0aec-41af-b5cd-33db261dd2ac"
       }
     ],
     "brand": "Rambutan",
@@ -2292,6 +3447,27 @@
         "price": 780000,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-54R5V-DEFAULT-2",
+        "price": 780000,
+        "stock": 93,
+        "attributes": null,
+        "id": "8359c654-1994-4827-9f53-f706e7147de8"
+      },
+      {
+        "sku_code": "SKU-54R5V-DEFAULT-3",
+        "price": 780000,
+        "stock": 93,
+        "attributes": null,
+        "id": "8ab74b3c-1923-4d50-be10-a60ff6056e9e"
+      },
+      {
+        "sku_code": "SKU-54R5V-DEFAULT-4",
+        "price": 780000,
+        "stock": 93,
+        "attributes": null,
+        "id": "016a3042-fbf5-4610-b038-b1c7add3ddbd"
       }
     ],
     "brand": "Rambutan",
@@ -2333,6 +3509,27 @@
         "price": 2099700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J9Y99-DEFAULT-2",
+        "price": 2099700,
+        "stock": 35,
+        "attributes": null,
+        "id": "66ef84a4-3703-411c-9984-30170f19cd3b"
+      },
+      {
+        "sku_code": "SKU-J9Y99-DEFAULT-3",
+        "price": 2099700,
+        "stock": 35,
+        "attributes": null,
+        "id": "94733546-7aee-4862-8530-ab40736c18b0"
+      },
+      {
+        "sku_code": "SKU-J9Y99-DEFAULT-4",
+        "price": 2099700,
+        "stock": 35,
+        "attributes": null,
+        "id": "7b1110aa-4ebe-402a-a480-746510e31508"
       }
     ],
     "brand": "HP",
@@ -2370,6 +3567,27 @@
         "price": 2685600,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MPNWO-DEFAULT-2",
+        "price": 2685600,
+        "stock": 21,
+        "attributes": null,
+        "id": "0b91d8da-89e7-498e-80d3-cd3746e218c2"
+      },
+      {
+        "sku_code": "SKU-MPNWO-DEFAULT-3",
+        "price": 2685600,
+        "stock": 21,
+        "attributes": null,
+        "id": "1b8ff8f7-a446-413f-894b-c2106cc61cb1"
+      },
+      {
+        "sku_code": "SKU-MPNWO-DEFAULT-4",
+        "price": 2685600,
+        "stock": 21,
+        "attributes": null,
+        "id": "46cc9573-dd3e-4ad9-a016-9ac0ff96feab"
       }
     ],
     "brand": "FLAWISH",
@@ -2411,6 +3629,27 @@
         "price": 806400,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HE76W-DEFAULT-2",
+        "price": 806400,
+        "stock": 52,
+        "attributes": null,
+        "id": "bc7d0349-e0e8-4d53-b597-65b8854869c4"
+      },
+      {
+        "sku_code": "SKU-HE76W-DEFAULT-3",
+        "price": 806400,
+        "stock": 52,
+        "attributes": null,
+        "id": "933bf45a-5828-4da1-a958-4a809da7350b"
+      },
+      {
+        "sku_code": "SKU-HE76W-DEFAULT-4",
+        "price": 806400,
+        "stock": 52,
+        "attributes": null,
+        "id": "bfd1fffe-809e-4656-9a5f-2400c8b83493"
       }
     ],
     "brand": "Rambutan",
@@ -2452,6 +3691,27 @@
         "price": 807000,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CJYZB-DEFAULT-2",
+        "price": 807000,
+        "stock": 10,
+        "attributes": null,
+        "id": "db117567-a12c-41d4-b0a8-2f81f1a0ee62"
+      },
+      {
+        "sku_code": "SKU-CJYZB-DEFAULT-3",
+        "price": 807000,
+        "stock": 10,
+        "attributes": null,
+        "id": "4a55c2d7-b0a9-44fa-9d48-42b10e103d4a"
+      },
+      {
+        "sku_code": "SKU-CJYZB-DEFAULT-4",
+        "price": 807000,
+        "stock": 10,
+        "attributes": null,
+        "id": "d4f9c6e4-c898-406f-b667-a17920e5d0a5"
       }
     ],
     "brand": "SPACE",
@@ -2493,6 +3753,27 @@
         "price": 599700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NJZRQ-DEFAULT-2",
+        "price": 599700,
+        "stock": 80,
+        "attributes": null,
+        "id": "6323542f-cf55-4dd2-acc7-f97b54f6e8a0"
+      },
+      {
+        "sku_code": "SKU-NJZRQ-DEFAULT-3",
+        "price": 599700,
+        "stock": 80,
+        "attributes": null,
+        "id": "fd7835c9-be6b-4001-b5a2-cff36b792663"
+      },
+      {
+        "sku_code": "SKU-NJZRQ-DEFAULT-4",
+        "price": 599700,
+        "stock": 80,
+        "attributes": null,
+        "id": "571a3b31-b2aa-47fa-b7ca-84213f4e624e"
       }
     ],
     "brand": "NYLSA",
@@ -2538,6 +3819,27 @@
         "price": 719700,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6CER4-DEFAULT-2",
+        "price": 719700,
+        "stock": 93,
+        "attributes": null,
+        "id": "c325c897-4c59-445e-939c-177942d860c2"
+      },
+      {
+        "sku_code": "SKU-6CER4-DEFAULT-3",
+        "price": 719700,
+        "stock": 93,
+        "attributes": null,
+        "id": "3ce8fb4d-7aab-48b0-b307-6479656d67d3"
+      },
+      {
+        "sku_code": "SKU-6CER4-DEFAULT-4",
+        "price": 719700,
+        "stock": 93,
+        "attributes": null,
+        "id": "d0335b1b-3f96-47bc-b5ca-c1350a933523"
       }
     ],
     "brand": "Trendy",
@@ -2579,6 +3881,27 @@
         "price": 20070000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J8Q3N-DEFAULT-2",
+        "price": 20070000,
+        "stock": 30,
+        "attributes": null,
+        "id": "979fe0c5-bcee-48a2-8b02-d4d272131a3a"
+      },
+      {
+        "sku_code": "SKU-J8Q3N-DEFAULT-3",
+        "price": 20070000,
+        "stock": 30,
+        "attributes": null,
+        "id": "f00dcc97-a8cc-49cf-9572-807711aa5ec8"
+      },
+      {
+        "sku_code": "SKU-J8Q3N-DEFAULT-4",
+        "price": 20070000,
+        "stock": 30,
+        "attributes": null,
+        "id": "2d8453ef-cea0-4405-bb49-02cb76c6e37f"
       }
     ],
     "brand": "TRONICA",
@@ -2616,6 +3939,27 @@
         "price": 1497000,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PZYN4-DEFAULT-2",
+        "price": 1497000,
+        "stock": 84,
+        "attributes": null,
+        "id": "001b218c-c763-4f73-957e-b10bfeab56b8"
+      },
+      {
+        "sku_code": "SKU-PZYN4-DEFAULT-3",
+        "price": 1497000,
+        "stock": 84,
+        "attributes": null,
+        "id": "7174494f-9ae2-4f05-bb85-725bc2285b5c"
+      },
+      {
+        "sku_code": "SKU-PZYN4-DEFAULT-4",
+        "price": 1497000,
+        "stock": 84,
+        "attributes": null,
+        "id": "dc874fca-c169-46a2-9904-ac35473cc2e8"
       }
     ],
     "brand": "Bose",
@@ -2653,6 +3997,27 @@
         "price": 1254000,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GXOTH-DEFAULT-2",
+        "price": 1254000,
+        "stock": 82,
+        "attributes": null,
+        "id": "900268d5-ebf2-4b52-b9eb-abd68661ad54"
+      },
+      {
+        "sku_code": "SKU-GXOTH-DEFAULT-3",
+        "price": 1254000,
+        "stock": 82,
+        "attributes": null,
+        "id": "e658f1ab-e31e-4b80-90eb-997af51020ea"
+      },
+      {
+        "sku_code": "SKU-GXOTH-DEFAULT-4",
+        "price": 1254000,
+        "stock": 82,
+        "attributes": null,
+        "id": "290ff5c0-85ee-430a-9e23-44b226a3fcce"
       }
     ],
     "brand": "TRONICA",
@@ -2690,6 +4055,27 @@
         "price": 1799700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TZQ73-DEFAULT-2",
+        "price": 1799700,
+        "stock": 66,
+        "attributes": null,
+        "id": "dc6507d1-71b2-45b9-94f3-13407bfb4927"
+      },
+      {
+        "sku_code": "SKU-TZQ73-DEFAULT-3",
+        "price": 1799700,
+        "stock": 66,
+        "attributes": null,
+        "id": "e87539e5-66af-415e-94c1-84da9012852a"
+      },
+      {
+        "sku_code": "SKU-TZQ73-DEFAULT-4",
+        "price": 1799700,
+        "stock": 66,
+        "attributes": null,
+        "id": "0ae9fbc0-e3ff-46f3-92e0-34af0ef50b88"
       }
     ],
     "brand": "FLAWISH",
@@ -2735,6 +4121,27 @@
         "price": 1108500,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WQQIJ-DEFAULT-2",
+        "price": 1108500,
+        "stock": 23,
+        "attributes": null,
+        "id": "c47f5ae4-150f-4f73-ac76-18c8099e6bbd"
+      },
+      {
+        "sku_code": "SKU-WQQIJ-DEFAULT-3",
+        "price": 1108500,
+        "stock": 23,
+        "attributes": null,
+        "id": "2b14e8b1-1119-4b29-b920-1b7e5ee47911"
+      },
+      {
+        "sku_code": "SKU-WQQIJ-DEFAULT-4",
+        "price": 1108500,
+        "stock": 23,
+        "attributes": null,
+        "id": "25527ba3-059f-4a77-acda-26cc65fca994"
       }
     ],
     "brand": "Cyruss",
@@ -2776,6 +4183,27 @@
         "price": 899700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I6H4X-DEFAULT-2",
+        "price": 899700,
+        "stock": 37,
+        "attributes": null,
+        "id": "0636e487-306a-45d2-980a-962acd3180a9"
+      },
+      {
+        "sku_code": "SKU-I6H4X-DEFAULT-3",
+        "price": 899700,
+        "stock": 37,
+        "attributes": null,
+        "id": "c9be17f6-f9a1-4e57-a40b-52421bc6d27d"
+      },
+      {
+        "sku_code": "SKU-I6H4X-DEFAULT-4",
+        "price": 899700,
+        "stock": 37,
+        "attributes": null,
+        "id": "e705430d-5fcc-4178-8685-95851e4f7cb6"
       }
     ],
     "brand": "Rambutan",
@@ -2821,6 +4249,27 @@
         "price": 597000,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IZVC2-DEFAULT-2",
+        "price": 597000,
+        "stock": 107,
+        "attributes": null,
+        "id": "edf745e4-5606-4de9-8d25-36777d85376a"
+      },
+      {
+        "sku_code": "SKU-IZVC2-DEFAULT-3",
+        "price": 597000,
+        "stock": 107,
+        "attributes": null,
+        "id": "5cbcdf4a-a959-4b1d-a99f-91c4c849b305"
+      },
+      {
+        "sku_code": "SKU-IZVC2-DEFAULT-4",
+        "price": 597000,
+        "stock": 107,
+        "attributes": null,
+        "id": "9c1bdec9-c19a-4b22-b68f-7afb27b1d398"
       }
     ],
     "brand": "JACK",
@@ -2866,6 +4315,27 @@
         "price": 131700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DEY05-DEFAULT-2",
+        "price": 131700,
+        "stock": 81,
+        "attributes": null,
+        "id": "0d94fe3b-2653-4377-8a58-84dfd0007309"
+      },
+      {
+        "sku_code": "SKU-DEY05-DEFAULT-3",
+        "price": 131700,
+        "stock": 81,
+        "attributes": null,
+        "id": "dceabcba-3ea2-4697-8332-6abc6f08df66"
+      },
+      {
+        "sku_code": "SKU-DEY05-DEFAULT-4",
+        "price": 131700,
+        "stock": 81,
+        "attributes": null,
+        "id": "1b826989-efde-4bab-a73e-08c98b6511e1"
       }
     ],
     "brand": "Shayaan",
@@ -2903,6 +4373,27 @@
         "price": 1247700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RMY9S-DEFAULT-2",
+        "price": 1247700,
+        "stock": 44,
+        "attributes": null,
+        "id": "6fbec3f1-9481-403d-8384-e49e76d79bfc"
+      },
+      {
+        "sku_code": "SKU-RMY9S-DEFAULT-3",
+        "price": 1247700,
+        "stock": 44,
+        "attributes": null,
+        "id": "e425e295-86fb-4cdd-99c8-767b48ac56a8"
+      },
+      {
+        "sku_code": "SKU-RMY9S-DEFAULT-4",
+        "price": 1247700,
+        "stock": 44,
+        "attributes": null,
+        "id": "0c02620e-7631-45ba-b786-50015ef1168f"
       }
     ],
     "brand": "Optimuss",
@@ -2940,6 +4431,27 @@
         "price": 0,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R12ET-DEFAULT-2",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "5fc8110b-946e-4dd5-8d76-60d0b7265aa6"
+      },
+      {
+        "sku_code": "SKU-R12ET-DEFAULT-3",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "bee038eb-7f8a-43db-b4bd-c14c7fd0fd73"
+      },
+      {
+        "sku_code": "SKU-R12ET-DEFAULT-4",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "cba0a7fc-f1ec-4e21-8d65-48dfb82064d9"
       }
     ],
     "brand": "Trendy",
@@ -2981,6 +4493,27 @@
         "price": 119700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C5R0A-DEFAULT-2",
+        "price": 119700,
+        "stock": 83,
+        "attributes": null,
+        "id": "fdf2841c-9ff4-4a3d-ad4d-ccf57fbc9499"
+      },
+      {
+        "sku_code": "SKU-C5R0A-DEFAULT-3",
+        "price": 119700,
+        "stock": 83,
+        "attributes": null,
+        "id": "e9729092-da5f-4ea4-9042-7d50dcee5058"
+      },
+      {
+        "sku_code": "SKU-C5R0A-DEFAULT-4",
+        "price": 119700,
+        "stock": 83,
+        "attributes": null,
+        "id": "e96e251f-749c-4930-accb-362b412fc353"
       }
     ],
     "brand": "Drunkers",
@@ -3018,6 +4551,27 @@
         "price": 0,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TVYV8-DEFAULT-2",
+        "price": 0,
+        "stock": 31,
+        "attributes": null,
+        "id": "85cef0a0-5c48-4c50-be12-2f81d17f8a33"
+      },
+      {
+        "sku_code": "SKU-TVYV8-DEFAULT-3",
+        "price": 0,
+        "stock": 31,
+        "attributes": null,
+        "id": "baf917a6-17ee-4975-a6af-903ebe81e2ca"
+      },
+      {
+        "sku_code": "SKU-TVYV8-DEFAULT-4",
+        "price": 0,
+        "stock": 31,
+        "attributes": null,
+        "id": "d10307e7-5567-4dd0-ab13-268b67833066"
       }
     ],
     "brand": "JACK",
@@ -3059,6 +4613,27 @@
         "price": 599700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WODRK-DEFAULT-2",
+        "price": 599700,
+        "stock": 41,
+        "attributes": null,
+        "id": "d316c2fe-abcc-45b0-818a-ce949099134c"
+      },
+      {
+        "sku_code": "SKU-WODRK-DEFAULT-3",
+        "price": 599700,
+        "stock": 41,
+        "attributes": null,
+        "id": "9bc73805-18f8-40d5-9767-2e3a9d466161"
+      },
+      {
+        "sku_code": "SKU-WODRK-DEFAULT-4",
+        "price": 599700,
+        "stock": 41,
+        "attributes": null,
+        "id": "8b907c8f-78e8-4603-87f7-a5c2dd8cb1ec"
       }
     ],
     "brand": "Optimuss",
@@ -3096,6 +4671,27 @@
         "price": 3062457,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5JFC1-DEFAULT-2",
+        "price": 3062457,
+        "stock": 86,
+        "attributes": null,
+        "id": "532c00aa-d97b-45b8-b525-01360606b852"
+      },
+      {
+        "sku_code": "SKU-5JFC1-DEFAULT-3",
+        "price": 3062457,
+        "stock": 86,
+        "attributes": null,
+        "id": "9b344651-49a1-405a-b71c-2df80c1a904c"
+      },
+      {
+        "sku_code": "SKU-5JFC1-DEFAULT-4",
+        "price": 3062457,
+        "stock": 86,
+        "attributes": null,
+        "id": "9d7b189a-35e0-42aa-a3e7-6a83e7fe0c52"
       }
     ],
     "brand": "FLAWISH",
@@ -3133,6 +4729,27 @@
         "price": 658200,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1YYSP-DEFAULT-2",
+        "price": 658200,
+        "stock": 85,
+        "attributes": null,
+        "id": "070e6512-9fcd-48c6-8998-ef3500fb36d2"
+      },
+      {
+        "sku_code": "SKU-1YYSP-DEFAULT-3",
+        "price": 658200,
+        "stock": 85,
+        "attributes": null,
+        "id": "a56c3529-ec96-4521-9209-b7c820db2b38"
+      },
+      {
+        "sku_code": "SKU-1YYSP-DEFAULT-4",
+        "price": 658200,
+        "stock": 85,
+        "attributes": null,
+        "id": "eda32a74-1c44-46ef-ad42-0a453af27a26"
       }
     ],
     "brand": "Cyruss",
@@ -3170,6 +4787,27 @@
         "price": 599700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YECDK-DEFAULT-2",
+        "price": 599700,
+        "stock": 14,
+        "attributes": null,
+        "id": "c47ebc55-28c5-4357-9845-8fa83bf8b9a5"
+      },
+      {
+        "sku_code": "SKU-YECDK-DEFAULT-3",
+        "price": 599700,
+        "stock": 14,
+        "attributes": null,
+        "id": "aab55ee8-7dc0-43af-96f0-ad3b4287831b"
+      },
+      {
+        "sku_code": "SKU-YECDK-DEFAULT-4",
+        "price": 599700,
+        "stock": 14,
+        "attributes": null,
+        "id": "cdca7ba0-da99-4dd3-a39c-318952b3d707"
       }
     ],
     "brand": "Trendy",
@@ -3215,6 +4853,27 @@
         "price": 0,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X26TY-DEFAULT-2",
+        "price": 0,
+        "stock": 39,
+        "attributes": null,
+        "id": "b24af2f9-3821-4acf-82cc-50b96e43b2ba"
+      },
+      {
+        "sku_code": "SKU-X26TY-DEFAULT-3",
+        "price": 0,
+        "stock": 39,
+        "attributes": null,
+        "id": "86c22bd1-801a-4d6e-b3af-5dec98d59b99"
+      },
+      {
+        "sku_code": "SKU-X26TY-DEFAULT-4",
+        "price": 0,
+        "stock": 39,
+        "attributes": null,
+        "id": "3f31a1fc-323b-43c0-8711-cb9e3f2a106f"
       }
     ],
     "brand": "Tronica",
@@ -3256,6 +4915,27 @@
         "price": 0,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YZ6K9-DEFAULT-2",
+        "price": 0,
+        "stock": 75,
+        "attributes": null,
+        "id": "ec5ff4f8-ca79-4eec-87ba-ae14aa8fa341"
+      },
+      {
+        "sku_code": "SKU-YZ6K9-DEFAULT-3",
+        "price": 0,
+        "stock": 75,
+        "attributes": null,
+        "id": "787f986a-b254-41c1-8f44-ce6ee3077ff7"
+      },
+      {
+        "sku_code": "SKU-YZ6K9-DEFAULT-4",
+        "price": 0,
+        "stock": 75,
+        "attributes": null,
+        "id": "56232047-2f19-47a3-9329-fa609672eb88"
       }
     ],
     "brand": "Cyruss",
@@ -3297,6 +4977,27 @@
         "price": 3000000,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XL0MS-DEFAULT-2",
+        "price": 3000000,
+        "stock": 104,
+        "attributes": null,
+        "id": "6c1d2c08-bb8c-4e08-85ce-423caeb93783"
+      },
+      {
+        "sku_code": "SKU-XL0MS-DEFAULT-3",
+        "price": 3000000,
+        "stock": 104,
+        "attributes": null,
+        "id": "f00b07b2-f070-4648-83ff-d5e7cc14799f"
+      },
+      {
+        "sku_code": "SKU-XL0MS-DEFAULT-4",
+        "price": 3000000,
+        "stock": 104,
+        "attributes": null,
+        "id": "be114f0c-e1f3-46f8-9e53-2c73d5d29101"
       }
     ],
     "brand": "Rambutan",
@@ -3334,6 +5035,27 @@
         "price": 899700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HFIAB-DEFAULT-2",
+        "price": 899700,
+        "stock": 30,
+        "attributes": null,
+        "id": "76f91c85-c4f7-45be-ad1d-6b207ced677e"
+      },
+      {
+        "sku_code": "SKU-HFIAB-DEFAULT-3",
+        "price": 899700,
+        "stock": 30,
+        "attributes": null,
+        "id": "138814ee-c67a-424d-860b-edbb96096b65"
+      },
+      {
+        "sku_code": "SKU-HFIAB-DEFAULT-4",
+        "price": 899700,
+        "stock": 30,
+        "attributes": null,
+        "id": "530b757e-f343-4ae3-b874-eb871f6f546e"
       }
     ],
     "brand": "BRIVIN",
@@ -3379,6 +5101,27 @@
         "price": 899700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TZUXZ-DEFAULT-2",
+        "price": 899700,
+        "stock": 59,
+        "attributes": null,
+        "id": "73af0dc3-ede7-472f-847a-b3359fda4f81"
+      },
+      {
+        "sku_code": "SKU-TZUXZ-DEFAULT-3",
+        "price": 899700,
+        "stock": 59,
+        "attributes": null,
+        "id": "d262ab7b-cdc7-432e-b959-2d70120e1797"
+      },
+      {
+        "sku_code": "SKU-TZUXZ-DEFAULT-4",
+        "price": 899700,
+        "stock": 59,
+        "attributes": null,
+        "id": "5bd75e4f-ae82-40e9-8a14-c9bd9987c070"
       }
     ],
     "brand": "Cyruss",
@@ -3416,6 +5159,27 @@
         "price": 1856700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6H0II-DEFAULT-2",
+        "price": 1856700,
+        "stock": 60,
+        "attributes": null,
+        "id": "7b6cf953-4efa-4113-af05-11ec6895420f"
+      },
+      {
+        "sku_code": "SKU-6H0II-DEFAULT-3",
+        "price": 1856700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0ad9ae23-ae1f-44d5-ba91-ae5ceafb9561"
+      },
+      {
+        "sku_code": "SKU-6H0II-DEFAULT-4",
+        "price": 1856700,
+        "stock": 60,
+        "attributes": null,
+        "id": "91295476-59d4-415a-a36d-f4338acc78eb"
       }
     ],
     "brand": "Krisons",
@@ -3457,6 +5221,27 @@
         "price": 1735200,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-21XIE-DEFAULT-2",
+        "price": 1735200,
+        "stock": 98,
+        "attributes": null,
+        "id": "46a26db5-d0e7-4ee6-ad63-368534e3fb2f"
+      },
+      {
+        "sku_code": "SKU-21XIE-DEFAULT-3",
+        "price": 1735200,
+        "stock": 98,
+        "attributes": null,
+        "id": "968a2edc-12a5-4794-843e-f6c755f3f021"
+      },
+      {
+        "sku_code": "SKU-21XIE-DEFAULT-4",
+        "price": 1735200,
+        "stock": 98,
+        "attributes": null,
+        "id": "eb2a4dbc-f8ca-40b4-8dde-1f523bb0e380"
       }
     ],
     "brand": "FLAWISH",
@@ -3498,6 +5283,27 @@
         "price": 1349700,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AIUZB-DEFAULT-2",
+        "price": 1349700,
+        "stock": 37,
+        "attributes": null,
+        "id": "ac5a07a4-2a5e-4e8f-a341-91e6717d9578"
+      },
+      {
+        "sku_code": "SKU-AIUZB-DEFAULT-3",
+        "price": 1349700,
+        "stock": 37,
+        "attributes": null,
+        "id": "a9b54d49-800a-4fc5-95e9-8afe74dd679d"
+      },
+      {
+        "sku_code": "SKU-AIUZB-DEFAULT-4",
+        "price": 1349700,
+        "stock": 37,
+        "attributes": null,
+        "id": "3e574e57-b1a1-4491-ae7e-54a6f0d0d325"
       }
     ],
     "brand": "FLAWISH",
@@ -3539,6 +5345,27 @@
         "price": 1379700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EJ241-DEFAULT-2",
+        "price": 1379700,
+        "stock": 67,
+        "attributes": null,
+        "id": "d65e419c-b145-4bd2-9ee9-c489e085fd89"
+      },
+      {
+        "sku_code": "SKU-EJ241-DEFAULT-3",
+        "price": 1379700,
+        "stock": 67,
+        "attributes": null,
+        "id": "f7b3bbea-1010-460e-bfed-5d7c1c22aeb1"
+      },
+      {
+        "sku_code": "SKU-EJ241-DEFAULT-4",
+        "price": 1379700,
+        "stock": 67,
+        "attributes": null,
+        "id": "41bc7246-4cd8-4279-a806-5c9cef3145e9"
       }
     ],
     "brand": "BRIVIN",
@@ -3580,6 +5407,27 @@
         "price": 0,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C0TM7-DEFAULT-2",
+        "price": 0,
+        "stock": 108,
+        "attributes": null,
+        "id": "2fa46d62-813d-4f66-a586-89ac30ec75c9"
+      },
+      {
+        "sku_code": "SKU-C0TM7-DEFAULT-3",
+        "price": 0,
+        "stock": 108,
+        "attributes": null,
+        "id": "ea063bec-6b06-4210-b6dd-1aa93fb65ff4"
+      },
+      {
+        "sku_code": "SKU-C0TM7-DEFAULT-4",
+        "price": 0,
+        "stock": 108,
+        "attributes": null,
+        "id": "fe886c54-208d-4533-8743-8958decdd375"
       }
     ],
     "brand": "SPACE",
@@ -3621,6 +5469,27 @@
         "price": 0,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8ZFQ3-DEFAULT-2",
+        "price": 0,
+        "stock": 86,
+        "attributes": null,
+        "id": "d0ea91d5-fe80-45e4-b267-c22ed416e48e"
+      },
+      {
+        "sku_code": "SKU-8ZFQ3-DEFAULT-3",
+        "price": 0,
+        "stock": 86,
+        "attributes": null,
+        "id": "f2577405-2b91-418a-8649-c2550843517e"
+      },
+      {
+        "sku_code": "SKU-8ZFQ3-DEFAULT-4",
+        "price": 0,
+        "stock": 86,
+        "attributes": null,
+        "id": "459f82e3-1a7e-4db3-bfa1-0ba1a91d3778"
       }
     ],
     "brand": "JACK",
@@ -3666,6 +5535,27 @@
         "price": 0,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DEESV-DEFAULT-2",
+        "price": 0,
+        "stock": 73,
+        "attributes": null,
+        "id": "038b06e1-5114-429b-9a91-74ba24e398c9"
+      },
+      {
+        "sku_code": "SKU-DEESV-DEFAULT-3",
+        "price": 0,
+        "stock": 73,
+        "attributes": null,
+        "id": "000a5e3d-e290-4e6a-aff0-392fbd8ed260"
+      },
+      {
+        "sku_code": "SKU-DEESV-DEFAULT-4",
+        "price": 0,
+        "stock": 73,
+        "attributes": null,
+        "id": "37548644-a647-4d83-9d69-787444204f89"
       }
     ],
     "brand": "TRONICA",
@@ -3703,6 +5593,27 @@
         "price": 0,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5SDPD-DEFAULT-2",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "b2f001c9-039a-47fd-ab21-d477049c5b1a"
+      },
+      {
+        "sku_code": "SKU-5SDPD-DEFAULT-3",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "a222cf2f-a907-4278-ba0b-1e93487e84db"
+      },
+      {
+        "sku_code": "SKU-5SDPD-DEFAULT-4",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "5a36220f-1d02-47aa-9497-03ebc6c70656"
       }
     ],
     "brand": "Drunkers",
@@ -3748,6 +5659,27 @@
         "price": 0,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IA5IM-DEFAULT-2",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "6fb06988-e67b-4aec-b59a-d82e458219f9"
+      },
+      {
+        "sku_code": "SKU-IA5IM-DEFAULT-3",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "0a2aa493-cd12-4ec0-8f3c-2fca072e13a8"
+      },
+      {
+        "sku_code": "SKU-IA5IM-DEFAULT-4",
+        "price": 0,
+        "stock": 23,
+        "attributes": null,
+        "id": "7602daa9-a48e-4402-ac53-783fb733dd2f"
       }
     ],
     "brand": "TRONICA",
@@ -3793,6 +5725,27 @@
         "price": 0,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BRDA8-DEFAULT-2",
+        "price": 0,
+        "stock": 56,
+        "attributes": null,
+        "id": "94ba1575-62a2-41e1-9f45-4da7c7d7fefb"
+      },
+      {
+        "sku_code": "SKU-BRDA8-DEFAULT-3",
+        "price": 0,
+        "stock": 56,
+        "attributes": null,
+        "id": "df42b0c6-73f9-42d6-add0-1f71baf91a9b"
+      },
+      {
+        "sku_code": "SKU-BRDA8-DEFAULT-4",
+        "price": 0,
+        "stock": 56,
+        "attributes": null,
+        "id": "feff4932-ddad-4709-94db-c05f5ad6e294"
       }
     ],
     "brand": "Tech-lobby",
@@ -3834,6 +5787,27 @@
         "price": 0,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M9E1R-DEFAULT-2",
+        "price": 0,
+        "stock": 16,
+        "attributes": null,
+        "id": "f6a026b7-ac8c-4861-8e0a-b2cf63d39de9"
+      },
+      {
+        "sku_code": "SKU-M9E1R-DEFAULT-3",
+        "price": 0,
+        "stock": 16,
+        "attributes": null,
+        "id": "9d557a66-33bd-411b-9af8-6fa24ff20dca"
+      },
+      {
+        "sku_code": "SKU-M9E1R-DEFAULT-4",
+        "price": 0,
+        "stock": 16,
+        "attributes": null,
+        "id": "841ae795-11b7-47ec-88a1-fa391610871b"
       }
     ],
     "brand": "NYLSA",
@@ -3875,6 +5849,27 @@
         "price": 0,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XGGFN-DEFAULT-2",
+        "price": 0,
+        "stock": 37,
+        "attributes": null,
+        "id": "4b8ba82a-116a-45c8-ab36-a315404ae8ed"
+      },
+      {
+        "sku_code": "SKU-XGGFN-DEFAULT-3",
+        "price": 0,
+        "stock": 37,
+        "attributes": null,
+        "id": "7ebeb4dd-082f-4efa-ac87-24520fbdb8c3"
+      },
+      {
+        "sku_code": "SKU-XGGFN-DEFAULT-4",
+        "price": 0,
+        "stock": 37,
+        "attributes": null,
+        "id": "8bff5c7c-1e1e-42bc-b381-82ee794ba398"
       }
     ],
     "brand": "Shayaan",
@@ -3916,6 +5911,27 @@
         "price": 0,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EOGN0-DEFAULT-2",
+        "price": 0,
+        "stock": 82,
+        "attributes": null,
+        "id": "d3ad6501-e910-43de-9f6c-68defd79e937"
+      },
+      {
+        "sku_code": "SKU-EOGN0-DEFAULT-3",
+        "price": 0,
+        "stock": 82,
+        "attributes": null,
+        "id": "35f9d4cb-8c59-4f9f-a560-cb75f2e056a3"
+      },
+      {
+        "sku_code": "SKU-EOGN0-DEFAULT-4",
+        "price": 0,
+        "stock": 82,
+        "attributes": null,
+        "id": "dc883d9d-33ee-4e58-b491-5f335b5bd1c3"
       }
     ],
     "brand": "Krisons",
@@ -3953,6 +5969,27 @@
         "price": 0,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FB6W1-DEFAULT-2",
+        "price": 0,
+        "stock": 18,
+        "attributes": null,
+        "id": "536327a3-0b8c-464b-909b-5f049a698f76"
+      },
+      {
+        "sku_code": "SKU-FB6W1-DEFAULT-3",
+        "price": 0,
+        "stock": 18,
+        "attributes": null,
+        "id": "3fe6a9c5-54d5-4d28-89a7-98d3281395c5"
+      },
+      {
+        "sku_code": "SKU-FB6W1-DEFAULT-4",
+        "price": 0,
+        "stock": 18,
+        "attributes": null,
+        "id": "1d40620e-8c7b-478e-a565-5b4851941439"
       }
     ],
     "brand": "NYLSA",
@@ -3994,6 +6031,27 @@
         "price": 764700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M499A-DEFAULT-2",
+        "price": 764700,
+        "stock": 18,
+        "attributes": null,
+        "id": "9820fa38-40e6-43d7-b71e-a7440eb53e8c"
+      },
+      {
+        "sku_code": "SKU-M499A-DEFAULT-3",
+        "price": 764700,
+        "stock": 18,
+        "attributes": null,
+        "id": "72c71c63-d2a7-42f8-947d-31dc3e7ea4f4"
+      },
+      {
+        "sku_code": "SKU-M499A-DEFAULT-4",
+        "price": 764700,
+        "stock": 18,
+        "attributes": null,
+        "id": "01bccf18-08fa-4478-acca-af42ae623f59"
       }
     ],
     "brand": "NYLSA",
@@ -4031,6 +6089,27 @@
         "price": 0,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-APVZ0-DEFAULT-2",
+        "price": 0,
+        "stock": 82,
+        "attributes": null,
+        "id": "6efbea46-c594-473a-b2b1-920f03292ce6"
+      },
+      {
+        "sku_code": "SKU-APVZ0-DEFAULT-3",
+        "price": 0,
+        "stock": 82,
+        "attributes": null,
+        "id": "83489f73-8b33-4999-923e-3f6af97aa0e0"
+      },
+      {
+        "sku_code": "SKU-APVZ0-DEFAULT-4",
+        "price": 0,
+        "stock": 82,
+        "attributes": null,
+        "id": "f4f90245-9bcb-4273-9e91-4668859b89a7"
       }
     ],
     "brand": "BRIVIN",
@@ -4076,6 +6155,27 @@
         "price": 0,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EI5B5-DEFAULT-2",
+        "price": 0,
+        "stock": 32,
+        "attributes": null,
+        "id": "262ff1a9-c4c6-4821-bdfe-36a9c973b65e"
+      },
+      {
+        "sku_code": "SKU-EI5B5-DEFAULT-3",
+        "price": 0,
+        "stock": 32,
+        "attributes": null,
+        "id": "ad7c50b4-9476-46a7-95a0-496c889e9cf1"
+      },
+      {
+        "sku_code": "SKU-EI5B5-DEFAULT-4",
+        "price": 0,
+        "stock": 32,
+        "attributes": null,
+        "id": "781b745b-aa31-417d-ab61-731272908799"
       }
     ],
     "brand": "FLAWISH",

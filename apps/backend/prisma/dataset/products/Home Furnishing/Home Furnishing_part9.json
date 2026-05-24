@@ -22,6 +22,27 @@
         "price": 23700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HMDIL-DEFAULT-2",
+        "price": 23700,
+        "stock": 10,
+        "attributes": null,
+        "id": "eec52382-4245-498d-ab52-c5243721f7ed"
+      },
+      {
+        "sku_code": "SKU-HMDIL-DEFAULT-3",
+        "price": 23700,
+        "stock": 10,
+        "attributes": null,
+        "id": "93605c3e-d62e-4829-96e3-e0b962bd5302"
+      },
+      {
+        "sku_code": "SKU-HMDIL-DEFAULT-4",
+        "price": 23700,
+        "stock": 10,
+        "attributes": null,
+        "id": "8cc58ce0-2a6c-4fd6-b56c-441634152216"
       }
     ],
     "brand": "RD",
@@ -63,6 +84,27 @@
         "price": 461700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-59NCV-DEFAULT-2",
+        "price": 461700,
+        "stock": 12,
+        "attributes": null,
+        "id": "dd3a1c52-e682-49bd-b438-f3d9ea081994"
+      },
+      {
+        "sku_code": "SKU-59NCV-DEFAULT-3",
+        "price": 461700,
+        "stock": 12,
+        "attributes": null,
+        "id": "8258c6ea-cfbf-4e24-b3dc-deb48bd426b3"
+      },
+      {
+        "sku_code": "SKU-59NCV-DEFAULT-4",
+        "price": 461700,
+        "stock": 12,
+        "attributes": null,
+        "id": "ed46e0d3-790a-4aff-8e66-2835cc80396f"
       }
     ],
     "brand": "Heart",
@@ -108,6 +150,27 @@
         "price": 89700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7Z3JA-DEFAULT-2",
+        "price": 89700,
+        "stock": 43,
+        "attributes": null,
+        "id": "acb3357a-c298-4e8a-871c-c67eec077f1e"
+      },
+      {
+        "sku_code": "SKU-7Z3JA-DEFAULT-3",
+        "price": 89700,
+        "stock": 43,
+        "attributes": null,
+        "id": "820c3627-d69e-462b-9523-0b9a18969e16"
+      },
+      {
+        "sku_code": "SKU-7Z3JA-DEFAULT-4",
+        "price": 89700,
+        "stock": 43,
+        "attributes": null,
+        "id": "97b67cef-15c3-4582-aca7-a82e7fb2d973"
       }
     ],
     "brand": "PINK",
@@ -153,6 +216,27 @@
         "price": 209700,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9ZM0V-DEFAULT-2",
+        "price": 209700,
+        "stock": 15,
+        "attributes": null,
+        "id": "05b115ee-5a8b-4feb-89de-9b45a82619aa"
+      },
+      {
+        "sku_code": "SKU-9ZM0V-DEFAULT-3",
+        "price": 209700,
+        "stock": 15,
+        "attributes": null,
+        "id": "441e45b7-283c-4d9f-a090-4bfec0b8f6c7"
+      },
+      {
+        "sku_code": "SKU-9ZM0V-DEFAULT-4",
+        "price": 209700,
+        "stock": 15,
+        "attributes": null,
+        "id": "802a3442-4c30-4a4b-bc15-1fa627b19697"
       }
     ],
     "brand": "Lenovo",
@@ -198,6 +282,27 @@
         "price": 188700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XW9S9-DEFAULT-2",
+        "price": 188700,
+        "stock": 66,
+        "attributes": null,
+        "id": "54bf2844-24cc-419f-a90e-fddaf8aada43"
+      },
+      {
+        "sku_code": "SKU-XW9S9-DEFAULT-3",
+        "price": 188700,
+        "stock": 66,
+        "attributes": null,
+        "id": "c8cc40f4-2926-464a-98cb-cd92c52b705d"
+      },
+      {
+        "sku_code": "SKU-XW9S9-DEFAULT-4",
+        "price": 188700,
+        "stock": 66,
+        "attributes": null,
+        "id": "8a3b7eaa-9e00-4a61-8848-0df58ae98c4d"
       }
     ],
     "brand": "Heart",
@@ -235,6 +340,27 @@
         "price": 95700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4LV9I-DEFAULT-2",
+        "price": 95700,
+        "stock": 97,
+        "attributes": null,
+        "id": "dc303f1b-370b-4011-9f51-3b64473e97a0"
+      },
+      {
+        "sku_code": "SKU-4LV9I-DEFAULT-3",
+        "price": 95700,
+        "stock": 97,
+        "attributes": null,
+        "id": "606e5411-5c9d-4afc-a965-83232581ad7d"
+      },
+      {
+        "sku_code": "SKU-4LV9I-DEFAULT-4",
+        "price": 95700,
+        "stock": 97,
+        "attributes": null,
+        "id": "6e1e99a3-538d-460e-b4ee-66b7d5fbccac"
       }
     ],
     "brand": "JY",
@@ -272,6 +398,27 @@
         "price": 78000,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MC2WM-DEFAULT-2",
+        "price": 78000,
+        "stock": 37,
+        "attributes": null,
+        "id": "82d70a7b-bf67-47db-9e8b-9811a0f35ef3"
+      },
+      {
+        "sku_code": "SKU-MC2WM-DEFAULT-3",
+        "price": 78000,
+        "stock": 37,
+        "attributes": null,
+        "id": "022439cf-7353-4415-95d8-3feab1cb9766"
+      },
+      {
+        "sku_code": "SKU-MC2WM-DEFAULT-4",
+        "price": 78000,
+        "stock": 37,
+        "attributes": null,
+        "id": "905eaa5b-d922-42cf-8698-d64db74422c8"
       }
     ],
     "brand": "RANGBHAR",
@@ -313,6 +460,27 @@
         "price": 509700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AU31W-DEFAULT-2",
+        "price": 509700,
+        "stock": 85,
+        "attributes": null,
+        "id": "629c9b59-78f5-4d03-908f-9c2cf5d13152"
+      },
+      {
+        "sku_code": "SKU-AU31W-DEFAULT-3",
+        "price": 509700,
+        "stock": 85,
+        "attributes": null,
+        "id": "1f896dc9-5cba-48fe-bba4-86ecc683627e"
+      },
+      {
+        "sku_code": "SKU-AU31W-DEFAULT-4",
+        "price": 509700,
+        "stock": 85,
+        "attributes": null,
+        "id": "d4f1f91d-decb-430b-b41b-848c3097a7d3"
       }
     ],
     "brand": "PINK",
@@ -358,6 +526,27 @@
         "price": 89700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1J932-DEFAULT-2",
+        "price": 89700,
+        "stock": 49,
+        "attributes": null,
+        "id": "239bc185-e4be-401b-8191-807881e673f2"
+      },
+      {
+        "sku_code": "SKU-1J932-DEFAULT-3",
+        "price": 89700,
+        "stock": 49,
+        "attributes": null,
+        "id": "1db735b4-8777-4959-ae47-e3562186f2d8"
+      },
+      {
+        "sku_code": "SKU-1J932-DEFAULT-4",
+        "price": 89700,
+        "stock": 49,
+        "attributes": null,
+        "id": "cdbc149c-4b40-4281-85e9-69206acc9645"
       }
     ],
     "brand": "Amazon",
@@ -399,6 +588,27 @@
         "price": 308700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VTPQ8-DEFAULT-2",
+        "price": 308700,
+        "stock": 41,
+        "attributes": null,
+        "id": "8f2c13f0-5963-4b4a-be81-dfc229bf8970"
+      },
+      {
+        "sku_code": "SKU-VTPQ8-DEFAULT-3",
+        "price": 308700,
+        "stock": 41,
+        "attributes": null,
+        "id": "11537706-8c2b-4044-9e6a-c8ae23549542"
+      },
+      {
+        "sku_code": "SKU-VTPQ8-DEFAULT-4",
+        "price": 308700,
+        "stock": 41,
+        "attributes": null,
+        "id": "e0525ddb-4549-4ad6-b940-cb748049a827"
       }
     ],
     "brand": "Heart",
@@ -436,6 +646,27 @@
         "price": 374700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TQLBZ-DEFAULT-2",
+        "price": 374700,
+        "stock": 54,
+        "attributes": null,
+        "id": "88634464-cc1e-4997-87c1-4b946531212b"
+      },
+      {
+        "sku_code": "SKU-TQLBZ-DEFAULT-3",
+        "price": 374700,
+        "stock": 54,
+        "attributes": null,
+        "id": "5dd34114-6e4b-4031-bf2e-aaad3556b2cf"
+      },
+      {
+        "sku_code": "SKU-TQLBZ-DEFAULT-4",
+        "price": 374700,
+        "stock": 54,
+        "attributes": null,
+        "id": "17dbb780-4bc5-405d-8f44-cb19440f4e3a"
       }
     ],
     "brand": "Kuber",
@@ -481,6 +712,27 @@
         "price": 92400,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7FQDV-DEFAULT-2",
+        "price": 92400,
+        "stock": 99,
+        "attributes": null,
+        "id": "6fb26059-b601-40af-865a-4c64bc639bc5"
+      },
+      {
+        "sku_code": "SKU-7FQDV-DEFAULT-3",
+        "price": 92400,
+        "stock": 99,
+        "attributes": null,
+        "id": "c53e03af-3b3f-4221-ba65-0e9e818d4c34"
+      },
+      {
+        "sku_code": "SKU-7FQDV-DEFAULT-4",
+        "price": 92400,
+        "stock": 99,
+        "attributes": null,
+        "id": "5f035840-dfd2-47ed-9aab-d4730e4f0d93"
       }
     ],
     "brand": "Asus",
@@ -522,6 +774,27 @@
         "price": 101700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YUINL-DEFAULT-2",
+        "price": 101700,
+        "stock": 24,
+        "attributes": null,
+        "id": "a2e48206-a0fa-4db4-be3e-eb6a6bf4113e"
+      },
+      {
+        "sku_code": "SKU-YUINL-DEFAULT-3",
+        "price": 101700,
+        "stock": 24,
+        "attributes": null,
+        "id": "6941448e-e7b2-4b24-84a6-333913bc312b"
+      },
+      {
+        "sku_code": "SKU-YUINL-DEFAULT-4",
+        "price": 101700,
+        "stock": 24,
+        "attributes": null,
+        "id": "ebcacf18-fa3d-4fb5-9019-f40dd088a6bb"
       }
     ],
     "brand": "RANGBHAR",
@@ -559,6 +832,27 @@
         "price": 89700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N4PC9-DEFAULT-2",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "19ea3031-a290-480b-a54f-9efb3ddeef26"
+      },
+      {
+        "sku_code": "SKU-N4PC9-DEFAULT-3",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "67166169-c20b-4df0-89c4-f5245faf5501"
+      },
+      {
+        "sku_code": "SKU-N4PC9-DEFAULT-4",
+        "price": 89700,
+        "stock": 27,
+        "attributes": null,
+        "id": "a62fff16-b6d8-4fb0-b4a6-f137872f650f"
       }
     ],
     "brand": "Kuber",
@@ -596,6 +890,27 @@
         "price": 164700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G1U38-DEFAULT-2",
+        "price": 164700,
+        "stock": 16,
+        "attributes": null,
+        "id": "1c0180aa-8986-4c61-8602-70558d8bdb28"
+      },
+      {
+        "sku_code": "SKU-G1U38-DEFAULT-3",
+        "price": 164700,
+        "stock": 16,
+        "attributes": null,
+        "id": "524cc8ea-b382-49a3-8e80-cc1c5b5eb5db"
+      },
+      {
+        "sku_code": "SKU-G1U38-DEFAULT-4",
+        "price": 164700,
+        "stock": 16,
+        "attributes": null,
+        "id": "cd10eaed-6171-4437-af16-40db4ef80c00"
       }
     ],
     "brand": "IKEA",
@@ -641,6 +956,27 @@
         "price": 104700,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S5ILM-DEFAULT-2",
+        "price": 104700,
+        "stock": 42,
+        "attributes": null,
+        "id": "70e3e05c-5348-4e78-a3f3-ce199730bb5b"
+      },
+      {
+        "sku_code": "SKU-S5ILM-DEFAULT-3",
+        "price": 104700,
+        "stock": 42,
+        "attributes": null,
+        "id": "799d8682-74f1-43da-b784-32228048fb57"
+      },
+      {
+        "sku_code": "SKU-S5ILM-DEFAULT-4",
+        "price": 104700,
+        "stock": 42,
+        "attributes": null,
+        "id": "4ecdb414-9b2e-46bb-8da7-58b87bf25b61"
       }
     ],
     "brand": "Heart",
@@ -682,6 +1018,27 @@
         "price": 98700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1V9W0-DEFAULT-2",
+        "price": 98700,
+        "stock": 19,
+        "attributes": null,
+        "id": "813b8c69-1c87-48d1-95ed-eebc1e39f050"
+      },
+      {
+        "sku_code": "SKU-1V9W0-DEFAULT-3",
+        "price": 98700,
+        "stock": 19,
+        "attributes": null,
+        "id": "b2406185-9a15-4c34-b8d6-59a185ddd6ab"
+      },
+      {
+        "sku_code": "SKU-1V9W0-DEFAULT-4",
+        "price": 98700,
+        "stock": 19,
+        "attributes": null,
+        "id": "f2afa406-1dd8-4b24-a2e0-430d2f474b80"
       }
     ],
     "brand": "BLOCKS",
@@ -727,6 +1084,27 @@
         "price": 55500,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OK818-DEFAULT-2",
+        "price": 55500,
+        "stock": 18,
+        "attributes": null,
+        "id": "a017109d-8fa4-49dd-ab8f-60b890da64c5"
+      },
+      {
+        "sku_code": "SKU-OK818-DEFAULT-3",
+        "price": 55500,
+        "stock": 18,
+        "attributes": null,
+        "id": "6bfce8cc-ded0-4270-b5e6-675534b455dd"
+      },
+      {
+        "sku_code": "SKU-OK818-DEFAULT-4",
+        "price": 55500,
+        "stock": 18,
+        "attributes": null,
+        "id": "cd7fdb6b-351f-4d26-a3cb-567f5d13e33a"
       }
     ],
     "brand": "Heart",
@@ -772,6 +1150,27 @@
         "price": 299700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y0SFK-DEFAULT-2",
+        "price": 299700,
+        "stock": 108,
+        "attributes": null,
+        "id": "dafdfe9a-2f48-4622-a4b9-68587f840691"
+      },
+      {
+        "sku_code": "SKU-Y0SFK-DEFAULT-3",
+        "price": 299700,
+        "stock": 108,
+        "attributes": null,
+        "id": "ea14496d-9ac5-4a47-a4de-2ad4750d6d2b"
+      },
+      {
+        "sku_code": "SKU-Y0SFK-DEFAULT-4",
+        "price": 299700,
+        "stock": 108,
+        "attributes": null,
+        "id": "c445c6e1-0cab-4efc-9113-41026e72ceb2"
       }
     ],
     "brand": "Trance",
@@ -813,6 +1212,27 @@
         "price": 101400,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-58ZFA-DEFAULT-2",
+        "price": 101400,
+        "stock": 33,
+        "attributes": null,
+        "id": "cdc3ea9c-47d5-427b-9025-16e9d7129ab5"
+      },
+      {
+        "sku_code": "SKU-58ZFA-DEFAULT-3",
+        "price": 101400,
+        "stock": 33,
+        "attributes": null,
+        "id": "e80e981a-1a3c-49b2-8f80-9a965658fcea"
+      },
+      {
+        "sku_code": "SKU-58ZFA-DEFAULT-4",
+        "price": 101400,
+        "stock": 33,
+        "attributes": null,
+        "id": "418090c4-e794-4b58-bdaf-c45d297dd04f"
       }
     ],
     "brand": "RD",
@@ -858,6 +1278,27 @@
         "price": 149700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W190Q-DEFAULT-2",
+        "price": 149700,
+        "stock": 103,
+        "attributes": null,
+        "id": "899a7472-9378-4c1c-a0a7-67e0bb7e9b1a"
+      },
+      {
+        "sku_code": "SKU-W190Q-DEFAULT-3",
+        "price": 149700,
+        "stock": 103,
+        "attributes": null,
+        "id": "9d219b56-9465-4f4a-a34f-6c960f66808f"
+      },
+      {
+        "sku_code": "SKU-W190Q-DEFAULT-4",
+        "price": 149700,
+        "stock": 103,
+        "attributes": null,
+        "id": "cfcf0e9d-af93-45c6-b018-66fef1d98380"
       }
     ],
     "brand": "PINK",
@@ -895,6 +1336,27 @@
         "price": 119700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9FJOL-DEFAULT-2",
+        "price": 119700,
+        "stock": 91,
+        "attributes": null,
+        "id": "506df26b-dec0-4257-bdcb-fa9e42328ec1"
+      },
+      {
+        "sku_code": "SKU-9FJOL-DEFAULT-3",
+        "price": 119700,
+        "stock": 91,
+        "attributes": null,
+        "id": "49144c06-2a96-42cd-9f39-d6248f32cc33"
+      },
+      {
+        "sku_code": "SKU-9FJOL-DEFAULT-4",
+        "price": 119700,
+        "stock": 91,
+        "attributes": null,
+        "id": "c8f446d2-5664-4677-8c33-c853518420a7"
       }
     ],
     "brand": "Urban",
@@ -940,6 +1402,27 @@
         "price": 119700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8X30H-DEFAULT-2",
+        "price": 119700,
+        "stock": 34,
+        "attributes": null,
+        "id": "c4d9f329-fa92-4aa7-ae3d-c65406e40b64"
+      },
+      {
+        "sku_code": "SKU-8X30H-DEFAULT-3",
+        "price": 119700,
+        "stock": 34,
+        "attributes": null,
+        "id": "daca1a13-c90d-484e-930a-07f61aed00bf"
+      },
+      {
+        "sku_code": "SKU-8X30H-DEFAULT-4",
+        "price": 119700,
+        "stock": 34,
+        "attributes": null,
+        "id": "62bea7e4-654c-4777-a91b-00ed818d746f"
       }
     ],
     "brand": "Status",
@@ -985,6 +1468,27 @@
         "price": 503700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N07SY-DEFAULT-2",
+        "price": 503700,
+        "stock": 14,
+        "attributes": null,
+        "id": "6692081b-8d6c-4b3f-b94f-77da118e13e2"
+      },
+      {
+        "sku_code": "SKU-N07SY-DEFAULT-3",
+        "price": 503700,
+        "stock": 14,
+        "attributes": null,
+        "id": "cf48dd3f-47b4-4e93-9f1c-8ad3714c8cc3"
+      },
+      {
+        "sku_code": "SKU-N07SY-DEFAULT-4",
+        "price": 503700,
+        "stock": 14,
+        "attributes": null,
+        "id": "a6ec8a45-9c8a-40f3-8883-fdca7bc93834"
       }
     ],
     "brand": "RD",
@@ -1026,6 +1530,27 @@
         "price": 209700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6Q97T-DEFAULT-2",
+        "price": 209700,
+        "stock": 73,
+        "attributes": null,
+        "id": "8da25cde-352f-4290-81ac-45317d4e963f"
+      },
+      {
+        "sku_code": "SKU-6Q97T-DEFAULT-3",
+        "price": 209700,
+        "stock": 73,
+        "attributes": null,
+        "id": "d028cc2d-03ef-4d62-9314-38b679131505"
+      },
+      {
+        "sku_code": "SKU-6Q97T-DEFAULT-4",
+        "price": 209700,
+        "stock": 73,
+        "attributes": null,
+        "id": "f201107c-f8c0-49f5-9ce9-101813deea48"
       }
     ],
     "brand": "Trance",
@@ -1071,6 +1596,27 @@
         "price": 95700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EPJ7J-DEFAULT-2",
+        "price": 95700,
+        "stock": 108,
+        "attributes": null,
+        "id": "60efac0b-54fb-4755-a208-1aff11089ac8"
+      },
+      {
+        "sku_code": "SKU-EPJ7J-DEFAULT-3",
+        "price": 95700,
+        "stock": 108,
+        "attributes": null,
+        "id": "38004985-051c-4ce8-8996-429690121d00"
+      },
+      {
+        "sku_code": "SKU-EPJ7J-DEFAULT-4",
+        "price": 95700,
+        "stock": 108,
+        "attributes": null,
+        "id": "3bb62371-448c-4430-b7f0-0dcfa56b3158"
       }
     ],
     "brand": "RANGBHAR",
@@ -1116,6 +1662,27 @@
         "price": 164700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-M8R23-DEFAULT-2",
+        "price": 164700,
+        "stock": 71,
+        "attributes": null,
+        "id": "f5648890-e280-48c9-a38d-9a5b8f50d375"
+      },
+      {
+        "sku_code": "SKU-M8R23-DEFAULT-3",
+        "price": 164700,
+        "stock": 71,
+        "attributes": null,
+        "id": "63cf2a4c-1e19-4bbb-85e4-24227f3eb4ff"
+      },
+      {
+        "sku_code": "SKU-M8R23-DEFAULT-4",
+        "price": 164700,
+        "stock": 71,
+        "attributes": null,
+        "id": "4d49c9e6-e370-4f41-886a-c49bf29753df"
       }
     ],
     "brand": "BSB",
@@ -1153,6 +1720,27 @@
         "price": 145500,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-COFT9-DEFAULT-2",
+        "price": 145500,
+        "stock": 30,
+        "attributes": null,
+        "id": "cd156416-2727-4fd0-bd4b-5db53df1ae70"
+      },
+      {
+        "sku_code": "SKU-COFT9-DEFAULT-3",
+        "price": 145500,
+        "stock": 30,
+        "attributes": null,
+        "id": "eab7dcc1-427d-43d1-b7ec-6f991048b796"
+      },
+      {
+        "sku_code": "SKU-COFT9-DEFAULT-4",
+        "price": 145500,
+        "stock": 30,
+        "attributes": null,
+        "id": "344ee077-81c7-473e-a5dc-02ff3f06c820"
       }
     ],
     "brand": "RANGBHAR",
@@ -1190,6 +1778,27 @@
         "price": 119700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZOBC8-DEFAULT-2",
+        "price": 119700,
+        "stock": 103,
+        "attributes": null,
+        "id": "d2a2c3e5-7a17-49e2-865c-d7056df684fe"
+      },
+      {
+        "sku_code": "SKU-ZOBC8-DEFAULT-3",
+        "price": 119700,
+        "stock": 103,
+        "attributes": null,
+        "id": "b25ffb3f-5d94-4b85-8f10-b11369423799"
+      },
+      {
+        "sku_code": "SKU-ZOBC8-DEFAULT-4",
+        "price": 119700,
+        "stock": 103,
+        "attributes": null,
+        "id": "fb749355-f2f3-4da0-b908-89ffada79b8a"
       }
     ],
     "brand": "PINK",
@@ -1235,6 +1844,27 @@
         "price": 157500,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8HWAZ-DEFAULT-2",
+        "price": 157500,
+        "stock": 63,
+        "attributes": null,
+        "id": "117ac4a8-e717-4971-a102-daef0ad5e01f"
+      },
+      {
+        "sku_code": "SKU-8HWAZ-DEFAULT-3",
+        "price": 157500,
+        "stock": 63,
+        "attributes": null,
+        "id": "fb08c578-9bc1-4ea7-ad4b-ab9a7444d77a"
+      },
+      {
+        "sku_code": "SKU-8HWAZ-DEFAULT-4",
+        "price": 157500,
+        "stock": 63,
+        "attributes": null,
+        "id": "52cbe7e2-4415-4eaa-bd2a-2d756b7f3b26"
       }
     ],
     "brand": "RD",
@@ -1276,6 +1906,27 @@
         "price": 209700,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y6LQV-DEFAULT-2",
+        "price": 209700,
+        "stock": 29,
+        "attributes": null,
+        "id": "d0456606-1fc0-4d07-aff2-da4693ab6bca"
+      },
+      {
+        "sku_code": "SKU-Y6LQV-DEFAULT-3",
+        "price": 209700,
+        "stock": 29,
+        "attributes": null,
+        "id": "ebfe73c6-f61a-4a61-b315-970df94a7b3e"
+      },
+      {
+        "sku_code": "SKU-Y6LQV-DEFAULT-4",
+        "price": 209700,
+        "stock": 29,
+        "attributes": null,
+        "id": "50a6d1a4-5695-4de4-87e2-f7ca5c49e69b"
       }
     ],
     "brand": "BSB",
@@ -1321,6 +1972,27 @@
         "price": 299700,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JWBSJ-DEFAULT-2",
+        "price": 299700,
+        "stock": 28,
+        "attributes": null,
+        "id": "323df47f-2c54-4d78-b872-7c11906c4dc8"
+      },
+      {
+        "sku_code": "SKU-JWBSJ-DEFAULT-3",
+        "price": 299700,
+        "stock": 28,
+        "attributes": null,
+        "id": "b3122d83-1909-4b29-8c12-77cff5fdbab2"
+      },
+      {
+        "sku_code": "SKU-JWBSJ-DEFAULT-4",
+        "price": 299700,
+        "stock": 28,
+        "attributes": null,
+        "id": "894df08d-c9f8-4829-a1b4-0773ec96a9cf"
       }
     ],
     "brand": "Status",
@@ -1358,6 +2030,27 @@
         "price": 329400,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2LC15-DEFAULT-2",
+        "price": 329400,
+        "stock": 21,
+        "attributes": null,
+        "id": "c9cab676-d07f-48ea-9bf0-af9f738bf51b"
+      },
+      {
+        "sku_code": "SKU-2LC15-DEFAULT-3",
+        "price": 329400,
+        "stock": 21,
+        "attributes": null,
+        "id": "8432d2fc-f36a-4e68-a3f9-ac970d7be2a8"
+      },
+      {
+        "sku_code": "SKU-2LC15-DEFAULT-4",
+        "price": 329400,
+        "stock": 21,
+        "attributes": null,
+        "id": "19fb0365-fc25-4b13-b44a-956d8f2c9bf4"
       }
     ],
     "brand": "HOKIPO",
@@ -1399,6 +2092,27 @@
         "price": 144000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-68FIH-DEFAULT-2",
+        "price": 144000,
+        "stock": 108,
+        "attributes": null,
+        "id": "3c10cd41-d9f4-4b0e-b31f-d508c3849b16"
+      },
+      {
+        "sku_code": "SKU-68FIH-DEFAULT-3",
+        "price": 144000,
+        "stock": 108,
+        "attributes": null,
+        "id": "ff1d50f7-e0b1-463f-aec8-b1899ca03c76"
+      },
+      {
+        "sku_code": "SKU-68FIH-DEFAULT-4",
+        "price": 144000,
+        "stock": 108,
+        "attributes": null,
+        "id": "38021ab1-790c-445f-b9da-eaec219a5f19"
       }
     ],
     "brand": "Kuber",
@@ -1440,6 +2154,27 @@
         "price": 269700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SHX6N-DEFAULT-2",
+        "price": 269700,
+        "stock": 85,
+        "attributes": null,
+        "id": "bd573f45-adb8-48f9-b624-0a5d6a2ed667"
+      },
+      {
+        "sku_code": "SKU-SHX6N-DEFAULT-3",
+        "price": 269700,
+        "stock": 85,
+        "attributes": null,
+        "id": "cc6d7218-6797-499f-89e7-ef632791b19e"
+      },
+      {
+        "sku_code": "SKU-SHX6N-DEFAULT-4",
+        "price": 269700,
+        "stock": 85,
+        "attributes": null,
+        "id": "6b5f8fe9-d1f8-49d1-bdba-40b32f341256"
       }
     ],
     "brand": "Amazon",
@@ -1477,6 +2212,27 @@
         "price": 272700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2YHDG-DEFAULT-2",
+        "price": 272700,
+        "stock": 54,
+        "attributes": null,
+        "id": "354fc9b7-3ba1-4e8f-95b4-6a82e79668bc"
+      },
+      {
+        "sku_code": "SKU-2YHDG-DEFAULT-3",
+        "price": 272700,
+        "stock": 54,
+        "attributes": null,
+        "id": "d8ac0d3a-9b37-426d-97f6-f797ddcd99fb"
+      },
+      {
+        "sku_code": "SKU-2YHDG-DEFAULT-4",
+        "price": 272700,
+        "stock": 54,
+        "attributes": null,
+        "id": "b9e2c323-a2e0-43aa-bf0c-a4a0f2be5417"
       }
     ],
     "brand": "RANGBHAR",
@@ -1522,6 +2278,27 @@
         "price": 119100,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5S5CI-DEFAULT-2",
+        "price": 119100,
+        "stock": 105,
+        "attributes": null,
+        "id": "d1ed8360-e06e-4315-91d1-eda3ce47e677"
+      },
+      {
+        "sku_code": "SKU-5S5CI-DEFAULT-3",
+        "price": 119100,
+        "stock": 105,
+        "attributes": null,
+        "id": "854aa4a9-8632-4fea-9fd2-b52b50bd6a78"
+      },
+      {
+        "sku_code": "SKU-5S5CI-DEFAULT-4",
+        "price": 119100,
+        "stock": 105,
+        "attributes": null,
+        "id": "85b3be8d-d196-48bc-b972-2186d9ed4341"
       }
     ],
     "brand": "HOKIPO",
@@ -1563,6 +2340,27 @@
         "price": 50700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XFT6O-DEFAULT-2",
+        "price": 50700,
+        "stock": 61,
+        "attributes": null,
+        "id": "33d76f67-e6d2-4cb6-9ba4-6791447551fe"
+      },
+      {
+        "sku_code": "SKU-XFT6O-DEFAULT-3",
+        "price": 50700,
+        "stock": 61,
+        "attributes": null,
+        "id": "245717f9-8f94-43aa-901f-5876dd7a4dcf"
+      },
+      {
+        "sku_code": "SKU-XFT6O-DEFAULT-4",
+        "price": 50700,
+        "stock": 61,
+        "attributes": null,
+        "id": "77407242-e935-4d1d-a542-cb77c735fe79"
       }
     ],
     "brand": "Home",
@@ -1600,6 +2398,27 @@
         "price": 105000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5REMF-DEFAULT-2",
+        "price": 105000,
+        "stock": 108,
+        "attributes": null,
+        "id": "abefa465-0fb6-4d5f-998c-0715b7dfab01"
+      },
+      {
+        "sku_code": "SKU-5REMF-DEFAULT-3",
+        "price": 105000,
+        "stock": 108,
+        "attributes": null,
+        "id": "6cbfeeb6-0ed7-479a-9fa4-aa813dd9d28a"
+      },
+      {
+        "sku_code": "SKU-5REMF-DEFAULT-4",
+        "price": 105000,
+        "stock": 108,
+        "attributes": null,
+        "id": "0217c1ec-e43f-4aa3-98ef-54455b42a0bf"
       }
     ],
     "brand": "Yellow",
@@ -1641,6 +2460,27 @@
         "price": 269700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IY6HM-DEFAULT-2",
+        "price": 269700,
+        "stock": 99,
+        "attributes": null,
+        "id": "90d09cc4-66a3-4171-beee-251c21acf2fd"
+      },
+      {
+        "sku_code": "SKU-IY6HM-DEFAULT-3",
+        "price": 269700,
+        "stock": 99,
+        "attributes": null,
+        "id": "cfb6966d-1a59-4c92-b6c0-56b672ce49a9"
+      },
+      {
+        "sku_code": "SKU-IY6HM-DEFAULT-4",
+        "price": 269700,
+        "stock": 99,
+        "attributes": null,
+        "id": "1ea319eb-4753-4bd2-8822-f53ae094e3d6"
       }
     ],
     "brand": "Home",
@@ -1686,6 +2526,27 @@
         "price": 119700,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YAEN5-DEFAULT-2",
+        "price": 119700,
+        "stock": 42,
+        "attributes": null,
+        "id": "d9823ae2-cde4-4b7b-bf7a-5161cd89678e"
+      },
+      {
+        "sku_code": "SKU-YAEN5-DEFAULT-3",
+        "price": 119700,
+        "stock": 42,
+        "attributes": null,
+        "id": "bc4279e3-c5c7-415d-8625-542094436055"
+      },
+      {
+        "sku_code": "SKU-YAEN5-DEFAULT-4",
+        "price": 119700,
+        "stock": 42,
+        "attributes": null,
+        "id": "df4f27a2-aea3-4478-b838-db4d947ed150"
       }
     ],
     "brand": "Status",
@@ -1723,6 +2584,27 @@
         "price": 89700,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2NFF1-DEFAULT-2",
+        "price": 89700,
+        "stock": 85,
+        "attributes": null,
+        "id": "a9a6edbb-8608-4f17-b59c-4ae8d221cdcc"
+      },
+      {
+        "sku_code": "SKU-2NFF1-DEFAULT-3",
+        "price": 89700,
+        "stock": 85,
+        "attributes": null,
+        "id": "b237789e-02bf-4c8e-a271-7709ebc4fb56"
+      },
+      {
+        "sku_code": "SKU-2NFF1-DEFAULT-4",
+        "price": 89700,
+        "stock": 85,
+        "attributes": null,
+        "id": "e0219ec0-986e-4ec9-945c-6bd4a06b81b5"
       }
     ],
     "brand": "BLOCKS",
@@ -1760,6 +2642,27 @@
         "price": 370200,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XML9E-DEFAULT-2",
+        "price": 370200,
+        "stock": 56,
+        "attributes": null,
+        "id": "b758c429-97bd-482b-8e74-f4f999b6a3c3"
+      },
+      {
+        "sku_code": "SKU-XML9E-DEFAULT-3",
+        "price": 370200,
+        "stock": 56,
+        "attributes": null,
+        "id": "935da082-7e7b-41d6-b10d-c09137718cbf"
+      },
+      {
+        "sku_code": "SKU-XML9E-DEFAULT-4",
+        "price": 370200,
+        "stock": 56,
+        "attributes": null,
+        "id": "330c28ad-dc79-4ba9-a498-c849d63071aa"
       }
     ],
     "brand": "Heart",
@@ -1797,6 +2700,27 @@
         "price": 384000,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JT2QQ-DEFAULT-2",
+        "price": 384000,
+        "stock": 17,
+        "attributes": null,
+        "id": "498dfb18-0259-40db-8a23-8edb4be3704b"
+      },
+      {
+        "sku_code": "SKU-JT2QQ-DEFAULT-3",
+        "price": 384000,
+        "stock": 17,
+        "attributes": null,
+        "id": "bdd172a7-484a-4f1a-b2be-99eef29e649d"
+      },
+      {
+        "sku_code": "SKU-JT2QQ-DEFAULT-4",
+        "price": 384000,
+        "stock": 17,
+        "attributes": null,
+        "id": "6b44d4e0-abe2-4eb6-bce9-b638ec375543"
       }
     ],
     "brand": "PINK",
@@ -1842,6 +2766,27 @@
         "price": 99300,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YL5O5-DEFAULT-2",
+        "price": 99300,
+        "stock": 107,
+        "attributes": null,
+        "id": "afa7da0a-1e34-4ecb-87b3-727555ccbad0"
+      },
+      {
+        "sku_code": "SKU-YL5O5-DEFAULT-3",
+        "price": 99300,
+        "stock": 107,
+        "attributes": null,
+        "id": "b7180d61-4902-4b44-8f41-bc7d53613f6b"
+      },
+      {
+        "sku_code": "SKU-YL5O5-DEFAULT-4",
+        "price": 99300,
+        "stock": 107,
+        "attributes": null,
+        "id": "27b79fc8-39c4-4e95-9257-de46847759f1"
       }
     ],
     "brand": "Status",
@@ -1883,6 +2828,27 @@
         "price": 194700,
         "stock": 86,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1TCO4-DEFAULT-2",
+        "price": 194700,
+        "stock": 86,
+        "attributes": null,
+        "id": "c9f4775a-d59e-427b-862d-ee4f04abfe2c"
+      },
+      {
+        "sku_code": "SKU-1TCO4-DEFAULT-3",
+        "price": 194700,
+        "stock": 86,
+        "attributes": null,
+        "id": "d2901d36-5e9a-476e-97b0-92716485f0f5"
+      },
+      {
+        "sku_code": "SKU-1TCO4-DEFAULT-4",
+        "price": 194700,
+        "stock": 86,
+        "attributes": null,
+        "id": "6004d73a-b9de-4e5d-8432-0d1d7a45a522"
       }
     ],
     "brand": "Kuber",
@@ -1920,6 +2886,27 @@
         "price": 84900,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6VBM4-DEFAULT-2",
+        "price": 84900,
+        "stock": 92,
+        "attributes": null,
+        "id": "802742a4-d045-4381-b2ed-45810434515d"
+      },
+      {
+        "sku_code": "SKU-6VBM4-DEFAULT-3",
+        "price": 84900,
+        "stock": 92,
+        "attributes": null,
+        "id": "0e4a9ec8-e864-4a00-8698-31e86568fda0"
+      },
+      {
+        "sku_code": "SKU-6VBM4-DEFAULT-4",
+        "price": 84900,
+        "stock": 92,
+        "attributes": null,
+        "id": "355de1ea-37b1-4cdd-ba9c-c0949109b643"
       }
     ],
     "brand": "PINK",
@@ -1961,6 +2948,27 @@
         "price": 239700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2P4QK-DEFAULT-2",
+        "price": 239700,
+        "stock": 105,
+        "attributes": null,
+        "id": "23cc6c76-fd26-4f9c-9d87-1c6390fd17ce"
+      },
+      {
+        "sku_code": "SKU-2P4QK-DEFAULT-3",
+        "price": 239700,
+        "stock": 105,
+        "attributes": null,
+        "id": "b2826ff4-3413-4630-aacb-de7d51f545a0"
+      },
+      {
+        "sku_code": "SKU-2P4QK-DEFAULT-4",
+        "price": 239700,
+        "stock": 105,
+        "attributes": null,
+        "id": "0eafea27-dbcf-431e-851e-af1031feede5"
       }
     ],
     "brand": "BSB",
@@ -2002,6 +3010,27 @@
         "price": 134700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V83HD-DEFAULT-2",
+        "price": 134700,
+        "stock": 109,
+        "attributes": null,
+        "id": "62ee5158-9ce4-4dbc-b461-9cc553340a61"
+      },
+      {
+        "sku_code": "SKU-V83HD-DEFAULT-3",
+        "price": 134700,
+        "stock": 109,
+        "attributes": null,
+        "id": "40bba67a-6b95-476c-aeb9-acc82712f6d5"
+      },
+      {
+        "sku_code": "SKU-V83HD-DEFAULT-4",
+        "price": 134700,
+        "stock": 109,
+        "attributes": null,
+        "id": "66934982-3dc4-4483-a9aa-97c42784df4f"
       }
     ],
     "brand": "Status",
@@ -2047,6 +3076,27 @@
         "price": 101700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7FH9N-DEFAULT-2",
+        "price": 101700,
+        "stock": 81,
+        "attributes": null,
+        "id": "3183bf0c-06a9-44af-88ee-da3f10a1221c"
+      },
+      {
+        "sku_code": "SKU-7FH9N-DEFAULT-3",
+        "price": 101700,
+        "stock": 81,
+        "attributes": null,
+        "id": "1d234add-714e-4dbe-b4d5-7447e24e101e"
+      },
+      {
+        "sku_code": "SKU-7FH9N-DEFAULT-4",
+        "price": 101700,
+        "stock": 81,
+        "attributes": null,
+        "id": "ecde20f4-d5bb-4fc0-bfcb-b48326e5aea3"
       }
     ],
     "brand": "JY",
@@ -2092,6 +3142,27 @@
         "price": 234000,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D1CD0-DEFAULT-2",
+        "price": 234000,
+        "stock": 35,
+        "attributes": null,
+        "id": "3cab56fc-0464-4a5c-a372-c07684719882"
+      },
+      {
+        "sku_code": "SKU-D1CD0-DEFAULT-3",
+        "price": 234000,
+        "stock": 35,
+        "attributes": null,
+        "id": "c636405a-49bd-40a9-b2e5-1a573484df49"
+      },
+      {
+        "sku_code": "SKU-D1CD0-DEFAULT-4",
+        "price": 234000,
+        "stock": 35,
+        "attributes": null,
+        "id": "e5d604ef-7de8-4652-af64-702d770e589f"
       }
     ],
     "brand": "BLOCKS",
@@ -2137,6 +3208,27 @@
         "price": 134700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GMD44-DEFAULT-2",
+        "price": 134700,
+        "stock": 54,
+        "attributes": null,
+        "id": "cf0ff2b8-6ead-4655-9a6d-2f388bb36bb9"
+      },
+      {
+        "sku_code": "SKU-GMD44-DEFAULT-3",
+        "price": 134700,
+        "stock": 54,
+        "attributes": null,
+        "id": "7e33d7c7-970b-4c68-8b80-80d545ce550d"
+      },
+      {
+        "sku_code": "SKU-GMD44-DEFAULT-4",
+        "price": 134700,
+        "stock": 54,
+        "attributes": null,
+        "id": "25113a55-6aac-4f12-b90a-8f46954ce6ef"
       }
     ],
     "brand": "Urban",
@@ -2174,6 +3266,27 @@
         "price": 209700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W0PEB-DEFAULT-2",
+        "price": 209700,
+        "stock": 84,
+        "attributes": null,
+        "id": "3255b01c-28e4-46e9-8108-a571c1229b01"
+      },
+      {
+        "sku_code": "SKU-W0PEB-DEFAULT-3",
+        "price": 209700,
+        "stock": 84,
+        "attributes": null,
+        "id": "113f44d4-e54b-493f-ac73-b380302f3ec7"
+      },
+      {
+        "sku_code": "SKU-W0PEB-DEFAULT-4",
+        "price": 209700,
+        "stock": 84,
+        "attributes": null,
+        "id": "cb0b6058-23ec-4322-9ab5-09638a2330ec"
       }
     ],
     "brand": "Yellow",
@@ -2219,6 +3332,27 @@
         "price": 389700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JHD6D-DEFAULT-2",
+        "price": 389700,
+        "stock": 32,
+        "attributes": null,
+        "id": "03168634-812e-403a-beb5-49f22dce41d1"
+      },
+      {
+        "sku_code": "SKU-JHD6D-DEFAULT-3",
+        "price": 389700,
+        "stock": 32,
+        "attributes": null,
+        "id": "56dba46f-3a4f-454d-a3cb-9a3b06df4e3f"
+      },
+      {
+        "sku_code": "SKU-JHD6D-DEFAULT-4",
+        "price": 389700,
+        "stock": 32,
+        "attributes": null,
+        "id": "20dd6859-7c15-4e97-84a2-7af4ab4f80a4"
       }
     ],
     "brand": "Status",
@@ -2256,6 +3390,27 @@
         "price": 149700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LACRM-DEFAULT-2",
+        "price": 149700,
+        "stock": 51,
+        "attributes": null,
+        "id": "c8cff012-d82c-46aa-bc80-e511284d8522"
+      },
+      {
+        "sku_code": "SKU-LACRM-DEFAULT-3",
+        "price": 149700,
+        "stock": 51,
+        "attributes": null,
+        "id": "e9e6e076-ff09-40c6-8073-449d9d550727"
+      },
+      {
+        "sku_code": "SKU-LACRM-DEFAULT-4",
+        "price": 149700,
+        "stock": 51,
+        "attributes": null,
+        "id": "41df1519-1453-4626-b9d1-c2e2569ac66a"
       }
     ],
     "brand": "Amazon",
@@ -2297,6 +3452,27 @@
         "price": 86700,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-20SIL-DEFAULT-2",
+        "price": 86700,
+        "stock": 94,
+        "attributes": null,
+        "id": "84bf9048-326d-4945-93ef-699ca03b50bb"
+      },
+      {
+        "sku_code": "SKU-20SIL-DEFAULT-3",
+        "price": 86700,
+        "stock": 94,
+        "attributes": null,
+        "id": "5f560034-152c-40c3-a0d2-571dd86ded06"
+      },
+      {
+        "sku_code": "SKU-20SIL-DEFAULT-4",
+        "price": 86700,
+        "stock": 94,
+        "attributes": null,
+        "id": "56f2c34e-5a5e-4a55-9985-4c6245caa2e2"
       }
     ],
     "brand": "Yellow",
@@ -2338,6 +3514,27 @@
         "price": 89700,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WOISZ-DEFAULT-2",
+        "price": 89700,
+        "stock": 82,
+        "attributes": null,
+        "id": "a4a7617a-78a0-4373-ad6d-6c17d14135df"
+      },
+      {
+        "sku_code": "SKU-WOISZ-DEFAULT-3",
+        "price": 89700,
+        "stock": 82,
+        "attributes": null,
+        "id": "55a9ddb3-652a-4084-b6ec-92d2da06841d"
+      },
+      {
+        "sku_code": "SKU-WOISZ-DEFAULT-4",
+        "price": 89700,
+        "stock": 82,
+        "attributes": null,
+        "id": "d5913bcc-d754-45c2-9b85-6bd45d405884"
       }
     ],
     "brand": "Heart",
@@ -2383,6 +3580,27 @@
         "price": 53700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DED63-DEFAULT-2",
+        "price": 53700,
+        "stock": 98,
+        "attributes": null,
+        "id": "4d40b0fe-42b7-40bc-8ea5-bd31ded174c1"
+      },
+      {
+        "sku_code": "SKU-DED63-DEFAULT-3",
+        "price": 53700,
+        "stock": 98,
+        "attributes": null,
+        "id": "f72a1056-ed38-4b56-9eb7-1ced7b5cc66c"
+      },
+      {
+        "sku_code": "SKU-DED63-DEFAULT-4",
+        "price": 53700,
+        "stock": 98,
+        "attributes": null,
+        "id": "dc8b32d6-ebf2-47d0-8a3c-b536c2408ff7"
       }
     ],
     "brand": "PINK",
@@ -2424,6 +3642,27 @@
         "price": 944700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6KATQ-DEFAULT-2",
+        "price": 944700,
+        "stock": 67,
+        "attributes": null,
+        "id": "5d425610-ed22-410e-a921-ea638f394fda"
+      },
+      {
+        "sku_code": "SKU-6KATQ-DEFAULT-3",
+        "price": 944700,
+        "stock": 67,
+        "attributes": null,
+        "id": "2edc090e-83e6-4f0f-9502-6b1cbd49db21"
+      },
+      {
+        "sku_code": "SKU-6KATQ-DEFAULT-4",
+        "price": 944700,
+        "stock": 67,
+        "attributes": null,
+        "id": "cf582469-991d-408e-88e2-6988c85340f7"
       }
     ],
     "brand": "Trance",
@@ -2465,6 +3704,27 @@
         "price": 104700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7ZCBB-DEFAULT-2",
+        "price": 104700,
+        "stock": 24,
+        "attributes": null,
+        "id": "9804db9b-4981-4666-963f-baeba8195c49"
+      },
+      {
+        "sku_code": "SKU-7ZCBB-DEFAULT-3",
+        "price": 104700,
+        "stock": 24,
+        "attributes": null,
+        "id": "04b41489-edc9-444f-a90f-6903d8575f10"
+      },
+      {
+        "sku_code": "SKU-7ZCBB-DEFAULT-4",
+        "price": 104700,
+        "stock": 24,
+        "attributes": null,
+        "id": "30691090-0dce-4ccc-b125-cdad9da2ad4d"
       }
     ],
     "brand": "Amazon",
@@ -2510,6 +3770,27 @@
         "price": 135000,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZDBQ8-DEFAULT-2",
+        "price": 135000,
+        "stock": 108,
+        "attributes": null,
+        "id": "ce818447-6549-4c4a-9695-830128260cf7"
+      },
+      {
+        "sku_code": "SKU-ZDBQ8-DEFAULT-3",
+        "price": 135000,
+        "stock": 108,
+        "attributes": null,
+        "id": "d61f3cf3-9499-4f14-b02c-59fb58332b97"
+      },
+      {
+        "sku_code": "SKU-ZDBQ8-DEFAULT-4",
+        "price": 135000,
+        "stock": 108,
+        "attributes": null,
+        "id": "b72d6448-8c48-4577-ae64-405230bb0ab5"
       }
     ],
     "brand": "BLOCKS",
@@ -2551,6 +3832,27 @@
         "price": 146100,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PU8MA-DEFAULT-2",
+        "price": 146100,
+        "stock": 87,
+        "attributes": null,
+        "id": "4069e957-613a-4eaa-aa58-d66e95b2f006"
+      },
+      {
+        "sku_code": "SKU-PU8MA-DEFAULT-3",
+        "price": 146100,
+        "stock": 87,
+        "attributes": null,
+        "id": "a8ecb393-0f47-440b-8c70-129e09a19e2f"
+      },
+      {
+        "sku_code": "SKU-PU8MA-DEFAULT-4",
+        "price": 146100,
+        "stock": 87,
+        "attributes": null,
+        "id": "46b51561-c1ea-490f-b2df-eb5d06606cae"
       }
     ],
     "brand": "BLOCKS",
@@ -2592,6 +3894,27 @@
         "price": 158700,
         "stock": 80,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KMR5V-DEFAULT-2",
+        "price": 158700,
+        "stock": 80,
+        "attributes": null,
+        "id": "b23bed62-6027-49c9-b625-51234e07b6a0"
+      },
+      {
+        "sku_code": "SKU-KMR5V-DEFAULT-3",
+        "price": 158700,
+        "stock": 80,
+        "attributes": null,
+        "id": "2afe431c-faf6-441e-9233-8420329e4789"
+      },
+      {
+        "sku_code": "SKU-KMR5V-DEFAULT-4",
+        "price": 158700,
+        "stock": 80,
+        "attributes": null,
+        "id": "58026c5a-c296-4c1a-9767-6b0b78932fc0"
       }
     ],
     "brand": "BSB",
@@ -2633,6 +3956,27 @@
         "price": 149700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6NOFY-DEFAULT-2",
+        "price": 149700,
+        "stock": 38,
+        "attributes": null,
+        "id": "df4c5a50-7905-4b31-8a3f-65572bbb3630"
+      },
+      {
+        "sku_code": "SKU-6NOFY-DEFAULT-3",
+        "price": 149700,
+        "stock": 38,
+        "attributes": null,
+        "id": "f860b482-4b12-4162-9ef2-4530044244fe"
+      },
+      {
+        "sku_code": "SKU-6NOFY-DEFAULT-4",
+        "price": 149700,
+        "stock": 38,
+        "attributes": null,
+        "id": "d83f3d59-dc32-484d-82fa-9baa0e883022"
       }
     ],
     "brand": "Kuber",

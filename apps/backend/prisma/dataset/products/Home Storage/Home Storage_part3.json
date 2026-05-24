@@ -22,6 +22,27 @@
         "price": 59700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2SA0L-DEFAULT-2",
+        "price": 59700,
+        "stock": 44,
+        "attributes": null,
+        "id": "1f3e46f8-d516-4a94-b63e-42588a396adf"
+      },
+      {
+        "sku_code": "SKU-2SA0L-DEFAULT-3",
+        "price": 59700,
+        "stock": 44,
+        "attributes": null,
+        "id": "e4eb5a39-5697-490c-b3f5-607a01332161"
+      },
+      {
+        "sku_code": "SKU-2SA0L-DEFAULT-4",
+        "price": 59700,
+        "stock": 44,
+        "attributes": null,
+        "id": "f4eefd4b-cad5-4f91-9ffd-01569550d690"
       }
     ],
     "brand": "HP",
@@ -67,6 +88,27 @@
         "price": 68700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W36WP-DEFAULT-2",
+        "price": 68700,
+        "stock": 14,
+        "attributes": null,
+        "id": "c5584d4e-863e-411e-901b-1b65a47a0b53"
+      },
+      {
+        "sku_code": "SKU-W36WP-DEFAULT-3",
+        "price": 68700,
+        "stock": 14,
+        "attributes": null,
+        "id": "b82a64d2-92a5-4a81-90d7-603a3c2ba032"
+      },
+      {
+        "sku_code": "SKU-W36WP-DEFAULT-4",
+        "price": 68700,
+        "stock": 14,
+        "attributes": null,
+        "id": "59ec41ac-f79d-4197-abbe-1837e88e13b8"
       }
     ],
     "brand": "Ezee",
@@ -108,6 +150,27 @@
         "price": 149700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JTWV8-DEFAULT-2",
+        "price": 149700,
+        "stock": 12,
+        "attributes": null,
+        "id": "470c88ca-a040-4ed6-ad3f-a5e1c68fa606"
+      },
+      {
+        "sku_code": "SKU-JTWV8-DEFAULT-3",
+        "price": 149700,
+        "stock": 12,
+        "attributes": null,
+        "id": "97c4e44e-6226-43fa-8711-15db6219c551"
+      },
+      {
+        "sku_code": "SKU-JTWV8-DEFAULT-4",
+        "price": 149700,
+        "stock": 12,
+        "attributes": null,
+        "id": "c192a3b7-b235-4e1f-9876-9f508907a5e5"
       }
     ],
     "brand": "House",
@@ -149,6 +212,27 @@
         "price": 101400,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1CQVY-DEFAULT-2",
+        "price": 101400,
+        "stock": 68,
+        "attributes": null,
+        "id": "0363cceb-593f-4b36-bedc-5b0302614056"
+      },
+      {
+        "sku_code": "SKU-1CQVY-DEFAULT-3",
+        "price": 101400,
+        "stock": 68,
+        "attributes": null,
+        "id": "b648ac4a-3c44-489e-b724-9895b4b1e8fb"
+      },
+      {
+        "sku_code": "SKU-1CQVY-DEFAULT-4",
+        "price": 101400,
+        "stock": 68,
+        "attributes": null,
+        "id": "3fef439b-8af4-4ff6-88c3-d61e565b1a7f"
       }
     ],
     "brand": "ARISTO",
@@ -186,6 +270,27 @@
         "price": 239700,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KUEMA-DEFAULT-2",
+        "price": 239700,
+        "stock": 15,
+        "attributes": null,
+        "id": "b88a51f3-4623-4e58-968d-51ae5677f537"
+      },
+      {
+        "sku_code": "SKU-KUEMA-DEFAULT-3",
+        "price": 239700,
+        "stock": 15,
+        "attributes": null,
+        "id": "d651fb73-33a6-4bb4-bce5-cf0606afe83b"
+      },
+      {
+        "sku_code": "SKU-KUEMA-DEFAULT-4",
+        "price": 239700,
+        "stock": 15,
+        "attributes": null,
+        "id": "1405d8be-d926-4bd1-9eca-7238d1eba4c1"
       }
     ],
     "brand": "House",
@@ -227,6 +332,27 @@
         "price": 479700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E3H8L-DEFAULT-2",
+        "price": 479700,
+        "stock": 33,
+        "attributes": null,
+        "id": "7ab6c80a-c67a-4d9c-b57f-2f198b453dfb"
+      },
+      {
+        "sku_code": "SKU-E3H8L-DEFAULT-3",
+        "price": 479700,
+        "stock": 33,
+        "attributes": null,
+        "id": "214ff73f-8455-4b50-a2d8-11ce55b6cae6"
+      },
+      {
+        "sku_code": "SKU-E3H8L-DEFAULT-4",
+        "price": 479700,
+        "stock": 33,
+        "attributes": null,
+        "id": "4fe9c609-5091-48e2-bd81-5c7f1b74f13b"
       }
     ],
     "brand": "Ezee",
@@ -268,6 +394,27 @@
         "price": 89700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LWAP8-DEFAULT-2",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "a20a0062-0308-487d-8fcf-2753a7e5045f"
+      },
+      {
+        "sku_code": "SKU-LWAP8-DEFAULT-3",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "eef11c42-64ac-4d58-b2a8-60addf294c2e"
+      },
+      {
+        "sku_code": "SKU-LWAP8-DEFAULT-4",
+        "price": 89700,
+        "stock": 54,
+        "attributes": null,
+        "id": "3f48752d-45fc-4046-8100-496dbc4937d0"
       }
     ],
     "brand": "Plantex",
@@ -313,6 +460,27 @@
         "price": 119700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SHAMJ-DEFAULT-2",
+        "price": 119700,
+        "stock": 59,
+        "attributes": null,
+        "id": "e57f558a-1b8c-42e2-ab8c-97ed7221f2e2"
+      },
+      {
+        "sku_code": "SKU-SHAMJ-DEFAULT-3",
+        "price": 119700,
+        "stock": 59,
+        "attributes": null,
+        "id": "5e25c5bd-f3e7-40d8-a4f1-6adcfef52a56"
+      },
+      {
+        "sku_code": "SKU-SHAMJ-DEFAULT-4",
+        "price": 119700,
+        "stock": 59,
+        "attributes": null,
+        "id": "e4e65351-ed00-493b-929a-f08facee8193"
       }
     ],
     "brand": "ARISTO",
@@ -358,6 +526,27 @@
         "price": 173700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XS7LM-DEFAULT-2",
+        "price": 173700,
+        "stock": 87,
+        "attributes": null,
+        "id": "13a93dd9-89f2-45e7-aff5-9119ca4d4c1b"
+      },
+      {
+        "sku_code": "SKU-XS7LM-DEFAULT-3",
+        "price": 173700,
+        "stock": 87,
+        "attributes": null,
+        "id": "f5915029-895e-49d6-b0ee-95e0c0f9d7ed"
+      },
+      {
+        "sku_code": "SKU-XS7LM-DEFAULT-4",
+        "price": 173700,
+        "stock": 87,
+        "attributes": null,
+        "id": "96d099d3-9305-43d0-bf26-43b10f37c0f5"
       }
     ],
     "brand": "Samsung",
@@ -399,6 +588,27 @@
         "price": 56700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VHKSK-DEFAULT-2",
+        "price": 56700,
+        "stock": 91,
+        "attributes": null,
+        "id": "f09ef934-cda9-47cf-9281-ae0dbc2bc6e6"
+      },
+      {
+        "sku_code": "SKU-VHKSK-DEFAULT-3",
+        "price": 56700,
+        "stock": 91,
+        "attributes": null,
+        "id": "80960ef3-3d8c-46cb-8cfe-9036131a1bab"
+      },
+      {
+        "sku_code": "SKU-VHKSK-DEFAULT-4",
+        "price": 56700,
+        "stock": 91,
+        "attributes": null,
+        "id": "2a1fe0cf-7ba2-4249-98ee-921a8c97689f"
       }
     ],
     "brand": "Kuber",
@@ -485,6 +695,27 @@
         "price": 104400,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2LNQX-DEFAULT-2",
+        "price": 104400,
+        "stock": 24,
+        "attributes": null,
+        "id": "5de1110a-e4b8-4c1d-97a8-ce32d2f99206"
+      },
+      {
+        "sku_code": "SKU-2LNQX-DEFAULT-3",
+        "price": 104400,
+        "stock": 24,
+        "attributes": null,
+        "id": "30479d65-7fe6-424b-a5cd-f87da1528ed2"
+      },
+      {
+        "sku_code": "SKU-2LNQX-DEFAULT-4",
+        "price": 104400,
+        "stock": 24,
+        "attributes": null,
+        "id": "f249d9e4-a58d-4813-a61e-06f7f9fa8582"
       }
     ],
     "brand": "Samsung",
@@ -526,6 +757,27 @@
         "price": 599700,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8SYBI-DEFAULT-2",
+        "price": 599700,
+        "stock": 83,
+        "attributes": null,
+        "id": "2f3e275b-5b6e-422d-8489-287c4e68ead7"
+      },
+      {
+        "sku_code": "SKU-8SYBI-DEFAULT-3",
+        "price": 599700,
+        "stock": 83,
+        "attributes": null,
+        "id": "d2b7977f-c8f2-4e66-94c9-22f5e3886c38"
+      },
+      {
+        "sku_code": "SKU-8SYBI-DEFAULT-4",
+        "price": 599700,
+        "stock": 83,
+        "attributes": null,
+        "id": "272aced7-0ce5-4040-9adc-409544f8fdda"
       }
     ],
     "brand": "ARISTO",
@@ -567,6 +819,27 @@
         "price": 119700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R5OB5-DEFAULT-2",
+        "price": 119700,
+        "stock": 84,
+        "attributes": null,
+        "id": "df145772-272b-45c3-803b-7c52389e2747"
+      },
+      {
+        "sku_code": "SKU-R5OB5-DEFAULT-3",
+        "price": 119700,
+        "stock": 84,
+        "attributes": null,
+        "id": "b71a4acd-4764-4dcb-8630-d7a061697d26"
+      },
+      {
+        "sku_code": "SKU-R5OB5-DEFAULT-4",
+        "price": 119700,
+        "stock": 84,
+        "attributes": null,
+        "id": "09a96f3c-e8e2-4468-b359-5d8b457becf6"
       }
     ],
     "brand": "Plantex",
@@ -608,6 +881,27 @@
         "price": 89400,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ONS8G-DEFAULT-2",
+        "price": 89400,
+        "stock": 87,
+        "attributes": null,
+        "id": "16a3d66b-9abc-4c56-b2b1-4477495e961c"
+      },
+      {
+        "sku_code": "SKU-ONS8G-DEFAULT-3",
+        "price": 89400,
+        "stock": 87,
+        "attributes": null,
+        "id": "7b2a7de6-e409-47cb-ac22-2e4403ecfc8f"
+      },
+      {
+        "sku_code": "SKU-ONS8G-DEFAULT-4",
+        "price": 89400,
+        "stock": 87,
+        "attributes": null,
+        "id": "b5bcf365-1682-4395-9a11-4c22ad64f889"
       }
     ],
     "brand": "HP",
@@ -653,6 +947,27 @@
         "price": 227700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-BEGA0-DEFAULT-2",
+        "price": 227700,
+        "stock": 22,
+        "attributes": null,
+        "id": "2ee70a57-e2f2-4413-b55b-6810ae4e436b"
+      },
+      {
+        "sku_code": "SKU-BEGA0-DEFAULT-3",
+        "price": 227700,
+        "stock": 22,
+        "attributes": null,
+        "id": "7a37f7f3-fa82-4b2f-a55a-bc493dd746b0"
+      },
+      {
+        "sku_code": "SKU-BEGA0-DEFAULT-4",
+        "price": 227700,
+        "stock": 22,
+        "attributes": null,
+        "id": "6cf81a93-6ef8-48bc-bab2-c905ad6a7862"
       }
     ],
     "brand": "Ikea",
@@ -690,6 +1005,27 @@
         "price": 140700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-30DZB-DEFAULT-2",
+        "price": 140700,
+        "stock": 60,
+        "attributes": null,
+        "id": "7fcdd4e9-33d9-4ec3-8da4-46d64d7413d6"
+      },
+      {
+        "sku_code": "SKU-30DZB-DEFAULT-3",
+        "price": 140700,
+        "stock": 60,
+        "attributes": null,
+        "id": "e5b54139-5420-4d58-b35a-18b20a462a41"
+      },
+      {
+        "sku_code": "SKU-30DZB-DEFAULT-4",
+        "price": 140700,
+        "stock": 60,
+        "attributes": null,
+        "id": "93039d68-2e4a-4b16-be99-094e391b4e9b"
       }
     ],
     "brand": "HOKIPO",
@@ -727,6 +1063,27 @@
         "price": 101700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-02LYI-DEFAULT-2",
+        "price": 101700,
+        "stock": 109,
+        "attributes": null,
+        "id": "127a9eff-5b65-4194-8b48-9ad49e0fa30f"
+      },
+      {
+        "sku_code": "SKU-02LYI-DEFAULT-3",
+        "price": 101700,
+        "stock": 109,
+        "attributes": null,
+        "id": "ed8dbf42-5e0a-4241-a471-00a0d24ed1e7"
+      },
+      {
+        "sku_code": "SKU-02LYI-DEFAULT-4",
+        "price": 101700,
+        "stock": 109,
+        "attributes": null,
+        "id": "7451bafe-890f-45ea-b9a5-128e5cc71cf0"
       }
     ],
     "brand": "Heart",
@@ -771,6 +1128,27 @@
         "price": 239700,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2LT8P-DEFAULT-2",
+        "price": 239700,
+        "stock": 66,
+        "attributes": null,
+        "id": "e962c547-ddd4-4a5d-a750-d6ab69a004d3"
+      },
+      {
+        "sku_code": "SKU-2LT8P-DEFAULT-3",
+        "price": 239700,
+        "stock": 66,
+        "attributes": null,
+        "id": "33bf14dd-69aa-442b-b093-2f2af9df12b4"
+      },
+      {
+        "sku_code": "SKU-2LT8P-DEFAULT-4",
+        "price": 239700,
+        "stock": 66,
+        "attributes": null,
+        "id": "7ceef5fd-ccab-49aa-9d10-ea477c1de19f"
       }
     ],
     "brand": "Samsung",
@@ -816,6 +1194,27 @@
         "price": 119700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-89AFP-DEFAULT-2",
+        "price": 119700,
+        "stock": 33,
+        "attributes": null,
+        "id": "5236c4fd-4be5-44e9-9ee3-5f26f665b609"
+      },
+      {
+        "sku_code": "SKU-89AFP-DEFAULT-3",
+        "price": 119700,
+        "stock": 33,
+        "attributes": null,
+        "id": "9f4d2e78-4a21-40e7-91c3-c43220410f4f"
+      },
+      {
+        "sku_code": "SKU-89AFP-DEFAULT-4",
+        "price": 119700,
+        "stock": 33,
+        "attributes": null,
+        "id": "22a43e9f-ee01-45b4-b9ca-ec703f501ef5"
       }
     ],
     "brand": "Samsung",
@@ -861,6 +1260,27 @@
         "price": 140700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XZ2VS-DEFAULT-2",
+        "price": 140700,
+        "stock": 69,
+        "attributes": null,
+        "id": "b337e7c0-f971-431a-9e4b-a3f491f233d0"
+      },
+      {
+        "sku_code": "SKU-XZ2VS-DEFAULT-3",
+        "price": 140700,
+        "stock": 69,
+        "attributes": null,
+        "id": "53fe9131-8477-4b5b-bfcb-b5b2aa1e1c7c"
+      },
+      {
+        "sku_code": "SKU-XZ2VS-DEFAULT-4",
+        "price": 140700,
+        "stock": 69,
+        "attributes": null,
+        "id": "d2304fed-2ec5-4577-9124-9b272c23d128"
       }
     ],
     "brand": "Inditradition",
@@ -906,6 +1326,27 @@
         "price": 83700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RS569-DEFAULT-2",
+        "price": 83700,
+        "stock": 22,
+        "attributes": null,
+        "id": "6fd871aa-4db8-4bdd-bbf9-99ba9a9943f7"
+      },
+      {
+        "sku_code": "SKU-RS569-DEFAULT-3",
+        "price": 83700,
+        "stock": 22,
+        "attributes": null,
+        "id": "cb859e47-f721-41ff-9407-1de8552e1788"
+      },
+      {
+        "sku_code": "SKU-RS569-DEFAULT-4",
+        "price": 83700,
+        "stock": 22,
+        "attributes": null,
+        "id": "80d3e8f5-2578-4e75-b035-9f3ce8c3cc9f"
       }
     ],
     "brand": "HOKIPO",
@@ -951,6 +1392,27 @@
         "price": 38700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6KI9I-DEFAULT-2",
+        "price": 38700,
+        "stock": 10,
+        "attributes": null,
+        "id": "d5c45991-2668-4c1b-87f4-3a7653f3e2d0"
+      },
+      {
+        "sku_code": "SKU-6KI9I-DEFAULT-3",
+        "price": 38700,
+        "stock": 10,
+        "attributes": null,
+        "id": "4d7c4562-3d9a-4164-8542-5f9ce9089ee5"
+      },
+      {
+        "sku_code": "SKU-6KI9I-DEFAULT-4",
+        "price": 38700,
+        "stock": 10,
+        "attributes": null,
+        "id": "1ce277e0-fce6-45bf-8b21-51347e295bff"
       }
     ],
     "brand": "AmazonBasics",
@@ -996,6 +1458,27 @@
         "price": 128400,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W1LDE-DEFAULT-2",
+        "price": 128400,
+        "stock": 15,
+        "attributes": null,
+        "id": "fbc44e69-16dc-46c4-8a35-5ed38db9796b"
+      },
+      {
+        "sku_code": "SKU-W1LDE-DEFAULT-3",
+        "price": 128400,
+        "stock": 15,
+        "attributes": null,
+        "id": "ff78eb78-9933-4e0b-b06d-1b71ef8e61f2"
+      },
+      {
+        "sku_code": "SKU-W1LDE-DEFAULT-4",
+        "price": 128400,
+        "stock": 15,
+        "attributes": null,
+        "id": "12855a53-faf7-4aa6-8ad3-6f51bfd1e6d7"
       }
     ],
     "brand": "HOKIPO",
@@ -1033,6 +1516,27 @@
         "price": 104700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-J4DSP-DEFAULT-2",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "f52753e2-4d47-4286-9e6e-cfc7ba347452"
+      },
+      {
+        "sku_code": "SKU-J4DSP-DEFAULT-3",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "a0798501-f5f1-4a6f-a707-ccaba60120d3"
+      },
+      {
+        "sku_code": "SKU-J4DSP-DEFAULT-4",
+        "price": 104700,
+        "stock": 10,
+        "attributes": null,
+        "id": "6d908cc1-5ab9-40c5-a5ac-80480c0db5e9"
       }
     ],
     "brand": "Samsung",
@@ -1078,6 +1582,27 @@
         "price": 71700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NQ9K5-DEFAULT-2",
+        "price": 71700,
+        "stock": 73,
+        "attributes": null,
+        "id": "3217a2a4-174b-411f-8385-8d794641cc46"
+      },
+      {
+        "sku_code": "SKU-NQ9K5-DEFAULT-3",
+        "price": 71700,
+        "stock": 73,
+        "attributes": null,
+        "id": "527c7d27-47dd-40fa-b61a-6c0042484a23"
+      },
+      {
+        "sku_code": "SKU-NQ9K5-DEFAULT-4",
+        "price": 71700,
+        "stock": 73,
+        "attributes": null,
+        "id": "564a32e3-16bf-42e8-be95-2debb149b118"
       }
     ],
     "brand": "Heart",
@@ -1123,6 +1648,27 @@
         "price": 136797,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9RSPW-DEFAULT-2",
+        "price": 136797,
+        "stock": 49,
+        "attributes": null,
+        "id": "47780684-d27d-494a-a123-f2fed4844543"
+      },
+      {
+        "sku_code": "SKU-9RSPW-DEFAULT-3",
+        "price": 136797,
+        "stock": 49,
+        "attributes": null,
+        "id": "97576eaa-048c-4f82-b7a1-dc3779d5ac48"
+      },
+      {
+        "sku_code": "SKU-9RSPW-DEFAULT-4",
+        "price": 136797,
+        "stock": 49,
+        "attributes": null,
+        "id": "28d2ac81-1bbc-4371-8c5e-7eb283629de3"
       }
     ],
     "brand": "PrettyKrafts",
@@ -1160,6 +1706,27 @@
         "price": 119700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F4031-DEFAULT-2",
+        "price": 119700,
+        "stock": 34,
+        "attributes": null,
+        "id": "e5bb3bed-73eb-4146-8c40-22d9ad91bdfd"
+      },
+      {
+        "sku_code": "SKU-F4031-DEFAULT-3",
+        "price": 119700,
+        "stock": 34,
+        "attributes": null,
+        "id": "f1427b39-7b36-4894-a147-ff71e2b5948a"
+      },
+      {
+        "sku_code": "SKU-F4031-DEFAULT-4",
+        "price": 119700,
+        "stock": 34,
+        "attributes": null,
+        "id": "b3a83459-92c5-4be1-8e57-5d1005a4c52a"
       }
     ],
     "brand": "AmazonBasics",
@@ -1197,6 +1764,27 @@
         "price": 56700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IALI2-DEFAULT-2",
+        "price": 56700,
+        "stock": 89,
+        "attributes": null,
+        "id": "cdd03f2b-992f-41fe-99f9-3fb4adf14c6d"
+      },
+      {
+        "sku_code": "SKU-IALI2-DEFAULT-3",
+        "price": 56700,
+        "stock": 89,
+        "attributes": null,
+        "id": "369024bd-99d9-4b17-9e34-b911770ef93d"
+      },
+      {
+        "sku_code": "SKU-IALI2-DEFAULT-4",
+        "price": 56700,
+        "stock": 89,
+        "attributes": null,
+        "id": "520a46cb-ec6d-4823-af1a-eba343b613b6"
       }
     ],
     "brand": "ARISTO",
@@ -1238,6 +1826,27 @@
         "price": 37500,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LUVJY-DEFAULT-2",
+        "price": 37500,
+        "stock": 36,
+        "attributes": null,
+        "id": "53d864d8-ddb7-4100-90e2-41648d7ad389"
+      },
+      {
+        "sku_code": "SKU-LUVJY-DEFAULT-3",
+        "price": 37500,
+        "stock": 36,
+        "attributes": null,
+        "id": "a3cf3da3-7cda-420c-86c2-a84ed6705ea9"
+      },
+      {
+        "sku_code": "SKU-LUVJY-DEFAULT-4",
+        "price": 37500,
+        "stock": 36,
+        "attributes": null,
+        "id": "c3700396-270a-41d1-b557-86c6203f7375"
       }
     ],
     "brand": "ARISTO",
@@ -1283,6 +1892,27 @@
         "price": 254700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RC708-DEFAULT-2",
+        "price": 254700,
+        "stock": 34,
+        "attributes": null,
+        "id": "4ad4cc7f-d7d0-4508-91b8-b78626bad00e"
+      },
+      {
+        "sku_code": "SKU-RC708-DEFAULT-3",
+        "price": 254700,
+        "stock": 34,
+        "attributes": null,
+        "id": "fef109bc-f1fd-4be5-9a4f-f104db0a38c2"
+      },
+      {
+        "sku_code": "SKU-RC708-DEFAULT-4",
+        "price": 254700,
+        "stock": 34,
+        "attributes": null,
+        "id": "3251b28f-66ac-4ebb-aa42-e5e35703500a"
       }
     ],
     "brand": "Ezee",
@@ -1320,6 +1950,27 @@
         "price": 58200,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GIMBO-DEFAULT-2",
+        "price": 58200,
+        "stock": 60,
+        "attributes": null,
+        "id": "5e66bca7-9114-44fe-ba1c-cb820cd5a1a8"
+      },
+      {
+        "sku_code": "SKU-GIMBO-DEFAULT-3",
+        "price": 58200,
+        "stock": 60,
+        "attributes": null,
+        "id": "fc4e6f32-4d6e-427e-8e32-02aaf2f6ec7e"
+      },
+      {
+        "sku_code": "SKU-GIMBO-DEFAULT-4",
+        "price": 58200,
+        "stock": 60,
+        "attributes": null,
+        "id": "f9f26c32-be5b-4ede-b855-20268e617df9"
       }
     ],
     "brand": "Ikea",
@@ -1361,6 +2012,27 @@
         "price": 86700,
         "stock": 40,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CN59M-DEFAULT-2",
+        "price": 86700,
+        "stock": 40,
+        "attributes": null,
+        "id": "80691ad3-2b8f-4698-9605-07ebb1a67888"
+      },
+      {
+        "sku_code": "SKU-CN59M-DEFAULT-3",
+        "price": 86700,
+        "stock": 40,
+        "attributes": null,
+        "id": "f9ca57f1-2b08-48ff-9b1f-fa05f62441bc"
+      },
+      {
+        "sku_code": "SKU-CN59M-DEFAULT-4",
+        "price": 86700,
+        "stock": 40,
+        "attributes": null,
+        "id": "3241ec5c-9095-4375-b7f7-6cc39eb36b8f"
       }
     ],
     "brand": "Plantex",
@@ -1406,6 +2078,27 @@
         "price": 158700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TZBKM-DEFAULT-2",
+        "price": 158700,
+        "stock": 56,
+        "attributes": null,
+        "id": "840d8052-1c32-45bd-a2ad-f6ffd701d744"
+      },
+      {
+        "sku_code": "SKU-TZBKM-DEFAULT-3",
+        "price": 158700,
+        "stock": 56,
+        "attributes": null,
+        "id": "13944444-f4bb-4ed4-9da5-6873c5dfb8a3"
+      },
+      {
+        "sku_code": "SKU-TZBKM-DEFAULT-4",
+        "price": 158700,
+        "stock": 56,
+        "attributes": null,
+        "id": "43273ce6-2cd8-408c-beac-04fe45ba3e9e"
       }
     ],
     "brand": "AmazonBasics",
@@ -1443,6 +2136,27 @@
         "price": 359700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3UF0O-DEFAULT-2",
+        "price": 359700,
+        "stock": 60,
+        "attributes": null,
+        "id": "18bfd9a6-3c1e-428b-8384-0a722a36a8e0"
+      },
+      {
+        "sku_code": "SKU-3UF0O-DEFAULT-3",
+        "price": 359700,
+        "stock": 60,
+        "attributes": null,
+        "id": "514623aa-a13a-4677-ab9c-6aca481c1a6a"
+      },
+      {
+        "sku_code": "SKU-3UF0O-DEFAULT-4",
+        "price": 359700,
+        "stock": 60,
+        "attributes": null,
+        "id": "0c359788-b7df-4aec-8269-d7b98931d31c"
       }
     ],
     "brand": "Inditradition",
@@ -1484,6 +2198,27 @@
         "price": 74700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-U0TAP-DEFAULT-2",
+        "price": 74700,
+        "stock": 92,
+        "attributes": null,
+        "id": "4f1d4f34-6abf-4d7f-9c71-6d1e9fc23cb9"
+      },
+      {
+        "sku_code": "SKU-U0TAP-DEFAULT-3",
+        "price": 74700,
+        "stock": 92,
+        "attributes": null,
+        "id": "c9645002-4aad-4beb-b27b-19b40e8bfd4d"
+      },
+      {
+        "sku_code": "SKU-U0TAP-DEFAULT-4",
+        "price": 74700,
+        "stock": 92,
+        "attributes": null,
+        "id": "2a01653a-93a6-4195-be6e-129fd97c7273"
       }
     ],
     "brand": "Nayasa",
@@ -1529,6 +2264,27 @@
         "price": 134700,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OH2H0-DEFAULT-2",
+        "price": 134700,
+        "stock": 32,
+        "attributes": null,
+        "id": "dee433c2-0de9-4193-b17c-e6092a9bc938"
+      },
+      {
+        "sku_code": "SKU-OH2H0-DEFAULT-3",
+        "price": 134700,
+        "stock": 32,
+        "attributes": null,
+        "id": "bf5434c8-5afb-4dac-ad7e-306fafc57d5a"
+      },
+      {
+        "sku_code": "SKU-OH2H0-DEFAULT-4",
+        "price": 134700,
+        "stock": 32,
+        "attributes": null,
+        "id": "9f656ce9-1167-4d48-ae45-3bd49f7ee50d"
       }
     ],
     "brand": "Ikea",
@@ -1597,6 +2353,27 @@
         "price": 455700,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q5BQE-DEFAULT-2",
+        "price": 455700,
+        "stock": 34,
+        "attributes": null,
+        "id": "17631981-335c-4289-b495-9d68ca20dde1"
+      },
+      {
+        "sku_code": "SKU-Q5BQE-DEFAULT-3",
+        "price": 455700,
+        "stock": 34,
+        "attributes": null,
+        "id": "5a577fe1-5ca0-4b75-97a1-5d99f17434e6"
+      },
+      {
+        "sku_code": "SKU-Q5BQE-DEFAULT-4",
+        "price": 455700,
+        "stock": 34,
+        "attributes": null,
+        "id": "45bb6ca9-1f6e-4e50-a586-633a4913303d"
       }
     ],
     "brand": "Samsung",
@@ -1634,6 +2411,27 @@
         "price": 335700,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R4F9I-DEFAULT-2",
+        "price": 335700,
+        "stock": 11,
+        "attributes": null,
+        "id": "9d47290f-ee6f-4691-99ef-96231739ab79"
+      },
+      {
+        "sku_code": "SKU-R4F9I-DEFAULT-3",
+        "price": 335700,
+        "stock": 11,
+        "attributes": null,
+        "id": "d8b8e8b8-a094-4d17-9b9d-258b2141bad0"
+      },
+      {
+        "sku_code": "SKU-R4F9I-DEFAULT-4",
+        "price": 335700,
+        "stock": 11,
+        "attributes": null,
+        "id": "af1d8960-c275-49a4-8988-95b45d7283b6"
       }
     ],
     "brand": "Samsung",
@@ -1679,6 +2477,27 @@
         "price": 119400,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IVEZZ-DEFAULT-2",
+        "price": 119400,
+        "stock": 69,
+        "attributes": null,
+        "id": "fe7725df-7a91-41b9-93c3-56474695d2d8"
+      },
+      {
+        "sku_code": "SKU-IVEZZ-DEFAULT-3",
+        "price": 119400,
+        "stock": 69,
+        "attributes": null,
+        "id": "395c566f-b4a3-47d5-aaf2-6b762c2ff473"
+      },
+      {
+        "sku_code": "SKU-IVEZZ-DEFAULT-4",
+        "price": 119400,
+        "stock": 69,
+        "attributes": null,
+        "id": "6a372450-530b-4e6b-bc12-da33bbcd759a"
       }
     ],
     "brand": "Plantex",
@@ -1716,6 +2535,27 @@
         "price": 207600,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VW3L7-DEFAULT-2",
+        "price": 207600,
+        "stock": 22,
+        "attributes": null,
+        "id": "79506acb-1c01-4323-9610-37f3eb0cd962"
+      },
+      {
+        "sku_code": "SKU-VW3L7-DEFAULT-3",
+        "price": 207600,
+        "stock": 22,
+        "attributes": null,
+        "id": "1cebf25b-8010-4d6b-a2e4-b721e18917eb"
+      },
+      {
+        "sku_code": "SKU-VW3L7-DEFAULT-4",
+        "price": 207600,
+        "stock": 22,
+        "attributes": null,
+        "id": "a74e4c5a-e141-4ec4-ab5a-45665a67c16f"
       }
     ],
     "brand": "Heart",
@@ -1753,6 +2593,27 @@
         "price": 136797,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2BI5T-DEFAULT-2",
+        "price": 136797,
+        "stock": 45,
+        "attributes": null,
+        "id": "2d47268a-393f-4207-b68f-8374398c2662"
+      },
+      {
+        "sku_code": "SKU-2BI5T-DEFAULT-3",
+        "price": 136797,
+        "stock": 45,
+        "attributes": null,
+        "id": "2cd231e5-320a-48c2-8d80-de3fa85ed3f2"
+      },
+      {
+        "sku_code": "SKU-2BI5T-DEFAULT-4",
+        "price": 136797,
+        "stock": 45,
+        "attributes": null,
+        "id": "129029f6-5fd0-48fe-898c-90fe3fd37b62"
       }
     ],
     "brand": "PrettyKrafts",
@@ -1790,6 +2651,27 @@
         "price": 119700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AC0JN-DEFAULT-2",
+        "price": 119700,
+        "stock": 68,
+        "attributes": null,
+        "id": "4949c3d1-dde9-4150-a529-3302695209f0"
+      },
+      {
+        "sku_code": "SKU-AC0JN-DEFAULT-3",
+        "price": 119700,
+        "stock": 68,
+        "attributes": null,
+        "id": "0eef1352-4855-46f8-af2c-9c7948c7343c"
+      },
+      {
+        "sku_code": "SKU-AC0JN-DEFAULT-4",
+        "price": 119700,
+        "stock": 68,
+        "attributes": null,
+        "id": "451dd94b-1334-4429-bc65-4f28899d1c7f"
       }
     ],
     "brand": "AmazonBasics",
@@ -1835,6 +2717,27 @@
         "price": 56700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KCHPD-DEFAULT-2",
+        "price": 56700,
+        "stock": 109,
+        "attributes": null,
+        "id": "db9e8828-e517-4223-81ac-831b9ca7a090"
+      },
+      {
+        "sku_code": "SKU-KCHPD-DEFAULT-3",
+        "price": 56700,
+        "stock": 109,
+        "attributes": null,
+        "id": "82a1c534-63a5-46e7-9b0d-2c90c381476a"
+      },
+      {
+        "sku_code": "SKU-KCHPD-DEFAULT-4",
+        "price": 56700,
+        "stock": 109,
+        "attributes": null,
+        "id": "935168ba-335d-4eb2-9c03-d1e55f7f0d19"
       }
     ],
     "brand": "Inditradition",
@@ -1876,6 +2779,27 @@
         "price": 37500,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CRMM3-DEFAULT-2",
+        "price": 37500,
+        "stock": 85,
+        "attributes": null,
+        "id": "e208ffbf-4d54-4dd9-b20d-0857e5407a36"
+      },
+      {
+        "sku_code": "SKU-CRMM3-DEFAULT-3",
+        "price": 37500,
+        "stock": 85,
+        "attributes": null,
+        "id": "dff0297f-b21f-4520-bac0-b01c7bbaa676"
+      },
+      {
+        "sku_code": "SKU-CRMM3-DEFAULT-4",
+        "price": 37500,
+        "stock": 85,
+        "attributes": null,
+        "id": "e5c68375-ddc0-4da2-9eae-2c82c504a257"
       }
     ],
     "brand": "Heart",
@@ -1921,6 +2845,27 @@
         "price": 254700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-083BC-DEFAULT-2",
+        "price": 254700,
+        "stock": 23,
+        "attributes": null,
+        "id": "011b6ca4-252d-45bf-9641-911c2399d655"
+      },
+      {
+        "sku_code": "SKU-083BC-DEFAULT-3",
+        "price": 254700,
+        "stock": 23,
+        "attributes": null,
+        "id": "14ffc789-e237-40e9-8ae4-f83cafadc41f"
+      },
+      {
+        "sku_code": "SKU-083BC-DEFAULT-4",
+        "price": 254700,
+        "stock": 23,
+        "attributes": null,
+        "id": "17d71db5-13a4-462e-a226-65aa3aa2ab88"
       }
     ],
     "brand": "Amazon",
@@ -1962,6 +2907,27 @@
         "price": 86700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H95G0-DEFAULT-2",
+        "price": 86700,
+        "stock": 72,
+        "attributes": null,
+        "id": "4dfd59e2-c1d1-4c41-bad4-b4b007152a08"
+      },
+      {
+        "sku_code": "SKU-H95G0-DEFAULT-3",
+        "price": 86700,
+        "stock": 72,
+        "attributes": null,
+        "id": "a34e5977-d2e8-4e87-8356-c42f318aa3f6"
+      },
+      {
+        "sku_code": "SKU-H95G0-DEFAULT-4",
+        "price": 86700,
+        "stock": 72,
+        "attributes": null,
+        "id": "45b2d935-dfa7-4907-8889-766a76134cc5"
       }
     ],
     "brand": "HomeStrap",
@@ -1999,6 +2965,27 @@
         "price": 158700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LP1SD-DEFAULT-2",
+        "price": 158700,
+        "stock": 91,
+        "attributes": null,
+        "id": "6abdaf34-8a15-43b2-b8e3-e9eec321fcfb"
+      },
+      {
+        "sku_code": "SKU-LP1SD-DEFAULT-3",
+        "price": 158700,
+        "stock": 91,
+        "attributes": null,
+        "id": "b4057f29-8f43-4202-849c-62f7ebbe6dc4"
+      },
+      {
+        "sku_code": "SKU-LP1SD-DEFAULT-4",
+        "price": 158700,
+        "stock": 91,
+        "attributes": null,
+        "id": "b8783172-2df0-4f02-b699-87445705fc6d"
       }
     ],
     "brand": "AmazonBasics",
@@ -2040,6 +3027,27 @@
         "price": 455700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IWIE2-DEFAULT-2",
+        "price": 455700,
+        "stock": 109,
+        "attributes": null,
+        "id": "692e109f-cf3b-482d-9e85-b75fe800a23f"
+      },
+      {
+        "sku_code": "SKU-IWIE2-DEFAULT-3",
+        "price": 455700,
+        "stock": 109,
+        "attributes": null,
+        "id": "478354de-3de8-45e3-aac2-b72e900268ec"
+      },
+      {
+        "sku_code": "SKU-IWIE2-DEFAULT-4",
+        "price": 455700,
+        "stock": 109,
+        "attributes": null,
+        "id": "970d53ab-4abd-47a8-9e64-b3c54b49c2ec"
       }
     ],
     "brand": "Samsung",
@@ -2085,6 +3093,27 @@
         "price": 359700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NA6OD-DEFAULT-2",
+        "price": 359700,
+        "stock": 13,
+        "attributes": null,
+        "id": "6c00dba0-ce9d-4ce3-a5be-b0babb6ac605"
+      },
+      {
+        "sku_code": "SKU-NA6OD-DEFAULT-3",
+        "price": 359700,
+        "stock": 13,
+        "attributes": null,
+        "id": "989281ac-70ec-4b80-b07d-2167eeb6be38"
+      },
+      {
+        "sku_code": "SKU-NA6OD-DEFAULT-4",
+        "price": 359700,
+        "stock": 13,
+        "attributes": null,
+        "id": "6182ea73-0635-4b16-9235-d7408055e5fd"
       }
     ],
     "brand": "Ezee",
@@ -2130,6 +3159,27 @@
         "price": 74700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZJGR3-DEFAULT-2",
+        "price": 74700,
+        "stock": 64,
+        "attributes": null,
+        "id": "13cab02e-9876-4cc7-90f8-dfe97fa0e75c"
+      },
+      {
+        "sku_code": "SKU-ZJGR3-DEFAULT-3",
+        "price": 74700,
+        "stock": 64,
+        "attributes": null,
+        "id": "0620df05-7861-422e-8223-2bc9f264169d"
+      },
+      {
+        "sku_code": "SKU-ZJGR3-DEFAULT-4",
+        "price": 74700,
+        "stock": 64,
+        "attributes": null,
+        "id": "65e0f36f-f39a-4ae0-8b0d-f733657d97ed"
       }
     ],
     "brand": "Kuber",
@@ -2171,6 +3221,27 @@
         "price": 134700,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7NJIF-DEFAULT-2",
+        "price": 134700,
+        "stock": 54,
+        "attributes": null,
+        "id": "aa9ca66d-d1c9-44d5-bd62-a5007c94a8b6"
+      },
+      {
+        "sku_code": "SKU-7NJIF-DEFAULT-3",
+        "price": 134700,
+        "stock": 54,
+        "attributes": null,
+        "id": "282b8053-ac12-428d-ab49-63baca9ee724"
+      },
+      {
+        "sku_code": "SKU-7NJIF-DEFAULT-4",
+        "price": 134700,
+        "stock": 54,
+        "attributes": null,
+        "id": "6233094b-02e4-4db0-99fc-9335e7433002"
       }
     ],
     "brand": "Inditradition",
@@ -2212,6 +3283,27 @@
         "price": 335700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OX9T5-DEFAULT-2",
+        "price": 335700,
+        "stock": 98,
+        "attributes": null,
+        "id": "863ebb14-c1c5-45a7-96d2-828d14fc0651"
+      },
+      {
+        "sku_code": "SKU-OX9T5-DEFAULT-3",
+        "price": 335700,
+        "stock": 98,
+        "attributes": null,
+        "id": "53b56cff-744f-4a06-a78d-99316a1cac1a"
+      },
+      {
+        "sku_code": "SKU-OX9T5-DEFAULT-4",
+        "price": 335700,
+        "stock": 98,
+        "attributes": null,
+        "id": "44d096c2-c0de-4563-b767-fcae38ea1eda"
       }
     ],
     "brand": "Samsung",
@@ -2253,6 +3345,27 @@
         "price": 119400,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XYK9S-DEFAULT-2",
+        "price": 119400,
+        "stock": 24,
+        "attributes": null,
+        "id": "1a504b55-32a7-4b34-85ac-ec6e3358bc35"
+      },
+      {
+        "sku_code": "SKU-XYK9S-DEFAULT-3",
+        "price": 119400,
+        "stock": 24,
+        "attributes": null,
+        "id": "74f4a1e9-3535-4724-97fe-23aad66faaae"
+      },
+      {
+        "sku_code": "SKU-XYK9S-DEFAULT-4",
+        "price": 119400,
+        "stock": 24,
+        "attributes": null,
+        "id": "7d939736-a2dc-41fc-9a99-536e264c8929"
       }
     ],
     "brand": "Ezee",
@@ -2294,6 +3407,27 @@
         "price": 207600,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FZ7SQ-DEFAULT-2",
+        "price": 207600,
+        "stock": 37,
+        "attributes": null,
+        "id": "f0be0423-491e-4d57-a06d-4b47f921deaa"
+      },
+      {
+        "sku_code": "SKU-FZ7SQ-DEFAULT-3",
+        "price": 207600,
+        "stock": 37,
+        "attributes": null,
+        "id": "31abff3b-c9bb-4a97-b387-bb69672db217"
+      },
+      {
+        "sku_code": "SKU-FZ7SQ-DEFAULT-4",
+        "price": 207600,
+        "stock": 37,
+        "attributes": null,
+        "id": "b5b4f4de-7897-4441-a85f-5c028392b7c0"
       }
     ],
     "brand": "IKEA",
@@ -2335,6 +3469,27 @@
         "price": 98700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E2DBF-DEFAULT-2",
+        "price": 98700,
+        "stock": 64,
+        "attributes": null,
+        "id": "8a767478-75d3-43c0-8b66-3764b935ac77"
+      },
+      {
+        "sku_code": "SKU-E2DBF-DEFAULT-3",
+        "price": 98700,
+        "stock": 64,
+        "attributes": null,
+        "id": "2a483081-d0d3-4de7-ada3-9f3bdc706420"
+      },
+      {
+        "sku_code": "SKU-E2DBF-DEFAULT-4",
+        "price": 98700,
+        "stock": 64,
+        "attributes": null,
+        "id": "b79422aa-d9f9-49e3-b5ba-3c78da15ad83"
       }
     ],
     "brand": "AmazonBasics",
@@ -2376,6 +3531,27 @@
         "price": 209700,
         "stock": 99,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G8S0B-DEFAULT-2",
+        "price": 209700,
+        "stock": 99,
+        "attributes": null,
+        "id": "d26a295b-e775-4793-a752-f4c949397a13"
+      },
+      {
+        "sku_code": "SKU-G8S0B-DEFAULT-3",
+        "price": 209700,
+        "stock": 99,
+        "attributes": null,
+        "id": "70c6c6e4-041e-40bd-aec0-dc1e0cba197c"
+      },
+      {
+        "sku_code": "SKU-G8S0B-DEFAULT-4",
+        "price": 209700,
+        "stock": 99,
+        "attributes": null,
+        "id": "570d15b9-f3fb-4534-8b00-f9a79a2865e7"
       }
     ],
     "brand": "Inditradition",
@@ -2417,6 +3593,27 @@
         "price": 179700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G9HLL-DEFAULT-2",
+        "price": 179700,
+        "stock": 25,
+        "attributes": null,
+        "id": "368f092a-c591-4073-8ede-fe9265ea7cb9"
+      },
+      {
+        "sku_code": "SKU-G9HLL-DEFAULT-3",
+        "price": 179700,
+        "stock": 25,
+        "attributes": null,
+        "id": "38a38597-d44f-4e59-bb3f-46b6a49927f0"
+      },
+      {
+        "sku_code": "SKU-G9HLL-DEFAULT-4",
+        "price": 179700,
+        "stock": 25,
+        "attributes": null,
+        "id": "40a088ed-376d-4475-9982-cddc6d62bd32"
       }
     ],
     "brand": "PrettyKrafts",
@@ -2454,6 +3651,27 @@
         "price": 37500,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HEVNR-DEFAULT-2",
+        "price": 37500,
+        "stock": 33,
+        "attributes": null,
+        "id": "c3b469b5-d90c-4b63-8b71-c8b5b770f5e9"
+      },
+      {
+        "sku_code": "SKU-HEVNR-DEFAULT-3",
+        "price": 37500,
+        "stock": 33,
+        "attributes": null,
+        "id": "b3ca8867-be78-47f5-b023-d953577accb2"
+      },
+      {
+        "sku_code": "SKU-HEVNR-DEFAULT-4",
+        "price": 37500,
+        "stock": 33,
+        "attributes": null,
+        "id": "136359d6-3cf5-4a10-8fa5-71eebcc8a541"
       }
     ],
     "brand": "Plantex",
@@ -2499,6 +3717,27 @@
         "price": 148500,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MSZRN-DEFAULT-2",
+        "price": 148500,
+        "stock": 34,
+        "attributes": null,
+        "id": "13a6e5a3-211c-43cd-9aef-85ad034ecb2d"
+      },
+      {
+        "sku_code": "SKU-MSZRN-DEFAULT-3",
+        "price": 148500,
+        "stock": 34,
+        "attributes": null,
+        "id": "6737d006-8e51-442c-80fc-1d318f2697c1"
+      },
+      {
+        "sku_code": "SKU-MSZRN-DEFAULT-4",
+        "price": 148500,
+        "stock": 34,
+        "attributes": null,
+        "id": "341b9070-f07d-4940-ab6c-605d0670977a"
       }
     ],
     "brand": "Ikea",
@@ -2544,6 +3783,27 @@
         "price": 37500,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OT84H-DEFAULT-2",
+        "price": 37500,
+        "stock": 41,
+        "attributes": null,
+        "id": "54a26a1f-9a71-4601-a8ef-157cd117e873"
+      },
+      {
+        "sku_code": "SKU-OT84H-DEFAULT-3",
+        "price": 37500,
+        "stock": 41,
+        "attributes": null,
+        "id": "cc979e33-f190-494b-b37f-d8e32e59ecc8"
+      },
+      {
+        "sku_code": "SKU-OT84H-DEFAULT-4",
+        "price": 37500,
+        "stock": 41,
+        "attributes": null,
+        "id": "8501bd59-9e43-44fe-9b7b-26a5ab84142e"
       }
     ],
     "brand": "PrettyKrafts",
@@ -2585,6 +3845,27 @@
         "price": 277800,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QNAQB-DEFAULT-2",
+        "price": 277800,
+        "stock": 16,
+        "attributes": null,
+        "id": "ea828fb0-bdf4-4239-9122-5cd8b93f1ecc"
+      },
+      {
+        "sku_code": "SKU-QNAQB-DEFAULT-3",
+        "price": 277800,
+        "stock": 16,
+        "attributes": null,
+        "id": "9ec8bd93-8134-4151-8c14-cecc1f078763"
+      },
+      {
+        "sku_code": "SKU-QNAQB-DEFAULT-4",
+        "price": 277800,
+        "stock": 16,
+        "attributes": null,
+        "id": "b690916b-31d9-48c3-abaf-82a99777806a"
       }
     ],
     "brand": "House",
@@ -2626,6 +3907,27 @@
         "price": 187500,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V55CP-DEFAULT-2",
+        "price": 187500,
+        "stock": 21,
+        "attributes": null,
+        "id": "71bb8284-c353-4115-8f32-c3975a6427e8"
+      },
+      {
+        "sku_code": "SKU-V55CP-DEFAULT-3",
+        "price": 187500,
+        "stock": 21,
+        "attributes": null,
+        "id": "5fc53048-5293-4712-b4d0-aacd308cb8c4"
+      },
+      {
+        "sku_code": "SKU-V55CP-DEFAULT-4",
+        "price": 187500,
+        "stock": 21,
+        "attributes": null,
+        "id": "04f82b08-0462-4036-8389-87dfcf9b0bc6"
       }
     ],
     "brand": "ARISTO",
@@ -2663,6 +3965,27 @@
         "price": 73500,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MVD6M-DEFAULT-2",
+        "price": 73500,
+        "stock": 18,
+        "attributes": null,
+        "id": "a97c3bd6-57c7-4df8-be6e-b8c5984083a6"
+      },
+      {
+        "sku_code": "SKU-MVD6M-DEFAULT-3",
+        "price": 73500,
+        "stock": 18,
+        "attributes": null,
+        "id": "64460395-5984-4d31-834f-d557ae7f676d"
+      },
+      {
+        "sku_code": "SKU-MVD6M-DEFAULT-4",
+        "price": 73500,
+        "stock": 18,
+        "attributes": null,
+        "id": "3089462a-3aa8-475e-9224-950d7532bc60"
       }
     ],
     "brand": "Plantex",
@@ -2700,6 +4023,27 @@
         "price": 89400,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3UXWT-DEFAULT-2",
+        "price": 89400,
+        "stock": 15,
+        "attributes": null,
+        "id": "c03a5a2f-a17a-4a0f-afdc-588f804cf430"
+      },
+      {
+        "sku_code": "SKU-3UXWT-DEFAULT-3",
+        "price": 89400,
+        "stock": 15,
+        "attributes": null,
+        "id": "35b0646d-9730-400f-ae1f-d78a58d4943a"
+      },
+      {
+        "sku_code": "SKU-3UXWT-DEFAULT-4",
+        "price": 89400,
+        "stock": 15,
+        "attributes": null,
+        "id": "c6701a60-df34-49a3-be04-08b4e0d5b197"
       }
     ],
     "brand": "Amazon",
@@ -2741,6 +4085,27 @@
         "price": 71700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-69R48-DEFAULT-2",
+        "price": 71700,
+        "stock": 79,
+        "attributes": null,
+        "id": "ca687bda-3189-4ec2-8130-829f9e3e6962"
+      },
+      {
+        "sku_code": "SKU-69R48-DEFAULT-3",
+        "price": 71700,
+        "stock": 79,
+        "attributes": null,
+        "id": "757b377f-8eb5-4bf2-bfb7-b22a7ad7064d"
+      },
+      {
+        "sku_code": "SKU-69R48-DEFAULT-4",
+        "price": 71700,
+        "stock": 79,
+        "attributes": null,
+        "id": "6da0a2f8-ee42-43bf-864e-3d824bd35279"
       }
     ],
     "brand": "Kuber",
@@ -2778,6 +4143,27 @@
         "price": 97500,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YAHUZ-DEFAULT-2",
+        "price": 97500,
+        "stock": 73,
+        "attributes": null,
+        "id": "ebc4727f-7e5b-472d-903c-6b9d7dd98c6a"
+      },
+      {
+        "sku_code": "SKU-YAHUZ-DEFAULT-3",
+        "price": 97500,
+        "stock": 73,
+        "attributes": null,
+        "id": "ba2a90fd-4c49-4612-a40e-0fb30c60dc17"
+      },
+      {
+        "sku_code": "SKU-YAHUZ-DEFAULT-4",
+        "price": 97500,
+        "stock": 73,
+        "attributes": null,
+        "id": "57cb8d5c-baf5-43df-bc29-81023b37e032"
       }
     ],
     "brand": "Ezee",
@@ -2815,6 +4201,27 @@
         "price": 142500,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AF0JE-DEFAULT-2",
+        "price": 142500,
+        "stock": 58,
+        "attributes": null,
+        "id": "a94cac12-8cba-4fe7-9f51-b0fe2f98be25"
+      },
+      {
+        "sku_code": "SKU-AF0JE-DEFAULT-3",
+        "price": 142500,
+        "stock": 58,
+        "attributes": null,
+        "id": "03aac0c0-2af7-469b-8c42-2f1a4c1f348c"
+      },
+      {
+        "sku_code": "SKU-AF0JE-DEFAULT-4",
+        "price": 142500,
+        "stock": 58,
+        "attributes": null,
+        "id": "189a5c70-0056-4ffd-abe3-8de50413bf4c"
       }
     ],
     "brand": "HOKIPO",
@@ -2852,6 +4259,27 @@
         "price": 417600,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DUDPD-DEFAULT-2",
+        "price": 417600,
+        "stock": 26,
+        "attributes": null,
+        "id": "39ea7cd3-625d-409a-801f-e04ef15596cd"
+      },
+      {
+        "sku_code": "SKU-DUDPD-DEFAULT-3",
+        "price": 417600,
+        "stock": 26,
+        "attributes": null,
+        "id": "bb96559a-5869-4786-88e7-ffd3ef372089"
+      },
+      {
+        "sku_code": "SKU-DUDPD-DEFAULT-4",
+        "price": 417600,
+        "stock": 26,
+        "attributes": null,
+        "id": "a1578eee-843f-43fb-bff8-66786a05a505"
       }
     ],
     "brand": "Samsung",
@@ -2893,6 +4321,27 @@
         "price": 34200,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SICJ5-DEFAULT-2",
+        "price": 34200,
+        "stock": 41,
+        "attributes": null,
+        "id": "478959cd-685c-4a04-b8e7-6e2d8b197b4c"
+      },
+      {
+        "sku_code": "SKU-SICJ5-DEFAULT-3",
+        "price": 34200,
+        "stock": 41,
+        "attributes": null,
+        "id": "3a2443f5-09ab-4d87-b160-0efe9ff68cc3"
+      },
+      {
+        "sku_code": "SKU-SICJ5-DEFAULT-4",
+        "price": 34200,
+        "stock": 41,
+        "attributes": null,
+        "id": "a9959c38-f97a-4289-922f-62ed098f8c6b"
       }
     ],
     "brand": "Kuber",
@@ -2938,6 +4387,27 @@
         "price": 70395,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I23KW-DEFAULT-2",
+        "price": 70395,
+        "stock": 93,
+        "attributes": null,
+        "id": "61dd11c9-d8db-48bc-a255-02376d6d96af"
+      },
+      {
+        "sku_code": "SKU-I23KW-DEFAULT-3",
+        "price": 70395,
+        "stock": 93,
+        "attributes": null,
+        "id": "d26caa6c-23e9-4f7f-a1a9-ecca45d9ee24"
+      },
+      {
+        "sku_code": "SKU-I23KW-DEFAULT-4",
+        "price": 70395,
+        "stock": 93,
+        "attributes": null,
+        "id": "fa12c960-98a6-4593-851c-9391f7a4fe09"
       }
     ],
     "brand": "Plantex",
@@ -2979,6 +4449,27 @@
         "price": 436500,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S6RJM-DEFAULT-2",
+        "price": 436500,
+        "stock": 26,
+        "attributes": null,
+        "id": "6deffd7f-325e-4d35-ad18-c7f1e40af5ed"
+      },
+      {
+        "sku_code": "SKU-S6RJM-DEFAULT-3",
+        "price": 436500,
+        "stock": 26,
+        "attributes": null,
+        "id": "67db2ef6-d3f7-496d-bf38-7cecaab3f85b"
+      },
+      {
+        "sku_code": "SKU-S6RJM-DEFAULT-4",
+        "price": 436500,
+        "stock": 26,
+        "attributes": null,
+        "id": "c01b4e4e-8d67-43b8-851d-ecb690e5c929"
       }
     ],
     "brand": "AmazonBasics",
@@ -3016,6 +4507,27 @@
         "price": 164700,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C5ZBJ-DEFAULT-2",
+        "price": 164700,
+        "stock": 36,
+        "attributes": null,
+        "id": "cf1fcac6-a241-4d65-962b-74099fb9955e"
+      },
+      {
+        "sku_code": "SKU-C5ZBJ-DEFAULT-3",
+        "price": 164700,
+        "stock": 36,
+        "attributes": null,
+        "id": "e0f0c64f-f7a3-4946-9e16-e8288ccb1b3f"
+      },
+      {
+        "sku_code": "SKU-C5ZBJ-DEFAULT-4",
+        "price": 164700,
+        "stock": 36,
+        "attributes": null,
+        "id": "499635c6-9ce1-419a-a248-67fb4b92a3bd"
       }
     ],
     "brand": "AmazonBasics",
@@ -3061,6 +4573,27 @@
         "price": 75300,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JOZOG-DEFAULT-2",
+        "price": 75300,
+        "stock": 83,
+        "attributes": null,
+        "id": "5623248a-40b8-4ce0-a697-2e4b1ae8dc40"
+      },
+      {
+        "sku_code": "SKU-JOZOG-DEFAULT-3",
+        "price": 75300,
+        "stock": 83,
+        "attributes": null,
+        "id": "d7755dba-d7a9-4b11-bf2f-c0f421fb8949"
+      },
+      {
+        "sku_code": "SKU-JOZOG-DEFAULT-4",
+        "price": 75300,
+        "stock": 83,
+        "attributes": null,
+        "id": "4501288b-2c58-472e-8387-fc0a9c5ab6ca"
       }
     ],
     "brand": "Heart",
@@ -3106,6 +4639,27 @@
         "price": 254100,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4KYNY-DEFAULT-2",
+        "price": 254100,
+        "stock": 41,
+        "attributes": null,
+        "id": "87019d32-96cd-490b-a4bf-1b73aa5fce10"
+      },
+      {
+        "sku_code": "SKU-4KYNY-DEFAULT-3",
+        "price": 254100,
+        "stock": 41,
+        "attributes": null,
+        "id": "b0585aa3-add5-46e9-9f15-677e3c539a72"
+      },
+      {
+        "sku_code": "SKU-4KYNY-DEFAULT-4",
+        "price": 254100,
+        "stock": 41,
+        "attributes": null,
+        "id": "1e337f4f-4bbf-413a-8c8a-00d34b698a42"
       }
     ],
     "brand": "Amazon",
@@ -3151,6 +4705,27 @@
         "price": 194700,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GGBK0-DEFAULT-2",
+        "price": 194700,
+        "stock": 87,
+        "attributes": null,
+        "id": "f50410f4-73e4-43f2-b0f4-ae5971a7d0bb"
+      },
+      {
+        "sku_code": "SKU-GGBK0-DEFAULT-3",
+        "price": 194700,
+        "stock": 87,
+        "attributes": null,
+        "id": "d5f87b4f-a9c9-465c-86f3-6b39820a2fc1"
+      },
+      {
+        "sku_code": "SKU-GGBK0-DEFAULT-4",
+        "price": 194700,
+        "stock": 87,
+        "attributes": null,
+        "id": "9b0f71ca-4703-4e01-8aae-dad6da1181d6"
       }
     ],
     "brand": "Ezee",
@@ -3196,6 +4771,27 @@
         "price": 359700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9BIU8-DEFAULT-2",
+        "price": 359700,
+        "stock": 20,
+        "attributes": null,
+        "id": "43eeb216-d3ff-4119-a57b-e70e6277f45b"
+      },
+      {
+        "sku_code": "SKU-9BIU8-DEFAULT-3",
+        "price": 359700,
+        "stock": 20,
+        "attributes": null,
+        "id": "7e41c68d-cc49-4e35-82bd-04e8a33542e0"
+      },
+      {
+        "sku_code": "SKU-9BIU8-DEFAULT-4",
+        "price": 359700,
+        "stock": 20,
+        "attributes": null,
+        "id": "edd39e85-7e29-4703-bf43-f15a3e0d4f20"
       }
     ],
     "brand": "House",
@@ -3237,6 +4833,27 @@
         "price": 165300,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WE2RM-DEFAULT-2",
+        "price": 165300,
+        "stock": 102,
+        "attributes": null,
+        "id": "4e5b141a-108f-491b-ad7f-faa9a95d0068"
+      },
+      {
+        "sku_code": "SKU-WE2RM-DEFAULT-3",
+        "price": 165300,
+        "stock": 102,
+        "attributes": null,
+        "id": "bdf2c14d-2ab9-45af-948f-4e2cfb984a7b"
+      },
+      {
+        "sku_code": "SKU-WE2RM-DEFAULT-4",
+        "price": 165300,
+        "stock": 102,
+        "attributes": null,
+        "id": "a01f146a-fcf5-4d0c-b00b-0661c5fe27eb"
       }
     ],
     "brand": "Samsung",
@@ -3282,6 +4899,27 @@
         "price": 59700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WI74W-DEFAULT-2",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "f6894e63-502f-45e3-b6f6-532648d7dd0f"
+      },
+      {
+        "sku_code": "SKU-WI74W-DEFAULT-3",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "68b0f035-63ff-47ae-8aed-f40425d4470c"
+      },
+      {
+        "sku_code": "SKU-WI74W-DEFAULT-4",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "a074000a-0844-47a8-8c35-e7304c04411d"
       }
     ],
     "brand": "HOKIPO",
@@ -3323,6 +4961,27 @@
         "price": 65700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-690LZ-DEFAULT-2",
+        "price": 65700,
+        "stock": 63,
+        "attributes": null,
+        "id": "4d5b8733-60d7-453c-b3dc-fec28ea381cb"
+      },
+      {
+        "sku_code": "SKU-690LZ-DEFAULT-3",
+        "price": 65700,
+        "stock": 63,
+        "attributes": null,
+        "id": "0a3d61e2-d5f5-474d-aabe-81ead76bf3d6"
+      },
+      {
+        "sku_code": "SKU-690LZ-DEFAULT-4",
+        "price": 65700,
+        "stock": 63,
+        "attributes": null,
+        "id": "7862e452-c1f0-42c1-b140-f9a8aea0e311"
       }
     ],
     "brand": "Heart",
@@ -3368,6 +5027,27 @@
         "price": 209700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4P2DF-DEFAULT-2",
+        "price": 209700,
+        "stock": 61,
+        "attributes": null,
+        "id": "68c1d6df-7682-4b0c-9603-2e5e8482f03f"
+      },
+      {
+        "sku_code": "SKU-4P2DF-DEFAULT-3",
+        "price": 209700,
+        "stock": 61,
+        "attributes": null,
+        "id": "aaa274c0-175e-40bc-9f68-50681cac2eb6"
+      },
+      {
+        "sku_code": "SKU-4P2DF-DEFAULT-4",
+        "price": 209700,
+        "stock": 61,
+        "attributes": null,
+        "id": "37fa1cb1-50cc-42cc-896a-5cb6fd4db757"
       }
     ],
     "brand": "HOKIPO",
@@ -3413,6 +5093,27 @@
         "price": 59700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XSLZ0-DEFAULT-2",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "4a26a514-99c8-4188-8e0a-a62eec636f18"
+      },
+      {
+        "sku_code": "SKU-XSLZ0-DEFAULT-3",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "ca3f890b-2f1b-41bb-9e11-663e082b6dd8"
+      },
+      {
+        "sku_code": "SKU-XSLZ0-DEFAULT-4",
+        "price": 59700,
+        "stock": 70,
+        "attributes": null,
+        "id": "08971533-1547-4c38-afaf-4262d1a78a6d"
       }
     ],
     "brand": "Samsung",
@@ -3454,6 +5155,27 @@
         "price": 89700,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-87532-DEFAULT-2",
+        "price": 89700,
+        "stock": 59,
+        "attributes": null,
+        "id": "1f370b82-1b22-4c67-b998-a904f1e4c946"
+      },
+      {
+        "sku_code": "SKU-87532-DEFAULT-3",
+        "price": 89700,
+        "stock": 59,
+        "attributes": null,
+        "id": "8afb5a21-83bd-41d6-8591-1f9ae8ddaa9d"
+      },
+      {
+        "sku_code": "SKU-87532-DEFAULT-4",
+        "price": 89700,
+        "stock": 59,
+        "attributes": null,
+        "id": "f3258b57-d4d5-4638-8d9b-1bca995be3a0"
       }
     ],
     "brand": "Plantex",
@@ -3499,6 +5221,27 @@
         "price": 149700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G49GF-DEFAULT-2",
+        "price": 149700,
+        "stock": 23,
+        "attributes": null,
+        "id": "2790658d-4300-4b05-9a49-4cbfdcc72c24"
+      },
+      {
+        "sku_code": "SKU-G49GF-DEFAULT-3",
+        "price": 149700,
+        "stock": 23,
+        "attributes": null,
+        "id": "26788163-c0f4-4235-b337-f9a74d8d129f"
+      },
+      {
+        "sku_code": "SKU-G49GF-DEFAULT-4",
+        "price": 149700,
+        "stock": 23,
+        "attributes": null,
+        "id": "e8ba7ad1-63cf-4714-9010-a105c2db0f36"
       }
     ],
     "brand": "Samsung",
@@ -3536,6 +5279,27 @@
         "price": 56700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ULP13-DEFAULT-2",
+        "price": 56700,
+        "stock": 44,
+        "attributes": null,
+        "id": "06c61e2a-9073-4827-a14b-b8b312e693a9"
+      },
+      {
+        "sku_code": "SKU-ULP13-DEFAULT-3",
+        "price": 56700,
+        "stock": 44,
+        "attributes": null,
+        "id": "d039e579-0c7c-44c8-b098-a7c1d45cd765"
+      },
+      {
+        "sku_code": "SKU-ULP13-DEFAULT-4",
+        "price": 56700,
+        "stock": 44,
+        "attributes": null,
+        "id": "5ef629e1-b134-483f-88c3-b1c26aec3928"
       }
     ],
     "brand": "PrettyKrafts",
@@ -3581,6 +5345,27 @@
         "price": 225000,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N7H4H-DEFAULT-2",
+        "price": 225000,
+        "stock": 93,
+        "attributes": null,
+        "id": "35649322-fcfc-42c6-ad9e-849242548387"
+      },
+      {
+        "sku_code": "SKU-N7H4H-DEFAULT-3",
+        "price": 225000,
+        "stock": 93,
+        "attributes": null,
+        "id": "6a2c1852-b5a3-471c-aa1b-095d6a98f54f"
+      },
+      {
+        "sku_code": "SKU-N7H4H-DEFAULT-4",
+        "price": 225000,
+        "stock": 93,
+        "attributes": null,
+        "id": "473924e9-b3ce-46a8-8ec1-8ce24eac2706"
       }
     ],
     "brand": "Samsung",
@@ -3622,6 +5407,27 @@
         "price": 82200,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PKINW-DEFAULT-2",
+        "price": 82200,
+        "stock": 58,
+        "attributes": null,
+        "id": "092946ee-b8c1-48e0-a4c9-cbd53adb2b96"
+      },
+      {
+        "sku_code": "SKU-PKINW-DEFAULT-3",
+        "price": 82200,
+        "stock": 58,
+        "attributes": null,
+        "id": "d0d50b7c-2a4f-4dd6-9545-d372b3fe2288"
+      },
+      {
+        "sku_code": "SKU-PKINW-DEFAULT-4",
+        "price": 82200,
+        "stock": 58,
+        "attributes": null,
+        "id": "f4965017-305c-4078-896f-8358a2454bc4"
       }
     ],
     "brand": "HOKIPO",
@@ -3659,6 +5465,27 @@
         "price": 82200,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5JFN3-DEFAULT-2",
+        "price": 82200,
+        "stock": 104,
+        "attributes": null,
+        "id": "c27e0741-c822-4f26-bb81-2000816b843a"
+      },
+      {
+        "sku_code": "SKU-5JFN3-DEFAULT-3",
+        "price": 82200,
+        "stock": 104,
+        "attributes": null,
+        "id": "a0dbcaf3-70cb-48b1-84d1-9323d43059a8"
+      },
+      {
+        "sku_code": "SKU-5JFN3-DEFAULT-4",
+        "price": 82200,
+        "stock": 104,
+        "attributes": null,
+        "id": "309374ef-b055-4612-9e00-ca54ab5707bf"
       }
     ],
     "brand": "Inditradition",
@@ -3696,6 +5523,27 @@
         "price": 73500,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZQ50F-DEFAULT-2",
+        "price": 73500,
+        "stock": 96,
+        "attributes": null,
+        "id": "07b28a6e-4141-49d6-89ce-03f2f1131f19"
+      },
+      {
+        "sku_code": "SKU-ZQ50F-DEFAULT-3",
+        "price": 73500,
+        "stock": 96,
+        "attributes": null,
+        "id": "25a71b0b-e86d-4bf0-b398-49b6e539b039"
+      },
+      {
+        "sku_code": "SKU-ZQ50F-DEFAULT-4",
+        "price": 73500,
+        "stock": 96,
+        "attributes": null,
+        "id": "e85793d3-5053-4ff7-a7f7-e68d4484f24b"
       }
     ],
     "brand": "Inditradition",
@@ -3737,6 +5585,27 @@
         "price": 50700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JFQLY-DEFAULT-2",
+        "price": 50700,
+        "stock": 97,
+        "attributes": null,
+        "id": "cf9ef899-4aeb-4322-acf0-d6b87e05df38"
+      },
+      {
+        "sku_code": "SKU-JFQLY-DEFAULT-3",
+        "price": 50700,
+        "stock": 97,
+        "attributes": null,
+        "id": "583d2551-17b1-4f6c-8a04-5c66d398b2bb"
+      },
+      {
+        "sku_code": "SKU-JFQLY-DEFAULT-4",
+        "price": 50700,
+        "stock": 97,
+        "attributes": null,
+        "id": "fccc4246-6bcf-4c0f-9bbe-5c8aff98cfd1"
       }
     ],
     "brand": "Heart",
@@ -3782,6 +5651,27 @@
         "price": 73500,
         "stock": 53,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NTVDX-DEFAULT-2",
+        "price": 73500,
+        "stock": 53,
+        "attributes": null,
+        "id": "bfc4485a-b29e-45bc-b8d5-4b09ae35e704"
+      },
+      {
+        "sku_code": "SKU-NTVDX-DEFAULT-3",
+        "price": 73500,
+        "stock": 53,
+        "attributes": null,
+        "id": "d072e2ef-d329-4c73-bcc5-8f1af0d856a6"
+      },
+      {
+        "sku_code": "SKU-NTVDX-DEFAULT-4",
+        "price": 73500,
+        "stock": 53,
+        "attributes": null,
+        "id": "cd385e6d-f130-4441-ba86-8e990e1f6c02"
       }
     ],
     "brand": "ARISTO",
@@ -3819,6 +5709,27 @@
         "price": 59400,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-17IY6-DEFAULT-2",
+        "price": 59400,
+        "stock": 71,
+        "attributes": null,
+        "id": "a166b6e3-05cc-4940-b152-886e34414c2a"
+      },
+      {
+        "sku_code": "SKU-17IY6-DEFAULT-3",
+        "price": 59400,
+        "stock": 71,
+        "attributes": null,
+        "id": "7ca91410-5e81-4557-b35e-502128313cd9"
+      },
+      {
+        "sku_code": "SKU-17IY6-DEFAULT-4",
+        "price": 59400,
+        "stock": 71,
+        "attributes": null,
+        "id": "9c3d373b-562b-464f-ac09-5c5580ae930e"
       }
     ],
     "brand": "PrettyKrafts",
@@ -3860,6 +5771,27 @@
         "price": 128700,
         "stock": 39,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UUW9O-DEFAULT-2",
+        "price": 128700,
+        "stock": 39,
+        "attributes": null,
+        "id": "f7378622-2738-4bba-b5ac-e14b7e670ceb"
+      },
+      {
+        "sku_code": "SKU-UUW9O-DEFAULT-3",
+        "price": 128700,
+        "stock": 39,
+        "attributes": null,
+        "id": "e2fb108c-258e-4b10-9c94-a2e1b9101b54"
+      },
+      {
+        "sku_code": "SKU-UUW9O-DEFAULT-4",
+        "price": 128700,
+        "stock": 39,
+        "attributes": null,
+        "id": "82977bb9-2046-47b2-8d14-9b2273a38418"
       }
     ],
     "brand": "Kuber",
@@ -3933,6 +5865,27 @@
         "price": 156858,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SJP6A-DEFAULT-2",
+        "price": 156858,
+        "stock": 23,
+        "attributes": null,
+        "id": "10770b7b-e43e-4eb0-b988-04d3074ca736"
+      },
+      {
+        "sku_code": "SKU-SJP6A-DEFAULT-3",
+        "price": 156858,
+        "stock": 23,
+        "attributes": null,
+        "id": "b931ce35-6954-4443-80d8-9487961e8dda"
+      },
+      {
+        "sku_code": "SKU-SJP6A-DEFAULT-4",
+        "price": 156858,
+        "stock": 23,
+        "attributes": null,
+        "id": "7c5fc2c7-8d3b-44d6-a413-b615913a9c54"
       }
     ],
     "brand": "HP",
@@ -3978,6 +5931,27 @@
         "price": 179700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I1YJJ-DEFAULT-2",
+        "price": 179700,
+        "stock": 57,
+        "attributes": null,
+        "id": "aa797c08-62ad-4a0f-a8bf-17b72cafa783"
+      },
+      {
+        "sku_code": "SKU-I1YJJ-DEFAULT-3",
+        "price": 179700,
+        "stock": 57,
+        "attributes": null,
+        "id": "07f7b120-a4b6-4b3f-9017-a82c181f1873"
+      },
+      {
+        "sku_code": "SKU-I1YJJ-DEFAULT-4",
+        "price": 179700,
+        "stock": 57,
+        "attributes": null,
+        "id": "dea05714-c8c9-4c35-8836-9491753ff59b"
       }
     ],
     "brand": "Amazon",
@@ -4023,6 +5997,27 @@
         "price": 312000,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A8U6A-DEFAULT-2",
+        "price": 312000,
+        "stock": 49,
+        "attributes": null,
+        "id": "30899619-efdf-45d5-b9e1-cb19db2d6766"
+      },
+      {
+        "sku_code": "SKU-A8U6A-DEFAULT-3",
+        "price": 312000,
+        "stock": 49,
+        "attributes": null,
+        "id": "f01e05c9-2d63-48d2-9346-6e5ef4c58f88"
+      },
+      {
+        "sku_code": "SKU-A8U6A-DEFAULT-4",
+        "price": 312000,
+        "stock": 49,
+        "attributes": null,
+        "id": "76515ebe-8bc3-49cb-ab17-8f9e5fd2a692"
       }
     ],
     "brand": "Heart",
@@ -4068,6 +6063,27 @@
         "price": 80100,
         "stock": 82,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AHOT5-DEFAULT-2",
+        "price": 80100,
+        "stock": 82,
+        "attributes": null,
+        "id": "008da601-73ca-448d-9bb9-a1844e5b07d2"
+      },
+      {
+        "sku_code": "SKU-AHOT5-DEFAULT-3",
+        "price": 80100,
+        "stock": 82,
+        "attributes": null,
+        "id": "63f87e63-eff8-4f61-a6c3-d91e80d66dc2"
+      },
+      {
+        "sku_code": "SKU-AHOT5-DEFAULT-4",
+        "price": 80100,
+        "stock": 82,
+        "attributes": null,
+        "id": "c6221c9b-6129-4f05-9a8d-864f0903a873"
       }
     ],
     "brand": "House",
@@ -4105,6 +6121,27 @@
         "price": 51000,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YG42P-DEFAULT-2",
+        "price": 51000,
+        "stock": 23,
+        "attributes": null,
+        "id": "80b945a9-e55c-4b00-98e9-f1ea4c7d0ffd"
+      },
+      {
+        "sku_code": "SKU-YG42P-DEFAULT-3",
+        "price": 51000,
+        "stock": 23,
+        "attributes": null,
+        "id": "7c457353-2b96-4271-a7cc-53f9dd8d93a6"
+      },
+      {
+        "sku_code": "SKU-YG42P-DEFAULT-4",
+        "price": 51000,
+        "stock": 23,
+        "attributes": null,
+        "id": "17546dac-264d-4c2a-8d0e-bf7131f0e537"
       }
     ],
     "brand": "Nayasa",
@@ -4146,6 +6183,27 @@
         "price": 89700,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GVXPD-DEFAULT-2",
+        "price": 89700,
+        "stock": 45,
+        "attributes": null,
+        "id": "2a675d58-c84c-48cc-9fe1-c42ccdd7dc2a"
+      },
+      {
+        "sku_code": "SKU-GVXPD-DEFAULT-3",
+        "price": 89700,
+        "stock": 45,
+        "attributes": null,
+        "id": "9800f757-c986-45cb-9783-a94eb5af0a92"
+      },
+      {
+        "sku_code": "SKU-GVXPD-DEFAULT-4",
+        "price": 89700,
+        "stock": 45,
+        "attributes": null,
+        "id": "0ad4a380-dc98-4d09-8142-11c7a2656b4f"
       }
     ],
     "brand": "Nayasa",
@@ -4183,6 +6241,27 @@
         "price": 134700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9E3YP-DEFAULT-2",
+        "price": 134700,
+        "stock": 24,
+        "attributes": null,
+        "id": "9eae8951-aaea-44d7-8827-761aae10e858"
+      },
+      {
+        "sku_code": "SKU-9E3YP-DEFAULT-3",
+        "price": 134700,
+        "stock": 24,
+        "attributes": null,
+        "id": "697c3e51-e51b-4360-bd28-74973f11ee28"
+      },
+      {
+        "sku_code": "SKU-9E3YP-DEFAULT-4",
+        "price": 134700,
+        "stock": 24,
+        "attributes": null,
+        "id": "97f2e27e-c8d9-4dd4-bfbf-64084e548e10"
       }
     ],
     "brand": "Samsung",
@@ -4224,6 +6303,27 @@
         "price": 86700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NSSDC-DEFAULT-2",
+        "price": 86700,
+        "stock": 84,
+        "attributes": null,
+        "id": "43bbd0ba-6093-4f53-b532-2374967b43a1"
+      },
+      {
+        "sku_code": "SKU-NSSDC-DEFAULT-3",
+        "price": 86700,
+        "stock": 84,
+        "attributes": null,
+        "id": "3b0f8173-e1d1-4052-8122-49da6d6135a6"
+      },
+      {
+        "sku_code": "SKU-NSSDC-DEFAULT-4",
+        "price": 86700,
+        "stock": 84,
+        "attributes": null,
+        "id": "3610b288-4f95-4e40-8d3a-345e6217d60e"
       }
     ],
     "brand": "Heart",

@@ -43,6 +43,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-0H5ZR-CHOC-1KG-4",
+        "price": 67200,
+        "stock": 86,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "27aadfe0-9906-4af5-901e-40666802e389"
       }
     ],
     "brand": "Herbal",
@@ -109,6 +119,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-EBMOO-CHOC-1KG-4",
+        "price": 66000,
+        "stock": 16,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9aeddc17-1fce-4080-b294-d734db31b45a"
       }
     ],
     "brand": "Patanjali",
@@ -167,6 +187,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-EQYWH-CHOC-1KG-4",
+        "price": 78900,
+        "stock": 19,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0872a875-5d75-465c-bf46-f2dcab3243e0"
       }
     ],
     "brand": "HealthyHey",
@@ -225,6 +255,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-4L5FA-CHOC-1KG-4",
+        "price": 105000,
+        "stock": 17,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "d497a345-338a-4031-81ae-34dd60b91a05"
       }
     ],
     "brand": "AIMIL",
@@ -287,6 +327,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-9TY7S-CHOC-1KG-4",
+        "price": 48300,
+        "stock": 72,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "b76f4e7a-6861-4599-85a3-1d048701a945"
       }
     ],
     "brand": "SAARA",
@@ -345,6 +395,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-06Q1L-CHOC-1KG-4",
+        "price": 598200,
+        "stock": 98,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "c5182d2b-9556-4bef-9e84-09d8b5d268d4"
       }
     ],
     "brand": "Baidyanath",
@@ -403,6 +463,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-BTBFU-CHOC-1KG-4",
+        "price": 74700,
+        "stock": 76,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "e9c9963e-4c84-49bc-b823-e6dcae1c9557"
       }
     ],
     "brand": "Herbal",
@@ -461,6 +531,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-1732D-CHOC-1KG-4",
+        "price": 75000,
+        "stock": 88,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "db860f22-57c5-4705-8988-93f5ced69229"
       }
     ],
     "brand": "AIMIL",
@@ -523,6 +603,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-CAEAX-CHOC-1KG-4",
+        "price": 93600,
+        "stock": 105,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "2484963e-553d-47af-959e-0aaa895d3935"
       }
     ],
     "brand": "Herbalife",
@@ -589,6 +679,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-J9ZT1-CHOC-1KG-4",
+        "price": 566700,
+        "stock": 10,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "d5178cf5-0151-4106-866f-b533c210c023"
       }
     ],
     "brand": "Now",
@@ -655,6 +755,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-014ZS-CHOC-1KG-4",
+        "price": 0,
+        "stock": 67,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8693c49c-c83d-41fc-8394-9579be6fa664"
       }
     ],
     "brand": "AIMIL",
@@ -717,6 +827,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-6A9OF-CHOC-1KG-4",
+        "price": 2096700,
+        "stock": 37,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "82efc5b6-db1b-4023-bb0d-94d864fab539"
       }
     ],
     "brand": "Patanjali",
@@ -775,6 +895,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-95UVH-CHOC-1KG-4",
+        "price": 117000,
+        "stock": 66,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "c333bb7d-701d-4230-b176-2ff4395f4b68"
       }
     ],
     "brand": "INLIFE",
@@ -837,6 +967,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-CAZQC-CHOC-1KG-4",
+        "price": 64800,
+        "stock": 19,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9ad8dddd-20cf-4c6d-bc92-090f379e6cbf"
       }
     ],
     "brand": "Canon",
@@ -907,6 +1047,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-7789D-CHOC-1KG-4",
+        "price": 71700,
+        "stock": 46,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "a03cf879-26e9-49bd-bdc4-a4e4d51cabe7"
       }
     ],
     "brand": "Apple",
@@ -970,6 +1120,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-T66XR-CHOC-1KG-4",
+        "price": 105300,
+        "stock": 56,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "1096bd38-5363-4caf-8f06-392923a60e4e"
       }
     ],
     "brand": "Zandu",
@@ -1028,6 +1188,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-HB710-CHOC-1KG-4",
+        "price": 427200,
+        "stock": 87,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0a2ff25e-c2ae-4aec-a326-bf888b0b3acc"
       }
     ],
     "brand": "HP",
@@ -1086,6 +1256,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ONLDO-CHOC-1KG-4",
+        "price": 0,
+        "stock": 13,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "c5904018-90fa-440c-9ba1-5b150d847f92"
       }
     ],
     "brand": "Himalaya",
@@ -1144,6 +1324,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-MPI1O-CHOC-1KG-4",
+        "price": 110700,
+        "stock": 51,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9f56d06c-aba2-434e-84cf-71f678db58c2"
       }
     ],
     "brand": "INLIFE",
@@ -1202,6 +1392,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-4C99G-CHOC-1KG-4",
+        "price": 46500,
+        "stock": 25,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "96b05264-bca4-4e46-a20b-dd5440f20a53"
       }
     ],
     "brand": "Baidyanath",
@@ -1264,6 +1464,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-15REN-CHOC-1KG-4",
+        "price": 599700,
+        "stock": 86,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "5e116f01-75db-47ba-a2f8-934abb39db4c"
       }
     ],
     "brand": "HP",
@@ -1326,6 +1536,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-7PHTO-CHOC-1KG-4",
+        "price": 810000,
+        "stock": 35,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "7f150e22-8472-4e24-a5db-d58896bb8773"
       }
     ],
     "brand": "Baidyanath",
@@ -1384,6 +1604,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-P91HM-CHOC-1KG-4",
+        "price": 1290000,
+        "stock": 97,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "fd3d6c98-c8d0-4d93-b15f-0d297a253692"
       }
     ],
     "brand": "INLIFE",
@@ -1446,6 +1676,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ERLGA-CHOC-1KG-4",
+        "price": 164700,
+        "stock": 81,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "076418a0-8ca2-4b8d-91d6-2cab3c1d7500"
       }
     ],
     "brand": "Herbalife",
@@ -1504,6 +1744,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-GHIXY-CHOC-1KG-4",
+        "price": 81000,
+        "stock": 103,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "3d9b3cbe-9b25-4732-a05d-d34f3248e704"
       }
     ],
     "brand": "Himalayan",
@@ -1562,6 +1812,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-M0L34-CHOC-1KG-4",
+        "price": 136800,
+        "stock": 108,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9f2222f8-d867-41ed-bcc0-cc983097f53d"
       }
     ],
     "brand": "Herbalife",
@@ -1624,6 +1884,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-MNVU5-CHOC-1KG-4",
+        "price": 29700,
+        "stock": 46,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "b75e9ff4-7d02-46e4-85a3-243384d8f08c"
       }
     ],
     "brand": "Zenith",
@@ -1690,6 +1960,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-6XOGI-CHOC-1KG-4",
+        "price": 87000,
+        "stock": 106,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0b46c49b-d50f-4497-9919-2b4db9584f12"
       }
     ],
     "brand": "Herbal",
@@ -1748,6 +2028,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-Q5NQO-CHOC-1KG-4",
+        "price": 215730,
+        "stock": 63,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "b8db3377-a24c-4261-adb1-61935975a416"
       }
     ],
     "brand": "SAARA",
@@ -1810,6 +2100,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-YVITJ-CHOC-1KG-4",
+        "price": 419700,
+        "stock": 15,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "d74aa18a-27bd-44a8-8e83-1efe9a6e3dfb"
       }
     ],
     "brand": "Himalayan",
@@ -1876,6 +2176,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-6IAUZ-CHOC-1KG-4",
+        "price": 509700,
+        "stock": 82,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "2997f116-21c8-4cb7-a527-361465244160"
       }
     ],
     "brand": "Baidyanath",
@@ -1942,6 +2252,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-RKYFO-CHOC-1KG-4",
+        "price": 827100,
+        "stock": 24,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "190b66e6-7dad-4fc3-b04a-7bcaf3c06d8f"
       }
     ],
     "brand": "AIMIL",
@@ -2000,6 +2320,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-PDUG2-CHOC-1KG-4",
+        "price": 191700,
+        "stock": 95,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "1b9eb21f-32fe-41b6-9847-9f7fdbcd58ce"
       }
     ],
     "brand": "SAARA",
@@ -2062,6 +2392,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-BC85M-CHOC-1KG-4",
+        "price": 149700,
+        "stock": 94,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0f7c9f76-fda0-4a60-b831-d5ca9b21b604"
       }
     ],
     "brand": "Zenith",
@@ -2120,6 +2460,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-QUSU4-CHOC-1KG-4",
+        "price": 146100,
+        "stock": 23,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "7532fcba-724f-4d46-b68a-f9263c7888e1"
       }
     ],
     "brand": "HealthyHey",
@@ -2178,6 +2528,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-C53UC-CHOC-1KG-4",
+        "price": 337500,
+        "stock": 95,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "7e6db62c-8c46-45cd-a734-857f1eb7328c"
       }
     ],
     "brand": "INLIFE",
@@ -2240,6 +2600,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-FAKO9-CHOC-1KG-4",
+        "price": 57900,
+        "stock": 92,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "7a8f689d-2333-44ef-ae39-6f09e2e0e422"
       }
     ],
     "brand": "HealthyHey",
@@ -2306,6 +2676,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-56E21-CHOC-1KG-4",
+        "price": 35700,
+        "stock": 102,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "c6e362eb-f152-4a47-be12-8c26ba322008"
       }
     ],
     "brand": "SAARA",
@@ -2368,6 +2748,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-064K9-CHOC-1KG-4",
+        "price": 54000,
+        "stock": 18,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "1316bb5a-f36f-4864-a0e6-b5542beed14b"
       }
     ],
     "brand": "SAARA",
@@ -2434,6 +2824,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-0JW9O-CHOC-1KG-4",
+        "price": 74700,
+        "stock": 55,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "fb3d7569-8e30-4d24-b65b-499b591f6a41"
       }
     ],
     "brand": "Herbalife",
@@ -2500,6 +2900,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-5HTBO-CHOC-1KG-4",
+        "price": 56700,
+        "stock": 23,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "08d3a8b2-8b98-472e-bec0-fc604492c0dd"
       }
     ],
     "brand": "HealthyHey",
@@ -2558,6 +2968,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-1V7FW-CHOC-1KG-4",
+        "price": 400200,
+        "stock": 93,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "948ed91e-1795-4d4b-89d6-80518ba0b90e"
       }
     ],
     "brand": "Now",
@@ -2616,6 +3036,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-WF0G1-CHOC-1KG-4",
+        "price": 241200,
+        "stock": 40,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0d57e21e-ed46-4ea7-99ee-d8ab899b3891"
       }
     ],
     "brand": "Himalayan",
@@ -2674,6 +3104,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-JS87N-CHOC-1KG-4",
+        "price": 423300,
+        "stock": 37,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "5f9aa542-dc9c-4c93-be17-6635321eba1e"
       }
     ],
     "brand": "Dabur",
@@ -2736,6 +3176,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-CN5FN-CHOC-1KG-4",
+        "price": 179700,
+        "stock": 55,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "b974d061-54ef-409c-bb0b-1cafc3364a68"
       }
     ],
     "brand": "HealthyHey",
@@ -2794,6 +3244,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-HJIKB-CHOC-1KG-4",
+        "price": 1349400,
+        "stock": 102,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "4fe15cdb-bbc7-4171-bb14-eb199a715fd0"
       }
     ],
     "brand": "Himalayan",
@@ -2856,6 +3316,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-R5OPX-CHOC-1KG-4",
+        "price": 449700,
+        "stock": 46,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "583e9504-7c19-4188-91a4-93922d1ac3c6"
       }
     ],
     "brand": "Herbal",
@@ -2914,6 +3384,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-LZHLJ-CHOC-1KG-4",
+        "price": 114600,
+        "stock": 64,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "a6976f3b-3d4a-4147-ae0f-43bc7e89cdec"
       }
     ],
     "brand": "Dabur",
@@ -2972,6 +3452,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-NJ168-CHOC-1KG-4",
+        "price": 448500,
+        "stock": 90,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9d9687fd-900a-4664-af87-578b7ee9af10"
       }
     ],
     "brand": "SAARA",
@@ -3038,6 +3528,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-NNR7Z-CHOC-1KG-4",
+        "price": 97500,
+        "stock": 75,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "01274456-71b5-4f90-875b-06c69acce7ca"
       }
     ],
     "brand": "Herbal",
@@ -3100,6 +3600,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-DZ1BD-CHOC-1KG-4",
+        "price": 73500,
+        "stock": 24,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "50e5f3ba-0ec4-4ebe-ae08-b2d0899b6237"
       }
     ],
     "brand": "MuscleBlaze",
@@ -3166,6 +3676,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-WO18C-CHOC-1KG-4",
+        "price": 39000,
+        "stock": 60,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "dc70c04e-c10a-44ec-8319-a447e4269427"
       }
     ],
     "brand": "SAARA",
@@ -3224,6 +3744,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-S6VU0-CHOC-1KG-4",
+        "price": 119700,
+        "stock": 68,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "d3d415e4-1809-4b3c-b8d2-ee3834784156"
       }
     ],
     "brand": "Baidyanath",
@@ -3282,6 +3812,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-B98GJ-CHOC-1KG-4",
+        "price": 100800,
+        "stock": 103,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "ba7366f8-cc65-4152-8298-c4c43958ef48"
       }
     ],
     "brand": "AIMIL",
@@ -3348,6 +3888,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-OG0ZK-CHOC-1KG-4",
+        "price": 170715,
+        "stock": 71,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9aec43e3-d98a-4d75-9b63-ca5007d3be79"
       }
     ],
     "brand": "Zenith",
@@ -3414,6 +3964,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-EC70Y-CHOC-1KG-4",
+        "price": 95700,
+        "stock": 100,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0efa523c-740d-49ed-ae98-f0474384d0b5"
       }
     ],
     "brand": "Zenith",
@@ -3480,6 +4040,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-YFBPW-CHOC-1KG-4",
+        "price": 299700,
+        "stock": 92,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "38762c88-c04a-450e-b064-4c60ea370be1"
       }
     ],
     "brand": "SAARA",
@@ -3542,6 +4112,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ISADY-CHOC-1KG-4",
+        "price": 183000,
+        "stock": 32,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8855817d-02ea-4c1e-b23d-b9bce2f5ea2d"
       }
     ],
     "brand": "INLIFE",
@@ -3600,6 +4180,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-3BJ8T-CHOC-1KG-4",
+        "price": 39900,
+        "stock": 79,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "976fda1e-addb-4305-b045-7c0c14ce04c2"
       }
     ],
     "brand": "Herbal",
@@ -3666,6 +4256,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-351QY-CHOC-1KG-4",
+        "price": 888000,
+        "stock": 38,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "50721eb6-966d-4740-bfa4-f2b0ce9c78c0"
       }
     ],
     "brand": "Himalayan",
@@ -3724,6 +4324,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-DBY7P-CHOC-1KG-4",
+        "price": 135000,
+        "stock": 43,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "40145b3c-2d7f-4039-a219-0dd6c15e28f5"
       }
     ],
     "brand": "Himalaya",
@@ -3782,6 +4392,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-GMAZC-CHOC-1KG-4",
+        "price": 74100,
+        "stock": 74,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "07a09c62-edd1-4296-96e9-bdddfa77edc2"
       }
     ],
     "brand": "Himalaya",
@@ -3840,6 +4460,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-OFEKL-CHOC-1KG-4",
+        "price": 299700,
+        "stock": 90,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "60c36ef4-06b0-4225-bd8c-f7b7ed470867"
       }
     ],
     "brand": "HP",
@@ -3898,6 +4528,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-NJC4E-CHOC-1KG-4",
+        "price": 369000,
+        "stock": 64,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "2ee524dc-9b08-4090-ad50-938c796950f9"
       }
     ],
     "brand": "Himalaya",
@@ -3956,6 +4596,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-T6ENP-CHOC-1KG-4",
+        "price": 179700,
+        "stock": 62,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "c488e0f2-57c1-43d2-89a1-355f47d53b0d"
       }
     ],
     "brand": "INLIFE",
@@ -4014,6 +4664,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-1TWO0-CHOC-1KG-4",
+        "price": 66000,
+        "stock": 61,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "e911bf4f-b518-4ad8-b7ac-9b3cfd5d7140"
       }
     ],
     "brand": "Dabur",
@@ -4076,6 +4736,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-W469G-CHOC-1KG-4",
+        "price": 609900,
+        "stock": 70,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "25f3892f-677b-4ab0-b880-9d585bb3d602"
       }
     ],
     "brand": "HealthyHey",
@@ -4138,6 +4808,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-UHW4B-CHOC-1KG-4",
+        "price": 147600,
+        "stock": 50,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "2b35fe33-6fe5-4d9a-b9c6-08a2ab3adf55"
       }
     ],
     "brand": "Baidyanath",
@@ -4200,6 +4880,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-OGXN3-CHOC-1KG-4",
+        "price": 54000,
+        "stock": 72,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "1acd5331-f513-4935-8b09-08872eadcf88"
       }
     ],
     "brand": "Zandu",
@@ -4262,6 +4952,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-VE7QK-CHOC-1KG-4",
+        "price": 565500,
+        "stock": 84,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "0c6e3725-adbe-43d1-9a9f-e75b044a429b"
       }
     ],
     "brand": "Patanjali",
@@ -4328,6 +5028,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-MW2GG-CHOC-1KG-4",
+        "price": 44700,
+        "stock": 103,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8c2ca6de-b743-4253-a804-c86402412df6"
       }
     ],
     "brand": "Himalaya",
@@ -4390,6 +5100,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-2N8YV-CHOC-1KG-4",
+        "price": 48000,
+        "stock": 101,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "a65fd3ab-4efa-4109-8fdd-d64ac507ba1e"
       }
     ],
     "brand": "Marshall",
@@ -4456,6 +5176,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-X9XZ1-CHOC-1KG-4",
+        "price": 824700,
+        "stock": 12,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "af86f289-3a5f-4d21-9699-20663d0eaaf2"
       }
     ],
     "brand": "HealthyHey",
@@ -4518,6 +5248,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-KE809-CHOC-1KG-4",
+        "price": 199200,
+        "stock": 47,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "d465e554-ae17-4316-9947-0fc22d9294b1"
       }
     ],
     "brand": "SAARA",
@@ -4584,6 +5324,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ET9PU-CHOC-1KG-4",
+        "price": 74700,
+        "stock": 10,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8d854e60-47b9-4681-9e3b-1f0c0ee76fe1"
       }
     ],
     "brand": "Herbalife",
@@ -4650,6 +5400,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ICWHX-CHOC-1KG-4",
+        "price": 398400,
+        "stock": 41,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "7ddb8ed6-fd32-4db9-a043-07ae1d9a1b8f"
       }
     ],
     "brand": "HealthyHey",
@@ -4712,6 +5472,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-LA8JX-CHOC-1KG-4",
+        "price": 104700,
+        "stock": 30,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9c890a69-a1a0-4dc1-b800-a37c9a123760"
       }
     ],
     "brand": "Himalayan",
@@ -4774,6 +5544,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ODK0M-CHOC-1KG-4",
+        "price": 194700,
+        "stock": 21,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "e9db4805-33ca-4bb5-a2eb-16c21c723fae"
       }
     ],
     "brand": "Asus",
@@ -4840,6 +5620,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-2GXLX-CHOC-1KG-4",
+        "price": 153000,
+        "stock": 20,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "55190f2b-ac38-4387-966f-2ec8a70ef34f"
       }
     ],
     "brand": "Himalaya",
@@ -4906,6 +5696,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-RUOTL-CHOC-1KG-4",
+        "price": 150000,
+        "stock": 33,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "41c3055e-5cf3-4994-9a2a-a3a9a350e2e8"
       }
     ],
     "brand": "INLIFE",
@@ -4968,6 +5768,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-W5EU0-CHOC-1KG-4",
+        "price": 136800,
+        "stock": 17,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "88e20dbd-7e02-40f7-8d49-f203d3e6b249"
       }
     ],
     "brand": "AIMIL",
@@ -5030,6 +5840,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-1JY7Y-CHOC-1KG-4",
+        "price": 20400,
+        "stock": 59,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "bdaaad65-57f2-4676-8eee-4ec73a3d2663"
       }
     ],
     "brand": "Zenith",
@@ -5088,6 +5908,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-IN1VH-CHOC-1KG-4",
+        "price": 104700,
+        "stock": 82,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "17edcad8-ef0e-46de-87b6-68ec6b80824c"
       }
     ],
     "brand": "Zandu",
@@ -5154,6 +5984,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-QQ8LB-CHOC-1KG-4",
+        "price": 449700,
+        "stock": 106,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "a581c478-4177-4fcd-bbe5-16b253c71502"
       }
     ],
     "brand": "Herbal",
@@ -5216,6 +6056,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-A7HE8-CHOC-1KG-4",
+        "price": 119700,
+        "stock": 40,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "586133b7-2cb2-4c08-acd8-ded2e0455565"
       }
     ],
     "brand": "Herbal",
@@ -5278,6 +6128,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-8BACS-CHOC-1KG-4",
+        "price": 60000,
+        "stock": 72,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "9ef59c34-7ecf-46ab-b7a7-4054193bdc37"
       }
     ],
     "brand": "Herbalife",
@@ -5340,6 +6200,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-XNQJQ-CHOC-1KG-4",
+        "price": 147600,
+        "stock": 32,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "4dbb78e8-737e-470b-9b9d-7f5f124e1d35"
       }
     ],
     "brand": "Asus",
@@ -5398,6 +6268,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-MOY6M-CHOC-1KG-4",
+        "price": 111000,
+        "stock": 39,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "2e27efdc-601b-4f9b-99ed-b13ec37b161c"
       }
     ],
     "brand": "Now",
@@ -5464,6 +6344,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-D6JNM-CHOC-1KG-4",
+        "price": 50400,
+        "stock": 17,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "ccf8fcb8-eeec-49af-9c7a-d4c813d067c1"
       }
     ],
     "brand": "Now",
@@ -5530,6 +6420,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-7S67B-CHOC-1KG-4",
+        "price": 90300,
+        "stock": 92,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "efc5e0d8-ee60-4da8-8720-4c5a78b43953"
       }
     ],
     "brand": "Herbalife",
@@ -5592,6 +6492,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-L4KWL-CHOC-1KG-4",
+        "price": 359700,
+        "stock": 81,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8e15b734-3ae7-46c3-9346-8b8975067146"
       }
     ],
     "brand": "Zandu",
@@ -5678,6 +6588,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-Y12TZ-CHOC-1KG-4",
+        "price": 96000,
+        "stock": 50,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "138faf70-fb06-4b82-bdfe-9e5150e99732"
       }
     ],
     "brand": "HP",
@@ -5744,6 +6664,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-NAWU6-CHOC-1KG-4",
+        "price": 150000,
+        "stock": 91,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "519fdc20-f87c-46de-85f1-0ddd9a0771ab"
       }
     ],
     "brand": "Now",
@@ -5810,6 +6740,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-WMILD-CHOC-1KG-4",
+        "price": 83700,
+        "stock": 46,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "3390c125-6cf4-40cc-95cb-8d89bc946eea"
       }
     ],
     "brand": "HP",
@@ -5868,6 +6808,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-US9F4-CHOC-1KG-4",
+        "price": 89100,
+        "stock": 44,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "36eaad99-a46f-476c-baf1-41d0d222defd"
       }
     ],
     "brand": "Herbalife",
@@ -5930,6 +6880,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-D67H9-CHOC-1KG-4",
+        "price": 97170,
+        "stock": 31,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "c2f9125d-feae-4869-b886-6ffd006d4b5a"
       }
     ],
     "brand": "Herbal",
@@ -5996,6 +6956,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-H7ITG-CHOC-1KG-4",
+        "price": 113700,
+        "stock": 101,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "a6592d81-40eb-4f77-9986-33b607a2fdf9"
       }
     ],
     "brand": "Patanjali",
@@ -6058,6 +7028,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-G66GL-CHOC-1KG-4",
+        "price": 54000,
+        "stock": 79,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8e2ac6a6-1176-4c34-83ec-9b8827d0651b"
       }
     ],
     "brand": "HealthyHey",
@@ -6116,6 +7096,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-ZCJ98-CHOC-1KG-4",
+        "price": 147000,
+        "stock": 48,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "4a1e6ef5-f42a-49c3-bd8d-bdf6fcd4c42e"
       }
     ],
     "brand": "HealthyHey",
@@ -6178,6 +7168,16 @@
           "flavor": "Chocolate",
           "weight": "2 kg"
         }
+      },
+      {
+        "sku_code": "SKU-V3XFE-CHOC-1KG-4",
+        "price": 224700,
+        "stock": 14,
+        "attributes": {
+          "flavor": "Chocolate",
+          "weight": "1 kg"
+        },
+        "id": "8b67e799-ae06-4f82-a42b-267249cf5863"
       }
     ],
     "brand": "MuscleBlaze",

@@ -22,6 +22,27 @@
         "price": 76500,
         "stock": 47,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HII81-DEFAULT-2",
+        "price": 76500,
+        "stock": 47,
+        "attributes": null,
+        "id": "b127c0b0-3a12-4783-9ea3-00458d70c9e1"
+      },
+      {
+        "sku_code": "SKU-HII81-DEFAULT-3",
+        "price": 76500,
+        "stock": 47,
+        "attributes": null,
+        "id": "f7d8d416-dfc6-45f5-acba-363756e916fb"
+      },
+      {
+        "sku_code": "SKU-HII81-DEFAULT-4",
+        "price": 76500,
+        "stock": 47,
+        "attributes": null,
+        "id": "58db1d09-a2ce-4a17-b42f-d7c7056e9005"
       }
     ],
     "brand": "Yonex",
@@ -67,6 +88,27 @@
         "price": 444600,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F06WW-DEFAULT-2",
+        "price": 444600,
+        "stock": 83,
+        "attributes": null,
+        "id": "a495111a-3ff4-42dd-8068-e29449da9060"
+      },
+      {
+        "sku_code": "SKU-F06WW-DEFAULT-3",
+        "price": 444600,
+        "stock": 83,
+        "attributes": null,
+        "id": "b930fb91-3cbc-48ab-934f-55743e616f74"
+      },
+      {
+        "sku_code": "SKU-F06WW-DEFAULT-4",
+        "price": 444600,
+        "stock": 83,
+        "attributes": null,
+        "id": "533be6e7-3dec-4d84-995f-8cb6da2f9ec1"
       }
     ],
     "brand": "I2SERVICES",
@@ -112,6 +154,27 @@
         "price": 77700,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E7EPO-DEFAULT-2",
+        "price": 77700,
+        "stock": 56,
+        "attributes": null,
+        "id": "7bc93cd5-ce58-4bcb-9fd5-459d42ecda06"
+      },
+      {
+        "sku_code": "SKU-E7EPO-DEFAULT-3",
+        "price": 77700,
+        "stock": 56,
+        "attributes": null,
+        "id": "8ab48b82-4330-4478-bf7d-d039d1ce3229"
+      },
+      {
+        "sku_code": "SKU-E7EPO-DEFAULT-4",
+        "price": 77700,
+        "stock": 56,
+        "attributes": null,
+        "id": "2a8c30d4-ca53-4fb3-a071-9cbebfe96bc0"
       }
     ],
     "brand": "Bansal",
@@ -149,6 +212,27 @@
         "price": 779400,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KSR1Z-DEFAULT-2",
+        "price": 779400,
+        "stock": 108,
+        "attributes": null,
+        "id": "78c48c88-dd59-4c82-97d5-1aade1ee581f"
+      },
+      {
+        "sku_code": "SKU-KSR1Z-DEFAULT-3",
+        "price": 779400,
+        "stock": 108,
+        "attributes": null,
+        "id": "86760767-6936-4163-85c4-6f4cc9e5b402"
+      },
+      {
+        "sku_code": "SKU-KSR1Z-DEFAULT-4",
+        "price": 779400,
+        "stock": 108,
+        "attributes": null,
+        "id": "96a9d463-bd01-4404-822d-7468c0954e53"
       }
     ],
     "brand": "Li-Ning",
@@ -194,6 +278,27 @@
         "price": 74700,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6JV07-DEFAULT-2",
+        "price": 74700,
+        "stock": 100,
+        "attributes": null,
+        "id": "042a860c-9aaf-41fe-b641-af4a0afd6ea2"
+      },
+      {
+        "sku_code": "SKU-6JV07-DEFAULT-3",
+        "price": 74700,
+        "stock": 100,
+        "attributes": null,
+        "id": "97ac071e-559b-48fc-9697-648180df990e"
+      },
+      {
+        "sku_code": "SKU-6JV07-DEFAULT-4",
+        "price": 74700,
+        "stock": 100,
+        "attributes": null,
+        "id": "9a8bde29-d1f9-4a4c-b22d-d3da6a00f7fc"
       }
     ],
     "brand": "Airavat",
@@ -239,6 +344,27 @@
         "price": 195300,
         "stock": 66,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8OA2G-DEFAULT-2",
+        "price": 195300,
+        "stock": 66,
+        "attributes": null,
+        "id": "278c9fdc-4bbc-44df-ba42-9b582fedc9b9"
+      },
+      {
+        "sku_code": "SKU-8OA2G-DEFAULT-3",
+        "price": 195300,
+        "stock": 66,
+        "attributes": null,
+        "id": "654b8503-0ff2-4faf-850b-fd5bd7329524"
+      },
+      {
+        "sku_code": "SKU-8OA2G-DEFAULT-4",
+        "price": 195300,
+        "stock": 66,
+        "attributes": null,
+        "id": "57df2c62-8ced-4926-9f3a-d53f29b46b48"
       }
     ],
     "brand": "LYLA",
@@ -276,6 +402,27 @@
         "price": 70500,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O999N-DEFAULT-2",
+        "price": 70500,
+        "stock": 24,
+        "attributes": null,
+        "id": "31c252c5-bf06-4746-a2ac-ed8c8d505f16"
+      },
+      {
+        "sku_code": "SKU-O999N-DEFAULT-3",
+        "price": 70500,
+        "stock": 24,
+        "attributes": null,
+        "id": "dd40f902-57e3-427c-a8d9-524b81e5e03b"
+      },
+      {
+        "sku_code": "SKU-O999N-DEFAULT-4",
+        "price": 70500,
+        "stock": 24,
+        "attributes": null,
+        "id": "6e87ac9e-e5b6-46b7-b364-f1873f052537"
       }
     ],
     "brand": "Yonex",
@@ -313,6 +460,27 @@
         "price": 71700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L17I9-DEFAULT-2",
+        "price": 71700,
+        "stock": 109,
+        "attributes": null,
+        "id": "bae7194d-c787-49a5-9d0b-f011552cae92"
+      },
+      {
+        "sku_code": "SKU-L17I9-DEFAULT-3",
+        "price": 71700,
+        "stock": 109,
+        "attributes": null,
+        "id": "d5b93992-739a-4cfe-b58c-facf5102f5ef"
+      },
+      {
+        "sku_code": "SKU-L17I9-DEFAULT-4",
+        "price": 71700,
+        "stock": 109,
+        "attributes": null,
+        "id": "a854dded-778f-4a34-b3f8-90f6383cc76f"
       }
     ],
     "brand": "Li-Ning",
@@ -350,6 +518,27 @@
         "price": 363000,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0CLAH-DEFAULT-2",
+        "price": 363000,
+        "stock": 33,
+        "attributes": null,
+        "id": "864ced80-acac-40c1-9e0e-8832143b656a"
+      },
+      {
+        "sku_code": "SKU-0CLAH-DEFAULT-3",
+        "price": 363000,
+        "stock": 33,
+        "attributes": null,
+        "id": "f3a038c5-daaf-4804-86b8-08afbea14e6d"
+      },
+      {
+        "sku_code": "SKU-0CLAH-DEFAULT-4",
+        "price": 363000,
+        "stock": 33,
+        "attributes": null,
+        "id": "274de34c-4739-491f-b095-f0873ef1b77d"
       }
     ],
     "brand": "Badminton",
@@ -391,6 +580,27 @@
         "price": 209700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V89U5-DEFAULT-2",
+        "price": 209700,
+        "stock": 73,
+        "attributes": null,
+        "id": "4d74d2b2-535b-483f-b1d1-d0f037054d60"
+      },
+      {
+        "sku_code": "SKU-V89U5-DEFAULT-3",
+        "price": 209700,
+        "stock": 73,
+        "attributes": null,
+        "id": "60011491-2736-487c-8b97-e27861b5a2b9"
+      },
+      {
+        "sku_code": "SKU-V89U5-DEFAULT-4",
+        "price": 209700,
+        "stock": 73,
+        "attributes": null,
+        "id": "c8498f83-fcae-418c-94c3-ffb0514dfc56"
       }
     ],
     "brand": "Aswadh",
@@ -436,6 +646,27 @@
         "price": 83700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4KPJM-DEFAULT-2",
+        "price": 83700,
+        "stock": 30,
+        "attributes": null,
+        "id": "6f54cbc1-3811-4ebb-8ed9-9edfecdf93e4"
+      },
+      {
+        "sku_code": "SKU-4KPJM-DEFAULT-3",
+        "price": 83700,
+        "stock": 30,
+        "attributes": null,
+        "id": "45d93fd3-4040-470d-88b9-6fe30c5ad6e9"
+      },
+      {
+        "sku_code": "SKU-4KPJM-DEFAULT-4",
+        "price": 83700,
+        "stock": 30,
+        "attributes": null,
+        "id": "380e9a1d-6bac-4c7d-a2e0-36bc796adc72"
       }
     ],
     "brand": "AGNOLIA",
@@ -481,6 +712,27 @@
         "price": 77700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3VPH0-DEFAULT-2",
+        "price": 77700,
+        "stock": 55,
+        "attributes": null,
+        "id": "629f1e9d-ffec-4a21-ad72-ea9de4dc80fb"
+      },
+      {
+        "sku_code": "SKU-3VPH0-DEFAULT-3",
+        "price": 77700,
+        "stock": 55,
+        "attributes": null,
+        "id": "73821cb5-2eaa-46a0-ab5e-69e122a2b711"
+      },
+      {
+        "sku_code": "SKU-3VPH0-DEFAULT-4",
+        "price": 77700,
+        "stock": 55,
+        "attributes": null,
+        "id": "a95bacd1-2cd8-424c-a135-3ed8e22456ac"
       }
     ],
     "brand": "Yonex",
@@ -522,6 +774,27 @@
         "price": 82500,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6HK31-DEFAULT-2",
+        "price": 82500,
+        "stock": 33,
+        "attributes": null,
+        "id": "4f165b5a-afca-4938-9c49-02745cf0af4c"
+      },
+      {
+        "sku_code": "SKU-6HK31-DEFAULT-3",
+        "price": 82500,
+        "stock": 33,
+        "attributes": null,
+        "id": "c9ca541f-ec92-45e2-a54c-1595b8a8c93d"
+      },
+      {
+        "sku_code": "SKU-6HK31-DEFAULT-4",
+        "price": 82500,
+        "stock": 33,
+        "attributes": null,
+        "id": "b1d55cb3-5be8-4ae4-b896-41a60b25ce82"
       }
     ],
     "brand": "YONEX",
@@ -563,6 +836,27 @@
         "price": 79500,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7P9X4-DEFAULT-2",
+        "price": 79500,
+        "stock": 64,
+        "attributes": null,
+        "id": "544c986f-af90-4d4d-aa62-d9124831474a"
+      },
+      {
+        "sku_code": "SKU-7P9X4-DEFAULT-3",
+        "price": 79500,
+        "stock": 64,
+        "attributes": null,
+        "id": "b445eb8e-0ceb-45b5-9acb-723b48f2afa1"
+      },
+      {
+        "sku_code": "SKU-7P9X4-DEFAULT-4",
+        "price": 79500,
+        "stock": 64,
+        "attributes": null,
+        "id": "8b0bab53-fb63-49ea-8e05-20f43f17778a"
       }
     ],
     "brand": "AGNOLIA",
@@ -600,6 +894,27 @@
         "price": 74700,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4IP0J-DEFAULT-2",
+        "price": 74700,
+        "stock": 51,
+        "attributes": null,
+        "id": "1df157ff-8e69-494f-a9ea-ee4db833dd04"
+      },
+      {
+        "sku_code": "SKU-4IP0J-DEFAULT-3",
+        "price": 74700,
+        "stock": 51,
+        "attributes": null,
+        "id": "45e42214-8226-4fea-ace0-ae37e4430da6"
+      },
+      {
+        "sku_code": "SKU-4IP0J-DEFAULT-4",
+        "price": 74700,
+        "stock": 51,
+        "attributes": null,
+        "id": "7259f772-235e-454b-a40e-69acfb00edd5"
       }
     ],
     "brand": "Bansal",
@@ -637,6 +952,27 @@
         "price": 80700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DEQK1-DEFAULT-2",
+        "price": 80700,
+        "stock": 92,
+        "attributes": null,
+        "id": "999ed920-e57b-4e62-b1bb-3c5862ef90dd"
+      },
+      {
+        "sku_code": "SKU-DEQK1-DEFAULT-3",
+        "price": 80700,
+        "stock": 92,
+        "attributes": null,
+        "id": "bdbf8d5f-139c-4de3-ba78-56834fe75640"
+      },
+      {
+        "sku_code": "SKU-DEQK1-DEFAULT-4",
+        "price": 80700,
+        "stock": 92,
+        "attributes": null,
+        "id": "0b14db2f-523a-4097-8892-ac6a46d0cf4b"
       }
     ],
     "brand": "Pack",
@@ -682,6 +1018,27 @@
         "price": 76500,
         "stock": 32,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-7GFN4-DEFAULT-2",
+        "price": 76500,
+        "stock": 32,
+        "attributes": null,
+        "id": "e396e7fc-b420-43d5-8233-2d01d66db209"
+      },
+      {
+        "sku_code": "SKU-7GFN4-DEFAULT-3",
+        "price": 76500,
+        "stock": 32,
+        "attributes": null,
+        "id": "546f4ca6-4380-44c3-873e-8ae6996144b2"
+      },
+      {
+        "sku_code": "SKU-7GFN4-DEFAULT-4",
+        "price": 76500,
+        "stock": 32,
+        "attributes": null,
+        "id": "cca7be60-3c73-4747-927e-1ae1a4e39e11"
       }
     ],
     "brand": "MS",
@@ -723,6 +1080,27 @@
         "price": 73500,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W5QE2-DEFAULT-2",
+        "price": 73500,
+        "stock": 92,
+        "attributes": null,
+        "id": "d37120a7-917f-4583-9c1a-a1a62ef18337"
+      },
+      {
+        "sku_code": "SKU-W5QE2-DEFAULT-3",
+        "price": 73500,
+        "stock": 92,
+        "attributes": null,
+        "id": "02efa1e5-40f6-4c46-8181-543a12c95e04"
+      },
+      {
+        "sku_code": "SKU-W5QE2-DEFAULT-4",
+        "price": 73500,
+        "stock": 92,
+        "attributes": null,
+        "id": "607979d8-2ab6-46fe-b127-0309a0c4f8bc"
       }
     ],
     "brand": "Yonex",
@@ -764,6 +1142,27 @@
         "price": 70500,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L314F-DEFAULT-2",
+        "price": 70500,
+        "stock": 29,
+        "attributes": null,
+        "id": "11af9075-4ab7-4bba-9e3a-8b8c2145d57f"
+      },
+      {
+        "sku_code": "SKU-L314F-DEFAULT-3",
+        "price": 70500,
+        "stock": 29,
+        "attributes": null,
+        "id": "ed917618-6fdc-4e55-b469-64b8d19e4f50"
+      },
+      {
+        "sku_code": "SKU-L314F-DEFAULT-4",
+        "price": 70500,
+        "stock": 29,
+        "attributes": null,
+        "id": "4f20512e-182e-4cb2-b94d-f96ca652a855"
       }
     ],
     "brand": "Pack",
@@ -801,6 +1200,27 @@
         "price": 71700,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YDVEH-DEFAULT-2",
+        "price": 71700,
+        "stock": 68,
+        "attributes": null,
+        "id": "9d12edc1-2b96-4427-837a-11e65e019875"
+      },
+      {
+        "sku_code": "SKU-YDVEH-DEFAULT-3",
+        "price": 71700,
+        "stock": 68,
+        "attributes": null,
+        "id": "db11d1a8-63a6-4595-9721-f113aa01d9ea"
+      },
+      {
+        "sku_code": "SKU-YDVEH-DEFAULT-4",
+        "price": 71700,
+        "stock": 68,
+        "attributes": null,
+        "id": "85d8408c-30e9-4745-9daf-e71546363bf0"
       }
     ],
     "brand": "Badminton",
@@ -846,6 +1266,27 @@
         "price": 71700,
         "stock": 43,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HXUBV-DEFAULT-2",
+        "price": 71700,
+        "stock": 43,
+        "attributes": null,
+        "id": "2bd2b697-39a1-49cd-a61d-95cbc5f5fdc0"
+      },
+      {
+        "sku_code": "SKU-HXUBV-DEFAULT-3",
+        "price": 71700,
+        "stock": 43,
+        "attributes": null,
+        "id": "b99ef974-30f3-4a5a-95e5-c272e444c1ba"
+      },
+      {
+        "sku_code": "SKU-HXUBV-DEFAULT-4",
+        "price": 71700,
+        "stock": 43,
+        "attributes": null,
+        "id": "4ccbaca2-0591-41a4-8b0a-19424b15215f"
       }
     ],
     "brand": "LYLA",
@@ -891,6 +1332,27 @@
         "price": 69600,
         "stock": 94,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ITFLK-DEFAULT-2",
+        "price": 69600,
+        "stock": 94,
+        "attributes": null,
+        "id": "41682f89-f42f-4961-8db5-9490cc478483"
+      },
+      {
+        "sku_code": "SKU-ITFLK-DEFAULT-3",
+        "price": 69600,
+        "stock": 94,
+        "attributes": null,
+        "id": "520e726e-7f3f-4d22-9199-befcbdada5bd"
+      },
+      {
+        "sku_code": "SKU-ITFLK-DEFAULT-4",
+        "price": 69600,
+        "stock": 94,
+        "attributes": null,
+        "id": "5ce1eecb-c46a-4db3-8075-f7d2830cd15d"
       }
     ],
     "brand": "Li-Ning",
@@ -928,6 +1390,27 @@
         "price": 68700,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RDQE6-DEFAULT-2",
+        "price": 68700,
+        "stock": 50,
+        "attributes": null,
+        "id": "cbd4297a-d0c3-4f62-817e-737682f00247"
+      },
+      {
+        "sku_code": "SKU-RDQE6-DEFAULT-3",
+        "price": 68700,
+        "stock": 50,
+        "attributes": null,
+        "id": "462548c0-ffc2-4238-9cce-48e733e79584"
+      },
+      {
+        "sku_code": "SKU-RDQE6-DEFAULT-4",
+        "price": 68700,
+        "stock": 50,
+        "attributes": null,
+        "id": "fe81e2dd-14fc-4179-a742-16774a30e66a"
       }
     ],
     "brand": "AGNOLIA",
@@ -973,6 +1456,27 @@
         "price": 119400,
         "stock": 56,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WB1LP-DEFAULT-2",
+        "price": 119400,
+        "stock": 56,
+        "attributes": null,
+        "id": "535fbd75-c513-4c4a-88cf-339b5542ce4b"
+      },
+      {
+        "sku_code": "SKU-WB1LP-DEFAULT-3",
+        "price": 119400,
+        "stock": 56,
+        "attributes": null,
+        "id": "12adc52f-562c-4d76-9776-0b13ea8c3bdc"
+      },
+      {
+        "sku_code": "SKU-WB1LP-DEFAULT-4",
+        "price": 119400,
+        "stock": 56,
+        "attributes": null,
+        "id": "c9246b23-1a14-4a20-bb34-d96f8e81917d"
       }
     ],
     "brand": "AGNOLIA",
@@ -1014,6 +1518,27 @@
         "price": 146700,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IRVZS-DEFAULT-2",
+        "price": 146700,
+        "stock": 35,
+        "attributes": null,
+        "id": "e6ed6535-f0ce-491f-9d0e-d2b727a72b5f"
+      },
+      {
+        "sku_code": "SKU-IRVZS-DEFAULT-3",
+        "price": 146700,
+        "stock": 35,
+        "attributes": null,
+        "id": "c71893ea-6f7e-463d-94af-ad768243b7f4"
+      },
+      {
+        "sku_code": "SKU-IRVZS-DEFAULT-4",
+        "price": 146700,
+        "stock": 35,
+        "attributes": null,
+        "id": "4addb6d8-6043-462a-af9a-5a871ab17703"
       }
     ],
     "brand": "Pack",
@@ -1051,6 +1576,27 @@
         "price": 176700,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-US3GR-DEFAULT-2",
+        "price": 176700,
+        "stock": 24,
+        "attributes": null,
+        "id": "21fbd8b6-439e-48cd-a433-4f1aff270dc9"
+      },
+      {
+        "sku_code": "SKU-US3GR-DEFAULT-3",
+        "price": 176700,
+        "stock": 24,
+        "attributes": null,
+        "id": "d376bbfe-7be8-48bb-b993-25979baa1ef8"
+      },
+      {
+        "sku_code": "SKU-US3GR-DEFAULT-4",
+        "price": 176700,
+        "stock": 24,
+        "attributes": null,
+        "id": "2cc7155b-c450-43d7-816c-1900af9f9692"
       }
     ],
     "brand": "SPOCCO",
@@ -1088,6 +1634,27 @@
         "price": 790500,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N4501-DEFAULT-2",
+        "price": 790500,
+        "stock": 14,
+        "attributes": null,
+        "id": "6b824b76-0228-4cd2-adbe-826239fa976f"
+      },
+      {
+        "sku_code": "SKU-N4501-DEFAULT-3",
+        "price": 790500,
+        "stock": 14,
+        "attributes": null,
+        "id": "aa74dac1-6d61-4aeb-a085-6903e0ea3087"
+      },
+      {
+        "sku_code": "SKU-N4501-DEFAULT-4",
+        "price": 790500,
+        "stock": 14,
+        "attributes": null,
+        "id": "db812217-811e-4ad0-a2fe-bda7d5227b7a"
       }
     ],
     "brand": "YONEX",
@@ -1133,6 +1700,27 @@
         "price": 95400,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZPR1H-DEFAULT-2",
+        "price": 95400,
+        "stock": 15,
+        "attributes": null,
+        "id": "df77bf4e-188a-415b-bf0a-a57c0ea8c746"
+      },
+      {
+        "sku_code": "SKU-ZPR1H-DEFAULT-3",
+        "price": 95400,
+        "stock": 15,
+        "attributes": null,
+        "id": "e77a2760-c39d-4907-b424-9a64e50423f9"
+      },
+      {
+        "sku_code": "SKU-ZPR1H-DEFAULT-4",
+        "price": 95400,
+        "stock": 15,
+        "attributes": null,
+        "id": "d5a19e03-d57c-418d-ba1c-1b65a54b3cd8"
       }
     ],
     "brand": "Yonex",
@@ -1174,6 +1762,27 @@
         "price": 1109400,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EVLV8-DEFAULT-2",
+        "price": 1109400,
+        "stock": 88,
+        "attributes": null,
+        "id": "3115e782-20a9-474c-a870-1c98a17be9d0"
+      },
+      {
+        "sku_code": "SKU-EVLV8-DEFAULT-3",
+        "price": 1109400,
+        "stock": 88,
+        "attributes": null,
+        "id": "55c605b8-1e01-4a3e-b017-c84c1a9f777c"
+      },
+      {
+        "sku_code": "SKU-EVLV8-DEFAULT-4",
+        "price": 1109400,
+        "stock": 88,
+        "attributes": null,
+        "id": "236b2677-120c-45e7-8039-621fd0ed24a5"
       }
     ],
     "brand": "Airavat",
@@ -1215,6 +1824,27 @@
         "price": 119700,
         "stock": 23,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LRNOC-DEFAULT-2",
+        "price": 119700,
+        "stock": 23,
+        "attributes": null,
+        "id": "1f6d89aa-02c1-4428-a11a-524f3d5ae77f"
+      },
+      {
+        "sku_code": "SKU-LRNOC-DEFAULT-3",
+        "price": 119700,
+        "stock": 23,
+        "attributes": null,
+        "id": "e93e120f-6cd0-4e11-92c0-f0ab0031c3a3"
+      },
+      {
+        "sku_code": "SKU-LRNOC-DEFAULT-4",
+        "price": 119700,
+        "stock": 23,
+        "attributes": null,
+        "id": "343dfd99-60e8-4b55-b260-a1204ca82fcf"
       }
     ],
     "brand": "YONEX",
@@ -1260,6 +1890,27 @@
         "price": 107700,
         "stock": 33,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GSP8G-DEFAULT-2",
+        "price": 107700,
+        "stock": 33,
+        "attributes": null,
+        "id": "9b89b996-4ccf-49a6-9800-dda645192b20"
+      },
+      {
+        "sku_code": "SKU-GSP8G-DEFAULT-3",
+        "price": 107700,
+        "stock": 33,
+        "attributes": null,
+        "id": "392237b9-ad15-469f-a5ac-cee05d7f7a7d"
+      },
+      {
+        "sku_code": "SKU-GSP8G-DEFAULT-4",
+        "price": 107700,
+        "stock": 33,
+        "attributes": null,
+        "id": "19bd29a3-e39d-42c3-a54f-f38d74f6358d"
       }
     ],
     "brand": "UJEAVETTE",
@@ -1297,6 +1948,27 @@
         "price": 0,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XH9E3-DEFAULT-2",
+        "price": 0,
+        "stock": 14,
+        "attributes": null,
+        "id": "c0353100-dcc9-4d7b-b7d7-a942f6713f7f"
+      },
+      {
+        "sku_code": "SKU-XH9E3-DEFAULT-3",
+        "price": 0,
+        "stock": 14,
+        "attributes": null,
+        "id": "828eabf8-9793-4bcb-aa7d-83f612f8c5cb"
+      },
+      {
+        "sku_code": "SKU-XH9E3-DEFAULT-4",
+        "price": 0,
+        "stock": 14,
+        "attributes": null,
+        "id": "e5c72c20-070a-4192-80dc-c7e8abe25d0d"
       }
     ],
     "brand": "UJEAVETTE",
@@ -1338,6 +2010,27 @@
         "price": 149700,
         "stock": 108,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y0GZV-DEFAULT-2",
+        "price": 149700,
+        "stock": 108,
+        "attributes": null,
+        "id": "4e82f378-c87e-4f2c-a1be-2c8d647eb85a"
+      },
+      {
+        "sku_code": "SKU-Y0GZV-DEFAULT-3",
+        "price": 149700,
+        "stock": 108,
+        "attributes": null,
+        "id": "3efde30f-f065-4f59-8830-268c67b8b65e"
+      },
+      {
+        "sku_code": "SKU-Y0GZV-DEFAULT-4",
+        "price": 149700,
+        "stock": 108,
+        "attributes": null,
+        "id": "c7552ef9-8e9e-48ef-bc9b-acd52d5d2b89"
       }
     ],
     "brand": "Aswadh",
@@ -1375,6 +2068,27 @@
         "price": 257700,
         "stock": 60,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5ZBUZ-DEFAULT-2",
+        "price": 257700,
+        "stock": 60,
+        "attributes": null,
+        "id": "9320227c-f34e-4203-bbf9-9b1577f94a84"
+      },
+      {
+        "sku_code": "SKU-5ZBUZ-DEFAULT-3",
+        "price": 257700,
+        "stock": 60,
+        "attributes": null,
+        "id": "85c67965-2df1-4f83-9c23-73c24a409036"
+      },
+      {
+        "sku_code": "SKU-5ZBUZ-DEFAULT-4",
+        "price": 257700,
+        "stock": 60,
+        "attributes": null,
+        "id": "905d4ab7-7133-4d30-a684-612db28db25e"
       }
     ],
     "brand": "SPOCCO",
@@ -1420,6 +2134,27 @@
         "price": 89700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5ZP2L-DEFAULT-2",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "36f90197-afbc-46b4-9afe-b22f7e6bb97e"
+      },
+      {
+        "sku_code": "SKU-5ZP2L-DEFAULT-3",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "14b2f93b-c202-4210-9db2-4d624952e59b"
+      },
+      {
+        "sku_code": "SKU-5ZP2L-DEFAULT-4",
+        "price": 89700,
+        "stock": 25,
+        "attributes": null,
+        "id": "17d28ea5-67fe-43c2-94fc-f6c807028481"
       }
     ],
     "brand": "Li-Ning",
@@ -1461,6 +2196,27 @@
         "price": 959400,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MCGE0-DEFAULT-2",
+        "price": 959400,
+        "stock": 49,
+        "attributes": null,
+        "id": "16526e16-632a-4da2-bfb3-e50cb3da9c63"
+      },
+      {
+        "sku_code": "SKU-MCGE0-DEFAULT-3",
+        "price": 959400,
+        "stock": 49,
+        "attributes": null,
+        "id": "fc51184a-c602-4948-bd7f-3df05e1ff21c"
+      },
+      {
+        "sku_code": "SKU-MCGE0-DEFAULT-4",
+        "price": 959400,
+        "stock": 49,
+        "attributes": null,
+        "id": "6226fd63-99d5-4418-9af0-339439521dc8"
       }
     ],
     "brand": "SPOCCO",
@@ -1506,6 +2262,27 @@
         "price": 1409400,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NRHRY-DEFAULT-2",
+        "price": 1409400,
+        "stock": 15,
+        "attributes": null,
+        "id": "1893ff0a-93a7-4f73-b6e1-76dc68d45cee"
+      },
+      {
+        "sku_code": "SKU-NRHRY-DEFAULT-3",
+        "price": 1409400,
+        "stock": 15,
+        "attributes": null,
+        "id": "efa32671-e6c7-4132-8688-d5d8c9757312"
+      },
+      {
+        "sku_code": "SKU-NRHRY-DEFAULT-4",
+        "price": 1409400,
+        "stock": 15,
+        "attributes": null,
+        "id": "e42c5dfe-1305-4772-a61f-e05844b1ad5f"
       }
     ],
     "brand": "I2SERVICES",
@@ -1547,6 +2324,27 @@
         "price": 762600,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FY2OB-DEFAULT-2",
+        "price": 762600,
+        "stock": 27,
+        "attributes": null,
+        "id": "4fbc6125-4c65-4a53-81fa-f533a8f18b03"
+      },
+      {
+        "sku_code": "SKU-FY2OB-DEFAULT-3",
+        "price": 762600,
+        "stock": 27,
+        "attributes": null,
+        "id": "6c671770-03f7-4cae-a2fc-cd7df610af6c"
+      },
+      {
+        "sku_code": "SKU-FY2OB-DEFAULT-4",
+        "price": 762600,
+        "stock": 27,
+        "attributes": null,
+        "id": "3ed126d7-7ba6-4efa-b60e-7b9255cdc384"
       }
     ],
     "brand": "Pack",
@@ -1588,6 +2386,27 @@
         "price": 152700,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D7UEY-DEFAULT-2",
+        "price": 152700,
+        "stock": 30,
+        "attributes": null,
+        "id": "fa056902-14a7-4381-b55c-688bef7408f5"
+      },
+      {
+        "sku_code": "SKU-D7UEY-DEFAULT-3",
+        "price": 152700,
+        "stock": 30,
+        "attributes": null,
+        "id": "14aa55b6-d8f7-45a4-80be-90d023cabdff"
+      },
+      {
+        "sku_code": "SKU-D7UEY-DEFAULT-4",
+        "price": 152700,
+        "stock": 30,
+        "attributes": null,
+        "id": "26535b5a-53e7-4ae7-8d11-d60a6dc02fea"
       }
     ],
     "brand": "Badminton",
@@ -1629,6 +2448,27 @@
         "price": 101700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KRXH9-DEFAULT-2",
+        "price": 101700,
+        "stock": 103,
+        "attributes": null,
+        "id": "12df1205-1ecb-4996-8bb4-0d13813f82a0"
+      },
+      {
+        "sku_code": "SKU-KRXH9-DEFAULT-3",
+        "price": 101700,
+        "stock": 103,
+        "attributes": null,
+        "id": "8c2318da-8ba8-48d8-a5aa-1a9a3c30acdc"
+      },
+      {
+        "sku_code": "SKU-KRXH9-DEFAULT-4",
+        "price": 101700,
+        "stock": 103,
+        "attributes": null,
+        "id": "a8a34b78-985a-4400-a7aa-d47e64b157cb"
       }
     ],
     "brand": "Li-Ning",
@@ -1666,6 +2506,27 @@
         "price": 2264400,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QW808-DEFAULT-2",
+        "price": 2264400,
+        "stock": 72,
+        "attributes": null,
+        "id": "b9504abf-0c10-4ef7-94cc-1570f2b1e6b0"
+      },
+      {
+        "sku_code": "SKU-QW808-DEFAULT-3",
+        "price": 2264400,
+        "stock": 72,
+        "attributes": null,
+        "id": "773e1341-3dff-4ac9-9ab9-666a4746dd67"
+      },
+      {
+        "sku_code": "SKU-QW808-DEFAULT-4",
+        "price": 2264400,
+        "stock": 72,
+        "attributes": null,
+        "id": "23ab38af-f874-4f98-8c8b-916b1e6133a8"
       }
     ],
     "brand": "Bansal",
@@ -1711,6 +2572,27 @@
         "price": 56700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZI60W-DEFAULT-2",
+        "price": 56700,
+        "stock": 92,
+        "attributes": null,
+        "id": "9d760755-4529-4828-8f80-41fab428cb39"
+      },
+      {
+        "sku_code": "SKU-ZI60W-DEFAULT-3",
+        "price": 56700,
+        "stock": 92,
+        "attributes": null,
+        "id": "6bed5704-0a51-4e02-952c-ae8981788726"
+      },
+      {
+        "sku_code": "SKU-ZI60W-DEFAULT-4",
+        "price": 56700,
+        "stock": 92,
+        "attributes": null,
+        "id": "e1abd094-2b3a-477e-bca6-4fd120ae3805"
       }
     ],
     "brand": "Lining",
@@ -1748,6 +2630,27 @@
         "price": 59700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OFE7J-DEFAULT-2",
+        "price": 59700,
+        "stock": 107,
+        "attributes": null,
+        "id": "8efdd5c3-425d-44c5-955c-bb9d15d15533"
+      },
+      {
+        "sku_code": "SKU-OFE7J-DEFAULT-3",
+        "price": 59700,
+        "stock": 107,
+        "attributes": null,
+        "id": "8ac8598e-ae48-48a6-817b-ddccc4ab26a1"
+      },
+      {
+        "sku_code": "SKU-OFE7J-DEFAULT-4",
+        "price": 59700,
+        "stock": 107,
+        "attributes": null,
+        "id": "0b6d1bb1-7c4a-4d0e-8b91-861fe1e12d8c"
       }
     ],
     "brand": "Yonex",
@@ -1789,6 +2692,27 @@
         "price": 7429500,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-15YWT-DEFAULT-2",
+        "price": 7429500,
+        "stock": 17,
+        "attributes": null,
+        "id": "df09ae73-61a6-4d13-8f13-e769c6276eae"
+      },
+      {
+        "sku_code": "SKU-15YWT-DEFAULT-3",
+        "price": 7429500,
+        "stock": 17,
+        "attributes": null,
+        "id": "4ac9edfc-3344-458d-8477-93a4e730a967"
+      },
+      {
+        "sku_code": "SKU-15YWT-DEFAULT-4",
+        "price": 7429500,
+        "stock": 17,
+        "attributes": null,
+        "id": "c0315fb3-085f-4094-ac7c-7fb088687cf4"
       }
     ],
     "brand": "LYLA",
@@ -1830,6 +2754,27 @@
         "price": 89700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4MOBH-DEFAULT-2",
+        "price": 89700,
+        "stock": 78,
+        "attributes": null,
+        "id": "6e9f95ef-c1eb-4ebc-8054-c119786eb1e3"
+      },
+      {
+        "sku_code": "SKU-4MOBH-DEFAULT-3",
+        "price": 89700,
+        "stock": 78,
+        "attributes": null,
+        "id": "f85eaa07-e6d3-41e3-9f0b-d2973aa483e6"
+      },
+      {
+        "sku_code": "SKU-4MOBH-DEFAULT-4",
+        "price": 89700,
+        "stock": 78,
+        "attributes": null,
+        "id": "40ae851c-13f0-4c65-8848-0955cafdcc72"
       }
     ],
     "brand": "Bansal",
@@ -1871,6 +2816,27 @@
         "price": 80700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G6196-DEFAULT-2",
+        "price": 80700,
+        "stock": 55,
+        "attributes": null,
+        "id": "2ca5a5eb-f87c-4afe-9848-8f49fc086eb2"
+      },
+      {
+        "sku_code": "SKU-G6196-DEFAULT-3",
+        "price": 80700,
+        "stock": 55,
+        "attributes": null,
+        "id": "467a238b-009c-47fa-941f-311ed485050f"
+      },
+      {
+        "sku_code": "SKU-G6196-DEFAULT-4",
+        "price": 80700,
+        "stock": 55,
+        "attributes": null,
+        "id": "2e3239d7-8e15-458a-8b21-fd79293e267f"
       }
     ],
     "brand": "MS",
@@ -1908,6 +2874,27 @@
         "price": 89700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MXBVJ-DEFAULT-2",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "ec7720b1-1c19-41d2-a600-7f3a1591918a"
+      },
+      {
+        "sku_code": "SKU-MXBVJ-DEFAULT-3",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "a2ce90d5-58f0-4d55-a225-d63b758a56f7"
+      },
+      {
+        "sku_code": "SKU-MXBVJ-DEFAULT-4",
+        "price": 89700,
+        "stock": 89,
+        "attributes": null,
+        "id": "a7e4e64c-e421-40b8-bc8f-d1a9f70b6b19"
       }
     ],
     "brand": "AGNOLIA",
@@ -1953,6 +2940,27 @@
         "price": 0,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QCE7U-DEFAULT-2",
+        "price": 0,
+        "stock": 44,
+        "attributes": null,
+        "id": "5c3f6dd3-5542-41c0-bb99-d59d60fc0e12"
+      },
+      {
+        "sku_code": "SKU-QCE7U-DEFAULT-3",
+        "price": 0,
+        "stock": 44,
+        "attributes": null,
+        "id": "fc4e19ad-ca63-4f83-8ac3-72cc5661f877"
+      },
+      {
+        "sku_code": "SKU-QCE7U-DEFAULT-4",
+        "price": 0,
+        "stock": 44,
+        "attributes": null,
+        "id": "8c37ec25-d02d-4e5f-a1df-e70765bbaac2"
       }
     ],
     "brand": "MS",
@@ -1998,6 +3006,27 @@
         "price": 0,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O68MI-DEFAULT-2",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "941a5034-2dae-4c99-9c26-921f849353d9"
+      },
+      {
+        "sku_code": "SKU-O68MI-DEFAULT-3",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "33aa0117-5a36-4b39-90cf-bdf9a26cbcc2"
+      },
+      {
+        "sku_code": "SKU-O68MI-DEFAULT-4",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "02dbdf31-0127-414d-a6dc-029657b61c71"
       }
     ],
     "brand": "AGNOLIA",
@@ -2043,6 +3072,27 @@
         "price": 0,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X12XX-DEFAULT-2",
+        "price": 0,
+        "stock": 91,
+        "attributes": null,
+        "id": "d2eef741-945a-453a-9422-495cb6878629"
+      },
+      {
+        "sku_code": "SKU-X12XX-DEFAULT-3",
+        "price": 0,
+        "stock": 91,
+        "attributes": null,
+        "id": "624e16ef-bce4-4698-9dbb-4753b3bfb9a4"
+      },
+      {
+        "sku_code": "SKU-X12XX-DEFAULT-4",
+        "price": 0,
+        "stock": 91,
+        "attributes": null,
+        "id": "dd251cbd-a993-435e-b46f-df9a6685b9b4"
       }
     ],
     "brand": "Logitech",
@@ -2080,6 +3130,27 @@
         "price": 0,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DA98C-DEFAULT-2",
+        "price": 0,
+        "stock": 58,
+        "attributes": null,
+        "id": "b0d47f84-678c-4473-a7f9-a48be9e5747b"
+      },
+      {
+        "sku_code": "SKU-DA98C-DEFAULT-3",
+        "price": 0,
+        "stock": 58,
+        "attributes": null,
+        "id": "b4a17462-4a96-47c9-87dd-066fbcfac0a4"
+      },
+      {
+        "sku_code": "SKU-DA98C-DEFAULT-4",
+        "price": 0,
+        "stock": 58,
+        "attributes": null,
+        "id": "4b95798c-51ad-43f5-b0cd-161fdadeec43"
       }
     ],
     "brand": "Logitech",
@@ -2125,6 +3196,27 @@
         "price": 7018758,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YVWUK-DEFAULT-2",
+        "price": 7018758,
+        "stock": 19,
+        "attributes": null,
+        "id": "978624a5-0e50-4318-b892-d52c717d6c42"
+      },
+      {
+        "sku_code": "SKU-YVWUK-DEFAULT-3",
+        "price": 7018758,
+        "stock": 19,
+        "attributes": null,
+        "id": "1d40f0f0-9b8c-4066-98b6-0cf5e7d85c1c"
+      },
+      {
+        "sku_code": "SKU-YVWUK-DEFAULT-4",
+        "price": 7018758,
+        "stock": 19,
+        "attributes": null,
+        "id": "95eacd6d-d534-44ad-a78c-9507d2d60117"
       }
     ],
     "brand": "Nike",
@@ -2166,6 +3258,27 @@
         "price": 0,
         "stock": 35,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XKPTF-DEFAULT-2",
+        "price": 0,
+        "stock": 35,
+        "attributes": null,
+        "id": "b8386072-0447-4151-8d85-8d423b979d16"
+      },
+      {
+        "sku_code": "SKU-XKPTF-DEFAULT-3",
+        "price": 0,
+        "stock": 35,
+        "attributes": null,
+        "id": "1e0dbfc3-84ee-475b-a5be-d83e482c9f2b"
+      },
+      {
+        "sku_code": "SKU-XKPTF-DEFAULT-4",
+        "price": 0,
+        "stock": 35,
+        "attributes": null,
+        "id": "d6a8aa7f-6f9a-4cc5-939a-55fc51729158"
       }
     ],
     "brand": "Logitech",
@@ -2207,6 +3320,27 @@
         "price": 0,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4UOMN-DEFAULT-2",
+        "price": 0,
+        "stock": 71,
+        "attributes": null,
+        "id": "3f85d873-6594-4523-9f2f-5f74e020c7bd"
+      },
+      {
+        "sku_code": "SKU-4UOMN-DEFAULT-3",
+        "price": 0,
+        "stock": 71,
+        "attributes": null,
+        "id": "0f7eb1e4-e8c7-44ec-9ab6-c61e9d71e784"
+      },
+      {
+        "sku_code": "SKU-4UOMN-DEFAULT-4",
+        "price": 0,
+        "stock": 71,
+        "attributes": null,
+        "id": "986870d5-3b01-4d82-8976-64d7ef34dfe1"
       }
     ],
     "brand": "YONEX",
@@ -2252,6 +3386,27 @@
         "price": 0,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MBSPY-DEFAULT-2",
+        "price": 0,
+        "stock": 14,
+        "attributes": null,
+        "id": "f093cde9-3cf4-484c-9b35-eb73739f0faf"
+      },
+      {
+        "sku_code": "SKU-MBSPY-DEFAULT-3",
+        "price": 0,
+        "stock": 14,
+        "attributes": null,
+        "id": "55649fd1-3a6f-4bef-b95c-07d3749adbab"
+      },
+      {
+        "sku_code": "SKU-MBSPY-DEFAULT-4",
+        "price": 0,
+        "stock": 14,
+        "attributes": null,
+        "id": "79d81f06-6c7a-4520-ac0f-57a072be26e4"
       }
     ],
     "brand": "LYLA",
@@ -2289,6 +3444,27 @@
         "price": 147000,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6XKHQ-DEFAULT-2",
+        "price": 147000,
+        "stock": 51,
+        "attributes": null,
+        "id": "10ce96f4-02c5-4f1b-8f2a-05ee07410013"
+      },
+      {
+        "sku_code": "SKU-6XKHQ-DEFAULT-3",
+        "price": 147000,
+        "stock": 51,
+        "attributes": null,
+        "id": "eb3b2de1-eb1b-4756-9583-af6b423bcb7b"
+      },
+      {
+        "sku_code": "SKU-6XKHQ-DEFAULT-4",
+        "price": 147000,
+        "stock": 51,
+        "attributes": null,
+        "id": "4f8bb2da-fed3-4f68-897d-568a54778f31"
       }
     ],
     "brand": "Lining",
@@ -2334,6 +3510,27 @@
         "price": 152700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CNXY9-DEFAULT-2",
+        "price": 152700,
+        "stock": 73,
+        "attributes": null,
+        "id": "2ce4f93c-ef1e-4a69-8f2b-d5f85fc00755"
+      },
+      {
+        "sku_code": "SKU-CNXY9-DEFAULT-3",
+        "price": 152700,
+        "stock": 73,
+        "attributes": null,
+        "id": "72b265ab-b46f-4b4b-9edd-fafad8f697ad"
+      },
+      {
+        "sku_code": "SKU-CNXY9-DEFAULT-4",
+        "price": 152700,
+        "stock": 73,
+        "attributes": null,
+        "id": "299b281b-0264-467a-a30b-d1bc9517f23a"
       }
     ],
     "brand": "Pack",
@@ -2379,6 +3576,27 @@
         "price": 2195400,
         "stock": 75,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EYWF1-DEFAULT-2",
+        "price": 2195400,
+        "stock": 75,
+        "attributes": null,
+        "id": "e26bdbfc-40f1-4ce1-9ce5-a09973c93ed8"
+      },
+      {
+        "sku_code": "SKU-EYWF1-DEFAULT-3",
+        "price": 2195400,
+        "stock": 75,
+        "attributes": null,
+        "id": "eb8612f8-c711-49f3-8958-87f7351f589a"
+      },
+      {
+        "sku_code": "SKU-EYWF1-DEFAULT-4",
+        "price": 2195400,
+        "stock": 75,
+        "attributes": null,
+        "id": "cced8f06-5864-4930-a49f-c80e032111da"
       }
     ],
     "brand": "Airavat",
@@ -2420,6 +3638,27 @@
         "price": 90000,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZPBWF-DEFAULT-2",
+        "price": 90000,
+        "stock": 22,
+        "attributes": null,
+        "id": "acf187c6-74c6-4f66-b294-31311c5ae98e"
+      },
+      {
+        "sku_code": "SKU-ZPBWF-DEFAULT-3",
+        "price": 90000,
+        "stock": 22,
+        "attributes": null,
+        "id": "54b552e4-306f-4853-935d-5f405fcc3daa"
+      },
+      {
+        "sku_code": "SKU-ZPBWF-DEFAULT-4",
+        "price": 90000,
+        "stock": 22,
+        "attributes": null,
+        "id": "ff838407-6da3-4564-b5d9-6bf95b4996a5"
       }
     ],
     "brand": "UJEAVETTE",
@@ -2457,6 +3696,27 @@
         "price": 90000,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A307X-DEFAULT-2",
+        "price": 90000,
+        "stock": 31,
+        "attributes": null,
+        "id": "9162b52e-3ee0-4381-98b8-57b3c1b0bb00"
+      },
+      {
+        "sku_code": "SKU-A307X-DEFAULT-3",
+        "price": 90000,
+        "stock": 31,
+        "attributes": null,
+        "id": "c83e3c20-35ff-4aea-b7ff-39be7ee47219"
+      },
+      {
+        "sku_code": "SKU-A307X-DEFAULT-4",
+        "price": 90000,
+        "stock": 31,
+        "attributes": null,
+        "id": "61eafb77-0956-4f99-8c25-7bfdfbf8e2cf"
       }
     ],
     "brand": "Yonex",
@@ -2503,6 +3763,27 @@
         "price": 2896500,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9UI2M-DEFAULT-2",
+        "price": 2896500,
+        "stock": 83,
+        "attributes": null,
+        "id": "057b8c58-cae2-43c2-8e7d-8823aa7ece9d"
+      },
+      {
+        "sku_code": "SKU-9UI2M-DEFAULT-3",
+        "price": 2896500,
+        "stock": 83,
+        "attributes": null,
+        "id": "cdc91ff9-ca57-4a48-951d-bf66a9042a31"
+      },
+      {
+        "sku_code": "SKU-9UI2M-DEFAULT-4",
+        "price": 2896500,
+        "stock": 83,
+        "attributes": null,
+        "id": "1e70030f-45c8-49e3-bf1d-96f33bf62e3c"
       }
     ],
     "brand": "Razer",
@@ -2541,6 +3822,27 @@
         "price": 0,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PNY9F-DEFAULT-2",
+        "price": 0,
+        "stock": 107,
+        "attributes": null,
+        "id": "31e88eb5-1123-4866-9060-37f4de13ea5b"
+      },
+      {
+        "sku_code": "SKU-PNY9F-DEFAULT-3",
+        "price": 0,
+        "stock": 107,
+        "attributes": null,
+        "id": "69d21832-0138-4499-b1fb-a47500149d40"
+      },
+      {
+        "sku_code": "SKU-PNY9F-DEFAULT-4",
+        "price": 0,
+        "stock": 107,
+        "attributes": null,
+        "id": "92bb966e-f35b-4eb7-8603-c272e2936de9"
       }
     ],
     "brand": "Airavat",
@@ -2582,6 +3884,27 @@
         "price": 0,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-H67OP-DEFAULT-2",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "10a1d868-60e0-4fdc-9dea-e9d874985ed8"
+      },
+      {
+        "sku_code": "SKU-H67OP-DEFAULT-3",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "30f52c52-905f-4c64-94ea-e01fdd7f4513"
+      },
+      {
+        "sku_code": "SKU-H67OP-DEFAULT-4",
+        "price": 0,
+        "stock": 25,
+        "attributes": null,
+        "id": "050ce29c-e666-45c0-a4d7-2f274a9da217"
       }
     ],
     "brand": "AGNOLIA",
@@ -2627,6 +3950,27 @@
         "price": 2878500,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NC4L1-DEFAULT-2",
+        "price": 2878500,
+        "stock": 97,
+        "attributes": null,
+        "id": "0f4f16ec-1d55-4730-b3cb-6d7267aaf7b4"
+      },
+      {
+        "sku_code": "SKU-NC4L1-DEFAULT-3",
+        "price": 2878500,
+        "stock": 97,
+        "attributes": null,
+        "id": "c0bea86e-72bf-4870-9188-18d6e9103d8c"
+      },
+      {
+        "sku_code": "SKU-NC4L1-DEFAULT-4",
+        "price": 2878500,
+        "stock": 97,
+        "attributes": null,
+        "id": "ea8c1662-a949-4e86-a898-0f0f035afbda"
       }
     ],
     "brand": "Logitech",
@@ -2672,6 +4016,27 @@
         "price": 0,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HO7CC-DEFAULT-2",
+        "price": 0,
+        "stock": 88,
+        "attributes": null,
+        "id": "55dd5cc4-7d35-4f97-825d-31996e4e56ab"
+      },
+      {
+        "sku_code": "SKU-HO7CC-DEFAULT-3",
+        "price": 0,
+        "stock": 88,
+        "attributes": null,
+        "id": "f8561bb0-12cd-46ee-946f-99bef4d00b9b"
+      },
+      {
+        "sku_code": "SKU-HO7CC-DEFAULT-4",
+        "price": 0,
+        "stock": 88,
+        "attributes": null,
+        "id": "a7d7e604-cd4e-4e64-a754-ca51f8269bf0"
       }
     ],
     "brand": "Pack",
@@ -2713,6 +4078,27 @@
         "price": 0,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-S9KLA-DEFAULT-2",
+        "price": 0,
+        "stock": 89,
+        "attributes": null,
+        "id": "5fc1318a-4644-43c7-b29f-c80d85a66d30"
+      },
+      {
+        "sku_code": "SKU-S9KLA-DEFAULT-3",
+        "price": 0,
+        "stock": 89,
+        "attributes": null,
+        "id": "a6309829-1b41-4c06-89ec-d7bede3547f4"
+      },
+      {
+        "sku_code": "SKU-S9KLA-DEFAULT-4",
+        "price": 0,
+        "stock": 89,
+        "attributes": null,
+        "id": "331d209d-86c9-4f8e-868e-0d74b4797b90"
       }
     ],
     "brand": "YONEX",
@@ -2750,6 +4136,27 @@
         "price": 0,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FC140-DEFAULT-2",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "74dca060-263c-4407-a875-989de3aaae19"
+      },
+      {
+        "sku_code": "SKU-FC140-DEFAULT-3",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "083fa2bd-d524-4fa4-b7d6-e6db6244ab3d"
+      },
+      {
+        "sku_code": "SKU-FC140-DEFAULT-4",
+        "price": 0,
+        "stock": 42,
+        "attributes": null,
+        "id": "95dbf727-e76e-432f-af34-fe3a9bdf8d34"
       }
     ],
     "brand": "UJEAVETTE",
@@ -2791,6 +4198,27 @@
         "price": 734400,
         "stock": 36,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-A64TV-DEFAULT-2",
+        "price": 734400,
+        "stock": 36,
+        "attributes": null,
+        "id": "fb30b6b4-7b5c-41b3-910c-056abc7d8ee8"
+      },
+      {
+        "sku_code": "SKU-A64TV-DEFAULT-3",
+        "price": 734400,
+        "stock": 36,
+        "attributes": null,
+        "id": "db30f063-fc4b-411b-abb5-3bdb5c5df4f2"
+      },
+      {
+        "sku_code": "SKU-A64TV-DEFAULT-4",
+        "price": 734400,
+        "stock": 36,
+        "attributes": null,
+        "id": "09547933-d456-4ea8-a267-8dbc103545dd"
       }
     ],
     "brand": "Aswadh",
@@ -2836,6 +4264,27 @@
         "price": 0,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L9T3B-DEFAULT-2",
+        "price": 0,
+        "stock": 64,
+        "attributes": null,
+        "id": "ed6d850d-ec6f-420e-ba60-79282422456e"
+      },
+      {
+        "sku_code": "SKU-L9T3B-DEFAULT-3",
+        "price": 0,
+        "stock": 64,
+        "attributes": null,
+        "id": "f4d173d0-1170-45ff-8fd1-d2ead36ce8b1"
+      },
+      {
+        "sku_code": "SKU-L9T3B-DEFAULT-4",
+        "price": 0,
+        "stock": 64,
+        "attributes": null,
+        "id": "ef29a0f1-ef01-41ee-a0a6-da14b6dda67a"
       }
     ],
     "brand": "Airavat",
@@ -2881,6 +4330,27 @@
         "price": 0,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NDSST-DEFAULT-2",
+        "price": 0,
+        "stock": 72,
+        "attributes": null,
+        "id": "bc774250-3295-4f0d-8e97-798aec689482"
+      },
+      {
+        "sku_code": "SKU-NDSST-DEFAULT-3",
+        "price": 0,
+        "stock": 72,
+        "attributes": null,
+        "id": "3cc59cd3-4c5a-470b-bb54-025825ec1258"
+      },
+      {
+        "sku_code": "SKU-NDSST-DEFAULT-4",
+        "price": 0,
+        "stock": 72,
+        "attributes": null,
+        "id": "a351cab3-2477-4e79-9e54-1e342f1921ce"
       }
     ],
     "brand": "Yonex",
@@ -2922,6 +4392,27 @@
         "price": 809400,
         "stock": 24,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RI7KD-DEFAULT-2",
+        "price": 809400,
+        "stock": 24,
+        "attributes": null,
+        "id": "98aae073-745c-435c-961b-2b9f06743e1b"
+      },
+      {
+        "sku_code": "SKU-RI7KD-DEFAULT-3",
+        "price": 809400,
+        "stock": 24,
+        "attributes": null,
+        "id": "53b8b7d3-3e06-4e09-8cb9-15f1273da5ad"
+      },
+      {
+        "sku_code": "SKU-RI7KD-DEFAULT-4",
+        "price": 809400,
+        "stock": 24,
+        "attributes": null,
+        "id": "9439eb31-cf18-4c77-977a-f8b2e77ac4d4"
       }
     ],
     "brand": "UJEAVETTE",
@@ -2963,6 +4454,27 @@
         "price": 0,
         "stock": 65,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FOWOG-DEFAULT-2",
+        "price": 0,
+        "stock": 65,
+        "attributes": null,
+        "id": "360b964c-f795-418c-b6bd-c957f66b8808"
+      },
+      {
+        "sku_code": "SKU-FOWOG-DEFAULT-3",
+        "price": 0,
+        "stock": 65,
+        "attributes": null,
+        "id": "41e81177-c8d8-45ff-8107-4342f08b48b6"
+      },
+      {
+        "sku_code": "SKU-FOWOG-DEFAULT-4",
+        "price": 0,
+        "stock": 65,
+        "attributes": null,
+        "id": "a3738845-1d5b-4e1f-8154-70d3fc1827d4"
       }
     ],
     "brand": "I2SERVICES",
@@ -3000,6 +4512,27 @@
         "price": 0,
         "stock": 93,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T4J7B-DEFAULT-2",
+        "price": 0,
+        "stock": 93,
+        "attributes": null,
+        "id": "76934ed0-c877-47b6-b3fb-7d508d9213d0"
+      },
+      {
+        "sku_code": "SKU-T4J7B-DEFAULT-3",
+        "price": 0,
+        "stock": 93,
+        "attributes": null,
+        "id": "101e837b-3979-4a60-b9ee-f75fe4338f18"
+      },
+      {
+        "sku_code": "SKU-T4J7B-DEFAULT-4",
+        "price": 0,
+        "stock": 93,
+        "attributes": null,
+        "id": "626cf8f2-d376-4bac-82fb-44461d4d417b"
       }
     ],
     "brand": "YONEX",
@@ -3041,6 +4574,27 @@
         "price": 209700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UQOKM-DEFAULT-2",
+        "price": 209700,
+        "stock": 26,
+        "attributes": null,
+        "id": "f8aac31d-d530-40c4-817e-8b0ccfcc39b4"
+      },
+      {
+        "sku_code": "SKU-UQOKM-DEFAULT-3",
+        "price": 209700,
+        "stock": 26,
+        "attributes": null,
+        "id": "f3be03c2-5d6b-4ca1-91b0-eabd35c178cd"
+      },
+      {
+        "sku_code": "SKU-UQOKM-DEFAULT-4",
+        "price": 209700,
+        "stock": 26,
+        "attributes": null,
+        "id": "930ccd52-a046-4497-bf16-e441db85439b"
       }
     ],
     "brand": "YONEX",
@@ -3082,6 +4636,27 @@
         "price": 177000,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2RYA2-DEFAULT-2",
+        "price": 177000,
+        "stock": 44,
+        "attributes": null,
+        "id": "6e0b1a41-1d42-468f-b740-93c256cba603"
+      },
+      {
+        "sku_code": "SKU-2RYA2-DEFAULT-3",
+        "price": 177000,
+        "stock": 44,
+        "attributes": null,
+        "id": "e89202fa-ce03-43da-84d3-0e98136334d4"
+      },
+      {
+        "sku_code": "SKU-2RYA2-DEFAULT-4",
+        "price": 177000,
+        "stock": 44,
+        "attributes": null,
+        "id": "14a8ffec-b773-46b7-a875-040dc1fa7d21"
       }
     ],
     "brand": "MS",
@@ -3123,6 +4698,27 @@
         "price": 104700,
         "stock": 73,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2E67F-DEFAULT-2",
+        "price": 104700,
+        "stock": 73,
+        "attributes": null,
+        "id": "f94d0548-62f2-4568-aad8-20b523daf889"
+      },
+      {
+        "sku_code": "SKU-2E67F-DEFAULT-3",
+        "price": 104700,
+        "stock": 73,
+        "attributes": null,
+        "id": "be007f8d-7094-44aa-a752-7af816c87b35"
+      },
+      {
+        "sku_code": "SKU-2E67F-DEFAULT-4",
+        "price": 104700,
+        "stock": 73,
+        "attributes": null,
+        "id": "1e242da4-a23f-4fa4-a997-ad373ee7f7e9"
       }
     ],
     "brand": "Airavat",
@@ -3168,6 +4764,27 @@
         "price": 104700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5ML7U-DEFAULT-2",
+        "price": 104700,
+        "stock": 27,
+        "attributes": null,
+        "id": "26a34ca4-31f4-4d8a-8d75-ee4a3d8366bc"
+      },
+      {
+        "sku_code": "SKU-5ML7U-DEFAULT-3",
+        "price": 104700,
+        "stock": 27,
+        "attributes": null,
+        "id": "87e9f7bb-bd4f-4ee3-b5b4-4e8acb73a50b"
+      },
+      {
+        "sku_code": "SKU-5ML7U-DEFAULT-4",
+        "price": 104700,
+        "stock": 27,
+        "attributes": null,
+        "id": "7b1b593e-64be-4ab1-a346-cd5a0eece8e3"
       }
     ],
     "brand": "UJEAVETTE",
@@ -3209,6 +4826,27 @@
         "price": 105000,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F71WX-DEFAULT-2",
+        "price": 105000,
+        "stock": 34,
+        "attributes": null,
+        "id": "d7f7aa92-f05e-49fe-8142-8759af0b749d"
+      },
+      {
+        "sku_code": "SKU-F71WX-DEFAULT-3",
+        "price": 105000,
+        "stock": 34,
+        "attributes": null,
+        "id": "dc5a00a0-b309-48e5-ab08-3e858b531d80"
+      },
+      {
+        "sku_code": "SKU-F71WX-DEFAULT-4",
+        "price": 105000,
+        "stock": 34,
+        "attributes": null,
+        "id": "3570e78d-ab6a-4207-a062-faa53ccd2ccd"
       }
     ],
     "brand": "Bansal",
@@ -3250,6 +4888,27 @@
         "price": 89700,
         "stock": 50,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-W6EMT-DEFAULT-2",
+        "price": 89700,
+        "stock": 50,
+        "attributes": null,
+        "id": "a48772ad-a0ac-4931-a263-8b9c1594db8d"
+      },
+      {
+        "sku_code": "SKU-W6EMT-DEFAULT-3",
+        "price": 89700,
+        "stock": 50,
+        "attributes": null,
+        "id": "ec1a4d97-282e-4a63-9e39-6ae4a30142a0"
+      },
+      {
+        "sku_code": "SKU-W6EMT-DEFAULT-4",
+        "price": 89700,
+        "stock": 50,
+        "attributes": null,
+        "id": "3b5f7c1d-d638-466c-9559-9c5a3f914ad9"
       }
     ],
     "brand": "UJEAVETTE",
@@ -3291,6 +4950,27 @@
         "price": 119700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C3538-DEFAULT-2",
+        "price": 119700,
+        "stock": 96,
+        "attributes": null,
+        "id": "121a29e8-bd35-48bd-b29d-09a1050dd8ba"
+      },
+      {
+        "sku_code": "SKU-C3538-DEFAULT-3",
+        "price": 119700,
+        "stock": 96,
+        "attributes": null,
+        "id": "38b9a417-82e5-4489-bd75-817fe3012b85"
+      },
+      {
+        "sku_code": "SKU-C3538-DEFAULT-4",
+        "price": 119700,
+        "stock": 96,
+        "attributes": null,
+        "id": "e9bbe9e4-093e-4b0e-8af8-78114b700240"
       }
     ],
     "brand": "UJEAVETTE",
@@ -3328,6 +5008,27 @@
         "price": 104700,
         "stock": 102,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SDPM4-DEFAULT-2",
+        "price": 104700,
+        "stock": 102,
+        "attributes": null,
+        "id": "cc6f99ae-5ba7-43e0-96b1-1d99ef626cbb"
+      },
+      {
+        "sku_code": "SKU-SDPM4-DEFAULT-3",
+        "price": 104700,
+        "stock": 102,
+        "attributes": null,
+        "id": "4606ca14-c538-46af-beb4-04a49ebe6fee"
+      },
+      {
+        "sku_code": "SKU-SDPM4-DEFAULT-4",
+        "price": 104700,
+        "stock": 102,
+        "attributes": null,
+        "id": "5f9ea998-7123-4009-a7ca-69fd78a9f43c"
       }
     ],
     "brand": "Aswadh",
@@ -3369,6 +5070,27 @@
         "price": 72300,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MEH2Z-DEFAULT-2",
+        "price": 72300,
+        "stock": 42,
+        "attributes": null,
+        "id": "b82816a7-d1b7-49c0-816a-74c993135baa"
+      },
+      {
+        "sku_code": "SKU-MEH2Z-DEFAULT-3",
+        "price": 72300,
+        "stock": 42,
+        "attributes": null,
+        "id": "d6295450-33dd-4208-9ecf-a137dad15b7e"
+      },
+      {
+        "sku_code": "SKU-MEH2Z-DEFAULT-4",
+        "price": 72300,
+        "stock": 42,
+        "attributes": null,
+        "id": "58b53131-f913-44b3-86d0-b0373811a969"
       }
     ],
     "brand": "SPOCCO",
@@ -3414,6 +5136,27 @@
         "price": 101700,
         "stock": 64,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6Q3UV-DEFAULT-2",
+        "price": 101700,
+        "stock": 64,
+        "attributes": null,
+        "id": "ba4cf98b-d08a-4f23-b867-e989cf7ca678"
+      },
+      {
+        "sku_code": "SKU-6Q3UV-DEFAULT-3",
+        "price": 101700,
+        "stock": 64,
+        "attributes": null,
+        "id": "f193beaa-46e7-4ca0-8cda-897e561aeb06"
+      },
+      {
+        "sku_code": "SKU-6Q3UV-DEFAULT-4",
+        "price": 101700,
+        "stock": 64,
+        "attributes": null,
+        "id": "3b34782f-32ce-4530-be80-7ec51e176097"
       }
     ],
     "brand": "SPOCCO",
@@ -3455,6 +5198,27 @@
         "price": 101700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EAO8V-DEFAULT-2",
+        "price": 101700,
+        "stock": 19,
+        "attributes": null,
+        "id": "e6dfb763-f7d1-445e-b803-8c2bde60e6cf"
+      },
+      {
+        "sku_code": "SKU-EAO8V-DEFAULT-3",
+        "price": 101700,
+        "stock": 19,
+        "attributes": null,
+        "id": "1fc24c6c-b6c5-42dc-b877-9dca3c06451c"
+      },
+      {
+        "sku_code": "SKU-EAO8V-DEFAULT-4",
+        "price": 101700,
+        "stock": 19,
+        "attributes": null,
+        "id": "d134cfd6-2f24-422e-b28b-5c7ebeb2d573"
       }
     ],
     "brand": "I2SERVICES",
@@ -3492,6 +5256,27 @@
         "price": 102000,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-RBB2H-DEFAULT-2",
+        "price": 102000,
+        "stock": 67,
+        "attributes": null,
+        "id": "ebfaa4ed-6665-4ab8-926c-61cd466dc267"
+      },
+      {
+        "sku_code": "SKU-RBB2H-DEFAULT-3",
+        "price": 102000,
+        "stock": 67,
+        "attributes": null,
+        "id": "30462a71-417b-4bcc-b12f-cc1576ad1b90"
+      },
+      {
+        "sku_code": "SKU-RBB2H-DEFAULT-4",
+        "price": 102000,
+        "stock": 67,
+        "attributes": null,
+        "id": "a5bf85e2-145d-4a62-9a4e-523fdeb28e49"
       }
     ],
     "brand": "Aswadh",
@@ -3537,6 +5322,27 @@
         "price": 142500,
         "stock": 100,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-OF2D5-DEFAULT-2",
+        "price": 142500,
+        "stock": 100,
+        "attributes": null,
+        "id": "c1a69ea6-8afa-4e07-afd3-31b8c17d8282"
+      },
+      {
+        "sku_code": "SKU-OF2D5-DEFAULT-3",
+        "price": 142500,
+        "stock": 100,
+        "attributes": null,
+        "id": "631b9586-ccae-4deb-ab66-f2b7404689e1"
+      },
+      {
+        "sku_code": "SKU-OF2D5-DEFAULT-4",
+        "price": 142500,
+        "stock": 100,
+        "attributes": null,
+        "id": "cf217f64-bf9e-4cb3-bfcb-b68a079e789f"
       }
     ],
     "brand": "Lining",
@@ -3582,6 +5388,27 @@
         "price": 114000,
         "stock": 76,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-N0QNR-DEFAULT-2",
+        "price": 114000,
+        "stock": 76,
+        "attributes": null,
+        "id": "dc9c608e-2d6b-404c-8d02-c6c1c56b0a56"
+      },
+      {
+        "sku_code": "SKU-N0QNR-DEFAULT-3",
+        "price": 114000,
+        "stock": 76,
+        "attributes": null,
+        "id": "941fc604-fc04-4d43-9b07-804e8aace69b"
+      },
+      {
+        "sku_code": "SKU-N0QNR-DEFAULT-4",
+        "price": 114000,
+        "stock": 76,
+        "attributes": null,
+        "id": "c99fc03d-0871-4aef-8412-7aa1385afbd4"
       }
     ],
     "brand": "SPOCCO",
@@ -3623,6 +5450,27 @@
         "price": 127200,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0ILGS-DEFAULT-2",
+        "price": 127200,
+        "stock": 79,
+        "attributes": null,
+        "id": "7011c8f7-ffd9-4d9f-af5b-ed050063b537"
+      },
+      {
+        "sku_code": "SKU-0ILGS-DEFAULT-3",
+        "price": 127200,
+        "stock": 79,
+        "attributes": null,
+        "id": "24088f37-7db7-4562-84ca-bee6dc63465f"
+      },
+      {
+        "sku_code": "SKU-0ILGS-DEFAULT-4",
+        "price": 127200,
+        "stock": 79,
+        "attributes": null,
+        "id": "6315fad1-17bd-4857-ad71-e36c0c7db9f9"
       }
     ],
     "brand": "SPOCCO",
@@ -3668,6 +5516,27 @@
         "price": 111600,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I0LJW-DEFAULT-2",
+        "price": 111600,
+        "stock": 69,
+        "attributes": null,
+        "id": "d28a84aa-4642-41b2-b80f-508d88bbffdb"
+      },
+      {
+        "sku_code": "SKU-I0LJW-DEFAULT-3",
+        "price": 111600,
+        "stock": 69,
+        "attributes": null,
+        "id": "47998da1-f539-405c-8e48-50c3ea44e1c1"
+      },
+      {
+        "sku_code": "SKU-I0LJW-DEFAULT-4",
+        "price": 111600,
+        "stock": 69,
+        "attributes": null,
+        "id": "49154751-d3ba-481a-8e36-7d15421f6a9a"
       }
     ],
     "brand": "AGNOLIA",
@@ -3713,6 +5582,27 @@
         "price": 175200,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O4HAM-DEFAULT-2",
+        "price": 175200,
+        "stock": 18,
+        "attributes": null,
+        "id": "f134ce27-ba4f-42b4-800a-daf549c8e40d"
+      },
+      {
+        "sku_code": "SKU-O4HAM-DEFAULT-3",
+        "price": 175200,
+        "stock": 18,
+        "attributes": null,
+        "id": "7cbc058c-6d1f-4ff5-a3e9-fa0c93408338"
+      },
+      {
+        "sku_code": "SKU-O4HAM-DEFAULT-4",
+        "price": 175200,
+        "stock": 18,
+        "attributes": null,
+        "id": "d53e11a8-8456-4b06-a8c5-e0abe19ecbc0"
       }
     ],
     "brand": "Badminton",
@@ -3754,6 +5644,27 @@
         "price": 97500,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ECXUZ-DEFAULT-2",
+        "price": 97500,
+        "stock": 22,
+        "attributes": null,
+        "id": "a398c81d-22f5-4eec-b3b1-7e8b8341d7d5"
+      },
+      {
+        "sku_code": "SKU-ECXUZ-DEFAULT-3",
+        "price": 97500,
+        "stock": 22,
+        "attributes": null,
+        "id": "ffd8ed59-da01-4fbc-bcbf-063c13deff40"
+      },
+      {
+        "sku_code": "SKU-ECXUZ-DEFAULT-4",
+        "price": 97500,
+        "stock": 22,
+        "attributes": null,
+        "id": "e51eecbb-e709-4133-9d7c-f69860117aa6"
       }
     ],
     "brand": "YONEX",
@@ -3791,6 +5702,27 @@
         "price": 157800,
         "stock": 58,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y35XB-DEFAULT-2",
+        "price": 157800,
+        "stock": 58,
+        "attributes": null,
+        "id": "566cbb81-2b4b-43f6-a8b9-d9c05982c71b"
+      },
+      {
+        "sku_code": "SKU-Y35XB-DEFAULT-3",
+        "price": 157800,
+        "stock": 58,
+        "attributes": null,
+        "id": "f829bf7e-3b67-467d-997e-cb47532e055f"
+      },
+      {
+        "sku_code": "SKU-Y35XB-DEFAULT-4",
+        "price": 157800,
+        "stock": 58,
+        "attributes": null,
+        "id": "f4bc0b25-14d9-402b-b5e6-a664a6a38591"
       }
     ],
     "brand": "YONEX",
@@ -3836,6 +5768,27 @@
         "price": 96000,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FP33S-DEFAULT-2",
+        "price": 96000,
+        "stock": 41,
+        "attributes": null,
+        "id": "fac0b132-d49a-43e3-9efe-35bc2c47b69c"
+      },
+      {
+        "sku_code": "SKU-FP33S-DEFAULT-3",
+        "price": 96000,
+        "stock": 41,
+        "attributes": null,
+        "id": "7fecbafc-ab85-44c2-b702-921e559e94d8"
+      },
+      {
+        "sku_code": "SKU-FP33S-DEFAULT-4",
+        "price": 96000,
+        "stock": 41,
+        "attributes": null,
+        "id": "49034851-c45e-4e37-b33d-17b2440de882"
       }
     ],
     "brand": "MS",
@@ -3881,6 +5834,27 @@
         "price": 464700,
         "stock": 96,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NDAUV-DEFAULT-2",
+        "price": 464700,
+        "stock": 96,
+        "attributes": null,
+        "id": "b64fcb24-8c9f-4332-bcf5-73b1ed7afc86"
+      },
+      {
+        "sku_code": "SKU-NDAUV-DEFAULT-3",
+        "price": 464700,
+        "stock": 96,
+        "attributes": null,
+        "id": "f1ad675f-ac1e-4e50-91cd-29019df475e3"
+      },
+      {
+        "sku_code": "SKU-NDAUV-DEFAULT-4",
+        "price": 464700,
+        "stock": 96,
+        "attributes": null,
+        "id": "7d865de1-91c4-427e-bcab-8ccb40930695"
       }
     ],
     "brand": "Badminton",
@@ -3922,6 +5896,27 @@
         "price": 173700,
         "stock": 67,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ESR4C-DEFAULT-2",
+        "price": 173700,
+        "stock": 67,
+        "attributes": null,
+        "id": "d543e480-d4ed-4523-a2bf-f953d8e3fa2e"
+      },
+      {
+        "sku_code": "SKU-ESR4C-DEFAULT-3",
+        "price": 173700,
+        "stock": 67,
+        "attributes": null,
+        "id": "6f21eb14-c00a-4037-8126-c3ac71617896"
+      },
+      {
+        "sku_code": "SKU-ESR4C-DEFAULT-4",
+        "price": 173700,
+        "stock": 67,
+        "attributes": null,
+        "id": "69973334-c88c-4d3c-a790-96b3028e08fb"
       }
     ],
     "brand": "UJEAVETTE",
@@ -3967,6 +5962,27 @@
         "price": 119700,
         "stock": 13,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VVHPX-DEFAULT-2",
+        "price": 119700,
+        "stock": 13,
+        "attributes": null,
+        "id": "b9e40f81-466f-4145-84f7-ae195004f96b"
+      },
+      {
+        "sku_code": "SKU-VVHPX-DEFAULT-3",
+        "price": 119700,
+        "stock": 13,
+        "attributes": null,
+        "id": "69d9cc54-2caf-43df-b918-97c8813cb45b"
+      },
+      {
+        "sku_code": "SKU-VVHPX-DEFAULT-4",
+        "price": 119700,
+        "stock": 13,
+        "attributes": null,
+        "id": "7ba2e6c4-5527-4951-8c0d-d5fbdfc89716"
       }
     ],
     "brand": "Airavat",
@@ -4012,6 +6028,27 @@
         "price": 89700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2KVJI-DEFAULT-2",
+        "price": 89700,
+        "stock": 78,
+        "attributes": null,
+        "id": "3b53e433-fc7a-48ce-96ac-f5086bb3f1a1"
+      },
+      {
+        "sku_code": "SKU-2KVJI-DEFAULT-3",
+        "price": 89700,
+        "stock": 78,
+        "attributes": null,
+        "id": "66567189-43ea-4fa5-99ba-0d5cac32ec32"
+      },
+      {
+        "sku_code": "SKU-2KVJI-DEFAULT-4",
+        "price": 89700,
+        "stock": 78,
+        "attributes": null,
+        "id": "72bacde4-974e-4ffe-8df7-61f8a1926a78"
       }
     ],
     "brand": "Lining",
@@ -4057,6 +6094,27 @@
         "price": 223800,
         "stock": 52,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-K97AQ-DEFAULT-2",
+        "price": 223800,
+        "stock": 52,
+        "attributes": null,
+        "id": "c73d3d53-d77a-4909-8394-e1f19a7b43c9"
+      },
+      {
+        "sku_code": "SKU-K97AQ-DEFAULT-3",
+        "price": 223800,
+        "stock": 52,
+        "attributes": null,
+        "id": "a89163ec-3d39-4898-b2e2-92760aa4076c"
+      },
+      {
+        "sku_code": "SKU-K97AQ-DEFAULT-4",
+        "price": 223800,
+        "stock": 52,
+        "attributes": null,
+        "id": "1507f9ed-332b-4131-86d9-ad78ff6f9954"
       }
     ],
     "brand": "MS",
@@ -4102,6 +6160,27 @@
         "price": 172200,
         "stock": 54,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FNAIP-DEFAULT-2",
+        "price": 172200,
+        "stock": 54,
+        "attributes": null,
+        "id": "ee58befa-c8a1-4df5-b784-165387a4a4fb"
+      },
+      {
+        "sku_code": "SKU-FNAIP-DEFAULT-3",
+        "price": 172200,
+        "stock": 54,
+        "attributes": null,
+        "id": "7b8a3531-67df-4cb2-9c88-3dcfc8cbfa65"
+      },
+      {
+        "sku_code": "SKU-FNAIP-DEFAULT-4",
+        "price": 172200,
+        "stock": 54,
+        "attributes": null,
+        "id": "1c32a0a2-4bbc-4f23-b3b6-3bd82c8be869"
       }
     ],
     "brand": "Airavat",
@@ -4143,6 +6222,27 @@
         "price": 137700,
         "stock": 57,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-L39G5-DEFAULT-2",
+        "price": 137700,
+        "stock": 57,
+        "attributes": null,
+        "id": "ffb2105e-1a64-42da-9a2f-d9380b9b453e"
+      },
+      {
+        "sku_code": "SKU-L39G5-DEFAULT-3",
+        "price": 137700,
+        "stock": 57,
+        "attributes": null,
+        "id": "3fdccf5c-6987-4f90-8b09-97947daf8218"
+      },
+      {
+        "sku_code": "SKU-L39G5-DEFAULT-4",
+        "price": 137700,
+        "stock": 57,
+        "attributes": null,
+        "id": "e3232692-6f48-403a-ab80-b7f4db7e1319"
       }
     ],
     "brand": "Bansal",

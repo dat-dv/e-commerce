@@ -22,6 +22,27 @@
         "price": 113700,
         "stock": 105,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O40R9-DEFAULT-2",
+        "price": 113700,
+        "stock": 105,
+        "attributes": null,
+        "id": "19a031e0-93a8-4ede-8ec3-4d226b532751"
+      },
+      {
+        "sku_code": "SKU-O40R9-DEFAULT-3",
+        "price": 113700,
+        "stock": 105,
+        "attributes": null,
+        "id": "fd0bde00-3363-4b78-98ba-b0736032e4c2"
+      },
+      {
+        "sku_code": "SKU-O40R9-DEFAULT-4",
+        "price": 113700,
+        "stock": 105,
+        "attributes": null,
+        "id": "c3767fbd-c302-40ac-82fa-a964caabb927"
       }
     ],
     "brand": "Philips",
@@ -67,6 +88,27 @@
         "price": 98700,
         "stock": 22,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5ZLCT-DEFAULT-2",
+        "price": 98700,
+        "stock": 22,
+        "attributes": null,
+        "id": "099a98bd-2eb6-4b83-b353-f07beb2276d5"
+      },
+      {
+        "sku_code": "SKU-5ZLCT-DEFAULT-3",
+        "price": 98700,
+        "stock": 22,
+        "attributes": null,
+        "id": "b0a89d21-0810-4b4e-893e-25f6eae418a9"
+      },
+      {
+        "sku_code": "SKU-5ZLCT-DEFAULT-4",
+        "price": 98700,
+        "stock": 22,
+        "attributes": null,
+        "id": "e7e8985d-572e-4474-8852-1ef74d9a7f50"
       }
     ],
     "brand": "Gesto",
@@ -108,6 +150,27 @@
         "price": 170700,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XS2KI-DEFAULT-2",
+        "price": 170700,
+        "stock": 18,
+        "attributes": null,
+        "id": "3f56350c-b4e8-44d0-98be-60b4539f05d0"
+      },
+      {
+        "sku_code": "SKU-XS2KI-DEFAULT-3",
+        "price": 170700,
+        "stock": 18,
+        "attributes": null,
+        "id": "11585b7f-fa9d-4e32-ae17-38bf7e3644fa"
+      },
+      {
+        "sku_code": "SKU-XS2KI-DEFAULT-4",
+        "price": 170700,
+        "stock": 18,
+        "attributes": null,
+        "id": "c0c822f9-c1c9-4bcd-bfcc-e7ea50fcfe2c"
       }
     ],
     "brand": "Mahganya",
@@ -153,6 +216,27 @@
         "price": 105000,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X35PY-DEFAULT-2",
+        "price": 105000,
+        "stock": 63,
+        "attributes": null,
+        "id": "8e46d53b-4771-4a67-8607-f136d3b14746"
+      },
+      {
+        "sku_code": "SKU-X35PY-DEFAULT-3",
+        "price": 105000,
+        "stock": 63,
+        "attributes": null,
+        "id": "fd8e22ab-9105-42fb-8e6c-f16e093ea723"
+      },
+      {
+        "sku_code": "SKU-X35PY-DEFAULT-4",
+        "price": 105000,
+        "stock": 63,
+        "attributes": null,
+        "id": "5db85398-210a-4f2f-b333-66c424e63e21"
       }
     ],
     "brand": "Philips",
@@ -198,6 +282,27 @@
         "price": 89700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-67835-DEFAULT-2",
+        "price": 89700,
+        "stock": 61,
+        "attributes": null,
+        "id": "19b1d875-43fd-4f97-9784-2a398a5a2aca"
+      },
+      {
+        "sku_code": "SKU-67835-DEFAULT-3",
+        "price": 89700,
+        "stock": 61,
+        "attributes": null,
+        "id": "13752a9c-df3b-4d69-8c97-1caeb8299949"
+      },
+      {
+        "sku_code": "SKU-67835-DEFAULT-4",
+        "price": 89700,
+        "stock": 61,
+        "attributes": null,
+        "id": "23a02476-cce7-42ce-99b4-3023db34e173"
       }
     ],
     "brand": "JBL",
@@ -243,6 +348,27 @@
         "price": 179100,
         "stock": 29,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LQWXU-DEFAULT-2",
+        "price": 179100,
+        "stock": 29,
+        "attributes": null,
+        "id": "e762f379-9f5c-4f73-b84e-1822e9e084bd"
+      },
+      {
+        "sku_code": "SKU-LQWXU-DEFAULT-3",
+        "price": 179100,
+        "stock": 29,
+        "attributes": null,
+        "id": "1b5c6771-0067-474f-9bd1-d95813cd20bb"
+      },
+      {
+        "sku_code": "SKU-LQWXU-DEFAULT-4",
+        "price": 179100,
+        "stock": 29,
+        "attributes": null,
+        "id": "e3a895e6-7332-48f8-a4e9-68fe0501d97a"
       }
     ],
     "brand": "CITRA",
@@ -288,6 +414,27 @@
         "price": 239700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-QM2EN-DEFAULT-2",
+        "price": 239700,
+        "stock": 98,
+        "attributes": null,
+        "id": "51ce56e6-7051-47d6-b276-ff02f124a2b0"
+      },
+      {
+        "sku_code": "SKU-QM2EN-DEFAULT-3",
+        "price": 239700,
+        "stock": 98,
+        "attributes": null,
+        "id": "20304887-d6e5-4472-8e61-7ba904451b6c"
+      },
+      {
+        "sku_code": "SKU-QM2EN-DEFAULT-4",
+        "price": 239700,
+        "stock": 98,
+        "attributes": null,
+        "id": "85053cbd-3fd1-4be4-8f7a-21f0ddb37769"
       }
     ],
     "brand": "JBL",
@@ -329,6 +476,27 @@
         "price": 89700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0V6R2-DEFAULT-2",
+        "price": 89700,
+        "stock": 16,
+        "attributes": null,
+        "id": "4972b7ed-d16e-4a22-b9e7-ab7c7eaf91f9"
+      },
+      {
+        "sku_code": "SKU-0V6R2-DEFAULT-3",
+        "price": 89700,
+        "stock": 16,
+        "attributes": null,
+        "id": "424068df-143a-4775-994c-340befce7b8e"
+      },
+      {
+        "sku_code": "SKU-0V6R2-DEFAULT-4",
+        "price": 89700,
+        "stock": 16,
+        "attributes": null,
+        "id": "375c075e-4dfe-4adc-99ed-31de0caf58eb"
       }
     ],
     "brand": "D'Mak",
@@ -370,6 +538,27 @@
         "price": 217500,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1VI2W-DEFAULT-2",
+        "price": 217500,
+        "stock": 21,
+        "attributes": null,
+        "id": "803875ea-344b-40f6-827c-7b4b2bad4649"
+      },
+      {
+        "sku_code": "SKU-1VI2W-DEFAULT-3",
+        "price": 217500,
+        "stock": 21,
+        "attributes": null,
+        "id": "407bdb0b-e6e0-45b5-86ab-9d5be84c13e7"
+      },
+      {
+        "sku_code": "SKU-1VI2W-DEFAULT-4",
+        "price": 217500,
+        "stock": 21,
+        "attributes": null,
+        "id": "b51d97c5-ca79-459e-b277-f9b86b463be1"
       }
     ],
     "brand": "Murphy",
@@ -415,6 +604,27 @@
         "price": 156300,
         "stock": 51,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T1EYH-DEFAULT-2",
+        "price": 156300,
+        "stock": 51,
+        "attributes": null,
+        "id": "e529c7f4-2420-4c41-8c44-0d7f8a210057"
+      },
+      {
+        "sku_code": "SKU-T1EYH-DEFAULT-3",
+        "price": 156300,
+        "stock": 51,
+        "attributes": null,
+        "id": "6c6ae61e-d362-4c41-b626-e36a7e6ccb69"
+      },
+      {
+        "sku_code": "SKU-T1EYH-DEFAULT-4",
+        "price": 156300,
+        "stock": 51,
+        "attributes": null,
+        "id": "fbaeef06-fca3-439e-ad9b-f8a5c259cd20"
       }
     ],
     "brand": "SYSKA",
@@ -456,6 +666,27 @@
         "price": 206700,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Q5FSY-DEFAULT-2",
+        "price": 206700,
+        "stock": 70,
+        "attributes": null,
+        "id": "a4a6ccb1-2047-4126-ac6f-7445a66f60b3"
+      },
+      {
+        "sku_code": "SKU-Q5FSY-DEFAULT-3",
+        "price": 206700,
+        "stock": 70,
+        "attributes": null,
+        "id": "be1be568-7cb2-4097-b2d8-672cb9ad6d07"
+      },
+      {
+        "sku_code": "SKU-Q5FSY-DEFAULT-4",
+        "price": 206700,
+        "stock": 70,
+        "attributes": null,
+        "id": "8ef18d6c-e085-4dc1-b259-55b47550e78d"
       }
     ],
     "brand": "JBL",
@@ -501,6 +732,27 @@
         "price": 149700,
         "stock": 25,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UFZ17-DEFAULT-2",
+        "price": 149700,
+        "stock": 25,
+        "attributes": null,
+        "id": "12e2530b-8dd1-4a09-825d-3cb0550c52af"
+      },
+      {
+        "sku_code": "SKU-UFZ17-DEFAULT-3",
+        "price": 149700,
+        "stock": 25,
+        "attributes": null,
+        "id": "b11e2e4a-0f9f-479f-8d22-ff8ee76eb601"
+      },
+      {
+        "sku_code": "SKU-UFZ17-DEFAULT-4",
+        "price": 149700,
+        "stock": 25,
+        "attributes": null,
+        "id": "2b27d37c-ff85-4169-8a2f-db3462f27c4f"
       }
     ],
     "brand": "SYSKA",
@@ -542,6 +794,27 @@
         "price": 32100,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8OV0O-DEFAULT-2",
+        "price": 32100,
+        "stock": 104,
+        "attributes": null,
+        "id": "012e5f8a-ad03-497f-998a-6e3f62591ce3"
+      },
+      {
+        "sku_code": "SKU-8OV0O-DEFAULT-3",
+        "price": 32100,
+        "stock": 104,
+        "attributes": null,
+        "id": "1ab7e847-0971-4b15-9309-a7630b62844b"
+      },
+      {
+        "sku_code": "SKU-8OV0O-DEFAULT-4",
+        "price": 32100,
+        "stock": 104,
+        "attributes": null,
+        "id": "9343a123-f506-451e-8db6-913f51e71ae4"
       }
     ],
     "brand": "Philips",
@@ -583,6 +856,27 @@
         "price": 74700,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D3RFI-DEFAULT-2",
+        "price": 74700,
+        "stock": 107,
+        "attributes": null,
+        "id": "f51f1d62-90be-47e6-90ff-b2a3285ced2a"
+      },
+      {
+        "sku_code": "SKU-D3RFI-DEFAULT-3",
+        "price": 74700,
+        "stock": 107,
+        "attributes": null,
+        "id": "011d87ed-43e3-4e53-ad9c-b1cc97c6b9cf"
+      },
+      {
+        "sku_code": "SKU-D3RFI-DEFAULT-4",
+        "price": 74700,
+        "stock": 107,
+        "attributes": null,
+        "id": "d35cb0e1-3bba-47b5-a31e-ef31fda77032"
       }
     ],
     "brand": "Mufasa",
@@ -628,6 +922,27 @@
         "price": 96000,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y2P9Y-DEFAULT-2",
+        "price": 96000,
+        "stock": 88,
+        "attributes": null,
+        "id": "c265a8eb-9ad8-4590-beea-4149352acb01"
+      },
+      {
+        "sku_code": "SKU-Y2P9Y-DEFAULT-3",
+        "price": 96000,
+        "stock": 88,
+        "attributes": null,
+        "id": "88a7017e-bade-485f-bd3e-06bbc383e04a"
+      },
+      {
+        "sku_code": "SKU-Y2P9Y-DEFAULT-4",
+        "price": 96000,
+        "stock": 88,
+        "attributes": null,
+        "id": "57f7ac7d-e5bf-41ef-913f-6a6467119eb0"
       }
     ],
     "brand": "Philips",
@@ -665,6 +980,27 @@
         "price": 81000,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EHQ5H-DEFAULT-2",
+        "price": 81000,
+        "stock": 28,
+        "attributes": null,
+        "id": "f5c6c365-ef14-4554-8039-526552c97371"
+      },
+      {
+        "sku_code": "SKU-EHQ5H-DEFAULT-3",
+        "price": 81000,
+        "stock": 28,
+        "attributes": null,
+        "id": "5329bb0b-24f2-4c81-a896-94710e8669dc"
+      },
+      {
+        "sku_code": "SKU-EHQ5H-DEFAULT-4",
+        "price": 81000,
+        "stock": 28,
+        "attributes": null,
+        "id": "a1748e07-f2f0-44e1-b636-c006fa08a32a"
       }
     ],
     "brand": "PHILIPS",
@@ -702,6 +1038,27 @@
         "price": 73497,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5E1SX-DEFAULT-2",
+        "price": 73497,
+        "stock": 74,
+        "attributes": null,
+        "id": "fe37edb9-afa1-4dbf-9e0b-285f3c722a98"
+      },
+      {
+        "sku_code": "SKU-5E1SX-DEFAULT-3",
+        "price": 73497,
+        "stock": 74,
+        "attributes": null,
+        "id": "ad7a27d0-b9d8-4cdb-9810-ee2fc877dcf8"
+      },
+      {
+        "sku_code": "SKU-5E1SX-DEFAULT-4",
+        "price": 73497,
+        "stock": 74,
+        "attributes": null,
+        "id": "c2f5622a-e204-46e0-a694-f7de0110821a"
       }
     ],
     "brand": "SYSKA",
@@ -743,6 +1100,27 @@
         "price": 299700,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VWNM7-DEFAULT-2",
+        "price": 299700,
+        "stock": 71,
+        "attributes": null,
+        "id": "7b67596a-4e5d-411d-aa95-9b51bf3fc0f6"
+      },
+      {
+        "sku_code": "SKU-VWNM7-DEFAULT-3",
+        "price": 299700,
+        "stock": 71,
+        "attributes": null,
+        "id": "c48032f9-5bd2-4e17-b3c0-09c6c3f5ef7c"
+      },
+      {
+        "sku_code": "SKU-VWNM7-DEFAULT-4",
+        "price": 299700,
+        "stock": 71,
+        "attributes": null,
+        "id": "6ece20af-cdeb-4579-88bd-b99f35068a07"
       }
     ],
     "brand": "Philips",
@@ -784,6 +1162,27 @@
         "price": 34500,
         "stock": 104,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-2AGA0-DEFAULT-2",
+        "price": 34500,
+        "stock": 104,
+        "attributes": null,
+        "id": "593119d7-5b0f-4d90-98cc-4fa6256b26fd"
+      },
+      {
+        "sku_code": "SKU-2AGA0-DEFAULT-3",
+        "price": 34500,
+        "stock": 104,
+        "attributes": null,
+        "id": "4848c88b-60b8-4bd3-87ee-a74775035bea"
+      },
+      {
+        "sku_code": "SKU-2AGA0-DEFAULT-4",
+        "price": 34500,
+        "stock": 104,
+        "attributes": null,
+        "id": "3ef24324-e560-44d4-865e-d4421df251ec"
       }
     ],
     "brand": "Wipro",
@@ -821,6 +1220,27 @@
         "price": 29400,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6OAFS-DEFAULT-2",
+        "price": 29400,
+        "stock": 85,
+        "attributes": null,
+        "id": "f0e93237-574e-4818-8e72-9aa44fcf944b"
+      },
+      {
+        "sku_code": "SKU-6OAFS-DEFAULT-3",
+        "price": 29400,
+        "stock": 85,
+        "attributes": null,
+        "id": "bd244c0d-05a3-4ec1-9146-9c531f73f30a"
+      },
+      {
+        "sku_code": "SKU-6OAFS-DEFAULT-4",
+        "price": 29400,
+        "stock": 85,
+        "attributes": null,
+        "id": "58fd1a9a-bd7d-43b5-bbfe-acf093074e98"
       }
     ],
     "brand": "Care",
@@ -862,6 +1282,27 @@
         "price": 179700,
         "stock": 14,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y3OVK-DEFAULT-2",
+        "price": 179700,
+        "stock": 14,
+        "attributes": null,
+        "id": "72a42e2d-01bc-4214-bedf-7681f627ba16"
+      },
+      {
+        "sku_code": "SKU-Y3OVK-DEFAULT-3",
+        "price": 179700,
+        "stock": 14,
+        "attributes": null,
+        "id": "ca8e8877-af2c-4404-85ea-a6376a3cd9e8"
+      },
+      {
+        "sku_code": "SKU-Y3OVK-DEFAULT-4",
+        "price": 179700,
+        "stock": 14,
+        "attributes": null,
+        "id": "749abd84-10ba-45f5-a739-aa8f0ef6ce23"
       }
     ],
     "brand": "Gesto",
@@ -903,6 +1344,27 @@
         "price": 261600,
         "stock": 11,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5UDQH-DEFAULT-2",
+        "price": 261600,
+        "stock": 11,
+        "attributes": null,
+        "id": "6687fa03-873c-4e92-a4c9-6d2fac430ab4"
+      },
+      {
+        "sku_code": "SKU-5UDQH-DEFAULT-3",
+        "price": 261600,
+        "stock": 11,
+        "attributes": null,
+        "id": "7da95de2-5720-42b0-9302-82ebb2d88d7e"
+      },
+      {
+        "sku_code": "SKU-5UDQH-DEFAULT-4",
+        "price": 261600,
+        "stock": 11,
+        "attributes": null,
+        "id": "90195153-3b13-472e-8aae-b3c352805d63"
       }
     ],
     "brand": "JBL",
@@ -944,6 +1406,27 @@
         "price": 213900,
         "stock": 68,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HY2FF-DEFAULT-2",
+        "price": 213900,
+        "stock": 68,
+        "attributes": null,
+        "id": "5d5eae94-c753-4d68-8876-068c2fd52b28"
+      },
+      {
+        "sku_code": "SKU-HY2FF-DEFAULT-3",
+        "price": 213900,
+        "stock": 68,
+        "attributes": null,
+        "id": "4b9c826f-588d-44fd-b915-06ee114ea2b2"
+      },
+      {
+        "sku_code": "SKU-HY2FF-DEFAULT-4",
+        "price": 213900,
+        "stock": 68,
+        "attributes": null,
+        "id": "53654410-80e8-4629-8a4b-5f2fbaca8e1b"
       }
     ],
     "brand": "CITRA",
@@ -985,6 +1468,27 @@
         "price": 209700,
         "stock": 38,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-C7W35-DEFAULT-2",
+        "price": 209700,
+        "stock": 38,
+        "attributes": null,
+        "id": "d823f6b3-33c9-4f83-8b6d-8255cd68bde0"
+      },
+      {
+        "sku_code": "SKU-C7W35-DEFAULT-3",
+        "price": 209700,
+        "stock": 38,
+        "attributes": null,
+        "id": "c7332b18-67c0-4880-b087-86baa4d04a43"
+      },
+      {
+        "sku_code": "SKU-C7W35-DEFAULT-4",
+        "price": 209700,
+        "stock": 38,
+        "attributes": null,
+        "id": "dcdf20cd-ef67-4796-8236-5f3c0da608fc"
       }
     ],
     "brand": "JBL",
@@ -1022,6 +1526,27 @@
         "price": 119700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-D1AXM-DEFAULT-2",
+        "price": 119700,
+        "stock": 44,
+        "attributes": null,
+        "id": "bc88bf77-79f2-4d0d-80a0-d80d526f3cb0"
+      },
+      {
+        "sku_code": "SKU-D1AXM-DEFAULT-3",
+        "price": 119700,
+        "stock": 44,
+        "attributes": null,
+        "id": "aa4814f7-73a1-4969-b7ed-745b3469b454"
+      },
+      {
+        "sku_code": "SKU-D1AXM-DEFAULT-4",
+        "price": 119700,
+        "stock": 44,
+        "attributes": null,
+        "id": "7d5b6923-2158-4bfa-81a7-d1e3f27a8fd6"
       }
     ],
     "brand": "Samsung",
@@ -1067,6 +1592,27 @@
         "price": 119700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y4EE6-DEFAULT-2",
+        "price": 119700,
+        "stock": 41,
+        "attributes": null,
+        "id": "7eb3e723-6879-42b4-972a-b50d46c57daf"
+      },
+      {
+        "sku_code": "SKU-Y4EE6-DEFAULT-3",
+        "price": 119700,
+        "stock": 41,
+        "attributes": null,
+        "id": "c3f27839-e658-4d20-ad52-5e9285a06385"
+      },
+      {
+        "sku_code": "SKU-Y4EE6-DEFAULT-4",
+        "price": 119700,
+        "stock": 41,
+        "attributes": null,
+        "id": "cf90fc4a-5067-470c-b514-457ba8cbf5ff"
       }
     ],
     "brand": "JBL",
@@ -1108,6 +1654,27 @@
         "price": 299700,
         "stock": 63,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-93KRE-DEFAULT-2",
+        "price": 299700,
+        "stock": 63,
+        "attributes": null,
+        "id": "fe9fde7f-54fa-4ada-b2ad-905feb162d74"
+      },
+      {
+        "sku_code": "SKU-93KRE-DEFAULT-3",
+        "price": 299700,
+        "stock": 63,
+        "attributes": null,
+        "id": "df398e5e-f814-4f6b-8e3f-922d1e639893"
+      },
+      {
+        "sku_code": "SKU-93KRE-DEFAULT-4",
+        "price": 299700,
+        "stock": 63,
+        "attributes": null,
+        "id": "90a3fa25-664d-4da4-a4ad-e3ef8d53f6f3"
       }
     ],
     "brand": "Gesto",
@@ -1145,6 +1712,27 @@
         "price": 51609,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-25858-DEFAULT-2",
+        "price": 51609,
+        "stock": 10,
+        "attributes": null,
+        "id": "7577f2ef-2e55-4371-b509-e7bb6a256553"
+      },
+      {
+        "sku_code": "SKU-25858-DEFAULT-3",
+        "price": 51609,
+        "stock": 10,
+        "attributes": null,
+        "id": "141f2c50-927f-437f-9cd0-2dff6f8159b1"
+      },
+      {
+        "sku_code": "SKU-25858-DEFAULT-4",
+        "price": 51609,
+        "stock": 10,
+        "attributes": null,
+        "id": "aa085ff3-0031-4298-bb72-156253e45a52"
       }
     ],
     "brand": "Mufasa",
@@ -1182,6 +1770,27 @@
         "price": 176700,
         "stock": 74,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WI3IY-DEFAULT-2",
+        "price": 176700,
+        "stock": 74,
+        "attributes": null,
+        "id": "4e5fe1db-df06-4fbf-8ece-3fb6a7a44e0e"
+      },
+      {
+        "sku_code": "SKU-WI3IY-DEFAULT-3",
+        "price": 176700,
+        "stock": 74,
+        "attributes": null,
+        "id": "9e41efff-5b79-473a-a899-33c2909ad4de"
+      },
+      {
+        "sku_code": "SKU-WI3IY-DEFAULT-4",
+        "price": 176700,
+        "stock": 74,
+        "attributes": null,
+        "id": "7b705784-f0fd-4731-96bf-0df0de037b8f"
       }
     ],
     "brand": "D'Mak",
@@ -1227,6 +1836,27 @@
         "price": 275700,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-R90IO-DEFAULT-2",
+        "price": 275700,
+        "stock": 27,
+        "attributes": null,
+        "id": "2ebb0784-915e-444d-a2ef-d0c611512054"
+      },
+      {
+        "sku_code": "SKU-R90IO-DEFAULT-3",
+        "price": 275700,
+        "stock": 27,
+        "attributes": null,
+        "id": "36a108d8-de2c-4a86-a41f-442fe38aefa2"
+      },
+      {
+        "sku_code": "SKU-R90IO-DEFAULT-4",
+        "price": 275700,
+        "stock": 27,
+        "attributes": null,
+        "id": "7d9fbb3f-3f40-4ff4-9cc5-19490917ee82"
       }
     ],
     "brand": "Improvhome",
@@ -1264,6 +1894,27 @@
         "price": 268500,
         "stock": 70,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V9X10-DEFAULT-2",
+        "price": 268500,
+        "stock": 70,
+        "attributes": null,
+        "id": "b1d8c81c-a7c2-4ba2-9461-87f861a972f8"
+      },
+      {
+        "sku_code": "SKU-V9X10-DEFAULT-3",
+        "price": 268500,
+        "stock": 70,
+        "attributes": null,
+        "id": "efcae2ef-2d69-42be-a16a-78d85c3e131d"
+      },
+      {
+        "sku_code": "SKU-V9X10-DEFAULT-4",
+        "price": 268500,
+        "stock": 70,
+        "attributes": null,
+        "id": "c6bcc004-1ed5-4637-8b62-39b91d2de0ad"
       }
     ],
     "brand": "PHILIPS",
@@ -1305,6 +1956,27 @@
         "price": 131400,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-80LCQ-DEFAULT-2",
+        "price": 131400,
+        "stock": 21,
+        "attributes": null,
+        "id": "ff1aece1-ff67-4027-a79f-f28132c3124a"
+      },
+      {
+        "sku_code": "SKU-80LCQ-DEFAULT-3",
+        "price": 131400,
+        "stock": 21,
+        "attributes": null,
+        "id": "3e53c555-99d9-49a4-a349-5314913ccad9"
+      },
+      {
+        "sku_code": "SKU-80LCQ-DEFAULT-4",
+        "price": 131400,
+        "stock": 21,
+        "attributes": null,
+        "id": "42c58a59-ab3d-4d99-abec-8f26015a4c65"
       }
     ],
     "brand": "Mufasa",
@@ -1342,6 +2014,27 @@
         "price": 254700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-Y1CE3-DEFAULT-2",
+        "price": 254700,
+        "stock": 106,
+        "attributes": null,
+        "id": "6b63fc4d-e75f-4a27-81e6-0e2cd7c0e3b5"
+      },
+      {
+        "sku_code": "SKU-Y1CE3-DEFAULT-3",
+        "price": 254700,
+        "stock": 106,
+        "attributes": null,
+        "id": "651da1f8-0497-4b7a-b0b5-0f347d1035d1"
+      },
+      {
+        "sku_code": "SKU-Y1CE3-DEFAULT-4",
+        "price": 254700,
+        "stock": 106,
+        "attributes": null,
+        "id": "4c07792f-37b0-4ba8-b1d8-708090c74822"
       }
     ],
     "brand": "Lyse",
@@ -1387,6 +2080,27 @@
         "price": 394500,
         "stock": 28,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TQ7MD-DEFAULT-2",
+        "price": 394500,
+        "stock": 28,
+        "attributes": null,
+        "id": "9620c502-dabd-48f9-a5c3-cc64de32c298"
+      },
+      {
+        "sku_code": "SKU-TQ7MD-DEFAULT-3",
+        "price": 394500,
+        "stock": 28,
+        "attributes": null,
+        "id": "c75d32a0-67bb-4315-94a8-329bedcebca1"
+      },
+      {
+        "sku_code": "SKU-TQ7MD-DEFAULT-4",
+        "price": 394500,
+        "stock": 28,
+        "attributes": null,
+        "id": "fb7fc90e-829c-45ac-a784-3ec3fd21c842"
       }
     ],
     "brand": "Philips",
@@ -1428,6 +2142,27 @@
         "price": 80700,
         "stock": 84,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-T9MM5-DEFAULT-2",
+        "price": 80700,
+        "stock": 84,
+        "attributes": null,
+        "id": "ccca15a6-d7a2-42e4-b405-f6d642fd2ce1"
+      },
+      {
+        "sku_code": "SKU-T9MM5-DEFAULT-3",
+        "price": 80700,
+        "stock": 84,
+        "attributes": null,
+        "id": "d53442e8-4bd6-4be9-bc25-04013f20e043"
+      },
+      {
+        "sku_code": "SKU-T9MM5-DEFAULT-4",
+        "price": 80700,
+        "stock": 84,
+        "attributes": null,
+        "id": "c8bfbe84-a845-4494-a2ef-c6e3c26be695"
       }
     ],
     "brand": "Care",
@@ -1473,6 +2208,27 @@
         "price": 119700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EDSCV-DEFAULT-2",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "292f6c9e-9a3c-4f1b-b88e-77ba1961b5dc"
+      },
+      {
+        "sku_code": "SKU-EDSCV-DEFAULT-3",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "9d8293ad-e4ff-4552-aa34-c5babe1e21af"
+      },
+      {
+        "sku_code": "SKU-EDSCV-DEFAULT-4",
+        "price": 119700,
+        "stock": 49,
+        "attributes": null,
+        "id": "2ac1c785-3f8d-458f-b1a4-ecdf72321ea5"
       }
     ],
     "brand": "CITRA",
@@ -1514,6 +2270,27 @@
         "price": 59700,
         "stock": 26,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-49YNH-DEFAULT-2",
+        "price": 59700,
+        "stock": 26,
+        "attributes": null,
+        "id": "06f0151a-4a0a-4497-9e54-ff0dc29f8818"
+      },
+      {
+        "sku_code": "SKU-49YNH-DEFAULT-3",
+        "price": 59700,
+        "stock": 26,
+        "attributes": null,
+        "id": "74790fc7-b3f4-4f5e-b3ac-82ac8717a501"
+      },
+      {
+        "sku_code": "SKU-49YNH-DEFAULT-4",
+        "price": 59700,
+        "stock": 26,
+        "attributes": null,
+        "id": "e73d879d-aac6-4878-b5c4-6c569ac11654"
       }
     ],
     "brand": "JBL",
@@ -1555,6 +2332,27 @@
         "price": 65700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-XOFDL-DEFAULT-2",
+        "price": 65700,
+        "stock": 91,
+        "attributes": null,
+        "id": "e2d8451f-bf92-4e0c-bfa9-9034b64283f2"
+      },
+      {
+        "sku_code": "SKU-XOFDL-DEFAULT-3",
+        "price": 65700,
+        "stock": 91,
+        "attributes": null,
+        "id": "629fd7e7-19c4-4f3c-a8ac-5d41ee3e130a"
+      },
+      {
+        "sku_code": "SKU-XOFDL-DEFAULT-4",
+        "price": 65700,
+        "stock": 91,
+        "attributes": null,
+        "id": "010f7118-a8d7-4c4f-adcb-378d5175e552"
       }
     ],
     "brand": "D'Mak",
@@ -1596,6 +2394,27 @@
         "price": 59700,
         "stock": 46,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3KI3V-DEFAULT-2",
+        "price": 59700,
+        "stock": 46,
+        "attributes": null,
+        "id": "629f9957-3c3b-4f36-a5c6-fb9580457f57"
+      },
+      {
+        "sku_code": "SKU-3KI3V-DEFAULT-3",
+        "price": 59700,
+        "stock": 46,
+        "attributes": null,
+        "id": "a7eb80ae-03ab-4249-a689-cd61b977a522"
+      },
+      {
+        "sku_code": "SKU-3KI3V-DEFAULT-4",
+        "price": 59700,
+        "stock": 46,
+        "attributes": null,
+        "id": "9bfbec9e-b0f4-4c10-b8ef-f0cf0d579d2d"
       }
     ],
     "brand": "Improvhome",
@@ -1633,6 +2452,27 @@
         "price": 509700,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-08QB7-DEFAULT-2",
+        "price": 509700,
+        "stock": 69,
+        "attributes": null,
+        "id": "9b17cdbf-846c-4545-bd85-fa477c8c48f4"
+      },
+      {
+        "sku_code": "SKU-08QB7-DEFAULT-3",
+        "price": 509700,
+        "stock": 69,
+        "attributes": null,
+        "id": "1591a515-4fea-42c3-8735-e18b6cebc772"
+      },
+      {
+        "sku_code": "SKU-08QB7-DEFAULT-4",
+        "price": 509700,
+        "stock": 69,
+        "attributes": null,
+        "id": "8d8a161f-b37b-4c5d-9652-c8a94a37ef18"
       }
     ],
     "brand": "Care",
@@ -1670,6 +2510,27 @@
         "price": 419700,
         "stock": 12,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-O4GOB-DEFAULT-2",
+        "price": 419700,
+        "stock": 12,
+        "attributes": null,
+        "id": "704445dc-dd7e-4e8f-bef0-90ec03d4ae97"
+      },
+      {
+        "sku_code": "SKU-O4GOB-DEFAULT-3",
+        "price": 419700,
+        "stock": 12,
+        "attributes": null,
+        "id": "624cf4ea-5fa5-48b4-9130-c524e40daf84"
+      },
+      {
+        "sku_code": "SKU-O4GOB-DEFAULT-4",
+        "price": 419700,
+        "stock": 12,
+        "attributes": null,
+        "id": "5a3b1363-1555-4c83-be11-b34269e7bf1d"
       }
     ],
     "brand": "Wipro",
@@ -1711,6 +2572,27 @@
         "price": 206340,
         "stock": 83,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PQTH6-DEFAULT-2",
+        "price": 206340,
+        "stock": 83,
+        "attributes": null,
+        "id": "c56635f1-01b7-405a-ab29-0b0cad6c664e"
+      },
+      {
+        "sku_code": "SKU-PQTH6-DEFAULT-3",
+        "price": 206340,
+        "stock": 83,
+        "attributes": null,
+        "id": "14352fec-6461-4f0d-a847-03ce252d5bbf"
+      },
+      {
+        "sku_code": "SKU-PQTH6-DEFAULT-4",
+        "price": 206340,
+        "stock": 83,
+        "attributes": null,
+        "id": "e2e6e1ed-3acb-4b97-a929-7591c9d87658"
       }
     ],
     "brand": "PHILIPS",
@@ -1752,6 +2634,27 @@
         "price": 194700,
         "stock": 19,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CV7ZK-DEFAULT-2",
+        "price": 194700,
+        "stock": 19,
+        "attributes": null,
+        "id": "fe94e7d6-b9ee-4c85-aff3-b333b142bf6c"
+      },
+      {
+        "sku_code": "SKU-CV7ZK-DEFAULT-3",
+        "price": 194700,
+        "stock": 19,
+        "attributes": null,
+        "id": "fd51f267-5edd-4854-8512-823b2ed9f8ac"
+      },
+      {
+        "sku_code": "SKU-CV7ZK-DEFAULT-4",
+        "price": 194700,
+        "stock": 19,
+        "attributes": null,
+        "id": "5eea28d0-cf94-4ba6-b15f-ca8ff22a3f80"
       }
     ],
     "brand": "JBL",
@@ -1793,6 +2696,27 @@
         "price": 294900,
         "stock": 27,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JO74Y-DEFAULT-2",
+        "price": 294900,
+        "stock": 27,
+        "attributes": null,
+        "id": "ed55a6e3-cf67-44c8-ba33-136f58eb2fe7"
+      },
+      {
+        "sku_code": "SKU-JO74Y-DEFAULT-3",
+        "price": 294900,
+        "stock": 27,
+        "attributes": null,
+        "id": "7108bad8-bcba-4049-b9c6-e92a9d69dde4"
+      },
+      {
+        "sku_code": "SKU-JO74Y-DEFAULT-4",
+        "price": 294900,
+        "stock": 27,
+        "attributes": null,
+        "id": "73a5d738-b90c-4d15-8ca4-1e3644c8316f"
       }
     ],
     "brand": "JBL",
@@ -1838,6 +2762,27 @@
         "price": 52500,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-JC8HX-DEFAULT-2",
+        "price": 52500,
+        "stock": 45,
+        "attributes": null,
+        "id": "5887170b-e2e7-450e-b9b1-07f169406cef"
+      },
+      {
+        "sku_code": "SKU-JC8HX-DEFAULT-3",
+        "price": 52500,
+        "stock": 45,
+        "attributes": null,
+        "id": "27820766-0dcc-4bc1-b621-fcef6832ccae"
+      },
+      {
+        "sku_code": "SKU-JC8HX-DEFAULT-4",
+        "price": 52500,
+        "stock": 45,
+        "attributes": null,
+        "id": "7ca8b595-6999-4c20-9ee7-85e576f86599"
       }
     ],
     "brand": "JBL",
@@ -1883,6 +2828,27 @@
         "price": 209700,
         "stock": 81,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FYMJ9-DEFAULT-2",
+        "price": 209700,
+        "stock": 81,
+        "attributes": null,
+        "id": "e799bbe4-1b21-40dd-af8d-f852575f3877"
+      },
+      {
+        "sku_code": "SKU-FYMJ9-DEFAULT-3",
+        "price": 209700,
+        "stock": 81,
+        "attributes": null,
+        "id": "1a38f9c9-74e6-4ccb-8f8a-5e3f3324ffae"
+      },
+      {
+        "sku_code": "SKU-FYMJ9-DEFAULT-4",
+        "price": 209700,
+        "stock": 81,
+        "attributes": null,
+        "id": "8dd346ad-53e7-4716-ae6f-d250a6124eea"
       }
     ],
     "brand": "Philips",
@@ -1924,6 +2890,27 @@
         "price": 88500,
         "stock": 34,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WGBMZ-DEFAULT-2",
+        "price": 88500,
+        "stock": 34,
+        "attributes": null,
+        "id": "fff41503-619e-47e7-990e-22c502f159bc"
+      },
+      {
+        "sku_code": "SKU-WGBMZ-DEFAULT-3",
+        "price": 88500,
+        "stock": 34,
+        "attributes": null,
+        "id": "ec778e78-ecc9-4478-89cd-d3a6f98b6ad5"
+      },
+      {
+        "sku_code": "SKU-WGBMZ-DEFAULT-4",
+        "price": 88500,
+        "stock": 34,
+        "attributes": null,
+        "id": "06a0d869-fdd7-4cd6-a14c-cb19152d3a5e"
       }
     ],
     "brand": "PHILIPS",
@@ -1973,6 +2960,27 @@
         "price": 32700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZZ6UU-DEFAULT-2",
+        "price": 32700,
+        "stock": 55,
+        "attributes": null,
+        "id": "f22a4f34-ea9a-432f-89b4-f095f9d659f5"
+      },
+      {
+        "sku_code": "SKU-ZZ6UU-DEFAULT-3",
+        "price": 32700,
+        "stock": 55,
+        "attributes": null,
+        "id": "b056c0bd-969e-4ff0-aae7-9d68a05c0f37"
+      },
+      {
+        "sku_code": "SKU-ZZ6UU-DEFAULT-4",
+        "price": 32700,
+        "stock": 55,
+        "attributes": null,
+        "id": "f847974d-b890-42f7-bd63-3c7debcf7b22"
       }
     ],
     "brand": "Philips",
@@ -2018,6 +3026,27 @@
         "price": 341700,
         "stock": 89,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B336X-DEFAULT-2",
+        "price": 341700,
+        "stock": 89,
+        "attributes": null,
+        "id": "9cf947cd-0f75-4c08-8c4f-ca6b4db380c6"
+      },
+      {
+        "sku_code": "SKU-B336X-DEFAULT-3",
+        "price": 341700,
+        "stock": 89,
+        "attributes": null,
+        "id": "ded501be-bd78-4981-a87e-e64d62d91bbf"
+      },
+      {
+        "sku_code": "SKU-B336X-DEFAULT-4",
+        "price": 341700,
+        "stock": 89,
+        "attributes": null,
+        "id": "402aa24c-65a1-418b-88c4-49ae6c82d075"
       }
     ],
     "brand": "Mufasa",
@@ -2059,6 +3088,27 @@
         "price": 80700,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-07QME-DEFAULT-2",
+        "price": 80700,
+        "stock": 97,
+        "attributes": null,
+        "id": "c256cf2d-9dbc-4040-a10b-2eae6c40f2cc"
+      },
+      {
+        "sku_code": "SKU-07QME-DEFAULT-3",
+        "price": 80700,
+        "stock": 97,
+        "attributes": null,
+        "id": "04ce4ae3-bec9-4506-996d-03465f2d540e"
+      },
+      {
+        "sku_code": "SKU-07QME-DEFAULT-4",
+        "price": 80700,
+        "stock": 97,
+        "attributes": null,
+        "id": "cd17e148-02dc-42e1-93c2-17a29a36cb0e"
       }
     ],
     "brand": "Honda",
@@ -2104,6 +3154,27 @@
         "price": 188700,
         "stock": 41,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-DB20E-DEFAULT-2",
+        "price": 188700,
+        "stock": 41,
+        "attributes": null,
+        "id": "fa14f4b3-0bf6-4322-ba11-5a72ce971517"
+      },
+      {
+        "sku_code": "SKU-DB20E-DEFAULT-3",
+        "price": 188700,
+        "stock": 41,
+        "attributes": null,
+        "id": "7220fc18-6d46-4d9e-ab85-85ad1d00fba4"
+      },
+      {
+        "sku_code": "SKU-DB20E-DEFAULT-4",
+        "price": 188700,
+        "stock": 41,
+        "attributes": null,
+        "id": "c2b5979f-15cd-4025-8c73-8c48b24f3d75"
       }
     ],
     "brand": "Lyse",
@@ -2145,6 +3216,27 @@
         "price": 396000,
         "stock": 31,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6JC9T-DEFAULT-2",
+        "price": 396000,
+        "stock": 31,
+        "attributes": null,
+        "id": "c1391b3d-43d7-4807-8a1c-19f9d5b3f1e1"
+      },
+      {
+        "sku_code": "SKU-6JC9T-DEFAULT-3",
+        "price": 396000,
+        "stock": 31,
+        "attributes": null,
+        "id": "b4224f40-4464-4dae-9a2d-a2754ebf4292"
+      },
+      {
+        "sku_code": "SKU-6JC9T-DEFAULT-4",
+        "price": 396000,
+        "stock": 31,
+        "attributes": null,
+        "id": "cb253982-2cc3-4854-92af-61787e9c4121"
       }
     ],
     "brand": "PHILIPS",
@@ -2186,6 +3278,27 @@
         "price": 60000,
         "stock": 30,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9LVA8-DEFAULT-2",
+        "price": 60000,
+        "stock": 30,
+        "attributes": null,
+        "id": "d76494ca-caac-4807-8479-5536758bb158"
+      },
+      {
+        "sku_code": "SKU-9LVA8-DEFAULT-3",
+        "price": 60000,
+        "stock": 30,
+        "attributes": null,
+        "id": "db9a7c93-56c6-45ca-b81d-a5bce31c1ba3"
+      },
+      {
+        "sku_code": "SKU-9LVA8-DEFAULT-4",
+        "price": 60000,
+        "stock": 30,
+        "attributes": null,
+        "id": "b40deed5-a4f3-4fdb-96da-edb62435f3e5"
       }
     ],
     "brand": "Care",
@@ -2231,6 +3344,27 @@
         "price": 239700,
         "stock": 10,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-NBF0D-DEFAULT-2",
+        "price": 239700,
+        "stock": 10,
+        "attributes": null,
+        "id": "3d532ed4-05a1-4faf-b9da-d8ba386bba32"
+      },
+      {
+        "sku_code": "SKU-NBF0D-DEFAULT-3",
+        "price": 239700,
+        "stock": 10,
+        "attributes": null,
+        "id": "161590c8-edd7-4614-a65f-0a5a20e2f830"
+      },
+      {
+        "sku_code": "SKU-NBF0D-DEFAULT-4",
+        "price": 239700,
+        "stock": 10,
+        "attributes": null,
+        "id": "eb907f9d-9c43-46fb-bd51-f1114490229d"
       }
     ],
     "brand": "Care",
@@ -2272,6 +3406,27 @@
         "price": 344700,
         "stock": 21,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-4K7DI-DEFAULT-2",
+        "price": 344700,
+        "stock": 21,
+        "attributes": null,
+        "id": "0cddee08-b0b5-4b1c-938c-0bcbfa15c631"
+      },
+      {
+        "sku_code": "SKU-4K7DI-DEFAULT-3",
+        "price": 344700,
+        "stock": 21,
+        "attributes": null,
+        "id": "5da07008-e564-4b05-b228-2b70bbe3d905"
+      },
+      {
+        "sku_code": "SKU-4K7DI-DEFAULT-4",
+        "price": 344700,
+        "stock": 21,
+        "attributes": null,
+        "id": "78288f3c-465c-4b1b-a98c-830a60efeca5"
       }
     ],
     "brand": "JBL",
@@ -2313,6 +3468,27 @@
         "price": 88500,
         "stock": 77,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-G3KYU-DEFAULT-2",
+        "price": 88500,
+        "stock": 77,
+        "attributes": null,
+        "id": "60c43f2a-a0ed-487f-a87b-edfcbfe933c1"
+      },
+      {
+        "sku_code": "SKU-G3KYU-DEFAULT-3",
+        "price": 88500,
+        "stock": 77,
+        "attributes": null,
+        "id": "cc4b0371-c32e-415d-aa8d-28c46c92a482"
+      },
+      {
+        "sku_code": "SKU-G3KYU-DEFAULT-4",
+        "price": 88500,
+        "stock": 77,
+        "attributes": null,
+        "id": "a9aa90bc-d17f-456f-b15b-2aa73c7c1d2f"
       }
     ],
     "brand": "Mahganya",
@@ -2354,6 +3530,27 @@
         "price": 256200,
         "stock": 59,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-IZK81-DEFAULT-2",
+        "price": 256200,
+        "stock": 59,
+        "attributes": null,
+        "id": "8e3a5dab-a005-4f22-acf6-1812707fec8d"
+      },
+      {
+        "sku_code": "SKU-IZK81-DEFAULT-3",
+        "price": 256200,
+        "stock": 59,
+        "attributes": null,
+        "id": "41e1dfea-438f-471e-b34b-7a40c9d0a611"
+      },
+      {
+        "sku_code": "SKU-IZK81-DEFAULT-4",
+        "price": 256200,
+        "stock": 59,
+        "attributes": null,
+        "id": "60614183-3c65-431c-88c0-0480f78620fb"
       }
     ],
     "brand": "Logitech",
@@ -2395,6 +3592,27 @@
         "price": 198600,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KIF72-DEFAULT-2",
+        "price": 198600,
+        "stock": 37,
+        "attributes": null,
+        "id": "4a7220cc-bcec-4490-94cb-3bcb8991d8b5"
+      },
+      {
+        "sku_code": "SKU-KIF72-DEFAULT-3",
+        "price": 198600,
+        "stock": 37,
+        "attributes": null,
+        "id": "1d783263-5782-4c0a-b154-b4c04cce4904"
+      },
+      {
+        "sku_code": "SKU-KIF72-DEFAULT-4",
+        "price": 198600,
+        "stock": 37,
+        "attributes": null,
+        "id": "d2b21109-ceb4-4584-ad27-e542ff0bcf77"
       }
     ],
     "brand": "CITRA",
@@ -2436,6 +3654,27 @@
         "price": 89400,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GT2JR-DEFAULT-2",
+        "price": 89400,
+        "stock": 15,
+        "attributes": null,
+        "id": "99c694b8-5393-4817-b574-c12571fb3928"
+      },
+      {
+        "sku_code": "SKU-GT2JR-DEFAULT-3",
+        "price": 89400,
+        "stock": 15,
+        "attributes": null,
+        "id": "83cb30f8-b449-4781-af57-96674e3bc191"
+      },
+      {
+        "sku_code": "SKU-GT2JR-DEFAULT-4",
+        "price": 89400,
+        "stock": 15,
+        "attributes": null,
+        "id": "0843e884-807a-466b-8468-d46a3ccdf95e"
       }
     ],
     "brand": "Philips",
@@ -2473,6 +3712,27 @@
         "price": 206700,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-I659Z-DEFAULT-2",
+        "price": 206700,
+        "stock": 16,
+        "attributes": null,
+        "id": "5a1ed15a-041e-47c3-a0db-8cc14eaafae9"
+      },
+      {
+        "sku_code": "SKU-I659Z-DEFAULT-3",
+        "price": 206700,
+        "stock": 16,
+        "attributes": null,
+        "id": "afb62fab-de74-4894-9606-99b2f970d3e3"
+      },
+      {
+        "sku_code": "SKU-I659Z-DEFAULT-4",
+        "price": 206700,
+        "stock": 16,
+        "attributes": null,
+        "id": "c35a3917-964f-4d0a-bc07-1325f42ba105"
       }
     ],
     "brand": "Pick",
@@ -2514,6 +3774,27 @@
         "price": 37251,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-FI7E5-DEFAULT-2",
+        "price": 37251,
+        "stock": 106,
+        "attributes": null,
+        "id": "decc786e-2415-45a2-91f5-a51aba139334"
+      },
+      {
+        "sku_code": "SKU-FI7E5-DEFAULT-3",
+        "price": 37251,
+        "stock": 106,
+        "attributes": null,
+        "id": "00a908c6-10e5-4abf-8a76-c1207480721f"
+      },
+      {
+        "sku_code": "SKU-FI7E5-DEFAULT-4",
+        "price": 37251,
+        "stock": 106,
+        "attributes": null,
+        "id": "3b2904b0-c1e4-4594-8d81-64faaf7b579d"
       }
     ],
     "brand": "Gesto",
@@ -2551,6 +3832,27 @@
         "price": 299700,
         "stock": 101,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-B9KVE-DEFAULT-2",
+        "price": 299700,
+        "stock": 101,
+        "attributes": null,
+        "id": "b3447332-202e-4316-a061-a9157c806f93"
+      },
+      {
+        "sku_code": "SKU-B9KVE-DEFAULT-3",
+        "price": 299700,
+        "stock": 101,
+        "attributes": null,
+        "id": "b6c1f4ee-50dc-4778-b43f-eab35ba8d024"
+      },
+      {
+        "sku_code": "SKU-B9KVE-DEFAULT-4",
+        "price": 299700,
+        "stock": 101,
+        "attributes": null,
+        "id": "03ffeb9a-d978-491a-9596-0131a49f16bb"
       }
     ],
     "brand": "Philips",
@@ -2596,6 +3898,27 @@
         "price": 80700,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-3UMGK-DEFAULT-2",
+        "price": 80700,
+        "stock": 61,
+        "attributes": null,
+        "id": "c3c339ef-d0cc-40ff-bc97-2dab57fd44fd"
+      },
+      {
+        "sku_code": "SKU-3UMGK-DEFAULT-3",
+        "price": 80700,
+        "stock": 61,
+        "attributes": null,
+        "id": "25be059e-7f09-4e39-8e25-3f2b748bde10"
+      },
+      {
+        "sku_code": "SKU-3UMGK-DEFAULT-4",
+        "price": 80700,
+        "stock": 61,
+        "attributes": null,
+        "id": "45f1bba7-9433-4f96-a4c2-53792916811c"
       }
     ],
     "brand": "Care",
@@ -2641,6 +3964,27 @@
         "price": 233709,
         "stock": 18,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YI2EU-DEFAULT-2",
+        "price": 233709,
+        "stock": 18,
+        "attributes": null,
+        "id": "a273a7bc-2601-4b1b-b2d2-4ec23eb1d28e"
+      },
+      {
+        "sku_code": "SKU-YI2EU-DEFAULT-3",
+        "price": 233709,
+        "stock": 18,
+        "attributes": null,
+        "id": "82807579-9894-495f-82b8-2413b0d013bc"
+      },
+      {
+        "sku_code": "SKU-YI2EU-DEFAULT-4",
+        "price": 233709,
+        "stock": 18,
+        "attributes": null,
+        "id": "308bb1bb-d32d-4c91-b95c-9b5a4c553ad1"
       }
     ],
     "brand": "Gesto",
@@ -2678,6 +4022,27 @@
         "price": 149700,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-KVC8Y-DEFAULT-2",
+        "price": 149700,
+        "stock": 79,
+        "attributes": null,
+        "id": "6c8e8b20-58a5-4449-828a-fb15bf07d632"
+      },
+      {
+        "sku_code": "SKU-KVC8Y-DEFAULT-3",
+        "price": 149700,
+        "stock": 79,
+        "attributes": null,
+        "id": "8d49ac08-2c2e-4b04-8caa-8816676f2412"
+      },
+      {
+        "sku_code": "SKU-KVC8Y-DEFAULT-4",
+        "price": 149700,
+        "stock": 79,
+        "attributes": null,
+        "id": "7e3c53be-ae63-45f5-9ca9-f21c9c722299"
       }
     ],
     "brand": "SYSKA",
@@ -2719,6 +4084,27 @@
         "price": 705000,
         "stock": 79,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-ZS9VH-DEFAULT-2",
+        "price": 705000,
+        "stock": 79,
+        "attributes": null,
+        "id": "f7b4e896-73ab-4172-9f74-ce0af0b49035"
+      },
+      {
+        "sku_code": "SKU-ZS9VH-DEFAULT-3",
+        "price": 705000,
+        "stock": 79,
+        "attributes": null,
+        "id": "18331cf9-c0d1-442b-970f-8b66dacebc1f"
+      },
+      {
+        "sku_code": "SKU-ZS9VH-DEFAULT-4",
+        "price": 705000,
+        "stock": 79,
+        "attributes": null,
+        "id": "7f7f3e64-18de-4b48-9794-c9de2ee13b1d"
       }
     ],
     "brand": "Mahganya",
@@ -2756,6 +4142,27 @@
         "price": 168300,
         "stock": 37,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1K4KH-DEFAULT-2",
+        "price": 168300,
+        "stock": 37,
+        "attributes": null,
+        "id": "7f8993bb-9ffb-4b33-bbcd-67b862b2a06f"
+      },
+      {
+        "sku_code": "SKU-1K4KH-DEFAULT-3",
+        "price": 168300,
+        "stock": 37,
+        "attributes": null,
+        "id": "9a1e0ecf-7010-4e2e-8702-8a2205c419cd"
+      },
+      {
+        "sku_code": "SKU-1K4KH-DEFAULT-4",
+        "price": 168300,
+        "stock": 37,
+        "attributes": null,
+        "id": "60f23eee-01f4-450b-a20f-8453f1b94286"
       }
     ],
     "brand": "Crompton",
@@ -2793,6 +4200,27 @@
         "price": 539700,
         "stock": 106,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6Z94K-DEFAULT-2",
+        "price": 539700,
+        "stock": 106,
+        "attributes": null,
+        "id": "cbdac445-16ce-4396-b278-4c83b2f190e3"
+      },
+      {
+        "sku_code": "SKU-6Z94K-DEFAULT-3",
+        "price": 539700,
+        "stock": 106,
+        "attributes": null,
+        "id": "c87d3605-2125-470e-ab52-6745cd9103f1"
+      },
+      {
+        "sku_code": "SKU-6Z94K-DEFAULT-4",
+        "price": 539700,
+        "stock": 106,
+        "attributes": null,
+        "id": "27a2d105-1e25-43a3-8f8d-08478a101601"
       }
     ],
     "brand": "CITRA",
@@ -2838,6 +4266,27 @@
         "price": 113700,
         "stock": 91,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-TY67E-DEFAULT-2",
+        "price": 113700,
+        "stock": 91,
+        "attributes": null,
+        "id": "6958ec07-6248-40d6-a79b-ca61f8e7568b"
+      },
+      {
+        "sku_code": "SKU-TY67E-DEFAULT-3",
+        "price": 113700,
+        "stock": 91,
+        "attributes": null,
+        "id": "dc83a8b2-5aad-40ec-9850-7687cbc579ff"
+      },
+      {
+        "sku_code": "SKU-TY67E-DEFAULT-4",
+        "price": 113700,
+        "stock": 91,
+        "attributes": null,
+        "id": "30d57275-29a6-4c26-a705-47e8d73fd030"
       }
     ],
     "brand": "Crompton",
@@ -2875,6 +4324,27 @@
         "price": 536700,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HKKX5-DEFAULT-2",
+        "price": 536700,
+        "stock": 49,
+        "attributes": null,
+        "id": "689bac37-52ba-4df9-a609-f890fa4c3cc5"
+      },
+      {
+        "sku_code": "SKU-HKKX5-DEFAULT-3",
+        "price": 536700,
+        "stock": 49,
+        "attributes": null,
+        "id": "4e8ec532-6af9-4570-b54e-55a1e40e8e22"
+      },
+      {
+        "sku_code": "SKU-HKKX5-DEFAULT-4",
+        "price": 536700,
+        "stock": 49,
+        "attributes": null,
+        "id": "1a053184-b715-4015-a30b-3d765543b1e6"
       }
     ],
     "brand": "CITRA",
@@ -2916,6 +4386,27 @@
         "price": 171000,
         "stock": 69,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8JKGE-DEFAULT-2",
+        "price": 171000,
+        "stock": 69,
+        "attributes": null,
+        "id": "362f6e2e-9d39-4f3e-b22f-33477edb74e2"
+      },
+      {
+        "sku_code": "SKU-8JKGE-DEFAULT-3",
+        "price": 171000,
+        "stock": 69,
+        "attributes": null,
+        "id": "684b3e82-9673-4063-8997-35724f5a3e05"
+      },
+      {
+        "sku_code": "SKU-8JKGE-DEFAULT-4",
+        "price": 171000,
+        "stock": 69,
+        "attributes": null,
+        "id": "e08ddaf2-cd70-43b2-8485-a8164f53658d"
       }
     ],
     "brand": "PHILIPS",
@@ -2957,6 +4448,27 @@
         "price": 235800,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-1D62E-DEFAULT-2",
+        "price": 235800,
+        "stock": 85,
+        "attributes": null,
+        "id": "75d5e5da-4d2f-4bfa-9ce2-9473f85672cd"
+      },
+      {
+        "sku_code": "SKU-1D62E-DEFAULT-3",
+        "price": 235800,
+        "stock": 85,
+        "attributes": null,
+        "id": "fead8591-9440-4c7e-81ac-42c60d3feea8"
+      },
+      {
+        "sku_code": "SKU-1D62E-DEFAULT-4",
+        "price": 235800,
+        "stock": 85,
+        "attributes": null,
+        "id": "ebed5b92-ba9a-4de4-acba-cd3b70f1fdb3"
       }
     ],
     "brand": "Mahganya",
@@ -2994,6 +4506,27 @@
         "price": 214800,
         "stock": 45,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-MA1CM-DEFAULT-2",
+        "price": 214800,
+        "stock": 45,
+        "attributes": null,
+        "id": "08a22654-2d80-4343-b733-09a368f36da7"
+      },
+      {
+        "sku_code": "SKU-MA1CM-DEFAULT-3",
+        "price": 214800,
+        "stock": 45,
+        "attributes": null,
+        "id": "602e69c6-6b41-48a7-af68-5e09927fbc44"
+      },
+      {
+        "sku_code": "SKU-MA1CM-DEFAULT-4",
+        "price": 214800,
+        "stock": 45,
+        "attributes": null,
+        "id": "f5652599-45a0-46c7-95ea-6b9e062d3fae"
       }
     ],
     "brand": "SYSKA",
@@ -3031,6 +4564,27 @@
         "price": 265050,
         "stock": 16,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-5OGK3-DEFAULT-2",
+        "price": 265050,
+        "stock": 16,
+        "attributes": null,
+        "id": "e414c413-d499-4c7e-ac53-79cea116aef1"
+      },
+      {
+        "sku_code": "SKU-5OGK3-DEFAULT-3",
+        "price": 265050,
+        "stock": 16,
+        "attributes": null,
+        "id": "f37d49d6-cdab-477b-86e6-3e275700131e"
+      },
+      {
+        "sku_code": "SKU-5OGK3-DEFAULT-4",
+        "price": 265050,
+        "stock": 16,
+        "attributes": null,
+        "id": "ce986adb-6eb5-40e3-a6e8-2aa9809c6921"
       }
     ],
     "brand": "Mahganya",
@@ -3068,6 +4622,27 @@
         "price": 55854,
         "stock": 85,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-F5YGW-DEFAULT-2",
+        "price": 55854,
+        "stock": 85,
+        "attributes": null,
+        "id": "553960b7-17b5-4009-a5c6-496bb2dfb234"
+      },
+      {
+        "sku_code": "SKU-F5YGW-DEFAULT-3",
+        "price": 55854,
+        "stock": 85,
+        "attributes": null,
+        "id": "1fd94e27-c087-43f0-b2b1-1afa79889865"
+      },
+      {
+        "sku_code": "SKU-F5YGW-DEFAULT-4",
+        "price": 55854,
+        "stock": 85,
+        "attributes": null,
+        "id": "ea52640e-0fc3-421a-aa8f-9df5b75f584f"
       }
     ],
     "brand": "Mahganya",
@@ -3113,6 +4688,27 @@
         "price": 78000,
         "stock": 42,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-SGRHL-DEFAULT-2",
+        "price": 78000,
+        "stock": 42,
+        "attributes": null,
+        "id": "8b2a7053-325d-4e89-9cd8-2bf463236bb2"
+      },
+      {
+        "sku_code": "SKU-SGRHL-DEFAULT-3",
+        "price": 78000,
+        "stock": 42,
+        "attributes": null,
+        "id": "8ab5eec7-a5ee-4c7a-aa43-aa8d1d0f995c"
+      },
+      {
+        "sku_code": "SKU-SGRHL-DEFAULT-4",
+        "price": 78000,
+        "stock": 42,
+        "attributes": null,
+        "id": "4b7c7898-d592-45e8-8197-e1b077867d9e"
       }
     ],
     "brand": "Philips",
@@ -3158,6 +4754,27 @@
         "price": 427500,
         "stock": 87,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-CUR26-DEFAULT-2",
+        "price": 427500,
+        "stock": 87,
+        "attributes": null,
+        "id": "04baabf3-f15d-4824-bbd6-78138c2022b9"
+      },
+      {
+        "sku_code": "SKU-CUR26-DEFAULT-3",
+        "price": 427500,
+        "stock": 87,
+        "attributes": null,
+        "id": "f0d93906-1fea-40d5-9b03-773cbc472219"
+      },
+      {
+        "sku_code": "SKU-CUR26-DEFAULT-4",
+        "price": 427500,
+        "stock": 87,
+        "attributes": null,
+        "id": "68afdcf5-d8b6-436a-9d6a-f89ca322b625"
       }
     ],
     "brand": "CITRA",
@@ -3203,6 +4820,27 @@
         "price": 77700,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-YKN0T-DEFAULT-2",
+        "price": 77700,
+        "stock": 109,
+        "attributes": null,
+        "id": "a45019b3-dd3e-42fc-8dd9-24576a2e7f26"
+      },
+      {
+        "sku_code": "SKU-YKN0T-DEFAULT-3",
+        "price": 77700,
+        "stock": 109,
+        "attributes": null,
+        "id": "36660ce6-7f01-4b49-b76e-7c75dcb5491a"
+      },
+      {
+        "sku_code": "SKU-YKN0T-DEFAULT-4",
+        "price": 77700,
+        "stock": 109,
+        "attributes": null,
+        "id": "3b0b682e-6087-45cc-8a13-74bde690c28b"
       }
     ],
     "brand": "Murphy",
@@ -3244,6 +4882,27 @@
         "price": 113700,
         "stock": 92,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-P0013-DEFAULT-2",
+        "price": 113700,
+        "stock": 92,
+        "attributes": null,
+        "id": "0ded031b-06fb-4279-b258-55f7a436dbdb"
+      },
+      {
+        "sku_code": "SKU-P0013-DEFAULT-3",
+        "price": 113700,
+        "stock": 92,
+        "attributes": null,
+        "id": "16e06461-d181-4c5b-afaf-80c4252533d7"
+      },
+      {
+        "sku_code": "SKU-P0013-DEFAULT-4",
+        "price": 113700,
+        "stock": 92,
+        "attributes": null,
+        "id": "0d1f6651-3bc5-44b4-a175-83328b8dacc2"
       }
     ],
     "brand": "D'Mak",
@@ -3281,6 +4940,27 @@
         "price": 188700,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-HJK0D-DEFAULT-2",
+        "price": 188700,
+        "stock": 72,
+        "attributes": null,
+        "id": "141c7201-0247-4c96-82eb-df3f002729dc"
+      },
+      {
+        "sku_code": "SKU-HJK0D-DEFAULT-3",
+        "price": 188700,
+        "stock": 72,
+        "attributes": null,
+        "id": "c8fd0d6e-3a09-4fd0-8c68-0e62b99ae863"
+      },
+      {
+        "sku_code": "SKU-HJK0D-DEFAULT-4",
+        "price": 188700,
+        "stock": 72,
+        "attributes": null,
+        "id": "93c590a4-4230-4285-b9fc-48e0ce6fddeb"
       }
     ],
     "brand": "Gesto",
@@ -3322,6 +5002,27 @@
         "price": 134700,
         "stock": 78,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-X9UIC-DEFAULT-2",
+        "price": 134700,
+        "stock": 78,
+        "attributes": null,
+        "id": "47a8e9ec-3b34-4c01-83ec-53ea848cecd0"
+      },
+      {
+        "sku_code": "SKU-X9UIC-DEFAULT-3",
+        "price": 134700,
+        "stock": 78,
+        "attributes": null,
+        "id": "7ce05f6f-b6c6-4c39-a3d5-d1306648a9dc"
+      },
+      {
+        "sku_code": "SKU-X9UIC-DEFAULT-4",
+        "price": 134700,
+        "stock": 78,
+        "attributes": null,
+        "id": "673ed73d-1210-496a-83b7-db09ad718ee6"
       }
     ],
     "brand": "Mahganya",
@@ -3363,6 +5064,27 @@
         "price": 89700,
         "stock": 17,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-VPQKF-DEFAULT-2",
+        "price": 89700,
+        "stock": 17,
+        "attributes": null,
+        "id": "8c0c6613-7697-46ce-b568-7270bb000fdd"
+      },
+      {
+        "sku_code": "SKU-VPQKF-DEFAULT-3",
+        "price": 89700,
+        "stock": 17,
+        "attributes": null,
+        "id": "776bf833-a802-4250-8dc2-4c1331408777"
+      },
+      {
+        "sku_code": "SKU-VPQKF-DEFAULT-4",
+        "price": 89700,
+        "stock": 17,
+        "attributes": null,
+        "id": "170bf0a0-b851-4b2c-9a50-a4d131b40561"
       }
     ],
     "brand": "Lyse",
@@ -3400,6 +5122,27 @@
         "price": 164700,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-UZNBL-DEFAULT-2",
+        "price": 164700,
+        "stock": 98,
+        "attributes": null,
+        "id": "7fb11924-e3b4-4f74-b3f5-a540142d7d3e"
+      },
+      {
+        "sku_code": "SKU-UZNBL-DEFAULT-3",
+        "price": 164700,
+        "stock": 98,
+        "attributes": null,
+        "id": "97d0b689-d7f7-4e5a-9bd0-fe08611b9fea"
+      },
+      {
+        "sku_code": "SKU-UZNBL-DEFAULT-4",
+        "price": 164700,
+        "stock": 98,
+        "attributes": null,
+        "id": "a865d1ed-b0d3-47b0-8b21-d1f92ddd3422"
       }
     ],
     "brand": "Philips",
@@ -3445,6 +5188,27 @@
         "price": 203700,
         "stock": 44,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-E89G2-DEFAULT-2",
+        "price": 203700,
+        "stock": 44,
+        "attributes": null,
+        "id": "73b5318f-fbdd-4caf-93e0-62bf57166cbc"
+      },
+      {
+        "sku_code": "SKU-E89G2-DEFAULT-3",
+        "price": 203700,
+        "stock": 44,
+        "attributes": null,
+        "id": "195af538-77d7-467b-8f69-f812a0998dd9"
+      },
+      {
+        "sku_code": "SKU-E89G2-DEFAULT-4",
+        "price": 203700,
+        "stock": 44,
+        "attributes": null,
+        "id": "90416b75-8873-444a-9281-93da9cbc40bc"
       }
     ],
     "brand": "Care",
@@ -3482,6 +5246,27 @@
         "price": 289500,
         "stock": 109,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-0VEUD-DEFAULT-2",
+        "price": 289500,
+        "stock": 109,
+        "attributes": null,
+        "id": "31963a7e-1d7c-4e99-b06b-390f13aed5cb"
+      },
+      {
+        "sku_code": "SKU-0VEUD-DEFAULT-3",
+        "price": 289500,
+        "stock": 109,
+        "attributes": null,
+        "id": "44e9c65f-8c2c-443e-a7c9-5eaf741b5a5d"
+      },
+      {
+        "sku_code": "SKU-0VEUD-DEFAULT-4",
+        "price": 289500,
+        "stock": 109,
+        "attributes": null,
+        "id": "e06bf45b-6c02-4123-8ea8-3ffcc514546f"
       }
     ],
     "brand": "Gesto",
@@ -3527,6 +5312,27 @@
         "price": 149400,
         "stock": 107,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-03ATF-DEFAULT-2",
+        "price": 149400,
+        "stock": 107,
+        "attributes": null,
+        "id": "0126eb7f-5f03-438d-a11f-cb29a297c565"
+      },
+      {
+        "sku_code": "SKU-03ATF-DEFAULT-3",
+        "price": 149400,
+        "stock": 107,
+        "attributes": null,
+        "id": "aa0ba917-a2ee-4228-9fd4-d3e7684e1825"
+      },
+      {
+        "sku_code": "SKU-03ATF-DEFAULT-4",
+        "price": 149400,
+        "stock": 107,
+        "attributes": null,
+        "id": "e4dec245-ad64-43bb-b23b-efab28b84a87"
       }
     ],
     "brand": "Logitech",
@@ -3572,6 +5378,27 @@
         "price": 65400,
         "stock": 98,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WLAX9-DEFAULT-2",
+        "price": 65400,
+        "stock": 98,
+        "attributes": null,
+        "id": "d959f285-47ec-4ec0-9200-6bb1217e5d8b"
+      },
+      {
+        "sku_code": "SKU-WLAX9-DEFAULT-3",
+        "price": 65400,
+        "stock": 98,
+        "attributes": null,
+        "id": "04152682-6099-4785-becb-d54e9279daff"
+      },
+      {
+        "sku_code": "SKU-WLAX9-DEFAULT-4",
+        "price": 65400,
+        "stock": 98,
+        "attributes": null,
+        "id": "5835be55-922f-465a-8a50-860041478aac"
       }
     ],
     "brand": "Mufasa",
@@ -3609,6 +5436,27 @@
         "price": 187200,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-LTREW-DEFAULT-2",
+        "price": 187200,
+        "stock": 62,
+        "attributes": null,
+        "id": "37ab3088-ff80-4994-b4cb-39282bbfdb5e"
+      },
+      {
+        "sku_code": "SKU-LTREW-DEFAULT-3",
+        "price": 187200,
+        "stock": 62,
+        "attributes": null,
+        "id": "69abff87-a4fa-4ea2-b46f-7f92c68e8596"
+      },
+      {
+        "sku_code": "SKU-LTREW-DEFAULT-4",
+        "price": 187200,
+        "stock": 62,
+        "attributes": null,
+        "id": "ed71dbf6-c969-448a-92ff-b1ef7d6f09f9"
       }
     ],
     "brand": "SYSKA",
@@ -3650,6 +5498,27 @@
         "price": 194700,
         "stock": 55,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-WOTPZ-DEFAULT-2",
+        "price": 194700,
+        "stock": 55,
+        "attributes": null,
+        "id": "8cd4d230-d57a-4dd0-bc24-e3b58f192835"
+      },
+      {
+        "sku_code": "SKU-WOTPZ-DEFAULT-3",
+        "price": 194700,
+        "stock": 55,
+        "attributes": null,
+        "id": "be133300-1ea8-4393-959f-7e03d3ae9450"
+      },
+      {
+        "sku_code": "SKU-WOTPZ-DEFAULT-4",
+        "price": 194700,
+        "stock": 55,
+        "attributes": null,
+        "id": "73f4de0e-4c9e-417d-afd2-2a490ba71605"
       }
     ],
     "brand": "PHILIPS",
@@ -3695,6 +5564,27 @@
         "price": 209700,
         "stock": 62,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-EESRQ-DEFAULT-2",
+        "price": 209700,
+        "stock": 62,
+        "attributes": null,
+        "id": "f48557b6-268b-4125-a563-a8b17050fb0e"
+      },
+      {
+        "sku_code": "SKU-EESRQ-DEFAULT-3",
+        "price": 209700,
+        "stock": 62,
+        "attributes": null,
+        "id": "115f87ef-1cfe-41b3-bba5-7ef3cbb5bd18"
+      },
+      {
+        "sku_code": "SKU-EESRQ-DEFAULT-4",
+        "price": 209700,
+        "stock": 62,
+        "attributes": null,
+        "id": "09d0033a-b261-4e7d-b292-d6ab25da8090"
       }
     ],
     "brand": "Wipro",
@@ -3732,6 +5622,27 @@
         "price": 29945.999999999996,
         "stock": 61,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-94DYQ-DEFAULT-2",
+        "price": 29945.999999999996,
+        "stock": 61,
+        "attributes": null,
+        "id": "9cd71abf-c1f3-487b-bfba-147a8cdda6c8"
+      },
+      {
+        "sku_code": "SKU-94DYQ-DEFAULT-3",
+        "price": 29945.999999999996,
+        "stock": 61,
+        "attributes": null,
+        "id": "1858eb85-b808-4f75-bfb4-f698cb741494"
+      },
+      {
+        "sku_code": "SKU-94DYQ-DEFAULT-4",
+        "price": 29945.999999999996,
+        "stock": 61,
+        "attributes": null,
+        "id": "28998226-8d47-4c83-8e1d-ed923e1a432c"
       }
     ],
     "brand": "Philips",
@@ -3777,6 +5688,27 @@
         "price": 74700,
         "stock": 20,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PHGJK-DEFAULT-2",
+        "price": 74700,
+        "stock": 20,
+        "attributes": null,
+        "id": "ec2a73da-2ff3-4977-b839-c7df007c7723"
+      },
+      {
+        "sku_code": "SKU-PHGJK-DEFAULT-3",
+        "price": 74700,
+        "stock": 20,
+        "attributes": null,
+        "id": "fcd0b963-c76a-4962-89e7-567d4a2e7d51"
+      },
+      {
+        "sku_code": "SKU-PHGJK-DEFAULT-4",
+        "price": 74700,
+        "stock": 20,
+        "attributes": null,
+        "id": "84d2d34a-8269-4246-aabb-5340d8c358a4"
       }
     ],
     "brand": "Wipro",
@@ -3818,6 +5750,27 @@
         "price": 57600,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-8UV37-DEFAULT-2",
+        "price": 57600,
+        "stock": 71,
+        "attributes": null,
+        "id": "d95bbd41-200f-46bf-840f-fd01e5ce84b5"
+      },
+      {
+        "sku_code": "SKU-8UV37-DEFAULT-3",
+        "price": 57600,
+        "stock": 71,
+        "attributes": null,
+        "id": "d97c13d7-1f37-4357-8e5b-63a84df25287"
+      },
+      {
+        "sku_code": "SKU-8UV37-DEFAULT-4",
+        "price": 57600,
+        "stock": 71,
+        "attributes": null,
+        "id": "9495c147-08a7-4eec-ad33-495d8e3151cc"
       }
     ],
     "brand": "PHILIPS",
@@ -3855,6 +5808,27 @@
         "price": 182319,
         "stock": 15,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-6PT4R-DEFAULT-2",
+        "price": 182319,
+        "stock": 15,
+        "attributes": null,
+        "id": "6db20cf0-6254-48eb-8dee-f907d3cdaf76"
+      },
+      {
+        "sku_code": "SKU-6PT4R-DEFAULT-3",
+        "price": 182319,
+        "stock": 15,
+        "attributes": null,
+        "id": "ec35e4fc-ca33-48e7-bb6e-b563cd5c1df9"
+      },
+      {
+        "sku_code": "SKU-6PT4R-DEFAULT-4",
+        "price": 182319,
+        "stock": 15,
+        "attributes": null,
+        "id": "21560207-32aa-4409-bf76-e1316fff5508"
       }
     ],
     "brand": "Philips",
@@ -3900,6 +5874,27 @@
         "price": 177000,
         "stock": 49,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AWHLZ-DEFAULT-2",
+        "price": 177000,
+        "stock": 49,
+        "attributes": null,
+        "id": "9368efff-9070-4433-8b7f-616c9ddd43f0"
+      },
+      {
+        "sku_code": "SKU-AWHLZ-DEFAULT-3",
+        "price": 177000,
+        "stock": 49,
+        "attributes": null,
+        "id": "07ba2f91-4aff-4ba2-ad90-1477ca888738"
+      },
+      {
+        "sku_code": "SKU-AWHLZ-DEFAULT-4",
+        "price": 177000,
+        "stock": 49,
+        "attributes": null,
+        "id": "39ee9d59-f181-4863-b629-f787d014dda2"
       }
     ],
     "brand": "CITRA",
@@ -3941,6 +5936,27 @@
         "price": 142200,
         "stock": 88,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-GP6Z2-DEFAULT-2",
+        "price": 142200,
+        "stock": 88,
+        "attributes": null,
+        "id": "3292b79b-d048-4f2e-8ff5-12f9f02b0642"
+      },
+      {
+        "sku_code": "SKU-GP6Z2-DEFAULT-3",
+        "price": 142200,
+        "stock": 88,
+        "attributes": null,
+        "id": "0db67fe9-646e-4bf0-a32c-3ea9015651a7"
+      },
+      {
+        "sku_code": "SKU-GP6Z2-DEFAULT-4",
+        "price": 142200,
+        "stock": 88,
+        "attributes": null,
+        "id": "3da92155-d290-48a6-b9b3-a77388b5554e"
       }
     ],
     "brand": "Crompton",
@@ -3982,6 +5998,27 @@
         "price": 83700,
         "stock": 103,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-AFMM9-DEFAULT-2",
+        "price": 83700,
+        "stock": 103,
+        "attributes": null,
+        "id": "713ba848-b316-473c-8e09-29c8845efeb8"
+      },
+      {
+        "sku_code": "SKU-AFMM9-DEFAULT-3",
+        "price": 83700,
+        "stock": 103,
+        "attributes": null,
+        "id": "041d3f24-42e5-4046-b0c2-6b73fb9a9bbf"
+      },
+      {
+        "sku_code": "SKU-AFMM9-DEFAULT-4",
+        "price": 83700,
+        "stock": 103,
+        "attributes": null,
+        "id": "fc3083dc-06f0-4706-b37e-b95bf0472116"
       }
     ],
     "brand": "Improvhome",
@@ -4027,6 +6064,27 @@
         "price": 202500,
         "stock": 72,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-PEM0B-DEFAULT-2",
+        "price": 202500,
+        "stock": 72,
+        "attributes": null,
+        "id": "efc37bd2-435c-42b2-a531-f0b1379c9fce"
+      },
+      {
+        "sku_code": "SKU-PEM0B-DEFAULT-3",
+        "price": 202500,
+        "stock": 72,
+        "attributes": null,
+        "id": "99003bc0-e2d9-4b3b-88eb-bebff76f1adf"
+      },
+      {
+        "sku_code": "SKU-PEM0B-DEFAULT-4",
+        "price": 202500,
+        "stock": 72,
+        "attributes": null,
+        "id": "04203269-edc4-47e5-9c30-b36e58573f6b"
       }
     ],
     "brand": "Philips",
@@ -4064,6 +6122,27 @@
         "price": 792300,
         "stock": 97,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-V56CU-DEFAULT-2",
+        "price": 792300,
+        "stock": 97,
+        "attributes": null,
+        "id": "44b5cf29-b3fd-4aa5-88e7-f1e6c340bff4"
+      },
+      {
+        "sku_code": "SKU-V56CU-DEFAULT-3",
+        "price": 792300,
+        "stock": 97,
+        "attributes": null,
+        "id": "81753336-8d14-402e-abf3-a7b2d28a573f"
+      },
+      {
+        "sku_code": "SKU-V56CU-DEFAULT-4",
+        "price": 792300,
+        "stock": 97,
+        "attributes": null,
+        "id": "ed92d15c-5276-412d-aa54-32a01f651068"
       }
     ],
     "brand": "Wipro",
@@ -4109,6 +6188,27 @@
         "price": 46959,
         "stock": 71,
         "attributes": null
+      },
+      {
+        "sku_code": "SKU-9DYP9-DEFAULT-2",
+        "price": 46959,
+        "stock": 71,
+        "attributes": null,
+        "id": "33c15e0f-5e72-4c06-8d2e-b11656f9788e"
+      },
+      {
+        "sku_code": "SKU-9DYP9-DEFAULT-3",
+        "price": 46959,
+        "stock": 71,
+        "attributes": null,
+        "id": "3551afca-4ea5-4042-b322-e919dc20496a"
+      },
+      {
+        "sku_code": "SKU-9DYP9-DEFAULT-4",
+        "price": 46959,
+        "stock": 71,
+        "attributes": null,
+        "id": "8a786212-5403-4a60-859f-616539f3fb97"
       }
     ],
     "brand": "D'Mak",
