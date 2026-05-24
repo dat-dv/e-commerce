@@ -3,6 +3,7 @@ import { AddressesModule } from './api/addresses/addresses.module';
 import { AuthModule } from './api/auth/auth.module';
 import { BrandsModule } from './api/brands/brands.module';
 import { CartModule } from './api/cart/cart.module';
+import { FlashSalesModule } from './api/flash-sales/flash-sales.module';
 import { HelpContactSubmissionsModule } from './api/help-contact-submissions/help-contact-submissions.module';
 import { HomepageModule } from './api/homepage/homepage.module';
 import { NotificationsModule } from './api/notifications/notifications.module';
@@ -41,6 +42,7 @@ import { SharedModule } from './shared/shared.module';
     BrandsModule,
     UserFavoriteProductsModule,
     HelpContactSubmissionsModule,
+    FlashSalesModule,
   ],
   controllers: [AppController],
   providers: [],
