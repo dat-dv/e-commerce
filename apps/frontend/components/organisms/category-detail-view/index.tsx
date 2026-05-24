@@ -62,8 +62,10 @@ export function CategoryDetailView({
   const {
     data,
     loading,
-    getData,
     onChangePagination,
+    onChangeFilter,
+    onClearFilter,
+    onResetFilters,
     router: paginationRouter,
   } = usePagination<TProduct, CategoryProductsQueryParams>({
     initialData,
@@ -92,26 +94,24 @@ export function CategoryDetailView({
   const updateFilter = (
     filters: { key: CategoryProductsFilterKey; value: string | null }[],
   ) => {
-    const nextParams = Object.fromEntries(
-      filters.map(({ key, value }) => [key, value]),
-    ) as Partial<CategoryProductsQueryParams>;
-
-    getData({ page: 1, ...nextParams });
+    onChangeFilter(filters, { merge: true, ssr: false, scroll: false });
   };
 
   const clearFilter = (key: CategoryProductsFilterKey) => {
-    getData({ page: 1, [key]: null } as Partial<CategoryProductsQueryParams>);
+    onClearFilter(key, { merge: true, ssr: false, scroll: false });
   };
 
   const resetFilters = () => {
-    getData({
-      page: 1,
-      search: "",
-      sort: null,
-      min_price: null,
-      max_price: null,
-      rating: null,
-    });
+    onResetFilters(
+      {
+        search: "",
+        sort: null,
+        min_price: null,
+        max_price: null,
+        rating: null,
+      },
+      { merge: true, ssr: false, scroll: false },
+    );
   };
 
   const navigateToCategory = (slug: string) => {
@@ -187,7 +187,11 @@ export function CategoryDetailView({
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
           onPageChange={(page) =>
-            onChangePagination(page, { merge: true, ssr: true, scroll: false })
+            onChangePagination(page, {
+              merge: true,
+              ssr: false,
+              scroll: false,
+            })
           }
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
           sortValue={paginationRouter.routerState.sort || ""}

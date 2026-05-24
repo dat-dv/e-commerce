@@ -10,6 +10,12 @@ export type NavigateParams = {
   pathname?: string;
 } & QueryParams;
 
+export type AppRouterNavigateOptions = {
+  merge: boolean;
+  ssr: boolean;
+  scroll?: boolean;
+};
+
 export type UseAppRouterOptions<T extends Record<string, unknown>> = {
   isSyncWithSearchParams?: boolean;
 

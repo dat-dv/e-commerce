@@ -3,10 +3,49 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
-import { getNewUrlBySearchParams } from "@/utils/url";
-import type { UseAppRouterOptions } from "./use-app-router.types";
+import type {
+  AppRouterNavigateOptions,
+  UseAppRouterOptions,
+} from "./use-app-router.types";
+
+const DEFAULT_NAVIGATE_OPTIONS: AppRouterNavigateOptions = {
+  merge: true,
+  ssr: true,
+  scroll: false,
+};
+
+const createUrlBySearchParams = (searchParams: Record<string, unknown>) => {
+  const params = new URLSearchParams();
+
+  Object.entries(searchParams).forEach(([key, value]) => {
+    if (
+      value === null ||
+      value === undefined ||
+      value === "" ||
+      (Array.isArray(value) && value.length === 0)
+    ) {
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      value.forEach((item) => {
+        params.append(key, String(item));
+      });
+
+      return;
+    }
+
+    params.set(key, String(value));
+  });
+
+  const queryString = params.toString();
+  return queryString
+    ? `${window.location.pathname}?${queryString}`
+    : window.location.pathname;
+};
 
 export default function useAppRouter<T extends Record<string, unknown>>({
+  isSyncWithSearchParams = true,
   extendParams,
 }: UseAppRouterOptions<T> = {}) {
   const searchParams = useSearchParams();
@@ -15,14 +54,19 @@ export default function useAppRouter<T extends Record<string, unknown>>({
   const [routerState, setRouterState] = useState<T>(() => {
     return {
       ...(extendParams ?? {}),
-      ...Object.fromEntries(searchParams.entries()),
+      ...(isSyncWithSearchParams
+        ? Object.fromEntries(searchParams.entries())
+        : {}),
     } as T;
   });
 
   useEffect(() => {
+    if (!isSyncWithSearchParams) return;
+
     const mergeSearchParms = () => {
       const currentSearchParams = Object.fromEntries(searchParams.entries());
       const newRouterState = {
+        ...(extendParams ?? {}),
         ...routerState,
         ...currentSearchParams,
       } as T;
@@ -36,52 +80,57 @@ export default function useAppRouter<T extends Record<string, unknown>>({
   const push = useCallback(
     (
       params: Partial<T>,
-      options: { merge: boolean; ssr: boolean; scroll?: boolean },
+      options: AppRouterNavigateOptions = DEFAULT_NAVIGATE_OPTIONS,
     ) => {
-      const searchParams = options?.merge
+      const navigateOptions = { ...DEFAULT_NAVIGATE_OPTIONS, ...options };
+      const searchParams = navigateOptions.merge
         ? { ...routerState, ...params }
         : params;
-      const url = getNewUrlBySearchParams(searchParams);
+      const url = createUrlBySearchParams(searchParams);
 
-      if (!options?.ssr) {
+      if (!navigateOptions.ssr) {
         setRouterState(searchParams as T);
-        window.history.replaceState(null, "", url);
+        if (isSyncWithSearchParams) {
+          window.history.pushState(null, "", url);
+        }
         return;
       }
-      router.push(url, { scroll: options?.scroll });
+      router.push(url, { scroll: navigateOptions.scroll });
     },
-    [routerState, router],
+    [isSyncWithSearchParams, routerState, router],
   );
 
   const replace = useCallback(
     (
       params: Partial<T>,
-      options: { merge: boolean; ssr: boolean; scroll?: boolean },
+      options: AppRouterNavigateOptions = DEFAULT_NAVIGATE_OPTIONS,
     ) => {
-      const searchParams = options?.merge
+      const navigateOptions = { ...DEFAULT_NAVIGATE_OPTIONS, ...options };
+      const searchParams = navigateOptions.merge
         ? { ...routerState, ...params }
         : params;
-      const url = getNewUrlBySearchParams(searchParams);
+      const url = createUrlBySearchParams(searchParams);
 
-      if (options?.ssr) {
+      if (!navigateOptions.ssr) {
         setRouterState(searchParams as T);
-        window.history.replaceState(null, "", url);
+        if (isSyncWithSearchParams) {
+          window.history.replaceState(null, "", url);
+        }
         return;
       }
-      router.replace(url, { scroll: options?.scroll });
+      router.replace(url, { scroll: navigateOptions.scroll });
     },
-    [routerState, router],
+    [isSyncWithSearchParams, routerState, router],
   );
 
   const clear = useCallback(
     (
-      options = {
+      options: AppRouterNavigateOptions = {
+        ...DEFAULT_NAVIGATE_OPTIONS,
         merge: false,
-        ssr: true,
-        scroll: false,
       },
     ) => {
-      replace(extendParams as T, options);
+      replace((extendParams ?? {}) as Partial<T>, options);
     },
     [replace, extendParams],
   );
