@@ -228,7 +228,7 @@ declare const messages: {
   },
   "CheckoutPage": {
     "metadata": {
-      "title": "Checkout | Luxury E-commerce",
+      "title": "Checkout | Chốt Đơn",
       "description": "Complete your order with our secure checkout experience."
     },
     "header": {
@@ -335,10 +335,10 @@ declare const messages: {
       "rightsReserved": "All rights reserved."
     },
     "rootMetadata": {
-      "siteName": "Luxury E-commerce Platform",
+      "siteName": "E-commerce Platform",
       "description": "High-performance e-commerce platform for curated luxury.",
       "openGraphDesc": "The minimalist, high-performance e-commerce platform for power users.",
-      "openGraphAlt": "Luxury E-commerce Platform Preview"
+      "openGraphAlt": "E-commerce Platform Preview"
     },
     "errorPage": {
       "metadataTitle": "503 - Service Unavailable",
@@ -498,7 +498,7 @@ declare const messages: {
   },
   "FlashSalePage": {
     "metadata": {
-      "title": "Flash Sale | E-Commerce",
+      "title": "Flash Sale | Chốt Đơn",
       "description": "Grab the best deals before they are gone!"
     },
     "header": {
@@ -974,7 +974,7 @@ declare const messages: {
   },
   "NewArrivalsPage": {
     "metadata": {
-      "title": "New Arrivals | E-Commerce",
+      "title": "New Arrivals | Chốt Đơn",
       "description": "Discover the latest products that have just arrived at our store."
     },
     "header": {
@@ -1038,15 +1038,15 @@ declare const messages: {
   },
   "OrdersPage": {
     "metadata": {
-      "title": "Order History | Luxury E-commerce",
+      "title": "Order History | Chốt Đơn",
       "description": "Manage your purchase history and track your order status."
     },
     "detailMetadata": {
-      "title": "Order Details | Luxury E-commerce",
+      "title": "Order Details | Chốt Đơn",
       "description": "View details of your premium order."
     },
     "notificationsMetadata": {
-      "title": "Order Notifications | E-commerce",
+      "title": "Order Notifications | Chốt Đơn",
       "description": "View and manage your order notifications and account activity."
     },
     "header": {
@@ -1773,7 +1773,7 @@ declare const messages: {
   },
   "VouchersPage": {
     "metadata": {
-      "title": "Voucher Wallet | E-Commerce",
+      "title": "Voucher Wallet | Chốt Đơn",
       "description": "Collect promo codes, free shipping coupons, and cashback vouchers."
     },
     "header": {

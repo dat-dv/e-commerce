@@ -225,7 +225,7 @@
   },
   "CheckoutPage": {
     "metadata": {
-      "title": "Thanh toán | E-commerce",
+      "title": "Thanh toán | Chốt Đơn",
       "description": "Hoàn tất đơn hàng với trải nghiệm thanh toán an toàn."
     },
     "header": {
@@ -332,10 +332,10 @@
       "rightsReserved": "Bảo lưu mọi quyền."
     },
     "rootMetadata": {
-      "siteName": "Nền tảng Thương mại Điện tử Luxury",
+      "siteName": "Nền tảng Thương mại Điện tử",
       "description": "Nền tảng thương mại điện tử hiệu năng cao cho hàng hiệu tuyển chọn.",
       "openGraphDesc": "Nền tảng thương mại điện tử tối giản, hiệu năng cao dành cho người dùng chuyên nghiệp.",
-      "openGraphAlt": "Hình ảnh xem trước Nền tảng Thương mại Điện tử Luxury"
+      "openGraphAlt": "Hình ảnh xem trước Nền tảng Thương mại Điện tử"
     },
     "errorPage": {
       "metadataTitle": "503 - Dịch vụ Không khả dụng",
@@ -495,7 +495,7 @@
   },
   "FlashSalePage": {
     "metadata": {
-      "title": "Flash Sale | E-Commerce",
+      "title": "Flash Sale | Chốt Đơn",
       "description": "Săn ưu đãi tốt nhất trước khi hết."
     },
     "header": {
@@ -971,7 +971,7 @@
   },
   "NewArrivalsPage": {
     "metadata": {
-      "title": "Hàng mới | E-Commerce",
+      "title": "Hàng mới | Chốt Đơn",
       "description": "Khám phá những sản phẩm mới vừa có mặt tại cửa hàng."
     },
     "header": {
@@ -1035,15 +1035,15 @@
   },
   "OrdersPage": {
     "metadata": {
-      "title": "Lịch sử mua hàng | Luxury E-commerce",
+      "title": "Lịch sử mua hàng | Chốt Đơn",
       "description": "Quản lý lịch sử mua hàng và theo dõi trạng thái đơn hàng của bạn."
     },
     "detailMetadata": {
-      "title": "Chi tiết đơn hàng | Luxury E-commerce",
+      "title": "Chi tiết đơn hàng | Chốt Đơn",
       "description": "Xem chi tiết thông tin đơn hàng cao cấp của bạn."
     },
     "notificationsMetadata": {
-      "title": "Thông báo đơn hàng | E-commerce",
+      "title": "Thông báo đơn hàng | Chốt Đơn",
       "description": "Xem và quản lý thông báo đơn hàng cùng hoạt động tài khoản."
     },
     "header": {
@@ -1770,7 +1770,7 @@
   },
   "VouchersPage": {
     "metadata": {
-      "title": "Ví voucher | E-Commerce",
+      "title": "Ví voucher | Chốt Đơn",
       "description": "Sưu tầm mã giảm giá, freeship và voucher hoàn tiền."
     },
     "header": {

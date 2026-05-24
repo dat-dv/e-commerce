@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 export async function generateMetadata() {
   const t = await getTranslations("AdminOrdersPage.header");
   return {
-    title: `${t("title")} | Luxury E-commerce`,
+    title: `${t("title")} | Chốt Đơn`,
     description: t("description"),
   };
 }
