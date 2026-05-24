@@ -22,18 +22,20 @@ export const NotificationProvider = ({
 }: NotificationProviderProps) => {
   const [store] = useState(() => createNotificationStore(initState));
   const user = useAuthStore((s) => s.user);
-  const isLoaded = useRef(false);
+  const userId = user?.id;
+  const loadedUserId = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!user) {
+    if (!userId) {
+      loadedUserId.current = null;
       store.getState().reset();
       return;
     }
-    if (isLoaded.current) return;
+    if (loadedUserId.current === userId) return;
 
     const fetchInitialData = async () => {
       try {
-        isLoaded.current = true;
+        loadedUserId.current = userId;
         const response = await notificationsUseCase.getUnreadCount();
         if (response.status === "success") {
           store.getState().setUnreadCount(response.data.count);
@@ -44,7 +46,7 @@ export const NotificationProvider = ({
     };
 
     fetchInitialData();
-  }, [user, store]);
+  }, [userId, store]);
 
   return (
     <NotificationContext.Provider value={store}>

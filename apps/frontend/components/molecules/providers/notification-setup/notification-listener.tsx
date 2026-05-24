@@ -32,7 +32,7 @@ export default function NotificationListener({
   userId,
   onNotificationChanged,
 }: NotificationListenerProps) {
-  const setupRef = useRef(true);
+  const setupRef = useRef(false);
 
   useEffect(() => {
     if (!userId) {
@@ -43,10 +43,11 @@ export default function NotificationListener({
     if (typeof window === "undefined") return;
     if (!("Notification" in window)) return;
 
-    let unsubscribeForeground: (() => void) | undefined;
-    let isMounted = true;
     if (setupRef.current) return;
     setupRef.current = true;
+
+    let unsubscribeForeground: (() => void) | undefined;
+    let isMounted = true;
 
     const handleServiceWorkerMessage = (event: MessageEvent) => {
       void onNotificationChanged(event.data?.type, event.data.notification);
@@ -73,8 +74,9 @@ export default function NotificationListener({
           vapidKey: PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
         });
 
-        if (token && !setupRef.current) {
-          setupRef.current = true;
+        if (!isMounted) return;
+
+        if (token) {
           await notificationsUseCase.saveToken({
             token,
             deviceType: "web",
@@ -95,6 +97,7 @@ export default function NotificationListener({
           });
         });
       } catch {
+        setupRef.current = false;
         // ignore setup error
       }
     };
@@ -103,6 +106,7 @@ export default function NotificationListener({
 
     return () => {
       isMounted = false;
+      setupRef.current = false;
 
       unsubscribeForeground?.();
 
