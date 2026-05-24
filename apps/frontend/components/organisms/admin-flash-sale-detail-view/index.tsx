@@ -2,12 +2,21 @@
 
 import AppContainer from "@/components/atoms/app-container";
 import Button from "@/components/atoms/button";
+import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useAdminFlashSaleDetail } from "@/hooks/flash-sales/use-admin-flash-sale-detail";
+import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import { ArrowLeft, Plus, RefreshCw } from "lucide-react";
+import {
+  ArrowLeft,
+  ExternalLink,
+  Plus,
+  RefreshCw,
+  ShoppingBag,
+} from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AttachProductsModal } from "../admin-flash-sales-view/attach-products-modal";
@@ -252,6 +261,9 @@ export function AdminFlashSaleDetailView({
                         <th className="px-6 py-4">{t("table.stock")}</th>
                         <th className="px-6 py-4">{t("table.sold")}</th>
                         <th className="px-6 py-4">{t("table.orderLimit")}</th>
+                        <th className="px-6 py-4 text-right">
+                          {t("table.actions")}
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -279,13 +291,81 @@ export function AdminFlashSaleDetailView({
                               )
                             : 0;
 
+                        const productImage =
+                          lookup?.sku?.imageUrl ||
+                          lookup?.product?.imageUrl ||
+                          "";
+
+                        const productDetailUrl = lookup
+                          ? APP_ROUTES.PRODUCT_DETAIL(lookup.product.slug)
+                          : null;
+
                         return (
                           <tr
                             key={p.id}
                             className="border-content/[0.06] hover:bg-content/[0.015] border-b transition-colors"
                           >
-                            <td className="px-6 py-4 font-semibold">
-                              {productName}
+                            <td className="px-6 py-4">
+                              <div className="flex items-center gap-3">
+                                {productDetailUrl ? (
+                                  <Link
+                                    href={productDetailUrl}
+                                    target="_blank"
+                                    className={cn(
+                                      UI_RADIUS.media,
+                                      "border-content/[0.05] bg-content/[0.02] relative block size-12 shrink-0 overflow-hidden border transition-transform hover:scale-105 active:scale-95",
+                                    )}
+                                  >
+                                    {productImage ? (
+                                      <Image
+                                        src={productImage}
+                                        alt={productName}
+                                        fill
+                                        sizes="48px"
+                                        className="object-cover"
+                                      />
+                                    ) : (
+                                      <div className="bg-content/[0.05] text-content/20 flex h-full w-full items-center justify-center">
+                                        <ShoppingBag size={16} aria-hidden />
+                                      </div>
+                                    )}
+                                  </Link>
+                                ) : (
+                                  <div
+                                    className={cn(
+                                      UI_RADIUS.media,
+                                      "border-content/[0.05] bg-content/[0.02] relative block size-12 shrink-0 overflow-hidden border",
+                                    )}
+                                  >
+                                    {productImage ? (
+                                      <Image
+                                        src={productImage}
+                                        alt={productName}
+                                        fill
+                                        sizes="48px"
+                                        className="object-cover"
+                                      />
+                                    ) : (
+                                      <div className="bg-content/[0.05] text-content/20 flex h-full w-full items-center justify-center">
+                                        <ShoppingBag size={16} aria-hidden />
+                                      </div>
+                                    )}
+                                  </div>
+                                )}
+                                <span className="font-semibold">
+                                  {productDetailUrl ? (
+                                    <Link
+                                      href={productDetailUrl}
+                                      target="_blank"
+                                      className="hover:text-primary transition-colors hover:underline"
+                                    >
+                                      {productName}
+                                    </Link>
+                                  ) : (
+                                    productName
+                                  )}
+                                </span>
+                              </div>
                             </td>
                             <td className="text-content/65 px-6 py-4 font-mono text-xs">
                               {attributes}
@@ -317,6 +397,20 @@ export function AdminFlashSaleDetailView({
                             </td>
                             <td className="text-content/60 px-6 py-4">
                               {p.orderLimit || "—"}
+                            </td>
+                            <td className="px-6 py-4 text-right">
+                              {productDetailUrl ? (
+                                <Link
+                                  href={productDetailUrl}
+                                  target="_blank"
+                                  className="text-primary hover:text-primary-dark inline-flex items-center gap-1.5 text-xs font-semibold hover:underline"
+                                >
+                                  {locale === "vi" ? "Xem" : "View"}
+                                  <ExternalLink className="size-3" />
+                                </Link>
+                              ) : (
+                                "—"
+                              )}
                             </td>
                           </tr>
                         );

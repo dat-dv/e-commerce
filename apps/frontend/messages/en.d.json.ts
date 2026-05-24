@@ -645,7 +645,8 @@ declare const messages: {
         "salePrice": "Sale Price",
         "stock": "Stock Available",
         "sold": "Sold Units",
-        "orderLimit": "Limit/Order"
+        "orderLimit": "Limit/Order",
+        "actions": "Actions"
       }
     }
   },
