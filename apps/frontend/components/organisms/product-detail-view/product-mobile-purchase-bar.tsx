@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart, ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -22,6 +23,7 @@ export function ProductMobilePurchaseBar({
   onBuyNow,
   onToggleFavorite,
 }: ProductMobilePurchaseBarProps) {
+  const a = useHeaderStore();
   const t = useTranslations("ProductDetailPage");
 
   return (

@@ -17,7 +17,7 @@ export default function HeaderTabletAndBellow() {
   const [isOpenSearch, setIsOpenSearch] = useState(false);
 
   return (
-    <header className="border-content/10 bg-surface sticky top-0 z-50 flex w-full flex-col border-b">
+    <header className="border-content/10 bg-surface sticky top-0 z-100 flex w-full flex-col border-b">
       <AppContainer className="relative z-20 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <HeaderLogo />
