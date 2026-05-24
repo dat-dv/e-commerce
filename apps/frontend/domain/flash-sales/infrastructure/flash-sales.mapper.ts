@@ -1,9 +1,11 @@
 import type {
   FlashSaleTimeSlot,
+  ICreateTimeSlotRequest,
   IFlashSale,
   IFlashSaleProduct,
 } from "@ecommerce/shared";
 import type {
+  TCreateTimeSlotInput,
   TFlashSale,
   TFlashSaleProduct,
   TFlashSaleTimeSlot,
@@ -48,6 +50,19 @@ export class FlashSalesMapper {
       endHour: dto.end_hour,
       endMinute: dto.end_minute,
       isActive: dto.is_active,
+    };
+  }
+
+  static toCreateTimeSlotDTO(
+    input: TCreateTimeSlotInput,
+  ): ICreateTimeSlotRequest {
+    return {
+      name: input.name,
+      start_hour: input.startHour,
+      start_minute: input.startMinute,
+      end_hour: input.endHour,
+      end_minute: input.endMinute,
+      is_active: input.isActive,
     };
   }
 }

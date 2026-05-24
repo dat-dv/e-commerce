@@ -21,6 +21,15 @@ export interface TFlashSaleTimeSlot {
   isActive: boolean;
 }
 
+export interface TCreateTimeSlotInput {
+  name: string;
+  startHour: number;
+  startMinute: number;
+  endHour: number;
+  endMinute: number;
+  isActive: boolean;
+}
+
 export interface TFlashSale {
   id: string;
   name: string;

@@ -5,15 +5,18 @@ import { Tab, TabList, TabPanel, Tabs } from "@/components/atoms/tabs";
 import { useAdminFlashSales } from "@/hooks/flash-sales/use-admin-flash-sales";
 import { CalendarClock, Clock3 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 import { AdminFlashSalesHeader } from "./admin-flash-sales-header";
 import { CampaignsTable } from "./campaigns-table";
+import { TimeSlotFormModal } from "./time-slot-form-modal";
 import { TimeSlotsTable } from "./time-slots-table";
 
 export function AdminFlashSalesView() {
   const t = useTranslations("AdminFlashSalesPage.tabs");
-  const { flashSales, timeSlots, loading, hasError, refresh } =
+  const { flashSales, timeSlots, loading, hasError, refresh, createTimeSlot } =
     useAdminFlashSales();
+  const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
 
   return (
     <main className="bg-surface text-content relative min-h-screen overflow-x-hidden py-8">
@@ -46,9 +49,17 @@ export function AdminFlashSalesView() {
               loading={loading}
               hasError={hasError}
               onRetry={refresh}
+              onCreate={() => setIsTimeSlotModalOpen(true)}
             />
           </TabPanel>
         </Tabs>
+
+        <TimeSlotFormModal
+          isOpen={isTimeSlotModalOpen}
+          loading={loading}
+          onClose={() => setIsTimeSlotModalOpen(false)}
+          onSubmit={createTimeSlot}
+        />
       </AppContainer>
     </main>
   );

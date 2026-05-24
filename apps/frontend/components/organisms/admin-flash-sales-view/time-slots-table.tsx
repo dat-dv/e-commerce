@@ -16,11 +16,13 @@ export function TimeSlotsTable({
   loading,
   hasError,
   onRetry,
+  onCreate,
 }: {
   timeSlots: TFlashSaleTimeSlot[];
   loading: boolean;
   hasError: boolean;
   onRetry: () => void;
+  onCreate: () => void;
 }) {
   const t = useTranslations("AdminFlashSalesPage.timeSlots");
 
@@ -33,7 +35,7 @@ export function TimeSlotsTable({
             <Rows3 aria-hidden="true" className="size-4" />
             {t("createBatchBtn")}
           </Button>
-          <Button type="button" size="sm">
+          <Button type="button" size="sm" onClick={onCreate}>
             <Plus aria-hidden="true" className="size-4" />
             {t("createBtn")}
           </Button>

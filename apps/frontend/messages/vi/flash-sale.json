@@ -41,6 +41,10 @@
       "campaigns": "Chiến dịch",
       "timeSlots": "Khung giờ"
     },
+    "feedback": {
+      "createTimeSlotSuccess": "Đã tạo khung giờ.",
+      "createTimeSlotError": "Không thể tạo khung giờ."
+    },
     "campaigns": {
       "title": "Chiến dịch Flash Sale",
       "createBtn": "Tạo chiến dịch",
@@ -76,6 +80,19 @@
       "retry": "Thử lại",
       "active": "Đang bật",
       "inactive": "Đang tắt"
+    },
+    "timeSlotForm": {
+      "title": "Tạo khung giờ",
+      "description": "Thiết lập khung giờ mở bán dùng hằng ngày.",
+      "name": "Tên",
+      "namePlaceholder": "Ưu đãi buổi sáng",
+      "startHour": "Giờ bắt đầu",
+      "startMinute": "Phút bắt đầu",
+      "endHour": "Giờ kết thúc",
+      "endMinute": "Phút kết thúc",
+      "isActive": "Bật khung giờ này",
+      "cancel": "Hủy",
+      "submit": "Tạo"
     }
   }
 }

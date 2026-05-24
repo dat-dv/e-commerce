@@ -543,6 +543,10 @@ declare const messages: {
       "campaigns": "Campaigns",
       "timeSlots": "Time Slots"
     },
+    "feedback": {
+      "createTimeSlotSuccess": "Time slot created.",
+      "createTimeSlotError": "Unable to create time slot."
+    },
     "campaigns": {
       "title": "Flash Sale Campaigns",
       "createBtn": "Create Campaign",
@@ -578,6 +582,19 @@ declare const messages: {
       "retry": "Retry",
       "active": "Active",
       "inactive": "Inactive"
+    },
+    "timeSlotForm": {
+      "title": "Create Time Slot",
+      "description": "Define a reusable daily selling window.",
+      "name": "Name",
+      "namePlaceholder": "Morning deals",
+      "startHour": "Start hour",
+      "startMinute": "Start minute",
+      "endHour": "End hour",
+      "endMinute": "End minute",
+      "isActive": "Enable this time slot",
+      "cancel": "Cancel",
+      "submit": "Create"
     }
   },
   "HelpCenter": {
