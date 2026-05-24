@@ -20,7 +20,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
         {...props}
         ref={ref}
         type="button"
-        role="switch"
+        role="checkbox"
         aria-checked={checked}
         onClick={onCheckedChange}
         className={cn(

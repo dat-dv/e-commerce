@@ -1,5 +1,6 @@
 "use client";
 
+import ClientOnly from "@/components/atoms/client-only";
 import Switch from "@/components/atoms/switch";
 import ThemeSwatch from "@/components/atoms/theme-swatch";
 import { THEMES } from "@/config/config";
@@ -22,7 +23,6 @@ const AppearanceSection = ({
   toggleDarkMode,
 }: AppearanceSectionProps) => {
   const t = useTranslations("SettingsPage.appearance");
-
   return (
     <div
       id="appearance"
@@ -42,26 +42,35 @@ const AppearanceSection = ({
             {t("themeColor.description")}
           </span>
         </div>
-        <div className="flex flex-wrap items-center gap-3 sm:shrink-0 sm:justify-end">
-          {THEMES.map((themeOption) => {
-            const themeName = t(`themes.${themeOption.id}`);
-            const active = theme === themeOption.id;
-            return (
-              <ThemeSwatch
-                key={themeOption.id}
-                onClick={() => setTheme(themeOption.id)}
-                color={themeOption.color}
-                selected={active}
-                title={themeName}
-                aria-label={t("themeColor.select", {
-                  theme: themeName,
-                })}
-              >
-                {active && <span className="text-xs text-white">✓</span>}
-              </ThemeSwatch>
-            );
-          })}
-        </div>
+        <ClientOnly
+          fallback={
+            <div className="flex flex-wrap items-center gap-3 sm:shrink-0 sm:justify-end">
+              {/* Fallback skeleton or just an empty div with min height to prevent shift */}
+              <div className="h-10 w-full min-w-48" />
+            </div>
+          }
+        >
+          <div className="flex flex-wrap items-center gap-3 sm:shrink-0 sm:justify-end">
+            {THEMES.map((themeOption) => {
+              const themeName = t(`themes.${themeOption.id}`);
+              const active = theme === themeOption.id;
+              return (
+                <ThemeSwatch
+                  key={themeOption.id}
+                  onClick={() => setTheme(themeOption.id)}
+                  color={themeOption.color}
+                  selected={active}
+                  title={themeName}
+                  aria-label={t("themeColor.select", {
+                    theme: themeName,
+                  })}
+                >
+                  {active && <span className="text-xs text-white">✓</span>}
+                </ThemeSwatch>
+              );
+            })}
+          </div>
+        </ClientOnly>
       </div>
 
       <div className="flex min-w-0 items-center justify-between gap-4">
@@ -73,11 +82,13 @@ const AppearanceSection = ({
             {t("darkMode.description")}
           </span>
         </div>
-        <Switch
-          checked={isDarkMode}
-          onCheckedChange={toggleDarkMode}
-          aria-label={t("darkMode.toggle")}
-        />
+        <ClientOnly fallback={<div className="h-6 w-11 shrink-0" />}>
+          <Switch
+            checked={isDarkMode}
+            onCheckedChange={toggleDarkMode}
+            aria-label={t("darkMode.toggle")}
+          />
+        </ClientOnly>
       </div>
     </div>
   );

@@ -71,9 +71,6 @@ export function AdminOrdersView() {
 
   return (
     <main className="bg-surface text-content relative min-h-screen overflow-hidden py-8">
-      <div className="bg-primary/5 pointer-events-none absolute -top-40 -right-40 -z-10 size-96 rounded-full blur-3xl" />
-      <div className="bg-primary/5 pointer-events-none absolute -bottom-40 -left-40 -z-10 size-96 rounded-full blur-3xl" />
-
       <AppContainer size="2xl" className="flex flex-col gap-8">
         <AdminOrdersHeader loading={loading} onRefresh={refresh} />
 
