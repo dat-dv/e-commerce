@@ -236,14 +236,18 @@ export const OrderCard = ({
                   </div>
                 </div>
 
-                <div className="hidden shrink-0 items-end sm:flex">
-                  {reviewButton}
-                </div>
+                {order.status === EOrderStatus.DELIVERED && (
+                  <div className="hidden shrink-0 items-end sm:flex">
+                    {reviewButton}
+                  </div>
+                )}
               </div>
 
-              <div className="mt-4 flex justify-end sm:hidden">
-                {reviewButton}
-              </div>
+              {order.status === EOrderStatus.DELIVERED && (
+                <div className="mt-4 flex justify-end sm:hidden">
+                  {reviewButton}
+                </div>
+              )}
             </div>
           );
 
@@ -335,16 +339,19 @@ export const OrderCard = ({
                   {t("card.requestReturn")}
                 </Button>
 
-                <Button
-                  variant="outline"
-                  className={cn(
-                    "border-content/[0.1] text-content/60 hover:bg-content/[0.05]",
-                    actionButtonClassName,
-                  )}
-                  size="md"
-                >
-                  {t("card.reorder")}
-                </Button>
+                {false && (
+                  // TODO: Implement reorder functionality
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "border-content/[0.1] text-content/60 hover:bg-content/[0.05]",
+                      actionButtonClassName,
+                    )}
+                    size="md"
+                  >
+                    {t("card.reorder")}
+                  </Button>
+                )}
               </>
             )}
           </div>
