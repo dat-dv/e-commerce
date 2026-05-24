@@ -103,6 +103,7 @@ export class UpdateOrderStatusUseCase {
 
     await this.notificationService.sendToUser(userId, notification.title, notification.body, ENotificationType.ORDER, {
       orderId,
+      status: status.toString(),
     });
   }
 }

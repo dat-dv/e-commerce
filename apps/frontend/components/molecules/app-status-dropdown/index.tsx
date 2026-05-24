@@ -2,7 +2,7 @@
 
 import { ChevronDown, RefreshCw } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import {
   Button as RACButton,
   Menu as RACMenu,
@@ -72,21 +72,11 @@ export function AppStatusDropdown({
   onStatusUpdate,
 }: IAppStatusDropdownProps) {
   const tStatus = useTranslations("OrderStatus");
-  const tResults = useTranslations("AdminOrdersPage.results");
   const [isOpen, setIsOpen] = useState(false);
-
-  const getStatusLabel = useCallback(
-    (s: number) => {
-      const key = getOrderStatusLabel(status);
-      const label = tStatus(key);
-      return label === String(s) ? tResults("unknown") : label;
-    },
-    [status, tResults, tStatus],
-  );
 
   const statusColor =
     ORDER_STATUS_CONFIG[status]?.color || "text-content/50 bg-content/10";
-  const statusLabel = getStatusLabel(status);
+  const statusLabel = tStatus(getOrderStatusLabel(status));
 
   const isTriggerDisabled =
     disabled ||
@@ -168,7 +158,7 @@ export function AppStatusDropdown({
                     )}
                   />
                   <span className="truncate">
-                    {getStatusLabel(optionValue)}
+                    {tStatus(getOrderStatusLabel(optionValue))}
                   </span>
                 </div>
                 {isSelected && (

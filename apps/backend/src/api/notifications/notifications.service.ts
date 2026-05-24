@@ -30,6 +30,8 @@ export class NotificationService {
 
     const tokens = await this.notificationsRepository.getUserTokens(userId);
 
+    this.logger.log(`Found ${tokens.length} tokens for user ${userId}: ${JSON.stringify(tokens)}`);
+
     if (tokens.length === 0) {
       this.logger.log(`No notification tokens found for user ${userId}`);
       return;

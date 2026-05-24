@@ -5,7 +5,7 @@ import SearchInput from "@/components/molecules/search-input";
 import { cn } from "@/utils/cn";
 import { FilterX } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 
 import { getOrderStatusLabel } from "@/utils/order";
 import { STATUS_VALUES } from "./admin-orders.utils";
@@ -28,23 +28,15 @@ export function AdminOrdersFilters({
   onClearFilters: () => void;
 }) {
   const t = useTranslations("AdminOrdersPage");
-  const tStatus = useTranslations("OrderStatus");
 
-  const getStatusLabel = useCallback(
-    (status: number) => {
-      const key = getOrderStatusLabel(status);
-      const label = tStatus(key);
-      return label === String(status) ? t("results.unknown") : label;
-    },
-    [t, tStatus],
-  );
+  const tStatus = useTranslations("OrderStatus");
 
   const statusOptions = useMemo(() => {
     return STATUS_VALUES.map((value) => ({
       value,
-      label: getStatusLabel(value),
+      label: tStatus(getOrderStatusLabel(value)),
     }));
-  }, [getStatusLabel]);
+  }, [tStatus]);
 
   return (
     <section
