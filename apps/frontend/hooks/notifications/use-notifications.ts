@@ -1,8 +1,6 @@
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { useNotificationStore } from "@/store/notification-store";
-import { ENotificationClientEvent } from "@ecommerce/shared";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useUnreadCount } from "./use-unread-count";
+import { useCallback, useMemo, useState } from "react";
 
 export const useNotifications = () => {
   const storeNotifications = useNotificationStore((s) => s.data);
@@ -13,7 +11,6 @@ export const useNotifications = () => {
 
   const loading = false;
   const [searchQuery, setSearchQuery] = useState("");
-  const { loadUnreadCount } = useUnreadCount();
 
   const getData = useCallback(async () => {
     const page = 1;
@@ -44,21 +41,8 @@ export const useNotifications = () => {
   }, [storeNotifications, appendNotifications]);
 
   const refresh = useCallback(async () => {
-    await Promise.all([getData(), loadUnreadCount()]);
-  }, [getData, loadUnreadCount]);
-
-  useEffect(() => {
-    const handleRefresh = () => {
-      void refresh();
-    };
-    window.addEventListener(ENotificationClientEvent.REFRESH, handleRefresh);
-    return () => {
-      window.removeEventListener(
-        ENotificationClientEvent.REFRESH,
-        handleRefresh,
-      );
-    };
-  }, [refresh]);
+    await getData();
+  }, [getData]);
 
   const notifications = useMemo(
     () => storeNotifications?.items || [],

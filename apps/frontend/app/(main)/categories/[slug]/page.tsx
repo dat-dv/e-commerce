@@ -50,8 +50,6 @@ export default async function CategoryProductsPage({
     }),
   ]);
 
-  console.log(123, rawSearchParams);
-
   if (!productsRes) {
     notFound();
   }
