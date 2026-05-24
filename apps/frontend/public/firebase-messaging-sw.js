@@ -34,7 +34,7 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
-    icon: "/icon.svg",
+    icon: "/icon-192.png",
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
@@ -43,7 +43,7 @@ messaging.onBackgroundMessage((payload) => {
 
 // PWA offline support & caching
 const CACHE_NAME = "shophub-pwa-cache-v1";
-const ASSETS_TO_CACHE = ["/", "/icon.svg", "/favicon.ico"];
+const ASSETS_TO_CACHE = ["/", "/icon-192.png", "/favicon.ico"];
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();

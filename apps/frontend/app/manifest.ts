@@ -4,29 +4,34 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "E-Commerce Platform",
-    short_name: "E-Commerce",
-    description: "High-Performance E-Commerce Platform",
+    name: "Chotdon",
+    short_name: "Chotdon",
+    description: "Shop online",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#3b82f6",
+    background_color: "#2c797d",
+    theme_color: "#2c797d",
     icons: [
       {
-        src: "/favicon.ico",
-        sizes: "any",
-        type: "image/x-icon",
-      },
-      {
-        src: "/icon.svg",
+        src: "/icon-192.png",
         sizes: "192x192",
-        type: "image/svg+xml",
-        purpose: "any",
+        type: "image/png",
       },
       {
-        src: "/icon.svg",
+        src: "/icon-512.png",
         sizes: "512x512",
-        type: "image/svg+xml",
+        type: "image/png",
+      },
+      {
+        src: "/maskable-icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/maskable-icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
         purpose: "maskable",
       },
     ],
