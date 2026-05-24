@@ -332,10 +332,15 @@
       "rightsReserved": "Bảo lưu mọi quyền."
     },
     "rootMetadata": {
-      "siteName": "Nền tảng Thương mại Điện tử",
-      "description": "Nền tảng thương mại điện tử hiệu năng cao cho hàng hiệu tuyển chọn.",
+      "title": {
+        "default": "Chotdon - Nền tảng Thương mại Điện tử",
+        "template": "%s | Chotdon"
+      },
+      "siteName": "Chotdon",
+      "description": "Mua sắm thông minh, chốt đơn nhanh chóng với Chotdon.",
       "openGraphDesc": "Nền tảng thương mại điện tử tối giản, hiệu năng cao dành cho người dùng chuyên nghiệp.",
-      "openGraphAlt": "Hình ảnh xem trước Nền tảng Thương mại Điện tử"
+      "openGraphAlt": "Hình ảnh xem trước Nền tảng Thương mại Điện tử",
+      "locale": "vi_VN"
     },
     "errorPage": {
       "metadataTitle": "503 - Dịch vụ Không khả dụng",

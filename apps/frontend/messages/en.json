@@ -332,10 +332,15 @@
       "rightsReserved": "All rights reserved."
     },
     "rootMetadata": {
-      "siteName": "E-commerce Platform",
-      "description": "High-performance e-commerce platform for curated luxury.",
+      "title": {
+        "default": "Chotdon - E-commerce Platform",
+        "template": "%s | Chotdon"
+      },
+      "siteName": "Chotdon",
+      "description": "Smart shopping, fast ordering with Chotdon.",
       "openGraphDesc": "The minimalist, high-performance e-commerce platform for power users.",
-      "openGraphAlt": "E-commerce Platform Preview"
+      "openGraphAlt": "E-commerce Platform Preview",
+      "locale": "en_US"
     },
     "errorPage": {
       "metadataTitle": "503 - Service Unavailable",
