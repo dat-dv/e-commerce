@@ -99,7 +99,7 @@ export function AppSelectAutocompleteClient<T extends object>({
               )
             }
           >
-            <RACSelectValue className="text-content empty:text-content/50 font-normal">
+            <RACSelectValue className="text-content empty:text-content/50 min-w-0 flex-1 truncate font-normal">
               {({ selectedText }) => selectedText || placeholder}
             </RACSelectValue>
             <ChevronDown className="text-content ml-2 h-4 w-4 shrink-0 opacity-50" />
