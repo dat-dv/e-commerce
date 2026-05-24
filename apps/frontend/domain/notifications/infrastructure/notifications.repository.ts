@@ -1,3 +1,4 @@
+import { PUBLIC_ENV } from "@/config/public.env.config";
 import { API_ROUTES } from "@/constants/routes";
 import {
   ApiPaginatedResponse,
@@ -18,6 +19,20 @@ import {
 } from "../types/notifications.repository";
 import { NotificationsMapper } from "./notifications.mapper";
 
+const NOTIFICATION_REPOSITORY_LOG_PREFIX = "[notification-repository]";
+
+const logNotificationRepository = (
+  message: string,
+  data?: Record<string, unknown>,
+) => {
+  if (!PUBLIC_ENV.IS_DEBUG) return;
+
+  console.info(NOTIFICATION_REPOSITORY_LOG_PREFIX, message, {
+    at: new Date().toISOString(),
+    ...data,
+  });
+};
+
 export class NotificationsRepository implements INotificationsRepository {
   constructor(private request: TRequest) {}
 
@@ -33,10 +48,19 @@ export class NotificationsRepository implements INotificationsRepository {
   async getNotifications(
     query?: IGetNotificationsRequest,
   ): Promise<ApiPaginatedResponse<INotification>> {
+    logNotificationRepository("getNotifications request", { query });
+
     const response = await this.request.get<INotificationListResponse>(
       API_ROUTES.NOTIFICATIONS.BASE,
       { params: query },
     );
+
+    logNotificationRepository("getNotifications response", {
+      status: response.status,
+      itemCount: response.data?.items?.length,
+      total: response.data?.meta?.total,
+      page: response.data?.meta?.page,
+    });
 
     return {
       ...response,
@@ -50,9 +74,18 @@ export class NotificationsRepository implements INotificationsRepository {
   async getUnreadCount(): Promise<
     ApiResponse<INotificationUnreadCountResponse>
   > {
-    return this.request.get<INotificationUnreadCountResponse>(
+    logNotificationRepository("getUnreadCount request");
+
+    const response = await this.request.get<INotificationUnreadCountResponse>(
       API_ROUTES.NOTIFICATIONS.UNREAD_COUNT,
     );
+
+    logNotificationRepository("getUnreadCount response", {
+      status: response.status,
+      count: response.data?.count,
+    });
+
+    return response;
   }
 
   async markAsRead(id: string): Promise<ApiResponse<INotification>> {

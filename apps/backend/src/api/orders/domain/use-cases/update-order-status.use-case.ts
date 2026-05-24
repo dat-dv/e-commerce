@@ -1,5 +1,12 @@
 import { ENotificationType, EOrderStatus, IOrderResponse } from '@ecommerce/shared';
-import { BadRequestException, Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Inject,
+  Injectable,
+  Logger,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
@@ -13,6 +20,8 @@ const STOCK_RESTORE_STATUSES = [EOrderStatus.CANCELLED];
 
 @Injectable()
 export class UpdateOrderStatusUseCase {
+  private readonly logger = new Logger(UpdateOrderStatusUseCase.name);
+
   constructor(
     @Inject(IOrdersRepository)
     private readonly ordersRepository: IOrdersRepository,
@@ -22,6 +31,14 @@ export class UpdateOrderStatusUseCase {
 
   async execute(id: string, dto: UpdateOrderStatusDto, isAdmin = false): Promise<IOrderResponse> {
     const newStatus = dto.status;
+    this.logger.log(
+      `Order status update requested: ${JSON.stringify({
+        orderId: id,
+        newStatus,
+        isAdmin,
+      })}`,
+    );
+
     if (!isAdmin) {
       throw new UnauthorizedException('Only admins can update order status');
     }
@@ -32,10 +49,18 @@ export class UpdateOrderStatusUseCase {
     });
 
     if (!order) {
+      this.logger.warn(`Order status update skipped: order not found ${id}`);
       throw new NotFoundException('Order not found');
     }
 
     if (TERMINAL_STATUSES.includes(order.status)) {
+      this.logger.warn(
+        `Order status update blocked: ${JSON.stringify({
+          orderId: id,
+          currentStatus: order.status,
+          requestedStatus: newStatus,
+        })}`,
+      );
       throw new BadRequestException('Cannot update status of a delivered, cancelled, or returned order');
     }
 
@@ -70,7 +95,24 @@ export class UpdateOrderStatusUseCase {
       updatedOrder = await this.ordersRepository.updateStatus(id, newStatus);
     }
 
+    this.logger.log(
+      `Order status updated, sending notification: ${JSON.stringify({
+        orderId: id,
+        userId: order.user_id,
+        previousStatus: order.status,
+        newStatus,
+      })}`,
+    );
+
     await this.sendNotification(order.user_id, newStatus, id);
+
+    this.logger.log(
+      `Order notification flow finished: ${JSON.stringify({
+        orderId: id,
+        userId: order.user_id,
+        newStatus,
+      })}`,
+    );
 
     return updatedOrder;
   }
@@ -100,6 +142,15 @@ export class UpdateOrderStatusUseCase {
       title: 'Order update',
       body: `Order #${short} status has been updated.`,
     };
+
+    this.logger.log(
+      `Dispatching order notification: ${JSON.stringify({
+        orderId,
+        userId,
+        status,
+        title: notification.title,
+      })}`,
+    );
 
     await this.notificationService.sendToUser(userId, notification.title, notification.body, ENotificationType.ORDER, {
       orderId,

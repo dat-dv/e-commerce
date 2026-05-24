@@ -20,13 +20,31 @@ export class NotificationService {
     type: ENotificationType = ENotificationType.SYSTEM,
     data?: Record<string, string>,
   ) {
-    await this.notificationsRepository.createNotification(userId, {
+    this.logger.log(
+      `Notification send requested: ${JSON.stringify({
+        userId,
+        title,
+        type,
+        data,
+      })}`,
+    );
+
+    const notification = await this.notificationsRepository.createNotification(userId, {
       title,
       content: body,
       type: type,
       link: data?.link,
       metadata: data,
     });
+
+    this.logger.log(
+      `Notification record created: ${JSON.stringify({
+        userId,
+        notificationId: notification.id,
+        type,
+        data,
+      })}`,
+    );
 
     const tokens = await this.notificationsRepository.getUserTokens(userId);
 
@@ -52,9 +70,24 @@ export class NotificationService {
       tokens: tokens,
     };
 
+    this.logger.log(
+      `Sending Firebase multicast: ${JSON.stringify({
+        userId,
+        tokenCount: tokens.length,
+        title,
+        data: message.data,
+      })}`,
+    );
+
     try {
       const response = await messaging.sendEachForMulticast(message);
-      this.logger.log(`Successfully sent ${response.successCount} notifications to user ${userId}`);
+      this.logger.log(
+        `Firebase multicast finished: ${JSON.stringify({
+          userId,
+          successCount: response.successCount,
+          failureCount: response.failureCount,
+        })}`,
+      );
 
       if (response.failureCount > 0) {
         for (let idx = 0; idx < response.responses.length; idx++) {

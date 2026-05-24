@@ -1,4 +1,3 @@
-import { NotificationProvider } from "@/components/molecules/providers/notification-provider";
 import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { ToastProvider } from "@/components/ui/toast";
@@ -17,6 +16,7 @@ import { CategoriesProvider } from "./categories-provider";
 import { ConfigProvider } from "./config-provider";
 import { FavoritesProvider } from "./favorites-provider";
 import { I18nProviderClient } from "./i18n-provider";
+import NotificationSetup from "./notification-setup";
 import { PwaRegister } from "./pwa-register";
 
 const AppProvider = async ({ children }: { children: React.ReactNode }) => {
@@ -41,17 +41,16 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
       <ConfigProvider initState={{ language: language! }}>
         <CategoriesProvider initState={{ categories }}>
           <AuthProvider initState={{ user: authRes?.data, hasHydrated: true }}>
-            <NotificationProvider>
-              <CartProvider initState={cartRes?.data?.items || []}>
-                <AddressProvider initState={addressRes?.data || []}>
-                  <FavoritesProvider>
-                    <RequireProfileInfoModal />
-                    {children}
-                    <CartDrawer />
-                  </FavoritesProvider>
-                </AddressProvider>
-              </CartProvider>
-            </NotificationProvider>
+            <CartProvider initState={cartRes?.data?.items || []}>
+              <AddressProvider initState={addressRes?.data || []}>
+                <FavoritesProvider>
+                  <RequireProfileInfoModal />
+                  {children}
+                  <NotificationSetup />
+                  <CartDrawer />
+                </FavoritesProvider>
+              </AddressProvider>
+            </CartProvider>
           </AuthProvider>
         </CategoriesProvider>
         <ToastProvider />
