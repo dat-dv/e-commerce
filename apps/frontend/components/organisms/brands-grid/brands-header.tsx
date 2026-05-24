@@ -13,6 +13,7 @@ export function BrandsHeader() {
 
   return (
     <AnimatedPageHeader
+      center
       title={t("title")}
       highlight={t("highlight")}
       description={t("description")}

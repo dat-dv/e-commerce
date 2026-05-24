@@ -1,7 +1,7 @@
 "use client";
 
-import { Zap, Timer, Flame, Sparkles } from "lucide-react";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import { Flame, Sparkles, Timer, Zap } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export function FlashSaleHeader() {
@@ -9,6 +9,7 @@ export function FlashSaleHeader() {
 
   return (
     <AnimatedPageHeader
+      center
       title={t("title")}
       highlight={t("highlight")}
       description={t("description")}
