@@ -63,7 +63,7 @@ export function ProductCardMedia({
         </div>
       )}
 
-      <div className="invisible absolute inset-0 flex items-center justify-center gap-3 bg-black/40 group-hover:visible">
+      <div className="invisible absolute inset-0 z-20 flex items-center justify-center gap-3 bg-black/40 group-hover:visible">
         <Link
           href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
           className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-all hover:bg-white/90"
@@ -87,7 +87,7 @@ export function ProductCardMedia({
       </div>
 
       {badges ? (
-        <div className="absolute top-2 left-2 z-10 flex flex-col gap-2">
+        <div className="absolute top-2 left-2 z-20 flex flex-col gap-2">
           {badges}
         </div>
       ) : null}
@@ -102,7 +102,7 @@ export function ProductCardMedia({
             isFavorited ? t("removeFromWishlist") : t("addToWishlist")
           }
           className={cn(
-            "group/favorite absolute top-2 right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full p-0 opacity-100 shadow-lg transition-all duration-300",
+            "group/favorite absolute top-2 right-2 z-20 flex h-8 w-8 items-center justify-center rounded-full p-0 opacity-100 shadow-lg transition-all duration-300",
             "group-hover:shadow-xl group-hover:brightness-110 hover:opacity-100 active:scale-75",
             "focus-visible:ring-0 focus-visible:ring-offset-0",
             "[-webkit-tap-highlight-color:transparent]",

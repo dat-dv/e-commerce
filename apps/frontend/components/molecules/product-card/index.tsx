@@ -3,7 +3,10 @@
 import Button from "@/components/atoms/button";
 import { ShoppingBag, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import React from "react";
+
+import { APP_ROUTES } from "@/constants/routes";
 
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
@@ -78,6 +81,12 @@ export const ProductCard = ({
         "group bg-content/[0.02] border-content/[0.05] hover:border-content/[0.1] relative flex h-full flex-1 flex-col border p-3 transition-all duration-300 hover:shadow-xl hover:shadow-black/5",
       )}
     >
+      <Link
+        href={APP_ROUTES.PRODUCT_DETAIL(product.slug)}
+        className="absolute inset-0 z-10 cursor-pointer"
+        aria-label={product.name}
+      />
+
       <ProductCardMedia
         product={product}
         noImageLabel={t("noImage")}
@@ -138,7 +147,7 @@ export const ProductCard = ({
             aria-label={t("addToCart")}
             className={cn(
               UI_RADIUS.control,
-              "text-content/20 hover:text-primary hover:bg-primary/10 border-content/5 flex h-9 w-9 items-center justify-center border p-0 lg:hidden",
+              "text-content/20 hover:text-primary hover:bg-primary/10 border-content/5 relative z-20 flex h-9 w-9 items-center justify-center border p-0 lg:hidden",
             )}
           >
             <ShoppingBag size={18} />
