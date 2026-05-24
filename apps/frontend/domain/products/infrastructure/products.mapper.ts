@@ -14,7 +14,10 @@ export class ProductMapper {
         const regularPrice = sku.price;
 
         const displayPrice = salePrice || regularPrice || 0;
-        const strikePrice = salePrice ? regularPrice : sku.original_price;
+        const strikePrice =
+          sku.original_price && sku.original_price > regularPrice
+            ? sku.original_price
+            : regularPrice || sku.original_price;
 
         const discountPercent =
           strikePrice && displayPrice && strikePrice > displayPrice

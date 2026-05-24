@@ -53,19 +53,19 @@ export function ProductFlashSaleBanner({
     <div
       className={cn(
         UI_RADIUS.card,
-        "flex flex-col items-center justify-between gap-4 border border-red-500/20 bg-gradient-to-r from-orange-500 to-red-500 p-4 text-white shadow-lg shadow-red-500/10 backdrop-blur-md md:flex-row",
+        "text-content flex flex-col items-center justify-between gap-4 border border-red-500/20 bg-red-500/[0.04] p-4 shadow-sm backdrop-blur-md md:flex-row dark:border-red-500/30 dark:bg-red-500/[0.02]",
       )}
     >
-      <div className="flex items-center gap-3">
-        <div className="animate-pulse rounded-full bg-white/20 px-3 py-1 text-xs font-black tracking-wider uppercase">
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="animate-pulse rounded-full border border-red-500/20 bg-red-500/10 px-3 py-1 text-xs font-black tracking-wider text-red-600 uppercase dark:bg-red-500/20 dark:text-red-400">
           {t("flashSaleTitle")}
         </div>
         {endTime && (
           <div className="flex items-center gap-2">
-            <span className="text-xs font-medium text-white/80">
+            <span className="text-content/60 text-xs font-medium">
               {t("endsIn")}:
             </span>
-            <span className="rounded bg-black/20 px-2 py-0.5 font-mono text-base font-black tracking-widest">
+            <span className="rounded border border-red-500/10 bg-red-500/10 px-2.5 py-0.5 font-mono text-base font-black tracking-widest text-red-600 dark:bg-red-500/20 dark:text-red-400">
               {timeLeft}
             </span>
           </div>
@@ -73,15 +73,15 @@ export function ProductFlashSaleBanner({
       </div>
 
       {totalStock > 0 && (
-        <div className="flex w-full min-w-[200px] shrink-0 items-center gap-3 md:w-auto">
+        <div className="flex w-full min-w-[220px] shrink-0 items-center gap-3 md:w-auto">
           <div className="flex-1">
-            <div className="mb-1 flex justify-between text-xs font-semibold">
+            <div className="text-content/70 mb-1.5 flex justify-between text-xs font-semibold">
               <span>{t("soldCount", { sold: String(soldCount) })}</span>
               <span>{t("stockLeft", { left: String(stockLeft) })}</span>
             </div>
-            <div className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/20">
+            <div className="bg-content/[0.06] border-content/[0.04] h-2 w-full overflow-hidden rounded-full border">
               <div
-                className="h-full rounded-full bg-white transition-all duration-300"
+                className="h-full rounded-full bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
