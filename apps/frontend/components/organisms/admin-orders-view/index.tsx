@@ -2,6 +2,7 @@
 
 import AppContainer from "@/components/atoms/app-container";
 import Loading from "@/components/atoms/loading";
+import { Pagination } from "@/components/molecules/pagination";
 import { toast } from "@/components/ui/toast";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
@@ -13,7 +14,6 @@ import { AdminOrdersFilters } from "./admin-orders-filters";
 import { AdminOrdersHeader } from "./admin-orders-header";
 import { OrderResults } from "./admin-orders-results";
 import { EmptyOrders } from "./empty-orders";
-import { OrdersPagination } from "./orders-pagination";
 
 export function AdminOrdersView() {
   const t = useTranslations("AdminOrdersPage");
@@ -131,10 +131,9 @@ export function AdminOrdersView() {
         </section>
 
         {meta && meta.totalPages > 1 && (
-          <OrdersPagination
-            page={page}
+          <Pagination
+            currentPage={page}
             totalPages={meta.totalPages}
-            loading={loading}
             onPageChange={handlePageChange}
           />
         )}
