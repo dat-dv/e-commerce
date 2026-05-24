@@ -7,14 +7,13 @@ import {
   AppDialogTitle,
 } from "@/components/atoms/dialog";
 import { XIcon } from "@/components/atoms/icons";
-import Input from "@/components/atoms/input";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormCheckbox } from "@/components/molecules/form/form-checkbox";
 import { FormInput } from "@/components/molecules/form/form-input";
 import type { TCreateTimeSlotInput } from "@/domain/flash-sales/types/flash-sale.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   timeSlotFormSchema,
   type TimeSlotFormData,
@@ -50,7 +49,14 @@ export function TimeSlotFormModal({
   });
 
   const handleSubmit = async (data: TimeSlotFormData) => {
-    const success = await onSubmit(data);
+    const success = await onSubmit({
+      name: data.name,
+      startHour: Number(data.startHour),
+      startMinute: Number(data.startMinute),
+      endHour: Number(data.endHour),
+      endMinute: Number(data.endMinute),
+      isActive: data.isActive,
+    });
 
     if (success) {
       methods.reset(defaultValues);
@@ -93,81 +99,37 @@ export function TimeSlotFormModal({
             />
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <Controller
-                control={methods.control}
+              <FormInput
                 name="startHour"
-                render={({ field, fieldState }) => (
-                  <Input
-                    {...field}
-                    id="startHour"
-                    type="number"
-                    label={t("startHour")}
-                    min={0}
-                    max={23}
-                    disabled={loading}
-                    error={fieldState.error?.message}
-                    onChange={(event) =>
-                      field.onChange(event.target.valueAsNumber)
-                    }
-                  />
-                )}
+                type="number"
+                label={t("startHour")}
+                min={0}
+                max={23}
+                disabled={loading}
               />
-              <Controller
-                control={methods.control}
+              <FormInput
                 name="startMinute"
-                render={({ field, fieldState }) => (
-                  <Input
-                    {...field}
-                    id="startMinute"
-                    type="number"
-                    label={t("startMinute")}
-                    min={0}
-                    max={59}
-                    disabled={loading}
-                    error={fieldState.error?.message}
-                    onChange={(event) =>
-                      field.onChange(event.target.valueAsNumber)
-                    }
-                  />
-                )}
+                type="number"
+                label={t("startMinute")}
+                min={0}
+                max={59}
+                disabled={loading}
               />
-              <Controller
-                control={methods.control}
+              <FormInput
                 name="endHour"
-                render={({ field, fieldState }) => (
-                  <Input
-                    {...field}
-                    id="endHour"
-                    type="number"
-                    label={t("endHour")}
-                    min={0}
-                    max={23}
-                    disabled={loading}
-                    error={fieldState.error?.message}
-                    onChange={(event) =>
-                      field.onChange(event.target.valueAsNumber)
-                    }
-                  />
-                )}
+                type="number"
+                label={t("endHour")}
+                min={0}
+                max={23}
+                disabled={loading}
               />
-              <Controller
-                control={methods.control}
+              <FormInput
                 name="endMinute"
-                render={({ field, fieldState }) => (
-                  <Input
-                    {...field}
-                    id="endMinute"
-                    type="number"
-                    label={t("endMinute")}
-                    min={0}
-                    max={59}
-                    disabled={loading}
-                    error={fieldState.error?.message}
-                    onChange={(event) =>
-                      field.onChange(event.target.valueAsNumber)
-                    }
-                  />
-                )}
+                type="number"
+                label={t("endMinute")}
+                min={0}
+                max={59}
+                disabled={loading}
               />
             </div>
 

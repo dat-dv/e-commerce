@@ -1,5 +1,5 @@
-import { TProduct, TSkuDomain } from "../types/products.model";
 import { IProductResponse, ISkuResponse } from "@ecommerce/shared";
+import { TProduct, TSkuDomain } from "../types/products.model";
 
 export class ProductMapper {
   static toDomain(dto: IProductResponse): TProduct {

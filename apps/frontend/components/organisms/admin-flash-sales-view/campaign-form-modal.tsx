@@ -7,10 +7,9 @@ import {
   AppDialogTitle,
 } from "@/components/atoms/dialog";
 import { XIcon } from "@/components/atoms/icons";
-import Input from "@/components/atoms/input";
-import { Select } from "@/components/atoms/select";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormInput } from "@/components/molecules/form/form-input";
+import { FormSelect } from "@/components/molecules/form/form-select";
 import type {
   TCreateFlashSaleInput,
   TFlashSaleTimeSlot,
@@ -18,7 +17,7 @@ import type {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   campaignFormSchema,
   type CampaignFormData,
@@ -119,50 +118,25 @@ export function CampaignFormModal({
             />
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Controller
-                control={methods.control}
+              <FormInput
                 name="startTime"
-                render={({ field, fieldState }) => (
-                  <Input
-                    {...field}
-                    id="startTime"
-                    type="datetime-local"
-                    label={t("startTime")}
-                    disabled={loading}
-                    error={fieldState.error?.message}
-                  />
-                )}
+                type="datetime-local"
+                label={t("startTime")}
+                disabled={loading}
               />
-              <Controller
-                control={methods.control}
+              <FormInput
                 name="endTime"
-                render={({ field, fieldState }) => (
-                  <Input
-                    {...field}
-                    id="endTime"
-                    type="datetime-local"
-                    label={t("endTime")}
-                    disabled={loading}
-                    error={fieldState.error?.message}
-                  />
-                )}
+                type="datetime-local"
+                label={t("endTime")}
+                disabled={loading}
               />
             </div>
 
-            <Controller
-              control={methods.control}
+            <FormSelect
               name="timeSlotId"
-              render={({ field, fieldState }) => (
-                <Select
-                  label={t("timeSlot")}
-                  placeholder={t("timeSlotNone")}
-                  selectedKey={field.value || ""}
-                  onSelectionChange={(key) => field.onChange(key as string)}
-                  errorMessage={fieldState.error?.message}
-                  options={timeSlotOptions}
-                  isDisabled={loading}
-                />
-              )}
+              label={t("timeSlot")}
+              options={timeSlotOptions}
+              disabled={loading}
             />
 
             <div className="flex justify-end gap-3 pt-2">

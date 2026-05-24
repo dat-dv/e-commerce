@@ -23,11 +23,15 @@ export function CampaignsTable({
   loading,
   hasError,
   onRetry,
+  onCreate,
+  onAttachProducts,
 }: {
   flashSales: TFlashSale[];
   loading: boolean;
   hasError: boolean;
   onRetry: () => void;
+  onCreate: () => void;
+  onAttachProducts: (flashSaleId?: string) => void;
 }) {
   const t = useTranslations("AdminFlashSalesPage.campaigns");
   const locale = useLocale();
@@ -49,11 +53,16 @@ export function CampaignsTable({
             <Rows3 aria-hidden="true" className="size-4" />
             {t("createBatchBtn")}
           </Button>
-          <Button type="button" variant="ghost" size="sm">
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            onClick={() => onAttachProducts()}
+          >
             <Tags aria-hidden="true" className="size-4" />
             {t("attachProductBtn")}
           </Button>
-          <Button type="button" size="sm">
+          <Button type="button" size="sm" onClick={onCreate}>
             <Plus aria-hidden="true" className="size-4" />
             {t("createBtn")}
           </Button>
@@ -153,7 +162,12 @@ export function CampaignsTable({
                       {flashSale.products.length}
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <Button type="button" variant="ghost" size="sm">
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => onAttachProducts(flashSale.id)}
+                      >
                         <Tags aria-hidden="true" className="size-4" />
                         {t("attachProductBtn")}
                       </Button>

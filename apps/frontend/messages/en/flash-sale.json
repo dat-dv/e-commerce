@@ -109,6 +109,20 @@
       "timeSlotNone": "None (Full day campaign)",
       "cancel": "Cancel",
       "submit": "Create"
+    },
+    "attachProductsForm": {
+      "title": "Attach Product to Flash Sale",
+      "description": "Add a specific product SKU with promotional price and stock restrictions.",
+      "flashSale": "Select Flash Sale Campaign",
+      "product": "Select Product",
+      "sku": "Select SKU",
+      "salePrice": "Promotional Price",
+      "originalPrice": "Original Price: {price}",
+      "stock": "Flash Sale Stock",
+      "orderLimit": "Limit per Order (Optional)",
+      "cancel": "Cancel",
+      "submit": "Attach Product",
+      "loadingProducts": "Loading products..."
     }
   }
 }

@@ -608,6 +608,20 @@
       "timeSlotNone": "Không chọn (Mở bán cả ngày)",
       "cancel": "Hủy",
       "submit": "Tạo"
+    },
+    "attachProductsForm": {
+      "title": "Thêm sản phẩm vào Flash Sale",
+      "description": "Thêm một mã SKU sản phẩm với giá khuyến mãi và giới hạn số lượng bán.",
+      "flashSale": "Chọn chiến dịch Flash Sale",
+      "product": "Chọn sản phẩm",
+      "sku": "Chọn mã SKU",
+      "salePrice": "Giá khuyến mãi",
+      "originalPrice": "Giá gốc: {price}",
+      "stock": "Số lượng mở bán",
+      "orderLimit": "Giới hạn mỗi đơn hàng (Tùy chọn)",
+      "cancel": "Hủy",
+      "submit": "Thêm sản phẩm",
+      "loadingProducts": "Đang tải danh sách sản phẩm..."
     }
   },
   "HelpCenter": {

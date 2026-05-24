@@ -8,15 +8,29 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { AdminFlashSalesHeader } from "./admin-flash-sales-header";
+import { AttachProductsModal } from "./attach-products-modal";
+import { CampaignFormModal } from "./campaign-form-modal";
 import { CampaignsTable } from "./campaigns-table";
 import { TimeSlotFormModal } from "./time-slot-form-modal";
 import { TimeSlotsTable } from "./time-slots-table";
 
 export function AdminFlashSalesView() {
   const t = useTranslations("AdminFlashSalesPage.tabs");
-  const { flashSales, timeSlots, loading, hasError, refresh, createTimeSlot } =
-    useAdminFlashSales();
+  const {
+    flashSales,
+    timeSlots,
+    loading,
+    hasError,
+    refresh,
+    createTimeSlot,
+    createFlashSale,
+    addProductsToFlashSale,
+  } = useAdminFlashSales();
   const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
+  const [isCampaignModalOpen, setIsCampaignModalOpen] = useState(false);
+  const [isAttachModalOpen, setIsAttachModalOpen] = useState(false);
+  const [selectedCampaignIdForAttach, setSelectedCampaignIdForAttach] =
+    useState<string | undefined>(undefined);
 
   return (
     <main className="bg-surface text-content relative min-h-screen overflow-x-hidden py-8">
@@ -41,6 +55,11 @@ export function AdminFlashSalesView() {
               loading={loading}
               hasError={hasError}
               onRetry={refresh}
+              onCreate={() => setIsCampaignModalOpen(true)}
+              onAttachProducts={(id) => {
+                setSelectedCampaignIdForAttach(id);
+                setIsAttachModalOpen(true);
+              }}
             />
           </TabPanel>
           <TabPanel id="timeSlots" className="mt-0">
@@ -59,6 +78,26 @@ export function AdminFlashSalesView() {
           loading={loading}
           onClose={() => setIsTimeSlotModalOpen(false)}
           onSubmit={createTimeSlot}
+        />
+
+        <CampaignFormModal
+          isOpen={isCampaignModalOpen}
+          loading={loading}
+          timeSlots={timeSlots}
+          onClose={() => setIsCampaignModalOpen(false)}
+          onSubmit={createFlashSale}
+        />
+
+        <AttachProductsModal
+          isOpen={isAttachModalOpen}
+          loading={loading}
+          flashSales={flashSales}
+          preselectedFlashSaleId={selectedCampaignIdForAttach}
+          onClose={() => {
+            setIsAttachModalOpen(false);
+            setSelectedCampaignIdForAttach(undefined);
+          }}
+          onSubmit={addProductsToFlashSale}
         />
       </AppContainer>
     </main>
