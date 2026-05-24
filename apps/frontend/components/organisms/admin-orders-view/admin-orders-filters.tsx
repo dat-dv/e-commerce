@@ -78,7 +78,7 @@ export function AdminOrdersFilters({
         <legend className="text-content/45 mb-2.5 text-xs font-bold tracking-wider uppercase">
           {t("filters.statusLabel")}
         </legend>
-        <div className="flex flex-wrap gap-2">
+        <div className="scrollbar-hide flex gap-2 overflow-x-auto pb-2 lg:flex-wrap lg:overflow-visible lg:pb-0">
           {statusOptions.map((status) => {
             const isSelected = selectedStatuses.includes(status.value);
             return (
@@ -89,7 +89,7 @@ export function AdminOrdersFilters({
                 aria-pressed={isSelected}
                 onClick={() => onStatusFilterToggle(status.value)}
                 className={cn(
-                  "focus-visible:ring-primary/40 inline-flex h-auto items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold opacity-100 transition-all duration-200 hover:scale-[1.03] hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95",
+                  "focus-visible:ring-primary/40 inline-flex h-auto min-w-max shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold whitespace-nowrap opacity-100 transition-all duration-200 hover:scale-[1.03] hover:opacity-100 focus-visible:ring-2 focus-visible:outline-none active:scale-95",
                   isSelected
                     ? "bg-primary ring-primary/20 hover:bg-primary border-transparent text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-2"
                     : "border-content/10 bg-surface/40 text-content/65 hover:bg-content/5 hover:border-content/20 backdrop-blur-md",
