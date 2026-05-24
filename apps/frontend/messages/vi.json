@@ -529,6 +529,39 @@
       "left": "Còn {count}"
     }
   },
+  "AdminFlashSalesPage": {
+    "header": {
+      "adminCenter": "Trung tâm quản trị",
+      "title": "Quản lý Flash Sale",
+      "description": "Quản lý các chiến dịch khuyến mãi, cấu hình khung giờ mở bán hàng ngày và thêm sản phẩm vào các đợt flash sale active.",
+      "refresh": "Làm mới dữ liệu"
+    },
+    "tabs": {
+      "campaigns": "Chiến dịch",
+      "timeSlots": "Khung giờ"
+    },
+    "campaigns": {
+      "title": "Chiến dịch Flash Sale",
+      "createBtn": "Tạo chiến dịch",
+      "createBatchBtn": "Tạo hàng loạt",
+      "attachProductBtn": "Thêm sản phẩm",
+      "name": "Tên chiến dịch",
+      "startTime": "Thời gian bắt đầu",
+      "endTime": "Thời gian kết thúc",
+      "status": "Trạng thái",
+      "products": "Số sản phẩm",
+      "actions": "Hành động"
+    },
+    "timeSlots": {
+      "title": "Khung giờ mở bán hàng ngày",
+      "createBtn": "Tạo khung giờ",
+      "createBatchBtn": "Tạo hàng loạt",
+      "name": "Tên khung giờ",
+      "startHour": "Giờ bắt đầu",
+      "endHour": "Giờ kết thúc",
+      "status": "Trạng thái"
+    }
+  },
   "HelpCenter": {
     "metadata": {
       "title": "Trung tâm trợ giúp",

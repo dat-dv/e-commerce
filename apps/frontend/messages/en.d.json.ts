@@ -532,6 +532,39 @@ declare const messages: {
       "left": "Left {count}"
     }
   },
+  "AdminFlashSalesPage": {
+    "header": {
+      "adminCenter": "Admin Center",
+      "title": "Flash Sale Management",
+      "description": "Manage promotional campaigns, define daily time slots, and attach products to active flash sales.",
+      "refresh": "Refresh Data"
+    },
+    "tabs": {
+      "campaigns": "Campaigns",
+      "timeSlots": "Time Slots"
+    },
+    "campaigns": {
+      "title": "Flash Sale Campaigns",
+      "createBtn": "Create Campaign",
+      "createBatchBtn": "Create Batch",
+      "attachProductBtn": "Attach Products",
+      "name": "Campaign Name",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "status": "Status",
+      "products": "Products Count",
+      "actions": "Actions"
+    },
+    "timeSlots": {
+      "title": "Daily Time Slots",
+      "createBtn": "Create Time Slot",
+      "createBatchBtn": "Create Batch",
+      "name": "Slot Name",
+      "startHour": "Start Hour",
+      "endHour": "End Hour",
+      "status": "Status"
+    }
+  },
   "HelpCenter": {
     "metadata": {
       "title": "Help Center",
