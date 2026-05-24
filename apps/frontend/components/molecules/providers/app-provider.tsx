@@ -16,6 +16,7 @@ import { CategoriesProvider } from "./categories-provider";
 import { ConfigProvider } from "./config-provider";
 import { FavoritesProvider } from "./favorites-provider";
 import { I18nProviderClient } from "./i18n-provider";
+import { NotificationProvider } from "./notification-provider";
 import NotificationSetup from "./notification-setup";
 import { PwaRegister } from "./pwa-register";
 
@@ -44,10 +45,12 @@ const AppProvider = async ({ children }: { children: React.ReactNode }) => {
             <CartProvider initState={cartRes?.data?.items || []}>
               <AddressProvider initState={addressRes?.data || []}>
                 <FavoritesProvider>
-                  <RequireProfileInfoModal />
-                  {children}
-                  <NotificationSetup />
-                  <CartDrawer />
+                  <NotificationProvider>
+                    <RequireProfileInfoModal />
+                    {children}
+                    <NotificationSetup />
+                    <CartDrawer />
+                  </NotificationProvider>
                 </FavoritesProvider>
               </AddressProvider>
             </CartProvider>
