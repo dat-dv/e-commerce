@@ -1,27 +1,39 @@
 "use client";
 
 import Button from "@/components/atoms/button";
+import { VirtualList } from "@/components/molecules/virtual-list";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
 import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
+import { useLoadOnce } from "@/hooks/use-load-once";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import { Bell } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
+import { VList } from "virtua";
 
 import { NotificationItem } from "./notification-item";
 
 export const NotificationCenter = () => {
   const t = useTranslations("NotificationsPage");
   const [isOpen, setIsOpen] = useState(false);
-  const { data: notifications, loading } = useNotifications();
+  const {
+    data: notifications,
+    loading,
+    loadMore,
+    hasMore,
+    loadingMore,
+    refresh,
+  } = useNotifications();
   const { unreadCount } = useUnreadCount();
   const { markAsRead } = useMarkAsRead();
   const { markAllAsRead } = useMarkAllAsRead();
+
+  useLoadOnce(refresh, isOpen);
 
   return (
     <div className="relative">
@@ -76,7 +88,7 @@ export const NotificationCenter = () => {
                 )}
               </div>
 
-              <div className="max-h-[400px] overflow-y-auto">
+              <div>
                 {loading ? (
                   <div
                     className={`p-8 text-center ${TYPOGRAPHY.caption} text-content/40 tracking-widest uppercase`}
@@ -84,14 +96,27 @@ export const NotificationCenter = () => {
                     {t("dropdown.loadingText")}
                   </div>
                 ) : notifications?.items?.length > 0 ? (
-                  <div>
-                    {notifications?.items?.map((notif) => (
-                      <NotificationItem
-                        key={notif.id}
-                        notif={notif}
-                        onRead={() => markAsRead(notif.id)}
-                      />
-                    ))}
+                  <div className="h-[350px]">
+                    <VirtualList
+                      data={notifications?.items ?? []}
+                      loadingMore={loadingMore}
+                      hasMore={hasMore}
+                      onLoadMore={loadMore}
+                      WrapperComponent={VList}
+                      keyExtractor={(notification) => notification.id}
+                      className="divide-content/[0.03] h-full divide-y"
+                      itemClassName=""
+                      loadingText={t("dropdown.loadingText")}
+                      endText={""}
+                      renderItem={(notif, index) => (
+                        <NotificationItem
+                          key={notif.id || index}
+                          notif={notif}
+                          onRead={() => markAsRead(notif.id)}
+                          className="hover:bg-primary/[0.01] transition-all duration-300"
+                        />
+                      )}
+                    />
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-3 p-12 text-center">

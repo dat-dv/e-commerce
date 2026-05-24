@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
-import { WindowVirtualizer } from "virtua";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef } from "react";
+import { WindowVirtualizer } from "virtua";
 
 export interface VirtualListProps<T extends { id?: string | number }> {
   data: T[];
@@ -17,6 +17,7 @@ export interface VirtualListProps<T extends { id?: string | number }> {
   className?: string;
   itemClassName?: string;
   triggerMargin?: UseInViewOptions["margin"];
+  WrapperComponent?: React.ComponentType<{ children: React.ReactNode }>;
 }
 
 export function VirtualList<T extends { id?: string | number }>({
@@ -31,6 +32,7 @@ export function VirtualList<T extends { id?: string | number }>({
   className = "space-y-8",
   itemClassName = "pb-8",
   triggerMargin = "300px", // Standard list margin
+  WrapperComponent = WindowVirtualizer,
 }: VirtualListProps<T>) {
   const t = useTranslations("Common.virtualized");
   const displayLoadingText = loadingText ?? t("loadingMore");
@@ -64,7 +66,7 @@ export function VirtualList<T extends { id?: string | number }>({
 
   return (
     <div className={className} style={{ overflowAnchor: "none" }}>
-      <WindowVirtualizer>
+      <WrapperComponent>
         {data.map((item, index) => {
           const key = keyExtractor
             ? keyExtractor(item, index)
@@ -75,8 +77,7 @@ export function VirtualList<T extends { id?: string | number }>({
             </div>
           );
         })}
-      </WindowVirtualizer>
-
+      </WrapperComponent>
       {/* Infinite Scroll Trigger Sentinel */}
       <div
         ref={sentinelRef}
