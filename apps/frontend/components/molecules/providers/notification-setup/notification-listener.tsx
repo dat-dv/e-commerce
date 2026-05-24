@@ -5,7 +5,7 @@ import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { getFirebaseMessaging } from "@/lib/firebase";
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { getToken, onMessage } from "firebase/messaging";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export type NotificationEventData = {
   type?: ENotificationClientEvent;
@@ -32,14 +32,21 @@ export default function NotificationListener({
   userId,
   onNotificationChanged,
 }: NotificationListenerProps) {
+  const setupRef = useRef(true);
+
   useEffect(() => {
-    if (!userId) return;
+    if (!userId) {
+      setupRef.current = false;
+      return;
+    }
     if (!PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY) return;
     if (typeof window === "undefined") return;
     if (!("Notification" in window)) return;
 
     let unsubscribeForeground: (() => void) | undefined;
     let isMounted = true;
+    if (setupRef.current) return;
+    setupRef.current = true;
 
     const handleServiceWorkerMessage = (event: MessageEvent) => {
       void onNotificationChanged(event.data?.type, event.data.notification);
@@ -66,7 +73,8 @@ export default function NotificationListener({
           vapidKey: PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
         });
 
-        if (token) {
+        if (token && !setupRef.current) {
+          setupRef.current = true;
           await notificationsUseCase.saveToken({
             token,
             deviceType: "web",

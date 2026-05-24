@@ -4,6 +4,7 @@ import { useCallback } from "react";
 
 const NotificationVisibleListener = () => {
   const { loadUnreadCount } = useUnreadCount();
+
   const onVisibleChange = useCallback(
     (isVisible: boolean) => {
       if (!isVisible) return;
