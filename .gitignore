@@ -68,4 +68,5 @@ seedlogs-*.txt
 **/dataset/*.json
 **/.gemini-products/*.json
 
-dataset/
+**/dataset/
+**/dataset_bk/
