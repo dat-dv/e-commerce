@@ -17,7 +17,6 @@ export interface VirtualListProps<T extends { id?: string | number }> {
   className?: string;
   itemClassName?: string;
   triggerMargin?: UseInViewOptions["margin"];
-  WrapperComponent?: React.ComponentType<{ children: React.ReactNode }>;
 }
 
 export function VirtualList<T extends { id?: string | number }>({
@@ -32,7 +31,6 @@ export function VirtualList<T extends { id?: string | number }>({
   className = "space-y-8",
   itemClassName = "pb-8",
   triggerMargin = "300px", // Standard list margin
-  WrapperComponent = WindowVirtualizer,
 }: VirtualListProps<T>) {
   const t = useTranslations("Common.virtualized");
   const displayLoadingText = loadingText ?? t("loadingMore");
@@ -66,7 +64,7 @@ export function VirtualList<T extends { id?: string | number }>({
 
   return (
     <div className={className} style={{ overflowAnchor: "none" }}>
-      <WrapperComponent>
+      <WindowVirtualizer>
         {data.map((item, index) => {
           const key = keyExtractor
             ? keyExtractor(item, index)
@@ -77,7 +75,7 @@ export function VirtualList<T extends { id?: string | number }>({
             </div>
           );
         })}
-      </WrapperComponent>
+      </WindowVirtualizer>
       {/* Infinite Scroll Trigger Sentinel */}
       <div
         ref={sentinelRef}
