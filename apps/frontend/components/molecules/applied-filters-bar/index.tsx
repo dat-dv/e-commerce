@@ -8,6 +8,7 @@ import Button from "@/components/atoms/button";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
+import { Fragment } from "react";
 
 export interface AppliedFilters {
   search?: string;
@@ -96,17 +97,20 @@ export function AppliedFiltersBar<T extends string = string>({
       >
         {t("applied")}
       </span>
-      {chips.map((chip) => (
-        <Button
-          key={chip.key}
-          variant="ghost"
-          onClick={() => onClearFilter(chip.key)}
-          className={`border-primary/15 bg-primary/10 inline-flex h-8 items-center gap-2 rounded-full border px-3 ${TYPOGRAPHY.caption} text-primary hover:bg-primary/15 font-bold opacity-100 transition-colors hover:opacity-100 active:scale-95`}
-        >
-          {chip.label}
-          <X size={13} />
-        </Button>
-      ))}
+      {chips?.map((chip, idx) => {
+        if (chip.label.trim() === "") return <Fragment key={idx} />;
+        return (
+          <Button
+            key={chip.key}
+            variant="ghost"
+            onClick={() => onClearFilter(chip.key)}
+            className={`border-primary/15 bg-primary/10 inline-flex h-8 items-center gap-2 rounded-full border px-3 ${TYPOGRAPHY.caption} text-primary hover:bg-primary/15 font-bold opacity-100 transition-colors hover:opacity-100 active:scale-95`}
+          >
+            {chip.label}
+            <X size={13} />
+          </Button>
+        );
+      })}
       <Button
         variant="ghost"
         onClick={onResetFilters}

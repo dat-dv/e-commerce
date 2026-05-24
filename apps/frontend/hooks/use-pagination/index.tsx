@@ -182,14 +182,7 @@ const usePagination = <
       router.push(nextParams, { ...options, ssr: false });
 
       startTransition(() => {
-        if (options.merge) {
-          setData((prev) => ({
-            items: [...(prev?.items || []), ...(res?.data?.items || [])],
-            meta: res.data.meta,
-          }));
-        } else {
-          setData(res.data);
-        }
+        setData(res.data);
       });
     },
     [fetchPage, router, data.meta.limit],
