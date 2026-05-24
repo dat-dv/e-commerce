@@ -123,6 +123,28 @@
       "cancel": "Cancel",
       "submit": "Attach Product",
       "loadingProducts": "Loading products..."
+    },
+    "detail": {
+      "backToList": "Back to Campaigns",
+      "campaignInfo": "Campaign Information",
+      "attachedProducts": "Attached Products ({count})",
+      "timeSlot": "Daily Time Slot",
+      "timeSlotNone": "None (Full Day)",
+      "timeSlotRange": "{start} - {end}",
+      "duration": "Duration",
+      "status": "Status",
+      "attachProductBtn": "Attach Product",
+      "refreshBtn": "Refresh Details",
+      "emptyAttachedProducts": "No products have been attached to this campaign yet.",
+      "table": {
+        "product": "Product",
+        "sku": "SKU Attributes",
+        "originalPrice": "Original Price",
+        "salePrice": "Sale Price",
+        "stock": "Stock Available",
+        "sold": "Sold Units",
+        "orderLimit": "Limit/Order"
+      }
     }
   }
 }

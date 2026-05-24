@@ -8,6 +8,8 @@ import { Plus, RefreshCw, Rows3, Tags } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 
+import Link from "next/link";
+
 function getFlashSaleStatus(flashSale: TFlashSale) {
   const now = Date.now();
   const startTime = new Date(flashSale.startTime).getTime();
@@ -130,7 +132,12 @@ export function CampaignsTable({
                   >
                     <td className="px-6 py-4">
                       <div className="flex flex-col">
-                        <span className="font-semibold">{flashSale.name}</span>
+                        <Link
+                          href={`/admin/flash-sales/${flashSale.id}`}
+                          className="hover:text-primary font-semibold transition-colors duration-200"
+                        >
+                          {flashSale.name}
+                        </Link>
                         {flashSale.timeSlot && (
                           <span className="text-content/50 text-xs">
                             {flashSale.timeSlot.name}

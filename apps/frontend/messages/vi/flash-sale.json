@@ -123,6 +123,28 @@
       "cancel": "Hủy",
       "submit": "Thêm sản phẩm",
       "loadingProducts": "Đang tải danh sách sản phẩm..."
+    },
+    "detail": {
+      "backToList": "Quay lại danh sách",
+      "campaignInfo": "Thông tin chiến dịch",
+      "attachedProducts": "Sản phẩm đã thêm ({count})",
+      "timeSlot": "Khung giờ mở bán hằng ngày",
+      "timeSlotNone": "Không chọn (Mở bán cả ngày)",
+      "timeSlotRange": "{start} - {end}",
+      "duration": "Thời gian diễn ra",
+      "status": "Trạng thái",
+      "attachProductBtn": "Thêm sản phẩm",
+      "refreshBtn": "Làm mới chi tiết",
+      "emptyAttachedProducts": "Chưa có sản phẩm nào được thêm vào chiến dịch này.",
+      "table": {
+        "product": "Sản phẩm",
+        "sku": "Phân loại SKU",
+        "originalPrice": "Giá gốc",
+        "salePrice": "Giá khuyến mãi",
+        "stock": "Số lượng mở bán",
+        "sold": "Đã bán",
+        "orderLimit": "Giới hạn/Đơn"
+      }
     }
   }
 }
