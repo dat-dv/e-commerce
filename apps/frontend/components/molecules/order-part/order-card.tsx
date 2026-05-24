@@ -9,6 +9,7 @@ import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder, TOrderItem } from "@/domain/orders/types/order.model";
 import { cn } from "@/utils/cn";
 import { formatCurrency } from "@/utils/format-currency";
+import { getOrderStatusLabel } from "@/utils/order";
 import { EOrderStatus } from "@ecommerce/shared";
 import type { HTMLMotionProps } from "framer-motion";
 import { motion } from "framer-motion";
@@ -57,32 +58,7 @@ export const OrderCard = ({
   const locale = useLocale();
 
   const getStatusLabel = (status: EOrderStatus) => {
-    switch (status) {
-      case EOrderStatus.PENDING:
-        return tStatus("pending");
-      case EOrderStatus.PAID:
-        return tStatus("paid");
-      case EOrderStatus.SHIPPING:
-        return tStatus("shipping");
-      case EOrderStatus.DELIVERED:
-        return tStatus("delivered");
-      case EOrderStatus.CANCEL_REQUESTED:
-        return tStatus("cancelRequested");
-      case EOrderStatus.CANCEL_PROCESSING:
-        return tStatus("cancelProcessing");
-      case EOrderStatus.CANCELLED:
-        return tStatus("cancelled");
-      case EOrderStatus.RETURN_REQUESTED:
-        return tStatus("returnRequested");
-      case EOrderStatus.RETURN_PROCESSING:
-        return tStatus("returnProcessing");
-      case EOrderStatus.RETURNED:
-        return tStatus("returned");
-      case EOrderStatus.RETURN_REJECTED:
-        return tStatus("returnRejected");
-      default:
-        return status;
-    }
+    return getOrderStatusLabel(status, tStatus);
   };
 
   const statusColor =

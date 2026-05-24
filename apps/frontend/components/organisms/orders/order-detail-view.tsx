@@ -7,6 +7,7 @@ import { UI_RADIUS } from "@/constants/ui-radius";
 import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 import { useOrderDetail } from "@/hooks/orders/use-order-detail";
 import { cn } from "@/utils/cn";
+import { getOrderStatusLabel } from "@/utils/order";
 import { EOrderStatus } from "@ecommerce/shared";
 import { AlertCircle } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -33,32 +34,8 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   });
 
   const getStatusLabel = (status: EOrderStatus) => {
-    switch (status) {
-      case EOrderStatus.PENDING:
-        return tStatus("pending");
-      case EOrderStatus.PAID:
-        return tStatus("paid");
-      case EOrderStatus.SHIPPING:
-        return tStatus("shipping");
-      case EOrderStatus.DELIVERED:
-        return tStatus("delivered");
-      case EOrderStatus.CANCEL_REQUESTED:
-        return tStatus("cancelRequested");
-      case EOrderStatus.CANCEL_PROCESSING:
-        return tStatus("cancelProcessing");
-      case EOrderStatus.CANCELLED:
-        return tStatus("cancelled");
-      case EOrderStatus.RETURN_REQUESTED:
-        return tStatus("returnRequested");
-      case EOrderStatus.RETURN_PROCESSING:
-        return tStatus("returnProcessing");
-      case EOrderStatus.RETURNED:
-        return tStatus("returned");
-      case EOrderStatus.RETURN_REJECTED:
-        return tStatus("returnRejected");
-      default:
-        return status;
-    }
+    const key = getOrderStatusLabel(status);
+    return tStatus(key);
   };
 
   const closeReturnModal = () => {

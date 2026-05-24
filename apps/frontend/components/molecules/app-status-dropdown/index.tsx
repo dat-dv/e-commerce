@@ -1,19 +1,20 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import {
-  MenuTrigger as RACMenuTrigger,
-  Button as RACButton,
-  Popover as RACPopover,
-  Menu as RACMenu,
-  MenuItem as RACMenuItem,
-} from "react-aria-components";
 import { ChevronDown, RefreshCw } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useCallback, useState } from "react";
+import {
+  Button as RACButton,
+  Menu as RACMenu,
+  MenuItem as RACMenuItem,
+  MenuTrigger as RACMenuTrigger,
+  Popover as RACPopover,
+} from "react-aria-components";
 
-import { EOrderStatus } from "@ecommerce/shared";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { cn } from "@/utils/cn";
+import { getOrderStatusLabel } from "@/utils/order";
+import { EOrderStatus } from "@ecommerce/shared";
 
 export interface IAppStatusDropdownProps {
   orderId: string;
@@ -76,32 +77,8 @@ export function AppStatusDropdown({
 
   const getStatusLabel = useCallback(
     (s: number) => {
-      switch (s) {
-        case EOrderStatus.PENDING:
-          return tStatus("pending");
-        case EOrderStatus.PAID:
-          return tStatus("paid");
-        case EOrderStatus.SHIPPING:
-          return tStatus("shipping");
-        case EOrderStatus.DELIVERED:
-          return tStatus("delivered");
-        case EOrderStatus.CANCEL_REQUESTED:
-          return tStatus("cancelRequested");
-        case EOrderStatus.CANCEL_PROCESSING:
-          return tStatus("cancelProcessing");
-        case EOrderStatus.CANCELLED:
-          return tStatus("cancelled");
-        case EOrderStatus.RETURN_REQUESTED:
-          return tStatus("returnRequested");
-        case EOrderStatus.RETURN_PROCESSING:
-          return tStatus("returnProcessing");
-        case EOrderStatus.RETURNED:
-          return tStatus("returned");
-        case EOrderStatus.RETURN_REJECTED:
-          return tStatus("returnRejected");
-        default:
-          return tResults("unknown");
-      }
+      const label = getOrderStatusLabel(s, tStatus);
+      return label === String(s) ? tResults("unknown") : label;
     },
     [tResults, tStatus],
   );

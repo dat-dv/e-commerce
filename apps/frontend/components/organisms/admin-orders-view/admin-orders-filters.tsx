@@ -3,11 +3,11 @@
 import Button from "@/components/atoms/button";
 import SearchInput from "@/components/molecules/search-input";
 import { cn } from "@/utils/cn";
-import { EOrderStatus } from "@ecommerce/shared";
 import { FilterX } from "lucide-react";
-import { useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
+import { useCallback, useMemo } from "react";
 
+import { getOrderStatusLabel } from "@/utils/order";
 import { STATUS_VALUES } from "./admin-orders.utils";
 
 export function AdminOrdersFilters({
@@ -32,32 +32,8 @@ export function AdminOrdersFilters({
 
   const getStatusLabel = useCallback(
     (status: number) => {
-      switch (status) {
-        case EOrderStatus.PENDING:
-          return tStatus("pending");
-        case EOrderStatus.PAID:
-          return tStatus("paid");
-        case EOrderStatus.SHIPPING:
-          return tStatus("shipping");
-        case EOrderStatus.DELIVERED:
-          return tStatus("delivered");
-        case EOrderStatus.CANCEL_REQUESTED:
-          return tStatus("cancelRequested");
-        case EOrderStatus.CANCEL_PROCESSING:
-          return tStatus("cancelProcessing");
-        case EOrderStatus.CANCELLED:
-          return tStatus("cancelled");
-        case EOrderStatus.RETURN_REQUESTED:
-          return tStatus("returnRequested");
-        case EOrderStatus.RETURN_PROCESSING:
-          return tStatus("returnProcessing");
-        case EOrderStatus.RETURNED:
-          return tStatus("returned");
-        case EOrderStatus.RETURN_REJECTED:
-          return tStatus("returnRejected");
-        default:
-          return t("results.unknown");
-      }
+      const label = getOrderStatusLabel(status, tStatus);
+      return label === String(status) ? t("results.unknown") : label;
     },
     [t, tStatus],
   );
