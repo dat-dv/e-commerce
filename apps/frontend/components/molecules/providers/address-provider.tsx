@@ -34,8 +34,16 @@ export const AddressProvider = ({
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
+    // 1. Nếu CHƯA LOGIN (hoặc vừa LOGOUT)
+    if (!user) {
+      // Bắt buộc set lại Hydrate = false để lỡ lát nữa user login, nó sẽ biết đường fetch lại
+      store.getState().setHasHydrated(false);
+      return;
+    }
+    // 2. Nếu ĐÃ LOGIN rồi, thì check xem đã fetch data (hydrate) chưa?
     const hydrate = store.getState().hasHydrated;
-    if (hydrate || !user) return;
+    if (hydrate) return; // Nếu fetch rồi thì thôi
+    // 3. Tiến hành gọi API
     const getAddresses = async () => {
       const res = await safe(addressesUseCase.getAddresses.execute());
       const initialAddresses = res?.data || [];
@@ -43,11 +51,11 @@ export const AddressProvider = ({
       const setHasHydrated = store.getState().setHasHydrated;
       const setSelectedAddressId = store.getState().setSelectedAddressId;
       const defaultAddrId = getDefaultAddressId(initialAddresses);
+
       setSelectedAddressId(defaultAddrId);
       setAddresses(initialAddresses);
-      setHasHydrated(true);
+      setHasHydrated(true); // Đánh dấu là đã lấy data xong
     };
-
     getAddresses();
   }, [store, user]);
 
