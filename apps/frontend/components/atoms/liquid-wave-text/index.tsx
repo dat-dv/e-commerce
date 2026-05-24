@@ -84,7 +84,7 @@ export default function LiquidWaveText({
 
       <motion.span
         aria-hidden="true"
-        className="text-primary pointer-events-none absolute inset-0 will-change-[clip-path] select-none"
+        className="text-primary pointer-events-none absolute inset-0 pr-1 will-change-[clip-path] select-none"
         variants={clipPathVariants}
         transition={{
           duration: 1.6,

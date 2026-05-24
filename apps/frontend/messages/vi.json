@@ -544,7 +544,7 @@
     "headers": {
       "help": {
         "title": "TRỢ GIÚP",
-        "highlight": "SHOP.HUB",
+        "highlight": "Chot.Don",
         "description": "Bạn cần hỗ trợ gì hôm nay? Tìm nhanh câu trả lời hoặc duyệt các chủ đề bên dưới.",
         "placeholder": "Nhập từ khóa hoặc tìm bài viết phổ biến...",
         "clear": "Xóa"
@@ -557,7 +557,7 @@
       "faq": {
         "title": "CÂU HỎI",
         "highlight": "THƯỜNG GẶP",
-        "description": "Tìm câu trả lời về Shop.Hub, an toàn tài khoản, thanh toán, giao hàng và đổi trả."
+        "description": "Tìm câu trả lời về Chot.Don, an toàn tài khoản, thanh toán, giao hàng và đổi trả."
       }
     },
     "contact": {
@@ -597,13 +597,13 @@
     },
     "help": {
       "title": "Trung tâm trợ giúp",
-      "desc": "Hỗ trợ mua sắm trên Shop.Hub: tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng, đổi trả và liên hệ hỗ trợ.",
+      "desc": "Hỗ trợ mua sắm trên Chot.Don: tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng, đổi trả và liên hệ hỗ trợ.",
       "search": "Tìm tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng...",
       "quick": "Bạn cần hỗ trợ gì?",
       "popular": "Câu trả lời thường xem",
-      "supportNote": "Shop.Hub là một cửa hàng online. Đơn hàng và yêu cầu hỗ trợ được đội Shop.Hub xử lý trực tiếp.",
+      "supportNote": "Chot.Don là một cửa hàng online. Đơn hàng và yêu cầu hỗ trợ được đội Chot.Don xử lý trực tiếp.",
       "contactTitle": "Vẫn cần hỗ trợ?",
-      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình hoặc ảnh kiện hàng khi cần. Shop.Hub sẽ phản hồi qua email hoặc số điện thoại bạn cung cấp.",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình hoặc ảnh kiện hàng khi cần. Chot.Don sẽ phản hồi qua email hoặc số điện thoại bạn cung cấp.",
       "contactCta": "Liên hệ hỗ trợ",
       "noResults": "Không tìm thấy chủ đề phù hợp.",
       "cards": [
@@ -685,16 +685,16 @@
         "Có thể đổi địa chỉ giao hàng sau khi đặt không?",
         "Vì sao voucher không áp dụng?",
         "Cần làm gì nếu kiện hàng bị hư hỏng?",
-        "Liên hệ hỗ trợ Shop.Hub như thế nào?"
+        "Liên hệ hỗ trợ Chot.Don như thế nào?"
       ]
     },
     "faq": {
       "title": "Câu hỏi thường gặp",
-      "desc": "Câu trả lời cho các luồng chính của Shop.Hub: tài khoản, hồ sơ, giỏ hàng, checkout, đơn hàng, thanh toán, voucher, giao hàng, đổi trả và hỗ trợ.",
+      "desc": "Câu trả lời cho các luồng chính của Chot.Don: tài khoản, hồ sơ, giỏ hàng, checkout, đơn hàng, thanh toán, voucher, giao hàng, đổi trả và hỗ trợ.",
       "search": "Tìm câu hỏi...",
       "empty": "Không tìm thấy câu hỏi phù hợp.",
       "contactTitle": "Cần câu trả lời cụ thể?",
-      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình để Shop.Hub kiểm tra trực tiếp.",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình để Chot.Don kiểm tra trực tiếp.",
       "contactCta": "Liên hệ hỗ trợ",
       "topics": [
         {
@@ -707,10 +707,10 @@
             },
             {
               "q": "Cập nhật thông tin cá nhân ở đâu?",
-              "a": "Sau khi đăng nhập, mở trang Hồ sơ để cập nhật thông tin cá nhân. Hãy giữ email và số điện thoại chính xác để Shop.Hub có thể liên hệ khi cần."
+              "a": "Sau khi đăng nhập, mở trang Hồ sơ để cập nhật thông tin cá nhân. Hãy giữ email và số điện thoại chính xác để Chot.Don có thể liên hệ khi cần."
             },
             {
-              "q": "Làm sao giữ tài khoản Shop.Hub an toàn?",
+              "q": "Làm sao giữ tài khoản Chot.Don an toàn?",
               "a": "Dùng mật khẩu riêng tư, không chia sẻ OTP hoặc link đặt lại mật khẩu, và liên hệ hỗ trợ nếu thấy hoạt động lạ trong tài khoản."
             }
           ]
@@ -770,7 +770,7 @@
           "icon": "credit-card",
           "faqs": [
             {
-              "q": "Shop.Hub hỗ trợ phương thức thanh toán nào?",
+              "q": "Chot.Don hỗ trợ phương thức thanh toán nào?",
               "a": "Các phương thức khả dụng sẽ hiển thị tại checkout. Danh sách cuối cùng phụ thuộc địa chỉ, giá trị đơn hàng và cấu hình hiện tại."
             },
             {
@@ -797,7 +797,7 @@
             },
             {
               "q": "Nếu giao hàng thất bại thì sao?",
-              "a": "Hãy giữ điện thoại liên lạc được. Nếu giao thất bại hoặc đơn vị vận chuyển không liên hệ được, gửi mã đơn để Shop.Hub kiểm tra bước tiếp theo."
+              "a": "Hãy giữ điện thoại liên lạc được. Nếu giao thất bại hoặc đơn vị vận chuyển không liên hệ được, gửi mã đơn để Chot.Don kiểm tra bước tiếp theo."
             }
           ]
         },
@@ -823,7 +823,7 @@
     },
     "shipping": {
       "title": "Thông tin giao hàng",
-      "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và hướng dẫn xử lý sự cố kiện hàng Shop.Hub.",
+      "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và hướng dẫn xử lý sự cố kiện hàng Chot.Don.",
       "search": "Tìm thông tin giao hàng...",
       "empty": "Không tìm thấy chủ đề giao hàng phù hợp.",
       "contactTitle": "Cần hỗ trợ giao hàng?",
@@ -835,7 +835,7 @@
           "icon": "map-pin",
           "faqs": [
             {
-              "q": "Shop.Hub giao hàng ở đâu?",
+              "q": "Chot.Don giao hàng ở đâu?",
               "a": "Khả dụng giao hàng được kiểm tra tại checkout dựa trên địa chỉ giao hàng bạn nhập."
             },
             {
@@ -854,7 +854,7 @@
             },
             {
               "q": "Khi nào đơn bắt đầu được xử lý?",
-              "a": "Đơn bắt đầu xử lý sau khi được đặt và các kiểm tra thanh toán cần thiết hoàn tất. Shop.Hub chuẩn bị hàng trước khi bàn giao vận chuyển."
+              "a": "Đơn bắt đầu xử lý sau khi được đặt và các kiểm tra thanh toán cần thiết hoàn tất. Chot.Don chuẩn bị hàng trước khi bàn giao vận chuyển."
             }
           ]
         },
@@ -1189,16 +1189,16 @@
   },
   "Privacy": {
     "title": "Chính sách Bảo mật",
-    "description": "Chính sách này giải thích cách Shop.Hub thu thập, sử dụng, lưu trữ và bảo vệ thông tin khách hàng khi bạn sử dụng cửa hàng trực tuyến của chúng tôi.",
+    "description": "Chính sách này giải thích cách Chot.Don thu thập, sử dụng, lưu trữ và bảo vệ thông tin khách hàng khi bạn sử dụng cửa hàng trực tuyến của chúng tôi.",
     "toc": "Mục lục",
     "sections": [
       {
         "id": "overview",
         "title": "1. Tổng quan",
         "paragraphs": [
-          "1.1. Shop.Hub vận hành cửa hàng trực tuyến để khách hàng xem sản phẩm, tạo tài khoản, lưu địa chỉ, đặt hàng, quản lý giỏ hàng, nhận thông báo và liên hệ hỗ trợ.",
-          "1.2. Chính sách Quyền riêng tư này giải thích thông tin nào được thu thập, lý do thu thập, cách chúng tôi sử dụng thông tin và các lựa chọn của bạn khi sử dụng Shop.Hub.",
-          "1.3. Khi sử dụng Shop.Hub, tạo tài khoản, đặt hàng hoặc liên hệ hỗ trợ, bạn xác nhận rằng thông tin của mình sẽ được xử lý như mô tả trong chính sách này.",
+          "1.1. Chot.Don vận hành cửa hàng trực tuyến để khách hàng xem sản phẩm, tạo tài khoản, lưu địa chỉ, đặt hàng, quản lý giỏ hàng, nhận thông báo và liên hệ hỗ trợ.",
+          "1.2. Chính sách Quyền riêng tư này giải thích thông tin nào được thu thập, lý do thu thập, cách chúng tôi sử dụng thông tin và các lựa chọn của bạn khi sử dụng Chot.Don.",
+          "1.3. Khi sử dụng Chot.Don, tạo tài khoản, đặt hàng hoặc liên hệ hỗ trợ, bạn xác nhận rằng thông tin của mình sẽ được xử lý như mô tả trong chính sách này.",
           "1.4. Chúng tôi có thể cập nhật chính sách này khi tính năng, nghĩa vụ pháp lý hoặc cách xử lý dữ liệu thay đổi. Phiên bản mới nhất sẽ được đăng trên trang này."
         ]
       },
@@ -1209,7 +1209,7 @@
           "2.1. Thông tin tài khoản: họ tên, email, số điện thoại, thông tin đăng nhập, ảnh đại diện, thông tin hồ sơ và trạng thái tài khoản.",
           "2.2. Thông tin mua sắm: sản phẩm trong giỏ hàng, sản phẩm yêu thích, sản phẩm đã xem gần đây, lịch sử duyệt, hoạt động tìm kiếm, danh mục đã chọn, đánh giá sản phẩm, xếp hạng và lịch sử đơn hàng.",
           "2.3. Thông tin đơn hàng và giao hàng: tên người nhận, số điện thoại, địa chỉ giao hàng, thông tin thanh toán khi cần, sản phẩm đặt mua, số lượng, voucher, trạng thái giao hàng, yêu cầu hủy, yêu cầu đổi trả và ghi chú hỗ trợ.",
-          "2.4. Thông tin thanh toán: phương thức thanh toán, trạng thái thanh toán, mã tham chiếu giao dịch, trạng thái hoàn tiền và một số dữ liệu thanh toán giới hạn. Thông tin đầy đủ của thẻ, ngân hàng hoặc ví điện tử có thể do đối tác thanh toán xử lý và không nhằm mục đích lưu trữ tại Shop.Hub.",
+          "2.4. Thông tin thanh toán: phương thức thanh toán, trạng thái thanh toán, mã tham chiếu giao dịch, trạng thái hoàn tiền và một số dữ liệu thanh toán giới hạn. Thông tin đầy đủ của thẻ, ngân hàng hoặc ví điện tử có thể do đối tác thanh toán xử lý và không nhằm mục đích lưu trữ tại Chot.Don.",
           "2.5. Thông tin thiết bị và kỹ thuật: địa chỉ IP, loại trình duyệt, loại thiết bị, hệ điều hành, tùy chọn ngôn ngữ, trang đã truy cập, thời điểm truy cập, cookie, dữ liệu local storage và nhật ký chẩn đoán.",
           "2.6. Thông tin thông báo: tùy chọn thông báo, token thông báo, quyền trên thiết bị và trạng thái gửi push notification khi bạn bật tính năng này."
         ]
@@ -1239,7 +1239,7 @@
         "id": "cookies",
         "title": "5. Cookie và local storage",
         "paragraphs": [
-          "5.1. Shop.Hub có thể sử dụng cookie, local storage và công nghệ tương tự để duy trì đăng nhập, ghi nhớ tùy chọn, lưu giỏ hàng hoặc thiết lập giao diện, cải thiện điều hướng và đo lường mức độ sử dụng.",
+          "5.1. Chot.Don có thể sử dụng cookie, local storage và công nghệ tương tự để duy trì đăng nhập, ghi nhớ tùy chọn, lưu giỏ hàng hoặc thiết lập giao diện, cải thiện điều hướng và đo lường mức độ sử dụng.",
           "5.2. Một số dữ liệu lưu trữ là cần thiết cho các tính năng cốt lõi như xác thực, giỏ hàng, tùy chọn ngôn ngữ, tùy chọn giao diện và kiểm tra bảo mật.",
           "5.3. Bạn có thể kiểm soát cookie qua cài đặt trình duyệt. Việc chặn hoặc xóa cookie có thể ảnh hưởng đến đăng nhập, thanh toán, tùy chọn đã lưu và các tính năng khác của cửa hàng."
         ]
@@ -1252,7 +1252,7 @@
           "6.2. Chúng tôi có thể chia sẻ thông tin với nhà cung cấp dịch vụ hỗ trợ vận hành cửa hàng, bao gồm lưu trữ, cơ sở dữ liệu, thanh toán, giao hàng, email, SMS, push notification, phân tích, phòng chống gian lận và hỗ trợ khách hàng.",
           "6.3. Chúng tôi có thể chia sẻ thông tin giao hàng với đơn vị vận chuyển để họ giao đơn hàng và liên hệ với bạn về các lần giao hàng.",
           "6.4. Chúng tôi có thể tiết lộ thông tin khi pháp luật, quy trình pháp lý, điều tra bảo mật, phòng chống gian lận, bảo vệ quyền lợi hoặc việc thực thi Điều khoản Dịch vụ yêu cầu.",
-          "6.5. Nếu Shop.Hub tham gia chuyển giao kinh doanh, sáp nhập, huy động vốn, tái cấu trúc hoặc bán tài sản, thông tin khách hàng có thể được chuyển giao như một phần của giao dịch đó kèm các biện pháp bảo vệ phù hợp."
+          "6.5. Nếu Chot.Don tham gia chuyển giao kinh doanh, sáp nhập, huy động vốn, tái cấu trúc hoặc bán tài sản, thông tin khách hàng có thể được chuyển giao như một phần của giao dịch đó kèm các biện pháp bảo vệ phù hợp."
         ]
       },
       {
@@ -1287,7 +1287,7 @@
         "id": "international",
         "title": "10. Xử lý quốc tế",
         "paragraphs": [
-          "10.1. Shop.Hub và các nhà cung cấp dịch vụ có thể xử lý hoặc lưu trữ thông tin tại các quốc gia nơi hạ tầng, đội ngũ hỗ trợ hoặc đối tác công nghệ của chúng tôi hoạt động.",
+          "10.1. Chot.Don và các nhà cung cấp dịch vụ có thể xử lý hoặc lưu trữ thông tin tại các quốc gia nơi hạ tầng, đội ngũ hỗ trợ hoặc đối tác công nghệ của chúng tôi hoạt động.",
           "10.2. Khi thông tin được chuyển qua biên giới, chúng tôi áp dụng biện pháp bảo vệ phù hợp theo pháp luật áp dụng và giới hạn quyền truy cập ở mức cần thiết để vận hành cửa hàng."
         ]
       },
@@ -1295,7 +1295,7 @@
         "id": "contact",
         "title": "11. Liên hệ",
         "paragraphs": [
-          "11.1. Nếu bạn có câu hỏi về Chính sách Quyền riêng tư này hoặc muốn gửi yêu cầu về quyền riêng tư, hãy liên hệ bộ phận hỗ trợ Shop.Hub qua trang trợ giúp hoặc liên hệ.",
+          "11.1. Nếu bạn có câu hỏi về Chính sách Quyền riêng tư này hoặc muốn gửi yêu cầu về quyền riêng tư, hãy liên hệ bộ phận hỗ trợ Chot.Don qua trang trợ giúp hoặc liên hệ.",
           "11.2. Để chúng tôi xác minh và phản hồi yêu cầu, vui lòng cung cấp email hoặc số điện thoại tài khoản, mô tả rõ yêu cầu và mã đơn hàng hoặc mã hỗ trợ liên quan nếu có."
         ]
       }
@@ -1616,17 +1616,17 @@
   },
   "Terms": {
     "title": "Điều khoản Dịch vụ",
-    "description": "Các điều khoản này giải thích cách khách hàng sử dụng Shop.Hub để xem sản phẩm, đặt hàng, quản lý tài khoản và mua hàng trực tiếp từ cửa hàng trực tuyến của chúng tôi.",
+    "description": "Các điều khoản này giải thích cách khách hàng sử dụng Chot.Don để xem sản phẩm, đặt hàng, quản lý tài khoản và mua hàng trực tiếp từ cửa hàng trực tuyến của chúng tôi.",
     "toc": "Mục lục",
     "sections": [
       {
         "id": "overview",
         "title": "1. Tổng quan",
         "paragraphs": [
-          "1.1. Shop.Hub cung cấp cửa hàng trực tuyến để khách hàng tìm kiếm sản phẩm do Shop.Hub bán, quản lý giỏ hàng, đặt hàng, nhận cập nhật đơn hàng, lưu sản phẩm yêu thích và sử dụng các tính năng tài khoản liên quan đến hoạt động mua sắm.",
-          "1.2. Khi truy cập Shop.Hub, tạo tài khoản hoặc đặt hàng, bạn đồng ý tuân thủ Điều khoản Dịch vụ này và các chính sách được dẫn chiếu từ trang thanh toán, tài khoản, giao hàng, đổi trả hoặc quyền riêng tư.",
+          "1.1. Chot.Don cung cấp cửa hàng trực tuyến để khách hàng tìm kiếm sản phẩm do Chot.Don bán, quản lý giỏ hàng, đặt hàng, nhận cập nhật đơn hàng, lưu sản phẩm yêu thích và sử dụng các tính năng tài khoản liên quan đến hoạt động mua sắm.",
+          "1.2. Khi truy cập Chot.Don, tạo tài khoản hoặc đặt hàng, bạn đồng ý tuân thủ Điều khoản Dịch vụ này và các chính sách được dẫn chiếu từ trang thanh toán, tài khoản, giao hàng, đổi trả hoặc quyền riêng tư.",
           "1.3. Các điều khoản này áp dụng cho tất cả khách truy cập và khách hàng đã đăng ký. Một số tính năng như thanh toán, lịch sử đơn hàng, địa chỉ đã lưu, sản phẩm yêu thích và thông báo có thể yêu cầu tài khoản.",
-          "1.4. Shop.Hub may update these terms when platform features, legal requirements, or operating policies change. Continued use of the platform after an update means you accept the revised terms."
+          "1.4. Chot.Don may update these terms when platform features, legal requirements, or operating policies change. Continued use of the platform after an update means you accept the revised terms."
         ]
       },
       {
@@ -1635,18 +1635,18 @@
         "paragraphs": [
           "2.1. Bạn chịu trách nhiệm cung cấp thông tin tài khoản chính xác, bao gồm họ tên, thông tin liên hệ, địa chỉ giao hàng và các thông tin cần thiết để hoàn tất đơn hàng.",
           "2.2. Bạn chịu trách nhiệm bảo mật thông tin đăng nhập và các hoạt động được thực hiện qua tài khoản của mình, trừ khi hoạt động đó phát sinh từ sự cố bảo mật của nền tảng.",
-          "2.3. Shop.Hub có thể yêu cầu bổ sung thông tin hồ sơ trước khi cho phép thanh toán hoặc thực hiện một số thao tác tài khoản khi thông tin đó cần cho giao hàng, phòng chống gian lận, hỗ trợ hoặc tuân thủ pháp luật.",
-          "2.4. Shop.Hub có thể giới hạn, tạm ngưng hoặc đóng tài khoản có dấu hiệu gian lận, lạm dụng, truy cập trái phép, lạm dụng thanh toán, vi phạm chính sách nhiều lần hoặc gây ảnh hưởng đến hoạt động nền tảng."
+          "2.3. Chot.Don có thể yêu cầu bổ sung thông tin hồ sơ trước khi cho phép thanh toán hoặc thực hiện một số thao tác tài khoản khi thông tin đó cần cho giao hàng, phòng chống gian lận, hỗ trợ hoặc tuân thủ pháp luật.",
+          "2.4. Chot.Don có thể giới hạn, tạm ngưng hoặc đóng tài khoản có dấu hiệu gian lận, lạm dụng, truy cập trái phép, lạm dụng thanh toán, vi phạm chính sách nhiều lần hoặc gây ảnh hưởng đến hoạt động nền tảng."
         ]
       },
       {
         "id": "products",
         "title": "3. Thông tin sản phẩm",
         "paragraphs": [
-          "3.1. Shop.Hub cố gắng hiển thị rõ ràng tên sản phẩm, mô tả, hình ảnh, danh mục, thông tin thương hiệu, giá bán, khuyến mãi, tình trạng tồn kho, đánh giá và các chi tiết liên quan.",
+          "3.1. Chot.Don cố gắng hiển thị rõ ràng tên sản phẩm, mô tả, hình ảnh, danh mục, thông tin thương hiệu, giá bán, khuyến mãi, tình trạng tồn kho, đánh giá và các chi tiết liên quan.",
           "3.2. Hình ảnh và mô tả sản phẩm được cung cấp để tham khảo khi mua sắm. Có thể có khác biệt nhỏ về bao bì, màu sắc, phụ kiện hoặc cách trình bày của nhà sản xuất do cập nhật lô hàng, thay đổi từ nhà sản xuất hoặc thiết lập màn hình.",
           "3.3. Giá, khuyến mãi, voucher, flash sale và số lượng tồn kho có thể thay đổi trước khi thanh toán. Tóm tắt đơn hàng cuối cùng tại bước thanh toán là thông tin được dùng để gửi đơn hàng.",
-          "3.4. Nếu sản phẩm có lỗi hiển thị rõ ràng, hết hàng, sai giá hoặc không đáp ứng điều kiện giao hàng, Shop.Hub có thể hủy hoặc điều chỉnh đơn hàng bị ảnh hưởng và thông báo cho bạn qua kênh liên hệ phù hợp."
+          "3.4. Nếu sản phẩm có lỗi hiển thị rõ ràng, hết hàng, sai giá hoặc không đáp ứng điều kiện giao hàng, Chot.Don có thể hủy hoặc điều chỉnh đơn hàng bị ảnh hưởng và thông báo cho bạn qua kênh liên hệ phù hợp."
         ]
       },
       {
@@ -1655,7 +1655,7 @@
         "paragraphs": [
           "4.1. Việc thêm sản phẩm vào giỏ hàng hoặc danh sách yêu thích không giữ hàng và không đảm bảo giá hiển thị. Đơn hàng chỉ được tạo sau khi bạn hoàn tất thanh toán và nhận xác nhận đơn hàng.",
           "4.2. Bạn chịu trách nhiệm kiểm tra sản phẩm, số lượng, địa chỉ giao hàng, thông tin liên hệ, voucher, phương thức thanh toán và tổng tiền trước khi gửi đơn hàng.",
-          "4.3. Shop.Hub có thể từ chối, hủy hoặc tạm giữ đơn hàng khi không xác minh được thanh toán, thông tin giao hàng chưa đầy đủ, hàng không còn, nghi ngờ gian lận hoặc đơn hàng vi phạm chính sách cửa hàng.",
+          "4.3. Chot.Don có thể từ chối, hủy hoặc tạm giữ đơn hàng khi không xác minh được thanh toán, thông tin giao hàng chưa đầy đủ, hàng không còn, nghi ngờ gian lận hoặc đơn hàng vi phạm chính sách cửa hàng.",
           "4.4. Trạng thái đơn hàng, điều kiện hủy, cập nhật giao hàng và phản hồi hỗ trợ có thể được hiển thị trong tài khoản, gửi qua email hoặc gửi qua thông báo nền tảng khi khả dụng."
         ]
       },
@@ -1665,7 +1665,7 @@
         "paragraphs": [
           "5.1. Các phương thức thanh toán được hỗ trợ sẽ hiển thị tại bước thanh toán. Việc ủy quyền, ghi nhận, hoàn tiền và bảo mật giao dịch có thể do đối tác thanh toán xử lý theo điều khoản riêng của họ.",
           "5.2. Voucher, mã giảm giá, miễn phí vận chuyển, giá flash sale và các chương trình khuyến mãi khác có thể có điều kiện áp dụng, giới hạn lượt dùng, thời hạn, giá trị đơn hàng tối thiểu, giới hạn danh mục hoặc giới hạn tài khoản.",
-          "5.3. Shop.Hub có thể từ chối hoặc thu hồi ưu đãi được áp dụng do lỗi kỹ thuật, hoạt động đáng ngờ, sử dụng trùng lặp, hành vi mua đi bán lại hoặc vi phạm điều kiện khuyến mãi.",
+          "5.3. Chot.Don có thể từ chối hoặc thu hồi ưu đãi được áp dụng do lỗi kỹ thuật, hoạt động đáng ngờ, sử dụng trùng lặp, hành vi mua đi bán lại hoặc vi phạm điều kiện khuyến mãi.",
           "5.4. Thuế, phí vận chuyển, phí xử lý hoặc các khoản phí áp dụng khác sẽ được hiển thị khi cần thiết trước khi gửi đơn hàng."
         ]
       },
@@ -1683,26 +1683,26 @@
         "id": "returns",
         "title": "7. Hủy đơn, đổi trả và hoàn tiền",
         "paragraphs": [
-          "7.1. Điều kiện hủy đơn, đổi trả, đổi sản phẩm và hoàn tiền phụ thuộc vào loại sản phẩm, trạng thái đơn hàng, chính sách đổi trả của Shop.Hub, phương thức thanh toán và yêu cầu bảo vệ người tiêu dùng áp dụng.",
+          "7.1. Điều kiện hủy đơn, đổi trả, đổi sản phẩm và hoàn tiền phụ thuộc vào loại sản phẩm, trạng thái đơn hàng, chính sách đổi trả của Chot.Don, phương thức thanh toán và yêu cầu bảo vệ người tiêu dùng áp dụng.",
           "7.2. Sản phẩm đổi trả có thể cần chưa qua sử dụng, còn đầy đủ và được gửi lại cùng bao bì gốc, phụ kiện, quà tặng, hướng dẫn, hóa đơn hoặc các vật phẩm đi kèm, trừ trường hợp đổi trả do lỗi, hư hỏng hoặc giao sai.",
           "7.3. Thời gian hoàn tiền có thể khác nhau tùy phương thức thanh toán, ngân hàng, ví điện tử, loại khuyến mãi và kết quả kiểm tra. Phí vận chuyển, voucher hoặc ưu đãi một phần sẽ được xử lý theo chính sách áp dụng cho đơn hàng.",
-          "7.4. Shop.Hub có thể từ chối yêu cầu đổi trả hoặc hoàn tiền có dấu hiệu lạm dụng, sản phẩm bị thay đổi, thiếu hàng, khai báo sai, gửi yêu cầu quá hạn hoặc không đáp ứng chính sách đổi trả."
+          "7.4. Chot.Don có thể từ chối yêu cầu đổi trả hoặc hoàn tiền có dấu hiệu lạm dụng, sản phẩm bị thay đổi, thiếu hàng, khai báo sai, gửi yêu cầu quá hạn hoặc không đáp ứng chính sách đổi trả."
         ]
       },
       {
         "id": "user-conduct",
         "title": "8. Hành vi người dùng",
         "paragraphs": [
-          "8.1. Bạn đồng ý không lạm dụng Shop.Hub, can thiệp hoạt động nền tảng, truy cập trái phép hệ thống, thu thập dữ liệu được bảo vệ, tạo đơn hàng gian lận, lạm dụng voucher, thao túng đánh giá hoặc mạo danh người khác.",
+          "8.1. Bạn đồng ý không lạm dụng Chot.Don, can thiệp hoạt động nền tảng, truy cập trái phép hệ thống, thu thập dữ liệu được bảo vệ, tạo đơn hàng gian lận, lạm dụng voucher, thao túng đánh giá hoặc mạo danh người khác.",
           "8.2. Đánh giá, tin nhắn, thông tin hồ sơ và nội dung khác do bạn gửi không được chứa nội dung bất hợp pháp, quấy rối, thù ghét, spam, thông tin gây hiểu lầm, mã độc, dữ liệu cá nhân của người khác hoặc nội dung vi phạm quyền của bên thứ ba.",
-          "8.3. Shop.Hub có thể kiểm duyệt, gỡ bỏ, giới hạn hoặc báo cáo nội dung hay hoạt động vi phạm điều khoản này, gây hại cho người dùng, tạo rủi ro bảo mật hoặc trái với pháp luật áp dụng."
+          "8.3. Chot.Don có thể kiểm duyệt, gỡ bỏ, giới hạn hoặc báo cáo nội dung hay hoạt động vi phạm điều khoản này, gây hại cho người dùng, tạo rủi ro bảo mật hoặc trái với pháp luật áp dụng."
         ]
       },
       {
         "id": "privacy",
         "title": "9. Quyền riêng tư và thông báo",
         "paragraphs": [
-          "9.1. Shop.Hub thu thập và sử dụng thông tin tài khoản, đơn hàng, lịch sử duyệt, thiết bị, thông báo và hỗ trợ như được mô tả trong Chính sách Quyền riêng tư.",
+          "9.1. Chot.Don thu thập và sử dụng thông tin tài khoản, đơn hàng, lịch sử duyệt, thiết bị, thông báo và hỗ trợ như được mô tả trong Chính sách Quyền riêng tư.",
           "9.2. Thông báo nền tảng, email, SMS, push notification hoặc tin nhắn trong tài khoản có thể được dùng cho cập nhật đơn hàng, cảnh báo bảo mật, hoạt động tài khoản, phản hồi hỗ trợ, ưu đãi khuyến mãi và thông báo dịch vụ.",
           "9.3. Bạn có thể quản lý một số tùy chọn liên lạc qua cài đặt tài khoản, quyền trình duyệt hoặc cài đặt thiết bị. Các tin nhắn giao dịch và bảo mật vẫn có thể được gửi khi cần để vận hành dịch vụ."
         ]
@@ -1711,8 +1711,8 @@
         "id": "liability",
         "title": "10. Tính khả dụng và trách nhiệm",
         "paragraphs": [
-          "10.1. Shop.Hub cố gắng duy trì nền tảng ổn định, nhưng việc truy cập có thể bị gián đoạn do bảo trì, sự cố mạng, lỗi dịch vụ bên thứ ba, sự kiện bảo mật hoặc thay đổi tính năng nền tảng.",
-          "10.2. Trong phạm vi pháp luật cho phép, Shop.Hub không chịu trách nhiệm đối với thiệt hại gián tiếp, ngẫu nhiên, mang tính phạt hoặc hệ quả phát sinh từ việc sử dụng nền tảng, giao hàng chậm, sản phẩm không còn, dịch vụ bên thứ ba hoặc việc người dùng sử dụng sai mục đích.",
+          "10.1. Chot.Don cố gắng duy trì nền tảng ổn định, nhưng việc truy cập có thể bị gián đoạn do bảo trì, sự cố mạng, lỗi dịch vụ bên thứ ba, sự kiện bảo mật hoặc thay đổi tính năng nền tảng.",
+          "10.2. Trong phạm vi pháp luật cho phép, Chot.Don không chịu trách nhiệm đối với thiệt hại gián tiếp, ngẫu nhiên, mang tính phạt hoặc hệ quả phát sinh từ việc sử dụng nền tảng, giao hàng chậm, sản phẩm không còn, dịch vụ bên thứ ba hoặc việc người dùng sử dụng sai mục đích.",
           "10.3. Không nội dung nào trong điều khoản này giới hạn các quyền không thể bị loại trừ theo pháp luật bảo vệ người tiêu dùng áp dụng."
         ]
       },
@@ -1720,7 +1720,7 @@
         "id": "contact",
         "title": "11. Hỗ trợ",
         "paragraphs": [
-          "11.1. Nếu bạn có câu hỏi về điều khoản này, đơn hàng, thanh toán, đổi trả, tài khoản hoặc sự cố nền tảng, hãy liên hệ bộ phận hỗ trợ của Shop.Hub qua trang trợ giúp hoặc liên hệ.",
+          "11.1. Nếu bạn có câu hỏi về điều khoản này, đơn hàng, thanh toán, đổi trả, tài khoản hoặc sự cố nền tảng, hãy liên hệ bộ phận hỗ trợ của Chot.Don qua trang trợ giúp hoặc liên hệ.",
           "11.2. Khi liên hệ hỗ trợ, hãy cung cấp đủ thông tin để xác định vấn đề, chẳng hạn mã đơn hàng, tên sản phẩm, email hoặc số điện thoại tài khoản, ảnh chụp màn hình, hình ảnh và mô tả rõ ràng."
         ]
       }

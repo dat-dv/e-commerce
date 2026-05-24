@@ -50,7 +50,7 @@ export function HelpContactView(): React.ReactElement {
             <div className="text-content/80 space-y-2 text-sm">
               <p className="break-words">
                 📧 <span className="font-medium">{t("emailLabel")}:</span>{" "}
-                support@shop.hub
+                support@Chot.Don
               </p>
               <p className="break-words">
                 📞 <span className="font-medium">{t("phoneLabel")}:</span> +1

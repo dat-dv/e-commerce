@@ -37,7 +37,7 @@ export default function Logo({
 
   return (
     <motion.div
-      className={cn("flex items-center gap-2.5 select-none", className)}
+      className={cn("flex items-center gap-0.5 select-none", className)}
       initial="initial"
       animate="animate"
       whileHover={canAnimate ? "hover" : undefined}
@@ -45,24 +45,24 @@ export default function Logo({
       transition={{ type: "spring", stiffness: 420, damping: 28 }}
     >
       <motion.div
-        className="from-primary to-primary/80 shadow-primary/20 relative flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-tr shadow-md"
+        className="from-primary to-primary/80 shadow-primary/20 relative flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-tr shadow-md"
         style={{ width: size, height: size }}
         variants={canAnimate ? logoMarkVariants : undefined}
         transition={{ type: "spring", stiffness: 500, damping: 24 }}
       >
         <svg
-          width={size * 0.55}
-          height={size * 0.55}
+          width={size * 0.62}
+          height={size * 0.62}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="3"
+          strokeWidth="3.4"
           strokeLinecap="round"
           strokeLinejoin="round"
           className="overflow-visible text-white"
         >
           <motion.path
-            d="M17 5.5C15.9 4.55 14.25 4 12.3 4C8.95 4 6.5 5.55 6.5 7.95C6.5 10.35 8.65 11.15 12.2 11.75C15.55 12.32 17.5 13.15 17.5 15.6C17.5 18.25 15.05 20 11.65 20C9.35 20 7.4 19.28 6 18"
+            d="M18.5 5.7C16.9 4.2 14.7 3.4 12.2 3.4C7.1 3.4 3.7 6.9 3.7 12C3.7 17.1 7.1 20.6 12.2 20.6C14.7 20.6 16.9 19.8 18.5 18.3"
             initial={
               canAnimate
                 ? { pathLength: 0, opacity: 0 }
@@ -75,6 +75,7 @@ export default function Logo({
             }}
           />
         </svg>
+
         <motion.div
           className="absolute inset-y-0 -left-8 w-5 rotate-12 bg-white/35"
           variants={
@@ -95,7 +96,7 @@ export default function Logo({
         variants={canAnimate ? logoTextVariants : undefined}
         transition={{ type: "spring", stiffness: 420, damping: 30 }}
       >
-        Shop
+        hot
         <motion.span
           className="text-primary inline-block"
           variants={
@@ -111,7 +112,7 @@ export default function Logo({
         >
           .
         </motion.span>
-        <span className="text-primary font-extrabold">hub</span>
+        <span className="text-primary font-extrabold">don</span>
       </motion.span>
     </motion.div>
   );

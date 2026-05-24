@@ -19,7 +19,7 @@
     "headers": {
       "help": {
         "title": "TRỢ GIÚP",
-        "highlight": "SHOP.HUB",
+        "highlight": "Chot.Don",
         "description": "Bạn cần hỗ trợ gì hôm nay? Tìm nhanh câu trả lời hoặc duyệt các chủ đề bên dưới.",
         "placeholder": "Nhập từ khóa hoặc tìm bài viết phổ biến...",
         "clear": "Xóa"
@@ -32,7 +32,7 @@
       "faq": {
         "title": "CÂU HỎI",
         "highlight": "THƯỜNG GẶP",
-        "description": "Tìm câu trả lời về Shop.Hub, an toàn tài khoản, thanh toán, giao hàng và đổi trả."
+        "description": "Tìm câu trả lời về Chot.Don, an toàn tài khoản, thanh toán, giao hàng và đổi trả."
       }
     },
     "contact": {
@@ -72,13 +72,13 @@
     },
     "help": {
       "title": "Trung tâm trợ giúp",
-      "desc": "Hỗ trợ mua sắm trên Shop.Hub: tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng, đổi trả và liên hệ hỗ trợ.",
+      "desc": "Hỗ trợ mua sắm trên Chot.Don: tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng, đổi trả và liên hệ hỗ trợ.",
       "search": "Tìm tài khoản, giỏ hàng, checkout, đơn hàng, giao hàng...",
       "quick": "Bạn cần hỗ trợ gì?",
       "popular": "Câu trả lời thường xem",
-      "supportNote": "Shop.Hub là một cửa hàng online. Đơn hàng và yêu cầu hỗ trợ được đội Shop.Hub xử lý trực tiếp.",
+      "supportNote": "Chot.Don là một cửa hàng online. Đơn hàng và yêu cầu hỗ trợ được đội Chot.Don xử lý trực tiếp.",
       "contactTitle": "Vẫn cần hỗ trợ?",
-      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình hoặc ảnh kiện hàng khi cần. Shop.Hub sẽ phản hồi qua email hoặc số điện thoại bạn cung cấp.",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình hoặc ảnh kiện hàng khi cần. Chot.Don sẽ phản hồi qua email hoặc số điện thoại bạn cung cấp.",
       "contactCta": "Liên hệ hỗ trợ",
       "noResults": "Không tìm thấy chủ đề phù hợp.",
       "cards": [
@@ -130,16 +130,16 @@
         "Có thể đổi địa chỉ giao hàng sau khi đặt không?",
         "Vì sao voucher không áp dụng?",
         "Cần làm gì nếu kiện hàng bị hư hỏng?",
-        "Liên hệ hỗ trợ Shop.Hub như thế nào?"
+        "Liên hệ hỗ trợ Chot.Don như thế nào?"
       ]
     },
     "faq": {
       "title": "Câu hỏi thường gặp",
-      "desc": "Câu trả lời cho các luồng chính của Shop.Hub: tài khoản, hồ sơ, giỏ hàng, checkout, đơn hàng, thanh toán, voucher, giao hàng, đổi trả và hỗ trợ.",
+      "desc": "Câu trả lời cho các luồng chính của Chot.Don: tài khoản, hồ sơ, giỏ hàng, checkout, đơn hàng, thanh toán, voucher, giao hàng, đổi trả và hỗ trợ.",
       "search": "Tìm câu hỏi...",
       "empty": "Không tìm thấy câu hỏi phù hợp.",
       "contactTitle": "Cần câu trả lời cụ thể?",
-      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình để Shop.Hub kiểm tra trực tiếp.",
+      "contactDesc": "Gửi mã đơn hàng, thông tin liên hệ và ảnh chụp màn hình để Chot.Don kiểm tra trực tiếp.",
       "contactCta": "Liên hệ hỗ trợ",
       "topics": [
         {
@@ -152,10 +152,10 @@
             },
             {
               "q": "Cập nhật thông tin cá nhân ở đâu?",
-              "a": "Sau khi đăng nhập, mở trang Hồ sơ để cập nhật thông tin cá nhân. Hãy giữ email và số điện thoại chính xác để Shop.Hub có thể liên hệ khi cần."
+              "a": "Sau khi đăng nhập, mở trang Hồ sơ để cập nhật thông tin cá nhân. Hãy giữ email và số điện thoại chính xác để Chot.Don có thể liên hệ khi cần."
             },
             {
-              "q": "Làm sao giữ tài khoản Shop.Hub an toàn?",
+              "q": "Làm sao giữ tài khoản Chot.Don an toàn?",
               "a": "Dùng mật khẩu riêng tư, không chia sẻ OTP hoặc link đặt lại mật khẩu, và liên hệ hỗ trợ nếu thấy hoạt động lạ trong tài khoản."
             }
           ]
@@ -215,7 +215,7 @@
           "icon": "credit-card",
           "faqs": [
             {
-              "q": "Shop.Hub hỗ trợ phương thức thanh toán nào?",
+              "q": "Chot.Don hỗ trợ phương thức thanh toán nào?",
               "a": "Các phương thức khả dụng sẽ hiển thị tại checkout. Danh sách cuối cùng phụ thuộc địa chỉ, giá trị đơn hàng và cấu hình hiện tại."
             },
             {
@@ -242,7 +242,7 @@
             },
             {
               "q": "Nếu giao hàng thất bại thì sao?",
-              "a": "Hãy giữ điện thoại liên lạc được. Nếu giao thất bại hoặc đơn vị vận chuyển không liên hệ được, gửi mã đơn để Shop.Hub kiểm tra bước tiếp theo."
+              "a": "Hãy giữ điện thoại liên lạc được. Nếu giao thất bại hoặc đơn vị vận chuyển không liên hệ được, gửi mã đơn để Chot.Don kiểm tra bước tiếp theo."
             }
           ]
         },
@@ -268,7 +268,7 @@
     },
     "shipping": {
       "title": "Thông tin giao hàng",
-      "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và hướng dẫn xử lý sự cố kiện hàng Shop.Hub.",
+      "desc": "Vùng giao hàng, phí vận chuyển, tracking, giao thất bại và hướng dẫn xử lý sự cố kiện hàng Chot.Don.",
       "search": "Tìm thông tin giao hàng...",
       "empty": "Không tìm thấy chủ đề giao hàng phù hợp.",
       "contactTitle": "Cần hỗ trợ giao hàng?",
@@ -280,7 +280,7 @@
           "icon": "map-pin",
           "faqs": [
             {
-              "q": "Shop.Hub giao hàng ở đâu?",
+              "q": "Chot.Don giao hàng ở đâu?",
               "a": "Khả dụng giao hàng được kiểm tra tại checkout dựa trên địa chỉ giao hàng bạn nhập."
             },
             {
@@ -299,7 +299,7 @@
             },
             {
               "q": "Khi nào đơn bắt đầu được xử lý?",
-              "a": "Đơn bắt đầu xử lý sau khi được đặt và các kiểm tra thanh toán cần thiết hoàn tất. Shop.Hub chuẩn bị hàng trước khi bàn giao vận chuyển."
+              "a": "Đơn bắt đầu xử lý sau khi được đặt và các kiểm tra thanh toán cần thiết hoàn tất. Chot.Don chuẩn bị hàng trước khi bàn giao vận chuyển."
             }
           ]
         },

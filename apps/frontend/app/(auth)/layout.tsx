@@ -20,7 +20,7 @@ export default async function AuthLayout({
         <div className="relative z-10 max-w-md text-center">
           <Link href="/">
             <h1 className="from-primary to-primary/60 mb-6 cursor-pointer bg-gradient-to-r bg-clip-text text-5xl font-black tracking-tighter text-transparent transition-opacity hover:opacity-80">
-              Shop.Hub
+              Chot.Don
             </h1>
           </Link>
           <p className="text-content/60 text-lg leading-relaxed font-medium">

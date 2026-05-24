@@ -19,7 +19,7 @@
     "headers": {
       "help": {
         "title": "HELP",
-        "highlight": "SHOP.HUB",
+        "highlight": "Chot.Don",
         "description": "Hello, how can we help you today? Search our database or browse categories below.",
         "placeholder": "Enter keywords or search popular articles...",
         "clear": "Clear"
@@ -32,7 +32,7 @@
       "faq": {
         "title": "FREQUENTLY",
         "highlight": "ASKED QUESTIONS",
-        "description": "Find answers to common questions about using Shop.Hub, account safety, and payment processing."
+        "description": "Find answers to common questions about using Chot.Don, account safety, and payment processing."
       }
     },
     "contact": {
@@ -72,11 +72,11 @@
     },
     "help": {
       "title": "Help Center",
-      "desc": "Practical help for shopping on Shop.Hub: account setup, cart, checkout, orders, delivery, returns, and support.",
+      "desc": "Practical help for shopping on Chot.Don: account setup, cart, checkout, orders, delivery, returns, and support.",
       "search": "Search account, cart, checkout, orders, shipping...",
       "quick": "What do you need help with?",
       "popular": "Popular Answers",
-      "supportNote": "Shop.Hub is one online store. Order and support requests are handled directly by our team.",
+      "supportNote": "Chot.Don is one online store. Order and support requests are handled directly by our team.",
       "contactTitle": "Still need help?",
       "contactDesc": "Send your order number, contact details, and screenshots or package photos when relevant. We reply through the email or phone number you provide.",
       "contactCta": "Contact Support",
@@ -130,16 +130,16 @@
         "Can I change my shipping address after checkout?",
         "Why did my voucher not apply?",
         "What should I do if my package is damaged?",
-        "How do I contact Shop.Hub support?"
+        "How do I contact Chot.Don support?"
       ]
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "desc": "Answers for common Shop.Hub workflows: account, profile, cart, checkout, orders, payments, vouchers, shipping, returns, and support.",
+      "desc": "Answers for common Chot.Don workflows: account, profile, cart, checkout, orders, payments, vouchers, shipping, returns, and support.",
       "search": "Search questions...",
       "empty": "No matching questions found.",
       "contactTitle": "Need a specific answer?",
-      "contactDesc": "Send your order number, contact details, and screenshots so Shop.Hub can check the issue directly.",
+      "contactDesc": "Send your order number, contact details, and screenshots so Chot.Don can check the issue directly.",
       "contactCta": "Contact Support",
       "topics": [
         {
@@ -155,7 +155,7 @@
               "a": "After signing in, open Profile to update personal details. Keep your email and phone number accurate so support can reach you when needed."
             },
             {
-              "q": "How can I keep my Shop.Hub account safe?",
+              "q": "How can I keep my Chot.Don account safe?",
               "a": "Use a private password, never share OTP or reset links, and contact support if you notice unfamiliar account activity."
             }
           ]
@@ -242,7 +242,7 @@
             },
             {
               "q": "What if delivery fails?",
-              "a": "Keep your phone reachable. If delivery fails or the carrier cannot contact you, send your order number to support so Shop.Hub can check the next step."
+              "a": "Keep your phone reachable. If delivery fails or the carrier cannot contact you, send your order number to support so Chot.Don can check the next step."
             }
           ]
         },
@@ -268,7 +268,7 @@
     },
     "shipping": {
       "title": "Shipping Information",
-      "desc": "Delivery coverage, fees, tracking, failed delivery, and package issue guidance for Shop.Hub orders.",
+      "desc": "Delivery coverage, fees, tracking, failed delivery, and package issue guidance for Chot.Don orders.",
       "search": "Search shipping help...",
       "empty": "No matching shipping topics found.",
       "contactTitle": "Need delivery support?",
@@ -280,7 +280,7 @@
           "icon": "map-pin",
           "faqs": [
             {
-              "q": "Where does Shop.Hub deliver?",
+              "q": "Where does Chot.Don deliver?",
               "a": "Delivery availability is checked during checkout based on the shipping address you enter."
             },
             {
@@ -299,7 +299,7 @@
             },
             {
               "q": "When does order processing start?",
-              "a": "Processing starts after the order is placed and required payment checks are complete. Shop.Hub prepares the items before handing them to delivery."
+              "a": "Processing starts after the order is placed and required payment checks are complete. Chot.Don prepares the items before handing them to delivery."
             }
           ]
         },

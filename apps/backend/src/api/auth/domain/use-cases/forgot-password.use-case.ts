@@ -1,10 +1,10 @@
-import { Injectable, BadRequestException, Inject } from '@nestjs/common';
-import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
-import { TokenService } from 'src/shared/services/token/token.service';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { MailService } from 'src/mail/mail.service';
-import { ForgotPasswordDto } from '../../dto/forgot-password.dto';
+import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
 import { EnvVars } from 'src/config/config.validation';
+import { MailService } from 'src/mail/mail.service';
+import { TokenService } from 'src/shared/services/token/token.service';
+import { ForgotPasswordDto } from '../../dto/forgot-password.dto';
 
 @Injectable()
 export class ForgotPasswordUseCase {
@@ -49,7 +49,7 @@ export class ForgotPasswordUseCase {
   
   <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
   
-  <p style="font-size: 12px; color: #bbb; text-align: center;">© 2026 Shop.hub. All rights reserved.</p>
+  <p style="font-size: 12px; color: #bbb; text-align: center;">© 2026 Chot.Don. All rights reserved.</p>
 </div>
 `;
 
