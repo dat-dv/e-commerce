@@ -26,7 +26,7 @@ const Avatar = ({
     <div className="bg-primary/10 flex h-full w-full items-center justify-center">
       <span
         className="text-primary font-bold"
-        style={{ fontSize: `${size * 0.4}px` }}
+        style={{ fontSize: `${size * 0.3}px` }}
       >
         {name?.charAt(0) || "U"}
       </span>
