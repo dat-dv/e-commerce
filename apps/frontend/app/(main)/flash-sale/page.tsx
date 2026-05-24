@@ -1,4 +1,4 @@
-import NotFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import FlashSaleView from "@/components/organisms/flash-sale";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { safe } from "@/utils/promise";
@@ -27,7 +27,7 @@ export default async function FlashSalePage() {
   );
 
   if (!flashSaleResponse) {
-    return <NotFound />;
+    notFound();
   }
 
   const initialData =

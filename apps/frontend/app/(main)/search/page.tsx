@@ -1,10 +1,10 @@
-import NotFound from "@/app/not-found";
 import { SearchView } from "@/components/organisms/search-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { allSafe } from "@/utils/promise";
 import { IServerPageProps } from "@/utils/request/request.types";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   searchParams,
@@ -36,7 +36,7 @@ export default async function SearchPage({ searchParams }: IServerPageProps) {
     }),
   ]);
 
-  if (!productsRes) return <NotFound />;
+  if (!productsRes) notFound();
 
   const initialData =
     productsRes.status === "success" ? productsRes.data : null;

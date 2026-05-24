@@ -1,4 +1,3 @@
-import NotFound from "@/app/not-found";
 import NewArrivalView from "@/components/organisms/new-arrival/new-arrival-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
@@ -7,6 +6,7 @@ import { IServerPageProps } from "@/utils/request/request.types";
 import { EProductSort } from "@ecommerce/shared";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("NewArrivalsPage.metadata");
@@ -34,7 +34,7 @@ export default async function NewArrivalsPage({
   );
 
   if (!productsResponse) {
-    return <NotFound />;
+    notFound();
   }
 
   const initialData =

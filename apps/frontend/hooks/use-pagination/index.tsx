@@ -103,22 +103,45 @@ const usePagination = <
   );
 
   const onChangePagination = useCallback(
-    async (page: number) => {
+    async (
+      page: number,
+      options: { merge: boolean; ssr: boolean; scroll?: boolean },
+    ) => {
+      if (options.ssr) {
+        router.push(
+          {
+            ...router.routerState,
+            page,
+          },
+          { merge: options.merge, ssr: options.ssr, scroll: options.scroll },
+        );
+
+        return;
+      }
+
       const res = await fetchPage({
         ...router.routerState,
         page,
         limit: data.meta.limit,
       });
+
       router.push(
         {
           ...router.routerState,
           page,
         },
-        { merge: true, ssr: false, scroll: true },
+        { merge: options.merge, ssr: false, scroll: options.scroll },
       );
 
       startTransition(() => {
-        setData(res.data);
+        if (options.merge) {
+          setData((prev) => ({
+            items: [...(prev?.items || []), ...(res?.data?.items || [])],
+            meta: res.data.meta,
+          }));
+        } else {
+          setData(res.data);
+        }
       });
     },
     [fetchPage, router, data.meta.limit],

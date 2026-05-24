@@ -186,7 +186,9 @@ export function CategoryDetailView({
           }}
           onClearFilter={clearFilter}
           onResetFilters={resetFilters}
-          onPageChange={onChangePagination}
+          onPageChange={(page) =>
+            onChangePagination(page, { merge: true, ssr: true, scroll: false })
+          }
           onSortChange={(value) => updateFilter([{ key: "sort", value }])}
           sortValue={paginationRouter.routerState.sort || ""}
         />

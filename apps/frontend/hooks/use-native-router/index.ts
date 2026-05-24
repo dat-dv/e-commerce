@@ -43,7 +43,7 @@ export default function useAppRouter<T extends Record<string, unknown>>({
         : params;
       const url = getNewUrlBySearchParams(searchParams);
 
-      if (options?.ssr) {
+      if (!options?.ssr) {
         setRouterState(searchParams as T);
         window.history.replaceState(null, "", url);
         return;

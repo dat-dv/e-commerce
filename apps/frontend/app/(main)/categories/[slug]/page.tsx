@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
-import NotFound from "@/app/not-found";
 import { CategoryDetailView } from "@/components/organisms/category-detail-view";
 import { PAGINATION_LIMITS } from "@/constants/pagination.constant";
 import { productsUseCase } from "@/domain/products/use-cases";
@@ -50,8 +50,10 @@ export default async function CategoryProductsPage({
     }),
   ]);
 
+  console.log(123, rawSearchParams);
+
   if (!productsRes) {
-    return <NotFound />;
+    notFound();
   }
 
   const initialData =
