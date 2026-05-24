@@ -1,10 +1,16 @@
 import type {
   FlashSaleTimeSlot,
+  IAddProductsToFlashSaleRequest,
+  ICreateFlashSaleProductRequest,
+  ICreateFlashSaleRequest,
   ICreateTimeSlotRequest,
   IFlashSale,
   IFlashSaleProduct,
 } from "@ecommerce/shared";
 import type {
+  TAddProductsToFlashSaleInput,
+  TCreateFlashSaleInput,
+  TCreateFlashSaleProductInput,
   TCreateTimeSlotInput,
   TFlashSale,
   TFlashSaleProduct,
@@ -63,6 +69,41 @@ export class FlashSalesMapper {
       end_hour: input.endHour,
       end_minute: input.endMinute,
       is_active: input.isActive,
+    };
+  }
+
+  static toCreateFlashSaleProductDTO(
+    input: TCreateFlashSaleProductInput,
+  ): ICreateFlashSaleProductRequest {
+    return {
+      sku_id: input.skuId,
+      sale_price: input.salePrice,
+      stock: input.stock,
+      order_limit: input.orderLimit,
+    };
+  }
+
+  static toCreateFlashSaleDTO(
+    input: TCreateFlashSaleInput,
+  ): ICreateFlashSaleRequest {
+    return {
+      name: input.name,
+      start_time: input.startTime,
+      end_time: input.endTime,
+      time_slot_id: input.timeSlotId,
+      products: input.products.map(
+        FlashSalesMapper.toCreateFlashSaleProductDTO,
+      ),
+    };
+  }
+
+  static toAddProductsToFlashSaleDTO(
+    input: TAddProductsToFlashSaleInput,
+  ): IAddProductsToFlashSaleRequest {
+    return {
+      products: input.products.map(
+        FlashSalesMapper.toCreateFlashSaleProductDTO,
+      ),
     };
   }
 }

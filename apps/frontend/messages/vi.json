@@ -542,7 +542,11 @@
     },
     "feedback": {
       "createTimeSlotSuccess": "Đã tạo khung giờ.",
-      "createTimeSlotError": "Không thể tạo khung giờ."
+      "createTimeSlotError": "Không thể tạo khung giờ.",
+      "createCampaignSuccess": "Đã tạo chiến dịch flash sale.",
+      "createCampaignError": "Không thể tạo chiến dịch flash sale.",
+      "attachProductsSuccess": "Đã thêm sản phẩm thành công.",
+      "attachProductsError": "Không thể thêm sản phẩm."
     },
     "campaigns": {
       "title": "Chiến dịch Flash Sale",
@@ -590,6 +594,18 @@
       "endHour": "Giờ kết thúc",
       "endMinute": "Phút kết thúc",
       "isActive": "Bật khung giờ này",
+      "cancel": "Hủy",
+      "submit": "Tạo"
+    },
+    "campaignForm": {
+      "title": "Tạo chiến dịch",
+      "description": "Thiết lập chiến dịch flash sale mới.",
+      "name": "Tên chiến dịch",
+      "namePlaceholder": "Đại tiệc công nghệ hè",
+      "startTime": "Thời gian bắt đầu",
+      "endTime": "Thời gian kết thúc",
+      "timeSlot": "Chọn khung giờ mở bán hằng ngày",
+      "timeSlotNone": "Không chọn (Mở bán cả ngày)",
       "cancel": "Hủy",
       "submit": "Tạo"
     }

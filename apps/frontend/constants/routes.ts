@@ -118,6 +118,8 @@ export const API_ROUTES = {
   FLASH_SALES: {
     BASE: "/flash-sales",
     TIME_SLOTS: "/flash-sales/time-slots",
+    BATCH: "/flash-sales/batch",
+    ADD_PRODUCTS: (id: string) => `/flash-sales/${id}/products`,
   },
   CONFIG: "/config",
 } as const;

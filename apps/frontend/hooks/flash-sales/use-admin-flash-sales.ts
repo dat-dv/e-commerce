@@ -3,6 +3,8 @@
 import { toast } from "@/components/ui/toast";
 import { flashSalesUseCase } from "@/domain/flash-sales";
 import type {
+  TAddProductsToFlashSaleInput,
+  TCreateFlashSaleInput,
   TCreateTimeSlotInput,
   TFlashSale,
   TFlashSaleTimeSlot,
@@ -84,6 +86,59 @@ export function useAdminFlashSales() {
     [refresh, t],
   );
 
+  const createFlashSale = useCallback(
+    async (input: TCreateFlashSaleInput) => {
+      setLoading(true);
+
+      try {
+        const response = await flashSalesUseCase.createFlashSale.execute(input);
+
+        if (response.status !== "success") {
+          toast.error(t("createCampaignError"));
+          return false;
+        }
+
+        toast.success(t("createCampaignSuccess"));
+        refresh();
+        return true;
+      } catch {
+        toast.error(t("createCampaignError"));
+        return false;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [refresh, t],
+  );
+
+  const addProductsToFlashSale = useCallback(
+    async (id: string, input: TAddProductsToFlashSaleInput) => {
+      setLoading(true);
+
+      try {
+        const response = await flashSalesUseCase.addProductsToFlashSale.execute(
+          id,
+          input,
+        );
+
+        if (response.status !== "success") {
+          toast.error(t("attachProductsError"));
+          return false;
+        }
+
+        toast.success(t("attachProductsSuccess"));
+        refresh();
+        return true;
+      } catch {
+        toast.error(t("attachProductsError"));
+        return false;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [refresh, t],
+  );
+
   return {
     flashSales,
     timeSlots,
@@ -91,5 +146,7 @@ export function useAdminFlashSales() {
     hasError,
     refresh,
     createTimeSlot,
+    createFlashSale,
+    addProductsToFlashSale,
   };
 }

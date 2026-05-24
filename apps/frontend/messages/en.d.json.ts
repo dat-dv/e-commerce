@@ -545,7 +545,11 @@ declare const messages: {
     },
     "feedback": {
       "createTimeSlotSuccess": "Time slot created.",
-      "createTimeSlotError": "Unable to create time slot."
+      "createTimeSlotError": "Unable to create time slot.",
+      "createCampaignSuccess": "Flash sale campaign created.",
+      "createCampaignError": "Unable to create flash sale campaign.",
+      "attachProductsSuccess": "Products successfully attached.",
+      "attachProductsError": "Unable to attach products."
     },
     "campaigns": {
       "title": "Flash Sale Campaigns",
@@ -593,6 +597,18 @@ declare const messages: {
       "endHour": "End hour",
       "endMinute": "End minute",
       "isActive": "Enable this time slot",
+      "cancel": "Cancel",
+      "submit": "Create"
+    },
+    "campaignForm": {
+      "title": "Create Campaign",
+      "description": "Define a new flash sale campaign.",
+      "name": "Campaign Name",
+      "namePlaceholder": "Summer Tech Sale",
+      "startTime": "Start Date & Time",
+      "endTime": "End Date & Time",
+      "timeSlot": "Select Daily Time Slot",
+      "timeSlotNone": "None (Full day campaign)",
       "cancel": "Cancel",
       "submit": "Create"
     }

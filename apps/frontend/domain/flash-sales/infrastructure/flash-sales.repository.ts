@@ -2,6 +2,8 @@ import { API_ROUTES } from "@/constants/routes";
 import { ApiResponse, TRequest } from "@/utils/request/request.types";
 import type { FlashSaleTimeSlot, IFlashSale } from "@ecommerce/shared";
 import type {
+  TAddProductsToFlashSaleInput,
+  TCreateFlashSaleInput,
   TCreateTimeSlotInput,
   TFlashSale,
   TFlashSaleTimeSlot,
@@ -14,6 +16,13 @@ export interface IFlashSalesRepository {
   createTimeSlot(
     input: TCreateTimeSlotInput,
   ): Promise<ApiResponse<TFlashSaleTimeSlot>>;
+  createFlashSale(
+    input: TCreateFlashSaleInput,
+  ): Promise<ApiResponse<TFlashSale>>;
+  addProductsToFlashSale(
+    id: string,
+    input: TAddProductsToFlashSaleInput,
+  ): Promise<ApiResponse<TFlashSale>>;
 }
 
 export class FlashSalesRepository implements IFlashSalesRepository {
@@ -52,6 +61,39 @@ export class FlashSalesRepository implements IFlashSalesRepository {
     return {
       ...response,
       data: FlashSalesMapper.toTimeSlotDomain(response.data),
+    };
+  }
+
+  async createFlashSale(
+    input: TCreateFlashSaleInput,
+  ): Promise<ApiResponse<TFlashSale>> {
+    const response = await this.request.post<IFlashSale>(
+      API_ROUTES.FLASH_SALES.BASE,
+      FlashSalesMapper.toCreateFlashSaleDTO(input),
+    );
+
+    return {
+      ...response,
+      data: response.data
+        ? FlashSalesMapper.toDomain(response.data)
+        : undefined,
+    };
+  }
+
+  async addProductsToFlashSale(
+    id: string,
+    input: TAddProductsToFlashSaleInput,
+  ): Promise<ApiResponse<TFlashSale>> {
+    const response = await this.request.post<IFlashSale>(
+      API_ROUTES.FLASH_SALES.ADD_PRODUCTS(id),
+      FlashSalesMapper.toAddProductsToFlashSaleDTO(input),
+    );
+
+    return {
+      ...response,
+      data: response.data
+        ? FlashSalesMapper.toDomain(response.data)
+        : undefined,
     };
   }
 }

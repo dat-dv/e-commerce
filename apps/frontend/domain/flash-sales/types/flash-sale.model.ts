@@ -41,3 +41,22 @@ export interface TFlashSale {
   timeSlot: TFlashSaleTimeSlot | null;
   products: TFlashSaleProduct[];
 }
+
+export interface TCreateFlashSaleProductInput {
+  skuId: string;
+  salePrice: number;
+  stock: number;
+  orderLimit?: number;
+}
+
+export interface TCreateFlashSaleInput {
+  name: string;
+  startTime: string;
+  endTime: string;
+  timeSlotId?: string;
+  products: TCreateFlashSaleProductInput[];
+}
+
+export interface TAddProductsToFlashSaleInput {
+  products: TCreateFlashSaleProductInput[];
+}
