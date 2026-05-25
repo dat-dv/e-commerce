@@ -8,30 +8,30 @@ Dự án e-commerce xây dựng theo mô hình monorepo chia sẻ contract dữ 
 
 ```mermaid
 flowchart LR
-    subgraph GUEST["👤 Guest"]
+    subgraph GUEST["Guest"]
         U["Browser\nHTTPS"]
     end
 
-    subgraph CF["☁️ Cloudflare"]
+    subgraph CF["Cloudflare"]
         DNS["DNS\nchotdon.shop"]
         WAF["WAF · DDoS\nTraffic filter"]
         CDN["CDN · Cache\nStatic assets"]
         TS["Turnstile\nAnti-bot CAPTCHA"]
     end
 
-    subgraph GCP["🖥️ GCP · e2-standard-2 · Intel Broadwell"]
+    subgraph GCP["GCP · e2-standard-2 · Intel Broadwell"]
         PIP["Public IP\nGCP Static External"]
         NPM["Nginx Proxy Manager\nSSL · Reverse Proxy"]
     end
 
-    subgraph DOCKER["🐳 Docker Compose — Monorepo"]
+    subgraph DOCKER["Docker Compose — Monorepo"]
         SHARED["packages/shared\nDTOs · API contract · Prisma client"]
         FE["apps/frontend\nNext.js 16 · React 19 · TypeScript · :5173"]
         BE["apps/backend\nNestJS 11 · Prisma ORM · TypeScript · :3000"]
         DB[("SQLite\nPrisma · multi-file schema")]
     end
 
-    subgraph EXT["🔌 External Services"]
+    subgraph EXT["External Services"]
         FCM["FCM\nCloud Messaging"]
         CLOUD["Cloudinary\nImage CDN · Optimize"]
         SMTP["Google SMTP\nEmail · Reset password"]
@@ -64,12 +64,12 @@ flowchart LR
 
 ### Cloudflare
 
-| Thành phần            | Vai trò                                                                |
-| --------------------- | ---------------------------------------------------------------------- |
-| **DNS**               | Phân giải tên miền `chotdon.shop`                                      |
-| **WAF · DDoS Shield** | Lọc traffic độc hại, chống tấn công DDoS                               |
-| **CDN · Cache**       | Cache static assets, giảm tải origin server                            |
-| **Turnstile**         | Xác thực chống bot/spam nhúng vào frontend (thay CAPTCHA truyền thống) |
+| Thành phần            | Vai trò                                     |
+| --------------------- | ------------------------------------------- |
+| **DNS**               | DNS Resolver `chotdon.shop`                 |
+| **WAF · DDoS Shield** | Lọc traffic độc hại, chống tấn công DDoS    |
+| **CDN · Cache**       | Cache static assets, giảm tải origin server |
+| **Turnstile**         | Xác thực chống bot/spam nhúng vào frontend  |
 
 ### GCP · VPC
 
@@ -86,12 +86,12 @@ Subdomain routing:
 
 ### Docker Compose — Monorepo
 
-| Thành phần          | Stack                                                | Port    |
-| ------------------- | ---------------------------------------------------- | ------- |
-| **packages/shared** | DTOs, API contract, Prisma client dùng chung         | —       |
-| **apps/frontend**   | Next.js 16 · React 19 · TypeScript                   | `:5173` |
-| **apps/backend**    | NestJS 11 · Prisma ORM · TypeScript                  | `:3000` |
-| **SQLite**          | Prisma ORM, `prisma-schema-folder` multi-file schema | —       |
+| Thành phần          | Stack                                        | Port    |
+| ------------------- | -------------------------------------------- | ------- |
+| **packages/shared** | DTOs, API contract, Prisma client dùng chung | —       |
+| **apps/frontend**   | Next.js 16 · React 19 · TypeScript           | `:5173` |
+| **apps/backend**    | NestJS 11 · Prisma ORM · TypeScript          | `:3000` |
+| **SQLite**          | Prisma ORM                                   | —       |
 
 ### External Services
 
@@ -143,53 +143,52 @@ Browser
 
 ## Tích hợp & Tiêu chuẩn kỹ thuật
 
-### Tiêu chuẩn tiếp cận (WAI-ARIA Accessibility)
+### Tiêu chuẩn tiếp cận (WAI-ARIA)
 
-- Xây dựng trên nền tảng React Aria Components. Đảm bảo toàn bộ giao diện tuân thủ tiêu chuẩn tiếp cận WCAG 2.1 (hỗ trợ điều hướng bằng bàn phím, thông tin nhãn aria-label, aria-labelledby rõ ràng cho các thiết bị đọc màn hình - Screen Readers).
+Sử dụng React Aria Components. Giao diện đáp ứng chuẩn tiếp cận WCAG 2.1, hỗ trợ điều hướng phím và thiết bị đọc màn hình (nhãn aria-label, aria-labelledby đầy đủ).
 
 ### Đa ngôn ngữ (i18n) & Phân tách định tuyến
 
-- Sử dụng next-intl để quản lý dịch ngôn ngữ (en/vi).
-- Proxy định tuyến: Sử dụng proxy nội bộ để ánh xạ các URL tĩnh/động theo ngôn ngữ (ví dụ chuyển tiếp /privacy, /terms thành /[locale]/privacy, /[locale]/terms dựa trên ngôn ngữ subdomain hoặc yêu cầu từ client).
+Quản lý ngôn ngữ (en/vi) qua next-intl. Sử dụng proxy định tuyến nội bộ để ánh xạ các URL tĩnh/động theo ngôn ngữ (ví dụ /privacy thành /[locale]/privacy dựa trên ngôn ngữ subdomain hoặc request client).
 
-### Lưu trữ đám mây & API tích hợp
+### Lưu trữ & API tích hợp
 
-- Cloudinary: Xử lý upload và tối ưu hóa hình ảnh thông qua Cloudinary SDK trên backend.
+- Cloudinary: Upload và tối ưu hóa hình ảnh qua Cloudinary SDK ở backend.
 - Firebase Admin SDK: Gửi thông báo đẩy thời gian thực qua FCM.
 
 ## Chi tiết các luồng tính năng cốt lõi
 
-### 1. Xác thực & Phân quyền (Authentication & RBAC)
+### 1. Xác thực & Phân quyền (RBAC)
 
-- Cơ chế xác thực: Sử dụng hệ thống tài khoản cục bộ mã hóa PBKDF2 mật khẩu kết hợp JWT Access/Refresh Token được lưu trữ an toàn trong HTTP-only Cookie.
-- Phân quyền dựa trên vai trò (Role-Based Access Control - RBAC): Hệ thống phân quyền chặt chẽ bằng Roles & Permissions được kiểm soát qua Guards ở backend. Admin có quyền CRUD vai trò, gán danh sách permissions và phân quyền cụ thể cho từng tài khoản.
+- Xác thực: Dùng tài khoản email/mật khẩu (băm PBKDF2), quản lý phiên qua JWT (Access/Refresh Token) lưu trong HTTP-only Cookie.
+- Phân quyền: Kiểm soát bằng Roles & Permissions qua Guards ở backend. Admin CRUD role, gán permission và gán role cho tài khoản.
 
-### 2. Giỏ hàng, Khuyến mãi & Thanh toán (Cart, Coupons & Checkout)
+### 2. Giỏ hàng, Khuyến mãi & Thanh toán
 
-- Giao dịch đặt hàng an toàn: Đơn đặt hàng được xử lý thông qua Prisma Transactions, bao gồm các bước kiểm tra tồn kho SKU, trừ tồn kho thực tế, áp dụng coupon giảm giá và dọn dẹp các sản phẩm tương ứng trong giỏ hàng.
-- Ràng buộc tồn kho: Client kiểm tra tồn kho SKU thời gian thực từ dữ liệu Flash Sale hoặc tồn kho thường để giới hạn số lượng tăng/giảm trong giỏ hàng.
+- Đặt hàng: Xử lý qua Prisma Transactions (kiểm tra tồn kho SKU, trừ kho, áp coupon, dọn giỏ hàng).
+- Ràng buộc tồn kho: Client kiểm tra tồn kho real-time từ SKU Flash Sale hoặc kho thường để giới hạn số lượng thêm vào giỏ.
 
-### 3. Flash Sales & Quản lý tồn kho khuyến mãi
+### 3. Flash Sales & Tồn kho khuyến mãi
 
 - Countdown thời gian thực ở frontend.
-- Thiết lập cấu hình tồn kho và số lượng mua giới hạn riêng cho từng SKU tham gia Flash Sale. Tồn kho Flash Sale được cô lập và khôi phục lại khi đơn hàng bị hủy trước khi thanh toán thành công.
+- Tồn kho Flash Sale được tách biệt và tự động hoàn lại nếu đơn hàng bị hủy trước khi thanh toán.
 
-### 4. Đơn hàng, Trả hàng & Đánh giá (Orders, Returns & Reviews)
+### 4. Đơn hàng, Trả hàng & Đánh giá
 
-- Theo dõi lịch sử: Hiển thị chi tiết hành trình đơn hàng bằng trạng thái trực quan (Pending, Processing, Shipped, Delivered, Cancelled).
-- Trả hàng/Hoàn tiền: Khách hàng có thể gửi yêu cầu trả hàng kèm theo lý do và hình ảnh minh chứng. Admin phê duyệt và cập nhật trạng thái trả hàng.
-- Đánh giá sản phẩm: Kiểm tra tính hợp lệ trên database (chỉ cho phép đánh giá những sản phẩm đã được giao thành công cho chính user đó).
+- Lịch sử đơn hàng: Hiển thị timeline trạng thái đơn (Pending, Processing, Shipped, Delivered, Cancelled).
+- Trả hàng: Khách gửi yêu cầu kèm lý do và ảnh minh chứng. Admin duyệt/hủy yêu cầu.
+- Đánh giá: Chỉ cho phép đánh giá những sản phẩm đã giao thành công cho chính user đó.
 
 ### 5. Hệ thống thông báo đẩy (FCM Push Notifications)
 
-- Sử dụng Firebase Cloud Messaging (FCM) tích hợp Service Worker ở frontend để nhận thông báo đẩy thời gian thực ngay cả khi tab trình duyệt đang ở chế độ nền (background).
-- Đồng bộ thông báo: In-app notification center cập nhật số lượng tin nhắn chưa đọc thời gian thực và tự động deduplicate các request đồng bộ khi focus trình duyệt.
+- FCM Push Alerts: Tích hợp Service Worker ở frontend để nhận thông báo thời gian thực khi trình duyệt chạy ngầm.
+- Notification Center: Đồng bộ tin nhắn chưa đọc real-time, tự động deduplicate request khi focus trình duyệt.
 
-### 6. Admin Management Console
+### 6. Admin Console
 
-- Quản lý trạng thái đơn hàng toàn hệ thống.
-- CRUD danh mục sản phẩm theo dạng cây phân cấp (Category Tree Hierarchy).
-- Xem danh sách phản hồi từ người dùng (Contact Submissions), quản lý tài khoản người dùng và thực hiện phân quyền hệ thống.
+- Cập nhật trạng thái đơn hàng.
+- CRUD danh mục theo dạng cây phân cấp (Category Tree).
+- Xem phản hồi (Contact Submissions), quản lý tài khoản và gán vai trò.
 
 ## Danh sách tính năng (Feature Checklist)
 
