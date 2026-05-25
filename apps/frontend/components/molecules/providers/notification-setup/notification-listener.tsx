@@ -4,18 +4,9 @@ import { PUBLIC_ENV } from "@/config/public.env.config";
 import { notificationsUseCase } from "@/domain/notifications/use-cases";
 import { getFirebaseMessaging } from "@/lib/firebase";
 import { ENotificationClientEvent } from "@ecommerce/shared";
-import { getToken, onMessage } from "firebase/messaging";
+import { getToken } from "firebase/messaging";
 import { useEffect, useRef } from "react";
 import { NotificationListenerProps } from "./notification-listener.types.ts";
-
-const normalizePayload = (
-  data?: Record<string, string>,
-  notification?: { title?: string; body?: string },
-) => ({
-  ...data,
-  title: notification?.title ?? data?.title,
-  body: notification?.body ?? data?.body,
-});
 
 const getClientEventType = (raw?: string): ENotificationClientEvent =>
   (raw as ENotificationClientEvent | undefined) ??
@@ -25,25 +16,17 @@ export default function NotificationListener({
   userId,
   onNotificationChanged,
 }: NotificationListenerProps) {
-  const onNotificationChangedRef = useRef(onNotificationChanged);
   const lastSavedTokenKeyRef = useRef<string | null>(null);
   const saveTokenPromiseMapRef = useRef(new Map<string, Promise<void>>());
-
-  useEffect(() => {
-    onNotificationChangedRef.current = onNotificationChanged;
-  }, [onNotificationChanged]);
 
   useEffect(() => {
     if (!PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY) return;
     if (typeof window === "undefined") return;
     if (!("Notification" in window)) return;
 
-    let unsubscribeForeground: (() => void) | undefined;
-    let isMounted = true;
-
     const handleServiceWorkerMessage = (event: MessageEvent) => {
       const type = getClientEventType(event.data?.type);
-      void onNotificationChangedRef.current(type, event.data?.notification);
+      void onNotificationChanged(type, event.data);
     };
 
     const saveTokenOnce = async (token: string): Promise<void> => {
@@ -81,26 +64,17 @@ export default function NotificationListener({
         }
 
         const messaging = await getFirebaseMessaging();
-        if (!isMounted || !messaging) return;
+        if (!messaging) return;
 
         const permission = await Notification.requestPermission();
-        if (!isMounted || permission !== "granted") return;
+        if (permission !== "granted") return;
 
         const token = await getToken(messaging, {
           vapidKey: PUBLIC_ENV.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
         });
-        if (!isMounted || !token) return;
+        if (!token) return;
 
         await saveTokenOnce(token);
-        if (!isMounted) return;
-
-        unsubscribeForeground = onMessage(messaging, (payload) => {
-          const type = getClientEventType(payload.data?.clientEvent);
-          void onNotificationChangedRef.current(
-            type,
-            normalizePayload(payload.data, payload.notification),
-          );
-        });
       } catch (error) {
         console.warn("[NotificationListener] Setup failed:", error);
       }
@@ -109,9 +83,6 @@ export default function NotificationListener({
     void setup();
 
     return () => {
-      isMounted = false;
-      unsubscribeForeground?.();
-
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.removeEventListener(
           "message",
@@ -119,7 +90,7 @@ export default function NotificationListener({
         );
       }
     };
-  }, [userId]);
+  }, [onNotificationChanged, userId]);
 
   return null;
 }

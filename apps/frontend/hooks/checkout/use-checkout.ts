@@ -57,6 +57,11 @@ export const useCheckout = (selectedAddressId: string | null) => {
       });
 
       if (res.status === "success") {
+        console.log("SUCCESS TOAST DATA:", res.data);
+        console.log(
+          "SUCCESS TOAST ID:",
+          res.data ? TOAST_KEYS.ORDER_PLACE(res.data.id) : undefined,
+        );
         toast.success(t("success"), {
           id: res.data ? TOAST_KEYS.ORDER_PLACE(res.data.id) : undefined,
         });

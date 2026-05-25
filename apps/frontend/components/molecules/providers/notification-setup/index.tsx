@@ -5,7 +5,7 @@ import { useNotificationHandlers } from "@/hooks/notifications/use-notification-
 import { ENotificationClientEvent } from "@ecommerce/shared";
 import { Fragment, useCallback } from "react";
 import NotificationListener from "./notification-listener";
-import { NotificationEventData } from "./notification-listener.types.ts";
+import { FirebaseServiceWorkerMessagePayload } from "./notification-listener.types.ts";
 import NotificationVisibleListener from "./notification-visible-listener";
 
 export default function NotificationSetup() {
@@ -14,8 +14,11 @@ export default function NotificationSetup() {
   const notificationHandlers = useNotificationHandlers();
 
   const handleNotificationChanged = useCallback(
-    (type: ENotificationClientEvent, data?: NotificationEventData) => {
-      console.log("Notification received", type, data);
+    (
+      type: ENotificationClientEvent,
+      data?: FirebaseServiceWorkerMessagePayload,
+    ) => {
+      console.log("any data receive", data);
       notificationHandlers[type]?.(data);
     },
     [notificationHandlers],

@@ -1,4 +1,7 @@
-import { NotificationEventData } from "@/components/molecules/providers/notification-setup/notification-listener.types.ts";
+import {
+  FirebaseServiceWorkerMessagePayload,
+  NotificationEventData,
+} from "@/components/molecules/providers/notification-setup/notification-listener.types.ts";
 import { toast } from "@/components/ui/toast";
 import { TOAST_KEYS } from "@/constants/toast.constant";
 import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
@@ -10,24 +13,27 @@ export const useNotificationHandlers = () => {
 
   const notificationHandlers: Record<
     ENotificationClientEvent,
-    (data?: NotificationEventData) => void
+    (data?: FirebaseServiceWorkerMessagePayload) => void
   > = useMemo(
     () => ({
       [ENotificationClientEvent.CHANGED]: (data?: NotificationEventData) => {
-        console.log("Notification changed", data);
+        console.log("ENotificationClientEvent.CHANGED", JSON.stringify(data));
         loadUnreadCount();
-        if (data?.title) {
-          const toastId = data.orderId
-            ? TOAST_KEYS.ORDER_PLACE(data.orderId)
+
+        const notiInfo = data?.notification;
+        if (notiInfo?.title) {
+          const toastId = data?.data?.orderId
+            ? TOAST_KEYS.ORDER_PLACE(data.data.orderId)
             : undefined;
-          toast.info(data.title, {
-            description: data.body,
+          console.log("INFO TOAST ID:", toastId);
+          toast.info(notiInfo.title, {
+            description: notiInfo.body,
             id: toastId,
           });
         }
       },
       [ENotificationClientEvent.REFRESH]: (data?: NotificationEventData) => {
-        console.log("Notification refreshed", data);
+        console.log("ENotificationClientEvent.REFRESH", data);
         loadUnreadCount();
       },
     }),
