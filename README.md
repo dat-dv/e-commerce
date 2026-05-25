@@ -19,7 +19,7 @@ flowchart LR
         TS["Turnstile\nAnti-bot CAPTCHA"]
     end
 
-    subgraph GCP["🖥️ GCP · VPC · RAM 8GB"]
+    subgraph GCP["🖥️ GCP · e2-standard-2 · Intel Broadwell"]
         PIP["Public IP\nGCP Static External"]
         NPM["Nginx Proxy Manager\nSSL · Reverse Proxy"]
     end
@@ -32,7 +32,6 @@ flowchart LR
     end
 
     subgraph EXT["🔌 External Services"]
-        FBAUTH["Firebase Auth\nClient SDK + Admin SDK"]
         FCM["FCM\nCloud Messaging"]
         CLOUD["Cloudinary\nImage CDN · Optimize"]
         SMTP["Google SMTP\nEmail · Reset password"]
@@ -52,8 +51,6 @@ flowchart LR
     FE -->|API calls| BE
     BE --> DB
 
-    FE -.->|Client SDK| FBAUTH
-    BE -.->|Admin SDK| FBAUTH
     BE -.->|push trigger| FCM
     FCM -.->|Service Worker| FE
     BE -.->|upload| CLOUD
@@ -76,10 +73,11 @@ flowchart LR
 
 ### GCP · VPC
 
-| Thành phần              | Vai trò                                                |
+| Thành phần              | Vai trò / Thông số kỹ thuật                            |
 | ----------------------- | ------------------------------------------------------ |
 | **Public IP**           | GCP Static External IP — điểm vào duy nhất của hạ tầng |
 | **Nginx Proxy Manager** | Reverse proxy, terminate SSL/TLS, định tuyến subdomain |
+| **Cấu hình VM**         | Machine type: `e2-standard-2` (2 vCPUs, 8 GB Memory)   |
 
 Subdomain routing:
 
@@ -97,13 +95,12 @@ Subdomain routing:
 
 ### External Services
 
-| Service           | Tích hợp                                                | Phía    |
-| ----------------- | ------------------------------------------------------- | ------- |
-| **Firebase Auth** | Client SDK (frontend) + Admin SDK (backend)             | FE + BE |
-| **FCM**           | Backend trigger → Service Worker nhận push notification | BE → FE |
-| **Cloudinary**    | Upload & optimize ảnh qua SDK                           | BE      |
-| **Google SMTP**   | Gửi email quên mật khẩu, reset password                 | BE      |
-| **Leaflet Maps**  | Map Picker chọn địa chỉ giao hàng                       | FE      |
+| Service          | Tích hợp                                                | Phía    |
+| ---------------- | ------------------------------------------------------- | ------- |
+| **Firebase FCM** | Backend trigger → Service Worker nhận push notification | BE → FE |
+| **Cloudinary**   | Upload & optimize ảnh qua SDK                           | BE      |
+| **Google SMTP**  | Gửi email quên mật khẩu, reset password                 | BE      |
+| **Leaflet Maps** | Map Picker chọn địa chỉ giao hàng                       | FE      |
 
 ---
 
@@ -115,12 +112,10 @@ Browser
        └─► GCP Public IP
              └─► Nginx Proxy Manager (SSL terminate)
                    ├─► chotdon.shop       → Next.js :5173
-                   │     ├─► Firebase Auth (Client SDK)
                    │     ├─► Leaflet Maps
                    │     └─► FCM Service Worker (push notification)
-                   └─► api.chotdon.shop   → Next.js :3000
+                   └─► api.chotdon.shop   → NestJS :3000
                          ├─► SQLite (Prisma ORM)
-                         ├─► Firebase Auth (Admin SDK)
                          ├─► FCM (push trigger)
                          ├─► Cloudinary (image upload)
                          └─► Google SMTP (email)
@@ -130,21 +125,21 @@ Browser
 
 ## Stack tóm tắt
 
-| Hạng mục             | Công nghệ                            |
-| -------------------- | ------------------------------------ |
-| Domain               | `chotdon.shop`                       |
-| DNS · CDN · Security | Cloudflare + Turnstile               |
-| Hosting              | Google Cloud Platform — RAM 8GB      |
-| Reverse Proxy        | Nginx Proxy Manager (SSL tự động)    |
-| Frontend             | Next.js 16, React 19, TypeScript     |
-| Backend              | NestJS 11, Prisma ORM, TypeScript    |
-| Database             | SQLite (multi-file Prisma schema)    |
-| Orchestration        | Docker Compose (Monorepo)            |
-| Auth                 | Firebase Authentication + JWT nội bộ |
-| Push Notification    | Firebase Cloud Messaging (FCM)       |
-| Image                | Cloudinary                           |
-| Email                | Google SMTP                          |
-| Map                  | Leaflet.js                           |
+| Hạng mục             | Công nghệ                                                         |
+| -------------------- | ----------------------------------------------------------------- |
+| Domain               | `chotdon.shop`                                                    |
+| DNS · CDN · Security | Cloudflare + Turnstile                                            |
+| Hosting              | GCP e2-standard-2 (2 vCPUs, 8 GB Memory, Intel Broadwell, x86/64) |
+| Reverse Proxy        | Nginx Proxy Manager                                               |
+| Frontend             | Next.js 16, React 19, TypeScript                                  |
+| Backend              | NestJS 11, Prisma ORM, TypeScript                                 |
+| Database             | SQLite (multi-file Prisma schema)                                 |
+| Orchestration        | Docker Compose (Monorepo)                                         |
+| Auth                 | JWT nội bộ (Access/Refresh Token)                                 |
+| Push Notification    | Firebase Cloud Messaging (FCM)                                    |
+| Image                | Cloudinary                                                        |
+| Email                | Google SMTP                                                       |
+| Map                  | Leaflet.js                                                        |
 
 ## Tích hợp & Tiêu chuẩn kỹ thuật
 
@@ -160,13 +155,13 @@ Browser
 ### Lưu trữ đám mây & API tích hợp
 
 - Cloudinary: Xử lý upload và tối ưu hóa hình ảnh thông qua Cloudinary SDK trên backend.
-- Firebase Admin SDK: Xác thực phiên đăng nhập, tạo mã định danh và quản lý người dùng tập trung.
+- Firebase Admin SDK: Gửi thông báo đẩy thời gian thực qua FCM.
 
 ## Chi tiết các luồng tính năng cốt lõi
 
 ### 1. Xác thực & Phân quyền (Authentication & RBAC)
 
-- Xác thực hai lớp: Kết hợp Firebase Authentication (client-side) và hệ thống cấp phát JWT Access/Refresh Token nội bộ (backend-side).
+- Cơ chế xác thực: Sử dụng hệ thống tài khoản cục bộ mã hóa PBKDF2 mật khẩu kết hợp JWT Access/Refresh Token được lưu trữ an toàn trong HTTP-only Cookie.
 - Phân quyền dựa trên vai trò (Role-Based Access Control - RBAC): Hệ thống phân quyền chặt chẽ bằng Roles & Permissions được kiểm soát qua Guards ở backend. Admin có quyền CRUD vai trò, gán danh sách permissions và phân quyền cụ thể cho từng tài khoản.
 
 ### 2. Giỏ hàng, Khuyến mãi & Thanh toán (Cart, Coupons & Checkout)
@@ -200,7 +195,7 @@ Browser
 
 ### 1. Xác thực & Người dùng (Authentication & User Profile)
 
-- [x] Đăng ký tài khoản (Sign Up) & Đăng nhập (Sign In) tích hợp Firebase Client SDK.
+- [x] Đăng ký tài khoản (Sign Up) & Đăng nhập (Sign In) bằng Email/Password (mật khẩu băm PBKDF2).
 - [x] Cấp phát & quản lý Local JWT (Access/Refresh Token) trên NestJS backend.
 - [x] Tự động gia hạn phiên đăng nhập (Refresh Token queue) tại request client.
 - [x] Đăng xuất (Logout) xóa cookie và thu hồi token.
@@ -297,7 +292,6 @@ Browser
 ### 12. Tính năng nâng cao (Post-MVP Roadmap)
 
 - [ ] Tích hợp cổng thanh toán trực tuyến (VNPAY, MoMo, Stripe).
-- [ ] Xác thực số điện thoại bằng OTP/SMS.
 - [ ] Hệ thống Caching bằng Redis (Homepage, Product details).
 - [ ] Tích hợp công cụ tìm kiếm nâng cao (Elasticsearch / Meilisearch).
 - [ ] Hệ thống Logging/Monitoring tập trung (Sentry, Prometheus, Grafana).
