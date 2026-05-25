@@ -5,6 +5,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useConfig } from "@/hooks/config/use-config";
 import { useLoadOnce } from "@/hooks/use-load-once";
 import usePagination from "@/hooks/use-pagination";
@@ -14,6 +15,7 @@ import { useCallback, useMemo } from "react";
 import { DiscoverySectionSkeleton } from "./skeletons";
 
 export const FavoriteSection = () => {
+  const user = useAuthStore((state) => state.user);
   const { language } = useConfig();
   const t = useTranslations("HomePage.discovery");
   const { data, getData } = usePagination<
@@ -30,7 +32,8 @@ export const FavoriteSection = () => {
   });
 
   const fetchFavorites = useCallback(() => getData({ page: 1 }), [getData]);
-  const { loading: initialLoading } = useLoadOnce(fetchFavorites);
+  const shouldLoad = Boolean(user?.id);
+  const { loading: initialLoading } = useLoadOnce(fetchFavorites, shouldLoad);
 
   const products = useMemo(
     () =>
@@ -39,6 +42,8 @@ export const FavoriteSection = () => {
         .filter((product): product is TProduct => Boolean(product)),
     [data.items],
   );
+
+  if (!shouldLoad) return null;
 
   return (
     <DiscoverySectionSkeleton loading={initialLoading} total={products.length}>

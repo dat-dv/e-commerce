@@ -10,6 +10,7 @@ import { DiscoverySectionSkeleton } from "./skeletons";
 import { useTranslations } from "next-intl";
 
 import { TProduct } from "@/domain/products/types/products.model";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLoadOnce } from "@/hooks/use-load-once";
 
 export interface RecentViewedSectionProps {
@@ -21,16 +22,23 @@ export const RecentViewedSection = ({
   products: propProducts,
   loading: propLoading,
 }: RecentViewedSectionProps) => {
+  const user = useAuthStore((state) => state.user);
   const {
     recentViewedProducts,
     loading: hookLoading,
     fetchRecentViewedProducts,
   } = useLoadRecentViewedProducts({ initialItems: propProducts });
-  const { loading: initialLoading } = useLoadOnce(fetchRecentViewedProducts);
+  const shouldLoad = Boolean(user?.id || propProducts);
+  const { loading: initialLoading } = useLoadOnce(
+    fetchRecentViewedProducts,
+    shouldLoad,
+  );
   const { language } = useConfig();
   const t = useTranslations("HomePage.discovery");
   const products = propProducts ?? recentViewedProducts;
   const loading = propLoading || hookLoading || initialLoading;
+
+  if (!shouldLoad) return null;
 
   return (
     <DiscoverySectionSkeleton loading={loading} total={products.length}>
