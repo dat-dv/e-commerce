@@ -11,6 +11,7 @@ import { ProductPriceBox } from "./product-price-box";
 import { ProductPurchaseActions } from "./product-purchase-actions";
 import { ProductQuantitySelector } from "./product-quantity-selector";
 import { ProductRatingSummary } from "./product-rating-summary";
+import { ProductSkuOptions } from "./product-sku-options";
 
 interface ProductInfoProps {
   product: TProduct;
@@ -24,6 +25,9 @@ interface ProductInfoProps {
   attributeGroups: Record<string, Set<string>>;
   selectedAttributes: Record<string, string>;
   setSelectedAttributes: (attrs: Record<string, string>) => void;
+  selectedSkuId: string;
+  setSelectedSkuId: (skuId: string) => void;
+  shouldUseSkuSelector: boolean;
   quantity: number;
   setQuantity: (q: number) => void;
   handleAddToCart: () => void;
@@ -48,6 +52,9 @@ export const ProductInfo = ({
   attributeGroups,
   selectedAttributes,
   setSelectedAttributes,
+  selectedSkuId,
+  setSelectedSkuId,
+  shouldUseSkuSelector,
   quantity,
   setQuantity,
   handleAddToCart,
@@ -99,6 +106,14 @@ export const ProductInfo = ({
         onSelectedAttributesChange={setSelectedAttributes}
       />
 
+      {shouldUseSkuSelector && (
+        <ProductSkuOptions
+          skus={product.skus}
+          selectedSkuId={selectedSkuId}
+          onSelectedSkuChange={setSelectedSkuId}
+        />
+      )}
+
       <ProductQuantitySelector
         selectedSku={selectedSku}
         quantity={quantity}
@@ -108,6 +123,7 @@ export const ProductInfo = ({
       <RenderDesktopOnly>
         <ProductPurchaseActions
           hasSelectedSku={Boolean(selectedSku.id)}
+          isOutOfStock={selectedSku?.stock === 0}
           isFavorited={isFavorited}
           onAddToCart={handleAddToCart}
           onBuyNow={handleBuyNow}

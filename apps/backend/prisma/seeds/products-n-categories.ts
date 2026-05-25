@@ -44,6 +44,36 @@ export enum ProductStatus {
   OUT_OF_STOCK = 2,
 }
 
+function resolveBaseSkuPrice(product: AmazonProduct, sku: AmazonSku): number {
+  return sku.price > 0 ? sku.price : product.actual_price_vnd > 0 ? product.actual_price_vnd : 100000;
+}
+
+function resolveSeedSkuPrice(product: AmazonProduct, sku: AmazonSku, index: number): number {
+  const basePrice = resolveBaseSkuPrice(product, sku);
+  const distinctPrices = new Set(product.skus.map((item) => resolveBaseSkuPrice(product, item)));
+
+  if (distinctPrices.size > 1 || product.skus.length <= 1) {
+    return basePrice;
+  }
+
+  const multipliers = [1, 0.94, 1.06, 0.88, 1.12];
+  const variedPrice = Math.round((basePrice * multipliers[index % multipliers.length]) / 100) * 100;
+  const originalPrice = product.actual_price_vnd > 0 ? product.actual_price_vnd : basePrice;
+
+  return Math.max(1000, Math.min(variedPrice, Math.max(originalPrice, basePrice)));
+}
+
+function resolveSeedSkuStock(product: AmazonProduct, sku: AmazonSku, index: number): number {
+  const distinctStocks = new Set(product.skus.map((item) => item.stock));
+
+  if (distinctStocks.size > 1 || product.skus.length <= 1) {
+    return sku.stock;
+  }
+
+  const deltas = [0, -7, 5, -13, 9];
+  return Math.max(0, sku.stock + deltas[index % deltas.length]);
+}
+
 function slugify(text: string): string {
   return text
     .toString()
@@ -302,9 +332,7 @@ async function seedOneProduct(params: {
       brandId = findBrandIdByProductName(p.name, brandMap);
     }
 
-    const skuPrices = p.skus.map((sku) =>
-      sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000,
-    );
+    const skuPrices = p.skus.map((sku, index) => resolveSeedSkuPrice(p, sku, index));
     const basePrice =
       skuPrices.length > 0 ? Math.min(...skuPrices) : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
 
@@ -333,9 +361,9 @@ async function seedOneProduct(params: {
           create: [{ category_id: subCategoryId }],
         },
         skus: {
-          create: p.skus.map((sku) => {
-            const price = sku.price > 0 ? sku.price : p.actual_price_vnd > 0 ? p.actual_price_vnd : 100000;
-            const originalPrice = p.actual_price_vnd > 0 ? p.actual_price_vnd : price;
+          create: p.skus.map((sku, index) => {
+            const price = resolveSeedSkuPrice(p, sku, index);
+            const originalPrice = Math.max(p.actual_price_vnd > 0 ? p.actual_price_vnd : price, price);
             const color = sku.attributes?.color ?? 'NA';
             const size = sku.attributes?.size ?? 'NA';
             const safeSkuCode = resolveSkuCode(sku.sku_code, p.pure_name, color, size);
@@ -345,7 +373,7 @@ async function seedOneProduct(params: {
               price: price,
               original_price: originalPrice,
               unit_price: 'VND',
-              stock: sku.stock,
+              stock: resolveSeedSkuStock(p, sku, index),
               image_url: imageUrl,
             };
           }),
@@ -355,6 +383,47 @@ async function seedOneProduct(params: {
         skus: true,
       },
     });
+
+    for (let i = 0; i < p.skus.length; i++) {
+      const rawSku = p.skus[i];
+      const createdSku = createdProduct.skus[i];
+      if (!createdSku || !rawSku.attributes) continue;
+
+      for (const [attrName, attrVal] of Object.entries(rawSku.attributes)) {
+        if (!attrVal || attrVal === 'NA') continue;
+
+        let attribute = await prisma.attribute.findFirst({
+          where: { name: attrName },
+        });
+        if (!attribute) {
+          attribute = await prisma.attribute.create({
+            data: { name: attrName },
+          });
+        }
+
+        let attributeValue = await prisma.attributeValue.findFirst({
+          where: {
+            attribute_id: attribute.id,
+            value: attrVal,
+          },
+        });
+        if (!attributeValue) {
+          attributeValue = await prisma.attributeValue.create({
+            data: {
+              attribute_id: attribute.id,
+              value: attrVal,
+            },
+          });
+        }
+
+        await prisma.skuAttributeValue.create({
+          data: {
+            sku_id: createdSku.id,
+            attribute_value_id: attributeValue.id,
+          },
+        });
+      }
+    }
 
     type ParsedReview = { rating?: number | string | null; title?: string | null; comment?: string | null };
     const validReviews = p.reviews?.filter((rev: ParsedReview) => rev.rating != null || rev.comment != null) || [];

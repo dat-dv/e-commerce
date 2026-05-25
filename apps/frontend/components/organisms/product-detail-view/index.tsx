@@ -33,7 +33,10 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
     setQuantity,
     selectedAttributes,
     setSelectedAttributes,
+    selectedSkuId,
+    setSelectedSkuId,
     attributeGroups,
+    shouldUseSkuSelector,
     selectedSku,
   } = useProductSelection(product);
   const { selectedImage, setSelectedImage, images, selectedImageUrl } =
@@ -95,6 +98,9 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           attributeGroups={attributeGroups}
           selectedAttributes={selectedAttributes}
           setSelectedAttributes={setSelectedAttributes}
+          selectedSkuId={selectedSkuId}
+          setSelectedSkuId={setSelectedSkuId}
+          shouldUseSkuSelector={shouldUseSkuSelector}
           quantity={quantity}
           setQuantity={setQuantity}
           handleAddToCart={handleAddToCart}
@@ -143,6 +149,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
       <RenderTabletAndBelow>
         <ProductMobilePurchaseBar
           hasSelectedSku={Boolean(selectedSku.id)}
+          isOutOfStock={selectedSku?.stock === 0}
           isFavorited={isFavorited}
           price={price}
           onAddToCart={handleAddToCart}

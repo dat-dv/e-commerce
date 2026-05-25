@@ -1490,6 +1490,7 @@ declare const messages: {
     "quantity": "Quantity",
     "itemsAvailable": "{count} items available",
     "inStock": "In Stock",
+    "outOfStock": "Out of stock",
     "addToCart": "Add to Cart",
     "addToCartSuccess": "Added to cart successfully",
     "buyNow": "Buy Now",

@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 
 interface ProductMobilePurchaseBarProps {
   hasSelectedSku: boolean;
+  isOutOfStock?: boolean;
   isFavorited: boolean;
   price: number;
   onAddToCart: () => void;
@@ -17,6 +18,7 @@ interface ProductMobilePurchaseBarProps {
 
 export function ProductMobilePurchaseBar({
   hasSelectedSku,
+  isOutOfStock,
   isFavorited,
   price,
   onAddToCart,
@@ -56,7 +58,7 @@ export function ProductMobilePurchaseBar({
               variant="outline"
               className="bg-primary/10 hover:bg-primary/20 border-primary/20 h-12 flex-1 hover:brightness-100"
               onClick={onAddToCart}
-              disabled={!hasSelectedSku}
+              disabled={!hasSelectedSku || isOutOfStock}
             >
               <ShoppingCart size={17} />
               {t("addToCart")}
@@ -66,9 +68,9 @@ export function ProductMobilePurchaseBar({
               variant="primary"
               className="h-12 flex-1"
               onClick={onBuyNow}
-              disabled={!hasSelectedSku}
+              disabled={!hasSelectedSku || isOutOfStock}
             >
-              {t("buyNow")}
+              {isOutOfStock ? t("outOfStock") : t("buyNow")}
             </Button>
           </div>
         </div>

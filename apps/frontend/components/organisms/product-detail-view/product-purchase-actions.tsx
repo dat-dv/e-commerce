@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 
 interface ProductPurchaseActionsProps {
   hasSelectedSku: boolean;
+  isOutOfStock?: boolean;
   isFavorited: boolean;
   onAddToCart: () => void;
   onBuyNow: () => void;
@@ -14,6 +15,7 @@ interface ProductPurchaseActionsProps {
 
 export function ProductPurchaseActions({
   hasSelectedSku,
+  isOutOfStock,
   isFavorited,
   onAddToCart,
   onBuyNow,
@@ -27,7 +29,7 @@ export function ProductPurchaseActions({
         variant="outline"
         className="bg-primary/10 hover:bg-primary/20 border-primary/20 h-auto flex-1 py-3.5 hover:brightness-100"
         onClick={onAddToCart}
-        disabled={!hasSelectedSku}
+        disabled={!hasSelectedSku || isOutOfStock}
       >
         <ShoppingCart size={18} />
         {t("addToCart")}
@@ -36,9 +38,9 @@ export function ProductPurchaseActions({
         variant="primary"
         className="h-auto flex-1 py-3.5"
         onClick={onBuyNow}
-        disabled={!hasSelectedSku}
+        disabled={!hasSelectedSku || isOutOfStock}
       >
-        {t("buyNow")}
+        {isOutOfStock ? t("outOfStock") : t("buyNow")}
       </Button>
       <Button
         variant="ghost"

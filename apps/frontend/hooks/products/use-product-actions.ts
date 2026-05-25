@@ -27,6 +27,10 @@ export const useProductActions = (
     }
 
     if (!selectedSku) return;
+    if (selectedSku.stock === 0) {
+      toast.error(t("outOfStock"));
+      return;
+    }
 
     addItem(
       {

@@ -7,7 +7,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { TBrand } from "@/domain/products/types/products.model";
 
 interface BrandInfoProps {
-  brand?: TBrand;
+  brand?: TBrand | null;
 }
 
 export const BrandInfo = ({ brand }: BrandInfoProps) => {

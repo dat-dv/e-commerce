@@ -36,7 +36,7 @@ export function ProductAttributeOptions({
                 <Button
                   key={value}
                   variant="ghost"
-                  onClick={() =>
+                  onPress={() =>
                     onSelectedAttributesChange({
                       ...selectedAttributes,
                       [attrName]: value,

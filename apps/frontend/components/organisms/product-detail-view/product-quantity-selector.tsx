@@ -28,12 +28,15 @@ export function ProductQuantitySelector({
           value={quantity}
           onChange={onQuantityChange}
           max={maxStock}
+          disabled={maxStock === 0}
           className="h-9"
           inputClassName="w-12 font-semibold"
         />
         <span className="text-content/50 text-sm">
           {selectedSku?.stock !== undefined
-            ? t("itemsAvailable", { count: String(selectedSku.stock) })
+            ? selectedSku.stock > 0
+              ? t("itemsAvailable", { count: String(selectedSku.stock) })
+              : t("outOfStock")
             : t("inStock")}
         </span>
       </div>
