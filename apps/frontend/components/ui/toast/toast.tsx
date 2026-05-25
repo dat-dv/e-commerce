@@ -16,8 +16,9 @@ export interface ToastOptions {
 function showToast(
   title: string,
   variant: ToastVariant = "default",
-  { description, duration }: ToastOptions = {},
+  options: ToastOptions = {},
 ): ToastId {
+  const { id, description, duration } = options;
   return sonnerToast.custom(
     (toastId) => (
       <CustomToast
@@ -28,6 +29,7 @@ function showToast(
       />
     ),
     {
+      id,
       duration:
         duration ?? (variant === "error" ? ERROR_TIMEOUT : DEFAULT_TIMEOUT),
     },
