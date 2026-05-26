@@ -20,19 +20,16 @@ export function TurnstileWrapper({
   className,
 }: TurnstileWrapperProps): React.ReactElement {
   const siteKey = PUBLIC_ENV.NEXT_PUBLIC_CF_SITE_KEY!;
-  const isDev = PUBLIC_ENV.NODE_ENV === "development";
 
   const [token, setToken] = useState<string | null>(null);
 
-  const hasSiteKey = Boolean(siteKey) && !isDev;
+  const hasSiteKey = Boolean(siteKey);
   const isVerified = !hasSiteKey || Boolean(token);
   const { isDarkMode } = useConfig();
 
   return (
     <div className="flex flex-col gap-4">
-      {isDev
-        ? children({ isVerified: true, token })
-        : children({ isVerified, token })}
+      {children({ isVerified, token })}
       {hasSiteKey && (
         <AnimatePresence>
           <motion.div
