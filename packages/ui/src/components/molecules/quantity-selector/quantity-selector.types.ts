@@ -7,4 +7,5 @@ export interface IQuantitySelectorProps {
   decrementAriaLabel?: string;
   incrementAriaLabel?: string;
   className?: string;
+  inputClassName?: string;
 }
