@@ -44,7 +44,6 @@ export const ProductImages = ({
               imageProps={{
                 fill: true,
                 sizes: "(max-width: 1024px) 100vw, 40vw",
-                priority: true,
                 className: "object-contain",
               }}
             />
