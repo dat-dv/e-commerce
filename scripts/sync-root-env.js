@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT_DIR = process.cwd();
-const OUTPUT_FILE = path.join(ROOT_DIR, ".env");
 
 const ENV_NAME = process.argv[2] || "production";
 const TARGET_FILE_NAME = `.env.${ENV_NAME}`;
@@ -16,6 +15,18 @@ const IGNORE_DIRS = new Set([
   "coverage",
 ]);
 
+const SERVICE_MAP = {
+  "apps/backend": ".env.backend",
+  "apps/frontend": ".env.frontend",
+  "apps/admin": ".env.admin",
+};
+
+/**
+ * Recursively walks a directory to find target environment files.
+ * @param {string} dir - Directory to search.
+ * @param {string[]} results - Accumulator of found file paths.
+ * @returns {string[]} Found file paths.
+ */
 function walk(dir, results = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
@@ -37,6 +48,9 @@ function walk(dir, results = []) {
   return results;
 }
 
+/**
+ * Main execution function.
+ */
 function main() {
   const files = walk(ROOT_DIR);
 
@@ -45,27 +59,39 @@ function main() {
     return;
   }
 
-  const output = files
-    .map((filePath) => {
-      const relativePath = path.relative(ROOT_DIR, filePath);
+  console.log(`Processing ${TARGET_FILE_NAME} files...`);
+
+  files.forEach((filePath) => {
+    const relativePath = path.relative(ROOT_DIR, filePath);
+    const normalizedPath = relativePath.replace(/\\/g, "/"); // normalize Windows paths
+
+    // Find which service this env file belongs to
+    let matchedService = null;
+    for (const serviceKey of Object.keys(SERVICE_MAP)) {
+      if (normalizedPath.startsWith(serviceKey)) {
+        matchedService = serviceKey;
+        break;
+      }
+    }
+
+    if (matchedService) {
+      const destFileName = SERVICE_MAP[matchedService];
+      const destPath = path.join(ROOT_DIR, destFileName);
       const content = fs.readFileSync(filePath, "utf8").trim();
 
-      return [
-        "",
-        "# ==================================================",
-        `# Source: ${relativePath}`,
-        "# ==================================================",
+      const output = [
+        `# ==================================================`,
+        `# Generated from: ${normalizedPath}`,
+        `# ==================================================`,
         content,
         "",
       ].join("\n");
-    })
-    .join("\n");
 
-  fs.writeFileSync(OUTPUT_FILE, output, "utf8");
-
-  console.log(`Generated .env from ${files.length} ${TARGET_FILE_NAME} files:`);
-  files.forEach((file) => {
-    console.log(`- ${path.relative(ROOT_DIR, file)}`);
+      fs.writeFileSync(destPath, output, "utf8");
+      console.log(`- Synced ${normalizedPath} -> ${destFileName}`);
+    } else {
+      console.log(`- Ignored: ${normalizedPath} (no matching service)`);
+    }
   });
 }
 
