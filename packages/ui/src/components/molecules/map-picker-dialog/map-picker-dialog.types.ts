@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IMapPickerSuggestion {
   id: string;
   label: string;
@@ -7,6 +9,8 @@ export interface IMapPickerSuggestion {
 
 export interface IMapPickerDialogLabels {
   title?: string;
+  close?: string;
+  searchLabel?: string;
   searchPlaceholder?: string;
   confirm?: string;
   cancel?: string;
@@ -15,8 +19,13 @@ export interface IMapPickerDialogLabels {
 export interface IMapPickerDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: (location: { lat: number; lng: number; address?: string }) => void;
-  initialLat?: number;
-  initialLng?: number;
-  labels?: IMapPickerDialogLabels;
+  onConfirm: () => void;
+  loading?: boolean;
+  canConfirm?: boolean;
+  searchQuery?: string;
+  suggestions?: IMapPickerSuggestion[];
+  mapContent?: ReactNode;
+  labels: IMapPickerDialogLabels;
+  onSearchQueryChange: (query: string) => void;
+  onSuggestionSelect: (suggestion: IMapPickerSuggestion) => void;
 }

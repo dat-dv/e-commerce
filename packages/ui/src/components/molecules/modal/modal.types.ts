@@ -4,7 +4,10 @@ export interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
-  className?: string;
+  closeLabel?: string;
+  showCloseButton?: boolean;
+  overlayClassName?: string;
   panelClassName?: string;
+  closeButtonClassName?: string;
   isDismissable?: boolean;
 }

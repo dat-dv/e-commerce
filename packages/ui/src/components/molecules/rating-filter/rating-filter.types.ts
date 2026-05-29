@@ -1,11 +1,12 @@
 export interface IRatingFilterLabels {
   title?: string;
-  starsLabel?: string | ((n: number) => string);
+  suffix?: string;
 }
 
 export interface IRatingFilterProps {
-  value?: number | null;
-  onChange: (value: number | null) => void;
+  ratingValue?: string;
+  onRatingClick: (rating: number) => void;
+  ratings?: number[];
   labels?: IRatingFilterLabels;
   className?: string;
 }

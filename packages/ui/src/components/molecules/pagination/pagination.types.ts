@@ -6,6 +6,6 @@ export interface IPaginationProps {
   onPageChange: (page: number) => void;
   linkComponent?: ElementType;
   className?: string;
-  prevLabel?: string;
+  previousLabel?: string;
   nextLabel?: string;
 }

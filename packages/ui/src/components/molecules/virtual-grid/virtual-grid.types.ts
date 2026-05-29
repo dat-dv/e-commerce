@@ -9,11 +9,11 @@ export interface IVirtualGridColumns {
   xl?: number;
 }
 
-export interface IVirtualGridProps<T extends { id?: string | number }> {
+export interface IVirtualGridProps<T> {
   data: T[];
   renderItem: (item: T, index: number) => ReactNode;
   keyExtractor?: (item: T, index: number) => string | number;
-  columns: IVirtualGridColumns;
+  columns?: IVirtualGridColumns;
   gap?: number;
   loadingMore?: boolean;
   hasMore?: boolean;
@@ -21,5 +21,8 @@ export interface IVirtualGridProps<T extends { id?: string | number }> {
   loadingText?: string;
   endText?: string;
   className?: string;
+  gridClassName?: string;
+  itemClassName?: string;
+  rowClassName?: string;
   triggerMargin?: UseInViewOptions["margin"];
 }
