@@ -20,7 +20,7 @@ import { productsUseCase } from "@/domain/products/use-cases";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import {
   attachProductsSchema,
   type AttachProductsData,
@@ -50,7 +50,7 @@ export function AttachProductsModal({
   const tCommon = useTranslations("Common.modal");
 
   const [products, setProducts] = useState<TProduct[]>([]);
-  const [loadingProducts, setLoadingProducts] = useState(false);
+  const [productsLoaded, setProductsLoaded] = useState(false);
 
   const defaultValues = useMemo(
     () => ({
@@ -69,29 +69,36 @@ export function AttachProductsModal({
     defaultValues,
   });
 
-  const { watch, setValue, reset } = methods;
-  const selectedProductId = watch("productId");
-  const selectedSkuId = watch("skuId");
+  const { control, setValue, reset } = methods;
+  const selectedProductId = useWatch({ control, name: "productId" });
+  const selectedSkuId = useWatch({ control, name: "skuId" });
 
   useEffect(() => {
-    if (isOpen) {
-      reset(defaultValues);
-      setLoadingProducts(true);
-      productsUseCase.getProducts
-        .execute({ limit: 100 })
-        .then((res) => {
-          if (res.status === "success" && res.data?.items) {
-            setProducts(res.data.items);
-          }
-        })
-        .catch((err) => {
-          console.error("Failed to load products for flash sale", err);
-        })
-        .finally(() => {
-          setLoadingProducts(false);
-        });
-    }
+    if (!isOpen) return;
+
+    reset(defaultValues);
   }, [isOpen, reset, defaultValues]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    if (productsLoaded) return;
+
+    productsUseCase.getProducts
+      .execute({ limit: 100 })
+      .then((res) => {
+        if (res.status === "success" && res.data?.items) {
+          setProducts(res.data.items);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to load products for flash sale", err);
+      })
+      .finally(() => {
+        setProductsLoaded(true);
+      });
+  }, [isOpen, productsLoaded]);
+
+  const loadingProducts = isOpen && !productsLoaded;
 
   const flashSaleOptions = useMemo(() => {
     return flashSales.map((fs) => ({
