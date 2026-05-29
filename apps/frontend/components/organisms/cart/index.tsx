@@ -9,10 +9,10 @@ import { DiscoveryCarouselSection } from "@/components/organisms/discovery-secti
 import { CartPageHeader } from "./cart-page-header";
 import { CartSummary } from "./cart-summary";
 
-import { CartTableHead } from "../../molecules/cart-part/cart-table-head";
-import { CartItemRow } from "../../molecules/cart-part/cart-item-row";
-import { CartFooter } from "../../molecules/cart-part/cart-footer";
-import { EmptyCart } from "../../molecules/cart-part/empty-cart";
+import { CartTableHead } from "@/components/molecules/cart-part/cart-table-head";
+import { CartItemRow } from "@/components/molecules/cart-part/cart-item-row";
+import { CartFooter } from "@/components/molecules/cart-part/cart-footer";
+import { EmptyCart } from "@/components/molecules/cart-part/empty-cart";
 
 export function CartView() {
   const {

@@ -9,7 +9,7 @@ import { useProductGallery } from "@/hooks/products/use-product-gallery";
 import { useProductReviewSection } from "@/hooks/products/use-product-review-section";
 import { useProductSelection } from "@/hooks/products/use-product-selection";
 import { useSimilarProducts } from "@/hooks/products/use-similar-products";
-import { ReviewsRatings } from "../../molecules/review-rating";
+import { ReviewsRatings } from "@/components/molecules/review-rating";
 import { BrandInfo } from "./brand-info";
 import { DescriptionCategory } from "./description-category";
 import { ProductImages } from "./product-images";

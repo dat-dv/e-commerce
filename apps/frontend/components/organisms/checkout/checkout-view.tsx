@@ -11,7 +11,7 @@ import { useAddAddress } from "@/hooks/addresses/use-add-address";
 import { useUpdateAddress } from "@/hooks/addresses/use-update-address";
 import { useCheckout } from "@/hooks/checkout/use-checkout";
 import { useState } from "react";
-import { AddAddressModal } from "../../molecules/add-address-modal";
+import { AddAddressModal } from "@/components/molecules/add-address-modal";
 import { CheckoutHeader } from "./checkout-header";
 import { CheckoutList } from "./checkout-list-section";
 import { OrderSummary } from "./order-summary";

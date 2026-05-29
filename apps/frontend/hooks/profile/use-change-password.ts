@@ -2,7 +2,7 @@ import { toast } from "@/components/atoms/toast";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { ChangePasswordFormData } from "../../components/molecules/change-password-form/change-password.schema";
+import { ChangePasswordFormData } from "@/components/molecules/change-password-form/change-password.schema";
 
 export const useChangePassword = () => {
   const t = useTranslations("ProfilePasswordPage.toast");

@@ -5,7 +5,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
 import SettingsIcon from "@/components/atoms/settings-icon";
-import { CategoryMegaMenuContentWrapper } from "../../../molecules/categories-dropdown";
+import { CategoryMegaMenuContentWrapper } from "@/components/molecules/categories-dropdown";
 
 import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { useHeaderStore } from "@/hooks/config/use-header-store";

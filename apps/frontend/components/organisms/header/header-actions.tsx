@@ -13,7 +13,7 @@ import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import AvatarDropdown from "../../molecules/avatar-dropdown";
+import AvatarDropdown from "@/components/molecules/avatar-dropdown";
 
 export default function HeaderActions({
   visible = ["cart", "avatar", "notifications", "favorites", "fallback"],

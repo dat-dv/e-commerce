@@ -19,6 +19,9 @@
       }
     ],
     "paths": {
+      "@/components/molecules/providers/*": ["./components/molecules/providers/*"],
+      "@/components/atoms/*": ["../../packages/ui/src/components/atoms/*"],
+      "@/components/molecules/*": ["../../packages/ui/src/components/molecules/*"],
       "@/*": ["./*"]
     },
     "types": ["@testing-library/jest-dom"],

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./themes.css";
 
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+
 /* =========================================
    GÁN BIẾN VÀO TAILWIND 4
    ========================================= */
