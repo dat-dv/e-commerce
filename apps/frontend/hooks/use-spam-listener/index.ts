@@ -1,7 +1,7 @@
 "use client";
 
+import { toast } from "@/components/atoms/toast";
 import { useEffect, useRef } from "react";
-import { toast } from "@/components/ui/toast";
 
 export const useSpamListener = ({
   isSpam,

@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/components/atoms/toast";
 import { flashSalesUseCase } from "@/domain/flash-sales";
 import type {
   TAddProductsToFlashSaleInput,

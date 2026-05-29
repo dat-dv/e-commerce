@@ -1,10 +1,10 @@
 "use client";
 
+import { toast } from "@/components/atoms/toast";
 import {
   getForgotPasswordSchema,
   TForgotPasswordSchema,
 } from "@/components/molecules/forgot-password-form/forgot-password.schema";
-import { toast } from "@/components/ui/toast";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";

@@ -1,5 +1,5 @@
 "use client";
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/components/atoms/toast";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { toast } from "@/components/atoms/toast";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
+import { useCallback, useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";
-import { toast } from "@/components/ui/toast";
 import { useFavoritesStore } from "./use-favorites-store";
 
 export const useToggleFavorite = (

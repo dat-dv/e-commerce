@@ -1,10 +1,10 @@
 "use client";
 
+import { toast } from "@/components/atoms/toast";
 import {
   getResetPasswordSchema,
   TResetPasswordSchema,
 } from "@/components/molecules/reset-password-form/reset-password.schema";
-import { toast } from "@/components/ui/toast";
 import { APP_ROUTES } from "@/constants/routes";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { zodResolver } from "@hookform/resolvers/zod";

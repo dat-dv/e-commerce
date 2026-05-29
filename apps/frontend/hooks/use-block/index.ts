@@ -1,5 +1,5 @@
+import { toast } from "@/components/atoms/toast";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { toast } from "@/components/ui/toast";
 
 export const useBlock = ({
   duration = 3000,

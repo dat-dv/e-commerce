@@ -1,7 +1,7 @@
+import { toast } from "@/components/atoms/toast";
 import { usersUseCase } from "@/domain/users/use-cases";
-import { useAuthStore } from "../auth/use-auth-store";
-import { toast } from "@/components/ui/toast";
 import { useTranslations } from "next-intl";
+import { useAuthStore } from "../auth/use-auth-store";
 
 export function useUpLoadProfileAvatar() {
   const t = useTranslations("ProfilePage.toast");

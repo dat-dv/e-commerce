@@ -1,6 +1,6 @@
+import { ToastProvider } from "@/components/atoms/toast";
 import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
-import { ToastProvider } from "@/components/ui/toast";
 import { addressesUseCase } from "@/domain/addresses";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { cartUseCase } from "@/domain/cart/use-cases";

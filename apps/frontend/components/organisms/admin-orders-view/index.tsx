@@ -2,8 +2,8 @@
 
 import AppContainer from "@/components/atoms/app-container";
 import Loading from "@/components/atoms/loading";
+import { toast } from "@/components/atoms/toast";
 import { Pagination } from "@/components/molecules/pagination";
-import { toast } from "@/components/ui/toast";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
 import { cn } from "@/utils/cn";

@@ -1,9 +1,9 @@
-import { useCallback } from "react";
-import { useTranslations } from "next-intl";
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/components/atoms/toast";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { TCartItem } from "@/store/cart-store/cart-store.type";
+import { useTranslations } from "next-intl";
+import { useCallback } from "react";
 import { useCartStore } from "./use-cart-store";
 
 export const useRemoveFromCart = () => {

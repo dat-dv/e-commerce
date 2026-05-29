@@ -1,4 +1,4 @@
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/components/atoms/toast";
 import { APP_ROUTES } from "@/constants/routes";
 import { TOAST_KEYS } from "@/constants/toast.constant";
 import { ordersUseCase } from "@/domain/orders";

@@ -1,9 +1,9 @@
-import { useCallback, useState } from "react";
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/components/atoms/toast";
 import { authUseCase } from "@/domain/auth/use-cases";
-import { useAuthStore } from "../auth/use-auth-store";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import { useTranslations } from "next-intl";
+import { useCallback, useState } from "react";
+import { useAuthStore } from "../auth/use-auth-store";
 
 export const useUpdateProfile = () => {
   const t = useTranslations("ProfilePage.toast");

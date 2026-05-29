@@ -1,4 +1,4 @@
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/components/atoms/toast";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";

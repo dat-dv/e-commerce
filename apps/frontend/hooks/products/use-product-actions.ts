@@ -1,10 +1,10 @@
-import { useRouter } from "next/navigation";
-import { toast } from "@/components/ui/toast";
-import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
-import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { toast } from "@/components/atoms/toast";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
+import { useAuthStore } from "@/hooks/auth/use-auth-store";
+import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export const useProductActions = (
   product: TProduct,

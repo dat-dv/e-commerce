@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { toast } from "@/components/atoms/toast";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
-import { toast } from "@/components/ui/toast";
+import { useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";
 
 export const useUserFavoriteProducts = (
