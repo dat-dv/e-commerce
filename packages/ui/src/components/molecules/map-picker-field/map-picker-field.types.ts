@@ -1,12 +1,13 @@
 export interface IMapPickerFieldLabels {
-  label?: string;
+  change?: string;
+  select?: string;
   placeholder?: string;
-  changeLabel?: string;
 }
 
 export interface IMapPickerFieldProps {
-  value?: { lat: number; lng: number; address?: string };
-  onChange?: (value: { lat: number; lng: number; address?: string }) => void;
+  label?: string;
+  displayValue?: string;
+  onOpen: () => void;
   labels?: IMapPickerFieldLabels;
   error?: string;
   disabled?: boolean;

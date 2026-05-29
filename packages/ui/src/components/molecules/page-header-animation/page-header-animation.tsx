@@ -33,7 +33,7 @@ export function AnimatedPageHeader({
       className="group border-content/[0.03] relative mb-6 flex min-h-[220px] items-center justify-center overflow-hidden border-b sm:mb-8 sm:min-h-[260px]"
     >
       <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.06]">
-        {icons.map((Icon, i) => (
+        {icons?.map((Icon, i: number) => (
           <motion.div
             key={i}
             className="text-content absolute"
