@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function ShopLoading() {
+export function ShopLoading() {
   const items = [
     {
       id: "mobile",

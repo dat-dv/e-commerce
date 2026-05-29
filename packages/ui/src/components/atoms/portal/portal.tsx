@@ -6,5 +6,3 @@ export const Portal = ({ children }: { children: ReactNode }) => {
 };
 
 Portal.displayName = "Portal";
-
-export default Portal;

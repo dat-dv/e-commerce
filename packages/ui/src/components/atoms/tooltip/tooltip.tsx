@@ -42,5 +42,3 @@ export function AppTooltip({
 AppTooltip.displayName = "AppTooltip";
 
 export const Tooltip = AppTooltip;
-
-export default AppTooltip;

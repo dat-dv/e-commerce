@@ -126,5 +126,3 @@ RenderTabletAndAbove.displayName = "RenderTabletAndAbove";
 RenderTabletOnly.displayName = "RenderTabletOnly";
 RenderTabletAndBelow.displayName = "RenderTabletAndBelow";
 RenderMobileOnly.displayName = "RenderMobileOnly";
-
-export default BREAKPOINTS;

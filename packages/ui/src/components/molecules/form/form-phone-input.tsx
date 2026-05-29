@@ -129,5 +129,3 @@ export const FormPhoneInput = ({
 };
 
 FormPhoneInput.displayName = "FormPhoneInput";
-
-export default FormPhoneInput;

@@ -56,5 +56,3 @@ export const FormSelect = ({
 };
 
 FormSelect.displayName = "FormSelect";
-
-export default FormSelect;

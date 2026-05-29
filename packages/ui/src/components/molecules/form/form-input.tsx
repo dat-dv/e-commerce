@@ -32,5 +32,3 @@ export const FormInput = ({ name, maxCount, ...rest }: IFormInputProps) => {
 };
 
 FormInput.displayName = "FormInput";
-
-export default FormInput;

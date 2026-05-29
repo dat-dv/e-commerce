@@ -92,5 +92,3 @@ AppTree.displayName = "AppTree";
 
 export const Tree = AppTree;
 Tree.displayName = "Tree";
-
-export default AppTree;

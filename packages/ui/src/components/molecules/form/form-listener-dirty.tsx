@@ -13,5 +13,3 @@ export const FormListenerDirty = ({ children }: IFormListenerDirtyProps) => {
 };
 
 FormListenerDirty.displayName = "FormListenerDirty";
-
-export default FormListenerDirty;

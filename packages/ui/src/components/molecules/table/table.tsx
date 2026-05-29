@@ -87,5 +87,3 @@ Row.displayName = "Row";
 Cell.displayName = "Cell";
 
 export { Collection };
-
-export default Table;

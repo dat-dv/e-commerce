@@ -114,5 +114,3 @@ export const AvatarInput = ({
 };
 
 AvatarInput.displayName = "AvatarInput";
-
-export default AvatarInput;

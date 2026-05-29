@@ -44,5 +44,3 @@ export const DocsSidebar = ({
 };
 
 DocsSidebar.displayName = "DocsSidebar";
-
-export default DocsSidebar;

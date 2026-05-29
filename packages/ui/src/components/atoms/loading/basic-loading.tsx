@@ -1,4 +1,4 @@
-export default function BasicLoading() {
+export function BasicLoading() {
   return (
     <div className="bg-surface/60 fixed inset-0 z-[100] flex items-center justify-center overflow-hidden backdrop-blur-xl transition-all duration-500">
       {/* Ambient glow layers */}

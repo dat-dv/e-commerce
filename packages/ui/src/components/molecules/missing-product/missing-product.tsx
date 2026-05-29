@@ -92,5 +92,3 @@ export const MissingProduct = ({
 };
 
 MissingProduct.displayName = "MissingProduct";
-
-export default MissingProduct;

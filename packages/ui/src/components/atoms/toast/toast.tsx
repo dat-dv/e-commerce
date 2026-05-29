@@ -69,5 +69,3 @@ export const toast = {
     sonnerToast.dismiss();
   },
 };
-
-export default DEFAULT_TIMEOUT;

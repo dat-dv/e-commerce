@@ -135,5 +135,3 @@ export function DateField<T extends DateValue>({
     </I18nProvider>
   );
 }
-
-export default DateInput;

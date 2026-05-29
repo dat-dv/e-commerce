@@ -44,5 +44,3 @@ export const Avatar = ({
 };
 
 Avatar.displayName = "Avatar";
-
-export default Avatar;

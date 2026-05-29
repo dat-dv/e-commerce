@@ -58,5 +58,3 @@ export function AppliedFiltersBar<T extends string = string>({
 }
 
 AppliedFiltersBar.displayName = "AppliedFiltersBar";
-
-export default AppliedFiltersBar;

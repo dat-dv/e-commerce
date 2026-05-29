@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "../../../utils";
 import { type ISettingsIconProps } from "./settings-icon.types";
 
-export default function SettingsIcon({
+export function SettingsIcon({
   isActive = false,
   className,
   size = 20,

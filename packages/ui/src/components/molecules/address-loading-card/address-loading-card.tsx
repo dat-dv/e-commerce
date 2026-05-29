@@ -21,5 +21,3 @@ export const AddressLoadingCard = () => {
 };
 
 AddressLoadingCard.displayName = "AddressLoadingCard";
-
-export default AddressLoadingCard;

@@ -2,7 +2,7 @@ import { cn } from "../../../utils";
 import { AppContainer } from "../../atoms/app-container";
 import { ISidebarLayoutProps } from "./sidebar-layout.types";
 
-export default function SidebarLayout({
+export function SidebarLayout({
   header,
   sidebar,
   sidebarClassName,

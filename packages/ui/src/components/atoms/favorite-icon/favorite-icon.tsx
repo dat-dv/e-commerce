@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "../../../utils";
 import { type IFavoriteIconProps } from "./favorite-icon.types";
 
-export default function FavoriteIcon({
+export function FavoriteIcon({
   isActive = false,
   className,
   size = 20,

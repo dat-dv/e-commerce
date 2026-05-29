@@ -153,5 +153,3 @@ AppComboBox.displayName = "AppComboBox";
 
 export const ComboBox = AppComboBox;
 ComboBox.displayName = "ComboBox";
-
-export default AppComboBox;

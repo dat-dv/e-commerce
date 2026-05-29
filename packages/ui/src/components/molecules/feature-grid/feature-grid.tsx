@@ -76,5 +76,3 @@ export const FeatureGrid = ({
 };
 
 FeatureGrid.displayName = "FeatureGrid";
-
-export default FeatureGrid;

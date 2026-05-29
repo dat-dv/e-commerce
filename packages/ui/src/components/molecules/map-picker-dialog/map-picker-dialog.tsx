@@ -92,5 +92,3 @@ export function MapPickerDialog({
 }
 
 MapPickerDialog.displayName = "MapPickerDialog";
-
-export default MapPickerDialog;

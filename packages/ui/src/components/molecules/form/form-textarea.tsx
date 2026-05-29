@@ -27,5 +27,3 @@ export const FormTextarea = ({ name, ...rest }: IFormTextareaProps) => {
 };
 
 FormTextarea.displayName = "FormTextarea";
-
-export default FormTextarea;

@@ -24,5 +24,3 @@ export function CopyButton({ code }: { code: string }) {
 }
 
 CopyButton.displayName = "CopyButton";
-
-export default CopyButton;

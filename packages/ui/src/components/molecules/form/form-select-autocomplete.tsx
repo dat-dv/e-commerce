@@ -61,5 +61,3 @@ export const FormSelectAutocomplete = ({
 };
 
 FormSelectAutocomplete.displayName = "FormSelectAutocomplete";
-
-export default FormSelectAutocomplete;

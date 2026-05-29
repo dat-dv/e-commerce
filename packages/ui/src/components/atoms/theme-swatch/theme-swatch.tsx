@@ -32,5 +32,3 @@ export const ThemeSwatch = React.forwardRef<
 });
 
 ThemeSwatch.displayName = "ThemeSwatch";
-
-export default ThemeSwatch;

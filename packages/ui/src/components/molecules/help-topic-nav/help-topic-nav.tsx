@@ -92,5 +92,3 @@ export function HelpTopicNav({
 }
 
 HelpTopicNav.displayName = "HelpTopicNav";
-
-export default HelpTopicNav;

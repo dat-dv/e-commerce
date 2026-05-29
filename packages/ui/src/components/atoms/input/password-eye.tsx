@@ -30,5 +30,3 @@ export const PasswordEye = ({
 };
 
 PasswordEye.displayName = "PasswordEye";
-
-export default PasswordEye;

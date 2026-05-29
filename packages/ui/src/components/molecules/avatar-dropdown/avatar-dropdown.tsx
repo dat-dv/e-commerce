@@ -110,5 +110,3 @@ export const AvatarDropdown = ({
 };
 
 AvatarDropdown.displayName = "AvatarDropdown";
-
-export default AvatarDropdown;

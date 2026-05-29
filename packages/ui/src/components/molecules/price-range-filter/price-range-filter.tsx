@@ -89,5 +89,3 @@ export function PriceRangeFilter<T extends string = string>({
 }
 
 PriceRangeFilter.displayName = "PriceRangeFilter";
-
-export default PriceRangeFilter;

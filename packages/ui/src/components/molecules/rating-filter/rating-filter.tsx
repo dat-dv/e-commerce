@@ -55,5 +55,3 @@ export function RatingFilter({
 }
 
 RatingFilter.displayName = "RatingFilter";
-
-export default RatingFilter;

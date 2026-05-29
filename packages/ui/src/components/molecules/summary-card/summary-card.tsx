@@ -78,5 +78,3 @@ export const SummaryCard = ({
 };
 
 SummaryCard.displayName = "SummaryCard";
-
-export default SummaryCard;

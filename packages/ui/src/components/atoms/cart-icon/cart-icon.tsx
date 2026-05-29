@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "../../../utils";
 import { type ICartIconProps } from "./cart-icon.types";
 
-export default function CartIcon({
+export function CartIcon({
   isActive = false,
   itemsCount = 0,
   className,

@@ -134,5 +134,3 @@ export const BrandCard = ({
 };
 
 BrandCard.displayName = "BrandCard";
-
-export default BrandCard;

@@ -42,5 +42,3 @@ export function FilterDrawerTrigger({
 }
 
 FilterDrawerTrigger.displayName = "FilterDrawerTrigger";
-
-export default FilterDrawerTrigger;

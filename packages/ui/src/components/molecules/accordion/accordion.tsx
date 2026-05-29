@@ -18,7 +18,7 @@ export interface IAccordionProps_old {
   panelClassName?: string;
 }
 
-export default function Accordion({
+export function Accordion({
   title,
   children,
   className = "",

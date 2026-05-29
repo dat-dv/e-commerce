@@ -62,5 +62,3 @@ export const AccessDenied = ({
 };
 
 AccessDenied.displayName = "AccessDenied";
-
-export default AccessDenied;

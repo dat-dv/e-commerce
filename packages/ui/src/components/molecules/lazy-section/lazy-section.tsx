@@ -31,5 +31,3 @@ export const LazySection = ({
 };
 
 LazySection.displayName = "LazySection";
-
-export default LazySection;

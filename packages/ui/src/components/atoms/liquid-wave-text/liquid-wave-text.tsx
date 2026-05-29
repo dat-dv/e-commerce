@@ -88,5 +88,3 @@ export const LiquidWaveText = ({
 };
 
 LiquidWaveText.displayName = "LiquidWaveText";
-
-export default LiquidWaveText;

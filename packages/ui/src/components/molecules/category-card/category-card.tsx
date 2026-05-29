@@ -62,5 +62,3 @@ export const CategoryCard = ({
 };
 
 CategoryCard.displayName = "CategoryCard";
-
-export default CategoryCard;

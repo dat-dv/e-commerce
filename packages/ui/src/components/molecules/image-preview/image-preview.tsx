@@ -128,5 +128,3 @@ export function ImagePreview({
 }
 
 ImagePreview.displayName = "ImagePreview";
-
-export default ImagePreview;

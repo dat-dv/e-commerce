@@ -166,5 +166,3 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, IPhoneInputProps>(
 );
 
 PhoneInput.displayName = "PhoneInput";
-
-export default PhoneInput;

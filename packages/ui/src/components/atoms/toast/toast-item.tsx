@@ -116,5 +116,3 @@ export function CustomToast({
 }
 
 CustomToast.displayName = "CustomToast";
-
-export default VARIANT_CONFIG;

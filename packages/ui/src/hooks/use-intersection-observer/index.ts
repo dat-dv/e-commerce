@@ -37,5 +37,3 @@ export function useIntersectionObserver<T extends Element = Element>({
 
   return [elementRef, entry?.isIntersecting ?? false] as const;
 }
-
-export default useIntersectionObserver;

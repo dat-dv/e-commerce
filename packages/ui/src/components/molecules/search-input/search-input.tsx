@@ -112,5 +112,3 @@ export const SearchInput = ({
 };
 
 SearchInput.displayName = "SearchInput";
-
-export default SearchInput;

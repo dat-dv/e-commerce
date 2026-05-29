@@ -20,5 +20,3 @@ export const FormCard = ({ children, className, ...rest }: IFormCardProps) => {
 };
 
 FormCard.displayName = "FormCard";
-
-export default FormCard;

@@ -55,5 +55,3 @@ export const SectionHeader = ({
 };
 
 SectionHeader.displayName = "SectionHeader";
-
-export default SectionHeader;

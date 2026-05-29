@@ -65,5 +65,3 @@ export const useTextSelectEvent = <TElement extends HTMLElement = HTMLElement>({
     },
   };
 };
-
-export default useTextSelectEvent;

@@ -46,5 +46,3 @@ export const ListingSectionHeader = ({
 };
 
 ListingSectionHeader.displayName = "ListingSectionHeader";
-
-export default ListingSectionHeader;

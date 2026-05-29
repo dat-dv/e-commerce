@@ -158,5 +158,3 @@ export const Pagination = ({
 };
 
 Pagination.displayName = "Pagination";
-
-export default PaginationItem;

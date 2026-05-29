@@ -38,5 +38,3 @@ export const FormAvatarInput = ({
 };
 
 FormAvatarInput.displayName = "FormAvatarInput";
-
-export default FormAvatarInput;

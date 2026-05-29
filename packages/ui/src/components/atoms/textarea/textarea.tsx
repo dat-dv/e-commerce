@@ -72,5 +72,3 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
 );
 
 Textarea.displayName = "Textarea";
-
-export default Textarea;

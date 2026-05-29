@@ -24,5 +24,3 @@ export const DocsAnimationWrapper = ({
 };
 
 DocsAnimationWrapper.displayName = "DocsAnimationWrapper";
-
-export default DocsAnimationWrapper;

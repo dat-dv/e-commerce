@@ -23,5 +23,3 @@ export function useMediaQuery(query: string): boolean | undefined {
 
   return matches;
 }
-
-export default useMediaQuery;

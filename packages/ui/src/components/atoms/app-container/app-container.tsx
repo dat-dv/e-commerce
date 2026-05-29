@@ -35,5 +35,3 @@ export const AppContainer = ({
 };
 
 AppContainer.displayName = "AppContainer";
-
-export default AppContainer;

@@ -78,5 +78,3 @@ export const EmptyState = ({
 };
 
 EmptyState.displayName = "EmptyState";
-
-export default EmptyState;

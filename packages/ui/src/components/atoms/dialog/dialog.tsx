@@ -99,5 +99,3 @@ AppDialogTitle.displayName = "AppDialogTitle";
 export const Dialog = AppDialog;
 export const DialogPanel = AppDialogPanel;
 export const DialogTitle = AppDialogTitle;
-
-export default MotionModalOverlay;

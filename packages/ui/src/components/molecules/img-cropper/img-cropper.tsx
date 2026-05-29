@@ -6,7 +6,7 @@ import Cropper, { Area, Point } from "react-easy-crop";
 
 import { Button } from "../../atoms/button";
 import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
-import getCroppedImg from "./get-cropped-img";
+import { getCroppedImg } from "./get-cropped-img";
 import { IImgCropperProps } from "./img-cropper.types";
 
 export const ImgCropper = ({
@@ -135,5 +135,3 @@ export const ImgCropper = ({
 };
 
 ImgCropper.displayName = "ImgCropper";
-
-export default ImgCropper;

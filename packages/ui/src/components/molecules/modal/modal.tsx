@@ -8,7 +8,7 @@ import { AppDialog, AppDialogPanel } from "../../atoms/dialog";
 import { XIcon } from "../../atoms/icons";
 import { IModalProps } from "./modal.types";
 
-export default function Modal({
+export function Modal({
   children,
   isOpen = true,
   onClose,

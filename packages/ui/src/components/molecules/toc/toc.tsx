@@ -142,5 +142,3 @@ export const TableOfContents = ({
 };
 
 TableOfContents.displayName = "TableOfContents";
-
-export default TableOfContents;

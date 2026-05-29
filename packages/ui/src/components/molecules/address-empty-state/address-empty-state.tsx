@@ -43,5 +43,3 @@ export const AddressEmptyState = ({
 };
 
 AddressEmptyState.displayName = "AddressEmptyState";
-
-export default AddressEmptyState;

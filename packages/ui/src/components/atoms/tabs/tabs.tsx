@@ -112,5 +112,3 @@ Tabs.displayName = "Tabs";
 TabList.displayName = "TabList";
 Tab.displayName = "Tab";
 TabPanel.displayName = "TabPanel";
-
-export default Tabs;

@@ -32,5 +32,3 @@ export const ViewAllButton = ({
 };
 
 ViewAllButton.displayName = "ViewAllButton";
-
-export default ViewAllButton;

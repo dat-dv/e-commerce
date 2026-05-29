@@ -74,5 +74,3 @@ export const FormDateInput = ({
 };
 
 FormDateInput.displayName = "FormDateInput";
-
-export default FormDateInput;

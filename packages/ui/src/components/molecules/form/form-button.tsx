@@ -56,5 +56,3 @@ export const FormButton = ({
 };
 
 FormButton.displayName = "FormButton";
-
-export default FormButton;

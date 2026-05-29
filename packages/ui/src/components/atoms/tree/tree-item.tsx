@@ -124,5 +124,3 @@ AppTreeItem.displayName = "AppTreeItem";
 
 export const TreeItem = AppTreeItem;
 TreeItem.displayName = "TreeItem";
-
-export default AppTreeItem;

@@ -65,5 +65,3 @@ export function FilterSection({
 
 FilterSidebar.displayName = "FilterSidebar";
 FilterSection.displayName = "FilterSection";
-
-export default FilterSidebar;

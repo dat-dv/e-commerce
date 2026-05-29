@@ -227,5 +227,3 @@ export const AddressCard = ({
 };
 
 AddressCard.displayName = "AddressCard";
-
-export default AddressMeta;

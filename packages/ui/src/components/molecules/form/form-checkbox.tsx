@@ -38,5 +38,3 @@ export const FormCheckbox = ({
 };
 
 FormCheckbox.displayName = "FormCheckbox";
-
-export default FormCheckbox;

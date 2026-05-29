@@ -16,7 +16,7 @@ import { InputProps } from "./input.types";
 export type { InputSize } from "./input.sizes";
 export type { InputProps } from "./input.types";
 export type { InputVariant } from "./input.types";
-import PasswordEye from "./password-eye";
+import { PasswordEye } from "./password-eye";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -130,5 +130,3 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = "Input";
-
-export default Input;

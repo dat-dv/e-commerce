@@ -23,11 +23,7 @@ const logoTextVariants = {
   hover: { x: 2 },
 };
 
-export default function Logo({
-  className,
-  size = 32,
-  animate = true,
-}: ILogoProps) {
+export function Logo({ className, size = 32, animate = true }: ILogoProps) {
   const shouldReduceMotion = useReducedMotion();
   const canAnimate = animate && !shouldReduceMotion;
 

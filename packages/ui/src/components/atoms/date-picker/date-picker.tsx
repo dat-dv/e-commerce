@@ -188,5 +188,3 @@ export function DatePicker<T extends DateValue>({
     </I18nProvider>
   );
 }
-
-export default Calendar;

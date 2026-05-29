@@ -144,5 +144,3 @@ export function AnimatedPageHeader({
 }
 
 AnimatedPageHeader.displayName = "AnimatedPageHeader";
-
-export default AnimatedPageHeader;

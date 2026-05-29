@@ -111,5 +111,3 @@ export const CarouselItem = ({
 };
 
 Carousel.displayName = "Carousel";
-
-export default Carousel;

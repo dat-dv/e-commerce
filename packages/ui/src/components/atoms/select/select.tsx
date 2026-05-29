@@ -139,5 +139,3 @@ AppSelect.displayName = "AppSelect";
 
 export const Select = AppSelect;
 Select.displayName = "Select";
-
-export default AppSelect;

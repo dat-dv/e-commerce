@@ -40,5 +40,3 @@ export function HelpSupportCard({
 }
 
 HelpSupportCard.displayName = "HelpSupportCard";
-
-export default HelpSupportCard;

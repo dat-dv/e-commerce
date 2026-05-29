@@ -73,5 +73,3 @@ export function MapPickerField({
 }
 
 MapPickerField.displayName = "MapPickerField";
-
-export default MapPickerField;
