@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
 import { TProduct } from "@/domain/products/types/products.model";
+import { useEffect, useMemo, useState } from "react";
 
 export const useProductGallery = (product: TProduct) => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -17,7 +17,6 @@ export const useProductGallery = (product: TProduct) => {
 
   useEffect(() => {
     if (selectedImage >= images.length) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedImage(0);
     }
   }, [images.length, selectedImage]);

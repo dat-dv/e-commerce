@@ -1,11 +1,11 @@
 "use client";
 
-import { toast } from "@ecommerce/ui";
 import { flashSalesUseCase } from "@/domain/flash-sales";
 import type {
   TAddProductsToFlashSaleInput,
   TFlashSale,
 } from "@/domain/flash-sales/types/flash-sale.model";
+import { toast } from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -44,7 +44,6 @@ export function useAdminFlashSaleDetail(id: string) {
   }, [id]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchDetail();
   }, [fetchDetail, refreshTrigger]);
 

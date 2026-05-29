@@ -2,11 +2,11 @@
 
 import { AppContainer, Button } from "@ecommerce/ui";
 
+import { APP_ROUTES } from "@/constants/routes";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useAdminFlashSaleDetail } from "@/hooks/flash-sales/use-admin-flash-sale-detail";
-import { APP_ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 import {
   ArrowLeft,
@@ -54,7 +54,6 @@ export function AdminFlashSaleDetailView({
   const [isAttachModalOpen, setIsAttachModalOpen] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoadingProducts(true);
     productsUseCase.getProducts
       .execute({ limit: 100 })

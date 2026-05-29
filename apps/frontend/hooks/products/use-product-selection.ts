@@ -119,7 +119,6 @@ export const useProductSelection = (product: TProduct) => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedAttributes(getInitialAttributes(product.skus));
     setSelectedSkuId(product.skus?.[0]?.id || "");
   }, [product.skus]);
@@ -127,7 +126,6 @@ export const useProductSelection = (product: TProduct) => {
   useEffect(() => {
     if (selectedSku) {
       const maxStock = selectedSku.stock ?? 0;
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuantity(() => {
         if (maxStock === 0) return 0;
         return Math.min(1, maxStock);

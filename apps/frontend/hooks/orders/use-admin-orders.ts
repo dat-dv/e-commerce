@@ -1,9 +1,9 @@
 "use client";
 
-import { toast } from "@ecommerce/ui";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { IPaginationMeta } from "@/utils/request/request.types";
+import { toast } from "@ecommerce/ui";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface UseAdminOrdersProps {
@@ -55,7 +55,6 @@ export const useAdminOrders = ({
   }, [selectedStatuses, search, page, initialLimit]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchOrders();
   }, [fetchOrders, refreshTrigger]);
 

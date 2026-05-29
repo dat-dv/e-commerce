@@ -1,6 +1,6 @@
-import { toast } from "@ecommerce/ui";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
+import { toast } from "@ecommerce/ui";
 import { useCallback, useEffect, useState } from "react";
 
 export const useOrderDetail = (orderId: string) => {
@@ -31,7 +31,6 @@ export const useOrderDetail = (orderId: string) => {
   }, [orderId]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchOrderDetail();
   }, [fetchOrderDetail]);
 

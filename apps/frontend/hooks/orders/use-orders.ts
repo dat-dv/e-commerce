@@ -1,9 +1,9 @@
 "use client";
-import { toast } from "@ecommerce/ui";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { IPaginationMeta } from "@/utils/request/request.types";
+import { toast } from "@ecommerce/ui";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";
 export const useOrders = () => {
@@ -58,7 +58,6 @@ export const useOrders = () => {
 
   // Initial load and tab changes
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchOrders(1, false);
   }, [activeTabState, refreshTrigger, fetchOrders]);
 

@@ -80,7 +80,6 @@ export default function MapComponent({
         center[0] !== prevCenter[0] ||
         center[1] !== prevCenter[1])
     ) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPrevCenter(center);
       setPosition(center);
     }
