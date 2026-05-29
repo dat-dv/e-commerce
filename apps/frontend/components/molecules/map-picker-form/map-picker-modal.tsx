@@ -56,7 +56,9 @@ export default function MapPickerModal({
   };
 
   const handleSuggestionSelect = (suggestion: MapPickerSuggestion) => {
-    const source = suggestions.find((item) => item.place_id === suggestion.id);
+    const source = suggestions.find(
+      (item) => String(item.place_id) === suggestion.id,
+    );
     if (source) {
       selectSuggestion(source);
     }
@@ -81,8 +83,10 @@ export default function MapPickerModal({
         confirm: t("confirm"),
       }}
       suggestions={suggestions.map((item) => ({
-        id: item.place_id,
+        id: String(item.place_id),
         label: item.display_name,
+        lat: parseFloat(item.lat),
+        lng: parseFloat(item.lon),
       }))}
       mapContent={
         <>
