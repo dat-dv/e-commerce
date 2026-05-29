@@ -46,7 +46,7 @@ export function ProductCardMedia({
     <div
       className={cn(
         UI_RADIUS.media,
-        "relative flex aspect-square items-center justify-center overflow-hidden bg-transparent",
+        "relative flex aspect-square items-center justify-center overflow-hidden bg-white",
       )}
     >
       {product.imageUrl ? (
