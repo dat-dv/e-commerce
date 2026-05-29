@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import React from "react";
 
 import { cn } from "../../../utils";
-import LiquidWaveText from "../liquid-wave-text";
+import { LiquidWaveText } from "../liquid-wave-text";
 import { type IViewAllButtonProps } from "./view-all-button.types";
 
 export const ViewAllButton = ({

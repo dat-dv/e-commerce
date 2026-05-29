@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./price-range-filter";
+export * from "./price-range-filter";
 export { PriceRangeFilter } from "./price-range-filter";
 export type {
   IPriceRangeFilterChange,

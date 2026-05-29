@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./textarea";
+export * from "./textarea";
 export type {
   ITextareaProps,
   ITextareaProps as TextareaProps,

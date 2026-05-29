@@ -1,4 +1,4 @@
-export { default } from "./summary-card";
+export * from "./summary-card";
 export type {
   ISummaryCardProps,
   ISummaryCardProps as SummaryCardProps,

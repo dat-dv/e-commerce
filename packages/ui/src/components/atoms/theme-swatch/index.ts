@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./theme-swatch";
+export * from "./theme-swatch";
 export type {
   IThemeSwatchProps,
   IThemeSwatchProps as ThemeSwatchProps,

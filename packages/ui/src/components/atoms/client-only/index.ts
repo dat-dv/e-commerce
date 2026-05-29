@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./client-only";
+export * from "./client-only";
 export type {
   IClientOnlyProps as ClientOnlyProps,
   IClientOnlyProps,

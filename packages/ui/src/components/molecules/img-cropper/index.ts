@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./img-cropper";
+export * from "./img-cropper";
 export { ImgCropper } from "./img-cropper";
 export type {
   IImgCropperProps,

@@ -42,7 +42,7 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
   return pages;
 };
 
-const PaginationItem = ({
+export const PaginationItem = ({
   page,
   active,
   onClick,
@@ -76,7 +76,7 @@ const PaginationItem = ({
   );
 };
 
-const PaginationArrow = ({
+export const PaginationArrow = ({
   direction,
   disabled,
   onClick,
@@ -159,4 +159,4 @@ export const Pagination = ({
 
 Pagination.displayName = "Pagination";
 
-export default Pagination;
+export default PaginationItem;

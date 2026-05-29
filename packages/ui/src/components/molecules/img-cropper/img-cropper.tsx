@@ -4,7 +4,7 @@ import { MaximizeIcon, XIcon } from "lucide-react";
 import React, { useCallback, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
 
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 import getCroppedImg from "./get-cropped-img";
 import { IImgCropperProps } from "./img-cropper.types";

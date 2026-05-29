@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./search-input";
+export * from "./search-input";
 export { SearchInput } from "./search-input";
 export type {
   ISearchInputProps,

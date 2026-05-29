@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./dropdown";
+export * from "./dropdown";
 export { AppDropdown, Dropdown } from "./dropdown";
 export type {
   IAppDropdownProps as AppDropdownProps,

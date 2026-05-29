@@ -2,8 +2,8 @@ import { toast as sonnerToast } from "sonner";
 
 import { CustomToast, ToastVariant } from "./toast-item";
 
-const DEFAULT_TIMEOUT = 5000;
-const ERROR_TIMEOUT = 7000;
+export const DEFAULT_TIMEOUT = 5000;
+export const ERROR_TIMEOUT = 7000;
 
 type ToastId = string | number;
 
@@ -69,3 +69,5 @@ export const toast = {
     sonnerToast.dismiss();
   },
 };
+
+export default DEFAULT_TIMEOUT;

@@ -21,7 +21,7 @@ const getVirtualItemId = <T,>(item: T): string | number | undefined => {
     : undefined;
 };
 
-function useResponsiveColumns(columns: IVirtualGridColumns): number {
+export function useResponsiveColumns(columns: IVirtualGridColumns): number {
   const [cols, setCols] = useState(columns.base);
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const DEFAULT_GRID_COLUMNS: IVirtualGridColumns = {
   lg: 5,
 };
 
-const DEFAULT_GRID_CLASS_NAME =
+export const DEFAULT_GRID_CLASS_NAME =
   "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
 
 export function VirtualGrid<T>({
@@ -173,4 +173,4 @@ export function VirtualGrid<T>({
 
 VirtualGrid.displayName = "VirtualGrid";
 
-export default VirtualGrid;
+export default useResponsiveColumns;

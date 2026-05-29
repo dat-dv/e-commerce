@@ -2,7 +2,7 @@ import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import { ISummaryCardProps } from "./summary-card.types";
 
-const SummaryCard = ({
+export const SummaryCard = ({
   label,
   value,
   icon: Icon,

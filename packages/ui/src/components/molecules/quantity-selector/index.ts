@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./quantity-selector";
+export * from "./quantity-selector";
 export { QuantitySelector } from "./quantity-selector";
 export type {
   IQuantitySelectorProps,

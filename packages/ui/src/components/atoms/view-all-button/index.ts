@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./view-all-button";
+export * from "./view-all-button";
 export { ViewAllButton } from "./view-all-button";
 export type {
   IViewAllButtonProps,

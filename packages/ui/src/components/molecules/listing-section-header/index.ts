@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./listing-section-header";
+export * from "./listing-section-header";
 export { ListingSectionHeader } from "./listing-section-header";
 export type {
   IListingSectionHeaderProps,

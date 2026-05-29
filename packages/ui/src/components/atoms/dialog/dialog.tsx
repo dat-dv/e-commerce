@@ -15,8 +15,8 @@ import {
   type IAppDialogTitleProps,
 } from "./dialog.types";
 
-const MotionModalOverlay = motion.create(RACModalOverlay);
-const MotionModal = motion.create(RACModal);
+export const MotionModalOverlay = motion.create(RACModalOverlay);
+export const MotionModal = motion.create(RACModal);
 
 export function AppDialog({
   children,
@@ -99,3 +99,5 @@ AppDialogTitle.displayName = "AppDialogTitle";
 export const Dialog = AppDialog;
 export const DialogPanel = AppDialogPanel;
 export const DialogTitle = AppDialogTitle;
+
+export default MotionModalOverlay;

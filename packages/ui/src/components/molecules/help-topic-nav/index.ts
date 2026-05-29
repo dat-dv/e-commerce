@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./help-topic-nav";
+export * from "./help-topic-nav";
 export { getHelpTopicId, HelpTopicNav } from "./help-topic-nav";
 export type {
   IHelpTopic as HelpTopic,

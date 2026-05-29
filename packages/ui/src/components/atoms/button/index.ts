@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./button";
+export * from "./button";
 export type {
   IBaseProps as BaseProps,
   IButtonAsButton as ButtonAsButton,

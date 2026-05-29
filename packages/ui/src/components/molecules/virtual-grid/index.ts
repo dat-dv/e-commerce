@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./virtual-grid";
+export * from "./virtual-grid";
 export { VirtualGrid } from "./virtual-grid";
 export type {
   IVirtualGridColumns,

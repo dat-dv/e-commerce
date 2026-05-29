@@ -1,4 +1,4 @@
-export { default } from "./loading";
+export * from "./loading";
 export type {
   ILoadingProps,
   ILoadingProps as LoadingProps,

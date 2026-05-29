@@ -16,7 +16,7 @@ export type { InputProps } from "./input.types";
 export type { InputVariant } from "./input.types";
 import PasswordEye from "./password-eye";
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       id,

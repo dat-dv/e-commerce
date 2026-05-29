@@ -1,4 +1,4 @@
-export { default } from "./app-container";
+export * from "./app-container";
 export type {
   IAppContainerProps as AppContainerProps,
   AppContainerSize,

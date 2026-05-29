@@ -22,3 +22,5 @@ export const AnimationItem = ({
 };
 
 AnimationItem.displayName = "AnimationItem";
+
+export default AnimationItem;

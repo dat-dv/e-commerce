@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./phone-input";
+export * from "./phone-input";
 export type {
   ICountryOption as CountryOption,
   ICountryOption,

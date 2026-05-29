@@ -6,7 +6,7 @@ import React from "react";
 import { cn } from "../../../utils";
 import { type ISwitchProps } from "./switch.types";
 
-const Switch = React.forwardRef<HTMLButtonElement, ISwitchProps>(
+export const Switch = React.forwardRef<HTMLButtonElement, ISwitchProps>(
   ({ checked, onCheckedChange, className, ...props }, ref) => {
     return (
       <button

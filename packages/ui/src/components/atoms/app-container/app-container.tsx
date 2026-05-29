@@ -12,7 +12,7 @@ const sizeClasses = {
   full: "max-w-full",
 } as const;
 
-const AppContainer = ({
+export const AppContainer = ({
   children,
   className,
   size = "2xl",

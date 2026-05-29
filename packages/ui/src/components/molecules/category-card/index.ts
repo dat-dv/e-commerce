@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./category-card";
+export * from "./category-card";
 export { CategoryCard } from "./category-card";
 export type {
   ICategoryCardProps as CategoryCardProps,

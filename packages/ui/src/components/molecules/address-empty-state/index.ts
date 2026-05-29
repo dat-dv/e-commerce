@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./address-empty-state";
+export * from "./address-empty-state";
 export { AddressEmptyState } from "./address-empty-state";
 export type {
   IAddressEmptyStateProps as AddressEmptyStateProps,

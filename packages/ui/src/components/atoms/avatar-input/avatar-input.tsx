@@ -5,8 +5,8 @@ import { Camera } from "lucide-react";
 import React, { useRef, useState } from "react";
 
 import { TYPOGRAPHY } from "../../../tokens";
-import ImgCropper from "../../molecules/img-cropper";
-import Avatar from "../avatar";
+import { ImgCropper } from "../../molecules/img-cropper";
+import { Avatar } from "../avatar";
 import { type IAvatarInputProps } from "./avatar-input.types";
 
 export const AvatarInput = ({

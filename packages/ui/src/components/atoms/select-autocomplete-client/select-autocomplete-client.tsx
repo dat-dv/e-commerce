@@ -159,3 +159,5 @@ AppSelectAutocompleteClient.displayName = "AppSelectAutocompleteClient";
 
 export const SelectAutocomplete = AppSelectAutocompleteClient;
 SelectAutocomplete.displayName = "SelectAutocomplete";
+
+export default AppSelectAutocompleteClient;

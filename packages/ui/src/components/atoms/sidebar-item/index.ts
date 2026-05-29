@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./sidebar-item";
+export * from "./sidebar-item";
 export { SidebarItem } from "./sidebar-item";
 export type {
   ISidebarDocItem,

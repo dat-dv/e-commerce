@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./virtual-list";
+export * from "./virtual-list";
 export { VirtualList } from "./virtual-list";
 export type {
   IVirtualListProps,

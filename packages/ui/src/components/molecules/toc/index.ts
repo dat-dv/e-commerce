@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./toc";
+export * from "./toc";
 export { TableOfContents } from "./toc";
 export type {
   ITableOfContentsProps,

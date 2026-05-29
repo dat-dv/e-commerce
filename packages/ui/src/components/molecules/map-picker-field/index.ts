@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./map-picker-field";
+export * from "./map-picker-field";
 export { MapPickerField } from "./map-picker-field";
 export type {
   IMapPickerFieldLabels,

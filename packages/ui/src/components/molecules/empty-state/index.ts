@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./empty-state";
+export * from "./empty-state";
 export { EmptyState } from "./empty-state";
 export type {
   IEmptyStateProps as EmptyStateProps,

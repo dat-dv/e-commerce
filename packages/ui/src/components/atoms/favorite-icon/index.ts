@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./favorite-icon";
+export * from "./favorite-icon";
 export type {
   IFavoriteIconProps as FavoriteIconProps,
   IFavoriteIconProps,

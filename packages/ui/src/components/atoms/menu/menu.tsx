@@ -77,3 +77,5 @@ MenuItem.displayName = "MenuItem";
 
 AppMenu.displayName = "AppMenu";
 AppMenuItem.displayName = "AppMenuItem";
+
+export default AppMenu;

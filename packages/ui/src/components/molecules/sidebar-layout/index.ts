@@ -1,4 +1,4 @@
-export { default } from "./sidebar-layout";
+export * from "./sidebar-layout";
 export type {
   ISidebarLayoutProps,
   ISidebarLayoutProps as SidebarLayoutProps,

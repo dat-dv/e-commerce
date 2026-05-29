@@ -19,7 +19,7 @@ const DEFAULT_COUNTRIES: ICountryOption[] = [
   },
 ];
 
-const PhoneInput = React.forwardRef<HTMLInputElement, IPhoneInputProps>(
+export const PhoneInput = React.forwardRef<HTMLInputElement, IPhoneInputProps>(
   (
     {
       value,

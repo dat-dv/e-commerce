@@ -167,4 +167,4 @@ export const SidebarItem = ({
 
 SidebarItem.displayName = "SidebarItem";
 
-export default SidebarItem;
+export default SidebarRow;

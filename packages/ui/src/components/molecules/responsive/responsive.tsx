@@ -6,7 +6,7 @@ import type {
   IResponsiveRenderProps,
 } from "./responsive.types";
 
-const BREAKPOINTS = {
+export const BREAKPOINTS = {
   tablet: 768,
   desktop: 1024,
 } as const;
@@ -126,3 +126,5 @@ RenderTabletAndAbove.displayName = "RenderTabletAndAbove";
 RenderTabletOnly.displayName = "RenderTabletOnly";
 RenderTabletAndBelow.displayName = "RenderTabletAndBelow";
 RenderMobileOnly.displayName = "RenderMobileOnly";
+
+export default BREAKPOINTS;

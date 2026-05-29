@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./hamburger-button";
+export * from "./hamburger-button";
 export type {
   IHamburgerButtonProps as HamburgerButtonProps,
   IHamburgerButtonProps,

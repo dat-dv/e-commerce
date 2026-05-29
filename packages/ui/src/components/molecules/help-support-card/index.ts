@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./help-support-card";
+export * from "./help-support-card";
 export { HelpSupportCard } from "./help-support-card";
 export type {
   IHelpSupportCardProps as HelpSupportCardProps,

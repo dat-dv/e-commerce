@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./address-card";
+export * from "./address-card";
 export { AddressCard } from "./address-card";
 export type {
   IAddress as Address,

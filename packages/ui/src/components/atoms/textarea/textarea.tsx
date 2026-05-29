@@ -7,7 +7,7 @@ import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import { type ITextareaProps } from "./textarea.types";
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
+export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ id, label, error, className, maxCount, value, ...rest }, ref) => {
     const valueLength = String(value ?? "").length;
 

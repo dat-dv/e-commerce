@@ -204,3 +204,5 @@ export function DateRangePicker<T extends DateValue>({
     </AriaDateRangePicker>
   );
 }
+
+export default RangeCalendar;

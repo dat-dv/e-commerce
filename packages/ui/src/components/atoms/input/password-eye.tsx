@@ -3,7 +3,7 @@ import React from "react";
 
 import Button from "../button";
 
-const PasswordEye = ({
+export const PasswordEye = ({
   showPassword,
   handleShowPassword,
   labels = { show: "Show password", hide: "Hide password" },

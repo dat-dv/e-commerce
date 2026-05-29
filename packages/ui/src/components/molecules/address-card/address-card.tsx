@@ -16,7 +16,7 @@ const getFullAddress = (address: IAddress) =>
     .filter(Boolean)
     .join(", ");
 
-const AddressMeta = ({
+export const AddressMeta = ({
   address,
   labels = {},
 }: {
@@ -79,7 +79,7 @@ const AddressMeta = ({
   );
 };
 
-const SelectionIndicator = ({ selected }: { selected: boolean }) => (
+export const SelectionIndicator = ({ selected }: { selected: boolean }) => (
   <span
     className={cn(
       "flex size-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
@@ -228,4 +228,4 @@ export const AddressCard = ({
 
 AddressCard.displayName = "AddressCard";
 
-export default AddressCard;
+export default AddressMeta;

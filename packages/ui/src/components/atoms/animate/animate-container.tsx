@@ -28,3 +28,5 @@ export const AnimationContainer = ({
 };
 
 AnimationContainer.displayName = "AnimationContainer";
+
+export default AnimationContainer;

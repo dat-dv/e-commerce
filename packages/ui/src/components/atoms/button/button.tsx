@@ -8,7 +8,10 @@ import { cn } from "../../../utils";
 import { sizeClasses, variantClasses } from "./button.style";
 import { IButtonProps } from "./button.types";
 
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
+export const Button = forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  IButtonProps
+>(
   (
     {
       variant = "primary",

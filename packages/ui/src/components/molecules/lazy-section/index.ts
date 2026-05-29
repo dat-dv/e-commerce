@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./lazy-section";
+export * from "./lazy-section";
 export { LazySection } from "./lazy-section";
 export type {
   ILazySectionProps,

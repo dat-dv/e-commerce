@@ -3,7 +3,7 @@
 import { cn } from "../../../utils";
 import { type IAvatarProps } from "./avatar.types";
 
-const Avatar = ({
+export const Avatar = ({
   url,
   name,
   size = 80,

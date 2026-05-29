@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./missing-product";
+export * from "./missing-product";
 export { MissingProduct } from "./missing-product";
 export type {
   IMissingProductLabels,

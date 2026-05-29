@@ -1,6 +1,6 @@
 "use client";
 
-export { default, MapPickerDialog } from "./map-picker-dialog";
+export { MapPickerDialog } from "./map-picker-dialog";
 export type {
   IMapPickerDialogLabels,
   IMapPickerDialogProps,

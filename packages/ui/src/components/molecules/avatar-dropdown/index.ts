@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./avatar-dropdown";
+export * from "./avatar-dropdown";
 export { AvatarDropdown } from "./avatar-dropdown";
 export type {
   IAvatarDropdownLabels as AvatarDropdownLabels,

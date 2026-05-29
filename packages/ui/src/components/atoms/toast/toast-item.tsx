@@ -12,7 +12,7 @@ import { cn } from "../../../utils";
 
 export type ToastVariant = "success" | "error" | "warning" | "info" | "default";
 
-const VARIANT_CONFIG = {
+export const VARIANT_CONFIG = {
   success: {
     bar: "bg-emerald-500",
     icon: "text-emerald-500",
@@ -116,3 +116,5 @@ export function CustomToast({
 }
 
 CustomToast.displayName = "CustomToast";
+
+export default VARIANT_CONFIG;

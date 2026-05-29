@@ -1,6 +1,6 @@
 "use client";
 
-export { default } from "./feature-grid";
+export * from "./feature-grid";
 export { FeatureGrid } from "./feature-grid";
 export type {
   IFeatureGridProps as FeatureGridProps,

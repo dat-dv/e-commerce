@@ -69,6 +69,6 @@ export const AppDropdown = ({
 };
 
 export const Dropdown = AppDropdown;
-export default Dropdown;
-
 AppDropdown.displayName = "AppDropdown";
+
+export default AppDropdown;
