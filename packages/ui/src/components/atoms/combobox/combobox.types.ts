@@ -9,8 +9,8 @@ import {
   type ValidationResult,
 } from "react-aria-components";
 
-import { InputSize } from "@/components/atoms/input/input.sizes";
-import { InputVariant } from "@/components/atoms/input/input.types";
+import { InputSize } from "../input/input.sizes";
+import { InputVariant } from "../input/input.types";
 
 export interface IComboBoxOption {
   label: string;

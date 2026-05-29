@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import React, { forwardRef } from "react";
 import { Button as BaseButton } from "react-aria-components";
 
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 import { sizeClasses, variantClasses } from "./button.style";
 import { IButtonProps } from "./button.types";
@@ -41,7 +40,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
 
     if (href !== undefined) {
       return (
-        <Link
+        <a
           href={href}
           className={classes}
           ref={ref as React.Ref<HTMLAnchorElement>}
@@ -49,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
         >
           {loader}
           {children}
-        </Link>
+        </a>
       );
     }
 

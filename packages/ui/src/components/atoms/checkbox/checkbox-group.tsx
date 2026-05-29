@@ -9,7 +9,7 @@ import {
   FieldError as RACFieldError,
   type ValidationResult,
 } from "react-aria-components";
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 export interface ICheckboxGroupProps extends Omit<
   RACCheckboxGroupProps,

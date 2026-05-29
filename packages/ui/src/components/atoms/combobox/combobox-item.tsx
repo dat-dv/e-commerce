@@ -3,7 +3,7 @@
 import React from "react";
 import { ListBoxItem as RACListBoxItem } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 import { IComboBoxItemProps } from "./combobox.types";
 
 export function AppComboBoxItem({

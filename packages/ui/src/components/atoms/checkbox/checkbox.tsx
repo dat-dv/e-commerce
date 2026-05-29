@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 import { Check } from "lucide-react";
 import {
   Checkbox as RACCheckbox,

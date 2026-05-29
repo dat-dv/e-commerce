@@ -1,5 +1,4 @@
 import { Eye, EyeOff } from "lucide-react";
-import { useTranslations } from "next-intl";
 import React from "react";
 
 import Button from "../button";
@@ -7,19 +6,22 @@ import Button from "../button";
 const PasswordEye = ({
   showPassword,
   handleShowPassword,
+  labels = { show: "Show password", hide: "Hide password" },
 }: {
   showPassword: boolean;
   handleShowPassword: () => void;
+  labels?: {
+    show: string;
+    hide: string;
+  };
 }) => {
-  const t = useTranslations("Common.password");
-
   return (
     <Button
       variant="ghost"
       size="icon"
       onClick={handleShowPassword}
       className="text-content/50 hover:text-content z-10 transition-colors"
-      aria-label={showPassword ? t("hide") : t("show")}
+      aria-label={showPassword ? labels.hide : labels.show}
       type="button"
     >
       {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}

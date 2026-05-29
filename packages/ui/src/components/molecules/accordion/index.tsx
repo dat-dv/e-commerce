@@ -7,7 +7,7 @@ import {
   DisclosurePanel as RACDisclosurePanel,
 } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 export interface IAccordionProps {
   title: string;

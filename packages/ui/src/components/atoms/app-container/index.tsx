@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 interface AppContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";

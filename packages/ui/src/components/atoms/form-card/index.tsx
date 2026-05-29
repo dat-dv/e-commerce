@@ -1,5 +1,5 @@
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import React from "react";
 
 export interface FormCardProps extends React.HTMLAttributes<HTMLDivElement> {

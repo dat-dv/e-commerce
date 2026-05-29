@@ -18,7 +18,7 @@ import type {
   TableProps,
 } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 interface CommonTableProps extends Omit<TableProps, "className"> {
   className?: string;

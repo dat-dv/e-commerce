@@ -11,4 +11,8 @@ export interface InputProps extends Omit<
   variant?: InputVariant;
   maxCount?: number;
   size?: InputSize;
+  passwordToggleLabels?: {
+    show: string;
+    hide: string;
+  };
 }

@@ -8,9 +8,8 @@ import {
   TreeItemContent as RACTreeItemContent,
 } from "react-aria-components";
 
-import { Checkbox } from "@/components/atoms/checkbox";
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
-import { cn } from "@/utils/cn";
+import { Checkbox } from "../checkbox";
+import { cn } from "../../../utils";
 import { ITreeItemProps } from "./tree.types";
 
 export function AppTreeItem({
@@ -105,13 +104,14 @@ export function AppTreeItem({
                 )}
               </div>
             )}
-            <LiquidWaveText
-              isActive={isSelected}
-              className="relative z-10 min-w-0 truncate font-semibold capitalize"
-              inactiveClassName="text-content"
+            <span
+              className={cn(
+                "relative z-10 min-w-0 truncate font-semibold capitalize",
+                !isSelected && "text-content",
+              )}
             >
               {title}
-            </LiquidWaveText>
+            </span>
           </div>
         )}
       </RACTreeItemContent>

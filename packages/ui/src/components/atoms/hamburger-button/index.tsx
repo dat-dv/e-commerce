@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import { cn } from "@/utils/cn";
+import Button from "../button";
+import { cn } from "../../../utils";
 
 interface IHamburgerButtonProps {
   isOpen: boolean;

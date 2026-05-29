@@ -3,9 +3,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;

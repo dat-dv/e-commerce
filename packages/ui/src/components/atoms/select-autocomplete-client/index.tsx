@@ -20,17 +20,17 @@ import { Autocomplete, useFilter } from "react-aria-components/Autocomplete";
 import {
   InputSize,
   inputSizeClasses,
-} from "@/components/atoms/input/input.sizes";
+} from "../input/input.sizes";
 import {
   variantActive,
   variantBase,
   variantDisabled,
   variantError,
   variantNormal,
-} from "@/components/atoms/input/input.styles";
-import { InputVariant } from "@/components/atoms/input/input.types";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+} from "../input/input.styles";
+import { InputVariant } from "../input/input.types";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 export interface ISelectAutocompleteOption {
   label: string;

@@ -1,5 +1,5 @@
-import AppContainer from "@/components/atoms/app-container";
-import { cn } from "@/utils/cn";
+import AppContainer from "../../atoms/app-container";
+import { cn } from "../../../utils";
 import { ReactNode } from "react";
 
 type SidebarLayoutProps = {

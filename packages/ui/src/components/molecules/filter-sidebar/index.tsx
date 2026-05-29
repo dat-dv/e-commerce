@@ -8,8 +8,8 @@ import {
   Heading,
 } from "react-aria-components";
 
-import { TYPOGRAPHY } from "@/constants/typography";
-import { cn } from "@/utils/cn";
+import { TYPOGRAPHY } from "../../../tokens";
+import { cn } from "../../../utils";
 import {
   IFilterSectionProps,
   IFilterSidebarProps,

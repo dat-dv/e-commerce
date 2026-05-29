@@ -1,4 +1,3 @@
-import { TToastId } from "@/constants/toast.constant";
 import { toast as sonnerToast } from "sonner";
 import { CustomToast, ToastVariant } from "./toast-item";
 
@@ -8,7 +7,7 @@ const ERROR_TIMEOUT = 7000;
 type ToastId = string | number;
 
 export interface ToastOptions {
-  id?: TToastId;
+  id?: ToastId;
   description?: string;
   duration?: number;
 }

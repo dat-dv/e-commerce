@@ -20,16 +20,16 @@ import {
 import {
   InputSize,
   inputSizeClasses,
-} from "@/components/atoms/input/input.sizes";
+} from "../input/input.sizes";
 import {
   variantActive,
   variantBase,
   variantDisabled,
   variantError,
   variantNormal,
-} from "@/components/atoms/input/input.styles";
-import { InputVariant } from "@/components/atoms/input/input.types";
-import { cn } from "@/utils/cn";
+} from "../input/input.styles";
+import { InputVariant } from "../input/input.types";
+import { cn } from "../../../utils";
 
 export interface IDateInputProps extends Omit<
   AriaDateInputProps,

@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { forwardRef, useState } from "react";
 
-import { TYPOGRAPHY } from "@/constants/typography";
-import { cn } from "@/utils/cn";
+import { TYPOGRAPHY } from "../../../tokens";
+import { cn } from "../../../utils";
 
 import { inputSizeClasses } from "./input.sizes";
 import {
@@ -25,6 +25,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       size = "lg",
       maxCount,
       value,
+      passwordToggleLabels,
       ...rest
     },
     ref,
@@ -98,6 +99,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 <PasswordEye
                   showPassword={showPassword}
                   handleShowPassword={() => setShowPassword((v) => !v)}
+                  labels={passwordToggleLabels}
                 />
               </div>
             )}

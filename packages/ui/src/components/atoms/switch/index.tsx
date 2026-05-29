@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 interface SwitchProps extends Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

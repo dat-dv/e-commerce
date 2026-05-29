@@ -1,6 +1,5 @@
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 interface SummaryCardProps {
   label: string;

@@ -15,16 +15,16 @@ import {
   Text as RACText,
 } from "react-aria-components";
 
-import { inputSizeClasses } from "@/components/atoms/input/input.sizes";
+import { inputSizeClasses } from "../input/input.sizes";
 import {
   variantActive,
   variantBase,
   variantDisabled,
   variantError,
   variantNormal,
-} from "@/components/atoms/input/input.styles";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+} from "../input/input.styles";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { IComboBoxProps } from "./combobox.types";
 
 export function AppComboBox<

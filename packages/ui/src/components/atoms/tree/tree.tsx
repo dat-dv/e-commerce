@@ -7,7 +7,7 @@ import {
   type Key,
 } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 import { TreeItem } from "./tree-item";
 import { ITreeProps } from "./tree.types";
 

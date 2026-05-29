@@ -1,11 +1,9 @@
 "use client";
 
-import { InputSize } from "@/components/atoms/input/input.sizes";
-import { AppMenu, AppMenuItem } from "@/components/atoms/menu";
-import { aseanCountries } from "@/constants/countries";
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { InputSize } from "../input/input.sizes";
+import { AppMenu, AppMenuItem } from "../menu";
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import React from "react";
@@ -36,6 +34,16 @@ interface PhoneInputProps extends Omit<
   size?: InputSize;
 }
 
+const DEFAULT_COUNTRIES: CountryOption[] = [
+  {
+    name: "Vietnam",
+    code: "VN",
+    flag: "VN",
+    dialCode: "+84",
+    disabled: false,
+  },
+];
+
 const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
   (
     {
@@ -44,7 +52,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       label,
       error,
       className,
-      countries = aseanCountries as CountryOption[],
+      countries = DEFAULT_COUNTRIES,
       disabledSelected = false,
       size = "lg",
       id,

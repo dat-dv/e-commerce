@@ -11,7 +11,7 @@ import {
   type MenuTriggerProps as RACMenuTriggerProps,
 } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 export interface IAppMenuProps extends Omit<RACMenuTriggerProps, "trigger"> {
   trigger: React.ReactNode;

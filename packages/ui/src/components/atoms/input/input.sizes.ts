@@ -1,4 +1,4 @@
-import { UI_RADIUS } from "@/constants/ui-radius";
+import { UI_RADIUS } from "../../../tokens";
 import { InputVariant } from "./input.types";
 
 export type InputSize = "sm" | "md" | "lg";

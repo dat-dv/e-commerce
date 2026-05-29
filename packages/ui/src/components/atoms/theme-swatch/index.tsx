@@ -3,7 +3,7 @@
 import { motion, type HTMLMotionProps } from "framer-motion";
 import React from "react";
 
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils";
 
 interface ThemeSwatchProps extends HTMLMotionProps<"button"> {
   color: string;

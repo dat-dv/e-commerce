@@ -7,8 +7,8 @@ import {
   type TooltipProps as RACTooltipProps,
 } from "react-aria-components";
 
-import { cn } from "@/utils/cn";
-import { UI_RADIUS } from "@/constants/ui-radius";
+import { cn } from "../../../utils";
+import { UI_RADIUS } from "../../../tokens";
 
 export interface ITooltipProps extends Omit<RACTooltipProps, "children"> {
   content: React.ReactNode;
