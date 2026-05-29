@@ -13,6 +13,9 @@
   --color-background: var(--app-bg);
   --color-foreground: var(--app-text);
 
+  --color-sidebar: var(--sidebar-bg);
+  --color-sidebar-foreground: var(--sidebar-text);
+
   @keyframes shimmer {
     from {
       transform: translateX(-100%);
@@ -21,11 +24,25 @@
       transform: translateX(100%);
     }
   }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @layer utilities {
   .animate-shimmer {
     animation: shimmer 2s infinite;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out;
   }
   .hide-scrollbar {
     -ms-overflow-style: none;
@@ -34,4 +51,86 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+  .glass {
+    background: color-mix(in srgb, var(--app-bg) 70%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--app-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: 10px;
+  border: 3px solid var(--app-bg);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Base Body Styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition:
+    background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Shiki Dual-Theme Highlighting */
+html .shiki {
+  background-color: transparent !important;
+}
+
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+/* =========================================
+   AUTOFILL & BROWSER DEFAULTS
+   ========================================= */
+
+/* Handle Autocomplete backgrounds and text colors */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--app-bg) inset !important;
+  -webkit-text-fill-color: var(--app-text) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: var(--app-text);
+}
+
+/* Hide native reveal button */
+::-ms-reveal,
+::-ms-clear {
+  display: none;
+}
+
+/* Target specific Chrome/Safari/Edge reveal icon */
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
 }
