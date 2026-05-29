@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { useEffect } from "react";
 
 const MapComponent = dynamic(
-  () => import("@/components/molecules/form/form-map-picker/map-component"),
+  () => import("@/components/molecules/map-picker-form/map-component"),
   { ssr: false },
 );
 

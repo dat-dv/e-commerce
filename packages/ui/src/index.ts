@@ -167,6 +167,7 @@ export {
   type MissingProductProps,
   type SuggestedRoute,
 } from "./components/molecules/missing-product";
+export { default as Modal, type ModalProps } from "./components/molecules/modal";
 export { default as AnimatedPageHeader } from "./components/molecules/page-header-animation";
 export {
   default as Pagination,

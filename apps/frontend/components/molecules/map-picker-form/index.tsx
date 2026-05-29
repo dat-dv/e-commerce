@@ -1,6 +1,6 @@
 "use client";
 
-import MapPickerModal from "@/components/molecules/form/form-map-picker/map-picker-modal";
+import MapPickerModal from "@/components/molecules/map-picker-form/map-picker-modal";
 import { MapPickerField } from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";

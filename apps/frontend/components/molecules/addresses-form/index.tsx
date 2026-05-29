@@ -1,19 +1,21 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import { AppForm } from "@ecommerce/ui";
-import { FormCheckbox } from "@ecommerce/ui";
-import { FormInput } from "@ecommerce/ui";
-import { FormPhoneInput } from "@ecommerce/ui";
-import { FormSelect } from "@ecommerce/ui";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { EAddressLabel } from "@ecommerce/shared";
+import {
+  AppForm,
+  Button,
+  FormCheckbox,
+  FormInput,
+  FormPhoneInput,
+  FormSelect,
+} from "@ecommerce/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { useForm } from "react-hook-form";
-import { FormMapPicker } from "../form/form-map-picker";
+import { FormMapPicker } from "../map-picker-form";
 import { AddressFormData, getAddressSchema } from "./addresses.schema";
 
 interface AddressesFormProps {
