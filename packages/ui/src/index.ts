@@ -1,5 +1,3 @@
-"use client";
-
 export * from "./tokens";
 export * from "./utils";
 
