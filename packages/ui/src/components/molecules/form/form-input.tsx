@@ -3,9 +3,9 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import Input, { type IInputProps } from "../../atoms/input";
+import Input, { type InputProps } from "../../atoms/input";
 
-export interface IFormInputProps extends Omit<IInputProps, "id" | "error"> {
+export interface IFormInputProps extends Omit<InputProps, "id" | "error"> {
   name: string;
   maxCount?: number;
 }

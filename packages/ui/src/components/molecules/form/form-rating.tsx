@@ -21,7 +21,7 @@ export const FormRating = <T extends FieldValues>({
   max = 5,
   disabled = false,
   getAriaLabel,
-}: FormRatingProps<T>): React.ReactElement => {
+}: IFormRatingProps<T>): React.ReactElement => {
   return (
     <Controller
       name={name}
