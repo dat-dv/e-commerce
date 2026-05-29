@@ -1,16 +1,16 @@
 "use client";
 
+import { AppContainer, VirtualGrid } from "@ecommerce/ui";
 import { Eye, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-import { AppContainer } from "@ecommerce/ui";
 import { ProductCard } from "@/components/molecules/product-card";
-import { VirtualGrid } from "@/components/molecules/virtual-grid";
+
 import {
   PRODUCT_LISTING_GRID_CLASS_NAME,
   PRODUCT_LISTING_GRID_COLUMNS,
-} from "@/components/molecules/virtual-grid/grid-presets";
+} from "@/constants/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
 import { useLoadOnce } from "@/hooks/use-load-once";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Pagination } from "@/components/molecules/pagination";
+import { Pagination } from "@ecommerce/ui";
 import {
   TGetProductReviewsRequest,
   TReview,

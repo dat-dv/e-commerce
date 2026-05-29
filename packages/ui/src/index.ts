@@ -63,6 +63,11 @@ export {
   default as ViewAllButton,
   type ViewAllButtonProps,
 } from "./components/atoms/view-all-button";
+export {
+  default as SidebarItem,
+  type SidebarDocItem,
+  type SidebarItemProps,
+} from "./components/atoms/sidebar-item";
 
 // Molecules
 export {
@@ -101,6 +106,67 @@ export { default as SectionHeader } from "./components/molecules/section-header"
 export { default as SidebarLayout } from "./components/molecules/sidebar-layout";
 export { default as SummaryCard } from "./components/molecules/summary-card";
 export * from "./components/molecules/table";
+export {
+  default as LazySection,
+  type ILazySectionProps,
+} from "./components/molecules/lazy-section";
+export {
+  default as AccessDenied,
+  type AccessDeniedProps,
+  type AccessDeniedLabels,
+} from "./components/molecules/access-denied";
+export {
+  default as AppliedFiltersBar,
+  type AppliedFiltersBarProps,
+} from "./components/molecules/applied-filters-bar";
+export {
+  default as BrandCard,
+  type BrandCardProps,
+} from "./components/molecules/brand-card";
+export {
+  default as CategoryCard,
+  type CategoryCardProps,
+} from "./components/molecules/category-card";
+export {
+  default as ListingSectionHeader,
+  type ListingSectionHeaderProps,
+} from "./components/molecules/listing-section-header";
+export {
+  default as MissingProduct,
+  type MissingProductProps,
+  type MissingProductLabels,
+  type SuggestedRoute,
+} from "./components/molecules/missing-product";
+export {
+  default as Pagination,
+  type PaginationProps,
+} from "./components/molecules/pagination";
+export {
+  default as TableOfContents,
+  type TableOfContentsProps,
+  type TocItem,
+} from "./components/molecules/toc";
+export {
+  default as VirtualList,
+  type VirtualListProps,
+} from "./components/molecules/virtual-list";
+export {
+  default as VirtualGrid,
+  type VirtualGridProps,
+  type VirtualGridColumns,
+} from "./components/molecules/virtual-grid";
+export {
+  default as DocsSidebar,
+  type DocsSidebarProps,
+} from "./components/molecules/docs-sidebar";
+export {
+  default as SearchInput,
+  type SearchInputProps,
+} from "./components/molecules/search-input";
 
 // Hooks
 export { useTextSelectEvent } from "./hooks/use-text-select-event";
+export {
+  useIntersectionObserver,
+  type UseIntersectionObserverProps,
+} from "./hooks/use-intersection-observer";

@@ -1,8 +1,6 @@
 "use client";
 
-import { AppContainer, Loading, toast } from "@ecommerce/ui";
-
-import { Pagination } from "@/components/molecules/pagination";
+import { AppContainer, Loading, Pagination, toast } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";
 import { cn } from "@/utils/cn";

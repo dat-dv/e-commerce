@@ -1,12 +1,11 @@
 "use client";
 
-import { Accordion, AppContainer } from "@ecommerce/ui";
-
+import { Accordion, AppContainer, SearchInput } from "@ecommerce/ui";
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,
 } from "@/components/molecules/help-topic-nav";
-import SearchInput from "@/components/molecules/search-input";
+
 import { getRawI18nValue } from "@/utils/i18n";
 import Fuse from "fuse.js";
 import { AlertTriangle, Clock, MapPin, PackageSearch } from "lucide-react";

@@ -1,8 +1,7 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import SearchInput from "@/components/molecules/search-input";
 import { cn } from "@/utils/cn";
+import { Button, SearchInput } from "@ecommerce/ui";
 import { FilterX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";

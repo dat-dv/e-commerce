@@ -1,12 +1,11 @@
 "use client";
 
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import React from "react";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { LucideIcon, Sparkles } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 
-interface CategoryCardProps {
+export interface CategoryCardProps {
   name: string;
   count: string;
   href?: string;
@@ -14,8 +13,14 @@ interface CategoryCardProps {
   color?: string;
   image?: string;
   showCount?: boolean;
+  linkComponent?: React.ElementType;
+  imageComponent?: React.ElementType;
+  className?: string;
 }
 
+/**
+ * CategoryCard displays a category item with icon, image, name, and product count.
+ */
 export const CategoryCard = ({
   name,
   count,
@@ -24,17 +29,24 @@ export const CategoryCard = ({
   color = "text-primary",
   image,
   showCount = true,
+  linkComponent: LinkComponent = "a",
+  imageComponent: ImageComponent = "img",
+  className,
 }: CategoryCardProps) => {
   return (
-    <Link
+    <LinkComponent
       href={href}
       className={cn(
         UI_RADIUS.card,
         "group border-content/10 relative flex h-20 w-full items-center justify-between overflow-hidden border px-5 transition-all",
+        className,
       )}
     >
       <div
-        className={`absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-current to-transparent opacity-[0.02] blur-2xl transition-opacity group-hover:opacity-[0.08] ${color}`}
+        className={cn(
+          "absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-current to-transparent opacity-[0.02] blur-2xl transition-opacity group-hover:opacity-[0.08]",
+          color,
+        )}
       />
       <div className="min-w-0 flex-1 pr-3">
         <h3 className="text-content group-hover:text-primary line-clamp-1 font-bold capitalize transition-colors">
@@ -43,7 +55,7 @@ export const CategoryCard = ({
         {showCount && <p className="text-content/40 mt-0.5 text-xs">{count}</p>}
       </div>
       {image ? (
-        <Image
+        <ImageComponent
           width={80}
           loading="eager"
           height={80}
@@ -53,9 +65,14 @@ export const CategoryCard = ({
         />
       ) : (
         <Icon
-          className={`h-5 w-5 ${color} shrink-0 opacity-30 transition-opacity group-hover:opacity-100`}
+          className={cn(
+            "h-5 w-5 shrink-0 opacity-30 transition-opacity group-hover:opacity-100",
+            color,
+          )}
         />
       )}
-    </Link>
+    </LinkComponent>
   );
 };
+
+export default CategoryCard;

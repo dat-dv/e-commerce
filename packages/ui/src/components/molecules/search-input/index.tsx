@@ -1,13 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
-import { Loader2, Search, X } from "lucide-react";
-import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
+import { Loader2, Search, X } from "lucide-react";
+import Button from "../../atoms/button";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 export interface SearchInputProps {
   id?: string;
@@ -24,26 +21,24 @@ export interface SearchInputProps {
   "aria-label"?: string;
 }
 
+/**
+ * SearchInput provides a text entry box with a loading spinner, clear, and submit actions.
+ */
 export const SearchInput = ({
   id,
   value,
   onSearch,
   onChange,
-  placeholder,
+  placeholder = "Search...",
   loading = false,
   className,
   inputClassName,
-  clearButtonLabel,
-  submitButtonLabel,
+  clearButtonLabel = "Clear",
+  submitButtonLabel = "Submit",
   showSubmitButton = true,
   "aria-label": ariaLabel,
 }: SearchInputProps) => {
-  const t = useTranslations("Common.search");
   const [localValue, setLocalValue] = useState(value ?? "");
-
-  const resolvedPlaceholder = placeholder || t("defaultPlaceholder");
-  const resolvedClearButtonLabel = clearButtonLabel || t("clear");
-  const resolvedSubmitButtonLabel = submitButtonLabel || t("submit");
 
   useEffect(() => {
     if (value !== localValue) setLocalValue(value ?? "");
@@ -91,8 +86,8 @@ export const SearchInput = ({
         value={localValue}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder={resolvedPlaceholder}
-        aria-label={ariaLabel ?? resolvedPlaceholder}
+        placeholder={placeholder}
+        aria-label={ariaLabel ?? placeholder}
         className={cn(
           "text-content placeholder:text-content/30 w-full bg-transparent px-3 py-2.5 text-sm font-semibold outline-none",
           inputClassName,
@@ -110,7 +105,7 @@ export const SearchInput = ({
             )}
           >
             <X className="h-3 w-3" />
-            <span>{resolvedClearButtonLabel}</span>
+            <span>{clearButtonLabel}</span>
           </Button>
         )}
 
@@ -123,7 +118,7 @@ export const SearchInput = ({
               "bg-primary hover:bg-primary/90 shadow-primary/10 h-auto px-5 py-2 text-xs font-bold text-white shadow-md",
             )}
           >
-            {resolvedSubmitButtonLabel}
+            {submitButtonLabel}
           </Button>
         ) : null}
       </div>

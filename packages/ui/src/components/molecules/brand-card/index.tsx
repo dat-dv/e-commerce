@@ -1,29 +1,55 @@
 "use client";
 
-import { APP_ROUTES } from "@/constants/routes";
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { TBrand } from "@/domain/homepage/types/homepage.model";
-import { cn } from "@/utils/cn";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { UI_RADIUS, TYPOGRAPHY } from "../../../tokens";
+import { cn } from "../../../utils";
 
+export interface BrandCardProps {
+  name: string;
+  logoUrl?: string | null;
+  bannerUrl?: string | null;
+  productCount?: number;
+  description?: string | null;
+  href: string;
+  linkComponent?: React.ElementType;
+  imageComponent?: React.ElementType;
+  productCountLabel?: string | ((count: number) => string);
+  viewArchiveLabel?: string;
+  className?: string;
+}
+
+/**
+ * BrandCard displays brand name, description, logo, and banner with support for polymorphic links and images.
+ */
 export const BrandCard = ({
-  brand,
-}: {
-  brand: TBrand;
-  isLarge: boolean;
-  index?: number;
-}) => {
-  const t = useTranslations("BrandsPage.card");
-  const [imgError, setImgError] = React.useState(false);
+  name,
+  logoUrl,
+  bannerUrl,
+  productCount = 0,
+  description,
+  href,
+  linkComponent: LinkComponent = "a",
+  imageComponent: ImageComponent = "img",
+  productCountLabel = (count: number) => `${count} Products`,
+  viewArchiveLabel = "View Archive",
+  className,
+}: BrandCardProps) => {
+  const [imgError, setImgError] = useState(false);
+
+  const countText =
+    typeof productCountLabel === "function"
+      ? productCountLabel(productCount)
+      : productCountLabel;
 
   return (
-    <div className="group relative h-full min-w-0 transition-transform duration-300 hover:-translate-y-1 active:translate-y-0">
-      <Link
-        href={APP_ROUTES.BRAND_DETAIL(brand.slug)}
+    <div
+      className={cn(
+        "group relative h-full min-w-0 transition-transform duration-300 hover:-translate-y-1 active:translate-y-0",
+        className,
+      )}
+    >
+      <LinkComponent
+        href={href}
         className={cn(
           UI_RADIUS.card,
           "border-content/[0.08] bg-background group-hover:border-primary/35 group-hover:shadow-primary/10 relative flex h-full min-h-[220px] flex-col overflow-hidden border shadow-sm transition-all duration-300 group-hover:shadow-lg",
@@ -31,11 +57,11 @@ export const BrandCard = ({
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
-          {brand.bannerUrl ? (
+          {bannerUrl ? (
             <div className="relative h-full w-full">
-              <Image
-                src={brand.bannerUrl}
-                alt={brand.name}
+              <ImageComponent
+                src={bannerUrl}
+                alt={name}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover opacity-[0.15] grayscale transition-all duration-1000 group-hover:scale-110 group-hover:opacity-30 group-hover:grayscale-0"
@@ -57,11 +83,11 @@ export const BrandCard = ({
                 "border-content/[0.06] bg-background flex h-14 w-14 shrink-0 items-center justify-center border p-3 shadow-sm transition-transform duration-300 group-hover:rotate-[-3deg]",
               )}
             >
-              {brand.logoUrl && !imgError ? (
+              {logoUrl && !imgError ? (
                 <div className="relative h-full w-full">
-                  <Image
-                    src={brand.logoUrl}
-                    alt={brand.name}
+                  <ImageComponent
+                    src={logoUrl}
+                    alt={name}
                     fill
                     unoptimized
                     sizes="56px"
@@ -71,7 +97,7 @@ export const BrandCard = ({
                 </div>
               ) : (
                 <span className="text-primary text-xl font-bold">
-                  {brand.name?.charAt(0)}
+                  {name?.charAt(0)}
                 </span>
               )}
             </div>
@@ -85,7 +111,7 @@ export const BrandCard = ({
               <span
                 className={`block truncate ${TYPOGRAPHY.badge} text-content/45 tracking-wide uppercase`}
               >
-                {t("productCount", { count: brand.productCount || 0 })}
+                {countText}
               </span>
             </div>
           </div>
@@ -93,20 +119,20 @@ export const BrandCard = ({
           <div className="min-w-0">
             <div className="min-w-0">
               <h3 className="text-content group-hover:text-primary line-clamp-2 text-xl leading-tight font-bold transition-colors duration-300">
-                {brand.name}
+                {name}
               </h3>
             </div>
 
-            {brand.description && (
+            {description && (
               <p className="text-content/55 mt-2 line-clamp-2 min-h-[2.5rem] text-sm leading-5">
-                {brand.description}
+                {description}
               </p>
             )}
 
             <div
               className={`mt-5 flex min-w-0 items-center gap-2 ${TYPOGRAPHY.caption} text-primary font-bold tracking-wide uppercase`}
             >
-              <span className="truncate">{t("viewArchive")}</span>
+              <span className="truncate">{viewArchiveLabel}</span>
               <div className="bg-primary/30 h-px w-8 shrink-0 transition-all duration-300 group-hover:w-10" />
             </div>
           </div>
@@ -117,7 +143,9 @@ export const BrandCard = ({
 
         {/* Decorative Shine */}
         <div className="from-primary/10 pointer-events-none absolute inset-0 bg-gradient-to-tr via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      </Link>
+      </LinkComponent>
     </div>
   );
 };
+
+export default BrandCard;

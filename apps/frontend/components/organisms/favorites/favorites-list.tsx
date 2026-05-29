@@ -1,11 +1,10 @@
-import { EmptyState } from "@ecommerce/ui";
-
+import { EmptyState, VirtualGrid } from "@ecommerce/ui";
 import { ProductCard } from "@/components/molecules/product-card";
-import { VirtualGrid } from "@/components/molecules/virtual-grid";
+
 import {
   PRODUCT_LISTING_GRID_CLASS_NAME,
   PRODUCT_LISTING_GRID_COLUMNS,
-} from "@/components/molecules/virtual-grid/grid-presets";
+} from "@/constants/grid-presets";
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";

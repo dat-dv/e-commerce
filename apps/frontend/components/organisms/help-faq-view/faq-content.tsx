@@ -1,7 +1,8 @@
 "use client";
 
+import { SearchInput } from "@ecommerce/ui";
 import HelpSupportCard from "@/components/molecules/help-support-card";
-import SearchInput from "@/components/molecules/search-input";
+
 import { FAQTopic } from "./help-faq.types";
 import { FAQTopicList } from "./faq-topic-list";
 

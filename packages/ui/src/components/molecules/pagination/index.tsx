@@ -1,9 +1,8 @@
 "use client";
 
-import { cn } from "@/utils/cn";
+import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { cn } from "../../../utils";
 
 const getPaginationRange = (currentPage: number, totalPages: number) => {
   const MAX_ITEMS = 7;
@@ -79,14 +78,14 @@ const PaginationArrow = ({
   direction,
   disabled,
   onClick,
+  label,
 }: {
   direction: "left" | "right";
   disabled: boolean;
   onClick: () => void;
+  label: string;
 }) => {
-  const t = useTranslations("Common.pagination");
   const Icon = direction === "left" ? ChevronLeft : ChevronRight;
-  const label = direction === "left" ? t("previous") : t("next");
 
   return (
     <button
@@ -104,37 +103,30 @@ const PaginationArrow = ({
   );
 };
 
-interface PaginationProps {
+export interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  onPageChange?: (page: number) => void;
-  queryParam?: string;
-  scroll?: boolean;
+  onPageChange: (page: number) => void;
+  previousLabel?: string;
+  nextLabel?: string;
+  className?: string;
 }
 
+/**
+ * Pagination control elements with numeric pages and back/forth actions.
+ */
 export const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
-  queryParam,
-  scroll = false,
+  previousLabel = "Previous page",
+  nextLabel = "Next page",
+  className,
 }: PaginationProps) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-
   if (totalPages <= 1) return null;
 
   const handlePageSelect = (page: number) => {
-    if (queryParam) {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(queryParam, page.toString());
-
-      router.push(`${pathname}?${params.toString()}`, { scroll });
-      return;
-    }
-
-    onPageChange?.(page);
+    onPageChange(page);
   };
 
   const pages = getPaginationRange(currentPage, totalPages);
@@ -142,11 +134,15 @@ export const Pagination = ({
   return (
     <nav
       aria-label="Pagination"
-      className="animate-in fade-in slide-in-from-bottom-2 flex w-full items-center justify-center gap-1.5 py-4 duration-500 sm:gap-4"
+      className={cn(
+        "animate-in fade-in slide-in-from-bottom-2 flex w-full items-center justify-center gap-1.5 py-4 duration-500 sm:gap-4",
+        className,
+      )}
     >
       <PaginationArrow
         direction="left"
         disabled={currentPage === 1}
+        label={previousLabel}
         onClick={() => handlePageSelect(Math.max(1, currentPage - 1))}
       />
 
@@ -164,8 +160,11 @@ export const Pagination = ({
       <PaginationArrow
         direction="right"
         disabled={currentPage === totalPages}
+        label={nextLabel}
         onClick={() => handlePageSelect(Math.min(totalPages, currentPage + 1))}
       />
     </nav>
   );
 };
+
+export default Pagination;

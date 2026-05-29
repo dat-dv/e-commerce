@@ -1,6 +1,6 @@
 "use client";
 
-import { VirtualList } from "@/components/molecules/virtual-list";
+import { VirtualList } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { INotification } from "@/domain/notifications/types/notification";
 import { motion } from "framer-motion";

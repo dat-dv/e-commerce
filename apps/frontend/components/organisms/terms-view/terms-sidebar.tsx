@@ -1,6 +1,6 @@
 "use client";
 
-import TableOfContents from "@/components/molecules/toc";
+import { TableOfContents } from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 import React from "react";
 

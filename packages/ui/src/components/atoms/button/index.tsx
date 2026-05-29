@@ -39,16 +39,18 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
     );
 
     if (href !== undefined) {
+      const { linkComponent: LinkComponent = "a", ...anchorProps } =
+        rest as any;
       return (
-        <a
+        <LinkComponent
           href={href}
           className={classes}
           ref={ref as React.Ref<HTMLAnchorElement>}
-          {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          {...anchorProps}
         >
           {loader}
           {children}
-        </a>
+        </LinkComponent>
       );
     }
 

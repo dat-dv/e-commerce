@@ -1,6 +1,6 @@
 "use client";
 
-import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/components/molecules/virtual-grid/grid-presets";
+import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import { Eye } from "lucide-react";
 
 interface DiscoverySectionSkeletonProps {

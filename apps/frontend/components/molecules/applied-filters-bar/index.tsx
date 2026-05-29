@@ -1,13 +1,8 @@
 "use client";
 
 import { EProductSort } from "@ecommerce/shared";
-import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
-
-import { Button } from "@ecommerce/ui";
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { AppliedFiltersBar as SharedAppliedFiltersBar } from "@ecommerce/ui";
 import { Fragment } from "react";
 
 export interface AppliedFilters {
@@ -83,42 +78,14 @@ export function AppliedFiltersBar<T extends string = string>({
     });
   }
 
-  if (chips.length === 0) return null;
-
   return (
-    <div
-      className={cn(
-        UI_RADIUS.panel,
-        "border-content/[0.06] bg-content/[0.02] mb-6 flex flex-wrap items-center gap-2 border p-3",
-      )}
-    >
-      <span
-        className={`mr-1 ${TYPOGRAPHY.badge} text-content/35 tracking-widest uppercase`}
-      >
-        {t("applied")}
-      </span>
-      {chips?.map((chip, idx) => {
-        if (chip.label.trim() === "") return <Fragment key={idx} />;
-        return (
-          <Button
-            key={chip.key}
-            variant="ghost"
-            onClick={() => onClearFilter(chip.key)}
-            className={`border-primary/15 bg-primary/10 inline-flex h-8 items-center gap-2 rounded-full border px-3 ${TYPOGRAPHY.caption} text-primary hover:bg-primary/15 font-bold opacity-100 transition-colors hover:opacity-100 active:scale-95`}
-          >
-            {chip.label}
-            <X size={13} />
-          </Button>
-        );
-      })}
-      <Button
-        variant="ghost"
-        onClick={onResetFilters}
-        className={`border-content/10 ml-auto h-8 rounded-full border px-3 ${TYPOGRAPHY.caption} text-content/45 hover:border-primary/30 hover:text-primary font-bold opacity-100 transition-colors hover:bg-transparent hover:opacity-100 active:scale-95`}
-      >
-        {t("resetAll")}
-      </Button>
-    </div>
+    <SharedAppliedFiltersBar
+      chips={chips}
+      onClearFilter={onClearFilter}
+      onResetFilters={onResetFilters}
+      appliedLabel={t("applied")}
+      resetAllLabel={t("resetAll")}
+    />
   );
 }
 

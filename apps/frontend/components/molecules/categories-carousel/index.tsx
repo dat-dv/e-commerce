@@ -1,12 +1,16 @@
 "use client";
 
-import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
 import { CATEGORY_CAROUSEL_ITEM_CLASS } from "@/constants/carousel";
 import { APP_ROUTES } from "@/constants/routes";
+import {
+  Carousel,
+  CarouselItem,
+  CategoryCard,
+  SectionHeader,
+} from "@ecommerce/ui";
 import { Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { CategoryCard } from "../category-card";
 
 interface ICategory {
   id: string;

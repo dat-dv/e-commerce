@@ -1,6 +1,6 @@
 "use client";
 
-import { AppContainer } from "@ecommerce/ui";
+import { AppContainer, VirtualList } from "@ecommerce/ui";
 import { ConfirmCancelModal } from "@/components/molecules/order-part/confirm-cancel-modal";
 import { OrderCard } from "@/components/molecules/order-part/order-card";
 import { OrderEmptyState } from "@/components/molecules/order-part/order-empty-state";
@@ -8,7 +8,7 @@ import { OrderHeader } from "@/components/molecules/order-part/order-header";
 import { OrderTabs } from "@/components/molecules/order-part/order-tabs";
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
 import ReviewModal from "@/components/molecules/order-part/review-modal";
-import { VirtualList } from "@/components/molecules/virtual-list";
+
 import { TOrderItem } from "@/domain/orders/types/order.model";
 import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 import { useCancelOrder } from "@/hooks/orders/use-cancel-order";

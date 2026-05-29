@@ -1,13 +1,12 @@
 "use client";
-import { EmptyState } from "@ecommerce/ui";
 
-import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
+import { EmptyState, ListingSectionHeader, VirtualGrid } from "@ecommerce/ui";
 import { ProductCard } from "@/components/molecules/product-card";
-import { VirtualGrid } from "@/components/molecules/virtual-grid";
+
 import {
   PRODUCT_LISTING_GRID_CLASS_NAME,
   PRODUCT_LISTING_GRID_COLUMNS,
-} from "@/components/molecules/virtual-grid/grid-presets";
+} from "@/constants/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import usePagination from "@/hooks/use-pagination";

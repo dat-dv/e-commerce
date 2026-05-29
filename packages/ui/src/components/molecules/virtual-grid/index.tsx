@@ -1,13 +1,8 @@
 "use client";
 
-import { useEffect, useState, useMemo, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { WindowVirtualizer } from "virtua";
-import { useTranslations } from "next-intl";
-import {
-  PRODUCT_LISTING_GRID_CLASS_NAME,
-  PRODUCT_LISTING_GRID_COLUMNS,
-} from "./grid-presets";
 
 type VirtualItemWithId = {
   id?: string | number;
@@ -32,7 +27,6 @@ export interface VirtualGridColumns {
   xl?: number;
 }
 
-// Helper hook to dynamically resolve columns based on responsive config and window width
 function useResponsiveColumns(columns: VirtualGridColumns): number {
   const [cols, setCols] = useState(columns.base);
 
@@ -57,7 +51,6 @@ function useResponsiveColumns(columns: VirtualGridColumns): number {
       return columns.base;
     };
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCols(getColsFromConfig());
 
     const handleResize = () => {
@@ -87,6 +80,19 @@ export interface VirtualGridProps<T> {
   columns?: VirtualGridColumns;
 }
 
+const DEFAULT_GRID_COLUMNS: VirtualGridColumns = {
+  base: 2,
+  sm: 3,
+  md: 4,
+  lg: 5,
+};
+
+const DEFAULT_GRID_CLASS_NAME =
+  "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
+
+/**
+ * VirtualGrid displays performance virtualized grid rows dynamically wrapping columns.
+ */
 export function VirtualGrid<T>({
   data,
   renderItem,
@@ -94,25 +100,20 @@ export function VirtualGrid<T>({
   loadingMore,
   hasMore,
   onLoadMore,
-  loadingText,
-  endText,
-  gridClassName = PRODUCT_LISTING_GRID_CLASS_NAME,
+  loadingText = "Loading more...",
+  endText = "All items loaded",
+  gridClassName = DEFAULT_GRID_CLASS_NAME,
   itemClassName = "",
   rowClassName = "pb-6 last:pb-0",
-  triggerMargin = "200px", // Reduced margin to avoid double-triggering in grids
-  columns = PRODUCT_LISTING_GRID_COLUMNS,
+  triggerMargin = "200px",
+  columns = DEFAULT_GRID_COLUMNS,
 }: VirtualGridProps<T>) {
-  const t = useTranslations("Common.virtualized");
-  const displayLoadingText = loadingText ?? t("loadingMore");
-  const displayEndText = endText ?? t("allItemsLoaded");
   const sentinelRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sentinelRef, {
     margin: triggerMargin,
   });
 
   const itemsPerRow = useResponsiveColumns(columns);
-
-  // Use a ref to track the last time we triggered a load
   const lastTriggerTime = useRef<number>(0);
 
   useEffect(() => {
@@ -122,8 +123,6 @@ export function VirtualGrid<T>({
     const timeSinceLastTrigger = now - lastTriggerTime.current;
 
     if (isInView && hasMore && !loadingMore && data.length > 0) {
-      // If we just finished a load, wait at least 800ms before allowing another one
-      // to let the DOM settle and items measure.
       const waitTime = Math.max(500, 800 - timeSinceLastTrigger);
 
       timer = setTimeout(() => {
@@ -172,26 +171,23 @@ export function VirtualGrid<T>({
       <div
         ref={sentinelRef}
         className="flex flex-col items-center justify-center pt-12"
-        style={{ overflowAnchor: "none" }} // Prevent browser from following the sentinel down
+        style={{ overflowAnchor: "none" }}
       >
         {loadingMore ? (
           <div className="flex flex-col items-center gap-3 py-6">
             <div className="border-primary/10 border-t-primary h-5 w-5 animate-spin rounded-full border-2" />
-
             <span className="text-content/50 text-sm font-medium">
-              {displayLoadingText}
+              {loadingText}
             </span>
           </div>
         ) : hasMore ? (
           <div className="h-12" />
-        ) : data.length > 0 && displayEndText ? (
+        ) : data.length > 0 && endText ? (
           <div className="flex w-full items-center gap-4 px-4 py-6">
             <div className="bg-content/[0.05] h-px flex-1" />
-
             <span className="text-content/40 text-sm font-medium whitespace-nowrap">
-              {displayEndText}
+              {endText}
             </span>
-
             <div className="bg-content/[0.05] h-px flex-1" />
           </div>
         ) : null}
@@ -199,3 +195,5 @@ export function VirtualGrid<T>({
     </div>
   );
 }
+
+export default VirtualGrid;

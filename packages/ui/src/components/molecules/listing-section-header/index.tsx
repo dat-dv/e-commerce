@@ -1,23 +1,34 @@
 "use client";
 
-import { TYPOGRAPHY } from "@/constants/typography";
 import React from "react";
+import { TYPOGRAPHY } from "../../../tokens";
+import { cn } from "../../../utils";
 
-interface ListingSectionHeaderProps {
+export interface ListingSectionHeaderProps {
   eyebrow: string;
   title: string;
   icon?: React.ReactNode;
   meta?: React.ReactNode;
+  className?: string;
 }
 
+/**
+ * ListingSectionHeader displays eyebrow, title, and actions/metadata.
+ */
 export const ListingSectionHeader = ({
   eyebrow,
   title,
   icon,
   meta,
+  className,
 }: ListingSectionHeaderProps) => {
   return (
-    <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div
+      className={cn(
+        "flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between",
+        className,
+      )}
+    >
       <div className="min-w-0">
         <div className="text-primary flex min-w-0 items-center gap-2">
           {icon}
@@ -42,3 +53,5 @@ export const ListingSectionHeader = ({
     </div>
   );
 };
+
+export default ListingSectionHeader;

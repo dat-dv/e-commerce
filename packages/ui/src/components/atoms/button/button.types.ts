@@ -18,6 +18,7 @@ export type IButtonAsLink = IBaseProps &
     ref?: React.Ref<HTMLAnchorElement>;
     disabled?: never;
     type?: never;
+    linkComponent?: React.ElementType;
   };
 
 export type IButtonAsButton = IBaseProps &

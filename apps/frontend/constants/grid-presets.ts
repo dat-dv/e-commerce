@@ -1,4 +1,4 @@
-import type { VirtualGridColumns } from "./index";
+import type { VirtualGridColumns } from "@ecommerce/ui";
 
 export const PRODUCT_LISTING_GRID_CLASS_NAME =
   "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";

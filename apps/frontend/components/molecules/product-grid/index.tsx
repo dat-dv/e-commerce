@@ -1,5 +1,5 @@
 import { ProductCard } from "@/components/molecules/product-card";
-import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/components/molecules/virtual-grid/grid-presets";
+import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { cn } from "@/utils/cn";
 

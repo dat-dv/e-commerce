@@ -1,10 +1,10 @@
 "use client";
-import { EmptyState } from "@ecommerce/ui";
 
-import { Pagination } from "@/components/molecules/pagination";
+import { EmptyState, Pagination } from "@ecommerce/ui";
 import { ProductGrid } from "@/components/molecules/product-grid";
 import { LucideIcon, Search } from "lucide-react";
 import { TProduct } from "@/domain/products/types/products.model";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface ProductListingContentProps {
   products: TProduct[];
@@ -29,7 +29,22 @@ export function ProductListingContent({
   queryParam,
   onPageChange,
 }: ProductListingContentProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const hasProducts = products.length > 0;
+
+  const handlePageChange = (page: number) => {
+    if (onPageChange) {
+      onPageChange(page);
+      return;
+    }
+    if (queryParam) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(queryParam, page.toString());
+      router.push(`${pathname}?${params.toString()}`);
+    }
+  };
 
   if (!hasProducts && !loading) {
     return (
@@ -50,8 +65,7 @@ export function ProductListingContent({
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            queryParam={queryParam}
-            onPageChange={onPageChange}
+            onPageChange={handlePageChange}
           />
         </div>
       ) : null}

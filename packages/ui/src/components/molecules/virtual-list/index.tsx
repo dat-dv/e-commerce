@@ -1,8 +1,7 @@
 "use client";
 
+import React, { useEffect, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { useEffect, useRef } from "react";
 import { WindowVirtualizer } from "virtua";
 
 export interface VirtualListProps<T extends { id?: string | number }> {
@@ -19,6 +18,9 @@ export interface VirtualListProps<T extends { id?: string | number }> {
   triggerMargin?: UseInViewOptions["margin"];
 }
 
+/**
+ * VirtualList displays virtualized vertical scroll items and triggers onLoadMore.
+ */
 export function VirtualList<T extends { id?: string | number }>({
   data,
   renderItem,
@@ -26,15 +28,12 @@ export function VirtualList<T extends { id?: string | number }>({
   loadingMore,
   hasMore,
   onLoadMore,
-  loadingText,
-  endText,
+  loadingText = "Loading more...",
+  endText = "End of list",
   className = "space-y-8",
   itemClassName = "pb-8",
-  triggerMargin = "300px", // Standard list margin
+  triggerMargin = "300px",
 }: VirtualListProps<T>) {
-  const t = useTranslations("Common.virtualized");
-  const displayLoadingText = loadingText ?? t("loadingMore");
-  const displayEndText = endText ?? t("endOfList");
   const sentinelRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sentinelRef, {
     margin: triggerMargin,
@@ -86,7 +85,7 @@ export function VirtualList<T extends { id?: string | number }>({
           <div className="flex flex-col items-center gap-3 py-6">
             <div className="border-primary/10 border-t-primary h-5 w-5 animate-spin rounded-full border-2" />
             <span className="text-content/50 text-sm font-medium">
-              {displayLoadingText}
+              {loadingText}
             </span>
           </div>
         ) : hasMore ? (
@@ -95,7 +94,7 @@ export function VirtualList<T extends { id?: string | number }>({
           <div className="flex w-full items-center gap-4 px-4 py-6">
             <div className="bg-content/[0.05] h-px flex-1" />
             <span className="text-content/40 text-sm font-medium whitespace-nowrap">
-              {displayEndText}
+              {endText}
             </span>
             <div className="bg-content/[0.05] h-px flex-1" />
           </div>
@@ -104,3 +103,5 @@ export function VirtualList<T extends { id?: string | number }>({
     </div>
   );
 }
+
+export default VirtualList;

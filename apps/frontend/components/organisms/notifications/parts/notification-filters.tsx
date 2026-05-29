@@ -1,6 +1,6 @@
 "use client";
 
-import { SearchInput } from "@/components/molecules/search-input";
+import { SearchInput } from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 
 interface NotificationFiltersProps {

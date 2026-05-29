@@ -1,6 +1,6 @@
 "use client";
 
-import LazySection from "@/components/molecules/lazy-section";
+import { LazySection } from "@ecommerce/ui";
 import { cn } from "@/utils/cn";
 import { ComponentPropsWithoutRef } from "react";
 import FavoriteSection from "./favorite-section";

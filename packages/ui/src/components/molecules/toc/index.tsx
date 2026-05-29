@@ -1,18 +1,31 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { cn } from "../../../utils";
 
-type TocItem = {
+export type TocItem = {
   id: string;
   title: string;
 };
 
-type TocProps = {
+export interface TableOfContentsProps {
   items: TocItem[];
-};
+  linkComponent?: React.ElementType;
+  className?: string;
+  activeItemClassName?: string;
+  inactiveItemClassName?: string;
+}
 
-export default function TableOfContents({ items }: TocProps) {
+/**
+ * TableOfContents displays a scroll-spy list of anchor headings linking to document sections.
+ */
+export const TableOfContents = ({
+  items,
+  linkComponent: LinkComponent = "a",
+  className,
+  activeItemClassName = "bg-primary text-white",
+  inactiveItemClassName = "text-content/70 hover:bg-surface/80 hover:text-primary",
+}: TableOfContentsProps) => {
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
   const isScrollingClick = useRef(false);
   const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -43,9 +56,9 @@ export default function TableOfContents({ items }: TocProps) {
 
   // Scroll to hash on mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const hash = window.location.hash.replace("#", "");
     if (hash) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveId(hash);
       const targetElement = document.getElementById(hash);
       if (targetElement) {
@@ -63,7 +76,7 @@ export default function TableOfContents({ items }: TocProps) {
 
   // Track active section on scroll using IntersectionObserver
   useEffect(() => {
-    if (items.length === 0) return;
+    if (items.length === 0 || typeof window === "undefined") return;
 
     const observerOptions = {
       root: null,
@@ -114,22 +127,32 @@ export default function TableOfContents({ items }: TocProps) {
   }, [items]);
 
   return (
-    <ul className="hide-scrollbar flex w-full flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-0 lg:space-y-1 lg:overflow-visible lg:pb-0">
+    <ul
+      className={cn(
+        "hide-scrollbar flex w-full flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-0 lg:space-y-1 lg:overflow-visible lg:pb-0",
+        className,
+      )}
+    >
       {items.map((item) => (
         <li key={item.id} className="shrink-0 lg:w-full">
-          <Link
+          <LinkComponent
             href={`#${item.id}`}
-            className={`block max-w-[76vw] truncate rounded-xl px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition-colors lg:max-w-none lg:text-left lg:whitespace-normal ${
+            className={cn(
+              "block max-w-[76vw] truncate rounded-xl px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition-colors lg:max-w-none lg:text-left lg:whitespace-normal",
               activeId === item.id
-                ? "bg-primary text-white"
-                : "text-content/70 hover:bg-surface/80 hover:text-primary"
-            }`}
-            onClick={(e) => handleItemClick(e, item.id)}
+                ? activeItemClassName
+                : inactiveItemClassName,
+            )}
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+              handleItemClick(e, item.id)
+            }
           >
             {item.title}
-          </Link>
+          </LinkComponent>
         </li>
       ))}
     </ul>
   );
-}
+};
+
+export default TableOfContents;

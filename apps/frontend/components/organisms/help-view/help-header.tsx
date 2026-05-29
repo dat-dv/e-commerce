@@ -1,7 +1,6 @@
 "use client";
 
-import { AnimatedPageHeader, AppContainer } from "@ecommerce/ui";
-import SearchInput from "@/components/molecules/search-input";
+import { AnimatedPageHeader, AppContainer, SearchInput } from "@ecommerce/ui";
 import {
   HelpCircle,
   LifeBuoy,

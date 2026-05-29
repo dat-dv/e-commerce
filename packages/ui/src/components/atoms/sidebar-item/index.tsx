@@ -1,16 +1,17 @@
 "use client";
-import { LiquidWaveText } from "@ecommerce/ui";
 
-import { TYPOGRAPHY } from "@/constants/typography";
+import React, { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, FileText, FolderClosed, FolderOpen } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useMemo, useState } from "react";
+import { LiquidWaveText } from "../liquid-wave-text";
+import { TYPOGRAPHY } from "../../../tokens";
 
-import { DocItem } from "@/utils/docs";
-
-// ─── Utils ──────────────────────────────────────────────────────────────────
+export interface SidebarDocItem {
+  id: string;
+  href?: string;
+  routePath?: string;
+  children?: SidebarDocItem[];
+}
 
 const getTitle = (id: string) => {
   return id
@@ -19,10 +20,8 @@ const getTitle = (id: string) => {
     .join(" ");
 };
 
-// ─── Presentational Component: SidebarRow ───────────────────────────────────
-
 interface SidebarRowProps {
-  item: DocItem;
+  item: SidebarDocItem;
   depth: number;
   isOpen: boolean;
   isActive: boolean;
@@ -99,16 +98,25 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
   );
 };
 
-// ─── Main SidebarItem Hook / Component ─────────────────────────────────────
+export interface SidebarItemProps {
+  item: SidebarDocItem;
+  currentPathname: string;
+  depth?: number;
+  linkComponent?: React.ElementType;
+}
 
-export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({
+/**
+ * SidebarItem renders a single nested node in a tree sidebar list with expand/collapse animations.
+ */
+export const SidebarItem: React.FC<SidebarItemProps> = ({
   item,
+  currentPathname,
   depth = 0,
+  linkComponent: LinkComponent = "a",
 }) => {
-  const pathname = usePathname();
-  const isActive = pathname === item.href;
+  const isActive = currentPathname === item.href;
   const isChildActive =
-    !!item.routePath && pathname.startsWith(`${item.routePath}/`);
+    !!item.routePath && currentPathname.startsWith(`${item.routePath}/`);
 
   const [isOpen, setIsOpen] = useState(isActive || isChildActive);
 
@@ -134,9 +142,9 @@ export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({
   return (
     <div className="space-y-0.5">
       {isLink ? (
-        <Link href={item.href} className="block outline-none">
+        <LinkComponent href={item.href} className="block outline-none">
           {row}
-        </Link>
+        </LinkComponent>
       ) : (
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
           {row}
@@ -154,7 +162,13 @@ export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({
           >
             <div className="py-1">
               {item.children!.map((child) => (
-                <SidebarItem key={child.id} item={child} depth={depth + 1} />
+                <SidebarItem
+                  key={child.id}
+                  item={child}
+                  currentPathname={currentPathname}
+                  depth={depth + 1}
+                  linkComponent={LinkComponent}
+                />
               ))}
             </div>
           </motion.div>
@@ -163,3 +177,5 @@ export const SidebarItem: React.FC<{ item: DocItem; depth?: number }> = ({
     </div>
   );
 };
+
+export default SidebarItem;

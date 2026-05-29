@@ -1,9 +1,9 @@
 "use client";
 
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { ReactNode, useState } from "react";
+import { useIntersectionObserver } from "../../../hooks/use-intersection-observer";
 
-interface ILazySectionProps {
+export interface ILazySectionProps {
   children: ReactNode;
   placeholder?: ReactNode;
   rootMargin?: string;
@@ -11,6 +11,9 @@ interface ILazySectionProps {
   className?: string;
 }
 
+/**
+ * LazySection renders children lazily once it intersects with the viewport.
+ */
 export const LazySection = ({
   children,
   placeholder = null,
