@@ -1,21 +1,26 @@
-import { type ElementType } from "react";
+import React, { type ElementType } from "react";
 
 export interface IAvatarDropdownMenuItem {
   label: string;
-  href?: string;
-  icon?: ElementType;
-  onClick?: () => void;
+  href: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
 }
 
 export interface IAvatarDropdownLabels {
+  menuLabel?: string;
+  fallbackUser?: string;
+  noEmail?: string;
   signOut?: string;
 }
 
 export interface IAvatarDropdownProps {
-  user?: { name?: string; email?: string; avatarUrl?: string };
-  menuItems?: IAvatarDropdownMenuItem[];
-  onSignOut?: () => void;
-  linkComponent?: ElementType;
+  name: string;
+  email: string;
+  avatarUrl?: string;
+  menuItems: IAvatarDropdownMenuItem[];
   labels?: IAvatarDropdownLabels;
+  onClickLogout: () => void;
+  linkComponent?: ElementType;
   className?: string;
+  popoverClassName?: string;
 }

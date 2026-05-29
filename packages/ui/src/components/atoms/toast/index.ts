@@ -1,2 +1,5 @@
 export { toast } from "./toast";
-export { ToastProvider } from "./toast-provider";
+export type {
+  ICustomToastProps as CustomToastProps,
+  ICustomToastProps,
+} from "./toast.types";

@@ -1,12 +1,20 @@
-import { type LucideIcon } from "lucide-react";
+import React from "react";
 
 export interface IFeatureItem {
-  icon: LucideIcon;
-  title: string;
-  description: string;
+  name: string;
+  desc: string;
+  icon: React.ComponentType<{
+    size?: number;
+    className?: string;
+    strokeWidth?: number;
+  }>;
+  color?: string;
+  href?: string;
+  badge?: string;
 }
 
 export interface IFeatureGridProps {
-  features: IFeatureItem[];
-  className?: string;
+  items: IFeatureItem[];
+  classNames?: string;
+  linkComponent?: React.ElementType;
 }

@@ -1,6 +1,6 @@
 export interface IFilterDrawerTriggerProps {
-  onClick: () => void;
-  activeCount?: number;
-  label?: string;
-  className?: string;
+  eyebrow: string;
+  label: string;
+  buttonLabel: string;
+  onPress: () => void;
 }

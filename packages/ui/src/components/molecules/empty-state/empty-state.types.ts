@@ -1,9 +1,14 @@
-import { type ElementType, type ReactNode } from "react";
+import { type LucideIcon } from "lucide-react";
+import React from "react";
 
 export interface IEmptyStateProps {
-  icon?: ElementType;
-  title: string;
+  title?: string;
   description?: string;
-  children?: ReactNode;
+  icon?: LucideIcon;
+  actionLabel?: string;
+  actionHref?: string;
+  linkComponent?: React.ElementType;
+  children?: React.ReactNode;
   className?: string;
+  delay?: number;
 }

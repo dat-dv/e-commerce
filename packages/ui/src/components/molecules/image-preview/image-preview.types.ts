@@ -1,13 +1,28 @@
-import { type ComponentPropsWithoutRef } from "react";
+import React, {
+  type ButtonHTMLAttributes,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from "react";
+
+type PreviewImageProps = ComponentPropsWithoutRef<"img"> & {
+  fill?: boolean;
+  unoptimized?: boolean;
+  sizes?: string;
+};
 
 export interface IImagePreviewProps extends Omit<
-  ComponentPropsWithoutRef<"img">,
-  "src" | "onClick"
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children"
 > {
   src: string;
   alt?: string;
-  className?: string;
+  trigger?: ReactNode;
+  triggerClassName?: string;
+  thumbnailClassName?: string;
+  dialogClassName?: string;
+  panelClassName?: string;
   previewClassName?: string;
-  onRemove?: () => void;
-  removeAriaLabel?: string;
+  imageProps?: PreviewImageProps;
+  previewImageProps?: PreviewImageProps;
+  imageComponent?: React.ElementType;
 }

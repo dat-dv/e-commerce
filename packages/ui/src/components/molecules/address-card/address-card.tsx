@@ -1,0 +1,231 @@
+"use client";
+
+import { Edit, Star, Trash2 } from "lucide-react";
+
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
+import Button from "../../atoms/button";
+import {
+  IAddress,
+  IAddressCardLabels,
+  IAddressCardProps,
+} from "./address-card.types";
+
+const getFullAddress = (address: IAddress) =>
+  [address.street, address.ward, address.district, address.province]
+    .filter(Boolean)
+    .join(", ");
+
+const AddressMeta = ({
+  address,
+  labels = {},
+}: {
+  address: IAddress;
+  labels?: IAddressCardLabels;
+}) => {
+  const getLocalizedLabel = (label?: string | null | number) => {
+    const raw = String(label ?? "").trim();
+    if (!raw || /^\d+$/.test(raw)) return undefined;
+    const lower = raw.toLowerCase();
+    if (lower === "home") return labels.home || "Home";
+    if (lower === "office" || lower === "work") return labels.work || "Work";
+    if (lower === "apartment") return labels.apartment || "Apartment";
+    if (lower === "other") return labels.other || "Other";
+    return raw;
+  };
+  const resolvedLabel = getLocalizedLabel(address?.label);
+
+  return (
+    <span className="min-w-0 flex-1">
+      <span className="flex min-w-0 flex-wrap items-center gap-2">
+        <span
+          className={`truncate ${TYPOGRAPHY.bodySmall} text-content font-bold`}
+        >
+          {address.name || labels.noName || "No Name"}
+        </span>
+        <span className="text-content/30">·</span>
+        <span className={`${TYPOGRAPHY.meta} text-content/50`}>
+          {address.phone || labels.noPhone || "No Phone"}
+        </span>
+        {address.isDefault && (
+          <span
+            className={cn(
+              UI_RADIUS.badge,
+              TYPOGRAPHY.badge,
+              "border-primary/20 bg-primary/10 text-primary border px-2 py-0.5 tracking-tighter uppercase",
+            )}
+          >
+            {labels.defaultBadge || "Default"}
+          </span>
+        )}
+        {resolvedLabel && (
+          <span
+            className={cn(
+              UI_RADIUS.badge,
+              TYPOGRAPHY.badge,
+              "bg-content/10 text-content/60 px-2 py-0.5 tracking-wider uppercase",
+            )}
+          >
+            {resolvedLabel}
+          </span>
+        )}
+      </span>
+      <span
+        className={`block truncate ${TYPOGRAPHY.bodySmall} text-content/60`}
+      >
+        {getFullAddress(address)}
+      </span>
+    </span>
+  );
+};
+
+const SelectionIndicator = ({ selected }: { selected: boolean }) => (
+  <span
+    className={cn(
+      "flex size-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
+      selected
+        ? "border-primary bg-primary"
+        : "border-content/20 bg-transparent",
+    )}
+    aria-hidden
+  >
+    {selected && <span className="bg-surface size-1.5 rounded-full" />}
+  </span>
+);
+
+export const AddressCard = ({
+  address,
+  mode = "manage",
+  isSelected = false,
+  disabled = false,
+  isMutating = false,
+  labels = {},
+  className,
+  contentClassName,
+  selectButtonClassName,
+  staticContentClassName,
+  actionsClassName,
+  onSelect,
+  onEdit,
+  onSetDefault,
+  onDelete,
+  ...props
+}: IAddressCardProps) => {
+  const isSelectable = mode === "select" && onSelect;
+
+  return (
+    <div
+      className={cn(
+        UI_RADIUS.card,
+        "border px-5 py-3.5 transition-colors",
+        isSelected || address.isDefault
+          ? "border-primary/30 bg-primary/[0.05] shadow-primary/5 shadow-sm"
+          : "border-content/5 bg-surface/40 hover:border-content/10 hover:bg-content/[0.03]",
+        className,
+      )}
+      {...props}
+    >
+      <div className={cn("flex items-center gap-4", contentClassName)}>
+        {isSelectable ? (
+          <button
+            type="button"
+            onClick={onSelect}
+            disabled={disabled}
+            className={cn(
+              "focus-visible:ring-primary/50 flex min-w-0 flex-1 items-center gap-4 text-left focus-visible:ring-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60",
+              selectButtonClassName,
+            )}
+            aria-pressed={isSelected}
+          >
+            <SelectionIndicator selected={isSelected} />
+            <AddressMeta address={address} labels={labels} />
+          </button>
+        ) : (
+          <div
+            className={cn(
+              "flex min-w-0 flex-1 items-center gap-4",
+              staticContentClassName,
+            )}
+          >
+            <AddressMeta address={address} labels={labels} />
+          </div>
+        )}
+
+        <div
+          className={cn(
+            "flex shrink-0 items-center justify-end gap-1",
+            actionsClassName,
+          )}
+        >
+          {mode === "manage" && !address.isDefault && onSetDefault && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={onSetDefault}
+              disabled={disabled}
+              aria-label={
+                labels.setDefaultAriaLabel ||
+                `Set ${address.name || "address"} as default`
+              }
+              className={cn(
+                UI_RADIUS.control,
+                "text-content/40 hover:bg-primary/5 hover:text-primary size-8 p-0 opacity-100",
+              )}
+            >
+              <Star size={16} aria-hidden />
+            </Button>
+          )}
+
+          {onEdit && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={onEdit}
+              disabled={disabled}
+              aria-label={
+                labels.editAriaLabel ||
+                `Edit address for ${address.name || "recipient"}`
+              }
+              className={cn(
+                UI_RADIUS.control,
+                "text-content/30 hover:bg-content/5 hover:text-content size-8 p-0 opacity-100",
+              )}
+            >
+              <Edit size={14} className="rotate-45" aria-hidden />
+            </Button>
+          )}
+
+          {mode === "manage" && onDelete && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={onDelete}
+              disabled={disabled}
+              aria-label={
+                labels.deleteAriaLabel ||
+                `Delete address for ${address.name || "recipient"}`
+              }
+              className={cn(
+                UI_RADIUS.control,
+                "text-content/40 size-8 p-0 opacity-100 hover:bg-red-500/5 hover:text-red-500",
+              )}
+            >
+              {isMutating ? (
+                <span className="border-content/30 size-4 animate-spin rounded-full border-2 border-t-transparent" />
+              ) : (
+                <Trash2 size={16} aria-hidden />
+              )}
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+AddressCard.displayName = "AddressCard";
+
+export default AddressCard;
