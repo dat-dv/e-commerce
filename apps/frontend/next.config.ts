@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   // output: "export",
   reactStrictMode: !true,
+  transpilePackages: ["@ecommerce/shared", "@ecommerce/ui"],
   images: {
     remotePatterns: [
       {

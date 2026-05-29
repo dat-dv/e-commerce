@@ -1,14 +1,17 @@
 {
   "name": "e-commerce-monorepo",
   "private": true,
+  "packageManager": "npm@10.8.2",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
     "man": "node scripts/man.js",
-    "dev": "npm run build:ui && concurrently -k -n shared,ui,i18n,fe,be -c cyan,yellow,magenta,green,blue \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\" \"npm run _dev:be\"",
-    "dev:fe": "npm run build:ui && concurrently -k -n shared,ui,i18n,fe -c cyan,yellow,magenta,green \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\"",
+    "dev": "npm run build:ui && turbo run dev --parallel",
+    "dev:legacy": "npm run build:ui && concurrently -k -n shared,ui,i18n,fe,be -c cyan,yellow,magenta,green,blue \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\" \"npm run _dev:be\"",
+    "dev:fe": "npm run build:ui && turbo run dev --parallel --filter=@ecommerce/shared --filter=@ecommerce/ui --filter=frontend",
+    "dev:fe:legacy": "npm run build:ui && concurrently -k -n shared,ui,i18n,fe -c cyan,yellow,magenta,green \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\"",
     "dev:be": "concurrently -k -n shared,be -c cyan,blue \"npm run _watch:shared\" \"npm run _dev:be\"",
     "debug:be": "concurrently -k -n shared,be:debug -c cyan,blue \"npm run _watch:shared\" \"npm run _debug:be\"",
     "_dev:fe": "npm run dev -w apps/frontend",
@@ -25,10 +28,10 @@
     "format:be": "npm run format -w apps/backend",
     "build:fe": "npm run build -w apps/frontend",
     "lint:fe": "npm run lint -w apps/frontend",
-    "build": "npm run build --workspaces",
-    "test": "npm run test --workspaces",
-    "lint": "npm run lint --workspaces",
-    "type-check": "npm run type-check -w apps/frontend",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
     "db:reset": "npm run db:reset -w apps/backend",
     "format": "prettier --write .",
     "prepare": "husky"
@@ -38,7 +41,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "nodemon": "^3.1.14",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "turbo": "^2.9.16"
   },
   "lint-staged": {
     "apps/frontend/**/*.{js,jsx,ts,tsx}": [

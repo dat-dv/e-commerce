@@ -64,6 +64,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 seedlogs-*.txt
 
 .geminiapps/backend/prisma/dataset/Amazon-Products.json
+.turbo
 
 **/dataset/*.json
 **/.gemini-products/*.json
