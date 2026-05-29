@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "i18n:gen": "node scripts/generate-messages.mjs",
-    "i18n:watch": "nodemon --watch messages/en --watch messages/vi -e json --exec \"npm run i18n:gen\"",
+    "i18n:watch": "node --watch-path=messages/en --watch-path=messages/vi scripts/generate-messages.mjs",
     "dev": "next dev -p 5173",
     "prebuild": "npm run i18n:gen",
     "build": "next build",
@@ -52,7 +52,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "^1.0.0",
-    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "eslint-config-prettier": "^10.1.8",
