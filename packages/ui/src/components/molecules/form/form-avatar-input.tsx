@@ -5,14 +5,14 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { AvatarInput } from "../../atoms/avatar-input";
 
-export interface FormAvatarInputProps {
+export interface IFormAvatarInputProps {
   name: string;
   displayName?: string;
   size?: number;
   disabled?: boolean;
 }
 
-export const FormAvatarInput: React.FC<FormAvatarInputProps> = ({
+export const FormAvatarInput: React.FC<IFormAvatarInputProps> = ({
   name,
   displayName,
   size = 160,

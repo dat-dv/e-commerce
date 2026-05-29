@@ -3,12 +3,12 @@
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
 import React from "react";
 
-export interface FormButtonProps extends HTMLMotionProps<"button"> {
+export interface IFormButtonProps extends HTMLMotionProps<"button"> {
   isLoading?: boolean;
   loadingText?: string;
 }
 
-export const FormButton: React.FC<FormButtonProps> = ({
+export const FormButton: React.FC<IFormButtonProps> = ({
   isLoading,
   loadingText = "Processing...",
   children,

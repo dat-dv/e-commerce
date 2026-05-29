@@ -5,14 +5,14 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import Textarea, { ITextareaProps } from "../../atoms/textarea";
 
-export interface FormTextareaProps extends Omit<
+export interface IFormTextareaProps extends Omit<
   ITextareaProps,
   "id" | "error"
 > {
   name: string;
 }
 
-export const FormTextarea: React.FC<FormTextareaProps> = ({
+export const FormTextarea: React.FC<IFormTextareaProps> = ({
   name,
   ...rest
 }) => {

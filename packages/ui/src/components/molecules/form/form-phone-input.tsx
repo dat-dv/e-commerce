@@ -82,7 +82,7 @@ export const aseanCountries: ICountryOption[] = [
   },
 ];
 
-export interface FormPhoneInputProps extends Omit<
+export interface IFormPhoneInputProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   "size" | "value" | "onChange"
 > {
@@ -93,7 +93,7 @@ export interface FormPhoneInputProps extends Omit<
   size?: InputSize;
 }
 
-export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
+export const FormPhoneInput: React.FC<IFormPhoneInputProps> = ({
   name,
   label,
   className,

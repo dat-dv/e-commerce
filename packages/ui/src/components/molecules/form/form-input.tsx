@@ -3,14 +3,14 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import Input, { InputProps } from "../../atoms/input";
+import Input, { type IInputProps } from "../../atoms/input";
 
-export interface FormInputProps extends Omit<InputProps, "id" | "error"> {
+export interface IFormInputProps extends Omit<IInputProps, "id" | "error"> {
   name: string;
   maxCount?: number;
 }
 
-export const FormInput: React.FC<FormInputProps> = ({
+export const FormInput: React.FC<IFormInputProps> = ({
   name,
   maxCount,
   ...rest

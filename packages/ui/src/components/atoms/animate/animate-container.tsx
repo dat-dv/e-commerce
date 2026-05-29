@@ -1,11 +1,8 @@
 "use client";
 
-import { HTMLMotionProps, motion, Variants } from "framer-motion";
-import React from "react";
+import { motion, type Variants } from "framer-motion";
 
-export interface AnimationContainerProps extends HTMLMotionProps<"div"> {
-  children: React.ReactNode;
-}
+import { type IAnimationContainerProps } from "./animate.types";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -16,7 +13,7 @@ export const AnimationContainer = ({
   children,
   className,
   ...props
-}: AnimationContainerProps) => {
+}: IAnimationContainerProps) => {
   return (
     <motion.div
       variants={containerVariants}
@@ -29,3 +26,5 @@ export const AnimationContainer = ({
     </motion.div>
   );
 };
+
+AnimationContainer.displayName = "AnimationContainer";

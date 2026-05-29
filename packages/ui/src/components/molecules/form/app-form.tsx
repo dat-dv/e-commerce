@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { FieldValues, FormProvider, UseFormReturn } from "react-hook-form";
 
-export type AppFormProps<T extends FieldValues> = {
+export type IAppFormProps<T extends FieldValues> = {
   methods: UseFormReturn<T>;
   children: ReactNode;
   onSubmit: (data: T) => void | Promise<void>;
@@ -12,7 +12,7 @@ export const AppForm = <T extends FieldValues>({
   children,
   onSubmit,
   ...props
-}: AppFormProps<T>): ReactNode => {
+}: IAppFormProps<T>): ReactNode => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)} {...props}>

@@ -5,7 +5,7 @@ import React from "react";
 import { Radio as AriaRadio, RadioGroup } from "react-aria-components";
 import { Controller, FieldValues, Path, UseFormReturn } from "react-hook-form";
 
-export interface FormRatingProps<T extends FieldValues> {
+export interface IFormRatingProps<T extends FieldValues> {
   name: Path<T>;
   methods: UseFormReturn<T>;
   label?: string;

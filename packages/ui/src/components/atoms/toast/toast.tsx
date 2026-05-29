@@ -7,7 +7,7 @@ const ERROR_TIMEOUT = 7000;
 
 type ToastId = string | number;
 
-export interface ToastOptions {
+export interface IToastOptions {
   id?: ToastId;
   description?: string;
   duration?: number;
@@ -16,7 +16,7 @@ export interface ToastOptions {
 function showToast(
   title: string,
   variant: ToastVariant = "default",
-  options: ToastOptions = {},
+  options: IToastOptions = {},
 ): ToastId {
   const { id, description, duration } = options;
   return sonnerToast.custom(
@@ -37,27 +37,27 @@ function showToast(
 }
 
 export const toast = {
-  show(title: string, options?: ToastOptions & { variant?: ToastVariant }) {
+  show(title: string, options?: IToastOptions & { variant?: ToastVariant }) {
     return showToast(title, options?.variant, options);
   },
 
-  success(title: string, options?: ToastOptions) {
+  success(title: string, options?: IToastOptions) {
     return showToast(title, "success", options);
   },
 
-  warning(title: string, options?: ToastOptions) {
+  warning(title: string, options?: IToastOptions) {
     return showToast(title, "warning", options);
   },
 
-  info(title: string, options?: ToastOptions) {
+  info(title: string, options?: IToastOptions) {
     return showToast(title, "info", options);
   },
 
-  error(title: string, options?: ToastOptions) {
+  error(title: string, options?: IToastOptions) {
     return showToast(title, "error", options);
   },
 
-  default(title: string, options?: ToastOptions) {
+  default(title: string, options?: IToastOptions) {
     return showToast(title, "default", options);
   },
 

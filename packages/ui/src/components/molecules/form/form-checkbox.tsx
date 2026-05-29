@@ -5,14 +5,14 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { Checkbox, ICheckboxProps } from "../../atoms/checkbox";
 
-export interface FormCheckboxProps extends Omit<
+export interface IFormCheckboxProps extends Omit<
   ICheckboxProps,
   "checked" | "onCheckedChange"
 > {
   name: string;
 }
 
-export const FormCheckbox: React.FC<FormCheckboxProps> = ({
+export const FormCheckbox: React.FC<IFormCheckboxProps> = ({
   name,
   children,
   ...rest

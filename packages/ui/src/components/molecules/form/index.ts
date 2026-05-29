@@ -1,21 +1,21 @@
-export { AppForm, type AppFormProps } from "./app-form";
+export { AppForm, type IAppFormProps } from "./app-form";
 export {
   FormAvatarInput,
-  type FormAvatarInputProps,
+  type IFormAvatarInputProps,
 } from "./form-avatar-input";
-export { FormButton, type FormButtonProps } from "./form-button";
-export { FormCheckbox, type FormCheckboxProps } from "./form-checkbox";
+export { FormButton, type IFormButtonProps } from "./form-button";
+export { FormCheckbox, type IFormCheckboxProps } from "./form-checkbox";
 export { FormDateInput, type IFormDateInputProps } from "./form-date-input";
-export { FormInput, type FormInputProps } from "./form-input";
+export { FormInput, type IFormInputProps } from "./form-input";
 export {
   FormListenerDirty,
-  type FormListenerDirtyProps,
+  type IFormListenerDirtyProps,
 } from "./form-listener-dirty";
-export { FormPhoneInput, type FormPhoneInputProps } from "./form-phone-input";
-export { FormRating, type FormRatingProps } from "./form-rating";
+export { FormPhoneInput, type IFormPhoneInputProps } from "./form-phone-input";
+export { FormRating, type IFormRatingProps } from "./form-rating";
 export { FormSelect, type IFormSelectProps } from "./form-select";
 export {
   FormSelectAutocomplete,
   type IFormSelectAutocompleteProps,
 } from "./form-select-autocomplete";
-export { FormTextarea, type FormTextareaProps } from "./form-textarea";
+export { FormTextarea, type IFormTextareaProps } from "./form-textarea";
