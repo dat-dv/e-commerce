@@ -162,9 +162,20 @@ export {
   type PaginationProps,
 } from "./components/molecules/pagination";
 export {
+  default as PriceRangeFilter,
+  type PriceRangeFilterChange,
+  type PriceRangeFilterLabels,
+  type PriceRangeFilterProps,
+} from "./components/molecules/price-range-filter";
+export {
   default as QuantitySelector,
   type QuantitySelectorProps,
 } from "./components/molecules/quantity-selector";
+export {
+  default as RatingFilter,
+  type RatingFilterLabels,
+  type RatingFilterProps,
+} from "./components/molecules/rating-filter";
 export {
   RenderDesktopOnly,
   RenderMobileOnly,

@@ -1,44 +1,67 @@
 "use client";
 
-import { Button, Input } from "@ecommerce/ui";
-
 import { useEffect, useState } from "react";
 
-import { TYPOGRAPHY } from "@/constants/typography";
-import { useTranslations } from "next-intl";
-import { IProductPriceFilterProps } from "./product-filter-sidebar.types";
+import Button from "../../atoms/button";
+import Input from "../../atoms/input";
+import { TYPOGRAPHY } from "../../../tokens";
 
-export function ProductPriceFilter<T extends string = string>({
-  minPriceValue,
-  maxPriceValue,
+export interface PriceRangeFilterChange<T extends string = string> {
+  key: T;
+  value: string | null;
+}
+
+export interface PriceRangeFilterLabels {
+  title?: string;
+  min?: string;
+  max?: string;
+  apply?: string;
+}
+
+export interface PriceRangeFilterProps<T extends string = string> {
+  minPriceValue?: string;
+  maxPriceValue?: string;
+  onFilterChange?: (filters: PriceRangeFilterChange<T>[]) => void;
+  labels?: PriceRangeFilterLabels;
+  minKey?: T;
+  maxKey?: T;
+}
+
+export function PriceRangeFilter<T extends string = string>({
+  minPriceValue = "",
+  maxPriceValue = "",
   onFilterChange,
-}: IProductPriceFilterProps<T>) {
-  const t = useTranslations("ProductsPage");
+  labels,
+  minKey = "min_price" as T,
+  maxKey = "max_price" as T,
+}: PriceRangeFilterProps<T>) {
   const [minPrice, setMinPrice] = useState(minPriceValue);
   const [maxPrice, setMaxPrice] = useState(maxPriceValue);
 
   useEffect(() => {
     if (minPriceValue === minPrice && maxPriceValue === maxPrice) return;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMinPrice(minPriceValue);
     setMaxPrice(maxPriceValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minPriceValue, maxPriceValue]);
 
   const applyPriceRange = () => {
-    if (onFilterChange) {
-      onFilterChange([
-        {
-          key: "min_price" as T,
-          value: minPrice || null,
-        },
-        {
-          key: "max_price" as T,
-          value: maxPrice || null,
-        },
-      ]);
-    }
+    onFilterChange?.([
+      {
+        key: minKey,
+        value: minPrice || null,
+      },
+      {
+        key: maxKey,
+        value: maxPrice || null,
+      },
+    ]);
   };
+
+  const title = labels?.title ?? "Price range";
+  const minLabel = labels?.min ?? "Min";
+  const maxLabel = labels?.max ?? "Max";
+  const applyLabel = labels?.apply ?? "Apply";
 
   return (
     <form
@@ -50,23 +73,23 @@ export function ProductPriceFilter<T extends string = string>({
       <h3
         className={`text-content/45 mb-3 ${TYPOGRAPHY.badge} tracking-widest uppercase`}
       >
-        {t("priceRange")}
+        {title}
       </h3>
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <Input
-            aria-label={t("min")}
+            aria-label={minLabel}
             type="number"
-            placeholder={t("min")}
+            placeholder={minLabel}
             size="md"
             value={minPrice}
             onChange={(event) => setMinPrice(event.target.value)}
           />
           <span className="text-content/25 text-sm font-semibold">-</span>
           <Input
-            aria-label={t("max")}
+            aria-label={maxLabel}
             type="number"
-            placeholder={t("max")}
+            placeholder={maxLabel}
             size="md"
             value={maxPrice}
             onChange={(event) => setMaxPrice(event.target.value)}
@@ -78,11 +101,11 @@ export function ProductPriceFilter<T extends string = string>({
           size="md"
           className="w-full text-xs font-bold tracking-widest uppercase"
         >
-          {t("applyPrice")}
+          {applyLabel}
         </Button>
       </div>
     </form>
   );
 }
 
-export default ProductPriceFilter;
+export default PriceRangeFilter;

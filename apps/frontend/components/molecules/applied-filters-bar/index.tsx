@@ -3,7 +3,6 @@
 import { EProductSort } from "@ecommerce/shared";
 import { useTranslations } from "next-intl";
 import { AppliedFiltersBar as SharedAppliedFiltersBar } from "@ecommerce/ui";
-import { Fragment } from "react";
 
 export interface AppliedFilters {
   search?: string;

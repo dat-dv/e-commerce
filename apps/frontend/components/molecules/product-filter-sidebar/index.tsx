@@ -1,11 +1,14 @@
 "use client";
 
-import { FilterSection, FilterSidebar } from "@ecommerce/ui";
+import {
+  FilterSection,
+  FilterSidebar,
+  PriceRangeFilter,
+  RatingFilter,
+} from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 import { CategoryFilterSection } from "./category-filter";
-import { ProductPriceFilter } from "./price-filter";
 import { IProductFilterSidebarProps } from "./product-filter-sidebar.types";
-import { ProductRatingFilter } from "./rating-filter";
 
 export function ProductFilterSidebar<T extends string = string>({
   categories,
@@ -37,17 +40,25 @@ export function ProductFilterSidebar<T extends string = string>({
       )}
 
       <FilterSection title={t("filters")}>
-        {/* Price Range */}
-        <ProductPriceFilter<T>
+        <PriceRangeFilter<T>
           minPriceValue={minPriceValue}
           maxPriceValue={maxPriceValue}
           onFilterChange={onFilterChange}
+          labels={{
+            title: t("priceRange"),
+            min: t("min"),
+            max: t("max"),
+            apply: t("applyPrice"),
+          }}
         />
 
-        {/* Rating Filter */}
-        <ProductRatingFilter
-          handleRatingClick={handleRatingClick}
+        <RatingFilter
+          onRatingClick={handleRatingClick}
           ratingValue={ratingValue}
+          labels={{
+            title: t("rating"),
+            suffix: t("up"),
+          }}
         />
       </FilterSection>
     </FilterSidebar>
