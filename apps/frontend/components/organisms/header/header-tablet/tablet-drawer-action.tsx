@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 import { type LucideIcon } from "lucide-react";

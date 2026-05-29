@@ -1,7 +1,7 @@
 "use client";
 
 import Avatar from "@/components/atoms/avatar";
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { LogIn, User, UserPlus } from "lucide-react";

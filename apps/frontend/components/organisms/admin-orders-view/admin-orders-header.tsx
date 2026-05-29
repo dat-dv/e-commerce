@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 import {
   ClipboardList,

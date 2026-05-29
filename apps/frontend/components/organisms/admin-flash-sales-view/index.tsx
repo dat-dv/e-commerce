@@ -1,7 +1,7 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
-import { Tab, TabList, TabPanel, Tabs } from "@/components/atoms/tabs";
+import { AppContainer, Tab, TabList, TabPanel, Tabs } from "@ecommerce/ui";
+
 import { useAdminFlashSales } from "@/hooks/flash-sales/use-admin-flash-sales";
 import { CalendarClock, Clock3 } from "lucide-react";
 import { useTranslations } from "next-intl";

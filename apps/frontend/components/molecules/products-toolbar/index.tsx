@@ -11,7 +11,7 @@ import {
 import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { AppDropdown } from "@/components/molecules/dropdown";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";

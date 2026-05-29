@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { TCartItem } from "@/store/cart-store/cart-store.type";

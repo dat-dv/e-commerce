@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { ConfirmCancelModal } from "@/components/molecules/order-part/confirm-cancel-modal";
 import { OrderCard } from "@/components/molecules/order-part/order-card";
 import { OrderEmptyState } from "@/components/molecules/order-part/order-empty-state";

@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";

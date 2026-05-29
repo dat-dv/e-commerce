@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";

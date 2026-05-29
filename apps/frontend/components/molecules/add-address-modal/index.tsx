@@ -1,12 +1,13 @@
 "use client";
 
-import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/dialog";
-import { XIcon } from "@/components/atoms/icons";
+  Button,
+  XIcon,
+} from "@ecommerce/ui";
+
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import { AddressFormInput } from "@/components/molecules/addresses-form/addresses.schema";
 import {

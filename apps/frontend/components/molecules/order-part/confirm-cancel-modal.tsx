@@ -1,11 +1,12 @@
 "use client";
 
-import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/dialog";
+  Button,
+} from "@ecommerce/ui";
+
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { AnimatePresence } from "framer-motion";

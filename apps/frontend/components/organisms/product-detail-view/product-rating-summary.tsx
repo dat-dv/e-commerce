@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { TProduct } from "@/domain/products/types/products.model";
 import { Star } from "lucide-react";
 import { useTranslations } from "next-intl";

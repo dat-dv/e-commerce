@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { Copy } from "lucide-react";
 
 export function OrderIdCell({

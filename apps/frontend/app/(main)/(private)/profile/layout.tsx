@@ -1,4 +1,4 @@
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import ProfileLayoutHeader from "@/components/molecules/profile-layout-nav/profile-layout-header";
 import ProfileLayoutNavDesktop from "@/components/molecules/profile-layout-nav/profile-layout-nav-desktop";
 import { ProfileLayoutNavTabletAndBelow } from "@/components/molecules/profile-layout-nav/profile-layout-nav-tablet";

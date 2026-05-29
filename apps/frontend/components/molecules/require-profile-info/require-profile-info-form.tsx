@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";

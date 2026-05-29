@@ -1,4 +1,4 @@
-import { AppDialog, AppDialogPanel } from "@/components/atoms/dialog";
+import { AppDialog, AppDialogPanel } from "@ecommerce/ui";
 import { TOrderItem } from "@/domain/orders/types/order.model";
 import { useSubmitProductReview } from "@/hooks/products/use-submit-product-review";
 import { AnimatePresence } from "framer-motion";

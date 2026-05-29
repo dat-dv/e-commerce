@@ -1,6 +1,6 @@
 "use client";
 
-import Accordion from "@/components/molecules/accordion";
+import { Accordion } from "@ecommerce/ui";
 import { getHelpTopicId } from "@/components/molecules/help-topic-nav";
 import { FAQTopic } from "./help-faq.types";
 import { FAQIconName, faqIconMap } from "./help-faq.utils";

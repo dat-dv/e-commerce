@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";

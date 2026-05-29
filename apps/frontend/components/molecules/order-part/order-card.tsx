@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { APP_ROUTES } from "@/constants/routes";

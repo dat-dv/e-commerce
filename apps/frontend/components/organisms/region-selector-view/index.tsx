@@ -4,7 +4,7 @@ import { aseanCountries } from "@/constants/countries";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 
 export function RegionSelectorView() {
   const t = useTranslations("Common.regionSelector");

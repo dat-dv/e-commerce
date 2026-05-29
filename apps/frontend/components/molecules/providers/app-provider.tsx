@@ -1,4 +1,4 @@
-import { ToastProvider } from "@/components/atoms/toast";
+import { ToastProvider } from "@ecommerce/ui";
 import RequireProfileInfoModal from "@/components/molecules/require-profile-info";
 import { CartDrawer } from "@/components/organisms/cart-drawer";
 import { addressesUseCase } from "@/domain/addresses";

@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { cartUseCase } from "@/domain/cart/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";

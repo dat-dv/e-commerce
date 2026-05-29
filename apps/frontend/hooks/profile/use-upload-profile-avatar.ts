@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { usersUseCase } from "@/domain/users/use-cases";
 import { useTranslations } from "next-intl";
 import { useAuthStore } from "../auth/use-auth-store";

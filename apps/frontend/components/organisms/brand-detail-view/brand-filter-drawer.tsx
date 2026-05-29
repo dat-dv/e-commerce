@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { IProductFilterSidebarProps } from "@/components/molecules/product-filter-sidebar/product-filter-sidebar.types";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";

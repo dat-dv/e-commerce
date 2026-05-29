@@ -1,8 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import { MoonIcon, SunIcon } from "@/components/atoms/icons";
-import ThemeSwatch from "@/components/atoms/theme-swatch";
+import { Button, MoonIcon, SunIcon, ThemeSwatch } from "@ecommerce/ui";
+
 import { THEMES } from "@/config/config";
 import { useConfig } from "@/hooks/config/use-config";
 

@@ -5,7 +5,7 @@ import { ReactNode, useContext, useEffect } from "react";
 import { AuthContext } from "./auth-provider";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
-import Loading from "@/components/atoms/loading";
+import { Loading } from "@ecommerce/ui";
 
 export interface AuthGuardProps {
   children: ReactNode;

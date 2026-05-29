@@ -3,7 +3,7 @@
 import { CheckCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 
 interface NotificationHeaderProps {
   unreadCount: number;

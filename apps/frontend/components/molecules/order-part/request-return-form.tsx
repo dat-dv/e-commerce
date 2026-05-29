@@ -1,9 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import { AppDialogTitle } from "@/components/atoms/dialog";
-import Input from "@/components/atoms/input";
-import Textarea from "@/components/atoms/textarea";
+import { AppDialogTitle, Button, Input, Textarea } from "@ecommerce/ui";
+
 import { OrderReturnRequestFormData } from "@/hooks/order-returns/order-return-request.schema";
 import { X } from "lucide-react";
 import type { ChangeEvent, FormEventHandler, RefObject } from "react";

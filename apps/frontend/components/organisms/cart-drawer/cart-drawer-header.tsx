@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 
 interface CartHeaderProps {
   count: number;

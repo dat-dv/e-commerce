@@ -3,7 +3,7 @@
 import { createContext, ReactNode, useState } from "react";
 import { useStore } from "zustand";
 
-import Loading from "@/components/atoms/loading";
+import { Loading } from "@ecommerce/ui";
 import { createConfigStore } from "@/store/config";
 import { ConfigState } from "@/store/config/config.types";
 

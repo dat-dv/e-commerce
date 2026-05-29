@@ -1,8 +1,7 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
-import Button from "@/components/atoms/button";
-import HamburgerButton from "@/components/atoms/hamburger-button";
+import { AppContainer, Button, HamburgerButton } from "@ecommerce/ui";
+
 import { Search } from "lucide-react";
 import { useState } from "react";
 

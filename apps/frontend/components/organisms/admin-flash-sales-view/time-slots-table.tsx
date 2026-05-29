@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import type { TFlashSaleTimeSlot } from "@/domain/flash-sales/types/flash-sale.model";
 import { cn } from "@/utils/cn";

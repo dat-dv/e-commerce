@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { APP_ROUTES } from "@/constants/routes";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { usePathname } from "next/navigation";
 import SubCategoryItem from "./sub-category-item";
 import { ParentCategoryItem } from "./parent-category-item";

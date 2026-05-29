@@ -6,7 +6,7 @@ import { TYPOGRAPHY } from "@/constants/typography";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import FormListenerDirty from "@/components/molecules/form/form-listener-dirty";
 import { SearchOption } from "./utils/search-routes";
 

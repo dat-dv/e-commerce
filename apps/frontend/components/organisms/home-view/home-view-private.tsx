@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { CategoriesCarousel } from "@/components/molecules/categories-carousel";
 import { FeatureGrid } from "@/components/molecules/feature-grid";
 import HomeWelcomeSection from "@/components/molecules/welcome-banner";

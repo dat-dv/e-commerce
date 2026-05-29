@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { useCart } from "@/hooks/cart/use-cart";
 import { useRemoveFromCart } from "@/hooks/cart/use-remove-from-cart";
 import { useUpdateCartQuantity } from "@/hooks/cart/use-update-cart-quantity";

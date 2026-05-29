@@ -4,9 +4,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { InputSize } from "@/components/atoms/input/input.sizes";
-import { InputVariant } from "@/components/atoms/input/input.types";
-import { ISelectOption, Select } from "@/components/atoms/select";
+import { ISelectOption, InputSize, InputVariant, Select } from "@ecommerce/ui";
 
 export interface IFormSelectProps {
   name: string;

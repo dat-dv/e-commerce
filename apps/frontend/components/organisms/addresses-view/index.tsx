@@ -1,6 +1,6 @@
 "use client";
 
-import { FormCard } from "@/components/atoms/form-card";
+import { FormCard } from "@ecommerce/ui";
 import AddressCard from "@/components/molecules/address-card";
 import AddressEmptyState from "@/components/molecules/address-empty-state";
 import AddressLoadingCard from "@/components/molecules/address-loading-card";

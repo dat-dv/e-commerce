@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { useState } from "react";
 import { useAuthStore } from "../auth/use-auth-store";

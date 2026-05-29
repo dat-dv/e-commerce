@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { Plus } from "lucide-react";
 
 interface AddressViewHeaderProps {

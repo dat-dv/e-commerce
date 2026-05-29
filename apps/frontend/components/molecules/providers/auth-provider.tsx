@@ -10,7 +10,7 @@ import {
 } from "react";
 import { useStore } from "zustand";
 
-import Loading from "@/components/atoms/loading";
+import { Loading } from "@ecommerce/ui";
 import { appRequest } from "@/constants/app-request";
 import { AuthRepository } from "@/domain/auth/infrastructure/auth.repository";
 import { FetchMeUseCase } from "@/domain/auth/use-cases/fetch-me.use-case";

@@ -1,10 +1,10 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer, SidebarLayout } from "@ecommerce/ui";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
 import { RenderTabletAndBelow } from "@/components/molecules/responsive";
-import SidebarLayout from "@/components/molecules/sidebar-layout";
+
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
 import { useTranslations } from "next-intl";

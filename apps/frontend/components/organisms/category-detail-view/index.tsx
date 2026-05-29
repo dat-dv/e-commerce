@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
 import { ProductsHeader } from "@/components/molecules/products-header";
 import {

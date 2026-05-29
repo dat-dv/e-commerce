@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { addressesUseCase } from "@/domain/addresses";
 import { useTranslations } from "next-intl";
 import { useCallback, useState, useTransition } from "react";

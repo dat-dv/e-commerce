@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import SidebarLayout from "@/components/molecules/sidebar-layout";
+import { SidebarLayout } from "@ecommerce/ui";
 import PrivacyHeader from "./privacy-header";
 import PrivacySidebar from "./privacy-sidebar";
 import PrivacyContent from "./privacy-content";

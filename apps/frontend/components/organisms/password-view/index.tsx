@@ -1,6 +1,6 @@
 "use client";
 
-import { FormCard } from "@/components/atoms/form-card";
+import { FormCard } from "@ecommerce/ui";
 import { ChangePasswordForm } from "@/components/molecules/change-password-form";
 import { useChangePassword } from "@/hooks/profile/use-change-password";
 import { useTranslations } from "next-intl";

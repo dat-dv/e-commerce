@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { TGetProductReviewsRequest } from "@/domain/products/types/products.model";
 import { cn } from "@/utils/cn";
 

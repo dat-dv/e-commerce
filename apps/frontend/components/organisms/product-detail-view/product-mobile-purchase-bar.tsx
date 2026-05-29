@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart, ShoppingCart } from "lucide-react";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Checkbox } from "@/components/atoms/checkbox";
+import { Checkbox } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";

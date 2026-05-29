@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import AppForm from "@/components/molecules/form/app-form";
 import { ReviewSubmitSchema } from "@/hooks/products/review-submit.schema";
 import { UseFormReturn } from "react-hook-form";

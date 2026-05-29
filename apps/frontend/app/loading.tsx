@@ -1,6 +1,6 @@
 "use client";
 
-import Loading from "@/components/atoms/loading";
+import { Loading } from "@ecommerce/ui";
 
 export default function LoadingPage() {
   return <Loading />;

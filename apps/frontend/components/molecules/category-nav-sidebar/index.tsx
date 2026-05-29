@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { type Key } from "react-aria-components";
 
-import { Tree } from "@/components/atoms/tree";
+import { Tree } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { AllCategoriesButton } from "./all-categories-button";
 import { ICategoryNavSidebarProps } from "./category-nav-sidebar.types";

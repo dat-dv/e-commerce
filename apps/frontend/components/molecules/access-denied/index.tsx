@@ -1,5 +1,5 @@
-import { AnimationContainer, AnimationItem } from "@/components/atoms/animate";
-import Button from "@/components/atoms/button";
+import { AnimationContainer, AnimationItem, Button } from "@ecommerce/ui";
+
 import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
 

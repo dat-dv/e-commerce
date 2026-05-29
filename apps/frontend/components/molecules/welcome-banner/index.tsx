@@ -1,6 +1,6 @@
 "use client";
-import AppContainer from "@/components/atoms/app-container";
-import Button from "@/components/atoms/button";
+import { AppContainer, Button } from "@ecommerce/ui";
+
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { APP_ROUTES } from "@/constants/routes";
 import { UI_RADIUS } from "@/constants/ui-radius";

@@ -1,6 +1,6 @@
 "use client";
 
-import SummaryCard from "@/components/molecules/summary-card";
+import { SummaryCard } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";

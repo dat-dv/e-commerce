@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "@/components/atoms/button";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TAddress } from "@/domain/addresses/types/address.model";
 import { cn } from "@/utils/cn";
+import { Button } from "@ecommerce/ui";
 import { Edit, Star, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { ComponentPropsWithoutRef } from "react";

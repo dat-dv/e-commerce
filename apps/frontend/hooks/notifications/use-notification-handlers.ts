@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { FirebaseServiceWorkerMessagePayload } from "@/components/molecules/providers/notification-setup/notification-listener.types.ts";
 import { TOAST_KEYS } from "@/constants/toast.constant";
 import { useUnreadCount } from "@/hooks/notifications/use-unread-count";

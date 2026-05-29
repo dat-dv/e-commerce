@@ -1,13 +1,14 @@
 "use client";
 
-import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/dialog";
-import { XIcon } from "@/components/atoms/icons";
-import Input from "@/components/atoms/input";
+  Button,
+  Input,
+  XIcon,
+} from "@ecommerce/ui";
+
 import { useMapPicker } from "@/hooks/addresses/use-map-picker";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";

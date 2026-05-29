@@ -5,12 +5,12 @@ import { useTranslations } from "next-intl";
 import React, { useCallback, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
 
-import Button from "@/components/atoms/button";
 import {
   AppDialog,
   AppDialogPanel,
   AppDialogTitle,
-} from "@/components/atoms/dialog";
+  Button,
+} from "@ecommerce/ui";
 
 import getCroppedImg from "./get-cropped-img";
 

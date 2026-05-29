@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { getRawI18nValue } from "@/utils/i18n";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { motion } from "framer-motion";
 
 import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";

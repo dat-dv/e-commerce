@@ -1,10 +1,12 @@
 "use client";
 
-import { InputSize } from "@/components/atoms/input/input.sizes";
-import PhoneInput, {
+import {
   CountryOption,
+  InputSize,
+  PhoneInput,
   PhoneValue,
-} from "@/components/atoms/phone-input";
+} from "@ecommerce/ui";
+
 import { aseanCountries } from "@/constants/countries";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";

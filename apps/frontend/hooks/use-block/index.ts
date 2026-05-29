@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export const useBlock = ({

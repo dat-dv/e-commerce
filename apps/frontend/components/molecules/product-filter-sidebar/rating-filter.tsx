@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { Star } from "lucide-react";
 
 import { IProductRatingFilterProps } from "./product-filter-sidebar.types";

@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import SearchInput from "@/components/molecules/search-input";
 import { cn } from "@/utils/cn";
 import { FilterX } from "lucide-react";

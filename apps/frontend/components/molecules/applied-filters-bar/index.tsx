@@ -4,7 +4,7 @@ import { EProductSort } from "@ecommerce/shared";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";

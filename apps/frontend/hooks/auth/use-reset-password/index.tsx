@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import {
   getResetPasswordSchema,
   TResetPasswordSchema,

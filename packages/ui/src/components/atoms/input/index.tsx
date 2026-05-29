@@ -12,6 +12,9 @@ import {
   variantNormal,
 } from "./input.styles";
 import { InputProps } from "./input.types";
+export type { InputProps } from "./input.types";
+export type { InputVariant } from "./input.types";
+export type { InputSize } from "./input.sizes";
 import PasswordEye from "./password-eye";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(

@@ -4,12 +4,12 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { InputSize } from "@/components/atoms/input/input.sizes";
-import { InputVariant } from "@/components/atoms/input/input.types";
 import {
   AppSelectAutocompleteClient,
   ISelectAutocompleteOption,
-} from "@/components/atoms/select-autocomplete-client";
+  InputSize,
+  InputVariant,
+} from "@ecommerce/ui";
 
 export interface IFormSelectAutocompleteProps {
   name: string;

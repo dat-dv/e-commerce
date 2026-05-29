@@ -8,7 +8,7 @@ import { TResetPasswordSchema } from "./reset-password.schema";
 import AppForm from "../form/app-form";
 import { FormInput } from "../form/form-input";
 import { FormButton } from "../form/form-button";
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 
 export default function ResetPasswordForm() {

@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import { toast } from "@/components/atoms/toast";
+import { Button, toast } from "@ecommerce/ui";
+
 import { APP_ROUTES, CALLBACK_URL_KEY } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";

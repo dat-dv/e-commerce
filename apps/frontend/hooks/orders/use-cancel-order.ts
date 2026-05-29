@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { TOAST_KEYS } from "@/constants/toast.constant";
 import { ordersUseCase } from "@/domain/orders";
 import { useCallback, useTransition } from "react";

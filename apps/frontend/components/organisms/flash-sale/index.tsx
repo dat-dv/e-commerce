@@ -1,4 +1,4 @@
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { TProduct } from "@/domain/products/types/products.model";
 import { PaginatedInitialData } from "@/utils/request/request.types";
 import DiscoveryCarouselSection from "../discovery-sections";

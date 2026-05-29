@@ -1,4 +1,4 @@
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import ContactForm from "@/components/molecules/contact-form";
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import { APP_ROUTES } from "@/constants/routes";

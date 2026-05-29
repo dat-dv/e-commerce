@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import Input from "@/components/atoms/input";
+import { Button, Input } from "@ecommerce/ui";
+
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { Search, X } from "lucide-react";

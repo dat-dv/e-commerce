@@ -1,8 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import CartIcon from "@/components/atoms/cart-icon";
-import FavoriteIcon from "@/components/atoms/favorite-icon";
+import { Button, CartIcon, FavoriteIcon } from "@ecommerce/ui";
+
 import ProtectedSection from "@/components/atoms/protected-section/protected-section";
 import { NotificationCenter } from "@/components/organisms/notifications/notification-center";
 import { APP_ROUTES } from "@/constants/routes";

@@ -3,7 +3,7 @@
 import { RefreshCcw, ShieldAlert } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 
 export default function Error({

@@ -1,7 +1,7 @@
 "use client";
 
-import { AppDialog, AppDialogPanel } from "@/components/atoms/dialog";
-import { toast } from "@/components/atoms/toast";
+import { AppDialog, AppDialogPanel, toast } from "@ecommerce/ui";
+
 import { RequestReturnForm } from "@/components/molecules/order-part/request-return-form";
 import {
   OrderReturnRequestFormData,

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
 import { cn } from "@/utils/cn";

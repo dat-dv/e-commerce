@@ -4,8 +4,8 @@ import { FolderTree } from "lucide-react";
 import { useMemo, useState } from "react";
 import { type Key } from "react-aria-components";
 
-import { Tree } from "@/components/atoms/tree";
-import { FilterSection } from "@/components/molecules/filter-sidebar";
+import { FilterSection, Tree } from "@ecommerce/ui";
+
 import {
   getActiveBranchSlugs,
   getCategorySlugs,

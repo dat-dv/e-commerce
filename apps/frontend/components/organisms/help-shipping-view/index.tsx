@@ -1,7 +1,7 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
-import Accordion from "@/components/molecules/accordion";
+import { Accordion, AppContainer } from "@ecommerce/ui";
+
 import HelpSupportCard from "@/components/molecules/help-support-card";
 import HelpTopicNav, {
   getHelpTopicId,

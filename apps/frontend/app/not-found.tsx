@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-dynamic";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 
 export async function generateMetadata() {

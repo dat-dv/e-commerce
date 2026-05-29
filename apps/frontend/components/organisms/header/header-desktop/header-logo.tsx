@@ -1,4 +1,4 @@
-import Logo from "@/components/atoms/logo";
+import { Logo } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import Link from "next/link";
 

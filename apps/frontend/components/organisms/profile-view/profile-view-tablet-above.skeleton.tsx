@@ -1,4 +1,4 @@
-import { FormCard } from "@/components/atoms/form-card";
+import { FormCard } from "@ecommerce/ui";
 
 const SkeletonLine = ({ className = "" }: { className?: string }) => (
   <div className={`bg-content/5 animate-pulse rounded-full ${className}`} />

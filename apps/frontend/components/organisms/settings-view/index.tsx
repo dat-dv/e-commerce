@@ -1,6 +1,6 @@
 "use client";
 
-import SidebarLayout from "@/components/molecules/sidebar-layout";
+import { SidebarLayout } from "@ecommerce/ui";
 import { useConfig } from "@/hooks/config/use-config";
 import { useTranslations } from "next-intl";
 import AppearanceSection from "./appearance-section";

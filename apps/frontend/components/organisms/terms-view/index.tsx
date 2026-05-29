@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import SidebarLayout from "@/components/molecules/sidebar-layout";
+import { SidebarLayout } from "@ecommerce/ui";
 import TermsHeader from "./terms-header";
 import TermsSidebar from "./terms-sidebar";
 import TermsContent from "./terms-content";

@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
 import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";

@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { Check } from "lucide-react";
 
 interface ProductAttributeOptionsProps {

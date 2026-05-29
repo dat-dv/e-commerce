@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { authUseCase } from "@/domain/auth/use-cases";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import { useTranslations } from "next-intl";

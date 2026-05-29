@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import VoucherHeader from "./voucher-header";
 import VoucherList from "./voucher-list";
 

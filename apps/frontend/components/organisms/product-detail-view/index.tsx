@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { useMemo } from "react";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { TProduct } from "@/domain/products/types/products.model";

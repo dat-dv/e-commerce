@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { TSkuDomain } from "@/domain/products/types/products.model";
 import { Check } from "lucide-react";
 

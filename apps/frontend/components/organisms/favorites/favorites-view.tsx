@@ -1,6 +1,6 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
+import { AppContainer } from "@ecommerce/ui";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/user-favorite-products.model";
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";

@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimationItem } from "@/components/atoms/animate";
-import { BoltIcon } from "@/components/atoms/icons";
+import { AnimationItem, BoltIcon } from "@ecommerce/ui";
+
 import { useAppConfig } from "@/hooks/config/use-config-store";
 import { useTranslations } from "next-intl";
 

@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import TurnstileWrapper from "@/components/molecules/cloudflare-turnstile";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";

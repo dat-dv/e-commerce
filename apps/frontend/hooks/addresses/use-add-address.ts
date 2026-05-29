@@ -1,4 +1,4 @@
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { addressesUseCase } from "@/domain/addresses";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { useTranslations } from "next-intl";

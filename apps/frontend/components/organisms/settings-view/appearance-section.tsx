@@ -1,8 +1,7 @@
 "use client";
 
-import ClientOnly from "@/components/atoms/client-only";
-import Switch from "@/components/atoms/switch";
-import ThemeSwatch from "@/components/atoms/theme-swatch";
+import { ClientOnly, Switch, ThemeSwatch } from "@ecommerce/ui";
+
 import { THEMES } from "@/config/config";
 import { ETheme } from "@/constants/theme.constanst";
 import { UI_RADIUS } from "@/constants/ui-radius";

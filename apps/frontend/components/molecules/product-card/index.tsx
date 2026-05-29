@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { ShoppingBag, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";

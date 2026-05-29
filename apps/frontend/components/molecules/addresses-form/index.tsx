@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import AppForm from "@/components/molecules/form/app-form";
 import { FormCheckbox } from "@/components/molecules/form/form-checkbox";
 import { FormInput } from "@/components/molecules/form/form-input";

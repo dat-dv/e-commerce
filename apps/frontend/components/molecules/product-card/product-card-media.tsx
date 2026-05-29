@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct } from "@/domain/products/types/products.model";

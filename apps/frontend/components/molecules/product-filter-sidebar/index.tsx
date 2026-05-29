@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  FilterSection,
-  FilterSidebar,
-} from "@/components/molecules/filter-sidebar";
+import { FilterSection, FilterSidebar } from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 import { CategoryFilterSection } from "./category-filter";
 import { ProductPriceFilter } from "./price-filter";

@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "@/components/atoms/toast";
+import { toast } from "@ecommerce/ui";
 import { ordersUseCase } from "@/domain/orders";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { IPaginationMeta } from "@/utils/request/request.types";

@@ -4,7 +4,7 @@ import { TYPOGRAPHY } from "@/constants/typography";
 import { Bell, BellDot, CheckCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import SummaryCard from "@/components/molecules/summary-card";
+import { SummaryCard } from "@ecommerce/ui";
 
 interface NotificationSummaryProps {
   totalCount: number;

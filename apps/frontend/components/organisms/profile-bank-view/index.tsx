@@ -1,7 +1,7 @@
 "use client";
 
-import { FormCard } from "@/components/atoms/form-card";
-import Button from "@/components/atoms/button";
+import { Button, FormCard } from "@ecommerce/ui";
+
 import { CreditCard, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React from "react";

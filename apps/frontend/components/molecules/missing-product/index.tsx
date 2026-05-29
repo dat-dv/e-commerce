@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { motion } from "framer-motion";
 import { ChevronRight, Search } from "lucide-react";
 import Link from "next/link";

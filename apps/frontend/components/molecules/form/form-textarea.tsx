@@ -3,7 +3,7 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import Textarea, { TextareaProps } from "@/components/atoms/textarea";
+import { Textarea, TextareaProps } from "@ecommerce/ui";
 
 interface FormTextareaProps extends Omit<TextareaProps, "id" | "error"> {
   name: string;

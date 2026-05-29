@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { AppStatusDropdown } from "@/components/molecules/app-status-dropdown";
 import { OrderItemsPanel } from "@/components/molecules/order-part/order-items-panel";
 import { UI_RADIUS } from "@/constants/ui-radius";

@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import Input from "@/components/atoms/input";
+import { Button, Input } from "@ecommerce/ui";
+
 import { Search, X } from "lucide-react";
 
 export function CategorySearchInput({

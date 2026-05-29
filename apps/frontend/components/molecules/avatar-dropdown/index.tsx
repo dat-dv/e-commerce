@@ -11,7 +11,7 @@ import {
 import { useTranslations } from "next-intl";
 
 import Avatar from "@/components/atoms/avatar";
-import Button from "@/components/atoms/button";
+import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 

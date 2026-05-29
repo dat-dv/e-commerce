@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  AppDialog,
-  AppDialogPanel,
-  AppDialogTitle,
-} from "@/components/atoms/dialog";
+import { AppDialog, AppDialogPanel, AppDialogTitle } from "@ecommerce/ui";
 import { cn } from "@/utils/cn";
 import { X } from "lucide-react";
 import Image, { type ImageProps } from "next/image";

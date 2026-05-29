@@ -9,8 +9,7 @@ import {
   ModalOverlay as RACModalOverlay,
 } from "react-aria-components";
 
-import Button from "@/components/atoms/button";
-import { XIcon } from "@/components/atoms/icons";
+import { Button, XIcon } from "@ecommerce/ui";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const t = useTranslations("Common.modal");

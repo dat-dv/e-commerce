@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/atoms/button";
-import { FormCard } from "@/components/atoms/form-card";
+import { Button, FormCard } from "@ecommerce/ui";
+
 import { FormDateInput } from "@/components/molecules/form/form-date-input";
 import { FormInput } from "@/components/molecules/form/form-input";
 import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";

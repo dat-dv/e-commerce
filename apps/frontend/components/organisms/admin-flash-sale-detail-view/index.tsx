@@ -1,7 +1,7 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
-import Button from "@/components/atoms/button";
+import { AppContainer, Button } from "@ecommerce/ui";
+
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";

@@ -1,8 +1,7 @@
 "use client";
 
-import AppContainer from "@/components/atoms/app-container";
-import Loading from "@/components/atoms/loading";
-import { toast } from "@/components/atoms/toast";
+import { AppContainer, Loading, toast } from "@ecommerce/ui";
+
 import { Pagination } from "@/components/molecules/pagination";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { useAdminOrders } from "@/hooks/orders/use-admin-orders";

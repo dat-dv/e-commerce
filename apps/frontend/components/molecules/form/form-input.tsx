@@ -3,8 +3,7 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import Input from "@/components/atoms/input";
-import { InputProps } from "@/components/atoms/input/input.types";
+import { Input, InputProps } from "@ecommerce/ui";
 
 interface FormInputProps extends Omit<InputProps, "id" | "error"> {
   name: string;

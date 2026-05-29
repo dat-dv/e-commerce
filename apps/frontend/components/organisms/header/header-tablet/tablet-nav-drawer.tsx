@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import HamburgerButton from "@/components/atoms/hamburger-button";
+import { HamburgerButton } from "@ecommerce/ui";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
