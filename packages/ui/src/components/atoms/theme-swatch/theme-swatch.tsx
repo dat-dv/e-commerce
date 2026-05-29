@@ -1,6 +1,6 @@
 "use client";
 
-import { type HTMLMotionProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 
 import { cn } from "../../../utils";
@@ -10,7 +10,7 @@ const ThemeSwatch = React.forwardRef<HTMLButtonElement, IThemeSwatchProps>(
   ({ color, selected = false, className, children, ...props }, ref) => {
     return (
       <motion.button
-        {...(props as HTMLMotionProps<"button">)}
+        {...props}
         ref={ref}
         type="button"
         whileHover={{ scale: 1.15 }}
