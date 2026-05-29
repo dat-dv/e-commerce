@@ -6,13 +6,17 @@ import React, { useMemo, useState } from "react";
 
 import { TYPOGRAPHY } from "../../../tokens";
 import { LiquidWaveText } from "../liquid-wave-text";
+import {
+  type ISidebarDocItem,
+  type ISidebarItemProps,
+} from "./sidebar-item.types";
 
-export interface SidebarDocItem {
-  id: string;
-  href?: string;
-  routePath?: string;
-  children?: SidebarDocItem[];
-}
+export type {
+  ISidebarDocItem,
+  ISidebarItemProps,
+  SidebarDocItem,
+} from "./sidebar-item.types";
+export type SidebarItemProps = ISidebarItemProps;
 
 const getTitle = (id: string) => {
   return id
@@ -22,7 +26,7 @@ const getTitle = (id: string) => {
 };
 
 interface SidebarRowProps {
-  item: SidebarDocItem;
+  item: ISidebarDocItem;
   depth: number;
   isOpen: boolean;
   isActive: boolean;
@@ -99,17 +103,7 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
   );
 };
 
-export interface SidebarItemProps {
-  item: SidebarDocItem;
-  currentPathname: string;
-  depth?: number;
-  linkComponent?: React.ElementType;
-}
-
-/**
- * SidebarItem renders a single nested node in a tree sidebar list with expand/collapse animations.
- */
-export const SidebarItem: React.FC<SidebarItemProps> = ({
+export const SidebarItem: React.FC<ISidebarItemProps> = ({
   item,
   currentPathname,
   depth = 0,
@@ -178,5 +172,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
     </div>
   );
 };
+
+SidebarItem.displayName = "SidebarItem";
 
 export default SidebarItem;

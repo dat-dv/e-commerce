@@ -5,6 +5,11 @@ import React from "react";
 import { AnimationContainer, AnimationItem } from "../../atoms/animate";
 import Button from "../../atoms/button";
 
+export type {
+  IAccessDeniedLabels,
+  IAccessDeniedProps,
+} from "./access-denied.types";
+
 export interface AccessDeniedLabels {
   title?: string;
   highlight?: string;
@@ -20,9 +25,6 @@ export interface AccessDeniedProps {
   labels?: AccessDeniedLabels;
 }
 
-/**
- * AccessDenied displays a stylized, animated "Access Denied" page state.
- */
 export const AccessDenied = ({
   signInHref = "/sign-in",
   signUpHref = "/sign-up",
@@ -77,5 +79,7 @@ export const AccessDenied = ({
     </div>
   );
 };
+
+AccessDenied.displayName = "AccessDenied";
 
 export default AccessDenied;

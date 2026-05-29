@@ -2,14 +2,7 @@
 
 import { cn } from "../../../utils";
 import Button from "../button";
-
-interface IHamburgerButtonProps {
-  isOpen: boolean;
-  onClick: () => void;
-  ariaLabel: string;
-  className?: string;
-  title?: string;
-}
+import { type IHamburgerButtonProps } from "./hamburger-button.types";
 
 export default function HamburgerButton({
   isOpen,
@@ -53,3 +46,7 @@ export default function HamburgerButton({
     </Button>
   );
 }
+
+HamburgerButton.displayName = "HamburgerButton";
+
+export type { IHamburgerButtonProps } from "./hamburger-button.types";

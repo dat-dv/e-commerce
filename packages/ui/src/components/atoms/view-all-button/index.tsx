@@ -5,19 +5,14 @@ import React from "react";
 
 import { cn } from "../../../utils";
 import LiquidWaveText from "../liquid-wave-text";
+import { type IViewAllButtonProps } from "./view-all-button.types";
 
-export interface ViewAllButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: string;
-  label?: string;
-  linkComponent?: React.ElementType;
-}
-
-export const ViewAllButton: React.FC<ViewAllButtonProps> = ({
+export const ViewAllButton: React.FC<IViewAllButtonProps> = ({
   href,
   label = "View All",
   linkComponent: LinkComponent = "a",
   className,
-  ...props
+  ...rest
 }) => {
   return (
     <LinkComponent
@@ -26,7 +21,7 @@ export const ViewAllButton: React.FC<ViewAllButtonProps> = ({
         "text-primary hover:text-primary/80 flex items-center gap-1 text-sm font-medium transition-colors",
         className,
       )}
-      {...props}
+      {...rest}
     >
       <LiquidWaveText inactiveClassName="text-primary/75">
         {label}
@@ -36,4 +31,7 @@ export const ViewAllButton: React.FC<ViewAllButtonProps> = ({
   );
 };
 
+ViewAllButton.displayName = "ViewAllButton";
+
+export type { IViewAllButtonProps } from "./view-all-button.types";
 export default ViewAllButton;

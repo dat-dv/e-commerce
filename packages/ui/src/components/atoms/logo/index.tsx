@@ -3,12 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 import { cn } from "../../../utils";
-
-interface ILogoProps {
-  className?: string;
-  size?: number;
-  animate?: boolean;
-}
+import { type ILogoProps } from "./logo.types";
 
 const logoContainerVariants = {
   initial: { y: 0 },
@@ -118,3 +113,7 @@ export default function Logo({
     </motion.div>
   );
 }
+
+Logo.displayName = "Logo";
+
+export type { ILogoProps } from "./logo.types";

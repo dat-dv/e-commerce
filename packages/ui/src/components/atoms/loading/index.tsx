@@ -13,3 +13,5 @@ export default function Loading({
       return <BasicLoading />;
   }
 }
+
+Loading.displayName = "Loading";

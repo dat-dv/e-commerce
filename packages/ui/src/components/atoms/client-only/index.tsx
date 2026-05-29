@@ -1,16 +1,13 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-interface ClientOnlyProps {
-  children: ReactNode;
-  fallback?: ReactNode;
-}
+import { type IClientOnlyProps } from "./client-only.types";
 
 export default function ClientOnly({
   children,
   fallback = null,
-}: ClientOnlyProps) {
+}: IClientOnlyProps) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -23,3 +20,7 @@ export default function ClientOnly({
 
   return <>{children}</>;
 }
+
+ClientOnly.displayName = "ClientOnly";
+
+export type { IClientOnlyProps } from "./client-only.types";

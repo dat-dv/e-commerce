@@ -6,36 +6,19 @@ import React from "react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import { InputSize } from "../input/input.sizes";
 import { AppMenu, AppMenuItem } from "../menu";
+import {
+  type ICountryOption,
+  type IPhoneInputProps,
+} from "./phone-input.types";
 
-export interface PhoneValue {
-  phoneCode: string;
-  phoneNumber: string;
-}
+export type {
+  ICountryOption,
+  IPhoneInputProps,
+  IPhoneValue,
+} from "./phone-input.types";
 
-export interface CountryOption {
-  name: string;
-  code: string;
-  flag: string;
-  dialCode: string;
-  disabled?: boolean;
-}
-
-interface PhoneInputProps extends Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  "size" | "value" | "onChange"
-> {
-  value?: PhoneValue;
-  onChange?: (value: PhoneValue) => void;
-  label?: string;
-  error?: string;
-  countries?: CountryOption[];
-  disabledSelected?: boolean;
-  size?: InputSize;
-}
-
-const DEFAULT_COUNTRIES: CountryOption[] = [
+const DEFAULT_COUNTRIES: ICountryOption[] = [
   {
     name: "Vietnam",
     code: "VN",
@@ -45,7 +28,7 @@ const DEFAULT_COUNTRIES: CountryOption[] = [
   },
 ];
 
-const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
+const PhoneInput = React.forwardRef<HTMLInputElement, IPhoneInputProps>(
   (
     {
       value,

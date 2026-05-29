@@ -3,6 +3,8 @@ import { ReactNode } from "react";
 import { cn } from "../../../utils";
 import AppContainer from "../../atoms/app-container";
 
+export type { ISidebarLayoutProps } from "./sidebar-layout.types";
+
 type SidebarLayoutProps = {
   header: ReactNode;
   sidebar: ReactNode;
@@ -35,3 +37,5 @@ export default function SidebarLayout({
     </div>
   );
 }
+
+SidebarLayout.displayName = "SidebarLayout";

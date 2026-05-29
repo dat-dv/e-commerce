@@ -6,6 +6,8 @@ import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 
+export type { IAddressEmptyStateProps } from "./address-empty-state.types";
+
 interface AddressEmptyStateProps {
   title?: string;
   description?: string;
@@ -48,5 +50,7 @@ export const AddressEmptyState = ({
     </div>
   );
 };
+
+AddressEmptyState.displayName = "AddressEmptyState";
 
 export default AddressEmptyState;

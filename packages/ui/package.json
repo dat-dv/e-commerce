@@ -40,6 +40,7 @@
     "build:css": "node scripts/build-css.mjs",
     "dev": "tsup --watch src --onSuccess \"npm run build:css\"",
     "format": "prettier --write .",
+    "lint:fix": "eslint . --fix",
     "lint": "eslint"
   },
   "dependencies": {

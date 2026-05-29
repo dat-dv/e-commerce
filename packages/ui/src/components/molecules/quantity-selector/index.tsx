@@ -7,6 +7,8 @@ import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 
+export type { IQuantitySelectorProps } from "./quantity-selector.types";
+
 export interface QuantitySelectorProps {
   value: number;
   onChange: (val: number) => void;
@@ -94,5 +96,7 @@ export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
     </div>
   );
 };
+
+QuantitySelector.displayName = "QuantitySelector";
 
 export default QuantitySelector;

@@ -7,6 +7,8 @@ import Button from "../../atoms/button";
 import { AppDialog, AppDialogPanel } from "../../atoms/dialog";
 import { XIcon } from "../../atoms/icons";
 
+export type { IModalProps } from "./modal.types";
+
 export interface ModalProps {
   children: React.ReactNode;
   isOpen?: boolean;
@@ -59,3 +61,5 @@ export default function Modal({
     </AppDialog>
   );
 }
+
+Modal.displayName = "Modal";

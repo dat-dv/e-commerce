@@ -6,6 +6,8 @@ import React from "react";
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type { IFeatureGridProps, IFeatureItem } from "./feature-grid.types";
+
 export interface FeatureItem {
   name: string;
   desc: string;
@@ -92,5 +94,7 @@ export const FeatureGrid = ({
     </nav>
   );
 };
+
+FeatureGrid.displayName = "FeatureGrid";
 
 export default FeatureGrid;

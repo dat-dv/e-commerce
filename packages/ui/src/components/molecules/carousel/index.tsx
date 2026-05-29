@@ -8,6 +8,8 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 
+export type { ICarouselProps } from "./carousel.types";
+
 interface CarouselProps {
   children: React.ReactNode;
   options?: EmblaOptionsType;
@@ -117,3 +119,5 @@ export const CarouselItem = ({
     </div>
   );
 };
+
+Carousel.displayName = "Carousel";

@@ -7,6 +7,8 @@ import { type MouseEvent, type ReactNode } from "react";
 import { TYPOGRAPHY } from "../../../tokens";
 import LiquidWaveText from "../../atoms/liquid-wave-text";
 
+export type { IAnimatedPageHeaderProps } from "./page-header-animation.types";
+
 interface AnimatedPageHeaderProps {
   title: string;
   highlight?: string;
@@ -153,5 +155,7 @@ export function AnimatedPageHeader({
     </div>
   );
 }
+
+AnimatedPageHeader.displayName = "AnimatedPageHeader";
 
 export default AnimatedPageHeader;

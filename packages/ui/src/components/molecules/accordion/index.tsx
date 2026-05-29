@@ -8,8 +8,10 @@ import {
 } from "react-aria-components";
 
 import { cn } from "../../../utils";
+import { type IAccordionProps } from "./accordion.types";
+export type { IAccordionProps } from "./accordion.types";
 
-export interface IAccordionProps {
+export interface IAccordionProps_old {
   title: string;
   children: ReactNode;
   className?: string;
@@ -79,3 +81,5 @@ export default function Accordion({
     </RACDisclosure>
   );
 }
+
+Accordion.displayName = "Accordion";

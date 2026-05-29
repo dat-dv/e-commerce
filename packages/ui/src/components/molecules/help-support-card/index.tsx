@@ -5,6 +5,8 @@ import React from "react";
 import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 
+export type { IHelpSupportCardProps } from "./help-support-card.types";
+
 export interface HelpSupportCardProps {
   title: string;
   description: string;
@@ -47,5 +49,7 @@ export function HelpSupportCard({
     </div>
   );
 }
+
+HelpSupportCard.displayName = "HelpSupportCard";
 
 export default HelpSupportCard;

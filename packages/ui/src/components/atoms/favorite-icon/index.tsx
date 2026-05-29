@@ -3,17 +3,13 @@
 import { motion } from "framer-motion";
 
 import { cn } from "../../../utils";
-
-interface IFavoriteIconProps {
-  isActive?: boolean;
-  className?: string;
-  size?: number;
-}
+import { type IFavoriteIconProps } from "./favorite-icon.types";
 
 export default function FavoriteIcon({
   isActive = false,
   className,
   size = 20,
+  ...rest
 }: IFavoriteIconProps) {
   return (
     <div
@@ -21,6 +17,7 @@ export default function FavoriteIcon({
         "pointer-events-none relative flex items-center justify-center",
         className,
       )}
+      {...rest}
     >
       <svg
         width={size}
@@ -76,3 +73,7 @@ export default function FavoriteIcon({
     </div>
   );
 }
+
+FavoriteIcon.displayName = "FavoriteIcon";
+
+export type { IFavoriteIconProps } from "./favorite-icon.types";

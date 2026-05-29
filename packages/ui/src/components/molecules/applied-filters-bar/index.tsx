@@ -16,9 +16,6 @@ export interface AppliedFiltersBarProps<T extends string = string> {
   className?: string;
 }
 
-/**
- * AppliedFiltersBar displays a list of active filter chips with options to clear individual ones or reset all.
- */
 export function AppliedFiltersBar<T extends string = string>({
   chips = [],
   onClearFilter,
@@ -67,5 +64,7 @@ export function AppliedFiltersBar<T extends string = string>({
     </div>
   );
 }
+
+AppliedFiltersBar.displayName = "AppliedFiltersBar";
 
 export default AppliedFiltersBar;

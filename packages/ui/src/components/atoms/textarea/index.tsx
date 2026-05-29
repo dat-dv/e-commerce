@@ -5,14 +5,11 @@ import React from "react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import { type ITextareaProps } from "./textarea.types";
 
-export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string;
-  error?: string;
-  maxCount?: number;
-}
+export type { ITextareaProps } from "./textarea.types";
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ id, label, error, className, maxCount, value, ...rest }, ref) => {
     const valueLength = String(value ?? "").length;
 

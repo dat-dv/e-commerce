@@ -5,6 +5,11 @@ import { Star } from "lucide-react";
 import { TYPOGRAPHY } from "../../../tokens";
 import Button from "../../atoms/button";
 
+export type {
+  IRatingFilterLabels,
+  IRatingFilterProps,
+} from "./rating-filter.types";
+
 export interface RatingFilterLabels {
   title?: string;
   suffix?: string;
@@ -64,5 +69,7 @@ export function RatingFilter({
     </div>
   );
 }
+
+RatingFilter.displayName = "RatingFilter";
 
 export default RatingFilter;

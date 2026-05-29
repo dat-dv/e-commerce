@@ -5,6 +5,8 @@ import React from "react";
 import { TYPOGRAPHY } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type { IListingSectionHeaderProps } from "./listing-section-header.types";
+
 export interface ListingSectionHeaderProps {
   eyebrow: string;
   title: string;
@@ -13,9 +15,6 @@ export interface ListingSectionHeaderProps {
   className?: string;
 }
 
-/**
- * ListingSectionHeader displays eyebrow, title, and actions/metadata.
- */
 export const ListingSectionHeader = ({
   eyebrow,
   title,
@@ -54,5 +53,7 @@ export const ListingSectionHeader = ({
     </div>
   );
 };
+
+ListingSectionHeader.displayName = "ListingSectionHeader";
 
 export default ListingSectionHeader;

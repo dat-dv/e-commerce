@@ -7,6 +7,12 @@ import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 import { XIcon } from "../../atoms/icons";
 import Input from "../../atoms/input";
 
+export type {
+  IMapPickerDialogLabels,
+  IMapPickerDialogProps,
+  IMapPickerSuggestion,
+} from "./map-picker-dialog.types";
+
 export interface MapPickerSuggestion {
   id: string | number;
   label: string;
@@ -119,5 +125,7 @@ export function MapPickerDialog({
     </AppDialog>
   );
 }
+
+MapPickerDialog.displayName = "MapPickerDialog";
 
 export default MapPickerDialog;

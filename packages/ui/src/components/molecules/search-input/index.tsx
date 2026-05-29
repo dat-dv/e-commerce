@@ -7,6 +7,8 @@ import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 
+export type { ISearchInputProps } from "./search-input.types";
+
 export interface SearchInputProps {
   id?: string;
   value?: string | null;
@@ -22,9 +24,6 @@ export interface SearchInputProps {
   "aria-label"?: string;
 }
 
-/**
- * SearchInput provides a text entry box with a loading spinner, clear, and submit actions.
- */
 export const SearchInput = ({
   id,
   value,
@@ -43,6 +42,7 @@ export const SearchInput = ({
 
   useEffect(() => {
     if (value !== localValue) setLocalValue(value ?? "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -126,5 +126,7 @@ export const SearchInput = ({
     </div>
   );
 };
+
+SearchInput.displayName = "SearchInput";
 
 export default SearchInput;

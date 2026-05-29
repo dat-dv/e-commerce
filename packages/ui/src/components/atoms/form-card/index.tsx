@@ -2,12 +2,9 @@ import React from "react";
 
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import { type IFormCardProps } from "./form-card.types";
 
-export interface FormCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-}
-
-export const FormCard = ({ children, className, ...props }: FormCardProps) => {
+export const FormCard = ({ children, className, ...rest }: IFormCardProps) => {
   return (
     <div
       className={cn(
@@ -15,11 +12,14 @@ export const FormCard = ({ children, className, ...props }: FormCardProps) => {
         "dark:bg-surface/80 min-w-0 border border-white/20 bg-white/80 p-4 shadow-xl backdrop-blur-md sm:p-6",
         className,
       )}
-      {...props}
+      {...rest}
     >
       {children}
     </div>
   );
 };
 
+FormCard.displayName = "FormCard";
+
+export type { IFormCardProps } from "./form-card.types";
 export default FormCard;

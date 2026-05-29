@@ -1,6 +1,8 @@
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type { ISummaryCardProps } from "./summary-card.types";
+
 interface SummaryCardProps {
   label: string;
   value: string | number;
@@ -89,5 +91,7 @@ const SummaryCard = ({
     </div>
   );
 };
+
+SummaryCard.displayName = "SummaryCard";
 
 export default SummaryCard;

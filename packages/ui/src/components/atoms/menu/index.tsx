@@ -1,25 +1,17 @@
 "use client";
 
-import React from "react";
 import {
   Button as RACButton,
   Menu as RACMenu,
   MenuItem as RACMenuItem,
-  type MenuItemProps as RACMenuItemProps,
   MenuTrigger as RACMenuTrigger,
-  type MenuTriggerProps as RACMenuTriggerProps,
   Popover as RACPopover,
 } from "react-aria-components";
 
 import { cn } from "../../../utils";
+import { type IAppMenuItemProps, type IAppMenuProps } from "./menu.types";
 
-export interface IAppMenuProps extends Omit<RACMenuTriggerProps, "trigger"> {
-  trigger: React.ReactNode;
-  children: React.ReactNode;
-  isDisabled?: boolean;
-  popoverClassName?: string;
-  menuClassName?: string;
-}
+export type { IAppMenuItemProps, IAppMenuProps } from "./menu.types";
 
 export function AppMenu({
   trigger,
@@ -54,10 +46,6 @@ export function AppMenu({
       </RACPopover>
     </RACMenuTrigger>
   );
-}
-
-export interface IAppMenuItemProps extends RACMenuItemProps {
-  className?: string;
 }
 
 export function AppMenuItem({

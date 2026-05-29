@@ -7,6 +7,8 @@ import React from "react";
 import { TYPOGRAPHY } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type { IEmptyStateProps } from "./empty-state.types";
+
 export interface EmptyStateProps {
   title?: string;
   description?: string;
@@ -88,5 +90,7 @@ export const EmptyState = ({
     </motion.div>
   );
 };
+
+EmptyState.displayName = "EmptyState";
 
 export default EmptyState;

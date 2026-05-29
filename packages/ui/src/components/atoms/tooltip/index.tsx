@@ -3,17 +3,14 @@
 import React from "react";
 import {
   Tooltip as RACTooltip,
-  type TooltipProps as RACTooltipProps,
   TooltipTrigger as RACTooltipTrigger,
 } from "react-aria-components";
 
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import { type ITooltipProps } from "./tooltip.types";
 
-export interface ITooltipProps extends Omit<RACTooltipProps, "children"> {
-  content: React.ReactNode;
-  children: React.ReactElement;
-}
+export type { ITooltipProps } from "./tooltip.types";
 
 export function AppTooltip({
   content,
@@ -43,5 +40,7 @@ export function AppTooltip({
     </RACTooltipTrigger>
   );
 }
+
+AppTooltip.displayName = "AppTooltip";
 
 export const Tooltip = AppTooltip;

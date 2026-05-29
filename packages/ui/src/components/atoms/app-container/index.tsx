@@ -1,11 +1,7 @@
 import React from "react";
 
 import { cn } from "../../../utils";
-
-interface AppContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
-  center?: boolean;
-}
+import { type IAppContainerProps } from "./app-container.types";
 
 const sizeClasses = {
   sm: "max-w-xl",
@@ -14,15 +10,15 @@ const sizeClasses = {
   xl: "max-w-5xl",
   "2xl": "max-w-7xl",
   full: "max-w-full",
-};
+} as const;
 
 const AppContainer = ({
   children,
   className,
   size = "2xl",
   center = true,
-  ...props
-}: AppContainerProps) => {
+  ...rest
+}: IAppContainerProps) => {
   return (
     <div
       className={cn(
@@ -31,11 +27,17 @@ const AppContainer = ({
         sizeClasses[size],
         className,
       )}
-      {...props}
+      {...rest}
     >
       {children}
     </div>
   );
 };
 
+AppContainer.displayName = "AppContainer";
+
+export type {
+  AppContainerSize,
+  IAppContainerProps,
+} from "./app-container.types";
 export default AppContainer;

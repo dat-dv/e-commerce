@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
 import {
   Dialog as RACDialog,
-  DialogProps,
   Heading as RACHeading,
-  type HeadingProps,
   Modal as RACModal,
   ModalOverlay as RACModalOverlay,
 } from "react-aria-components";
 
 import { cn } from "../../../utils";
+import {
+  type IAppDialogPanelProps,
+  type IAppDialogProps,
+  type IAppDialogTitleProps,
+} from "./dialog.types";
 
 const MotionModalOverlay = motion.create(RACModalOverlay);
 const MotionModal = motion.create(RACModal);
 
-export interface IAppDialogProps {
-  children: React.ReactNode;
-  className?: string;
-  isDismissable?: boolean;
-  isOpen: boolean;
-  onClose: () => void;
-}
+export type {
+  IAppDialogPanelProps,
+  IAppDialogProps,
+  IAppDialogTitleProps,
+} from "./dialog.types";
 
 export function AppDialog({
   children,
@@ -52,11 +52,6 @@ export function AppDialog({
   );
 }
 
-export interface IAppDialogPanelProps extends DialogProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
 export function AppDialogPanel({
   children,
   className,
@@ -81,11 +76,6 @@ export function AppDialogPanel({
   );
 }
 
-export interface IAppDialogTitleProps extends HeadingProps {
-  as?: React.ElementType;
-  children: React.ReactNode;
-}
-
 export function AppDialogTitle({
   as: Component = "h2",
   children,
@@ -107,6 +97,10 @@ export function AppDialogTitle({
     </RACHeading>
   );
 }
+
+AppDialog.displayName = "AppDialog";
+AppDialogPanel.displayName = "AppDialogPanel";
+AppDialogTitle.displayName = "AppDialogTitle";
 
 export const Dialog = AppDialog;
 export const DialogPanel = AppDialogPanel;

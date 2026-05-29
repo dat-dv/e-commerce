@@ -1,19 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
 
 import { useTextSelectEvent } from "../../../hooks/use-text-select-event";
 import { cn } from "../../../utils";
-
-export interface LiquidWaveTextProps {
-  children: ReactNode;
-  enableSelection?: boolean;
-  isActive?: boolean;
-  className?: string;
-  activeClassName?: string;
-  inactiveClassName?: string;
-}
+import { type ILiquidWaveTextProps } from "./liquid-wave-text.types";
 
 const clipPathVariants = {
   rest: {
@@ -39,7 +30,7 @@ const clipPathVariants = {
   },
 };
 
-export const LiquidWaveText: React.FC<LiquidWaveTextProps> = ({
+export const LiquidWaveText: React.FC<ILiquidWaveTextProps> = ({
   children,
   enableSelection = false,
   isActive = false,
@@ -86,13 +77,8 @@ export const LiquidWaveText: React.FC<LiquidWaveTextProps> = ({
         className="text-primary pointer-events-none col-start-1 row-start-1 will-change-[clip-path] select-none"
         variants={clipPathVariants}
         transition={{
-          clipPath: {
-            duration: 1.6,
-            ease: [0.16, 1, 0.3, 1],
-          },
-          opacity: {
-            duration: 0.1,
-          },
+          clipPath: { duration: 1.6, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 0.1 },
         }}
       >
         {children}
@@ -101,4 +87,7 @@ export const LiquidWaveText: React.FC<LiquidWaveTextProps> = ({
   );
 };
 
+LiquidWaveText.displayName = "LiquidWaveText";
+
+export type { ILiquidWaveTextProps } from "./liquid-wave-text.types";
 export default LiquidWaveText;

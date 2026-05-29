@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { cn } from "../../../utils";
 
+export type { ITableOfContentsProps, ITocItem } from "./toc.types";
+
 export type TocItem = {
   id: string;
   title: string;
@@ -17,9 +19,6 @@ export interface TableOfContentsProps {
   inactiveItemClassName?: string;
 }
 
-/**
- * TableOfContents displays a scroll-spy list of anchor headings linking to document sections.
- */
 export const TableOfContents = ({
   items,
   linkComponent: LinkComponent = "a",
@@ -155,5 +154,7 @@ export const TableOfContents = ({
     </ul>
   );
 };
+
+TableOfContents.displayName = "TableOfContents";
 
 export default TableOfContents;

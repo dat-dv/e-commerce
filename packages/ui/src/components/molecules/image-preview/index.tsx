@@ -11,6 +11,8 @@ import React, {
 import { cn } from "../../../utils";
 import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 
+export type { IImagePreviewProps } from "./image-preview.types";
+
 type PreviewImageProps = ComponentPropsWithoutRef<"img"> & {
   fill?: boolean;
   unoptimized?: boolean;
@@ -153,5 +155,7 @@ export function ImagePreview({
     </>
   );
 }
+
+ImagePreview.displayName = "ImagePreview";
 
 export default ImagePreview;

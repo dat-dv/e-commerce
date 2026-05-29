@@ -4,9 +4,12 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputSize } from "../../atoms/input";
-import PhoneInput, { CountryOption, PhoneValue } from "../../atoms/phone-input";
+import PhoneInput, {
+  ICountryOption,
+  IPhoneValue,
+} from "../../atoms/phone-input";
 
-export const aseanCountries: CountryOption[] = [
+export const aseanCountries: ICountryOption[] = [
   {
     name: "Vietnam",
     code: "VN",
@@ -85,7 +88,7 @@ export interface FormPhoneInputProps extends Omit<
 > {
   name: string;
   label?: string;
-  countries?: CountryOption[];
+  countries?: ICountryOption[];
   disabledSelected?: boolean;
   size?: InputSize;
 }
@@ -110,7 +113,7 @@ export const FormPhoneInput: React.FC<FormPhoneInputProps> = ({
           {...rest}
           ref={ref}
           id={name}
-          value={value as PhoneValue | undefined}
+          value={value as IPhoneValue | undefined}
           onChange={onChange}
           label={label}
           error={error?.message}

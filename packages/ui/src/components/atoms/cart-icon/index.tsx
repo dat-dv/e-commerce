@@ -3,19 +3,14 @@
 import { motion } from "framer-motion";
 
 import { cn } from "../../../utils";
-
-interface ICartIconProps {
-  isActive?: boolean;
-  itemsCount?: number;
-  className?: string;
-  size?: number;
-}
+import { type ICartIconProps } from "./cart-icon.types";
 
 export default function CartIcon({
   isActive = false,
   itemsCount = 0,
   className,
   size = 20,
+  ...rest
 }: ICartIconProps) {
   return (
     <div
@@ -23,6 +18,7 @@ export default function CartIcon({
         "pointer-events-none relative flex items-center justify-center",
         className,
       )}
+      {...rest}
     >
       <motion.svg
         key={itemsCount}
@@ -52,14 +48,8 @@ export default function CartIcon({
           d="M2 2h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78"
           animate={
             isActive
-              ? {
-                  pathLength: [0, 1],
-                  stroke: "url(#cartGradient)",
-                }
-              : {
-                  pathLength: 1,
-                  stroke: "currentColor",
-                }
+              ? { pathLength: [0, 1], stroke: "url(#cartGradient)" }
+              : { pathLength: 1, stroke: "currentColor" }
           }
           transition={{ duration: 0.4, ease: "easeInOut" }}
         />
@@ -69,14 +59,8 @@ export default function CartIcon({
           d="M18.44 16l1.65-7.43H5.12"
           animate={
             isActive
-              ? {
-                  pathLength: [0, 1],
-                  stroke: "url(#cartGradient)",
-                }
-              : {
-                  pathLength: 1,
-                  stroke: "currentColor",
-                }
+              ? { pathLength: [0, 1], stroke: "url(#cartGradient)" }
+              : { pathLength: 1, stroke: "currentColor" }
           }
           transition={{ duration: 0.4, delay: 0.15, ease: "easeInOut" }}
         />
@@ -94,11 +78,7 @@ export default function CartIcon({
                   fill: "url(#cartGradient)",
                   stroke: "url(#cartGradient)",
                 }
-              : {
-                  scale: 1,
-                  fill: "currentColor",
-                  stroke: "currentColor",
-                }
+              : { scale: 1, fill: "currentColor", stroke: "currentColor" }
           }
           transition={{ duration: 0.3, delay: 0.3 }}
         />
@@ -116,11 +96,7 @@ export default function CartIcon({
                   fill: "url(#cartGradient)",
                   stroke: "url(#cartGradient)",
                 }
-              : {
-                  scale: 1,
-                  fill: "currentColor",
-                  stroke: "currentColor",
-                }
+              : { scale: 1, fill: "currentColor", stroke: "currentColor" }
           }
           transition={{ duration: 0.3, delay: 0.35 }}
         />
@@ -128,3 +104,7 @@ export default function CartIcon({
     </div>
   );
 }
+
+CartIcon.displayName = "CartIcon";
+
+export type { ICartIconProps } from "./cart-icon.types";

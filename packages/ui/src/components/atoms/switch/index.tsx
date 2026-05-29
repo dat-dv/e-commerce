@@ -4,16 +4,11 @@ import { motion } from "framer-motion";
 import React from "react";
 
 import { cn } from "../../../utils";
+import { type ISwitchProps } from "./switch.types";
 
-interface SwitchProps extends Omit<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  "onChange"
-> {
-  checked: boolean;
-  onCheckedChange: () => void;
-}
+export type { ISwitchProps } from "./switch.types";
 
-const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
+const Switch = React.forwardRef<HTMLButtonElement, ISwitchProps>(
   ({ checked, onCheckedChange, className, ...props }, ref) => {
     return (
       <button

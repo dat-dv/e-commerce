@@ -6,6 +6,8 @@ import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import LiquidWaveText from "../../atoms/liquid-wave-text";
 
+export type { IHelpTopic, IHelpTopicNavProps } from "./help-topic-nav.types";
+
 export const getHelpTopicId = (name: string): string =>
   name
     .toLowerCase()
@@ -94,5 +96,7 @@ export function HelpTopicNav({
     </nav>
   );
 }
+
+HelpTopicNav.displayName = "HelpTopicNav";
 
 export default HelpTopicNav;

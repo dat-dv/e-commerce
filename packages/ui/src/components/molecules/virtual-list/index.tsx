@@ -18,9 +18,6 @@ export interface VirtualListProps<T extends { id?: string | number }> {
   triggerMargin?: UseInViewOptions["margin"];
 }
 
-/**
- * VirtualList displays virtualized vertical scroll items and triggers onLoadMore.
- */
 export function VirtualList<T extends { id?: string | number }>({
   data,
   renderItem,

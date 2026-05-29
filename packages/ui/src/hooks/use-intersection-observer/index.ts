@@ -6,12 +6,6 @@ export interface UseIntersectionObserverProps extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
 }
 
-/**
- * Custom hook to detect when an element is visible in the viewport using IntersectionObserver.
- *
- * @param options - Config options including threshold, root, rootMargin, and freezeOnceVisible.
- * @returns A tuple containing a ref callback to attach to the element, and a boolean indicating if it is intersecting.
- */
 export function useIntersectionObserver<T extends Element = Element>({
   threshold = 0.1,
   root = null,

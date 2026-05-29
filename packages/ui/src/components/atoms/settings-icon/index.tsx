@@ -3,17 +3,13 @@
 import { motion } from "framer-motion";
 
 import { cn } from "../../../utils";
-
-interface ISettingsIconProps {
-  isActive?: boolean;
-  className?: string;
-  size?: number;
-}
+import { type ISettingsIconProps } from "./settings-icon.types";
 
 export default function SettingsIcon({
   isActive = false,
   className,
   size = 20,
+  ...rest
 }: ISettingsIconProps) {
   return (
     <div
@@ -21,6 +17,7 @@ export default function SettingsIcon({
         "pointer-events-none relative flex items-center justify-center",
         className,
       )}
+      {...rest}
     >
       <motion.svg
         width={size}
@@ -63,10 +60,7 @@ export default function SettingsIcon({
           initial={{ pathLength: 1 }}
           animate={
             isActive
-              ? {
-                  pathLength: [0, 1],
-                  scale: [1, 1.18, 0.96, 1.04, 1],
-                }
+              ? { pathLength: [0, 1], scale: [1, 1.18, 0.96, 1.04, 1] }
               : { pathLength: 1, scale: 1 }
           }
           transition={
@@ -94,3 +88,7 @@ export default function SettingsIcon({
     </div>
   );
 }
+
+SettingsIcon.displayName = "SettingsIcon";
+
+export type { ISettingsIconProps } from "./settings-icon.types";

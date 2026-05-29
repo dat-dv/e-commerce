@@ -5,9 +5,15 @@ import React from "react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import { Avatar } from "../../atoms/avatar";
+import Avatar from "../../atoms/avatar";
 import Button from "../../atoms/button";
 import { Dropdown } from "../dropdown";
+
+export type {
+  IAvatarDropdownLabels,
+  IAvatarDropdownMenuItem,
+  IAvatarDropdownProps,
+} from "./avatar-dropdown.types";
 
 export interface AvatarDropdownMenuItem {
   label: string;
@@ -132,5 +138,7 @@ export const AvatarDropdown = ({
     </Dropdown>
   );
 };
+
+AvatarDropdown.displayName = "AvatarDropdown";
 
 export default AvatarDropdown;

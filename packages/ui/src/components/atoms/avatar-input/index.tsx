@@ -7,22 +7,11 @@ import React, { useRef, useState } from "react";
 import { TYPOGRAPHY } from "../../../tokens";
 import ImgCropper from "../../molecules/img-cropper";
 import Avatar from "../avatar";
+import { type IAvatarInputProps } from "./avatar-input.types";
 
-export interface AvatarInputProps {
-  value?: string;
-  onChange: (value: string) => void;
-  displayName?: string;
-  size?: number;
-  disabled?: boolean;
-  changeAvatarLabel?: string;
-  changeLabel?: string;
-  cropTitle?: string;
-  cropSaveLabel?: string;
-  cropCancelLabel?: string;
-  cropCloseLabel?: string;
-}
+export type { IAvatarInputProps } from "./avatar-input.types";
 
-export const AvatarInput: React.FC<AvatarInputProps> = ({
+export const AvatarInput: React.FC<IAvatarInputProps> = ({
   value,
   onChange,
   displayName,
@@ -125,5 +114,7 @@ export const AvatarInput: React.FC<AvatarInputProps> = ({
     </>
   );
 };
+
+AvatarInput.displayName = "AvatarInput";
 
 export default AvatarInput;

@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type { IBrandCardProps } from "./brand-card.types";
+
 export interface BrandCardProps {
   name: string;
   logoUrl?: string | null;
@@ -19,9 +21,6 @@ export interface BrandCardProps {
   className?: string;
 }
 
-/**
- * BrandCard displays brand name, description, logo, and banner with support for polymorphic links and images.
- */
 export const BrandCard = ({
   name,
   logoUrl,
@@ -148,5 +147,7 @@ export const BrandCard = ({
     </div>
   );
 };
+
+BrandCard.displayName = "BrandCard";
 
 export default BrandCard;

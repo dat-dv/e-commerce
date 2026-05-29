@@ -6,6 +6,8 @@ import { TYPOGRAPHY } from "../../../tokens";
 import LiquidWaveText from "../../atoms/liquid-wave-text";
 import ViewAllButton from "../../atoms/view-all-button";
 
+export type { ISectionHeaderProps } from "./section-header.types";
+
 interface SectionHeaderProps {
   title: string;
   href?: string;
@@ -60,5 +62,7 @@ export const SectionHeader = ({
     </div>
   );
 };
+
+SectionHeader.displayName = "SectionHeader";
 
 export default SectionHeader;

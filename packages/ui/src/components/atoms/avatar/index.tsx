@@ -1,39 +1,51 @@
+"use client";
+
 import React from "react";
 
-export interface AvatarProps {
-  url?: string;
-  name?: string;
-  size?: number;
-  alt?: string;
-  className?: string;
-}
+import { cn } from "../../../utils";
+import { type IAvatarProps } from "./avatar.types";
 
-export const Avatar: React.FC<AvatarProps> = ({
+const Avatar = ({
   url,
   name,
   size = 80,
   alt = "Avatar",
   className,
-}) => {
-  return url ? (
-    <img
-      width={size}
-      height={size}
-      loading="eager"
-      src={url}
-      alt={alt}
-      className={className || "object-cover"}
-    />
-  ) : (
-    <div className="bg-primary/10 flex h-full w-full items-center justify-center">
-      <span
-        className="text-primary font-bold"
-        style={{ fontSize: `${size * 0.3}px` }}
-      >
-        {name?.charAt(0) || "U"}
-      </span>
+  style,
+  ...rest
+}: IAvatarProps) => {
+  return (
+    <div
+      className={cn(
+        "relative inline-flex items-center justify-center overflow-hidden rounded-full",
+        className,
+      )}
+      style={{ width: size, height: size, ...style }}
+      {...rest}
+    >
+      {url ? (
+        <img
+          src={url}
+          alt={alt}
+          width={size}
+          height={size}
+          loading="eager"
+          className="h-full w-full object-cover"
+        />
+      ) : (
+        <span
+          className="text-primary font-bold"
+          style={{ fontSize: `${size * 0.35}px` }}
+          aria-label={name ?? "User"}
+        >
+          {name?.charAt(0)?.toUpperCase() ?? "U"}
+        </span>
+      )}
     </div>
   );
 };
 
+Avatar.displayName = "Avatar";
+
+export type { IAvatarProps } from "./avatar.types";
 export default Avatar;

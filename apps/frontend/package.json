@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start -p 5173",
     "lint": "eslint",
+    "lint:fix": "eslint . --fix",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

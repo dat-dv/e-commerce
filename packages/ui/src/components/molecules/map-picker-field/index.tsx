@@ -6,6 +6,11 @@ import { MapPin } from "lucide-react";
 import { TYPOGRAPHY } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type {
+  IMapPickerFieldLabels,
+  IMapPickerFieldProps,
+} from "./map-picker-field.types";
+
 export interface MapPickerFieldLabels {
   placeholder?: string;
   select?: string;
@@ -85,5 +90,7 @@ export function MapPickerField({
     </div>
   );
 }
+
+MapPickerField.displayName = "MapPickerField";
 
 export default MapPickerField;

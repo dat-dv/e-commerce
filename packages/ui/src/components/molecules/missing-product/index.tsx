@@ -6,6 +6,12 @@ import React from "react";
 
 import Button from "../../atoms/button";
 
+export type {
+  IMissingProductLabels,
+  IMissingProductProps,
+  ISuggestedRoute,
+} from "./missing-product.types";
+
 export interface MissingProductLabels {
   title?: string;
   description?: string;
@@ -26,9 +32,6 @@ export interface MissingProductProps {
   linkComponent?: React.ElementType;
 }
 
-/**
- * MissingProduct displays a stylized, empty page state when a requested product or page is missing.
- */
 export const MissingProduct = ({
   labels = {},
   suggestedRoutes = [
@@ -112,5 +115,7 @@ export const MissingProduct = ({
     </div>
   );
 };
+
+MissingProduct.displayName = "MissingProduct";
 
 export default MissingProduct;

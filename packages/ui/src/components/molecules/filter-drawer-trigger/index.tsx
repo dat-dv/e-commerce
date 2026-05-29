@@ -6,6 +6,8 @@ import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 
+export type { IFilterDrawerTriggerProps } from "./filter-drawer-trigger.types";
+
 interface IFilterDrawerTriggerProps {
   eyebrow: string;
   label: string;
@@ -46,5 +48,7 @@ export function FilterDrawerTrigger({
     </div>
   );
 }
+
+FilterDrawerTrigger.displayName = "FilterDrawerTrigger";
 
 export default FilterDrawerTrigger;

@@ -6,10 +6,15 @@ export * from "./utils";
 // Atoms
 export * from "./components/atoms/animate";
 export { default as AppContainer } from "./components/atoms/app-container";
-export { default as Avatar, type AvatarProps } from "./components/atoms/avatar";
+export {
+  default as Avatar,
+  type IAvatarProps as AvatarProps,
+  type IAvatarProps,
+} from "./components/atoms/avatar";
 export {
   default as AvatarInput,
-  type AvatarInputProps,
+  type IAvatarInputProps as AvatarInputProps,
+  type IAvatarInputProps,
 } from "./components/atoms/avatar-input";
 export { default as Button } from "./components/atoms/button";
 export { default as CartIcon } from "./components/atoms/cart-icon";
@@ -23,7 +28,8 @@ export { DocsAnimationWrapper } from "./components/atoms/docs-animation-wrapper"
 export { default as FavoriteIcon } from "./components/atoms/favorite-icon";
 export {
   default as FormCard,
-  type FormCardProps,
+  type IFormCardProps as FormCardProps,
+  type IFormCardProps,
 } from "./components/atoms/form-card";
 export { default as HamburgerButton } from "./components/atoms/hamburger-button";
 export * from "./components/atoms/icons";
@@ -34,16 +40,19 @@ export {
   type InputVariant,
 } from "./components/atoms/input";
 export {
+  type ILiquidWaveTextProps,
   default as LiquidWaveText,
-  type LiquidWaveTextProps,
+  type ILiquidWaveTextProps as LiquidWaveTextProps,
 } from "./components/atoms/liquid-wave-text";
 export { default as Loading } from "./components/atoms/loading";
 export { default as Logo } from "./components/atoms/logo";
 export * from "./components/atoms/menu";
 export {
-  type CountryOption,
+  type ICountryOption as CountryOption,
+  type ICountryOption,
+  type IPhoneValue,
   default as PhoneInput,
-  type PhoneValue,
+  type IPhoneValue as PhoneValue,
 } from "./components/atoms/phone-input";
 export { default as Portal } from "./components/atoms/portal";
 export * from "./components/atoms/select";
@@ -57,16 +66,18 @@ export {
 export { default as Switch } from "./components/atoms/switch";
 export * from "./components/atoms/tabs";
 export {
+  type ITextareaProps,
   default as Textarea,
-  type TextareaProps,
+  type ITextareaProps as TextareaProps,
 } from "./components/atoms/textarea";
 export { default as ThemeSwatch } from "./components/atoms/theme-swatch";
 export * from "./components/atoms/toast";
 export * from "./components/atoms/tooltip";
 export * from "./components/atoms/tree";
 export {
+  type IViewAllButtonProps,
   default as ViewAllButton,
-  type ViewAllButtonProps,
+  type IViewAllButtonProps as ViewAllButtonProps,
 } from "./components/atoms/view-all-button";
 
 // Molecules

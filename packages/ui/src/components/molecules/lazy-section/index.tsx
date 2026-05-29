@@ -12,9 +12,6 @@ export interface ILazySectionProps {
   className?: string;
 }
 
-/**
- * LazySection renders children lazily once it intersects with the viewport.
- */
 export const LazySection = ({
   children,
   placeholder = null,
@@ -39,5 +36,7 @@ export const LazySection = ({
     </div>
   );
 };
+
+LazySection.displayName = "LazySection";
 
 export default LazySection;

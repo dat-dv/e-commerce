@@ -5,6 +5,8 @@ import React from "react";
 
 import { cn } from "../../../utils";
 
+export type { IPaginationProps } from "./pagination.types";
+
 const getPaginationRange = (currentPage: number, totalPages: number) => {
   const MAX_ITEMS = 7;
   const pages: (number | string)[] = [];
@@ -113,9 +115,6 @@ export interface PaginationProps {
   className?: string;
 }
 
-/**
- * Pagination control elements with numeric pages and back/forth actions.
- */
 export const Pagination = ({
   currentPage,
   totalPages,
@@ -167,5 +166,7 @@ export const Pagination = ({
     </nav>
   );
 };
+
+Pagination.displayName = "Pagination";
 
 export default Pagination;

@@ -5,6 +5,8 @@ import React from "react";
 import { TYPOGRAPHY } from "../../../tokens";
 import { SidebarDocItem, SidebarItem } from "../../atoms/sidebar-item";
 
+export type { IDocsSidebarProps } from "./docs-sidebar.types";
+
 export interface DocsSidebarProps {
   items: SidebarDocItem[];
   currentPathname: string;
@@ -12,9 +14,6 @@ export interface DocsSidebarProps {
   linkComponent?: React.ElementType;
 }
 
-/**
- * DocsSidebar displays a tree sidebar wrapper for nested documentation routes.
- */
 export const DocsSidebar = ({
   items,
   currentPathname,
@@ -51,5 +50,7 @@ export const DocsSidebar = ({
     </div>
   );
 };
+
+DocsSidebar.displayName = "DocsSidebar";
 
 export default DocsSidebar;

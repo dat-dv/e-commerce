@@ -90,9 +90,6 @@ const DEFAULT_GRID_COLUMNS: VirtualGridColumns = {
 const DEFAULT_GRID_CLASS_NAME =
   "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
 
-/**
- * VirtualGrid displays performance virtualized grid rows dynamically wrapping columns.
- */
 export function VirtualGrid<T>({
   data,
   renderItem,

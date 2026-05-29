@@ -4,17 +4,13 @@ import { type HTMLMotionProps, motion } from "framer-motion";
 import React from "react";
 
 import { cn } from "../../../utils";
+import { type IThemeSwatchProps } from "./theme-swatch.types";
 
-interface ThemeSwatchProps extends HTMLMotionProps<"button"> {
-  color: string;
-  selected?: boolean;
-}
-
-const ThemeSwatch = React.forwardRef<HTMLButtonElement, ThemeSwatchProps>(
+const ThemeSwatch = React.forwardRef<HTMLButtonElement, IThemeSwatchProps>(
   ({ color, selected = false, className, children, ...props }, ref) => {
     return (
       <motion.button
-        {...props}
+        {...(props as HTMLMotionProps<"button">)}
         ref={ref}
         type="button"
         whileHover={{ scale: 1.15 }}
@@ -36,4 +32,5 @@ const ThemeSwatch = React.forwardRef<HTMLButtonElement, ThemeSwatchProps>(
 
 ThemeSwatch.displayName = "ThemeSwatch";
 
+export type { IThemeSwatchProps } from "./theme-swatch.types";
 export default ThemeSwatch;

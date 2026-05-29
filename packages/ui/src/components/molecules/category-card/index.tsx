@@ -6,6 +6,8 @@ import React from "react";
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 
+export type { ICategoryCardProps } from "./category-card.types";
+
 export interface CategoryCardProps {
   name: string;
   count: string;
@@ -19,9 +21,6 @@ export interface CategoryCardProps {
   className?: string;
 }
 
-/**
- * CategoryCard displays a category item with icon, image, name, and product count.
- */
 export const CategoryCard = ({
   name,
   count,
@@ -75,5 +74,7 @@ export const CategoryCard = ({
     </LinkComponent>
   );
 };
+
+CategoryCard.displayName = "CategoryCard";
 
 export default CategoryCard;
