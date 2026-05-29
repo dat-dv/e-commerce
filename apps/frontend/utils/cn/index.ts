@@ -1,9 +1,1 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-export function cnRaw(...inputs: ClassValue[]) {
-  return clsx(inputs); // không qua twMerge
-}
+export { cn, cnRaw } from "@ecommerce/ui/utils";
