@@ -82,3 +82,5 @@ export const FormRating = <T extends FieldValues>({
 };
 
 FormRating.displayName = "FormRating";
+
+export default FormRating;

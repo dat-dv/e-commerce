@@ -8,14 +8,14 @@ export interface IFormButtonProps extends HTMLMotionProps<"button"> {
   loadingText?: string;
 }
 
-export const FormButton: React.FC<IFormButtonProps> = ({
+export const FormButton = ({
   isLoading,
   loadingText = "Processing...",
   children,
   className = "",
   disabled,
   ...props
-}) => {
+}: IFormButtonProps) => {
   return (
     <motion.button
       whileHover={{ scale: isLoading ? 1 : 1.02 }}
@@ -56,3 +56,5 @@ export const FormButton: React.FC<IFormButtonProps> = ({
 };
 
 FormButton.displayName = "FormButton";
+
+export default FormButton;

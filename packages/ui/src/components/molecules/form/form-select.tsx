@@ -18,7 +18,7 @@ export interface IFormSelectProps {
   placeholder?: string;
 }
 
-export const FormSelect: React.FC<IFormSelectProps> = ({
+export const FormSelect = ({
   name,
   label,
   options,
@@ -28,7 +28,7 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
   className,
   itemClassName,
   placeholder = "Select...",
-}) => {
+}: IFormSelectProps) => {
   const { control } = useFormContext();
 
   return (
@@ -56,3 +56,5 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
 };
 
 FormSelect.displayName = "FormSelect";
+
+export default FormSelect;

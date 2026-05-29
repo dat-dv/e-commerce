@@ -9,7 +9,7 @@ import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 import getCroppedImg from "./get-cropped-img";
 import { IImgCropperProps } from "./img-cropper.types";
 
-export const ImgCropper: React.FC<IImgCropperProps> = ({
+export const ImgCropper = ({
   image,
   onCropComplete,
   onCancel,
@@ -18,7 +18,7 @@ export const ImgCropper: React.FC<IImgCropperProps> = ({
   cancelLabel = "Cancel",
   closeLabel = "Close",
   title = "Crop Image",
-}) => {
+}: IImgCropperProps) => {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);

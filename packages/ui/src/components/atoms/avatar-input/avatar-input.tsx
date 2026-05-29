@@ -9,7 +9,7 @@ import ImgCropper from "../../molecules/img-cropper";
 import Avatar from "../avatar";
 import { type IAvatarInputProps } from "./avatar-input.types";
 
-export const AvatarInput: React.FC<IAvatarInputProps> = ({
+export const AvatarInput = ({
   value,
   onChange,
   displayName,
@@ -21,7 +21,7 @@ export const AvatarInput: React.FC<IAvatarInputProps> = ({
   cropSaveLabel,
   cropCancelLabel,
   cropCloseLabel,
-}) => {
+}: IAvatarInputProps) => {
   const fileRef = useRef<HTMLInputElement>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showCropper, setShowCropper] = useState(false);

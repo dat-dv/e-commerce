@@ -12,10 +12,7 @@ export interface IFormTextareaProps extends Omit<
   name: string;
 }
 
-export const FormTextarea: React.FC<IFormTextareaProps> = ({
-  name,
-  ...rest
-}) => {
+export const FormTextarea = ({ name, ...rest }: IFormTextareaProps) => {
   const { control } = useFormContext();
 
   return (
@@ -30,3 +27,5 @@ export const FormTextarea: React.FC<IFormTextareaProps> = ({
 };
 
 FormTextarea.displayName = "FormTextarea";
+
+export default FormTextarea;

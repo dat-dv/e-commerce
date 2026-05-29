@@ -93,7 +93,7 @@ export interface IFormPhoneInputProps extends Omit<
   size?: InputSize;
 }
 
-export const FormPhoneInput: React.FC<IFormPhoneInputProps> = ({
+export const FormPhoneInput = ({
   name,
   label,
   className,
@@ -101,7 +101,7 @@ export const FormPhoneInput: React.FC<IFormPhoneInputProps> = ({
   disabledSelected = false,
   size = "lg",
   ...rest
-}) => {
+}: IFormPhoneInputProps) => {
   const { control } = useFormContext();
 
   return (
@@ -128,3 +128,5 @@ export const FormPhoneInput: React.FC<IFormPhoneInputProps> = ({
 };
 
 FormPhoneInput.displayName = "FormPhoneInput";
+
+export default FormPhoneInput;

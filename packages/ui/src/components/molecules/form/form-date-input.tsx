@@ -32,7 +32,7 @@ const getCalendarDate = (val: unknown) => {
   }
 };
 
-export const FormDateInput: React.FC<IFormDateInputProps> = ({
+export const FormDateInput = ({
   name,
   label,
   variant = "outline",
@@ -41,7 +41,7 @@ export const FormDateInput: React.FC<IFormDateInputProps> = ({
   disabled,
   className,
   size,
-}) => {
+}: IFormDateInputProps) => {
   const { control } = useFormContext();
 
   const maxValue = getCalendarDate(maxDate);
@@ -74,3 +74,5 @@ export const FormDateInput: React.FC<IFormDateInputProps> = ({
 };
 
 FormDateInput.displayName = "FormDateInput";
+
+export default FormDateInput;

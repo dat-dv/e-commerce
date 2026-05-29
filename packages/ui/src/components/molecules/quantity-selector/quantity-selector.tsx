@@ -8,14 +8,14 @@ import { cn } from "../../../utils";
 import Button from "../../atoms/button";
 import { IQuantitySelectorProps } from "./quantity-selector.types";
 
-export const QuantitySelector: React.FC<IQuantitySelectorProps> = ({
+export const QuantitySelector = ({
   value,
   onChange,
   max = Infinity,
   disabled,
   className,
   inputClassName,
-}) => {
+}: IQuantitySelectorProps) => {
   const [inputValue, setInputValue] = useState(String(value));
 
   useEffect(() => {

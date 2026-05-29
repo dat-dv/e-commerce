@@ -10,11 +10,7 @@ export interface IFormInputProps extends Omit<InputProps, "id" | "error"> {
   maxCount?: number;
 }
 
-export const FormInput: React.FC<IFormInputProps> = ({
-  name,
-  maxCount,
-  ...rest
-}) => {
+export const FormInput = ({ name, maxCount, ...rest }: IFormInputProps) => {
   const { control } = useFormContext();
 
   return (
@@ -36,3 +32,5 @@ export const FormInput: React.FC<IFormInputProps> = ({
 };
 
 FormInput.displayName = "FormInput";
+
+export default FormInput;

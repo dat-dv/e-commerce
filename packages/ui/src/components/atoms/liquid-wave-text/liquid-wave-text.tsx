@@ -30,14 +30,14 @@ const clipPathVariants = {
   },
 };
 
-export const LiquidWaveText: React.FC<ILiquidWaveTextProps> = ({
+export const LiquidWaveText = ({
   children,
   enableSelection = false,
   isActive = false,
   className,
   activeClassName = "text-primary",
   inactiveClassName = "text-content/70",
-}) => {
+}: ILiquidWaveTextProps) => {
   const { isSelect, selectProps } = useTextSelectEvent({
     enabled: Boolean(enableSelection),
   });

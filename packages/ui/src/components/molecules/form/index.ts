@@ -1,21 +1,33 @@
-export { AppForm, type IAppFormProps } from "./app-form";
+export { default as AppForm, type IAppFormProps } from "./app-form";
 export {
-  FormAvatarInput,
+  default as FormAvatarInput,
   type IFormAvatarInputProps,
 } from "./form-avatar-input";
-export { FormButton, type IFormButtonProps } from "./form-button";
-export { FormCheckbox, type IFormCheckboxProps } from "./form-checkbox";
-export { FormDateInput, type IFormDateInputProps } from "./form-date-input";
-export { FormInput, type IFormInputProps } from "./form-input";
+export { default as FormButton, type IFormButtonProps } from "./form-button";
 export {
-  FormListenerDirty,
+  default as FormCheckbox,
+  type IFormCheckboxProps,
+} from "./form-checkbox";
+export {
+  default as FormDateInput,
+  type IFormDateInputProps,
+} from "./form-date-input";
+export { default as FormInput, type IFormInputProps } from "./form-input";
+export {
+  default as FormListenerDirty,
   type IFormListenerDirtyProps,
 } from "./form-listener-dirty";
-export { FormPhoneInput, type IFormPhoneInputProps } from "./form-phone-input";
-export { FormRating, type IFormRatingProps } from "./form-rating";
-export { FormSelect, type IFormSelectProps } from "./form-select";
 export {
-  FormSelectAutocomplete,
+  default as FormPhoneInput,
+  type IFormPhoneInputProps,
+} from "./form-phone-input";
+export { default as FormRating, type IFormRatingProps } from "./form-rating";
+export { default as FormSelect, type IFormSelectProps } from "./form-select";
+export {
+  default as FormSelectAutocomplete,
   type IFormSelectAutocompleteProps,
 } from "./form-select-autocomplete";
-export { FormTextarea, type IFormTextareaProps } from "./form-textarea";
+export {
+  default as FormTextarea,
+  type IFormTextareaProps,
+} from "./form-textarea";

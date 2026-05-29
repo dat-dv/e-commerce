@@ -22,7 +22,7 @@ export interface IFormSelectAutocompleteProps {
   noResultsText?: string;
 }
 
-export const FormSelectAutocomplete: React.FC<IFormSelectAutocompleteProps> = ({
+export const FormSelectAutocomplete = ({
   name,
   label,
   options,
@@ -33,7 +33,7 @@ export const FormSelectAutocomplete: React.FC<IFormSelectAutocompleteProps> = ({
   placeholder = "Select...",
   searchPlaceholder,
   noResultsText,
-}) => {
+}: IFormSelectAutocompleteProps) => {
   const { control } = useFormContext();
 
   return (
@@ -61,3 +61,5 @@ export const FormSelectAutocomplete: React.FC<IFormSelectAutocompleteProps> = ({
 };
 
 FormSelectAutocomplete.displayName = "FormSelectAutocomplete";
+
+export default FormSelectAutocomplete;

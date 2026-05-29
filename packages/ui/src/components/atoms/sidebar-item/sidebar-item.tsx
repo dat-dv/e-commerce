@@ -25,13 +25,13 @@ interface SidebarRowProps {
   onToggle: (e: React.MouseEvent) => void;
 }
 
-const SidebarRow: React.FC<SidebarRowProps> = ({
+export const SidebarRow = ({
   item,
   depth,
   isOpen,
   isActive,
   onToggle,
-}) => {
+}: SidebarRowProps) => {
   const hasChildren = !!item.children?.length;
   const title = useMemo(() => getTitle(item.id), [item.id]);
 
@@ -95,12 +95,12 @@ const SidebarRow: React.FC<SidebarRowProps> = ({
   );
 };
 
-export const SidebarItem: React.FC<ISidebarItemProps> = ({
+export const SidebarItem = ({
   item,
   currentPathname,
   depth = 0,
   linkComponent: LinkComponent = "a",
-}) => {
+}: ISidebarItemProps) => {
   const isActive = currentPathname === item.href;
   const isChildActive =
     !!item.routePath && currentPathname.startsWith(`${item.routePath}/`);

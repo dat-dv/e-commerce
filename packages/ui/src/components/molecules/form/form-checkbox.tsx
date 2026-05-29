@@ -12,11 +12,11 @@ export interface IFormCheckboxProps extends Omit<
   name: string;
 }
 
-export const FormCheckbox: React.FC<IFormCheckboxProps> = ({
+export const FormCheckbox = ({
   name,
   children,
   ...rest
-}) => {
+}: IFormCheckboxProps) => {
   const { control } = useFormContext();
 
   return (
@@ -38,3 +38,5 @@ export const FormCheckbox: React.FC<IFormCheckboxProps> = ({
 };
 
 FormCheckbox.displayName = "FormCheckbox";
+
+export default FormCheckbox;

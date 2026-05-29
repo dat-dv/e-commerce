@@ -12,12 +12,12 @@ export interface IFormAvatarInputProps {
   disabled?: boolean;
 }
 
-export const FormAvatarInput: React.FC<IFormAvatarInputProps> = ({
+export const FormAvatarInput = ({
   name,
   displayName,
   size = 160,
   disabled = false,
-}) => {
+}: IFormAvatarInputProps) => {
   const { control } = useFormContext();
 
   return (
@@ -38,3 +38,5 @@ export const FormAvatarInput: React.FC<IFormAvatarInputProps> = ({
 };
 
 FormAvatarInput.displayName = "FormAvatarInput";
+
+export default FormAvatarInput;
