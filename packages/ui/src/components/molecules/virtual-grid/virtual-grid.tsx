@@ -103,7 +103,7 @@ export function VirtualGrid<T>({
       timer = setTimeout(() => {
         if (isInView && !loadingMore) {
           lastTriggerTime.current = Date.now();
-          onLoadMore();
+          onLoadMore?.();
         }
       }, waitTime);
     }
