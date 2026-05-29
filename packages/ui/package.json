@@ -16,6 +16,12 @@
       "import": "./dist/utils/index.js",
       "require": "./dist/utils/index.js",
       "default": "./dist/utils/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js",
+      "require": "./dist/tokens/index.js",
+      "default": "./dist/tokens/index.js"
     }
   },
   "scripts": {
