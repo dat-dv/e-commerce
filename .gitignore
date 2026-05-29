@@ -45,6 +45,9 @@ coverage
 .env.test.local
 .env.production.local
 .env.local
+.env.backend
+.env.frontend
+.env.admin
 
 # temp directory
 .temp

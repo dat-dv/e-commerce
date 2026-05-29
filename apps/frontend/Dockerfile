@@ -7,10 +7,10 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 COPY packages/shared/package.json ./packages/shared/
+COPY packages/ui/package.json ./packages/ui/
 COPY apps/frontend/package.json ./apps/frontend/
-# Cần backend/package.json để npm workspace resolve @prisma/client
-# (@ecommerce/shared dist import @prisma/client/runtime/index-browser)
 COPY apps/backend/package.json ./apps/backend/
+COPY apps/admin/package.json ./apps/admin/
 
 RUN npm ci --ignore-scripts
 
@@ -21,39 +21,19 @@ FROM deps AS builder
 
 WORKDIR /app
 
-# Build-time env vars (NEXT_PUBLIC_* phải có lúc next build)
-ARG NEXT_PUBLIC_API_URL=http://localhost:3000/api
-ARG NEXT_PUBLIC_SITE_URL=http://localhost:5173
-ARG NEXT_PUBLIC_FIREBASE_API_KEY=""
-ARG NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=""
-ARG NEXT_PUBLIC_FIREBASE_PROJECT_ID=""
-ARG NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=""
-ARG NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=""
-ARG NEXT_PUBLIC_FIREBASE_APP_ID=""
-ARG NEXT_PUBLIC_FIREBASE_VAPID_KEY=""
-ARG NEXT_PUBLIC_CF_SITE_KEY=""
-ARG API_URL
-
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
-ENV API_URL=$API_URL
-ENV NEXT_PUBLIC_FIREBASE_API_KEY=$NEXT_PUBLIC_FIREBASE_API_KEY
-ENV NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=$NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-ENV NEXT_PUBLIC_FIREBASE_PROJECT_ID=$NEXT_PUBLIC_FIREBASE_PROJECT_ID
-ENV NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=$NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-ENV NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=$NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-ENV NEXT_PUBLIC_FIREBASE_APP_ID=$NEXT_PUBLIC_FIREBASE_APP_ID
-ENV NEXT_PUBLIC_FIREBASE_VAPID_KEY=$NEXT_PUBLIC_FIREBASE_VAPID_KEY
-ENV NEXT_PUBLIC_CF_SITE_KEY=$NEXT_PUBLIC_CF_SITE_KEY
-
 # Disable Next.js telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY packages/shared/ ./packages/shared/
+COPY packages/ui/ ./packages/ui/
 COPY apps/frontend/ ./apps/frontend/
+COPY .env.frontend ./apps/frontend/.env
 
 # Build @ecommerce/shared
 RUN npm run build -w @ecommerce/shared
+
+# Build @ecommerce/ui
+RUN npm run build -w @ecommerce/ui
 
 # Generate i18n messages
 RUN npm run i18n:gen -w apps/frontend
@@ -75,8 +55,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # Copy workspace manifests
 COPY package.json package-lock.json ./
 COPY packages/shared/package.json ./packages/shared/
+COPY packages/ui/package.json ./packages/ui/
 COPY apps/frontend/package.json ./apps/frontend/
 COPY apps/backend/package.json ./apps/backend/
+COPY apps/admin/package.json ./apps/admin/
 
 # Production deps only
 RUN npm ci --omit=dev --ignore-scripts
@@ -90,6 +72,7 @@ COPY --from=builder /app/apps/frontend/public ./apps/frontend/public
 COPY --from=builder /app/apps/frontend/next.config.ts ./apps/frontend/next.config.ts
 COPY --from=builder /app/apps/frontend/messages ./apps/frontend/messages
 COPY --from=builder /app/apps/frontend/i18n ./apps/frontend/i18n
+COPY --from=builder /app/apps/frontend/.env ./apps/frontend/.env
 
 WORKDIR /app/apps/frontend
 

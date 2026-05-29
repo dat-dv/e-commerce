@@ -8,7 +8,10 @@ WORKDIR /app
 # Copy workspace manifests (chỉ các file cần để install deps)
 COPY package.json package-lock.json ./
 COPY packages/shared/package.json ./packages/shared/
+COPY packages/ui/package.json ./packages/ui/
+COPY apps/frontend/package.json ./apps/frontend/
 COPY apps/backend/package.json ./apps/backend/
+COPY apps/admin/package.json ./apps/admin/
 
 # Install tất cả deps (bao gồm devDeps vì cần build)
 RUN npm ci --ignore-scripts
@@ -49,7 +52,10 @@ RUN apk add --no-cache python3 make g++
 # Copy workspace manifests để install production deps
 COPY package.json package-lock.json ./
 COPY packages/shared/package.json ./packages/shared/
+COPY packages/ui/package.json ./packages/ui/
+COPY apps/frontend/package.json ./apps/frontend/
 COPY apps/backend/package.json ./apps/backend/
+COPY apps/admin/package.json ./apps/admin/
 
 # Install production deps (--ignore-scripts để tránh side-effects khác)
 RUN npm ci --omit=dev --ignore-scripts
