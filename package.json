@@ -7,8 +7,8 @@
   ],
   "scripts": {
     "man": "node scripts/man.js",
-    "dev": "concurrently -k -n shared,ui,i18n,fe,be -c cyan,yellow,magenta,green,blue \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\" \"npm run _dev:be\"",
-    "dev:fe": "concurrently -k -n shared,ui,i18n,fe -c cyan,yellow,magenta,green \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\"",
+    "dev": "npm run build:ui && concurrently -k -n shared,ui,i18n,fe,be -c cyan,yellow,magenta,green,blue \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\" \"npm run _dev:be\"",
+    "dev:fe": "npm run build:ui && concurrently -k -n shared,ui,i18n,fe -c cyan,yellow,magenta,green \"npm run _watch:shared\" \"npm run _watch:ui\" \"npm run _watch:i18n\" \"npm run _dev:fe\"",
     "dev:be": "concurrently -k -n shared,be -c cyan,blue \"npm run _watch:shared\" \"npm run _dev:be\"",
     "debug:be": "concurrently -k -n shared,be:debug -c cyan,blue \"npm run _watch:shared\" \"npm run _debug:be\"",
     "_dev:fe": "npm run dev -w apps/frontend",

@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@source "./components/**/*.{ts,tsx}";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-on-primary: var(--primary-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-surface: var(--app-bg);
+  --color-content: var(--app-text);
+
+  --color-background: var(--app-bg);
+  --color-foreground: var(--app-text);
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
