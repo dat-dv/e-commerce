@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+import { TYPOGRAPHY } from "../../../tokens";
 import Button from "../../atoms/button";
 import Input from "../../atoms/input";
-import { TYPOGRAPHY } from "../../../tokens";
 
 export interface PriceRangeFilterChange<T extends string = string> {
   key: T;
@@ -42,7 +42,6 @@ export function PriceRangeFilter<T extends string = string>({
     if (minPriceValue === minPrice && maxPriceValue === maxPrice) return;
     setMinPrice(minPriceValue);
     setMaxPrice(maxPriceValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minPriceValue, maxPriceValue]);
 
   const applyPriceRange = () => {

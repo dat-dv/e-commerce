@@ -26,6 +26,8 @@
     "format:be": "turbo run format --filter=@ecommerce/backend",
     "build:fe": "turbo run build --filter=@ecommerce/frontend",
     "lint:fe": "turbo run lint --filter=@ecommerce/frontend",
+    "lint:ui": "turbo run lint --filter=@ecommerce/ui",
+    "format:ui": "turbo run format --filter=@ecommerce/ui",
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
@@ -43,6 +45,9 @@
   "lint-staged": {
     "apps/frontend/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix --config apps/frontend/eslint.config.mjs"
+    ],
+    "packages/ui/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --config packages/ui/eslint.config.mjs"
     ],
     "apps/backend/**/*.ts": [
       "eslint --fix --config apps/backend/eslint.config.mjs"

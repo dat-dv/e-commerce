@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
 import { ArrowRight } from "lucide-react";
+import React from "react";
+
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import { UI_RADIUS, TYPOGRAPHY } from "../../../tokens";
 
 export interface FeatureItem {
   name: string;
@@ -61,7 +62,7 @@ export const FeatureGrid = ({
                   {item.badge && (
                     <span
                       className={cn(
-                        "bg-primary/10 rounded-full px-2 py-0.5 text-primary tracking-[0.12em] uppercase",
+                        "bg-primary/10 text-primary rounded-full px-2 py-0.5 tracking-[0.12em] uppercase",
                         TYPOGRAPHY.badge,
                       )}
                     >
@@ -72,7 +73,7 @@ export const FeatureGrid = ({
 
                 <p
                   className={cn(
-                    "mt-0.5 truncate font-medium text-content/35",
+                    "text-content/35 mt-0.5 truncate font-medium",
                     TYPOGRAPHY.caption,
                   )}
                 >

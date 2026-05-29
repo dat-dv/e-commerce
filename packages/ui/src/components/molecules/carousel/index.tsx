@@ -5,8 +5,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import Button from "../../atoms/button";
 import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
 interface CarouselProps {
   children: React.ReactNode;
@@ -40,7 +40,6 @@ export const Carousel = ({ children, options, loadMore }: CarouselProps) => {
   useEffect(() => {
     if (!emblaApi) return;
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     onSelect(emblaApi);
 
     const onScroll = () => {
