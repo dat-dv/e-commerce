@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/await-thenable */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-nocheck
 import 'dotenv/config';
 import * as fs from 'fs';
 import { promises as fsAsync } from 'fs';
-import * as path from 'path';
 import { jsonrepair } from 'jsonrepair';
+import * as path from 'path';
 
 // ==========================================
 // CONFIG (SAFE + WORKING)
