@@ -12,4 +12,6 @@ export const FormListenerDirty = ({ children }: IFormListenerDirtyProps) => {
   return <div>{children(isDirty)}</div>;
 };
 
+FormListenerDirty.displayName = "FormListenerDirty";
+
 export default FormListenerDirty;

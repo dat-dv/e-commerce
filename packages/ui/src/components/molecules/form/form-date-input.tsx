@@ -72,3 +72,5 @@ export const FormDateInput: React.FC<IFormDateInputProps> = ({
     />
   );
 };
+
+FormDateInput.displayName = "FormDateInput";

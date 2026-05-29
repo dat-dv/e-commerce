@@ -114,3 +114,5 @@ export function CustomToast({
     </div>
   );
 }
+
+CustomToast.displayName = "CustomToast";

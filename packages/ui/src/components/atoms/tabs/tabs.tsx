@@ -107,3 +107,8 @@ export function TabPanel({
     </RACTabPanel>
   );
 }
+
+Tabs.displayName = "Tabs";
+TabList.displayName = "TabList";
+Tab.displayName = "Tab";
+TabPanel.displayName = "TabPanel";

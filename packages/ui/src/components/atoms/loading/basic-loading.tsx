@@ -162,3 +162,5 @@ export default function BasicLoading() {
     </div>
   );
 }
+
+BasicLoading.displayName = "BasicLoading";

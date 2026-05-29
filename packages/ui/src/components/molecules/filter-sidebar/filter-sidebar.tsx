@@ -62,3 +62,6 @@ export function FilterSection({
     </Disclosure>
   );
 }
+
+FilterSidebar.displayName = "FilterSidebar";
+FilterSection.displayName = "FilterSection";

@@ -22,3 +22,5 @@ export const DocsAnimationWrapper = ({
     </motion.div>
   );
 };
+
+DocsAnimationWrapper.displayName = "DocsAnimationWrapper";

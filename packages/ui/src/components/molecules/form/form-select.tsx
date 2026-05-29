@@ -54,3 +54,5 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
     />
   );
 };
+
+FormSelect.displayName = "FormSelect";

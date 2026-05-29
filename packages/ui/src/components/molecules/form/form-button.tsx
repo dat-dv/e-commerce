@@ -54,3 +54,5 @@ export const FormButton: React.FC<IFormButtonProps> = ({
     </motion.button>
   );
 };
+
+FormButton.displayName = "FormButton";

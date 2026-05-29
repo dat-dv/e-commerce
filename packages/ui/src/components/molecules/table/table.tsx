@@ -79,4 +79,11 @@ export function Cell({ className, ...props }: ICommonCellProps) {
   return <AriaCell {...props} className={cn("px-4 py-4", className)} />;
 }
 
+Table.displayName = "Table";
+TableHeader.displayName = "TableHeader";
+Column.displayName = "Column";
+TableBody.displayName = "TableBody";
+Row.displayName = "Row";
+Cell.displayName = "Cell";
+
 export { Collection };

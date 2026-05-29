@@ -88,4 +88,7 @@ export function AppTree<T extends object>({
   );
 }
 
+AppTree.displayName = "AppTree";
+
 export const Tree = AppTree;
+Tree.displayName = "Tree";

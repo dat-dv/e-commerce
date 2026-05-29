@@ -59,3 +59,5 @@ export const FormSelectAutocomplete: React.FC<IFormSelectAutocompleteProps> = ({
     />
   );
 };
+
+FormSelectAutocomplete.displayName = "FormSelectAutocomplete";

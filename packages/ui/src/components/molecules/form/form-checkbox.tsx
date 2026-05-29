@@ -36,3 +36,5 @@ export const FormCheckbox: React.FC<IFormCheckboxProps> = ({
     />
   );
 };
+
+FormCheckbox.displayName = "FormCheckbox";

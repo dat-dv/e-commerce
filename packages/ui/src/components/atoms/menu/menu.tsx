@@ -70,4 +70,10 @@ export function AppMenuItem({
 }
 
 export const Menu = AppMenu;
+Menu.displayName = "Menu";
+
 export const MenuItem = AppMenuItem;
+MenuItem.displayName = "MenuItem";
+
+AppMenu.displayName = "AppMenu";
+AppMenuItem.displayName = "AppMenuItem";

@@ -171,4 +171,6 @@ export function VirtualGrid<T>({
   );
 }
 
+VirtualGrid.displayName = "VirtualGrid";
+
 export default VirtualGrid;

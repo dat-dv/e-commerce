@@ -211,3 +211,5 @@ export default function ShopLoading() {
     </div>
   );
 }
+
+ShopLoading.displayName = "ShopLoading";

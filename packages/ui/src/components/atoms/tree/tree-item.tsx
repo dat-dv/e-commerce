@@ -120,4 +120,7 @@ export function AppTreeItem({
   );
 }
 
+AppTreeItem.displayName = "AppTreeItem";
+
 export const TreeItem = AppTreeItem;
+TreeItem.displayName = "TreeItem";

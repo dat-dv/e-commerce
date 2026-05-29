@@ -54,3 +54,5 @@ export const Checkbox = ({
     </RACCheckbox>
   );
 };
+
+Checkbox.displayName = "Checkbox";

@@ -1,6 +1,13 @@
-"use client";
-
-export * from "./combobox";
-export * from "./combobox.types";
-export * from "./combobox-item";
-export * from "./combobox-section";
+export { AppComboBox, ComboBox } from "./combobox";
+export type {
+  IComboBoxItemProps as ComboBoxItemProps,
+  IComboBoxOption as ComboBoxOption,
+  IComboBoxProps as ComboBoxProps,
+  IComboBoxSectionProps as ComboBoxSectionProps,
+  IComboBoxItemProps,
+  IComboBoxOption,
+  IComboBoxProps,
+  IComboBoxSectionProps,
+} from "./combobox.types";
+export { AppComboBoxItem, ComboBoxItem } from "./combobox-item";
+export { AppComboBoxSection, ComboBoxSection } from "./combobox-section";

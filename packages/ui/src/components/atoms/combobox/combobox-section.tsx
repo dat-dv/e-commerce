@@ -25,4 +25,7 @@ export function AppComboBoxSection({
   );
 }
 
+AppComboBoxSection.displayName = "AppComboBoxSection";
+
 export const ComboBoxSection = AppComboBoxSection;
+ComboBoxSection.displayName = "ComboBoxSection";

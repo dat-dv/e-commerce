@@ -89,4 +89,6 @@ export function VirtualList<T extends { id?: string | number }>({
   );
 }
 
+VirtualList.displayName = "VirtualList";
+
 export default VirtualList;

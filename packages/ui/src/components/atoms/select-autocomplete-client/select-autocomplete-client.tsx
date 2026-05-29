@@ -155,4 +155,7 @@ export function AppSelectAutocompleteClient<T extends object>({
   );
 }
 
+AppSelectAutocompleteClient.displayName = "AppSelectAutocompleteClient";
+
 export const SelectAutocomplete = AppSelectAutocompleteClient;
+SelectAutocomplete.displayName = "SelectAutocomplete";

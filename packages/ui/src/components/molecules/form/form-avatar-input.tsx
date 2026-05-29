@@ -36,3 +36,5 @@ export const FormAvatarInput: React.FC<IFormAvatarInputProps> = ({
     />
   );
 };
+
+FormAvatarInput.displayName = "FormAvatarInput";

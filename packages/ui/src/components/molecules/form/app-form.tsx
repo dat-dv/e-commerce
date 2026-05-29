@@ -21,3 +21,5 @@ export const AppForm = <T extends FieldValues>({
     </FormProvider>
   );
 };
+
+AppForm.displayName = "AppForm";

@@ -126,3 +126,5 @@ export const FormPhoneInput: React.FC<IFormPhoneInputProps> = ({
     />
   );
 };
+
+FormPhoneInput.displayName = "FormPhoneInput";

@@ -149,4 +149,7 @@ export function AppComboBox<
   );
 }
 
+AppComboBox.displayName = "AppComboBox";
+
 export const ComboBox = AppComboBox;
+ComboBox.displayName = "ComboBox";

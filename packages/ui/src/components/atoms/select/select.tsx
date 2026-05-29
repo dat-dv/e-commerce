@@ -135,4 +135,7 @@ export function AppSelect<T extends object>({
   );
 }
 
+AppSelect.displayName = "AppSelect";
+
 export const Select = AppSelect;
+Select.displayName = "Select";

@@ -1,9 +1,7 @@
 "use client";
 
-import React from "react";
-
 import { useMediaQuery } from "../../../hooks/use-media-query";
-import {
+import type {
   IResponsiveOnlyProps,
   IResponsiveRenderProps,
 } from "./responsive.types";
@@ -121,3 +119,10 @@ export function RenderMobileOnly({
     </ResponsiveRender>
   );
 }
+
+ResponsiveRender.displayName = "ResponsiveRender";
+RenderDesktopOnly.displayName = "RenderDesktopOnly";
+RenderTabletAndAbove.displayName = "RenderTabletAndAbove";
+RenderTabletOnly.displayName = "RenderTabletOnly";
+RenderTabletAndBelow.displayName = "RenderTabletAndBelow";
+RenderMobileOnly.displayName = "RenderMobileOnly";

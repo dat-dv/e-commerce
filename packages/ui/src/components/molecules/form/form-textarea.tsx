@@ -28,3 +28,5 @@ export const FormTextarea: React.FC<IFormTextareaProps> = ({
     />
   );
 };
+
+FormTextarea.displayName = "FormTextarea";

@@ -134,4 +134,6 @@ export const ImgCropper: React.FC<IImgCropperProps> = ({
   );
 };
 
+ImgCropper.displayName = "ImgCropper";
+
 export default ImgCropper;

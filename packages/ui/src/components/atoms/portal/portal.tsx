@@ -5,4 +5,6 @@ export const Portal = ({ children }: { children: ReactNode }) => {
   return createPortal(children, document.body);
 };
 
+Portal.displayName = "Portal";
+
 export default Portal;

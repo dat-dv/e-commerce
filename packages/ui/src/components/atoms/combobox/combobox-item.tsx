@@ -29,4 +29,7 @@ export function AppComboBoxItem({
   );
 }
 
+AppComboBoxItem.displayName = "AppComboBoxItem";
+
 export const ComboBoxItem = AppComboBoxItem;
+ComboBoxItem.displayName = "ComboBoxItem";

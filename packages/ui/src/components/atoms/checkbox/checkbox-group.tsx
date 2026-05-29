@@ -56,4 +56,7 @@ export function AppCheckboxGroup({
   );
 }
 
+AppCheckboxGroup.displayName = "AppCheckboxGroup";
+
 export const CheckboxGroup = AppCheckboxGroup;
+CheckboxGroup.displayName = "CheckboxGroup";

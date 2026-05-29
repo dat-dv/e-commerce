@@ -1,5 +1,8 @@
-"use client";
-
-export * from "./tree";
-export * from "./tree.types";
-export * from "./tree-item";
+export { AppTree, Tree } from "./tree";
+export type {
+  ITreeItemProps,
+  ITreeProps,
+  ITreeItemProps as TreeItemProps,
+  ITreeProps as TreeProps,
+} from "./tree.types";
+export { AppTreeItem, TreeItem } from "./tree-item";
