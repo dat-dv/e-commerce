@@ -30,6 +30,7 @@
       "persistent": true
     },
     "debug": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
@@ -37,10 +38,10 @@
       "cache": false,
       "persistent": true
     },
-    "frontend#dev": {
+    "@ecommerce/frontend#dev": {
       "cache": false,
       "persistent": true,
-      "with": ["frontend#i18n:watch"]
+      "with": ["@ecommerce/frontend#i18n:watch"]
     }
   }
 }
