@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IAddressEmptyStateProps } from "./address-empty-state.types";
 
 export const AddressEmptyState = ({

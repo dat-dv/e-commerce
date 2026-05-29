@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import AppContainer from "./index";
+import { AppContainer } from "./index";
 
 describe("components/atoms/app-container: component checks", () => {
   // 1. Kiểm tra render children bình thường

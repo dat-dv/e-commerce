@@ -3,7 +3,7 @@
 import React from "react";
 
 import { AnimationContainer, AnimationItem } from "../../atoms/animate";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IAccessDeniedProps } from "./access-denied.types";
 
 export const AccessDenied = ({

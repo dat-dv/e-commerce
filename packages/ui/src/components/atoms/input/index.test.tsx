@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import Input from "./index";
+import { Input } from "./index";
 
 describe("Input Component", () => {
   it("should render standard text input with label", () => {

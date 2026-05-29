@@ -4,7 +4,7 @@ import { Edit, Star, Trash2 } from "lucide-react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import {
   IAddress,
   IAddressCardLabels,

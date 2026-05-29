@@ -1,7 +1,7 @@
 import { Eye, EyeOff } from "lucide-react";
 import React from "react";
 
-import Button from "../button";
+import { Button } from "../button";
 
 export const PasswordEye = ({
   showPassword,

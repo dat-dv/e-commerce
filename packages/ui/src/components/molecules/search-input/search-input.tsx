@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { ISearchInputProps } from "./search-input.types";
 
 export const SearchInput = ({

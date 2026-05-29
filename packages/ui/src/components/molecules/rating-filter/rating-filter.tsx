@@ -3,7 +3,7 @@
 import { Star } from "lucide-react";
 
 import { TYPOGRAPHY } from "../../../tokens";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IRatingFilterProps } from "./rating-filter.types";
 
 export function RatingFilter({

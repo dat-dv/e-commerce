@@ -4,7 +4,7 @@ import { SlidersHorizontal } from "lucide-react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IFilterDrawerTriggerProps } from "./filter-drawer-trigger.types";
 
 export function FilterDrawerTrigger({

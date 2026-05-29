@@ -1,9 +1,9 @@
 "use client";
 
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 import { XIcon } from "../../atoms/icons";
-import Input from "../../atoms/input";
+import { Input } from "../../atoms/input";
 import { IMapPickerDialogProps } from "./map-picker-dialog.types";
 
 export function MapPickerDialog({

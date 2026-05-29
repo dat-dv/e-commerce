@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "../../../utils";
-import Button from "../button";
+import { Button } from "../button";
 import { type IHamburgerButtonProps } from "./hamburger-button.types";
 
 export default function HamburgerButton({

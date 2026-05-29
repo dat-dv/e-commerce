@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 import { TYPOGRAPHY } from "../../../tokens";
-import Button from "../../atoms/button";
-import Input from "../../atoms/input";
+import { Button } from "../../atoms/button";
+import { Input } from "../../atoms/input";
 import { IPriceRangeFilterProps } from "./price-range-filter.types";
 
 export function PriceRangeFilter<T extends string = string>({

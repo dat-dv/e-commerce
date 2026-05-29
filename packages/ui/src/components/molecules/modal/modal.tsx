@@ -3,7 +3,7 @@
 import React from "react";
 
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { AppDialog, AppDialogPanel } from "../../atoms/dialog";
 import { XIcon } from "../../atoms/icons";
 import { IModalProps } from "./modal.types";

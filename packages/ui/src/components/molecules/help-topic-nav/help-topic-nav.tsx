@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import LiquidWaveText from "../../atoms/liquid-wave-text";
+import { LiquidWaveText } from "../../atoms/liquid-wave-text";
 import { IHelpTopicNavProps } from "./help-topic-nav.types";
 
 export const getHelpTopicId = (name: string): string =>

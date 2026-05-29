@@ -5,7 +5,7 @@ import React, { Fragment } from "react";
 
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IAppliedFiltersBarProps } from "./applied-filters-bar.types";
 
 export function AppliedFiltersBar<T extends string = string>({

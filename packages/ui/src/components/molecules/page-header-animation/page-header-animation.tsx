@@ -4,7 +4,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { type MouseEvent } from "react";
 
 import { TYPOGRAPHY } from "../../../tokens";
-import LiquidWaveText from "../../atoms/liquid-wave-text";
+import { LiquidWaveText } from "../../atoms/liquid-wave-text";
 import { IAnimatedPageHeaderProps } from "./page-header-animation.types";
 
 export function AnimatedPageHeader({

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { ICarouselProps } from "./carousel.types";
 
 export const Carousel = ({ children, options, loadMore }: ICarouselProps) => {

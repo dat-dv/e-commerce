@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Search } from "lucide-react";
 import React from "react";
 
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IMissingProductProps } from "./missing-product.types";
 
 export const MissingProduct = ({

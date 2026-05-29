@@ -3,7 +3,7 @@
 import React from "react";
 
 import { cn } from "../../../utils";
-import Button from "../../atoms/button";
+import { Button } from "../../atoms/button";
 import { IHelpSupportCardProps } from "./help-support-card.types";
 
 export function HelpSupportCard({

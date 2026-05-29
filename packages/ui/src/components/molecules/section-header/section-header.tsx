@@ -3,8 +3,8 @@
 import React from "react";
 
 import { TYPOGRAPHY } from "../../../tokens";
-import LiquidWaveText from "../../atoms/liquid-wave-text";
-import ViewAllButton from "../../atoms/view-all-button";
+import { LiquidWaveText } from "../../atoms/liquid-wave-text";
+import { ViewAllButton } from "../../atoms/view-all-button";
 import { ISectionHeaderProps } from "./section-header.types";
 
 export const SectionHeader = ({
