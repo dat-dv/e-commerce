@@ -3,12 +3,19 @@
 import { X } from "lucide-react";
 import React, {
   type ButtonHTMLAttributes,
+  type ComponentPropsWithoutRef,
   type ReactNode,
   useState,
 } from "react";
 
 import { cn } from "../../../utils";
 import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
+
+type PreviewImageProps = ComponentPropsWithoutRef<"img"> & {
+  fill?: boolean;
+  unoptimized?: boolean;
+  sizes?: string;
+};
 
 export interface ImagePreviewProps extends Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -22,8 +29,8 @@ export interface ImagePreviewProps extends Omit<
   dialogClassName?: string;
   panelClassName?: string;
   previewClassName?: string;
-  imageProps?: Record<string, unknown>;
-  previewImageProps?: Record<string, unknown>;
+  imageProps?: PreviewImageProps;
+  previewImageProps?: PreviewImageProps;
   imageComponent?: React.ElementType;
 }
 
