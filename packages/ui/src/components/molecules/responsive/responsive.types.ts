@@ -1,12 +1,15 @@
 import { type ReactNode } from "react";
 
 export interface IResponsiveRenderProps {
-  isMobile: boolean;
-  isTablet: boolean;
-  isDesktop: boolean;
+  children: ReactNode;
+  fallback?: ReactNode;
+  fallbackClassName?: string;
+  query: string;
+  isFallbackChildren?: boolean;
 }
 
 export interface IResponsiveOnlyProps {
   children: ReactNode;
-  on: "mobile" | "tablet" | "desktop";
+  fallback?: ReactNode;
+  isFallbackChildren?: boolean;
 }
