@@ -1,10 +1,10 @@
 "use client";
-import { AvatarInput } from "@ecommerce/ui";
 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+import { AvatarInput } from "../../atoms/avatar-input";
 
-interface FormAvatarInputProps {
+export interface FormAvatarInputProps {
   name: string;
   displayName?: string;
   size?: number;

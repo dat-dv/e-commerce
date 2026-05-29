@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import AppForm from "@/components/molecules/form/app-form";
-import { FormInput } from "@/components/molecules/form/form-input";
+import { AppForm } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock } from "lucide-react";
 import { useTranslations } from "next-intl";

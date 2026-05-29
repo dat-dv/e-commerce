@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
 import { Star } from "lucide-react";
 import { Radio as AriaRadio, RadioGroup } from "react-aria-components";
 import { Controller, FieldValues, Path, UseFormReturn } from "react-hook-form";
 
-interface FormRatingProps<T extends FieldValues> {
+export interface FormRatingProps<T extends FieldValues> {
   name: Path<T>;
   methods: UseFormReturn<T>;
   label?: string;
@@ -13,14 +14,14 @@ interface FormRatingProps<T extends FieldValues> {
   getAriaLabel?: (rating: number) => string;
 }
 
-export default function FormRating<T extends FieldValues>({
+export const FormRating = <T extends FieldValues>({
   name,
   methods,
   label,
   max = 5,
   disabled = false,
   getAriaLabel,
-}: FormRatingProps<T>) {
+}: FormRatingProps<T>): React.ReactElement => {
   return (
     <Controller
       name={name}
@@ -78,4 +79,4 @@ export default function FormRating<T extends FieldValues>({
       }}
     />
   );
-}
+};

@@ -2,7 +2,7 @@ import { TUser } from "@/domain/auth/types/auth.model";
 import { cn } from "@/utils/cn";
 import { ComponentPropsWithoutRef } from "react";
 import { useFormContext } from "react-hook-form";
-import { FormAvatarInput } from "../form/form-avatar-input";
+import { FormAvatarInput } from "@ecommerce/ui";
 
 interface IAvatarWrapperProps extends ComponentPropsWithoutRef<"div"> {
   user?: Partial<TUser>;

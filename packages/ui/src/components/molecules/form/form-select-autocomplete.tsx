@@ -1,15 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 import {
   AppSelectAutocompleteClient,
   ISelectAutocompleteOption,
-  InputSize,
-  InputVariant,
-} from "@ecommerce/ui";
+} from "../../atoms/select-autocomplete-client";
+import { InputSize, InputVariant } from "../../atoms/input";
 
 export interface IFormSelectAutocompleteProps {
   name: string;
@@ -32,11 +30,10 @@ export const FormSelectAutocomplete: React.FC<IFormSelectAutocompleteProps> = ({
   variant = "outline",
   size,
   className,
-  placeholder,
+  placeholder = "Select...",
   searchPlaceholder,
   noResultsText,
 }) => {
-  const t = useTranslations("Common.form");
   const { control } = useFormContext();
 
   return (
@@ -52,7 +49,7 @@ export const FormSelectAutocomplete: React.FC<IFormSelectAutocompleteProps> = ({
           size={size}
           selectedKey={field.value ?? undefined}
           onSelectionChange={(val) => field.onChange(val)}
-          placeholder={placeholder || t("selectPlaceholder")}
+          placeholder={placeholder}
           searchPlaceholder={searchPlaceholder}
           noResultsText={noResultsText}
           errorMessage={fieldState.error?.message}

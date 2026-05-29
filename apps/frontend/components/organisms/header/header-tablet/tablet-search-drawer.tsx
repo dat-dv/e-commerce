@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import AppForm from "@/components/molecules/form/app-form";
-import { FormInput } from "@/components/molecules/form/form-input";
+import { AppForm } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";

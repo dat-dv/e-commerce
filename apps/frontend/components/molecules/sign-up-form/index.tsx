@@ -8,9 +8,9 @@ import { TurnstileWrapper } from "@/components/molecules/cloudflare-turnstile";
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { useRegister } from "@/hooks/auth/use-register";
-import AppForm from "../form/app-form";
-import { FormInput } from "../form/form-input";
-import FormListenerDirty from "../form/form-listener-dirty";
+import { AppForm } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormListenerDirty } from "@ecommerce/ui";
 
 export default function SignUpForm() {
   const t = useTranslations("RegisterPage");

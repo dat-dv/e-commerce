@@ -5,10 +5,10 @@ import { APP_ROUTES } from "@/constants/routes";
 import useForgotPassword from "@/hooks/auth/use-forgot-password";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
-import AppForm from "../form/app-form";
-import { FormButton } from "../form/form-button";
-import { FormInput } from "../form/form-input";
-import { FormPhoneInput } from "../form/form-phone-input";
+import { AppForm } from "@ecommerce/ui";
+import { FormButton } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormPhoneInput } from "@ecommerce/ui";
 import { TForgotPasswordSchema } from "./forgot-password.schema";
 import SuccessModal from "./success-modal";
 

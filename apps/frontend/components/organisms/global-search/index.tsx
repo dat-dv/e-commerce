@@ -1,6 +1,6 @@
 "use client";
 
-import AppForm from "@/components/molecules/form/app-form";
+import { AppForm } from "@ecommerce/ui";
 
 import { cn } from "@/utils/cn";
 import { ComponentPropsWithoutRef } from "react";

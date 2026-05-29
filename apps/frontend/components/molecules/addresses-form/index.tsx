@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import AppForm from "@/components/molecules/form/app-form";
-import { FormCheckbox } from "@/components/molecules/form/form-checkbox";
-import { FormInput } from "@/components/molecules/form/form-input";
-import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
-import { FormSelect } from "@/components/molecules/form/form-select";
+import { AppForm } from "@ecommerce/ui";
+import { FormCheckbox } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormPhoneInput } from "@ecommerce/ui";
+import { FormSelect } from "@ecommerce/ui";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { EAddressLabel } from "@ecommerce/shared";
 import { zodResolver } from "@hookform/resolvers/zod";

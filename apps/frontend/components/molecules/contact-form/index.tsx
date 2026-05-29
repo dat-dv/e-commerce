@@ -1,10 +1,10 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import AppForm from "@/components/molecules/form/app-form";
-import { FormInput } from "@/components/molecules/form/form-input";
-import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
-import { FormTextarea } from "@/components/molecules/form/form-textarea";
+import { AppForm } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormPhoneInput } from "@ecommerce/ui";
+import { FormTextarea } from "@ecommerce/ui";
 import {
   HELP_CONTACT_ALLOWED_IMAGE_TYPES,
   HELP_CONTACT_MAX_ATTACHMENTS,

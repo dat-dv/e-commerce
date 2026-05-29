@@ -5,9 +5,9 @@ import { useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import useResetPassword from "@/hooks/auth/use-reset-password";
 import { TResetPasswordSchema } from "./reset-password.schema";
-import AppForm from "../form/app-form";
-import { FormInput } from "../form/form-input";
-import { FormButton } from "../form/form-button";
+import { AppForm } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormButton } from "@ecommerce/ui";
 import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 

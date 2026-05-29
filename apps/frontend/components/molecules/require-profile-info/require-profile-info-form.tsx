@@ -6,10 +6,10 @@ import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@ecommerce/ui";
-import AppForm from "@/components/molecules/form/app-form";
-import { FormDateInput } from "@/components/molecules/form/form-date-input";
-import { FormInput } from "@/components/molecules/form/form-input";
-import { FormSelect } from "@/components/molecules/form/form-select";
+import { AppForm } from "@ecommerce/ui";
+import { FormDateInput } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormSelect } from "@ecommerce/ui";
 import { GENDER_OPTIONS } from "@/constants/gender.constant";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { EGender } from "@ecommerce/shared";

@@ -3,8 +3,8 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { parseDate } from "@internationalized/date";
-
-import { DatePicker, InputSize, InputVariant } from "@ecommerce/ui";
+import { DatePicker } from "../../atoms/date-picker";
+import { InputSize, InputVariant } from "../../atoms/input";
 
 export interface IFormDateInputProps {
   name: string;

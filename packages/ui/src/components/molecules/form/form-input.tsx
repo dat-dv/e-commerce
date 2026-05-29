@@ -2,10 +2,9 @@
 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+import Input, { InputProps } from "../../atoms/input";
 
-import { Input, InputProps } from "@ecommerce/ui";
-
-interface FormInputProps extends Omit<InputProps, "id" | "error"> {
+export interface FormInputProps extends Omit<InputProps, "id" | "error"> {
   name: string;
   maxCount?: number;
 }

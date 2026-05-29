@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
 import { FieldValues, FormProvider, UseFormReturn } from "react-hook-form";
 
-type AppFormProps<T extends FieldValues> = {
+export type AppFormProps<T extends FieldValues> = {
   methods: UseFormReturn<T>;
   children: ReactNode;
   onSubmit: (data: T) => void | Promise<void>;
 } & Omit<React.ComponentProps<"form">, "onSubmit">;
 
-const AppForm = <T extends FieldValues>({
+export const AppForm = <T extends FieldValues>({
   methods,
   children,
   onSubmit,
@@ -21,5 +21,3 @@ const AppForm = <T extends FieldValues>({
     </FormProvider>
   );
 };
-
-export default AppForm;

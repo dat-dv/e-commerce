@@ -8,9 +8,9 @@ import {
   XIcon,
 } from "@ecommerce/ui";
 
-import AppForm from "@/components/molecules/form/app-form";
-import { FormCheckbox } from "@/components/molecules/form/form-checkbox";
-import { FormInput } from "@/components/molecules/form/form-input";
+import { AppForm } from "@ecommerce/ui";
+import { FormCheckbox } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
 import type { TCreateTimeSlotInput } from "@/domain/flash-sales/types/flash-sale.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";

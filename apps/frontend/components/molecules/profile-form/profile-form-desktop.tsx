@@ -2,16 +2,16 @@
 
 import { AnimationItem, Button, FormCard } from "@ecommerce/ui";
 
-import { FormDateInput } from "@/components/molecules/form/form-date-input";
-import { FormInput } from "@/components/molecules/form/form-input";
-import { FormPhoneInput } from "@/components/molecules/form/form-phone-input";
-import { FormSelect } from "@/components/molecules/form/form-select";
+import { FormDateInput } from "@ecommerce/ui";
+import { FormInput } from "@ecommerce/ui";
+import { FormPhoneInput } from "@ecommerce/ui";
+import { FormSelect } from "@ecommerce/ui";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import { useProfileFormLogic } from "@/hooks/profile/use-profile-form-logic";
 import { Pencil } from "lucide-react";
-import AppForm from "../form/app-form";
-import FormListenerDirty from "../form/form-listener-dirty";
+import { AppForm } from "@ecommerce/ui";
+import { FormListenerDirty } from "@ecommerce/ui";
 import AvatarWrapper from "./avatar-wapper";
 
 interface IProfileFormDesktopProps {

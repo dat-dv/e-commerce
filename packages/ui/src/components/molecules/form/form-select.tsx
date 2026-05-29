@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { ISelectOption, InputSize, InputVariant, Select } from "@ecommerce/ui";
+import { ISelectOption, Select } from "../../atoms/select";
+import { InputSize, InputVariant } from "../../atoms/input";
 
 export interface IFormSelectProps {
   name: string;
@@ -15,6 +15,7 @@ export interface IFormSelectProps {
   size?: InputSize;
   className?: string;
   itemClassName?: string;
+  placeholder?: string;
 }
 
 export const FormSelect: React.FC<IFormSelectProps> = ({
@@ -26,8 +27,8 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
   size,
   className,
   itemClassName,
+  placeholder = "Select...",
 }) => {
-  const t = useTranslations("Common.form");
   const { control } = useFormContext();
 
   return (
@@ -44,7 +45,7 @@ export const FormSelect: React.FC<IFormSelectProps> = ({
           size={size}
           selectedKey={field.value ?? undefined}
           onSelectionChange={(val) => field.onChange(val)}
-          placeholder={t("selectPlaceholder")}
+          placeholder={placeholder}
           errorMessage={fieldState.error?.message}
           className={className}
           itemClassName={itemClassName}

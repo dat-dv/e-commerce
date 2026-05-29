@@ -1,15 +1,15 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import AppForm from "@/components/molecules/form/app-form";
+import { AppForm } from "@ecommerce/ui";
 import { ReviewSubmitSchema } from "@/hooks/products/review-submit.schema";
 import { UseFormReturn } from "react-hook-form";
 
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
-import FormRating from "../form/form-rating";
-import { FormTextarea } from "../form/form-textarea";
+import { FormRating } from "@ecommerce/ui";
+import { FormTextarea } from "@ecommerce/ui";
 
 interface ReviewSubmitFormProps {
   methods: UseFormReturn<ReviewSubmitSchema>;
