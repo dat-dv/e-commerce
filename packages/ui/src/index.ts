@@ -130,9 +130,9 @@ export {
   type HelpSupportCardProps,
 } from "./components/molecules/help-support-card";
 export {
+  getHelpTopicId,
   default as HelpTopicNav,
   type HelpTopicNavProps,
-  getHelpTopicId,
 } from "./components/molecules/help-topic-nav";
 export {
   default as ImagePreview,
@@ -150,6 +150,17 @@ export {
   default as ListingSectionHeader,
   type ListingSectionHeaderProps,
 } from "./components/molecules/listing-section-header";
+export {
+  default as MapPickerDialog,
+  type MapPickerDialogLabels,
+  type MapPickerDialogProps,
+  type MapPickerSuggestion,
+} from "./components/molecules/map-picker-dialog";
+export {
+  default as MapPickerField,
+  type MapPickerFieldLabels,
+  type MapPickerFieldProps,
+} from "./components/molecules/map-picker-field";
 export {
   default as MissingProduct,
   type MissingProductLabels,

@@ -1,10 +1,7 @@
 "use client";
 
 import MapPickerModal from "@/components/molecules/form/form-map-picker/map-picker-modal";
-import { TYPOGRAPHY } from "@/constants/typography";
-import { cn } from "@/utils/cn";
-import { AnimatePresence, motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPickerField } from "@ecommerce/ui";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
@@ -86,55 +83,25 @@ export const FormMapPicker = ({
   };
 
   return (
-    <div className="flex w-full flex-col gap-1.5">
-      <label className="text-content/80 ml-1 text-sm font-bold tracking-tight opacity-70">
-        {label}
-      </label>
-      <div
-        onClick={() => !disabled && setMapOpen(true)}
-        className={cn(
-          "flex h-10 cursor-pointer items-center justify-between rounded-xl border px-4 transition-all duration-300",
-          displayValue
-            ? "border-primary/40 bg-primary/5 shadow-primary/5 shadow-sm"
-            : "border-content/10 bg-white/5 backdrop-blur-xl",
-          disabled && "cursor-not-allowed opacity-50 shadow-none",
-        )}
-      >
-        <div className="flex max-w-[80%] items-center gap-3">
-          <MapPin className="text-primary h-4 w-4 flex-shrink-0" />
-          <span
-            className={cn(
-              "truncate text-sm",
-              !displayValue && "text-content/40",
-            )}
-          >
-            {displayValue || t("placeholder")}
-          </span>
-        </div>
-        <span className="text-primary text-xs font-medium">
-          {displayValue ? t("change") : t("select")}
-        </span>
-      </div>
-
-      <AnimatePresence mode="wait">
-        {error && (
-          <motion.span
-            role="alert"
-            initial={{ opacity: 0, height: 0, y: -5 }}
-            animate={{ opacity: 1, height: "auto", y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -5 }}
-            className={`mt-1 ml-1 block overflow-hidden ${TYPOGRAPHY.badge} tracking-tight text-red-500`}
-          >
-            {String(error?.message || "")}
-          </motion.span>
-        )}
-      </AnimatePresence>
+    <>
+      <MapPickerField
+        label={label}
+        displayValue={displayValue}
+        disabled={disabled}
+        error={String(error?.message || "")}
+        onOpen={() => setMapOpen(true)}
+        labels={{
+          placeholder: t("placeholder"),
+          change: t("change"),
+          select: t("select"),
+        }}
+      />
 
       <MapPickerModal
         isOpen={mapOpen}
         onClose={() => setMapOpen(false)}
         onPick={handlePickAddress}
       />
-    </div>
+    </>
   );
 };
