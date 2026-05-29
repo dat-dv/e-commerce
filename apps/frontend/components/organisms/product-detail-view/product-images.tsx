@@ -1,6 +1,6 @@
 "use client";
 
-import ImagePreview from "@/components/molecules/image-preview";
+import { ImagePreview } from "@ecommerce/ui";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -39,6 +39,7 @@ export const ProductImages = ({
             <ImagePreview
               src={images[selectedImage]}
               alt={name}
+              imageComponent={Image}
               triggerClassName="absolute inset-0 rounded-2xl"
               imageProps={{
                 fill: true,

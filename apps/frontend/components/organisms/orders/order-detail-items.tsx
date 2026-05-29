@@ -1,6 +1,6 @@
 "use client";
 
-import ImagePreview from "@/components/molecules/image-preview";
+import { ImagePreview } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrder } from "@/domain/orders/types/order.model";
 import { cn } from "@/utils/cn";
@@ -8,6 +8,7 @@ import { formatCurrency } from "@/utils/format-currency";
 import { motion } from "framer-motion";
 import { Package } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function OrderDetailItems({ order }: { order: TOrder }) {
   const t = useTranslations("OrdersPage");
@@ -46,6 +47,7 @@ export function OrderDetailItems({ order }: { order: TOrder }) {
                 <ImagePreview
                   src={item.sku.imageUrl}
                   alt={item.sku.product?.name || t("detail.productFallback")}
+                  imageComponent={Image}
                   triggerClassName={cn("absolute inset-0", UI_RADIUS.media)}
                   imageProps={{
                     fill: true,

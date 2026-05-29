@@ -5,7 +5,7 @@ import { AppContainer, Button, HamburgerButton } from "@ecommerce/ui";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
-import { RenderTabletAndBelow } from "@/components/molecules/responsive";
+import { RenderTabletAndBelow } from "@ecommerce/ui";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "../header-desktop/header-logo";
 import MobileNavDrawer from "./tablet-nav-drawer";

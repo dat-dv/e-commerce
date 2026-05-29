@@ -1,75 +1,66 @@
 "use client";
-import { Avatar, Button, Dropdown as AppDropdown } from "@ecommerce/ui";
 
-import {
-  EyeIcon,
-  Heart,
-  LogOut,
-  Settings,
-  ShoppingBag,
-  User,
-} from "lucide-react";
-import { useTranslations } from "next-intl";
+import React from "react";
+import { Avatar } from "../../atoms/avatar";
+import Button from "../../atoms/button";
+import { Dropdown } from "../dropdown";
+import { LogOut } from "lucide-react";
+import { cn } from "../../../utils";
+import { UI_RADIUS, TYPOGRAPHY } from "../../../tokens";
 
-import { APP_ROUTES } from "@/constants/routes";
-import { TYPOGRAPHY } from "@/constants/typography";
-
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
-
-interface IAvatarDropdownProps {
-  name: string;
-  email: string;
-  handleClickLogout: () => void;
-  avatarUrl?: string;
+export interface AvatarDropdownMenuItem {
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
 }
 
-const MENU_ITEMS = [
-  {
-    labelKey: "viewProfile" as const,
-    href: APP_ROUTES.PROFILE,
-    icon: User,
-  },
-  {
-    labelKey: "wishlist" as const,
-    href: APP_ROUTES.FAVORITES,
-    icon: Heart,
-  },
-  {
-    labelKey: "recentlyViewed" as const,
-    href: APP_ROUTES.RECENTLY_VIEWED,
-    icon: EyeIcon,
-  },
-  {
-    labelKey: "myOrders" as const,
-    href: APP_ROUTES.ORDERS,
-    icon: ShoppingBag,
-  },
-  {
-    labelKey: "settings" as const,
-    href: APP_ROUTES.SETTINGS,
-    icon: Settings,
-  },
-];
+export interface AvatarDropdownLabels {
+  menuLabel?: string;
+  fallbackUser?: string;
+  noEmail?: string;
+  signOut?: string;
+}
 
-const AvatarDropdown = ({
+export interface AvatarDropdownProps {
+  name: string;
+  email: string;
+  avatarUrl?: string;
+  menuItems: AvatarDropdownMenuItem[];
+  labels?: AvatarDropdownLabels;
+  onClickLogout: () => void;
+  linkComponent?: React.ElementType;
+  className?: string;
+  popoverClassName?: string;
+}
+
+export const AvatarDropdown = ({
   name,
   email,
-  handleClickLogout,
   avatarUrl,
-}: IAvatarDropdownProps) => {
-  const t = useTranslations("Common.header.avatarDropdown");
+  menuItems,
+  labels,
+  onClickLogout,
+  linkComponent,
+  className,
+  popoverClassName,
+}: AvatarDropdownProps) => {
+  const menuLabel = labels?.menuLabel || "User Menu";
+  const fallbackUser = labels?.fallbackUser || "User";
+  const noEmail = labels?.noEmail || "No Email";
+  const signOutLabel = labels?.signOut || "Sign Out";
+
+  const displayName = name || fallbackUser;
 
   return (
-    <AppDropdown
+    <Dropdown
       align="right"
-      className="flex"
-      popoverClassName="min-w-0 w-64"
+      className={cn("flex", className)}
+      popoverClassName={cn("min-w-0 w-64", popoverClassName)}
       trigger={({ ref, toggle, isOpen }) => (
         <Button
           ref={ref}
           onClick={toggle}
-          aria-label={t("menuLabel")}
+          aria-label={menuLabel}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
           className={cn(
@@ -77,32 +68,31 @@ const AvatarDropdown = ({
             UI_RADIUS.avatar,
           )}
         >
-          <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
+          <Avatar name={displayName} url={avatarUrl || ""} />
         </Button>
       )}
     >
       <div className="flex w-full flex-col">
         <div className="border-content/[0.08] bg-content/[0.01] flex items-center gap-2.5 border-b px-3 py-2.5">
           <div className="border-content/10 h-9 w-9 flex-shrink-0 overflow-hidden rounded-lg border">
-            <Avatar name={name || t("fallbackUser")} url={avatarUrl || ""} />
+            <Avatar name={displayName} url={avatarUrl || ""} />
           </div>
           <div className="flex min-w-0 flex-col">
             <p
               className={`text-content truncate ${TYPOGRAPHY.bodySmall} leading-none font-semibold`}
             >
-              {name || t("fallbackUser")}
+              {displayName}
             </p>
             <p
               className={`text-content/60 mt-1 truncate ${TYPOGRAPHY.meta} leading-none`}
             >
-              {email || t("noEmail")}
+              {email || noEmail}
             </p>
           </div>
         </div>
 
-        {/* Compact action buttons with reduced height for improved vertical proportion */}
         <div className="space-y-0.5 p-1">
-          {MENU_ITEMS.map((item) => {
+          {menuItems.map((item) => {
             const Icon = item.icon;
             return (
               <Button
@@ -111,34 +101,34 @@ const AvatarDropdown = ({
                 size="sm"
                 className="hover:bg-content/5 text-content group h-8 w-full justify-start rounded-lg px-2 font-medium transition-all"
                 href={item.href}
+                linkComponent={linkComponent}
               >
                 <Icon
                   strokeWidth={1.5}
                   className="text-content/70 group-hover:text-content mr-2 h-4 w-4 transition-colors"
                 />
-                <span className={TYPOGRAPHY.caption}>{t(item.labelKey)}</span>
+                <span className={TYPOGRAPHY.caption}>{item.label}</span>
               </Button>
             );
           })}
 
-          {/* Separation line for destructive action section */}
           <div className="bg-content/[0.08] my-1 h-px" />
 
           <Button
             variant="danger"
             size="sm"
-            onClick={handleClickLogout}
+            onClick={onClickLogout}
             className="group h-8 w-full justify-start rounded-lg px-2 font-medium transition-all active:scale-95"
           >
             <LogOut
               strokeWidth={1.5}
               className="mr-2 h-4 w-4 text-white/90 transition-colors group-hover:text-white"
             />
-            <span className={TYPOGRAPHY.caption}>{t("signOut")}</span>
+            <span className={TYPOGRAPHY.caption}>{signOutLabel}</span>
           </Button>
         </div>
       </div>
-    </AppDropdown>
+    </Dropdown>
   );
 };
 

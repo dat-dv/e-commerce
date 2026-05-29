@@ -9,10 +9,17 @@ import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 import { useCart } from "@/hooks/cart/use-cart";
 import { cn } from "@/utils/cn";
+import { AvatarDropdown } from "@ecommerce/ui";
+import {
+  Eye as EyeIcon,
+  Heart,
+  Settings,
+  ShoppingBag,
+  User,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import AvatarDropdown from "@/components/molecules/avatar-dropdown";
 
 export default function HeaderActions({
   visible = ["cart", "avatar", "notifications", "favorites", "fallback"],
@@ -37,6 +44,41 @@ export default function HeaderActions({
   const isNotificationsVisible = visible.includes("notifications");
   const isFavoritesVisible = visible.includes("favorites");
   const isFallbackVisible = visible.includes("fallback");
+
+  const avatarLabels = {
+    menuLabel: t("avatarDropdown.menuLabel"),
+    fallbackUser: t("avatarDropdown.fallbackUser"),
+    noEmail: t("avatarDropdown.noEmail"),
+    signOut: t("avatarDropdown.signOut"),
+  };
+
+  const avatarMenuItems = [
+    {
+      label: t("avatarDropdown.viewProfile"),
+      href: APP_ROUTES.PROFILE,
+      icon: User,
+    },
+    {
+      label: t("avatarDropdown.wishlist"),
+      href: APP_ROUTES.FAVORITES,
+      icon: Heart,
+    },
+    {
+      label: t("avatarDropdown.recentlyViewed"),
+      href: APP_ROUTES.RECENTLY_VIEWED,
+      icon: EyeIcon,
+    },
+    {
+      label: t("avatarDropdown.myOrders"),
+      href: APP_ROUTES.ORDERS,
+      icon: ShoppingBag,
+    },
+    {
+      label: t("avatarDropdown.settings"),
+      href: APP_ROUTES.SETTINGS,
+      icon: Settings,
+    },
+  ];
 
   return (
     <div className="ml-1 flex items-center gap-2 align-middle md:ml-2 md:gap-3">
@@ -109,7 +151,10 @@ export default function HeaderActions({
               name={`${user?.firstName || ""} ${user?.lastName || ""}`}
               email={user?.email || ""}
               avatarUrl={user?.avatarUrl || ""}
-              handleClickLogout={handleClickLogout}
+              menuItems={avatarMenuItems}
+              labels={avatarLabels}
+              onClickLogout={handleClickLogout}
+              linkComponent={Link}
             />
           </div>
         )}

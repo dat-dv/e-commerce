@@ -4,10 +4,7 @@ import { AppContainer, FilterDrawerTrigger } from "@ecommerce/ui";
 import { ProductFilterDrawer } from "@/components/molecules/product-filter-drawer";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { ProductsHeader } from "@/components/molecules/products-header";
-import {
-  RenderDesktopOnly,
-  RenderTabletAndBelow,
-} from "@/components/molecules/responsive";
+import { RenderDesktopOnly, RenderTabletAndBelow } from "@ecommerce/ui";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { TProduct } from "@/domain/products/types/products.model";

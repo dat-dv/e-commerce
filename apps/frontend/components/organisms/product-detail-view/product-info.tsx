@@ -3,7 +3,7 @@ import { LiquidWaveText } from "@ecommerce/ui";
 
 import { motion } from "framer-motion";
 
-import { RenderDesktopOnly } from "@/components/molecules/responsive";
+import { RenderDesktopOnly } from "@ecommerce/ui";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { ProductAttributeOptions } from "./product-attribute-options";
 import { ProductFlashSaleBanner } from "./product-flash-sale-banner";

@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 
 import { CategoryMegaMenuContentWrapper } from "@/components/molecules/categories-dropdown";
 
-import { RenderDesktopOnly } from "@/components/molecules/responsive";
+import { RenderDesktopOnly } from "@ecommerce/ui";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { useTranslations } from "next-intl";

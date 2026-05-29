@@ -17,7 +17,7 @@ import { ProductInfo } from "./product-info";
 import { ProductMobilePurchaseBar } from "./product-mobile-purchase-bar";
 import { SimilarProducts } from "./similar-products";
 
-import { RenderTabletAndBelow } from "@/components/molecules/responsive";
+import { RenderTabletAndBelow } from "@ecommerce/ui";
 import { useUserFavoriteProducts } from "@/hooks/user-favorite-products/use-user-favorite-products";
 
 export interface ProductDetailProps {

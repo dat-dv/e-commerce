@@ -1,12 +1,18 @@
 "use client";
 
-import { AppDialog, AppDialogPanel, AppDialogTitle } from "@ecommerce/ui";
-import { cn } from "@/utils/cn";
 import { X } from "lucide-react";
-import Image, { type ImageProps } from "next/image";
-import { type ButtonHTMLAttributes, type ReactNode, useState } from "react";
+import React, {
+  type ButtonHTMLAttributes,
+  type ReactNode,
+  useState,
+} from "react";
+import { cn } from "../../../utils";
+import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 
-type ImagePreviewProps = {
+export interface ImagePreviewProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children"
+> {
   src: string;
   alt?: string;
   trigger?: ReactNode;
@@ -15,14 +21,15 @@ type ImagePreviewProps = {
   dialogClassName?: string;
   panelClassName?: string;
   previewClassName?: string;
-  imageProps?: Omit<ImageProps, "src" | "alt">;
-  previewImageProps?: Omit<ImageProps, "src" | "alt">;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">;
+  imageProps?: Record<string, any>;
+  previewImageProps?: Record<string, any>;
+  imageComponent?: React.ElementType;
+}
 
 const isUnoptimizedImage = (src: string) =>
   src.startsWith("blob:") || src.startsWith("data:");
 
-export default function ImagePreview({
+export function ImagePreview({
   src,
   alt = "Preview image",
   trigger,
@@ -35,6 +42,7 @@ export default function ImagePreview({
   previewImageProps,
   onClick,
   type = "button",
+  imageComponent: ImgComponent = "img",
   ...buttonProps
 }: ImagePreviewProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +52,7 @@ export default function ImagePreview({
     fill: triggerFill,
     width: triggerWidth,
     height: triggerHeight,
+    className: triggerImgClassName,
     ...restImageProps
   } = imageProps || {};
 
@@ -51,6 +60,7 @@ export default function ImagePreview({
     fill: previewFill,
     width: previewWidth,
     height: previewHeight,
+    className: previewImgClassName,
     ...restPreviewImageProps
   } = previewImageProps || {};
 
@@ -69,7 +79,7 @@ export default function ImagePreview({
         )}
       >
         {trigger ?? (
-          <Image
+          <ImgComponent
             src={src}
             alt={alt}
             fill={triggerFill}
@@ -82,7 +92,7 @@ export default function ImagePreview({
             {...restImageProps}
             className={cn(
               "h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105",
-              imageProps?.className,
+              triggerImgClassName,
               thumbnailClassName,
             )}
           />
@@ -112,7 +122,7 @@ export default function ImagePreview({
           </button>
 
           <div className="relative h-[70vh] w-[90vw] overflow-hidden rounded-2xl sm:h-[80vh] md:w-[80vw]">
-            <Image
+            <ImgComponent
               src={src}
               alt={alt}
               fill={previewFill ?? true}
@@ -125,7 +135,7 @@ export default function ImagePreview({
               {...restPreviewImageProps}
               className={cn(
                 "object-contain",
-                previewImageProps?.className,
+                previewImgClassName,
                 previewClassName,
               )}
             />
@@ -135,3 +145,5 @@ export default function ImagePreview({
     </>
   );
 }
+
+export default ImagePreview;

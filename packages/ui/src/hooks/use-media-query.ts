@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function useMediaQuery(query: string) {
+export function useMediaQuery(query: string): boolean | undefined {
   const [matches, setMatches] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
@@ -23,3 +23,5 @@ export default function useMediaQuery(query: string) {
 
   return matches;
 }
+
+export default useMediaQuery;

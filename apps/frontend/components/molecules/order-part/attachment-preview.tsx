@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import ImagePreview from "@/components/molecules/image-preview";
+import { ImagePreview } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import { ImageIcon, X } from "lucide-react";

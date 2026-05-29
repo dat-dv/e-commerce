@@ -7,7 +7,7 @@ import {
 } from "@ecommerce/ui";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 
-import { RenderTabletAndBelow } from "@/components/molecules/responsive";
+import { RenderTabletAndBelow } from "@ecommerce/ui";
 
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";

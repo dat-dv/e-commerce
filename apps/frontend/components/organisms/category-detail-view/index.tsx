@@ -2,10 +2,7 @@
 
 import { AppContainer, FilterDrawerTrigger } from "@ecommerce/ui";
 import { ProductsHeader } from "@/components/molecules/products-header";
-import {
-  RenderDesktopOnly,
-  RenderTabletAndBelow,
-} from "@/components/molecules/responsive";
+import { RenderDesktopOnly, RenderTabletAndBelow } from "@ecommerce/ui";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";

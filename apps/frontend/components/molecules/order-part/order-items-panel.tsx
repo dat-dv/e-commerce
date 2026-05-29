@@ -1,9 +1,10 @@
 "use client";
 
-import ImagePreview from "@/components/molecules/image-preview";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TOrderItem } from "@/domain/orders/types/order.model";
 import { cn } from "@/utils/cn";
+import { ImagePreview } from "@ecommerce/ui";
+import Image from "next/image";
 
 import { useLocale, useTranslations } from "next-intl";
 import { parseOrderAttributes } from "./order-display.utils";
@@ -98,6 +99,7 @@ export function OrderItemProductSummary({
       <ImagePreview
         src={preview.image}
         alt={preview.name}
+        imageComponent={Image}
         triggerClassName={cn(
           UI_RADIUS.media,
           "size-11 shrink-0 border border-content/10",

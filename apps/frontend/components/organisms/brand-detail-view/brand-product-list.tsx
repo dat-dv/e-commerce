@@ -2,10 +2,7 @@
 
 import { FilterDrawerTrigger } from "@ecommerce/ui";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
-import {
-  RenderDesktopOnly,
-  RenderTabletAndBelow,
-} from "@/components/molecules/responsive";
+import { RenderDesktopOnly, RenderTabletAndBelow } from "@ecommerce/ui";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
