@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
 import { SlidersHorizontal } from "lucide-react";
+
+import Button from "../../atoms/button";
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 interface IFilterDrawerTriggerProps {
   eyebrow: string;
@@ -46,3 +46,5 @@ export function FilterDrawerTrigger({
     </div>
   );
 }
+
+export default FilterDrawerTrigger;

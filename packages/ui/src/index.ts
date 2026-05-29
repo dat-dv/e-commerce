@@ -70,18 +70,34 @@ export {
   type IAccordionProps,
 } from "./components/molecules/accordion";
 export {
+  default as AddressCard,
+  type AddressCardProps,
+  type IAddress,
+  type AddressCardLabels,
+} from "./components/molecules/address-card";
+export { default as AddressEmptyState } from "./components/molecules/address-empty-state";
+export { default as AddressLoadingCard } from "./components/molecules/address-loading-card";
+export { Carousel, CarouselItem } from "./components/molecules/carousel";
+export {
+  default as Dropdown,
+  type IAppDropdownProps,
+} from "./components/molecules/dropdown";
+export {
   default as EmptyState,
   type EmptyStateProps,
 } from "./components/molecules/empty-state";
 export * from "./components/molecules/filter-sidebar";
+export { default as FilterDrawerTrigger } from "./components/molecules/filter-drawer-trigger";
 export {
   default as ImgCropper,
   type ImgCropperProps,
 } from "./components/molecules/img-cropper";
+export { default as AnimatedPageHeader } from "./components/molecules/page-header-animation";
 export {
   default as QuantitySelector,
   type QuantitySelectorProps,
 } from "./components/molecules/quantity-selector";
+export { default as SectionHeader } from "./components/molecules/section-header";
 export { default as SidebarLayout } from "./components/molecules/sidebar-layout";
 export { default as SummaryCard } from "./components/molecules/summary-card";
 export * from "./components/molecules/table";

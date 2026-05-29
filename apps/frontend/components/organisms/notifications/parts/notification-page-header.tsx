@@ -1,10 +1,9 @@
 "use client";
 
+import { AnimatedPageHeader } from "@ecommerce/ui";
 import { Bell, BellDot, CheckCheck, Megaphone } from "lucide-react";
 
 import { useTranslations } from "next-intl";
-
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 
 const NOTIFICATION_HEADER_ICONS = [Bell, BellDot, CheckCheck, Megaphone];
 

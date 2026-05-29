@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatedPageHeader } from "@ecommerce/ui";
 import {
   CreditCard,
   PackageCheck,
@@ -7,8 +8,6 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
-
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
 
 const CART_HEADER_ICONS = [ShoppingBag, PackageCheck, CreditCard, ShieldCheck];
 

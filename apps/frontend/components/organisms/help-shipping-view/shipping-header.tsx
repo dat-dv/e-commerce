@@ -1,8 +1,8 @@
 "use client";
 
+import { AnimatedPageHeader, AppContainer } from "@ecommerce/ui";
 import React from "react";
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
-import { AppContainer } from "@ecommerce/ui";
+
 import { useTranslations } from "next-intl";
 import { Clock, Compass, MapPin, Package, Truck } from "lucide-react";
 

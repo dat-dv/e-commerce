@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import { AnimatedPageHeader } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { Heart, Package, ShoppingBag, Sparkles } from "lucide-react";
 

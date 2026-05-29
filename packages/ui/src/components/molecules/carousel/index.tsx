@@ -5,8 +5,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { Button } from "@ecommerce/ui";
-import { cn } from "@/utils/cn";
+import Button from "../../atoms/button";
+import { cn } from "../../../utils";
 
 interface CarouselProps {
   children: React.ReactNode;

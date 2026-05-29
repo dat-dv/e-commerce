@@ -1,9 +1,11 @@
 "use client";
 
-import { FormCard } from "@ecommerce/ui";
-import AddressCard from "@/components/molecules/address-card";
-import AddressEmptyState from "@/components/molecules/address-empty-state";
-import AddressLoadingCard from "@/components/molecules/address-loading-card";
+import {
+  AddressCard,
+  AddressEmptyState,
+  AddressLoadingCard,
+  FormCard,
+} from "@ecommerce/ui";
 import { AddressesForm } from "@/components/molecules/addresses-form";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
 import { useAddAddress } from "@/hooks/addresses/use-add-address";

@@ -2,12 +2,13 @@
 
 import { APP_ROUTES } from "@/constants/routes";
 import { TFlashSaleProduct } from "@/domain/products/types/products.model";
+import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
 import { Zap } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Carousel, CarouselItem } from "../carousel";
-import { PRODUCT_CAROUSEL_ITEM_CLASS } from "../carousel/carousel.constants";
+
+import { PRODUCT_CAROUSEL_ITEM_CLASS } from "@/constants/carousel";
+import Link from "next/link";
 import { FlashSaleCard } from "../product-card/flash-sale-card";
-import { SectionHeader } from "../section-header";
 
 interface IFlashSaleCarouselProps {
   products: TFlashSaleProduct[];
@@ -25,6 +26,7 @@ export const FlashSaleCarousel = ({ products }: IFlashSaleCarouselProps) => {
           <Zap className="fill-primary text-primary size-4 shrink-0 sm:size-5" />
         }
         href={APP_ROUTES.FLASH_SALE}
+        linkComponent={Link}
       />
 
       <Carousel options={{ align: "start", containScroll: "trimSnaps" }}>

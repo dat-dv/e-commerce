@@ -1,7 +1,6 @@
 "use client";
 
-import { AppContainer } from "@ecommerce/ui";
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import { AnimatedPageHeader, AppContainer } from "@ecommerce/ui";
 import { Eye, KeyRound, Lock, LockKeyhole, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import React from "react";

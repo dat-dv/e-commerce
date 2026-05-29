@@ -1,8 +1,12 @@
 "use client";
 
-import { AppContainer, SidebarLayout } from "@ecommerce/ui";
+import {
+  AppContainer,
+  FilterDrawerTrigger,
+  SidebarLayout,
+} from "@ecommerce/ui";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
-import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
+
 import { RenderTabletAndBelow } from "@/components/molecules/responsive";
 
 import { TCategory } from "@/domain/categories/types/categories.model";

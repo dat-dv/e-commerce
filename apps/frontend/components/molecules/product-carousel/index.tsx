@@ -1,12 +1,13 @@
 "use client";
 
+import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
 import { LucideIcon } from "lucide-react";
 import { useMemo } from "react";
-import { Carousel, CarouselItem } from "../carousel";
+import Link from "next/link";
+
 import { ProductCard } from "../product-card";
-import { SectionHeader } from "../section-header";
 
 interface IProductCarouselProps {
   title: string;
@@ -45,6 +46,7 @@ export const ProductCarousel = ({
         title={title}
         href={href || APP_ROUTES.PRODUCTS}
         icon={<Icon className="text-primary size-4 shrink-0 sm:size-5" />}
+        linkComponent={Link}
       />
 
       <Carousel options={{ align: "start" }}>

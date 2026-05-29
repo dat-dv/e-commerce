@@ -1,7 +1,6 @@
 "use client";
 
-import { AppContainer } from "@ecommerce/ui";
-import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
+import { AppContainer, FilterDrawerTrigger } from "@ecommerce/ui";
 import { ProductFilterDrawer } from "@/components/molecules/product-filter-drawer";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { ProductsHeader } from "@/components/molecules/products-header";

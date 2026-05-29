@@ -1,12 +1,12 @@
 "use client";
 
-import { Carousel, CarouselItem } from "@/components/molecules/carousel";
-import { CATEGORY_CAROUSEL_ITEM_CLASS } from "@/components/molecules/carousel/carousel.constants";
+import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
+import { CATEGORY_CAROUSEL_ITEM_CLASS } from "@/constants/carousel";
 import { APP_ROUTES } from "@/constants/routes";
 import { Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { CategoryCard } from "../category-card";
-import { SectionHeader } from "../section-header";
 
 interface ICategory {
   id: string;
@@ -40,6 +40,7 @@ export const CategoriesCarousel = ({
         title={title}
         href={APP_ROUTES.CATEGORIES}
         icon={<Sparkles className="text-primary size-4 shrink-0 sm:size-5" />}
+        linkComponent={Link}
       />
 
       <Carousel options={{ align: "start" }} loadMore={onLoadMore}>

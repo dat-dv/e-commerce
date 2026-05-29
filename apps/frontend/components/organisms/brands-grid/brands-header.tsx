@@ -1,5 +1,6 @@
 "use client";
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+
+import { AnimatedPageHeader } from "@ecommerce/ui";
 import {
   Headphones,
   Laptop,

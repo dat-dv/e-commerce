@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedPageHeader from "../page-header-animation";
+import { AnimatedPageHeader } from "@ecommerce/ui";
 import { PackageCheck, Receipt, ShoppingBag, Truck } from "lucide-react";
 import { useTranslations } from "next-intl";
 

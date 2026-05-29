@@ -1,7 +1,7 @@
 "use client";
 
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 export const AddressLoadingCard = () => {
   return (

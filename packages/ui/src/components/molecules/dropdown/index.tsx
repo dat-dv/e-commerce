@@ -12,8 +12,8 @@ import {
   Popover as RACPopover,
 } from "react-aria-components";
 
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 interface DropdownTriggerProps {
   ref: RefObject<HTMLButtonElement | null>;
@@ -90,3 +90,4 @@ export const AppDropdown = ({
 };
 
 export const Dropdown = AppDropdown;
+export default Dropdown;

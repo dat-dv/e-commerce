@@ -1,7 +1,9 @@
-import { Button } from "@ecommerce/ui";
-import AddressCard from "@/components/molecules/address-card";
-import AddressEmptyState from "@/components/molecules/address-empty-state";
-import AddressLoadingCard from "@/components/molecules/address-loading-card";
+import {
+  AddressCard,
+  AddressEmptyState,
+  AddressLoadingCard,
+  Button,
+} from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { TAddress } from "@/domain/addresses/types/address.model";
 import { cn } from "@/utils/cn";

@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, Button } from "@ecommerce/ui";
+import { Avatar, Button, Dropdown as AppDropdown } from "@ecommerce/ui";
 
 import {
   EyeIcon,
@@ -16,7 +16,6 @@ import { TYPOGRAPHY } from "@/constants/typography";
 
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
-import { AppDropdown } from "../dropdown";
 
 interface IAvatarDropdownProps {
   name: string;

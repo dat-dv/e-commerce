@@ -1,15 +1,17 @@
 "use client";
-import { LiquidWaveText, ViewAllButton } from "@ecommerce/ui";
 
-import { TYPOGRAPHY } from "@/constants/typography";
-import Link from "next/link";
 import React from "react";
+
+import LiquidWaveText from "../../atoms/liquid-wave-text";
+import ViewAllButton from "../../atoms/view-all-button";
+import { TYPOGRAPHY } from "../../../tokens";
 
 interface SectionHeaderProps {
   title: string;
   href?: string;
   icon?: React.ReactNode;
   children?: React.ReactNode;
+  linkComponent?: React.ElementType;
 }
 
 export const SectionHeader = ({
@@ -17,13 +19,23 @@ export const SectionHeader = ({
   href,
   icon,
   children,
+  linkComponent: LinkComponent = "a",
 }: SectionHeaderProps) => {
+  const renderHeading = () => (
+    <h2
+      className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.sectionTitle} text-content leading-tight capitalize`}
+    >
+      {icon}
+      <span className="truncate">{title}</span>
+    </h2>
+  );
+
   return (
     <div className="flex items-start justify-between gap-3 sm:items-center">
       <div className="flex min-w-0 items-center gap-3 sm:gap-6">
         <div className="flex min-w-0 items-center gap-3">
           {href ? (
-            <Link href={href} className="min-w-0">
+            <LinkComponent href={href} className="min-w-0">
               <h2
                 className={`flex min-w-0 cursor-pointer items-center gap-2 ${TYPOGRAPHY.sectionTitle} text-content hover:text-primary leading-tight capitalize transition-colors`}
               >
@@ -35,21 +47,18 @@ export const SectionHeader = ({
                   {title}
                 </LiquidWaveText>
               </h2>
-            </Link>
+            </LinkComponent>
           ) : (
-            <h2
-              className={`flex min-w-0 items-center gap-2 ${TYPOGRAPHY.sectionTitle} text-content leading-tight capitalize`}
-            >
-              {icon}
-              <span className="truncate">{title}</span>
-            </h2>
+            renderHeading()
           )}
         </div>
 
         {children}
       </div>
 
-      {href && <ViewAllButton href={href} />}
+      {href && <ViewAllButton href={href} linkComponent={LinkComponent} />}
     </div>
   );
 };
+
+export default SectionHeader;

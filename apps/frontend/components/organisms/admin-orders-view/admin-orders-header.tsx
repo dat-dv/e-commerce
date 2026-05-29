@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import { AnimatedPageHeader, Button } from "@ecommerce/ui";
 import {
   ClipboardList,
   PackageCheck,

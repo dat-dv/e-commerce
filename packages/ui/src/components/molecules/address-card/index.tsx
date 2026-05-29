@@ -1,25 +1,50 @@
 "use client";
 
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { TAddress } from "@/domain/addresses/types/address.model";
-import { cn } from "@/utils/cn";
-import { Button } from "@ecommerce/ui";
 import { Edit, Star, Trash2 } from "lucide-react";
-import { useTranslations } from "next-intl";
 import type { ComponentPropsWithoutRef } from "react";
 
-type AddressCardMode = "select" | "manage";
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
-interface AddressCardProps extends Omit<
+export interface IAddress {
+  id?: string;
+  name?: string;
+  phone?: string;
+  street?: string;
+  ward?: string;
+  district?: string;
+  province?: string;
+  country?: string;
+  isDefault?: boolean;
+  label?: string | number | null;
+}
+
+export type AddressCardMode = "select" | "manage";
+
+export interface AddressCardLabels {
+  home?: string;
+  work?: string;
+  apartment?: string;
+  other?: string;
+  noName?: string;
+  noPhone?: string;
+  defaultBadge?: string;
+  setDefaultAriaLabel?: string;
+  editAriaLabel?: string;
+  deleteAriaLabel?: string;
+}
+
+export interface AddressCardProps extends Omit<
   ComponentPropsWithoutRef<"div">,
   "onSelect"
 > {
-  address: TAddress;
+  address: IAddress;
   mode?: AddressCardMode;
   isSelected?: boolean;
   disabled?: boolean;
   isMutating?: boolean;
+  labels?: AddressCardLabels;
   contentClassName?: string;
   selectButtonClassName?: string;
   staticContentClassName?: string;
@@ -30,22 +55,26 @@ interface AddressCardProps extends Omit<
   onDelete?: () => void;
 }
 
-const getFullAddress = (address: TAddress) =>
+const getFullAddress = (address: IAddress) =>
   [address.street, address.ward, address.district, address.province]
     .filter(Boolean)
     .join(", ");
 
-const AddressMeta = ({ address }: { address: TAddress }) => {
-  const t = useTranslations("ProfileAddressesPage");
-
+const AddressMeta = ({
+  address,
+  labels = {},
+}: {
+  address: IAddress;
+  labels?: AddressCardLabels;
+}) => {
   const getLocalizedLabel = (label?: string | null | number) => {
     const raw = String(label ?? "").trim();
     if (!raw || /^\d+$/.test(raw)) return undefined;
     const lower = raw.toLowerCase();
-    if (lower === "home") return t("form.labels.home");
-    if (lower === "office" || lower === "work") return t("form.labels.work");
-    if (lower === "apartment") return t("form.labels.apartment");
-    if (lower === "other") return t("form.labels.other");
+    if (lower === "home") return labels.home || "Home";
+    if (lower === "office" || lower === "work") return labels.work || "Work";
+    if (lower === "apartment") return labels.apartment || "Apartment";
+    if (lower === "other") return labels.other || "Other";
     return raw;
   };
   const resolvedLabel = getLocalizedLabel(address?.label);
@@ -56,11 +85,11 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
         <span
           className={`truncate ${TYPOGRAPHY.bodySmall} text-content font-bold`}
         >
-          {address.name || t("noName")}
+          {address.name || labels.noName || "No Name"}
         </span>
         <span className="text-content/30">·</span>
         <span className={`${TYPOGRAPHY.meta} text-content/50`}>
-          {address.phone || t("noPhone")}
+          {address.phone || labels.noPhone || "No Phone"}
         </span>
         {address.isDefault && (
           <span
@@ -70,7 +99,7 @@ const AddressMeta = ({ address }: { address: TAddress }) => {
               "border-primary/20 bg-primary/10 text-primary border px-2 py-0.5 tracking-tighter uppercase",
             )}
           >
-            {t("defaultBadge")}
+            {labels.defaultBadge || "Default"}
           </span>
         )}
         {resolvedLabel && (
@@ -114,6 +143,7 @@ export const AddressCard = ({
   isSelected = false,
   disabled = false,
   isMutating = false,
+  labels = {},
   className,
   contentClassName,
   selectButtonClassName,
@@ -152,7 +182,7 @@ export const AddressCard = ({
             aria-pressed={isSelected}
           >
             <SelectionIndicator selected={isSelected} />
-            <AddressMeta address={address} />
+            <AddressMeta address={address} labels={labels} />
           </button>
         ) : (
           <div
@@ -161,7 +191,7 @@ export const AddressCard = ({
               staticContentClassName,
             )}
           >
-            <AddressMeta address={address} />
+            <AddressMeta address={address} labels={labels} />
           </div>
         )}
 
@@ -178,7 +208,10 @@ export const AddressCard = ({
               size="icon"
               onClick={onSetDefault}
               disabled={disabled}
-              aria-label={`Set ${address.name || "address"} as default`}
+              aria-label={
+                labels.setDefaultAriaLabel ||
+                `Set ${address.name || "address"} as default`
+              }
               className={cn(
                 UI_RADIUS.control,
                 "text-content/40 hover:bg-primary/5 hover:text-primary size-8 p-0 opacity-100",
@@ -195,7 +228,10 @@ export const AddressCard = ({
               size="icon"
               onClick={onEdit}
               disabled={disabled}
-              aria-label={`Edit address for ${address.name || "recipient"}`}
+              aria-label={
+                labels.editAriaLabel ||
+                `Edit address for ${address.name || "recipient"}`
+              }
               className={cn(
                 UI_RADIUS.control,
                 "text-content/30 hover:bg-content/5 hover:text-content size-8 p-0 opacity-100",
@@ -212,7 +248,10 @@ export const AddressCard = ({
               size="icon"
               onClick={onDelete}
               disabled={disabled}
-              aria-label={`Delete address for ${address.name || "recipient"}`}
+              aria-label={
+                labels.deleteAriaLabel ||
+                `Delete address for ${address.name || "recipient"}`
+              }
               className={cn(
                 UI_RADIUS.control,
                 "text-content/40 size-8 p-0 opacity-100 hover:bg-red-500/5 hover:text-red-500",

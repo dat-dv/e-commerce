@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedPageHeader from "@/components/molecules/page-header-animation";
+import { AnimatedPageHeader } from "@ecommerce/ui";
 import { Flame, Sparkles, Timer, Zap } from "lucide-react";
 import { useTranslations } from "next-intl";
 

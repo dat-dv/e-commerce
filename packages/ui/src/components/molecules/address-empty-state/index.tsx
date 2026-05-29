@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import { TYPOGRAPHY } from "@/constants/typography";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
 import { MapPin } from "lucide-react";
-import { useTranslations } from "next-intl";
+import type { ElementType } from "react";
+
+import Button from "../../atoms/button";
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 interface AddressEmptyStateProps {
   title?: string;
@@ -16,16 +16,12 @@ interface AddressEmptyStateProps {
 }
 
 export const AddressEmptyState = ({
-  title,
-  description,
+  title = "No Address Found",
+  description = "Please add an address to continue.",
   actionLabel,
   onAction,
   className,
 }: AddressEmptyStateProps) => {
-  const t = useTranslations("Common.addressEmptyState");
-  const displayTitle = title ?? t("title");
-  const displayDescription = description ?? t("description");
-
   return (
     <div
       className={cn(
@@ -38,8 +34,8 @@ export const AddressEmptyState = ({
         <MapPin size={24} className="text-content/30" aria-hidden />
       </div>
       <div>
-        <p className="text-content font-bold">{displayTitle}</p>
-        <p className="text-content/50 mt-1 text-sm">{displayDescription}</p>
+        <p className="text-content font-bold">{title}</p>
+        <p className="text-content/50 mt-1 text-sm">{description}</p>
       </div>
       {onAction && actionLabel && (
         <Button

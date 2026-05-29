@@ -1,6 +1,6 @@
 "use client";
 
-import { FilterDrawerTrigger } from "@/components/molecules/filter-drawer-trigger";
+import { FilterDrawerTrigger } from "@ecommerce/ui";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import {
   RenderDesktopOnly,
