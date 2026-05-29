@@ -30,8 +30,8 @@ export * from "./components/atoms/icons";
 export {
   default as Input,
   type InputProps,
-  type InputVariant,
   type InputSize,
+  type InputVariant,
 } from "./components/atoms/input";
 export {
   default as LiquidWaveText,
@@ -42,13 +42,18 @@ export { default as Logo } from "./components/atoms/logo";
 export * from "./components/atoms/menu";
 export {
   default as PhoneInput,
-  type PhoneValue,
   type CountryOption,
+  type PhoneValue,
 } from "./components/atoms/phone-input";
 export { default as Portal } from "./components/atoms/portal";
 export * from "./components/atoms/select";
 export * from "./components/atoms/select-autocomplete-client";
 export { default as SettingsIcon } from "./components/atoms/settings-icon";
+export {
+  default as SidebarItem,
+  type SidebarDocItem,
+  type SidebarItemProps,
+} from "./components/atoms/sidebar-item";
 export { default as Switch } from "./components/atoms/switch";
 export * from "./components/atoms/tabs";
 export {
@@ -63,26 +68,48 @@ export {
   default as ViewAllButton,
   type ViewAllButtonProps,
 } from "./components/atoms/view-all-button";
-export {
-  default as SidebarItem,
-  type SidebarDocItem,
-  type SidebarItemProps,
-} from "./components/atoms/sidebar-item";
 
 // Molecules
+export {
+  default as AccessDenied,
+  type AccessDeniedLabels,
+  type AccessDeniedProps,
+} from "./components/molecules/access-denied";
 export {
   default as Accordion,
   type IAccordionProps,
 } from "./components/molecules/accordion";
 export {
   default as AddressCard,
+  type AddressCardLabels,
   type AddressCardProps,
   type IAddress,
-  type AddressCardLabels,
 } from "./components/molecules/address-card";
 export { default as AddressEmptyState } from "./components/molecules/address-empty-state";
 export { default as AddressLoadingCard } from "./components/molecules/address-loading-card";
+export {
+  default as AppliedFiltersBar,
+  type AppliedFiltersBarProps,
+} from "./components/molecules/applied-filters-bar";
+export {
+  default as AvatarDropdown,
+  type AvatarDropdownLabels,
+  type AvatarDropdownMenuItem,
+  type AvatarDropdownProps,
+} from "./components/molecules/avatar-dropdown";
+export {
+  default as BrandCard,
+  type BrandCardProps,
+} from "./components/molecules/brand-card";
 export { Carousel, CarouselItem } from "./components/molecules/carousel";
+export {
+  default as CategoryCard,
+  type CategoryCardProps,
+} from "./components/molecules/category-card";
+export {
+  default as DocsSidebar,
+  type DocsSidebarProps,
+} from "./components/molecules/docs-sidebar";
 export {
   default as Dropdown,
   type IAppDropdownProps,
@@ -91,103 +118,90 @@ export {
   default as EmptyState,
   type EmptyStateProps,
 } from "./components/molecules/empty-state";
-export * from "./components/molecules/filter-sidebar";
+export {
+  default as FeatureGrid,
+  type FeatureGridProps,
+  type FeatureItem,
+} from "./components/molecules/feature-grid";
 export { default as FilterDrawerTrigger } from "./components/molecules/filter-drawer-trigger";
+export * from "./components/molecules/filter-sidebar";
+export {
+  default as HelpSupportCard,
+  type HelpSupportCardProps,
+} from "./components/molecules/help-support-card";
+export {
+  default as HelpTopicNav,
+  type HelpTopicNavProps,
+  getHelpTopicId,
+} from "./components/molecules/help-topic-nav";
+export {
+  default as ImagePreview,
+  type ImagePreviewProps,
+} from "./components/molecules/image-preview";
 export {
   default as ImgCropper,
   type ImgCropperProps,
 } from "./components/molecules/img-cropper";
-export { default as AnimatedPageHeader } from "./components/molecules/page-header-animation";
-export {
-  default as QuantitySelector,
-  type QuantitySelectorProps,
-} from "./components/molecules/quantity-selector";
-export { default as SectionHeader } from "./components/molecules/section-header";
-export { default as SidebarLayout } from "./components/molecules/sidebar-layout";
-export { default as SummaryCard } from "./components/molecules/summary-card";
-export * from "./components/molecules/table";
 export {
   default as LazySection,
   type ILazySectionProps,
 } from "./components/molecules/lazy-section";
-export {
-  default as AccessDenied,
-  type AccessDeniedProps,
-  type AccessDeniedLabels,
-} from "./components/molecules/access-denied";
-export {
-  default as AppliedFiltersBar,
-  type AppliedFiltersBarProps,
-} from "./components/molecules/applied-filters-bar";
-export {
-  default as BrandCard,
-  type BrandCardProps,
-} from "./components/molecules/brand-card";
-export {
-  default as CategoryCard,
-  type CategoryCardProps,
-} from "./components/molecules/category-card";
 export {
   default as ListingSectionHeader,
   type ListingSectionHeaderProps,
 } from "./components/molecules/listing-section-header";
 export {
   default as MissingProduct,
-  type MissingProductProps,
   type MissingProductLabels,
+  type MissingProductProps,
   type SuggestedRoute,
 } from "./components/molecules/missing-product";
+export { default as AnimatedPageHeader } from "./components/molecules/page-header-animation";
 export {
   default as Pagination,
   type PaginationProps,
 } from "./components/molecules/pagination";
+export {
+  default as QuantitySelector,
+  type QuantitySelectorProps,
+} from "./components/molecules/quantity-selector";
+export {
+  RenderDesktopOnly,
+  RenderMobileOnly,
+  RenderTabletAndAbove,
+  RenderTabletAndBelow,
+  RenderTabletOnly,
+  ResponsiveRender,
+  type ResponsiveOnlyProps,
+  type ResponsiveRenderProps,
+} from "./components/molecules/responsive";
+export {
+  default as SearchInput,
+  type SearchInputProps,
+} from "./components/molecules/search-input";
+export { default as SectionHeader } from "./components/molecules/section-header";
+export { default as SidebarLayout } from "./components/molecules/sidebar-layout";
+export { default as SummaryCard } from "./components/molecules/summary-card";
+export * from "./components/molecules/table";
 export {
   default as TableOfContents,
   type TableOfContentsProps,
   type TocItem,
 } from "./components/molecules/toc";
 export {
+  default as VirtualGrid,
+  type VirtualGridColumns,
+  type VirtualGridProps,
+} from "./components/molecules/virtual-grid";
+export {
   default as VirtualList,
   type VirtualListProps,
 } from "./components/molecules/virtual-list";
-export {
-  default as VirtualGrid,
-  type VirtualGridProps,
-  type VirtualGridColumns,
-} from "./components/molecules/virtual-grid";
-export {
-  default as DocsSidebar,
-  type DocsSidebarProps,
-} from "./components/molecules/docs-sidebar";
-export {
-  default as SearchInput,
-  type SearchInputProps,
-} from "./components/molecules/search-input";
-export {
-  default as AvatarDropdown,
-  type AvatarDropdownProps,
-  type AvatarDropdownMenuItem,
-  type AvatarDropdownLabels,
-} from "./components/molecules/avatar-dropdown";
-export {
-  default as ImagePreview,
-  type ImagePreviewProps,
-} from "./components/molecules/image-preview";
-export {
-  ResponsiveRender,
-  RenderDesktopOnly,
-  RenderTabletAndAbove,
-  RenderTabletOnly,
-  RenderTabletAndBelow,
-  RenderMobileOnly,
-  type ResponsiveRenderProps,
-  type ResponsiveOnlyProps,
-} from "./components/molecules/responsive";
 
 // Hooks
-export { useTextSelectEvent } from "./hooks/use-text-select-event";
 export {
   useIntersectionObserver,
   type UseIntersectionObserverProps,
 } from "./hooks/use-intersection-observer";
 export { useMediaQuery } from "./hooks/use-media-query";
+export { useTextSelectEvent } from "./hooks/use-text-select-event";

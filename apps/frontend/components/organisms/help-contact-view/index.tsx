@@ -1,6 +1,8 @@
+"use client";
+
 import { AppContainer } from "@ecommerce/ui";
 import ContactForm from "@/components/molecules/contact-form";
-import HelpSupportCard from "@/components/molecules/help-support-card";
+import { HelpSupportCard } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -65,6 +67,7 @@ export function HelpContactView(): React.ReactElement {
             ctaLabel={t("openATicket")}
             showCta
             ctaHref={APP_ROUTES.CONTACT}
+            linkComponent={Link}
             className="rounded-2xl p-5 sm:p-8"
           />
         </div>

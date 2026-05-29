@@ -1,10 +1,15 @@
 "use client";
 
-import { Accordion, AppContainer, SearchInput } from "@ecommerce/ui";
-import HelpSupportCard from "@/components/molecules/help-support-card";
-import HelpTopicNav, {
+import { APP_ROUTES } from "@/constants/routes";
+import {
+  Accordion,
+  AppContainer,
+  HelpSupportCard,
+  HelpTopicNav,
+  SearchInput,
   getHelpTopicId,
-} from "@/components/molecules/help-topic-nav";
+} from "@ecommerce/ui";
+import Link from "next/link";
 
 import { getRawI18nValue } from "@/utils/i18n";
 import Fuse from "fuse.js";
@@ -80,6 +85,8 @@ export const HelpShippingView = (): React.ReactElement => {
               description={tShipping("contactDesc")}
               ctaLabel={tShipping("contactCta")}
               showCta
+              ctaHref={APP_ROUTES.CONTACT}
+              linkComponent={Link}
             />
 
             <HelpTopicNav

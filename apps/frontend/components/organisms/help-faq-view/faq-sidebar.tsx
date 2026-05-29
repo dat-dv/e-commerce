@@ -1,8 +1,10 @@
 "use client";
 
-import HelpSupportCard from "@/components/molecules/help-support-card";
-import HelpTopicNav from "@/components/molecules/help-topic-nav";
+import { HelpSupportCard } from "@ecommerce/ui";
+import { HelpTopicNav } from "@ecommerce/ui";
 import { FAQTopic } from "./help-faq.types";
+import { APP_ROUTES } from "@/constants/routes";
+import Link from "next/link";
 
 interface FAQSidebarProps {
   topics: FAQTopic[];
@@ -24,6 +26,8 @@ export function FAQSidebar({
         description={contactDescription}
         ctaLabel={contactCta}
         showCta
+        ctaHref={APP_ROUTES.CONTACT}
+        linkComponent={Link}
       />
 
       <HelpTopicNav topics={topics.map((topic) => topic.name)} />

@@ -1,9 +1,9 @@
 "use client";
-import { LiquidWaveText } from "@ecommerce/ui";
 
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
 import React, { useEffect, useMemo, useState } from "react";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
+import LiquidWaveText from "../../atoms/liquid-wave-text";
 
 export const getHelpTopicId = (name: string): string =>
   name
@@ -13,7 +13,7 @@ export const getHelpTopicId = (name: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-interface HelpTopicNavProps {
+export interface HelpTopicNavProps {
   topics: string[];
   className?: string;
 }
@@ -32,7 +32,6 @@ export function HelpTopicNav({
 
     if (!sections.length) return;
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveId(sections[0].id);
 
     const observer = new IntersectionObserver(
