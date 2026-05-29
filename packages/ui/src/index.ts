@@ -16,7 +16,7 @@ export { default as CartIcon } from "./components/atoms/cart-icon";
 export * from "./components/atoms/checkbox";
 export { default as ClientOnly } from "./components/atoms/client-only";
 export * from "./components/atoms/combobox";
-export { CopyButton } from "./components/atoms/coppy-button";
+export { CopyButton } from "./components/atoms/copy-button";
 export * from "./components/atoms/date-picker";
 export * from "./components/atoms/dialog";
 export { DocsAnimationWrapper } from "./components/atoms/docs-animation-wrapper";
