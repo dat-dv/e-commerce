@@ -65,11 +65,29 @@ services:
     networks:
       - ecommerce-network
 
+  # ──────────────────────────────────────────────
+  # Database — PostgreSQL (Dev/Prod Switchable)
+  # ──────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: ecommerce-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env.backend
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ecommerce-network
+
 # ──────────────────────────────────────────────
 # Volumes
 # ──────────────────────────────────────────────
 volumes:
   sqlite_data:
+    driver: local
+  postgres_data:
     driver: local
 
 # ──────────────────────────────────────────────
