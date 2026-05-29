@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
   ...tseslint.configs.recommended,
   {
     files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
     plugins: {
       "react-hooks": reactHooks,
       "simple-import-sort": simpleImportSort,
