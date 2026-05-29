@@ -6,19 +6,22 @@ import { type IAvatarProps } from "./avatar.types";
 export const Avatar = ({
   url,
   name,
-  size = 80,
+  size,
   alt = "Avatar",
   className,
   style,
   ...rest
 }: IAvatarProps) => {
+  const sizeStyle = size !== undefined ? { width: size, height: size } : {};
+
   return (
     <div
       className={cn(
         "relative inline-flex items-center justify-center overflow-hidden rounded-full",
+        size === undefined && "h-full w-full",
         className,
       )}
-      style={{ width: size, height: size, ...style }}
+      style={{ ...sizeStyle, ...style }}
       {...rest}
     >
       {url ? (
@@ -32,8 +35,12 @@ export const Avatar = ({
         />
       ) : (
         <span
-          className="text-primary font-bold"
-          style={{ fontSize: `${size * 0.35}px` }}
+          className="text-primary leading-none font-bold"
+          style={
+            size !== undefined
+              ? { fontSize: `${size * 0.35}px` }
+              : { fontSize: "1rem" }
+          }
           aria-label={name ?? "User"}
         >
           {name?.charAt(0)?.toUpperCase() ?? "U"}
