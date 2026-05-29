@@ -1,8 +1,9 @@
 "use client";
+import { EmptyState } from "@ecommerce/ui";
 
 import { Ticket } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
-import EmptyState from "@/components/molecules/empty-space";
+
 import { useTranslations } from "next-intl";
 
 export const VoucherList = () => {

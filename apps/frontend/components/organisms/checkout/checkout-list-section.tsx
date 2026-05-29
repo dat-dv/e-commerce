@@ -1,4 +1,5 @@
-import EmptyState from "@/components/molecules/empty-space";
+import { EmptyState } from "@ecommerce/ui";
+
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { UI_RADIUS } from "@/constants/ui-radius";

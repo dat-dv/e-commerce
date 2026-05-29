@@ -1,7 +1,8 @@
 "use client";
+import { EmptyState } from "@ecommerce/ui";
 
 import { useTranslations } from "next-intl";
-import EmptyState from "@/components/molecules/empty-space";
+
 import { TReview } from "@/domain/products/types/products.model";
 import { MessageCircle } from "lucide-react";
 import { ReviewItem } from "./review-item";

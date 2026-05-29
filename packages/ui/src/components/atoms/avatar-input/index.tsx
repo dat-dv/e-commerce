@@ -1,13 +1,11 @@
 "use client";
 
-import { TYPOGRAPHY } from "@/constants/typography";
+import React, { useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Camera } from "lucide-react";
-import { useTranslations } from "next-intl";
-import React, { useRef, useState } from "react";
-
-import Avatar from "@/components/atoms/avatar";
-import ImgCropper from "@/components/molecules/img-cropper";
+import Avatar from "../avatar";
+import ImgCropper from "../../molecules/img-cropper";
+import { TYPOGRAPHY } from "../../../tokens";
 
 export interface AvatarInputProps {
   value?: string;
@@ -15,16 +13,27 @@ export interface AvatarInputProps {
   displayName?: string;
   size?: number;
   disabled?: boolean;
+  changeAvatarLabel?: string;
+  changeLabel?: string;
+  cropTitle?: string;
+  cropSaveLabel?: string;
+  cropCancelLabel?: string;
+  cropCloseLabel?: string;
 }
 
-const AvatarInput: React.FC<AvatarInputProps> = ({
+export const AvatarInput: React.FC<AvatarInputProps> = ({
   value,
   onChange,
   displayName,
   size = 160,
   disabled = false,
+  changeAvatarLabel = "Change avatar",
+  changeLabel = "Change",
+  cropTitle,
+  cropSaveLabel,
+  cropCancelLabel,
+  cropCloseLabel,
 }) => {
-  const t = useTranslations("Common.avatarInput");
   const fileRef = useRef<HTMLInputElement>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showCropper, setShowCropper] = useState(false);
@@ -78,13 +87,13 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
               type="button"
               className="absolute inset-0 z-10 flex cursor-pointer flex-col items-center justify-center gap-1 rounded-full bg-black/50 opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100"
               onClick={() => fileRef.current?.click()}
-              aria-label={t("changeAvatar")}
+              aria-label={changeAvatarLabel}
             >
               <Camera className="h-7 w-7 text-white" />
               <span
                 className={`${TYPOGRAPHY.badge} tracking-widest text-white uppercase`}
               >
-                {t("change")}
+                {changeLabel}
               </span>
             </button>
 
@@ -105,6 +114,10 @@ const AvatarInput: React.FC<AvatarInputProps> = ({
             image={selectedImage}
             onCropComplete={handleCropComplete}
             onCancel={handleCancelCrop}
+            title={cropTitle}
+            saveLabel={cropSaveLabel}
+            cancelLabel={cropCancelLabel}
+            closeLabel={cropCloseLabel}
           />
         )}
       </AnimatePresence>

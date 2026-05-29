@@ -1,10 +1,11 @@
 "use client";
 
 import { ORDER_TABS, OrderTabValue } from "@/constants/order-status.constant";
-import { ShoppingBag } from "lucide-react";
 import { APP_ROUTES } from "@/constants/routes";
-import EmptyState from "../empty-space";
+import { EmptyState } from "@ecommerce/ui";
+import { ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 interface OrderEmptyStateProps {
   type: OrderTabValue;
@@ -49,6 +50,7 @@ export const OrderEmptyState = ({ type }: OrderEmptyStateProps) => {
       icon={ShoppingBag}
       actionLabel={t("emptyState.actionLabel")}
       actionHref={APP_ROUTES.PRODUCTS}
+      linkComponent={Link}
     />
   );
 };

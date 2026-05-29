@@ -1,39 +1,33 @@
 "use client";
 
-import { MaximizeIcon, XIcon } from "lucide-react";
-import { useTranslations } from "next-intl";
 import React, { useCallback, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
-
-import {
-  AppDialog,
-  AppDialogPanel,
-  AppDialogTitle,
-  Button,
-} from "@ecommerce/ui";
-
+import { MaximizeIcon, XIcon } from "lucide-react";
+import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
+import Button from "../../atoms/button";
 import getCroppedImg from "./get-cropped-img";
 
-interface ImgCropperProps {
+export interface ImgCropperProps {
   image: string;
   onCropComplete: (blob: Blob) => void;
   onCancel: () => void;
   aspect?: number;
   saveLabel?: string;
+  cancelLabel?: string;
+  closeLabel?: string;
   title?: string;
 }
 
-const ImgCropper: React.FC<ImgCropperProps> = ({
+export const ImgCropper: React.FC<ImgCropperProps> = ({
   image,
   onCropComplete,
   onCancel,
   aspect = 1,
-  saveLabel,
-  title,
+  saveLabel = "Save",
+  cancelLabel = "Cancel",
+  closeLabel = "Close",
+  title = "Crop Image",
 }) => {
-  const t = useTranslations("Common.imageCropper");
-  const displayTitle = title ?? t("title");
-  const displaySaveLabel = saveLabel ?? t("save");
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);
@@ -63,7 +57,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
         onCropComplete(croppedImage);
       }
     } catch {
-      // Not in a request context, skip cookie forwarding
+      // ignore
     } finally {
       setIsCropping(false);
     }
@@ -76,7 +70,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
         <button
           onClick={onCancel}
           className="absolute top-4 right-4 z-10 flex size-8 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-black/40"
-          aria-label={t("close")}
+          aria-label={closeLabel}
         >
           <XIcon size={16} />
         </button>
@@ -107,7 +101,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
         {/* Controls */}
         <div className="space-y-6 overflow-y-auto p-6">
           <AppDialogTitle className="text-content sr-only text-lg font-bold">
-            {displayTitle}
+            {title}
           </AppDialogTitle>
 
           {/* Zoom Control */}
@@ -132,7 +126,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
               onClick={onCancel}
               className="h-11 flex-1 rounded-xl text-sm font-semibold"
             >
-              {t("cancel")}
+              {cancelLabel}
             </Button>
             <Button
               variant="primary"
@@ -140,7 +134,7 @@ const ImgCropper: React.FC<ImgCropperProps> = ({
               loading={isCropping}
               className="h-11 flex-1 rounded-xl text-sm font-semibold"
             >
-              {displaySaveLabel}
+              {saveLabel}
             </Button>
           </div>
         </div>

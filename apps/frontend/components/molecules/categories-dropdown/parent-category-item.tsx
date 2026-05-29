@@ -1,6 +1,6 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { cn } from "@/utils/cn";
 
 interface ParentCategoryItemProps {

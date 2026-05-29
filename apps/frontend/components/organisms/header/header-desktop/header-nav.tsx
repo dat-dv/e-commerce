@@ -1,9 +1,9 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";

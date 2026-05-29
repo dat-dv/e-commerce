@@ -1,7 +1,6 @@
 "use client";
+import { Button, LiquidWaveText } from "@ecommerce/ui";
 
-import { Button } from "@ecommerce/ui";
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 import { TYPOGRAPHY } from "@/constants/typography";

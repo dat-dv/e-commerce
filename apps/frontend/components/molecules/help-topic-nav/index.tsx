@@ -1,6 +1,6 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
 import React, { useEffect, useMemo, useState } from "react";

@@ -17,10 +17,7 @@ import {
   type ValidationResult,
 } from "react-aria-components";
 
-import {
-  InputSize,
-  inputSizeClasses,
-} from "../input/input.sizes";
+import { InputSize, inputSizeClasses } from "../input/input.sizes";
 import {
   variantActive,
   variantBase,

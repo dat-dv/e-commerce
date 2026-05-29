@@ -1,4 +1,5 @@
 "use client";
+import { Avatar, Button } from "@ecommerce/ui";
 
 import {
   EyeIcon,
@@ -10,8 +11,6 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import Avatar from "@/components/atoms/avatar";
-import { Button } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
 

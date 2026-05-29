@@ -17,10 +17,7 @@ import {
 } from "react-aria-components";
 import { Autocomplete, useFilter } from "react-aria-components/Autocomplete";
 
-import {
-  InputSize,
-  inputSizeClasses,
-} from "../input/input.sizes";
+import { InputSize, inputSizeClasses } from "../input/input.sizes";
 import {
   variantActive,
   variantBase,

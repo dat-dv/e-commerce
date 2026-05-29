@@ -1,4 +1,5 @@
-import EmptyState from "@/components/molecules/empty-space";
+import { EmptyState } from "@ecommerce/ui";
+
 import { ProductCard } from "@/components/molecules/product-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";
 import {

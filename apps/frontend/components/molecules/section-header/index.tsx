@@ -1,7 +1,6 @@
 "use client";
+import { LiquidWaveText, ViewAllButton } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
-import { ViewAllButton } from "@/components/atoms/view-all-button";
 import { TYPOGRAPHY } from "@/constants/typography";
 import Link from "next/link";
 import React from "react";

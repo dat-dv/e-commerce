@@ -1,6 +1,6 @@
 "use client";
+import { EmptyState } from "@ecommerce/ui";
 
-import EmptyState from "@/components/molecules/empty-space";
 import { ListingSectionHeader } from "@/components/molecules/listing-section-header";
 import { FlashSaleCard } from "@/components/molecules/product-card/flash-sale-card";
 import { VirtualGrid } from "@/components/molecules/virtual-grid";

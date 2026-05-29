@@ -1,6 +1,6 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { type LucideIcon } from "lucide-react";

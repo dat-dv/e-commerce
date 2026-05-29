@@ -1,6 +1,6 @@
 "use client";
+import { EmptyState } from "@ecommerce/ui";
 
-import EmptyState from "@/components/molecules/empty-space";
 import { Pagination } from "@/components/molecules/pagination";
 import { ProductGrid } from "@/components/molecules/product-grid";
 import { LucideIcon, Search } from "lucide-react";

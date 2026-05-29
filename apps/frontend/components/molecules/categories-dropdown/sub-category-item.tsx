@@ -1,6 +1,6 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { cn } from "@/utils/cn";
 import Link from "next/link";

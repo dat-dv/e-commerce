@@ -1,12 +1,12 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import { UI_RADIUS } from "@/constants/ui-radius";
-import { cn } from "@/utils/cn";
 import { Minus, Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
-interface QuantitySelectorProps {
+export interface QuantitySelectorProps {
   value: number;
   onChange: (val: number) => void;
   max?: number;
@@ -15,18 +15,17 @@ interface QuantitySelectorProps {
   inputClassName?: string;
 }
 
-export function QuantitySelector({
+export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   value,
   onChange,
   max = Infinity,
   disabled,
   className,
   inputClassName,
-}: QuantitySelectorProps) {
+}) => {
   const [inputValue, setInputValue] = useState(String(value));
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setInputValue(String(value));
   }, [value]);
 
@@ -93,4 +92,6 @@ export function QuantitySelector({
       </Button>
     </div>
   );
-}
+};
+
+export default QuantitySelector;

@@ -1,4 +1,5 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
 import { TYPOGRAPHY } from "@/constants/typography";
 import { AnimatePresence, motion } from "framer-motion";
@@ -7,7 +8,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useMemo, useState } from "react";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { DocItem } from "@/utils/docs";
 
 // ─── Utils ──────────────────────────────────────────────────────────────────

@@ -1,10 +1,10 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
 import React from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { useHeaderStore } from "@/hooks/config/use-header-store";
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 
 interface CategoryHeaderNavProps {
   label: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Checkbox } from "@ecommerce/ui";
+import { Button, Checkbox, QuantitySelector } from "@ecommerce/ui";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { TYPOGRAPHY } from "@/constants/typography";
@@ -13,7 +13,6 @@ import { ShoppingBag, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { QuantitySelector } from "../quantity-selector";
 
 interface CartItemRowProps {
   item: TCartItem;

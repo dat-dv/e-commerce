@@ -1,7 +1,6 @@
 "use client";
+import { Button, LiquidWaveText } from "@ecommerce/ui";
 
-import { Button } from "@ecommerce/ui";
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { APP_ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
 

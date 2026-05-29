@@ -1,6 +1,6 @@
 "use client";
+import { QuantitySelector } from "@ecommerce/ui";
 
-import { QuantitySelector } from "@/components/molecules/quantity-selector";
 import { TSkuDomain } from "@/domain/products/types/products.model";
 import { useTranslations } from "next-intl";
 

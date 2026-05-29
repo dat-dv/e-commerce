@@ -1,7 +1,6 @@
 "use client";
+import { AppContainer, EmptyState } from "@ecommerce/ui";
 
-import { AppContainer } from "@ecommerce/ui";
-import EmptyState from "@/components/molecules/empty-space";
 import BrandsHeader from "@/components/organisms/brands-grid/brands-header";
 import { brandsUseCase } from "@/domain/brands/use-cases";
 import { TBrand } from "@/domain/homepage/types/homepage.model";

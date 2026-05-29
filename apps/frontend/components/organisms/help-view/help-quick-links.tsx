@@ -1,6 +1,6 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { HelpCardItem } from "./help-view.types";

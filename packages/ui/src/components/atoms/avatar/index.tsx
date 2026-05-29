@@ -1,26 +1,28 @@
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import React from "react";
 
-const Avatar = ({
-  url,
-  name,
-  size = 80,
-}: {
+export interface AvatarProps {
   url?: string;
   name?: string;
   size?: number;
-}) => {
-  const t = useTranslations("Common.avatar");
+  alt?: string;
+  className?: string;
+}
 
+export const Avatar: React.FC<AvatarProps> = ({
+  url,
+  name,
+  size = 80,
+  alt = "Avatar",
+  className,
+}) => {
   return url ? (
-    <Image
+    <img
       width={size}
       height={size}
       loading="eager"
       src={url}
-      alt={t("alt")}
-      className="object-cover"
+      alt={alt}
+      className={className || "object-cover"}
     />
   ) : (
     <div className="bg-primary/10 flex h-full w-full items-center justify-center">

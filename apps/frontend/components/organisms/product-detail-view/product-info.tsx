@@ -1,8 +1,8 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
 import { motion } from "framer-motion";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { RenderDesktopOnly } from "@/components/molecules/responsive";
 import { TProduct, TSkuDomain } from "@/domain/products/types/products.model";
 import { ProductAttributeOptions } from "./product-attribute-options";

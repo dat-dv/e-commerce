@@ -2,38 +2,33 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { type LucideIcon, PackageOpen } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { cn } from "../../../utils";
+import { TYPOGRAPHY } from "../../../tokens";
 
-import { cn } from "@/utils/cn";
-import { TYPOGRAPHY } from "@/constants/typography";
-
-interface EmptyStateProps {
+export interface EmptyStateProps {
   title?: string;
   description?: string;
   icon?: LucideIcon;
   actionLabel?: string;
   actionHref?: string;
+  linkComponent?: React.ElementType;
   children?: React.ReactNode;
   className?: string;
   delay?: number;
 }
 
 export const EmptyState = ({
-  title,
-  description,
+  title = "No data found",
+  description = "There is no information to display at this time.",
   icon: Icon = PackageOpen,
   actionLabel,
   actionHref,
+  linkComponent: LinkComponent = "a",
   children,
   className,
   delay = 0.2,
 }: EmptyStateProps) => {
-  const t = useTranslations("Common.emptyState");
-  const displayTitle = title ?? t("title");
-  const displayDescription = description ?? t("description");
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -69,22 +64,22 @@ export const EmptyState = ({
         </div>
 
         <h2 className={`${TYPOGRAPHY.pageTitle} text-content tracking-tight`}>
-          {displayTitle}
+          {title}
         </h2>
 
         <p
           className={`mt-3 max-w-md ${TYPOGRAPHY.bodySmall} text-content/40 leading-relaxed font-medium`}
         >
-          {displayDescription}
+          {description}
         </p>
 
         {actionLabel && actionHref && (
-          <Link
+          <LinkComponent
             href={actionHref}
             className="group border-content/[0.08] bg-content text-surface hover:border-primary hover:bg-primary mt-10 inline-flex items-center justify-center overflow-hidden rounded-full border px-8 py-4 text-xs font-black tracking-[0.18em] uppercase transition-all hover:-translate-y-0.5"
           >
             <span>{actionLabel}</span>
-          </Link>
+          </LinkComponent>
         )}
 
         {children}

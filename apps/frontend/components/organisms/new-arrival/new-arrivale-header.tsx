@@ -1,6 +1,6 @@
 "use client";
+import { LiquidWaveText } from "@ecommerce/ui";
 
-import LiquidWaveText from "@/components/atoms/liquid-wave-text";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Clock, PackagePlus, ShoppingBag, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
