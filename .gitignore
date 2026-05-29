@@ -3,6 +3,10 @@ dist
 node_modules
 build
 
+# Monorepo package manager state
+**/package-lock.json
+!/package-lock.json
+
 # Logs
 logs
 *.log
