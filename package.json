@@ -11,6 +11,7 @@
     "dev": "turbo run dev --ui=tui",
     "dev:log": "turbo run dev --log-order=grouped",
     "dev:fe": "turbo run dev --filter=@ecommerce/shared --filter=@ecommerce/ui --filter=@ecommerce/frontend",
+    "dev:admin": "turbo run dev --filter=@ecommerce/shared --filter=@ecommerce/ui --filter=@ecommerce/admin",
     "dev:be": "turbo run dev --filter=@ecommerce/shared --filter=@ecommerce/backend",
     "dev:frontend": "turbo run dev --filter=@ecommerce/frontend",
     "dev:ui": "turbo run dev --filter=@ecommerce/ui",
@@ -22,10 +23,12 @@
     "build:be": "turbo run build --filter=@ecommerce/backend",
     "build:ui": "turbo run build --filter=@ecommerce/ui",
     "build:fe": "turbo run build --filter=@ecommerce/frontend",
+    "build:admin": "turbo run build --filter=@ecommerce/admin",
     "test:be": "turbo run test --filter=@ecommerce/backend",
     "lint:be": "turbo run lint --filter=@ecommerce/backend",
     "lint:be:fix": "turbo run lint --filter=@ecommerce/backend -- --fix",
     "lint:fe": "turbo run lint --filter=@ecommerce/frontend",
+    "lint:admin": "turbo run lint --filter=@ecommerce/admin",
     "lint:fe:fix": "turbo run lint --filter=@ecommerce/frontend -- --fix",
     "lint:ui": "turbo run lint --filter=@ecommerce/ui",
     "lint:ui:fix": "turbo run lint --filter=@ecommerce/ui -- --fix",
@@ -47,6 +50,9 @@
     "turbo": "^2.9.16"
   },
   "lint-staged": {
+    "apps/admin/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint --workspace=@ecommerce/admin -- --fix"
+    ],
     "apps/frontend/**/*.{js,jsx,ts,tsx}": [
       "npm run lint --workspace=@ecommerce/frontend -- --fix"
     ],
