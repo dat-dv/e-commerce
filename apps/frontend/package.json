@@ -6,7 +6,7 @@
     "i18n:gen": "node scripts/generate-messages.mjs",
     "i18n:watch": "nodemon --watch messages/en --watch messages/vi -e json --exec \"npm run i18n:gen\"",
     "dev": "next dev -p 5173",
-    "prebuild": "npm run build -w @ecommerce/shared --prefix ../.. && npm run build -w @ecommerce/ui --prefix ../.. && npm run i18n:gen",
+    "prebuild": "npm run i18n:gen",
     "build": "next build",
     "start": "next start -p 5173",
     "lint": "eslint",

@@ -15,9 +15,32 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
+    "format": {
+      "outputs": []
+    },
+    "db:reset": {
+      "cache": false,
+      "outputs": []
+    },
+    "i18n:gen": {
+      "outputs": ["messages/en.json", "messages/vi.json"]
+    },
+    "i18n:watch": {
+      "cache": false,
+      "persistent": true
+    },
+    "debug": {
+      "cache": false,
+      "persistent": true
+    },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "frontend#dev": {
+      "cache": false,
+      "persistent": true,
+      "with": ["frontend#i18n:watch"]
     }
   }
 }
