@@ -2,8 +2,8 @@
 
 import React from "react";
 import {
-  type ComboBoxRenderProps,
   type ComboBoxProps as RACComboBoxProps,
+  type ComboBoxRenderProps,
   type ListBoxItemProps as RACListBoxItemProps,
   type Section as RACSection,
   type ValidationResult,

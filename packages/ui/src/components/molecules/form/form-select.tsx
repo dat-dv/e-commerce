@@ -3,8 +3,8 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { ISelectOption, Select } from "../../atoms/select";
 import { InputSize, InputVariant } from "../../atoms/input";
+import { ISelectOption, Select } from "../../atoms/select";
 
 export interface IFormSelectProps {
   name: string;

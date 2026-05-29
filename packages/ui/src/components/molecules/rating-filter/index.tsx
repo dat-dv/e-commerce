@@ -2,8 +2,8 @@
 
 import { Star } from "lucide-react";
 
-import Button from "../../atoms/button";
 import { TYPOGRAPHY } from "../../../tokens";
+import Button from "../../atoms/button";
 
 export interface RatingFilterLabels {
   title?: string;

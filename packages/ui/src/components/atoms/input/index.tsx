@@ -3,7 +3,6 @@ import { forwardRef, useState } from "react";
 
 import { TYPOGRAPHY } from "../../../tokens";
 import { cn } from "../../../utils";
-
 import { inputSizeClasses } from "./input.sizes";
 import {
   variantBase,
@@ -12,9 +11,9 @@ import {
   variantNormal,
 } from "./input.styles";
 import { InputProps } from "./input.types";
+export type { InputSize } from "./input.sizes";
 export type { InputProps } from "./input.types";
 export type { InputVariant } from "./input.types";
-export type { InputSize } from "./input.sizes";
 import PasswordEye from "./password-eye";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(

@@ -10,13 +10,15 @@ import {
   ListBoxItem as RACListBoxItem,
   Popover as RACPopover,
   Select as RACSelect,
-  SelectValue as RACSelectValue,
-  Text as RACText,
   type SelectProps as RACSelectProps,
   type SelectRenderProps,
+  SelectValue as RACSelectValue,
+  Text as RACText,
   type ValidationResult,
 } from "react-aria-components";
 
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { InputSize, inputSizeClasses } from "../input/input.sizes";
 import {
   variantActive,
@@ -26,8 +28,6 @@ import {
   variantNormal,
 } from "../input/input.styles";
 import { InputVariant } from "../input/input.types";
-import { UI_RADIUS } from "../../../tokens";
-import { cn } from "../../../utils";
 
 export interface ISelectOption {
   label: string;

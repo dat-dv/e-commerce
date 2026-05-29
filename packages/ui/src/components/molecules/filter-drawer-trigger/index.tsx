@@ -2,9 +2,9 @@
 
 import { SlidersHorizontal } from "lucide-react";
 
-import Button from "../../atoms/button";
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
 interface IFilterDrawerTriggerProps {
   eyebrow: string;

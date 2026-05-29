@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { Loader2, Search, X } from "lucide-react";
-import Button from "../../atoms/button";
+import React, { useEffect, useState } from "react";
+
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
 export interface SearchInputProps {
   id?: string;

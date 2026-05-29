@@ -5,7 +5,6 @@ import { Button as BaseButton } from "react-aria-components";
 
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-
 import { sizeClasses, variantClasses } from "./button.style";
 import { IButtonProps } from "./button.types";
 
@@ -40,7 +39,9 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, IButtonProps>(
 
     if (href !== undefined) {
       const { linkComponent: LinkComponent = "a", ...anchorProps } =
-        rest as any;
+        rest as React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+          linkComponent?: React.ElementType;
+        };
       return (
         <LinkComponent
           href={href}

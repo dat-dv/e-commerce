@@ -1,11 +1,12 @@
 "use client";
 
-import { cn } from "../../../utils";
 import { Check } from "lucide-react";
 import {
   Checkbox as RACCheckbox,
   type CheckboxProps as RACCheckboxProps,
 } from "react-aria-components";
+
+import { cn } from "../../../utils";
 
 export interface ICheckboxProps extends RACCheckboxProps {
   checked?: boolean;

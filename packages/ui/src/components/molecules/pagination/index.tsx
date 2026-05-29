@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+
 import { cn } from "../../../utils";
 
 const getPaginationRange = (currentPage: number, totalPages: number) => {

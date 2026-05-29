@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+
 import { Checkbox, ICheckboxProps } from "../../atoms/checkbox";
 
 export interface FormCheckboxProps extends Omit<

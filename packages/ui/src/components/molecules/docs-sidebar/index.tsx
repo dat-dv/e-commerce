@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { SidebarItem, SidebarDocItem } from "../../atoms/sidebar-item";
+
 import { TYPOGRAPHY } from "../../../tokens";
+import { SidebarDocItem, SidebarItem } from "../../atoms/sidebar-item";
 
 export interface DocsSidebarProps {
   items: SidebarDocItem[];

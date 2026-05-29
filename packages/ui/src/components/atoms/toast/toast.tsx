@@ -1,4 +1,5 @@
 import { toast as sonnerToast } from "sonner";
+
 import { CustomToast, ToastVariant } from "./toast-item";
 
 const DEFAULT_TIMEOUT = 5000;

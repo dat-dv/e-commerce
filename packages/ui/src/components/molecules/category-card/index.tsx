@@ -1,9 +1,10 @@
 "use client";
 
+import { LucideIcon, Sparkles } from "lucide-react";
 import React from "react";
+
 import { UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
-import { LucideIcon, Sparkles } from "lucide-react";
 
 export interface CategoryCardProps {
   name: string;

@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
 import { ArrowRight } from "lucide-react";
-import LiquidWaveText from "../liquid-wave-text";
+import React from "react";
+
 import { cn } from "../../../utils";
+import LiquidWaveText from "../liquid-wave-text";
 
 export interface ViewAllButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;

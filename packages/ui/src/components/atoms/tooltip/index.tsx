@@ -3,12 +3,12 @@
 import React from "react";
 import {
   Tooltip as RACTooltip,
-  TooltipTrigger as RACTooltipTrigger,
   type TooltipProps as RACTooltipProps,
+  TooltipTrigger as RACTooltipTrigger,
 } from "react-aria-components";
 
-import { cn } from "../../../utils";
 import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 
 export interface ITooltipProps extends Omit<RACTooltipProps, "children"> {
   content: React.ReactNode;

@@ -3,13 +3,13 @@
 import React from "react";
 import {
   Collection as RACCollection,
-  Tree as RACTree,
   type Key,
+  Tree as RACTree,
 } from "react-aria-components";
 
 import { cn } from "../../../utils";
-import { TreeItem } from "./tree-item";
 import { ITreeProps } from "./tree.types";
+import { TreeItem } from "./tree-item";
 
 export function AppTree<T extends object>({
   items,

@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { type LucideIcon, PackageOpen } from "lucide-react";
-import { cn } from "../../../utils";
+import React from "react";
+
 import { TYPOGRAPHY } from "../../../tokens";
+import { cn } from "../../../utils";
 
 export interface EmptyStateProps {
   title?: string;

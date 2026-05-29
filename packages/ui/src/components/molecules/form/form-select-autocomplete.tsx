@@ -3,11 +3,11 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
+import { InputSize, InputVariant } from "../../atoms/input";
 import {
   AppSelectAutocompleteClient,
   ISelectAutocompleteOption,
 } from "../../atoms/select-autocomplete-client";
-import { InputSize, InputVariant } from "../../atoms/input";
 
 export interface IFormSelectAutocompleteProps {
   name: string;

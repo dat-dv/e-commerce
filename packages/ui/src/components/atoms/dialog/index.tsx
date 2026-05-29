@@ -1,16 +1,17 @@
 "use client";
 
-import { cn } from "../../../utils";
 import { motion } from "framer-motion";
 import React from "react";
 import {
-  DialogProps,
   Dialog as RACDialog,
+  DialogProps,
   Heading as RACHeading,
+  type HeadingProps,
   Modal as RACModal,
   ModalOverlay as RACModalOverlay,
-  type HeadingProps,
 } from "react-aria-components";
+
+import { cn } from "../../../utils";
 
 const MotionModalOverlay = motion.create(RACModalOverlay);
 const MotionModal = motion.create(RACModal);

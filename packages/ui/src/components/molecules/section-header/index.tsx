@@ -2,9 +2,9 @@
 
 import React from "react";
 
+import { TYPOGRAPHY } from "../../../tokens";
 import LiquidWaveText from "../../atoms/liquid-wave-text";
 import ViewAllButton from "../../atoms/view-all-button";
-import { TYPOGRAPHY } from "../../../tokens";
 
 interface SectionHeaderProps {
   title: string;

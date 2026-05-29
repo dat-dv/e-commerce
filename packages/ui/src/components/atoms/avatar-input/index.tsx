@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Camera } from "lucide-react";
-import Avatar from "../avatar";
-import ImgCropper from "../../molecules/img-cropper";
+import React, { useRef, useState } from "react";
+
 import { TYPOGRAPHY } from "../../../tokens";
+import ImgCropper from "../../molecules/img-cropper";
+import Avatar from "../avatar";
 
 export interface AvatarInputProps {
   value?: string;

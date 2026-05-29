@@ -11,12 +11,14 @@ import {
   Popover as RACPopover,
   SearchField as RACSearchField,
   Select as RACSelect,
+  type SelectProps as RACSelectProps,
   SelectValue as RACSelectValue,
   Text as RACText,
-  type SelectProps as RACSelectProps,
 } from "react-aria-components";
 import { Autocomplete, useFilter } from "react-aria-components/Autocomplete";
 
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { InputSize, inputSizeClasses } from "../input/input.sizes";
 import {
   variantActive,
@@ -26,8 +28,6 @@ import {
   variantNormal,
 } from "../input/input.styles";
 import { InputVariant } from "../input/input.types";
-import { UI_RADIUS } from "../../../tokens";
-import { cn } from "../../../utils";
 
 export interface ISelectAutocompleteOption {
   label: string;

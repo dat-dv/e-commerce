@@ -2,8 +2,9 @@
 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import PhoneInput, { PhoneValue, CountryOption } from "../../atoms/phone-input";
+
 import { InputSize } from "../../atoms/input";
+import PhoneInput, { CountryOption, PhoneValue } from "../../atoms/phone-input";
 
 export const aseanCountries: CountryOption[] = [
   {

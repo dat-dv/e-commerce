@@ -1,12 +1,13 @@
 "use client";
 
-import { InputSize } from "../input/input.sizes";
-import { AppMenu, AppMenuItem } from "../menu";
-import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
-import { cn } from "../../../utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import React from "react";
+
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
+import { InputSize } from "../input/input.sizes";
+import { AppMenu, AppMenuItem } from "../menu";
 
 export interface PhoneValue {
   phoneCode: string;

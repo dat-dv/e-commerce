@@ -6,6 +6,7 @@ import React, {
   type ReactNode,
   useState,
 } from "react";
+
 import { cn } from "../../../utils";
 import { AppDialog, AppDialogPanel, AppDialogTitle } from "../../atoms/dialog";
 
@@ -21,8 +22,8 @@ export interface ImagePreviewProps extends Omit<
   dialogClassName?: string;
   panelClassName?: string;
   previewClassName?: string;
-  imageProps?: Record<string, any>;
-  previewImageProps?: Record<string, any>;
+  imageProps?: Record<string, unknown>;
+  previewImageProps?: Record<string, unknown>;
   imageComponent?: React.ElementType;
 }
 

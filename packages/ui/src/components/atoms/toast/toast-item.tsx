@@ -1,5 +1,4 @@
 "use client";
-import { cn } from "../../../utils";
 import {
   AlertTriangle,
   CheckCircle2,
@@ -8,6 +7,8 @@ import {
   X,
 } from "lucide-react";
 import { toast as sonnerToast } from "sonner";
+
+import { cn } from "../../../utils";
 
 export type ToastVariant = "success" | "error" | "warning" | "info" | "default";
 

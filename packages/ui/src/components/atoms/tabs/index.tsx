@@ -1,17 +1,18 @@
 "use client";
 
-import { cn } from "../../../utils";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Tab as RACTab,
   TabList as RACTabList,
-  TabPanel as RACTabPanel,
-  Tabs as RACTabs,
   type TabListProps,
+  TabPanel as RACTabPanel,
   type TabPanelProps,
   type TabProps,
+  Tabs as RACTabs,
   type TabsProps,
 } from "react-aria-components";
+
+import { cn } from "../../../utils";
 
 export type { Key } from "react-aria-components";
 

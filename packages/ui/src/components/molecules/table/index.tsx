@@ -1,5 +1,13 @@
 "use client";
 
+import type {
+  CellProps,
+  ColumnProps,
+  RowProps,
+  TableBodyProps,
+  TableHeaderProps,
+  TableProps,
+} from "react-aria-components";
 import {
   Cell as AriaCell,
   Collection,
@@ -8,14 +16,6 @@ import {
   Table as AriaTable,
   TableBody as AriaTableBody,
   TableHeader as AriaTableHeader,
-} from "react-aria-components";
-import type {
-  CellProps,
-  ColumnProps,
-  RowProps,
-  TableBodyProps,
-  TableHeaderProps,
-  TableProps,
 } from "react-aria-components";
 
 import { cn } from "../../../utils";

@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "../../../utils";
 import { motion, useReducedMotion } from "framer-motion";
+
+import { cn } from "../../../utils";
 
 interface ILogoProps {
   className?: string;

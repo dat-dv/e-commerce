@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, FileText, FolderClosed, FolderOpen } from "lucide-react";
-import { LiquidWaveText } from "../liquid-wave-text";
+import React, { useMemo, useState } from "react";
+
 import { TYPOGRAPHY } from "../../../tokens";
+import { LiquidWaveText } from "../liquid-wave-text";
 
 export interface SidebarDocItem {
   id: string;

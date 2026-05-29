@@ -1,12 +1,13 @@
 "use client";
 
+import { LogOut } from "lucide-react";
 import React from "react";
+
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { Avatar } from "../../atoms/avatar";
 import Button from "../../atoms/button";
 import { Dropdown } from "../dropdown";
-import { LogOut } from "lucide-react";
-import { cn } from "../../../utils";
-import { UI_RADIUS, TYPOGRAPHY } from "../../../tokens";
 
 export interface AvatarDropdownMenuItem {
   label: string;

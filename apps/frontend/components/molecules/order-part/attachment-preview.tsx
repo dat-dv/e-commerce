@@ -1,9 +1,8 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
-import { ImagePreview } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import { cn } from "@/utils/cn";
+import { Button, ImagePreview } from "@ecommerce/ui";
 import { ImageIcon, X } from "lucide-react";
 import { useEffect, useState } from "react";
 

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import { useInView, UseInViewOptions } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import { WindowVirtualizer } from "virtua";
 
 export interface VirtualListProps<T extends { id?: string | number }> {

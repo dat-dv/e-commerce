@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
-import Button from "../../atoms/button";
 import { motion } from "framer-motion";
 import { ChevronRight, Search } from "lucide-react";
+import React from "react";
+
+import Button from "../../atoms/button";
 
 export interface MissingProductLabels {
   title?: string;

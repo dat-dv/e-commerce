@@ -1,10 +1,11 @@
 "use client";
 
-import React, { Fragment } from "react";
 import { X } from "lucide-react";
-import Button from "../../atoms/button";
-import { UI_RADIUS, TYPOGRAPHY } from "../../../tokens";
+import React, { Fragment } from "react";
+
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
 export interface AppliedFiltersBarProps<T extends string = string> {
   chips?: { key: T; label: string }[];

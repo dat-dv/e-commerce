@@ -4,11 +4,12 @@ import React, { type ReactNode } from "react";
 import {
   CheckboxGroup as RACCheckboxGroup,
   type CheckboxGroupProps as RACCheckboxGroupProps,
+  FieldError as RACFieldError,
   Label as RACLabel,
   Text as RACText,
-  FieldError as RACFieldError,
   type ValidationResult,
 } from "react-aria-components";
+
 import { cn } from "../../../utils";
 
 export interface ICheckboxGroupProps extends Omit<

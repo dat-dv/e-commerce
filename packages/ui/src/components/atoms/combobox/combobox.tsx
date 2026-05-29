@@ -15,6 +15,8 @@ import {
   Text as RACText,
 } from "react-aria-components";
 
+import { UI_RADIUS } from "../../../tokens";
+import { cn } from "../../../utils";
 import { inputSizeClasses } from "../input/input.sizes";
 import {
   variantActive,
@@ -23,8 +25,6 @@ import {
   variantError,
   variantNormal,
 } from "../input/input.styles";
-import { UI_RADIUS } from "../../../tokens";
-import { cn } from "../../../utils";
 import { IComboBoxProps } from "./combobox.types";
 
 export function AppComboBox<

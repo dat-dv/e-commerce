@@ -1,11 +1,10 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import type { ElementType } from "react";
 
-import Button from "../../atoms/button";
 import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
+import Button from "../../atoms/button";
 
 interface AddressEmptyStateProps {
   title?: string;

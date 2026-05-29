@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { UI_RADIUS, TYPOGRAPHY } from "../../../tokens";
+
+import { TYPOGRAPHY, UI_RADIUS } from "../../../tokens";
 import { cn } from "../../../utils";
 
 export interface BrandCardProps {

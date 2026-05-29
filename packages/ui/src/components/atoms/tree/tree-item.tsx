@@ -8,8 +8,8 @@ import {
   TreeItemContent as RACTreeItemContent,
 } from "react-aria-components";
 
-import { Checkbox } from "../checkbox";
 import { cn } from "../../../utils";
+import { Checkbox } from "../checkbox";
 import { ITreeItemProps } from "./tree.types";
 
 export function AppTreeItem({

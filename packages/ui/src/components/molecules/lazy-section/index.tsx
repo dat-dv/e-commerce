@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
+
 import { useIntersectionObserver } from "../../../hooks/use-intersection-observer";
 
 export interface ILazySectionProps {

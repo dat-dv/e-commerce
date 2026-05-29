@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+
 import Input, { InputProps } from "../../atoms/input";
 
 export interface FormInputProps extends Omit<InputProps, "id" | "error"> {

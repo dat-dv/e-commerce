@@ -2,8 +2,8 @@
 
 import React from "react";
 import {
-  Section as RACSection,
   Header as RACHeader,
+  Section as RACSection,
 } from "react-aria-components";
 
 import { IComboBoxSectionProps } from "./combobox.types";

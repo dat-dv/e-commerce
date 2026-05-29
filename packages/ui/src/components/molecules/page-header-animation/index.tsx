@@ -4,8 +4,8 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { type LucideIcon } from "lucide-react";
 import { type MouseEvent, type ReactNode } from "react";
 
-import LiquidWaveText from "../../atoms/liquid-wave-text";
 import { TYPOGRAPHY } from "../../../tokens";
+import LiquidWaveText from "../../atoms/liquid-wave-text";
 
 interface AnimatedPageHeaderProps {
   title: string;
@@ -129,7 +129,11 @@ export function AnimatedPageHeader({
             <motion.div
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut", delay: 0.1 }}
+              transition={{
+                duration: entranceDuration,
+                ease: "easeOut",
+                delay: 0.1,
+              }}
               className="shrink-0 pb-1"
             >
               {rightContent}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+
 import { AvatarInput } from "../../atoms/avatar-input";
 
 export interface FormAvatarInputProps {
