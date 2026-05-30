@@ -21,11 +21,7 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
   const userAvatar = user?.avatarUrl || undefined;
 
   const handleLogout = async () => {
-    try {
-      await adminAuthUseCase.logout.execute();
-    } catch {
-      // Gracefully ignore logout network errors to guarantee local state is cleared
-    }
+    await adminAuthUseCase.logout.execute();
     logout();
     setUserMenuOpen(false);
     router.push("/sign-in");
