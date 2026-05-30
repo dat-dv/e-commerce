@@ -3,9 +3,8 @@ import { LoginUseCase } from './login.use-case';
 import { TokenService } from 'src/shared/services/token/token.service';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
 import { IAuthRepository } from '../entities/auth.repository.interface';
-import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UnauthorizedException, BadRequestException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 import { User, EGender } from '@ecommerce/shared';
 
 describe('LoginUseCase', () => {
@@ -28,8 +27,8 @@ describe('LoginUseCase', () => {
     get: jest.fn((key: string) => {
       if (key === 'ACCESS_TOKEN_SECRET') return 'at-secret';
       if (key === 'REFRESH_TOKEN_SECRET') return 'rt-secret';
-      if (key === 'ACCESS_TOKEN_EXPIRES_IN') return '1h';
-      if (key === 'REFRESH_TOKEN_EXPIRES_IN') return '30d';
+      if (key === 'ACCESS_TOKEN_EXPIRES_IN') return 3600;
+      if (key === 'REFRESH_TOKEN_EXPIRES_IN') return 2592000;
       return key;
     }),
   };
@@ -43,6 +42,7 @@ describe('LoginUseCase', () => {
         { provide: IUsersRepository, useValue: mockUsersRepository },
         { provide: IAuthRepository, useValue: mockAuthRepository },
         { provide: TokenService, useValue: mockTokenService },
+        { provide: ConfigService, useValue: mockConfigService },
       ],
     }).compile();
 
@@ -74,7 +74,7 @@ describe('LoginUseCase', () => {
       updated_at: new Date(),
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
+      salt: null,
       deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
@@ -97,7 +97,7 @@ describe('LoginUseCase', () => {
       updated_at: new Date(),
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
+      salt: null,
       deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
@@ -106,7 +106,9 @@ describe('LoginUseCase', () => {
 
     const result = await useCase.execute({ email: 'test@example.com', password: 'password' });
 
-    expect(result.user).toBe(user);
+    expect(result.user).toEqual(expect.objectContaining({ id: user.id, email: user.email }));
+    expect(result.user).not.toHaveProperty('password');
+    expect(result.user).not.toHaveProperty('salt');
     expect(result.accessToken).toBe('at');
     expect(result.refreshToken).toBe('rt');
     expect(mockAuthRepository.saveRefreshToken).toHaveBeenCalled();

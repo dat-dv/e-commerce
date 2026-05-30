@@ -3,9 +3,8 @@ import { Prisma } from 'generated/prisma/client';
 import { RefreshTokenUseCase } from './refresh-token.use-case';
 import { TokenService } from 'src/shared/services/token/token.service';
 import { IAuthRepository } from '../entities/auth.repository.interface';
-import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UnauthorizedException, BadRequestException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 
 describe('RefreshTokenUseCase', () => {
   let useCase: RefreshTokenUseCase;
@@ -26,6 +25,7 @@ describe('RefreshTokenUseCase', () => {
     get: jest.fn((key: string) => {
       if (key === 'ACCESS_TOKEN_SECRET') return 'at-secret';
       if (key === 'REFRESH_TOKEN_SECRET') return 'rt-secret';
+      if (key === 'REFRESH_TOKEN_EXPIRES_IN') return 2592000;
       return key;
     }),
   };

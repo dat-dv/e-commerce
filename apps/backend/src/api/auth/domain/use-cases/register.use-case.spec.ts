@@ -5,6 +5,7 @@ import { CreateUserUseCase } from 'src/api/users/domain/use-cases/create-user.us
 import { IAuthRepository } from '../entities/auth.repository.interface';
 import { ConfigService } from '@nestjs/config';
 import { User, EGender } from '@ecommerce/shared';
+import { ICartRepository } from 'src/api/cart/domain/entities/cart.repository.interface';
 
 describe('RegisterUseCase', () => {
   let useCase: RegisterUseCase;
@@ -17,6 +18,10 @@ describe('RegisterUseCase', () => {
     saveRefreshToken: jest.fn(),
   };
 
+  const mockCartRepository = {
+    createCart: jest.fn(),
+  };
+
   const mockTokenService = {
     generateAccessToken: jest.fn(),
     generateRefreshToken: jest.fn(),
@@ -26,8 +31,8 @@ describe('RegisterUseCase', () => {
     get: jest.fn((key: string) => {
       if (key === 'ACCESS_TOKEN_SECRET') return 'at-secret';
       if (key === 'REFRESH_TOKEN_SECRET') return 'rt-secret';
-      if (key === 'ACCESS_TOKEN_EXPIRES_IN') return '1h';
-      if (key === 'REFRESH_TOKEN_EXPIRES_IN') return '30d';
+      if (key === 'ACCESS_TOKEN_EXPIRES_IN') return 3600;
+      if (key === 'REFRESH_TOKEN_EXPIRES_IN') return 2592000;
       return key;
     }),
   };
@@ -40,6 +45,7 @@ describe('RegisterUseCase', () => {
         RegisterUseCase,
         { provide: CreateUserUseCase, useValue: mockCreateUserUseCase },
         { provide: IAuthRepository, useValue: mockAuthRepository },
+        { provide: ICartRepository, useValue: mockCartRepository },
         { provide: TokenService, useValue: mockTokenService },
         { provide: ConfigService, useValue: mockConfigService },
       ],
@@ -69,6 +75,7 @@ describe('RegisterUseCase', () => {
       deleted_at: null,
     };
     mockCreateUserUseCase.execute.mockResolvedValue(user);
+    mockCartRepository.createCart.mockResolvedValue({ id: 'cart-1', user_id: user.id });
     mockTokenService.generateAccessToken.mockResolvedValue('at');
     mockTokenService.generateRefreshToken.mockResolvedValue('rt');
 

@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ForgotPasswordUseCase } from './forgot-password.use-case';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
-import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { MailService } from 'src/mail/mail.service';
 import { BadRequestException } from '@nestjs/common';
 import { IUserResponse } from '@ecommerce/shared';
 import { EGender } from '@ecommerce/shared';
+import { TokenService } from 'src/shared/services/token/token.service';
 
 describe('ForgotPasswordUseCase', () => {
   let useCase: ForgotPasswordUseCase;
@@ -15,8 +15,8 @@ describe('ForgotPasswordUseCase', () => {
     findByEmail: jest.fn(),
   };
 
-  const mockJwtService = {
-    signAsync: jest.fn(),
+  const mockTokenService = {
+    generateResetPasswordToken: jest.fn(),
   };
 
   const mockConfigService = {
@@ -38,7 +38,7 @@ describe('ForgotPasswordUseCase', () => {
       providers: [
         ForgotPasswordUseCase,
         { provide: IUsersRepository, useValue: mockUsersRepository },
-        { provide: JwtService, useValue: mockJwtService },
+        { provide: TokenService, useValue: mockTokenService },
         { provide: ConfigService, useValue: mockConfigService },
         { provide: MailService, useValue: mockMailService },
       ],
@@ -74,7 +74,7 @@ describe('ForgotPasswordUseCase', () => {
       deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
-    mockJwtService.signAsync.mockResolvedValue('token');
+    mockTokenService.generateResetPasswordToken.mockResolvedValue('token');
 
     const result = await useCase.execute({ email: 'test@example.com' });
 

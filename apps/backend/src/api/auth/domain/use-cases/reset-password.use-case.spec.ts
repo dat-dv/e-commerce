@@ -1,28 +1,20 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ResetPasswordUseCase } from './reset-password.use-case';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
-import { JwtService } from '@nestjs/jwt';
-import { ConfigService } from '@nestjs/config';
 import { UnauthorizedException } from '@nestjs/common';
 import { User, EGender } from '@ecommerce/shared';
+import { TokenService } from 'src/shared/services/token/token.service';
 
 describe('ResetPasswordUseCase', () => {
   let useCase: ResetPasswordUseCase;
 
   const mockUsersRepository = {
     findById: jest.fn(),
-    update: jest.fn(),
+    updatePassword: jest.fn(),
   };
 
-  const mockJwtService = {
-    verifyAsync: jest.fn(),
-  };
-
-  const mockConfigService = {
-    get: jest.fn((key: string) => {
-      if (key === 'RESET_PASSWORD_TOKEN_SECRET') return 'reset-secret';
-      return key;
-    }),
+  const mockTokenService = {
+    verifyResetPasswordToken: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -32,8 +24,7 @@ describe('ResetPasswordUseCase', () => {
       providers: [
         ResetPasswordUseCase,
         { provide: IUsersRepository, useValue: mockUsersRepository },
-        { provide: JwtService, useValue: mockJwtService },
-        { provide: ConfigService, useValue: mockConfigService },
+        { provide: TokenService, useValue: mockTokenService },
       ],
     }).compile();
 
@@ -45,7 +36,7 @@ describe('ResetPasswordUseCase', () => {
   });
 
   it('should throw UnauthorizedException if token invalid', async () => {
-    mockJwtService.verifyAsync.mockRejectedValue(new Error('Invalid token'));
+    mockTokenService.verifyResetPasswordToken.mockRejectedValue(new Error('Invalid token'));
 
     await expect(useCase.execute({ token: 'invalid', new_password: 'new', confirm_password: 'new' })).rejects.toThrow(
       UnauthorizedException,
@@ -53,7 +44,7 @@ describe('ResetPasswordUseCase', () => {
   });
 
   it('should throw UnauthorizedException if user not found (due to try/catch)', async () => {
-    mockJwtService.verifyAsync.mockResolvedValue({ sub: '1' });
+    mockTokenService.verifyResetPasswordToken.mockResolvedValue({ userId: '1' });
     mockUsersRepository.findById.mockResolvedValue(null);
 
     await expect(useCase.execute({ token: 'valid', new_password: 'new', confirm_password: 'new' })).rejects.toThrow(
@@ -77,7 +68,7 @@ describe('ResetPasswordUseCase', () => {
       salt: 'salt',
       deleted_at: null,
     };
-    mockJwtService.verifyAsync.mockResolvedValue({ sub: '1' });
+    mockTokenService.verifyResetPasswordToken.mockResolvedValue({ userId: '1' });
     mockUsersRepository.findById.mockResolvedValue(user);
 
     const result = await useCase.execute({
@@ -87,6 +78,6 @@ describe('ResetPasswordUseCase', () => {
     });
 
     expect(result).toEqual({ success: true });
-    expect(mockUsersRepository.update).toHaveBeenCalledWith('1', { password: 'new-password' });
+    expect(mockUsersRepository.updatePassword).toHaveBeenCalledWith('1', 'new-password');
   });
 });
