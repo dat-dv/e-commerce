@@ -42,6 +42,11 @@
       "cache": false,
       "persistent": true,
       "with": ["@ecommerce/frontend#i18n:watch"]
+    },
+    "start": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
     }
   }
 }
