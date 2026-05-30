@@ -43,6 +43,11 @@ export class UpdateProductSkuDto implements IUpdateProductSkuRequest {
   @IsString()
   @IsOptional()
   unit_price?: string | null;
+
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  attribute_value_ids?: string[];
 }
 
 export class UpdateProductDto implements IUpdateProductRequest {

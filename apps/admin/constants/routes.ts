@@ -52,4 +52,7 @@ export const API_ROUTES = {
   PRODUCT_CATEGORIES: {
     TREE: "/product-categories/tree",
   },
+  ATTRIBUTES: {
+    LIST: "/attributes",
+  },
 } as const;

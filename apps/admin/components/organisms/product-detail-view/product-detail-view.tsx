@@ -11,6 +11,7 @@ export const ProductDetailView = () => {
   const {
     product,
     brands,
+    attributes,
     categoryTree,
     loading,
     metadataLoading,
@@ -84,6 +85,7 @@ export const ProductDetailView = () => {
           <ProductGeneralInfo
             product={product}
             brands={brands}
+            attributes={attributes}
             categoryTree={categoryTree}
             metadataLoading={metadataLoading}
             metadataError={metadataError}

@@ -1,4 +1,5 @@
 import {
+  type IAttributeListResponse,
   type IProductResponse,
   type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
@@ -9,6 +10,7 @@ import { formatCurrency } from "../products-view/product.utils";
 
 interface IProductSkuTableProps {
   product: IProductResponse;
+  attributes?: IAttributeListResponse;
   isEditing?: boolean;
   editSkus?: IUpdateProductSkuRequest[];
   setEditSkus?: (skus: IUpdateProductSkuRequest[]) => void;
@@ -18,6 +20,7 @@ interface IProductSkuTableProps {
 
 export const ProductSkuTable = ({
   product,
+  attributes: attributeOptions = [],
   isEditing = false,
   editSkus = [],
   setEditSkus,
@@ -122,6 +125,26 @@ export const ProductSkuTable = ({
       editSkus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, image_url: newImageUrl } : sku,
       ),
+    );
+  };
+
+  const handleSkuAttributeValueToggle = (
+    index: number,
+    attributeValueId: string,
+  ) => {
+    if (!setEditSkus) return;
+    setEditSkus(
+      editSkus.map((sku, skuIndex) => {
+        if (skuIndex !== index) return sku;
+
+        const currentIds = sku.attribute_value_ids ?? [];
+        return {
+          ...sku,
+          attribute_value_ids: currentIds.includes(attributeValueId)
+            ? currentIds.filter((id) => id !== attributeValueId)
+            : [...currentIds, attributeValueId],
+        };
+      }),
     );
   };
 
@@ -263,6 +286,48 @@ export const ProductSkuTable = ({
                                 >
                                   {attribute}
                                 </span>
+                              ))}
+                            </div>
+                          )}
+                          {attributeOptions.length > 0 && (
+                            <div className="mt-2 grid max-w-md grid-cols-1 gap-2 sm:grid-cols-2">
+                              {attributeOptions.map((attribute) => (
+                                <div
+                                  key={attribute.id}
+                                  className="bg-content/[0.02] rounded-md border border-[var(--border-color)] p-2"
+                                >
+                                  <p className="mb-1 text-[10px] font-bold tracking-wide text-[var(--muted)] uppercase">
+                                    {attribute.name}
+                                  </p>
+                                  <div className="flex flex-wrap gap-1">
+                                    {attribute.values?.map((value) => {
+                                      const checked =
+                                        editSku.attribute_value_ids?.includes(
+                                          value.id,
+                                        ) ?? false;
+
+                                      return (
+                                        <button
+                                          key={value.id}
+                                          type="button"
+                                          onClick={() =>
+                                            handleSkuAttributeValueToggle(
+                                              index,
+                                              value.id,
+                                            )
+                                          }
+                                          className={`rounded px-2 py-0.5 text-[10px] font-semibold transition-colors ${
+                                            checked
+                                              ? "bg-indigo-500/20 text-indigo-200"
+                                              : "bg-content/5 hover:bg-content/10 text-[var(--muted)]"
+                                          }`}
+                                        >
+                                          {value.value}
+                                        </button>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
                               ))}
                             </div>
                           )}

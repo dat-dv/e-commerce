@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  type IAttributeListResponse,
   type IBrandResponse,
   type ICategoryTreeResponse,
   type IProductResponse,
@@ -11,6 +12,7 @@ import { toast, useLoadOnce } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo, useState, useTransition } from "react";
 
+import { adminAttributeUseCase } from "@/domain/attribute";
 import { adminBrandUseCase } from "@/domain/brand";
 import { adminProductUseCase } from "@/domain/product";
 import { adminProductCategoryUseCase } from "@/domain/product-category";
@@ -57,6 +59,8 @@ const getProductEditSnapshot = (product: IProductResponse) => ({
       stock: Number(sku.stock),
       image_url: sku.image_url || "",
       unit_price: sku.unit_price || "VND",
+      attribute_value_ids:
+        sku.sku_attribute_values?.map((item) => item.attribute_value_id) ?? [],
     })) ?? [],
   deleted_sku_ids: [] as string[],
 });
@@ -68,6 +72,7 @@ export const useProductDetailView = () => {
 
   const [product, setProduct] = useState<IProductResponse | null>(null);
   const [brands, setBrands] = useState<IBrandResponse[]>([]);
+  const [attributes, setAttributes] = useState<IAttributeListResponse>([]);
   const [categoryTree, setCategoryTree] = useState<ICategoryTreeResponse>([]);
   const [loading, setLoading] = useState(true);
   const [metadataLoading, setMetadataLoading] = useState(true);
@@ -112,6 +117,7 @@ export const useProductDetailView = () => {
         stock: Number(sku.stock),
         image_url: sku.image_url || "",
         unit_price: sku.unit_price || "VND",
+        attribute_value_ids: sku.attribute_value_ids ?? [],
       })),
       deleted_sku_ids: [...deletedSkuIds].sort((a, b) => a.localeCompare(b)),
     };
@@ -144,11 +150,12 @@ export const useProductDetailView = () => {
     setError(null);
     setMetadataError(null);
 
-    const [productResult, brandsResult, categoriesResult] =
+    const [productResult, brandsResult, categoriesResult, attributesResult] =
       await Promise.allSettled([
         adminProductUseCase.getProduct.execute(slug),
         adminBrandUseCase.getBrands.execute({ page: 1, limit: 50 }),
         adminProductCategoryUseCase.getCategoryTree.execute(),
+        adminAttributeUseCase.getAttributes.execute(),
       ]);
 
     if (productResult.status === "fulfilled") {
@@ -178,6 +185,17 @@ export const useProductDetailView = () => {
         current
           ? `${current} Failed to load category options.`
           : "Failed to load category options.",
+      );
+    }
+
+    if (attributesResult.status === "fulfilled") {
+      setAttributes(attributesResult.value.data ?? []);
+    } else {
+      console.error(attributesResult.reason);
+      setMetadataError((current) =>
+        current
+          ? `${current} Failed to load attribute options.`
+          : "Failed to load attribute options.",
       );
     }
 
@@ -225,6 +243,7 @@ export const useProductDetailView = () => {
           stock: Number(sku.stock),
           image_url: sku.image_url?.trim() || null,
           unit_price: sku.unit_price?.trim() || "VND",
+          attribute_value_ids: sku.attribute_value_ids ?? [],
         }));
         const skuCodes = normalizedSkus.map((sku) => sku.sku_code);
 
@@ -308,6 +327,7 @@ export const useProductDetailView = () => {
   return {
     product,
     brands,
+    attributes,
     categoryTree,
     loading,
     metadataLoading,

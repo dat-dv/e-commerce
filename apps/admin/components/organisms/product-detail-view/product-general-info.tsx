@@ -1,4 +1,5 @@
 import {
+  type IAttributeListResponse,
   type IBrandResponse,
   type ICategoryResponse,
   type ICategoryTreeResponse,
@@ -13,6 +14,7 @@ import { ProductSkuTable } from "./product-sku-table";
 interface IProductGeneralInfoProps {
   product: IProductResponse;
   brands?: IBrandResponse[];
+  attributes?: IAttributeListResponse;
   categoryTree?: ICategoryTreeResponse;
   metadataLoading?: boolean;
   metadataError?: string | null;
@@ -49,6 +51,7 @@ const flattenCategories = (
 export const ProductGeneralInfo = ({
   product,
   brands = [],
+  attributes = [],
   categoryTree = [],
   metadataLoading = false,
   metadataError,
@@ -299,6 +302,7 @@ export const ProductGeneralInfo = ({
       {/* Render Nested Product SKUs Table */}
       <ProductSkuTable
         product={product}
+        attributes={attributes}
         isEditing={isEditing}
         editSkus={editSkus}
         setEditSkus={setEditSkus}
