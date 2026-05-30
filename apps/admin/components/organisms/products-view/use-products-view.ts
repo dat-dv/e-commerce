@@ -1,8 +1,10 @@
 "use client";
 
 import type { IProductResponse } from "@ecommerce/shared";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
+import { APP_ROUTES } from "@/constants/routes";
 import { adminProductUseCase } from "@/domain/product";
 import usePagination from "@/hooks/use-pagination";
 
@@ -57,9 +59,10 @@ export const useProductsView = () => {
     );
   }, [data.items, searchQuery]);
 
+  const router = useRouter();
+
   const handleViewDetail = (product: IProductResponse) => {
-    setSelectedProduct(product);
-    setIsDetailOpen(true);
+    router.push(APP_ROUTES.PRODUCT_DETAIL(product.slug));
   };
 
   return {

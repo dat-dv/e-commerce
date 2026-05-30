@@ -3,7 +3,6 @@
 import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
-import { ProductDetailDialog } from "./product-detail-dialog";
 import { ProductsHeader } from "./products-header";
 import { ProductsTable } from "./products-table";
 import { useProductsView } from "./use-products-view";
@@ -16,12 +15,9 @@ export const ProductsView = () => {
     page,
     total,
     totalPages,
-    selectedProduct,
-    isDetailOpen,
     filteredProducts,
     setPage,
     setSearchQuery,
-    setIsDetailOpen,
     handleViewDetail,
   } = useProductsView();
 
@@ -50,12 +46,6 @@ export const ProductsView = () => {
         totalPages={totalPages}
         onPageChange={setPage}
         onViewDetail={handleViewDetail}
-      />
-
-      <ProductDetailDialog
-        product={selectedProduct}
-        isOpen={isDetailOpen}
-        onClose={() => setIsDetailOpen(false)}
       />
     </div>
   );
