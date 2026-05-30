@@ -6,6 +6,7 @@ export const APP_ROUTES = {
   DASHBOARD: "/dashboard",
   CUSTOMERS: "/dashboard/customers",
   CUSTOMER_DETAIL: (id: string) => `/dashboard/customers/detail?id=${id}`,
+  PRODUCT_DETAIL: (slug: string) => `/dashboard/products/detail?slug=${slug}`,
   PERMISSIONS: "/dashboard/permissions/roles",
   ORDERS: "/dashboard/orders",
   PRODUCTS: "/dashboard/products",

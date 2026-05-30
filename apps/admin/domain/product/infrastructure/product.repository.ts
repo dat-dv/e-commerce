@@ -1,4 +1,8 @@
-import type { IApiResponse, IProductListResponse } from "@ecommerce/shared";
+import type {
+  IApiResponse,
+  IProductListResponse,
+  IProductResponse,
+} from "@ecommerce/shared";
 
 import { API_ROUTES } from "@/constants/routes";
 import { apiClient } from "@/utils/request/api-client";
@@ -15,6 +19,13 @@ export class AdminProductRepository implements IAdminProductRepository {
       {
         params: { page, limit },
       },
+    );
+    return response;
+  }
+
+  async getProduct(slug: string): Promise<IApiResponse<IProductResponse>> {
+    const response = await apiClient.get<IApiResponse<IProductResponse>>(
+      API_ROUTES.PRODUCTS.DETAIL(slug),
     );
     return response;
   }
