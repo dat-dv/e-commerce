@@ -1,0 +1,164 @@
+import { type IProductResponse } from "@ecommerce/shared";
+import { Button, Dialog, DialogPanel, DialogTitle } from "@ecommerce/ui";
+import { Package, Star } from "lucide-react";
+
+import {
+  formatCurrency,
+  getProductName,
+  getProductStatus,
+} from "./product.utils";
+
+interface IProductDetailDialogProps {
+  product: IProductResponse | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const ProductDetailDialog = ({
+  product,
+  isOpen,
+  onClose,
+}: IProductDetailDialogProps) => {
+  const name = product
+    ? getProductName(product.translations, product.slug)
+    : "";
+  const statusInfo = product ? getProductStatus(product.status) : null;
+
+  return (
+    <Dialog isOpen={isOpen} onClose={onClose}>
+      <DialogPanel className="max-w-xl rounded-2xl border border-white/[0.08] bg-[#0c0d12]/95 p-6 shadow-2xl backdrop-blur-2xl">
+        <DialogTitle className="text-xl font-bold text-[var(--app-text)]">
+          Product Details
+        </DialogTitle>
+
+        {product && statusInfo && (
+          <div className="mt-6 space-y-5">
+            {/* Thumbnail + Name */}
+            <div className="flex items-center gap-4 rounded-xl border border-white/[0.04] bg-white/2 p-4">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-white/5">
+                {product.thumbnail?.url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={product.thumbnail.url}
+                    alt={name}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <Package className="h-8 w-8 text-[var(--muted)]" />
+                )}
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-[var(--app-text)]">
+                  {name}
+                </h4>
+                <code className="text-xs text-[var(--muted)]">
+                  {product.slug}
+                </code>
+                <div className="mt-1.5">
+                  <span
+                    className={`rounded-md px-2 py-0.5 text-[10px] font-semibold ${statusInfo.color}`}
+                  >
+                    {statusInfo.label}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Stats */}
+            <div className="grid grid-cols-3 gap-3">
+              <div className="rounded-xl border border-white/[0.04] bg-white/2 px-3 py-3 text-center">
+                <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                  Price
+                </p>
+                <p className="mt-1 text-sm font-bold text-emerald-400">
+                  {formatCurrency(product.base_price)}
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/[0.04] bg-white/2 px-3 py-3 text-center">
+                <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                  Rating
+                </p>
+                <div className="mt-1 flex items-center justify-center gap-1">
+                  <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm font-bold text-[var(--app-text)]">
+                    {product.rating.toFixed(1)}
+                  </span>
+                </div>
+              </div>
+              <div className="rounded-xl border border-white/[0.04] bg-white/2 px-3 py-3 text-center">
+                <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                  Sold
+                </p>
+                <p className="mt-1 text-sm font-bold text-[var(--app-text)]">
+                  {product.sold_count}
+                </p>
+              </div>
+            </div>
+
+            {/* SKUs */}
+            {product.skus && product.skus.length > 0 && (
+              <div className="space-y-1.5">
+                <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                  SKUs ({product.skus.length})
+                </p>
+                <div className="space-y-1.5 rounded-xl border border-white/[0.04] bg-white/2 p-3">
+                  {product.skus.map((sku) => (
+                    <div
+                      key={sku.id}
+                      className="flex items-center justify-between gap-2"
+                    >
+                      <code className="text-xs text-indigo-300">
+                        {sku.sku_code}
+                      </code>
+                      <div className="flex items-center gap-3 text-xs text-[var(--muted)]">
+                        <span>
+                          Stock:{" "}
+                          <b className="text-[var(--app-text)]">{sku.stock}</b>
+                        </span>
+                        <span className="font-semibold text-[var(--app-text)]">
+                          {formatCurrency(sku.price)}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Reviews + Brand */}
+            <div className="flex gap-3">
+              <div className="flex-1 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+                <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                  Reviews
+                </p>
+                <p className="mt-1 text-base font-bold text-[var(--app-text)]">
+                  {product.review_count}
+                </p>
+              </div>
+              <div className="flex-1 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+                <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                  Brand
+                </p>
+                <p className="mt-1 text-sm font-bold text-[var(--app-text)]">
+                  {product.brand?.slug ?? "—"}
+                </p>
+              </div>
+            </div>
+
+            {/* Close */}
+            <div className="flex justify-end pt-2">
+              <Button
+                onClick={onClose}
+                className="rounded-lg bg-indigo-600 px-6 py-2.5 font-bold text-white shadow-lg shadow-indigo-500/10 hover:bg-indigo-500"
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        )}
+      </DialogPanel>
+    </Dialog>
+  );
+};
+
+ProductDetailDialog.displayName = "ProductDetailDialog";
