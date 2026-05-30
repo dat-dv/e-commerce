@@ -1,12 +1,9 @@
 "use client";
 
-import { BasicLoading, Tab, TabList, TabPanel, Tabs } from "@ecommerce/ui";
-import { Server, Sliders, User } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { BasicLoading, TableOfContents } from "@ecommerce/ui";
 import { useState } from "react";
 
 import { EAdminTheme } from "@/config/theme";
-import { APP_ROUTES } from "@/constants/routes";
 import { useAdminThemeStore } from "@/store/theme";
 import { useAdminUserStore } from "@/store/user";
 
@@ -15,24 +12,13 @@ import { ProfileTab } from "./profile-tab";
 import SettingsHeader from "./settings-header";
 import { SystemTab } from "./system-tab";
 
-const SETTINGS_TABS = [
-  { id: "appearance", label: "Appearance", icon: Sliders },
-  { id: "profile", label: "Account Profile", icon: User },
-  { id: "system", label: "System Info", icon: Server },
-] as const;
+const TOC_ITEMS = [
+  { id: "appearance", title: "Appearance" },
+  { id: "profile", title: "Account Profile" },
+  { id: "system", title: "System Info" },
+];
 
-type TabType = (typeof SETTINGS_TABS)[number]["id"];
-
-/**
- * SettingsView component coordinates the settings sections and sidebar nav tabs
- * using the generic Tabs molecules package.
- */
 export const SettingsView = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get("tab") as TabType) || "appearance";
-  const [activeTab, setActiveTab] = useState<TabType>(initialTab);
-
   const { theme, isDarkMode, setTheme, setDarkMode } = useAdminThemeStore();
   const { user } = useAdminUserStore();
 
@@ -41,11 +27,6 @@ export const SettingsView = () => {
     null,
   );
   const isChanging = themeChanging !== null || modeChanging !== null;
-
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab);
-    router.replace(`${APP_ROUTES.SETTINGS}?tab=${tab}`);
-  };
 
   const handleModeChange = (dark: boolean) => {
     if (isChanging) return;
@@ -73,42 +54,28 @@ export const SettingsView = () => {
     <>
       {isChanging && <BasicLoading isBlur={false} />}
 
-      <div className="mx-auto max-w-4xl space-y-6 pb-10">
+      <div className="space-y-6">
+        {/* Header */}
         <SettingsHeader />
-        <Tabs
-          selectedKey={activeTab}
-          onSelectionChange={(key) => handleTabChange(key as TabType)}
-          orientation="vertical"
-          className="grid gap-6 md:grid-cols-[200px_1fr]"
-        >
-          {/* Sidebar Nav */}
-          <TabList className="flex flex-row gap-1 overflow-visible border-b-0 md:h-fit md:flex-col">
-            {SETTINGS_TABS.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <Tab
-                  key={tab.id}
-                  id={tab.id}
-                  className={`flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-2.5 text-left text-sm font-semibold transition-all ${
-                    isActive
-                      ? "border-indigo-500/20 bg-indigo-500/15 text-indigo-400 shadow-sm"
-                      : "border-transparent text-[var(--muted)] hover:bg-white/5 hover:text-[var(--app-text)]"
-                  }`}
-                >
-                  <Icon className="h-4 w-4 shrink-0" />
-                  {tab.label}
-                </Tab>
-              );
-            })}
-          </TabList>
 
-          {/* Tab Panel */}
-          <div className="relative rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-xl backdrop-blur-xl">
-            {/* Glass Loading Overlay */}
+        <div className="grid gap-6 lg:grid-cols-[240px_1fr]">
+          <aside className="h-fit lg:sticky lg:top-24">
+            <h3 className="mb-3 text-sm font-bold tracking-wider text-[var(--sidebar-text)]/60 uppercase">
+              Preferences
+            </h3>
+            <TableOfContents
+              items={TOC_ITEMS}
+              activeItemClassName="bg-primary text-white shadow-md shadow-primary/10"
+              inactiveItemClassName="text-[var(--sidebar-text)] hover:bg-white/5 hover:text-primary"
+            />
+          </aside>
 
-            {/* TAB 1: Appearance */}
-            <TabPanel id="appearance" className="mt-0">
+          <div className="min-w-0 space-y-6 sm:space-y-8">
+            {/* Section 1: Appearance */}
+            <section
+              id="appearance"
+              className="relative scroll-mt-24 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-xl backdrop-blur-xl"
+            >
               <AppearanceTab
                 theme={theme}
                 isDarkMode={isDarkMode}
@@ -118,24 +85,30 @@ export const SettingsView = () => {
                 onThemeChange={handleThemeChange}
                 onModeChange={handleModeChange}
               />
-            </TabPanel>
+            </section>
 
-            {/* TAB 2: Profile */}
-            <TabPanel id="profile" className="mt-0">
+            {/* Section 2: Account Profile */}
+            <section
+              id="profile"
+              className="relative scroll-mt-24 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-xl backdrop-blur-xl"
+            >
               <ProfileTab user={user} />
-            </TabPanel>
+            </section>
 
-            {/* TAB 3: System Info */}
-            <TabPanel id="system" className="mt-0">
+            {/* Section 3: System Info */}
+            <section
+              id="system"
+              className="relative scroll-mt-24 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-xl backdrop-blur-xl"
+            >
               <SystemTab
                 env={process.env.NODE_ENV || "development"}
                 apiUrl={
                   process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
                 }
               />
-            </TabPanel>
+            </section>
           </div>
-        </Tabs>
+        </div>
       </div>
     </>
   );
