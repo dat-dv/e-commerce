@@ -4,6 +4,7 @@ import { Avatar } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { adminAuthUseCase } from "@/domain/auth";
 import { useAdminUserStore } from "@/store/user";
 
 interface IAdminHeaderProps {
@@ -19,7 +20,12 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
   const userEmail = user?.email;
   const userAvatar = user?.avatarUrl || undefined;
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      await adminAuthUseCase.logout.execute();
+    } catch {
+      // Gracefully ignore logout network errors to guarantee local state is cleared
+    }
     logout();
     setUserMenuOpen(false);
     router.push("/sign-in");

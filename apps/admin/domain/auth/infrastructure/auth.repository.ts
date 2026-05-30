@@ -36,4 +36,8 @@ export class AdminAuthRepository implements IAdminAuthRepository {
       data: AdminUserMapper.toDomain(response.data),
     };
   }
+
+  async logout(): Promise<IApiResponse<void>> {
+    return apiClient.post<IApiResponse<void>>("/auth/logout", {});
+  }
 }
