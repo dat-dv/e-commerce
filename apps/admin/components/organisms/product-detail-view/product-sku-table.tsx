@@ -166,6 +166,18 @@ export const ProductSkuTable = ({
                               {skuCodeError}
                             </p>
                           )}
+                          {attributes.length > 0 && (
+                            <div className="flex flex-wrap gap-1">
+                              {attributes.map((attribute) => (
+                                <span
+                                  key={attribute}
+                                  className="bg-content/5 rounded px-1.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]"
+                                >
+                                  {attribute}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div className="space-y-1">
