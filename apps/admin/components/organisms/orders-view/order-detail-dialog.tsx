@@ -22,7 +22,7 @@ export const OrderDetailDialog = ({
   onClose,
 }: IOrderDetailDialogProps) => (
   <Dialog isOpen={isOpen} onClose={onClose}>
-    <DialogPanel className="max-w-xl rounded-2xl border border-white/[0.08] bg-[#0c0d12]/95 p-6 shadow-2xl backdrop-blur-2xl">
+    <DialogPanel className="border-content/10 bg-surface/95 max-w-xl rounded-2xl border p-6 shadow-2xl backdrop-blur-2xl">
       <DialogTitle className="text-xl font-bold text-[var(--app-text)]">
         Order Details
       </DialogTitle>
@@ -30,7 +30,7 @@ export const OrderDetailDialog = ({
       {order && (
         <div className="mt-6 space-y-5">
           {/* Order ID & Status */}
-          <div className="flex items-center justify-between rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+          <div className="border-content/5 bg-content/[0.02] flex items-center justify-between rounded-xl border px-4 py-3">
             <div>
               <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                 Order ID
@@ -51,8 +51,8 @@ export const OrderDetailDialog = ({
             <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
               Customer
             </p>
-            <div className="flex items-center gap-3 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20">
+            <div className="border-content/5 bg-content/[0.02] flex items-center gap-3 rounded-xl border px-4 py-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/10">
                 <Avatar
                   name={`${order.user?.first_name ?? ""} ${order.user?.last_name ?? ""}`}
                   size={40}
@@ -73,7 +73,7 @@ export const OrderDetailDialog = ({
 
           {/* Financials */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+            <div className="border-content/5 bg-content/[0.02] rounded-xl border px-4 py-3">
               <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                 Total Amount
               </p>
@@ -81,7 +81,7 @@ export const OrderDetailDialog = ({
                 {formatCurrency(order.total_amount)}
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+            <div className="border-content/5 bg-content/[0.02] rounded-xl border px-4 py-3">
               <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                 Discount
               </p>
@@ -97,7 +97,7 @@ export const OrderDetailDialog = ({
               <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                 Items ({order.items.length})
               </p>
-              <div className="space-y-2 rounded-xl border border-white/[0.04] bg-white/2 p-3">
+              <div className="border-content/5 bg-content/[0.02] space-y-2 rounded-xl border p-3">
                 {order.items.map((item) => (
                   <div
                     key={item.id}
@@ -126,7 +126,7 @@ export const OrderDetailDialog = ({
 
           {/* Dates */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center gap-2 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+            <div className="border-content/5 bg-content/[0.02] flex items-center gap-2 rounded-xl border px-4 py-3">
               <Calendar className="h-4 w-4 shrink-0 text-[var(--muted)]" />
               <div>
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
@@ -137,7 +137,7 @@ export const OrderDetailDialog = ({
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+            <div className="border-content/5 bg-content/[0.02] flex items-center gap-2 rounded-xl border px-4 py-3">
               <Calendar className="h-4 w-4 shrink-0 text-[var(--muted)]" />
               <div>
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">

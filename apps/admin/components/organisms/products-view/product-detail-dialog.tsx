@@ -26,7 +26,7 @@ export const ProductDetailDialog = ({
 
   return (
     <Dialog isOpen={isOpen} onClose={onClose}>
-      <DialogPanel className="max-w-xl rounded-2xl border border-white/[0.08] bg-[#0c0d12]/95 p-6 shadow-2xl backdrop-blur-2xl">
+      <DialogPanel className="border-content/10 bg-surface/95 max-w-xl rounded-2xl border p-6 shadow-2xl backdrop-blur-2xl">
         <DialogTitle className="text-xl font-bold text-[var(--app-text)]">
           Product Details
         </DialogTitle>
@@ -34,8 +34,8 @@ export const ProductDetailDialog = ({
         {product && statusInfo && (
           <div className="mt-6 space-y-5">
             {/* Thumbnail + Name */}
-            <div className="flex items-center gap-4 rounded-xl border border-white/[0.04] bg-white/2 p-4">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-white/5">
+            <div className="border-content/5 bg-content/[0.02] flex items-center gap-4 rounded-xl border p-4">
+              <div className="border-content/10 bg-content/[0.02] flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border">
                 {product.thumbnail?.url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -66,7 +66,7 @@ export const ProductDetailDialog = ({
 
             {/* Key Stats */}
             <div className="grid grid-cols-3 gap-3">
-              <div className="rounded-xl border border-white/[0.04] bg-white/2 px-3 py-3 text-center">
+              <div className="border-content/5 bg-content/[0.02] rounded-xl border px-3 py-3 text-center">
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                   Price
                 </p>
@@ -74,7 +74,7 @@ export const ProductDetailDialog = ({
                   {formatCurrency(product.base_price)}
                 </p>
               </div>
-              <div className="rounded-xl border border-white/[0.04] bg-white/2 px-3 py-3 text-center">
+              <div className="border-content/5 bg-content/[0.02] rounded-xl border px-3 py-3 text-center">
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                   Rating
                 </p>
@@ -85,7 +85,7 @@ export const ProductDetailDialog = ({
                   </span>
                 </div>
               </div>
-              <div className="rounded-xl border border-white/[0.04] bg-white/2 px-3 py-3 text-center">
+              <div className="border-content/5 bg-content/[0.02] rounded-xl border px-3 py-3 text-center">
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                   Sold
                 </p>
@@ -101,7 +101,7 @@ export const ProductDetailDialog = ({
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                   SKUs ({product.skus.length})
                 </p>
-                <div className="space-y-1.5 rounded-xl border border-white/[0.04] bg-white/2 p-3">
+                <div className="border-content/5 bg-content/[0.02] space-y-1.5 rounded-xl border p-3">
                   {product.skus.map((sku) => (
                     <div
                       key={sku.id}
@@ -127,7 +127,7 @@ export const ProductDetailDialog = ({
 
             {/* Reviews + Brand */}
             <div className="flex gap-3">
-              <div className="flex-1 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+              <div className="border-content/5 bg-content/[0.02] flex-1 rounded-xl border px-4 py-3">
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                   Reviews
                 </p>
@@ -135,7 +135,7 @@ export const ProductDetailDialog = ({
                   {product.review_count}
                 </p>
               </div>
-              <div className="flex-1 rounded-xl border border-white/[0.04] bg-white/2 px-4 py-3">
+              <div className="border-content/5 bg-content/[0.02] flex-1 rounded-xl border px-4 py-3">
                 <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                   Brand
                 </p>
