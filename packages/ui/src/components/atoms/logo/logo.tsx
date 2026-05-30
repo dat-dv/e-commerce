@@ -42,7 +42,7 @@ export function Logo({
       transition={{ type: "spring", stiffness: 420, damping: 28 }}
     >
       <motion.div
-        className="from-primary to-primary/80 shadow-primary/20 relative flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-tr shadow-md"
+        className="from-primary to-primary/80 shadow-primary/20 relative flex shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-tr shadow-md"
         style={{ width: size, height: size }}
         variants={canAnimate ? logoMarkVariants : undefined}
         transition={{ type: "spring", stiffness: 500, damping: 24 }}

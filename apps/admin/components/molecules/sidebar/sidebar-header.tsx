@@ -11,7 +11,7 @@ interface ISidebarHeaderProps {
 
 export const SidebarHeader = ({ isCollapsed }: ISidebarHeaderProps) => {
   return (
-    <div className="flex h-16 items-center border-b border-[var(--border-color)] px-4">
+    <div className="flex h-16 items-center border-b border-[var(--border-color)] pr-4 pl-[26px]">
       <Link href={APP_ROUTES.DASHBOARD} className="flex items-center gap-2.5">
         <Logo size={28} showText={!isCollapsed} />
       </Link>
