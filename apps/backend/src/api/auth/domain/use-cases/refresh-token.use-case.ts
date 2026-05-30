@@ -21,14 +21,14 @@ export class RefreshTokenUseCase {
     try {
       const isValidRT = await this.tokenService.verifyRefreshToken(refreshToken);
 
-      const dbToken = await this.authRepository.findRefreshToken(refreshToken);
-      if (!dbToken) {
+      const cachedToken = await this.authRepository.findRefreshToken(refreshToken);
+      if (!cachedToken) {
         throw new BadRequestException('Invalid or expired refresh token');
       }
 
       await this.authRepository.removeRefreshToken(refreshToken);
 
-      const payload = { sub: dbToken.user_id, email: isValidRT.email };
+      const payload = { sub: cachedToken.user_id, email: isValidRT.email };
 
       const newRefreshToken = await this.tokenService.generateRefreshToken(payload);
       const newAccessToken = await this.tokenService.generateAccessToken(payload);

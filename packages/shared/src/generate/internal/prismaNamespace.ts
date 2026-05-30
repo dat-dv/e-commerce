@@ -414,7 +414,6 @@ export const ModelName = {
   PasswordResetToken: 'PasswordResetToken',
   Product: 'Product',
   Sku: 'Sku',
-  RefreshToken: 'RefreshToken',
   Review: 'Review',
   Role: 'Role',
   Permission: 'Permission',
@@ -439,7 +438,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "helpContactSubmission" | "helpContactSubmissionImage" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "orderReturn" | "orderReturnImage" | "passwordResetToken" | "product" | "sku" | "refreshToken" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
+    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "helpContactSubmission" | "helpContactSubmissionImage" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "orderReturn" | "orderReturnImage" | "passwordResetToken" | "product" | "sku" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2663,80 +2662,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    RefreshToken: {
-      payload: Prisma.$RefreshTokenPayload<ExtArgs>
-      fields: Prisma.RefreshTokenFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.RefreshTokenFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.RefreshTokenFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
-        }
-        findFirst: {
-          args: Prisma.RefreshTokenFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.RefreshTokenFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
-        }
-        findMany: {
-          args: Prisma.RefreshTokenFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[]
-        }
-        create: {
-          args: Prisma.RefreshTokenCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
-        }
-        createMany: {
-          args: Prisma.RefreshTokenCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.RefreshTokenCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[]
-        }
-        delete: {
-          args: Prisma.RefreshTokenDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
-        }
-        update: {
-          args: Prisma.RefreshTokenUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
-        }
-        deleteMany: {
-          args: Prisma.RefreshTokenDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.RefreshTokenUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.RefreshTokenUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[]
-        }
-        upsert: {
-          args: Prisma.RefreshTokenUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
-        }
-        aggregate: {
-          args: Prisma.RefreshTokenAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateRefreshToken>
-        }
-        groupBy: {
-          args: Prisma.RefreshTokenGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.RefreshTokenGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.RefreshTokenCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.RefreshTokenCountAggregateOutputType> | number
-        }
-      }
-    }
     Review: {
       payload: Prisma.$ReviewPayload<ExtArgs>
       fields: Prisma.ReviewFieldRefs
@@ -3818,17 +3743,6 @@ export const SkuScalarFieldEnum = {
 export type SkuScalarFieldEnum = (typeof SkuScalarFieldEnum)[keyof typeof SkuScalarFieldEnum]
 
 
-export const RefreshTokenScalarFieldEnum = {
-  token: 'token',
-  user_id: 'user_id',
-  expires_at: 'expires_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type RefreshTokenScalarFieldEnum = (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum]
-
-
 export const ReviewScalarFieldEnum = {
   id: 'id',
   product_id: 'product_id',
@@ -4184,7 +4098,6 @@ export type GlobalOmitConfig = {
   passwordResetToken?: Prisma.PasswordResetTokenOmit
   product?: Prisma.ProductOmit
   sku?: Prisma.SkuOmit
-  refreshToken?: Prisma.RefreshTokenOmit
   review?: Prisma.ReviewOmit
   role?: Prisma.RoleOmit
   permission?: Prisma.PermissionOmit

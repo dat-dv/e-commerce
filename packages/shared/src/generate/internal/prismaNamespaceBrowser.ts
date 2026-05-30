@@ -81,7 +81,6 @@ export const ModelName = {
   PasswordResetToken: 'PasswordResetToken',
   Product: 'Product',
   Sku: 'Sku',
-  RefreshToken: 'RefreshToken',
   Review: 'Review',
   Role: 'Role',
   Permission: 'Permission',
@@ -483,17 +482,6 @@ export const SkuScalarFieldEnum = {
 } as const
 
 export type SkuScalarFieldEnum = (typeof SkuScalarFieldEnum)[keyof typeof SkuScalarFieldEnum]
-
-
-export const RefreshTokenScalarFieldEnum = {
-  token: 'token',
-  user_id: 'user_id',
-  expires_at: 'expires_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type RefreshTokenScalarFieldEnum = (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum]
 
 
 export const ReviewScalarFieldEnum = {

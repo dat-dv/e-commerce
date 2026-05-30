@@ -281,7 +281,6 @@ export type UserWhereInput = {
   deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   role_id?: Prisma.StringNullableFilter<"User"> | string | null
   avatar?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
-  refresh_tokens?: Prisma.RefreshTokenListRelationFilter
   shipping_addresses?: Prisma.ShippingAddressListRelationFilter
   password_reset_tokens?: Prisma.PasswordResetTokenListRelationFilter
   phones?: Prisma.UserPhoneListRelationFilter
@@ -313,7 +312,6 @@ export type UserOrderByWithRelationInput = {
   deleted_at?: Prisma.SortOrderInput | Prisma.SortOrder
   role_id?: Prisma.SortOrderInput | Prisma.SortOrder
   avatar?: Prisma.ImageOrderByWithRelationInput
-  refresh_tokens?: Prisma.RefreshTokenOrderByRelationAggregateInput
   shipping_addresses?: Prisma.ShippingAddressOrderByRelationAggregateInput
   password_reset_tokens?: Prisma.PasswordResetTokenOrderByRelationAggregateInput
   phones?: Prisma.UserPhoneOrderByRelationAggregateInput
@@ -348,7 +346,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   role_id?: Prisma.StringNullableFilter<"User"> | string | null
   avatar?: Prisma.XOR<Prisma.ImageNullableScalarRelationFilter, Prisma.ImageWhereInput> | null
-  refresh_tokens?: Prisma.RefreshTokenListRelationFilter
   shipping_addresses?: Prisma.ShippingAddressListRelationFilter
   password_reset_tokens?: Prisma.PasswordResetTokenListRelationFilter
   phones?: Prisma.UserPhoneListRelationFilter
@@ -418,7 +415,6 @@ export type UserCreateInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -449,7 +445,6 @@ export type UserUncheckedCreateInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -478,7 +473,6 @@ export type UserUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -509,7 +503,6 @@ export type UserUncheckedUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -793,20 +786,6 @@ export type UserUpdateOneRequiredWithoutPassword_reset_tokensNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPassword_reset_tokensInput, Prisma.UserUpdateWithoutPassword_reset_tokensInput>, Prisma.UserUncheckedUpdateWithoutPassword_reset_tokensInput>
 }
 
-export type UserCreateNestedOneWithoutRefresh_tokensInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutRefresh_tokensInput, Prisma.UserUncheckedCreateWithoutRefresh_tokensInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRefresh_tokensInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneRequiredWithoutRefresh_tokensNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutRefresh_tokensInput, Prisma.UserUncheckedCreateWithoutRefresh_tokensInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRefresh_tokensInput
-  upsert?: Prisma.UserUpsertWithoutRefresh_tokensInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRefresh_tokensInput, Prisma.UserUpdateWithoutRefresh_tokensInput>, Prisma.UserUncheckedUpdateWithoutRefresh_tokensInput>
-}
-
 export type UserCreateNestedOneWithoutReviewsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutReviewsInput, Prisma.UserUncheckedCreateWithoutReviewsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewsInput
@@ -932,7 +911,6 @@ export type UserCreateWithoutBrowsing_historyInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -962,7 +940,6 @@ export type UserUncheckedCreateWithoutBrowsing_historyInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1006,7 +983,6 @@ export type UserUpdateWithoutBrowsing_historyInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1036,7 +1012,6 @@ export type UserUncheckedUpdateWithoutBrowsing_historyInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1064,7 +1039,6 @@ export type UserCreateWithoutCartInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1094,7 +1068,6 @@ export type UserUncheckedCreateWithoutCartInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1138,7 +1111,6 @@ export type UserUpdateWithoutCartInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1168,7 +1140,6 @@ export type UserUncheckedUpdateWithoutCartInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1196,7 +1167,6 @@ export type UserCreateWithoutHelp_contact_submissionsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1226,7 +1196,6 @@ export type UserUncheckedCreateWithoutHelp_contact_submissionsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1270,7 +1239,6 @@ export type UserUpdateWithoutHelp_contact_submissionsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1300,7 +1268,6 @@ export type UserUncheckedUpdateWithoutHelp_contact_submissionsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1327,7 +1294,6 @@ export type UserCreateWithoutAvatarInput = {
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1357,7 +1323,6 @@ export type UserUncheckedCreateWithoutAvatarInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1401,7 +1366,6 @@ export type UserUpdateWithoutAvatarInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1431,7 +1395,6 @@ export type UserUncheckedUpdateWithoutAvatarInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1460,7 +1423,6 @@ export type UserCreateWithoutNotificationsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1490,7 +1452,6 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1534,7 +1495,6 @@ export type UserUpdateWithoutNotificationsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1564,7 +1524,6 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1592,7 +1551,6 @@ export type UserCreateWithoutNotification_tokensInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1622,7 +1580,6 @@ export type UserUncheckedCreateWithoutNotification_tokensInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1666,7 +1623,6 @@ export type UserUpdateWithoutNotification_tokensInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1696,7 +1652,6 @@ export type UserUncheckedUpdateWithoutNotification_tokensInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1724,7 +1679,6 @@ export type UserCreateWithoutOrdersInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1754,7 +1708,6 @@ export type UserUncheckedCreateWithoutOrdersInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1798,7 +1751,6 @@ export type UserUpdateWithoutOrdersInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1828,7 +1780,6 @@ export type UserUncheckedUpdateWithoutOrdersInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1856,7 +1807,6 @@ export type UserCreateWithoutOrder_returnsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -1886,7 +1836,6 @@ export type UserUncheckedCreateWithoutOrder_returnsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -1930,7 +1879,6 @@ export type UserUpdateWithoutOrder_returnsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -1960,7 +1908,6 @@ export type UserUncheckedUpdateWithoutOrder_returnsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -1988,7 +1935,6 @@ export type UserCreateWithoutPassword_reset_tokensInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
   cart?: Prisma.CartCreateNestedOneWithoutUserInput
@@ -2018,7 +1964,6 @@ export type UserUncheckedCreateWithoutPassword_reset_tokensInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
   cart?: Prisma.CartUncheckedCreateNestedOneWithoutUserInput
@@ -2062,7 +2007,6 @@ export type UserUpdateWithoutPassword_reset_tokensInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUpdateOneWithoutUserNestedInput
@@ -2092,140 +2036,7 @@ export type UserUncheckedUpdateWithoutPassword_reset_tokensInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
-  phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
-  cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
-  orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
-  browsing_history?: Prisma.UserBrowsingHistoryUncheckedUpdateManyWithoutUserNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
-  notification_tokens?: Prisma.NotificationTokenUncheckedUpdateManyWithoutUserNestedInput
-  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
-  favorite_categories?: Prisma.UserFavoriteCategoryUncheckedUpdateManyWithoutUserNestedInput
-  favorite_products?: Prisma.UserFavoriteProductUncheckedUpdateManyWithoutUserNestedInput
-  help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedUpdateManyWithoutUserNestedInput
-  order_returns?: Prisma.OrderReturnUncheckedUpdateManyWithoutCreated_byNestedInput
-}
-
-export type UserCreateWithoutRefresh_tokensInput = {
-  id?: string
-  first_name?: string | null
-  last_name?: string | null
-  email: string
-  password: string
-  salt?: string | null
-  date_of_birth?: Date | string | null
-  gender?: number | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  deleted_at?: Date | string | null
-  avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
-  password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
-  phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
-  cart?: Prisma.CartCreateNestedOneWithoutUserInput
-  orders?: Prisma.OrderCreateNestedManyWithoutUserInput
-  browsing_history?: Prisma.UserBrowsingHistoryCreateNestedManyWithoutUserInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
-  notification_tokens?: Prisma.NotificationTokenCreateNestedManyWithoutUserInput
-  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
-  favorite_categories?: Prisma.UserFavoriteCategoryCreateNestedManyWithoutUserInput
-  favorite_products?: Prisma.UserFavoriteProductCreateNestedManyWithoutUserInput
-  help_contact_submissions?: Prisma.HelpContactSubmissionCreateNestedManyWithoutUserInput
-  order_returns?: Prisma.OrderReturnCreateNestedManyWithoutCreated_byInput
-  role?: Prisma.RoleCreateNestedOneWithoutUsersInput
-}
-
-export type UserUncheckedCreateWithoutRefresh_tokensInput = {
-  id?: string
-  first_name?: string | null
-  last_name?: string | null
-  email: string
-  password: string
-  salt?: string | null
-  date_of_birth?: Date | string | null
-  gender?: number | null
-  avatar_id?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  deleted_at?: Date | string | null
-  role_id?: string | null
-  shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
-  password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
-  phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
-  cart?: Prisma.CartUncheckedCreateNestedOneWithoutUserInput
-  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutUserInput
-  browsing_history?: Prisma.UserBrowsingHistoryUncheckedCreateNestedManyWithoutUserInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
-  notification_tokens?: Prisma.NotificationTokenUncheckedCreateNestedManyWithoutUserInput
-  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
-  favorite_categories?: Prisma.UserFavoriteCategoryUncheckedCreateNestedManyWithoutUserInput
-  favorite_products?: Prisma.UserFavoriteProductUncheckedCreateNestedManyWithoutUserInput
-  help_contact_submissions?: Prisma.HelpContactSubmissionUncheckedCreateNestedManyWithoutUserInput
-  order_returns?: Prisma.OrderReturnUncheckedCreateNestedManyWithoutCreated_byInput
-}
-
-export type UserCreateOrConnectWithoutRefresh_tokensInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutRefresh_tokensInput, Prisma.UserUncheckedCreateWithoutRefresh_tokensInput>
-}
-
-export type UserUpsertWithoutRefresh_tokensInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutRefresh_tokensInput, Prisma.UserUncheckedUpdateWithoutRefresh_tokensInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutRefresh_tokensInput, Prisma.UserUncheckedCreateWithoutRefresh_tokensInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutRefresh_tokensInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutRefresh_tokensInput, Prisma.UserUncheckedUpdateWithoutRefresh_tokensInput>
-}
-
-export type UserUpdateWithoutRefresh_tokensInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  first_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
-  password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
-  phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
-  cart?: Prisma.CartUpdateOneWithoutUserNestedInput
-  orders?: Prisma.OrderUpdateManyWithoutUserNestedInput
-  browsing_history?: Prisma.UserBrowsingHistoryUpdateManyWithoutUserNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
-  notification_tokens?: Prisma.NotificationTokenUpdateManyWithoutUserNestedInput
-  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
-  favorite_categories?: Prisma.UserFavoriteCategoryUpdateManyWithoutUserNestedInput
-  favorite_products?: Prisma.UserFavoriteProductUpdateManyWithoutUserNestedInput
-  help_contact_submissions?: Prisma.HelpContactSubmissionUpdateManyWithoutUserNestedInput
-  order_returns?: Prisma.OrderReturnUpdateManyWithoutCreated_byNestedInput
-  role?: Prisma.RoleUpdateOneWithoutUsersNestedInput
-}
-
-export type UserUncheckedUpdateWithoutRefresh_tokensInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  first_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  avatar_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
-  password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutUserNestedInput
@@ -2252,7 +2063,6 @@ export type UserCreateWithoutReviewsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -2282,7 +2092,6 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -2326,7 +2135,6 @@ export type UserUpdateWithoutReviewsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -2356,7 +2164,6 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -2384,7 +2191,6 @@ export type UserCreateWithoutRoleInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -2413,7 +2219,6 @@ export type UserUncheckedCreateWithoutRoleInput = {
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -2486,7 +2291,6 @@ export type UserCreateWithoutShipping_addressesInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
   cart?: Prisma.CartCreateNestedOneWithoutUserInput
@@ -2516,7 +2320,6 @@ export type UserUncheckedCreateWithoutShipping_addressesInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
   cart?: Prisma.CartUncheckedCreateNestedOneWithoutUserInput
@@ -2560,7 +2363,6 @@ export type UserUpdateWithoutShipping_addressesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUpdateOneWithoutUserNestedInput
@@ -2590,7 +2392,6 @@ export type UserUncheckedUpdateWithoutShipping_addressesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
@@ -2618,7 +2419,6 @@ export type UserCreateWithoutFavorite_categoriesInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -2648,7 +2448,6 @@ export type UserUncheckedCreateWithoutFavorite_categoriesInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -2692,7 +2491,6 @@ export type UserUpdateWithoutFavorite_categoriesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -2722,7 +2520,6 @@ export type UserUncheckedUpdateWithoutFavorite_categoriesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -2750,7 +2547,6 @@ export type UserCreateWithoutFavorite_productsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneCreateNestedManyWithoutUserInput
@@ -2780,7 +2576,6 @@ export type UserUncheckedCreateWithoutFavorite_productsInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   phones?: Prisma.UserPhoneUncheckedCreateNestedManyWithoutUserInput
@@ -2824,7 +2619,6 @@ export type UserUpdateWithoutFavorite_productsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -2854,7 +2648,6 @@ export type UserUncheckedUpdateWithoutFavorite_productsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -2882,7 +2675,6 @@ export type UserCreateWithoutPhonesInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   avatar?: Prisma.ImageCreateNestedOneWithoutUserInput
-  refresh_tokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   cart?: Prisma.CartCreateNestedOneWithoutUserInput
@@ -2912,7 +2704,6 @@ export type UserUncheckedCreateWithoutPhonesInput = {
   updated_at?: Date | string
   deleted_at?: Date | string | null
   role_id?: string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedCreateNestedManyWithoutUserInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   cart?: Prisma.CartUncheckedCreateNestedOneWithoutUserInput
@@ -2956,7 +2747,6 @@ export type UserUpdateWithoutPhonesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUpdateOneWithoutUserNestedInput
@@ -2986,7 +2776,6 @@ export type UserUncheckedUpdateWithoutPhonesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   cart?: Prisma.CartUncheckedUpdateOneWithoutUserNestedInput
@@ -3029,7 +2818,6 @@ export type UserUpdateWithoutRoleInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avatar?: Prisma.ImageUpdateOneWithoutUserNestedInput
-  refresh_tokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUpdateManyWithoutUserNestedInput
@@ -3058,7 +2846,6 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  refresh_tokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
   shipping_addresses?: Prisma.ShippingAddressUncheckedUpdateManyWithoutUserNestedInput
   password_reset_tokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   phones?: Prisma.UserPhoneUncheckedUpdateManyWithoutUserNestedInput
@@ -3095,7 +2882,6 @@ export type UserUncheckedUpdateManyWithoutRoleInput = {
  */
 
 export type UserCountOutputType = {
-  refresh_tokens: number
   shipping_addresses: number
   password_reset_tokens: number
   phones: number
@@ -3111,7 +2897,6 @@ export type UserCountOutputType = {
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  refresh_tokens?: boolean | UserCountOutputTypeCountRefresh_tokensArgs
   shipping_addresses?: boolean | UserCountOutputTypeCountShipping_addressesArgs
   password_reset_tokens?: boolean | UserCountOutputTypeCountPassword_reset_tokensArgs
   phones?: boolean | UserCountOutputTypeCountPhonesArgs
@@ -3134,13 +2919,6 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
    * Select specific fields to fetch from the UserCountOutputType
    */
   select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountRefresh_tokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RefreshTokenWhereInput
 }
 
 /**
@@ -3243,7 +3021,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   deleted_at?: boolean
   role_id?: boolean
   avatar?: boolean | Prisma.User$avatarArgs<ExtArgs>
-  refresh_tokens?: boolean | Prisma.User$refresh_tokensArgs<ExtArgs>
   shipping_addresses?: boolean | Prisma.User$shipping_addressesArgs<ExtArgs>
   password_reset_tokens?: boolean | Prisma.User$password_reset_tokensArgs<ExtArgs>
   phones?: boolean | Prisma.User$phonesArgs<ExtArgs>
@@ -3316,7 +3093,6 @@ export type UserSelectScalar = {
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "first_name" | "last_name" | "email" | "password" | "salt" | "date_of_birth" | "gender" | "avatar_id" | "created_at" | "updated_at" | "deleted_at" | "role_id", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   avatar?: boolean | Prisma.User$avatarArgs<ExtArgs>
-  refresh_tokens?: boolean | Prisma.User$refresh_tokensArgs<ExtArgs>
   shipping_addresses?: boolean | Prisma.User$shipping_addressesArgs<ExtArgs>
   password_reset_tokens?: boolean | Prisma.User$password_reset_tokensArgs<ExtArgs>
   phones?: boolean | Prisma.User$phonesArgs<ExtArgs>
@@ -3346,7 +3122,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "User"
   objects: {
     avatar: Prisma.$ImagePayload<ExtArgs> | null
-    refresh_tokens: Prisma.$RefreshTokenPayload<ExtArgs>[]
     shipping_addresses: Prisma.$ShippingAddressPayload<ExtArgs>[]
     password_reset_tokens: Prisma.$PasswordResetTokenPayload<ExtArgs>[]
     phones: Prisma.$UserPhonePayload<ExtArgs>[]
@@ -3771,7 +3546,6 @@ readonly fields: UserFieldRefs;
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   avatar<T extends Prisma.User$avatarArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$avatarArgs<ExtArgs>>): Prisma.Prisma__ImageClient<runtime.Types.Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  refresh_tokens<T extends Prisma.User$refresh_tokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$refresh_tokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   shipping_addresses<T extends Prisma.User$shipping_addressesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$shipping_addressesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ShippingAddressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   password_reset_tokens<T extends Prisma.User$password_reset_tokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$password_reset_tokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   phones<T extends Prisma.User$phonesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$phonesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPhonePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -4243,30 +4017,6 @@ export type User$avatarArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   include?: Prisma.ImageInclude<ExtArgs> | null
   where?: Prisma.ImageWhereInput
-}
-
-/**
- * User.refresh_tokens
- */
-export type User$refresh_tokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the RefreshToken
-   */
-  select?: Prisma.RefreshTokenSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the RefreshToken
-   */
-  omit?: Prisma.RefreshTokenOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.RefreshTokenInclude<ExtArgs> | null
-  where?: Prisma.RefreshTokenWhereInput
-  orderBy?: Prisma.RefreshTokenOrderByWithRelationInput | Prisma.RefreshTokenOrderByWithRelationInput[]
-  cursor?: Prisma.RefreshTokenWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.RefreshTokenScalarFieldEnum | Prisma.RefreshTokenScalarFieldEnum[]
 }
 
 /**

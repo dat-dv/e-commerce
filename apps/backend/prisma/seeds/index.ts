@@ -44,7 +44,6 @@ async function cleanDatabase() {
   await prisma.language.deleteMany({});
   await prisma.userPhone.deleteMany({});
   await prisma.passwordResetToken.deleteMany({});
-  await prisma.refreshToken.deleteMany({});
   await prisma.user.deleteMany({});
   await prisma.permission.deleteMany({});
   await prisma.role.deleteMany({});

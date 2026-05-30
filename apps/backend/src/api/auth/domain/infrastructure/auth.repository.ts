@@ -21,7 +21,6 @@ export class AuthRepository implements IAuthRepository {
 
     const now = new Date();
     const refreshToken: IRefreshTokenResponse = {
-      token,
       user_id: userId,
       expires_at: expiresAt,
       created_at: now,

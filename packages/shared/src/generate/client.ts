@@ -192,11 +192,6 @@ export type Product = Prisma.ProductModel
  */
 export type Sku = Prisma.SkuModel
 /**
- * Model RefreshToken
- * 
- */
-export type RefreshToken = Prisma.RefreshTokenModel
-/**
  * Model Review
  * 
  */

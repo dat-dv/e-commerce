@@ -1,5 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Prisma } from 'generated/prisma/client';
 import { RefreshTokenUseCase } from './refresh-token.use-case';
 import { TokenService } from 'src/shared/services/token/token.service';
 import { IAuthRepository } from '../entities/auth.repository.interface';
@@ -54,7 +53,7 @@ describe('RefreshTokenUseCase', () => {
     await expect(useCase.execute('at')).rejects.toThrow(BadRequestException);
   });
 
-  it('should throw UnauthorizedException if refresh token not in db', async () => {
+  it('should throw UnauthorizedException if refresh token not in cache', async () => {
     mockTokenService.verifyRefreshToken.mockResolvedValue({ sub: '1', email: 'test@example.com' });
     mockAuthRepository.findRefreshToken.mockResolvedValue(null);
 
@@ -62,15 +61,14 @@ describe('RefreshTokenUseCase', () => {
   });
 
   it('should refresh tokens successfully', async () => {
-    const dbToken: Prisma.RefreshTokenGetPayload<Record<string, never>> = {
-      token: 'rt',
+    const cachedToken = {
       user_id: '1',
       expires_at: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
     };
     mockTokenService.verifyRefreshToken.mockResolvedValue({ sub: '1', email: 'test@example.com' });
-    mockAuthRepository.findRefreshToken.mockResolvedValue(dbToken);
+    mockAuthRepository.findRefreshToken.mockResolvedValue(cachedToken);
     mockTokenService.generateRefreshToken.mockResolvedValue('new-rt');
     mockTokenService.generateAccessToken.mockResolvedValue('new-at');
 
