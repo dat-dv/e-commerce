@@ -16,6 +16,11 @@ export interface ICacheService {
    * Xóa giá trị cache theo key.
    */
   delete(key: string): Promise<void>;
+
+  /**
+   * Xóa nhiều key cache theo pattern Redis.
+   */
+  deleteByPattern(pattern: string): Promise<void>;
 }
 
 export const ICacheService = Symbol('ICacheService');

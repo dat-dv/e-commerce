@@ -121,4 +121,30 @@ export class ResilientCacheService implements ICacheService, OnModuleInit, OnMod
       this.logger.warn(`Redis DEL failed for key "${key}": ${message}`);
     }
   }
+
+  /**
+   * Xóa nhiều key theo pattern bằng SCAN để tránh block Redis khi số lượng key lớn.
+   */
+  async deleteByPattern(pattern: string): Promise<void> {
+    if (!this.isRedisHealthy || !this.redisClient) {
+      this.logger.debug(`Redis is offline. Skipping DEL for pattern "${pattern}".`);
+      return;
+    }
+
+    try {
+      let cursor = '0';
+
+      do {
+        const [nextCursor, keys] = await this.redisClient.scan(cursor, 'MATCH', pattern, 'COUNT', 100);
+        cursor = nextCursor;
+
+        if (keys.length > 0) {
+          await this.redisClient.del(...keys);
+        }
+      } while (cursor !== '0');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      this.logger.warn(`Redis DEL pattern failed for pattern "${pattern}": ${message}`);
+    }
+  }
 }
