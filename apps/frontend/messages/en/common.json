@@ -56,7 +56,13 @@
       "shipping": "Shipping",
       "privacyPolicy": "Privacy Policy",
       "termsOfService": "Terms of Service",
-      "rightsReserved": "All rights reserved."
+      "rightsReserved": "All rights reserved.",
+      "account": "Account",
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "profile": "Account Profile",
+      "orders": "My Orders",
+      "wishlist": "Wishlist"
     },
     "rootMetadata": {
       "title": {
