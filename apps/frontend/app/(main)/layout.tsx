@@ -1,4 +1,4 @@
-import Footer from "@/components/atoms/footer";
+import Footer from "@/components/molecules/footer";
 import Header from "@/components/organisms/header";
 import { PUBLIC_ENV } from "@/config/public.env.config";
 import { getTranslations } from "next-intl/server";

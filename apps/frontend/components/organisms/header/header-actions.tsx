@@ -2,7 +2,7 @@
 
 import { Button, CartIcon, FavoriteIcon } from "@ecommerce/ui";
 
-import ProtectedSection from "@/components/atoms/protected-section/protected-section";
+import ProtectedSection from "@/components/molecules/protected-section/protected-section";
 import { NotificationCenter } from "@/components/organisms/notifications/notification-center";
 import { APP_ROUTES } from "@/constants/routes";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
