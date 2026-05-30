@@ -20,11 +20,13 @@ import { UsersModule } from './api/users/users.module';
 import { AppController } from './app.controller';
 import ConfigModule from './config/config.module';
 import { SharedModule } from './shared/shared.module';
+import { CacheModule } from './shared/services/cache/cache.module';
 
 @Module({
   imports: [
     ConfigModule,
     SharedModule,
+    CacheModule,
     UsersModule,
     AuthModule,
     RolesModule,

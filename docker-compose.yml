@@ -19,13 +19,15 @@ services:
       - sqlite_data:/app/apps/backend/prisma/data
     networks:
       - ecommerce-network
+    depends_on:
+      redis:
+        condition: service_started
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 30s
-
 
   # ──────────────────────────────────────────────
   # Frontend — Next.js
@@ -81,6 +83,24 @@ services:
     networks:
       - ecommerce-network
 
+  # ──────────────────────────────────────────────
+  # Redis
+  # ──────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env.backend
+    # Truyền mật khẩu từ env nội bộ của container để tránh lỗi phân giải trống trên máy host
+    command: sh -c "redis-server --requirepass $$REDIS_PASSWORD"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ecommerce-network
+
 # ──────────────────────────────────────────────
 # Volumes
 # ──────────────────────────────────────────────
@@ -88,6 +108,8 @@ volumes:
   sqlite_data:
     driver: local
   postgres_data:
+    driver: local
+  redis_data:
     driver: local
 
 # ──────────────────────────────────────────────
