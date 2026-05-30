@@ -13,7 +13,7 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
     page?: number;
     limit?: number;
   }): Promise<IHomepageFeaturedCategory[]> {
-    const { languageCode = 'vi', page = 1, limit = 10 } = params || {};
+    const { languageCode = 'en', page = 1, limit = 10 } = params || {};
 
     return this.prisma.featuredCategory.findMany({
       where: {

@@ -8,7 +8,7 @@ export class GetBrandBySlugUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, languageCode = 'vi') {
+  async execute(slug: string, languageCode = 'en') {
     return this.brandsRepository.getBrandBySlug(slug, languageCode);
   }
 }

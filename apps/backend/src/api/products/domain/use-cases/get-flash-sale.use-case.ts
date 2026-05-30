@@ -10,7 +10,7 @@ export class GetFlashSaleUseCase {
   ) {}
 
   async execute(
-    languageCode = 'vi',
+    languageCode = 'en',
     userId?: string,
     page = 1,
     limit = 12,

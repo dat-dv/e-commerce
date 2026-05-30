@@ -17,7 +17,7 @@ export class GetProductCategoryTreeUseCase {
     private readonly cacheService: ICacheService,
   ) {}
 
-  async execute(languageCode = 'vi'): Promise<ICategoryResponse[]> {
+  async execute(languageCode = 'en'): Promise<ICategoryResponse[]> {
     const cacheKey = CacheKeys.productCategoryTree(languageCode);
 
     const cached = await this.cacheService.get(cacheKey).catch(() => null);

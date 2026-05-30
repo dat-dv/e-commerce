@@ -21,7 +21,7 @@ export class ProductsRepository implements IProductsRepository {
     private readonly paginationService: PaginationService,
   ) {}
 
-  private getProductInclude(languageCode: string) {
+  private getProductInclude(languageCode: string, options?: { allTranslations?: boolean }) {
     return {
       thumbnail: true,
       brand: {
@@ -42,13 +42,15 @@ export class ProductsRepository implements IProductsRepository {
           },
         },
       },
-      translations: {
-        where: {
-          language: {
-            code: languageCode,
+      translations: options?.allTranslations
+        ? true
+        : {
+            where: {
+              language: {
+                code: languageCode,
+              },
+            },
           },
-        },
-      },
       skus: {
         include: {
           sku_attribute_values: {
@@ -76,21 +78,29 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async findById(id: string, languageCode = 'en'): Promise<IProductResponse | null> {
+  async findById(
+    id: string,
+    languageCode = 'en',
+    options?: { allTranslations?: boolean },
+  ): Promise<IProductResponse | null> {
     return this.prisma.product.findUnique({
       where: { id },
-      include: this.getProductInclude(languageCode),
+      include: this.getProductInclude(languageCode, options),
     });
   }
 
-  async findBySlug(slug: string, languageCode = 'en'): Promise<IProductResponse | null> {
+  async findBySlug(
+    slug: string,
+    languageCode = 'en',
+    options?: { allTranslations?: boolean },
+  ): Promise<IProductResponse | null> {
     const product = await this.prisma.product.findUnique({
       where: { slug },
-      include: this.getProductInclude(languageCode),
+      include: this.getProductInclude(languageCode, options),
     });
 
     if (!product) {
-      return this.findById(slug, languageCode);
+      return this.findById(slug, languageCode, options);
     }
 
     return product;
@@ -486,7 +496,7 @@ export class ProductsRepository implements IProductsRepository {
       rating,
       attribute_value_ids,
       sort,
-      languageCode = 'vi',
+      languageCode = 'en',
       user_id,
     } = params;
 
@@ -664,7 +674,7 @@ export class ProductsRepository implements IProductsRepository {
     return count > 0;
   }
 
-  async update(id: string, data: UpdateProductDto, languageCode = 'vi'): Promise<IProductResponse> {
+  async update(id: string, data: UpdateProductDto, languageCode = 'en'): Promise<IProductResponse> {
     const { translations, skus, category_ids, deleted_sku_ids, ...productData } = data;
 
     return this.prisma.$transaction(async (tx) => {
@@ -680,15 +690,19 @@ export class ProductsRepository implements IProductsRepository {
       }
 
       if (category_ids) {
+        if (category_ids.length === 0) {
+          throw new BadRequestException('Product must have at least one category');
+        }
+
         const categories = await tx.productCategory.findMany({
-          where: { id: { in: category_ids } },
+          where: { id: { in: category_ids }, is_active: true },
           select: { id: true },
         });
         const foundCategoryIds = new Set(categories.map((category) => category.id));
         const missingCategoryIds = category_ids.filter((categoryId) => !foundCategoryIds.has(categoryId));
 
         if (missingCategoryIds.length > 0) {
-          throw new BadRequestException('One or more selected categories do not exist');
+          throw new BadRequestException('One or more selected categories do not exist or are inactive');
         }
       }
 

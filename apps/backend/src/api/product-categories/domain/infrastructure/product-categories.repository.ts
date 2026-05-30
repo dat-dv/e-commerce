@@ -25,6 +25,9 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
         },
       },
       children: {
+        where: {
+          is_active: true,
+        },
         include: {
           translations: {
             where: {
@@ -126,6 +129,7 @@ export class ProductCategoriesRepository implements IProductCategoriesRepository
     return this.prisma.productCategory.findMany({
       where: {
         parent_id: null,
+        is_active: true,
       },
       include: this.getCategoryInclude(languageCode),
     });

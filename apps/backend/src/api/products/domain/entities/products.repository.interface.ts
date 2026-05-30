@@ -5,8 +5,16 @@ import { GetProductsDto } from '../../dto/get-products.dto';
 import { UpdateProductDto } from '../../dto/update-product.dto';
 
 export interface IProductsRepository {
-  findById(id: string, languageCode?: string): Promise<IProductResponse | null>;
-  findBySlug(slug: string, languageCode?: string): Promise<IProductResponse | null>;
+  findById(
+    id: string,
+    languageCode?: string,
+    options?: { allTranslations?: boolean },
+  ): Promise<IProductResponse | null>;
+  findBySlug(
+    slug: string,
+    languageCode?: string,
+    options?: { allTranslations?: boolean },
+  ): Promise<IProductResponse | null>;
   recordView(userId: string, productId: string): Promise<void>;
   getUserTopCategory(userId: string): Promise<string | null>;
   getActiveFlashSale(languageCode?: string, userId?: string): Promise<IFlashSaleResponse | null>;

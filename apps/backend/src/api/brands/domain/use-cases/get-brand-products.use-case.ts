@@ -9,7 +9,7 @@ export class GetBrandProductsUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, query: GetBrandProductsDto, languageCode = 'vi') {
+  async execute(slug: string, query: GetBrandProductsDto, languageCode = 'en') {
     return this.brandsRepository.getBrandProducts(slug, query, languageCode);
   }
 }

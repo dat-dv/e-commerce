@@ -13,7 +13,7 @@ export class GetRecommendedUseCase {
     page = 1,
     limit = 15,
     user_id?: string,
-    languageCode = 'vi',
+    languageCode = 'en',
   ): Promise<IPaginatedResult<IProductResponse>> {
     return this.productsRepository.findPaginated({
       page,

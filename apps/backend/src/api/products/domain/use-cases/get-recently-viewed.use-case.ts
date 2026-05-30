@@ -14,7 +14,7 @@ export class GetRecentlyViewedUseCase {
   async execute(
     userId: string,
     query?: GetRecentlyViewedDto,
-    languageCode = 'vi',
+    languageCode = 'en',
   ): Promise<IPaginatedResult<IProductResponse>> {
     const page = query?.page || 1;
     const limit = query?.limit || 15;

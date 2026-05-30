@@ -27,6 +27,9 @@ export class AdminProductRepository implements IAdminProductRepository {
   async getProduct(slug: string): Promise<IApiResponse<IProductResponse>> {
     const response = await apiClient.get<IApiResponse<IProductResponse>>(
       API_ROUTES.PRODUCTS.DETAIL(slug),
+      {
+        params: { all_translations: true },
+      },
     );
     return response;
   }

@@ -8,7 +8,7 @@ export class GetSimilarProductsUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(productId: string, limit: number, languageCode = 'vi') {
+  async execute(productId: string, limit: number, languageCode = 'en') {
     const categoryIds = await this.productsRepository.getProductCategories(productId);
 
     if (categoryIds === null) {

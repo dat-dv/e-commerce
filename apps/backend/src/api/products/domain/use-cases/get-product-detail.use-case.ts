@@ -12,8 +12,13 @@ export class GetProductDetailUseCase {
     private readonly userFavoriteProductsRepository: IUserFavoriteProductsRepository,
   ) {}
 
-  async execute(slug: string, languageCode = 'vi', userId?: string): Promise<IProductDetailResponse> {
-    const product = await this.productsRepository.findBySlug(slug, languageCode);
+  async execute(
+    slug: string,
+    languageCode = 'en',
+    userId?: string,
+    options?: { allTranslations?: boolean },
+  ): Promise<IProductDetailResponse> {
+    const product = await this.productsRepository.findBySlug(slug, languageCode, options);
 
     if (!product) {
       throw new NotFoundException('Product not found');

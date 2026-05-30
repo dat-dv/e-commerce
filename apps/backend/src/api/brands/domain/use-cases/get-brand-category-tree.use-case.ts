@@ -9,7 +9,7 @@ export class GetBrandCategoryTreeUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, languageCode = 'vi'): Promise<ICategoryResponse[]> {
+  async execute(slug: string, languageCode = 'en'): Promise<ICategoryResponse[]> {
     return this.brandsRepository.getBrandCategoryTree(slug, languageCode);
   }
 }

@@ -123,9 +123,12 @@ export class ProductsController {
     @Param('slug') slug: string,
     @Req() req: Request,
     @Language() lang: string,
+    @Query('all_translations') allTranslations?: string,
   ): Promise<IApiResponse<IProductDetailResponse>> {
     const userId = req.user?.sub;
-    const result = await this.getProductDetailUseCase.execute(slug, lang, userId);
+    const result = await this.getProductDetailUseCase.execute(slug, lang, userId, {
+      allTranslations: allTranslations === 'true',
+    });
     return createSuccessResponse(result);
   }
 

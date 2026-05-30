@@ -43,7 +43,7 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getBrandList(query: GetBrandListDto, languageCode = 'vi'): Promise<IPaginatedResult<IBrandResponse>> {
+  async getBrandList(query: GetBrandListDto, languageCode = 'en'): Promise<IPaginatedResult<IBrandResponse>> {
     const trimmedSearch = query.search?.trim();
     const where = {
       ...(trimmedSearch
@@ -75,7 +75,7 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getBrandBySlug(slug: string, languageCode = 'vi'): Promise<IBrandResponse | null> {
+  async getBrandBySlug(slug: string, languageCode = 'en'): Promise<IBrandResponse | null> {
     return this.prisma.brand.findUnique({
       where: { slug },
       include: this.getBrandInclude(languageCode),
@@ -85,7 +85,7 @@ export class BrandsRepository implements IBrandsRepository {
   async getBrandProducts(
     slug: string,
     query: GetBrandProductsDto,
-    languageCode = 'vi',
+    languageCode = 'en',
   ): Promise<IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
@@ -146,7 +146,7 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getBrandCategoryTree(slug: string, languageCode = 'vi'): Promise<ICategoryResponse[]> {
+  async getBrandCategoryTree(slug: string, languageCode = 'en'): Promise<ICategoryResponse[]> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) return [];
 

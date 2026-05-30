@@ -9,7 +9,7 @@ export class GetInterestBasedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(take: number, userId?: string, languageCode = 'vi'): Promise<IProductResponse[]> {
+  async execute(take: number, userId?: string, languageCode = 'en'): Promise<IProductResponse[]> {
     let basedOnInterest: IProductResponse[] = [];
 
     if (userId) {

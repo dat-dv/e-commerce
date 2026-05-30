@@ -69,7 +69,7 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
   async getUserFavoriteProducts(
     userId: string,
     query?: GetUserFavoriteProductsDto,
-    languageCode = 'vi',
+    languageCode = 'en',
   ): Promise<IPaginatedResult<IUserFavoriteProductResponse>> {
     const page = query?.page || 1;
     const limit = query?.limit || 10;
