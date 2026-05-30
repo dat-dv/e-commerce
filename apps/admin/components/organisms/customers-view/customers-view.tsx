@@ -2,10 +2,11 @@ import {
   Avatar,
   Button,
   type ITableColumn,
+  Pagination,
   SearchInput,
   TableCommon,
 } from "@ecommerce/ui";
-import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 import React from "react";
 
 import type { IAdminUser } from "@/domain/user/types/user.model";
@@ -142,7 +143,7 @@ export const CustomersView = () => {
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between border-t border-[var(--border-color)] px-6 py-4">
+          <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border-color)] px-6 py-4 sm:flex-row">
             <div className="text-xs text-[var(--muted)]">
               Showing page{" "}
               <span className="font-bold text-[var(--app-text)]">{page}</span>{" "}
@@ -153,26 +154,12 @@ export const CustomersView = () => {
               (<span className="font-bold text-[var(--app-text)]">{total}</span>{" "}
               total customers)
             </div>
-            <div className="flex items-center gap-2">
-              <Button
-                variant="ghost"
-                disabled={page === 1}
-                onClick={() => setPage(Math.max(page - 1, 1))}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-50"
-                aria-label="Previous page"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="ghost"
-                disabled={page === totalPages}
-                onClick={() => setPage(Math.min(page + 1, totalPages))}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-50"
-                aria-label="Next page"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
+            <Pagination
+              currentPage={page}
+              totalPages={totalPages}
+              onPageChange={setPage}
+              className="w-auto py-0"
+            />
           </div>
         )}
       </div>

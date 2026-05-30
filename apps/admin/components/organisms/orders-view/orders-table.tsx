@@ -1,6 +1,11 @@
 import { type IOrderResponse } from "@ecommerce/shared";
-import { Button, type ITableColumn, TableCommon } from "@ecommerce/ui";
-import { ChevronLeft, ChevronRight, Eye, User as UserIcon } from "lucide-react";
+import {
+  Button,
+  type ITableColumn,
+  Pagination,
+  TableCommon,
+} from "@ecommerce/ui";
+import { Eye, User as UserIcon } from "lucide-react";
 
 import { formatCurrency, formatDate, getOrderStatus } from "./order.utils";
 
@@ -119,7 +124,7 @@ export const OrdersTable = ({
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between border-t border-[var(--border-color)] px-6 py-4">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border-color)] px-6 py-4 sm:flex-row">
           <span className="text-xs text-[var(--muted)]">
             Page{" "}
             <span className="font-bold text-[var(--app-text)]">{page}</span> of{" "}
@@ -129,26 +134,12 @@ export const OrdersTable = ({
             (<span className="font-bold text-[var(--app-text)]">{total}</span>{" "}
             orders)
           </span>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              disabled={page === 1}
-              onClick={() => onPageChange(Math.max(page - 1, 1))}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-40"
-              aria-label="Previous page"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              disabled={page === totalPages}
-              onClick={() => onPageChange(Math.min(page + 1, totalPages))}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-40"
-              aria-label="Next page"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={onPageChange}
+            className="w-auto py-0"
+          />
         </div>
       )}
     </div>
