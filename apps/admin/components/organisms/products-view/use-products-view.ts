@@ -1,14 +1,9 @@
 "use client";
 
-import type {
-  IApiResponse,
-  IProductListResponse,
-  IProductResponse,
-} from "@ecommerce/shared";
+import type { IProductResponse } from "@ecommerce/shared";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { API_ROUTES } from "@/constants/routes";
-import { apiClient } from "@/utils/request/api-client";
+import { adminProductUseCase } from "@/domain/product";
 
 export const useProductsView = () => {
   const [products, setProducts] = useState<IProductResponse[]>([]);
@@ -30,9 +25,10 @@ export const useProductsView = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await apiClient.get<
-          IApiResponse<IProductListResponse>
-        >(API_ROUTES.PRODUCTS.LIST, { params: { page: currentPage, limit } });
+        const response = await adminProductUseCase.getProducts.execute({
+          page: currentPage,
+          limit,
+        });
         setProducts(response.data?.items ?? []);
         setTotal(response.data?.meta?.total ?? 0);
         setTotalPages(response.data?.meta?.totalPages ?? 0);

@@ -1,11 +1,9 @@
 "use client";
 
-import type { IApiResponse, IOrderResponse } from "@ecommerce/shared";
+import type { IOrderResponse } from "@ecommerce/shared";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { API_ROUTES } from "@/constants/routes";
-import type { ApiListResponse } from "@/utils/request";
-import { apiClient } from "@/utils/request/api-client";
+import { adminOrderUseCase } from "@/domain/order";
 
 export const useOrdersView = () => {
   const [orders, setOrders] = useState<IOrderResponse[]>([]);
@@ -28,9 +26,10 @@ export const useOrdersView = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await apiClient.get<
-          IApiResponse<ApiListResponse<IOrderResponse>>
-        >(API_ROUTES.ORDERS.ALL, { params: { page: currentPage, limit } });
+        const response = await adminOrderUseCase.getOrders.execute({
+          page: currentPage,
+          limit,
+        });
         setOrders(response.data?.items ?? []);
         setTotal(response.data?.meta?.total ?? 0);
         setTotalPages(response.data?.meta?.totalPages ?? 0);
