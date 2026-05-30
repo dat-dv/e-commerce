@@ -3,53 +3,23 @@
 import useAppRouter from "@/hooks/use-native-router";
 import type { AppRouterNavigateOptions } from "@/hooks/use-native-router/use-app-router.types";
 import {
-  ApiPaginatedResponse,
-  IPaginationMeta,
-} from "@/utils/request/request.types";
-import { useCallback, useEffect, useState, useTransition } from "react";
+  type PaginationParams,
+  type PaginationQueryParams,
+  usePaginationCore,
+} from "@ecommerce/ui";
+import { useCallback } from "react";
 
-type PaginationParams = {
-  page: number;
-  limit: number;
-  search: string;
-};
-
-type ExtraParams = Record<
-  string,
-  string | number | boolean | null | undefined | object
->;
-
-type PaginationQueryParams = PaginationParams & ExtraParams;
-
-type PaginationFilterChange<TParams extends PaginationQueryParams> = {
-  key: Exclude<keyof TParams, "page" | "limit">;
-  value: TParams[Exclude<keyof TParams, "page" | "limit">] | null;
-};
-
-type PaginationFilterKey<TParams extends PaginationQueryParams> = Exclude<
-  keyof TParams,
-  "page" | "limit"
->;
+import type {
+  PaginationFilterChange,
+  PaginationFilterKey,
+  UsePaginationParams,
+} from "./use-pagination.types";
 
 const DEFAULT_CLIENT_NAVIGATE_OPTIONS: AppRouterNavigateOptions = {
   merge: true,
   ssr: false,
   scroll: false,
 };
-
-interface IUsePaginationParams<
-  T,
-  TParams extends PaginationQueryParams = PaginationParams,
-> {
-  initialData: {
-    items: T[];
-    meta: IPaginationMeta;
-  } | null;
-  extendParams?: Partial<TParams>;
-  resetParams?: Partial<Omit<TParams, "page" | "limit">>;
-  fetchPage: (params: Partial<TParams>) => Promise<ApiPaginatedResponse<T>>;
-  isSyncWithSearchParams: boolean;
-}
 
 const usePagination = <
   T,
@@ -60,34 +30,24 @@ const usePagination = <
   resetParams,
   fetchPage,
   isSyncWithSearchParams,
-}: IUsePaginationParams<T, TParams>) => {
-  const [data, setData] = useState<{
-    items: T[];
-    meta: IPaginationMeta;
-  }>(() => ({
-    items: initialData?.items || [],
-    meta: initialData?.meta || {
-      page: 1,
-      limit: 10,
-      total: 0,
-      totalPages: 1,
-    },
-  }));
-  const [loading, startTransition] = useTransition();
+}: UsePaginationParams<T, TParams>) => {
+  const pagination = usePaginationCore<T, TParams>({
+    initialData,
+    fetchPage,
+  });
+  const {
+    data,
+    fetchData,
+    getData: getPaginationData,
+    getFirstPage: getFirstPaginationPage,
+    loading,
+    updatePaginationData,
+  } = pagination;
 
   const router = useAppRouter({
     isSyncWithSearchParams,
     extendParams,
   });
-
-  useEffect(() => {
-    if (!initialData) return;
-    startTransition(() => {
-      setData(initialData);
-    });
-  }, [initialData]);
-
-  const updatePaginationData = setData;
 
   const getData = useCallback(
     async (
@@ -109,21 +69,10 @@ const usePagination = <
         return;
       }
 
-      const res = await fetchPage(nextParams);
+      await getPaginationData(nextParams);
       router.replace(nextParams, options);
-
-      startTransition(() => {
-        if (nextParams.page && nextParams.page > 1) {
-          setData((prev) => ({
-            items: [...(prev?.items || []), ...(res?.data?.items || [])],
-            meta: res.data.meta,
-          }));
-        } else {
-          setData(res.data);
-        }
-      });
     },
-    [data.meta.limit, fetchPage, router],
+    [data.meta.limit, getPaginationData, router],
   );
 
   const getFirstPage = useCallback(
@@ -146,14 +95,10 @@ const usePagination = <
         return;
       }
 
-      const res = await fetchPage(nextParams);
+      await getFirstPaginationPage(nextParams);
       router.replace(nextParams, options);
-
-      startTransition(() => {
-        setData(res.data);
-      });
     },
-    [data.meta.limit, fetchPage, router],
+    [data.meta.limit, getFirstPaginationPage, router],
   );
 
   const onChangePagination = useCallback(
@@ -177,15 +122,11 @@ const usePagination = <
         return;
       }
 
-      const res = await fetchPage(nextParams);
+      await fetchData(nextParams, "replace");
 
       router.push(nextParams, { ...options, ssr: false });
-
-      startTransition(() => {
-        setData(res.data);
-      });
     },
-    [fetchPage, router, data.meta.limit],
+    [data.meta.limit, fetchData, router],
   );
 
   const onChangeFilter = useCallback(

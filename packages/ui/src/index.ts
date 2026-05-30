@@ -97,6 +97,7 @@ export * from "./components/molecules/virtual-list";
 // Hooks
 export * from "./hooks/use-intersection-observer";
 export * from "./hooks/use-media-query";
+export * from "./hooks/use-pagination-core";
 export * from "./hooks/use-text-select-event";
 
 // Form Molecules
