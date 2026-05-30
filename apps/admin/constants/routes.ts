@@ -47,7 +47,7 @@ export const API_ROUTES = {
     DETAIL: (slug: string) => `/products/${slug}`,
   },
   BRANDS: {
-    LIST: "/brands/top",
+    LIST: "/brands",
   },
   PRODUCT_CATEGORIES: {
     TREE: "/product-categories/tree",

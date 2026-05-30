@@ -5,7 +5,7 @@ import {
   IProductResponse,
   Review as IReviewResponse,
 } from '@ecommerce/shared';
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
@@ -664,10 +664,79 @@ export class ProductsRepository implements IProductsRepository {
     return count > 0;
   }
 
-  async update(id: string, data: UpdateProductDto): Promise<IProductResponse> {
-    const { translations, skus, category_ids, ...productData } = data;
+  async update(id: string, data: UpdateProductDto, languageCode = 'vi'): Promise<IProductResponse> {
+    const { translations, skus, category_ids, deleted_sku_ids, ...productData } = data;
 
     return this.prisma.$transaction(async (tx) => {
+      if (productData.brand_id) {
+        const brand = await tx.brand.findUnique({
+          where: { id: productData.brand_id },
+          select: { id: true },
+        });
+
+        if (!brand) {
+          throw new BadRequestException('Selected brand does not exist');
+        }
+      }
+
+      if (category_ids) {
+        const categories = await tx.productCategory.findMany({
+          where: { id: { in: category_ids } },
+          select: { id: true },
+        });
+        const foundCategoryIds = new Set(categories.map((category) => category.id));
+        const missingCategoryIds = category_ids.filter((categoryId) => !foundCategoryIds.has(categoryId));
+
+        if (missingCategoryIds.length > 0) {
+          throw new BadRequestException('One or more selected categories do not exist');
+        }
+      }
+
+      const skuIds = skus?.map((sku) => sku.id).filter((skuId): skuId is string => Boolean(skuId)) ?? [];
+      const deletedSkuIds = deleted_sku_ids ?? [];
+      const touchedSkuIds = [...new Set([...skuIds, ...deletedSkuIds])];
+
+      if (touchedSkuIds.length > 0) {
+        const productSkus = await tx.sku.findMany({
+          where: {
+            id: { in: touchedSkuIds },
+            product_id: id,
+          },
+          select: { id: true },
+        });
+        const productSkuIds = new Set(productSkus.map((sku) => sku.id));
+        const invalidSkuIds = touchedSkuIds.filter((skuId) => !productSkuIds.has(skuId));
+
+        if (invalidSkuIds.length > 0) {
+          throw new BadRequestException('One or more SKUs do not belong to this product');
+        }
+      }
+
+      if (deletedSkuIds.length > 0) {
+        const [orderItemCount, cartItemCount] = await Promise.all([
+          tx.orderItem.count({ where: { sku_id: { in: deletedSkuIds } } }),
+          tx.cartItem.count({ where: { sku_id: { in: deletedSkuIds } } }),
+        ]);
+
+        if (orderItemCount > 0 || cartItemCount > 0) {
+          throw new BadRequestException('Cannot remove SKUs that are used in orders or carts');
+        }
+      }
+
+      if (skus) {
+        const remainingExistingSkuCount = await tx.sku.count({
+          where: {
+            product_id: id,
+            id: deletedSkuIds.length > 0 ? { notIn: deletedSkuIds } : undefined,
+          },
+        });
+        const newSkuCount = skus.filter((sku) => !sku.id).length;
+
+        if (remainingExistingSkuCount + newSkuCount === 0) {
+          throw new BadRequestException('Product must have at least one SKU');
+        }
+      }
+
       // 1. Update basic product properties
       await tx.product.update({
         where: { id },
@@ -710,7 +779,17 @@ export class ProductsRepository implements IProductsRepository {
         }
       }
 
-      // 3. Handle skus (update or insert)
+      // 3. Remove skus that are safe to delete
+      if (deletedSkuIds.length > 0) {
+        await tx.sku.deleteMany({
+          where: {
+            id: { in: deletedSkuIds },
+            product_id: id,
+          },
+        });
+      }
+
+      // 4. Handle skus (update or insert)
       if (skus && skus.length > 0) {
         for (const sku of skus) {
           if (sku.id) {
@@ -737,7 +816,7 @@ export class ProductsRepository implements IProductsRepository {
 
       const updatedProduct = await tx.product.findUnique({
         where: { id },
-        include: this.getProductInclude('vi'),
+        include: this.getProductInclude(languageCode),
       });
 
       if (!updatedProduct) {

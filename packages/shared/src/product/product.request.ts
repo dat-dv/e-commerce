@@ -39,4 +39,5 @@ export interface IUpdateProductRequest {
   category_ids?: string[];
   translations?: IUpdateProductTranslationRequest[];
   skus?: IUpdateProductSkuRequest[];
+  deleted_sku_ids?: string[];
 }

@@ -52,8 +52,12 @@ export class ProductsController {
 
   @UseGuards(AuthGuard)
   @Patch(':id')
-  async updateProduct(@Param('id') id: string, @Body() dto: UpdateProductDto): Promise<IApiResponse<IProductResponse>> {
-    const result = await this.updateProductUseCase.execute(id, dto);
+  async updateProduct(
+    @Param('id') id: string,
+    @Body() dto: UpdateProductDto,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IProductResponse>> {
+    const result = await this.updateProductUseCase.execute(id, dto, lang);
     return createSuccessResponse(result);
   }
 

@@ -10,12 +10,12 @@ export class UpdateProductUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(id: string, data: UpdateProductDto): Promise<IProductResponse> {
+  async execute(id: string, data: UpdateProductDto, languageCode?: string): Promise<IProductResponse> {
     const product = await this.productsRepository.findById(id);
     if (!product) {
       throw new NotFoundException('Product not found');
     }
 
-    return this.productsRepository.update(id, data);
+    return this.productsRepository.update(id, data, languageCode);
   }
 }

@@ -62,4 +62,9 @@ export class UpdateProductDto implements IUpdateProductRequest {
   @Type(() => UpdateProductSkuDto)
   @IsOptional()
   skus?: UpdateProductSkuDto[];
+
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  deleted_sku_ids?: string[];
 }

@@ -33,6 +33,15 @@ export class BrandsController {
     return createSuccessResponse(result);
   }
 
+  @Get()
+  async getBrands(
+    @Query() query: GetBrandListDto,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IBrandListResponse>> {
+    const result = await this.getTopBrandsUseCase.execute(query, lang);
+    return createSuccessResponse(result);
+  }
+
   @Get(':slug')
   async getBrandBySlug(@Param('slug') slug: string, @Language() lang: string): Promise<IApiResponse<IBrandResponse>> {
     const result = await this.getBrandBySlugUseCase.execute(slug, lang);
