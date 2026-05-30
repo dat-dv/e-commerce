@@ -5,7 +5,8 @@ export const APP_ROUTES = {
   FORGOT_PASSWORD: "/forgot-password",
   DASHBOARD: "/dashboard",
   CUSTOMERS: "/dashboard/customers",
-  PERMISSIONS: "/dashboard/permissions",
+  PERMISSIONS: "/dashboard/permissions/roles",
+  ASSIGN_ROLES: "/dashboard/permissions/assign",
   ORDERS: "/dashboard/orders",
   PRODUCTS: "/dashboard/products",
   SETTINGS: "/dashboard/settings",
@@ -28,6 +29,7 @@ export const API_ROUTES = {
   },
   ROLES: {
     LIST: "/roles",
+    CREATE: "/roles",
     DETAIL: (id: string) => `/roles/${id}`,
     UPDATE: (id: string) => `/roles/${id}`,
   },

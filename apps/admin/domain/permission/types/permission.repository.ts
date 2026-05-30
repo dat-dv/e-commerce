@@ -1,5 +1,6 @@
 import type {
   IApiResponse,
+  ICreateRoleRequest,
   IPermissionListResponse,
   IRoleListResponse,
   IRoleResponse,
@@ -15,6 +16,7 @@ export interface IAdminPermissionRepository {
     page?: number,
     limit?: number,
   ): Promise<ApiListResponse<TAdminPermission>>;
+  createRole(data: ICreateRoleRequest): Promise<IApiResponse<IRoleResponse>>;
   updateRolePermissions(
     roleId: string,
     permissionIds: string[],

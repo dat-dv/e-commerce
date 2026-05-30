@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   ShoppingCart,
   Tag,
+  UserCog,
   Users,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -37,9 +38,14 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
     icon: Users,
   },
   {
-    label: "Permissions",
+    label: "Roles",
     href: APP_ROUTES.PERMISSIONS,
     icon: ShieldCheck,
+  },
+  {
+    label: "Assign Roles",
+    href: APP_ROUTES.ASSIGN_ROLES,
+    icon: UserCog,
   },
   {
     label: "Analytics",
@@ -50,10 +56,6 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
   { label: "Settings", href: APP_ROUTES.SETTINGS, icon: Settings },
 ];
 
-/**
- * Sidebar component handles desktop collapsed/expanded states and mobile drawer layout.
- * Split into sub-molecules for modularity.
- */
 export const Sidebar = () => {
   const pathname = usePathname();
   const { user, logout } = useAdminUserStore();

@@ -8,6 +8,8 @@ export type PermissionsByCategory = Record<string, IPermissionResponse[]>;
 export interface IPermissionsHeaderProps {
   roleCount: number;
   permissionCount: number;
+  title?: string;
+  description?: string;
 }
 
 export interface IPermissionsStatusAlertProps {
@@ -25,6 +27,18 @@ export interface IRolePermissionsPanelProps {
   onRoleChange: (roleId: string) => void;
   onTogglePermission: (permissionId: string) => void;
   onSavePermissions: () => void;
+}
+
+export interface ICreateRolePanelProps {
+  roleName: string;
+  description: string;
+  selectedPermissionIds: string[];
+  groupedPermissions: PermissionsByCategory;
+  creatingRole: boolean;
+  onRoleNameChange: (value: string) => void;
+  onDescriptionChange: (value: string) => void;
+  onTogglePermission: (permissionId: string) => void;
+  onCreateRole: () => void;
 }
 
 export interface IAssignUserRolePanelProps {

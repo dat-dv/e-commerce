@@ -1,5 +1,5 @@
-import { PermissionsView } from "@/components/organisms/permissions-view";
+import { redirect } from "next/navigation";
 
 export default function PermissionsPage() {
-  return <PermissionsView />;
+  redirect("/dashboard/permissions/roles");
 }

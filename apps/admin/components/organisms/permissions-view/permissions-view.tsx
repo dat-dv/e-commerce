@@ -8,9 +8,8 @@ import {
   AdminPermissionRepository,
   type TAdminRole,
 } from "@/domain/permission";
-import { AdminUserRepository, type IAdminUser } from "@/domain/user";
 
-import { AssignUserRolePanel } from "./assign-user-role-panel";
+import { CreateRolePanel } from "./create-role-panel";
 import { PermissionsHeader } from "./permissions-header";
 import { PermissionsStatusAlert } from "./permissions-status-alert";
 import {
@@ -25,21 +24,21 @@ export const PermissionsView = () => {
     () => new AdminPermissionRepository(),
     [],
   );
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
 
   const [roles, setRoles] = useState<TAdminRole[]>([]);
   const [permissions, setPermissions] = useState<IPermissionResponse[]>([]);
-  const [users, setUsers] = useState<IAdminUser[]>([]);
   const [selectedRoleId, setSelectedRoleId] = useState("");
-  const [selectedUserId, setSelectedUserId] = useState("");
-  const [selectedAssignRoleId, setSelectedAssignRoleId] = useState("");
   const [selectedPermissionIds, setSelectedPermissionIds] = useState<string[]>(
     [],
   );
-  const [userSearchQuery, setUserSearchQuery] = useState("");
+  const [newRoleName, setNewRoleName] = useState("");
+  const [newRoleDescription, setNewRoleDescription] = useState("");
+  const [newRolePermissionIds, setNewRolePermissionIds] = useState<string[]>(
+    [],
+  );
   const [loading, setLoading] = useState(true);
   const [savingPermissions, setSavingPermissions] = useState(false);
-  const [assigningRole, setAssigningRole] = useState(false);
+  const [creatingRole, setCreatingRole] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
@@ -60,30 +59,25 @@ export const PermissionsView = () => {
     setError(null);
 
     try {
-      const [rolesResponse, permissionsResponse, usersResponse] =
-        await Promise.all([
-          permissionRepository.getRoles(),
-          permissionRepository.getPermissions(),
-          userRepository.getUsers(1, 100),
-        ]);
+      const [rolesResponse, permissionsResponse] = await Promise.all([
+        permissionRepository.getRoles(),
+        permissionRepository.getPermissions(),
+      ]);
 
       const nextRoles = rolesResponse.items;
       setRoles(nextRoles);
       setPermissions(permissionsResponse.items);
-      setUsers(usersResponse.items);
 
       const firstRole = nextRoles[0] ?? null;
       setSelectedRoleId(firstRole?.id ?? "");
       setSelectedPermissionIds(getPermissionIds(firstRole));
-      setSelectedAssignRoleId(firstRole?.id ?? "");
-      setSelectedUserId(usersResponse.items[0]?.id ?? "");
     } catch (err) {
       console.error(err);
       setError(DEFAULT_PERMISSION_ERROR);
     } finally {
       setLoading(false);
     }
-  }, [permissionRepository, userRepository]);
+  }, [permissionRepository]);
 
   useEffect(() => {
     loadPermissionData();
@@ -103,6 +97,46 @@ export const PermissionsView = () => {
         : [...current, permissionId],
     );
     setSuccessMessage(null);
+  };
+
+  const toggleNewRolePermission = (permissionId: string) => {
+    setNewRolePermissionIds((current) =>
+      current.includes(permissionId)
+        ? current.filter((id) => id !== permissionId)
+        : [...current, permissionId],
+    );
+    setSuccessMessage(null);
+  };
+
+  const handleCreateRole = async () => {
+    const roleName = newRoleName.trim();
+    if (!roleName) return;
+
+    setCreatingRole(true);
+    setError(null);
+    setSuccessMessage(null);
+
+    try {
+      const response = await permissionRepository.createRole({
+        role_name: roleName,
+        description: newRoleDescription.trim() || undefined,
+        permissions: newRolePermissionIds,
+      });
+      const createdRole = response.data;
+
+      setRoles((current) => [createdRole, ...current]);
+      setSelectedRoleId(createdRole.id);
+      setSelectedPermissionIds(getPermissionIds(createdRole));
+      setNewRoleName("");
+      setNewRoleDescription("");
+      setNewRolePermissionIds([]);
+      setSuccessMessage("Role created.");
+    } catch (err) {
+      console.error(err);
+      setError("Failed to create role.");
+    } finally {
+      setCreatingRole(false);
+    }
   };
 
   const handleSavePermissions = async () => {
@@ -133,48 +167,6 @@ export const PermissionsView = () => {
     }
   };
 
-  const handleAssignRole = async () => {
-    if (!selectedUserId || !selectedAssignRoleId) return;
-
-    setAssigningRole(true);
-    setError(null);
-    setSuccessMessage(null);
-
-    try {
-      await permissionRepository.assignRoleToUser(
-        selectedUserId,
-        selectedAssignRoleId,
-      );
-
-      const assignedRole = roleById.get(selectedAssignRoleId) ?? null;
-      setUsers((current) =>
-        current.map((user) =>
-          user.id === selectedUserId
-            ? {
-                ...user,
-                roleId: selectedAssignRoleId,
-                role: assignedRole
-                  ? {
-                      id: assignedRole.id,
-                      roleName: assignedRole.role_name,
-                      description: assignedRole.description,
-                      createdAt: String(assignedRole.created_at),
-                      updatedAt: String(assignedRole.updated_at),
-                    }
-                  : user.role,
-              }
-            : user,
-        ),
-      );
-      setSuccessMessage("User role assigned.");
-    } catch (err) {
-      console.error(err);
-      setError("Failed to assign role to user.");
-    } finally {
-      setAssigningRole(false);
-    }
-  };
-
   return (
     <>
       {loading && <BasicLoading isBlur={false} />}
@@ -200,17 +192,16 @@ export const PermissionsView = () => {
             onSavePermissions={handleSavePermissions}
           />
 
-          <AssignUserRolePanel
-            users={users}
-            roles={roles}
-            userSearchQuery={userSearchQuery}
-            selectedUserId={selectedUserId}
-            selectedAssignRoleId={selectedAssignRoleId}
-            assigningRole={assigningRole}
-            onUserSearchChange={setUserSearchQuery}
-            onUserChange={setSelectedUserId}
-            onAssignRoleChange={setSelectedAssignRoleId}
-            onAssignRole={handleAssignRole}
+          <CreateRolePanel
+            roleName={newRoleName}
+            description={newRoleDescription}
+            selectedPermissionIds={newRolePermissionIds}
+            groupedPermissions={groupedPermissions}
+            creatingRole={creatingRole}
+            onRoleNameChange={setNewRoleName}
+            onDescriptionChange={setNewRoleDescription}
+            onTogglePermission={toggleNewRolePermission}
+            onCreateRole={handleCreateRole}
           />
         </div>
       </div>

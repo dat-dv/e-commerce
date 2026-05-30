@@ -1,4 +1,8 @@
-import type { IApiResponse, IRoleResponse } from "@ecommerce/shared";
+import type {
+  IApiResponse,
+  ICreateRoleRequest,
+  IRoleResponse,
+} from "@ecommerce/shared";
 
 import { API_ROUTES } from "@/constants/routes";
 import { apiClient } from "@/utils/request/api-client";
@@ -46,6 +50,13 @@ export class AdminPermissionRepository implements IAdminPermissionRepository {
         totalPages: 0,
       },
     };
+  }
+
+  async createRole(data: ICreateRoleRequest) {
+    return apiClient.post<IApiResponse<IRoleResponse>>(
+      API_ROUTES.ROLES.CREATE,
+      data,
+    );
   }
 
   async updateRolePermissions(roleId: string, permissionIds: string[]) {
