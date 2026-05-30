@@ -28,6 +28,15 @@ export const ProductSkuTable = ({
     );
   };
 
+  const handleSkuCodeChange = (skuId: string, newCode: string) => {
+    if (!setEditSkus) return;
+    setEditSkus(
+      editSkus.map((sku) =>
+        sku.id === skuId ? { ...sku, sku_code: newCode } : sku,
+      ),
+    );
+  };
+
   const handleSkuStockChange = (skuId: string, newStock: number) => {
     if (!setEditSkus) return;
     setEditSkus(
@@ -65,9 +74,20 @@ export const ProductSkuTable = ({
                     className="hover:bg-content/[0.01] transition-colors"
                   >
                     <td className="px-4 py-3">
-                      <code className="text-xs font-semibold text-indigo-300">
-                        {sku.sku_code}
-                      </code>
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={editSku.sku_code}
+                          onChange={(e) =>
+                            handleSkuCodeChange(sku.id, e.target.value)
+                          }
+                          className="w-40 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                        />
+                      ) : (
+                        <code className="text-xs font-semibold text-indigo-300">
+                          {sku.sku_code}
+                        </code>
+                      )}
                     </td>
                     <td className="px-4 py-3 text-right">
                       {isEditing ? (

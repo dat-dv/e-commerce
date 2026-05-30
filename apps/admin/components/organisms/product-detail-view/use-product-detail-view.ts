@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  type IBrandResponse,
+  type ICategoryTreeResponse,
   type IProductResponse,
   type IUpdateProductSkuRequest,
   type IUpdateProductTranslationRequest,
@@ -9,7 +11,23 @@ import { toast, useLoadOnce } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState, useTransition } from "react";
 
+import { adminBrandUseCase } from "@/domain/brand";
 import { adminProductUseCase } from "@/domain/product";
+import { adminProductCategoryUseCase } from "@/domain/product-category";
+
+const collectCategoryIds = (categories: ICategoryTreeResponse): Set<string> => {
+  const ids = new Set<string>();
+
+  const visit = (items: ICategoryTreeResponse) => {
+    for (const item of items) {
+      ids.add(item.id);
+      visit(item.children ?? []);
+    }
+  };
+
+  visit(categories);
+  return ids;
+};
 
 export const useProductDetailView = () => {
   const router = useRouter();
@@ -17,14 +35,20 @@ export const useProductDetailView = () => {
   const slug = searchParams.get("slug");
 
   const [product, setProduct] = useState<IProductResponse | null>(null);
+  const [brands, setBrands] = useState<IBrandResponse[]>([]);
+  const [categoryTree, setCategoryTree] = useState<ICategoryTreeResponse>([]);
   const [loading, setLoading] = useState(true);
+  const [metadataLoading, setMetadataLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [metadataError, setMetadataError] = useState<string | null>(null);
 
   const [isEditing, setIsEditing] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const [editPrice, setEditPrice] = useState<number>(0);
   const [editStatus, setEditStatus] = useState<number>(0);
+  const [editBrandId, setEditBrandId] = useState<string>("");
+  const [editCategoryIds, setEditCategoryIds] = useState<string[]>([]);
   const [editTranslations, setEditTranslations] = useState<
     IUpdateProductTranslationRequest[]
   >([]);
@@ -33,26 +57,55 @@ export const useProductDetailView = () => {
   const loadProductDetail = useCallback(async () => {
     if (!slug) {
       setLoading(false);
+      setMetadataLoading(false);
       setError("Missing product slug.");
       return;
     }
 
     setLoading(true);
+    setMetadataLoading(true);
     setError(null);
+    setMetadataError(null);
 
-    try {
-      const response = await adminProductUseCase.getProduct.execute(slug);
+    const [productResult, brandsResult, categoriesResult] =
+      await Promise.allSettled([
+        adminProductUseCase.getProduct.execute(slug),
+        adminBrandUseCase.getBrands.execute({ page: 1, limit: 50 }),
+        adminProductCategoryUseCase.getCategoryTree.execute(),
+      ]);
+
+    if (productResult.status === "fulfilled") {
+      const response = productResult.value;
       if (response.status === "success" && response.data) {
         setProduct(response.data);
       } else {
         setError(response.message || "Failed to load product detail.");
       }
-    } catch (err) {
-      console.error(err);
+    } else {
+      console.error(productResult.reason);
       setError("Failed to load product detail.");
-    } finally {
-      setLoading(false);
     }
+
+    if (brandsResult.status === "fulfilled") {
+      setBrands(brandsResult.value.data?.items ?? []);
+    } else {
+      console.error(brandsResult.reason);
+      setMetadataError("Failed to load brand options.");
+    }
+
+    if (categoriesResult.status === "fulfilled") {
+      setCategoryTree(categoriesResult.value.data ?? []);
+    } else {
+      console.error(categoriesResult.reason);
+      setMetadataError((current) =>
+        current
+          ? `${current} Failed to load category options.`
+          : "Failed to load category options.",
+      );
+    }
+
+    setLoading(false);
+    setMetadataLoading(false);
   }, [slug]);
 
   useLoadOnce(loadProductDetail, !!slug);
@@ -61,6 +114,8 @@ export const useProductDetailView = () => {
     if (!product) return;
     setEditPrice(product.base_price);
     setEditStatus(product.status);
+    setEditBrandId(product.brand_id ?? "");
+    setEditCategoryIds(product.categories?.map((c) => c.category_id) ?? []);
     setEditTranslations(
       product.translations?.map((t) => ({
         language_id: t.language_id,
@@ -88,15 +143,60 @@ export const useProductDetailView = () => {
 
     startTransition(async () => {
       try {
+        const normalizedSkus = editSkus.map((sku) => ({
+          ...sku,
+          sku_code: sku.sku_code.trim(),
+          price: Number(sku.price),
+          stock: Number(sku.stock),
+        }));
+        const skuCodes = normalizedSkus.map((sku) => sku.sku_code);
+
+        if (Number(editPrice) < 0) {
+          toast.error("Base price must be zero or greater.");
+          return;
+        }
+
+        if (editCategoryIds.length === 0) {
+          toast.error("Select at least one category.");
+          return;
+        }
+
+        const availableCategoryIds = collectCategoryIds(categoryTree);
+        if (
+          availableCategoryIds.size > 0 &&
+          editCategoryIds.some((id) => !availableCategoryIds.has(id))
+        ) {
+          toast.error("Selected categories are no longer available.");
+          return;
+        }
+
+        if (normalizedSkus.some((sku) => !sku.sku_code)) {
+          toast.error("SKU code is required.");
+          return;
+        }
+
+        if (new Set(skuCodes).size !== skuCodes.length) {
+          toast.error("SKU codes must be unique.");
+          return;
+        }
+
+        if (
+          normalizedSkus.some(
+            (sku) =>
+              sku.price < 0 || sku.stock < 0 || !Number.isInteger(sku.stock),
+          )
+        ) {
+          toast.error("SKU price and stock must be valid non-negative values.");
+          return;
+        }
+
         const payload = {
           base_price: Number(editPrice),
           status: Number(editStatus),
+          ...(editBrandId ? { brand_id: editBrandId } : {}),
+          category_ids: editCategoryIds,
           translations: editTranslations,
-          skus: editSkus.map((sku) => ({
-            ...sku,
-            price: Number(sku.price),
-            stock: Number(sku.stock),
-          })),
+          skus: normalizedSkus,
         };
 
         const response = await adminProductUseCase.updateProduct.execute(
@@ -119,8 +219,12 @@ export const useProductDetailView = () => {
 
   return {
     product,
+    brands,
+    categoryTree,
     loading,
+    metadataLoading,
     error,
+    metadataError,
     router,
     isEditing,
     isSaving: isPending,
@@ -128,6 +232,10 @@ export const useProductDetailView = () => {
     setEditPrice,
     editStatus,
     setEditStatus,
+    editBrandId,
+    setEditBrandId,
+    editCategoryIds,
+    setEditCategoryIds,
     editTranslations,
     setEditTranslations,
     editSkus,

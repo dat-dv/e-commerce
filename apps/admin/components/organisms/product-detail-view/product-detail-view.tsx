@@ -10,8 +10,12 @@ import { useProductDetailView } from "./use-product-detail-view";
 export const ProductDetailView = () => {
   const {
     product,
+    brands,
+    categoryTree,
     loading,
+    metadataLoading,
     error,
+    metadataError,
     router,
     isEditing,
     isSaving,
@@ -19,6 +23,10 @@ export const ProductDetailView = () => {
     setEditPrice,
     editStatus,
     setEditStatus,
+    editBrandId,
+    setEditBrandId,
+    editCategoryIds,
+    setEditCategoryIds,
     editTranslations,
     setEditTranslations,
     editSkus,
@@ -61,11 +69,19 @@ export const ProductDetailView = () => {
         <div className="space-y-6">
           <ProductGeneralInfo
             product={product}
+            brands={brands}
+            categoryTree={categoryTree}
+            metadataLoading={metadataLoading}
+            metadataError={metadataError}
             isEditing={isEditing}
             editPrice={editPrice}
             setEditPrice={setEditPrice}
             editStatus={editStatus}
             setEditStatus={setEditStatus}
+            editBrandId={editBrandId}
+            setEditBrandId={setEditBrandId}
+            editCategoryIds={editCategoryIds}
+            setEditCategoryIds={setEditCategoryIds}
             editSkus={editSkus}
             setEditSkus={setEditSkus}
           />
