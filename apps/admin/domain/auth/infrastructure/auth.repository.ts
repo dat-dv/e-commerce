@@ -1,3 +1,5 @@
+import { type IUserResponse } from "@ecommerce/shared";
+
 import { type IAdminUser } from "@/domain/user";
 import { apiClient } from "@/utils/request/api-client";
 import { type ApiResponse } from "@/utils/request/api-client.types";
@@ -7,10 +9,18 @@ import {
   type TAdminSignInRequest,
 } from "../types/auth.model";
 import { type IAdminAuthRepository } from "../types/auth.repository";
+import { AdminUserMapper } from "./auth.mapper";
 
 export class AdminAuthRepository implements IAdminAuthRepository {
   async login(request: TAdminSignInRequest): Promise<ApiResponse<IAdminUser>> {
-    return apiClient.post<ApiResponse<IAdminUser>>("/auth/login", request);
+    const response = await apiClient.post<ApiResponse<IUserResponse>>(
+      "/auth/login",
+      request,
+    );
+    return {
+      ...response,
+      data: AdminUserMapper.toDomain(response.data),
+    };
   }
 
   async forgotPassword(
@@ -20,6 +30,11 @@ export class AdminAuthRepository implements IAdminAuthRepository {
   }
 
   async fetchMe(): Promise<ApiResponse<IAdminUser>> {
-    return apiClient.get<ApiResponse<IAdminUser>>("/auth/me");
+    const response =
+      await apiClient.get<ApiResponse<IUserResponse>>("/auth/me");
+    return {
+      ...response,
+      data: AdminUserMapper.toDomain(response.data),
+    };
   }
 }
