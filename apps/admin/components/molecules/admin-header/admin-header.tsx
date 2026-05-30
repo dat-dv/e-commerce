@@ -4,15 +4,9 @@ import { Avatar } from "@ecommerce/ui";
 import { useState } from "react";
 
 interface IAdminHeaderProps {
-  /** Callback to toggle the sidebar — wire up when sidebar is built */
   onMenuToggle?: () => void;
 }
 
-/**
- * Top navigation bar for the admin dashboard.
- * Glassmorphic sticky header with brand, navigation trigger,
- * notifications, and user menu.
- */
 export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 

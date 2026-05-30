@@ -1,8 +1,3 @@
-/**
- * Minimal footer for the admin dashboard.
- * Kept intentionally compact — admin users live in this UI all day,
- * so floor space is more valuable than footer content.
- */
 export const AdminFooter = () => {
   const year = new Date().getFullYear();
 
