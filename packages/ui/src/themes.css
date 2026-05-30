@@ -1,0 +1,172 @@
+/* ==============================================
+   SHARED THEME PALETTE — @ecommerce/ui
+   Consumed by both frontend and admin apps.
+   Each app controls active theme by setting:
+     • class="dark"        on <html> for dark mode
+     • data-theme="..."    on <html> for colour theme
+   ============================================== */
+
+/* ── Blue (default) ── */
+:root {
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --app-bg: #ffffff;
+  --app-text: #0f172a;
+  --sidebar-bg: #eff6ff;
+  --sidebar-text: #3b4a6b;
+  --border-color: rgba(59, 130, 246, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-hover: #ffffff;
+  --muted: rgba(0, 0, 0, 0.45);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+.dark {
+  --primary: #60a5fa;
+  --primary-foreground: #ffffff;
+  --app-bg: #020617;
+  --app-text: #f8fafc;
+  --sidebar-bg: #060d1f;
+  --sidebar-text: #93c5fd;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.5);
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* ── Indigo ── */
+[data-theme="indigo"] {
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --app-bg: #f8f9fc;
+  --app-text: #0f172a;
+  --sidebar-bg: #f1f2f8;
+  --sidebar-text: #475569;
+  --border-color: rgba(99, 102, 241, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-hover: #ffffff;
+  --muted: rgba(0, 0, 0, 0.45);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+[data-theme="indigo"].dark {
+  --primary: #818cf8;
+  --primary-foreground: #ffffff;
+  --app-bg: #0f1117;
+  --app-text: #f1f5f9;
+  --sidebar-bg: #090c12;
+  --sidebar-text: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.5);
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* ── Green ── */
+[data-theme="green"] {
+  --primary: #22c55e;
+  --primary-foreground: #ffffff;
+  --app-bg: #f0fdf4;
+  --app-text: #0f172a;
+  --sidebar-bg: #dcfce7;
+  --sidebar-text: #166534;
+  --border-color: rgba(34, 197, 94, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-hover: #ffffff;
+  --muted: rgba(0, 0, 0, 0.45);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+[data-theme="green"].dark {
+  --primary: #4ade80;
+  --primary-foreground: #ffffff;
+  --app-bg: #060c09;
+  --app-text: #f0fdf4;
+  --sidebar-bg: #071209;
+  --sidebar-text: #86efac;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.5);
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* ── Orange ── */
+[data-theme="orange"] {
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --app-bg: #fff7ed;
+  --app-text: #0f172a;
+  --sidebar-bg: #ffedd5;
+  --sidebar-text: #9a3412;
+  --border-color: rgba(249, 115, 22, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-hover: #ffffff;
+  --muted: rgba(0, 0, 0, 0.45);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+[data-theme="orange"].dark {
+  --primary: #fb923c;
+  --primary-foreground: #ffffff;
+  --app-bg: #0c0a09;
+  --app-text: #fff7ed;
+  --sidebar-bg: #130d07;
+  --sidebar-text: #fdba74;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.5);
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* ── Gold ── */
+[data-theme="gold"] {
+  --primary: #d97706;
+  --primary-foreground: #ffffff;
+  --app-bg: #fffbeb;
+  --app-text: #0f172a;
+  --sidebar-bg: #fef3c7;
+  --sidebar-text: #92400e;
+  --border-color: rgba(217, 119, 6, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-hover: #ffffff;
+  --muted: rgba(0, 0, 0, 0.45);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+[data-theme="gold"].dark {
+  --primary: #fbbf24;
+  --primary-foreground: #451a03;
+  --app-bg: #1c1917;
+  --app-text: #fef3c7;
+  --sidebar-bg: #0f0d09;
+  --sidebar-text: #fde68a;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.5);
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}

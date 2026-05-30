@@ -11,7 +11,8 @@
     "./utils": "./src/utils/index.ts",
     "./tokens": "./src/tokens/index.ts",
     "./styles.css": "./dist/styles.css",
-    "./styles": "./dist/styles.css"
+    "./styles": "./dist/styles.css",
+    "./themes.css": "./src/themes.css"
   },
   "files": [
     "dist",
