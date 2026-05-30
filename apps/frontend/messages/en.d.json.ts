@@ -50,7 +50,7 @@ declare const messages: {
     "submitting": "Sending...",
     "rememberedPassword": "Remembered your password?",
     "loginLink": "Sign In",
-    "modalCloseLabel": "Close dialog",
+    "modalCloseLabel": "Close",
     "modalConfirmLabel": "Got it"
   },
   "ResetPasswordPage": {

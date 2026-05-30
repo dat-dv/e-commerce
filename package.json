@@ -29,6 +29,7 @@
     "lint:be:fix": "turbo run lint --filter=@ecommerce/backend -- --fix",
     "lint:fe": "turbo run lint --filter=@ecommerce/frontend",
     "lint:admin": "turbo run lint --filter=@ecommerce/admin",
+    "lint:admin:fix": "turbo run lint --filter=@ecommerce/admin -- --fix",
     "lint:fe:fix": "turbo run lint --filter=@ecommerce/frontend -- --fix",
     "lint:ui": "turbo run lint --filter=@ecommerce/ui",
     "lint:ui:fix": "turbo run lint --filter=@ecommerce/ui -- --fix",
