@@ -49,6 +49,41 @@ function walk(dir, results = []) {
 }
 
 /**
+ * Prints shell script content that can be copied and pasted on the server.
+ */
+function printServerEnvScript() {
+  const destFileNames = Object.values(SERVICE_MAP);
+
+  console.log("");
+  console.log("");
+  console.log("# ==================================================");
+  console.log("# Copy everything below and paste it on the server");
+  console.log("# ==================================================");
+  console.log("");
+  console.log("set -e");
+  console.log("");
+
+  for (const destFileName of destFileNames) {
+    const destPath = path.join(ROOT_DIR, destFileName);
+
+    if (!fs.existsSync(destPath)) {
+      console.log(`# Skipped ${destFileName}: file not found`);
+      console.log("");
+      continue;
+    }
+
+    const content = fs.readFileSync(destPath, "utf8").trim();
+
+    console.log(`cat > ${destFileName} <<'EOF'`);
+    console.log(content);
+    console.log("EOF");
+    console.log("");
+  }
+
+  console.log("echo 'Env files synced successfully.'");
+}
+
+/**
  * Main execution function.
  */
 function main() {
@@ -63,10 +98,10 @@ function main() {
 
   files.forEach((filePath) => {
     const relativePath = path.relative(ROOT_DIR, filePath);
-    const normalizedPath = relativePath.replace(/\\/g, "/"); // normalize Windows paths
+    const normalizedPath = relativePath.replace(/\\/g, "/");
 
-    // Find which service this env file belongs to
     let matchedService = null;
+
     for (const serviceKey of Object.keys(SERVICE_MAP)) {
       if (normalizedPath.startsWith(serviceKey)) {
         matchedService = serviceKey;
@@ -93,6 +128,8 @@ function main() {
       console.log(`- Ignored: ${normalizedPath} (no matching service)`);
     }
   });
+
+  printServerEnvScript();
 }
 
 main();
