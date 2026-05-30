@@ -23,7 +23,12 @@ const logoTextVariants = {
   hover: { x: 2 },
 };
 
-export function Logo({ className, size = 32, animate = true }: ILogoProps) {
+export function Logo({
+  className,
+  size = 32,
+  animate = true,
+  showText = true,
+}: ILogoProps) {
   const shouldReduceMotion = useReducedMotion();
   const canAnimate = animate && !shouldReduceMotion;
 
@@ -83,29 +88,31 @@ export function Logo({ className, size = 32, animate = true }: ILogoProps) {
         />
       </motion.div>
 
-      <motion.span
-        className="text-content text-lg font-black tracking-tight md:text-xl"
-        variants={canAnimate ? logoTextVariants : undefined}
-        transition={{ type: "spring", stiffness: 420, damping: 30 }}
-      >
-        hot
+      {showText && (
         <motion.span
-          className="text-primary inline-block"
-          variants={
-            canAnimate
-              ? {
-                  initial: { y: 0, scale: 1 },
-                  animate: { y: 0, scale: 1 },
-                  hover: { y: -2, scale: 1.2 },
-                }
-              : undefined
-          }
-          transition={{ type: "spring", stiffness: 500, damping: 18 }}
+          className="text-content text-lg font-black tracking-tight md:text-xl"
+          variants={canAnimate ? logoTextVariants : undefined}
+          transition={{ type: "spring", stiffness: 420, damping: 30 }}
         >
-          .
+          hot
+          <motion.span
+            className="text-primary inline-block"
+            variants={
+              canAnimate
+                ? {
+                    initial: { y: 0, scale: 1 },
+                    animate: { y: 0, scale: 1 },
+                    hover: { y: -2, scale: 1.2 },
+                  }
+                : undefined
+            }
+            transition={{ type: "spring", stiffness: 500, damping: 18 }}
+          >
+            .
+          </motion.span>
+          <span className="text-primary font-extrabold">don</span>
         </motion.span>
-        <span className="text-primary font-extrabold">don</span>
-      </motion.span>
+      )}
     </motion.div>
   );
 }

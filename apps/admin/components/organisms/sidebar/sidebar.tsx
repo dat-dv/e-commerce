@@ -81,6 +81,8 @@ export const Sidebar = () => {
           if (link.disabled) e.preventDefault();
         }}
         className={`group relative flex items-center gap-3.5 rounded-xl px-3.5 py-3 text-sm font-semibold transition-all duration-300 ${
+          isCollapsed ? "justify-center px-0" : ""
+        } ${
           link.disabled
             ? "cursor-not-allowed opacity-40 hover:bg-transparent"
             : isActive
@@ -133,43 +135,14 @@ export const Sidebar = () => {
   const sidebarContent = (
     <div className="flex h-full flex-col">
       {/* ── Header / Brand ── */}
-      <div className="flex h-16 items-center justify-between border-b border-[var(--border-color)] px-4">
+      <div
+        className={`flex h-16 items-center border-b border-[var(--border-color)] px-4 ${
+          isCollapsed ? "justify-center" : "justify-between"
+        }`}
+      >
         <Link href={APP_ROUTES.DASHBOARD} className="flex items-center gap-2.5">
-          <Logo size={28} />
-          {!isCollapsed && (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="bg-gradient-to-r from-[var(--app-text)] to-[var(--app-text)]/70 bg-clip-text text-base font-bold tracking-tight text-transparent"
-            >
-              Chốt Đơn
-            </motion.span>
-          )}
+          <Logo size={28} showText={!isCollapsed} />
         </Link>
-
-        {/* Collapse Toggle Button (Desktop Only) */}
-        {!isCollapsed && (
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleCollapsed}
-            className="hidden rounded-lg text-[var(--sidebar-text)] hover:bg-white/8 hover:text-[var(--app-text)] md:flex"
-            aria-label="Collapse sidebar"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-        )}
-        {isCollapsed && (
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleCollapsed}
-            className="hidden rounded-lg text-[var(--sidebar-text)] hover:bg-white/8 hover:text-[var(--app-text)] md:flex"
-            aria-label="Expand sidebar"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        )}
       </div>
 
       {/* ── Navigation Links ── */}
@@ -250,13 +223,28 @@ export const Sidebar = () => {
       </AnimatePresence>
 
       {/* ── Desktop Sidebar ── */}
-      <motion.aside
-        animate={{ width: isCollapsed ? 80 : 260 }}
-        transition={{ type: "spring", damping: 20, stiffness: 150 }}
-        className="sticky top-0 hidden h-screen shrink-0 overflow-hidden border-r border-[var(--border-color)] bg-[var(--sidebar-bg)] shadow-sm backdrop-blur-xl md:block"
-      >
-        {sidebarContent}
-      </motion.aside>
+      <div className="relative hidden shrink-0 md:block">
+        <motion.aside
+          animate={{ width: isCollapsed ? 80 : 260 }}
+          transition={{ type: "spring", damping: 20, stiffness: 150 }}
+          className="sticky top-0 h-screen overflow-hidden border-r border-[var(--border-color)] bg-[var(--sidebar-bg)] shadow-sm backdrop-blur-xl"
+        >
+          {sidebarContent}
+        </motion.aside>
+
+        {/* Floating Expand/Collapse Button */}
+        <button
+          onClick={toggleCollapsed}
+          className="animate-in fade-in absolute top-5 -right-3 z-50 flex h-6 w-6 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--sidebar-bg)] text-[var(--sidebar-text)] shadow-md transition-colors duration-300 hover:bg-white/8 hover:text-[var(--app-text)]"
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          {isCollapsed ? (
+            <ChevronRight className="h-3.5 w-3.5" />
+          ) : (
+            <ChevronLeft className="h-3.5 w-3.5" />
+          )}
+        </button>
+      </div>
     </>
   );
 };
