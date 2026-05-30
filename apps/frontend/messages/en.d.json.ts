@@ -49,7 +49,9 @@ declare const messages: {
     "sendOtp": "Send OTP",
     "submitting": "Sending...",
     "rememberedPassword": "Remembered your password?",
-    "loginLink": "Sign In"
+    "loginLink": "Sign In",
+    "modalCloseLabel": "Close dialog",
+    "modalConfirmLabel": "Got it"
   },
   "ResetPasswordPage": {
     "title": "Reset Password",

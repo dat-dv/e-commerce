@@ -56,6 +56,13 @@ export * from "./components/molecules/empty-state";
 export * from "./components/molecules/feature-grid";
 export * from "./components/molecules/filter-drawer-trigger";
 export * from "./components/molecules/filter-sidebar";
+export type {
+  ForgotPasswordMethod,
+  IForgotPasswordFormLabels,
+  IForgotPasswordFormModalContent,
+  IForgotPasswordFormProps,
+} from "./components/molecules/forgot-password-form";
+export { default as ForgotPasswordForm } from "./components/molecules/forgot-password-form";
 export * from "./components/molecules/help-support-card";
 export * from "./components/molecules/help-topic-nav";
 export * from "./components/molecules/image-preview";
@@ -75,6 +82,12 @@ export * from "./components/molecules/responsive";
 export * from "./components/molecules/search-input";
 export * from "./components/molecules/section-header";
 export * from "./components/molecules/sidebar-layout";
+export type {
+  ISignInFormLabels,
+  ISignInFormProps,
+  ISignInFormSubmitRenderOptions,
+} from "./components/molecules/sign-in-form";
+export { default as SignInForm } from "./components/molecules/sign-in-form";
 export * from "./components/molecules/summary-card";
 export * from "./components/molecules/table";
 export * from "./components/molecules/toc";

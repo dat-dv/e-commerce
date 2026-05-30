@@ -46,7 +46,9 @@
     "sendOtp": "Gửi OTP",
     "submitting": "Đang gửi...",
     "rememberedPassword": "Đã nhớ mật khẩu?",
-    "loginLink": "Đăng nhập"
+    "loginLink": "Đăng nhập",
+    "modalCloseLabel": "Đóng",
+    "modalConfirmLabel": "Đã hiểu"
   },
   "ResetPasswordPage": {
     "title": "Đặt lại mật khẩu",
