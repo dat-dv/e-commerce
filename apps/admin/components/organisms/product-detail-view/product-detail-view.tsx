@@ -12,6 +12,7 @@ export const ProductDetailView = () => {
     product,
     brands,
     attributes,
+    languages,
     categoryTree,
     loading,
     metadataLoading,
@@ -111,6 +112,7 @@ export const ProductDetailView = () => {
           />
           <ProductTranslations
             product={product}
+            languages={languages}
             isEditing={isEditing}
             editTranslations={editTranslations}
             setEditTranslations={setEditTranslations}

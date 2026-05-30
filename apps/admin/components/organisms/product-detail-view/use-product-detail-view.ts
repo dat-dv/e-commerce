@@ -4,6 +4,7 @@ import {
   type IAttributeListResponse,
   type IBrandResponse,
   type ICategoryTreeResponse,
+  type ILanguageListResponse,
   type IProductResponse,
   type IUpdateProductSkuRequest,
   type IUpdateProductTranslationRequest,
@@ -14,6 +15,7 @@ import { useCallback, useMemo, useState, useTransition } from "react";
 
 import { adminAttributeUseCase } from "@/domain/attribute";
 import { adminBrandUseCase } from "@/domain/brand";
+import { adminLanguageUseCase } from "@/domain/language";
 import { adminProductUseCase } from "@/domain/product";
 import { adminProductCategoryUseCase } from "@/domain/product-category";
 import { adminUploadUseCase } from "@/domain/upload";
@@ -75,6 +77,7 @@ export const useProductDetailView = () => {
   const [product, setProduct] = useState<IProductResponse | null>(null);
   const [brands, setBrands] = useState<IBrandResponse[]>([]);
   const [attributes, setAttributes] = useState<IAttributeListResponse>([]);
+  const [languages, setLanguages] = useState<ILanguageListResponse>([]);
   const [categoryTree, setCategoryTree] = useState<ICategoryTreeResponse>([]);
   const [loading, setLoading] = useState(true);
   const [metadataLoading, setMetadataLoading] = useState(true);
@@ -162,13 +165,19 @@ export const useProductDetailView = () => {
     setError(null);
     setMetadataError(null);
 
-    const [productResult, brandsResult, categoriesResult, attributesResult] =
-      await Promise.allSettled([
-        adminProductUseCase.getProduct.execute(slug),
-        adminBrandUseCase.getBrands.execute({ page: 1, limit: 50 }),
-        adminProductCategoryUseCase.getCategoryTree.execute(),
-        adminAttributeUseCase.getAttributes.execute(),
-      ]);
+    const [
+      productResult,
+      brandsResult,
+      categoriesResult,
+      attributesResult,
+      languagesResult,
+    ] = await Promise.allSettled([
+      adminProductUseCase.getProduct.execute(slug),
+      adminBrandUseCase.getBrands.execute({ page: 1, limit: 50 }),
+      adminProductCategoryUseCase.getCategoryTree.execute(),
+      adminAttributeUseCase.getAttributes.execute(),
+      adminLanguageUseCase.getLanguages.execute(),
+    ]);
 
     if (productResult.status === "fulfilled") {
       const response = productResult.value;
@@ -208,6 +217,17 @@ export const useProductDetailView = () => {
         current
           ? `${current} Failed to load attribute options.`
           : "Failed to load attribute options.",
+      );
+    }
+
+    if (languagesResult.status === "fulfilled") {
+      setLanguages(languagesResult.value.data ?? []);
+    } else {
+      console.error(languagesResult.reason);
+      setMetadataError((current) =>
+        current
+          ? `${current} Failed to load language options.`
+          : "Failed to load language options.",
       );
     }
 
@@ -283,6 +303,11 @@ export const useProductDetailView = () => {
           unit_price: sku.unit_price?.trim() || "VND",
           attribute_value_ids: sku.attribute_value_ids ?? [],
         }));
+        const normalizedTranslations = editTranslations.map((translation) => ({
+          ...translation,
+          name: translation.name.trim(),
+          description: translation.description?.trim() || "",
+        }));
         const skuCodes = normalizedSkus.map((sku) => sku.sku_code);
 
         if (Number(editPrice) < 0) {
@@ -297,6 +322,11 @@ export const useProductDetailView = () => {
 
         if (normalizedSkus.length === 0) {
           toast.error("Product must have at least one SKU.");
+          return;
+        }
+
+        if (normalizedTranslations.some((translation) => !translation.name)) {
+          toast.error("Translation name is required.");
           return;
         }
 
@@ -340,7 +370,7 @@ export const useProductDetailView = () => {
           thumbnail_id: editThumbnailId || null,
           brand_id: editBrandId || null,
           category_ids: editCategoryIds,
-          translations: editTranslations,
+          translations: normalizedTranslations,
           skus: normalizedSkus,
           deleted_sku_ids: deletedSkuIds,
         };
@@ -367,6 +397,7 @@ export const useProductDetailView = () => {
     product,
     brands,
     attributes,
+    languages,
     categoryTree,
     loading,
     metadataLoading,

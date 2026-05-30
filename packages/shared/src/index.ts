@@ -12,6 +12,7 @@ export * from "./order";
 export * from "./homepage";
 export * from "./address";
 export * from "./attribute";
+export * from "./language";
 export * from "./review";
 export * from "./notification";
 export * from "./prettify";

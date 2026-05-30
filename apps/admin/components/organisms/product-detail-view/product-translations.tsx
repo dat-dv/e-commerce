@@ -1,4 +1,5 @@
 import {
+  type ILanguageListResponse,
   type IProductResponse,
   type IUpdateProductTranslationRequest,
 } from "@ecommerce/shared";
@@ -6,6 +7,7 @@ import { Globe, Info } from "lucide-react";
 
 interface IProductTranslationsProps {
   product: IProductResponse;
+  languages?: ILanguageListResponse;
   isEditing?: boolean;
   editTranslations?: IUpdateProductTranslationRequest[];
   setEditTranslations?: (
@@ -15,6 +17,7 @@ interface IProductTranslationsProps {
 
 export const ProductTranslations = ({
   product,
+  languages = [],
   isEditing = false,
   editTranslations = [],
   setEditTranslations,
@@ -25,12 +28,56 @@ export const ProductTranslations = ({
     value: string,
   ) => {
     if (!setEditTranslations) return;
-    setEditTranslations(
-      editTranslations.map((t) =>
-        t.language_id === langId ? { ...t, [field]: value } : t,
-      ),
+    const existingTranslation = editTranslations.find(
+      (translation) => translation.language_id === langId,
     );
+
+    if (existingTranslation) {
+      setEditTranslations(
+        editTranslations.map((translation) =>
+          translation.language_id === langId
+            ? { ...translation, [field]: value }
+            : translation,
+        ),
+      );
+      return;
+    }
+
+    setEditTranslations([
+      ...editTranslations,
+      {
+        language_id: langId,
+        name: field === "name" ? value : "",
+        description: field === "description" ? value : "",
+      },
+    ]);
   };
+
+  const existingTranslations = product.translations ?? [];
+  const rows =
+    isEditing && languages.length > 0
+      ? languages.map((language) => {
+          const translation = existingTranslations.find(
+            (item) => item.language_id === language.id,
+          );
+          return {
+            id: translation?.id ?? language.id,
+            language_id: language.id,
+            languageLabel: `${language.name} (${language.code})`,
+            name: translation?.name ?? "",
+            description: translation?.description ?? "",
+          };
+        })
+      : existingTranslations.map((translation) => ({
+          id: translation.id,
+          language_id: translation.language_id,
+          languageLabel:
+            languages.find(
+              (language) => language.id === translation.language_id,
+            )?.name ?? translation.language_id,
+          name: translation.name,
+          description: translation.description ?? "",
+        }));
 
   return (
     <section className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-5 shadow-xl backdrop-blur-xl">
@@ -44,9 +91,9 @@ export const ProductTranslations = ({
         </p>
       </div>
 
-      {product.translations && product.translations.length > 0 ? (
+      {rows.length > 0 ? (
         <div className="space-y-4">
-          {product.translations.map((translation) => {
+          {rows.map((translation) => {
             const editT =
               editTranslations.find(
                 (x) => x.language_id === translation.language_id,
@@ -58,7 +105,7 @@ export const ProductTranslations = ({
               >
                 <div className="mb-2 flex items-center gap-2">
                   <span className="rounded bg-indigo-500/10 px-2.5 py-0.5 text-xs font-bold text-indigo-300 uppercase">
-                    {translation.language_id}
+                    {translation.languageLabel}
                   </span>
                 </div>
                 <div className="space-y-3">

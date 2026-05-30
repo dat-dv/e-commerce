@@ -7,6 +7,7 @@ import { CartModule } from './api/cart/cart.module';
 import { FlashSalesModule } from './api/flash-sales/flash-sales.module';
 import { HelpContactSubmissionsModule } from './api/help-contact-submissions/help-contact-submissions.module';
 import { HomepageModule } from './api/homepage/homepage.module';
+import { LanguagesModule } from './api/languages/languages.module';
 import { NotificationsModule } from './api/notifications/notifications.module';
 import { OrderReturnsModule } from './api/order-returns/order-returns.module';
 import { OrdersModule } from './api/orders/orders.module';
@@ -43,6 +44,7 @@ import { CacheModule } from './shared/services/cache/cache.module';
     AddressesModule,
     NotificationsModule,
     HomepageModule,
+    LanguagesModule,
     BrandsModule,
     UserFavoriteProductsModule,
     HelpContactSubmissionsModule,

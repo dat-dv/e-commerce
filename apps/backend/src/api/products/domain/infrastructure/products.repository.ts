@@ -717,6 +717,20 @@ export class ProductsRepository implements IProductsRepository {
         }
       }
 
+      if (translations && translations.length > 0) {
+        const languageIds = [...new Set(translations.map((translation) => translation.language_id))];
+        const languages = await tx.language.findMany({
+          where: { id: { in: languageIds } },
+          select: { id: true },
+        });
+        const foundLanguageIds = new Set(languages.map((language) => language.id));
+        const missingLanguageIds = languageIds.filter((languageId) => !foundLanguageIds.has(languageId));
+
+        if (missingLanguageIds.length > 0) {
+          throw new BadRequestException('One or more selected languages do not exist');
+        }
+      }
+
       const skuIds = skus?.map((sku) => sku.id).filter((skuId): skuId is string => Boolean(skuId)) ?? [];
       const deletedSkuIds = deleted_sku_ids ?? [];
       const touchedSkuIds = [...new Set([...skuIds, ...deletedSkuIds])];
