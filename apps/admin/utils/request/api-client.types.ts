@@ -12,21 +12,17 @@ export interface ApiListResponse<T> {
   meta: IPaginationMeta;
 }
 
-export interface ApiResponse<T> {
-  data: T;
-  meta?: IPaginationMeta;
-  message?: string;
-  timestamp?: string;
-  status: "success" | "fail";
-}
+import { type IApiResponse } from "@ecommerce/shared";
+
+export type ApiResponse<T> = IApiResponse<T>;
 
 export interface ApiPaginatedResponse<T> {
   data: {
     items: T[];
     meta: IPaginationMeta;
   };
-  message?: string;
-  timestamp?: string;
+  message: string | null;
+  timestamp: string;
   status: "success" | "fail";
 }
 

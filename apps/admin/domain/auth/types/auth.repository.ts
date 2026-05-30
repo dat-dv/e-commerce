@@ -1,5 +1,6 @@
+import { type IApiResponse } from "@ecommerce/shared";
+
 import { type IAdminUser } from "@/domain/user";
-import { type ApiResponse } from "@/utils/request/api-client.types";
 
 import {
   type TAdminForgotPasswordRequest,
@@ -7,9 +8,9 @@ import {
 } from "./auth.model";
 
 export interface IAdminAuthRepository {
-  login(request: TAdminSignInRequest): Promise<ApiResponse<IAdminUser>>;
+  login(request: TAdminSignInRequest): Promise<IApiResponse<IAdminUser>>;
   forgotPassword(
     request: TAdminForgotPasswordRequest,
-  ): Promise<ApiResponse<void>>;
-  fetchMe(): Promise<ApiResponse<IAdminUser>>;
+  ): Promise<IApiResponse<void>>;
+  fetchMe(): Promise<IApiResponse<IAdminUser>>;
 }
