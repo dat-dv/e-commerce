@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Avatar,
   Button,
@@ -16,6 +18,7 @@ import { useCustomersView } from "./use-customers-view";
 export const CustomersView = () => {
   const {
     error,
+    loading,
     searchQuery,
     page,
     total,
@@ -136,32 +139,19 @@ export const CustomersView = () => {
         <TableCommon<IAdminUser>
           data={filteredUsers}
           columns={columns}
+          loading={loading}
           error={error}
           onRowClick={handleViewDetail}
           emptyState="No customers found."
         />
 
         {/* Pagination Controls */}
-        {totalPages > 1 && (
-          <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border-color)] px-6 py-4 sm:flex-row">
-            <div className="text-xs text-[var(--muted)]">
-              Showing page{" "}
-              <span className="font-bold text-[var(--app-text)]">{page}</span>{" "}
-              of{" "}
-              <span className="font-bold text-[var(--app-text)]">
-                {totalPages}
-              </span>{" "}
-              (<span className="font-bold text-[var(--app-text)]">{total}</span>{" "}
-              total customers)
-            </div>
-            <Pagination
-              currentPage={page}
-              totalPages={totalPages}
-              onPageChange={setPage}
-              className="w-auto py-0"
-            />
-          </div>
-        )}
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={setPage}
+          className="w-auto py-0"
+        />
       </div>
     </div>
   );

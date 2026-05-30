@@ -11,6 +11,7 @@ import { formatCurrency, formatDate, getOrderStatus } from "./order.utils";
 
 interface IOrdersTableProps {
   orders: IOrderResponse[];
+  loading?: boolean;
   error: string | null;
   page: number;
   total: number;
@@ -21,6 +22,7 @@ interface IOrdersTableProps {
 
 export const OrdersTable = ({
   orders,
+  loading = false,
   error,
   page,
   total,
@@ -117,31 +119,19 @@ export const OrdersTable = ({
       <TableCommon<IOrderResponse>
         data={orders}
         columns={columns}
+        loading={loading}
         error={error}
         onRowClick={onViewDetail}
         emptyState="No orders found."
       />
 
       {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border-color)] px-6 py-4 sm:flex-row">
-          <span className="text-xs text-[var(--muted)]">
-            Page{" "}
-            <span className="font-bold text-[var(--app-text)]">{page}</span> of{" "}
-            <span className="font-bold text-[var(--app-text)]">
-              {totalPages}
-            </span>{" "}
-            (<span className="font-bold text-[var(--app-text)]">{total}</span>{" "}
-            orders)
-          </span>
-          <Pagination
-            currentPage={page}
-            totalPages={totalPages}
-            onPageChange={onPageChange}
-            className="w-auto py-0"
-          />
-        </div>
-      )}
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={onPageChange}
+        className="w-auto py-0"
+      />
     </div>
   );
 };

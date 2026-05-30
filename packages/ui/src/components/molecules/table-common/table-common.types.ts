@@ -13,7 +13,7 @@ export interface ITableSortDescriptor {
   direction: "ascending" | "descending";
 }
 
-export interface ITableCommonProps<T> {
+export interface ITableCommonProps<T extends Record<string, unknown>> {
   data: T[];
   columns: ITableColumn<T>[];
   loading?: boolean;

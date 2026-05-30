@@ -15,6 +15,7 @@ import {
 
 interface IProductsTableProps {
   products: IProductResponse[];
+  loading?: boolean;
   error: string | null;
   page: number;
   total: number;
@@ -25,6 +26,7 @@ interface IProductsTableProps {
 
 export const ProductsTable = ({
   products,
+  loading = false,
   error,
   page,
   total,
@@ -125,31 +127,19 @@ export const ProductsTable = ({
       <TableCommon<IProductResponse>
         data={products}
         columns={columns}
+        loading={loading}
         error={error}
         onRowClick={onViewDetail}
         emptyState="No products found."
       />
 
       {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border-color)] px-6 py-4 sm:flex-row">
-          <span className="text-xs text-[var(--muted)]">
-            Page{" "}
-            <span className="font-bold text-[var(--app-text)]">{page}</span> of{" "}
-            <span className="font-bold text-[var(--app-text)]">
-              {totalPages}
-            </span>{" "}
-            (<span className="font-bold text-[var(--app-text)]">{total}</span>{" "}
-            products)
-          </span>
-          <Pagination
-            currentPage={page}
-            totalPages={totalPages}
-            onPageChange={onPageChange}
-            className="w-auto py-0"
-          />
-        </div>
-      )}
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={onPageChange}
+        className="w-auto py-0"
+      />
     </div>
   );
 };

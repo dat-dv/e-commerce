@@ -11,6 +11,7 @@ import { useOrdersView } from "./use-orders-view";
 export const OrdersView = () => {
   const {
     error,
+    loading,
     searchQuery,
     page,
     total,
@@ -42,6 +43,7 @@ export const OrdersView = () => {
 
       <OrdersTable
         orders={filteredOrders}
+        loading={loading}
         error={error}
         page={page}
         total={total}

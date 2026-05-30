@@ -11,6 +11,7 @@ import { useProductsView } from "./use-products-view";
 export const ProductsView = () => {
   const {
     error,
+    loading,
     searchQuery,
     page,
     total,
@@ -42,6 +43,7 @@ export const ProductsView = () => {
 
       <ProductsTable
         products={filteredProducts}
+        loading={loading}
         error={error}
         page={page}
         total={total}

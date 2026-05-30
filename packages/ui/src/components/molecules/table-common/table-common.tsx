@@ -4,7 +4,7 @@ import { type Key } from "react";
 import { cn } from "../../../utils";
 import type { ITableCommonProps } from "./table-common.types";
 
-export default function TableCommon<T>({
+export default function TableCommon<T extends Record<string, any>>({
   data,
   columns,
   loading = false,
@@ -19,7 +19,7 @@ export default function TableCommon<T>({
 }: ITableCommonProps<T>) {
   const getRowKey = (item: T, index: number): Key => {
     if (rowKey) return rowKey(item);
-    const itemAny = item as any;
+    const itemAny = item;
     return itemAny?.id || itemAny?.key || index;
   };
 
@@ -43,7 +43,7 @@ export default function TableCommon<T>({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] shadow-xl backdrop-blur-xl",
+        "border-content/10 bg-surface/30 overflow-hidden rounded-xl border shadow-xl backdrop-blur-xl",
         className,
       )}
       {...rest}
@@ -51,7 +51,7 @@ export default function TableCommon<T>({
       <div className="overflow-x-auto">
         <table className="w-full min-w-full border-collapse text-left text-sm">
           <thead>
-            <tr className="border-b border-white/10 bg-white/[0.01] text-xs font-bold tracking-wider text-white/50 uppercase">
+            <tr className="border-content/10 border-b text-xs font-bold tracking-wider uppercase opacity-60">
               {columns.map((column) => {
                 const isSorted = sortDescriptor?.column === column.key;
                 const sortDir = isSorted ? sortDescriptor?.direction : null;
@@ -62,15 +62,14 @@ export default function TableCommon<T>({
                     onClick={() => column.sortable && handleSort(column.key)}
                     className={cn(
                       "px-6 py-4 font-semibold select-none",
-                      column.sortable &&
-                        "cursor-pointer transition-colors hover:bg-white/[0.02] hover:text-white",
+                      column.sortable && "cursor-pointer",
                       column.className,
                     )}
                   >
                     <div className="flex items-center gap-1.5">
                       <span>{column.header}</span>
                       {column.sortable && (
-                        <span className="shrink-0 text-white/40">
+                        <span className="shrink-0 opacity-60">
                           {sortDir === "ascending" ? (
                             <ArrowUp className="text-primary h-3.5 w-3.5" />
                           ) : sortDir === "descending" ? (
@@ -86,7 +85,7 @@ export default function TableCommon<T>({
               })}
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/5">
+          <tbody className="divide-content/5 divide-y">
             {error ? (
               <tr>
                 <td
@@ -105,7 +104,7 @@ export default function TableCommon<T>({
                       key={`shimmer-${rIdx}-${col.key}`}
                       className="px-6 py-4"
                     >
-                      <div className="h-4 w-full animate-pulse rounded bg-white/10" />
+                      <div className="bg-content/10 h-4 w-full animate-pulse rounded" />
                     </td>
                   ))}
                 </tr>
@@ -114,7 +113,7 @@ export default function TableCommon<T>({
               <tr>
                 <td
                   colSpan={columns.length}
-                  className="px-6 py-12 text-center text-white/40"
+                  className="px-6 py-12 text-center opacity-50"
                 >
                   {emptyState || "No records found."}
                 </td>
@@ -125,21 +124,16 @@ export default function TableCommon<T>({
                   key={getRowKey(item, index).toString()}
                   onClick={() => onRowClick?.(item)}
                   className={cn(
-                    "transition-colors hover:bg-white/[0.01]",
+                    "hover:bg-content/[0.02] transition-colors",
                     onRowClick && "cursor-pointer",
                   )}
                 >
                   {columns.map((column) => (
                     <td
                       key={column.key}
-                      className={cn(
-                        "px-6 py-4 text-white/80",
-                        column.className,
-                      )}
+                      className={cn("px-6 py-4", column.className)}
                     >
-                      {column.render
-                        ? column.render(item)
-                        : (item as any)[column.key]}
+                      {column.render ? column.render(item) : item?.[column.key]}
                     </td>
                   ))}
                 </tr>
