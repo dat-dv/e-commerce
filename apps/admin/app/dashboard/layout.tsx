@@ -2,7 +2,7 @@
 
 import { AdminFooter } from "@/components/molecules/admin-footer";
 import { AdminHeader } from "@/components/molecules/admin-header";
-import { Sidebar } from "@/components/organisms/sidebar";
+import { Sidebar } from "@/components/molecules/sidebar";
 import { useAdminSidebarStore } from "@/store/sidebar";
 
 export default function DashboardLayout({
