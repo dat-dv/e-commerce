@@ -12,4 +12,5 @@ export interface IResponsiveOnlyProps {
   children: ReactNode;
   fallback?: ReactNode;
   isFallbackChildren?: boolean;
+  fallbackClassName?: string;
 }

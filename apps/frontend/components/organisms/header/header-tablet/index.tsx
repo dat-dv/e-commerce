@@ -6,17 +6,27 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 
 import { RenderTabletAndBelow } from "@ecommerce/ui";
+import { cn } from "@/utils/cn";
 import HeaderActions from "../header-actions";
 import HeaderLogo from "../header-desktop/header-logo";
 import MobileNavDrawer from "./tablet-nav-drawer";
 import MobileSearchDrawer from "./tablet-search-drawer";
 
-export default function HeaderTabletAndBellow() {
+export default function HeaderTabletAndBellow({
+  className,
+}: {
+  className?: string;
+}) {
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
   const [isOpenSearch, setIsOpenSearch] = useState(false);
 
   return (
-    <header className="border-content/10 bg-surface sticky top-0 z-100 flex w-full flex-col border-b">
+    <header
+      className={cn(
+        "border-content/10 bg-surface sticky top-0 z-50 flex w-full flex-col border-b",
+        className,
+      )}
+    >
       <AppContainer className="relative z-20 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <HeaderLogo />

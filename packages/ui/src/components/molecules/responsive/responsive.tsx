@@ -1,6 +1,7 @@
 "use client";
 
 import { useMediaQuery } from "../../../hooks/use-media-query";
+import { cn } from "../../../utils/cn";
 import type {
   IResponsiveOnlyProps,
   IResponsiveRenderProps,
@@ -16,7 +17,7 @@ export function ResponsiveRender({
   fallback = null,
   fallbackClassName,
   query,
-  isFallbackChildren = false,
+  isFallbackChildren = true,
 }: IResponsiveRenderProps) {
   const matches = useMediaQuery(query);
 
@@ -37,11 +38,12 @@ export function RenderDesktopOnly({
   children,
   fallback,
   isFallbackChildren = true,
+  fallbackClassName,
 }: IResponsiveOnlyProps) {
   return (
     <ResponsiveRender
       fallback={fallback}
-      fallbackClassName="hidden lg:block"
+      fallbackClassName={cn("hidden lg:block", fallbackClassName)}
       query={`(min-width: ${BREAKPOINTS.desktop}px)`}
       isFallbackChildren={isFallbackChildren}
     >
@@ -54,11 +56,12 @@ export function RenderTabletAndAbove({
   children,
   fallback,
   isFallbackChildren = true,
+  fallbackClassName,
 }: IResponsiveOnlyProps) {
   return (
     <ResponsiveRender
       fallback={fallback}
-      fallbackClassName="hidden md:block"
+      fallbackClassName={cn("hidden md:block", fallbackClassName)}
       query={`(min-width: ${BREAKPOINTS.tablet}px)`}
       isFallbackChildren={isFallbackChildren}
     >
@@ -71,11 +74,12 @@ export function RenderTabletOnly({
   children,
   fallback,
   isFallbackChildren = true,
+  fallbackClassName,
 }: IResponsiveOnlyProps) {
   return (
     <ResponsiveRender
       fallback={fallback}
-      fallbackClassName="hidden md:block lg:hidden"
+      fallbackClassName={cn("hidden md:block lg:hidden", fallbackClassName)}
       query={`(min-width: ${BREAKPOINTS.tablet}px) and (max-width: ${
         BREAKPOINTS.desktop - 1
       }px)`}
@@ -90,11 +94,12 @@ export function RenderTabletAndBelow({
   children,
   fallback,
   isFallbackChildren = true,
+  fallbackClassName,
 }: IResponsiveOnlyProps) {
   return (
     <ResponsiveRender
       fallback={fallback}
-      fallbackClassName="lg:hidden"
+      fallbackClassName={cn("lg:hidden", fallbackClassName)}
       query={`(max-width: ${BREAKPOINTS.desktop - 1}px)`}
       isFallbackChildren={isFallbackChildren}
     >
@@ -107,11 +112,12 @@ export function RenderMobileOnly({
   children,
   fallback,
   isFallbackChildren = true,
+  fallbackClassName,
 }: IResponsiveOnlyProps) {
   return (
     <ResponsiveRender
       fallback={fallback}
-      fallbackClassName="md:hidden"
+      fallbackClassName={cn("md:hidden", fallbackClassName)}
       query={`(max-width: ${BREAKPOINTS.tablet - 1}px)`}
       isFallbackChildren={isFallbackChildren}
     >

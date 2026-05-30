@@ -17,7 +17,7 @@ import HeaderActions from "../header-actions";
 import HeaderLogo from "./header-logo";
 import HeaderNav from "./header-nav";
 
-export default function HeaderDesktop() {
+export default function HeaderDesktop({ className }: { className?: string }) {
   const { setIsOpenCategory, isOpenCategory } = useHeaderStore();
   const headerRef = useRef<HTMLElement>(null);
   const t = useTranslations("Common.header");
@@ -33,7 +33,10 @@ export default function HeaderDesktop() {
   return (
     <header
       ref={headerRef}
-      className="border-content/10 bg-surface sticky top-0 z-50 flex w-full flex-col border-b"
+      className={cn(
+        "border-content/10 bg-surface sticky top-0 z-50 flex w-full flex-col border-b",
+        className,
+      )}
     >
       <AppContainer className="relative z-20 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2 md:gap-10">

@@ -7,10 +7,10 @@ import HeaderTabletAndBellow from "./header-tablet";
 export default function Header() {
   return (
     <>
-      <RenderDesktopOnly>
+      <RenderDesktopOnly fallbackClassName="sticky top-0 z-50">
         <HeaderDesktop />
       </RenderDesktopOnly>
-      <RenderTabletAndBelow>
+      <RenderTabletAndBelow fallbackClassName="sticky top-0 z-50">
         <HeaderTabletAndBellow />
       </RenderTabletAndBelow>
     </>
