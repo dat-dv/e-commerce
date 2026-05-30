@@ -1,4 +1,4 @@
-import { toast as sonnerToast } from "sonner";
+import { ExternalToast, toast as sonnerToast } from "sonner";
 
 import { CustomToast, ToastVariant } from "./toast-item";
 
@@ -19,21 +19,25 @@ function showToast(
   options: IToastOptions = {},
 ): ToastId {
   const { id, description, duration } = options;
-  return sonnerToast.custom(
-    (toastId) => (
+
+  const customOptions: ExternalToast = {
+    duration:
+      duration ?? (variant === "error" ? ERROR_TIMEOUT : DEFAULT_TIMEOUT),
+  };
+  if (id !== undefined) {
+    customOptions.id = id;
+  }
+
+  return sonnerToast.custom((toastId) => {
+    return (
       <CustomToast
         id={toastId}
         title={title}
         description={description}
         variant={variant}
       />
-    ),
-    {
-      id,
-      duration:
-        duration ?? (variant === "error" ? ERROR_TIMEOUT : DEFAULT_TIMEOUT),
-    },
-  );
+    );
+  }, customOptions);
 }
 
 export const toast = {

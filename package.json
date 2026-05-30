@@ -63,5 +63,8 @@
     "apps/backend/**/*.ts": [
       "npm run lint --workspace=@ecommerce/backend -- --fix"
     ]
+  },
+  "dependencies": {
+    "sonner": "^2.0.7"
   }
 }

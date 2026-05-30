@@ -95,6 +95,7 @@ export function CustomToast({
       {/* Close button */}
       <button
         onClick={(event) => {
+          removeToast();
           event.preventDefault();
           event.stopPropagation();
           removeToast();
