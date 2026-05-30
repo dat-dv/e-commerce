@@ -5,7 +5,7 @@ import {
   type IProductResponse,
   type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
-import { Activity, Award, Grid, Package, Star, Tag } from "lucide-react";
+import { Activity, Award, Grid, Package, Star, Tag, X } from "lucide-react";
 
 import { formatCurrency, getProductName } from "../products-view/product.utils";
 import { ProductSkuTable } from "./product-sku-table";
@@ -193,6 +193,11 @@ export const ProductGeneralInfo = ({
               <Grid className="h-4 w-4" />
               Categories
             </div>
+            {isEditing && (
+              <p className="mt-1 text-xs font-semibold text-indigo-300">
+                {editCategoryIds.length} selected
+              </p>
+            )}
             {isEditing ? (
               <div className="mt-2 max-h-44 space-y-1 overflow-y-auto pr-1">
                 {metadataLoading ? (
@@ -254,12 +259,16 @@ export const ProductGeneralInfo = ({
                     (item) => item.id === categoryId,
                   );
                   return (
-                    <span
+                    <button
                       key={categoryId}
-                      className="rounded bg-indigo-500/10 px-2 py-0.5 text-xs font-semibold text-indigo-300"
+                      type="button"
+                      onClick={() => toggleCategory(categoryId)}
+                      className="inline-flex items-center gap-1 rounded bg-indigo-500/10 px-2 py-0.5 text-xs font-semibold text-indigo-300 transition-colors hover:bg-indigo-500/15"
+                      aria-label={`Remove category ${getCategoryName(category) || categoryId}`}
                     >
                       {getCategoryName(category) || categoryId}
-                    </span>
+                      <X className="h-3 w-3" />
+                    </button>
                   );
                 })}
               </div>

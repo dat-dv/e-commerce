@@ -3,7 +3,7 @@ import {
   type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
-import { Layers, Plus } from "lucide-react";
+import { Layers, Plus, Trash2 } from "lucide-react";
 
 import { formatCurrency } from "../products-view/product.utils";
 
@@ -12,6 +12,8 @@ interface IProductSkuTableProps {
   isEditing?: boolean;
   editSkus?: IUpdateProductSkuRequest[];
   setEditSkus?: (skus: IUpdateProductSkuRequest[]) => void;
+  deletedSkuIds?: string[];
+  setDeletedSkuIds?: (skuIds: string[]) => void;
 }
 
 export const ProductSkuTable = ({
@@ -19,6 +21,8 @@ export const ProductSkuTable = ({
   isEditing = false,
   editSkus = [],
   setEditSkus,
+  deletedSkuIds = [],
+  setDeletedSkuIds,
 }: IProductSkuTableProps) => {
   const rows = isEditing ? editSkus : (product.skus ?? []);
   const skuCodes = editSkus.map((sku) => sku.sku_code.trim()).filter(Boolean);
@@ -96,6 +100,44 @@ export const ProductSkuTable = ({
     ]);
   };
 
+  const handleRemoveSku = (index: number) => {
+    if (!setEditSkus) return;
+
+    const sku = editSkus[index];
+    if (!sku) return;
+
+    if (editSkus.length === 1) {
+      return;
+    }
+
+    if (sku.id && setDeletedSkuIds) {
+      setDeletedSkuIds([...new Set([...deletedSkuIds, sku.id])]);
+    }
+
+    setEditSkus(editSkus.filter((_, skuIndex) => skuIndex !== index));
+  };
+
+  const getStockBadge = (stock: number) => {
+    if (stock <= 0) {
+      return {
+        label: "Out of stock",
+        className: "bg-red-500/10 text-red-300",
+      };
+    }
+
+    if (stock <= 10) {
+      return {
+        label: "Low stock",
+        className: "bg-orange-500/10 text-orange-300",
+      };
+    }
+
+    return {
+      label: "In stock",
+      className: "bg-emerald-500/10 text-emerald-300",
+    };
+  };
+
   return (
     <div className="border-content/5 mt-6 border-t pt-6">
       <div className="mb-4 flex items-center justify-between">
@@ -125,6 +167,7 @@ export const ProductSkuTable = ({
                 <th className="px-4 py-3">SKU Code</th>
                 <th className="px-4 py-3 text-right">Price</th>
                 <th className="px-4 py-3 text-right">Stock</th>
+                {isEditing && <th className="px-4 py-3 text-right">Action</th>}
               </tr>
             </thead>
             <tbody className="divide-content/5 divide-y">
@@ -255,13 +298,7 @@ export const ProductSkuTable = ({
                         </div>
                       ) : (
                         <span
-                          className={`font-semibold ${
-                            sku.stock > 10
-                              ? "text-[var(--app-text)]"
-                              : sku.stock > 0
-                                ? "text-orange-400"
-                                : "font-bold text-red-400"
-                          }`}
+                          className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-bold ${getStockBadge(Number(sku.stock)).className}`}
                         >
                           {sku.stock > 0
                             ? `${sku.stock} items`
@@ -269,6 +306,20 @@ export const ProductSkuTable = ({
                         </span>
                       )}
                     </td>
+                    {isEditing && (
+                      <td className="px-4 py-3 text-right">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => handleRemoveSku(index)}
+                          disabled={editSkus.length === 1}
+                          className="ml-auto h-8 w-8 rounded-lg text-red-300 hover:bg-red-500/10 disabled:opacity-30"
+                          aria-label={`Remove SKU ${editSku.sku_code || index + 1}`}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </td>
+                    )}
                   </tr>
                 );
               })}
