@@ -1,7 +1,6 @@
 import type { IPermissionResponse } from "@ecommerce/shared";
 
 import type { TAdminRole } from "@/domain/permission";
-import type { IAdminUser } from "@/domain/user";
 
 export type PermissionsByCategory = Record<string, IPermissionResponse[]>;
 
@@ -39,17 +38,4 @@ export interface ICreateRolePanelProps {
   onDescriptionChange: (value: string) => void;
   onTogglePermission: (permissionId: string) => void;
   onCreateRole: () => void;
-}
-
-export interface IAssignUserRolePanelProps {
-  users: IAdminUser[];
-  roles: TAdminRole[];
-  userSearchQuery: string;
-  selectedUserId: string;
-  selectedAssignRoleId: string;
-  assigningRole: boolean;
-  onUserSearchChange: (query: string) => void;
-  onUserChange: (userId: string) => void;
-  onAssignRoleChange: (roleId: string) => void;
-  onAssignRole: () => void;
 }

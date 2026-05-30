@@ -1,31 +1,16 @@
 "use client";
 
-import {
-  Avatar,
-  BasicLoading,
-  Button,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-  SearchInput,
-} from "@ecommerce/ui";
-import {
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Eye,
-  Phone,
-  User as UserIcon,
-} from "lucide-react";
+import { Avatar, BasicLoading, Button, SearchInput } from "@ecommerce/ui";
+import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 
+import { APP_ROUTES } from "@/constants/routes";
 import { AdminUserRepository } from "@/domain/user";
 import { type IAdminUser } from "@/domain/user/types/user.model";
 
-/**
- * @description CustomersView organism renders the customers list, search, pagination, and detail modal.
- */
 export const CustomersView = () => {
+  const router = useRouter();
   const userRepository = useMemo(() => new AdminUserRepository(), []);
 
   // State Management
@@ -39,10 +24,6 @@ export const CustomersView = () => {
   const [limit] = useState(10);
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-
-  // Detail Modal State
-  const [selectedUser, setSelectedUser] = useState<IAdminUser | null>(null);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   // Fetch Users
   const fetchUsers = async (currentPage: number) => {
@@ -73,8 +54,7 @@ export const CustomersView = () => {
   };
 
   const handleViewDetail = (user: IAdminUser) => {
-    setSelectedUser(user);
-    setIsDetailOpen(true);
+    router.push(APP_ROUTES.CUSTOMER_DETAIL(user.id));
   };
 
   // Client-side filtering as a fallback and extra responsiveness
@@ -254,161 +234,6 @@ export const CustomersView = () => {
           )}
         </div>
       </div>
-
-      {/* User Details Dialog */}
-      <Dialog isOpen={isDetailOpen} onClose={() => setIsDetailOpen(false)}>
-        <DialogPanel className="max-w-lg rounded-2xl border border-white/[0.08] bg-[#0c0d12]/95 p-6 shadow-2xl backdrop-blur-2xl">
-          <DialogTitle className="text-xl font-bold text-[var(--app-text)]">
-            Customer Profile Details
-          </DialogTitle>
-
-          {selectedUser && (
-            <div className="mt-6 space-y-6">
-              {/* Profile Card */}
-              <div className="flex items-center gap-4 rounded-xl border border-white/[0.04] bg-white/2 p-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 ring-4 ring-white/5">
-                  <Avatar
-                    name={`${selectedUser.firstName} ${selectedUser.lastName}`}
-                    url={selectedUser.avatarUrl || undefined}
-                    size={64}
-                  />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-[var(--app-text)]">
-                    {[selectedUser.firstName, selectedUser.lastName]
-                      .filter(Boolean)
-                      .join(" ") || "No Name"}
-                  </h4>
-                  <p className="text-sm text-[var(--muted)]">
-                    {selectedUser.email}
-                  </p>
-                  <span className="mt-1.5 inline-block rounded-md bg-indigo-500/10 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-indigo-400 uppercase">
-                    {selectedUser.role?.roleName || "User"}
-                  </span>
-                </div>
-              </div>
-
-              {/* Detailed Fields */}
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-1">
-                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
-                    Gender
-                  </span>
-                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
-                    <UserIcon className="h-4 w-4 text-[var(--muted)]" />
-                    <span>
-                      {selectedUser.gender === 1
-                        ? "Male"
-                        : selectedUser.gender === 2
-                          ? "Female"
-                          : "Other / Not specified"}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
-                    Date of Birth
-                  </span>
-                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
-                    <Calendar className="h-4 w-4 text-[var(--muted)]" />
-                    <span>
-                      {selectedUser.dateOfBirth
-                        ? new Date(selectedUser.dateOfBirth).toLocaleDateString(
-                            "en-US",
-                            { year: "numeric", month: "long", day: "numeric" },
-                          )
-                        : "Not specified"}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-1 sm:col-span-2">
-                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
-                    Phone Numbers
-                  </span>
-                  <div className="flex flex-col gap-1.5 text-sm text-[var(--app-text)]">
-                    {selectedUser.phones && selectedUser.phones.length > 0 ? (
-                      (
-                        selectedUser.phones as {
-                          phone_number?: string;
-                          phoneNumber?: string;
-                        }[]
-                      ).map((p, idx: number) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <Phone className="h-4 w-4 text-[var(--muted)]" />
-                          <span>{p.phone_number || p.phoneNumber}</span>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="flex items-center gap-2 text-[var(--muted)]">
-                        <Phone className="h-4 w-4" />
-                        <span>No registered phone number</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="space-y-1 sm:col-span-2">
-                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
-                    Registered On
-                  </span>
-                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
-                    <Calendar className="h-4 w-4 text-[var(--muted)]" />
-                    <span>
-                      {selectedUser.createdAt
-                        ? new Date(selectedUser.createdAt).toLocaleString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            },
-                          )
-                        : "Unknown"}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-1 sm:col-span-2">
-                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
-                    Last Updated
-                  </span>
-                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
-                    <Calendar className="h-4 w-4 text-[var(--muted)]" />
-                    <span>
-                      {selectedUser.updatedAt
-                        ? new Date(selectedUser.updatedAt).toLocaleString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            },
-                          )
-                        : "Unknown"}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Close Button */}
-              <div className="flex justify-end pt-4">
-                <Button
-                  onClick={() => setIsDetailOpen(false)}
-                  className="rounded-lg bg-indigo-600 px-6 py-2.5 font-bold text-white shadow-lg shadow-indigo-500/10 hover:bg-indigo-500"
-                >
-                  Close Detail
-                </Button>
-              </div>
-            </div>
-          )}
-        </DialogPanel>
-      </Dialog>
     </>
   );
 };

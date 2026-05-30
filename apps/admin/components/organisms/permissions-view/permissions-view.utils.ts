@@ -1,7 +1,6 @@
 import type { IPermissionResponse } from "@ecommerce/shared";
 
 import type { TAdminRole } from "@/domain/permission";
-import type { IAdminUser } from "@/domain/user";
 
 export const DEFAULT_PERMISSION_ERROR =
   "Failed to load permission settings. Please try again.";
@@ -21,6 +20,3 @@ export const groupPermissionsByCategory = (
     {},
   );
 };
-
-export const getUserDisplayName = (user: IAdminUser) =>
-  [user.firstName, user.lastName].filter(Boolean).join(" ") || user.email;

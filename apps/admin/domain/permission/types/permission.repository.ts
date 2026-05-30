@@ -21,10 +21,6 @@ export interface IAdminPermissionRepository {
     roleId: string,
     permissionIds: string[],
   ): Promise<IApiResponse<IRoleResponse>>;
-  assignRoleToUser(
-    userId: string,
-    roleId: string,
-  ): Promise<IApiResponse<unknown>>;
 }
 
 export type TRolesApiResponse = IApiResponse<IRoleListResponse>;

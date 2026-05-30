@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   ShoppingCart,
   Tag,
-  UserCog,
   Users,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -41,11 +40,6 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
     label: "Roles",
     href: APP_ROUTES.PERMISSIONS,
     icon: ShieldCheck,
-  },
-  {
-    label: "Assign Roles",
-    href: APP_ROUTES.ASSIGN_ROLES,
-    icon: UserCog,
   },
   {
     label: "Analytics",

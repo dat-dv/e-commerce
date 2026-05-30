@@ -67,13 +67,4 @@ export class AdminPermissionRepository implements IAdminPermissionRepository {
       },
     );
   }
-
-  async assignRoleToUser(userId: string, roleId: string) {
-    return apiClient.patch<IApiResponse<unknown>>(
-      API_ROUTES.USERS.UPDATE(userId),
-      {
-        role_id: roleId,
-      },
-    );
-  }
 }

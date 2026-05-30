@@ -1,4 +1,8 @@
-import { type IApiResponse, type IGetUsersResponse } from "@ecommerce/shared";
+import {
+  type IApiResponse,
+  type IGetUsersResponse,
+  type IUserProfileResponse,
+} from "@ecommerce/shared";
 
 import { API_ROUTES } from "@/constants/routes";
 import { type ApiListResponse } from "@/utils/request";
@@ -8,9 +12,6 @@ import { AdminUserMapper } from "../../auth/infrastructure/auth.mapper";
 import { type IAdminUser } from "../types/user.model";
 import { type IAdminUserRepository } from "../types/user.repository";
 
-/**
- * @description Axios-based implementation of IAdminUserRepository
- */
 export class AdminUserRepository implements IAdminUserRepository {
   async getUsers(page = 1, limit = 10): Promise<ApiListResponse<IAdminUser>> {
     const response = await apiClient.get<IApiResponse<IGetUsersResponse>>(
@@ -31,6 +32,30 @@ export class AdminUserRepository implements IAdminUserRepository {
         totalPages: 0,
       },
     };
+  }
+
+  async getUser(id: string): Promise<IAdminUser> {
+    const response = await apiClient.get<IApiResponse<IUserProfileResponse>>(
+      API_ROUTES.USERS.DETAIL(id),
+    );
+
+    return AdminUserMapper.toDomain(response.data);
+  }
+
+  async updateUser(
+    id: string,
+    data: {
+      first_name?: string;
+      last_name?: string;
+      role_id?: string;
+    },
+  ): Promise<IAdminUser> {
+    const response = await apiClient.patch<IApiResponse<IUserProfileResponse>>(
+      API_ROUTES.USERS.UPDATE(id),
+      data,
+    );
+
+    return AdminUserMapper.toDomain(response.data);
   }
 
   async deleteUser(id: string): Promise<IApiResponse<boolean>> {
