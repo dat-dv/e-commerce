@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description:
     "Internal admin panel for managing the Chốt Đơn e-commerce platform.",
   robots: { index: false, follow: false },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
