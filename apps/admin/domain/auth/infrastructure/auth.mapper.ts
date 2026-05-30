@@ -1,9 +1,9 @@
-import { type IUserResponse } from "@ecommerce/shared";
+import { type IUserProfileResponse } from "@ecommerce/shared";
 
 import { type IAdminRole, type IAdminUser } from "@/domain/user";
 
 export const AdminUserMapper = {
-  toDomain(dto: IUserResponse): IAdminUser {
+  toDomain(dto: IUserProfileResponse): IAdminUser {
     const role: IAdminRole | null = dto.role
       ? {
           id: dto.role.id,

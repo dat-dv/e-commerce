@@ -33,9 +33,8 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
   },
   {
     label: "Customers",
-    href: "/dashboard/customers",
+    href: APP_ROUTES.CUSTOMERS,
     icon: Users,
-    disabled: true,
   },
   {
     label: "Analytics",

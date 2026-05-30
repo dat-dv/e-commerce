@@ -1,0 +1,416 @@
+"use client";
+
+import {
+  Avatar,
+  BasicLoading,
+  Button,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  SearchInput,
+} from "@ecommerce/ui";
+import {
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  Phone,
+  User as UserIcon,
+} from "lucide-react";
+import React, { useEffect, useMemo, useState } from "react";
+
+import { AdminUserRepository } from "@/domain/user";
+import { type IAdminUser } from "@/domain/user/types/user.model";
+
+/**
+ * @description CustomersView organism renders the customers list, search, pagination, and detail modal.
+ */
+export const CustomersView = () => {
+  const userRepository = useMemo(() => new AdminUserRepository(), []);
+
+  // State Management
+  const [users, setUsers] = useState<IAdminUser[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Pagination State
+  const [page, setPage] = useState(1);
+  const [limit] = useState(10);
+  const [total, setTotal] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  // Detail Modal State
+  const [selectedUser, setSelectedUser] = useState<IAdminUser | null>(null);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+
+  // Fetch Users
+  const fetchUsers = async (currentPage: number) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await userRepository.getUsers(currentPage, limit);
+      setUsers(response.items);
+      setTotal(response.meta.total);
+      setTotalPages(response.meta.totalPages);
+    } catch (err: unknown) {
+      console.error(err);
+      setError("Failed to fetch customer data. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, limit]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setPage(1);
+    fetchUsers(1);
+  };
+
+  const handleViewDetail = (user: IAdminUser) => {
+    setSelectedUser(user);
+    setIsDetailOpen(true);
+  };
+
+  // Client-side filtering as a fallback and extra responsiveness
+  const filteredUsers = useMemo(() => {
+    if (!searchQuery) return users;
+    const lowerQuery = searchQuery.toLowerCase();
+    return users.filter(
+      (u) =>
+        u.email.toLowerCase().includes(lowerQuery) ||
+        `${u.firstName} ${u.lastName}`.toLowerCase().includes(lowerQuery),
+    );
+  }, [users, searchQuery]);
+
+  return (
+    <>
+      {loading && <BasicLoading isBlur={false} />}
+
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-[var(--app-text)] sm:text-3xl">
+              Customer Management
+            </h1>
+            <p className="mt-1.5 text-sm text-[var(--muted)]">
+              View and manage registered system customers, details, and roles.
+            </p>
+          </div>
+        </div>
+
+        {/* Filter / Search Bar */}
+        <div className="relative rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
+          <SearchInput
+            placeholder="Search customers by name or email..."
+            value={searchQuery}
+            onSearch={handleSearch}
+            showSubmitButton={true}
+            className="w-full"
+          />
+        </div>
+
+        {/* User Table Card */}
+        <div className="overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl backdrop-blur-xl">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-[var(--border-color)] bg-white/1 text-xs font-bold tracking-wider text-[var(--muted)] uppercase">
+                  <th className="px-6 py-4">Customer</th>
+                  <th className="px-6 py-4">Email</th>
+                  <th className="px-6 py-4">Role</th>
+                  <th className="px-6 py-4">Joined Date</th>
+                  <th className="px-6 py-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--border-color)]">
+                {error ? (
+                  <tr>
+                    <td
+                      colSpan={5}
+                      className="px-6 py-12 text-center text-red-400"
+                    >
+                      {error}
+                    </td>
+                  </tr>
+                ) : filteredUsers.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan={5}
+                      className="px-6 py-12 text-center text-[var(--muted)]"
+                    >
+                      No customers found.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredUsers.map((user) => {
+                    const fullName =
+                      [user.firstName, user.lastName]
+                        .filter(Boolean)
+                        .join(" ") || "No Name";
+
+                    const roleName = user.role?.roleName || "User";
+
+                    return (
+                      <tr
+                        key={user.id}
+                        className="transition-colors hover:bg-white/1"
+                      >
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 ring-2 ring-white/5">
+                              <Avatar
+                                name={fullName}
+                                url={user.avatarUrl || undefined}
+                                size={40}
+                              />
+                            </div>
+                            <div className="font-semibold text-[var(--app-text)]">
+                              {fullName}
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 text-[var(--app-text)]/80">
+                          {user.email}
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="inline-block rounded-md bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-400">
+                            {roleName}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-[var(--muted)]">
+                          {user.createdAt
+                            ? new Date(user.createdAt).toLocaleDateString(
+                                "en-US",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                },
+                              )
+                            : "-"}
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <Button
+                            variant="ghost"
+                            onClick={() => handleViewDetail(user)}
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:bg-indigo-500 hover:text-white"
+                            aria-label={`View details of ${fullName}`}
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between border-t border-[var(--border-color)] px-6 py-4">
+              <div className="text-xs text-[var(--muted)]">
+                Showing page{" "}
+                <span className="font-bold text-[var(--app-text)]">{page}</span>{" "}
+                of{" "}
+                <span className="font-bold text-[var(--app-text)]">
+                  {totalPages}
+                </span>{" "}
+                (
+                <span className="font-bold text-[var(--app-text)]">
+                  {total}
+                </span>{" "}
+                total customers)
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  disabled={page === 1}
+                  onClick={() => setPage((p) => Math.max(p - 1, 1))}
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-50"
+                  aria-label="Previous page"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  disabled={page === totalPages}
+                  onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-50"
+                  aria-label="Next page"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* User Details Dialog */}
+      <Dialog isOpen={isDetailOpen} onClose={() => setIsDetailOpen(false)}>
+        <DialogPanel className="max-w-lg rounded-2xl border border-white/[0.08] bg-[#0c0d12]/95 p-6 shadow-2xl backdrop-blur-2xl">
+          <DialogTitle className="text-xl font-bold text-[var(--app-text)]">
+            Customer Profile Details
+          </DialogTitle>
+
+          {selectedUser && (
+            <div className="mt-6 space-y-6">
+              {/* Profile Card */}
+              <div className="flex items-center gap-4 rounded-xl border border-white/[0.04] bg-white/2 p-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 ring-4 ring-white/5">
+                  <Avatar
+                    name={`${selectedUser.firstName} ${selectedUser.lastName}`}
+                    url={selectedUser.avatarUrl || undefined}
+                    size={64}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-[var(--app-text)]">
+                    {[selectedUser.firstName, selectedUser.lastName]
+                      .filter(Boolean)
+                      .join(" ") || "No Name"}
+                  </h4>
+                  <p className="text-sm text-[var(--muted)]">
+                    {selectedUser.email}
+                  </p>
+                  <span className="mt-1.5 inline-block rounded-md bg-indigo-500/10 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-indigo-400 uppercase">
+                    {selectedUser.role?.roleName || "User"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Detailed Fields */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                    Gender
+                  </span>
+                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
+                    <UserIcon className="h-4 w-4 text-[var(--muted)]" />
+                    <span>
+                      {selectedUser.gender === 1
+                        ? "Male"
+                        : selectedUser.gender === 2
+                          ? "Female"
+                          : "Other / Not specified"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                    Date of Birth
+                  </span>
+                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
+                    <Calendar className="h-4 w-4 text-[var(--muted)]" />
+                    <span>
+                      {selectedUser.dateOfBirth
+                        ? new Date(selectedUser.dateOfBirth).toLocaleDateString(
+                            "en-US",
+                            { year: "numeric", month: "long", day: "numeric" },
+                          )
+                        : "Not specified"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-1 sm:col-span-2">
+                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                    Phone Numbers
+                  </span>
+                  <div className="flex flex-col gap-1.5 text-sm text-[var(--app-text)]">
+                    {selectedUser.phones && selectedUser.phones.length > 0 ? (
+                      (
+                        selectedUser.phones as {
+                          phone_number?: string;
+                          phoneNumber?: string;
+                        }[]
+                      ).map((p, idx: number) => (
+                        <div key={idx} className="flex items-center gap-2">
+                          <Phone className="h-4 w-4 text-[var(--muted)]" />
+                          <span>{p.phone_number || p.phoneNumber}</span>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="flex items-center gap-2 text-[var(--muted)]">
+                        <Phone className="h-4 w-4" />
+                        <span>No registered phone number</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-1 sm:col-span-2">
+                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                    Registered On
+                  </span>
+                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
+                    <Calendar className="h-4 w-4 text-[var(--muted)]" />
+                    <span>
+                      {selectedUser.createdAt
+                        ? new Date(selectedUser.createdAt).toLocaleString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            },
+                          )
+                        : "Unknown"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-1 sm:col-span-2">
+                  <span className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
+                    Last Updated
+                  </span>
+                  <div className="flex items-center gap-2 text-sm text-[var(--app-text)]">
+                    <Calendar className="h-4 w-4 text-[var(--muted)]" />
+                    <span>
+                      {selectedUser.updatedAt
+                        ? new Date(selectedUser.updatedAt).toLocaleString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            },
+                          )
+                        : "Unknown"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <div className="flex justify-end pt-4">
+                <Button
+                  onClick={() => setIsDetailOpen(false)}
+                  className="rounded-lg bg-indigo-600 px-6 py-2.5 font-bold text-white shadow-lg shadow-indigo-500/10 hover:bg-indigo-500"
+                >
+                  Close Detail
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogPanel>
+      </Dialog>
+    </>
+  );
+};
+
+CustomersView.displayName = "CustomersView";
