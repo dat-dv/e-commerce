@@ -27,8 +27,11 @@ flowchart LR
     subgraph DOCKER["Docker Compose — Monorepo"]
         SHARED["packages/shared\nDTOs · API contract · Prisma client"]
         FE["apps/frontend\nNext.js 16 · React 19 · TypeScript · :5173"]
+        ADMIN["apps/admin\nNext.js 16 · React 19 · TypeScript · :5174"]
         BE["apps/backend\nNestJS 11 · Prisma ORM · TypeScript · :3000"]
-        DB[("SQLite\nPrisma · multi-file schema")]
+        DB[("PostgreSQL\nMain Database")]
+        REDIS[("Redis\nWhitelist · Cache · BullMQ")]
+        MEILI[("Meilisearch\nSearch Engine")]
     end
 
     subgraph EXT["External Services"]
@@ -43,13 +46,17 @@ flowchart LR
     CDN -.->|static| PIP
     WAF --> PIP
     PIP --> NPM
-    TS -.->|JS challenge| FE
+    U -.->|JS challenge| TS
 
     NPM -->|chotdon.shop :5173| FE
+    NPM -->|admin.chotdon.shop :5174| ADMIN
     NPM -->|api.chotdon.shop :3000| BE
 
     FE -->|API calls| BE
+    ADMIN -->|API calls| BE
     BE --> DB
+    BE --> REDIS
+    BE --> MEILI
 
     BE -.->|push trigger| FCM
     FCM -.->|Service Worker| FE
@@ -60,144 +67,136 @@ flowchart LR
 
 ---
 
-## Chi tiết các thành phần
+## Chi tiết các thành phần hạ tầng
 
 ### Cloudflare
 
-| Thành phần            | Vai trò                                     |
-| --------------------- | ------------------------------------------- |
-| **DNS**               | DNS Resolver `chotdon.shop`                 |
-| **WAF · DDoS Shield** | Lọc traffic độc hại, chống tấn công DDoS    |
-| **CDN · Cache**       | Cache static assets, giảm tải origin server |
-| **Turnstile**         | Xác thực chống bot/spam nhúng vào frontend  |
+| Thành phần            | Vai trò                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| **DNS**               | DNS Resolver quản lý bản ghi tên miền `chotdon.shop`.                                      |
+| **WAF · DDoS Shield** | Lọc lưu lượng truy cập độc hại, chống các cuộc tấn công DDoS ở tầng ứng dụng.              |
+| **CDN · Cache**       | Lưu trữ đệm các tài nguyên tĩnh (images, JS, CSS) gần biên giúp giảm tải máy chủ gốc.      |
+| **Turnstile**         | Giải pháp xác thực chống bot/spam không xâm nhập tích hợp trực tiếp vào biểu mẫu Frontend. |
 
-### GCP · VPC
+### GCP VM (e2-standard-2)
 
-| Thành phần              | Vai trò / Thông số kỹ thuật                            |
-| ----------------------- | ------------------------------------------------------ |
-| **Public IP**           | GCP Static External IP — điểm vào duy nhất của hạ tầng |
-| **Nginx Proxy Manager** | Reverse proxy, terminate SSL/TLS, định tuyến subdomain |
-| **Cấu hình VM**         | Machine type: `e2-standard-2` (2 vCPUs, 8 GB Memory)   |
+| Thành phần              | Vai trò / Thông số kỹ thuật                                                                    |
+| ----------------------- | ---------------------------------------------------------------------------------------------- |
+| **Public IP**           | IP ngoại vi tĩnh của GCP — cổng truy cập duy nhất vào hạ tầng.                                 |
+| **Nginx Proxy Manager** | Đóng vai trò là Reverse Proxy, tự động cấp và gia hạn SSL Let's Encrypt, điều phối subdomains. |
+| **Cấu hình phần cứng**  | Machine type: `e2-standard-2` (2 vCPUs, 8 GB Memory, kiến trúc Intel Broadwell).               |
 
-Subdomain routing:
+Định tuyến Subdomain:
 
-- `chotdon.shop` → Frontend `:5173`
-- `api.chotdon.shop` → Backend `:3000`
+- `chotdon.shop` → Frontend Container (`:5173`)
+- `admin.chotdon.shop` → Admin Dashboard Container (`:5174`)
+- `api.chotdon.shop` → Backend NestJS Container (`:3000`)
 
-### Docker Compose — Monorepo
+### Docker Compose — Monorepo Services
 
-| Thành phần          | Stack                                        | Port    |
-| ------------------- | -------------------------------------------- | ------- |
-| **packages/shared** | DTOs, API contract, Prisma client dùng chung | —       |
-| **apps/frontend**   | Next.js 16 · React 19 · TypeScript           | `:5173` |
-| **apps/backend**    | NestJS 11 · Prisma ORM · TypeScript          | `:3000` |
-| **SQLite**          | Prisma ORM                                   | —       |
+| Thành phần          | Công nghệ / Stack                   | Vai trò                                                                                    |
+| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------ |
+| **packages/shared** | DTOs, API Contract, Prisma Client   | Module chia sẻ mã nguồn dùng chung giữa Client và Server để đảm bảo tính toàn vẹn dữ liệu. |
+| **apps/frontend**   | Next.js 16 · React 19 · TypeScript  | Ứng dụng client-side cho người dùng cuối.                                                  |
+| **apps/admin**      | Next.js 16 · React 19 · TypeScript  | Bảng điều khiển quản trị cho nhân viên và admin hệ thống.                                  |
+| **apps/backend**    | NestJS 11 · Prisma ORM · TypeScript | Hệ thống API trung tâm xử lý logic nghiệp vụ.                                              |
+| **PostgreSQL**      | PostgreSQL 16                       | Hệ quản trị cơ sở dữ liệu quan hệ chính của toàn bộ hệ thống.                              |
+| **Redis**           | Redis Stack                         | Bộ nhớ đệm (Caching), lưu whitelist token xác thực và hàng đợi BullMQ.                     |
+| **Meilisearch**     | Meilisearch Engine                  | Công cụ tìm kiếm toàn văn (Full-text Search) tốc độ cao cho sản phẩm.                      |
 
-### External Services
+### Dịch vụ tích hợp bên ngoài (External Services)
 
-| Service          | Tích hợp                                                | Phía    |
-| ---------------- | ------------------------------------------------------- | ------- |
-| **Firebase FCM** | Backend trigger → Service Worker nhận push notification | BE → FE |
-| **Cloudinary**   | Upload & optimize ảnh qua SDK                           | BE      |
-| **Google SMTP**  | Gửi email quên mật khẩu, reset password                 | BE      |
-| **Leaflet Maps** | Map Picker chọn địa chỉ giao hàng                       | FE      |
+| Dịch vụ          | Tích hợp                                           | Luồng dữ liệu                                |
+| ---------------- | -------------------------------------------------- | -------------------------------------------- |
+| **Firebase FCM** | SDK gửi thông báo đẩy thời gian thực.              | Backend -> FCM Service -> Web Service Worker |
+| **Cloudinary**   | Quản lý lưu trữ và tối ưu hóa hình ảnh tải lên.    | Backend -> Cloudinary API                    |
+| **Google SMTP**  | Gửi email kích hoạt tài khoản, khôi phục mật khẩu. | Backend -> SMTP Server                       |
+| **Leaflet Maps** | Bản đồ tương tác định vị vị trí giao hàng.         | Frontend -> OpenStreetMap API                |
 
 ---
 
-## Luồng request
+## Luồng Request & Điều phối dữ liệu
 
 ```
-Browser
+Client Browser
  └─► Cloudflare (DNS → WAF/DDoS → CDN)
        └─► GCP Public IP
              └─► Nginx Proxy Manager (SSL terminate)
-                   ├─► chotdon.shop       → Next.js :5173
+                   ├─► chotdon.shop       → Next.js Frontend (:5173)
                    │     ├─► Leaflet Maps
-                   │     └─► FCM Service Worker (push notification)
-                   └─► api.chotdon.shop   → NestJS :3000
-                         ├─► SQLite (Prisma ORM)
-                         ├─► FCM (push trigger)
-                         ├─► Cloudinary (image upload)
-                         └─► Google SMTP (email)
+                   │     └─► FCM Service Worker (Push alert)
+                   ├─► admin.chotdon.shop → Next.js Admin Dashboard (:5174)
+                   └─► api.chotdon.shop   → NestJS Backend (:3000)
+                         ├─► PostgreSQL (Main DB qua Prisma client)
+                         ├─► Redis Server
+                         │     ├─► Token Whitelist (Bảo mật JWT sessions)
+                         │     ├─► Category Cache (Tối ưu hóa sơ đồ danh mục cây)
+                         │     └─► BullMQ Queue (Hàng đợi đặt hàng bất đồng bộ)
+                         ├─► Meilisearch Engine (Đồng bộ & Truy vấn tìm kiếm nhanh)
+                         ├─► FCM Admin SDK (Kích hoạt thông báo)
+                         ├─► Cloudinary SDK (Upload hình ảnh)
+                         └─► Google SMTP Server (Mail transaction)
 ```
 
 ---
 
-## Stack tóm tắt
+## Danh sách công nghệ sử dụng (Technology Stack)
 
-| Hạng mục             | Công nghệ                                                         |
-| -------------------- | ----------------------------------------------------------------- |
-| Domain               | `chotdon.shop`                                                    |
-| DNS · CDN · Security | Cloudflare + Turnstile                                            |
-| Hosting              | GCP e2-standard-2 (2 vCPUs, 8 GB Memory, Intel Broadwell, x86/64) |
-| Reverse Proxy        | Nginx Proxy Manager                                               |
-| Frontend             | Next.js 16, React 19, TypeScript                                  |
-| Backend              | NestJS 11, Prisma ORM, TypeScript                                 |
-| Database             | SQLite (multi-file Prisma schema)                                 |
-| Orchestration        | Docker Compose (Monorepo)                                         |
-| Auth                 | JWT nội bộ (Access/Refresh Token)                                 |
-| Push Notification    | Firebase Cloud Messaging (FCM)                                    |
-| Image                | Cloudinary                                                        |
-| Email                | Google SMTP                                                       |
-| Map                  | Leaflet.js                                                        |
+| Hạng mục                   | Công nghệ sử dụng                                                           |
+| -------------------------- | --------------------------------------------------------------------------- |
+| **Domain & DNS**           | `chotdon.shop` quản trị qua Cloudflare.                                     |
+| **CDN & Bảo mật biên**     | Cloudflare Edge Caching + WAF + Turnstile CAPTCHA.                          |
+| **Hạ tầng máy chủ**        | GCP e2-standard-2 (2 vCPUs, 8 GB Memory, Intel Broadwell).                  |
+| **Proxy & Routing**        | Nginx Proxy Manager (SSL Auto Let's Encrypt).                               |
+| **Kiến trúc Frontend**     | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion. |
+| **Kiến trúc Backend**      | NestJS 11, Prisma ORM, TypeScript.                                          |
+| **Cơ sở dữ liệu chính**    | PostgreSQL 16.                                                              |
+| **Bộ nhớ đệm (Cache)**     | Redis (Lưu whitelist token xác thực và cấu trúc cây danh mục Category).     |
+| **Hàng đợi thông điệp**    | Redis BullMQ (Xử lý hàng đợi đặt đơn hàng bất đồng bộ chịu tải cao).        |
+| **Công cụ tìm kiếm**       | Meilisearch (Đồng bộ hóa dữ liệu từ Postgres phục vụ tìm kiếm toàn văn).    |
+| **Thông báo đẩy**          | Firebase Cloud Messaging (FCM).                                             |
+| **Quản lý đa phương tiện** | Cloudinary Image API.                                                       |
+| **Dịch vụ Email**          | Nodemailer tích hợp Google SMTP.                                            |
+| **Bản đồ địa lý**          | Leaflet.js & OpenStreetMap.                                                 |
 
-## Tích hợp & Tiêu chuẩn kỹ thuật
+---
 
-### Tiêu chuẩn tiếp cận (WAI-ARIA)
+## Luồng nghiệp vụ & Giải pháp kỹ thuật nâng cao
 
-Sử dụng React Aria Components. Giao diện đáp ứng chuẩn tiếp cận WCAG 2.1, hỗ trợ điều hướng phím và thiết bị đọc màn hình (nhãn aria-label, aria-labelledby đầy đủ).
+### 1. Xác thực bảo mật với Token Whitelist (Redis)
 
-### Đa ngôn ngữ (i18n) & Phân tách định tuyến
+- Hệ thống sử dụng cặp **Access Token** (ngắn hạn) và **Refresh Token** (dài hạn) lưu trữ trong HTTP-Only Cookie chống tấn công XSS.
+- Để hỗ trợ vô hiệu hóa tài khoản tức thì hoặc đăng xuất từ xa, ID của các Refresh Token hợp lệ được duy trì trong một danh sách trắng (**Token Whitelist**) trên Redis. Khi thực hiện xác thực, Backend kiểm tra sự tồn tại của token trên Redis giúp giảm thiểu số lượng truy vấn trực tiếp vào PostgreSQL.
 
-Quản lý ngôn ngữ (en/vi) qua next-intl. Sử dụng proxy định tuyến nội bộ để ánh xạ các URL tĩnh/động theo ngôn ngữ (ví dụ /privacy thành /[locale]/privacy dựa trên ngôn ngữ subdomain hoặc request client).
+### 2. Tối ưu hóa truy cập Danh mục (Category Caching)
 
-### Lưu trữ & API tích hợp
+- Danh mục sản phẩm được thiết kế theo mô hình phân cấp dạng cây (Category Tree). Việc truy vấn đệ quy cây danh mục từ PostgreSQL thường tốn nhiều tài nguyên xử lý.
+- Hệ thống lưu trữ cấu trúc cây danh mục hoàn chỉnh đã được định dạng JSON trực tiếp trên Redis. Mỗi khi có thay đổi từ trang quản trị (Admin CRUD), bộ nhớ đệm này sẽ tự động bị xóa (Cache Invalidation) để tải lại dữ liệu mới nhất.
 
-- Cloudinary: Upload và tối ưu hóa hình ảnh qua Cloudinary SDK ở backend.
-- Firebase Admin SDK: Gửi thông báo đẩy thời gian thực qua FCM.
+### 3. Xử lý đặt đơn hàng bất đồng bộ chịu tải cao (Redis BullMQ Queue)
 
-## Chi tiết các luồng tính năng cốt lõi
+- Khi xảy ra sự kiện Flash Sale hoặc lượng truy cập mua hàng tăng đột biến, việc ghi trực tiếp đơn hàng vào Database cùng lúc có thể gây nghẽn kết nối và khóa bảng (DB Lock).
+- Luồng đặt hàng được chuyển đổi sang bất đồng bộ:
+  1. Khi người dùng bấm đặt hàng, thông tin đơn hàng được đẩy vào hàng đợi **BullMQ** lưu trên Redis dưới dạng Job.
+  2. Hệ thống phản hồi ngay lập tức cho client trạng thái "Đang xử lý đơn hàng".
+  3. Một Worker chạy ngầm ở Backend sẽ lấy từng Job từ hàng đợi ra, kiểm tra ràng buộc kho bằng khóa phân tán (Distributed Lock) và thực hiện nghiệp vụ ghi đơn vào PostgreSQL qua Prisma Transactions một cách tuần tự và an toàn.
 
-### 1. Xác thực & Phân quyền (RBAC)
+### 4. Tìm kiếm sản phẩm tốc độ cao (Meilisearch)
 
-- Xác thực: Dùng tài khoản email/mật khẩu (băm PBKDF2), quản lý phiên qua JWT (Access/Refresh Token) lưu trong HTTP-only Cookie.
-- Phân quyền: Kiểm soát bằng Roles & Permissions qua Guards ở backend. Admin CRUD role, gán permission và gán role cho tài khoản.
+- Thay vì sử dụng truy vấn `LIKE` chậm chạp trong cơ sở dữ liệu quan hệ, dữ liệu sản phẩm được đồng bộ tự động sang **Meilisearch**.
+- Người dùng thực hiện tìm kiếm toàn văn (Full-text Search), tìm kiếm theo từ khóa gần đúng (Fuzzy Search), phân trang và lọc thuộc tính sản phẩm với phản hồi cực nhanh (dưới 10ms).
 
-### 2. Giỏ hàng, Khuyến mãi & Thanh toán
+---
 
-- Đặt hàng: Xử lý qua Prisma Transactions (kiểm tra tồn kho SKU, trừ kho, áp coupon, dọn giỏ hàng).
-- Ràng buộc tồn kho: Client kiểm tra tồn kho real-time từ SKU Flash Sale hoặc kho thường để giới hạn số lượng thêm vào giỏ.
-
-### 3. Flash Sales & Tồn kho khuyến mãi
-
-- Countdown thời gian thực ở frontend.
-- Tồn kho Flash Sale được tách biệt và tự động hoàn lại nếu đơn hàng bị hủy trước khi thanh toán.
-
-### 4. Đơn hàng, Trả hàng & Đánh giá
-
-- Lịch sử đơn hàng: Hiển thị timeline trạng thái đơn (Pending, Processing, Shipped, Delivered, Cancelled).
-- Trả hàng: Khách gửi yêu cầu kèm lý do và ảnh minh chứng. Admin duyệt/hủy yêu cầu.
-- Đánh giá: Chỉ cho phép đánh giá những sản phẩm đã giao thành công cho chính user đó.
-
-### 5. Hệ thống thông báo đẩy (FCM Push Notifications)
-
-- FCM Push Alerts: Tích hợp Service Worker ở frontend để nhận thông báo thời gian thực khi trình duyệt chạy ngầm.
-- Notification Center: Đồng bộ tin nhắn chưa đọc real-time, tự động deduplicate request khi focus trình duyệt.
-
-### 6. Admin Console
-
-- Cập nhật trạng thái đơn hàng.
-- CRUD danh mục theo dạng cây phân cấp (Category Tree).
-- Xem phản hồi (Contact Submissions), quản lý tài khoản và gán vai trò.
-
-## Danh sách tính năng (Feature Checklist)
+## Danh sách tính năng và Trạng thái hoàn thành (Feature Checklist)
 
 ### 1. Xác thực & Người dùng (Authentication & User Profile)
 
 - [x] Đăng ký tài khoản (Sign Up) & Đăng nhập (Sign In) bằng Email/Password (mật khẩu băm PBKDF2).
-- [x] Cấp phát & quản lý Local JWT (Access/Refresh Token) trên NestJS backend.
+- [x] Cấp phát & quản lý JWT (Access/Refresh Token) trên NestJS backend.
+- [x] Quản lý **Token Whitelist trên Redis** hỗ trợ thu hồi token và đăng xuất tức thì.
 - [x] Tự động gia hạn phiên đăng nhập (Refresh Token queue) tại request client.
-- [x] Đăng xuất (Logout) xóa cookie và thu hồi token.
+- [x] Đăng xuất (Logout) xóa cookie và thu hồi token trên Redis.
 - [x] Luồng quên mật khẩu (Forgot Password) & Đặt lại mật khẩu (Reset Password) qua Google SMTP.
 - [x] Cập nhật thông tin cá nhân (Profile Update) & Thay đổi mật khẩu (Change Password).
 - [x] Tải lên và cập nhật ảnh đại diện (Avatar Cloudinary Upload).
@@ -209,11 +208,12 @@ Quản lý ngôn ngữ (en/vi) qua next-intl. Sử dụng proxy định tuyến 
 - [x] Hiển thị các section động (Dynamic sections/banners) theo cấu hình ngôn ngữ.
 - [x] Trang sản phẩm mới (New Arrivals) hỗ trợ cuộn vô hạn (Infinite Scrolling) và virtual grid layout.
 - [x] Trang thương hiệu (Brands listing) hiển thị danh sách các thương hiệu nổi bật.
-- [x] Tính năng Tìm kiếm toàn cầu (Global Search) tích hợp lọc kết quả.
+- [x] Tính năng Tìm kiếm toàn cầu hiệu năng cao tích hợp qua **Meilisearch**.
 
 ### 3. Danh mục & Thương hiệu (Categories & Brands)
 
 - [x] Hiển thị cây danh mục sản phẩm (Category Tree) đa cấp.
+- [x] Tối ưu hóa hiệu năng tải cây danh mục thông qua **Redis Category Caching**.
 - [x] Xem sản phẩm theo thương hiệu (Brand details) & Danh sách thương hiệu hàng đầu (Top Brands).
 - [x] Lọc sản phẩm theo danh mục và thương hiệu tương ứng.
 
@@ -250,7 +250,8 @@ Quản lý ngôn ngữ (en/vi) qua next-intl. Sử dụng proxy định tuyến 
 
 ### 8. Đơn hàng & Trả hàng (Orders & Returns)
 
-- [x] Tạo đơn hàng thông qua Prisma Transactions bảo vệ tồn kho (tránh race-condition).
+- [x] Đặt đơn hàng bất đồng bộ chịu tải cao thông qua **Redis BullMQ Queue**.
+- [x] Tạo đơn hàng thông qua Prisma Transactions bảo vệ tồn kho ở tầng database.
 - [x] Dọn dẹp giỏ hàng đối với các sản phẩm đã thanh toán thành công.
 - [x] Xem lịch sử đơn hàng & chi tiết đơn hàng (timeline trạng thái đơn hàng).
 - [x] Hủy đơn hàng (Cancel Order) khi đơn hàng ở trạng thái chờ xử lý (Pending).
@@ -273,13 +274,14 @@ Quản lý ngôn ngữ (en/vi) qua next-intl. Sử dụng proxy định tuyến 
 
 ### 11. Quản trị hệ thống (Admin Console)
 
-- [x] Hệ thống phân quyền dựa trên vai trò (RBAC - Roles & Permissions) ở Backend.
-- [x] Xem danh sách đơn hàng toàn hệ thống kèm phân trang và bộ lọc (Frontend + Backend).
-- [x] Cập nhật trạng thái đơn hàng (Frontend + Backend).
-- [x] Tiếp nhận, duyệt/hủy các yêu cầu Trả hàng/Hoàn tiền (Frontend + Backend).
-- [x] CRUD danh mục sản phẩm theo cấu trúc cây (Backend).
-- [x] CRUD tài khoản người dùng, vai trò & quyền hạn (Backend).
-- [ ] Giao diện Quản trị viên (Admin Dashboard Shell & Navigation) ở Frontend.
+- [ ] Hệ thống phân quyền dựa trên vai trò (RBAC - Roles & Permissions) ở Backend.
+- [ ] Xem danh sách đơn hàng toàn hệ thống kèm phân trang và bộ lọc (Frontend + Backend).
+- [ ] Cập nhật trạng thái đơn hàng (Frontend + Backend).
+- [ ] Tiếp nhận, duyệt/hủy các yêu cầu Trả hàng/Hoàn tiền (Frontend + Backend).
+- [ ] CRUD danh mục sản phẩm theo cấu trúc cây (Backend).
+- [ ] CRUD tài khoản người dùng, vai trò & quyền hạn (Backend).
+- [ ] Thiết lập giao diện Quản trị viên (Admin Dashboard Shell & Navigation) ở Frontend.
+- [ ] Tích hợp và đồng bộ hóa Metadata & Favicon từ ứng dụng Frontend cho ứng dụng Admin.
 - [ ] Giao diện quản lý Sản phẩm, SKU & Quản trị tồn kho ở Frontend.
 - [ ] Giao diện quản lý Danh mục sản phẩm (Category Management UI) ở Frontend.
 - [ ] Giao diện quản lý Thương hiệu (Brand Management UI) ở Frontend.
@@ -288,18 +290,18 @@ Quản lý ngôn ngữ (en/vi) qua next-intl. Sử dụng proxy định tuyến 
 - [ ] Giao diện quản lý Khuyến mãi/Mã giảm giá (Promotion/Coupon UI).
 - [ ] Xem danh sách thư liên hệ hỗ trợ từ khách hàng (Help submissions UI).
 
-### 12. Tính năng nâng cao (Post-MVP Roadmap)
+### 12. Tích hợp nâng cao (Production & Operations Roadmap)
 
 - [ ] Tích hợp cổng thanh toán trực tuyến (VNPAY, MoMo, Stripe).
-- [ ] Hệ thống Caching bằng Redis (Homepage, Product details).
-- [ ] Tích hợp công cụ tìm kiếm nâng cao (Elasticsearch / Meilisearch).
 - [ ] Hệ thống Logging/Monitoring tập trung (Sentry, Prometheus, Grafana).
-- [ ] Tự động hóa quy trình CI/CD.
+- [ ] Thiết lập tích hợp liên tục và tự động hóa quy trình CI/CD.
+
+---
 
 ## Triển khai Docker (Production)
 
 1. Thiết lập tệp cấu hình `.env` ở thư mục gốc của monorepo.
 2. Build và khởi chạy các container:
-   ```bash
+  ```bash
    docker-compose up -d --build
-   ```
+  ```
