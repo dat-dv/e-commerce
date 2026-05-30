@@ -1,60 +1,61 @@
 "use client";
 
 import type { IProductResponse } from "@ecommerce/shared";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { adminProductUseCase } from "@/domain/product";
+import usePagination from "@/hooks/use-pagination";
 
 export const useProductsView = () => {
-  const [products, setProducts] = useState<IProductResponse[]>([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-
-  const [page, setPage] = useState(1);
-  const [limit] = useState(12);
-  const [total, setTotal] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-
   const [selectedProduct, setSelectedProduct] =
     useState<IProductResponse | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const fetchProducts = useCallback(
-    async (currentPage: number) => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await adminProductUseCase.getProducts.execute({
-          page: currentPage,
-          limit,
-        });
-        setProducts(response.data?.items ?? []);
-        setTotal(response.data?.meta?.total ?? 0);
-        setTotalPages(response.data?.meta?.totalPages ?? 0);
-      } catch (err: unknown) {
-        console.error(err);
-        setError("Failed to fetch product data. Please try again.");
-      } finally {
-        setLoading(false);
-      }
+  const { data, loading, onChangePagination } = usePagination<IProductResponse>(
+    {
+      initialData: null,
+      isSyncWithSearchParams: false,
+      fetchPage: async (params) => {
+        setError(null);
+        try {
+          const response = await adminProductUseCase.getProducts.execute({
+            page: params.page ?? 1,
+            limit: params.limit ?? 12,
+          });
+          return {
+            data: {
+              items: response.data?.items ?? [],
+              meta: response.data?.meta ?? {
+                total: 0,
+                page: params.page ?? 1,
+                limit: params.limit ?? 12,
+                totalPages: 0,
+              },
+            },
+            message: response.message,
+            timestamp: response.timestamp || new Date().toISOString(),
+            status: response.status as "success" | "fail",
+          };
+        } catch (err: unknown) {
+          console.error(err);
+          setError("Failed to fetch product data. Please try again.");
+          throw err;
+        }
+      },
     },
-    [limit],
   );
 
-  useEffect(() => {
-    fetchProducts(page);
-  }, [page, fetchProducts]);
-
   const filteredProducts = useMemo(() => {
-    if (!searchQuery) return products;
+    if (!searchQuery) return data.items;
     const q = searchQuery.toLowerCase();
-    return products.filter(
+    return data.items.filter(
       (p) =>
         p.slug.toLowerCase().includes(q) ||
         p.translations?.some((t) => t.name.toLowerCase().includes(q)),
     );
-  }, [products, searchQuery]);
+  }, [data.items, searchQuery]);
 
   const handleViewDetail = (product: IProductResponse) => {
     setSelectedProduct(product);
@@ -62,18 +63,18 @@ export const useProductsView = () => {
   };
 
   return {
-    products,
+    products: data.items,
     loading,
     error,
     searchQuery,
-    page,
-    limit,
-    total,
-    totalPages,
+    page: data.meta.page,
+    limit: data.meta.limit,
+    total: data.meta.total,
+    totalPages: data.meta.totalPages,
     selectedProduct,
     isDetailOpen,
     filteredProducts,
-    setPage,
+    setPage: onChangePagination,
     setSearchQuery,
     setIsDetailOpen,
     handleViewDetail,

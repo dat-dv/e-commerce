@@ -158,7 +158,7 @@ export const CustomersView = () => {
               <Button
                 variant="ghost"
                 disabled={page === 1}
-                onClick={() => setPage((p) => Math.max(p - 1, 1))}
+                onClick={() => setPage(Math.max(page - 1, 1))}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-50"
                 aria-label="Previous page"
               >
@@ -167,7 +167,7 @@ export const CustomersView = () => {
               <Button
                 variant="ghost"
                 disabled={page === totalPages}
-                onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+                onClick={() => setPage(Math.min(page + 1, totalPages))}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors disabled:opacity-50"
                 aria-label="Next page"
               >

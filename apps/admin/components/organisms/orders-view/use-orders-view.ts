@@ -1,57 +1,56 @@
 "use client";
 
 import type { IOrderResponse } from "@ecommerce/shared";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { adminOrderUseCase } from "@/domain/order";
+import usePagination from "@/hooks/use-pagination";
 
 export const useOrdersView = () => {
-  const [orders, setOrders] = useState<IOrderResponse[]>([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-
-  const [page, setPage] = useState(1);
-  const [limit] = useState(10);
-  const [total, setTotal] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-
   const [selectedOrder, setSelectedOrder] = useState<IOrderResponse | null>(
     null,
   );
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const fetchOrders = useCallback(
-    async (currentPage: number) => {
-      setLoading(true);
+  const { data, loading, onChangePagination } = usePagination<IOrderResponse>({
+    initialData: null,
+    isSyncWithSearchParams: false,
+    fetchPage: async (params) => {
       setError(null);
       try {
         const response = await adminOrderUseCase.getOrders.execute({
-          page: currentPage,
-          limit,
+          page: params.page ?? 1,
+          limit: params.limit ?? 10,
         });
-        setOrders(response.data?.items ?? []);
-        setTotal(response.data?.meta?.total ?? 0);
-        setTotalPages(response.data?.meta?.totalPages ?? 0);
+        return {
+          data: {
+            items: response.data?.items ?? [],
+            meta: response.data?.meta ?? {
+              total: 0,
+              page: params.page ?? 1,
+              limit: params.limit ?? 10,
+              totalPages: 0,
+            },
+          },
+          message: response.message,
+          timestamp: response.timestamp || new Date().toISOString(),
+          status: response.status as "success" | "fail",
+        };
       } catch (err: unknown) {
         console.error(err);
         setError("Failed to fetch order data. Please check your permissions.");
-      } finally {
-        setLoading(false);
+        throw err;
       }
     },
-    [limit],
-  );
-
-  useEffect(() => {
-    fetchOrders(page);
-  }, [page, fetchOrders]);
+  });
 
   /** Client-side filter while the user types — server-side pagination handles the rest. */
   const filteredOrders = useMemo(() => {
-    if (!searchQuery) return orders;
+    if (!searchQuery) return data.items;
     const q = searchQuery.toLowerCase();
-    return orders.filter(
+    return data.items.filter(
       (o) =>
         o.id.toLowerCase().includes(q) ||
         `${o.user?.first_name ?? ""} ${o.user?.last_name ?? ""}`
@@ -59,7 +58,7 @@ export const useOrdersView = () => {
           .includes(q) ||
         o.user?.email?.toLowerCase().includes(q),
     );
-  }, [orders, searchQuery]);
+  }, [data.items, searchQuery]);
 
   const handleViewDetail = (order: IOrderResponse) => {
     setSelectedOrder(order);
@@ -67,18 +66,18 @@ export const useOrdersView = () => {
   };
 
   return {
-    orders,
+    orders: data.items,
     loading,
     error,
     searchQuery,
-    page,
-    limit,
-    total,
-    totalPages,
+    page: data.meta.page,
+    limit: data.meta.limit,
+    total: data.meta.total,
+    totalPages: data.meta.totalPages,
     selectedOrder,
     isDetailOpen,
     filteredOrders,
-    setPage,
+    setPage: onChangePagination,
     setSearchQuery,
     setIsDetailOpen,
     handleViewDetail,
