@@ -798,7 +798,10 @@ export class ProductsRepository implements IProductsRepository {
               data: {
                 sku_code: sku.sku_code,
                 price: sku.price,
+                original_price: sku.original_price,
                 stock: sku.stock,
+                image_url: sku.image_url,
+                unit_price: sku.unit_price,
               },
             });
           } else {
@@ -807,7 +810,10 @@ export class ProductsRepository implements IProductsRepository {
                 product_id: id,
                 sku_code: sku.sku_code,
                 price: sku.price,
+                original_price: sku.original_price,
                 stock: sku.stock,
+                image_url: sku.image_url,
+                unit_price: sku.unit_price,
               },
             });
           }

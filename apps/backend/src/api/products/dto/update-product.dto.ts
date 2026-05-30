@@ -30,7 +30,19 @@ export class UpdateProductSkuDto implements IUpdateProductSkuRequest {
   price: number;
 
   @IsNumber()
+  @IsOptional()
+  original_price?: number | null;
+
+  @IsNumber()
   stock: number;
+
+  @IsString()
+  @IsOptional()
+  image_url?: string | null;
+
+  @IsString()
+  @IsOptional()
+  unit_price?: string | null;
 }
 
 export class UpdateProductDto implements IUpdateProductRequest {

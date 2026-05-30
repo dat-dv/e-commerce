@@ -20,8 +20,10 @@ import {
 } from '@nestjs/common';
 import type { Request } from 'express';
 import { Language } from 'src/common/decorators/language.decorator';
+import { Permissions } from 'src/common/decorators/permissions.decorator';
 import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { GetFlashSaleUseCase } from './domain/use-cases/get-flash-sale.use-case';
 import { GetInterestBasedUseCase } from './domain/use-cases/get-interest-based.use-case';
 import { GetProductDetailUseCase } from './domain/use-cases/get-product-detail.use-case';
@@ -50,7 +52,8 @@ export class ProductsController {
     private readonly updateProductUseCase: UpdateProductUseCase,
   ) {}
 
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, PermissionsGuard)
+  @Permissions('UPDATE:PRODUCT')
   @Patch(':id')
   async updateProduct(
     @Param('id') id: string,

@@ -29,7 +29,10 @@ export interface IUpdateProductSkuRequest {
   id?: string;
   sku_code: string;
   price: number;
+  original_price?: number | null;
   stock: number;
+  image_url?: string | null;
+  unit_price?: string | null;
 }
 
 export interface IUpdateProductRequest {
