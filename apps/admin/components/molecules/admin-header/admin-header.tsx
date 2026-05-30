@@ -15,10 +15,8 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
   const { user, logout } = useAdminUserStore();
   const router = useRouter();
 
-  const userName = user
-    ? [user.firstName, user.lastName].filter(Boolean).join(" ")
-    : "Administrator";
-  const userEmail = user?.email ?? "admin@chotdon.vn";
+  const userName = [user?.firstName, user?.lastName].filter(Boolean).join(" ");
+  const userEmail = user?.email;
   const userAvatar = user?.avatarUrl || undefined;
 
   const handleLogout = () => {
