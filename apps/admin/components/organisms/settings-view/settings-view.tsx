@@ -1,16 +1,13 @@
 "use client";
 
 import { TableOfContents } from "@ecommerce/ui";
-import { useState } from "react";
-
-import { EAdminTheme } from "@/config/theme";
-import { useAdminThemeStore } from "@/store/theme";
-import { useAdminUserStore } from "@/store/user";
+import React from "react";
 
 import { AppearanceTab } from "./appearance-tab";
 import { ProfileTab } from "./profile-tab";
 import SettingsHeader from "./settings-header";
 import { SystemTab } from "./system-tab";
+import { useSettingsView } from "./use-settings-view";
 
 const TOC_ITEMS = [
   { id: "appearance", title: "Appearance" },
@@ -19,36 +16,16 @@ const TOC_ITEMS = [
 ];
 
 export const SettingsView = () => {
-  const { theme, isDarkMode, setTheme, setDarkMode } = useAdminThemeStore();
-  const { user } = useAdminUserStore();
-
-  const [themeChanging, setThemeChanging] = useState<EAdminTheme | null>(null);
-  const [modeChanging, setModeChanging] = useState<"light" | "dark" | null>(
-    null,
-  );
-  const isChanging = themeChanging !== null || modeChanging !== null;
-
-  const handleModeChange = (dark: boolean) => {
-    if (isChanging) return;
-    setModeChanging(dark ? "dark" : "light");
-    setTimeout(() => {
-      setDarkMode(dark);
-      setTimeout(() => {
-        setModeChanging(null);
-      }, 80);
-    }, 720);
-  };
-
-  const handleThemeChange = (newTheme: EAdminTheme) => {
-    if (isChanging) return;
-    setThemeChanging(newTheme);
-    setTimeout(() => {
-      setTheme(newTheme);
-      setTimeout(() => {
-        setThemeChanging(null);
-      }, 80);
-    }, 720);
-  };
+  const {
+    theme,
+    isDarkMode,
+    user,
+    themeChanging,
+    modeChanging,
+    isChanging,
+    handleModeChange,
+    handleThemeChange,
+  } = useSettingsView();
 
   return (
     <div className="space-y-6">
