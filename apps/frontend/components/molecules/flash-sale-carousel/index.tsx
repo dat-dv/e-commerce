@@ -6,7 +6,7 @@ import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
 import { Zap } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { PRODUCT_CAROUSEL_ITEM_CLASS } from "@/constants/carousel";
+import { PRODUCT_CAROUSEL_ITEM_CLASS } from "@/constants/grid-presets";
 import Link from "next/link";
 import { FlashSaleCard } from "../product-card/flash-sale-card";
 

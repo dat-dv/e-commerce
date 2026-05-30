@@ -1,6 +1,6 @@
 "use client";
 
-import { CATEGORY_CAROUSEL_ITEM_CLASS } from "@/constants/carousel";
+import { CATEGORY_CAROUSEL_ITEM_CLASS } from "@/constants/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import {
   Carousel,

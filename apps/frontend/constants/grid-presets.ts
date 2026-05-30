@@ -1,13 +1,12 @@
 import type { VirtualGridColumns } from "@ecommerce/ui";
 
 export const PRODUCT_LISTING_GRID_CLASS_NAME =
-  "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
+  "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4";
 
 export const PRODUCT_LISTING_GRID_COLUMNS = {
   base: 2,
   sm: 3,
   md: 4,
-  lg: 5,
 } satisfies VirtualGridColumns;
 
 export const BRAND_LISTING_GRID_CLASS_NAME =
@@ -19,3 +18,9 @@ export const BRAND_LISTING_GRID_COLUMNS = {
   lg: 3,
   xl: 4,
 } satisfies VirtualGridColumns;
+
+export const PRODUCT_CAROUSEL_ITEM_CLASS =
+  "grow-0 shrink-0 basis-[calc((100%_-_0.75rem)/2)] sm:basis-[calc((100%_-_2rem)/3)] md:basis-[calc((100%_-_3rem)/4)]";
+
+export const CATEGORY_CAROUSEL_ITEM_CLASS =
+  "flex-[0_0_68%] sm:flex-[0_0_45%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]";
