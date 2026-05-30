@@ -24,12 +24,11 @@ import { SidebarToggle } from "./sidebar-toggle";
 
 const SIDEBAR_LINKS: ISidebarLink[] = [
   { label: "Dashboard", href: APP_ROUTES.DASHBOARD, icon: LayoutDashboard },
-  { label: "Products", href: "/dashboard/products", icon: Tag, disabled: true },
+  { label: "Products", href: APP_ROUTES.PRODUCTS, icon: Tag },
   {
     label: "Orders",
-    href: "/dashboard/orders",
+    href: APP_ROUTES.ORDERS,
     icon: ShoppingCart,
-    disabled: true,
   },
   {
     label: "Customers",
