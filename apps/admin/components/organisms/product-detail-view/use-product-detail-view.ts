@@ -5,9 +5,9 @@ import {
   type IUpdateProductSkuRequest,
   type IUpdateProductTranslationRequest,
 } from "@ecommerce/shared";
-import { toast } from "@ecommerce/ui";
+import { toast, useLoadOnce } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useState, useTransition } from "react";
 
 import { adminProductUseCase } from "@/domain/product";
 
@@ -55,9 +55,7 @@ export const useProductDetailView = () => {
     }
   }, [slug]);
 
-  useEffect(() => {
-    loadProductDetail();
-  }, [loadProductDetail]);
+  useLoadOnce(loadProductDetail, !!slug);
 
   const startEdit = () => {
     if (!product) return;

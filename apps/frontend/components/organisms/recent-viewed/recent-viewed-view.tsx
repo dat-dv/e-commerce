@@ -13,7 +13,7 @@ import {
 } from "@/constants/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import { useLoadRecentViewedProducts } from "@/hooks/products/recent-viewed/use-load-recent-viewed-product";
-import { useLoadOnce } from "@/hooks/use-load-once";
+import { useLoadOnce } from "@ecommerce/ui";
 import DiscoveryCarouselSection from "../discovery-sections";
 import RecentViewedHeader from "./recent-viewed-header";
 

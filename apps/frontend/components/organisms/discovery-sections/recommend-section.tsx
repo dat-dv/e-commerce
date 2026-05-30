@@ -6,7 +6,7 @@ import { useConfig } from "@/hooks/config/use-config";
 import { useRecommendedProducts } from "@/hooks/products/use-recommended-products";
 import { Sparkles } from "lucide-react";
 
-import { useLoadOnce } from "@/hooks/use-load-once";
+import { useLoadOnce } from "@ecommerce/ui";
 import { ApiListResponse } from "@/utils/request/request.types";
 import { useTranslations } from "next-intl";
 import { DiscoverySectionSkeleton } from "./skeletons";

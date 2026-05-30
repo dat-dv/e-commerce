@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 
 import { TProduct } from "@/domain/products/types/products.model";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
-import { useLoadOnce } from "@/hooks/use-load-once";
+import { useLoadOnce } from "@ecommerce/ui";
 
 export interface RecentViewedSectionProps {
   products?: TProduct[];

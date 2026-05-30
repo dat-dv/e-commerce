@@ -7,7 +7,7 @@ import { useMarkAllAsRead } from "@/hooks/notifications/use-mark-all-as-read";
 import { useMarkAsRead } from "@/hooks/notifications/use-mark-as-read";
 import { useNotifications } from "@/hooks/notifications/use-notifications";
 import { useUnreadCount } from "@/hooks/notifications/use-unread-count";
-import { useLoadOnce } from "@/hooks/use-load-once";
+import { useLoadOnce } from "@ecommerce/ui";
 import { NotificationFilters } from "./parts/notification-filters";
 import { NotificationHeader } from "./parts/notification-header";
 import { NotificationList } from "./parts/notification-list";

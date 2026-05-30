@@ -7,7 +7,7 @@ import { TUserFavoriteProductItem } from "@/domain/user-favorite-products/types/
 import { userFavoriteProductsUseCase } from "@/domain/user-favorite-products/use-cases";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useConfig } from "@/hooks/config/use-config";
-import { useLoadOnce } from "@/hooks/use-load-once";
+import { useLoadOnce } from "@ecommerce/ui";
 import usePagination from "@/hooks/use-pagination";
 import { Heart } from "lucide-react";
 import { useTranslations } from "next-intl";
