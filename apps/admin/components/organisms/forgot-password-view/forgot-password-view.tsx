@@ -1,6 +1,7 @@
 "use client";
 
 import { ForgotPasswordForm } from "@ecommerce/ui";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -11,8 +12,11 @@ import {
   AuthPageShell,
   AuthSuccessBanner,
 } from "@/components/molecules/auth";
-import { type TAdminForgotPasswordRequest } from "@/domain/auth/types/auth.model";
 
+import {
+  forgotPasswordSchema,
+  type TForgotPasswordSchema,
+} from "./forgot-password-view.schema";
 import { type IForgotPasswordViewProps } from "./forgot-password-view.types";
 
 const LABELS = {
@@ -47,11 +51,13 @@ export const ForgotPasswordView = ({
   const [isSent, setIsSent] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const methods = useForm<TAdminForgotPasswordRequest>({
+  const methods = useForm<TForgotPasswordSchema>({
+    resolver: zodResolver(forgotPasswordSchema),
     defaultValues: { email: "" },
   });
 
-  const handleSubmit = (_data: TAdminForgotPasswordRequest) => {
+  // TODO: integrate with admin auth API
+  const handleSubmit = (_data: TForgotPasswordSchema) => {
     setIsSent(true);
     setIsModalOpen(true);
   };
@@ -63,7 +69,7 @@ export const ForgotPasswordView = ({
 
         {isSent && <AuthSuccessBanner message={SENT_BANNER_MESSAGE} />}
 
-        <ForgotPasswordForm<TAdminForgotPasswordRequest>
+        <ForgotPasswordForm<TForgotPasswordSchema>
           id="admin-forgot-password-form"
           methods={methods}
           onSubmit={handleSubmit}
