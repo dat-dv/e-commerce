@@ -43,7 +43,7 @@ export function AppTreeItem({
         }) => (
           <div
             className={cn(
-              "text-content relative flex min-h-10 w-full items-center rounded-xl px-3 py-2 text-sm transition-colors",
+              "text-content relative mx-0.5 flex min-h-10 w-[calc(100%-0.25rem)] items-center rounded-xl px-3 py-2 text-sm transition-colors",
               !isSelected && "hover:bg-content/[0.04]",
               isSelected &&
                 !activeLayoutId &&
