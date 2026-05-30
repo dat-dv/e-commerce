@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { ToastProvider } from "@ecommerce/ui";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
       </head>
       <body className="bg-surface text-content min-h-screen">
         <ThemeSync />
+        <ToastProvider />
         <AuthGuard>{children}</AuthGuard>
       </body>
     </html>

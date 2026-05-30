@@ -1,14 +1,33 @@
-import { type IProductResponse } from "@ecommerce/shared";
-import { Award, Grid, Package, Star, Tag } from "lucide-react";
+import {
+  type IProductResponse,
+  type IUpdateProductSkuRequest,
+} from "@ecommerce/shared";
+import { Activity, Award, Grid, Package, Star, Tag } from "lucide-react";
 
 import { formatCurrency, getProductName } from "../products-view/product.utils";
 import { ProductSkuTable } from "./product-sku-table";
 
 interface IProductGeneralInfoProps {
   product: IProductResponse;
+  isEditing?: boolean;
+  editPrice?: number;
+  setEditPrice?: (p: number) => void;
+  editStatus?: number;
+  setEditStatus?: (s: number) => void;
+  editSkus?: IUpdateProductSkuRequest[];
+  setEditSkus?: (skus: IUpdateProductSkuRequest[]) => void;
 }
 
-export const ProductGeneralInfo = ({ product }: IProductGeneralInfoProps) => {
+export const ProductGeneralInfo = ({
+  product,
+  isEditing = false,
+  editPrice = 0,
+  setEditPrice,
+  editStatus = 0,
+  setEditStatus,
+  editSkus = [],
+  setEditSkus,
+}: IProductGeneralInfoProps) => {
   const defaultName = getProductName(product.translations, product.slug);
 
   return (
@@ -49,9 +68,44 @@ export const ProductGeneralInfo = ({ product }: IProductGeneralInfoProps) => {
               <Tag className="h-4 w-4" />
               Base Price
             </div>
-            <p className="text-lg font-extrabold text-emerald-400">
-              {formatCurrency(product.base_price)}
-            </p>
+            {isEditing ? (
+              <input
+                type="number"
+                value={editPrice}
+                onChange={(e) => setEditPrice?.(Number(e.target.value))}
+                className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm font-semibold text-emerald-400 focus:border-indigo-500 focus:outline-none"
+              />
+            ) : (
+              <p className="text-lg font-extrabold text-emerald-400">
+                {formatCurrency(product.base_price)}
+              </p>
+            )}
+          </div>
+
+          <div className="border-content/5 bg-content/[0.02] rounded-lg border p-4">
+            <div className="mb-1 flex items-center gap-2 text-xs font-bold tracking-wide text-[var(--muted)] uppercase">
+              <Activity className="h-4 w-4" />
+              Status
+            </div>
+            {isEditing ? (
+              <select
+                value={editStatus}
+                onChange={(e) => setEditStatus?.(Number(e.target.value))}
+                className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+              >
+                <option value={0}>Draft</option>
+                <option value={1}>Active</option>
+                <option value={2}>Out of Stock</option>
+              </select>
+            ) : (
+              <p className="text-sm font-semibold text-[var(--app-text)] capitalize">
+                {product.status === 0
+                  ? "Draft"
+                  : product.status === 1
+                    ? "Active"
+                    : "Out of Stock"}
+              </p>
+            )}
           </div>
 
           <div className="border-content/5 bg-content/[0.02] rounded-lg border p-4">
@@ -92,7 +146,7 @@ export const ProductGeneralInfo = ({ product }: IProductGeneralInfoProps) => {
             </div>
           </div>
 
-          <div className="border-content/5 bg-content/[0.02] rounded-lg border p-4">
+          <div className="border-content/5 bg-content/[0.02] rounded-lg border p-4 sm:col-span-2">
             <div className="mb-1 flex items-center gap-2 text-xs font-bold tracking-wide text-[var(--muted)] uppercase">
               <Star className="h-4 w-4" />
               Performance Metrics
@@ -114,7 +168,12 @@ export const ProductGeneralInfo = ({ product }: IProductGeneralInfoProps) => {
       </div>
 
       {/* Render Nested Product SKUs Table */}
-      <ProductSkuTable product={product} />
+      <ProductSkuTable
+        product={product}
+        isEditing={isEditing}
+        editSkus={editSkus}
+        setEditSkus={setEditSkus}
+      />
     </section>
   );
 };

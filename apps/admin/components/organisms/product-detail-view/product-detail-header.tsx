@@ -10,11 +10,21 @@ import {
 interface IProductDetailHeaderProps {
   product: IProductResponse | null;
   onBack: () => void;
+  isEditing: boolean;
+  isSaving: boolean;
+  onEdit: () => void;
+  onCancel: () => void;
+  onSave: () => void;
 }
 
 export const ProductDetailHeader = ({
   product,
   onBack,
+  isEditing,
+  isSaving,
+  onEdit,
+  onCancel,
+  onSave,
 }: IProductDetailHeaderProps) => {
   const name = product
     ? getProductName(product.translations, product.slug)
@@ -30,6 +40,7 @@ export const ProductDetailHeader = ({
           onClick={onBack}
           className="hover:bg-content/5 rounded-lg text-[var(--app-text)]"
           aria-label="Back to products"
+          disabled={isSaving}
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
@@ -46,20 +57,56 @@ export const ProductDetailHeader = ({
       </div>
 
       {product && (
-        <div className="flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] px-4 py-3 shadow-sm">
-          <div>
-            <p className="text-sm font-semibold text-[var(--app-text)]">
-              {name || "Loading..."}
-            </p>
-            <p className="text-xs text-[var(--muted)]">{product.slug}</p>
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] px-4 py-2.5 shadow-sm">
+            <div>
+              <p className="text-sm font-semibold text-[var(--app-text)]">
+                {name || "Loading..."}
+              </p>
+              <p className="text-xs text-[var(--muted)]">{product.slug}</p>
+            </div>
+            {statusInfo && (
+              <span
+                className={`rounded-md px-2.5 py-0.5 text-[10px] font-semibold ${statusInfo.color}`}
+              >
+                {statusInfo.label}
+              </span>
+            )}
           </div>
-          {statusInfo && (
-            <span
-              className={`rounded-md px-2.5 py-0.5 text-[10px] font-semibold ${statusInfo.color}`}
-            >
-              {statusInfo.label}
-            </span>
-          )}
+
+          <div className="flex items-center gap-2">
+            {isEditing ? (
+              <>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={onCancel}
+                  disabled={isSaving}
+                  className="hover:bg-content/5 rounded-lg border-[var(--border-color)] text-[var(--app-text)]"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={onSave}
+                  disabled={isSaving}
+                  className="rounded-lg bg-indigo-600 font-semibold text-white hover:bg-indigo-700 disabled:opacity-50"
+                >
+                  {isSaving ? "Saving..." : "Save Changes"}
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={onEdit}
+                className="rounded-lg border-indigo-500/20 text-indigo-400 hover:bg-indigo-500/5"
+              >
+                Edit Product
+              </Button>
+            )}
+          </div>
         </div>
       )}
     </div>
