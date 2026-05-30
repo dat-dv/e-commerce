@@ -3,11 +3,12 @@
 import { APP_ROUTES } from "@/constants/routes";
 
 import { ProductDetailHeader } from "./product-detail-header";
-import { ProductInfoPanel } from "./product-info-panel";
+import { ProductGeneralInfo } from "./product-general-info";
+import { ProductTranslations } from "./product-translations";
 import { useProductDetailView } from "./use-product-detail-view";
 
 export const ProductDetailView = () => {
-  const { product, error, router } = useProductDetailView();
+  const { product, loading, error, router } = useProductDetailView();
 
   const handleBack = () => {
     router.push(APP_ROUTES.PRODUCTS);
@@ -23,7 +24,19 @@ export const ProductDetailView = () => {
         </div>
       )}
 
-      {product && <ProductInfoPanel product={product} />}
+      {loading && (
+        <div className="space-y-6">
+          <div className="h-64 animate-pulse rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]" />
+          <div className="h-48 animate-pulse rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]" />
+        </div>
+      )}
+
+      {!loading && product && (
+        <div className="space-y-6">
+          <ProductGeneralInfo product={product} />
+          <ProductTranslations product={product} />
+        </div>
+      )}
     </div>
   );
 };
