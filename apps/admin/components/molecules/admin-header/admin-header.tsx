@@ -1,7 +1,8 @@
-"use client";
-
 import { Avatar } from "@ecommerce/ui";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+import { useAdminUserStore } from "@/store/user";
 
 interface IAdminHeaderProps {
   onMenuToggle?: () => void;
@@ -9,6 +10,20 @@ interface IAdminHeaderProps {
 
 export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { user, logout } = useAdminUserStore();
+  const router = useRouter();
+
+  const userName = user
+    ? [user.firstName, user.lastName].filter(Boolean).join(" ")
+    : "Administrator";
+  const userEmail = user?.email ?? "admin@chotdon.vn";
+  const userAvatar = user?.avatarUrl || undefined;
+
+  const handleLogout = () => {
+    logout();
+    setUserMenuOpen(false);
+    router.push("/sign-in");
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/[0.06] bg-[var(--app-bg)]/80 backdrop-blur-xl">
@@ -112,14 +127,14 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
               className="flex items-center gap-2.5 rounded-lg p-1.5 transition-colors hover:bg-white/8"
             >
               <div className="h-7 w-7 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 ring-2 ring-white/10">
-                <Avatar name="Admin" size={28} />
+                <Avatar name={userName} url={userAvatar} size={28} />
               </div>
               <div className="hidden text-left md:block">
                 <p className="text-xs leading-tight font-semibold text-[var(--app-text)]">
-                  Administrator
+                  {userName}
                 </p>
                 <p className="text-[11px] leading-tight text-[var(--muted)]">
-                  admin@chotdon.vn
+                  {userEmail}
                 </p>
               </div>
               <svg
@@ -156,10 +171,10 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
                   {/* Profile info */}
                   <div className="border-b border-white/[0.06] px-4 py-3">
                     <p className="text-xs font-semibold text-[var(--app-text)]">
-                      Administrator
+                      {userName}
                     </p>
                     <p className="mt-0.5 truncate text-[11px] text-[var(--muted)]">
-                      admin@chotdon.vn
+                      {userEmail}
                     </p>
                   </div>
 
@@ -212,7 +227,7 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
                       role="menuitem"
                       type="button"
                       className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm text-red-400 transition-colors hover:bg-red-500/10"
-                      onClick={() => setUserMenuOpen(false)}
+                      onClick={handleLogout}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
