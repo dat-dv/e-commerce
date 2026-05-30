@@ -1,8 +1,14 @@
-"use client";
-
-import { Avatar, Button, SearchInput } from "@ecommerce/ui";
+import {
+  Avatar,
+  Button,
+  type ITableColumn,
+  SearchInput,
+  TableCommon,
+} from "@ecommerce/ui";
 import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
 import React from "react";
+
+import type { IAdminUser } from "@/domain/user/types/user.model";
 
 import { useCustomersView } from "./use-customers-view";
 
@@ -18,6 +24,86 @@ export const CustomersView = () => {
     handleSearch,
     handleViewDetail,
   } = useCustomersView();
+
+  const columns: ITableColumn<IAdminUser>[] = [
+    {
+      key: "customer",
+      header: "Customer",
+      render: (user) => {
+        const fullName =
+          [user.firstName, user.lastName].filter(Boolean).join(" ") ||
+          "No Name";
+        return (
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 ring-2 ring-white/5">
+              <Avatar
+                name={fullName}
+                url={user.avatarUrl || undefined}
+                size={40}
+              />
+            </div>
+            <div className="font-semibold text-[var(--app-text)]">
+              {fullName}
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      key: "email",
+      header: "Email",
+      render: (user) => (
+        <span className="text-[var(--app-text)]/80">{user.email}</span>
+      ),
+    },
+    {
+      key: "role",
+      header: "Role",
+      render: (user) => {
+        const roleName = user.role?.roleName || "User";
+        return (
+          <span className="inline-block rounded-md bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-400">
+            {roleName}
+          </span>
+        );
+      },
+    },
+    {
+      key: "createdAt",
+      header: "Joined Date",
+      render: (user) =>
+        user.createdAt
+          ? new Date(user.createdAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          : "-",
+    },
+    {
+      key: "actions",
+      header: "",
+      className: "text-right",
+      render: (user) => {
+        const fullName =
+          [user.firstName, user.lastName].filter(Boolean).join(" ") ||
+          "No Name";
+        return (
+          <Button
+            variant="ghost"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleViewDetail(user);
+            }}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:bg-indigo-500 hover:text-white"
+            aria-label={`View details of ${fullName}`}
+          >
+            <Eye className="h-4 w-4" />
+          </Button>
+        );
+      },
+    },
+  ];
 
   return (
     <div className="space-y-6">
@@ -45,101 +131,14 @@ export const CustomersView = () => {
       </div>
 
       {/* User Table Card */}
-      <div className="overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] shadow-xl backdrop-blur-xl">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[800px] border-collapse text-left text-sm">
-            <thead>
-              <tr className="border-b border-[var(--border-color)] bg-white/1 text-xs font-bold tracking-wider text-[var(--muted)] uppercase">
-                <th className="px-6 py-4">Customer</th>
-                <th className="px-6 py-4">Email</th>
-                <th className="px-6 py-4">Role</th>
-                <th className="px-6 py-4">Joined Date</th>
-                <th className="px-6 py-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[var(--border-color)]">
-              {error ? (
-                <tr>
-                  <td
-                    colSpan={5}
-                    className="px-6 py-12 text-center text-red-400"
-                  >
-                    {error}
-                  </td>
-                </tr>
-              ) : filteredUsers.length === 0 ? (
-                <tr>
-                  <td
-                    colSpan={5}
-                    className="px-6 py-12 text-center text-[var(--muted)]"
-                  >
-                    No customers found.
-                  </td>
-                </tr>
-              ) : (
-                filteredUsers.map((user) => {
-                  const fullName =
-                    [user.firstName, user.lastName].filter(Boolean).join(" ") ||
-                    "No Name";
-
-                  const roleName = user.role?.roleName || "User";
-
-                  return (
-                    <tr
-                      key={user.id}
-                      className="transition-colors hover:bg-white/1"
-                    >
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 ring-2 ring-white/5">
-                            <Avatar
-                              name={fullName}
-                              url={user.avatarUrl || undefined}
-                              size={40}
-                            />
-                          </div>
-                          <div className="font-semibold text-[var(--app-text)]">
-                            {fullName}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-[var(--app-text)]/80">
-                        {user.email}
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className="inline-block rounded-md bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-400">
-                          {roleName}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-[var(--muted)]">
-                        {user.createdAt
-                          ? new Date(user.createdAt).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                              },
-                            )
-                          : "-"}
-                      </td>
-                      <td className="px-6 py-4 text-right">
-                        <Button
-                          variant="ghost"
-                          onClick={() => handleViewDetail(user)}
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:bg-indigo-500 hover:text-white"
-                          aria-label={`View details of ${fullName}`}
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Button>
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
-        </div>
+      <div className="flex flex-col gap-4">
+        <TableCommon<IAdminUser>
+          data={filteredUsers}
+          columns={columns}
+          error={error}
+          onRowClick={handleViewDetail}
+          emptyState="No customers found."
+        />
 
         {/* Pagination Controls */}
         {totalPages > 1 && (

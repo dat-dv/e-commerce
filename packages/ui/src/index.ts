@@ -90,7 +90,12 @@ export type {
 export { default as SignInForm } from "./components/molecules/sign-in-form";
 export * from "./components/molecules/summary-card";
 export * from "./components/molecules/table";
-export * from "./components/molecules/table-common";
+export type {
+  ITableColumn,
+  ITableCommonProps,
+  ITableSortDescriptor,
+} from "./components/molecules/table-common";
+export { default as TableCommon } from "./components/molecules/table-common";
 export * from "./components/molecules/toc";
 export * from "./components/molecules/virtual-grid";
 export * from "./components/molecules/virtual-list";
