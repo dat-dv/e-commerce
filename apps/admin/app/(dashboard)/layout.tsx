@@ -1,11 +1,6 @@
-import { AdminFooter } from "@/components/organisms/admin-footer";
-import { AdminHeader } from "@/components/organisms/admin-header";
+import { AdminFooter } from "@/components/molecules/admin-footer";
+import { AdminHeader } from "@/components/molecules/admin-header";
 
-/**
- * Dashboard shell layout — applied to all authenticated admin routes.
- * Auth routes (sign-in, forgot-password) live outside this group
- * and do NOT inherit this layout.
- */
 export default function DashboardLayout({
   children,
 }: {

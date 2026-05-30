@@ -10,6 +10,7 @@ import {
   AuthPageFooter,
   AuthPageShell,
 } from "@/components/molecules/auth";
+import { useAdminAuth } from "@/hooks/use-auth";
 
 import { signInSchema, type TSignInSchema } from "./sign-in-view.schema";
 import { type ISignInViewProps } from "./sign-in-view.types";
@@ -29,18 +30,26 @@ const LABELS = {
 } as const;
 
 export const SignInView = ({ forgotPasswordHref }: ISignInViewProps) => {
+  const { login, isLoading, error } = useAdminAuth();
   const methods = useForm<TSignInSchema>({
     resolver: zodResolver(signInSchema),
     defaultValues: { email: "", password: "" },
   });
 
-  // TODO: integrate with admin auth API
-  const handleSubmit = (_data: TSignInSchema) => {};
+  const handleSubmit = (data: TSignInSchema) => {
+    login(data);
+  };
 
   return (
     <AuthPageShell variant="sign-in">
       <AuthCard>
         <AuthBrandMark />
+
+        {error && (
+          <div className="mb-4 rounded-lg bg-red-500/10 p-3 text-sm text-red-400">
+            {error}
+          </div>
+        )}
 
         <SignInForm<TSignInSchema>
           id="admin-sign-in-form"
@@ -49,6 +58,7 @@ export const SignInView = ({ forgotPasswordHref }: ISignInViewProps) => {
           labels={LABELS}
           forgotPasswordHref={forgotPasswordHref}
           registerHref="#"
+          isLoading={isLoading}
         />
       </AuthCard>
 
