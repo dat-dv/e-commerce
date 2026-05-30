@@ -4,6 +4,7 @@ export const APP_ROUTES = {
   SIGN_IN: "/sign-in",
   FORGOT_PASSWORD: "/forgot-password",
   DASHBOARD: "/dashboard",
+  SETTINGS: "/dashboard/settings",
 } as const;
 
 /** @description Admin API endpoint paths */

@@ -95,7 +95,7 @@ export const AuthGuard = ({ children }: IAuthGuardProps) => {
   ]);
 
   if (!hasHydrated || isCheckingSession) {
-    return <BasicLoading />;
+    return <BasicLoading isBlur={false} />;
   }
 
   // Render children on public pages even if there is no user

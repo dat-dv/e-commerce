@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { ThemeSync } from "@/components/atoms/theme-sync";
 import { AuthGuard } from "@/components/organisms/auth-guard";
 import { adminThemeScript } from "@/utils/theme-script";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: adminThemeScript }} />
       </head>
       <body className="bg-surface text-content min-h-screen">
+        <ThemeSync />
         <AuthGuard>{children}</AuthGuard>
       </body>
     </html>

@@ -1,6 +1,17 @@
-export function BasicLoading() {
+import { cn } from "../../../utils";
+
+export interface IBasicLoadingProps {
+  isBlur?: boolean;
+}
+
+export function BasicLoading({ isBlur = true }: IBasicLoadingProps = {}) {
   return (
-    <div className="bg-surface/60 fixed inset-0 z-[100] flex items-center justify-center overflow-hidden backdrop-blur-xl transition-all duration-500">
+    <div
+      className={cn(
+        "fixed inset-0 z-[100] flex items-center justify-center overflow-hidden transition-all duration-500",
+        isBlur ? "bg-surface/60 backdrop-blur-xl" : "bg-surface",
+      )}
+    >
       {/* Ambient glow layers */}
       <div
         className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full"
