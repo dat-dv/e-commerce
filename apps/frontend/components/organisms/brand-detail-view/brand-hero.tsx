@@ -4,7 +4,7 @@ import { TYPOGRAPHY } from "@/constants/typography";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 interface BrandHeroProps {
   brand: TBrand;
@@ -17,7 +17,6 @@ export function BrandHero({ brand }: BrandHeroProps) {
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 1.1]);
-  const [imgError, setImgError] = useState(false);
 
   return (
     <section
@@ -31,7 +30,7 @@ export function BrandHero({ brand }: BrandHeroProps) {
             src={brand.bannerUrl}
             alt={brand.name}
             fill
-            className="object-cover"
+            className={`object-cover transition-opacity duration-700`}
             priority
           />
         ) : (
@@ -45,18 +44,6 @@ export function BrandHero({ brand }: BrandHeroProps) {
         style={{ opacity }}
         className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-8 px-4 md:gap-12"
       >
-        {brand.logoUrl && !imgError && (
-          <div className="border-content/10 bg-background/30 relative flex size-32 items-center justify-center rounded-[2rem] border p-6 shadow-2xl backdrop-blur-3xl sm:size-40 md:size-56 md:rounded-[4rem] md:p-8">
-            <Image
-              src={brand.logoUrl}
-              alt={brand.name}
-              fill
-              className="object-contain drop-shadow-2xl"
-              onError={() => setImgError(true)}
-            />
-          </div>
-        )}
-
         <div className="max-w-full min-w-0 text-center">
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
@@ -77,17 +64,14 @@ export function BrandHero({ brand }: BrandHeroProps) {
 
       {/* Aesthetic Coordinates */}
       <div
+        style={{
+          writingMode: "vertical-rl",
+          transform: "rotate(180deg)",
+        }}
         className={`absolute bottom-12 left-12 font-mono ${TYPOGRAPHY.badge} text-content/40 vertical-text hidden tracking-[0.4em] uppercase md:block`}
       >
         Ref // {brand.slug.toUpperCase()} -- 2024
       </div>
-
-      <style jsx>{`
-        .vertical-text {
-          writing-mode: vertical-rl;
-          transform: rotate(180deg);
-        }
-      `}</style>
     </section>
   );
 }
