@@ -19,7 +19,7 @@ import { UserRolePanel } from "./user-role-panel";
 export const UserDetailView = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const userId = searchParams.get("id") ?? "";
+  const userId = searchParams.get("id");
 
   const userRepository = useMemo(() => new AdminUserRepository(), []);
   const permissionRepository = useMemo(
