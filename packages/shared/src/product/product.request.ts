@@ -39,6 +39,7 @@ export interface IUpdateProductSkuRequest {
 export interface IUpdateProductRequest {
   base_price?: number;
   status?: number;
+  thumbnail_id?: string | null;
   brand_id?: string | null;
   category_ids?: string[];
   translations?: IUpdateProductTranslationRequest[];

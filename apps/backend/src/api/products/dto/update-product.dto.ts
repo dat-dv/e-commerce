@@ -61,6 +61,10 @@ export class UpdateProductDto implements IUpdateProductRequest {
 
   @IsString()
   @IsOptional()
+  thumbnail_id?: string | null;
+
+  @IsString()
+  @IsOptional()
   brand_id?: string | null;
 
   @IsArray()

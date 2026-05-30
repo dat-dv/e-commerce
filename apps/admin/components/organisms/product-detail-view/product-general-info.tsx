@@ -6,7 +6,17 @@ import {
   type IProductResponse,
   type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
-import { Activity, Award, Grid, Package, Star, Tag, X } from "lucide-react";
+import {
+  Activity,
+  Award,
+  Grid,
+  ImageUp,
+  Package,
+  Star,
+  Tag,
+  X,
+} from "lucide-react";
+import type { ChangeEvent } from "react";
 
 import { formatCurrency, getProductName } from "../products-view/product.utils";
 import { ProductSkuTable } from "./product-sku-table";
@@ -23,6 +33,9 @@ interface IProductGeneralInfoProps {
   setEditPrice?: (p: number) => void;
   editStatus?: number;
   setEditStatus?: (s: number) => void;
+  editThumbnailUrl?: string;
+  isUploadingThumbnail?: boolean;
+  onThumbnailUpload?: (file: File) => void;
   editBrandId?: string;
   setEditBrandId?: (brandId: string) => void;
   editCategoryIds?: string[];
@@ -60,6 +73,9 @@ export const ProductGeneralInfo = ({
   setEditPrice,
   editStatus = 0,
   setEditStatus,
+  editThumbnailUrl = "",
+  isUploadingThumbnail = false,
+  onThumbnailUpload,
   editBrandId = "",
   setEditBrandId,
   editCategoryIds = [],
@@ -71,6 +87,9 @@ export const ProductGeneralInfo = ({
 }: IProductGeneralInfoProps) => {
   const defaultName = getProductName(product.translations, product.slug);
   const flatCategories = flattenCategories(categoryTree);
+  const thumbnailUrl = isEditing
+    ? editThumbnailUrl || product.thumbnail?.url
+    : product.thumbnail?.url;
 
   const toggleCategory = (categoryId: string) => {
     if (!setEditCategoryIds) return;
@@ -79,6 +98,14 @@ export const ProductGeneralInfo = ({
         ? editCategoryIds.filter((id) => id !== categoryId)
         : [...editCategoryIds, categoryId],
     );
+  };
+
+  const handleThumbnailChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      onThumbnailUpload?.(file);
+    }
+    event.target.value = "";
   };
 
   return (
@@ -96,10 +123,10 @@ export const ProductGeneralInfo = ({
         {/* Thumbnail */}
         <div className="bg-content/[0.02] flex flex-col items-center justify-center rounded-xl border border-[var(--border-color)] p-4">
           <div className="bg-content/[0.02] flex h-36 w-36 items-center justify-center overflow-hidden rounded-xl border border-[var(--border-color)]">
-            {product.thumbnail?.url ? (
+            {thumbnailUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={product.thumbnail.url}
+                src={thumbnailUrl}
                 alt={defaultName}
                 className="h-full w-full object-cover"
               />
@@ -110,6 +137,19 @@ export const ProductGeneralInfo = ({
           <p className="mt-2 text-xs font-semibold text-[var(--muted)]">
             Thumbnail Image
           </p>
+          {isEditing && (
+            <label className="mt-3 inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 text-xs font-semibold text-[var(--app-text)] transition-colors hover:border-indigo-400 disabled:cursor-not-allowed disabled:opacity-60">
+              <ImageUp className="h-4 w-4" />
+              {isUploadingThumbnail ? "Uploading..." : "Upload"}
+              <input
+                type="file"
+                accept="image/*"
+                className="sr-only"
+                disabled={isUploadingThumbnail}
+                onChange={handleThumbnailChange}
+              />
+            </label>
+          )}
         </div>
 
         {/* Core Info Fields */}

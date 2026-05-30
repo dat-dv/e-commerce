@@ -689,6 +689,17 @@ export class ProductsRepository implements IProductsRepository {
         }
       }
 
+      if (productData.thumbnail_id) {
+        const image = await tx.image.findUnique({
+          where: { id: productData.thumbnail_id },
+          select: { id: true },
+        });
+
+        if (!image) {
+          throw new BadRequestException('Selected thumbnail image does not exist');
+        }
+      }
+
       if (category_ids) {
         if (category_ids.length === 0) {
           throw new BadRequestException('Product must have at least one category');

@@ -16,6 +16,7 @@ import { adminAttributeUseCase } from "@/domain/attribute";
 import { adminBrandUseCase } from "@/domain/brand";
 import { adminProductUseCase } from "@/domain/product";
 import { adminProductCategoryUseCase } from "@/domain/product-category";
+import { adminUploadUseCase } from "@/domain/upload";
 
 const collectCategoryIds = (categories: ICategoryTreeResponse): Set<string> => {
   const ids = new Set<string>();
@@ -37,6 +38,7 @@ const normalizeCategoryIds = (categoryIds: string[]) =>
 const getProductEditSnapshot = (product: IProductResponse) => ({
   base_price: Number(product.base_price),
   status: Number(product.status),
+  thumbnail_id: product.thumbnail_id ?? "",
   brand_id: product.brand_id ?? "",
   category_ids: normalizeCategoryIds(
     product.categories?.map((category) => category.category_id) ?? [],
@@ -81,9 +83,12 @@ export const useProductDetailView = () => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [isUploadingThumbnail, setIsUploadingThumbnail] = useState(false);
 
   const [editPrice, setEditPrice] = useState<number>(0);
   const [editStatus, setEditStatus] = useState<number>(0);
+  const [editThumbnailId, setEditThumbnailId] = useState<string>("");
+  const [editThumbnailUrl, setEditThumbnailUrl] = useState<string>("");
   const [editBrandId, setEditBrandId] = useState<string>("");
   const [editCategoryIds, setEditCategoryIds] = useState<string[]>([]);
   const [editTranslations, setEditTranslations] = useState<
@@ -99,6 +104,7 @@ export const useProductDetailView = () => {
     const editSnapshot = {
       base_price: Number(editPrice),
       status: Number(editStatus),
+      thumbnail_id: editThumbnailId,
       brand_id: editBrandId,
       category_ids: normalizeCategoryIds(editCategoryIds),
       translations: editTranslations.map((translation) => ({
@@ -127,6 +133,7 @@ export const useProductDetailView = () => {
     editBrandId,
     editCategoryIds,
     editPrice,
+    editThumbnailId,
     editSkus,
     editStatus,
     editTranslations,
@@ -135,7 +142,12 @@ export const useProductDetailView = () => {
     product,
   ]);
 
-  const canSave = isEditing && isDirty && !isPending && !metadataLoading;
+  const canSave =
+    isEditing &&
+    isDirty &&
+    !isPending &&
+    !metadataLoading &&
+    !isUploadingThumbnail;
 
   const loadProductDetail = useCallback(async () => {
     if (!slug) {
@@ -210,6 +222,8 @@ export const useProductDetailView = () => {
     const snapshot = getProductEditSnapshot(product);
     setEditPrice(snapshot.base_price);
     setEditStatus(snapshot.status);
+    setEditThumbnailId(snapshot.thumbnail_id);
+    setEditThumbnailUrl(product.thumbnail?.url ?? "");
     setEditBrandId(snapshot.brand_id);
     setEditCategoryIds(snapshot.category_ids);
     setEditTranslations(snapshot.translations);
@@ -225,6 +239,30 @@ export const useProductDetailView = () => {
 
     setIsEditing(false);
   };
+
+  const uploadThumbnail = useCallback(async (file: File) => {
+    if (!file.type.startsWith("image/")) {
+      toast.error("Select a valid image file.");
+      return;
+    }
+
+    setIsUploadingThumbnail(true);
+    try {
+      const response = await adminUploadUseCase.uploadImage.execute(file);
+      if (response.status === "success" && response.data) {
+        setEditThumbnailId(response.data.id);
+        setEditThumbnailUrl(response.data.url);
+        toast.success("Thumbnail uploaded. Save product to apply it.");
+      } else {
+        toast.error(response.message || "Failed to upload thumbnail.");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to upload thumbnail.");
+    } finally {
+      setIsUploadingThumbnail(false);
+    }
+  }, []);
 
   const saveProduct = () => {
     if (!product) return;
@@ -299,6 +337,7 @@ export const useProductDetailView = () => {
         const payload = {
           base_price: Number(editPrice),
           status: Number(editStatus),
+          thumbnail_id: editThumbnailId || null,
           brand_id: editBrandId || null,
           category_ids: editCategoryIds,
           translations: editTranslations,
@@ -337,11 +376,16 @@ export const useProductDetailView = () => {
     isEditing,
     isDirty,
     isSaving: isPending,
+    isUploadingThumbnail,
     canSave,
     editPrice,
     setEditPrice,
     editStatus,
     setEditStatus,
+    editThumbnailId,
+    setEditThumbnailId,
+    editThumbnailUrl,
+    setEditThumbnailUrl,
     editBrandId,
     setEditBrandId,
     editCategoryIds,
@@ -354,6 +398,7 @@ export const useProductDetailView = () => {
     setDeletedSkuIds,
     startEdit,
     cancelEdit,
+    uploadThumbnail,
     saveProduct,
   };
 };

@@ -21,11 +21,13 @@ export const ProductDetailView = () => {
     isEditing,
     isDirty,
     isSaving,
+    isUploadingThumbnail,
     canSave,
     editPrice,
     setEditPrice,
     editStatus,
     setEditStatus,
+    editThumbnailUrl,
     editBrandId,
     setEditBrandId,
     editCategoryIds,
@@ -38,6 +40,7 @@ export const ProductDetailView = () => {
     setDeletedSkuIds,
     startEdit,
     cancelEdit,
+    uploadThumbnail,
     saveProduct,
   } = useProductDetailView();
 
@@ -94,6 +97,9 @@ export const ProductDetailView = () => {
             setEditPrice={setEditPrice}
             editStatus={editStatus}
             setEditStatus={setEditStatus}
+            editThumbnailUrl={editThumbnailUrl}
+            isUploadingThumbnail={isUploadingThumbnail}
+            onThumbnailUpload={uploadThumbnail}
             editBrandId={editBrandId}
             setEditBrandId={setEditBrandId}
             editCategoryIds={editCategoryIds}

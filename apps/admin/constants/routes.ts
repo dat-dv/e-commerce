@@ -55,4 +55,7 @@ export const API_ROUTES = {
   ATTRIBUTES: {
     LIST: "/attributes",
   },
+  UPLOAD: {
+    IMAGE: "/upload/image",
+  },
 } as const;
