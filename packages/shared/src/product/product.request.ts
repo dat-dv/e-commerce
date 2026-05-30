@@ -33,6 +33,7 @@ export interface IUpdateProductSkuRequest {
   stock: number;
   image_url?: string | null;
   unit_price?: string | null;
+  attribute_value_ids?: string[];
 }
 
 export interface IUpdateProductRequest {

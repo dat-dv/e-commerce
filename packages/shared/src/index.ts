@@ -11,6 +11,7 @@ export * from "./auth";
 export * from "./order";
 export * from "./homepage";
 export * from "./address";
+export * from "./attribute";
 export * from "./review";
 export * from "./notification";
 export * from "./prettify";
