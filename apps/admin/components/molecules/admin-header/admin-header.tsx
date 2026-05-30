@@ -26,13 +26,13 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
             size="icon"
             onClick={onMenuToggle}
             aria-label="Toggle sidebar"
-            className="rounded-lg text-[var(--sidebar-text)] hover:bg-white/8 hover:text-[var(--app-text)]"
+            className="rounded-lg text-[var(--sidebar-text)] hover:bg-white/8 hover:text-[var(--app-text)] md:hidden"
           >
             <MenuIcon className="h-5 w-5" />
           </Button>
 
           {/* Brand mark */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2.5 md:hidden">
             <Logo size={28} />
             <span className="hidden rounded-md bg-indigo-500/10 px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-indigo-400 uppercase sm:block">
               Admin
