@@ -3,9 +3,10 @@
 import {
   type PaginationParams,
   type PaginationQueryParams,
+  useLoadOnce,
   usePaginationCore,
 } from "@ecommerce/ui";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
 import useAppRouter from "@/hooks/use-native-router";
 import type { AppRouterNavigateOptions } from "@/hooks/use-native-router/use-app-router.types";
@@ -145,12 +146,11 @@ const usePagination = <
   );
 
   // Fetch initial page on mount if initialData is null/empty
-  useEffect(() => {
-    if (!initialData) {
-      getData({} as Partial<TParams>);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const loadInitialData = useCallback(async () => {
+    await getData({});
+  }, [getData]);
+
+  useLoadOnce(loadInitialData, !initialData);
 
   return {
     data,

@@ -1,7 +1,8 @@
 "use client";
 
 import type { IPermissionResponse } from "@ecommerce/shared";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useLoadOnce } from "@ecommerce/ui";
+import { useCallback, useMemo, useState } from "react";
 
 import {
   AdminPermissionRepository,
@@ -74,9 +75,7 @@ export const usePermissionsView = () => {
     }
   }, [permissionRepository]);
 
-  useEffect(() => {
-    loadPermissionData();
-  }, [loadPermissionData]);
+  useLoadOnce(loadPermissionData);
 
   const handleRoleChange = (roleId: string) => {
     const nextRole = roleById.get(roleId) ?? null;

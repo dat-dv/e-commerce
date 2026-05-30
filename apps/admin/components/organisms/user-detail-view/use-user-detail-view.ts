@@ -1,7 +1,8 @@
 "use client";
 
+import { useLoadOnce } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import {
@@ -59,9 +60,7 @@ export const useUserDetailView = () => {
     }
   }, [permissionRepository, userId, userRepository]);
 
-  useEffect(() => {
-    loadUserDetail();
-  }, [loadUserDetail]);
+  useLoadOnce(loadUserDetail, !!userId);
 
   const handleSaveRole = async () => {
     if (!userId || !selectedRoleId) return;
