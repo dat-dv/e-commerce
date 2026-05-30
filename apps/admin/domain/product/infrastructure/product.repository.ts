@@ -2,6 +2,7 @@ import type {
   IApiResponse,
   IProductListResponse,
   IProductResponse,
+  IUpdateProductRequest,
 } from "@ecommerce/shared";
 
 import { API_ROUTES } from "@/constants/routes";
@@ -26,6 +27,17 @@ export class AdminProductRepository implements IAdminProductRepository {
   async getProduct(slug: string): Promise<IApiResponse<IProductResponse>> {
     const response = await apiClient.get<IApiResponse<IProductResponse>>(
       API_ROUTES.PRODUCTS.DETAIL(slug),
+    );
+    return response;
+  }
+
+  async updateProduct(
+    id: string,
+    data: IUpdateProductRequest,
+  ): Promise<IApiResponse<IProductResponse>> {
+    const response = await apiClient.patch<IApiResponse<IProductResponse>>(
+      `${API_ROUTES.PRODUCTS.LIST}/${id}`,
+      data,
     );
     return response;
   }

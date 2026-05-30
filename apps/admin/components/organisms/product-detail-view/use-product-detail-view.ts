@@ -5,8 +5,9 @@ import {
   type IUpdateProductSkuRequest,
   type IUpdateProductTranslationRequest,
 } from "@ecommerce/shared";
+import { toast } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useTransition } from "react";
 
 import { adminProductUseCase } from "@/domain/product";
 
@@ -20,9 +21,7 @@ export const useProductDetailView = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [isEditing, setIsEditing] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
-  const [saveError, setSaveError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const [editPrice, setEditPrice] = useState<number>(0);
   const [editStatus, setEditStatus] = useState<number>(0);
@@ -80,51 +79,44 @@ export const useProductDetailView = () => {
       })) ?? [],
     );
     setIsEditing(true);
-    setSaveError(null);
-    setSuccessMessage(null);
   };
 
   const cancelEdit = () => {
     setIsEditing(false);
-    setSaveError(null);
   };
 
-  const saveProduct = async () => {
+  const saveProduct = () => {
     if (!product) return;
-    setIsSaving(true);
-    setSaveError(null);
-    setSuccessMessage(null);
 
-    try {
-      const payload = {
-        base_price: Number(editPrice),
-        status: Number(editStatus),
-        translations: editTranslations,
-        skus: editSkus.map((sku) => ({
-          ...sku,
-          price: Number(sku.price),
-          stock: Number(sku.stock),
-        })),
-      };
+    startTransition(async () => {
+      try {
+        const payload = {
+          base_price: Number(editPrice),
+          status: Number(editStatus),
+          translations: editTranslations,
+          skus: editSkus.map((sku) => ({
+            ...sku,
+            price: Number(sku.price),
+            stock: Number(sku.stock),
+          })),
+        };
 
-      const response = await adminProductUseCase.updateProduct.execute(
-        product.id,
-        payload,
-      );
-      if (response.status === "success" && response.data) {
-        setProduct(response.data);
-        setIsEditing(false);
-        setSuccessMessage("Product updated successfully!");
-        setTimeout(() => setSuccessMessage(null), 3000);
-      } else {
-        setSaveError(response.message || "Failed to save product.");
+        const response = await adminProductUseCase.updateProduct.execute(
+          product.id,
+          payload,
+        );
+        if (response.status === "success" && response.data) {
+          setProduct(response.data);
+          setIsEditing(false);
+          toast.success("Product updated successfully!");
+        } else {
+          toast.error(response.message || "Failed to save product.");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("Failed to save product details.");
       }
-    } catch (err) {
-      console.error(err);
-      setSaveError("Failed to save product details.");
-    } finally {
-      setIsSaving(false);
-    }
+    });
   };
 
   return {
@@ -133,9 +125,7 @@ export const useProductDetailView = () => {
     error,
     router,
     isEditing,
-    isSaving,
-    saveError,
-    successMessage,
+    isSaving: isPending,
     editPrice,
     setEditPrice,
     editStatus,

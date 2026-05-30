@@ -15,8 +15,6 @@ export const ProductDetailView = () => {
     router,
     isEditing,
     isSaving,
-    saveError,
-    successMessage,
     editPrice,
     setEditPrice,
     editStatus,
@@ -49,18 +47,6 @@ export const ProductDetailView = () => {
       {error && (
         <div className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
           {error}
-        </div>
-      )}
-
-      {saveError && (
-        <div className="animate-fadeIn rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-          {saveError}
-        </div>
-      )}
-
-      {successMessage && (
-        <div className="animate-fadeIn rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
-          {successMessage}
         </div>
       )}
 
