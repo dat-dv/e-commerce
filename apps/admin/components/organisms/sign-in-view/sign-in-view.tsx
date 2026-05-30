@@ -1,6 +1,7 @@
 "use client";
 
 import { SignInForm } from "@ecommerce/ui";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import {
@@ -9,8 +10,8 @@ import {
   AuthPageFooter,
   AuthPageShell,
 } from "@/components/molecules/auth";
-import { type TAdminSignInRequest } from "@/domain/auth/types/auth.model";
 
+import { signInSchema, type TSignInSchema } from "./sign-in-view.schema";
 import { type ISignInViewProps } from "./sign-in-view.types";
 
 const LABELS = {
@@ -27,24 +28,21 @@ const LABELS = {
   registerLink: "",
 } as const;
 
-/**
- * Admin sign-in view — composes shared auth molecules with the
- * SignInForm UI package component. Business logic deferred for API integration.
- */
 export const SignInView = ({ forgotPasswordHref }: ISignInViewProps) => {
-  const methods = useForm<TAdminSignInRequest>({
+  const methods = useForm<TSignInSchema>({
+    resolver: zodResolver(signInSchema),
     defaultValues: { email: "", password: "" },
   });
 
   // TODO: integrate with admin auth API
-  const handleSubmit = (_data: TAdminSignInRequest) => {};
+  const handleSubmit = (_data: TSignInSchema) => {};
 
   return (
     <AuthPageShell variant="sign-in">
       <AuthCard>
         <AuthBrandMark />
 
-        <SignInForm<TAdminSignInRequest>
+        <SignInForm<TSignInSchema>
           id="admin-sign-in-form"
           methods={methods}
           onSubmit={handleSubmit}
