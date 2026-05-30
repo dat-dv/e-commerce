@@ -15,7 +15,6 @@ model User {
   updated_at    DateTime  @updatedAt
   deleted_at    DateTime?
 
-  refresh_tokens           RefreshToken[]
   shipping_addresses       ShippingAddress[]
   password_reset_tokens    PasswordResetToken[]
   phones                   UserPhone[]
