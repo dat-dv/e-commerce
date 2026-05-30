@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 
-import { DARK_BG, LIGHT_BG } from "@/config/theme";
 import { useAdminThemeStore } from "@/store/theme";
 
 export const ThemeSync = () => {
@@ -13,8 +12,7 @@ export const ThemeSync = () => {
     root.classList.toggle("dark", isDarkMode);
     root.setAttribute("data-theme", theme);
 
-    const bgMap = isDarkMode ? DARK_BG : LIGHT_BG;
-    const color = bgMap[theme] ?? (isDarkMode ? "#0f1117" : "#f8f9fc");
+    const color = isDarkMode ? "#020617" : "#ffffff";
 
     let meta = document.querySelector<HTMLMetaElement>(
       'meta[name="theme-color"]',
