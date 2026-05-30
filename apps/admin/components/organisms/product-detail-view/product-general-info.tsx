@@ -27,6 +27,8 @@ interface IProductGeneralInfoProps {
   setEditCategoryIds?: (categoryIds: string[]) => void;
   editSkus?: IUpdateProductSkuRequest[];
   setEditSkus?: (skus: IUpdateProductSkuRequest[]) => void;
+  deletedSkuIds?: string[];
+  setDeletedSkuIds?: (skuIds: string[]) => void;
 }
 
 const getBrandName = (brand: IBrandResponse) =>
@@ -61,6 +63,8 @@ export const ProductGeneralInfo = ({
   setEditCategoryIds,
   editSkus = [],
   setEditSkus,
+  deletedSkuIds = [],
+  setDeletedSkuIds,
 }: IProductGeneralInfoProps) => {
   const defaultName = getProductName(product.translations, product.slug);
   const flatCategories = flattenCategories(categoryTree);
@@ -289,6 +293,8 @@ export const ProductGeneralInfo = ({
         isEditing={isEditing}
         editSkus={editSkus}
         setEditSkus={setEditSkus}
+        deletedSkuIds={deletedSkuIds}
+        setDeletedSkuIds={setDeletedSkuIds}
       />
     </section>
   );

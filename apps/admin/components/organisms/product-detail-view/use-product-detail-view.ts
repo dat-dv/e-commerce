@@ -52,6 +52,7 @@ const getProductEditSnapshot = (product: IProductResponse) => ({
       price: Number(sku.price),
       stock: Number(sku.stock),
     })) ?? [],
+  deleted_sku_ids: [] as string[],
 });
 
 export const useProductDetailView = () => {
@@ -78,6 +79,7 @@ export const useProductDetailView = () => {
     IUpdateProductTranslationRequest[]
   >([]);
   const [editSkus, setEditSkus] = useState<IUpdateProductSkuRequest[]>([]);
+  const [deletedSkuIds, setDeletedSkuIds] = useState<string[]>([]);
 
   const isDirty = useMemo(() => {
     if (!product || !isEditing) return false;
@@ -99,6 +101,7 @@ export const useProductDetailView = () => {
         price: Number(sku.price),
         stock: Number(sku.stock),
       })),
+      deleted_sku_ids: [...deletedSkuIds].sort((a, b) => a.localeCompare(b)),
     };
 
     return JSON.stringify(currentSnapshot) !== JSON.stringify(editSnapshot);
@@ -109,6 +112,7 @@ export const useProductDetailView = () => {
     editSkus,
     editStatus,
     editTranslations,
+    deletedSkuIds,
     isEditing,
     product,
   ]);
@@ -180,6 +184,7 @@ export const useProductDetailView = () => {
     setEditCategoryIds(snapshot.category_ids);
     setEditTranslations(snapshot.translations);
     setEditSkus(snapshot.skus);
+    setDeletedSkuIds(snapshot.deleted_sku_ids);
     setIsEditing(true);
   };
 
@@ -212,6 +217,11 @@ export const useProductDetailView = () => {
 
         if (editCategoryIds.length === 0) {
           toast.error("Select at least one category.");
+          return;
+        }
+
+        if (normalizedSkus.length === 0) {
+          toast.error("Product must have at least one SKU.");
           return;
         }
 
@@ -251,6 +261,7 @@ export const useProductDetailView = () => {
           category_ids: editCategoryIds,
           translations: editTranslations,
           skus: normalizedSkus,
+          deleted_sku_ids: deletedSkuIds,
         };
 
         const response = await adminProductUseCase.updateProduct.execute(
@@ -296,6 +307,8 @@ export const useProductDetailView = () => {
     setEditTranslations,
     editSkus,
     setEditSkus,
+    deletedSkuIds,
+    setDeletedSkuIds,
     startEdit,
     cancelEdit,
     saveProduct,

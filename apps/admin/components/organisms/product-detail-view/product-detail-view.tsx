@@ -33,6 +33,8 @@ export const ProductDetailView = () => {
     setEditTranslations,
     editSkus,
     setEditSkus,
+    deletedSkuIds,
+    setDeletedSkuIds,
     startEdit,
     cancelEdit,
     saveProduct,
@@ -96,6 +98,8 @@ export const ProductDetailView = () => {
             setEditCategoryIds={setEditCategoryIds}
             editSkus={editSkus}
             setEditSkus={setEditSkus}
+            deletedSkuIds={deletedSkuIds}
+            setDeletedSkuIds={setDeletedSkuIds}
           />
           <ProductTranslations
             product={product}
