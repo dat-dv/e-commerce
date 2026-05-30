@@ -9,7 +9,7 @@ import {
 } from "@ecommerce/shared";
 import { toast, useLoadOnce } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useState, useTransition } from "react";
+import { useCallback, useMemo, useState, useTransition } from "react";
 
 import { adminBrandUseCase } from "@/domain/brand";
 import { adminProductUseCase } from "@/domain/product";
@@ -28,6 +28,31 @@ const collectCategoryIds = (categories: ICategoryTreeResponse): Set<string> => {
   visit(categories);
   return ids;
 };
+
+const normalizeCategoryIds = (categoryIds: string[]) =>
+  [...categoryIds].sort((a, b) => a.localeCompare(b));
+
+const getProductEditSnapshot = (product: IProductResponse) => ({
+  base_price: Number(product.base_price),
+  status: Number(product.status),
+  brand_id: product.brand_id ?? "",
+  category_ids: normalizeCategoryIds(
+    product.categories?.map((category) => category.category_id) ?? [],
+  ),
+  translations:
+    product.translations?.map((translation) => ({
+      language_id: translation.language_id,
+      name: translation.name,
+      description: translation.description || "",
+    })) ?? [],
+  skus:
+    product.skus?.map((sku) => ({
+      id: sku.id,
+      sku_code: sku.sku_code.trim(),
+      price: Number(sku.price),
+      stock: Number(sku.stock),
+    })) ?? [],
+});
 
 export const useProductDetailView = () => {
   const router = useRouter();
@@ -53,6 +78,42 @@ export const useProductDetailView = () => {
     IUpdateProductTranslationRequest[]
   >([]);
   const [editSkus, setEditSkus] = useState<IUpdateProductSkuRequest[]>([]);
+
+  const isDirty = useMemo(() => {
+    if (!product || !isEditing) return false;
+
+    const currentSnapshot = getProductEditSnapshot(product);
+    const editSnapshot = {
+      base_price: Number(editPrice),
+      status: Number(editStatus),
+      brand_id: editBrandId,
+      category_ids: normalizeCategoryIds(editCategoryIds),
+      translations: editTranslations.map((translation) => ({
+        language_id: translation.language_id,
+        name: translation.name,
+        description: translation.description || "",
+      })),
+      skus: editSkus.map((sku) => ({
+        id: sku.id,
+        sku_code: sku.sku_code.trim(),
+        price: Number(sku.price),
+        stock: Number(sku.stock),
+      })),
+    };
+
+    return JSON.stringify(currentSnapshot) !== JSON.stringify(editSnapshot);
+  }, [
+    editBrandId,
+    editCategoryIds,
+    editPrice,
+    editSkus,
+    editStatus,
+    editTranslations,
+    isEditing,
+    product,
+  ]);
+
+  const canSave = isEditing && isDirty && !isPending && !metadataLoading;
 
   const loadProductDetail = useCallback(async () => {
     if (!slug) {
@@ -112,34 +173,27 @@ export const useProductDetailView = () => {
 
   const startEdit = () => {
     if (!product) return;
-    setEditPrice(product.base_price);
-    setEditStatus(product.status);
-    setEditBrandId(product.brand_id ?? "");
-    setEditCategoryIds(product.categories?.map((c) => c.category_id) ?? []);
-    setEditTranslations(
-      product.translations?.map((t) => ({
-        language_id: t.language_id,
-        name: t.name,
-        description: t.description || "",
-      })) ?? [],
-    );
-    setEditSkus(
-      product.skus?.map((sku) => ({
-        id: sku.id,
-        sku_code: sku.sku_code,
-        price: sku.price,
-        stock: sku.stock,
-      })) ?? [],
-    );
+    const snapshot = getProductEditSnapshot(product);
+    setEditPrice(snapshot.base_price);
+    setEditStatus(snapshot.status);
+    setEditBrandId(snapshot.brand_id);
+    setEditCategoryIds(snapshot.category_ids);
+    setEditTranslations(snapshot.translations);
+    setEditSkus(snapshot.skus);
     setIsEditing(true);
   };
 
   const cancelEdit = () => {
+    if (isDirty && !window.confirm("Discard unsaved product changes?")) {
+      return;
+    }
+
     setIsEditing(false);
   };
 
   const saveProduct = () => {
     if (!product) return;
+    if (!canSave) return;
 
     startTransition(async () => {
       try {
@@ -193,7 +247,7 @@ export const useProductDetailView = () => {
         const payload = {
           base_price: Number(editPrice),
           status: Number(editStatus),
-          ...(editBrandId ? { brand_id: editBrandId } : {}),
+          brand_id: editBrandId || null,
           category_ids: editCategoryIds,
           translations: editTranslations,
           skus: normalizedSkus,
@@ -227,7 +281,9 @@ export const useProductDetailView = () => {
     metadataError,
     router,
     isEditing,
+    isDirty,
     isSaving: isPending,
+    canSave,
     editPrice,
     setEditPrice,
     editStatus,

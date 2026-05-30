@@ -2,7 +2,8 @@ import {
   type IProductResponse,
   type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
-import { Layers } from "lucide-react";
+import { Button } from "@ecommerce/ui";
+import { Layers, Plus } from "lucide-react";
 
 import { formatCurrency } from "../products-view/product.utils";
 
@@ -19,31 +20,80 @@ export const ProductSkuTable = ({
   editSkus = [],
   setEditSkus,
 }: IProductSkuTableProps) => {
-  const handleSkuPriceChange = (skuId: string, newPrice: number) => {
+  const rows = isEditing ? editSkus : (product.skus ?? []);
+  const skuCodes = editSkus.map((sku) => sku.sku_code.trim()).filter(Boolean);
+
+  const getSkuCodeError = (sku: IUpdateProductSkuRequest) => {
+    const skuCode = sku.sku_code.trim();
+
+    if (!skuCode) return "Required";
+    if (skuCodes.filter((code) => code === skuCode).length > 1) {
+      return "Duplicate";
+    }
+
+    return null;
+  };
+
+  const getSkuPriceError = (sku: IUpdateProductSkuRequest) =>
+    Number(sku.price) < 0 ? "Invalid" : null;
+
+  const getSkuStockError = (sku: IUpdateProductSkuRequest) =>
+    Number(sku.stock) < 0 || !Number.isInteger(Number(sku.stock))
+      ? "Invalid"
+      : null;
+
+  const getSkuAttributes = (skuId?: string) => {
+    const sku = product.skus?.find((item) => item.id === skuId);
+
+    return (
+      sku?.sku_attribute_values
+        ?.map((item) => {
+          const attribute = item.attribute_value?.attribute?.name;
+          const value = item.attribute_value?.value;
+
+          return attribute && value ? `${attribute}: ${value}` : value;
+        })
+        .filter(Boolean) ?? []
+    );
+  };
+
+  const handleSkuPriceChange = (index: number, newPrice: number) => {
     if (!setEditSkus) return;
     setEditSkus(
-      editSkus.map((sku) =>
-        sku.id === skuId ? { ...sku, price: newPrice } : sku,
+      editSkus.map((sku, skuIndex) =>
+        skuIndex === index ? { ...sku, price: newPrice } : sku,
       ),
     );
   };
 
-  const handleSkuCodeChange = (skuId: string, newCode: string) => {
+  const handleSkuCodeChange = (index: number, newCode: string) => {
     if (!setEditSkus) return;
     setEditSkus(
-      editSkus.map((sku) =>
-        sku.id === skuId ? { ...sku, sku_code: newCode } : sku,
+      editSkus.map((sku, skuIndex) =>
+        skuIndex === index ? { ...sku, sku_code: newCode } : sku,
       ),
     );
   };
 
-  const handleSkuStockChange = (skuId: string, newStock: number) => {
+  const handleSkuStockChange = (index: number, newStock: number) => {
     if (!setEditSkus) return;
     setEditSkus(
-      editSkus.map((sku) =>
-        sku.id === skuId ? { ...sku, stock: newStock } : sku,
+      editSkus.map((sku, skuIndex) =>
+        skuIndex === index ? { ...sku, stock: newStock } : sku,
       ),
     );
+  };
+
+  const handleAddSku = () => {
+    if (!setEditSkus) return;
+    setEditSkus([
+      ...editSkus,
+      {
+        sku_code: "",
+        price: product.base_price,
+        stock: 0,
+      },
+    ]);
   };
 
   return (
@@ -51,11 +101,23 @@ export const ProductSkuTable = ({
       <div className="mb-4 flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-sm font-bold tracking-wider text-[var(--app-text)] uppercase">
           <Layers className="h-4 w-4 text-indigo-400" />
-          Product SKUs ({product.skus?.length || 0})
+          Product SKUs ({rows.length})
         </h3>
+
+        {isEditing && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleAddSku}
+            className="rounded-lg border-indigo-500/20 text-indigo-300 hover:bg-indigo-500/5"
+          >
+            <Plus className="h-4 w-4" />
+            Add SKU
+          </Button>
+        )}
       </div>
 
-      {product.skus && product.skus.length > 0 ? (
+      {rows.length > 0 ? (
         <div className="border-content/5 overflow-hidden rounded-lg border">
           <table className="w-full text-left text-sm">
             <thead className="bg-content/[0.02] border-content/5 border-b text-xs font-semibold tracking-wider text-[var(--muted)] uppercase">
@@ -66,39 +128,89 @@ export const ProductSkuTable = ({
               </tr>
             </thead>
             <tbody className="divide-content/5 divide-y">
-              {product.skus.map((sku) => {
-                const editSku = editSkus.find((s) => s.id === sku.id) || sku;
+              {rows.map((sku, index) => {
+                const editSku = sku as IUpdateProductSkuRequest;
+                const attributes = getSkuAttributes(sku.id);
+                const skuCodeError = isEditing
+                  ? getSkuCodeError(editSku)
+                  : null;
+                const skuPriceError = isEditing
+                  ? getSkuPriceError(editSku)
+                  : null;
+                const skuStockError = isEditing
+                  ? getSkuStockError(editSku)
+                  : null;
+
                 return (
                   <tr
-                    key={sku.id}
+                    key={sku.id ?? `new-sku-${index}`}
                     className="hover:bg-content/[0.01] transition-colors"
                   >
                     <td className="px-4 py-3">
                       {isEditing ? (
-                        <input
-                          type="text"
-                          value={editSku.sku_code}
-                          onChange={(e) =>
-                            handleSkuCodeChange(sku.id, e.target.value)
-                          }
-                          className="w-40 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
-                        />
+                        <div className="space-y-1">
+                          <input
+                            type="text"
+                            value={editSku.sku_code}
+                            onChange={(e) =>
+                              handleSkuCodeChange(index, e.target.value)
+                            }
+                            className={`w-40 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
+                              skuCodeError
+                                ? "border-red-400 focus:border-red-400"
+                                : "border-[var(--border-color)] focus:border-indigo-500"
+                            }`}
+                          />
+                          {skuCodeError && (
+                            <p className="text-xs font-semibold text-red-300">
+                              {skuCodeError}
+                            </p>
+                          )}
+                        </div>
                       ) : (
-                        <code className="text-xs font-semibold text-indigo-300">
-                          {sku.sku_code}
-                        </code>
+                        <div className="space-y-1">
+                          <code className="text-xs font-semibold text-indigo-300">
+                            {sku.sku_code}
+                          </code>
+                          {attributes.length > 0 && (
+                            <div className="flex flex-wrap gap-1">
+                              {attributes.map((attribute) => (
+                                <span
+                                  key={attribute}
+                                  className="bg-content/5 rounded px-1.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]"
+                                >
+                                  {attribute}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       )}
                     </td>
                     <td className="px-4 py-3 text-right">
                       {isEditing ? (
-                        <input
-                          type="number"
-                          value={editSku.price}
-                          onChange={(e) =>
-                            handleSkuPriceChange(sku.id, Number(e.target.value))
-                          }
-                          className="w-28 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
-                        />
+                        <div className="ml-auto space-y-1">
+                          <input
+                            type="number"
+                            value={editSku.price}
+                            onChange={(e) =>
+                              handleSkuPriceChange(
+                                index,
+                                Number(e.target.value),
+                              )
+                            }
+                            className={`w-28 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
+                              skuPriceError
+                                ? "border-red-400 focus:border-red-400"
+                                : "border-[var(--border-color)] focus:border-indigo-500"
+                            }`}
+                          />
+                          {skuPriceError && (
+                            <p className="text-xs font-semibold text-red-300">
+                              {skuPriceError}
+                            </p>
+                          )}
+                        </div>
                       ) : (
                         <span className="font-semibold text-[var(--app-text)]">
                           {formatCurrency(sku.price)}
@@ -107,14 +219,28 @@ export const ProductSkuTable = ({
                     </td>
                     <td className="px-4 py-3 text-right">
                       {isEditing ? (
-                        <input
-                          type="number"
-                          value={editSku.stock}
-                          onChange={(e) =>
-                            handleSkuStockChange(sku.id, Number(e.target.value))
-                          }
-                          className="w-24 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
-                        />
+                        <div className="ml-auto space-y-1">
+                          <input
+                            type="number"
+                            value={editSku.stock}
+                            onChange={(e) =>
+                              handleSkuStockChange(
+                                index,
+                                Number(e.target.value),
+                              )
+                            }
+                            className={`w-24 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
+                              skuStockError
+                                ? "border-red-400 focus:border-red-400"
+                                : "border-[var(--border-color)] focus:border-indigo-500"
+                            }`}
+                          />
+                          {skuStockError && (
+                            <p className="text-xs font-semibold text-red-300">
+                              {skuStockError}
+                            </p>
+                          )}
+                        </div>
                       ) : (
                         <span
                           className={`font-semibold ${

@@ -11,7 +11,9 @@ interface IProductDetailHeaderProps {
   product: IProductResponse | null;
   onBack: () => void;
   isEditing: boolean;
+  isDirty: boolean;
   isSaving: boolean;
+  canSave: boolean;
   onEdit: () => void;
   onCancel: () => void;
   onSave: () => void;
@@ -21,7 +23,9 @@ export const ProductDetailHeader = ({
   product,
   onBack,
   isEditing,
+  isDirty,
   isSaving,
+  canSave,
   onEdit,
   onCancel,
   onSave,
@@ -52,6 +56,7 @@ export const ProductDetailHeader = ({
           <p className="mt-1 text-sm text-[var(--muted)]">
             Manage product translation names, descriptions, skus, and general
             properties.
+            {isEditing && isDirty ? " Unsaved changes." : ""}
           </p>
         </div>
       </div>
@@ -90,7 +95,7 @@ export const ProductDetailHeader = ({
                   variant="primary"
                   size="sm"
                   onClick={onSave}
-                  disabled={isSaving}
+                  disabled={!canSave}
                   className="rounded-lg bg-indigo-600 font-semibold text-white hover:bg-indigo-700 disabled:opacity-50"
                 >
                   {isSaving ? "Saving..." : "Save Changes"}

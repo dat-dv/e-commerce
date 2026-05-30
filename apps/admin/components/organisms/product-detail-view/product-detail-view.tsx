@@ -18,7 +18,9 @@ export const ProductDetailView = () => {
     metadataError,
     router,
     isEditing,
+    isDirty,
     isSaving,
+    canSave,
     editPrice,
     setEditPrice,
     editStatus,
@@ -37,6 +39,14 @@ export const ProductDetailView = () => {
   } = useProductDetailView();
 
   const handleBack = () => {
+    if (
+      isEditing &&
+      isDirty &&
+      !window.confirm("Discard unsaved product changes?")
+    ) {
+      return;
+    }
+
     router.push(APP_ROUTES.PRODUCTS);
   };
 
@@ -46,7 +56,9 @@ export const ProductDetailView = () => {
         product={product}
         onBack={handleBack}
         isEditing={isEditing}
+        isDirty={isDirty}
         isSaving={isSaving}
+        canSave={canSave}
         onEdit={startEdit}
         onCancel={cancelEdit}
         onSave={saveProduct}

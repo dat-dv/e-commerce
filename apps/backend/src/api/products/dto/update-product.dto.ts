@@ -44,7 +44,7 @@ export class UpdateProductDto implements IUpdateProductRequest {
 
   @IsString()
   @IsOptional()
-  brand_id?: string;
+  brand_id?: string | null;
 
   @IsArray()
   @IsString({ each: true })
