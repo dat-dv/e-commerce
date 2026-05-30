@@ -50,7 +50,13 @@ const getProductEditSnapshot = (product: IProductResponse) => ({
       id: sku.id,
       sku_code: sku.sku_code.trim(),
       price: Number(sku.price),
+      original_price:
+        sku.original_price === null || sku.original_price === undefined
+          ? null
+          : Number(sku.original_price),
       stock: Number(sku.stock),
+      image_url: sku.image_url || "",
+      unit_price: sku.unit_price || "VND",
     })) ?? [],
   deleted_sku_ids: [] as string[],
 });
@@ -99,7 +105,13 @@ export const useProductDetailView = () => {
         id: sku.id,
         sku_code: sku.sku_code.trim(),
         price: Number(sku.price),
+        original_price:
+          sku.original_price === null || sku.original_price === undefined
+            ? null
+            : Number(sku.original_price),
         stock: Number(sku.stock),
+        image_url: sku.image_url || "",
+        unit_price: sku.unit_price || "VND",
       })),
       deleted_sku_ids: [...deletedSkuIds].sort((a, b) => a.localeCompare(b)),
     };
@@ -206,7 +218,13 @@ export const useProductDetailView = () => {
           ...sku,
           sku_code: sku.sku_code.trim(),
           price: Number(sku.price),
+          original_price:
+            sku.original_price === null || sku.original_price === undefined
+              ? null
+              : Number(sku.original_price),
           stock: Number(sku.stock),
+          image_url: sku.image_url?.trim() || null,
+          unit_price: sku.unit_price?.trim() || "VND",
         }));
         const skuCodes = normalizedSkus.map((sku) => sku.sku_code);
 
@@ -247,10 +265,15 @@ export const useProductDetailView = () => {
         if (
           normalizedSkus.some(
             (sku) =>
-              sku.price < 0 || sku.stock < 0 || !Number.isInteger(sku.stock),
+              sku.price < 0 ||
+              (sku.original_price !== null && sku.original_price < 0) ||
+              sku.stock < 0 ||
+              !Number.isInteger(sku.stock),
           )
         ) {
-          toast.error("SKU price and stock must be valid non-negative values.");
+          toast.error(
+            "SKU price, original price, and stock must be valid non-negative values.",
+          );
           return;
         }
 

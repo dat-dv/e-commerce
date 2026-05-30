@@ -3,7 +3,7 @@ import {
   type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
-import { Layers, Plus, Trash2 } from "lucide-react";
+import { ImageIcon, Layers, Plus, Trash2 } from "lucide-react";
 
 import { formatCurrency } from "../products-view/product.utils";
 
@@ -40,6 +40,13 @@ export const ProductSkuTable = ({
 
   const getSkuPriceError = (sku: IUpdateProductSkuRequest) =>
     Number(sku.price) < 0 ? "Invalid" : null;
+
+  const getSkuOriginalPriceError = (sku: IUpdateProductSkuRequest) =>
+    sku.original_price !== null &&
+    sku.original_price !== undefined &&
+    Number(sku.original_price) < 0
+      ? "Invalid"
+      : null;
 
   const getSkuStockError = (sku: IUpdateProductSkuRequest) =>
     Number(sku.stock) < 0 || !Number.isInteger(Number(sku.stock))
@@ -88,6 +95,36 @@ export const ProductSkuTable = ({
     );
   };
 
+  const handleSkuOriginalPriceChange = (
+    index: number,
+    newOriginalPrice: number | null,
+  ) => {
+    if (!setEditSkus) return;
+    setEditSkus(
+      editSkus.map((sku, skuIndex) =>
+        skuIndex === index ? { ...sku, original_price: newOriginalPrice } : sku,
+      ),
+    );
+  };
+
+  const handleSkuUnitPriceChange = (index: number, newUnitPrice: string) => {
+    if (!setEditSkus) return;
+    setEditSkus(
+      editSkus.map((sku, skuIndex) =>
+        skuIndex === index ? { ...sku, unit_price: newUnitPrice } : sku,
+      ),
+    );
+  };
+
+  const handleSkuImageUrlChange = (index: number, newImageUrl: string) => {
+    if (!setEditSkus) return;
+    setEditSkus(
+      editSkus.map((sku, skuIndex) =>
+        skuIndex === index ? { ...sku, image_url: newImageUrl } : sku,
+      ),
+    );
+  };
+
   const handleAddSku = () => {
     if (!setEditSkus) return;
     setEditSkus([
@@ -96,6 +133,9 @@ export const ProductSkuTable = ({
         sku_code: "",
         price: product.base_price,
         stock: 0,
+        original_price: null,
+        image_url: "",
+        unit_price: "VND",
       },
     ]);
   };
@@ -166,7 +206,9 @@ export const ProductSkuTable = ({
               <tr>
                 <th className="px-4 py-3">SKU Code</th>
                 <th className="px-4 py-3 text-right">Price</th>
+                <th className="px-4 py-3 text-right">Original</th>
                 <th className="px-4 py-3 text-right">Stock</th>
+                <th className="px-4 py-3">Media</th>
                 {isEditing && <th className="px-4 py-3 text-right">Action</th>}
               </tr>
             </thead>
@@ -179,6 +221,9 @@ export const ProductSkuTable = ({
                   : null;
                 const skuPriceError = isEditing
                   ? getSkuPriceError(editSku)
+                  : null;
+                const skuOriginalPriceError = isEditing
+                  ? getSkuOriginalPriceError(editSku)
                   : null;
                 const skuStockError = isEditing
                   ? getSkuStockError(editSku)
@@ -268,8 +313,44 @@ export const ProductSkuTable = ({
                         </div>
                       ) : (
                         <span className="font-semibold text-[var(--app-text)]">
-                          {formatCurrency(sku.price)}
+                          {formatCurrency(sku.price)}{" "}
+                          <span className="text-xs text-[var(--muted)]">
+                            {sku.unit_price ?? "VND"}
+                          </span>
                         </span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      {isEditing ? (
+                        <div className="ml-auto space-y-1">
+                          <input
+                            type="number"
+                            value={editSku.original_price ?? ""}
+                            onChange={(e) =>
+                              handleSkuOriginalPriceChange(
+                                index,
+                                e.target.value ? Number(e.target.value) : null,
+                              )
+                            }
+                            className={`w-28 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
+                              skuOriginalPriceError
+                                ? "border-red-400 focus:border-red-400"
+                                : "border-[var(--border-color)] focus:border-indigo-500"
+                            }`}
+                            placeholder="Optional"
+                          />
+                          {skuOriginalPriceError && (
+                            <p className="text-xs font-semibold text-red-300">
+                              {skuOriginalPriceError}
+                            </p>
+                          )}
+                        </div>
+                      ) : sku.original_price ? (
+                        <span className="text-sm font-semibold text-[var(--muted)] line-through">
+                          {formatCurrency(sku.original_price)}
+                        </span>
+                      ) : (
+                        <span className="text-sm text-[var(--muted)]">-</span>
                       )}
                     </td>
                     <td className="px-4 py-3 text-right">
@@ -304,6 +385,41 @@ export const ProductSkuTable = ({
                             ? `${sku.stock} items`
                             : "Out of stock"}
                         </span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3">
+                      {isEditing ? (
+                        <div className="space-y-2">
+                          <input
+                            type="text"
+                            value={editSku.unit_price ?? ""}
+                            onChange={(e) =>
+                              handleSkuUnitPriceChange(index, e.target.value)
+                            }
+                            className="w-20 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                            placeholder="Unit"
+                          />
+                          <input
+                            type="url"
+                            value={editSku.image_url ?? ""}
+                            onChange={(e) =>
+                              handleSkuImageUrlChange(index, e.target.value)
+                            }
+                            className="w-44 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                            placeholder="Image URL"
+                          />
+                        </div>
+                      ) : sku.image_url ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={sku.image_url}
+                          alt={sku.sku_code}
+                          className="h-10 w-10 rounded-md border border-[var(--border-color)] object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--muted)]">
+                          <ImageIcon className="h-4 w-4" />
+                        </div>
                       )}
                     </td>
                     {isEditing && (
