@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
 import { type TSignInSchema } from "@/components/organisms/sign-in-view/sign-in-view.schema";
+import { APP_ROUTES } from "@/constants/routes";
 import { adminAuthUseCase } from "@/domain/auth";
 import { useAdminUserStore } from "@/store/user";
 
@@ -19,7 +20,7 @@ export const useAdminAuth = () => {
       if (response.status === "success" && response.data) {
         setUser(response.data);
         startTransition(() => {
-          router.push("/dashboard");
+          router.push(APP_ROUTES.DASHBOARD);
         });
       } else {
         setError(response.message || "Invalid response status from server");

@@ -4,6 +4,7 @@ import { BasicLoading } from "@ecommerce/ui";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { APP_ROUTES } from "@/constants/routes";
 import { adminAuthUseCase } from "@/domain/auth";
 import { useAdminUserStore } from "@/store/user";
 
@@ -11,7 +12,7 @@ interface IAuthGuardProps {
   children: React.ReactNode;
 }
 
-const PUBLIC_PATHS = ["/sign-in", "/forgot-password"];
+const PUBLIC_PATHS: string[] = [APP_ROUTES.SIGN_IN, APP_ROUTES.FORGOT_PASSWORD];
 
 export const AuthGuard = ({ children }: IAuthGuardProps) => {
   const router = useRouter();
@@ -33,7 +34,7 @@ export const AuthGuard = ({ children }: IAuthGuardProps) => {
     // 1. If we are on a public path (like sign-in)
     if (isPublicPath) {
       if (user) {
-        router.replace("/dashboard");
+        router.replace(APP_ROUTES.DASHBOARD);
         return;
       }
       setIsCheckingSession(false);
@@ -42,7 +43,7 @@ export const AuthGuard = ({ children }: IAuthGuardProps) => {
 
     // 2. If we are on a protected path and have no session/user locally
     if (!user) {
-      router.replace("/sign-in");
+      router.replace(APP_ROUTES.SIGN_IN);
       setIsCheckingSession(false);
       return;
     }
@@ -69,7 +70,7 @@ export const AuthGuard = ({ children }: IAuthGuardProps) => {
       } catch {
         if (ignore) return;
         logout();
-        router.replace("/sign-in");
+        router.replace(APP_ROUTES.SIGN_IN);
       } finally {
         if (!ignore) {
           setIsCheckingSession(false);

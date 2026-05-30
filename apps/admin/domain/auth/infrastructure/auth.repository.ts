@@ -1,5 +1,6 @@
 import { type IApiResponse, type IUserResponse } from "@ecommerce/shared";
 
+import { API_ROUTES } from "@/constants/routes";
 import { type IAdminUser } from "@/domain/user";
 import { apiClient } from "@/utils/request/api-client";
 
@@ -13,7 +14,7 @@ import { AdminUserMapper } from "./auth.mapper";
 export class AdminAuthRepository implements IAdminAuthRepository {
   async login(request: TAdminSignInRequest): Promise<IApiResponse<IAdminUser>> {
     const response = await apiClient.post<IApiResponse<IUserResponse>>(
-      "/auth/login",
+      API_ROUTES.AUTH.LOGIN,
       request,
     );
     return {
@@ -25,12 +26,16 @@ export class AdminAuthRepository implements IAdminAuthRepository {
   async forgotPassword(
     request: TAdminForgotPasswordRequest,
   ): Promise<IApiResponse<void>> {
-    return apiClient.post<IApiResponse<void>>("/auth/forgot-password", request);
+    return apiClient.post<IApiResponse<void>>(
+      API_ROUTES.AUTH.FORGOT_PASSWORD,
+      request,
+    );
   }
 
   async fetchMe(): Promise<IApiResponse<IAdminUser>> {
-    const response =
-      await apiClient.get<IApiResponse<IUserResponse>>("/auth/me");
+    const response = await apiClient.get<IApiResponse<IUserResponse>>(
+      API_ROUTES.AUTH.ME,
+    );
     return {
       ...response,
       data: AdminUserMapper.toDomain(response.data),
@@ -38,6 +43,6 @@ export class AdminAuthRepository implements IAdminAuthRepository {
   }
 
   async logout(): Promise<IApiResponse<void>> {
-    return apiClient.post<IApiResponse<void>>("/auth/logout", {});
+    return apiClient.post<IApiResponse<void>>(API_ROUTES.AUTH.LOGOUT, {});
   }
 }

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 
-/** Root redirects to the dashboard. Auth guard will be added later. */
+import { APP_ROUTES } from "@/constants/routes";
+
 export default function RootPage() {
-  redirect("/sign-in");
+  redirect(APP_ROUTES.SIGN_IN);
 }

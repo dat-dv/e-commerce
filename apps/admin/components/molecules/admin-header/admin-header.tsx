@@ -4,6 +4,7 @@ import { Avatar } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { APP_ROUTES } from "@/constants/routes";
 import { adminAuthUseCase } from "@/domain/auth";
 import { useAdminUserStore } from "@/store/user";
 
@@ -24,7 +25,7 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
     await adminAuthUseCase.logout.execute();
     logout();
     setUserMenuOpen(false);
-    router.push("/sign-in");
+    router.push(APP_ROUTES.SIGN_IN);
   };
 
   return (
