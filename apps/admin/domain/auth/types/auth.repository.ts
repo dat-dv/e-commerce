@@ -11,4 +11,5 @@ export interface IAdminAuthRepository {
   forgotPassword(
     request: TAdminForgotPasswordRequest,
   ): Promise<ApiResponse<void>>;
+  fetchMe(): Promise<ApiResponse<IAdminUser>>;
 }

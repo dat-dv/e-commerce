@@ -18,4 +18,8 @@ export class AdminAuthRepository implements IAdminAuthRepository {
   ): Promise<ApiResponse<void>> {
     return apiClient.post<ApiResponse<void>>("/auth/forgot-password", request);
   }
+
+  async fetchMe(): Promise<ApiResponse<IAdminUser>> {
+    return apiClient.get<ApiResponse<IAdminUser>>("/auth/me");
+  }
 }

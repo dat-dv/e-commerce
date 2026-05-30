@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

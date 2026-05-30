@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { AuthGuard } from "@/components/organisms/auth-guard";
 import { adminThemeScript } from "@/utils/theme-script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -31,7 +32,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: adminThemeScript }} />
       </head>
-      <body className="bg-surface text-content min-h-screen">{children}</body>
+      <body className="bg-surface text-content min-h-screen">
+        <AuthGuard>{children}</AuthGuard>
+      </body>
     </html>
   );
 }
