@@ -26,8 +26,6 @@ export const SidebarLink = ({
         if (link.disabled) e.preventDefault();
       }}
       className={`group relative flex items-center gap-3.5 rounded-xl px-3.5 py-3 text-sm font-semibold transition-all duration-300 ${
-        isCollapsed ? "justify-center px-0" : ""
-      } ${
         link.disabled
           ? "cursor-not-allowed opacity-40 hover:bg-transparent"
           : isActive

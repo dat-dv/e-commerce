@@ -23,16 +23,15 @@ export const SidebarFooter = ({
   return (
     <div className="border-t border-[var(--border-color)] p-3">
       {isCollapsed ? (
-        <div className="flex justify-center">
+        <div>
           <Button
             variant="ghost"
-            size="icon"
             onClick={onLogout}
-            className="rounded-lg text-red-500 hover:bg-red-500/10"
+            className="group relative flex w-full items-center gap-3.5 rounded-xl px-3.5 py-3 text-sm font-semibold text-red-500 transition-all duration-300 hover:bg-red-500/10"
             aria-label="Log Out"
             title="Log Out"
           >
-            <LogOut className="h-5 w-5" />
+            <LogOut className="h-5 w-5 shrink-0" />
           </Button>
         </div>
       ) : (

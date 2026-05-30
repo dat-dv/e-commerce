@@ -118,18 +118,18 @@ export const Sidebar = () => {
       </AnimatePresence>
 
       {/* Desktop Sidebar */}
-      <div className="relative sticky top-0 z-50 hidden h-screen shrink-0 md:block">
-        <motion.aside
-          animate={{ width: isCollapsed ? 80 : 260 }}
-          transition={{ type: "spring", damping: 20, stiffness: 150 }}
-          className="h-full overflow-hidden border-r border-[var(--border-color)] bg-[var(--sidebar-bg)] shadow-sm backdrop-blur-xl"
-        >
+      <motion.div
+        animate={{ width: isCollapsed ? 80 : 260 }}
+        transition={{ type: "spring", damping: 20, stiffness: 150 }}
+        className="relative sticky top-0 z-50 hidden h-screen shrink-0 md:block"
+      >
+        <aside className="h-full w-full overflow-hidden border-r border-[var(--border-color)] bg-[var(--sidebar-bg)] shadow-sm backdrop-blur-xl">
           {sidebarContent}
-        </motion.aside>
+        </aside>
 
         {/* Floating Expand/Collapse Button */}
         <SidebarToggle isCollapsed={isCollapsed} onToggle={toggleCollapsed} />
-      </div>
+      </motion.div>
     </>
   );
 };
