@@ -749,6 +749,21 @@ export class ProductsRepository implements IProductsRepository {
         if (remainingExistingSkuCount + newSkuCount === 0) {
           throw new BadRequestException('Product must have at least one SKU');
         }
+
+        const attributeValueIds = [...new Set(skus.flatMap((sku) => sku.attribute_value_ids ?? []))];
+
+        if (attributeValueIds.length > 0) {
+          const attributeValues = await tx.attributeValue.findMany({
+            where: { id: { in: attributeValueIds } },
+            select: { id: true },
+          });
+          const foundAttributeValueIds = new Set(attributeValues.map((value) => value.id));
+          const missingAttributeValueIds = attributeValueIds.filter((valueId) => !foundAttributeValueIds.has(valueId));
+
+          if (missingAttributeValueIds.length > 0) {
+            throw new BadRequestException('One or more SKU attribute values do not exist');
+          }
+        }
       }
 
       // 1. Update basic product properties
@@ -818,8 +833,22 @@ export class ProductsRepository implements IProductsRepository {
                 unit_price: sku.unit_price,
               },
             });
+
+            if (sku.attribute_value_ids) {
+              await tx.skuAttributeValue.deleteMany({
+                where: { sku_id: sku.id },
+              });
+              if (sku.attribute_value_ids.length > 0) {
+                await tx.skuAttributeValue.createMany({
+                  data: sku.attribute_value_ids.map((attributeValueId) => ({
+                    sku_id: sku.id as string,
+                    attribute_value_id: attributeValueId,
+                  })),
+                });
+              }
+            }
           } else {
-            await tx.sku.create({
+            const createdSku = await tx.sku.create({
               data: {
                 product_id: id,
                 sku_code: sku.sku_code,
@@ -830,6 +859,15 @@ export class ProductsRepository implements IProductsRepository {
                 unit_price: sku.unit_price,
               },
             });
+
+            if (sku.attribute_value_ids && sku.attribute_value_ids.length > 0) {
+              await tx.skuAttributeValue.createMany({
+                data: sku.attribute_value_ids.map((attributeValueId) => ({
+                  sku_id: createdSku.id,
+                  attribute_value_id: attributeValueId,
+                })),
+              });
+            }
           }
         }
       }

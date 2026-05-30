@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AddressesModule } from './api/addresses/addresses.module';
+import { AttributesModule } from './api/attributes/attributes.module';
 import { AuthModule } from './api/auth/auth.module';
 import { BrandsModule } from './api/brands/brands.module';
 import { CartModule } from './api/cart/cart.module';
@@ -28,6 +29,7 @@ import { CacheModule } from './shared/services/cache/cache.module';
     SharedModule,
     CacheModule,
     UsersModule,
+    AttributesModule,
     AuthModule,
     RolesModule,
     PermissionsModule,
