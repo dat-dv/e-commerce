@@ -18,3 +18,26 @@ export interface IGetRecentlyViewedRequest {
   page?: number;
   limit?: number;
 }
+
+export interface IUpdateProductTranslationRequest {
+  language_id: string;
+  name: string;
+  description?: string;
+}
+
+export interface IUpdateProductSkuRequest {
+  id?: string;
+  sku_code: string;
+  price: number;
+  stock: number;
+}
+
+export interface IUpdateProductRequest {
+  base_price?: number;
+  status?: number;
+  brand_id?: string;
+  category_ids?: string[];
+  translations?: IUpdateProductTranslationRequest[];
+  skus?: IUpdateProductSkuRequest[];
+}
+

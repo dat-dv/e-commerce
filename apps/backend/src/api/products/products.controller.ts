@@ -6,7 +6,18 @@ import {
   IProductResponse,
   Review,
 } from '@ecommerce/shared';
-import { Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Query, Req, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  DefaultValuePipe,
+  Get,
+  Param,
+  ParseIntPipe,
+  Query,
+  Req,
+  UseGuards,
+  Patch,
+  Body,
+} from '@nestjs/common';
 import type { Request } from 'express';
 import { Language } from 'src/common/decorators/language.decorator';
 import createSuccessResponse from 'src/common/respomse';
@@ -19,6 +30,8 @@ import { GetProductsUseCase } from './domain/use-cases/get-products.use-case';
 import { GetRecentlyViewedUseCase } from './domain/use-cases/get-recently-viewed.use-case';
 import { GetRecommendedUseCase } from './domain/use-cases/get-recommended.use-case';
 import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-products.use-case';
+import { UpdateProductUseCase } from './domain/use-cases/update-product.use-case';
+import { UpdateProductDto } from './dto/update-product.dto';
 import { GetProductReviewsDto } from './dto/get-product-reviews.dto';
 import { GetProductsDto } from './dto/get-products.dto';
 import { GetRecentlyViewedDto } from './dto/get-recently-viewed.dto';
@@ -34,7 +47,15 @@ export class ProductsController {
     private readonly getProductDetailUseCase: GetProductDetailUseCase,
     private readonly getProductReviewsUseCase: GetProductReviewsUseCase,
     private readonly getSimilarProductsUseCase: GetSimilarProductsUseCase,
+    private readonly updateProductUseCase: UpdateProductUseCase,
   ) {}
+
+  @UseGuards(AuthGuard)
+  @Patch(':id')
+  async updateProduct(@Param('id') id: string, @Body() dto: UpdateProductDto): Promise<IApiResponse<IProductResponse>> {
+    const result = await this.updateProductUseCase.execute(id, dto);
+    return createSuccessResponse(result);
+  }
 
   @Get()
   async getProducts(@Req() req: Request, @Query() query: GetProductsDto): Promise<IApiResponse<IProductListResponse>> {

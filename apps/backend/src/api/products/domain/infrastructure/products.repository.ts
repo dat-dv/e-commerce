@@ -11,6 +11,7 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
 import { GetProductReviewsDto, PRODUCT_REVIEW_SORT } from '../../dto/get-product-reviews.dto';
 import { GetProductsDto } from '../../dto/get-products.dto';
+import { UpdateProductDto } from '../../dto/update-product.dto';
 import { IProductsRepository } from '../entities/products.repository.interface';
 
 @Injectable()
@@ -661,5 +662,89 @@ export class ProductsRepository implements IProductsRepository {
       },
     });
     return count > 0;
+  }
+
+  async update(id: string, data: UpdateProductDto): Promise<IProductResponse> {
+    const { translations, skus, category_ids, ...productData } = data;
+
+    return this.prisma.$transaction(async (tx) => {
+      // 1. Update basic product properties
+      await tx.product.update({
+        where: { id },
+        data: {
+          ...productData,
+          ...(category_ids && {
+            categories: {
+              deleteMany: {},
+              createMany: {
+                data: category_ids.map((catId) => ({
+                  category_id: catId,
+                })),
+              },
+            },
+          }),
+        },
+      });
+
+      // 2. Handle translations (upsert name & description)
+      if (translations && translations.length > 0) {
+        for (const t of translations) {
+          await tx.productTranslation.upsert({
+            where: {
+              product_id_language_id: {
+                product_id: id,
+                language_id: t.language_id,
+              },
+            },
+            update: {
+              name: t.name,
+              description: t.description,
+            },
+            create: {
+              product_id: id,
+              language_id: t.language_id,
+              name: t.name,
+              description: t.description,
+            },
+          });
+        }
+      }
+
+      // 3. Handle skus (update or insert)
+      if (skus && skus.length > 0) {
+        for (const sku of skus) {
+          if (sku.id) {
+            await tx.sku.update({
+              where: { id: sku.id },
+              data: {
+                sku_code: sku.sku_code,
+                price: sku.price,
+                stock: sku.stock,
+              },
+            });
+          } else {
+            await tx.sku.create({
+              data: {
+                product_id: id,
+                sku_code: sku.sku_code,
+                price: sku.price,
+                stock: sku.stock,
+              },
+            });
+          }
+        }
+      }
+
+      const updatedProduct = await tx.product.findUnique({
+        where: { id },
+        include: this.getProductInclude('vi'),
+      });
+
+      if (!updatedProduct) {
+        throw new Error('Product not found after update');
+      }
+
+      return updatedProduct;
+    });
   }
 }

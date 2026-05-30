@@ -2,6 +2,8 @@ import { IFlashSaleResponse, IPaginatedResult, IProductResponse, Review } from '
 import { GetProductReviewsDto } from '../../dto/get-product-reviews.dto';
 import { GetProductsDto } from '../../dto/get-products.dto';
 
+import { UpdateProductDto } from '../../dto/update-product.dto';
+
 export interface IProductsRepository {
   findById(id: string, languageCode?: string): Promise<IProductResponse | null>;
   findBySlug(slug: string, languageCode?: string): Promise<IProductResponse | null>;
@@ -36,6 +38,7 @@ export interface IProductsRepository {
   getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProductResponse[]>;
   getProductCategories(productId: string): Promise<string[] | null>;
   isFavorited(userId: string, productId: string): Promise<boolean>;
+  update(id: string, data: UpdateProductDto): Promise<IProductResponse>;
 }
 
 export const IProductsRepository = Symbol('IProductsRepository');
