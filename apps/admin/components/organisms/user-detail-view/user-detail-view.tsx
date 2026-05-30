@@ -1,6 +1,5 @@
 "use client";
 
-import { BasicLoading } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -108,49 +107,45 @@ export const UserDetailView = () => {
   };
 
   return (
-    <>
-      {loading && <BasicLoading isBlur={false} />}
+    <div className="space-y-6">
+      <UserDetailHeader
+        user={user}
+        onBack={() => router.push(APP_ROUTES.CUSTOMERS)}
+      />
 
-      <div className="space-y-6">
-        <UserDetailHeader
-          user={user}
-          onBack={() => router.push(APP_ROUTES.CUSTOMERS)}
-        />
+      {(error || successMessage) && (
+        <div
+          className={`rounded-xl border px-4 py-3 text-sm ${
+            error
+              ? "border-red-500/20 bg-red-500/10 text-red-300"
+              : "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+          }`}
+        >
+          {error || successMessage}
+        </div>
+      )}
 
-        {(error || successMessage) && (
-          <div
-            className={`rounded-xl border px-4 py-3 text-sm ${
-              error
-                ? "border-red-500/20 bg-red-500/10 text-red-300"
-                : "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
-            }`}
-          >
-            {error || successMessage}
+      {user && (
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+          <UserProfilePanel user={user} />
+
+          <div className="space-y-6">
+            <UserRolePanel
+              roles={roles}
+              selectedRoleId={selectedRoleId}
+              saving={savingRole}
+              onRoleChange={(roleId) => {
+                setSelectedRoleId(roleId);
+                setSuccessMessage(null);
+              }}
+              onSave={handleSaveRole}
+            />
+
+            <UserDangerZone deleting={deleting} onDelete={handleDeleteUser} />
           </div>
-        )}
-
-        {user && (
-          <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-            <UserProfilePanel user={user} />
-
-            <div className="space-y-6">
-              <UserRolePanel
-                roles={roles}
-                selectedRoleId={selectedRoleId}
-                saving={savingRole}
-                onRoleChange={(roleId) => {
-                  setSelectedRoleId(roleId);
-                  setSuccessMessage(null);
-                }}
-                onSave={handleSaveRole}
-              />
-
-              <UserDangerZone deleting={deleting} onDelete={handleDeleteUser} />
-            </div>
-          </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 };
 

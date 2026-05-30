@@ -1,7 +1,6 @@
 "use client";
 
 import type { IPermissionResponse } from "@ecommerce/shared";
-import { BasicLoading } from "@ecommerce/ui";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import {
@@ -168,44 +167,40 @@ export const PermissionsView = () => {
   };
 
   return (
-    <>
-      {loading && <BasicLoading isBlur={false} />}
+    <div className="space-y-6">
+      <PermissionsHeader
+        roleCount={roles.length}
+        permissionCount={permissions.length}
+      />
 
-      <div className="space-y-6">
-        <PermissionsHeader
-          roleCount={roles.length}
-          permissionCount={permissions.length}
+      <PermissionsStatusAlert error={error} successMessage={successMessage} />
+
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]">
+        <RolePermissionsPanel
+          roles={roles}
+          selectedRole={selectedRole}
+          selectedRoleId={selectedRoleId}
+          selectedPermissionIds={selectedPermissionIds}
+          groupedPermissions={groupedPermissions}
+          savingPermissions={savingPermissions}
+          onRoleChange={handleRoleChange}
+          onTogglePermission={togglePermission}
+          onSavePermissions={handleSavePermissions}
         />
 
-        <PermissionsStatusAlert error={error} successMessage={successMessage} />
-
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]">
-          <RolePermissionsPanel
-            roles={roles}
-            selectedRole={selectedRole}
-            selectedRoleId={selectedRoleId}
-            selectedPermissionIds={selectedPermissionIds}
-            groupedPermissions={groupedPermissions}
-            savingPermissions={savingPermissions}
-            onRoleChange={handleRoleChange}
-            onTogglePermission={togglePermission}
-            onSavePermissions={handleSavePermissions}
-          />
-
-          <CreateRolePanel
-            roleName={newRoleName}
-            description={newRoleDescription}
-            selectedPermissionIds={newRolePermissionIds}
-            groupedPermissions={groupedPermissions}
-            creatingRole={creatingRole}
-            onRoleNameChange={setNewRoleName}
-            onDescriptionChange={setNewRoleDescription}
-            onTogglePermission={toggleNewRolePermission}
-            onCreateRole={handleCreateRole}
-          />
-        </div>
+        <CreateRolePanel
+          roleName={newRoleName}
+          description={newRoleDescription}
+          selectedPermissionIds={newRolePermissionIds}
+          groupedPermissions={groupedPermissions}
+          creatingRole={creatingRole}
+          onRoleNameChange={setNewRoleName}
+          onDescriptionChange={setNewRoleDescription}
+          onTogglePermission={toggleNewRolePermission}
+          onCreateRole={handleCreateRole}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

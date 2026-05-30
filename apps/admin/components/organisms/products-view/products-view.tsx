@@ -5,7 +5,7 @@ import {
   type IProductListResponse,
   type IProductResponse,
 } from "@ecommerce/shared";
-import { BasicLoading, SearchInput } from "@ecommerce/ui";
+import { SearchInput } from "@ecommerce/ui";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { API_ROUTES } from "@/constants/routes";
@@ -71,41 +71,37 @@ export const ProductsView = () => {
   };
 
   return (
-    <>
-      {loading && <BasicLoading isBlur={false} />}
+    <div className="space-y-6">
+      <ProductsHeader total={total} />
 
-      <div className="space-y-6">
-        <ProductsHeader total={total} />
-
-        {/* Search bar */}
-        <div className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
-          <SearchInput
-            placeholder="Search by product name or slug..."
-            value={searchQuery}
-            onSearch={(q) => setSearchQuery(q)}
-            onChange={(q) => setSearchQuery(q)}
-            showSubmitButton={false}
-            className="w-full"
-          />
-        </div>
-
-        <ProductsTable
-          products={filteredProducts}
-          error={error}
-          page={page}
-          total={total}
-          totalPages={totalPages}
-          onPageChange={setPage}
-          onViewDetail={handleViewDetail}
+      {/* Search bar */}
+      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
+        <SearchInput
+          placeholder="Search by product name or slug..."
+          value={searchQuery}
+          onSearch={(q) => setSearchQuery(q)}
+          onChange={(q) => setSearchQuery(q)}
+          showSubmitButton={false}
+          className="w-full"
         />
       </div>
+
+      <ProductsTable
+        products={filteredProducts}
+        error={error}
+        page={page}
+        total={total}
+        totalPages={totalPages}
+        onPageChange={setPage}
+        onViewDetail={handleViewDetail}
+      />
 
       <ProductDetailDialog
         product={selectedProduct}
         isOpen={isDetailOpen}
         onClose={() => setIsDetailOpen(false)}
       />
-    </>
+    </div>
   );
 };
 

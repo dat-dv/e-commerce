@@ -1,7 +1,7 @@
 "use client";
 
 import { type IApiResponse, type IOrderResponse } from "@ecommerce/shared";
-import { BasicLoading, SearchInput } from "@ecommerce/ui";
+import { SearchInput } from "@ecommerce/ui";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { API_ROUTES } from "@/constants/routes";
@@ -77,41 +77,37 @@ export const OrdersView = () => {
   };
 
   return (
-    <>
-      {loading && <BasicLoading isBlur={false} />}
+    <div className="space-y-6">
+      <OrdersHeader total={total} />
 
-      <div className="space-y-6">
-        <OrdersHeader total={total} />
-
-        {/* Search bar */}
-        <div className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
-          <SearchInput
-            placeholder="Search by order ID, customer name or email..."
-            value={searchQuery}
-            onSearch={(q) => setSearchQuery(q)}
-            onChange={(q) => setSearchQuery(q)}
-            showSubmitButton={false}
-            className="w-full"
-          />
-        </div>
-
-        <OrdersTable
-          orders={filteredOrders}
-          error={error}
-          page={page}
-          total={total}
-          totalPages={totalPages}
-          onPageChange={setPage}
-          onViewDetail={handleViewDetail}
+      {/* Search bar */}
+      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
+        <SearchInput
+          placeholder="Search by order ID, customer name or email..."
+          value={searchQuery}
+          onSearch={(q) => setSearchQuery(q)}
+          onChange={(q) => setSearchQuery(q)}
+          showSubmitButton={false}
+          className="w-full"
         />
       </div>
+
+      <OrdersTable
+        orders={filteredOrders}
+        error={error}
+        page={page}
+        total={total}
+        totalPages={totalPages}
+        onPageChange={setPage}
+        onViewDetail={handleViewDetail}
+      />
 
       <OrderDetailDialog
         order={selectedOrder}
         isOpen={isDetailOpen}
         onClose={() => setIsDetailOpen(false)}
       />
-    </>
+    </div>
   );
 };
 
