@@ -1,5 +1,3 @@
-"use client";
-
 import { RenderDesktopOnly, RenderTabletAndBelow } from "@ecommerce/ui";
 import HeaderDesktop from "./header-desktop";
 import HeaderTabletAndBellow from "./header-tablet";
