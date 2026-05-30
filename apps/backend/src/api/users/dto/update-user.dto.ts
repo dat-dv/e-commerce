@@ -36,4 +36,8 @@ export class UpdateUserDto implements IUpdateUserRequest {
   @IsString()
   @IsOptional()
   phone_code?: string;
+
+  @IsString()
+  @IsOptional()
+  role_id?: string;
 }

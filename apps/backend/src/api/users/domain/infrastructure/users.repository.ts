@@ -42,7 +42,7 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse> {
-    const { phone_number, phone_code, avatar_url, date_of_birth, ...userData } = updateData;
+    const { phone_number, phone_code, avatar_url, date_of_birth, role_id, ...userData } = updateData;
     const isUpdatePhone = !!(phone_number && phone_code);
 
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
@@ -111,6 +111,13 @@ export class UsersRepository implements IUsersRepository {
             avatar: {
               connect: {
                 id: avatar_url,
+              },
+            },
+          }),
+          ...(role_id && {
+            role: {
+              connect: {
+                id: role_id,
               },
             },
           }),

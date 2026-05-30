@@ -17,6 +17,7 @@ export interface IUpdateUserRequest {
   avatar_url?: string;
   phone_number?: string;
   phone_code?: string;
+  role_id?: string;
   deleted_at?: Date;
 }
 

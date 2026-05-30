@@ -59,11 +59,14 @@ export class RolesRepository implements IRolesRepository {
       data: {
         role_name: data.role_name,
         description: data.description,
-        permissions: {
-          create: data.permissions?.map((permission) => ({
-            permission: { connect: { id: permission } },
-          })),
-        },
+        ...(data.permissions && {
+          permissions: {
+            deleteMany: {},
+            create: data.permissions.map((permission) => ({
+              permission: { connect: { id: permission } },
+            })),
+          },
+        }),
       },
       include: this.ROLE_INCLUDE,
     });

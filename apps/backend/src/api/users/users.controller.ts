@@ -89,6 +89,14 @@ export class UsersController {
     return createSuccessResponse(res);
   }
 
+  @Patch(':id')
+  @UseGuards(PermissionsGuard)
+  @Permissions('UPDATE:ANY_USER')
+  async update(@Param('id') id: string, @Body() dto: UpdateUserDto): Promise<IApiResponse<IUserProfileResponse>> {
+    const res = await this.updateUserUseCase.execute(id, dto);
+    return createSuccessResponse(res);
+  }
+
   @Patch(':id/avatar')
   @UseInterceptors(FileInterceptor('avatar'))
   @ApiConsumes('multipart/form-data')

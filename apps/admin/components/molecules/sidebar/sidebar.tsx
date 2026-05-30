@@ -5,6 +5,7 @@ import {
   BarChart3,
   LayoutDashboard,
   Settings,
+  ShieldCheck,
   ShoppingCart,
   Tag,
   Users,
@@ -34,6 +35,11 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
     label: "Customers",
     href: APP_ROUTES.CUSTOMERS,
     icon: Users,
+  },
+  {
+    label: "Permissions",
+    href: APP_ROUTES.PERMISSIONS,
+    icon: ShieldCheck,
   },
   {
     label: "Analytics",
