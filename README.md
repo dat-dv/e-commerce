@@ -2,6 +2,116 @@
 
 Dự án e-commerce cá nhân tự build để học, kiến trúc monorepo gồm frontend, admin và backend. Phần backend là trọng tâm chính — thử tay với các bài toán như xử lý đơn hàng async, cache, bảo mật token thay vì chỉ làm CRUD đơn giản.
 
+## Migrate Backend từ SQLite sang PostgreSQL
+
+Backend đã chuyển Prisma datasource sang PostgreSQL:
+
+- Prisma provider: `postgresql`
+- Runtime adapter: `@prisma/adapter-pg`
+- Migration baseline mới: `apps/backend/prisma/migrations/20260531000000_init_postgresql`
+- Migration SQLite cũ được giữ ở `apps/backend/prisma/migrations_sqlite_backup`
+
+### Cấu hình env
+
+Local backend:
+
+```env
+POSTGRES_HOST="localhost"
+POSTGRES_PORT=5432
+POSTGRES_USER="postgres"
+POSTGRES_PASSWORD="mysecretpassword"
+POSTGRES_DB="ecommerce"
+POSTGRES_SCHEMA="public"
+```
+
+Docker Compose:
+
+```env
+POSTGRES_HOST="postgres"
+POSTGRES_PORT=5432
+POSTGRES_USER="postgres"
+POSTGRES_PASSWORD="POSTGRES_PASSWORD"
+POSTGRES_DB="POSTGRES_DB"
+POSTGRES_SCHEMA="public"
+```
+
+`POSTGRES_HOST` là `localhost` khi chạy backend trực tiếp trên máy, và là `postgres` khi backend chạy trong Docker network. Backend và Prisma CLI sẽ tự build connection string từ các biến `POSTGRES_*`.
+
+### Fresh database cho dev
+
+```bash
+docker compose up -d postgres redis
+npm run db:reset --workspace=@ecommerce/backend
+```
+
+Hoặc chạy từ root:
+
+```bash
+npm run db:reset
+```
+
+### Chạy toàn bộ stack Docker
+
+```bash
+docker compose up --build
+```
+
+Backend sẽ tự chạy `npx prisma migrate deploy` trước khi start NestJS.
+
+### Migrate dữ liệu SQLite cũ sang PostgreSQL
+
+Nếu cần giữ data từ SQLite cũ:
+
+1. Backup file SQLite trước khi làm:
+
+```bash
+cp apps/backend/prisma/dev.db apps/backend/prisma/dev.db.backup
+```
+
+2. Tạo PostgreSQL schema trống:
+
+```bash
+docker compose up -d postgres
+npx prisma migrate deploy --config apps/backend/prisma.config.ts
+```
+
+3. Export data từ SQLite sang JSON/CSV theo từng bảng.
+
+4. Import vào PostgreSQL theo thứ tự bảng cha trước, bảng con sau:
+
+```text
+roles, permissions, role_permissions
+languages
+images
+users, user_phones, shipping_addresses, password_reset_tokens
+brands, brand_translations
+product_categories, product_category_translations, product_category_mappings
+products, product_translations, skus, attributes, attribute_values, sku_attribute_values
+carts, cart_items
+coupons, orders, order_items
+reviews
+flash_sale_time_slots, flash_sales, flash_sale_products
+notifications, notification_tokens
+help_contact_submissions, help_contact_submission_images
+order_returns, order_return_images
+```
+
+5. Sau khi import xong, chạy smoke test backend:
+
+```bash
+npm run type-check --workspace=@ecommerce/backend
+npm run test --workspace=@ecommerce/backend
+```
+
+Khi sửa schema tiếp, tạo migration mới bằng:
+
+```bash
+npx prisma migrate dev --name ten_migration --config apps/backend/prisma.config.ts
+npx prisma generate --config apps/backend/prisma.config.ts
+```
+
+Không dùng lại migrations trong `apps/backend/prisma/migrations_sqlite_backup` cho PostgreSQL vì đó là SQL theo dialect SQLite.
+
 # Kiến trúc hạ tầng — [chotdon.shop](http://chotdon.shop)
 
 ## Sơ đồ tổng quan

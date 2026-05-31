@@ -2,7 +2,12 @@ import * as Joi from 'joi';
 
 export const envValidationSchema = Joi.object<EnvVars>({
   PORT: Joi.number().default(3000),
-  DATABASE_URL: Joi.string().required(),
+  POSTGRES_HOST: Joi.string().required(),
+  POSTGRES_PORT: Joi.number().port().default(5432),
+  POSTGRES_USER: Joi.string().required(),
+  POSTGRES_PASSWORD: Joi.string().required(),
+  POSTGRES_DB: Joi.string().required(),
+  POSTGRES_SCHEMA: Joi.string().default('public'),
   ACCESS_TOKEN_SECRET: Joi.string().required(),
   ACCESS_TOKEN_EXPIRES_IN: Joi.number().required(),
   REFRESH_TOKEN_SECRET: Joi.string().required(),
@@ -20,7 +25,12 @@ export const envValidationSchema = Joi.object<EnvVars>({
 
 export interface EnvVars {
   PORT: string;
-  DATABASE_URL: string;
+  POSTGRES_HOST: string;
+  POSTGRES_PORT: number;
+  POSTGRES_USER: string;
+  POSTGRES_PASSWORD: string;
+  POSTGRES_DB: string;
+  POSTGRES_SCHEMA: string;
   ACCESS_TOKEN_SECRET: string;
   ACCESS_TOKEN_EXPIRES_IN: number;
   REFRESH_TOKEN_SECRET: string;

@@ -45,10 +45,6 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Build tools cần để compile better-sqlite3 native addon.
-# Sẽ bị xóa sau khi rebuild xong để giữ image nhỏ.
-RUN apk add --no-cache python3 make g++
-
 # Copy workspace manifests để install production deps
 COPY package.json package-lock.json ./
 COPY packages/shared/package.json ./packages/shared/
@@ -59,12 +55,6 @@ COPY apps/admin/package.json ./apps/admin/
 
 # Install production deps (--ignore-scripts để tránh side-effects khác)
 RUN npm ci --omit=dev --ignore-scripts
-
-# Compile native binding của better-sqlite3 cho linux/arm64 (hoặc amd64)
-RUN npm rebuild better-sqlite3
-
-# Xóa build tools để giảm image size
-RUN apk del python3 make g++
 
 # Copy built artifacts từ builder
 COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
@@ -82,5 +72,5 @@ WORKDIR /app/apps/backend
 
 EXPOSE 3000
 
-# Chỉ migrate + start — seed được chạy manual qua: docker exec ecommerce-backend npm run db:seed
-CMD ["sh", "-c", "mkdir -p prisma/data && npx prisma migrate deploy && npm run start:prod"]
+# Chỉ migrate + start — seed được chạy manual qua: docker exec ecommerce-backend npm run db:reset
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run start:prod"]
