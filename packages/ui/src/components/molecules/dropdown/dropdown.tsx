@@ -51,17 +51,15 @@ export const AppDropdown = ({
         )}
       >
         <RACDialog className="outline-none">
-          {({ close }) => (
-            <div
-              onClick={() => {
-                if (closeOnContentClick) {
-                  close();
-                }
-              }}
-            >
-              {children}
-            </div>
-          )}
+          <div
+            onClick={() => {
+              if (closeOnContentClick) {
+                close();
+              }
+            }}
+          >
+            {typeof children === "function" ? children({ close }) : children}
+          </div>
         </RACDialog>
       </RACPopover>
     </div>

@@ -12,9 +12,12 @@ export interface IDropdownTriggerProps {
   close: () => void;
 }
 
-export interface IAppDropdownProps extends ComponentPropsWithoutRef<"div"> {
+export interface IAppDropdownProps extends Omit<
+  ComponentPropsWithoutRef<"div">,
+  "children"
+> {
   trigger: (props: IDropdownTriggerProps) => ReactNode;
-  children: ReactNode;
+  children: ((props: { close: () => void }) => ReactNode) | ReactNode;
   align?: "left" | "right";
   closeOnContentClick?: boolean;
   popoverClassName?: string;

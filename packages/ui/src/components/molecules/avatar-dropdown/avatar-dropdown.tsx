@@ -32,7 +32,10 @@ export const AvatarDropdown = ({
     <Dropdown
       align="right"
       className={cn("flex", className)}
-      popoverClassName={cn("min-w-0 w-64", popoverClassName)}
+      popoverClassName={cn(
+        "w-64 min-w-0 border-content/10 bg-surface/80 p-0 shadow-[0_18px_40px_rgba(0,0,0,0.12)] backdrop-blur-2xl",
+        popoverClassName,
+      )}
       trigger={({ ref, toggle, isOpen }) => (
         <Button
           ref={ref}
@@ -41,7 +44,7 @@ export const AvatarDropdown = ({
           aria-haspopup="dialog"
           aria-expanded={isOpen}
           className={cn(
-            "group border-content/10 hover:border-content/5 relative h-10 w-10 cursor-pointer overflow-hidden border bg-transparent p-0 outline-none",
+            "group border-content/10 relative h-10 w-10 cursor-pointer overflow-hidden border bg-transparent p-0 shadow-none outline-none",
             UI_RADIUS.avatar,
           )}
         >
@@ -49,62 +52,71 @@ export const AvatarDropdown = ({
         </Button>
       )}
     >
-      <div className="flex w-full flex-col">
-        <div className="border-content/[0.08] bg-content/[0.01] flex items-center gap-2.5 border-b px-3 py-2.5">
-          <div className="border-content/10 h-9 w-9 flex-shrink-0 overflow-hidden rounded-lg border">
-            <Avatar name={displayName} url={avatarUrl || ""} />
-          </div>
-          <div className="flex min-w-0 flex-col">
-            <p
-              className={`text-content truncate ${TYPOGRAPHY.bodySmall} leading-none font-semibold`}
-            >
-              {displayName}
-            </p>
-            <p
-              className={`text-content/60 mt-1 truncate ${TYPOGRAPHY.meta} leading-none`}
-            >
-              {email || noEmail}
-            </p>
-          </div>
-        </div>
+      {({ close }) => {
+        return (
+          <div className="flex w-full flex-col">
+            <div className="border-content/[0.08] flex items-center gap-2.5 border-b px-3 py-2.5">
+              <div className="border-surface h-9 w-9 flex-shrink-0 overflow-hidden rounded-full border-2 shadow-sm">
+                <Avatar name={displayName} url={avatarUrl || ""} />
+              </div>
+              <div className="flex min-w-0 flex-col">
+                <p
+                  className={`text-content truncate ${TYPOGRAPHY.bodySmall} leading-none font-bold`}
+                >
+                  {displayName}
+                </p>
+                <p
+                  className={`text-content/50 mt-1 truncate text-[11px] leading-none font-medium`}
+                >
+                  {email || noEmail}
+                </p>
+              </div>
+            </div>
 
-        <div className="space-y-0.5 p-1">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
+            <div className="space-y-0.5 p-1">
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Button
+                    key={item.href}
+                    variant="ghost"
+                    size="sm"
+                    className="group text-content/65 hover:bg-content/[0.06] hover:text-content h-8 w-full justify-start gap-2 rounded-md px-2 font-semibold opacity-100 transition-colors"
+                    href={item.href}
+                    linkComponent={linkComponent}
+                    onClick={close}
+                  >
+                    <Icon
+                      strokeWidth={1.5}
+                      className="text-content/45 group-hover:text-content size-4 shrink-0 transition-colors"
+                    />
+                    <span className={`${TYPOGRAPHY.caption} truncate`}>
+                      {item.label}
+                    </span>
+                  </Button>
+                );
+              })}
+
+              <div className="bg-content/[0.08] my-1 h-px" />
+
               <Button
-                key={item.href}
                 variant="ghost"
                 size="sm"
-                className="hover:bg-content/5 text-content group h-8 w-full justify-start rounded-lg px-2 font-medium transition-all"
-                href={item.href}
-                linkComponent={linkComponent}
+                onClick={onClickLogout}
+                className="group h-8 w-full justify-start gap-2 rounded-md px-2 font-semibold text-red-500 opacity-100 transition-colors hover:bg-red-500/10 hover:text-red-600 active:scale-[0.98]"
               >
-                <Icon
+                <LogOut
                   strokeWidth={1.5}
-                  className="text-content/70 group-hover:text-content mr-2 h-4 w-4 transition-colors"
+                  className="size-4 shrink-0 text-red-400 transition-colors group-hover:text-red-600"
                 />
-                <span className={TYPOGRAPHY.caption}>{item.label}</span>
+                <span className={`${TYPOGRAPHY.caption} truncate`}>
+                  {signOutLabel}
+                </span>
               </Button>
-            );
-          })}
-
-          <div className="bg-content/[0.08] my-1 h-px" />
-
-          <Button
-            variant="danger"
-            size="sm"
-            onClick={onClickLogout}
-            className="group h-8 w-full justify-start rounded-lg px-2 font-medium transition-all active:scale-95"
-          >
-            <LogOut
-              strokeWidth={1.5}
-              className="mr-2 h-4 w-4 text-white/90 transition-colors group-hover:text-white"
-            />
-            <span className={TYPOGRAPHY.caption}>{signOutLabel}</span>
-          </Button>
-        </div>
-      </div>
+            </div>
+          </div>
+        );
+      }}
     </Dropdown>
   );
 };
