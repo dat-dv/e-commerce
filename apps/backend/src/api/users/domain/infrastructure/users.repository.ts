@@ -110,15 +110,46 @@ export class UsersRepository implements IUsersRepository {
         }
       }
 
+      let avatarConnectId: string | undefined;
+      if (avatar_url) {
+        const existingUserAvatar = await tx.userAvatar.findFirst({
+          where: {
+            id: avatar_url,
+            user_id: id,
+          },
+          select: { id: true },
+        });
+
+        if (existingUserAvatar) {
+          avatarConnectId = existingUserAvatar.id;
+        } else {
+          const userAvatar = await tx.userAvatar.upsert({
+            where: {
+              user_id_image_id: {
+                user_id: id,
+                image_id: avatar_url,
+              },
+            },
+            update: {},
+            create: {
+              user_id: id,
+              image_id: avatar_url,
+            },
+            select: { id: true },
+          });
+          avatarConnectId = userAvatar.id;
+        }
+      }
+
       const res = await tx.user.update({
         where: { id },
         data: {
           ...userData,
           ...(date_of_birth && { date_of_birth: new Date(date_of_birth) }),
-          ...(avatar_url && {
+          ...(avatarConnectId && {
             avatar: {
               connect: {
-                id: avatar_url,
+                id: avatarConnectId,
               },
             },
           }),

@@ -61,7 +61,7 @@ export class UsersController {
 
     const res = await this.updateUserUseCase.execute(req.user?.sub, {
       ...dto,
-      ...(avatar?.url ? { avatar_url: avatar.url } : {}),
+      ...(avatar?.id ? { avatar_url: avatar.id } : {}),
     });
 
     return createSuccessResponse(res);
