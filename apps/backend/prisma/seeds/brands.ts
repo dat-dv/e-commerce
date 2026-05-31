@@ -1,7 +1,7 @@
 import { PrismaClient } from '../../generated/prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
-import { createId } from '@paralleldrive/cuid2';
+import { randomUUID as createId } from 'crypto';
 import { TOP_BRANDS_DATA } from './top-brands.data';
 
 interface BrandDetailed {
