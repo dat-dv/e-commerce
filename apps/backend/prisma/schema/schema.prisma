@@ -13,5 +13,5 @@ generator shared {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
