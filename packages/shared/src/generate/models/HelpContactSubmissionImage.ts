@@ -406,6 +406,7 @@ export type HelpContactSubmissionImageCreateOrConnectWithoutSubmissionInput = {
 
 export type HelpContactSubmissionImageCreateManySubmissionInputEnvelope = {
   data: Prisma.HelpContactSubmissionImageCreateManySubmissionInput | Prisma.HelpContactSubmissionImageCreateManySubmissionInput[]
+  skipDuplicates?: boolean
 }
 
 export type HelpContactSubmissionImageUpsertWithWhereUniqueWithoutSubmissionInput = {
@@ -453,6 +454,7 @@ export type HelpContactSubmissionImageCreateOrConnectWithoutImageInput = {
 
 export type HelpContactSubmissionImageCreateManyImageInputEnvelope = {
   data: Prisma.HelpContactSubmissionImageCreateManyImageInput | Prisma.HelpContactSubmissionImageCreateManyImageInput[]
+  skipDuplicates?: boolean
 }
 
 export type HelpContactSubmissionImageUpsertWithWhereUniqueWithoutImageInput = {
@@ -1243,6 +1245,7 @@ export type HelpContactSubmissionImageCreateManyArgs<ExtArgs extends runtime.Typ
    * The data used to create many HelpContactSubmissionImages.
    */
   data: Prisma.HelpContactSubmissionImageCreateManyInput | Prisma.HelpContactSubmissionImageCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1261,6 +1264,7 @@ export type HelpContactSubmissionImageCreateManyAndReturnArgs<ExtArgs extends ru
    * The data used to create many HelpContactSubmissionImages.
    */
   data: Prisma.HelpContactSubmissionImageCreateManyInput | Prisma.HelpContactSubmissionImageCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

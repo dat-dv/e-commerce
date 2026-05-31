@@ -456,6 +456,7 @@ export type FlashSaleCreateOrConnectWithoutTime_slotInput = {
 
 export type FlashSaleCreateManyTime_slotInputEnvelope = {
   data: Prisma.FlashSaleCreateManyTime_slotInput | Prisma.FlashSaleCreateManyTime_slotInput[]
+  skipDuplicates?: boolean
 }
 
 export type FlashSaleUpsertWithWhereUniqueWithoutTime_slotInput = {
@@ -1350,6 +1351,7 @@ export type FlashSaleCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * The data used to create many FlashSales.
    */
   data: Prisma.FlashSaleCreateManyInput | Prisma.FlashSaleCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1368,6 +1370,7 @@ export type FlashSaleCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * The data used to create many FlashSales.
    */
   data: Prisma.FlashSaleCreateManyInput | Prisma.FlashSaleCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

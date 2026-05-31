@@ -578,6 +578,7 @@ export type ReviewCreateOrConnectWithoutProductInput = {
 
 export type ReviewCreateManyProductInputEnvelope = {
   data: Prisma.ReviewCreateManyProductInput | Prisma.ReviewCreateManyProductInput[]
+  skipDuplicates?: boolean
 }
 
 export type ReviewUpsertWithWhereUniqueWithoutProductInput = {
@@ -637,6 +638,7 @@ export type ReviewCreateOrConnectWithoutSkuInput = {
 
 export type ReviewCreateManySkuInputEnvelope = {
   data: Prisma.ReviewCreateManySkuInput | Prisma.ReviewCreateManySkuInput[]
+  skipDuplicates?: boolean
 }
 
 export type ReviewUpsertWithWhereUniqueWithoutSkuInput = {
@@ -682,6 +684,7 @@ export type ReviewCreateOrConnectWithoutUserInput = {
 
 export type ReviewCreateManyUserInputEnvelope = {
   data: Prisma.ReviewCreateManyUserInput | Prisma.ReviewCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type ReviewUpsertWithWhereUniqueWithoutUserInput = {
@@ -1576,6 +1579,7 @@ export type ReviewCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * The data used to create many Reviews.
    */
   data: Prisma.ReviewCreateManyInput | Prisma.ReviewCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1594,6 +1598,7 @@ export type ReviewCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensio
    * The data used to create many Reviews.
    */
   data: Prisma.ReviewCreateManyInput | Prisma.ReviewCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

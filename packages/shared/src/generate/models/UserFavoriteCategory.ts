@@ -498,6 +498,7 @@ export type UserFavoriteCategoryCreateOrConnectWithoutCategoryInput = {
 
 export type UserFavoriteCategoryCreateManyCategoryInputEnvelope = {
   data: Prisma.UserFavoriteCategoryCreateManyCategoryInput | Prisma.UserFavoriteCategoryCreateManyCategoryInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserFavoriteCategoryUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -551,6 +552,7 @@ export type UserFavoriteCategoryCreateOrConnectWithoutUserInput = {
 
 export type UserFavoriteCategoryCreateManyUserInputEnvelope = {
   data: Prisma.UserFavoriteCategoryCreateManyUserInput | Prisma.UserFavoriteCategoryCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserFavoriteCategoryUpsertWithWhereUniqueWithoutUserInput = {
@@ -1369,6 +1371,7 @@ export type UserFavoriteCategoryCreateManyArgs<ExtArgs extends runtime.Types.Ext
    * The data used to create many UserFavoriteCategories.
    */
   data: Prisma.UserFavoriteCategoryCreateManyInput | Prisma.UserFavoriteCategoryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1387,6 +1390,7 @@ export type UserFavoriteCategoryCreateManyAndReturnArgs<ExtArgs extends runtime.
    * The data used to create many UserFavoriteCategories.
    */
   data: Prisma.UserFavoriteCategoryCreateManyInput | Prisma.UserFavoriteCategoryCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

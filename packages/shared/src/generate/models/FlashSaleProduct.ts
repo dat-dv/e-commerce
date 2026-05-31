@@ -540,6 +540,7 @@ export type FlashSaleProductCreateOrConnectWithoutFlash_saleInput = {
 
 export type FlashSaleProductCreateManyFlash_saleInputEnvelope = {
   data: Prisma.FlashSaleProductCreateManyFlash_saleInput | Prisma.FlashSaleProductCreateManyFlash_saleInput[]
+  skipDuplicates?: boolean
 }
 
 export type FlashSaleProductUpsertWithWhereUniqueWithoutFlash_saleInput = {
@@ -596,6 +597,7 @@ export type FlashSaleProductCreateOrConnectWithoutSkuInput = {
 
 export type FlashSaleProductCreateManySkuInputEnvelope = {
   data: Prisma.FlashSaleProductCreateManySkuInput | Prisma.FlashSaleProductCreateManySkuInput[]
+  skipDuplicates?: boolean
 }
 
 export type FlashSaleProductUpsertWithWhereUniqueWithoutSkuInput = {
@@ -1428,6 +1430,7 @@ export type FlashSaleProductCreateManyArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many FlashSaleProducts.
    */
   data: Prisma.FlashSaleProductCreateManyInput | Prisma.FlashSaleProductCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1446,6 +1449,7 @@ export type FlashSaleProductCreateManyAndReturnArgs<ExtArgs extends runtime.Type
    * The data used to create many FlashSaleProducts.
    */
   data: Prisma.FlashSaleProductCreateManyInput | Prisma.FlashSaleProductCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

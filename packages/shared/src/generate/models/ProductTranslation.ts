@@ -430,6 +430,7 @@ export type ProductTranslationCreateOrConnectWithoutLanguageInput = {
 
 export type ProductTranslationCreateManyLanguageInputEnvelope = {
   data: Prisma.ProductTranslationCreateManyLanguageInput | Prisma.ProductTranslationCreateManyLanguageInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProductTranslationUpsertWithWhereUniqueWithoutLanguageInput = {
@@ -480,6 +481,7 @@ export type ProductTranslationCreateOrConnectWithoutProductInput = {
 
 export type ProductTranslationCreateManyProductInputEnvelope = {
   data: Prisma.ProductTranslationCreateManyProductInput | Prisma.ProductTranslationCreateManyProductInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProductTranslationUpsertWithWhereUniqueWithoutProductInput = {
@@ -1284,6 +1286,7 @@ export type ProductTranslationCreateManyArgs<ExtArgs extends runtime.Types.Exten
    * The data used to create many ProductTranslations.
    */
   data: Prisma.ProductTranslationCreateManyInput | Prisma.ProductTranslationCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1302,6 +1305,7 @@ export type ProductTranslationCreateManyAndReturnArgs<ExtArgs extends runtime.Ty
    * The data used to create many ProductTranslations.
    */
   data: Prisma.ProductTranslationCreateManyInput | Prisma.ProductTranslationCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

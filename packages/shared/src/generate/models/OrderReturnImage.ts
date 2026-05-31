@@ -406,6 +406,7 @@ export type OrderReturnImageCreateOrConnectWithoutImageInput = {
 
 export type OrderReturnImageCreateManyImageInputEnvelope = {
   data: Prisma.OrderReturnImageCreateManyImageInput | Prisma.OrderReturnImageCreateManyImageInput[]
+  skipDuplicates?: boolean
 }
 
 export type OrderReturnImageUpsertWithWhereUniqueWithoutImageInput = {
@@ -453,6 +454,7 @@ export type OrderReturnImageCreateOrConnectWithoutOrder_returnInput = {
 
 export type OrderReturnImageCreateManyOrder_returnInputEnvelope = {
   data: Prisma.OrderReturnImageCreateManyOrder_returnInput | Prisma.OrderReturnImageCreateManyOrder_returnInput[]
+  skipDuplicates?: boolean
 }
 
 export type OrderReturnImageUpsertWithWhereUniqueWithoutOrder_returnInput = {
@@ -1243,6 +1245,7 @@ export type OrderReturnImageCreateManyArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many OrderReturnImages.
    */
   data: Prisma.OrderReturnImageCreateManyInput | Prisma.OrderReturnImageCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1261,6 +1264,7 @@ export type OrderReturnImageCreateManyAndReturnArgs<ExtArgs extends runtime.Type
    * The data used to create many OrderReturnImages.
    */
   data: Prisma.OrderReturnImageCreateManyInput | Prisma.OrderReturnImageCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

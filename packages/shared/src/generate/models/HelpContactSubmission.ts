@@ -722,6 +722,7 @@ export type HelpContactSubmissionCreateOrConnectWithoutUserInput = {
 
 export type HelpContactSubmissionCreateManyUserInputEnvelope = {
   data: Prisma.HelpContactSubmissionCreateManyUserInput | Prisma.HelpContactSubmissionCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type HelpContactSubmissionUpsertWithWhereUniqueWithoutUserInput = {
@@ -1626,6 +1627,7 @@ export type HelpContactSubmissionCreateManyArgs<ExtArgs extends runtime.Types.Ex
    * The data used to create many HelpContactSubmissions.
    */
   data: Prisma.HelpContactSubmissionCreateManyInput | Prisma.HelpContactSubmissionCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1644,6 +1646,7 @@ export type HelpContactSubmissionCreateManyAndReturnArgs<ExtArgs extends runtime
    * The data used to create many HelpContactSubmissions.
    */
   data: Prisma.HelpContactSubmissionCreateManyInput | Prisma.HelpContactSubmissionCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

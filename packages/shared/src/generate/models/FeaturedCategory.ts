@@ -1186,6 +1186,7 @@ export type FeaturedCategoryCreateManyArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many FeaturedCategories.
    */
   data: Prisma.FeaturedCategoryCreateManyInput | Prisma.FeaturedCategoryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1204,6 +1205,7 @@ export type FeaturedCategoryCreateManyAndReturnArgs<ExtArgs extends runtime.Type
    * The data used to create many FeaturedCategories.
    */
   data: Prisma.FeaturedCategoryCreateManyInput | Prisma.FeaturedCategoryCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -360,6 +360,7 @@ export type AttributeValueCreateOrConnectWithoutAttributeInput = {
 
 export type AttributeValueCreateManyAttributeInputEnvelope = {
   data: Prisma.AttributeValueCreateManyAttributeInput | Prisma.AttributeValueCreateManyAttributeInput[]
+  skipDuplicates?: boolean
 }
 
 export type AttributeValueUpsertWithWhereUniqueWithoutAttributeInput = {
@@ -1194,6 +1195,7 @@ export type AttributeValueCreateManyArgs<ExtArgs extends runtime.Types.Extension
    * The data used to create many AttributeValues.
    */
   data: Prisma.AttributeValueCreateManyInput | Prisma.AttributeValueCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1212,6 +1214,7 @@ export type AttributeValueCreateManyAndReturnArgs<ExtArgs extends runtime.Types.
    * The data used to create many AttributeValues.
    */
   data: Prisma.AttributeValueCreateManyInput | Prisma.AttributeValueCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -452,6 +452,7 @@ export type UserPhoneCreateOrConnectWithoutUserInput = {
 
 export type UserPhoneCreateManyUserInputEnvelope = {
   data: Prisma.UserPhoneCreateManyUserInput | Prisma.UserPhoneCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserPhoneUpsertWithWhereUniqueWithoutUserInput = {
@@ -1264,6 +1265,7 @@ export type UserPhoneCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * The data used to create many UserPhones.
    */
   data: Prisma.UserPhoneCreateManyInput | Prisma.UserPhoneCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1282,6 +1284,7 @@ export type UserPhoneCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * The data used to create many UserPhones.
    */
   data: Prisma.UserPhoneCreateManyInput | Prisma.UserPhoneCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -454,6 +454,7 @@ export type BrandTranslationCreateOrConnectWithoutBrandInput = {
 
 export type BrandTranslationCreateManyBrandInputEnvelope = {
   data: Prisma.BrandTranslationCreateManyBrandInput | Prisma.BrandTranslationCreateManyBrandInput[]
+  skipDuplicates?: boolean
 }
 
 export type BrandTranslationUpsertWithWhereUniqueWithoutBrandInput = {
@@ -507,6 +508,7 @@ export type BrandTranslationCreateOrConnectWithoutLanguageInput = {
 
 export type BrandTranslationCreateManyLanguageInputEnvelope = {
   data: Prisma.BrandTranslationCreateManyLanguageInput | Prisma.BrandTranslationCreateManyLanguageInput[]
+  skipDuplicates?: boolean
 }
 
 export type BrandTranslationUpsertWithWhereUniqueWithoutLanguageInput = {
@@ -1325,6 +1327,7 @@ export type BrandTranslationCreateManyArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many BrandTranslations.
    */
   data: Prisma.BrandTranslationCreateManyInput | Prisma.BrandTranslationCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1343,6 +1346,7 @@ export type BrandTranslationCreateManyAndReturnArgs<ExtArgs extends runtime.Type
    * The data used to create many BrandTranslations.
    */
   data: Prisma.BrandTranslationCreateManyInput | Prisma.BrandTranslationCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

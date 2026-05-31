@@ -1254,6 +1254,7 @@ export type FlashSaleTimeSlotCreateManyArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many FlashSaleTimeSlots.
    */
   data: Prisma.FlashSaleTimeSlotCreateManyInput | Prisma.FlashSaleTimeSlotCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1272,6 +1273,7 @@ export type FlashSaleTimeSlotCreateManyAndReturnArgs<ExtArgs extends runtime.Typ
    * The data used to create many FlashSaleTimeSlots.
    */
   data: Prisma.FlashSaleTimeSlotCreateManyInput | Prisma.FlashSaleTimeSlotCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

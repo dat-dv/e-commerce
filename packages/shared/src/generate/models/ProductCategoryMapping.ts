@@ -359,6 +359,7 @@ export type ProductCategoryMappingCreateOrConnectWithoutCategoryInput = {
 
 export type ProductCategoryMappingCreateManyCategoryInputEnvelope = {
   data: Prisma.ProductCategoryMappingCreateManyCategoryInput | Prisma.ProductCategoryMappingCreateManyCategoryInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProductCategoryMappingUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -400,6 +401,7 @@ export type ProductCategoryMappingCreateOrConnectWithoutProductInput = {
 
 export type ProductCategoryMappingCreateManyProductInputEnvelope = {
   data: Prisma.ProductCategoryMappingCreateManyProductInput | Prisma.ProductCategoryMappingCreateManyProductInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProductCategoryMappingUpsertWithWhereUniqueWithoutProductInput = {
@@ -1162,6 +1164,7 @@ export type ProductCategoryMappingCreateManyArgs<ExtArgs extends runtime.Types.E
    * The data used to create many ProductCategoryMappings.
    */
   data: Prisma.ProductCategoryMappingCreateManyInput | Prisma.ProductCategoryMappingCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1180,6 +1183,7 @@ export type ProductCategoryMappingCreateManyAndReturnArgs<ExtArgs extends runtim
    * The data used to create many ProductCategoryMappings.
    */
   data: Prisma.ProductCategoryMappingCreateManyInput | Prisma.ProductCategoryMappingCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

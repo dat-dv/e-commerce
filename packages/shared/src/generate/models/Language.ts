@@ -1234,6 +1234,7 @@ export type LanguageCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * The data used to create many Languages.
    */
   data: Prisma.LanguageCreateManyInput | Prisma.LanguageCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1252,6 +1253,7 @@ export type LanguageCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many Languages.
    */
   data: Prisma.LanguageCreateManyInput | Prisma.LanguageCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

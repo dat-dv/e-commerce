@@ -400,6 +400,7 @@ export type UserBrowsingHistoryCreateOrConnectWithoutProductInput = {
 
 export type UserBrowsingHistoryCreateManyProductInputEnvelope = {
   data: Prisma.UserBrowsingHistoryCreateManyProductInput | Prisma.UserBrowsingHistoryCreateManyProductInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserBrowsingHistoryUpsertWithWhereUniqueWithoutProductInput = {
@@ -447,6 +448,7 @@ export type UserBrowsingHistoryCreateOrConnectWithoutUserInput = {
 
 export type UserBrowsingHistoryCreateManyUserInputEnvelope = {
   data: Prisma.UserBrowsingHistoryCreateManyUserInput | Prisma.UserBrowsingHistoryCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserBrowsingHistoryUpsertWithWhereUniqueWithoutUserInput = {
@@ -1237,6 +1239,7 @@ export type UserBrowsingHistoryCreateManyArgs<ExtArgs extends runtime.Types.Exte
    * The data used to create many UserBrowsingHistories.
    */
   data: Prisma.UserBrowsingHistoryCreateManyInput | Prisma.UserBrowsingHistoryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1255,6 +1258,7 @@ export type UserBrowsingHistoryCreateManyAndReturnArgs<ExtArgs extends runtime.T
    * The data used to create many UserBrowsingHistories.
    */
   data: Prisma.UserBrowsingHistoryCreateManyInput | Prisma.UserBrowsingHistoryCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

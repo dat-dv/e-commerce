@@ -794,6 +794,7 @@ export type ShippingAddressCreateOrConnectWithoutUserInput = {
 
 export type ShippingAddressCreateManyUserInputEnvelope = {
   data: Prisma.ShippingAddressCreateManyUserInput | Prisma.ShippingAddressCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type ShippingAddressUpsertWithWhereUniqueWithoutUserInput = {
@@ -1720,6 +1721,7 @@ export type ShippingAddressCreateManyArgs<ExtArgs extends runtime.Types.Extensio
    * The data used to create many ShippingAddresses.
    */
   data: Prisma.ShippingAddressCreateManyInput | Prisma.ShippingAddressCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1738,6 +1740,7 @@ export type ShippingAddressCreateManyAndReturnArgs<ExtArgs extends runtime.Types
    * The data used to create many ShippingAddresses.
    */
   data: Prisma.ShippingAddressCreateManyInput | Prisma.ShippingAddressCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

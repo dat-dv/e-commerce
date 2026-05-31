@@ -1034,6 +1034,7 @@ export type AttributeCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * The data used to create many Attributes.
    */
   data: Prisma.AttributeCreateManyInput | Prisma.AttributeCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1052,6 +1053,7 @@ export type AttributeCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * The data used to create many Attributes.
    */
   data: Prisma.AttributeCreateManyInput | Prisma.AttributeCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

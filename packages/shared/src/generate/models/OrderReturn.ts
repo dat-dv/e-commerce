@@ -683,6 +683,7 @@ export type OrderReturnCreateOrConnectWithoutCreated_byInput = {
 
 export type OrderReturnCreateManyCreated_byInputEnvelope = {
   data: Prisma.OrderReturnCreateManyCreated_byInput | Prisma.OrderReturnCreateManyCreated_byInput[]
+  skipDuplicates?: boolean
 }
 
 export type OrderReturnUpsertWithWhereUniqueWithoutCreated_byInput = {
@@ -1540,6 +1541,7 @@ export type OrderReturnCreateManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * The data used to create many OrderReturns.
    */
   data: Prisma.OrderReturnCreateManyInput | Prisma.OrderReturnCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1558,6 +1560,7 @@ export type OrderReturnCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    * The data used to create many OrderReturns.
    */
   data: Prisma.OrderReturnCreateManyInput | Prisma.OrderReturnCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

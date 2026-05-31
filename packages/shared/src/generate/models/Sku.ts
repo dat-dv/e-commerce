@@ -932,6 +932,7 @@ export type SkuCreateOrConnectWithoutProductInput = {
 
 export type SkuCreateManyProductInputEnvelope = {
   data: Prisma.SkuCreateManyProductInput | Prisma.SkuCreateManyProductInput[]
+  skipDuplicates?: boolean
 }
 
 export type SkuUpsertWithWhereUniqueWithoutProductInput = {
@@ -1917,6 +1918,7 @@ export type SkuCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * The data used to create many Skus.
    */
   data: Prisma.SkuCreateManyInput | Prisma.SkuCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1935,6 +1937,7 @@ export type SkuCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.
    * The data used to create many Skus.
    */
   data: Prisma.SkuCreateManyInput | Prisma.SkuCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

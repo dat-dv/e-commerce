@@ -382,6 +382,7 @@ export type UserFavoriteProductCreateOrConnectWithoutProductInput = {
 
 export type UserFavoriteProductCreateManyProductInputEnvelope = {
   data: Prisma.UserFavoriteProductCreateManyProductInput | Prisma.UserFavoriteProductCreateManyProductInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserFavoriteProductUpsertWithWhereUniqueWithoutProductInput = {
@@ -426,6 +427,7 @@ export type UserFavoriteProductCreateOrConnectWithoutUserInput = {
 
 export type UserFavoriteProductCreateManyUserInputEnvelope = {
   data: Prisma.UserFavoriteProductCreateManyUserInput | Prisma.UserFavoriteProductCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type UserFavoriteProductUpsertWithWhereUniqueWithoutUserInput = {
@@ -1202,6 +1204,7 @@ export type UserFavoriteProductCreateManyArgs<ExtArgs extends runtime.Types.Exte
    * The data used to create many UserFavoriteProducts.
    */
   data: Prisma.UserFavoriteProductCreateManyInput | Prisma.UserFavoriteProductCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1220,6 +1223,7 @@ export type UserFavoriteProductCreateManyAndReturnArgs<ExtArgs extends runtime.T
    * The data used to create many UserFavoriteProducts.
    */
   data: Prisma.UserFavoriteProductCreateManyInput | Prisma.UserFavoriteProductCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

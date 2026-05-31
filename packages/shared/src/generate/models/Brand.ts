@@ -1887,6 +1887,7 @@ export type BrandCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * The data used to create many Brands.
    */
   data: Prisma.BrandCreateManyInput | Prisma.BrandCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1905,6 +1906,7 @@ export type BrandCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * The data used to create many Brands.
    */
   data: Prisma.BrandCreateManyInput | Prisma.BrandCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -359,6 +359,7 @@ export type SkuAttributeValueCreateOrConnectWithoutAttribute_valueInput = {
 
 export type SkuAttributeValueCreateManyAttribute_valueInputEnvelope = {
   data: Prisma.SkuAttributeValueCreateManyAttribute_valueInput | Prisma.SkuAttributeValueCreateManyAttribute_valueInput[]
+  skipDuplicates?: boolean
 }
 
 export type SkuAttributeValueUpsertWithWhereUniqueWithoutAttribute_valueInput = {
@@ -400,6 +401,7 @@ export type SkuAttributeValueCreateOrConnectWithoutSkuInput = {
 
 export type SkuAttributeValueCreateManySkuInputEnvelope = {
   data: Prisma.SkuAttributeValueCreateManySkuInput | Prisma.SkuAttributeValueCreateManySkuInput[]
+  skipDuplicates?: boolean
 }
 
 export type SkuAttributeValueUpsertWithWhereUniqueWithoutSkuInput = {
@@ -1162,6 +1164,7 @@ export type SkuAttributeValueCreateManyArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many SkuAttributeValues.
    */
   data: Prisma.SkuAttributeValueCreateManyInput | Prisma.SkuAttributeValueCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1180,6 +1183,7 @@ export type SkuAttributeValueCreateManyAndReturnArgs<ExtArgs extends runtime.Typ
    * The data used to create many SkuAttributeValues.
    */
   data: Prisma.SkuAttributeValueCreateManyInput | Prisma.SkuAttributeValueCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

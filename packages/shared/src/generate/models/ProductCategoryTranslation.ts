@@ -430,6 +430,7 @@ export type ProductCategoryTranslationCreateOrConnectWithoutCategoryInput = {
 
 export type ProductCategoryTranslationCreateManyCategoryInputEnvelope = {
   data: Prisma.ProductCategoryTranslationCreateManyCategoryInput | Prisma.ProductCategoryTranslationCreateManyCategoryInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProductCategoryTranslationUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -480,6 +481,7 @@ export type ProductCategoryTranslationCreateOrConnectWithoutLanguageInput = {
 
 export type ProductCategoryTranslationCreateManyLanguageInputEnvelope = {
   data: Prisma.ProductCategoryTranslationCreateManyLanguageInput | Prisma.ProductCategoryTranslationCreateManyLanguageInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProductCategoryTranslationUpsertWithWhereUniqueWithoutLanguageInput = {
@@ -1284,6 +1286,7 @@ export type ProductCategoryTranslationCreateManyArgs<ExtArgs extends runtime.Typ
    * The data used to create many ProductCategoryTranslations.
    */
   data: Prisma.ProductCategoryTranslationCreateManyInput | Prisma.ProductCategoryTranslationCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1302,6 +1305,7 @@ export type ProductCategoryTranslationCreateManyAndReturnArgs<ExtArgs extends ru
    * The data used to create many ProductCategoryTranslations.
    */
   data: Prisma.ProductCategoryTranslationCreateManyInput | Prisma.ProductCategoryTranslationCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */
