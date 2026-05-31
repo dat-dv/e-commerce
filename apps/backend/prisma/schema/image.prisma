@@ -11,7 +11,7 @@ model Image {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  user     User?
+  user_avatars UserAvatar[]
   product  Product?
   category ProductCategory?
   brand_logo   Brand? @relation("BrandLogo")

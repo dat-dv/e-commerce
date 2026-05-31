@@ -9,8 +9,6 @@ model User {
   salt          String?
   date_of_birth DateTime?
   gender        Int?
-  avatar_id     String?   @unique
-  avatar        Image?    @relation(fields: [avatar_id], references: [id])
   created_at    DateTime  @default(now())
   updated_at    DateTime  @updatedAt
   deleted_at    DateTime?
@@ -31,6 +29,10 @@ model User {
 
   role_id String?
   role    Role?   @relation(fields: [role_id], references: [id])
+
+  avatar_id String?
+  avatar    UserAvatar? @relation("CurrentUserAvatar", fields: [avatar_id], references: [id], onDelete: SetNull)
+  avatars   UserAvatar[]  @relation("UserAvatarHistory")
 
   @@map("users")
 }
