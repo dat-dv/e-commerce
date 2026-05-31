@@ -4,6 +4,7 @@ export interface IAvatarDropdownMenuItem {
   label: string;
   href: string;
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  active?: boolean;
 }
 
 export interface IAvatarDropdownLabels {

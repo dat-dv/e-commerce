@@ -57,26 +57,31 @@ export default function HeaderActions({
       label: t("avatarDropdown.viewProfile"),
       href: APP_ROUTES.PROFILE,
       icon: User,
+      active: pathname === APP_ROUTES.PROFILE,
     },
     {
       label: t("avatarDropdown.wishlist"),
       href: APP_ROUTES.FAVORITES,
       icon: Heart,
+      active: pathname === APP_ROUTES.FAVORITES,
     },
     {
       label: t("avatarDropdown.recentlyViewed"),
       href: APP_ROUTES.RECENTLY_VIEWED,
       icon: EyeIcon,
+      active: pathname === APP_ROUTES.RECENTLY_VIEWED,
     },
     {
       label: t("avatarDropdown.myOrders"),
       href: APP_ROUTES.ORDERS,
       icon: ShoppingBag,
+      active: pathname === APP_ROUTES.ORDERS,
     },
     {
       label: t("avatarDropdown.settings"),
       href: APP_ROUTES.SETTINGS,
       icon: Settings,
+      active: pathname === APP_ROUTES.SETTINGS,
     },
   ];
 
