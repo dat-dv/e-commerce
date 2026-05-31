@@ -64,7 +64,7 @@ export const AvatarInput = ({
         <div className="bg-primary/20 group-hover/avatar:bg-primary/30 absolute -inset-4 rounded-full blur-2xl transition-all duration-500" />
 
         {/* Avatar ring */}
-        <div className="border-surface shadow-primary/20 relative h-full w-full transform overflow-hidden rounded-full border-4 shadow-2xl transition-all duration-500 group-hover/avatar:scale-105">
+        <div className="border-surface shadow-primary/20 relative flex h-full w-full transform items-center justify-center overflow-hidden rounded-full border-4 shadow-2xl transition-all duration-500 group-hover/avatar:scale-105">
           <Avatar url={value} name={displayName} size={size} />
         </div>
 
