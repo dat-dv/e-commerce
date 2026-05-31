@@ -64,6 +64,7 @@ COPY --from=builder /app/apps/backend/generated ./apps/backend/generated
 # Copy Prisma schema + seeds (cần để migrate & seed lúc runtime)
 COPY apps/backend/prisma ./apps/backend/prisma
 COPY apps/backend/prisma.config.ts ./apps/backend/prisma.config.ts
+COPY apps/backend/src ./apps/backend/src
 
 WORKDIR /app/apps/backend
 

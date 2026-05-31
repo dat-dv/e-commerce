@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from '../../generated/prisma/client';
+import { PrismaClient } from '../../generated/prisma/client';
 import { ROLE_ADMIN, ROLE_USER } from '../../src/common/constants/roles.constant';
 
 export async function seedRBAC(prisma: PrismaClient) {
