@@ -9,6 +9,7 @@ import { IUsersRepository } from '../entities/users.repository.interface';
 
 import { CreateUserDto } from '../../dto/create-user.dto';
 import { UpdateUserDto } from '../../dto/update-user.dto';
+import { UserResponseDto } from '../../dto/user-response.dto';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -19,7 +20,11 @@ export class UsersRepository implements IUsersRepository {
 
   private readonly USER_INCLUDE = {
     role: true,
-    avatar: true,
+    avatar: {
+      include: {
+        image: true,
+      },
+    },
     phones: {
       where: {
         is_default: true,
@@ -28,17 +33,20 @@ export class UsersRepository implements IUsersRepository {
   };
 
   async findById(id: string): Promise<IUserResponse | null> {
-    return this.prisma.user.findUnique({
+    const res = await this.prisma.user.findUnique({
       where: { id },
       include: this.USER_INCLUDE,
     });
+
+    return new UserResponseDto(res);
   }
 
   async findByEmail(email: string): Promise<IUserResponse | null> {
-    return this.prisma.user.findUnique({
+    const res = await this.prisma.user.findUnique({
       where: { email },
       include: this.USER_INCLUDE,
     });
+    return new UserResponseDto(res);
   }
 
   async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse> {
@@ -102,7 +110,7 @@ export class UsersRepository implements IUsersRepository {
         }
       }
 
-      return tx.user.update({
+      const res = await tx.user.update({
         where: { id },
         data: {
           ...userData,
@@ -124,6 +132,7 @@ export class UsersRepository implements IUsersRepository {
         },
         include: this.USER_INCLUDE,
       });
+      return new UserResponseDto(res);
     });
   }
 
@@ -131,7 +140,7 @@ export class UsersRepository implements IUsersRepository {
     const salt = crypto.randomBytes(16).toString('hex');
     const hashedPassword = crypto.pbkdf2Sync(passwordRaw, salt, 1000, 64, 'sha512').toString('hex');
 
-    return this.prisma.user.update({
+    const res = await this.prisma.user.update({
       where: { id },
       data: {
         password: hashedPassword,
@@ -139,6 +148,7 @@ export class UsersRepository implements IUsersRepository {
       },
       include: this.USER_INCLUDE,
     });
+    return new UserResponseDto(res);
   }
 
   async create(data: CreateUserDto): Promise<IUserResponse> {
@@ -151,7 +161,7 @@ export class UsersRepository implements IUsersRepository {
 
     const { confirm_password, ...dbData } = data;
 
-    return this.prisma.user.create({
+    const res = await this.prisma.user.create({
       data: {
         ...dbData,
         password: hashedPassword || '',
@@ -162,6 +172,7 @@ export class UsersRepository implements IUsersRepository {
       },
       include: this.USER_INCLUDE,
     });
+    return new UserResponseDto(res);
   }
 
   async findAll(page: number, limit: number): Promise<IPaginatedResult<IUserResponse>> {
@@ -203,11 +214,15 @@ export class UsersRepository implements IUsersRepository {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
       include: {
-        avatar: true,
+        avatar: {
+          include: {
+            image: true,
+          },
+        },
       },
     });
 
-    return user?.avatar?.public_id || null;
+    return user?.avatar?.image?.public_id || null;
   }
 
   async addUserPhone(
