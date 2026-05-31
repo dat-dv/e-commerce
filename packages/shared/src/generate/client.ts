@@ -222,6 +222,11 @@ export type ShippingAddress = Prisma.ShippingAddressModel
  */
 export type User = Prisma.UserModel
 /**
+ * Model UserAvatar
+ * 
+ */
+export type UserAvatar = Prisma.UserAvatarModel
+/**
  * Model UserFavoriteCategory
  * 
  */

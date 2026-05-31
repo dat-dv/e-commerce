@@ -420,6 +420,7 @@ export const ModelName = {
   RolePermission: 'RolePermission',
   ShippingAddress: 'ShippingAddress',
   User: 'User',
+  UserAvatar: 'UserAvatar',
   UserFavoriteCategory: 'UserFavoriteCategory',
   UserFavoriteProduct: 'UserFavoriteProduct',
   UserPhone: 'UserPhone'
@@ -438,7 +439,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "helpContactSubmission" | "helpContactSubmissionImage" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "orderReturn" | "orderReturnImage" | "passwordResetToken" | "product" | "sku" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
+    modelProps: "attribute" | "attributeValue" | "skuAttributeValue" | "brand" | "brandTranslation" | "userBrowsingHistory" | "cart" | "cartItem" | "productCategory" | "productCategoryMapping" | "coupon" | "featuredCategory" | "flashSaleTimeSlot" | "flashSale" | "flashSaleProduct" | "helpContactSubmission" | "helpContactSubmissionImage" | "image" | "language" | "productTranslation" | "productCategoryTranslation" | "notification" | "notificationToken" | "order" | "orderItem" | "orderReturn" | "orderReturnImage" | "passwordResetToken" | "product" | "sku" | "review" | "role" | "permission" | "rolePermission" | "shippingAddress" | "user" | "userAvatar" | "userFavoriteCategory" | "userFavoriteProduct" | "userPhone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3106,6 +3107,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    UserAvatar: {
+      payload: Prisma.$UserAvatarPayload<ExtArgs>
+      fields: Prisma.UserAvatarFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UserAvatarFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UserAvatarFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>
+        }
+        findFirst: {
+          args: Prisma.UserAvatarFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UserAvatarFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>
+        }
+        findMany: {
+          args: Prisma.UserAvatarFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>[]
+        }
+        create: {
+          args: Prisma.UserAvatarCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>
+        }
+        createMany: {
+          args: Prisma.UserAvatarCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UserAvatarCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>[]
+        }
+        delete: {
+          args: Prisma.UserAvatarDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>
+        }
+        update: {
+          args: Prisma.UserAvatarUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>
+        }
+        deleteMany: {
+          args: Prisma.UserAvatarDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UserAvatarUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserAvatarUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>[]
+        }
+        upsert: {
+          args: Prisma.UserAvatarUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserAvatarPayload>
+        }
+        aggregate: {
+          args: Prisma.UserAvatarAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserAvatar>
+        }
+        groupBy: {
+          args: Prisma.UserAvatarGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserAvatarGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UserAvatarCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserAvatarCountAggregateOutputType> | number
+        }
+      }
+    }
     UserFavoriteCategory: {
       payload: Prisma.$UserFavoriteCategoryPayload<ExtArgs>
       fields: Prisma.UserFavoriteCategoryFieldRefs
@@ -3821,14 +3896,24 @@ export const UserScalarFieldEnum = {
   salt: 'salt',
   date_of_birth: 'date_of_birth',
   gender: 'gender',
-  avatar_id: 'avatar_id',
   created_at: 'created_at',
   updated_at: 'updated_at',
   deleted_at: 'deleted_at',
-  role_id: 'role_id'
+  role_id: 'role_id',
+  avatar_id: 'avatar_id'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const UserAvatarScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  image_id: 'image_id',
+  created_at: 'created_at'
+} as const
+
+export type UserAvatarScalarFieldEnum = (typeof UserAvatarScalarFieldEnum)[keyof typeof UserAvatarScalarFieldEnum]
 
 
 export const UserFavoriteCategoryScalarFieldEnum = {
@@ -4135,6 +4220,7 @@ export type GlobalOmitConfig = {
   rolePermission?: Prisma.RolePermissionOmit
   shippingAddress?: Prisma.ShippingAddressOmit
   user?: Prisma.UserOmit
+  userAvatar?: Prisma.UserAvatarOmit
   userFavoriteCategory?: Prisma.UserFavoriteCategoryOmit
   userFavoriteProduct?: Prisma.UserFavoriteProductOmit
   userPhone?: Prisma.UserPhoneOmit

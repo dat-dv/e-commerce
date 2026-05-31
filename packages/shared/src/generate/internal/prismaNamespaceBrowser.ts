@@ -87,6 +87,7 @@ export const ModelName = {
   RolePermission: 'RolePermission',
   ShippingAddress: 'ShippingAddress',
   User: 'User',
+  UserAvatar: 'UserAvatar',
   UserFavoriteCategory: 'UserFavoriteCategory',
   UserFavoriteProduct: 'UserFavoriteProduct',
   UserPhone: 'UserPhone'
@@ -562,14 +563,24 @@ export const UserScalarFieldEnum = {
   salt: 'salt',
   date_of_birth: 'date_of_birth',
   gender: 'gender',
-  avatar_id: 'avatar_id',
   created_at: 'created_at',
   updated_at: 'updated_at',
   deleted_at: 'deleted_at',
-  role_id: 'role_id'
+  role_id: 'role_id',
+  avatar_id: 'avatar_id'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const UserAvatarScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  image_id: 'image_id',
+  created_at: 'created_at'
+} as const
+
+export type UserAvatarScalarFieldEnum = (typeof UserAvatarScalarFieldEnum)[keyof typeof UserAvatarScalarFieldEnum]
 
 
 export const UserFavoriteCategoryScalarFieldEnum = {
