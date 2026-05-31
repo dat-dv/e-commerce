@@ -27,7 +27,7 @@ export class UpdateUserDto implements IUpdateUserRequest {
 
   @IsString()
   @IsOptional()
-  avatar_url?: string;
+  avatar_id?: string;
 
   @IsString()
   @IsOptional()

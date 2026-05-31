@@ -50,7 +50,7 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse> {
-    const { phone_number, phone_code, avatar_url, date_of_birth, role_id, ...userData } = updateData;
+    const { phone_number, phone_code, avatar_id, date_of_birth, role_id, ...userData } = updateData;
     const isUpdatePhone = !!(phone_number && phone_code);
 
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
@@ -111,10 +111,10 @@ export class UsersRepository implements IUsersRepository {
       }
 
       let avatarConnectId: string | undefined;
-      if (avatar_url) {
+      if (avatar_id) {
         const existingUserAvatar = await tx.userAvatar.findFirst({
           where: {
-            id: avatar_url,
+            id: avatar_id,
             user_id: id,
           },
           select: { id: true },
@@ -127,13 +127,13 @@ export class UsersRepository implements IUsersRepository {
             where: {
               user_id_image_id: {
                 user_id: id,
-                image_id: avatar_url,
+                image_id: avatar_id,
               },
             },
             update: {},
             create: {
               user_id: id,
-              image_id: avatar_url,
+              image_id: avatar_id,
             },
             select: { id: true },
           });
