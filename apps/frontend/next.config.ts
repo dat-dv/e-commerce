@@ -3,7 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // output: "export",
+  output: "standalone",
   reactStrictMode: !true,
   transpilePackages: ["@ecommerce/shared", "@ecommerce/ui"],
   images: {

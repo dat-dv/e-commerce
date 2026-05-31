@@ -51,25 +51,13 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV HOSTNAME=0.0.0.0
+ENV PORT=5173
 
-# Copy workspace manifests
-COPY package.json package-lock.json ./
-COPY packages/shared/package.json ./packages/shared/
-COPY packages/ui/package.json ./packages/ui/
-COPY apps/frontend/package.json ./apps/frontend/
-COPY apps/backend/package.json ./apps/backend/
-COPY apps/admin/package.json ./apps/admin/
-
-# Production deps only
-RUN npm ci --omit=dev --ignore-scripts
-
-# Copy shared dist
-COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
-
-# Copy Next.js build output
-COPY --from=builder /app/apps/frontend/.next ./apps/frontend/.next
+# Copy standalone Next.js runtime output
+COPY --from=builder /app/apps/frontend/.next/standalone ./
+COPY --from=builder /app/apps/frontend/.next/static ./apps/frontend/.next/static
 COPY --from=builder /app/apps/frontend/public ./apps/frontend/public
-COPY --from=builder /app/apps/frontend/next.config.ts ./apps/frontend/next.config.ts
 COPY --from=builder /app/apps/frontend/messages ./apps/frontend/messages
 COPY --from=builder /app/apps/frontend/i18n ./apps/frontend/i18n
 COPY --from=builder /app/apps/frontend/.env ./apps/frontend/.env
@@ -78,4 +66,4 @@ WORKDIR /app/apps/frontend
 
 EXPOSE 5173
 
-CMD ["npx", "next", "start", "-p", "5173"]
+CMD ["node", "server.js"]

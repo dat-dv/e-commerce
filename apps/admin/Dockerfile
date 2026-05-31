@@ -41,18 +41,14 @@ RUN npm run build -w @ecommerce/ui
 RUN cd apps/admin && npx next build
 
 # ============================================================
-# Stage 3: Production runner (Serve)
+# Stage 3: Production runner (static nginx)
 # ============================================================
-FROM node:22-alpine AS production
+FROM nginx:1.27-alpine AS production
 
-WORKDIR /app
+RUN sed -i 's/listen       80;/listen       5174;/' /etc/nginx/conf.d/default.conf
 
-# Install serve globally to host the static export
-RUN npm install -g serve
-
-# Copy built static files from builder
-COPY --from=builder /app/apps/admin/out ./out
+COPY --from=builder /app/apps/admin/out /usr/share/nginx/html
 
 EXPOSE 5174
 
-CMD ["serve", "-s", "out", "-p", "5174"]
+CMD ["nginx", "-g", "daemon off;"]

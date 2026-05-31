@@ -15,7 +15,12 @@
 
 # ── Database files (dùng volume thay thế) ────
 **/prisma/dev.db
+**/prisma/*.db
+**/prisma/*.db-journal
 **/prisma/data
+apps/backend/prisma/dataset
+apps/backend/prisma/dataset_bk
+apps/backend/prisma/migrations_sqlite_backup
 
 # ── Env files (dùng --env-file hoặc environment trong compose) ──
 **/.env
@@ -48,6 +53,7 @@
 
 # ── TypeScript build info ────────────────────
 **/*.tsbuildinfo
+**/tsconfig.tsbuildinfo
 
 # ── Certificates (nếu chỉ dùng local dev) ────
 **/certificates
