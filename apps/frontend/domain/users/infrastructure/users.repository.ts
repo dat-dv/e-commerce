@@ -20,6 +20,9 @@ export class UsersRepository implements IUsersRepository {
 
       formData.append(key, String(value));
     });
+    if (user.avatar) {
+      formData.append("image", user.avatar);
+    }
 
     const response = await this.request.patch<IUserResponse>(
       API_ROUTES.USERS.PROFILE,

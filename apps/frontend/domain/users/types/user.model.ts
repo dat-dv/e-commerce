@@ -8,6 +8,7 @@ export interface TUpdateUserInput {
   dateOfBirth?: string;
   gender?: EGender;
   avatar?: File;
+  avatarId?: string;
   phoneNumber?: string;
   phoneCode?: string;
 }

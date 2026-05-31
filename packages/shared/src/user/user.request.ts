@@ -14,7 +14,7 @@ export interface IUpdateUserRequest {
   password?: string;
   date_of_birth?: string;
   gender?: EGender;
-  avatar_url?: string;
+  avatar_id?: string;
   phone_number?: string;
   phone_code?: string;
   role_id?: string;

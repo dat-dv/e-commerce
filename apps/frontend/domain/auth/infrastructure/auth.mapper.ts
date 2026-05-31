@@ -1,6 +1,17 @@
-import { EGender, IUpdateUserRequest, IUserResponse } from "@ecommerce/shared";
+import { EGender, IUserResponse } from "@ecommerce/shared";
 import { TUpdateUserInput } from "../../users/types/user.model";
 import { TUser } from "../types/auth.model";
+
+type TUpdateUserRequestDto = {
+  first_name?: string;
+  last_name?: string;
+  password?: string;
+  date_of_birth?: string;
+  gender?: number;
+  avatar_id?: string;
+  phone_number?: string;
+  phone_code?: string;
+};
 
 export const UserMapper = {
   toDomain(dto: IUserResponse): TUser {
@@ -63,13 +74,14 @@ export const UserMapper = {
     return dto;
   },
 
-  toUpdateDTO(input: TUpdateUserInput): IUpdateUserRequest {
+  toUpdateDTO(input: TUpdateUserInput): TUpdateUserRequestDto {
     return {
       first_name: input.firstName,
       last_name: input.lastName,
       password: input.password,
       date_of_birth: input.dateOfBirth,
       gender: input.gender as number,
+      avatar_id: input.avatarId,
       phone_number: input.phoneNumber,
       phone_code: input.phoneCode,
     };

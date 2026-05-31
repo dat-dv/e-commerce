@@ -43,6 +43,7 @@ export interface TUser {
   email: string;
   password?: string;
   avatarId?: string | null;
+  avatarHistory?: TUserAvatar[];
   createdAt?: string | null;
   updatedAt?: string | null;
   deletedAt?: string | null;
@@ -52,6 +53,11 @@ export interface TUser {
   avatarUrl?: string | null;
   gender?: EGender | null;
   phones?: TUserPhone[];
+}
+
+export interface TUserAvatar {
+  id: string;
+  url: string;
 }
 
 export interface TUserPhone {

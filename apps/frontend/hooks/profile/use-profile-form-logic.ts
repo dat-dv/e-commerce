@@ -115,6 +115,7 @@ export function useProfileFormLogic({
       phoneNumber: data.phone?.phoneNumber || "",
       gender: data.gender ?? undefined,
       phoneCode: data.phone?.phoneCode || "",
+      avatarId: data.avatarId || undefined,
       ...(file ? { avatar: file } : {}),
     });
 

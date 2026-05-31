@@ -50,15 +50,14 @@ export const ProfileFormMobile = ({
       onSubmit={handleSave}
     >
       <div className="min-w-0 space-y-4">
-        {/* Avatar section — centered on mobile */}
         <FormCard className="flex flex-col items-center gap-3 py-6">
           <AvatarWrapper
             user={user}
             isFormDisabled={isFormDisabled}
-            className="align-center [&_p]:text-center"
+            className="w-full"
           />
         </FormCard>
-        {/* Form fields — single column */}
+
         <FormCard className="space-y-4">
           <FormInput
             variant="outline"
@@ -106,6 +105,7 @@ export const ProfileFormMobile = ({
             options={translatedGenderOptions}
             size="md"
           />
+
           {/* Sticky bottom action bar */}
           <div className="mt-4">
             {isEditing ? (
