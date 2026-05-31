@@ -16,26 +16,22 @@ Backend đã chuyển Prisma datasource sang PostgreSQL:
 Local backend:
 
 ```env
-POSTGRES_HOST="localhost"
-POSTGRES_PORT=5432
+DATABASE_URL="postgresql://postgres:mysecretpassword@localhost:5432/ecommerce?schema=public"
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="mysecretpassword"
 POSTGRES_DB="ecommerce"
-POSTGRES_SCHEMA="public"
 ```
 
 Docker Compose:
 
 ```env
-POSTGRES_HOST="postgres"
-POSTGRES_PORT=5432
+DATABASE_URL="postgresql://postgres:POSTGRES_PASSWORD@postgres:5432/POSTGRES_DB?schema=public"
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="POSTGRES_PASSWORD"
 POSTGRES_DB="POSTGRES_DB"
-POSTGRES_SCHEMA="public"
 ```
 
-`POSTGRES_HOST` là `localhost` khi chạy backend trực tiếp trên máy, và là `postgres` khi backend chạy trong Docker network. Backend và Prisma CLI sẽ tự build connection string từ các biến `POSTGRES_*`.
+Host trong `DATABASE_URL` là `localhost` khi chạy backend trực tiếp trên máy, và là `postgres` khi backend chạy trong Docker network. `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` vẫn cần cho Docker Postgres bootstrap database.
 
 ### Fresh database cho dev
 

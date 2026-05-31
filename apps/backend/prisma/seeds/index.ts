@@ -1,6 +1,5 @@
 import { PrismaPg } from '@prisma/adapter-pg';
 import 'dotenv/config';
-import { buildPostgresUrl } from '../../src/config/database-url';
 import { PrismaClient } from '../../generated/prisma/client';
 import { seedBrands } from './brands';
 import { seedFlashSales } from './flash-sale';
@@ -12,7 +11,7 @@ import { seedProductsAndCategories } from './products-n-categories';
 import { seedRBAC } from './rbac';
 import { updateTopBrands } from './update-top-brands';
 
-const adapter = new PrismaPg({ connectionString: buildPostgresUrl(process.env) });
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
 
 async function cleanDatabase() {
