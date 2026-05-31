@@ -57,7 +57,7 @@ export function useProfileFormLogic({
   );
 
   useEffect(() => {
-    if (user) {
+    if (user && !isEditing) {
       methods.reset({
         firstName: user.firstName || "",
         lastName: user.lastName || "",
@@ -72,7 +72,7 @@ export function useProfileFormLogic({
         gender: user.gender === null ? undefined : user.gender,
       });
     }
-  }, [user, methods]);
+  }, [user, methods, isEditing]);
 
   const enableEdit = () => setIsEditing(true);
 
