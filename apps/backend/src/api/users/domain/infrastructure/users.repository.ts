@@ -38,7 +38,7 @@ export class UsersRepository implements IUsersRepository {
       include: this.USER_INCLUDE,
     });
 
-    return new UserResponseDto(res);
+    return res ? new UserResponseDto(res) : null;
   }
 
   async findByEmail(email: string): Promise<IUserResponse | null> {
@@ -46,7 +46,7 @@ export class UsersRepository implements IUsersRepository {
       where: { email },
       include: this.USER_INCLUDE,
     });
-    return new UserResponseDto(res);
+    return res ? new UserResponseDto(res) : null;
   }
 
   async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse> {
