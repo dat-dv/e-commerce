@@ -22,6 +22,8 @@ RUN npm ci --ignore-scripts
 FROM base AS builder
 
 WORKDIR /app
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 
 # Copy toàn bộ source
 COPY packages/shared/ ./packages/shared/
@@ -44,6 +46,8 @@ FROM node:22-alpine AS production
 WORKDIR /app
 
 ENV NODE_ENV=production
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 
 # Copy workspace manifests để install production deps
 COPY package.json package-lock.json ./
