@@ -6,11 +6,8 @@ import { defineConfig } from 'prisma/config';
 // DB connection is environment-driven — no branching needed in config.
 // local : DATABASE_URL="postgresql://postgres:mysecretpassword@localhost:5432/ecommerce?schema=public"
 // docker: DATABASE_URL="postgresql://postgres:mysecretpassword@postgres:5432/ecommerce?schema=public"
-const DATABASE_URL = process.env.DATABASE_URL;
-
-if (!DATABASE_URL) {
-  throw new Error('DATABASE_URL is not set');
-}
+const DATABASE_URL =
+  process.env.DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:5432/ecommerce?schema=public';
 
 export default defineConfig({
   schema: 'prisma/schema',

@@ -22,8 +22,6 @@ RUN npm ci --ignore-scripts
 FROM base AS builder
 
 WORKDIR /app
-ARG DATABASE_URL
-ENV DATABASE_URL=$DATABASE_URL
 
 # Copy toàn bộ source
 COPY packages/shared/ ./packages/shared/
@@ -32,7 +30,7 @@ COPY apps/backend/ ./apps/backend/
 # Build @ecommerce/shared trước
 RUN npm run build -w @ecommerce/shared
 
-# Generate Prisma client
+# Generate Prisma client for the generated output used by the Nest build
 RUN cd apps/backend && npx prisma generate
 
 # Build NestJS
@@ -46,8 +44,6 @@ FROM node:22-alpine AS production
 WORKDIR /app
 
 ENV NODE_ENV=production
-ARG DATABASE_URL
-ENV DATABASE_URL=$DATABASE_URL
 
 # Copy workspace manifests để install production deps
 COPY package.json package-lock.json ./
@@ -68,9 +64,6 @@ COPY --from=builder /app/apps/backend/generated ./apps/backend/generated
 # Copy Prisma schema + seeds (cần để migrate & seed lúc runtime)
 COPY apps/backend/prisma ./apps/backend/prisma
 COPY apps/backend/prisma.config.ts ./apps/backend/prisma.config.ts
-
-# Re-generate Prisma client trong production node_modules
-RUN cd apps/backend && npx prisma generate
 
 WORKDIR /app/apps/backend
 
