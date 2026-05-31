@@ -3,7 +3,10 @@ services:
   # Backend — NestJS API
   # ──────────────────────────────────────────────
   backend:
-    image: datdoandev/ecommerce-backend:latest
+    image: ecommerce-backend:latest
+    build:
+      context: . # Build context là monorepo root
+      dockerfile: apps/backend/Dockerfile
     container_name: ecommerce-backend
     restart: unless-stopped
     ports:
@@ -28,7 +31,10 @@ services:
   # Frontend — Next.js
   # ──────────────────────────────────────────────
   frontend:
-    image: datdoandev/ecommerce-frontend:latest
+    image: ecommerce-frontend:latest
+    build:
+      context: . # Build context là monorepo root
+      dockerfile: apps/frontend/Dockerfile
     container_name: ecommerce-frontend
     restart: unless-stopped
     ports:
@@ -45,7 +51,10 @@ services:
   # Admin — Next.js (Static Export)
   # ──────────────────────────────────────────────
   admin:
-    image: datdoandev/ecommerce-admin:latest
+    image: ecommerce-admin:latest
+    build:
+      context: .
+      dockerfile: apps/admin/Dockerfile
     container_name: ecommerce-admin
     restart: unless-stopped
     ports:
