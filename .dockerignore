@@ -18,7 +18,6 @@
 **/prisma/*.db
 **/prisma/*.db-journal
 **/prisma/data
-apps/backend/prisma/dataset
 apps/backend/prisma/dataset_bk
 apps/backend/prisma/migrations_sqlite_backup
 
