@@ -1,2 +1,4 @@
 @import "../../../packages/ui/src/styles.css";
 @import "../../../packages/ui/src/themes.css";
+
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
