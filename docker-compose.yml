@@ -3,6 +3,7 @@ services:
   # Backend — NestJS API
   # ──────────────────────────────────────────────
   backend:
+    image: ecommerce-backend:latest
     build:
       context: . # Build context là monorepo root
       dockerfile: apps/backend/Dockerfile
@@ -32,6 +33,7 @@ services:
   # Frontend — Next.js
   # ──────────────────────────────────────────────
   frontend:
+    image: ecommerce-frontend:latest
     build:
       context: . # Build context là monorepo root
       dockerfile: apps/frontend/Dockerfile
@@ -51,6 +53,7 @@ services:
   # Admin — Next.js (Static Export)
   # ──────────────────────────────────────────────
   admin:
+    image: ecommerce-admin:latest
     build:
       context: .
       dockerfile: apps/admin/Dockerfile
