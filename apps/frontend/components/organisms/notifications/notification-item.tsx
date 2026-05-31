@@ -65,7 +65,7 @@ export const NotificationItem = ({
             {notif.title}
           </h4>
           <span
-            className={`${TYPOGRAPHY.badge} text-content/30 flex items-center gap-1 font-medium`}
+            className={`${TYPOGRAPHY.badge} text-content/30 flex items-center gap-1 pr-2 font-medium`}
           >
             <Clock size={10} />
             {formatDistanceToNow(new Date(notif.createdAt), {
@@ -82,7 +82,7 @@ export const NotificationItem = ({
       </div>
 
       {!notif.isRead && (
-        <div className="bg-primary ring-primary/10 absolute top-4 right-4 h-2 w-2 animate-pulse rounded-full ring-4" />
+        <div className="bg-primary ring-primary/10 absolute top-4 right-2 h-2 w-2 animate-pulse rounded-full ring-4" />
       )}
     </div>
   );
