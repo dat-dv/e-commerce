@@ -15,11 +15,12 @@ export class AdminOrderRepository implements IAdminOrderRepository {
     page: number,
     limit: number,
     params?: Pick<IGetOrdersByAdminRequest, "user_id">,
+    search?: string,
   ): Promise<IApiResponse<ApiListResponse<IOrderResponse>>> {
     const response = await apiClient.get<
       IApiResponse<ApiListResponse<IOrderResponse>>
     >(API_ROUTES.ORDERS.ALL, {
-      params: { page, limit, ...params },
+      params: { page, limit, ...params, ...(search ? { search } : {}) },
     });
     return response;
   }

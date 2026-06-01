@@ -30,8 +30,7 @@ export const FilterBar = ({
           placeholder={searchPlaceholder}
           value={searchQuery}
           onSearch={onSearchQueryChange}
-          onChange={onSearchQueryChange}
-          showSubmitButton={false}
+          showSubmitButton={true}
           className="w-full"
         />
       </div>

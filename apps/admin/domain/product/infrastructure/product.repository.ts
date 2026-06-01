@@ -14,11 +14,12 @@ export class AdminProductRepository implements IAdminProductRepository {
   async getProducts(
     page: number,
     limit: number,
+    search?: string,
   ): Promise<IApiResponse<IProductListResponse>> {
     const response = await apiClient.get<IApiResponse<IProductListResponse>>(
       API_ROUTES.PRODUCTS.LIST,
       {
-        params: { page, limit },
+        params: { page, limit, ...(search ? { search } : {}) },
       },
     );
     return response;

@@ -9,6 +9,7 @@ export interface IAdminProductRepository {
   getProducts(
     page: number,
     limit: number,
+    search?: string,
   ): Promise<IApiResponse<IProductListResponse>>;
 
   getProduct(slug: string): Promise<IApiResponse<IProductResponse>>;

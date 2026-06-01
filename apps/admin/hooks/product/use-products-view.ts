@@ -2,7 +2,7 @@
 
 import type { IProductResponse } from "@ecommerce/shared";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { adminProductUseCase } from "@/domain/product";
@@ -15,8 +15,8 @@ export const useProductsView = () => {
     useState<IProductResponse | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const { data, loading, onChangePagination } = usePagination<IProductResponse>(
-    {
+  const { data, loading, onChangePagination, onChangeFilter } =
+    usePagination<IProductResponse>({
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
@@ -25,6 +25,7 @@ export const useProductsView = () => {
           const response = await adminProductUseCase.getProducts.execute({
             page: params.page ?? 1,
             limit: params.limit ?? 12,
+            search: params.search,
           });
           return {
             data: {
@@ -46,18 +47,14 @@ export const useProductsView = () => {
           throw err;
         }
       },
-    },
-  );
+    });
 
-  const filteredProducts = useMemo(() => {
-    if (!searchQuery) return data.items;
-    const q = searchQuery.toLowerCase();
-    return data.items.filter(
-      (p) =>
-        p.slug.toLowerCase().includes(q) ||
-        p.translations?.some((t) => t.name.toLowerCase().includes(q)),
-    );
-  }, [data.items, searchQuery]);
+  const filteredProducts = data.items;
+
+  const handleSearch = (q: string) => {
+    setSearchQuery(q);
+    onChangeFilter([{ key: "search", value: q }]);
+  };
 
   const router = useRouter();
 
@@ -78,7 +75,7 @@ export const useProductsView = () => {
     isDetailOpen,
     filteredProducts,
     setPage: onChangePagination,
-    setSearchQuery,
+    setSearchQuery: handleSearch,
     setIsDetailOpen,
     handleViewDetail,
   };

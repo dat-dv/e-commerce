@@ -11,5 +11,6 @@ export interface IAdminOrderRepository {
     page: number,
     limit: number,
     params?: Pick<IGetOrdersByAdminRequest, "user_id">,
+    search?: string,
   ): Promise<IApiResponse<ApiListResponse<IOrderResponse>>>;
 }

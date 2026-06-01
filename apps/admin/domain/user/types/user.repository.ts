@@ -9,7 +9,11 @@ import {
 } from "./user.model";
 
 export interface IAdminUserRepository {
-  getUsers(page?: number, limit?: number): Promise<ApiListResponse<IAdminUser>>;
+  getUsers(
+    page?: number,
+    limit?: number,
+    search?: string,
+  ): Promise<ApiListResponse<IAdminUser>>;
   getUser(id: string): Promise<IAdminUser>;
   getUserAvatars(id: string): Promise<IAdminUserAvatar[]>;
   updateUser(id: string, data: IAdminUpdateUserInput): Promise<IAdminUser>;

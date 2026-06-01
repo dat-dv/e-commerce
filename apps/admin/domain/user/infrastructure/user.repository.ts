@@ -18,11 +18,15 @@ import {
 import { type IAdminUserRepository } from "../types/user.repository";
 
 export class AdminUserRepository implements IAdminUserRepository {
-  async getUsers(page = 1, limit = 10): Promise<ApiListResponse<IAdminUser>> {
+  async getUsers(
+    page = 1,
+    limit = 10,
+    search?: string,
+  ): Promise<ApiListResponse<IAdminUser>> {
     const response = await apiClient.get<IApiResponse<IGetUsersResponse>>(
       API_ROUTES.USERS.LIST,
       {
-        params: { page, limit },
+        params: { page, limit, ...(search ? { search } : {}) },
       },
     );
 

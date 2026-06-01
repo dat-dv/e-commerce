@@ -7,6 +7,7 @@ import type { IAdminProductRepository } from "../types/product.repository";
 interface IGetProductsRequest {
   page: number;
   limit: number;
+  search?: string;
 }
 
 export class GetProductsUseCase extends UseCase<
@@ -20,6 +21,10 @@ export class GetProductsUseCase extends UseCase<
   async execute(
     request: IGetProductsRequest,
   ): Promise<IApiResponse<IProductListResponse>> {
-    return this.repository.getProducts(request.page, request.limit);
+    return this.repository.getProducts(
+      request.page,
+      request.limit,
+      request.search,
+    );
   }
 }
