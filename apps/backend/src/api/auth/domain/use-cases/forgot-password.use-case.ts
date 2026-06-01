@@ -28,7 +28,16 @@ export class ForgotPasswordUseCase {
 
     const html = this.generateResetPasswordTemplate(resetLink);
 
-    await this.mailService.sendMail(user.email, 'Reset Password', `Click here to reset password: ${resetLink}`, html);
+    const isMailSent = await this.mailService.sendMail(
+      user.email,
+      'Reset Password',
+      `Click here to reset password: ${resetLink}`,
+      html,
+    );
+
+    if (!isMailSent) {
+      throw new BadRequestException('Failed to send reset password email');
+    }
 
     return { success: true };
   }

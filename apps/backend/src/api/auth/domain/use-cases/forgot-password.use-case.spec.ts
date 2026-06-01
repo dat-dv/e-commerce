@@ -75,10 +75,34 @@ describe('ForgotPasswordUseCase', () => {
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
     mockTokenService.generateResetPasswordToken.mockResolvedValue('token');
+    mockMailService.sendMail.mockResolvedValue(true);
 
     const result = await useCase.execute({ email: 'test@example.com' });
 
     expect(result).toEqual({ success: true });
     expect(mockMailService.sendMail).toHaveBeenCalled();
+  });
+
+  it('should throw BadRequestException if reset password mail fails', async () => {
+    const user: IUserResponse = {
+      id: '1',
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'test@example.com',
+      avatar_id: null,
+      active_phone_id: null,
+      password: 'password',
+      role_id: '1',
+      created_at: new Date(),
+      updated_at: new Date(),
+      date_of_birth: null,
+      gender: EGender.FEMALE,
+      deleted_at: null,
+    };
+    mockUsersRepository.findByEmail.mockResolvedValue(user);
+    mockTokenService.generateResetPasswordToken.mockResolvedValue('token');
+    mockMailService.sendMail.mockResolvedValue(false);
+
+    await expect(useCase.execute({ email: 'test@example.com' })).rejects.toThrow(BadRequestException);
   });
 });
