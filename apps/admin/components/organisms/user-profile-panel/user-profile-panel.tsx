@@ -1,12 +1,11 @@
 import { Calendar, Mail, Phone, Shield, User } from "lucide-react";
 
 import type { IUserProfilePanelProps } from "@/components/organisms/user-detail-view/user-detail-view.types";
-
 import {
   formatAdminDate,
   getAdminUserDisplayName,
   getGenderLabel,
-} from "./user-detail-view.utils";
+} from "@/components/organisms/user-detail-view/user-detail-view.utils";
 
 export const UserProfilePanel = ({ user }: IUserProfilePanelProps) => (
   <section className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-5 shadow-xl backdrop-blur-xl">
