@@ -5,12 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
+    unoptimized: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",

@@ -1,8 +1,6 @@
-import type { IOrderResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { useCallback, useMemo, useState } from "react";
 
-import { AdminOrderRepository } from "@/domain/order";
 import {
   AdminPermissionRepository,
   type TAdminRole,
@@ -12,7 +10,6 @@ import {
   type IAdminUser,
   type IAdminUserAvatar,
 } from "@/domain/user";
-import type { ApiListResponse } from "@/utils/request";
 
 export const useUserDetailData = (userId: string | null) => {
   const userRepository = useMemo(() => new AdminUserRepository(), []);
@@ -20,14 +17,9 @@ export const useUserDetailData = (userId: string | null) => {
     () => new AdminPermissionRepository(),
     [],
   );
-  const orderRepository = useMemo(() => new AdminOrderRepository(), []);
 
   const [user, setUser] = useState<IAdminUser | null>(null);
   const [avatars, setAvatars] = useState<IAdminUserAvatar[]>([]);
-  const [orders, setOrders] = useState<ApiListResponse<IOrderResponse>>({
-    items: [],
-    meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
-  });
   const [roles, setRoles] = useState<TAdminRole[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -43,30 +35,22 @@ export const useUserDetailData = (userId: string | null) => {
     setError(null);
 
     try {
-      const [userResponse, rolesResponse, avatarsResponse, ordersResponse] =
-        await Promise.all([
-          userRepository.getUser(userId),
-          permissionRepository.getRoles(),
-          userRepository.getUserAvatars(userId),
-          orderRepository.getOrders(1, 10, { user_id: userId }),
-        ]);
+      const [userResponse, rolesResponse, avatarsResponse] = await Promise.all([
+        userRepository.getUser(userId),
+        permissionRepository.getRoles(),
+        userRepository.getUserAvatars(userId),
+      ]);
 
       setUser(userResponse);
       setRoles(rolesResponse.items);
       setAvatars(avatarsResponse);
-      setOrders(
-        ordersResponse.data || {
-          items: [],
-          meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
-        },
-      );
     } catch (err) {
       console.error(err);
       setError("Failed to load user detail.");
     } finally {
       setLoading(false);
     }
-  }, [userId, userRepository, permissionRepository, orderRepository]);
+  }, [userId, userRepository, permissionRepository]);
 
   useLoadOnce(loadData, !!userId);
 
@@ -74,7 +58,6 @@ export const useUserDetailData = (userId: string | null) => {
     user,
     avatars,
     roles,
-    orders,
     loading,
     error,
     setUser,
