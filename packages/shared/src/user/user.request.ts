@@ -14,7 +14,7 @@ export interface IUpdateUserRequest {
   date_of_birth?: string;
   gender?: EGender;
   avatar_id?: string;
-  phone_number?: string;
+  phone?: string;
   phone_code?: string;
   role_id?: string;
   deleted_at?: Date;
@@ -26,8 +26,7 @@ export interface IGetUsersRequest {
 }
 
 export interface IAddUserPhoneRequest {
-  phone_number: string;
+  phone: string;
   phone_code: string;
   is_verified: boolean;
-  is_default: boolean;
 }

@@ -26,10 +26,9 @@ export type AggregateUserPhone = {
 
 export type UserPhoneMinAggregateOutputType = {
   id: string | null
-  phone_number: string | null
+  phone: string | null
   phone_code: string | null
   is_verified: boolean | null
-  is_default: boolean | null
   user_id: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -37,10 +36,9 @@ export type UserPhoneMinAggregateOutputType = {
 
 export type UserPhoneMaxAggregateOutputType = {
   id: string | null
-  phone_number: string | null
+  phone: string | null
   phone_code: string | null
   is_verified: boolean | null
-  is_default: boolean | null
   user_id: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -48,10 +46,9 @@ export type UserPhoneMaxAggregateOutputType = {
 
 export type UserPhoneCountAggregateOutputType = {
   id: number
-  phone_number: number
+  phone: number
   phone_code: number
   is_verified: number
-  is_default: number
   user_id: number
   created_at: number
   updated_at: number
@@ -61,10 +58,9 @@ export type UserPhoneCountAggregateOutputType = {
 
 export type UserPhoneMinAggregateInputType = {
   id?: true
-  phone_number?: true
+  phone?: true
   phone_code?: true
   is_verified?: true
-  is_default?: true
   user_id?: true
   created_at?: true
   updated_at?: true
@@ -72,10 +68,9 @@ export type UserPhoneMinAggregateInputType = {
 
 export type UserPhoneMaxAggregateInputType = {
   id?: true
-  phone_number?: true
+  phone?: true
   phone_code?: true
   is_verified?: true
-  is_default?: true
   user_id?: true
   created_at?: true
   updated_at?: true
@@ -83,10 +78,9 @@ export type UserPhoneMaxAggregateInputType = {
 
 export type UserPhoneCountAggregateInputType = {
   id?: true
-  phone_number?: true
+  phone?: true
   phone_code?: true
   is_verified?: true
-  is_default?: true
   user_id?: true
   created_at?: true
   updated_at?: true
@@ -167,10 +161,9 @@ export type UserPhoneGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 
 export type UserPhoneGroupByOutputType = {
   id: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified: boolean
-  is_default: boolean
   user_id: string
   created_at: Date
   updated_at: Date
@@ -199,49 +192,49 @@ export type UserPhoneWhereInput = {
   OR?: Prisma.UserPhoneWhereInput[]
   NOT?: Prisma.UserPhoneWhereInput | Prisma.UserPhoneWhereInput[]
   id?: Prisma.StringFilter<"UserPhone"> | string
-  phone_number?: Prisma.StringFilter<"UserPhone"> | string
+  phone?: Prisma.StringFilter<"UserPhone"> | string
   phone_code?: Prisma.StringFilter<"UserPhone"> | string
   is_verified?: Prisma.BoolFilter<"UserPhone"> | boolean
-  is_default?: Prisma.BoolFilter<"UserPhone"> | boolean
   user_id?: Prisma.StringFilter<"UserPhone"> | string
   created_at?: Prisma.DateTimeFilter<"UserPhone"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"UserPhone"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  active_user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
 }
 
 export type UserPhoneOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  phone_number?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   phone_code?: Prisma.SortOrder
   is_verified?: Prisma.SortOrder
-  is_default?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+  active_user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type UserPhoneWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  phone_number?: string
+  user_id_phone?: Prisma.UserPhoneUser_idPhoneCompoundUniqueInput
   AND?: Prisma.UserPhoneWhereInput | Prisma.UserPhoneWhereInput[]
   OR?: Prisma.UserPhoneWhereInput[]
   NOT?: Prisma.UserPhoneWhereInput | Prisma.UserPhoneWhereInput[]
+  phone?: Prisma.StringFilter<"UserPhone"> | string
   phone_code?: Prisma.StringFilter<"UserPhone"> | string
   is_verified?: Prisma.BoolFilter<"UserPhone"> | boolean
-  is_default?: Prisma.BoolFilter<"UserPhone"> | boolean
   user_id?: Prisma.StringFilter<"UserPhone"> | string
   created_at?: Prisma.DateTimeFilter<"UserPhone"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"UserPhone"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "phone_number">
+  active_user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+}, "id" | "user_id_phone">
 
 export type UserPhoneOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  phone_number?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   phone_code?: Prisma.SortOrder
   is_verified?: Prisma.SortOrder
-  is_default?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -255,10 +248,9 @@ export type UserPhoneScalarWhereWithAggregatesInput = {
   OR?: Prisma.UserPhoneScalarWhereWithAggregatesInput[]
   NOT?: Prisma.UserPhoneScalarWhereWithAggregatesInput | Prisma.UserPhoneScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"UserPhone"> | string
-  phone_number?: Prisma.StringWithAggregatesFilter<"UserPhone"> | string
+  phone?: Prisma.StringWithAggregatesFilter<"UserPhone"> | string
   phone_code?: Prisma.StringWithAggregatesFilter<"UserPhone"> | string
   is_verified?: Prisma.BoolWithAggregatesFilter<"UserPhone"> | boolean
-  is_default?: Prisma.BoolWithAggregatesFilter<"UserPhone"> | boolean
   user_id?: Prisma.StringWithAggregatesFilter<"UserPhone"> | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"UserPhone"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"UserPhone"> | Date | string
@@ -266,54 +258,53 @@ export type UserPhoneScalarWhereWithAggregatesInput = {
 
 export type UserPhoneCreateInput = {
   id?: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified?: boolean
-  is_default?: boolean
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPhonesInput
+  active_user?: Prisma.UserCreateNestedOneWithoutActive_phoneInput
 }
 
 export type UserPhoneUncheckedCreateInput = {
   id?: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified?: boolean
-  is_default?: boolean
   user_id: string
   created_at?: Date | string
   updated_at?: Date | string
+  active_user?: Prisma.UserUncheckedCreateNestedOneWithoutActive_phoneInput
 }
 
 export type UserPhoneUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPhonesNestedInput
+  active_user?: Prisma.UserUpdateOneWithoutActive_phoneNestedInput
 }
 
 export type UserPhoneUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   user_id?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  active_user?: Prisma.UserUncheckedUpdateOneWithoutActive_phoneNestedInput
 }
 
 export type UserPhoneCreateManyInput = {
   id?: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified?: boolean
-  is_default?: boolean
   user_id: string
   created_at?: Date | string
   updated_at?: Date | string
@@ -321,23 +312,26 @@ export type UserPhoneCreateManyInput = {
 
 export type UserPhoneUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserPhoneUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   user_id?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type UserPhoneNullableScalarRelationFilter = {
+  is?: Prisma.UserPhoneWhereInput | null
+  isNot?: Prisma.UserPhoneWhereInput | null
 }
 
 export type UserPhoneListRelationFilter = {
@@ -350,12 +344,16 @@ export type UserPhoneOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type UserPhoneUser_idPhoneCompoundUniqueInput = {
+  user_id: string
+  phone: string
+}
+
 export type UserPhoneCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  phone_number?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   phone_code?: Prisma.SortOrder
   is_verified?: Prisma.SortOrder
-  is_default?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -363,10 +361,9 @@ export type UserPhoneCountOrderByAggregateInput = {
 
 export type UserPhoneMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  phone_number?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   phone_code?: Prisma.SortOrder
   is_verified?: Prisma.SortOrder
-  is_default?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -374,13 +371,18 @@ export type UserPhoneMaxOrderByAggregateInput = {
 
 export type UserPhoneMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  phone_number?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   phone_code?: Prisma.SortOrder
   is_verified?: Prisma.SortOrder
-  is_default?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+}
+
+export type UserPhoneCreateNestedOneWithoutActive_userInput = {
+  create?: Prisma.XOR<Prisma.UserPhoneCreateWithoutActive_userInput, Prisma.UserPhoneUncheckedCreateWithoutActive_userInput>
+  connectOrCreate?: Prisma.UserPhoneCreateOrConnectWithoutActive_userInput
+  connect?: Prisma.UserPhoneWhereUniqueInput
 }
 
 export type UserPhoneCreateNestedManyWithoutUserInput = {
@@ -395,6 +397,16 @@ export type UserPhoneUncheckedCreateNestedManyWithoutUserInput = {
   connectOrCreate?: Prisma.UserPhoneCreateOrConnectWithoutUserInput | Prisma.UserPhoneCreateOrConnectWithoutUserInput[]
   createMany?: Prisma.UserPhoneCreateManyUserInputEnvelope
   connect?: Prisma.UserPhoneWhereUniqueInput | Prisma.UserPhoneWhereUniqueInput[]
+}
+
+export type UserPhoneUpdateOneWithoutActive_userNestedInput = {
+  create?: Prisma.XOR<Prisma.UserPhoneCreateWithoutActive_userInput, Prisma.UserPhoneUncheckedCreateWithoutActive_userInput>
+  connectOrCreate?: Prisma.UserPhoneCreateOrConnectWithoutActive_userInput
+  upsert?: Prisma.UserPhoneUpsertWithoutActive_userInput
+  disconnect?: Prisma.UserPhoneWhereInput | boolean
+  delete?: Prisma.UserPhoneWhereInput | boolean
+  connect?: Prisma.UserPhoneWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserPhoneUpdateToOneWithWhereWithoutActive_userInput, Prisma.UserPhoneUpdateWithoutActive_userInput>, Prisma.UserPhoneUncheckedUpdateWithoutActive_userInput>
 }
 
 export type UserPhoneUpdateManyWithoutUserNestedInput = {
@@ -425,24 +437,49 @@ export type UserPhoneUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.UserPhoneScalarWhereInput | Prisma.UserPhoneScalarWhereInput[]
 }
 
-export type UserPhoneCreateWithoutUserInput = {
+export type UserPhoneCreateWithoutActive_userInput = {
   id?: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified?: boolean
-  is_default?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutPhonesInput
+}
+
+export type UserPhoneUncheckedCreateWithoutActive_userInput = {
+  id?: string
+  phone: string
+  phone_code: string
+  is_verified?: boolean
+  user_id: string
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type UserPhoneUncheckedCreateWithoutUserInput = {
+export type UserPhoneCreateOrConnectWithoutActive_userInput = {
+  where: Prisma.UserPhoneWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserPhoneCreateWithoutActive_userInput, Prisma.UserPhoneUncheckedCreateWithoutActive_userInput>
+}
+
+export type UserPhoneCreateWithoutUserInput = {
   id?: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified?: boolean
-  is_default?: boolean
   created_at?: Date | string
   updated_at?: Date | string
+  active_user?: Prisma.UserCreateNestedOneWithoutActive_phoneInput
+}
+
+export type UserPhoneUncheckedCreateWithoutUserInput = {
+  id?: string
+  phone: string
+  phone_code: string
+  is_verified?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  active_user?: Prisma.UserUncheckedCreateNestedOneWithoutActive_phoneInput
 }
 
 export type UserPhoneCreateOrConnectWithoutUserInput = {
@@ -453,6 +490,37 @@ export type UserPhoneCreateOrConnectWithoutUserInput = {
 export type UserPhoneCreateManyUserInputEnvelope = {
   data: Prisma.UserPhoneCreateManyUserInput | Prisma.UserPhoneCreateManyUserInput[]
   skipDuplicates?: boolean
+}
+
+export type UserPhoneUpsertWithoutActive_userInput = {
+  update: Prisma.XOR<Prisma.UserPhoneUpdateWithoutActive_userInput, Prisma.UserPhoneUncheckedUpdateWithoutActive_userInput>
+  create: Prisma.XOR<Prisma.UserPhoneCreateWithoutActive_userInput, Prisma.UserPhoneUncheckedCreateWithoutActive_userInput>
+  where?: Prisma.UserPhoneWhereInput
+}
+
+export type UserPhoneUpdateToOneWithWhereWithoutActive_userInput = {
+  where?: Prisma.UserPhoneWhereInput
+  data: Prisma.XOR<Prisma.UserPhoneUpdateWithoutActive_userInput, Prisma.UserPhoneUncheckedUpdateWithoutActive_userInput>
+}
+
+export type UserPhoneUpdateWithoutActive_userInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  phone_code?: Prisma.StringFieldUpdateOperationsInput | string
+  is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutPhonesNestedInput
+}
+
+export type UserPhoneUncheckedUpdateWithoutActive_userInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  phone_code?: Prisma.StringFieldUpdateOperationsInput | string
+  is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  user_id?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserPhoneUpsertWithWhereUniqueWithoutUserInput = {
@@ -476,10 +544,9 @@ export type UserPhoneScalarWhereInput = {
   OR?: Prisma.UserPhoneScalarWhereInput[]
   NOT?: Prisma.UserPhoneScalarWhereInput | Prisma.UserPhoneScalarWhereInput[]
   id?: Prisma.StringFilter<"UserPhone"> | string
-  phone_number?: Prisma.StringFilter<"UserPhone"> | string
+  phone?: Prisma.StringFilter<"UserPhone"> | string
   phone_code?: Prisma.StringFilter<"UserPhone"> | string
   is_verified?: Prisma.BoolFilter<"UserPhone"> | boolean
-  is_default?: Prisma.BoolFilter<"UserPhone"> | boolean
   user_id?: Prisma.StringFilter<"UserPhone"> | string
   created_at?: Prisma.DateTimeFilter<"UserPhone"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"UserPhone"> | Date | string
@@ -487,40 +554,38 @@ export type UserPhoneScalarWhereInput = {
 
 export type UserPhoneCreateManyUserInput = {
   id?: string
-  phone_number: string
+  phone: string
   phone_code: string
   is_verified?: boolean
-  is_default?: boolean
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type UserPhoneUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  active_user?: Prisma.UserUpdateOneWithoutActive_phoneNestedInput
 }
 
 export type UserPhoneUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  active_user?: Prisma.UserUncheckedUpdateOneWithoutActive_phoneNestedInput
 }
 
 export type UserPhoneUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   phone_code?: Prisma.StringFieldUpdateOperationsInput | string
   is_verified?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_default?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -529,22 +594,21 @@ export type UserPhoneUncheckedUpdateManyWithoutUserInput = {
 
 export type UserPhoneSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  phone_number?: boolean
+  phone?: boolean
   phone_code?: boolean
   is_verified?: boolean
-  is_default?: boolean
   user_id?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  active_user?: boolean | Prisma.UserPhone$active_userArgs<ExtArgs>
 }, ExtArgs["result"]["userPhone"]>
 
 export type UserPhoneSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  phone_number?: boolean
+  phone?: boolean
   phone_code?: boolean
   is_verified?: boolean
-  is_default?: boolean
   user_id?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -553,10 +617,9 @@ export type UserPhoneSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
 
 export type UserPhoneSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  phone_number?: boolean
+  phone?: boolean
   phone_code?: boolean
   is_verified?: boolean
-  is_default?: boolean
   user_id?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -565,18 +628,18 @@ export type UserPhoneSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
 
 export type UserPhoneSelectScalar = {
   id?: boolean
-  phone_number?: boolean
+  phone?: boolean
   phone_code?: boolean
   is_verified?: boolean
-  is_default?: boolean
   user_id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type UserPhoneOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "phone_number" | "phone_code" | "is_verified" | "is_default" | "user_id" | "created_at" | "updated_at", ExtArgs["result"]["userPhone"]>
+export type UserPhoneOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "phone" | "phone_code" | "is_verified" | "user_id" | "created_at" | "updated_at", ExtArgs["result"]["userPhone"]>
 export type UserPhoneInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  active_user?: boolean | Prisma.UserPhone$active_userArgs<ExtArgs>
 }
 export type UserPhoneIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -589,13 +652,13 @@ export type $UserPhonePayload<ExtArgs extends runtime.Types.Extensions.InternalA
   name: "UserPhone"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+    active_user: Prisma.$UserPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    phone_number: string
+    phone: string
     phone_code: string
     is_verified: boolean
-    is_default: boolean
     user_id: string
     created_at: Date
     updated_at: Date
@@ -994,6 +1057,7 @@ readonly fields: UserPhoneFieldRefs;
 export interface Prisma__UserPhoneClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  active_user<T extends Prisma.UserPhone$active_userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserPhone$active_userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1024,10 +1088,9 @@ export interface Prisma__UserPhoneClient<T, Null = never, ExtArgs extends runtim
  */
 export interface UserPhoneFieldRefs {
   readonly id: Prisma.FieldRef<"UserPhone", 'String'>
-  readonly phone_number: Prisma.FieldRef<"UserPhone", 'String'>
+  readonly phone: Prisma.FieldRef<"UserPhone", 'String'>
   readonly phone_code: Prisma.FieldRef<"UserPhone", 'String'>
   readonly is_verified: Prisma.FieldRef<"UserPhone", 'Boolean'>
-  readonly is_default: Prisma.FieldRef<"UserPhone", 'Boolean'>
   readonly user_id: Prisma.FieldRef<"UserPhone", 'String'>
   readonly created_at: Prisma.FieldRef<"UserPhone", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"UserPhone", 'DateTime'>
@@ -1429,6 +1492,25 @@ export type UserPhoneDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Limit how many UserPhones to delete.
    */
   limit?: number
+}
+
+/**
+ * UserPhone.active_user
+ */
+export type UserPhone$active_userArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the User
+   */
+  select?: Prisma.UserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the User
+   */
+  omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  where?: Prisma.UserWhereInput
 }
 
 /**

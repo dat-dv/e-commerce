@@ -26,11 +26,8 @@ export class UsersRepository implements IUsersRepository {
         image: true,
       },
     },
-    phones: {
-      where: {
-        is_default: true,
-      },
-    },
+    active_phone: true,
+    phones: true,
   };
 
   async findById(id: string): Promise<IUserResponse | null> {
@@ -51,63 +48,39 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse> {
-    const { phone_number, phone_code, avatar_id, date_of_birth, role_id, ...userData } = updateData;
-    const isUpdatePhone = !!(phone_number && phone_code);
+    const { phone, phone_code, avatar_id, date_of_birth, role_id, ...userData } = updateData;
+    const isUpdatePhone = !!(phone && phone_code);
 
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
+      let activePhoneConnectId: string | undefined;
       if (isUpdatePhone) {
         const existingPhone = await tx.userPhone.findUnique({
-          where: { phone_number },
+          where: {
+            user_id_phone: {
+              user_id: id,
+              phone,
+            },
+          },
         });
 
         if (existingPhone) {
-          if (existingPhone.user_id !== id) {
-            throw new BadRequestException('Phone number is already in use by another account');
-          }
-
-          await tx.userPhone.updateMany({
-            where: {
-              user_id: id,
-              id: { not: existingPhone.id },
-            },
-            data: {
-              is_default: false,
-            },
-          });
-
           await tx.userPhone.update({
             where: { id: existingPhone.id },
             data: {
               phone_code,
-              is_default: true,
             },
           });
+          activePhoneConnectId = existingPhone.id;
         } else {
-          const defaultPhone = await tx.userPhone.findFirst({
-            where: {
+          const createdPhone = await tx.userPhone.create({
+            data: {
               user_id: id,
-              is_default: true,
+              phone,
+              phone_code,
             },
+            select: { id: true },
           });
-
-          if (defaultPhone) {
-            await tx.userPhone.update({
-              where: { id: defaultPhone.id },
-              data: {
-                phone_number,
-                phone_code,
-              },
-            });
-          } else {
-            await tx.userPhone.create({
-              data: {
-                user_id: id,
-                phone_number,
-                phone_code,
-                is_default: true,
-              },
-            });
-          }
+          activePhoneConnectId = createdPhone.id;
         }
       }
 
@@ -125,6 +98,13 @@ export class UsersRepository implements IUsersRepository {
             avatar: {
               connect: {
                 id: avatarConnectId,
+              },
+            },
+          }),
+          ...(activePhoneConnectId && {
+            active_phone: {
+              connect: {
+                id: activePhoneConnectId,
               },
             },
           }),
@@ -297,17 +277,34 @@ export class UsersRepository implements IUsersRepository {
 
   async addUserPhone(
     userId: string,
-    data: { phone_number: string; phone_code: string; is_verified: boolean; is_default: boolean },
+    data: { phone: string; phone_code: string; is_verified: boolean },
   ): Promise<boolean> {
-    await this.prisma.userPhone.create({
-      data: {
-        user_id: userId,
-        phone_number: data.phone_number,
+    const phone = await this.prisma.userPhone.upsert({
+      where: {
+        user_id_phone: {
+          user_id: userId,
+          phone: data.phone,
+        },
+      },
+      update: {
         phone_code: data.phone_code,
-        is_default: data.is_default,
         is_verified: data.is_verified,
-        created_at: new Date(),
-        updated_at: new Date(),
+      },
+      create: {
+        user_id: userId,
+        phone: data.phone,
+        phone_code: data.phone_code,
+        is_verified: data.is_verified,
+      },
+      select: { id: true },
+    });
+
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        active_phone: {
+          connect: { id: phone.id },
+        },
       },
     });
 

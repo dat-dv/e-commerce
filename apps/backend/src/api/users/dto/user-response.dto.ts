@@ -38,7 +38,9 @@ export class UserResponseDto implements IUserResponse {
   deleted_at: Date | null;
   role_id: string | null;
   avatar_id: string | null;
+  active_phone_id: string | null;
   role?: Role | null;
   avatar?: Image | null;
+  active_phone?: UserPhone | null;
   phones?: UserPhone[];
 }

@@ -27,6 +27,6 @@ export interface IChangePasswordRequest {
 
 export interface IVerifyPhoneRequest {
   token: string;
-  phone_number: string;
+  phone: string;
   phone_code: string;
 }

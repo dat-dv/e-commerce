@@ -3900,7 +3900,8 @@ export const UserScalarFieldEnum = {
   updated_at: 'updated_at',
   deleted_at: 'deleted_at',
   role_id: 'role_id',
-  avatar_id: 'avatar_id'
+  avatar_id: 'avatar_id',
+  active_phone_id: 'active_phone_id'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -3939,10 +3940,9 @@ export type UserFavoriteProductScalarFieldEnum = (typeof UserFavoriteProductScal
 
 export const UserPhoneScalarFieldEnum = {
   id: 'id',
-  phone_number: 'phone_number',
+  phone: 'phone',
   phone_code: 'phone_code',
   is_verified: 'is_verified',
-  is_default: 'is_default',
   user_id: 'user_id',
   created_at: 'created_at',
   updated_at: 'updated_at'

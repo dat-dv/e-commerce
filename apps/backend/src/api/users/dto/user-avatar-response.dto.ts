@@ -7,15 +7,23 @@ type UserAvatarResponseInput = UserAvatar & {
 export class UserAvatarResponseDto implements IUserAvatarResponse {
   constructor(userAvatar: UserAvatarResponseInput, isCurrent: boolean) {
     Object.assign(this, {
-      ...userAvatar,
+      id: userAvatar.id,
+      image_id: userAvatar.image_id,
+      url: userAvatar.image.url,
+      width: userAvatar.image.width,
+      height: userAvatar.image.height,
+      format: userAvatar.image.format,
       is_current: isCurrent,
+      created_at: userAvatar.created_at,
     });
   }
 
   id: string;
-  user_id: string;
   image_id: string;
-  created_at: Date;
-  image: Image;
+  url: string;
+  width: number | null;
+  height: number | null;
+  format: string | null;
   is_current: boolean;
+  created_at: Date;
 }

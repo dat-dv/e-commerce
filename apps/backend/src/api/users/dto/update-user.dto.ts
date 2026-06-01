@@ -26,7 +26,7 @@ export class UpdateUserDto implements IUpdateUserRequest {
 
   @IsString()
   @IsOptional()
-  phone_number?: string;
+  phone?: string;
 
   @IsString()
   @IsOptional()

@@ -41,6 +41,7 @@ describe('RemoveUserUseCase', () => {
       last_name: 'User',
       email: 'test@example.com',
       avatar_id: null,
+      active_phone_id: null,
       password: 'password',
       created_at: new Date(),
       updated_at: new Date(),

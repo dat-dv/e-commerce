@@ -8,7 +8,7 @@ export class VerifyPhoneDto implements IVerifyPhoneRequest {
 
   @IsString()
   @IsNotEmpty()
-  phone_number: string;
+  phone: string;
 
   @IsString()
   @IsNotEmpty()

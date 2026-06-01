@@ -65,6 +65,7 @@ describe('RegisterUseCase', () => {
       last_name: 'User',
       email: 'test@example.com',
       avatar_id: null,
+      active_phone_id: null,
       password: 'password',
       role_id: '1',
       created_at: new Date(),

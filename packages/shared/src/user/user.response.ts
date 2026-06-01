@@ -4,6 +4,7 @@ import type { IPaginatedResult } from "../paginate";
 export interface IUserResponse extends User {
   role?: Role | null;
   avatar?: Image | null;
+  active_phone?: UserPhone | null;
   phones?: UserPhone[];
 }
 
@@ -16,7 +17,13 @@ export interface IUpdateProfileResponse {
 
 export type IGetUsersResponse = IPaginatedResult<IUserProfileResponse>;
 
-export interface IUserAvatarResponse extends UserAvatar {
-  image: Image;
+export interface IUserAvatarResponse {
+  id: UserAvatar["id"];
+  image_id: UserAvatar["image_id"];
+  url: Image["url"];
+  width: Image["width"];
+  height: Image["height"];
+  format: Image["format"];
   is_current: boolean;
+  created_at: UserAvatar["created_at"];
 }

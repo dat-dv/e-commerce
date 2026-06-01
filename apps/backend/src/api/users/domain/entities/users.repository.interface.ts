@@ -12,10 +12,7 @@ export interface IUsersRepository {
   getUserPermissions(userId: string): Promise<string[]>;
   getUserAvatarPublicId(userId: string): Promise<string | null>;
   findUserAvatars(userId: string): Promise<IUserAvatarResponse[] | null>;
-  addUserPhone(
-    userId: string,
-    data: { phone_number: string; phone_code: string; is_verified: boolean; is_default: boolean },
-  ): Promise<boolean>;
+  addUserPhone(userId: string, data: { phone: string; phone_code: string; is_verified: boolean }): Promise<boolean>;
   remove(id: string): Promise<void>;
 }
 

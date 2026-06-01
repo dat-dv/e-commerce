@@ -21,7 +21,7 @@ export class VerifyPhoneUseCase {
       }
 
       // Validate that the provided phone and phone_code match the verified number
-      const providedPhoneNumber = `${dto.phone_code}${dto.phone_number}`;
+      const providedPhoneNumber = `${dto.phone_code}${dto.phone}`;
 
       const cleanProvided = providedPhoneNumber.replace(/\D/g, '');
       const cleanVerified = verifiedPhoneNumber.replace(/\D/g, '');
@@ -38,10 +38,9 @@ export class VerifyPhoneUseCase {
 
       // Add phone record
       const result = await this.usersRepository.addUserPhone(userId, {
-        phone_number: dto.phone_number,
+        phone: dto.phone,
         phone_code: dto.phone_code,
         is_verified: true,
-        is_default: true,
       });
 
       return result;

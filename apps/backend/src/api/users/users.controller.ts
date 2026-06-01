@@ -83,7 +83,7 @@ export class UsersController {
           type: 'string',
           description: 'Existing user avatar id or image id',
         },
-        phone_number: {
+        phone: {
           type: 'string',
           example: '',
         },
