@@ -5,12 +5,12 @@ import {
   Button,
   type ITableColumn,
   Pagination,
-  SearchInput,
   TableCommon,
 } from "@ecommerce/ui";
 import { Eye } from "lucide-react";
 import React from "react";
 
+import { FilterBar } from "@/components/molecules/filter-bar";
 import { PageHeader } from "@/components/molecules/page-header";
 import type { IAdminUser } from "@/domain/user/types/user.model";
 import { useCustomersView } from "@/hooks/user/use-customers-view";
@@ -117,16 +117,11 @@ export const CustomersView = () => {
         description="View and manage registered system customers, details, and roles."
       />
 
-      {/* Filter / Search Bar */}
-      <div className="relative rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
-        <SearchInput
-          placeholder="Search customers by name or email..."
-          value={searchQuery}
-          onSearch={handleSearch}
-          showSubmitButton={true}
-          className="w-full"
-        />
-      </div>
+      <FilterBar
+        searchQuery={searchQuery}
+        onSearchQueryChange={handleSearch}
+        searchPlaceholder="Search customers by name or email..."
+      />
 
       {/* User Table Card */}
       <div className="flex flex-col gap-4">

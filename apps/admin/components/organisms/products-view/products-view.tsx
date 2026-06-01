@@ -1,8 +1,8 @@
 "use client";
 
-import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
+import { FilterBar } from "@/components/molecules/filter-bar";
 import { ProductsHeader } from "@/components/molecules/products-header";
 import { ProductsTable } from "@/components/organisms/products-view/products-table";
 import { useProductsView } from "@/hooks/product/use-products-view";
@@ -25,17 +25,11 @@ export const ProductsView = () => {
     <div className="space-y-6">
       <ProductsHeader total={total} />
 
-      {/* Search bar */}
-      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
-        <SearchInput
-          placeholder="Search by product name or slug..."
-          value={searchQuery}
-          onSearch={(q) => setSearchQuery(q)}
-          onChange={(q) => setSearchQuery(q)}
-          showSubmitButton={false}
-          className="w-full"
-        />
-      </div>
+      <FilterBar
+        searchQuery={searchQuery}
+        onSearchQueryChange={setSearchQuery}
+        searchPlaceholder="Search by product name or slug..."
+      />
 
       <ProductsTable
         products={filteredProducts}

@@ -5,13 +5,15 @@ import { Plus, ShieldCog } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
+import { FilterBar } from "@/components/molecules/filter-bar";
 import { PageHeader } from "@/components/molecules/page-header";
 import { APP_ROUTES } from "@/constants/routes";
 import type { TAdminRole } from "@/domain/permission";
 import { useRolesView } from "@/hooks/role/use-roles-view";
 
 export const RolesView = () => {
-  const { roles, loading, error, handleEditRole } = useRolesView();
+  const { roles, loading, error, searchQuery, setSearchQuery, handleEditRole } =
+    useRolesView();
 
   const columns: ITableColumn<TAdminRole>[] = [
     {
@@ -67,6 +69,12 @@ export const RolesView = () => {
           Create Role
         </Button>
       </PageHeader>
+
+      <FilterBar
+        searchQuery={searchQuery}
+        onSearchQueryChange={setSearchQuery}
+        searchPlaceholder="Search roles by name or description..."
+      />
 
       <div className="flex flex-col gap-4">
         <TableCommon<TAdminRole>

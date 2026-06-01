@@ -1,8 +1,8 @@
 "use client";
 
-import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
+import { FilterBar } from "@/components/molecules/filter-bar";
 import { OrdersHeader } from "@/components/molecules/orders-header";
 import { OrderDetailDialog } from "@/components/organisms/orders-view/order-detail-dialog";
 import { OrdersTable } from "@/components/organisms/orders-view/orders-table";
@@ -29,17 +29,11 @@ export const OrdersView = () => {
     <div className="space-y-6">
       <OrdersHeader total={total} />
 
-      {/* Search bar */}
-      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
-        <SearchInput
-          placeholder="Search by order ID, customer name or email..."
-          value={searchQuery}
-          onSearch={(q) => setSearchQuery(q)}
-          onChange={(q) => setSearchQuery(q)}
-          showSubmitButton={false}
-          className="w-full"
-        />
-      </div>
+      <FilterBar
+        searchQuery={searchQuery}
+        onSearchQueryChange={setSearchQuery}
+        searchPlaceholder="Search by order ID, customer name or email..."
+      />
 
       <OrdersTable
         orders={filteredOrders}

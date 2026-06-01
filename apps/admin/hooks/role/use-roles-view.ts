@@ -21,6 +21,7 @@ export const useRolesView = () => {
   const [roles, setRoles] = useState<TAdminRole[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const loadData = useCallback(async () => {
     setLoading(true);
@@ -45,10 +46,22 @@ export const useRolesView = () => {
     router.push(`${APP_ROUTES.PERMISSIONS}?id=${role.id}`);
   };
 
+  const filteredRoles = useMemo(() => {
+    if (!searchQuery) return roles;
+    const lower = searchQuery.toLowerCase();
+    return roles.filter(
+      (r) =>
+        r.role_name?.toLowerCase().includes(lower) ||
+        r.description?.toLowerCase().includes(lower),
+    );
+  }, [roles, searchQuery]);
+
   return {
-    roles,
+    roles: filteredRoles,
     loading,
     error,
+    searchQuery,
+    setSearchQuery,
     handleEditRole,
   };
 };
