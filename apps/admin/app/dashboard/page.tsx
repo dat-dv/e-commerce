@@ -1,5 +1,7 @@
 import { type Metadata } from "next";
 
+import { PageHeader } from "@/components/molecules/page-header";
+
 export const metadata: Metadata = {
   title: "Dashboard",
 };
@@ -7,14 +9,10 @@ export const metadata: Metadata = {
 export default function DashboardPage() {
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight text-[var(--app-text)]">
-          Dashboard
-        </h1>
-        <p className="mt-1 text-sm text-[var(--muted)]">
-          Welcome back — here&apos;s an overview of your store.
-        </p>
-      </div>
+      <PageHeader
+        title="Dashboard"
+        description="Welcome back — here's an overview of your store."
+      />
 
       {/* Placeholder metric cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,6 +1,5 @@
 "use client";
 
-import { CreateRolePanel } from "./create-role-panel";
 import { PermissionsHeader } from "./permissions-header";
 import { PermissionsStatusAlert } from "./permissions-status-alert";
 import { RolePermissionsPanel } from "./role-permissions-panel";
@@ -12,22 +11,14 @@ export const PermissionsView = () => {
     permissions,
     selectedRoleId,
     selectedPermissionIds,
-    newRoleName,
-    newRoleDescription,
-    newRolePermissionIds,
     savingPermissions,
-    creatingRole,
     error,
     successMessage,
     selectedRole,
     groupedPermissions,
     handleRoleChange,
     togglePermission,
-    toggleNewRolePermission,
-    handleCreateRole,
     handleSavePermissions,
-    setNewRoleName,
-    setNewRoleDescription,
   } = usePermissionsView();
 
   return (
@@ -39,7 +30,7 @@ export const PermissionsView = () => {
 
       <PermissionsStatusAlert error={error} successMessage={successMessage} />
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]">
+      <div className="w-full">
         <RolePermissionsPanel
           roles={roles}
           selectedRole={selectedRole}
@@ -50,18 +41,6 @@ export const PermissionsView = () => {
           onRoleChange={handleRoleChange}
           onTogglePermission={togglePermission}
           onSavePermissions={handleSavePermissions}
-        />
-
-        <CreateRolePanel
-          roleName={newRoleName}
-          description={newRoleDescription}
-          selectedPermissionIds={newRolePermissionIds}
-          groupedPermissions={groupedPermissions}
-          creatingRole={creatingRole}
-          onRoleNameChange={setNewRoleName}
-          onDescriptionChange={setNewRoleDescription}
-          onTogglePermission={toggleNewRolePermission}
-          onCreateRole={handleCreateRole}
         />
       </div>
     </div>

@@ -77,7 +77,7 @@ export const RolePermissionsPanel = ({
                 </span>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-2">
+              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {categoryPermissions.map((permission) => (
                   <Checkbox
                     key={permission.id}

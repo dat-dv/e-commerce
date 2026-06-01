@@ -27,14 +27,8 @@ export const usePermissionsView = () => {
   const [selectedPermissionIds, setSelectedPermissionIds] = useState<string[]>(
     [],
   );
-  const [newRoleName, setNewRoleName] = useState("");
-  const [newRoleDescription, setNewRoleDescription] = useState("");
-  const [newRolePermissionIds, setNewRolePermissionIds] = useState<string[]>(
-    [],
-  );
   const [loading, setLoading] = useState(true);
   const [savingPermissions, setSavingPermissions] = useState(false);
-  const [creatingRole, setCreatingRole] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
@@ -93,46 +87,6 @@ export const usePermissionsView = () => {
     setSuccessMessage(null);
   };
 
-  const toggleNewRolePermission = (permissionId: string) => {
-    setNewRolePermissionIds((current) =>
-      current.includes(permissionId)
-        ? current.filter((id) => id !== permissionId)
-        : [...current, permissionId],
-    );
-    setSuccessMessage(null);
-  };
-
-  const handleCreateRole = async () => {
-    const roleName = newRoleName.trim();
-    if (!roleName) return;
-
-    setCreatingRole(true);
-    setError(null);
-    setSuccessMessage(null);
-
-    try {
-      const response = await permissionRepository.createRole({
-        role_name: roleName,
-        description: newRoleDescription.trim() || undefined,
-        permissions: newRolePermissionIds,
-      });
-      const createdRole = response.data;
-
-      setRoles((current) => [createdRole, ...current]);
-      setSelectedRoleId(createdRole.id);
-      setSelectedPermissionIds(getPermissionIds(createdRole));
-      setNewRoleName("");
-      setNewRoleDescription("");
-      setNewRolePermissionIds([]);
-      setSuccessMessage("Role created.");
-    } catch (err) {
-      console.error(err);
-      setError("Failed to create role.");
-    } finally {
-      setCreatingRole(false);
-    }
-  };
-
   const handleSavePermissions = async () => {
     if (!selectedRoleId) return;
 
@@ -166,22 +120,14 @@ export const usePermissionsView = () => {
     permissions,
     selectedRoleId,
     selectedPermissionIds,
-    newRoleName,
-    newRoleDescription,
-    newRolePermissionIds,
     loading,
     savingPermissions,
-    creatingRole,
     error,
     successMessage,
     selectedRole,
     groupedPermissions,
     handleRoleChange,
     togglePermission,
-    toggleNewRolePermission,
-    handleCreateRole,
     handleSavePermissions,
-    setNewRoleName,
-    setNewRoleDescription,
   };
 };

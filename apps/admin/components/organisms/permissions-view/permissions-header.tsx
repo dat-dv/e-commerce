@@ -1,6 +1,9 @@
-import { ShieldCheck } from "lucide-react";
+import { Button } from "@ecommerce/ui";
+import { Plus, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 
 import { PageHeader } from "@/components/molecules/page-header";
+import { APP_ROUTES } from "@/constants/routes";
 
 import type { IPermissionsHeaderProps } from "./permissions-view.types";
 
@@ -10,7 +13,20 @@ export const PermissionsHeader = ({
   title = "Role Settings",
   description = "Create roles and manage the permissions each role owns.",
 }: IPermissionsHeaderProps) => (
-  <PageHeader title={title} description={description}>
+  <PageHeader
+    title={title}
+    description={description}
+    actions={
+      <Button
+        linkComponent={Link}
+        href={APP_ROUTES.PERMISSIONS + "/create"}
+        className="inline-flex items-center gap-2"
+      >
+        <Plus className="h-4 w-4" />
+        Create Role
+      </Button>
+    }
+  >
     <div className="flex items-center gap-2 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] px-4 py-3 text-sm text-[var(--muted)] shadow-sm">
       <ShieldCheck className="text-primary h-4 w-4" />
       <span>
