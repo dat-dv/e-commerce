@@ -1,4 +1,4 @@
-import type { User, Role, Image, UserPhone } from "../generate/browser";
+import type { User, Role, Image, UserPhone, UserAvatar } from "../generate/browser";
 import type { IPaginatedResult } from "../paginate";
 
 export interface IUserResponse extends User {
@@ -15,3 +15,8 @@ export interface IUpdateProfileResponse {
 }
 
 export type IGetUsersResponse = IPaginatedResult<IUserProfileResponse>;
+
+export interface IUserAvatarResponse extends UserAvatar {
+  image: Image;
+  is_current: boolean;
+}

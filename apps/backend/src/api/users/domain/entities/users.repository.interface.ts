@@ -1,4 +1,4 @@
-import { IUserResponse, IPaginatedResult } from '@ecommerce/shared';
+import { IUserResponse, IPaginatedResult, IUserAvatarResponse } from '@ecommerce/shared';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 import { CreateUserDto } from '../../dto/create-user.dto';
 
@@ -11,6 +11,7 @@ export interface IUsersRepository {
   findAll(page: number, limit: number): Promise<IPaginatedResult<IUserResponse>>;
   getUserPermissions(userId: string): Promise<string[]>;
   getUserAvatarPublicId(userId: string): Promise<string | null>;
+  findUserAvatars(userId: string): Promise<IUserAvatarResponse[] | null>;
   addUserPhone(
     userId: string,
     data: { phone_number: string; phone_code: string; is_verified: boolean; is_default: boolean },

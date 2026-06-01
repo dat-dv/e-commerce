@@ -7,6 +7,7 @@ import { CreateUserUseCase } from './domain/use-cases/create-user.use-case';
 import { UpdateUserUseCase } from './domain/use-cases/update-user.use-case';
 import { FindAllUsersUseCase } from './domain/use-cases/find-all-users.use-case';
 import { FindOneUserUseCase } from './domain/use-cases/find-one-user.use-case';
+import { GetUserAvatarsUseCase } from './domain/use-cases/get-user-avatars.use-case';
 import { RemoveUserUseCase } from './domain/use-cases/remove-user.use-case';
 import { IUsersRepository } from './domain/entities/users.repository.interface';
 import { UsersRepository } from './domain/infrastructure/users.repository';
@@ -21,6 +22,7 @@ import { PaginationService } from 'src/shared/services/pagination/pagination.ser
     UpdateUserUseCase,
     FindAllUsersUseCase,
     FindOneUserUseCase,
+    GetUserAvatarsUseCase,
     RemoveUserUseCase,
     {
       provide: IUsersRepository,
@@ -33,6 +35,7 @@ import { PaginationService } from 'src/shared/services/pagination/pagination.ser
     UpdateUserUseCase,
     FindAllUsersUseCase,
     FindOneUserUseCase,
+    GetUserAvatarsUseCase,
     RemoveUserUseCase,
     IUsersRepository,
   ],

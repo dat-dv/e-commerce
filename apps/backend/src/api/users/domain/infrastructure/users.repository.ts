@@ -1,4 +1,4 @@
-import { IPaginatedResult, IUserResponse } from '@ecommerce/shared';
+import { IPaginatedResult, IUserAvatarResponse, IUserResponse } from '@ecommerce/shared';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import * as crypto from 'crypto';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
@@ -9,6 +9,7 @@ import { IUsersRepository } from '../entities/users.repository.interface';
 
 import { CreateUserDto } from '../../dto/create-user.dto';
 import { UpdateUserDto } from '../../dto/update-user.dto';
+import { UserAvatarResponseDto } from '../../dto/user-avatar-response.dto';
 import { UserResponseDto } from '../../dto/user-response.dto';
 
 @Injectable()
@@ -254,6 +255,26 @@ export class UsersRepository implements IUsersRepository {
     });
 
     return user?.avatar?.image?.public_id || null;
+  }
+
+  async findUserAvatars(userId: string): Promise<IUserAvatarResponse[] | null> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      include: {
+        avatars: {
+          include: {
+            image: true,
+          },
+          orderBy: {
+            created_at: 'desc',
+          },
+        },
+      },
+    });
+
+    if (!user) return null;
+
+    return user.avatars.map((avatar) => new UserAvatarResponseDto(avatar, avatar.id === user.avatar_id));
   }
 
   async addUserPhone(

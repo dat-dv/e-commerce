@@ -16,6 +16,7 @@ import { CreateUserUseCase } from './domain/use-cases/create-user.use-case';
 import { UpdateUserUseCase } from './domain/use-cases/update-user.use-case';
 import { FindAllUsersUseCase } from './domain/use-cases/find-all-users.use-case';
 import { FindOneUserUseCase } from './domain/use-cases/find-one-user.use-case';
+import { GetUserAvatarsUseCase } from './domain/use-cases/get-user-avatars.use-case';
 import { RemoveUserUseCase } from './domain/use-cases/remove-user.use-case';
 import { UpdateAvatarUseCase } from './domain/use-cases/update-avatar.use-case';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -29,7 +30,7 @@ import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiConsumes, ApiBody, ApiOperation } from '@nestjs/swagger';
 import { UploadImageUseCase } from '../upload/domain/use-cases/upload-image.use-case';
-import { IApiResponse, IImage, IUserProfileResponse, IGetUsersResponse } from '@ecommerce/shared';
+import { IApiResponse, IImage, IUserAvatarResponse, IUserProfileResponse, IGetUsersResponse } from '@ecommerce/shared';
 
 @UseGuards(AuthGuard)
 @Controller('users')
@@ -39,6 +40,7 @@ export class UsersController {
     private readonly updateUserUseCase: UpdateUserUseCase,
     private readonly findAllUsersUseCase: FindAllUsersUseCase,
     private readonly findOneUserUseCase: FindOneUserUseCase,
+    private readonly getUserAvatarsUseCase: GetUserAvatarsUseCase,
     private readonly removeUserUseCase: RemoveUserUseCase,
     private readonly updateAvatarUseCase: UpdateAvatarUseCase,
     private readonly uploadImageUseCase: UploadImageUseCase,
@@ -80,6 +82,21 @@ export class UsersController {
   @Permissions('LIST:USER')
   async findAll(@Query() paginationDto: GetUsersDto): Promise<IApiResponse<IGetUsersResponse>> {
     const res = await this.findAllUsersUseCase.execute(paginationDto.page, paginationDto.limit);
+    return createSuccessResponse(res);
+  }
+
+  @Get('/avatars')
+  @UseGuards(AuthGuard)
+  async getCurrentUserAvatar(@Req() req: Request): Promise<IApiResponse<IUserAvatarResponse[]>> {
+    const res = await this.getUserAvatarsUseCase.execute(req.user?.sub, req.user?.sub);
+    return createSuccessResponse(res);
+  }
+
+  @Get(':id/avatars')
+  @UseGuards(PermissionsGuard)
+  @Permissions('LIST:ANY_USER')
+  async getAvatars(@Req() req: Request, @Param('id') id: string): Promise<IApiResponse<IUserAvatarResponse[]>> {
+    const res = await this.getUserAvatarsUseCase.execute(id, req.user?.sub);
     return createSuccessResponse(res);
   }
 
