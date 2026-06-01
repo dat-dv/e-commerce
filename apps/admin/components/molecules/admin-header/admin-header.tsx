@@ -2,6 +2,7 @@
 
 import { Button, Logo } from "@ecommerce/ui";
 import { Settings } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 import { BellIcon, MenuIcon } from "@/components/atoms/icons";
@@ -59,6 +60,7 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
 
           {/* Settings */}
           <Button
+            linkComponent={Link}
             href={APP_ROUTES.SETTINGS}
             variant="ghost"
             size="icon"
