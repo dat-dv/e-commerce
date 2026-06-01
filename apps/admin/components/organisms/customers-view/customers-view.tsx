@@ -11,6 +11,7 @@ import {
 import { Eye } from "lucide-react";
 import React from "react";
 
+import { PageHeader } from "@/components/molecules/page-header";
 import type { IAdminUser } from "@/domain/user/types/user.model";
 
 import { useCustomersView } from "./use-customers-view";
@@ -112,16 +113,10 @@ export const CustomersView = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight text-[var(--app-text)] sm:text-3xl">
-            Customer Management
-          </h1>
-          <p className="mt-1.5 text-sm text-[var(--muted)]">
-            View and manage registered system customers, details, and roles.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        title="Customer Management"
+        description="View and manage registered system customers, details, and roles."
+      />
 
       {/* Filter / Search Bar */}
       <div className="relative rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-xl backdrop-blur-xl">
