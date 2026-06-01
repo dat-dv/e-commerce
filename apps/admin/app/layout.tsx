@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { ThemeSync } from "@/components/atoms/theme-sync";
-import { AuthGuard } from "@/components/organisms/auth-guard";
+import { AuthGuard } from "@/components/molecules/auth-guard";
 import { adminThemeScript } from "@/utils/theme-script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
