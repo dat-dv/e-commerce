@@ -1,7 +1,7 @@
 import { Button } from "@ecommerce/ui";
 import { Trash2 } from "lucide-react";
 
-import type { IUserDangerZoneProps } from "./user-detail-view.types";
+import type { IUserDangerZoneProps } from "@/components/organisms/user-detail-view/user-detail-view.types";
 
 export const UserDangerZone = ({
   deleting,

@@ -1,6 +1,7 @@
 import { Calendar, Mail, Phone, Shield, User } from "lucide-react";
 
-import type { IUserProfilePanelProps } from "./user-detail-view.types";
+import type { IUserProfilePanelProps } from "@/components/organisms/user-detail-view/user-detail-view.types";
+
 import {
   formatAdminDate,
   getAdminUserDisplayName,

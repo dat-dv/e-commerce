@@ -3,9 +3,8 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { PageHeader } from "@/components/molecules/page-header";
+import { UserDetailTabs } from "@/components/organisms/user-detail-tabs";
 import { APP_ROUTES } from "@/constants/routes";
-
-import { UserDetailTabs } from "./user-detail-tabs";
 
 export const UserDetailView = () => {
   const searchParams = useSearchParams();

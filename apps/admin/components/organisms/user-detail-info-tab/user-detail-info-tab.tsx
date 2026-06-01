@@ -6,16 +6,15 @@ import { useCallback, useState } from "react";
 
 import { AvatarGallery } from "@/components/molecules/avatar-gallery";
 import { DetailField } from "@/components/molecules/detail-field";
+import {
+  formatAdminDate,
+  getAdminUserDisplayName,
+} from "@/components/organisms/user-detail-view/user-detail-view.utils";
 import { GENDER_OPTIONS } from "@/constants/gender.constanst";
 import type { IAdminUser, IAdminUserAvatar } from "@/domain/user";
 import { useUserDetailData } from "@/hooks/user/use-user-detail-data";
 import { useUserDetailForm } from "@/hooks/user/use-user-detail-form";
 import { useUserDetailMutations } from "@/hooks/user/use-user-detail-mutations";
-
-import {
-  formatAdminDate,
-  getAdminUserDisplayName,
-} from "./user-detail-view.utils";
 
 export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
   const [showGallery, setShowGallery] = useState(false);

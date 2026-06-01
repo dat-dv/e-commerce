@@ -1,9 +1,8 @@
 import { Avatar } from "@ecommerce/ui";
 
 import { PageHeader } from "@/components/molecules/page-header";
-
-import type { IUserDetailHeaderProps } from "./user-detail-view.types";
-import { getAdminUserDisplayName } from "./user-detail-view.utils";
+import type { IUserDetailHeaderProps } from "@/components/organisms/user-detail-view/user-detail-view.types";
+import { getAdminUserDisplayName } from "@/components/organisms/user-detail-view/user-detail-view.utils";
 
 export const UserDetailHeader = ({ user, onBack }: IUserDetailHeaderProps) => (
   <PageHeader

@@ -1,7 +1,7 @@
 import { Button } from "@ecommerce/ui";
 import { Save } from "lucide-react";
 
-import type { IUserRolePanelProps } from "./user-detail-view.types";
+import type { IUserRolePanelProps } from "@/components/organisms/user-detail-view/user-detail-view.types";
 
 export const UserRolePanel = ({
   roles,
