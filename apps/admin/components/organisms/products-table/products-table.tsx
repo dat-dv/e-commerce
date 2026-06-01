@@ -11,7 +11,7 @@ import {
   formatCurrency,
   getProductName,
   getProductStatus,
-} from "./product.utils";
+} from "@/components/organisms/products-view/product.utils";
 
 interface IProductsTableProps {
   products: IProductResponse[];
