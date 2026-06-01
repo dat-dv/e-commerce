@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 
 import { AvatarGallery } from "@/components/molecules/avatar-gallery";
 import { DetailField } from "@/components/molecules/detail-field";
+import { GENDER_OPTIONS } from "@/constants/gender.constanst";
 import type { IAdminUser, IAdminUserAvatar } from "@/domain/user";
 
 import { useUserDetailData } from "./use-user-detail-data";
@@ -19,7 +20,7 @@ import {
 export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
   const [showGallery, setShowGallery] = useState(false);
 
-  const { user, avatars, roles, loading, setUser, setAvatars } =
+  const { user, avatars, roles, setUser, setAvatars } =
     useUserDetailData(userId);
 
   const onSaveSuccess = useCallback(
@@ -42,14 +43,6 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
     avatars.find((a) => a.id === currentAvatarId)?.url ||
     user?.avatarUrl ||
     undefined;
-
-  if (loading) {
-    return (
-      <div className="p-8 text-center text-[var(--muted)]">
-        Loading user info...
-      </div>
-    );
-  }
 
   if (!user) {
     return <div className="p-8 text-center text-red-500">User not found.</div>;
@@ -96,7 +89,20 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
             {showGallery ? "Close gallery" : "Open avatar gallery"}
           </Button>
         </div>
-
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <DetailField label="Email" value={user.email} icon={Mail} />
+          <DetailField label="Phone" value={phones} icon={Phone} />
+          <DetailField
+            label="Created"
+            value={formatAdminDate(user.createdAt)}
+            icon={CalendarDays}
+          />
+          <DetailField
+            label="Updated"
+            value={formatAdminDate(user.updatedAt)}
+            icon={CalendarDays}
+          />
+        </div>
         {showGallery && (
           <div className="mt-6 border-t border-[var(--border-color)] pt-5">
             <h3 className="text-content text-sm font-bold">Avatar History</h3>
@@ -126,17 +132,9 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
               Admin can update the core account fields and save changes.
             </p>
           </div>
-          <Button
-            type="submit"
-            disabled={saving}
-            className="inline-flex items-center justify-center gap-2"
-          >
-            <Save className="h-4 w-4" />
-            {saving ? "Saving..." : "Save Changes"}
-          </Button>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
           <FormInput name="firstName" label="First name" size="md" />
           <FormInput name="lastName" label="Last name" size="md" />
           <FormInput
@@ -149,42 +147,31 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
             name="gender"
             label="Gender"
             size="md"
-            options={[
-              { label: "Not specified", value: "" },
-              { label: "Male", value: "0" },
-              { label: "Female", value: "1" },
-              { label: "Other", value: "2" },
-            ]}
+            options={GENDER_OPTIONS}
           />
           <FormSelect
             name="roleId"
             label="Role"
             size="md"
-            options={roles.map((r) => ({ label: r.role_name, value: r.id }))}
+            options={roles.map((r) => ({
+              label: r.role_name,
+              value: r.id,
+            }))}
           />
         </div>
       </section>
 
+      <div className="flex items-center justify-end">
+        <Button
+          type="submit"
+          disabled={saving}
+          className="inline-flex items-center justify-center gap-2"
+        >
+          <Save className="h-4 w-4" />
+          {saving ? "Saving..." : "Save Changes"}
+        </Button>
+      </div>
       {/* Info Details */}
-      <section className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-5 shadow-sm">
-        <h2 className="text-content mb-4 text-lg font-bold">
-          Contact & Metadata
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <DetailField label="Email" value={user.email} icon={Mail} />
-          <DetailField label="Phone" value={phones} icon={Phone} />
-          <DetailField
-            label="Created"
-            value={formatAdminDate(user.createdAt)}
-            icon={CalendarDays}
-          />
-          <DetailField
-            label="Updated"
-            value={formatAdminDate(user.updatedAt)}
-            icon={CalendarDays}
-          />
-        </div>
-      </section>
     </AppForm>
   );
 };

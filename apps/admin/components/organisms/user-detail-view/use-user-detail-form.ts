@@ -1,3 +1,4 @@
+import { EGender } from "@ecommerce/shared";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -10,7 +11,7 @@ export const userDetailFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   dateOfBirth: z.string().optional(),
-  gender: z.string().optional(),
+  gender: z.nativeEnum(EGender).optional(),
   roleId: z.string().min(1, "Role is required"),
   avatarId: z.string().optional(),
 });
@@ -28,7 +29,7 @@ export const useUserDetailForm = (
       firstName: "",
       lastName: "",
       dateOfBirth: "",
-      gender: "",
+      gender: undefined,
       roleId: "",
       avatarId: "",
     },
@@ -41,10 +42,7 @@ export const useUserDetailForm = (
       firstName: user.firstName,
       lastName: user.lastName,
       dateOfBirth: user.dateOfBirth ? user.dateOfBirth.slice(0, 10) : "",
-      gender:
-        user.gender === null || user.gender === undefined
-          ? ""
-          : String(user.gender),
+      gender: user.gender ?? undefined,
       roleId: user.roleId || roles[0]?.id || "",
       avatarId:
         user.avatarId || avatars.find((avatar) => avatar.isCurrent)?.id || "",
