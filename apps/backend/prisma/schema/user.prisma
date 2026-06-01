@@ -15,7 +15,7 @@ model User {
 
   shipping_addresses       ShippingAddress[]
   password_reset_tokens    PasswordResetToken[]
-  phones                   UserPhone[]
+  
   cart                     Cart?
   orders                   Order[]
   browsing_history         UserBrowsingHistory[]
@@ -34,5 +34,9 @@ model User {
   avatar    UserAvatar? @relation("CurrentUserAvatar", fields: [avatar_id], references: [id], onDelete: SetNull)
   avatars   UserAvatar[]  @relation("UserAvatarHistory")
 
+  active_phone_id String? @unique
+  active_phone    UserPhone? @relation("ActivePhone", fields: [active_phone_id], references: [id], onDelete: SetNull)
+
+  phones          UserPhone[] @relation("UserPhones")
   @@map("users")
 }

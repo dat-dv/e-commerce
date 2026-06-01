@@ -2,14 +2,18 @@
 
 model UserPhone {
   id          String   @id @default(cuid())
-  phone_number       String   @unique
+  phone       String
   phone_code  String
   is_verified Boolean  @default(false)
-  is_default  Boolean  @default(false)
+
   user_id     String
-  user        User     @relation(fields: [user_id], references: [id])
+  user        User     @relation("UserPhones", fields: [user_id], references: [id], onDelete: Cascade)
+
+  active_user User? @relation("ActivePhone")
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
+  @@unique([user_id, phone])
+  @@index([user_id])
   @@map("user_phones")
 }
