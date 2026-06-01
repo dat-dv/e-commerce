@@ -1,36 +1,43 @@
-import { useEffect, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import type { TAdminRole } from "@/domain/permission";
 import type { IAdminUser, IAdminUserAvatar } from "@/domain/user";
 
-export interface IUserDetailFormState {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
-  gender: string;
-  roleId: string;
-  avatarId: string;
-}
+export const userDetailFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  dateOfBirth: z.string().optional(),
+  gender: z.string().optional(),
+  roleId: z.string().min(1, "Role is required"),
+  avatarId: z.string().optional(),
+});
+
+export type IUserDetailFormState = z.infer<typeof userDetailFormSchema>;
 
 export const useUserDetailForm = (
   user: IAdminUser | null,
   avatars: IAdminUserAvatar[],
   roles: TAdminRole[],
-  setSuccessMessage: (msg: string | null) => void,
 ) => {
-  const [form, setForm] = useState<IUserDetailFormState>({
-    firstName: "",
-    lastName: "",
-    dateOfBirth: "",
-    gender: "",
-    roleId: "",
-    avatarId: "",
+  const methods = useForm<IUserDetailFormState>({
+    resolver: zodResolver(userDetailFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      dateOfBirth: "",
+      gender: "",
+      roleId: "",
+      avatarId: "",
+    },
   });
 
   useEffect(() => {
     if (!user) return;
 
-    setForm({
+    methods.reset({
       firstName: user.firstName,
       lastName: user.lastName,
       dateOfBirth: user.dateOfBirth ? user.dateOfBirth.slice(0, 10) : "",
@@ -42,18 +49,7 @@ export const useUserDetailForm = (
       avatarId:
         user.avatarId || avatars.find((avatar) => avatar.isCurrent)?.id || "",
     });
-  }, [avatars, roles, user]);
+  }, [avatars, roles, user, methods]);
 
-  const updateForm = <TField extends keyof IUserDetailFormState>(
-    field: TField,
-    value: IUserDetailFormState[TField],
-  ) => {
-    setForm((current) => ({ ...current, [field]: value }));
-    setSuccessMessage(null);
-  };
-
-  return {
-    form,
-    updateForm,
-  };
+  return methods;
 };

@@ -12,7 +12,6 @@ import type { IUserDetailFormState } from "./use-user-detail-form";
 
 export const useUserDetailMutations = (
   userId: string | null,
-  form: IUserDetailFormState,
   onSaveSuccess: (user: IAdminUser, avatars: IAdminUserAvatar[]) => void,
   setError: (msg: string | null) => void,
   setSuccessMessage: (msg: string | null) => void,
@@ -23,7 +22,7 @@ export const useUserDetailMutations = (
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
-  const handleSaveUser = async () => {
+  const handleSaveUser = async (form: IUserDetailFormState) => {
     if (!userId) return;
 
     setSaving(true);
