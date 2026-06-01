@@ -3,7 +3,7 @@ import type { IAdminUser } from "@/domain/user";
 export const getAdminUserDisplayName = (user: IAdminUser) =>
   [user.firstName, user.lastName].filter(Boolean).join(" ") || user.email;
 
-export const formatAdminDate = (value?: string | null) => {
+export const formatAdminDate = (value?: string | Date | null) => {
   if (!value) return "Not specified";
 
   return new Date(value).toLocaleString("en-US", {

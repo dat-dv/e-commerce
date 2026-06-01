@@ -28,3 +28,23 @@ export interface IAdminUser {
     is_verified: boolean;
   }>;
 }
+
+export interface IAdminUserAvatar {
+  id: string;
+  imageId: string;
+  url: string;
+  width: number | null;
+  height: number | null;
+  format: string | null;
+  isCurrent: boolean;
+  createdAt: string;
+}
+
+export interface IAdminUpdateUserInput {
+  firstName?: string;
+  lastName?: string;
+  dateOfBirth?: string;
+  gender?: number;
+  avatarId?: string;
+  roleId?: string;
+}

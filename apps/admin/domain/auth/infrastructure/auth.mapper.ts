@@ -1,6 +1,15 @@
-import { type IUserProfileResponse } from "@ecommerce/shared";
+import {
+  type IUpdateUserRequest,
+  type IUserAvatarResponse,
+  type IUserProfileResponse,
+} from "@ecommerce/shared";
 
-import { type IAdminRole, type IAdminUser } from "@/domain/user";
+import {
+  type IAdminRole,
+  type IAdminUpdateUserInput,
+  type IAdminUser,
+  type IAdminUserAvatar,
+} from "@/domain/user";
 
 export const AdminUserMapper = {
   toDomain(dto: IUserProfileResponse): IAdminUser {
@@ -36,6 +45,30 @@ export const AdminUserMapper = {
       avatar: dto.avatar,
       avatarUrl: dto.avatar?.url ?? null,
       phones: dto.phones,
+    };
+  },
+
+  avatarToDomain(dto: IUserAvatarResponse): IAdminUserAvatar {
+    return {
+      id: dto.id,
+      imageId: dto.image_id,
+      url: dto.url,
+      width: dto.width,
+      height: dto.height,
+      format: dto.format,
+      isCurrent: dto.is_current,
+      createdAt: dto.created_at ? new Date(dto.created_at).toISOString() : "",
+    };
+  },
+
+  toUpdateDto(input: IAdminUpdateUserInput): IUpdateUserRequest {
+    return {
+      first_name: input.firstName,
+      last_name: input.lastName,
+      date_of_birth: input.dateOfBirth || undefined,
+      gender: input.gender,
+      avatar_id: input.avatarId,
+      role_id: input.roleId,
     };
   },
 };

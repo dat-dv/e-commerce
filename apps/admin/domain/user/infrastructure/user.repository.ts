@@ -1,6 +1,7 @@
 import {
   type IApiResponse,
   type IGetUsersResponse,
+  type IUserAvatarResponse,
   type IUserProfileResponse,
 } from "@ecommerce/shared";
 
@@ -9,7 +10,11 @@ import { type ApiListResponse } from "@/utils/request";
 import { apiClient } from "@/utils/request/api-client";
 
 import { AdminUserMapper } from "../../auth/infrastructure/auth.mapper";
-import { type IAdminUser } from "../types/user.model";
+import {
+  type IAdminUpdateUserInput,
+  type IAdminUser,
+  type IAdminUserAvatar,
+} from "../types/user.model";
 import { type IAdminUserRepository } from "../types/user.repository";
 
 export class AdminUserRepository implements IAdminUserRepository {
@@ -42,17 +47,23 @@ export class AdminUserRepository implements IAdminUserRepository {
     return AdminUserMapper.toDomain(response.data);
   }
 
+  async getUserAvatars(id: string): Promise<IAdminUserAvatar[]> {
+    const response = await apiClient.get<IApiResponse<IUserAvatarResponse[]>>(
+      API_ROUTES.USERS.AVATARS(id),
+    );
+
+    return (response.data || []).map((avatar) =>
+      AdminUserMapper.avatarToDomain(avatar),
+    );
+  }
+
   async updateUser(
     id: string,
-    data: {
-      first_name?: string;
-      last_name?: string;
-      role_id?: string;
-    },
+    data: IAdminUpdateUserInput,
   ): Promise<IAdminUser> {
     const response = await apiClient.patch<IApiResponse<IUserProfileResponse>>(
       API_ROUTES.USERS.UPDATE(id),
-      data,
+      AdminUserMapper.toUpdateDto(data),
     );
 
     return AdminUserMapper.toDomain(response.data);

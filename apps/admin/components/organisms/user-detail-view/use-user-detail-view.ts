@@ -1,15 +1,32 @@
 "use client";
 
+import type { IOrderResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { AdminOrderRepository } from "@/domain/order";
 import {
   AdminPermissionRepository,
   type TAdminRole,
 } from "@/domain/permission";
-import { AdminUserRepository, type IAdminUser } from "@/domain/user";
+import {
+  AdminUserRepository,
+  type IAdminUpdateUserInput,
+  type IAdminUser,
+  type IAdminUserAvatar,
+} from "@/domain/user";
+import type { ApiListResponse } from "@/utils/request";
+
+export interface IUserDetailFormState {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  gender: string;
+  roleId: string;
+  avatarId: string;
+}
 
 export const useUserDetailView = () => {
   const router = useRouter();
@@ -21,12 +38,30 @@ export const useUserDetailView = () => {
     () => new AdminPermissionRepository(),
     [],
   );
+  const orderRepository = useMemo(() => new AdminOrderRepository(), []);
 
   const [user, setUser] = useState<IAdminUser | null>(null);
+  const [avatars, setAvatars] = useState<IAdminUserAvatar[]>([]);
+  const [orders, setOrders] = useState<ApiListResponse<IOrderResponse>>({
+    items: [],
+    meta: {
+      total: 0,
+      page: 1,
+      limit: 10,
+      totalPages: 0,
+    },
+  });
   const [roles, setRoles] = useState<TAdminRole[]>([]);
-  const [selectedRoleId, setSelectedRoleId] = useState("");
+  const [form, setForm] = useState<IUserDetailFormState>({
+    firstName: "",
+    lastName: "",
+    dateOfBirth: "",
+    gender: "",
+    roleId: "",
+    avatarId: "",
+  });
   const [loading, setLoading] = useState(true);
-  const [savingRole, setSavingRole] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -42,15 +77,27 @@ export const useUserDetailView = () => {
     setError(null);
 
     try {
-      const [userResponse, rolesResponse] = await Promise.all([
-        userRepository.getUser(userId),
-        permissionRepository.getRoles(),
-      ]);
+      const [userResponse, rolesResponse, avatarsResponse, ordersResponse] =
+        await Promise.all([
+          userRepository.getUser(userId),
+          permissionRepository.getRoles(),
+          userRepository.getUserAvatars(userId),
+          orderRepository.getOrders(1, 10, { user_id: userId }),
+        ]);
 
       setUser(userResponse);
+      setAvatars(avatarsResponse);
       setRoles(rolesResponse.items);
-      setSelectedRoleId(
-        userResponse.roleId || rolesResponse.items[0]?.id || "",
+      setOrders(
+        ordersResponse.data || {
+          items: [],
+          meta: {
+            total: 0,
+            page: 1,
+            limit: 10,
+            totalPages: 0,
+          },
+        },
       );
     } catch (err) {
       console.error(err);
@@ -58,28 +105,62 @@ export const useUserDetailView = () => {
     } finally {
       setLoading(false);
     }
-  }, [permissionRepository, userId, userRepository]);
+  }, [orderRepository, permissionRepository, userId, userRepository]);
 
   useLoadOnce(loadUserDetail, !!userId);
 
-  const handleSaveRole = async () => {
-    if (!userId || !selectedRoleId) return;
+  useEffect(() => {
+    if (!user) return;
 
-    setSavingRole(true);
+    setForm({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      dateOfBirth: user.dateOfBirth ? user.dateOfBirth.slice(0, 10) : "",
+      gender:
+        user.gender === null || user.gender === undefined
+          ? ""
+          : String(user.gender),
+      roleId: user.roleId || roles[0]?.id || "",
+      avatarId:
+        user.avatarId || avatars.find((avatar) => avatar.isCurrent)?.id || "",
+    });
+  }, [avatars, roles, user]);
+
+  const updateForm = <TField extends keyof IUserDetailFormState>(
+    field: TField,
+    value: IUserDetailFormState[TField],
+  ) => {
+    setForm((current) => ({ ...current, [field]: value }));
+    setSuccessMessage(null);
+  };
+
+  const handleSaveUser = async () => {
+    if (!userId) return;
+
+    setSaving(true);
     setError(null);
     setSuccessMessage(null);
 
     try {
-      const updatedUser = await userRepository.updateUser(userId, {
-        role_id: selectedRoleId,
-      });
+      const payload: IAdminUpdateUserInput = {
+        firstName: form.firstName.trim(),
+        lastName: form.lastName.trim(),
+        dateOfBirth: form.dateOfBirth || undefined,
+        gender: form.gender === "" ? undefined : Number(form.gender),
+        roleId: form.roleId || undefined,
+        avatarId: form.avatarId || undefined,
+      };
+
+      const updatedUser = await userRepository.updateUser(userId, payload);
       setUser(updatedUser);
-      setSuccessMessage("User role updated.");
+      const avatarsResponse = await userRepository.getUserAvatars(userId);
+      setAvatars(avatarsResponse);
+      setSuccessMessage("User updated.");
     } catch (err) {
       console.error(err);
-      setError("Failed to update user role.");
+      setError("Failed to update user.");
     } finally {
-      setSavingRole(false);
+      setSaving(false);
     }
   };
 
@@ -102,16 +183,18 @@ export const useUserDetailView = () => {
 
   return {
     user,
+    avatars,
+    orders,
     roles,
-    selectedRoleId,
+    form,
     loading,
-    savingRole,
+    saving,
     deleting,
     error,
     successMessage,
-    setSelectedRoleId,
+    updateForm,
     setSuccessMessage,
-    handleSaveRole,
+    handleSaveUser,
     handleDeleteUser,
     router,
   };
