@@ -31,7 +31,7 @@ export const useUserDetailMutations = (
         firstName: form.firstName.trim(),
         lastName: form.lastName.trim(),
         dateOfBirth: form.dateOfBirth || undefined,
-        gender: form.gender === "" ? undefined : Number(form.gender),
+        gender: form.gender,
         roleId: form.roleId || undefined,
         avatarId: form.avatarId || undefined,
       };

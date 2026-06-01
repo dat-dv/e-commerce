@@ -4,13 +4,11 @@ import { Save } from "lucide-react";
 import type { IRolePermissionsPanelProps } from "./permissions-view.types";
 
 export const RolePermissionsPanel = ({
-  roles,
   selectedRole,
   selectedRoleId,
   selectedPermissionIds,
   groupedPermissions,
   savingPermissions,
-  onRoleChange,
   onTogglePermission,
   onSavePermissions,
 }: IRolePermissionsPanelProps) => {
@@ -29,18 +27,6 @@ export const RolePermissionsPanel = ({
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <select
-            value={selectedRoleId}
-            onChange={(event) => onRoleChange(event.target.value)}
-            className="focus:border-primary h-10 min-w-48 rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] px-3 text-sm font-semibold text-[var(--app-text)] outline-none"
-          >
-            {roles.map((role) => (
-              <option key={role.id} value={role.id}>
-                {role.role_name}
-              </option>
-            ))}
-          </select>
-
           <Button
             onClick={onSavePermissions}
             disabled={!selectedRoleId || savingPermissions}

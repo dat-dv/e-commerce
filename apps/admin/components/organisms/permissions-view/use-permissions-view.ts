@@ -2,6 +2,7 @@
 
 import type { IPermissionResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 import {
@@ -16,6 +17,9 @@ import {
 } from "./permissions-view.utils";
 
 export const usePermissionsView = () => {
+  const searchParams = useSearchParams();
+  const initialRoleId = searchParams.get("id");
+
   const permissionRepository = useMemo(
     () => new AdminPermissionRepository(),
     [],
@@ -58,7 +62,11 @@ export const usePermissionsView = () => {
       setRoles(nextRoles);
       setPermissions(permissionsResponse.items);
 
-      const firstRole = nextRoles[0] ?? null;
+      const targetRole = initialRoleId
+        ? nextRoles.find((r) => r.id === initialRoleId) || nextRoles[0]
+        : nextRoles[0];
+
+      const firstRole = targetRole ?? null;
       setSelectedRoleId(firstRole?.id ?? "");
       setSelectedPermissionIds(getPermissionIds(firstRole));
     } catch (err) {
@@ -67,16 +75,9 @@ export const usePermissionsView = () => {
     } finally {
       setLoading(false);
     }
-  }, [permissionRepository]);
+  }, [permissionRepository, initialRoleId]);
 
   useLoadOnce(loadPermissionData);
-
-  const handleRoleChange = (roleId: string) => {
-    const nextRole = roleById.get(roleId) ?? null;
-    setSelectedRoleId(roleId);
-    setSelectedPermissionIds(getPermissionIds(nextRole));
-    setSuccessMessage(null);
-  };
 
   const togglePermission = (permissionId: string) => {
     setSelectedPermissionIds((current) =>
@@ -116,7 +117,6 @@ export const usePermissionsView = () => {
   };
 
   return {
-    roles,
     permissions,
     selectedRoleId,
     selectedPermissionIds,
@@ -126,7 +126,6 @@ export const usePermissionsView = () => {
     successMessage,
     selectedRole,
     groupedPermissions,
-    handleRoleChange,
     togglePermission,
     handleSavePermissions,
   };

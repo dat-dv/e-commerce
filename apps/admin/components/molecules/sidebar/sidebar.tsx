@@ -38,7 +38,7 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
   },
   {
     label: "Roles",
-    href: APP_ROUTES.PERMISSIONS,
+    href: APP_ROUTES.ROLES,
     icon: ShieldCheck,
   },
   {
