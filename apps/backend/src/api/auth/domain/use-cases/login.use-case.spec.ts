@@ -6,6 +6,7 @@ import { IAuthRepository } from '../entities/auth.repository.interface';
 import { ConfigService } from '@nestjs/config';
 import { BadRequestException } from '@nestjs/common';
 import { User, EGender } from '@ecommerce/shared';
+import { hashPassword } from 'src/common/utils/password.util';
 
 describe('LoginUseCase', () => {
   let useCase: LoginUseCase;
@@ -69,7 +70,7 @@ describe('LoginUseCase', () => {
       email: 'test@example.com',
       avatar_id: null,
       active_phone_id: null,
-      password: 'correct-password',
+      password: hashPassword('correct-password'),
       role_id: '1',
       created_at: new Date(),
       updated_at: new Date(),
@@ -92,7 +93,7 @@ describe('LoginUseCase', () => {
       email: 'test@example.com',
       avatar_id: null,
       active_phone_id: null,
-      password: 'password',
+      password: hashPassword('password'),
       role_id: '1',
       created_at: new Date(),
       updated_at: new Date(),
@@ -108,7 +109,6 @@ describe('LoginUseCase', () => {
 
     expect(result.user).toEqual(expect.objectContaining({ id: user.id, email: user.email }));
     expect(result.user).not.toHaveProperty('password');
-    expect(result.user).not.toHaveProperty('salt');
     expect(result.accessToken).toBe('at');
     expect(result.refreshToken).toBe('rt');
     expect(mockAuthRepository.saveRefreshToken).toHaveBeenCalled();
