@@ -48,10 +48,10 @@ export default function DashboardPage() {
               <p className="text-xs font-medium tracking-wider text-[var(--muted)] uppercase">
                 {card.label}
               </p>
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-500/10">
+              <div className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-indigo-400"
+                  className="text-primary h-4 w-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

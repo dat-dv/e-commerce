@@ -112,7 +112,7 @@ export const ProductsTable = ({
               e.stopPropagation();
               onViewDetail(product);
             }}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:bg-indigo-500 hover:text-white"
+            className="hover:bg-primary inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:text-white"
             aria-label={`View product ${name}`}
           >
             <Eye className="h-4 w-4" />

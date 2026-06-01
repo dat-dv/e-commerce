@@ -46,7 +46,7 @@ export const AdminUserDropdown = ({
         onClick={onToggle}
         className="flex items-center gap-2.5 rounded-lg p-1.5 transition-colors hover:bg-white/8"
       >
-        <div className="h-7 w-7 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 ring-2 ring-white/10">
+        <div className="from-primary/80 to-primary h-7 w-7 rounded-full bg-gradient-to-br ring-2 ring-white/10">
           <Avatar name={userName} url={userAvatar} size={28} />
         </div>
         <div className="hidden text-left md:block">

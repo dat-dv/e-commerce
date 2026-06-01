@@ -35,7 +35,7 @@ export const OrderDetailDialog = ({
               <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                 Order ID
               </p>
-              <code className="text-sm font-bold text-indigo-300">
+              <code className="text-primary text-sm font-bold">
                 #{order.id.toUpperCase()}
               </code>
             </div>
@@ -52,7 +52,7 @@ export const OrderDetailDialog = ({
               Customer
             </p>
             <div className="border-content/5 bg-content/[0.02] flex items-center gap-3 rounded-xl border px-4 py-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/10">
+              <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-full">
                 <Avatar
                   name={`${order.user?.first_name ?? ""} ${order.user?.last_name ?? ""}`}
                   size={40}
@@ -104,10 +104,10 @@ export const OrderDetailDialog = ({
                     className="flex items-center justify-between gap-3"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Package className="h-4 w-4 shrink-0 text-indigo-400" />
+                      <Package className="text-primary h-4 w-4 shrink-0" />
                       <span className="text-sm text-[var(--app-text)]">
                         SKU:{" "}
-                        <code className="text-indigo-300">
+                        <code className="text-primary">
                           {item.sku_id.slice(0, 8)}
                         </code>
                         <span className="ml-1 text-[var(--muted)]">
@@ -154,7 +154,7 @@ export const OrderDetailDialog = ({
           <div className="flex justify-end pt-2">
             <Button
               onClick={onClose}
-              className="rounded-lg bg-indigo-600 px-6 py-2.5 font-bold text-white shadow-lg shadow-indigo-500/10 hover:bg-indigo-500"
+              className="bg-primary shadow-primary/10 hover:bg-primary rounded-lg px-6 py-2.5 font-bold text-white shadow-lg"
             >
               Close
             </Button>

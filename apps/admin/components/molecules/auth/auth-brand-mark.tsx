@@ -1,6 +1,6 @@
 export const AuthBrandMark = () => (
   <div className="mb-8 flex justify-center">
-    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30">
+    <div className="bg-primary shadow-primary/30 flex h-12 w-12 items-center justify-center rounded-xl shadow-lg">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6 text-white"

@@ -1,8 +1,8 @@
 "use client";
 
+import { ETheme as EAdminTheme } from "@ecommerce/ui/tokens";
 import { useState } from "react";
 
-import { EAdminTheme } from "@/config/theme";
 import { useAdminThemeStore } from "@/store/theme";
 import { useAdminUserStore } from "@/store/user";
 

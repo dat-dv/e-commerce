@@ -1,8 +1,7 @@
 "use client";
 
+import { ETheme as EAdminTheme } from "@ecommerce/ui/tokens";
 import { Check, Moon, Sun } from "lucide-react";
-
-import { EAdminTheme } from "@/config/theme";
 
 interface IAppearanceTabProps {
   theme: EAdminTheme;
@@ -47,27 +46,27 @@ export const AppearanceTab = ({
             onClick={() => onModeChange(false)}
             className={`relative flex cursor-pointer flex-col gap-3 rounded-xl border p-4 text-left transition-all hover:border-[var(--muted)] ${
               !isDarkMode
-                ? "border-indigo-500 bg-indigo-500/5 ring-1 ring-indigo-500"
+                ? "border-primary bg-primary/5 ring-primary ring-1"
                 : "border-[var(--border-color)] bg-white/2"
             }`}
           >
             <div className="flex w-full items-center justify-between">
               <div className="flex items-center gap-2 text-sm font-bold text-[var(--app-text)]">
                 {modeChanging === "light" ? (
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-indigo-500 border-t-transparent" />
+                  <div className="border-primary h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
                 ) : (
                   <Sun className="h-4 w-4 text-amber-500" />
                 )}
                 Light Theme
               </div>
               {!isDarkMode && modeChanging !== "light" && (
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500">
+                <div className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
                   <Check className="h-3 w-3 font-bold text-white" />
                 </div>
               )}
             </div>
             <div className="flex h-20 w-full flex-col gap-1.5 rounded border border-black/5 bg-white/90 p-2 shadow-sm">
-              <div className="h-2.5 w-1/3 rounded bg-indigo-600" />
+              <div className="bg-primary h-2.5 w-1/3 rounded" />
               <div className="h-2 w-full rounded bg-slate-200" />
               <div className="h-2 w-5/6 rounded bg-slate-200" />
             </div>
@@ -80,27 +79,27 @@ export const AppearanceTab = ({
             onClick={() => onModeChange(true)}
             className={`relative flex cursor-pointer flex-col gap-3 rounded-xl border p-4 text-left transition-all hover:border-[var(--muted)] ${
               isDarkMode
-                ? "border-indigo-500 bg-indigo-500/5 ring-1 ring-indigo-500"
+                ? "border-primary bg-primary/5 ring-primary ring-1"
                 : "border-[var(--border-color)] bg-white/2"
             }`}
           >
             <div className="flex w-full items-center justify-between">
               <div className="flex items-center gap-2 text-sm font-bold text-[var(--app-text)]">
                 {modeChanging === "dark" ? (
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-indigo-500 border-t-transparent" />
+                  <div className="border-primary h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
                 ) : (
-                  <Moon className="h-4 w-4 text-indigo-400" />
+                  <Moon className="text-primary h-4 w-4" />
                 )}
                 Dark Theme
               </div>
               {isDarkMode && modeChanging !== "dark" && (
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500">
+                <div className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
                   <Check className="h-3 w-3 font-bold text-white" />
                 </div>
               )}
             </div>
             <div className="flex h-20 w-full flex-col gap-1.5 rounded border border-white/5 bg-slate-900 p-2 shadow-sm">
-              <div className="h-2.5 w-1/3 rounded bg-indigo-500" />
+              <div className="bg-primary h-2.5 w-1/3 rounded" />
               <div className="h-2 w-full rounded bg-slate-700" />
               <div className="h-2 w-5/6 rounded bg-slate-700" />
             </div>
@@ -119,11 +118,6 @@ export const AppearanceTab = ({
         </p>
         <div className="flex flex-wrap gap-3 pt-1">
           {[
-            {
-              name: EAdminTheme.INDIGO,
-              label: "Indigo Accent",
-              colorClass: "bg-indigo-500",
-            },
             {
               name: EAdminTheme.BLUE,
               label: "Blue Accent",
@@ -152,13 +146,13 @@ export const AppearanceTab = ({
               onClick={() => onThemeChange(item.name)}
               className={`relative flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-left transition-all hover:border-[var(--muted)] ${
                 theme === item.name
-                  ? "border-indigo-500 bg-indigo-500/5"
+                  ? "border-primary bg-primary/5"
                   : "border-[var(--border-color)] bg-white/2"
               }`}
             >
               {themeChanging === item.name ? (
                 <div className="flex h-5 w-5 items-center justify-center">
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-indigo-500 border-t-transparent" />
+                  <div className="border-primary h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
                 </div>
               ) : (
                 <span
@@ -169,7 +163,7 @@ export const AppearanceTab = ({
                 {item.label}
               </span>
               {theme === item.name && themeChanging !== item.name && (
-                <div className="ml-2 flex h-4 w-4 items-center justify-center rounded-full bg-indigo-500">
+                <div className="bg-primary ml-2 flex h-4 w-4 items-center justify-center rounded-full">
                   <Check className="h-2.5 w-2.5 font-bold text-white" />
                 </div>
               )}

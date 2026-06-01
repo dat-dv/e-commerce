@@ -107,7 +107,7 @@ export const ProductDetailDialog = ({
                       key={sku.id}
                       className="flex items-center justify-between gap-2"
                     >
-                      <code className="text-xs text-indigo-300">
+                      <code className="text-primary text-xs">
                         {sku.sku_code}
                       </code>
                       <div className="flex items-center gap-3 text-xs text-[var(--muted)]">
@@ -149,7 +149,7 @@ export const ProductDetailDialog = ({
             <div className="flex justify-end pt-2">
               <Button
                 onClick={onClose}
-                className="rounded-lg bg-indigo-600 px-6 py-2.5 font-bold text-white shadow-lg shadow-indigo-500/10 hover:bg-indigo-500"
+                className="bg-primary shadow-primary/10 hover:bg-primary rounded-lg px-6 py-2.5 font-bold text-white shadow-lg"
               >
                 Close
               </Button>

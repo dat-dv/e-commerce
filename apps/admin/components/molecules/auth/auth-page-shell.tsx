@@ -16,13 +16,13 @@ export const AuthPageShell = ({
     >
       {variant === "sign-in" ? (
         <>
-          <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-[120px]" />
-          <div className="absolute -right-40 -bottom-40 h-[500px] w-[500px] rounded-full bg-purple-600/15 blur-[120px]" />
+          <div className="bg-primary/20 absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full blur-[120px]" />
+          <div className="bg-primary/10 absolute -right-40 -bottom-40 h-[500px] w-[500px] rounded-full blur-[120px]" />
         </>
       ) : (
         <>
-          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-[120px]" />
-          <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-[120px]" />
+          <div className="bg-primary/20 absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full blur-[120px]" />
+          <div className="bg-primary/10 absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full blur-[120px]" />
         </>
       )}
     </div>

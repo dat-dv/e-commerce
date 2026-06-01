@@ -1,7 +1,8 @@
+import { ETheme as EAdminTheme } from "@ecommerce/ui/tokens";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-import { ADMIN_THEME_KEY, EAdminTheme, VALID_THEMES } from "@/config/theme";
+import { ADMIN_THEME_KEY, VALID_THEMES } from "@/config/theme";
 
 interface IAdminThemeState {
   theme: EAdminTheme;
@@ -20,7 +21,7 @@ export const useAdminThemeStore = create<TAdminThemeStore>()(
   devtools(
     persist(
       (set) => ({
-        theme: EAdminTheme.INDIGO,
+        theme: EAdminTheme.BLUE,
         isDarkMode:
           typeof window !== "undefined"
             ? window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -34,7 +35,7 @@ export const useAdminThemeStore = create<TAdminThemeStore>()(
         name: ADMIN_THEME_KEY,
         onRehydrateStorage: () => (state) => {
           if (state && !VALID_THEMES.includes(state.theme)) {
-            state.setTheme(EAdminTheme.INDIGO);
+            state.setTheme(EAdminTheme.BLUE);
           }
         },
       },

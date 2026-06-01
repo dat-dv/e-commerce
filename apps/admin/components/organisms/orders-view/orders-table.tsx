@@ -35,7 +35,7 @@ export const OrdersTable = ({
       key: "id",
       header: "Order ID",
       render: (order) => (
-        <code className="rounded bg-white/5 px-2 py-1 text-xs text-indigo-300">
+        <code className="text-primary rounded bg-white/5 px-2 py-1 text-xs">
           #{order.id.slice(0, 8).toUpperCase()}
         </code>
       ),
@@ -53,8 +53,8 @@ export const OrdersTable = ({
 
         return (
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20">
-              <UserIcon className="h-4 w-4 text-indigo-400" />
+            <div className="from-primary/20 to-primary/10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br">
+              <UserIcon className="text-primary h-4 w-4" />
             </div>
             <div>
               <p className="font-semibold text-[var(--app-text)]">
@@ -105,7 +105,7 @@ export const OrdersTable = ({
             e.stopPropagation();
             onViewDetail(order);
           }}
-          className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:bg-indigo-500 hover:text-white"
+          className="hover:bg-primary inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:text-white"
           aria-label={`View order ${order.id}`}
         >
           <Eye className="h-4 w-4" />

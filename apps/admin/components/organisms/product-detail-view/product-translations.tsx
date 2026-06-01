@@ -83,7 +83,7 @@ export const ProductTranslations = ({
     <section className="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-5 shadow-xl backdrop-blur-xl">
       <div className="mb-5">
         <h2 className="flex items-center gap-2 text-lg font-bold text-[var(--app-text)]">
-          <Globe className="h-5 w-5 text-indigo-400" />
+          <Globe className="text-primary h-5 w-5" />
           Product Translations & Content
         </h2>
         <p className="mt-1 text-sm text-[var(--muted)]">
@@ -104,7 +104,7 @@ export const ProductTranslations = ({
                 className="border-content/5 bg-content/[0.02] rounded-lg border p-4"
               >
                 <div className="mb-2 flex items-center gap-2">
-                  <span className="rounded bg-indigo-500/10 px-2.5 py-0.5 text-xs font-bold text-indigo-300 uppercase">
+                  <span className="bg-primary/10 text-primary rounded px-2.5 py-0.5 text-xs font-bold uppercase">
                     {translation.languageLabel}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export const ProductTranslations = ({
                             e.target.value,
                           )
                         }
-                        className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                        className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--app-text)] focus:outline-none"
                       />
                     ) : (
                       <p className="mt-0.5 text-sm font-semibold text-[var(--app-text)]">
@@ -147,7 +147,7 @@ export const ProductTranslations = ({
                           )
                         }
                         rows={4}
-                        className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 py-1.5 text-sm leading-relaxed whitespace-pre-line text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                        className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 py-1.5 text-sm leading-relaxed whitespace-pre-line text-[var(--app-text)] focus:outline-none"
                       />
                     ) : (
                       translation.description && (

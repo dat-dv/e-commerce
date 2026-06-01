@@ -23,7 +23,7 @@ export const ProfileTab = ({ user }: IProfileTabProps) => {
       </div>
 
       <div className="flex flex-col items-center gap-4 rounded-xl border border-white/[0.04] bg-white/1 p-4 sm:flex-row">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 ring-4 ring-white/10">
+        <div className="from-primary/80 to-primary flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ring-4 ring-white/10">
           <Avatar name={userName} url={userAvatar} size={64} />
         </div>
         <div className="space-y-1 text-center sm:text-left">
@@ -31,7 +31,7 @@ export const ProfileTab = ({ user }: IProfileTabProps) => {
             {userName}
           </h4>
           <p className="text-xs text-[var(--muted)]">{userEmail}</p>
-          <span className="inline-block rounded-md bg-indigo-500/10 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-indigo-400 uppercase">
+          <span className="bg-primary/10 text-primary inline-block rounded-md px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase">
             Admin Access
           </span>
         </div>

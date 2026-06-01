@@ -205,7 +205,7 @@ export const ProductSkuTable = ({
     <div className="border-content/5 mt-6 border-t pt-6">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-sm font-bold tracking-wider text-[var(--app-text)] uppercase">
-          <Layers className="h-4 w-4 text-indigo-400" />
+          <Layers className="text-primary h-4 w-4" />
           Product SKUs ({rows.length})
         </h3>
 
@@ -214,7 +214,7 @@ export const ProductSkuTable = ({
             variant="outline"
             size="sm"
             onClick={handleAddSku}
-            className="rounded-lg border-indigo-500/20 text-indigo-300 hover:bg-indigo-500/5"
+            className="border-primary/20 text-primary hover:bg-primary/5 rounded-lg"
           >
             <Plus className="h-4 w-4" />
             Add SKU
@@ -269,7 +269,7 @@ export const ProductSkuTable = ({
                             className={`w-40 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
                               skuCodeError
                                 ? "border-red-400 focus:border-red-400"
-                                : "border-[var(--border-color)] focus:border-indigo-500"
+                                : "focus:border-primary border-[var(--border-color)]"
                             }`}
                           />
                           {skuCodeError && (
@@ -318,7 +318,7 @@ export const ProductSkuTable = ({
                                           }
                                           className={`rounded px-2 py-0.5 text-[10px] font-semibold transition-colors ${
                                             checked
-                                              ? "bg-indigo-500/20 text-indigo-200"
+                                              ? "bg-primary/20 text-primary"
                                               : "bg-content/5 hover:bg-content/10 text-[var(--muted)]"
                                           }`}
                                         >
@@ -334,7 +334,7 @@ export const ProductSkuTable = ({
                         </div>
                       ) : (
                         <div className="space-y-1">
-                          <code className="text-xs font-semibold text-indigo-300">
+                          <code className="text-primary text-xs font-semibold">
                             {sku.sku_code}
                           </code>
                           {attributes.length > 0 && (
@@ -367,7 +367,7 @@ export const ProductSkuTable = ({
                             className={`w-28 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
                               skuPriceError
                                 ? "border-red-400 focus:border-red-400"
-                                : "border-[var(--border-color)] focus:border-indigo-500"
+                                : "focus:border-primary border-[var(--border-color)]"
                             }`}
                           />
                           {skuPriceError && (
@@ -400,7 +400,7 @@ export const ProductSkuTable = ({
                             className={`w-28 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
                               skuOriginalPriceError
                                 ? "border-red-400 focus:border-red-400"
-                                : "border-[var(--border-color)] focus:border-indigo-500"
+                                : "focus:border-primary border-[var(--border-color)]"
                             }`}
                             placeholder="Optional"
                           />
@@ -433,7 +433,7 @@ export const ProductSkuTable = ({
                             className={`w-24 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
                               skuStockError
                                 ? "border-red-400 focus:border-red-400"
-                                : "border-[var(--border-color)] focus:border-indigo-500"
+                                : "focus:border-primary border-[var(--border-color)]"
                             }`}
                           />
                           {skuStockError && (
@@ -461,7 +461,7 @@ export const ProductSkuTable = ({
                             onChange={(e) =>
                               handleSkuUnitPriceChange(index, e.target.value)
                             }
-                            className="w-20 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                            className="focus:border-primary w-20 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:outline-none"
                             placeholder="Unit"
                           />
                           <input
@@ -470,7 +470,7 @@ export const ProductSkuTable = ({
                             onChange={(e) =>
                               handleSkuImageUrlChange(index, e.target.value)
                             }
-                            className="w-44 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                            className="focus:border-primary w-44 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm text-[var(--app-text)] focus:outline-none"
                             placeholder="Image URL"
                           />
                         </div>

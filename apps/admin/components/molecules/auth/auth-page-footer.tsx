@@ -1,5 +1,5 @@
 export const AuthPageFooter = () => (
-  <p className="mt-6 text-center text-xs text-white/30">
+  <p className="text-content/35 mt-6 text-center text-xs">
     © {new Date().getFullYear()} Chốt Đơn — Admin Portal
   </p>
 );

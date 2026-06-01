@@ -96,7 +96,7 @@ export const ProductDetailHeader = ({
                   size="sm"
                   onClick={onSave}
                   disabled={!canSave}
-                  className="rounded-lg bg-indigo-600 font-semibold text-white hover:bg-indigo-700 disabled:opacity-50"
+                  className="bg-primary hover:bg-primary rounded-lg font-semibold text-white disabled:opacity-50"
                 >
                   {isSaving ? "Saving..." : "Save Changes"}
                 </Button>
@@ -106,7 +106,7 @@ export const ProductDetailHeader = ({
                 variant="outline"
                 size="sm"
                 onClick={onEdit}
-                className="rounded-lg border-indigo-500/20 text-indigo-400 hover:bg-indigo-500/5"
+                className="border-primary/20 text-primary hover:bg-primary/5 rounded-lg"
               >
                 Edit Product
               </Button>

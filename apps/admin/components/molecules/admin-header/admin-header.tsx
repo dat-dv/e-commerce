@@ -34,7 +34,7 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
           {/* Brand mark */}
           <div className="flex items-center gap-2.5 md:hidden">
             <Logo size={28} />
-            <span className="hidden rounded-md bg-indigo-500/10 px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-indigo-400 uppercase sm:block">
+            <span className="bg-primary/10 text-primary hidden rounded-md px-1.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase sm:block">
               Admin
             </span>
           </div>
@@ -53,7 +53,7 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
             {/* Unread badge — remove when wiring up real notifications */}
             <span
               aria-hidden="true"
-              className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-indigo-500 ring-2 ring-[var(--app-bg)]"
+              className="bg-primary absolute top-1.5 right-1.5 h-2 w-2 rounded-full ring-2 ring-[var(--app-bg)]"
             />
           </Button>
 

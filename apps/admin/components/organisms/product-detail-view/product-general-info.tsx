@@ -138,7 +138,7 @@ export const ProductGeneralInfo = ({
             Thumbnail Image
           </p>
           {isEditing && (
-            <label className="mt-3 inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 text-xs font-semibold text-[var(--app-text)] transition-colors hover:border-indigo-400 disabled:cursor-not-allowed disabled:opacity-60">
+            <label className="hover:border-primary mt-3 inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-3 text-xs font-semibold text-[var(--app-text)] transition-colors disabled:cursor-not-allowed disabled:opacity-60">
               <ImageUp className="h-4 w-4" />
               {isUploadingThumbnail ? "Uploading..." : "Upload"}
               <input
@@ -164,7 +164,7 @@ export const ProductGeneralInfo = ({
                 type="number"
                 value={editPrice}
                 onChange={(e) => setEditPrice?.(Number(e.target.value))}
-                className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm font-semibold text-emerald-400 focus:border-indigo-500 focus:outline-none"
+                className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm font-semibold text-emerald-400 focus:outline-none"
               />
             ) : (
               <p className="text-lg font-extrabold text-emerald-400">
@@ -182,7 +182,7 @@ export const ProductGeneralInfo = ({
               <select
                 value={editStatus}
                 onChange={(e) => setEditStatus?.(Number(e.target.value))}
-                className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:border-indigo-500 focus:outline-none"
+                className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:outline-none"
               >
                 <option value={0}>Draft</option>
                 <option value={1}>Active</option>
@@ -209,7 +209,7 @@ export const ProductGeneralInfo = ({
                 value={editBrandId}
                 onChange={(e) => setEditBrandId?.(e.target.value)}
                 disabled={metadataLoading || brands.length === 0}
-                className="mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:border-indigo-500 focus:outline-none disabled:opacity-50"
+                className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:outline-none disabled:opacity-50"
               >
                 <option value="">
                   {metadataLoading ? "Loading brands..." : "Select brand"}
@@ -237,7 +237,7 @@ export const ProductGeneralInfo = ({
               Categories
             </div>
             {isEditing && (
-              <p className="mt-1 text-xs font-semibold text-indigo-300">
+              <p className="text-primary mt-1 text-xs font-semibold">
                 {editCategoryIds.length} selected
               </p>
             )}
@@ -258,7 +258,7 @@ export const ProductGeneralInfo = ({
                         type="checkbox"
                         checked={editCategoryIds.includes(category.id)}
                         onChange={() => toggleCategory(category.id)}
-                        className="h-4 w-4 accent-indigo-500"
+                        className="accent-primary h-4 w-4"
                       />
                       <span className="min-w-0 truncate">
                         {getCategoryName(category)}
@@ -306,7 +306,7 @@ export const ProductGeneralInfo = ({
                       key={categoryId}
                       type="button"
                       onClick={() => toggleCategory(categoryId)}
-                      className="inline-flex items-center gap-1 rounded bg-indigo-500/10 px-2 py-0.5 text-xs font-semibold text-indigo-300 transition-colors hover:bg-indigo-500/15"
+                      className="bg-primary/10 text-primary hover:bg-primary/15 inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs font-semibold transition-colors"
                       aria-label={`Remove category ${getCategoryName(category) || categoryId}`}
                     >
                       {getCategoryName(category) || categoryId}

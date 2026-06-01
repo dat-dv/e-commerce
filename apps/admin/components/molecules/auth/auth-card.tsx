@@ -5,7 +5,7 @@ interface IAuthCardProps {
 }
 
 export const AuthCard = ({ children }: IAuthCardProps) => (
-  <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-8 shadow-2xl backdrop-blur-xl">
+  <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-8 shadow-2xl backdrop-blur-xl">
     {children}
   </div>
 );

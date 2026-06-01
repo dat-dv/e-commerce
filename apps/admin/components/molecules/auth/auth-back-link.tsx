@@ -7,7 +7,7 @@ export const AuthBackLink = ({ href, label }: IAuthBackLinkProps) => (
   <div className="mb-6 flex items-center gap-3">
     <a
       href={href}
-      className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+      className="text-content/60 hover:bg-primary/10 hover:text-primary flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] transition-colors"
       aria-label={label}
     >
       <svg
@@ -26,7 +26,7 @@ export const AuthBackLink = ({ href, label }: IAuthBackLinkProps) => (
         />
       </svg>
     </a>
-    <span className="text-sm font-medium text-white/40">{label}</span>
+    <span className="text-content/50 text-sm font-medium">{label}</span>
   </div>
 );
 

@@ -14,7 +14,7 @@ export const ORDER_STATUS_MAP: Record<
   },
   [EOrderStatus.SHIPPING]: {
     label: "Shipping",
-    color: "bg-indigo-500/10 text-indigo-400",
+    color: "bg-primary/10 text-primary",
   },
   [EOrderStatus.DELIVERED]: {
     label: "Delivered",
@@ -34,11 +34,11 @@ export const ORDER_STATUS_MAP: Record<
   },
   [EOrderStatus.RETURN_REQUESTED]: {
     label: "Return Requested",
-    color: "bg-purple-500/10 text-purple-400",
+    color: "bg-primary/10 text-primary",
   },
   [EOrderStatus.RETURN_PROCESSING]: {
     label: "Return Processing",
-    color: "bg-purple-500/10 text-purple-400",
+    color: "bg-primary/10 text-primary",
   },
   [EOrderStatus.RETURNED]: {
     label: "Returned",

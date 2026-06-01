@@ -15,7 +15,7 @@ export const ProductsHeader = ({ total }: IProductsHeaderProps) => (
       </p>
     </div>
     <div className="flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] px-4 py-2.5 shadow-sm backdrop-blur-xl">
-      <Package className="h-5 w-5 text-indigo-400" />
+      <Package className="text-primary h-5 w-5" />
       <span className="text-sm font-semibold text-[var(--app-text)]">
         {total} Total Products
       </span>
