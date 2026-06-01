@@ -1,24 +1,31 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { APP_ROUTES } from "@/constants/routes";
-import { useProductDetailView } from "@/hooks/product/use-product-detail-view";
+import { useProductDetailData } from "@/hooks/product/use-product-detail-data";
+import { useProductDetailForm } from "@/hooks/product/use-product-detail-form";
+import { useProductMetadata } from "@/hooks/product/use-product-metadata";
 
 import { ProductDetailHeader } from "./product-detail-header";
 import { ProductGeneralInfo } from "./product-general-info";
 import { ProductTranslations } from "./product-translations";
 
 export const ProductDetailView = () => {
+  const router = useRouter();
+
+  const { product, loading, error, setProduct } = useProductDetailData();
+
   const {
-    product,
     brands,
     attributes,
     languages,
     categoryTree,
-    loading,
     metadataLoading,
-    error,
     metadataError,
-    router,
+  } = useProductMetadata(!!product); // only load if we have a product
+
+  const {
     isEditing,
     isDirty,
     isSaving,
@@ -43,7 +50,7 @@ export const ProductDetailView = () => {
     cancelEdit,
     uploadThumbnail,
     saveProduct,
-  } = useProductDetailView();
+  } = useProductDetailForm(product, setProduct, categoryTree, metadataLoading);
 
   const handleBack = () => {
     if (

@@ -1,35 +1,25 @@
 "use client";
 
 import {
-  type IAttributeListResponse,
-  type IBrandResponse,
   type ICategoryTreeResponse,
-  type ILanguageListResponse,
   type IProductResponse,
   type IUpdateProductSkuRequest,
   type IUpdateProductTranslationRequest,
 } from "@ecommerce/shared";
-import { toast, useLoadOnce } from "@ecommerce/ui";
-import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "@ecommerce/ui";
 import { useCallback, useMemo, useState, useTransition } from "react";
 
-import { adminAttributeUseCase } from "@/domain/attribute";
-import { adminBrandUseCase } from "@/domain/brand";
-import { adminLanguageUseCase } from "@/domain/language";
 import { adminProductUseCase } from "@/domain/product";
-import { adminProductCategoryUseCase } from "@/domain/product-category";
 import { adminUploadUseCase } from "@/domain/upload";
 
 const collectCategoryIds = (categories: ICategoryTreeResponse): Set<string> => {
   const ids = new Set<string>();
-
   const visit = (items: ICategoryTreeResponse) => {
     for (const item of items) {
       ids.add(item.id);
       visit(item.children ?? []);
     }
   };
-
   visit(categories);
   return ids;
 };
@@ -69,21 +59,12 @@ const getProductEditSnapshot = (product: IProductResponse) => ({
   deleted_sku_ids: [] as string[],
 });
 
-export const useProductDetailView = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const slug = searchParams.get("slug");
-
-  const [product, setProduct] = useState<IProductResponse | null>(null);
-  const [brands, setBrands] = useState<IBrandResponse[]>([]);
-  const [attributes, setAttributes] = useState<IAttributeListResponse>([]);
-  const [languages, setLanguages] = useState<ILanguageListResponse>([]);
-  const [categoryTree, setCategoryTree] = useState<ICategoryTreeResponse>([]);
-  const [loading, setLoading] = useState(true);
-  const [metadataLoading, setMetadataLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [metadataError, setMetadataError] = useState<string | null>(null);
-
+export const useProductDetailForm = (
+  product: IProductResponse | null,
+  setProduct: (product: IProductResponse) => void,
+  categoryTree: ICategoryTreeResponse,
+  metadataLoading: boolean,
+) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isUploadingThumbnail, setIsUploadingThumbnail] = useState(false);
@@ -152,91 +133,6 @@ export const useProductDetailView = () => {
     !metadataLoading &&
     !isUploadingThumbnail;
 
-  const loadProductDetail = useCallback(async () => {
-    if (!slug) {
-      setLoading(false);
-      setMetadataLoading(false);
-      setError("Missing product slug.");
-      return;
-    }
-
-    setLoading(true);
-    setMetadataLoading(true);
-    setError(null);
-    setMetadataError(null);
-
-    const [
-      productResult,
-      brandsResult,
-      categoriesResult,
-      attributesResult,
-      languagesResult,
-    ] = await Promise.allSettled([
-      adminProductUseCase.getProduct.execute(slug),
-      adminBrandUseCase.getBrands.execute({ page: 1, limit: 50 }),
-      adminProductCategoryUseCase.getCategoryTree.execute(),
-      adminAttributeUseCase.getAttributes.execute(),
-      adminLanguageUseCase.getLanguages.execute(),
-    ]);
-
-    if (productResult.status === "fulfilled") {
-      const response = productResult.value;
-      if (response.status === "success" && response.data) {
-        setProduct(response.data);
-      } else {
-        setError(response.message || "Failed to load product detail.");
-      }
-    } else {
-      console.error(productResult.reason);
-      setError("Failed to load product detail.");
-    }
-
-    if (brandsResult.status === "fulfilled") {
-      setBrands(brandsResult.value.data?.items ?? []);
-    } else {
-      console.error(brandsResult.reason);
-      setMetadataError("Failed to load brand options.");
-    }
-
-    if (categoriesResult.status === "fulfilled") {
-      setCategoryTree(categoriesResult.value.data ?? []);
-    } else {
-      console.error(categoriesResult.reason);
-      setMetadataError((current) =>
-        current
-          ? `${current} Failed to load category options.`
-          : "Failed to load category options.",
-      );
-    }
-
-    if (attributesResult.status === "fulfilled") {
-      setAttributes(attributesResult.value.data ?? []);
-    } else {
-      console.error(attributesResult.reason);
-      setMetadataError((current) =>
-        current
-          ? `${current} Failed to load attribute options.`
-          : "Failed to load attribute options.",
-      );
-    }
-
-    if (languagesResult.status === "fulfilled") {
-      setLanguages(languagesResult.value.data ?? []);
-    } else {
-      console.error(languagesResult.reason);
-      setMetadataError((current) =>
-        current
-          ? `${current} Failed to load language options.`
-          : "Failed to load language options.",
-      );
-    }
-
-    setLoading(false);
-    setMetadataLoading(false);
-  }, [slug]);
-
-  useLoadOnce(loadProductDetail, !!slug);
-
   const startEdit = () => {
     if (!product) return;
     const snapshot = getProductEditSnapshot(product);
@@ -256,7 +152,6 @@ export const useProductDetailView = () => {
     if (isDirty && !window.confirm("Discard unsaved product changes?")) {
       return;
     }
-
     setIsEditing(false);
   };
 
@@ -394,16 +289,6 @@ export const useProductDetailView = () => {
   };
 
   return {
-    product,
-    brands,
-    attributes,
-    languages,
-    categoryTree,
-    loading,
-    metadataLoading,
-    error,
-    metadataError,
-    router,
     isEditing,
     isDirty,
     isSaving: isPending,
