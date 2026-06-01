@@ -4,7 +4,7 @@ import React from "react";
 import { PageHeader } from "@/components/molecules/page-header";
 import { APP_ROUTES } from "@/constants/routes";
 
-const SettingsHeader = () => {
+export const SettingsHeader = () => {
   const router = useRouter();
   return (
     <PageHeader
@@ -15,5 +15,3 @@ const SettingsHeader = () => {
     />
   );
 };
-
-export default SettingsHeader;

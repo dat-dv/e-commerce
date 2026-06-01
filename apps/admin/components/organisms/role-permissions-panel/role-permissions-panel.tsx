@@ -1,7 +1,7 @@
 import { Button, Checkbox } from "@ecommerce/ui";
 import { Save } from "lucide-react";
 
-import type { IRolePermissionsPanelProps } from "./permissions-view.types";
+import type { IRolePermissionsPanelProps } from "@/components/organisms/permissions-view/permissions-view.types";
 
 export const RolePermissionsPanel = ({
   selectedRole,

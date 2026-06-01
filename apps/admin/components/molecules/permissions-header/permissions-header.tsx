@@ -2,9 +2,8 @@ import { ShieldCheck } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { PageHeader } from "@/components/molecules/page-header";
+import type { IPermissionsHeaderProps } from "@/components/organisms/permissions-view/permissions-view.types";
 import { APP_ROUTES } from "@/constants/routes";
-
-import type { IPermissionsHeaderProps } from "./permissions-view.types";
 
 export const PermissionsHeader = ({
   permissionCount,

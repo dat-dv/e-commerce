@@ -3,12 +3,11 @@
 import { TableOfContents } from "@ecommerce/ui";
 import React from "react";
 
+import { SettingsHeader } from "@/components/molecules/settings-header";
+import { AppearanceTab } from "@/components/organisms/settings-appearance-tab";
+import { ProfileTab } from "@/components/organisms/settings-profile-tab";
+import { SystemTab } from "@/components/organisms/settings-system-tab";
 import { useSettingsView } from "@/hooks/settings/use-settings-view";
-
-import { AppearanceTab } from "./appearance-tab";
-import { ProfileTab } from "./profile-tab";
-import SettingsHeader from "./settings-header";
-import { SystemTab } from "./system-tab";
 
 const TOC_ITEMS = [
   { id: "appearance", title: "Appearance" },
