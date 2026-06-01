@@ -21,6 +21,7 @@ export class MockAuthRepository implements IAuthRepository {
     last_name: "Doe",
     email: "john.doe@example.com",
     avatar_id: "https://i.pravatar.cc/150?u=1",
+    active_phone_id: "phone_1",
     date_of_birth: new Date("1990-03-20"),
     created_at: new Date(),
     updated_at: new Date(),
@@ -39,9 +40,8 @@ export class MockAuthRepository implements IAuthRepository {
     phones: [
       {
         id: "phone_1",
-        phone_number: "123456789",
+        phone: "123456789",
         phone_code: "+84",
-        is_default: true,
         is_verified: true,
         user_id: "1",
         created_at: new Date(),
@@ -98,9 +98,8 @@ export class MockAuthRepository implements IAuthRepository {
       phones: [
         {
           ...MockAuthRepository.MOCK_USER.phones![0],
-          phone_number:
-            data.phoneNumber ||
-            MockAuthRepository.MOCK_USER.phones![0].phone_number,
+          phone:
+            data.phoneNumber || MockAuthRepository.MOCK_USER.phones![0].phone,
           phone_code:
             data.phoneCode ||
             MockAuthRepository.MOCK_USER.phones![0].phone_code,

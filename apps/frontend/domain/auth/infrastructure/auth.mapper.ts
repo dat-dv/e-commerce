@@ -1,20 +1,32 @@
-import { EGender, IUserResponse } from "@ecommerce/shared";
+import {
+  EGender,
+  IUpdateUserRequest,
+  IUserResponse,
+  UserPhone,
+} from "@ecommerce/shared";
 import { TUpdateUserInput } from "../../users/types/user.model";
-import { TUser } from "../types/auth.model";
+import { TUser, TUserPhone } from "../types/auth.model";
 
-type TUpdateUserRequestDto = {
-  first_name?: string;
-  last_name?: string;
-  password?: string;
-  date_of_birth?: string;
-  gender?: number;
-  avatar_id?: string;
-  phone_number?: string;
-  phone_code?: string;
-};
+const mapPhone = (
+  phone: UserPhone,
+  activePhoneId?: string | null,
+): TUserPhone => ({
+  id: phone.id,
+  phoneNumber: phone.phone,
+  phoneCode: phone.phone_code,
+  isDefault: phone.id === activePhoneId,
+  isVerified: phone.is_verified,
+});
 
 export const UserMapper = {
   toDomain(dto: IUserResponse): TUser {
+    const activePhone = dto.active_phone
+      ? mapPhone(dto.active_phone, dto.active_phone_id)
+      : null;
+    const phones = dto.phones?.map((phone) =>
+      mapPhone(phone, dto.active_phone_id),
+    );
+
     return {
       id: dto.id,
       firstName: dto.first_name || "",
@@ -26,12 +38,8 @@ export const UserMapper = {
       avatarId: dto.avatar_id || "",
       avatarUrl: dto.avatar?.url ?? null,
       gender: (dto.gender as EGender) ?? null,
-      phones: dto.phones?.map((p) => ({
-        id: p.id,
-        phoneNumber: p.phone_number,
-        phoneCode: p.phone_code,
-        isDefault: p.is_default,
-      })),
+      activePhone,
+      phones,
       password: dto.password,
       createdAt: dto.created_at ? new Date(dto.created_at).toISOString() : "",
       updatedAt: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
@@ -43,46 +51,29 @@ export const UserMapper = {
 
   toDTO(
     user: Partial<TUser> & { phoneNumber?: string; phoneCode?: string },
-  ): Partial<IUserResponse> & { phone_number?: string; phone_code?: string } {
-    const dto: Partial<IUserResponse> & {
-      phone_number?: string;
-      phone_code?: string;
-    } = {};
-    if (user.id) dto.id = user.id;
+  ): IUpdateUserRequest {
+    const dto: IUpdateUserRequest = {};
     if (user.firstName) dto.first_name = user.firstName;
     if (user.lastName) dto.last_name = user.lastName;
     if (user.dateOfBirth) {
-      dto.date_of_birth = new Date(user.dateOfBirth);
+      dto.date_of_birth = user.dateOfBirth;
     }
     if (user.avatarId) dto.avatar_id = user.avatarId;
-    if (user.phoneNumber) dto.phone_number = user.phoneNumber;
+    if (user.phoneNumber) dto.phone = user.phoneNumber;
     if (user.phoneCode) dto.phone_code = user.phoneCode;
-    if (user.phones && user.phones.length > 0) {
-      dto.phones = user.phones.map((p) => ({
-        id: p.id,
-        phone_number: p.phoneNumber,
-        phone_code: p.phoneCode,
-        is_default: p.isDefault,
-        is_verified: true, // Default for mapping
-        user_id: user.id || "",
-        created_at: new Date(),
-        updated_at: new Date(),
-      }));
-    }
     if (user.gender !== undefined && user.gender !== null)
       dto.gender = user.gender as number;
     return dto;
   },
 
-  toUpdateDTO(input: TUpdateUserInput): TUpdateUserRequestDto {
+  toUpdateDTO(input: TUpdateUserInput): IUpdateUserRequest {
     return {
       first_name: input.firstName,
       last_name: input.lastName,
-      password: input.password,
       date_of_birth: input.dateOfBirth,
       gender: input.gender as number,
       avatar_id: input.avatarId,
-      phone_number: input.phoneNumber,
+      phone: input.phoneNumber,
       phone_code: input.phoneCode,
     };
   },

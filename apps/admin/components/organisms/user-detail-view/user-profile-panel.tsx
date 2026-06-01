@@ -87,13 +87,11 @@ export const UserProfilePanel = ({ user }: IUserProfilePanelProps) => (
       </div>
       {user.phones && user.phones.length > 0 ? (
         <div className="space-y-1 text-sm text-[var(--app-text)]">
-          {(
-            user.phones as {
-              phone_number?: string;
-              phoneNumber?: string;
-            }[]
-          ).map((phone, index) => (
-            <p key={index}>{phone.phone_number || phone.phoneNumber}</p>
+          {user.phones.map((phone) => (
+            <p key={phone.id}>
+              {phone.phone_code}
+              {phone.phone}
+            </p>
           ))}
         </div>
       ) : (

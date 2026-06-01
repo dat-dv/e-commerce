@@ -52,19 +52,27 @@ export interface TUser {
   dateOfBirth?: string | null;
   avatarUrl?: string | null;
   gender?: EGender | null;
+  activePhone?: TUserPhone | null;
   phones?: TUserPhone[];
 }
 
 export interface TUserAvatar {
   id: string;
+  imageId?: string;
   url: string;
+  width?: number | null;
+  height?: number | null;
+  format?: string | null;
+  isCurrent?: boolean;
+  createdAt?: string;
 }
 
 export interface TUserPhone {
   id: string;
   phoneNumber: string;
   phoneCode: string;
-  isDefault: boolean;
+  isDefault?: boolean;
+  isVerified?: boolean;
 }
 
 export interface TAuthState {

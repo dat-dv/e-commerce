@@ -16,18 +16,20 @@ export const useUpdateProfile = () => {
       setLoading(true);
       const previousUser = user;
       try {
+        const currentPhone = user?.activePhone;
+        const optimisticPhone = {
+          ...(currentPhone || { id: "", isDefault: true }),
+          phoneNumber: data.phoneNumber || currentPhone?.phoneNumber || "",
+          phoneCode: data.phoneCode || currentPhone?.phoneCode || "",
+          isDefault: true,
+        };
+
         // Optimistic Update
         setUser({
           ...user,
           ...data,
-          phones: [
-            {
-              ...(user?.phones?.[0] || { id: "", isDefault: true }),
-              phoneNumber:
-                data.phoneNumber || user?.phones?.[0]?.phoneNumber || "",
-              phoneCode: data.phoneCode || user?.phones?.[0]?.phoneCode || "",
-            },
-          ],
+          activePhone: optimisticPhone,
+          phones: [optimisticPhone],
         });
 
         const response = await authUseCase.updateProfile.execute(data);

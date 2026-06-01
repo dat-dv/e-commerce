@@ -38,8 +38,8 @@ export function useProfileFormLogic({
       dateOfBirth: String(user?.dateOfBirth || ""),
       avatarUrl: user?.avatarUrl || "",
       phone: {
-        phoneCode: user?.phones?.[0]?.phoneCode?.slice(0, 3) || "",
-        phoneNumber: user?.phones?.[0]?.phoneNumber || "",
+        phoneCode: user?.activePhone?.phoneCode || "",
+        phoneNumber: user?.activePhone?.phoneNumber || "",
       },
       email: user?.email || "",
       avatarId: user?.avatarId || "",
@@ -64,8 +64,8 @@ export function useProfileFormLogic({
         dateOfBirth: String(user.dateOfBirth || ""),
         avatarUrl: user?.avatarUrl || "",
         phone: {
-          phoneCode: user?.phones?.[0]?.phoneCode?.slice(0, 3) || "",
-          phoneNumber: user?.phones?.[0]?.phoneNumber || "",
+          phoneCode: user?.activePhone?.phoneCode || "",
+          phoneNumber: user?.activePhone?.phoneNumber || "",
         },
         email: user.email || "",
         avatarId: user.avatarId || "",
@@ -85,8 +85,8 @@ export function useProfileFormLogic({
         dateOfBirth: String(user.dateOfBirth || ""),
         avatarUrl: user?.avatarUrl || "",
         phone: {
-          phoneCode: user?.phones?.[0]?.phoneCode?.slice(0, 3) || "",
-          phoneNumber: user?.phones?.[0]?.phoneNumber || "",
+          phoneCode: user?.activePhone?.phoneCode || "",
+          phoneNumber: user?.activePhone?.phoneNumber || "",
         },
         email: user.email || "",
         avatarId: user.avatarId || "",

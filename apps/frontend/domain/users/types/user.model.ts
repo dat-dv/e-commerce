@@ -4,7 +4,6 @@ export interface TUpdateUserInput {
   id: string;
   firstName?: string;
   lastName?: string;
-  password?: string;
   dateOfBirth?: string;
   gender?: EGender;
   avatar?: File;

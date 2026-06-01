@@ -21,5 +21,10 @@ export interface IAdminUser {
   role?: IAdminRole | null;
   avatar?: { url: string } | null;
   avatarUrl?: string | null;
-  phones?: unknown[];
+  phones?: Array<{
+    id: string;
+    phone: string;
+    phone_code: string;
+    is_verified: boolean;
+  }>;
 }

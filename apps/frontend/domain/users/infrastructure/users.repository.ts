@@ -38,17 +38,18 @@ export class UsersRepository implements IUsersRepository {
   async uploadAvatar(
     avatar: File,
     userId: string,
-  ): Promise<ApiResponse<string>> {
+  ): Promise<ApiResponse<TUser>> {
     const formData = new FormData();
     formData.append("avatar", avatar);
 
-    const response = await this.request.patch<{
-      avatar_url: string;
-    }>(API_ROUTES.USERS.UPLOAD_AVATAR(userId), formData);
+    const response = await this.request.patch<IUserResponse>(
+      API_ROUTES.USERS.UPLOAD_AVATAR(userId),
+      formData,
+    );
 
     return {
       ...response,
-      data: response.data.avatar_url,
+      data: UserMapper.toDomain(response.data),
     };
   }
 }

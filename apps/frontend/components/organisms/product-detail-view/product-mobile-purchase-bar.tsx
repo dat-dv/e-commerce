@@ -25,7 +25,6 @@ export function ProductMobilePurchaseBar({
   onBuyNow,
   onToggleFavorite,
 }: ProductMobilePurchaseBarProps) {
-  const a = useHeaderStore();
   const t = useTranslations("ProductDetailPage");
 
   return (

@@ -4,5 +4,5 @@ import { TUpdateUserInput } from "../types/user.model";
 
 export interface IUsersRepository {
   updateProfile(user: TUpdateUserInput): Promise<ApiResponse<TUser>>;
-  uploadAvatar(avatar: File, userId: string): Promise<ApiResponse<string>>;
+  uploadAvatar(avatar: File, userId: string): Promise<ApiResponse<TUser>>;
 }
