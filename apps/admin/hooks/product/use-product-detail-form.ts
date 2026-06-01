@@ -27,10 +27,25 @@ const collectCategoryIds = (categories: ICategoryTreeResponse): Set<string> => {
 const normalizeCategoryIds = (categoryIds: string[]) =>
   [...categoryIds].sort((a, b) => a.localeCompare(b));
 
-const getProductEditSnapshot = (product: IProductResponse) => ({
+export interface IProductFormState {
+  base_price: number;
+  status: number;
+  thumbnail_id: string;
+  thumbnail_url: string;
+  brand_id: string;
+  category_ids: string[];
+  translations: IUpdateProductTranslationRequest[];
+  skus: IUpdateProductSkuRequest[];
+  deleted_sku_ids: string[];
+}
+
+export const getProductEditSnapshot = (
+  product: IProductResponse,
+): IProductFormState => ({
   base_price: Number(product.base_price),
   status: Number(product.status),
   thumbnail_id: product.thumbnail_id ?? "",
+  thumbnail_url: product.thumbnail?.url ?? "",
   brand_id: product.brand_id ?? "",
   category_ids: normalizeCategoryIds(
     product.categories?.map((category) => category.category_id) ?? [],
@@ -56,7 +71,7 @@ const getProductEditSnapshot = (product: IProductResponse) => ({
       attribute_value_ids:
         sku.sku_attribute_values?.map((item) => item.attribute_value_id) ?? [],
     })) ?? [],
-  deleted_sku_ids: [] as string[],
+  deleted_sku_ids: [],
 });
 
 export const useProductDetailForm = (
@@ -69,62 +84,33 @@ export const useProductDetailForm = (
   const [isPending, startTransition] = useTransition();
   const [isUploadingThumbnail, setIsUploadingThumbnail] = useState(false);
 
-  const [editPrice, setEditPrice] = useState<number>(0);
-  const [editStatus, setEditStatus] = useState<number>(0);
-  const [editThumbnailId, setEditThumbnailId] = useState<string>("");
-  const [editThumbnailUrl, setEditThumbnailUrl] = useState<string>("");
-  const [editBrandId, setEditBrandId] = useState<string>("");
-  const [editCategoryIds, setEditCategoryIds] = useState<string[]>([]);
-  const [editTranslations, setEditTranslations] = useState<
-    IUpdateProductTranslationRequest[]
-  >([]);
-  const [editSkus, setEditSkus] = useState<IUpdateProductSkuRequest[]>([]);
-  const [deletedSkuIds, setDeletedSkuIds] = useState<string[]>([]);
+  const [formState, setFormState] = useState<IProductFormState | null>(null);
+
+  const updateFormState = useCallback(
+    <K extends keyof IProductFormState>(
+      key: K,
+      value: IProductFormState[K],
+    ) => {
+      setFormState((prev) => (prev ? { ...prev, [key]: value } : null));
+    },
+    [],
+  );
 
   const isDirty = useMemo(() => {
-    if (!product || !isEditing) return false;
+    if (!product || !isEditing || !formState) return false;
 
     const currentSnapshot = getProductEditSnapshot(product);
+    // Sort array fields for comparison
     const editSnapshot = {
-      base_price: Number(editPrice),
-      status: Number(editStatus),
-      thumbnail_id: editThumbnailId,
-      brand_id: editBrandId,
-      category_ids: normalizeCategoryIds(editCategoryIds),
-      translations: editTranslations.map((translation) => ({
-        language_id: translation.language_id,
-        name: translation.name,
-        description: translation.description || "",
-      })),
-      skus: editSkus.map((sku) => ({
-        id: sku.id,
-        sku_code: sku.sku_code.trim(),
-        price: Number(sku.price),
-        original_price:
-          sku.original_price === null || sku.original_price === undefined
-            ? null
-            : Number(sku.original_price),
-        stock: Number(sku.stock),
-        image_url: sku.image_url || "",
-        unit_price: sku.unit_price || "VND",
-        attribute_value_ids: sku.attribute_value_ids ?? [],
-      })),
-      deleted_sku_ids: [...deletedSkuIds].sort((a, b) => a.localeCompare(b)),
+      ...formState,
+      category_ids: normalizeCategoryIds(formState.category_ids),
+      deleted_sku_ids: [...formState.deleted_sku_ids].sort((a, b) =>
+        a.localeCompare(b),
+      ),
     };
 
     return JSON.stringify(currentSnapshot) !== JSON.stringify(editSnapshot);
-  }, [
-    editBrandId,
-    editCategoryIds,
-    editPrice,
-    editThumbnailId,
-    editSkus,
-    editStatus,
-    editTranslations,
-    deletedSkuIds,
-    isEditing,
-    product,
-  ]);
+  }, [formState, isEditing, product]);
 
   const canSave =
     isEditing &&
@@ -135,16 +121,7 @@ export const useProductDetailForm = (
 
   const startEdit = () => {
     if (!product) return;
-    const snapshot = getProductEditSnapshot(product);
-    setEditPrice(snapshot.base_price);
-    setEditStatus(snapshot.status);
-    setEditThumbnailId(snapshot.thumbnail_id);
-    setEditThumbnailUrl(product.thumbnail?.url ?? "");
-    setEditBrandId(snapshot.brand_id);
-    setEditCategoryIds(snapshot.category_ids);
-    setEditTranslations(snapshot.translations);
-    setEditSkus(snapshot.skus);
-    setDeletedSkuIds(snapshot.deleted_sku_ids);
+    setFormState(getProductEditSnapshot(product));
     setIsEditing(true);
   };
 
@@ -152,6 +129,7 @@ export const useProductDetailForm = (
     if (isDirty && !window.confirm("Discard unsaved product changes?")) {
       return;
     }
+    setFormState(null);
     setIsEditing(false);
   };
 
@@ -165,8 +143,15 @@ export const useProductDetailForm = (
     try {
       const response = await adminUploadUseCase.uploadImage.execute(file);
       if (response.status === "success" && response.data) {
-        setEditThumbnailId(response.data.id);
-        setEditThumbnailUrl(response.data.url);
+        setFormState((prev) =>
+          prev
+            ? {
+                ...prev,
+                thumbnail_id: response.data!.id,
+                thumbnail_url: response.data!.url,
+              }
+            : null,
+        );
         toast.success("Thumbnail uploaded. Save product to apply it.");
       } else {
         toast.error(response.message || "Failed to upload thumbnail.");
@@ -180,12 +165,11 @@ export const useProductDetailForm = (
   }, []);
 
   const saveProduct = () => {
-    if (!product) return;
-    if (!canSave) return;
+    if (!product || !formState || !canSave) return;
 
     startTransition(async () => {
       try {
-        const normalizedSkus = editSkus.map((sku) => ({
+        const normalizedSkus = formState.skus.map((sku) => ({
           ...sku,
           sku_code: sku.sku_code.trim(),
           price: Number(sku.price),
@@ -198,19 +182,21 @@ export const useProductDetailForm = (
           unit_price: sku.unit_price?.trim() || "VND",
           attribute_value_ids: sku.attribute_value_ids ?? [],
         }));
-        const normalizedTranslations = editTranslations.map((translation) => ({
-          ...translation,
-          name: translation.name.trim(),
-          description: translation.description?.trim() || "",
-        }));
+        const normalizedTranslations = formState.translations.map(
+          (translation) => ({
+            ...translation,
+            name: translation.name.trim(),
+            description: translation.description?.trim() || "",
+          }),
+        );
         const skuCodes = normalizedSkus.map((sku) => sku.sku_code);
 
-        if (Number(editPrice) < 0) {
+        if (Number(formState.base_price) < 0) {
           toast.error("Base price must be zero or greater.");
           return;
         }
 
-        if (editCategoryIds.length === 0) {
+        if (formState.category_ids.length === 0) {
           toast.error("Select at least one category.");
           return;
         }
@@ -228,7 +214,7 @@ export const useProductDetailForm = (
         const availableCategoryIds = collectCategoryIds(categoryTree);
         if (
           availableCategoryIds.size > 0 &&
-          editCategoryIds.some((id) => !availableCategoryIds.has(id))
+          formState.category_ids.some((id) => !availableCategoryIds.has(id))
         ) {
           toast.error("Selected categories are no longer available.");
           return;
@@ -260,14 +246,14 @@ export const useProductDetailForm = (
         }
 
         const payload = {
-          base_price: Number(editPrice),
-          status: Number(editStatus),
-          thumbnail_id: editThumbnailId || null,
-          brand_id: editBrandId || null,
-          category_ids: editCategoryIds,
+          base_price: Number(formState.base_price),
+          status: Number(formState.status),
+          thumbnail_id: formState.thumbnail_id || null,
+          brand_id: formState.brand_id || null,
+          category_ids: formState.category_ids,
           translations: normalizedTranslations,
           skus: normalizedSkus,
-          deleted_sku_ids: deletedSkuIds,
+          deleted_sku_ids: formState.deleted_sku_ids,
         };
 
         const response = await adminProductUseCase.updateProduct.execute(
@@ -277,6 +263,7 @@ export const useProductDetailForm = (
         if (response.status === "success" && response.data) {
           setProduct(response.data);
           setIsEditing(false);
+          setFormState(null);
           toast.success("Product updated successfully!");
         } else {
           toast.error(response.message || "Failed to save product.");
@@ -289,29 +276,13 @@ export const useProductDetailForm = (
   };
 
   return {
+    formState,
+    updateFormState,
     isEditing,
     isDirty,
     isSaving: isPending,
     isUploadingThumbnail,
     canSave,
-    editPrice,
-    setEditPrice,
-    editStatus,
-    setEditStatus,
-    editThumbnailId,
-    setEditThumbnailId,
-    editThumbnailUrl,
-    setEditThumbnailUrl,
-    editBrandId,
-    setEditBrandId,
-    editCategoryIds,
-    setEditCategoryIds,
-    editTranslations,
-    setEditTranslations,
-    editSkus,
-    setEditSkus,
-    deletedSkuIds,
-    setDeletedSkuIds,
     startEdit,
     cancelEdit,
     uploadThumbnail,

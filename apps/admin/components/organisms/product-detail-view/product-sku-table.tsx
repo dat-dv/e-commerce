@@ -6,27 +6,29 @@ import {
 import { Button } from "@ecommerce/ui";
 import { ImageIcon, Layers, Plus, Trash2 } from "lucide-react";
 
+import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
+
 import { formatCurrency } from "../products-view/product.utils";
 
 interface IProductSkuTableProps {
   product: IProductResponse;
   attributes?: IAttributeListResponse;
   isEditing?: boolean;
-  editSkus?: IUpdateProductSkuRequest[];
-  setEditSkus?: (skus: IUpdateProductSkuRequest[]) => void;
-  deletedSkuIds?: string[];
-  setDeletedSkuIds?: (skuIds: string[]) => void;
+  formState?: IProductFormState | null;
+  updateFormState?: <K extends keyof IProductFormState>(
+    key: K,
+    value: IProductFormState[K],
+  ) => void;
 }
 
 export const ProductSkuTable = ({
   product,
   attributes: attributeOptions = [],
   isEditing = false,
-  editSkus = [],
-  setEditSkus,
-  deletedSkuIds = [],
-  setDeletedSkuIds,
+  formState,
+  updateFormState,
 }: IProductSkuTableProps) => {
+  const editSkus = formState?.skus ?? [];
   const rows = isEditing ? editSkus : (product.skus ?? []);
   const skuCodes = editSkus.map((sku) => sku.sku_code.trim()).filter(Boolean);
 
@@ -72,27 +74,30 @@ export const ProductSkuTable = ({
   };
 
   const handleSkuPriceChange = (index: number, newPrice: number) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) =>
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, price: newPrice } : sku,
       ),
     );
   };
 
   const handleSkuCodeChange = (index: number, newCode: string) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) =>
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, sku_code: newCode } : sku,
       ),
     );
   };
 
   const handleSkuStockChange = (index: number, newStock: number) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) =>
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, stock: newStock } : sku,
       ),
     );
@@ -102,27 +107,30 @@ export const ProductSkuTable = ({
     index: number,
     newOriginalPrice: number | null,
   ) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) =>
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, original_price: newOriginalPrice } : sku,
       ),
     );
   };
 
   const handleSkuUnitPriceChange = (index: number, newUnitPrice: string) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) =>
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, unit_price: newUnitPrice } : sku,
       ),
     );
   };
 
   const handleSkuImageUrlChange = (index: number, newImageUrl: string) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) =>
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) =>
         skuIndex === index ? { ...sku, image_url: newImageUrl } : sku,
       ),
     );
@@ -132,9 +140,10 @@ export const ProductSkuTable = ({
     index: number,
     attributeValueId: string,
   ) => {
-    if (!setEditSkus) return;
-    setEditSkus(
-      editSkus.map((sku, skuIndex) => {
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "skus",
+      formState.skus.map((sku, skuIndex) => {
         if (skuIndex !== index) return sku;
 
         const currentIds = sku.attribute_value_ids ?? [];
@@ -149,9 +158,9 @@ export const ProductSkuTable = ({
   };
 
   const handleAddSku = () => {
-    if (!setEditSkus) return;
-    setEditSkus([
-      ...editSkus,
+    if (!updateFormState || !formState) return;
+    updateFormState("skus", [
+      ...formState.skus,
       {
         sku_code: "",
         price: product.base_price,
@@ -164,20 +173,25 @@ export const ProductSkuTable = ({
   };
 
   const handleRemoveSku = (index: number) => {
-    if (!setEditSkus) return;
+    if (!updateFormState || !formState) return;
 
-    const sku = editSkus[index];
+    const sku = formState.skus[index];
     if (!sku) return;
 
-    if (editSkus.length === 1) {
+    if (formState.skus.length === 1) {
       return;
     }
 
-    if (sku.id && setDeletedSkuIds) {
-      setDeletedSkuIds([...new Set([...deletedSkuIds, sku.id])]);
+    if (sku.id) {
+      updateFormState("deleted_sku_ids", [
+        ...new Set([...formState.deleted_sku_ids, sku.id]),
+      ]);
     }
 
-    setEditSkus(editSkus.filter((_, skuIndex) => skuIndex !== index));
+    updateFormState(
+      "skus",
+      formState.skus.filter((_, skuIndex) => skuIndex !== index),
+    );
   };
 
   const getStockBadge = (stock: number) => {

@@ -26,26 +26,13 @@ export const ProductDetailView = () => {
   } = useProductMetadata(!!product); // only load if we have a product
 
   const {
+    formState,
+    updateFormState,
     isEditing,
     isDirty,
     isSaving,
     isUploadingThumbnail,
     canSave,
-    editPrice,
-    setEditPrice,
-    editStatus,
-    setEditStatus,
-    editThumbnailUrl,
-    editBrandId,
-    setEditBrandId,
-    editCategoryIds,
-    setEditCategoryIds,
-    editTranslations,
-    setEditTranslations,
-    editSkus,
-    setEditSkus,
-    deletedSkuIds,
-    setDeletedSkuIds,
     startEdit,
     cancelEdit,
     uploadThumbnail,
@@ -101,28 +88,17 @@ export const ProductDetailView = () => {
             metadataLoading={metadataLoading}
             metadataError={metadataError}
             isEditing={isEditing}
-            editPrice={editPrice}
-            setEditPrice={setEditPrice}
-            editStatus={editStatus}
-            setEditStatus={setEditStatus}
-            editThumbnailUrl={editThumbnailUrl}
+            formState={formState}
+            updateFormState={updateFormState}
             isUploadingThumbnail={isUploadingThumbnail}
             onThumbnailUpload={uploadThumbnail}
-            editBrandId={editBrandId}
-            setEditBrandId={setEditBrandId}
-            editCategoryIds={editCategoryIds}
-            setEditCategoryIds={setEditCategoryIds}
-            editSkus={editSkus}
-            setEditSkus={setEditSkus}
-            deletedSkuIds={deletedSkuIds}
-            setDeletedSkuIds={setDeletedSkuIds}
           />
           <ProductTranslations
             product={product}
             languages={languages}
             isEditing={isEditing}
-            editTranslations={editTranslations}
-            setEditTranslations={setEditTranslations}
+            formState={formState}
+            updateFormState={updateFormState}
           />
         </div>
       )}

@@ -1,17 +1,19 @@
 import {
   type ILanguageListResponse,
   type IProductResponse,
-  type IUpdateProductTranslationRequest,
 } from "@ecommerce/shared";
 import { Globe, Info } from "lucide-react";
+
+import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductTranslationsProps {
   product: IProductResponse;
   languages?: ILanguageListResponse;
   isEditing?: boolean;
-  editTranslations?: IUpdateProductTranslationRequest[];
-  setEditTranslations?: (
-    translations: IUpdateProductTranslationRequest[],
+  formState?: IProductFormState | null;
+  updateFormState?: <K extends keyof IProductFormState>(
+    key: K,
+    value: IProductFormState[K],
   ) => void;
 }
 
@@ -19,22 +21,24 @@ export const ProductTranslations = ({
   product,
   languages = [],
   isEditing = false,
-  editTranslations = [],
-  setEditTranslations,
+  formState,
+  updateFormState,
 }: IProductTranslationsProps) => {
   const handleTranslationChange = (
     langId: string,
     field: "name" | "description",
     value: string,
   ) => {
-    if (!setEditTranslations) return;
-    const existingTranslation = editTranslations.find(
+    if (!updateFormState || !formState) return;
+    const current = formState.translations;
+    const existingTranslation = current.find(
       (translation) => translation.language_id === langId,
     );
 
     if (existingTranslation) {
-      setEditTranslations(
-        editTranslations.map((translation) =>
+      updateFormState(
+        "translations",
+        current.map((translation) =>
           translation.language_id === langId
             ? { ...translation, [field]: value }
             : translation,
@@ -43,8 +47,8 @@ export const ProductTranslations = ({
       return;
     }
 
-    setEditTranslations([
-      ...editTranslations,
+    updateFormState("translations", [
+      ...current,
       {
         language_id: langId,
         name: field === "name" ? value : "",
@@ -94,10 +98,11 @@ export const ProductTranslations = ({
       {rows.length > 0 ? (
         <div className="space-y-4">
           {rows.map((translation) => {
-            const editT =
-              editTranslations.find(
-                (x) => x.language_id === translation.language_id,
-              ) || translation;
+            const editT = formState
+              ? formState.translations.find(
+                  (x) => x.language_id === translation.language_id,
+                ) || translation
+              : translation;
             return (
               <div
                 key={translation.id}

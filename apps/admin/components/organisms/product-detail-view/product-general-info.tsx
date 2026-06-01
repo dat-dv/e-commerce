@@ -4,7 +4,6 @@ import {
   type ICategoryResponse,
   type ICategoryTreeResponse,
   type IProductResponse,
-  type IUpdateProductSkuRequest,
 } from "@ecommerce/shared";
 import {
   Activity,
@@ -18,6 +17,8 @@ import {
 } from "lucide-react";
 import type { ChangeEvent } from "react";
 
+import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
+
 import { formatCurrency, getProductName } from "../products-view/product.utils";
 import { ProductSkuTable } from "./product-sku-table";
 
@@ -29,21 +30,13 @@ interface IProductGeneralInfoProps {
   metadataLoading?: boolean;
   metadataError?: string | null;
   isEditing?: boolean;
-  editPrice?: number;
-  setEditPrice?: (p: number) => void;
-  editStatus?: number;
-  setEditStatus?: (s: number) => void;
-  editThumbnailUrl?: string;
+  formState?: IProductFormState | null;
+  updateFormState?: <K extends keyof IProductFormState>(
+    key: K,
+    value: IProductFormState[K],
+  ) => void;
   isUploadingThumbnail?: boolean;
   onThumbnailUpload?: (file: File) => void;
-  editBrandId?: string;
-  setEditBrandId?: (brandId: string) => void;
-  editCategoryIds?: string[];
-  setEditCategoryIds?: (categoryIds: string[]) => void;
-  editSkus?: IUpdateProductSkuRequest[];
-  setEditSkus?: (skus: IUpdateProductSkuRequest[]) => void;
-  deletedSkuIds?: string[];
-  setDeletedSkuIds?: (skuIds: string[]) => void;
 }
 
 const getBrandName = (brand: IBrandResponse) =>
@@ -69,34 +62,25 @@ export const ProductGeneralInfo = ({
   metadataLoading = false,
   metadataError,
   isEditing = false,
-  editPrice = 0,
-  setEditPrice,
-  editStatus = 0,
-  setEditStatus,
-  editThumbnailUrl = "",
+  formState,
+  updateFormState,
   isUploadingThumbnail = false,
   onThumbnailUpload,
-  editBrandId = "",
-  setEditBrandId,
-  editCategoryIds = [],
-  setEditCategoryIds,
-  editSkus = [],
-  setEditSkus,
-  deletedSkuIds = [],
-  setDeletedSkuIds,
 }: IProductGeneralInfoProps) => {
   const defaultName = getProductName(product.translations, product.slug);
   const flatCategories = flattenCategories(categoryTree);
-  const thumbnailUrl = isEditing
-    ? editThumbnailUrl || product.thumbnail?.url
-    : product.thumbnail?.url;
+  const thumbnailUrl =
+    isEditing && formState
+      ? formState.thumbnail_url || product.thumbnail?.url
+      : product.thumbnail?.url;
 
   const toggleCategory = (categoryId: string) => {
-    if (!setEditCategoryIds) return;
-    setEditCategoryIds(
-      editCategoryIds.includes(categoryId)
-        ? editCategoryIds.filter((id) => id !== categoryId)
-        : [...editCategoryIds, categoryId],
+    if (!updateFormState || !formState) return;
+    updateFormState(
+      "category_ids",
+      formState.category_ids.includes(categoryId)
+        ? formState.category_ids.filter((id) => id !== categoryId)
+        : [...formState.category_ids, categoryId],
     );
   };
 
@@ -159,11 +143,13 @@ export const ProductGeneralInfo = ({
               <Tag className="h-4 w-4" />
               Base Price
             </div>
-            {isEditing ? (
+            {isEditing && formState ? (
               <input
                 type="number"
-                value={editPrice}
-                onChange={(e) => setEditPrice?.(Number(e.target.value))}
+                value={formState.base_price}
+                onChange={(e) =>
+                  updateFormState?.("base_price", Number(e.target.value))
+                }
                 className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm font-semibold text-emerald-400 focus:outline-none"
               />
             ) : (
@@ -178,10 +164,12 @@ export const ProductGeneralInfo = ({
               <Activity className="h-4 w-4" />
               Status
             </div>
-            {isEditing ? (
+            {isEditing && formState ? (
               <select
-                value={editStatus}
-                onChange={(e) => setEditStatus?.(Number(e.target.value))}
+                value={formState.status}
+                onChange={(e) =>
+                  updateFormState?.("status", Number(e.target.value))
+                }
                 className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:outline-none"
               >
                 <option value={0}>Draft</option>
@@ -204,10 +192,10 @@ export const ProductGeneralInfo = ({
               <Award className="h-4 w-4" />
               Brand
             </div>
-            {isEditing ? (
+            {isEditing && formState ? (
               <select
-                value={editBrandId}
-                onChange={(e) => setEditBrandId?.(e.target.value)}
+                value={formState.brand_id}
+                onChange={(e) => updateFormState?.("brand_id", e.target.value)}
                 disabled={metadataLoading || brands.length === 0}
                 className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:outline-none disabled:opacity-50"
               >
@@ -236,12 +224,12 @@ export const ProductGeneralInfo = ({
               <Grid className="h-4 w-4" />
               Categories
             </div>
-            {isEditing && (
+            {isEditing && formState && (
               <p className="text-primary mt-1 text-xs font-semibold">
-                {editCategoryIds.length} selected
+                {formState.category_ids.length} selected
               </p>
             )}
-            {isEditing ? (
+            {isEditing && formState ? (
               <div className="mt-2 max-h-44 space-y-1 overflow-y-auto pr-1">
                 {metadataLoading ? (
                   <p className="text-sm text-[var(--muted)]">
@@ -256,7 +244,7 @@ export const ProductGeneralInfo = ({
                     >
                       <input
                         type="checkbox"
-                        checked={editCategoryIds.includes(category.id)}
+                        checked={formState.category_ids.includes(category.id)}
                         onChange={() => toggleCategory(category.id)}
                         className="accent-primary h-4 w-4"
                       />
@@ -295,9 +283,9 @@ export const ProductGeneralInfo = ({
                 {metadataError}
               </p>
             )}
-            {isEditing && editCategoryIds.length > 0 && (
+            {isEditing && formState && formState.category_ids.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-1">
-                {editCategoryIds.map((categoryId) => {
+                {formState.category_ids.map((categoryId) => {
                   const category = flatCategories.find(
                     (item) => item.id === categoryId,
                   );
@@ -344,10 +332,8 @@ export const ProductGeneralInfo = ({
         product={product}
         attributes={attributes}
         isEditing={isEditing}
-        editSkus={editSkus}
-        setEditSkus={setEditSkus}
-        deletedSkuIds={deletedSkuIds}
-        setDeletedSkuIds={setDeletedSkuIds}
+        formState={formState}
+        updateFormState={updateFormState}
       />
     </section>
   );
