@@ -2,9 +2,10 @@
 
 import { Package } from "lucide-react";
 
+import { useUserDetailOrders } from "@/hooks/user/use-user-detail-orders";
+
 import { formatCurrency, getOrderStatus } from "../orders-view/order.utils";
 import { EmptyTabState } from "./empty-tab-state";
-import { useUserDetailOrders } from "./use-user-detail-orders";
 import { formatAdminDate } from "./user-detail-view.utils";
 
 export const UserDetailOrdersTab = ({ userId }: { userId: string }) => {

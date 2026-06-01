@@ -8,10 +8,10 @@ import { AvatarGallery } from "@/components/molecules/avatar-gallery";
 import { DetailField } from "@/components/molecules/detail-field";
 import { GENDER_OPTIONS } from "@/constants/gender.constanst";
 import type { IAdminUser, IAdminUserAvatar } from "@/domain/user";
+import { useUserDetailData } from "@/hooks/user/use-user-detail-data";
+import { useUserDetailForm } from "@/hooks/user/use-user-detail-form";
+import { useUserDetailMutations } from "@/hooks/user/use-user-detail-mutations";
 
-import { useUserDetailData } from "./use-user-detail-data";
-import { useUserDetailForm } from "./use-user-detail-form";
-import { useUserDetailMutations } from "./use-user-detail-mutations";
 import {
   formatAdminDate,
   getAdminUserDisplayName,

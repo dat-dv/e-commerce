@@ -13,8 +13,7 @@ import React from "react";
 
 import { PageHeader } from "@/components/molecules/page-header";
 import type { IAdminUser } from "@/domain/user/types/user.model";
-
-import { useCustomersView } from "./use-customers-view";
+import { useCustomersView } from "@/hooks/user/use-customers-view";
 
 export const CustomersView = () => {
   const {

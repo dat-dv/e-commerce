@@ -3,7 +3,7 @@
 import { BasicLoading } from "@ecommerce/ui";
 import React from "react";
 
-import { useAuthGuard } from "./use-auth-guard";
+import { useAuthGuard } from "@/hooks/auth/use-auth-guard";
 
 interface IAuthGuardProps {
   children: React.ReactNode;

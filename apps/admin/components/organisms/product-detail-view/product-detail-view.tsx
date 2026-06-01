@@ -1,11 +1,11 @@
 "use client";
 
 import { APP_ROUTES } from "@/constants/routes";
+import { useProductDetailView } from "@/hooks/product/use-product-detail-view";
 
 import { ProductDetailHeader } from "./product-detail-header";
 import { ProductGeneralInfo } from "./product-general-info";
 import { ProductTranslations } from "./product-translations";
-import { useProductDetailView } from "./use-product-detail-view";
 
 export const ProductDetailView = () => {
   const {

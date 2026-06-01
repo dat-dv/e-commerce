@@ -3,9 +3,10 @@
 import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
+import { useProductsView } from "@/hooks/product/use-products-view";
+
 import { ProductsHeader } from "./products-header";
 import { ProductsTable } from "./products-table";
-import { useProductsView } from "./use-products-view";
 
 export const ProductsView = () => {
   const {

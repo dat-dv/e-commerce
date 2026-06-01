@@ -3,11 +3,12 @@
 import { TableOfContents } from "@ecommerce/ui";
 import React from "react";
 
+import { useSettingsView } from "@/hooks/settings/use-settings-view";
+
 import { AppearanceTab } from "./appearance-tab";
 import { ProfileTab } from "./profile-tab";
 import SettingsHeader from "./settings-header";
 import { SystemTab } from "./system-tab";
-import { useSettingsView } from "./use-settings-view";
 
 const TOC_ITEMS = [
   { id: "appearance", title: "Appearance" },

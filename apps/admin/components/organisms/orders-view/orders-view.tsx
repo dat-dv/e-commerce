@@ -3,10 +3,11 @@
 import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
+import { useOrdersView } from "@/hooks/order/use-orders-view";
+
 import { OrderDetailDialog } from "./order-detail-dialog";
 import { OrdersHeader } from "./orders-header";
 import { OrdersTable } from "./orders-table";
-import { useOrdersView } from "./use-orders-view";
 
 export const OrdersView = () => {
   const {
