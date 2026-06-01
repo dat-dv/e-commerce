@@ -4,7 +4,7 @@ import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
 import { ProductsHeader } from "@/components/molecules/products-header";
-import { ProductsTable } from "@/components/organisms/products-table";
+import { ProductsTable } from "@/components/organisms/products-view/products-table";
 import { useProductsView } from "@/hooks/product/use-products-view";
 
 export const ProductsView = () => {

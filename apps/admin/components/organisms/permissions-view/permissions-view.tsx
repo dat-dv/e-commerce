@@ -1,7 +1,7 @@
 "use client";
 
 import { PermissionsHeader } from "@/components/molecules/permissions-header";
-import { RolePermissionsPanel } from "@/components/organisms/role-permissions-panel";
+import { RolePermissionsPanel } from "@/components/organisms/permissions-view/role-permissions-panel";
 import { useRolePermissionsData } from "@/hooks/role/use-role-permissions-data";
 import { useRolePermissionsMutations } from "@/hooks/role/use-role-permissions-mutations";
 

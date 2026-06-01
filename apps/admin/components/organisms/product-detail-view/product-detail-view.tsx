@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 
 import { ProductDetailHeader } from "@/components/molecules/product-detail-header";
-import { ProductGeneralInfo } from "@/components/organisms/product-general-info";
-import { ProductTranslations } from "@/components/organisms/product-translations";
+import { ProductGeneralInfo } from "@/components/organisms/product-detail-view/product-general-info";
+import { ProductTranslations } from "@/components/organisms/product-detail-view/product-translations";
 import { APP_ROUTES } from "@/constants/routes";
 import { useProductDetailData } from "@/hooks/product/use-product-detail-data";
 import { useProductDetailForm } from "@/hooks/product/use-product-detail-form";

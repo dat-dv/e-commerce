@@ -6,9 +6,8 @@ import {
 import { Button } from "@ecommerce/ui";
 import { ImageIcon, Layers, Plus, Trash2 } from "lucide-react";
 
+import { formatCurrency } from "@/components/organisms/products-view/product.utils";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
-
-import { formatCurrency } from "../products-view/product.utils";
 
 interface IProductSkuTableProps {
   product: IProductResponse;

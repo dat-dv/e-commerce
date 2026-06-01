@@ -4,8 +4,8 @@ import { SearchInput } from "@ecommerce/ui";
 import React from "react";
 
 import { OrdersHeader } from "@/components/molecules/orders-header";
-import { OrderDetailDialog } from "@/components/organisms/order-detail-dialog";
-import { OrdersTable } from "@/components/organisms/orders-table";
+import { OrderDetailDialog } from "@/components/organisms/orders-view/order-detail-dialog";
+import { OrdersTable } from "@/components/organisms/orders-view/orders-table";
 import { useOrdersView } from "@/hooks/order/use-orders-view";
 
 export const OrdersView = () => {

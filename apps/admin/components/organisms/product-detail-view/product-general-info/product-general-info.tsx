@@ -14,10 +14,9 @@ import {
   ProductStatusField,
   ProductThumbnailField,
 } from "@/components/molecules/product-fields";
-import { ProductSkuTable } from "@/components/organisms/product-sku-table";
+import { ProductSkuTable } from "@/components/organisms/product-detail-view/product-sku-table";
+import { getProductName } from "@/components/organisms/products-view/product.utils";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
-
-import { getProductName } from "../products-view/product.utils";
 
 interface IProductGeneralInfoProps {
   product: IProductResponse;
