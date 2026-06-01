@@ -72,7 +72,7 @@ describe('RegisterUseCase', () => {
       updated_at: new Date(),
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
+
       deleted_at: null,
     };
     mockCreateUserUseCase.execute.mockResolvedValue(user);

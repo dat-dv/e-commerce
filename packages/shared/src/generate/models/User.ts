@@ -40,7 +40,6 @@ export type UserMinAggregateOutputType = {
   last_name: string | null
   email: string | null
   password: string | null
-  salt: string | null
   date_of_birth: Date | null
   gender: number | null
   created_at: Date | null
@@ -57,7 +56,6 @@ export type UserMaxAggregateOutputType = {
   last_name: string | null
   email: string | null
   password: string | null
-  salt: string | null
   date_of_birth: Date | null
   gender: number | null
   created_at: Date | null
@@ -74,7 +72,6 @@ export type UserCountAggregateOutputType = {
   last_name: number
   email: number
   password: number
-  salt: number
   date_of_birth: number
   gender: number
   created_at: number
@@ -101,7 +98,6 @@ export type UserMinAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
-  salt?: true
   date_of_birth?: true
   gender?: true
   created_at?: true
@@ -118,7 +114,6 @@ export type UserMaxAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
-  salt?: true
   date_of_birth?: true
   gender?: true
   created_at?: true
@@ -135,7 +130,6 @@ export type UserCountAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
-  salt?: true
   date_of_birth?: true
   gender?: true
   created_at?: true
@@ -239,7 +233,6 @@ export type UserGroupByOutputType = {
   last_name: string | null
   email: string
   password: string
-  salt: string | null
   date_of_birth: Date | null
   gender: number | null
   created_at: Date
@@ -279,7 +272,6 @@ export type UserWhereInput = {
   last_name?: Prisma.StringNullableFilter<"User"> | string | null
   email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  salt?: Prisma.StringNullableFilter<"User"> | string | null
   date_of_birth?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   gender?: Prisma.IntNullableFilter<"User"> | number | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -313,7 +305,6 @@ export type UserOrderByWithRelationInput = {
   last_name?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  salt?: Prisma.SortOrderInput | Prisma.SortOrder
   date_of_birth?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -351,7 +342,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   first_name?: Prisma.StringNullableFilter<"User"> | string | null
   last_name?: Prisma.StringNullableFilter<"User"> | string | null
   password?: Prisma.StringFilter<"User"> | string
-  salt?: Prisma.StringNullableFilter<"User"> | string | null
   date_of_birth?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   gender?: Prisma.IntNullableFilter<"User"> | number | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -384,7 +374,6 @@ export type UserOrderByWithAggregationInput = {
   last_name?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  salt?: Prisma.SortOrderInput | Prisma.SortOrder
   date_of_birth?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -409,7 +398,6 @@ export type UserScalarWhereWithAggregatesInput = {
   last_name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
-  salt?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   date_of_birth?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   gender?: Prisma.IntNullableWithAggregatesFilter<"User"> | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -426,7 +414,6 @@ export type UserCreateInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -457,7 +444,6 @@ export type UserUncheckedCreateInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -488,7 +474,6 @@ export type UserUpdateInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -519,7 +504,6 @@ export type UserUncheckedUpdateInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -550,7 +534,6 @@ export type UserCreateManyInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -567,7 +550,6 @@ export type UserUpdateManyMutationInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -581,7 +563,6 @@ export type UserUncheckedUpdateManyInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -618,7 +599,6 @@ export type UserCountOrderByAggregateInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  salt?: Prisma.SortOrder
   date_of_birth?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -639,7 +619,6 @@ export type UserMaxOrderByAggregateInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  salt?: Prisma.SortOrder
   date_of_birth?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -656,7 +635,6 @@ export type UserMinOrderByAggregateInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  salt?: Prisma.SortOrder
   date_of_birth?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -991,7 +969,6 @@ export type UserCreateWithoutBrowsing_historyInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1021,7 +998,6 @@ export type UserUncheckedCreateWithoutBrowsing_historyInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1067,7 +1043,6 @@ export type UserUpdateWithoutBrowsing_historyInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1097,7 +1072,6 @@ export type UserUncheckedUpdateWithoutBrowsing_historyInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1127,7 +1101,6 @@ export type UserCreateWithoutCartInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1157,7 +1130,6 @@ export type UserUncheckedCreateWithoutCartInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1203,7 +1175,6 @@ export type UserUpdateWithoutCartInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1233,7 +1204,6 @@ export type UserUncheckedUpdateWithoutCartInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1263,7 +1233,6 @@ export type UserCreateWithoutHelp_contact_submissionsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1293,7 +1262,6 @@ export type UserUncheckedCreateWithoutHelp_contact_submissionsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1339,7 +1307,6 @@ export type UserUpdateWithoutHelp_contact_submissionsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1369,7 +1336,6 @@ export type UserUncheckedUpdateWithoutHelp_contact_submissionsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1399,7 +1365,6 @@ export type UserCreateWithoutNotificationsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1429,7 +1394,6 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1475,7 +1439,6 @@ export type UserUpdateWithoutNotificationsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1505,7 +1468,6 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1535,7 +1497,6 @@ export type UserCreateWithoutNotification_tokensInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1565,7 +1526,6 @@ export type UserUncheckedCreateWithoutNotification_tokensInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1611,7 +1571,6 @@ export type UserUpdateWithoutNotification_tokensInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1641,7 +1600,6 @@ export type UserUncheckedUpdateWithoutNotification_tokensInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1671,7 +1629,6 @@ export type UserCreateWithoutOrdersInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1701,7 +1658,6 @@ export type UserUncheckedCreateWithoutOrdersInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1747,7 +1703,6 @@ export type UserUpdateWithoutOrdersInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1777,7 +1732,6 @@ export type UserUncheckedUpdateWithoutOrdersInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1807,7 +1761,6 @@ export type UserCreateWithoutOrder_returnsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1837,7 +1790,6 @@ export type UserUncheckedCreateWithoutOrder_returnsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1883,7 +1835,6 @@ export type UserUpdateWithoutOrder_returnsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1913,7 +1864,6 @@ export type UserUncheckedUpdateWithoutOrder_returnsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1943,7 +1893,6 @@ export type UserCreateWithoutPassword_reset_tokensInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -1973,7 +1922,6 @@ export type UserUncheckedCreateWithoutPassword_reset_tokensInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2019,7 +1967,6 @@ export type UserUpdateWithoutPassword_reset_tokensInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2049,7 +1996,6 @@ export type UserUncheckedUpdateWithoutPassword_reset_tokensInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2079,7 +2025,6 @@ export type UserCreateWithoutReviewsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2109,7 +2054,6 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2155,7 +2099,6 @@ export type UserUpdateWithoutReviewsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2185,7 +2128,6 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2215,7 +2157,6 @@ export type UserCreateWithoutRoleInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2245,7 +2186,6 @@ export type UserUncheckedCreateWithoutRoleInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2304,7 +2244,6 @@ export type UserScalarWhereInput = {
   last_name?: Prisma.StringNullableFilter<"User"> | string | null
   email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  salt?: Prisma.StringNullableFilter<"User"> | string | null
   date_of_birth?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   gender?: Prisma.IntNullableFilter<"User"> | number | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -2321,7 +2260,6 @@ export type UserCreateWithoutShipping_addressesInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2351,7 +2289,6 @@ export type UserUncheckedCreateWithoutShipping_addressesInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2397,7 +2334,6 @@ export type UserUpdateWithoutShipping_addressesInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2427,7 +2363,6 @@ export type UserUncheckedUpdateWithoutShipping_addressesInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2457,7 +2392,6 @@ export type UserCreateWithoutAvatarsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2487,7 +2421,6 @@ export type UserUncheckedCreateWithoutAvatarsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2522,7 +2455,6 @@ export type UserCreateWithoutAvatarInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2552,7 +2484,6 @@ export type UserUncheckedCreateWithoutAvatarInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2603,7 +2534,6 @@ export type UserUpdateWithoutAvatarsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2633,7 +2563,6 @@ export type UserUncheckedUpdateWithoutAvatarsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2679,7 +2608,6 @@ export type UserCreateWithoutFavorite_categoriesInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2709,7 +2637,6 @@ export type UserUncheckedCreateWithoutFavorite_categoriesInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2755,7 +2682,6 @@ export type UserUpdateWithoutFavorite_categoriesInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2785,7 +2711,6 @@ export type UserUncheckedUpdateWithoutFavorite_categoriesInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2815,7 +2740,6 @@ export type UserCreateWithoutFavorite_productsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2845,7 +2769,6 @@ export type UserUncheckedCreateWithoutFavorite_productsInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2891,7 +2814,6 @@ export type UserUpdateWithoutFavorite_productsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2921,7 +2843,6 @@ export type UserUncheckedUpdateWithoutFavorite_productsInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2951,7 +2872,6 @@ export type UserCreateWithoutPhonesInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -2981,7 +2901,6 @@ export type UserUncheckedCreateWithoutPhonesInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -3016,7 +2935,6 @@ export type UserCreateWithoutActive_phoneInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -3046,7 +2964,6 @@ export type UserUncheckedCreateWithoutActive_phoneInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -3092,7 +3009,6 @@ export type UserUpdateWithoutPhonesInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3122,7 +3038,6 @@ export type UserUncheckedUpdateWithoutPhonesInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3163,7 +3078,6 @@ export type UserUpdateWithoutActive_phoneInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3193,7 +3107,6 @@ export type UserUncheckedUpdateWithoutActive_phoneInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3223,7 +3136,6 @@ export type UserCreateManyRoleInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -3239,7 +3151,6 @@ export type UserUpdateWithoutRoleInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3269,7 +3180,6 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3299,7 +3209,6 @@ export type UserUncheckedUpdateManyWithoutRoleInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3315,7 +3224,6 @@ export type UserCreateManyAvatarInput = {
   last_name?: string | null
   email: string
   password: string
-  salt?: string | null
   date_of_birth?: Date | string | null
   gender?: number | null
   created_at?: Date | string
@@ -3331,7 +3239,6 @@ export type UserUpdateWithoutAvatarInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3361,7 +3268,6 @@ export type UserUncheckedUpdateWithoutAvatarInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3391,7 +3297,6 @@ export type UserUncheckedUpdateManyWithoutAvatarInput = {
   last_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  salt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date_of_birth?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gender?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3546,7 +3451,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   last_name?: boolean
   email?: boolean
   password?: boolean
-  salt?: boolean
   date_of_birth?: boolean
   gender?: boolean
   created_at?: boolean
@@ -3581,7 +3485,6 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   last_name?: boolean
   email?: boolean
   password?: boolean
-  salt?: boolean
   date_of_birth?: boolean
   gender?: boolean
   created_at?: boolean
@@ -3601,7 +3504,6 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   last_name?: boolean
   email?: boolean
   password?: boolean
-  salt?: boolean
   date_of_birth?: boolean
   gender?: boolean
   created_at?: boolean
@@ -3621,7 +3523,6 @@ export type UserSelectScalar = {
   last_name?: boolean
   email?: boolean
   password?: boolean
-  salt?: boolean
   date_of_birth?: boolean
   gender?: boolean
   created_at?: boolean
@@ -3632,7 +3533,7 @@ export type UserSelectScalar = {
   active_phone_id?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "first_name" | "last_name" | "email" | "password" | "salt" | "date_of_birth" | "gender" | "created_at" | "updated_at" | "deleted_at" | "role_id" | "avatar_id" | "active_phone_id", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "first_name" | "last_name" | "email" | "password" | "date_of_birth" | "gender" | "created_at" | "updated_at" | "deleted_at" | "role_id" | "avatar_id" | "active_phone_id", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   shipping_addresses?: boolean | Prisma.User$shipping_addressesArgs<ExtArgs>
   password_reset_tokens?: boolean | Prisma.User$password_reset_tokensArgs<ExtArgs>
@@ -3691,7 +3592,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     last_name: string | null
     email: string
     password: string
-    salt: string | null
     date_of_birth: Date | null
     gender: number | null
     created_at: Date
@@ -4145,7 +4045,6 @@ export interface UserFieldRefs {
   readonly last_name: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly password: Prisma.FieldRef<"User", 'String'>
-  readonly salt: Prisma.FieldRef<"User", 'String'>
   readonly date_of_birth: Prisma.FieldRef<"User", 'DateTime'>
   readonly gender: Prisma.FieldRef<"User", 'Int'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>

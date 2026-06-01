@@ -54,7 +54,6 @@ describe('UpdateUserUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
@@ -79,7 +78,6 @@ describe('UpdateUserUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue(['UPDATE:OWN_USER']);

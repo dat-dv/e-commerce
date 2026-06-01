@@ -54,7 +54,7 @@ export class LoginUseCase {
 
     // Bóc tách để loại bỏ các trường nhạy cảm
 
-    const { password, salt, ...userResponse } = user;
+    const { password, ...userResponse } = user;
 
     return { user: userResponse, accessToken, refreshToken };
   }

@@ -49,7 +49,6 @@ describe('RemoveUserUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.remove.mockResolvedValue(undefined);

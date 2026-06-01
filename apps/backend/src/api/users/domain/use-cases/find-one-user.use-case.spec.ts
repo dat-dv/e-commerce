@@ -49,7 +49,6 @@ describe('FindOneUserUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
@@ -72,7 +71,6 @@ describe('FindOneUserUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue(['DETAIL:OWN_USER']);

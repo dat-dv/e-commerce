@@ -75,7 +75,6 @@ describe('LoginUseCase', () => {
       updated_at: new Date(),
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: null,
       deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);
@@ -99,7 +98,6 @@ describe('LoginUseCase', () => {
       updated_at: new Date(),
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: null,
       deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);

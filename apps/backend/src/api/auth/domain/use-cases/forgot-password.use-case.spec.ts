@@ -71,7 +71,6 @@ describe('ForgotPasswordUseCase', () => {
       updated_at: new Date(),
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: '1234567890123456789012345678901234567890123456789012345678901234',
       deleted_at: null,
     };
     mockUsersRepository.findByEmail.mockResolvedValue(user);

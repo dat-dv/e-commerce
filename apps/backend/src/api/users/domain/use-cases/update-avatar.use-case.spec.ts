@@ -76,7 +76,6 @@ describe('UpdateAvatarUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     mockUsersRepository.findById.mockResolvedValue(user);
     mockUsersRepository.getUserPermissions.mockResolvedValue([]);
@@ -101,7 +100,6 @@ describe('UpdateAvatarUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     const image = { id: 'img-1', url: 'http://example.com/avatar.jpg' };
 
@@ -135,7 +133,6 @@ describe('UpdateAvatarUseCase', () => {
       role_id: null,
       date_of_birth: null,
       gender: EGender.FEMALE,
-      salt: 'salt',
     };
     const image = { id: 'new-img-1', url: 'http://example.com/new-avatar.jpg' };
 

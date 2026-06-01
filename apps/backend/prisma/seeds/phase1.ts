@@ -10,9 +10,8 @@ export async function seedPhase1(prisma: PrismaClient) {
   const userRole = await SeedRegistry.getUserRole(prisma);
 
   // 1. Tạo User đặc biệt để test Auth
-  const hardcodedSalt = 'staticsalt';
-  const hashedPass1 = crypto.pbkdf2Sync('string', hardcodedSalt, 1000, 64, 'sha512').toString('hex');
-  const hashedPass2 = crypto.pbkdf2Sync('datdoan.dev@gmail.com', hardcodedSalt, 1000, 64, 'sha512').toString('hex');
+  const hashedPass1 = crypto.pbkdf2Sync('string', 'password', 1000, 64, 'sha512').toString('hex');
+  const hashedPass2 = crypto.pbkdf2Sync('datdoan.dev@gmail.com', 'password', 1000, 64, 'sha512').toString('hex');
 
   const defaultUser = await prisma.user.upsert({
     where: { email: 'user@example.com' },
@@ -20,7 +19,6 @@ export async function seedPhase1(prisma: PrismaClient) {
     create: {
       email: 'user@example.com',
       password: hashedPass1,
-      salt: hardcodedSalt,
       first_name: 'string',
       last_name: 'string',
       role_id: adminRole.id,
@@ -33,7 +31,6 @@ export async function seedPhase1(prisma: PrismaClient) {
     create: {
       email: 'datdoan.dev@gmail.com',
       password: hashedPass2,
-      salt: hardcodedSalt,
       first_name: 'Dat',
       last_name: 'Doan',
       role_id: adminRole.id,
