@@ -23,6 +23,10 @@ export interface IUpdateUserRequest {
 export interface IGetUsersRequest {
   page?: number;
   limit?: number;
+  search?: string;
+  roleId?: string;
+  gender?: string;
+  sortBy?: string;
 }
 
 export interface IAddUserPhoneRequest {

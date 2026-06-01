@@ -1,5 +1,6 @@
 import {
   type IApiResponse,
+  type IGetUsersRequest,
   type IGetUsersResponse,
   type IUserAvatarResponse,
   type IUserProfileResponse,
@@ -19,24 +20,12 @@ import { type IAdminUserRepository } from "../types/user.repository";
 
 export class AdminUserRepository implements IAdminUserRepository {
   async getUsers(
-    page = 1,
-    limit = 10,
-    search?: string,
-    roleId?: string,
-    gender?: string,
-    sortBy?: string,
+    params: IGetUsersRequest,
   ): Promise<ApiListResponse<IAdminUser>> {
     const response = await apiClient.get<IApiResponse<IGetUsersResponse>>(
       API_ROUTES.USERS.LIST,
       {
-        params: {
-          page,
-          limit,
-          ...(search ? { search } : {}),
-          ...(roleId ? { roleId } : {}),
-          ...(gender ? { gender } : {}),
-          ...(sortBy ? { sortBy } : {}),
-        },
+        params,
       },
     );
 
@@ -46,8 +35,8 @@ export class AdminUserRepository implements IAdminUserRepository {
       ),
       meta: response.data?.meta || {
         total: 0,
-        page,
-        limit,
+        page: params.page ?? 1,
+        limit: params.limit ?? 10,
         totalPages: 0,
       },
     };

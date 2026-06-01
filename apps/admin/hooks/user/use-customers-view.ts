@@ -34,14 +34,14 @@ export const useCustomersView = () => {
     fetchPage: async (params) => {
       setError(null);
       try {
-        const response = await userRepository.getUsers(
-          params.page ?? 1,
-          params.limit ?? 10,
-          params.search,
-          params.roleId as string | undefined,
-          params.gender as string | undefined,
-          params.sortBy as string | undefined,
-        );
+        const response = await userRepository.getUsers({
+          page: params.page ?? 1,
+          limit: params.limit ?? 10,
+          search: params.search,
+          roleId: params.roleId as string | undefined,
+          gender: params.gender as string | undefined,
+          sortBy: params.sortBy as string | undefined,
+        });
         return {
           data: {
             items: response.items,

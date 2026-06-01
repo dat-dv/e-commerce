@@ -1,6 +1,7 @@
 import { IUserResponse, IPaginatedResult, IUserAvatarResponse } from '@ecommerce/shared';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 import { CreateUserDto } from '../../dto/create-user.dto';
+import { GetUsersDto } from '../../dto/get-users.dto';
 
 export interface IUsersRepository {
   findById(id: string): Promise<IUserResponse | null>;
@@ -8,7 +9,7 @@ export interface IUsersRepository {
   updateUserProfile(id: string, updateData: UpdateUserDto): Promise<IUserResponse>;
   updatePassword(id: string, passwordRaw: string): Promise<IUserResponse>;
   create(data: CreateUserDto): Promise<IUserResponse>;
-  findAll(page: number, limit: number): Promise<IPaginatedResult<IUserResponse>>;
+  findAll(query: GetUsersDto): Promise<IPaginatedResult<IUserResponse>>;
   getUserPermissions(userId: string): Promise<string[]>;
   getUserAvatarPublicId(userId: string): Promise<string | null>;
   findUserAvatars(userId: string): Promise<IUserAvatarResponse[] | null>;

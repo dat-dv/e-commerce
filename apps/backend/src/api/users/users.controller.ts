@@ -126,7 +126,7 @@ export class UsersController {
   @UseGuards(PermissionsGuard)
   @Permissions('LIST:USER')
   async findAll(@Query() paginationDto: GetUsersDto): Promise<IApiResponse<IGetUsersResponse>> {
-    const res = await this.findAllUsersUseCase.execute(paginationDto.page, paginationDto.limit);
+    const res = await this.findAllUsersUseCase.execute(paginationDto);
     return createSuccessResponse(res);
   }
 

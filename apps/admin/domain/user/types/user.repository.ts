@@ -1,4 +1,5 @@
 import { type IApiResponse } from "@ecommerce/shared";
+import { type IGetUsersRequest } from "@ecommerce/shared";
 
 import { ApiListResponse } from "@/utils/request";
 
@@ -9,14 +10,7 @@ import {
 } from "./user.model";
 
 export interface IAdminUserRepository {
-  getUsers(
-    page?: number,
-    limit?: number,
-    search?: string,
-    roleId?: string,
-    gender?: string,
-    sortBy?: string,
-  ): Promise<ApiListResponse<IAdminUser>>;
+  getUsers(params: IGetUsersRequest): Promise<ApiListResponse<IAdminUser>>;
   getUser(id: string): Promise<IAdminUser>;
   getUserAvatars(id: string): Promise<IAdminUserAvatar[]>;
   updateUser(id: string, data: IAdminUpdateUserInput): Promise<IAdminUser>;

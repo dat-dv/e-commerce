@@ -11,6 +11,7 @@ import { CreateUserDto } from '../../dto/create-user.dto';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 import { UserAvatarResponseDto } from '../../dto/user-avatar-response.dto';
 import { UserResponseDto } from '../../dto/user-response.dto';
+import { GetUsersDto } from '../../dto/get-users.dto';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -193,12 +194,42 @@ export class UsersRepository implements IUsersRepository {
     return new UserResponseDto(res);
   }
 
-  async findAll(page: number, limit: number): Promise<IPaginatedResult<IUserResponse>> {
+  async findAll(query: GetUsersDto): Promise<IPaginatedResult<IUserResponse>> {
+    const { page, limit, search, roleId, gender, sortBy } = query;
+    const where: Prisma.UserWhereInput = { deleted_at: null };
+
+    if (search) {
+      where.OR = [
+        { first_name: { contains: search, mode: 'insensitive' } },
+        { last_name: { contains: search, mode: 'insensitive' } },
+        { email: { contains: search, mode: 'insensitive' } },
+      ];
+    }
+
+    if (roleId) {
+      where.role_id = roleId;
+    }
+
+    if (gender) {
+      where.gender = Number(gender);
+    }
+
+    let orderBy: Prisma.UserOrderByWithRelationInput = { created_at: 'desc' };
+    if (sortBy) {
+      const [field, order] = sortBy.split(':');
+      if (field === 'name') {
+        orderBy = { first_name: order as 'asc' | 'desc' };
+      } else {
+        orderBy = { [field]: order as 'asc' | 'desc' };
+      }
+    }
+
     const result = await this.paginationService.paginate(
       this.prisma.user,
       {
-        where: { deleted_at: null },
+        where,
         include: this.USER_INCLUDE,
+        orderBy,
       },
       page,
       limit,

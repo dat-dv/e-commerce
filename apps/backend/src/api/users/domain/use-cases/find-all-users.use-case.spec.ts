@@ -28,9 +28,10 @@ describe('FindAllUsersUseCase', () => {
     const expectedResult = { data: [], meta: {} };
     mockUsersRepository.findAll.mockResolvedValue(expectedResult);
 
-    const result = await useCase.execute(1, 10);
+    const query = { page: 1, limit: 10 };
+    const result = await useCase.execute(query);
 
-    expect(mockUsersRepository.findAll).toHaveBeenCalledWith(1, 10);
+    expect(mockUsersRepository.findAll).toHaveBeenCalledWith(query);
     expect(result).toEqual(expectedResult);
   });
 });
