@@ -6,16 +6,18 @@ import {
   type IProductResponse,
 } from "@ecommerce/shared";
 
+import {
+  ProductBasePriceField,
+  ProductBrandField,
+  ProductCategoriesField,
+  ProductMetricsField,
+  ProductStatusField,
+  ProductThumbnailField,
+} from "@/components/molecules/product-fields";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
 
 import { getProductName } from "../products-view/product.utils";
-import { ProductBasePriceField } from "./product-base-price-field";
-import { ProductBrandField } from "./product-brand-field";
-import { ProductCategoriesField } from "./product-categories-field";
-import { ProductMetricsField } from "./product-metrics-field";
 import { ProductSkuTable } from "./product-sku-table";
-import { ProductStatusField } from "./product-status-field";
-import { ProductThumbnailField } from "./product-thumbnail-field";
 
 interface IProductGeneralInfoProps {
   product: IProductResponse;

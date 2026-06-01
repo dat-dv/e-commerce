@@ -1,6 +1,6 @@
 import { Tag } from "lucide-react";
 
-import { formatCurrency } from "../products-view/product.utils";
+import { formatCurrency } from "@/components/organisms/products-view/product.utils";
 
 interface IProductBasePriceFieldProps {
   basePrice: number;
