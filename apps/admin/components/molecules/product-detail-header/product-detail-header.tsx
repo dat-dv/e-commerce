@@ -2,11 +2,10 @@ import { type IProductResponse } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
 
 import { PageHeader } from "@/components/molecules/page-header";
-
 import {
   getProductName,
   getProductStatus,
-} from "../products-view/product.utils";
+} from "@/components/organisms/products-view/product.utils";
 
 interface IProductDetailHeaderProps {
   product: IProductResponse | null;

@@ -2,14 +2,13 @@
 
 import { useRouter } from "next/navigation";
 
+import { ProductDetailHeader } from "@/components/molecules/product-detail-header";
+import { ProductGeneralInfo } from "@/components/organisms/product-general-info";
+import { ProductTranslations } from "@/components/organisms/product-translations";
 import { APP_ROUTES } from "@/constants/routes";
 import { useProductDetailData } from "@/hooks/product/use-product-detail-data";
 import { useProductDetailForm } from "@/hooks/product/use-product-detail-form";
 import { useProductMetadata } from "@/hooks/product/use-product-metadata";
-
-import { ProductDetailHeader } from "./product-detail-header";
-import { ProductGeneralInfo } from "./product-general-info";
-import { ProductTranslations } from "./product-translations";
 
 export const ProductDetailView = () => {
   const router = useRouter();
