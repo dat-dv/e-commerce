@@ -1,3 +1,4 @@
+import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
@@ -13,8 +14,6 @@ import type { IUserDetailFormState } from "./use-user-detail-form";
 export const useUserDetailMutations = (
   userId: string | null,
   onSaveSuccess: (user: IAdminUser, avatars: IAdminUserAvatar[]) => void,
-  setError: (msg: string | null) => void,
-  setSuccessMessage: (msg: string | null) => void,
 ) => {
   const router = useRouter();
   const userRepository = useMemo(() => new AdminUserRepository(), []);
@@ -26,8 +25,6 @@ export const useUserDetailMutations = (
     if (!userId) return;
 
     setSaving(true);
-    setError(null);
-    setSuccessMessage(null);
 
     try {
       const payload = {
@@ -43,10 +40,10 @@ export const useUserDetailMutations = (
       const avatarsResponse = await userRepository.getUserAvatars(userId);
 
       onSaveSuccess(updatedUser, avatarsResponse);
-      setSuccessMessage("User updated.");
+      toast.success("User profile updated successfully.");
     } catch (err) {
       console.error(err);
-      setError("Failed to update user.");
+      toast.error("Failed to update user profile.");
     } finally {
       setSaving(false);
     }
@@ -57,14 +54,14 @@ export const useUserDetailMutations = (
     if (!window.confirm("Delete this user?")) return;
 
     setDeleting(true);
-    setError(null);
 
     try {
       await userRepository.deleteUser(userId);
+      toast.success("Customer deleted successfully.");
       router.push(APP_ROUTES.CUSTOMERS);
     } catch (err) {
       console.error(err);
-      setError("Failed to delete user.");
+      toast.error("Failed to delete user.");
       setDeleting(false);
     }
   };
@@ -74,6 +71,5 @@ export const useUserDetailMutations = (
     deleting,
     handleSaveUser,
     handleDeleteUser,
-    router,
   };
 };

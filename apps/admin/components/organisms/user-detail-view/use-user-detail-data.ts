@@ -1,4 +1,4 @@
-import { useLoadOnce } from "@ecommerce/ui";
+import { toast, useLoadOnce } from "@ecommerce/ui";
 import { useCallback, useMemo, useState } from "react";
 
 import {
@@ -22,17 +22,15 @@ export const useUserDetailData = (userId: string | null) => {
   const [avatars, setAvatars] = useState<IAdminUserAvatar[]>([]);
   const [roles, setRoles] = useState<TAdminRole[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   const loadData = useCallback(async () => {
     if (!userId) {
       setLoading(false);
-      setError("Missing user id.");
+      toast.error("Missing user id.");
       return;
     }
 
     setLoading(true);
-    setError(null);
 
     try {
       const [userResponse, rolesResponse, avatarsResponse] = await Promise.all([
@@ -46,7 +44,7 @@ export const useUserDetailData = (userId: string | null) => {
       setAvatars(avatarsResponse);
     } catch (err) {
       console.error(err);
-      setError("Failed to load user detail.");
+      toast.error("Failed to load user details.");
     } finally {
       setLoading(false);
     }
@@ -59,9 +57,7 @@ export const useUserDetailData = (userId: string | null) => {
     avatars,
     roles,
     loading,
-    error,
     setUser,
     setAvatars,
-    setError,
   };
 };

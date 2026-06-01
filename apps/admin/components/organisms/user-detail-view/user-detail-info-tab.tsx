@@ -2,10 +2,10 @@
 
 import { Avatar, Button, FormInput, FormSelect } from "@ecommerce/ui";
 import { CalendarDays, Mail, Phone, Save, Trash2 } from "lucide-react";
-import Image from "next/image";
 import { useCallback, useState } from "react";
 import { FormProvider } from "react-hook-form";
 
+import { AvatarGallery } from "@/components/molecules/avatar-gallery";
 import { DetailField } from "@/components/molecules/detail-field";
 import type { IAdminUser, IAdminUserAvatar } from "@/domain/user";
 
@@ -18,19 +18,10 @@ import {
 } from "./user-detail-view.utils";
 
 export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showGallery, setShowGallery] = useState(false);
 
-  const {
-    user,
-    avatars,
-    roles,
-    loading,
-    error,
-    setUser,
-    setAvatars,
-    setError,
-  } = useUserDetailData(userId);
+  const { user, avatars, roles, loading, setUser, setAvatars } =
+    useUserDetailData(userId);
 
   const onSaveSuccess = useCallback(
     (updatedUser: IAdminUser, updatedAvatars: IAdminUserAvatar[]) => {
@@ -43,7 +34,7 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
   const methods = useUserDetailForm(user, avatars, roles);
 
   const { saving, deleting, handleSaveUser, handleDeleteUser } =
-    useUserDetailMutations(userId, onSaveSuccess, setError, setSuccessMessage);
+    useUserDetailMutations(userId, onSaveSuccess);
 
   const onSubmit = methods.handleSubmit(handleSaveUser);
   const currentAvatarId = methods.watch("avatarId");
@@ -56,12 +47,8 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
     );
   }
 
-  if (error || !user) {
-    return (
-      <div className="p-8 text-center text-red-500">
-        {error || "User not found."}
-      </div>
-    );
+  if (!user) {
+    return <div className="p-8 text-center text-red-500">User not found.</div>;
   }
 
   const phones =
@@ -110,43 +97,14 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
                 Select an old avatar, then save changes.
               </p>
 
-              <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
-                {avatars.length > 0 ? (
-                  avatars.map((avatar) => (
-                    <button
-                      key={avatar.id}
-                      type="button"
-                      onClick={() =>
-                        methods.setValue("avatarId", avatar.id, {
-                          shouldDirty: true,
-                        })
-                      }
-                      className={`group relative aspect-square overflow-hidden rounded-lg border transition ${
-                        currentAvatarId === avatar.id
-                          ? "border-primary ring-primary/30 ring-2"
-                          : "hover:border-primary/60 border-[var(--border-color)]"
-                      }`}
-                      aria-label="Select avatar"
-                    >
-                      <Image
-                        src={avatar.url}
-                        alt=""
-                        fill
-                        sizes="100px"
-                        className="object-cover"
-                      />
-                      {avatar.isCurrent && (
-                        <span className="bg-primary absolute right-1 bottom-1 rounded px-1.5 py-0.5 text-[10px] font-bold text-white">
-                          Current
-                        </span>
-                      )}
-                    </button>
-                  ))
-                ) : (
-                  <p className="text-content/45 col-span-full text-sm">
-                    No previous avatars.
-                  </p>
-                )}
+              <div className="mt-4">
+                <AvatarGallery
+                  avatars={avatars}
+                  selectedAvatarId={currentAvatarId}
+                  onSelectAvatar={(id) =>
+                    methods.setValue("avatarId", id, { shouldDirty: true })
+                  }
+                />
               </div>
             </div>
           )}
@@ -193,12 +151,6 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
               options={roles.map((r) => ({ label: r.role_name, value: r.id }))}
             />
           </div>
-
-          {successMessage && (
-            <p className="mt-4 text-sm font-medium text-emerald-500">
-              {successMessage}
-            </p>
-          )}
         </section>
 
         {/* Info Details */}
