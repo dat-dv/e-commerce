@@ -7,7 +7,11 @@ import {
 } from "@ecommerce/ui";
 import { Eye, User as UserIcon } from "lucide-react";
 
-import { formatCurrency, formatDate, getOrderStatus } from "./order.utils";
+import {
+  formatCurrency,
+  formatDate,
+  getOrderStatus,
+} from "@/components/organisms/orders-view/order.utils";
 
 interface IOrdersTableProps {
   orders: IOrderResponse[];

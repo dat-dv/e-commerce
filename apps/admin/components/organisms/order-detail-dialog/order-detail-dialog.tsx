@@ -8,7 +8,11 @@ import {
 } from "@ecommerce/ui";
 import { Calendar, Package } from "lucide-react";
 
-import { formatCurrency, formatDate, getOrderStatus } from "./order.utils";
+import {
+  formatCurrency,
+  formatDate,
+  getOrderStatus,
+} from "@/components/organisms/orders-view/order.utils";
 
 interface IOrderDetailDialogProps {
   order: IOrderResponse | null;
