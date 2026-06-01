@@ -1,7 +1,8 @@
 "use client";
 
-import { useRolePermissionsData } from "../../../hooks/role/use-role-permissions-data";
-import { useRolePermissionsMutations } from "../../../hooks/role/use-role-permissions-mutations";
+import { useRolePermissionsData } from "@/hooks/role/use-role-permissions-data";
+import { useRolePermissionsMutations } from "@/hooks/role/use-role-permissions-mutations";
+
 import { PermissionsHeader } from "./permissions-header";
 import { RolePermissionsPanel } from "./role-permissions-panel";
 

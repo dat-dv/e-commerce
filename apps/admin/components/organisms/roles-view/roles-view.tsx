@@ -8,8 +8,7 @@ import React from "react";
 import { PageHeader } from "@/components/molecules/page-header";
 import { APP_ROUTES } from "@/constants/routes";
 import type { TAdminRole } from "@/domain/permission";
-
-import { useRolesView } from "./use-roles-view";
+import { useRolesView } from "@/hooks/role/use-roles-view";
 
 export const RolesView = () => {
   const { roles, loading, error, handleEditRole } = useRolesView();

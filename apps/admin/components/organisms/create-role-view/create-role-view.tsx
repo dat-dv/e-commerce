@@ -5,8 +5,7 @@ import { Plus } from "lucide-react";
 
 import { PageHeader } from "@/components/molecules/page-header";
 import { APP_ROUTES } from "@/constants/routes";
-
-import { useCreateRoleView } from "./use-create-role-view";
+import { useCreateRoleView } from "@/hooks/role/use-create-role";
 
 export const CreateRoleView = () => {
   const {

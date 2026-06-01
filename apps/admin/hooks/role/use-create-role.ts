@@ -9,7 +9,7 @@ import { useCallback, useMemo, useState } from "react";
 import { APP_ROUTES } from "@/constants/routes";
 import { AdminPermissionRepository } from "@/domain/permission";
 
-import { groupPermissionsByCategory } from "../permissions-view/permissions-view.utils";
+import { groupPermissionsByCategory } from "../../components/organisms/permissions-view/permissions-view.utils";
 
 export const useCreateRoleView = () => {
   const router = useRouter();
