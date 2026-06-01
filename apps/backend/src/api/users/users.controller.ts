@@ -49,20 +49,65 @@ export class UsersController {
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
   @ApiConsumes('multipart/form-data')
-  @ApiOperation({ summary: 'Upload an image' })
+  @ApiOperation({ summary: 'Update profile' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        image: {
+          type: 'string',
+          format: 'binary',
+          description: 'The profile avatar image to upload',
+        },
+        first_name: {
+          type: 'string',
+          example: '',
+        },
+        last_name: {
+          type: 'string',
+          example: '',
+        },
+        password: {
+          type: 'string',
+          minLength: 6,
+          example: '',
+        },
+        date_of_birth: {
+          type: 'string',
+          format: 'date',
+        },
+        gender: {
+          type: 'number',
+        },
+        avatar_id: {
+          type: 'string',
+          description: 'Existing user avatar id or image id',
+        },
+        phone_number: {
+          type: 'string',
+          example: '',
+        },
+        phone_code: {
+          type: 'string',
+          example: '',
+        },
+      },
+    },
+  })
   @Patch('profile')
   async updateProfile(
     @Req() req: Request,
     @UploadedFile() image: Express.Multer.File,
     @Body() dto: UpdateUserDto,
   ): Promise<IApiResponse<IUserProfileResponse>> {
+    const { avatar_id, ...profileData } = dto;
     let avatar: IImage | null = null;
     if (image) {
       avatar = await this.uploadImageUseCase.execute(image);
     }
 
     const res = await this.updateUserUseCase.execute(req.user?.sub, {
-      ...dto,
+      ...profileData,
       ...(avatar?.id ? { avatar_id: avatar.id } : {}),
     });
 

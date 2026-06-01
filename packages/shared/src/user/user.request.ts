@@ -11,7 +11,6 @@ export interface ICreateUserRequest {
 export interface IUpdateUserRequest {
   first_name?: string;
   last_name?: string;
-  password?: string;
   date_of_birth?: string;
   gender?: EGender;
   avatar_id?: string;

@@ -1,6 +1,6 @@
 import { EGender, IUpdateUserRequest } from '@ecommerce/shared';
 import { Type } from 'class-transformer';
-import { IsDateString, IsEnum, IsOptional, IsString, MinLength } from 'class-validator';
+import { IsDateString, IsEnum, IsOptional, IsString } from 'class-validator';
 
 export class UpdateUserDto implements IUpdateUserRequest {
   @IsString()
@@ -10,11 +10,6 @@ export class UpdateUserDto implements IUpdateUserRequest {
   @IsString()
   @IsOptional()
   last_name?: string;
-
-  @IsString()
-  @IsOptional()
-  @MinLength(6)
-  password?: string;
 
   @IsDateString()
   @IsOptional()

@@ -113,33 +113,7 @@ export class UsersRepository implements IUsersRepository {
 
       let avatarConnectId: string | undefined;
       if (avatar_id) {
-        const existingUserAvatar = await tx.userAvatar.findFirst({
-          where: {
-            id: avatar_id,
-            user_id: id,
-          },
-          select: { id: true },
-        });
-
-        if (existingUserAvatar) {
-          avatarConnectId = existingUserAvatar.id;
-        } else {
-          const userAvatar = await tx.userAvatar.upsert({
-            where: {
-              user_id_image_id: {
-                user_id: id,
-                image_id: avatar_id,
-              },
-            },
-            update: {},
-            create: {
-              user_id: id,
-              image_id: avatar_id,
-            },
-            select: { id: true },
-          });
-          avatarConnectId = userAvatar.id;
-        }
+        avatarConnectId = await this.resolveUserAvatarConnectId(tx, id, avatar_id);
       }
 
       const res = await tx.user.update({
@@ -166,6 +140,50 @@ export class UsersRepository implements IUsersRepository {
       });
       return new UserResponseDto(res);
     });
+  }
+
+  private async resolveUserAvatarConnectId(
+    tx: Prisma.TransactionClient,
+    userId: string,
+    avatarId: string,
+  ): Promise<string> {
+    const existingUserAvatar = await tx.userAvatar.findFirst({
+      where: {
+        id: avatarId,
+        user_id: userId,
+      },
+      select: { id: true },
+    });
+
+    if (existingUserAvatar) {
+      return existingUserAvatar.id;
+    }
+
+    const image = await tx.image.findUnique({
+      where: { id: avatarId },
+      select: { id: true },
+    });
+
+    if (!image) {
+      throw new BadRequestException('Avatar not found');
+    }
+
+    const userAvatar = await tx.userAvatar.upsert({
+      where: {
+        user_id_image_id: {
+          user_id: userId,
+          image_id: image.id,
+        },
+      },
+      update: {},
+      create: {
+        user_id: userId,
+        image_id: image.id,
+      },
+      select: { id: true },
+    });
+
+    return userAvatar.id;
   }
 
   async updatePassword(id: string, passwordRaw: string): Promise<IUserResponse> {

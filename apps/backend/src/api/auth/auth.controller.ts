@@ -1,4 +1,15 @@
-import { Controller, Post, Body, Res, Req, Get, UseGuards, UnauthorizedException } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Res,
+  Req,
+  Get,
+  UseGuards,
+  UnauthorizedException,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
@@ -46,12 +57,14 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Post('change-password')
+  @HttpCode(HttpStatus.OK)
   async changePassword(@Req() req: Request, @Body() dto: ChangePasswordDto): Promise<IApiResponse<boolean>> {
     const result = await this.changePasswordUseCase.execute(req.user?.sub, dto);
     return createSuccessResponse(result);
   }
 
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: Response): Promise<IApiResponse<ILoginResponse>> {
     const result = await this.loginUseCase.execute(dto);
     this.setAccessTokenCookies(result.accessToken, res);
@@ -71,12 +84,14 @@ export class AuthController {
   }
 
   @Post('forgot-password')
+  @HttpCode(HttpStatus.OK)
   async forgotPassword(@Body() dto: ForgotPasswordDto): Promise<IApiResponse<{ success: boolean }>> {
     const result = await this.forgotPasswordUseCase.execute(dto);
     return createSuccessResponse(result);
   }
 
   @Post('reset-password')
+  @HttpCode(HttpStatus.OK)
   async resetPassword(@Body() dto: ResetPasswordDto): Promise<IApiResponse<{ success: boolean }>> {
     const result = await this.resetPasswordUseCase.execute(dto);
     return createSuccessResponse(result);
@@ -84,6 +99,7 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Post('verify-phone')
+  @HttpCode(HttpStatus.OK)
   async verifyPhone(@Req() req: Request, @Body() dto: VerifyPhoneDto): Promise<IApiResponse<boolean>> {
     const userId = req.user?.sub;
     const result = await this.verifyPhoneUseCase.execute(userId, dto);
@@ -91,6 +107,7 @@ export class AuthController {
   }
 
   @Post('logout')
+  @HttpCode(HttpStatus.OK)
   async logout(@Req() req: TAppRequest, @Res({ passthrough: true }) res: Response): Promise<IApiResponse<boolean>> {
     const refreshToken = req.cookies?.refresh_token;
     if (!refreshToken) {
@@ -104,6 +121,7 @@ export class AuthController {
   }
 
   @Post('refresh-token')
+  @HttpCode(HttpStatus.OK)
   async refreshToken(
     @Req() req: TAppRequest,
     @Res({ passthrough: true }) res: Response,
