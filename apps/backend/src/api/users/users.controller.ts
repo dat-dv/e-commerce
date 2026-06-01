@@ -133,15 +133,15 @@ export class UsersController {
   @Get('/avatars')
   @UseGuards(AuthGuard)
   async getCurrentUserAvatar(@Req() req: Request): Promise<IApiResponse<IUserAvatarResponse[]>> {
-    const res = await this.getUserAvatarsUseCase.execute(req.user?.sub, req.user?.sub);
+    const res = await this.getUserAvatarsUseCase.execute(req.user?.sub);
     return createSuccessResponse(res);
   }
 
   @Get(':id/avatars')
   @UseGuards(PermissionsGuard)
-  @Permissions('LIST:ANY_USER')
+  @Permissions('LIST:USER')
   async getAvatars(@Req() req: Request, @Param('id') id: string): Promise<IApiResponse<IUserAvatarResponse[]>> {
-    const res = await this.getUserAvatarsUseCase.execute(id, req.user?.sub);
+    const res = await this.getUserAvatarsUseCase.execute(id);
     return createSuccessResponse(res);
   }
 

@@ -9,11 +9,7 @@ export class GetUserAvatarsUseCase {
     private readonly usersRepository: IUsersRepository,
   ) {}
 
-  async execute(id: string, currentUserId: string): Promise<IUserAvatarResponse[]> {
-    if (id !== currentUserId) {
-      throw new UnauthorizedException('You can only get your own avatars');
-    }
-
+  async execute(id: string): Promise<IUserAvatarResponse[]> {
     const avatars = await this.usersRepository.findUserAvatars(id);
     if (!avatars) {
       throw new NotFoundException('User not found');
