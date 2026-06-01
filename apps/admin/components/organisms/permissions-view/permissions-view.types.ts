@@ -10,11 +10,6 @@ export interface IPermissionsHeaderProps {
   description?: string;
 }
 
-export interface IPermissionsStatusAlertProps {
-  error: string | null;
-  successMessage: string | null;
-}
-
 export interface IRolePermissionsPanelProps {
   selectedRole: TAdminRole | null;
   selectedRoleId: string;
