@@ -13,6 +13,9 @@ export interface IAdminUserRepository {
     page?: number,
     limit?: number,
     search?: string,
+    roleId?: string,
+    gender?: string,
+    sortBy?: string,
   ): Promise<ApiListResponse<IAdminUser>>;
   getUser(id: string): Promise<IAdminUser>;
   getUserAvatars(id: string): Promise<IAdminUserAvatar[]>;

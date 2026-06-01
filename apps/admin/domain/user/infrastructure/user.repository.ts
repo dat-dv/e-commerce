@@ -22,11 +22,21 @@ export class AdminUserRepository implements IAdminUserRepository {
     page = 1,
     limit = 10,
     search?: string,
+    roleId?: string,
+    gender?: string,
+    sortBy?: string,
   ): Promise<ApiListResponse<IAdminUser>> {
     const response = await apiClient.get<IApiResponse<IGetUsersResponse>>(
       API_ROUTES.USERS.LIST,
       {
-        params: { page, limit, ...(search ? { search } : {}) },
+        params: {
+          page,
+          limit,
+          ...(search ? { search } : {}),
+          ...(roleId ? { roleId } : {}),
+          ...(gender ? { gender } : {}),
+          ...(sortBy ? { sortBy } : {}),
+        },
       },
     );
 
