@@ -6,7 +6,7 @@ import { EmptyTabState } from "@/components/molecules/empty-tab-state";
 import { formatAdminDate } from "@/components/organisms/user-detail-view/user-detail-view.utils";
 import { useUserDetailOrders } from "@/hooks/user/use-user-detail-orders";
 
-import { formatCurrency, getOrderStatus } from "../orders-view/order.utils";
+import { formatCurrency, getOrderStatus } from "../../orders-view/order.utils";
 
 export const UserDetailOrdersTab = ({ userId }: { userId: string }) => {
   const { orders, loading } = useUserDetailOrders(userId);

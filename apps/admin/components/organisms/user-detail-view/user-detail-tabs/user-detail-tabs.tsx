@@ -4,8 +4,8 @@ import { Tab, TabList, TabPanel, Tabs } from "@ecommerce/ui";
 import { Heart, ShoppingCart, User } from "lucide-react";
 
 import { EmptyTabState } from "@/components/molecules/empty-tab-state";
-import { UserDetailInfoTab } from "@/components/organisms/user-detail-info-tab";
-import { UserDetailOrdersTab } from "@/components/organisms/user-detail-orders-tab";
+import { UserDetailInfoTab } from "@/components/organisms/user-detail-view/user-detail-info-tab";
+import { UserDetailOrdersTab } from "@/components/organisms/user-detail-view/user-detail-orders-tab";
 
 export const UserDetailTabs = ({ userId }: { userId: string }) => {
   return (

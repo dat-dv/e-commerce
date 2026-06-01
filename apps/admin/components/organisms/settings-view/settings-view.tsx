@@ -4,9 +4,9 @@ import { TableOfContents } from "@ecommerce/ui";
 import React from "react";
 
 import { SettingsHeader } from "@/components/molecules/settings-header";
-import { AppearanceTab } from "@/components/organisms/settings-appearance-tab";
-import { ProfileTab } from "@/components/organisms/settings-profile-tab";
-import { SystemTab } from "@/components/organisms/settings-system-tab";
+import { AppearanceTab } from "@/components/organisms/settings-view/settings-appearance-tab";
+import { ProfileTab } from "@/components/organisms/settings-view/settings-profile-tab";
+import { SystemTab } from "@/components/organisms/settings-view/settings-system-tab";
 import { useSettingsView } from "@/hooks/settings/use-settings-view";
 
 const TOC_ITEMS = [
