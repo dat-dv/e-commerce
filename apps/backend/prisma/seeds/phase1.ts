@@ -1,6 +1,6 @@
 import { PrismaClient, Prisma } from '../../generated/prisma/client';
 import { SeedRegistry } from './registry';
-import * as crypto from 'crypto';
+import { hashPassword } from '../../src/common/utils/password.util';
 
 export async function seedPhase1(prisma: PrismaClient) {
   console.log('--- Phase 1: Users & Tags ---');
@@ -10,8 +10,8 @@ export async function seedPhase1(prisma: PrismaClient) {
   const userRole = await SeedRegistry.getUserRole(prisma);
 
   // 1. Tạo User đặc biệt để test Auth
-  const hashedPass1 = crypto.pbkdf2Sync('string', 'password', 1000, 64, 'sha512').toString('hex');
-  const hashedPass2 = crypto.pbkdf2Sync('datdoan.dev@gmail.com', 'password', 1000, 64, 'sha512').toString('hex');
+  const hashedPass1 = hashPassword('string');
+  const hashedPass2 = hashPassword('datdoan.dev@gmail.com');
 
   const defaultUser = await prisma.user.upsert({
     where: { email: 'user@example.com' },
@@ -44,7 +44,7 @@ export async function seedPhase1(prisma: PrismaClient) {
       email: `example-${i}@gmail.com`,
       first_name: 'John',
       last_name: 'Doe',
-      password: 'password',
+      password: hashPassword('password'),
       role_id: userRole.id,
     }));
 

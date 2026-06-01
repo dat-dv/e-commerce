@@ -8,7 +8,7 @@ export interface IUserResponse extends User {
   phones?: UserPhone[];
 }
 
-export type IUserProfileResponse = Omit<IUserResponse, "password" | "salt">;
+export type IUserProfileResponse = Omit<IUserResponse, "password">;
 
 export interface IUpdateProfileResponse {
   success: boolean;

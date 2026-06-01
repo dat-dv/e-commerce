@@ -18,7 +18,7 @@ export class CreateUserUseCase {
 
     const user = await this.usersRepository.create(dto);
 
-    const { password, salt, ...userResponse } = user;
+    const { password, ...userResponse } = user;
     return userResponse;
   }
 }

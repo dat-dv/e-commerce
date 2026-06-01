@@ -13,7 +13,7 @@ export class FindAllUsersUseCase {
     const result = await this.usersRepository.findAll(page, limit);
     return {
       ...result,
-      items: result.items.map(({ password, salt, ...user }) => user),
+      items: result.items.map(({ password, ...user }) => user),
     };
   }
 }

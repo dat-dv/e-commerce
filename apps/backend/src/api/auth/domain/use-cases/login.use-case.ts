@@ -5,7 +5,7 @@ import { LoginDto } from '../../dto/login.dto';
 import { ConfigService } from '@nestjs/config';
 import { EnvVars } from 'src/config/config.validation';
 import { TokenService } from 'src/shared/services/token/token.service';
-import * as crypto from 'crypto';
+import { verifyPassword } from 'src/common/utils/password.util';
 
 import { ILoginResponse } from '@ecommerce/shared';
 
@@ -27,15 +27,8 @@ export class LoginUseCase {
       throw new BadRequestException('Invalid credentials');
     }
 
-    if (user.salt) {
-      const hash = crypto.pbkdf2Sync(dto.password, user.salt, 1000, 64, 'sha512').toString('hex');
-      if (user.password !== hash) {
-        throw new BadRequestException('Invalid credentials');
-      }
-    } else {
-      if (user.password !== dto.password) {
-        throw new BadRequestException('Invalid credentials');
-      }
+    if (!verifyPassword(dto.password, user.password)) {
+      throw new BadRequestException('Invalid credentials');
     }
 
     const payload = { sub: user.id, email: user.email };

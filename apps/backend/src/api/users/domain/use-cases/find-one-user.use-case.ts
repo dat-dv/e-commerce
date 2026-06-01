@@ -24,7 +24,7 @@ export class FindOneUserUseCase {
       throw new BadRequestException('User not found');
     }
 
-    const { password, salt, ...userResponse } = user;
+    const { password, ...userResponse } = user;
     return userResponse;
   }
 

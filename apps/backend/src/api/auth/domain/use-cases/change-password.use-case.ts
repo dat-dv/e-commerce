@@ -1,5 +1,6 @@
 import { Injectable, BadRequestException, Inject } from '@nestjs/common';
 import { IUsersRepository } from 'src/api/users/domain/entities/users.repository.interface';
+import { verifyPassword } from 'src/common/utils/password.util';
 import { ChangePasswordDto } from '../../dto/change-password.dto';
 
 @Injectable()
@@ -15,7 +16,7 @@ export class ChangePasswordUseCase {
       throw new BadRequestException('User not found');
     }
 
-    if (user.password !== dto.old_password) {
+    if (!verifyPassword(dto.old_password, user.password)) {
       throw new BadRequestException('Current password does not match');
     }
 

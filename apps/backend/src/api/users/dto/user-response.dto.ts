@@ -30,7 +30,6 @@ export class UserResponseDto implements IUserResponse {
   last_name: string | null;
   email: string;
   password: string;
-  salt: string | null;
   date_of_birth: Date | null;
   gender: number | null;
   created_at: Date;

@@ -1,7 +1,7 @@
 import { IPaginatedResult, IUserAvatarResponse, IUserResponse } from '@ecommerce/shared';
 import { BadRequestException, Injectable } from '@nestjs/common';
-import * as crypto from 'crypto';
 import { ROLE_USER } from 'src/common/constants/roles.constant';
+import { hashPassword } from 'src/common/utils/password.util';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
@@ -167,14 +167,10 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async updatePassword(id: string, passwordRaw: string): Promise<IUserResponse> {
-    const salt = crypto.randomBytes(16).toString('hex');
-    const hashedPassword = crypto.pbkdf2Sync(passwordRaw, salt, 1000, 64, 'sha512').toString('hex');
-
     const res = await this.prisma.user.update({
       where: { id },
       data: {
-        password: hashedPassword,
-        salt,
+        password: hashPassword(passwordRaw),
       },
       include: this.USER_INCLUDE,
     });
@@ -182,20 +178,12 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async create(data: CreateUserDto): Promise<IUserResponse> {
-    const newSalt = crypto.randomBytes(16).toString('hex');
-    const hashedPassword = data.password
-      ? crypto.pbkdf2Sync(data.password, newSalt, 1000, 64, 'sha512').toString('hex')
-      : undefined;
-
-    // Confirm password is not a database field
-
     const { confirm_password, ...dbData } = data;
 
     const res = await this.prisma.user.create({
       data: {
         ...dbData,
-        password: hashedPassword || '',
-        salt: hashedPassword ? newSalt : '',
+        password: data.password ? hashPassword(data.password) : '',
         role: {
           connect: { role_name: ROLE_USER },
         },

@@ -11,7 +11,7 @@ export class UpdateUserUseCase {
 
   async execute(id: string, data: UpdateUserDto): Promise<IUserProfileResponse> {
     const user = await this.usersRepository.updateUserProfile(id, data);
-    const { password, salt, ...userResponse } = user;
+    const { password, ...userResponse } = user;
     return userResponse;
   }
 }
