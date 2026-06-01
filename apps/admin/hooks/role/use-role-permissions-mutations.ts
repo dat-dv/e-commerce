@@ -8,7 +8,7 @@ import type {
   TAdminRole,
 } from "@/domain/permission";
 
-import { getPermissionIds } from "./permissions-view.utils";
+import { getPermissionIds } from "../../components/organisms/permissions-view/permissions-view.utils";
 
 export const useRolePermissionsMutations = (
   role: TAdminRole | null,

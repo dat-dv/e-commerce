@@ -11,7 +11,7 @@ import {
   type TAdminRole,
 } from "@/domain/permission";
 
-import { groupPermissionsByCategory } from "./permissions-view.utils";
+import { groupPermissionsByCategory } from "../../components/organisms/permissions-view/permissions-view.utils";
 
 export const useRolePermissionsData = () => {
   const searchParams = useSearchParams();

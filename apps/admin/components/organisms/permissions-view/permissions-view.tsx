@@ -1,9 +1,9 @@
 "use client";
 
+import { useRolePermissionsData } from "../../../hooks/role/use-role-permissions-data";
+import { useRolePermissionsMutations } from "../../../hooks/role/use-role-permissions-mutations";
 import { PermissionsHeader } from "./permissions-header";
 import { RolePermissionsPanel } from "./role-permissions-panel";
-import { useRolePermissionsData } from "./use-role-permissions-data";
-import { useRolePermissionsMutations } from "./use-role-permissions-mutations";
 
 export const PermissionsView = () => {
   const { role, permissions, groupedPermissions, permissionRepository } =
