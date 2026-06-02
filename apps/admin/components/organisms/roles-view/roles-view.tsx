@@ -1,6 +1,12 @@
 "use client";
 
-import { Button, type ITableColumn, TableCommon } from "@ecommerce/ui";
+import {
+  Button,
+  type CommonTableColumn,
+  TableCommon,
+  type TableQuery,
+  type TableSortDirection,
+} from "@ecommerce/ui";
 import { Plus, ShieldCog } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -14,12 +20,23 @@ import { useRolesView } from "@/hooks/role/use-roles-view";
 export const RolesView = () => {
   const { roles, loading, error, searchQuery, setSearchQuery, handleEditRole } =
     useRolesView();
+  const [sortColumn, setSortColumn] = React.useState<string>();
+  const [sortDirection, setSortDirection] =
+    React.useState<TableSortDirection>();
 
-  const columns: ITableColumn<TAdminRole>[] = [
+  const handleQueryChange = (nextQuery: TableQuery) => {
+    console.log("Roles table query change", nextQuery);
+    setSortColumn(nextQuery.sortColumn);
+    setSortDirection(nextQuery.sortDirection);
+  };
+
+  const columns: CommonTableColumn<TAdminRole>[] = [
     {
       key: "roleName",
       header: "Role Name",
-      render: (role) => (
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: role }) => (
         <span className="font-semibold text-[var(--app-text)]">
           {role.role_name || role.id}
         </span>
@@ -28,7 +45,9 @@ export const RolesView = () => {
     {
       key: "description",
       header: "Description",
-      render: (role) => (
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: role }) => (
         <span className="text-[var(--app-text)]/80">
           {role.description || "No description provided."}
         </span>
@@ -38,7 +57,7 @@ export const RolesView = () => {
       key: "actions",
       header: "",
       className: "text-right",
-      render: (role) => (
+      renderItem: ({ item: role }) => (
         <Button
           variant="ghost"
           onClick={(e) => {
@@ -78,11 +97,20 @@ export const RolesView = () => {
 
       <div className="flex flex-col gap-4">
         <TableCommon<TAdminRole>
+          name="admin-roles"
           data={roles}
           columns={columns}
           loading={loading}
           error={error}
+          total={roles.length}
+          page={1}
+          pageSize={roles.length || 10}
+          showIndex
+          showPageSizeSelect={false}
+          sortColumn={sortColumn}
+          sortDirection={sortDirection}
           onRowClick={handleEditRole}
+          onQueryChange={handleQueryChange}
           emptyState="No roles found."
         />
       </div>

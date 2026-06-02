@@ -14,8 +14,8 @@ export const CustomersView = () => {
     loading,
     searchQuery,
     page,
+    limit,
     total,
-    totalPages,
     filteredUsers,
     uniqueRoles,
     roleFilter,
@@ -25,6 +25,7 @@ export const CustomersView = () => {
     sortFilter,
     setSortFilter,
     setPage,
+    setPageSize,
     onChangeFilter,
     handleSearch,
     handleViewDetail,
@@ -55,8 +56,10 @@ export const CustomersView = () => {
         loading={loading}
         error={error}
         page={page}
-        totalPages={totalPages}
+        pageSize={limit}
+        total={total}
         onPageChange={setPage}
+        onPageSizeChange={setPageSize}
         onViewDetail={handleViewDetail}
       />
     </div>

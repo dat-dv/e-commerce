@@ -25,39 +25,37 @@ export const useCustomersView = () => {
   const [genderFilter, setGenderFilter] = useState<string>("");
   const [sortFilter, setSortFilter] = useState<string>("created_at:desc");
 
-  const { data, loading, onChangePagination, onChangeFilter } = usePagination<
-    IAdminUser,
-    ICustomersViewPaginationParams
-  >({
-    initialData: null,
-    isSyncWithSearchParams: false,
-    fetchPage: async (params) => {
-      setError(null);
-      try {
-        const response = await userRepository.getUsers({
-          page: params.page ?? 1,
-          limit: params.limit ?? 10,
-          search: params.search,
-          roleId: params.roleId as string | undefined,
-          gender: params.gender as string | undefined,
-          sortBy: params.sortBy as string | undefined,
-        });
-        return {
-          data: {
-            items: response.items,
-            meta: response.meta,
-          },
-          message: null,
-          timestamp: new Date().toISOString(),
-          status: "success",
-        };
-      } catch (err: unknown) {
-        console.error(err);
-        setError("Failed to fetch customer data. Please try again.");
-        throw err;
-      }
-    },
-  });
+  const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
+    usePagination<IAdminUser, ICustomersViewPaginationParams>({
+      initialData: null,
+      isSyncWithSearchParams: false,
+      fetchPage: async (params) => {
+        setError(null);
+        try {
+          const response = await userRepository.getUsers({
+            page: params.page ?? 1,
+            limit: params.limit ?? 10,
+            search: params.search,
+            roleId: params.roleId as string | undefined,
+            gender: params.gender as string | undefined,
+            sortBy: params.sortBy as string | undefined,
+          });
+          return {
+            data: {
+              items: response.items,
+              meta: response.meta,
+            },
+            message: null,
+            timestamp: new Date().toISOString(),
+            status: "success",
+          };
+        } catch (err: unknown) {
+          console.error(err);
+          setError("Failed to fetch customer data. Please try again.");
+          throw err;
+        }
+      },
+    });
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -98,6 +96,7 @@ export const useCustomersView = () => {
     sortFilter,
     setSortFilter,
     setPage: onChangePagination,
+    setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     onChangeFilter,
     handleSearch,
     handleViewDetail,

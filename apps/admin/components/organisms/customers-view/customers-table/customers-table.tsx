@@ -3,9 +3,10 @@
 import {
   Avatar,
   Button,
-  type ITableColumn,
-  Pagination,
+  type CommonTableColumn,
   TableCommon,
+  type TableQuery,
+  type TableSortDirection,
 } from "@ecommerce/ui";
 import { Eye } from "lucide-react";
 import React from "react";
@@ -17,8 +18,10 @@ export interface ICustomersTableProps {
   loading: boolean;
   error: string | null;
   page: number;
-  totalPages: number;
+  pageSize: number;
+  total: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange: (pageSize: number) => void;
   onViewDetail: (user: IAdminUser) => void;
 }
 
@@ -27,15 +30,38 @@ export const CustomersTable = ({
   loading,
   error,
   page,
-  totalPages,
+  pageSize,
+  total,
   onPageChange,
+  onPageSizeChange,
   onViewDetail,
 }: ICustomersTableProps) => {
-  const columns: ITableColumn<IAdminUser>[] = [
+  const [sortColumn, setSortColumn] = React.useState<string>();
+  const [sortDirection, setSortDirection] =
+    React.useState<TableSortDirection>();
+
+  const handleQueryChange = (nextQuery: TableQuery) => {
+    console.log("Customers table query change", nextQuery);
+    setSortColumn(nextQuery.sortColumn);
+    setSortDirection(nextQuery.sortDirection);
+
+    if (nextQuery.pageSize !== pageSize) {
+      onPageSizeChange(nextQuery.pageSize);
+      return;
+    }
+
+    if (nextQuery.page !== page) {
+      onPageChange(nextQuery.page);
+    }
+  };
+
+  const columns: CommonTableColumn<IAdminUser>[] = [
     {
       key: "customer",
       header: "Customer",
-      render: (user) => {
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: user }) => {
         const fullName =
           [user.firstName, user.lastName].filter(Boolean).join(" ") ||
           "No Name";
@@ -58,14 +84,18 @@ export const CustomersTable = ({
     {
       key: "email",
       header: "Email",
-      render: (user) => (
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: user }) => (
         <span className="text-[var(--app-text)]/80">{user.email}</span>
       ),
     },
     {
       key: "role",
       header: "Role",
-      render: (user) => {
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: user }) => {
         const roleName = user.role?.roleName || "User";
         return (
           <span className="bg-primary/10 text-primary inline-block rounded-md px-2.5 py-0.5 text-xs font-semibold">
@@ -77,7 +107,9 @@ export const CustomersTable = ({
     {
       key: "createdAt",
       header: "Joined Date",
-      render: (user) =>
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: user }) =>
         user.createdAt
           ? new Date(user.createdAt).toLocaleDateString("en-US", {
               year: "numeric",
@@ -89,8 +121,9 @@ export const CustomersTable = ({
     {
       key: "actions",
       header: "",
+      width: 50,
       className: "text-right",
-      render: (user) => {
+      renderItem: ({ item: user }) => {
         const fullName =
           [user.firstName, user.lastName].filter(Boolean).join(" ") ||
           "No Name";
@@ -114,19 +147,20 @@ export const CustomersTable = ({
   return (
     <div className="flex flex-col gap-4">
       <TableCommon<IAdminUser>
+        name="admin-customers"
         data={users}
         columns={columns}
         loading={loading}
         error={error}
+        total={total}
+        page={page}
+        pageSize={pageSize}
+        showIndex
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
         onRowClick={onViewDetail}
+        onQueryChange={handleQueryChange}
         emptyState="No customers found."
-      />
-
-      <Pagination
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={onPageChange}
-        className="w-auto py-0"
       />
     </div>
   );

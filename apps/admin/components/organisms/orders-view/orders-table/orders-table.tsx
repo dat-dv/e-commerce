@@ -1,11 +1,15 @@
+"use client";
+
 import { type IOrderResponse } from "@ecommerce/shared";
 import {
   Button,
-  type ITableColumn,
-  Pagination,
+  type CommonTableColumn,
   TableCommon,
+  type TableQuery,
+  type TableSortDirection,
 } from "@ecommerce/ui";
 import { Eye, User as UserIcon } from "lucide-react";
+import { useState } from "react";
 
 import {
   formatCurrency,
@@ -18,9 +22,10 @@ interface IOrdersTableProps {
   loading?: boolean;
   error: string | null;
   page: number;
+  pageSize: number;
   total: number;
-  totalPages: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange: (pageSize: number) => void;
   onViewDetail: (order: IOrderResponse) => void;
 }
 
@@ -29,16 +34,37 @@ export const OrdersTable = ({
   loading = false,
   error,
   page,
+  pageSize,
   total,
-  totalPages,
   onPageChange,
+  onPageSizeChange,
   onViewDetail,
 }: IOrdersTableProps) => {
-  const columns: ITableColumn<IOrderResponse>[] = [
+  const [sortColumn, setSortColumn] = useState<string>();
+  const [sortDirection, setSortDirection] = useState<TableSortDirection>();
+
+  const handleQueryChange = (nextQuery: TableQuery) => {
+    console.log("Orders table query change", nextQuery);
+    setSortColumn(nextQuery.sortColumn);
+    setSortDirection(nextQuery.sortDirection);
+
+    if (nextQuery.pageSize !== pageSize) {
+      onPageSizeChange(nextQuery.pageSize);
+      return;
+    }
+
+    if (nextQuery.page !== page) {
+      onPageChange(nextQuery.page);
+    }
+  };
+
+  const columns: CommonTableColumn<IOrderResponse>[] = [
     {
       key: "id",
       header: "Order ID",
-      render: (order) => (
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: order }) => (
         <code className="text-primary rounded bg-white/5 px-2 py-1 text-xs">
           #{order.id.slice(0, 8).toUpperCase()}
         </code>
@@ -47,7 +73,9 @@ export const OrdersTable = ({
     {
       key: "customer",
       header: "Customer",
-      render: (order) => {
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: order }) => {
         const customerName =
           [order.user?.first_name, order.user?.last_name]
             .filter(Boolean)
@@ -77,7 +105,9 @@ export const OrdersTable = ({
     {
       key: "status",
       header: "Status",
-      render: (order) => {
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: order }) => {
         const statusInfo = getOrderStatus(order.status);
         return (
           <span
@@ -91,18 +121,23 @@ export const OrdersTable = ({
     {
       key: "total_amount",
       header: "Total",
-      render: (order) => formatCurrency(order.total_amount),
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: order }) => formatCurrency(order.total_amount),
     },
     {
       key: "created_at",
       header: "Date",
-      render: (order) => formatDate(order.created_at),
+      sortable: true,
+      resizable: true,
+      renderItem: ({ item: order }) => formatDate(order.created_at),
     },
     {
       key: "actions",
+      width: 50,
       header: "",
       className: "text-right",
-      render: (order) => (
+      renderItem: ({ item: order }) => (
         <Button
           variant="ghost"
           onClick={(e) => {
@@ -121,20 +156,20 @@ export const OrdersTable = ({
   return (
     <div className="flex flex-col gap-4">
       <TableCommon<IOrderResponse>
+        name="admin-orders"
         data={orders}
         columns={columns}
         loading={loading}
         error={error}
+        total={total}
+        page={page}
+        pageSize={pageSize}
+        showIndex
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
         onRowClick={onViewDetail}
+        onQueryChange={handleQueryChange}
         emptyState="No orders found."
-      />
-
-      {/* Pagination */}
-      <Pagination
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={onPageChange}
-        className="w-auto py-0"
       />
     </div>
   );

@@ -1,6 +1,15 @@
+"use client";
+
 import { type IProductResponse } from "@ecommerce/shared";
-import { Button, type CommonTableColumn, TableCommon } from "@ecommerce/ui";
+import {
+  Button,
+  type CommonTableColumn,
+  TableCommon,
+  type TableQuery,
+  type TableSortDirection,
+} from "@ecommerce/ui";
 import { Eye, Package, Star } from "lucide-react";
+import { useState } from "react";
 
 import {
   formatCurrency,
@@ -16,6 +25,7 @@ interface IProductsTableProps {
   pageSize: number;
   total: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange: (pageSize: number) => void;
   onViewDetail: (product: IProductResponse) => void;
 }
 
@@ -27,13 +37,33 @@ export const ProductsTable = ({
   pageSize,
   total,
   onPageChange,
+  onPageSizeChange,
   onViewDetail,
 }: IProductsTableProps) => {
+  const [sortColumn, setSortColumn] = useState<string>();
+  const [sortDirection, setSortDirection] = useState<TableSortDirection>();
+
+  const handleQueryChange = (nextQuery: TableQuery) => {
+    console.log("Products table query change", nextQuery);
+    setSortColumn(nextQuery.sortColumn);
+    setSortDirection(nextQuery.sortDirection);
+
+    if (nextQuery.pageSize !== pageSize) {
+      onPageSizeChange(nextQuery.pageSize);
+      return;
+    }
+
+    if (nextQuery.page !== page) {
+      onPageChange(nextQuery.page);
+    }
+  };
+
   const columns: CommonTableColumn<IProductResponse>[] = [
     {
       key: "product",
       header: "Product",
-      width: 260,
+      sortable: true,
+      resizable: true,
       renderItem: ({ item: product }) => {
         const name = getProductName(product.translations, product.slug);
         return (
@@ -60,7 +90,8 @@ export const ProductsTable = ({
     {
       key: "slug",
       header: "Slug",
-      width: 220,
+      sortable: true,
+      resizable: true,
       renderItem: ({ item: product }) => (
         <code className="text-xs text-[var(--muted)]">{product.slug}</code>
       ),
@@ -68,7 +99,8 @@ export const ProductsTable = ({
     {
       key: "status",
       header: "Status",
-      width: 130,
+      sortable: true,
+      resizable: true,
       renderItem: ({ item: product }) => {
         const statusInfo = getProductStatus(product.status);
         return (
@@ -83,13 +115,15 @@ export const ProductsTable = ({
     {
       key: "base_price",
       header: "Price",
-      width: 130,
+      sortable: true,
+      resizable: true,
       renderItem: ({ item: product }) => formatCurrency(product.base_price),
     },
     {
       key: "rating",
       header: "Rating",
-      width: 120,
+      sortable: true,
+      resizable: true,
       renderItem: ({ item: product }) => (
         <div className="flex items-center gap-1">
           <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
@@ -102,7 +136,7 @@ export const ProductsTable = ({
     {
       key: "actions",
       header: "",
-      width: 90,
+      width: 50,
       className: "text-right",
       renderItem: ({ item: product }) => {
         const name = getProductName(product.translations, product.slug);
@@ -126,6 +160,7 @@ export const ProductsTable = ({
   return (
     <div className="flex flex-col gap-4">
       <TableCommon<IProductResponse>
+        name="admin-products"
         data={products}
         columns={columns}
         loading={loading}
@@ -133,9 +168,11 @@ export const ProductsTable = ({
         total={total}
         page={page}
         pageSize={pageSize}
-        searchable={false}
+        showIndex
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
         onRowClick={onViewDetail}
-        onQueryChange={(nextQuery) => onPageChange(nextQuery.page)}
+        onQueryChange={handleQueryChange}
         emptyState="No products found."
       />
     </div>

@@ -13,10 +13,11 @@ export const ProductsView = () => {
     loading,
     searchQuery,
     page,
+    limit,
     total,
-    totalPages,
     filteredProducts,
     setPage,
+    setPageSize,
     setSearchQuery,
     handleViewDetail,
   } = useProductsView();
@@ -36,9 +37,10 @@ export const ProductsView = () => {
         loading={loading}
         error={error}
         page={page}
+        pageSize={limit}
         total={total}
-        totalPages={totalPages}
         onPageChange={setPage}
+        onPageSizeChange={setPageSize}
         onViewDetail={handleViewDetail}
       />
     </div>

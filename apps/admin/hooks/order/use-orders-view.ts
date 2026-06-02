@@ -14,7 +14,7 @@ export const useOrdersView = () => {
   );
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const { data, loading, onChangePagination, onChangeFilter } =
+  const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IOrderResponse>({
       initialData: null,
       isSyncWithSearchParams: false,
@@ -75,6 +75,7 @@ export const useOrdersView = () => {
     isDetailOpen,
     filteredOrders,
     setPage: onChangePagination,
+    setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     setSearchQuery: handleSearch,
     setIsDetailOpen,
     handleViewDetail,

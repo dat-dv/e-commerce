@@ -14,12 +14,13 @@ export const OrdersView = () => {
     loading,
     searchQuery,
     page,
+    limit,
     total,
-    totalPages,
     selectedOrder,
     isDetailOpen,
     filteredOrders,
     setPage,
+    setPageSize,
     setSearchQuery,
     setIsDetailOpen,
     handleViewDetail,
@@ -40,9 +41,10 @@ export const OrdersView = () => {
         loading={loading}
         error={error}
         page={page}
+        pageSize={limit}
         total={total}
-        totalPages={totalPages}
         onPageChange={setPage}
+        onPageSizeChange={setPageSize}
         onViewDetail={handleViewDetail}
       />
 

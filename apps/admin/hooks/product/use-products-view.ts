@@ -15,7 +15,7 @@ export const useProductsView = () => {
     useState<IProductResponse | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const { data, loading, onChangePagination, onChangeFilter } =
+  const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IProductResponse>({
       initialData: null,
       isSyncWithSearchParams: false,
@@ -75,6 +75,7 @@ export const useProductsView = () => {
     isDetailOpen,
     filteredProducts,
     setPage: onChangePagination,
+    setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     setSearchQuery: handleSearch,
     setIsDetailOpen,
     handleViewDetail,
