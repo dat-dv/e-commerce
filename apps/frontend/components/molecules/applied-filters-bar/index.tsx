@@ -37,7 +37,7 @@ export function AppliedFiltersBar<T extends string = string>({
   const t = useTranslations("ProductsPage.appliedFilters");
   const chips: { key: T; label: string }[] = [];
 
-  if (filters.search) {
+  if (filters.search !== undefined) {
     chips.push({
       key: "search" as T,
       label: t("search", { value: filters.search }),
