@@ -73,6 +73,12 @@ type ProductSearchModel = Prisma.ProductGetPayload<{
 }>;
 type ProductSearchCategory = ProductSearchModel['categories'][number]['category'];
 
+interface CategoryNode {
+  id: string;
+  slug: string;
+  parent?: CategoryNode | null;
+}
+
 class MeilisearchRequestError extends Error {
   constructor(
     public readonly status: number,
@@ -290,11 +296,11 @@ export class ProductSearchService {
 
   private collectCategoryIds(category: ProductSearchCategory): string[] {
     const ids: string[] = [];
-    let current: ProductSearchCategory | null = category;
+    let current: CategoryNode | null = category;
 
     while (current) {
       ids.push(current.id);
-      current = current.parent;
+      current = current.parent ?? null;
     }
 
     return ids;
@@ -302,11 +308,11 @@ export class ProductSearchService {
 
   private collectCategorySlugs(category: ProductSearchCategory): string[] {
     const slugs: string[] = [];
-    let current: ProductSearchCategory | null = category;
+    let current: CategoryNode | null = category;
 
     while (current) {
       slugs.push(current.slug);
-      current = current.parent;
+      current = current.parent ?? null;
     }
 
     return slugs;
