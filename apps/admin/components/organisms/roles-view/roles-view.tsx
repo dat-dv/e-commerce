@@ -109,7 +109,6 @@ export const RolesView = () => {
           showPageSizeSelect={false}
           sortColumn={sortColumn}
           sortDirection={sortDirection}
-          onRowClick={handleEditRole}
           onQueryChange={handleQueryChange}
           emptyState="No roles found."
         />

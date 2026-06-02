@@ -158,7 +158,6 @@ export const CustomersTable = ({
         showIndex
         sortColumn={sortColumn}
         sortDirection={sortDirection}
-        onRowClick={onViewDetail}
         onQueryChange={handleQueryChange}
         emptyState="No customers found."
       />

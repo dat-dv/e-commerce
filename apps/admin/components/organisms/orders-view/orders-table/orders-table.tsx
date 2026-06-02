@@ -167,7 +167,6 @@ export const OrdersTable = ({
         showIndex
         sortColumn={sortColumn}
         sortDirection={sortDirection}
-        onRowClick={onViewDetail}
         onQueryChange={handleQueryChange}
         emptyState="No orders found."
       />

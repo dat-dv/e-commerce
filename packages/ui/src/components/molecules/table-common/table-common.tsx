@@ -436,7 +436,9 @@ function CommonTableInner<T extends object>(
                 <Row
                   id={id}
                   columns={tableColumns}
-                  onAction={() => onRowClick?.(item, rowIndex)}
+                  onAction={
+                    onRowClick ? () => onRowClick(item, rowIndex) : undefined
+                  }
                 >
                   {(column) => (
                     <Cell cellClassName={column.className}>
