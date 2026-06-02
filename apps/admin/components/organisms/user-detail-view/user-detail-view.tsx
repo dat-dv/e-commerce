@@ -15,7 +15,7 @@ export const UserDetailView = () => {
     <div className="space-y-6">
       <PageHeader
         title="Customer Workspace"
-        description="Edit profile data, inspect avatar history, and review customer commerce activity."
+        description="Edit profile data, inspect avatar history, and review customer orders, cart, and favorites."
         backAction={() => router.push(APP_ROUTES.CUSTOMERS)}
         backLabel="Back to customers"
       />

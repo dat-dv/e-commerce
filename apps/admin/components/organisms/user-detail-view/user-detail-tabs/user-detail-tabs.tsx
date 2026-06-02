@@ -35,5 +35,4 @@ export const UserDetailTabs = ({ userId }: { userId: string }) => {
     </Tabs>
   );
 };
-
 UserDetailTabs.displayName = "UserDetailTabs";
