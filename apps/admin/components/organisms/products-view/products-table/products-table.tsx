@@ -1,10 +1,5 @@
 import { type IProductResponse } from "@ecommerce/shared";
-import {
-  Button,
-  type ITableColumn,
-  Pagination,
-  TableCommon,
-} from "@ecommerce/ui";
+import { Button, type CommonTableColumn, TableCommon } from "@ecommerce/ui";
 import { Eye, Package, Star } from "lucide-react";
 
 import {
@@ -18,8 +13,8 @@ interface IProductsTableProps {
   loading?: boolean;
   error: string | null;
   page: number;
+  pageSize: number;
   total: number;
-  totalPages: number;
   onPageChange: (page: number) => void;
   onViewDetail: (product: IProductResponse) => void;
 }
@@ -29,16 +24,17 @@ export const ProductsTable = ({
   loading = false,
   error,
   page,
+  pageSize,
   total,
-  totalPages,
   onPageChange,
   onViewDetail,
 }: IProductsTableProps) => {
-  const columns: ITableColumn<IProductResponse>[] = [
+  const columns: CommonTableColumn<IProductResponse>[] = [
     {
       key: "product",
       header: "Product",
-      render: (product) => {
+      width: 260,
+      renderItem: ({ item: product }) => {
         const name = getProductName(product.translations, product.slug);
         return (
           <div className="flex items-center gap-3">
@@ -64,14 +60,16 @@ export const ProductsTable = ({
     {
       key: "slug",
       header: "Slug",
-      render: (product) => (
+      width: 220,
+      renderItem: ({ item: product }) => (
         <code className="text-xs text-[var(--muted)]">{product.slug}</code>
       ),
     },
     {
       key: "status",
       header: "Status",
-      render: (product) => {
+      width: 130,
+      renderItem: ({ item: product }) => {
         const statusInfo = getProductStatus(product.status);
         return (
           <span
@@ -85,12 +83,14 @@ export const ProductsTable = ({
     {
       key: "base_price",
       header: "Price",
-      render: (product) => formatCurrency(product.base_price),
+      width: 130,
+      renderItem: ({ item: product }) => formatCurrency(product.base_price),
     },
     {
       key: "rating",
       header: "Rating",
-      render: (product) => (
+      width: 120,
+      renderItem: ({ item: product }) => (
         <div className="flex items-center gap-1">
           <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
           <span className="text-sm text-[var(--app-text)]">
@@ -102,8 +102,9 @@ export const ProductsTable = ({
     {
       key: "actions",
       header: "",
+      width: 90,
       className: "text-right",
-      render: (product) => {
+      renderItem: ({ item: product }) => {
         const name = getProductName(product.translations, product.slug);
         return (
           <Button
@@ -129,16 +130,13 @@ export const ProductsTable = ({
         columns={columns}
         loading={loading}
         error={error}
+        total={total}
+        page={page}
+        pageSize={pageSize}
+        searchable={false}
         onRowClick={onViewDetail}
+        onQueryChange={(nextQuery) => onPageChange(nextQuery.page)}
         emptyState="No products found."
-      />
-
-      {/* Pagination */}
-      <Pagination
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={onPageChange}
-        className="w-auto py-0"
       />
     </div>
   );
