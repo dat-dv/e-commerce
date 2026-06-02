@@ -1,8 +1,9 @@
-import type { User, Role, Image, UserPhone, UserAvatar } from "../generate/browser";
+import type { User, Image, UserPhone, UserAvatar } from "../generate/browser";
 import type { IPaginatedResult } from "../paginate";
+import type { IRoleResponse } from "../permission";
 
 export interface IUserResponse extends User {
-  role?: Role | null;
+  role?: IRoleResponse | null;
   avatar?: Image | null;
   active_phone?: UserPhone | null;
   phones?: UserPhone[];

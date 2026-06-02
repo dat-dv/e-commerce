@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { APP_ROUTES } from "@/constants/routes";
 import { adminAuthUseCase } from "@/domain/auth";
 import { useAdminUserStore } from "@/store/user";
+import { canAccessAdminPath } from "@/utils/permissions";
 
 const PUBLIC_PATHS: string[] = [APP_ROUTES.SIGN_IN, APP_ROUTES.FORGOT_PASSWORD];
 
@@ -20,6 +21,7 @@ export const useAuthGuard = () => {
 
   const [isCheckingSession, setIsCheckingSession] = useState(true);
   const [isSessionVerified, setIsSessionVerified] = useState(false);
+  const [isForbidden, setIsForbidden] = useState(false);
 
   const isPublicPath = PUBLIC_PATHS.includes(pathname);
 
@@ -28,6 +30,7 @@ export const useAuthGuard = () => {
 
     // 1. If we are on a public path (like sign-in)
     if (isPublicPath) {
+      setIsForbidden(false);
       if (user) {
         router.replace(APP_ROUTES.DASHBOARD);
         return;
@@ -38,6 +41,7 @@ export const useAuthGuard = () => {
 
     // 2. If we are on a protected path and have no session/user locally
     if (!user) {
+      setIsForbidden(false);
       router.replace(APP_ROUTES.SIGN_IN);
       setIsCheckingSession(false);
       return;
@@ -45,6 +49,7 @@ export const useAuthGuard = () => {
 
     // 3. If we already verified the session during this mount, skip API call
     if (isSessionVerified) {
+      setIsForbidden(!canAccessAdminPath(user, pathname));
       setIsCheckingSession(false);
       return;
     }
@@ -61,10 +66,12 @@ export const useAuthGuard = () => {
           throw new Error("Session verification failed");
         }
         setUser(response.data);
+        setIsForbidden(!canAccessAdminPath(response.data, pathname));
         setIsSessionVerified(true);
       } catch {
         if (ignore) return;
         logout();
+        setIsForbidden(false);
         router.replace(APP_ROUTES.SIGN_IN);
       } finally {
         if (!ignore) {
@@ -92,6 +99,7 @@ export const useAuthGuard = () => {
   return {
     hasHydrated,
     isCheckingSession,
+    isForbidden,
     isPublicPath,
     user,
   };

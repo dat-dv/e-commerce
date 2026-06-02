@@ -1,4 +1,4 @@
-import type { Image, IUserResponse, Role, UserPhone } from '@ecommerce/shared';
+import type { Image, IRoleResponse, IUserResponse, UserPhone } from '@ecommerce/shared';
 
 type UserResponseInput = Omit<Partial<IUserResponse>, 'avatar'> & {
   avatar?: Image | ({ image?: Image | null } & Record<string, unknown>) | null;
@@ -38,7 +38,7 @@ export class UserResponseDto implements IUserResponse {
   role_id: string | null;
   avatar_id: string | null;
   active_phone_id: string | null;
-  role?: Role | null;
+  role?: IRoleResponse | null;
   avatar?: Image | null;
   active_phone?: UserPhone | null;
   phones?: UserPhone[];

@@ -23,6 +23,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./test/jest-e2e.json",
     "type-check": "tsc --noEmit",
+    "rbac:sync": "npx tsx prisma/seeds/rbac-sync.ts",
     "db:reset": "prisma migrate reset --force && prisma generate && npx tsx prisma/seeds/index.ts"
   },
   "dependencies": {

@@ -2,6 +2,7 @@ export interface IAdminRole {
   id: string;
   roleName: string;
   description: string | null;
+  permissions: string[];
   createdAt: string;
   updatedAt: string;
 }

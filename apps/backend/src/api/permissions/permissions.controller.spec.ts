@@ -5,6 +5,7 @@ import { FindOnePermissionUseCase } from './domain/use-cases/find-one-permission
 import { UpdatePermissionUseCase } from './domain/use-cases/update-permission.use-case';
 import { RemovePermissionUseCase } from './domain/use-cases/remove-permission.use-case';
 import { AuthGuard } from 'src/api/auth/guards/auth.guard';
+import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { GetPermissionsDto } from './dto/get-permissions.dto';
 import { UpdatePermissionDto } from './dto/update-permission.dto';
 
@@ -27,6 +28,8 @@ describe('PermissionsController', () => {
       ],
     })
       .overrideGuard(AuthGuard)
+      .useValue({ canActivate: () => true })
+      .overrideGuard(PermissionsGuard)
       .useValue({ canActivate: () => true })
       .compile();
 

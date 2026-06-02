@@ -18,6 +18,11 @@ export const AdminUserMapper = {
           id: dto.role.id,
           roleName: dto.role.role_name,
           description: dto.role.description || null,
+          permissions: dto.role.permissions
+            ? dto.role.permissions.map(
+                (item) => item.permission.permission_name,
+              )
+            : [],
           createdAt: dto.role.created_at
             ? new Date(dto.role.created_at).toISOString()
             : "",

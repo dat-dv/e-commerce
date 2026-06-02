@@ -6,6 +6,11 @@ export async function seedRBAC(prisma: PrismaClient) {
 
   // 1. Định nghĩa danh sách quyền gốc (Master List)
   const permissions = [
+    {
+      permission_name: 'ACCESS:ADMIN',
+      description: 'Quyền truy cập trang quản trị',
+      category: 'Quản trị hệ thống',
+    },
     // Quản lý người dùng
     { permission_name: 'CREATE:USER', description: 'Quyền tạo người dùng', category: 'Quản lý người dùng' },
     { permission_name: 'LIST:USER', description: 'Quyền xem danh sách người dùng', category: 'Quản lý người dùng' },
@@ -37,6 +42,12 @@ export async function seedRBAC(prisma: PrismaClient) {
     { permission_name: 'DETAIL:ROLE', description: 'Quyền xem chi tiết vai trò', category: 'Quản lý vai trò' },
     { permission_name: 'UPDATE:ROLE', description: 'Quyền sửa vai trò', category: 'Quản lý vai trò' },
     { permission_name: 'DELETE:ROLE', description: 'Quyền xóa vai trò', category: 'Quản lý vai trò' },
+
+    // Quản lý quyền
+    { permission_name: 'LIST:PERMISSION', description: 'Quyền xem danh sách quyền', category: 'Quản lý quyền' },
+    { permission_name: 'DETAIL:PERMISSION', description: 'Quyền xem chi tiết quyền', category: 'Quản lý quyền' },
+    { permission_name: 'UPDATE:PERMISSION', description: 'Quyền sửa quyền', category: 'Quản lý quyền' },
+    { permission_name: 'DELETE:PERMISSION', description: 'Quyền xóa quyền', category: 'Quản lý quyền' },
 
     // Quản lý danh mục sản phẩm (Category)
     { permission_name: 'CREATE:CATEGORY', description: 'Quyền tạo danh mục sản phẩm', category: 'Quản lý danh mục' },
@@ -169,30 +180,58 @@ export async function seedRBAC(prisma: PrismaClient) {
     });
   }
 
-  // 3. Tạo Role Admin (Có tất cả các quyền)
-
   const adminRole = await prisma.role.upsert({
     where: { role_name: ROLE_ADMIN },
     update: {
-      permissions: {
-        deleteMany: {},
-        create: permissions.map((p) => ({
-          permission: { connect: { permission_name: p.permission_name } },
-        })),
-      },
+      description: 'Quản trị viên hệ thống',
     },
     create: {
       role_name: ROLE_ADMIN,
       description: 'Quản trị viên hệ thống',
-      permissions: {
-        create: permissions.map((p) => ({
-          permission: { connect: { permission_name: p.permission_name } },
-        })),
-      },
     },
   });
 
-  // 4. Tạo Role User (Chỉ có một số quyền cơ bản)
+  const grantMissingPermissions = async (roleId: string, permissionNames: string[]) => {
+    const targetPermissions = await prisma.permission.findMany({
+      where: {
+        permission_name: {
+          in: permissionNames,
+        },
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    const existingRolePermissions = await prisma.rolePermission.findMany({
+      where: {
+        role_id: roleId,
+      },
+      select: {
+        permission_id: true,
+      },
+    });
+
+    const existingPermissionIds = new Set(existingRolePermissions.map((item) => item.permission_id));
+    const missingPermissions = targetPermissions.filter((permission) => !existingPermissionIds.has(permission.id));
+
+    if (!missingPermissions.length) return;
+
+    await prisma.rolePermission.createMany({
+      data: missingPermissions.map((permission) => ({
+        role_id: roleId,
+        permission_id: permission.id,
+      })),
+    });
+  };
+
+  // 3. Tạo Role Admin và grant thêm các quyền còn thiếu, không xoá quyền đang có.
+  await grantMissingPermissions(
+    adminRole.id,
+    permissions.map((p) => p.permission_name),
+  );
+
+  // 4. Tạo Role User và grant thêm các quyền cơ bản còn thiếu, không xoá quyền đang có.
   const userPermNames = [
     'LIST:CATEGORY',
     'DETAIL:CATEGORY',
@@ -217,26 +256,18 @@ export async function seedRBAC(prisma: PrismaClient) {
   const userRole = await prisma.role.upsert({
     where: { role_name: ROLE_USER },
     update: {
-      permissions: {
-        deleteMany: {},
-        create: userPermNames.map((name) => ({
-          permission: { connect: { permission_name: name } },
-        })),
-      },
+      description: 'Người dùng thông thường',
     },
     create: {
       role_name: ROLE_USER,
       description: 'Người dùng thông thường',
-      permissions: {
-        create: userPermNames.map((name) => ({
-          permission: { connect: { permission_name: name } },
-        })),
-      },
     },
   });
 
-  console.log(`🔑 Đã tạo Role ADMIN với ${permissions.length} quyền`);
-  console.log(`🔑 Đã tạo Role USER với ${userPermNames.length} quyền`);
+  await grantMissingPermissions(userRole.id, userPermNames);
+
+  console.log(`🔑 Đã đảm bảo Role ADMIN có tối thiểu ${permissions.length} quyền master`);
+  console.log(`🔑 Đã đảm bảo Role USER có tối thiểu ${userPermNames.length} quyền cơ bản`);
 
   return { adminRole, userRole };
 }

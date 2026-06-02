@@ -6,11 +6,13 @@ import { RemovePermissionUseCase } from './domain/use-cases/remove-permission.us
 import { UpdatePermissionDto } from './dto/update-permission.dto';
 import { GetPermissionsDto } from './dto/get-permissions.dto';
 import createSuccessResponse from 'src/common/respomse';
+import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { IApiResponse, IPermissionResponse, IPermissionListResponse } from '@ecommerce/shared';
 
 @Controller('permissions')
-@UseGuards(AuthGuard)
+@UseGuards(AuthGuard, PermissionsGuard)
 export class PermissionsController {
   constructor(
     private readonly findAllPermissionsUseCase: FindAllPermissionsUseCase,
@@ -20,18 +22,21 @@ export class PermissionsController {
   ) {}
 
   @Get()
+  @Permissions('LIST:PERMISSION')
   async findAll(@Query() getPermissionsDto: GetPermissionsDto): Promise<IApiResponse<IPermissionListResponse>> {
     const res = await this.findAllPermissionsUseCase.execute(getPermissionsDto.page, getPermissionsDto.limit);
     return createSuccessResponse(res);
   }
 
   @Get(':id')
+  @Permissions('DETAIL:PERMISSION')
   async findOne(@Param('id') id: string): Promise<IApiResponse<IPermissionResponse | null>> {
     const res = await this.findOnePermissionUseCase.execute(id);
     return createSuccessResponse(res);
   }
 
   @Patch(':id')
+  @Permissions('UPDATE:PERMISSION')
   async update(
     @Param('id') id: string,
     @Body() updatePermissionDto: UpdatePermissionDto,
@@ -41,6 +46,7 @@ export class PermissionsController {
   }
 
   @Delete(':id')
+  @Permissions('DELETE:PERMISSION')
   async remove(@Param('id') id: string): Promise<IApiResponse<IPermissionResponse>> {
     const res = await this.removePermissionUseCase.execute(id);
     return createSuccessResponse(res);

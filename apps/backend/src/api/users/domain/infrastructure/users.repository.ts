@@ -21,7 +21,15 @@ export class UsersRepository implements IUsersRepository {
   ) {}
 
   private readonly USER_INCLUDE = {
-    role: true,
+    role: {
+      include: {
+        permissions: {
+          include: {
+            permission: true,
+          },
+        },
+      },
+    },
     avatar: {
       include: {
         image: true,

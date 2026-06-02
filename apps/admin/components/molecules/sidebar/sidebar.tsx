@@ -13,9 +13,11 @@ import {
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
+import { ADMIN_PERMISSIONS } from "@/constants/permissions";
 import { APP_ROUTES } from "@/constants/routes";
 import { useAdminSidebarStore } from "@/store/sidebar";
 import { useAdminUserStore } from "@/store/user";
+import { filterLinksByPermission } from "@/utils/permissions";
 
 import { ISidebarLink } from "./sidebar.types";
 import { SidebarFooter } from "./sidebar-footer";
@@ -24,22 +26,44 @@ import { SidebarLink } from "./sidebar-link";
 import { SidebarToggle } from "./sidebar-toggle";
 
 const SIDEBAR_LINKS: ISidebarLink[] = [
-  { label: "Dashboard", href: APP_ROUTES.DASHBOARD, icon: LayoutDashboard },
-  { label: "Products", href: APP_ROUTES.PRODUCTS, icon: Tag },
+  {
+    label: "Dashboard",
+    href: APP_ROUTES.DASHBOARD,
+    icon: LayoutDashboard,
+    permissions: [ADMIN_PERMISSIONS.ACCESS_ADMIN],
+  },
+  {
+    label: "Products",
+    href: APP_ROUTES.PRODUCTS,
+    icon: Tag,
+    permissions: [
+      ADMIN_PERMISSIONS.ACCESS_ADMIN,
+      ADMIN_PERMISSIONS.LIST_PRODUCTS,
+    ],
+  },
   {
     label: "Orders",
     href: APP_ROUTES.ORDERS,
     icon: ShoppingCart,
+    permissions: [
+      ADMIN_PERMISSIONS.ACCESS_ADMIN,
+      ADMIN_PERMISSIONS.LIST_ORDERS,
+    ],
   },
   {
     label: "Customers",
     href: APP_ROUTES.CUSTOMERS,
     icon: Users,
+    permissions: [
+      ADMIN_PERMISSIONS.ACCESS_ADMIN,
+      ADMIN_PERMISSIONS.LIST_CUSTOMERS,
+    ],
   },
   {
     label: "Roles",
     href: APP_ROUTES.ROLES,
     icon: ShieldCheck,
+    // permissions: [ADMIN_PERMISSIONS.ACCESS_ADMIN, ADMIN_PERMISSIONS.LIST_ROLES],
   },
   {
     label: "Analytics",
@@ -47,7 +71,12 @@ const SIDEBAR_LINKS: ISidebarLink[] = [
     icon: BarChart3,
     disabled: true,
   },
-  { label: "Settings", href: APP_ROUTES.SETTINGS, icon: Settings },
+  {
+    label: "Settings",
+    href: APP_ROUTES.SETTINGS,
+    icon: Settings,
+    permissions: [ADMIN_PERMISSIONS.ACCESS_ADMIN],
+  },
 ];
 
 export const Sidebar = () => {
@@ -61,6 +90,8 @@ export const Sidebar = () => {
     setOpen(false);
   }, [pathname, setOpen]);
 
+  const visibleLinks = filterLinksByPermission(SIDEBAR_LINKS, user);
+
   const sidebarContent = (
     <div className="flex h-full flex-col">
       {/* Header */}
@@ -68,7 +99,7 @@ export const Sidebar = () => {
 
       {/* Navigation Links */}
       <nav className="hide-scrollbar flex-1 space-y-1.5 overflow-y-auto px-3 py-4">
-        {SIDEBAR_LINKS.map((link) => {
+        {visibleLinks.map((link) => {
           const isActive =
             pathname === link.href ||
             (link.href !== "/dashboard" && pathname.startsWith(link.href));
