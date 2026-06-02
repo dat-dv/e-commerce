@@ -10,8 +10,11 @@ export const initSwagger = (app: INestApplication) => {
     // .addSecurityRequirements('bearer')
     .build();
 
+  const swaggerPath = 'api/docs';
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document, {
+
+  SwaggerModule.setup(swaggerPath, app, document, {
+    jsonDocumentUrl: `${swaggerPath}-json`,
     swaggerOptions: {
       withCredentials: true, // Dòng này bắt Swagger gửi kèm Cookies khi request
     },

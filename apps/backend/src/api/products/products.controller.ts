@@ -19,6 +19,7 @@ import {
   Body,
   Post,
 } from '@nestjs/common';
+import { ApiOperation } from '@nestjs/swagger';
 import type { Request } from 'express';
 import { Language } from 'src/common/decorators/language.decorator';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
@@ -124,6 +125,7 @@ export class ProductsController {
   @UseGuards(AuthGuard, PermissionsGuard)
   @Permissions('UPDATE:PRODUCT')
   @Post('search/reindex')
+  @ApiOperation({ summary: 'Reindex products to Meilisearch' })
   async reindexProductSearch(): Promise<IApiResponse<{ indexed: number; index: string }>> {
     const result = await this.productSearchService.reindexProducts();
     return createSuccessResponse(result);
