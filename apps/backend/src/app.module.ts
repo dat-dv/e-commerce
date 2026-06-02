@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ScheduleModule } from '@nestjs/schedule';
 import { AddressesModule } from './api/addresses/addresses.module';
 import { AttributesModule } from './api/attributes/attributes.module';
 import { AuthModule } from './api/auth/auth.module';
@@ -27,6 +28,7 @@ import { CacheModule } from './shared/services/cache/cache.module';
 @Module({
   imports: [
     ConfigModule,
+    ScheduleModule.forRoot(),
     SharedModule,
     CacheModule,
     UsersModule,

@@ -13,6 +13,7 @@ import { GetSimilarProductsUseCase } from './domain/use-cases/get-similar-produc
 import { UpdateProductUseCase } from './domain/use-cases/update-product.use-case';
 import { UserFavoriteProductsModule } from '../user-favorite-products/user-favorite-products.module';
 import { IProductsRepository } from './domain/entities/products.repository.interface';
+import { ProductSearchScheduler } from './domain/infrastructure/product-search.scheduler';
 import { ProductSearchService } from './domain/infrastructure/product-search.service';
 import { ProductsRepository } from './domain/infrastructure/products.repository';
 
@@ -30,6 +31,7 @@ import { ProductsRepository } from './domain/infrastructure/products.repository'
     GetSimilarProductsUseCase,
     UpdateProductUseCase,
     ProductSearchService,
+    ProductSearchScheduler,
     {
       provide: IProductsRepository,
       useClass: ProductsRepository,
