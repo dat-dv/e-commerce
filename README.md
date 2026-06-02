@@ -109,7 +109,7 @@ Reverse proxy, tự cấp và gia hạn SSL Let's Encrypt, điều phối subdom
 
 Routing subdomain:
 
-- `chotdon.shop` → Frontend (`:5173`)
+- `chotdon.shop , vi.chotdon.shop , en.chotdon.shop` → Frontend (`:5173`)
 - `admin.chotdon.shop` → Admin Dashboard (`:5174`)
 - `api.chotdon.shop` → Backend NestJS (`:3000`)
 
