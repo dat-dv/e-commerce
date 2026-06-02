@@ -58,10 +58,10 @@ export const UserDetailOrdersTab = ({ userId }: { userId: string }) => {
                       {status.label}
                     </span>
                     <span className="text-content font-semibold">
-                      {formatCurrency(order.total_amount)}
+                      {formatCurrency(order.totalAmount)}
                     </span>
                     <span className="text-content/55">
-                      {formatAdminDate(order.created_at)}
+                      {formatAdminDate(order.createdAt)}
                     </span>
                   </div>
                 );

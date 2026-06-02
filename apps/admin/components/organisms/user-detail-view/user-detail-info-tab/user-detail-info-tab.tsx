@@ -19,7 +19,7 @@ import { useUserDetailMutations } from "@/hooks/user/use-user-detail-mutations";
 export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
   const [showGallery, setShowGallery] = useState(false);
 
-  const { user, avatars, roles, setUser, setAvatars } =
+  const { user, avatars, roles, setUser, setAvatars, loading } =
     useUserDetailData(userId);
 
   const onSaveSuccess = useCallback(
@@ -42,6 +42,14 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
     avatars.find((a) => a.id === currentAvatarId)?.url ||
     user?.avatarUrl ||
     undefined;
+
+  if (loading) {
+    return (
+      <div className="p-8 text-center text-[var(--muted)]">
+        Loading customer...
+      </div>
+    );
+  }
 
   if (!user) {
     return <div className="p-8 text-center text-red-500">User not found.</div>;

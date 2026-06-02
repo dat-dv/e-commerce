@@ -1,8 +1,12 @@
 import {
   type IApiResponse,
+  type ICartResponse,
   type IGetUsersRequest,
   type IGetUsersResponse,
+  type IOrderResponse,
+  type IPaginatedResult,
   type IUserAvatarResponse,
+  type IUserFavoriteProductResponse,
   type IUserProfileResponse,
 } from "@ecommerce/shared";
 
@@ -12,11 +16,16 @@ import { apiClient } from "@/utils/request/api-client";
 
 import { AdminUserMapper } from "../../auth/infrastructure/auth.mapper";
 import {
+  type IAdminCustomerActivityItem,
+  type IAdminCustomerCart,
+  type IAdminCustomerFavoriteProduct,
+  type IAdminCustomerOrder,
   type IAdminUpdateUserInput,
   type IAdminUser,
   type IAdminUserAvatar,
 } from "../types/user.model";
 import { type IAdminUserRepository } from "../types/user.repository";
+import { AdminCustomerDetailMapper } from "./customer-detail.mapper";
 
 export class AdminUserRepository implements IAdminUserRepository {
   async getUsers(
@@ -58,6 +67,80 @@ export class AdminUserRepository implements IAdminUserRepository {
     return (response.data || []).map((avatar) =>
       AdminUserMapper.avatarToDomain(avatar),
     );
+  }
+
+  async getUserOrders(
+    id: string,
+    params: { page?: number; limit?: number } = {},
+  ): Promise<ApiListResponse<IAdminCustomerOrder>> {
+    const response = await apiClient.get<
+      IApiResponse<ApiListResponse<IOrderResponse>>
+    >(API_ROUTES.ORDERS.ALL, {
+      params: {
+        page: params.page ?? 1,
+        limit: params.limit ?? 10,
+        user_id: id,
+      },
+    });
+
+    return {
+      items: (response.data?.items || []).map((item) =>
+        AdminCustomerDetailMapper.orderToDomain(item),
+      ),
+      meta: response.data?.meta || {
+        total: 0,
+        page: params.page ?? 1,
+        limit: params.limit ?? 10,
+        totalPages: 0,
+      },
+    };
+  }
+
+  async getUserCart(id: string): Promise<IAdminCustomerCart> {
+    const response = await apiClient.get<IApiResponse<ICartResponse | null>>(
+      API_ROUTES.USERS.CART(id),
+    );
+
+    return AdminCustomerDetailMapper.cartToDomain(response.data);
+  }
+
+  async getUserFavorites(
+    id: string,
+    params: { page?: number; limit?: number } = {},
+  ): Promise<ApiListResponse<IAdminCustomerFavoriteProduct>> {
+    const response = await apiClient.get<
+      IApiResponse<IPaginatedResult<IUserFavoriteProductResponse>>
+    >(API_ROUTES.USERS.FAVORITES(id), {
+      params,
+    });
+
+    return {
+      items: (response.data?.items || []).map((item) =>
+        AdminCustomerDetailMapper.favoriteToDomain(item),
+      ),
+      meta: response.data?.meta || {
+        total: 0,
+        page: params.page ?? 1,
+        limit: params.limit ?? 10,
+        totalPages: 0,
+      },
+    };
+  }
+
+  async getUserActivity(id: string): Promise<IAdminCustomerActivityItem[]> {
+    const [user, orders, cart, favorites] = await Promise.all([
+      this.getUser(id),
+      this.getUserOrders(id, { page: 1, limit: 8 }),
+      this.getUserCart(id),
+      this.getUserFavorites(id, { page: 1, limit: 8 }),
+    ]);
+
+    return AdminCustomerDetailMapper.buildActivity({
+      user,
+      orders: orders.items,
+      cart,
+      favorites: favorites.items,
+    });
   }
 
   async updateUser(

@@ -7,8 +7,10 @@ import {
 import { Controller, Get, Param, Post, Query, Req, UseGuards } from '@nestjs/common';
 import type { Request } from 'express';
 import { Language } from 'src/common/decorators/language.decorator';
+import { Permissions } from 'src/common/decorators/permissions.decorator';
 import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { GetUserFavoriteProductsDto } from './dto/get-user-favorite-products.dto';
 import { UserFavoriteProductsService } from './user-favorite-products.service';
 
@@ -24,6 +26,18 @@ export class UserFavoriteProductsController {
   ): Promise<IApiResponse<IToggleUserFavoriteProductResponse>> {
     const userId = req.user?.sub;
     const result = await this.userFavoriteProductsService.toggle(userId, productId);
+    return createSuccessResponse(result);
+  }
+
+  @Get('admin/users/:userId')
+  @UseGuards(PermissionsGuard)
+  @Permissions('LIST:USER')
+  async getCustomerFavoriteProducts(
+    @Param('userId') userId: string,
+    @Query() query: GetUserFavoriteProductsDto,
+    @Language() lang: string,
+  ): Promise<IApiResponse<IPaginatedResult<IUserFavoriteProductResponse>>> {
+    const result = await this.userFavoriteProductsService.getUserFavoriteProducts(userId, query, lang);
     return createSuccessResponse(result);
   }
 

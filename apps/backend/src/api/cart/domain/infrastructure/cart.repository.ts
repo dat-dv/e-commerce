@@ -16,6 +16,7 @@ export class CartRepository implements ICartRepository {
             include: {
               product: {
                 include: {
+                  thumbnail: true,
                   translations: {
                     where: { language: { code: languageCode } },
                   },

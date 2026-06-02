@@ -49,3 +49,51 @@ export interface IAdminUpdateUserInput {
   avatarId?: string;
   roleId?: string;
 }
+
+export interface IAdminCustomerOrder {
+  id: string;
+  status: number;
+  totalAmount: number;
+  discountAmount: number;
+  createdAt: string;
+  updatedAt: string;
+  itemCount: number;
+}
+
+export interface IAdminCustomerCartItem {
+  id: string;
+  skuId: string;
+  skuCode: string;
+  productName: string;
+  productSlug: string;
+  thumbnailUrl: string | null;
+  quantity: number;
+  price: number;
+  unitPrice: string;
+}
+
+export interface IAdminCustomerCart {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  items: IAdminCustomerCartItem[];
+  totalItems: number;
+  subtotal: number;
+}
+
+export interface IAdminCustomerFavoriteProduct {
+  productId: string;
+  productName: string;
+  productSlug: string;
+  thumbnailUrl: string | null;
+  basePrice: number;
+  createdAt: string;
+}
+
+export interface IAdminCustomerActivityItem {
+  id: string;
+  type: "account" | "order" | "cart" | "favorite";
+  title: string;
+  description: string;
+  occurredAt: string;
+}

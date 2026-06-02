@@ -1,11 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { AdminUserRepository, type IAdminCustomerOrder } from "@/domain/user";
+import {
+  AdminUserRepository,
+  type IAdminCustomerFavoriteProduct,
+} from "@/domain/user";
 import type { ApiListResponse } from "@/utils/request";
 
-export const useUserDetailOrders = (userId: string | null) => {
+export const useUserDetailFavorites = (userId: string | null) => {
   const userRepository = useMemo(() => new AdminUserRepository(), []);
-  const [orders, setOrders] = useState<ApiListResponse<IAdminCustomerOrder>>({
+  const [favorites, setFavorites] = useState<
+    ApiListResponse<IAdminCustomerFavoriteProduct>
+  >({
     items: [],
     meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
   });
@@ -13,7 +18,7 @@ export const useUserDetailOrders = (userId: string | null) => {
 
   useEffect(() => {
     if (!userId) {
-      setOrders({
+      setFavorites({
         items: [],
         meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
       });
@@ -26,11 +31,14 @@ export const useUserDetailOrders = (userId: string | null) => {
     const loadData = async () => {
       setLoading(true);
       try {
-        const ordersRes = await userRepository.getUserOrders(userId, {
-          page: 1,
-          limit: 10,
-        });
-        if (!ignore) setOrders(ordersRes);
+        const favoritesResponse = await userRepository.getUserFavorites(
+          userId,
+          {
+            page: 1,
+            limit: 10,
+          },
+        );
+        if (!ignore) setFavorites(favoritesResponse);
       } catch (err) {
         if (!ignore) console.error(err);
       } finally {
@@ -45,5 +53,5 @@ export const useUserDetailOrders = (userId: string | null) => {
     };
   }, [userId, userRepository]);
 
-  return { orders, loading };
+  return { favorites, loading };
 };

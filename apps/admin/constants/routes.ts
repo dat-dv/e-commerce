@@ -27,6 +27,8 @@ export const API_ROUTES = {
     CREATE: "/users",
     DETAIL: (id: string) => `/users/${id}`,
     AVATARS: (id: string) => `/users/${id}/avatars`,
+    CART: (id: string) => `/cart/admin/users/${id}`,
+    FAVORITES: (id: string) => `/user-favorite-products/admin/users/${id}`,
     UPDATE: (id: string) => `/users/${id}`,
     DELETE: (id: string) => `/users/${id}`,
   },

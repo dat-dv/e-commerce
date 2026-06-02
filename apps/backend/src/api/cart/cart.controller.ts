@@ -3,8 +3,10 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Req, UseGuards } from 
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
 import { Language } from 'src/common/decorators/language.decorator';
+import { Permissions } from 'src/common/decorators/permissions.decorator';
 import createSuccessResponse from 'src/common/respomse';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { AddToCartUseCase } from './domain/use-cases/add-to-cart.use-case';
 import { GetCartUseCase } from './domain/use-cases/get-cart.use-case';
 import { RemoveFromCartUseCase } from './domain/use-cases/remove-from-cart.use-case';
@@ -21,6 +23,18 @@ export class CartController {
     private readonly updateCartItemUseCase: UpdateCartItemUseCase,
     private readonly removeFromCartUseCase: RemoveFromCartUseCase,
   ) {}
+
+  @Get('admin/users/:userId')
+  @UseGuards(PermissionsGuard)
+  @Permissions('LIST:USER')
+  @ApiOperation({ summary: 'Get a customer cart by user id for admin' })
+  async getCustomerCart(
+    @Param('userId') userId: string,
+    @Language() lang: string,
+  ): Promise<IApiResponse<ICartResponse | null>> {
+    const result = await this.getCartUseCase.execute(userId, lang);
+    return createSuccessResponse(result);
+  }
 
   @Get()
   @ApiOperation({ summary: 'Get current user cart' })

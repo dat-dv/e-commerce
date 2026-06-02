@@ -1,9 +1,10 @@
 "use client";
 
 import { Tab, TabList, TabPanel, Tabs } from "@ecommerce/ui";
-import { Heart, ShoppingCart, User } from "lucide-react";
 
-import { EmptyTabState } from "@/components/molecules/empty-tab-state";
+import { UserDetailActivityTab } from "@/components/organisms/user-detail-view/user-detail-activity-tab";
+import { UserDetailCartTab } from "@/components/organisms/user-detail-view/user-detail-cart-tab";
+import { UserDetailFavoritesTab } from "@/components/organisms/user-detail-view/user-detail-favorites-tab";
 import { UserDetailInfoTab } from "@/components/organisms/user-detail-view/user-detail-info-tab";
 import { UserDetailOrdersTab } from "@/components/organisms/user-detail-view/user-detail-orders-tab";
 
@@ -27,27 +28,15 @@ export const UserDetailTabs = ({ userId }: { userId: string }) => {
       </TabPanel>
 
       <TabPanel id="cart" className="mt-0">
-        <EmptyTabState
-          icon={ShoppingCart}
-          title="Cart snapshot will appear here"
-          description="This tab is reserved for viewing the customer cart once the backend exposes an admin cart lookup by user id."
-        />
+        <UserDetailCartTab userId={userId} />
       </TabPanel>
 
       <TabPanel id="favorites" className="mt-0">
-        <EmptyTabState
-          icon={Heart}
-          title="Favorites will appear here"
-          description="This tab is reserved for favorite products and categories tied to this customer."
-        />
+        <UserDetailFavoritesTab userId={userId} />
       </TabPanel>
 
       <TabPanel id="activity" className="mt-0">
-        <EmptyTabState
-          icon={User}
-          title="Activity timeline will appear here"
-          description="This tab can collect login events, profile changes, reviews, returns, and support activity."
-        />
+        <UserDetailActivityTab userId={userId} />
       </TabPanel>
     </Tabs>
   );
