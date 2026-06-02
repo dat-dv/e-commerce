@@ -17,6 +17,7 @@ import {
   UseGuards,
   Patch,
   Body,
+  Post,
 } from '@nestjs/common';
 import type { Request } from 'express';
 import { Language } from 'src/common/decorators/language.decorator';
@@ -37,6 +38,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { GetProductReviewsDto } from './dto/get-product-reviews.dto';
 import { GetProductsDto } from './dto/get-products.dto';
 import { GetRecentlyViewedDto } from './dto/get-recently-viewed.dto';
+import { ProductSearchService } from './domain/infrastructure/product-search.service';
 
 @Controller('products')
 export class ProductsController {
@@ -50,6 +52,7 @@ export class ProductsController {
     private readonly getProductReviewsUseCase: GetProductReviewsUseCase,
     private readonly getSimilarProductsUseCase: GetSimilarProductsUseCase,
     private readonly updateProductUseCase: UpdateProductUseCase,
+    private readonly productSearchService: ProductSearchService,
   ) {}
 
   @UseGuards(AuthGuard, PermissionsGuard)
@@ -115,6 +118,14 @@ export class ProductsController {
   ): Promise<IApiResponse<IPaginatedResult<IProductResponse>>> {
     const userId = req.user?.sub;
     const result = await this.getFlashSaleUseCase.execute(lang, userId, page, limit);
+    return createSuccessResponse(result);
+  }
+
+  @UseGuards(AuthGuard, PermissionsGuard)
+  @Permissions('UPDATE:PRODUCT')
+  @Post('search/reindex')
+  async reindexProductSearch(): Promise<IApiResponse<{ indexed: number; index: string }>> {
+    const result = await this.productSearchService.reindexProducts();
     return createSuccessResponse(result);
   }
 

@@ -5,7 +5,7 @@ import {
   IProductResponse,
   Review as IReviewResponse,
 } from '@ecommerce/shared';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { PaginationService } from 'src/shared/services/pagination/pagination.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { Prisma } from '../../../../../generated/prisma/client';
@@ -13,12 +13,16 @@ import { GetProductReviewsDto, PRODUCT_REVIEW_SORT } from '../../dto/get-product
 import { GetProductsDto } from '../../dto/get-products.dto';
 import { UpdateProductDto } from '../../dto/update-product.dto';
 import { IProductsRepository } from '../entities/products.repository.interface';
+import { ProductSearchService } from './product-search.service';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
+  private readonly logger = new Logger(ProductsRepository.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly paginationService: PaginationService,
+    private readonly productSearchService: ProductSearchService,
   ) {}
 
   private getProductInclude(languageCode: string, options?: { allTranslations?: boolean }) {
@@ -500,6 +504,11 @@ export class ProductsRepository implements IProductsRepository {
       user_id,
     } = params;
 
+    const searchResult = await this.findPaginatedWithMeilisearch(params);
+    if (searchResult) {
+      return searchResult;
+    }
+
     const where: Prisma.ProductWhereInput = {
       deleted_at: null,
     };
@@ -584,6 +593,62 @@ export class ProductsRepository implements IProductsRepository {
     result.items = await this.attachFavoriteStatus(result.items, user_id);
 
     return result;
+  }
+
+  private async findPaginatedWithMeilisearch(
+    params: GetProductsDto,
+  ): Promise<IPaginatedResult<IProductResponse> | null> {
+    if (!this.productSearchService.isEnabled()) {
+      return null;
+    }
+
+    const page = params.page ?? 1;
+    const limit = params.limit ?? 10;
+    const languageCode = params.languageCode ?? 'en';
+
+    try {
+      const searchResult = await this.productSearchService.searchProducts(params);
+
+      if (!searchResult) return null;
+
+      if (searchResult.ids.length === 0) {
+        return {
+          items: [],
+          meta: {
+            total: searchResult.total,
+            page,
+            limit,
+            totalPages: Math.ceil(searchResult.total / limit),
+          },
+        };
+      }
+
+      const products = await this.prisma.product.findMany({
+        where: {
+          id: { in: searchResult.ids },
+          deleted_at: null,
+        },
+        include: this.getProductInclude(languageCode),
+      });
+      const productMap = new Map(products.map((product) => [product.id, product]));
+      const orderedProducts = searchResult.ids.flatMap((id) => {
+        const product = productMap.get(id);
+        return product ? [product] : [];
+      });
+
+      return {
+        items: await this.attachFavoriteStatus(orderedProducts, params.user_id),
+        meta: {
+          total: searchResult.total,
+          page,
+          limit,
+          totalPages: Math.ceil(searchResult.total / limit),
+        },
+      };
+    } catch (error) {
+      this.logger.warn(`Meilisearch product listing failed, falling back to Prisma: ${(error as Error).message}`);
+      return null;
+    }
   }
 
   async getProductReviews(

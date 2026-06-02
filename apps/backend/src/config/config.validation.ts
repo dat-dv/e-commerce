@@ -21,6 +21,9 @@ export const envValidationSchema = Joi.object<EnvVars>({
   REDIS_HOST: Joi.string().required(),
   REDIS_PORT: Joi.number().required(),
   REDIS_PASSWORD: Joi.string().required(),
+  MEILISEARCH_HOST: Joi.string().uri(),
+  MEILISEARCH_API_KEY: Joi.string(),
+  MEILISEARCH_MASTER_KEY: Joi.string(),
 });
 
 export interface EnvVars {
@@ -42,4 +45,7 @@ export interface EnvVars {
   REDIS_HOST: string;
   REDIS_PORT: number;
   REDIS_PASSWORD?: string;
+  MEILISEARCH_HOST: string;
+  MEILISEARCH_API_KEY: string;
+  MEILISEARCH_MASTER_KEY: string;
 }
