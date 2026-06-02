@@ -742,7 +742,7 @@ export class ProductsRepository implements IProductsRepository {
   async update(id: string, data: UpdateProductDto, languageCode = 'en'): Promise<IProductResponse> {
     const { translations, skus, category_ids, deleted_sku_ids, ...productData } = data;
 
-    return this.prisma.$transaction(async (tx) => {
+    const updatedProduct = await this.prisma.$transaction(async (tx) => {
       if (productData.brand_id) {
         const brand = await tx.brand.findUnique({
           where: { id: productData.brand_id },
@@ -973,5 +973,13 @@ export class ProductsRepository implements IProductsRepository {
 
       return updatedProduct;
     });
+
+    try {
+      await this.productSearchService.syncProduct(id);
+    } catch (error) {
+      this.logger.warn(`Failed to sync product ${id} to Meilisearch: ${(error as Error).message}`);
+    }
+
+    return updatedProduct;
   }
 }

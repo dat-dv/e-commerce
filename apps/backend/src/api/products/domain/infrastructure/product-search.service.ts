@@ -172,6 +172,29 @@ export class ProductSearchService {
     return { indexed, index: this.indexName };
   }
 
+  async syncProduct(productId: string): Promise<void> {
+    if (!this.isEnabled()) return;
+
+    await this.configureIndex();
+
+    const product = await this.prisma.product.findUnique({
+      where: { id: productId },
+      include: productSearchInclude,
+    });
+
+    if (!product || product.deleted_at) {
+      await this.request(`/indexes/${this.indexName}/documents/${productId}`, {
+        method: 'DELETE',
+      });
+      return;
+    }
+
+    await this.request(`/indexes/${this.indexName}/documents?primaryKey=id`, {
+      method: 'POST',
+      body: JSON.stringify([this.toSearchDocument(product)]),
+    });
+  }
+
   private async ensureIndex(): Promise<void> {
     try {
       await this.request('/indexes', {
