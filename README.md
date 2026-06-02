@@ -304,7 +304,7 @@ Flash sale hay traffic đột biến mà ghi thẳng vào DB đồng thời dễ
 
 ### 4. Full-text Search với Meilisearch
 
-Bỏ `LIKE` query, sync dữ liệu sản phẩm sang Meilisearch. Hỗ trợ fuzzy search, filter thuộc tính, phân trang — response dưới 10ms.
+Bỏ `LIKE` query, sync dữ liệu sản phẩm sang Meilisearch. Product listing lấy `id` từ Meilisearch rồi hydrate response bằng Prisma để giữ nguyên contract, favorite state và translation include. Có endpoint reindex thủ công và cron job chạy 03:00 hằng ngày để refresh metric/search document.
 
 ---
 
@@ -341,6 +341,8 @@ Bỏ `LIKE` query, sync dữ liệu sản phẩm sang Meilisearch. Hỗ trợ fu
 
 - [x] Bộ lọc nâng cao: danh mục, thương hiệu, rating, khoảng giá.
 - [x] Sorting theo giá và ngày mới nhất.
+- [x] Search/filter/sort sản phẩm bằng Meilisearch, có fallback Prisma khi search service chưa sẵn sàng.
+- [x] Manual reindex endpoint và nightly reindex job cho product search document.
 - [x] Product detail — thông số, thuộc tính, chọn SKU variant.
 - [x] Fallback SKU tự động khi hết hàng hoặc SKU không hợp lệ.
 - [x] Ratings & Reviews (1–5 sao + bình luận).
@@ -392,17 +394,23 @@ Bỏ `LIKE` query, sync dữ liệu sản phẩm sang Meilisearch. Hỗ trợ fu
 
 ### 11. Admin Console
 
-- [ ] RBAC — phân quyền theo vai trò ở Backend.
-- [ ] Danh sách đơn hàng toàn hệ thống, phân trang + filter.
-- [ ] Cập nhật trạng thái đơn hàng.
-- [ ] Duyệt/từ chối yêu cầu trả hàng/hoàn tiền.
-- [ ] CRUD danh mục sản phẩm (cây phân cấp) — Backend.
-- [ ] CRUD user, vai trò và quyền — Backend.
+- [x] RBAC — phân quyền theo vai trò ở Backend.
+- [x] Danh sách đơn hàng toàn hệ thống, phân trang + filter.
+- [x] Cập nhật trạng thái đơn hàng.
+- [x] API duyệt/từ chối yêu cầu trả hàng/hoàn tiền.
+- [x] CRUD danh mục sản phẩm (cây phân cấp) — Backend.
+- [x] CRUD user, vai trò và quyền — Backend.
+- [x] Admin orders page — Frontend.
+- [x] Admin product detail edit — Frontend.
+- [x] Common admin table foundation: resize, sort hook, page size, index column, loading/error.
 - [ ] Admin Dashboard Shell & Navigation — Frontend.
 - [ ] Đồng bộ metadata và favicon từ app Frontend sang Admin.
-- [ ] Quản lý sản phẩm, SKU và tồn kho — Frontend.
+- [ ] Product create/list/status/deactivate management — Frontend.
+- [ ] Dedicated inventory/stock adjustment UI — Frontend.
 - [ ] Category Management UI.
 - [ ] Brand Management UI.
+- [ ] Return Management UI.
+- [ ] Customer Management UI.
 - [ ] RBAC Management UI.
 - [ ] Analytics Dashboard — doanh thu, báo cáo.
 - [ ] Promotion/Coupon Management UI.
@@ -420,7 +428,7 @@ Bỏ `LIKE` query, sync dữ liệu sản phẩm sang Meilisearch. Hỗ trợ fu
 
 ```bash
 # Copy và điền .env ở root monorepo
-docker-compose up -d --build
+docker compose --env-file .env.backend up -d --build
 
 
 ```
