@@ -102,7 +102,7 @@ export class ProductSearchService {
     const host = this.configService.get<string>('MEILISEARCH_HOST') ?? '';
 
     this.host = host.replace(/\/$/, '');
-    this.apiKey = this.configService.get<string>('MEILISEARCH_API_KEY');
+    this.apiKey = this.configService.get<string>('MEILISEARCH_MASTER_KEY') || undefined;
     this.indexName = 'products';
   }
 
