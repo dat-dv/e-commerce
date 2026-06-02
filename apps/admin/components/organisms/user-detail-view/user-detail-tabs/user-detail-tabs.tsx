@@ -2,7 +2,6 @@
 
 import { Tab, TabList, TabPanel, Tabs } from "@ecommerce/ui";
 
-import { UserDetailActivityTab } from "@/components/organisms/user-detail-view/user-detail-activity-tab";
 import { UserDetailCartTab } from "@/components/organisms/user-detail-view/user-detail-cart-tab";
 import { UserDetailFavoritesTab } from "@/components/organisms/user-detail-view/user-detail-favorites-tab";
 import { UserDetailInfoTab } from "@/components/organisms/user-detail-view/user-detail-info-tab";
@@ -16,7 +15,6 @@ export const UserDetailTabs = ({ userId }: { userId: string }) => {
         <Tab id="orders">Orders</Tab>
         <Tab id="cart">Cart</Tab>
         <Tab id="favorites">Favorites</Tab>
-        <Tab id="activity">Activity</Tab>
       </TabList>
 
       <TabPanel id="info" className="mt-0">
@@ -33,10 +31,6 @@ export const UserDetailTabs = ({ userId }: { userId: string }) => {
 
       <TabPanel id="favorites" className="mt-0">
         <UserDetailFavoritesTab userId={userId} />
-      </TabPanel>
-
-      <TabPanel id="activity" className="mt-0">
-        <UserDetailActivityTab userId={userId} />
       </TabPanel>
     </Tabs>
   );

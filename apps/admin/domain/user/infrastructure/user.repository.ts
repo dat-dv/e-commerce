@@ -16,7 +16,6 @@ import { apiClient } from "@/utils/request/api-client";
 
 import { AdminUserMapper } from "../../auth/infrastructure/auth.mapper";
 import {
-  type IAdminCustomerActivityItem,
   type IAdminCustomerCart,
   type IAdminCustomerFavoriteProduct,
   type IAdminCustomerOrder,
@@ -125,22 +124,6 @@ export class AdminUserRepository implements IAdminUserRepository {
         totalPages: 0,
       },
     };
-  }
-
-  async getUserActivity(id: string): Promise<IAdminCustomerActivityItem[]> {
-    const [user, orders, cart, favorites] = await Promise.all([
-      this.getUser(id),
-      this.getUserOrders(id, { page: 1, limit: 8 }),
-      this.getUserCart(id),
-      this.getUserFavorites(id, { page: 1, limit: 8 }),
-    ]);
-
-    return AdminCustomerDetailMapper.buildActivity({
-      user,
-      orders: orders.items,
-      cart,
-      favorites: favorites.items,
-    });
   }
 
   async updateUser(

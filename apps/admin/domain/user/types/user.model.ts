@@ -89,11 +89,3 @@ export interface IAdminCustomerFavoriteProduct {
   basePrice: number;
   createdAt: string;
 }
-
-export interface IAdminCustomerActivityItem {
-  id: string;
-  type: "account" | "order" | "cart" | "favorite";
-  title: string;
-  description: string;
-  occurredAt: string;
-}

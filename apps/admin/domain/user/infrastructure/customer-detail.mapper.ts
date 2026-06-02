@@ -5,12 +5,10 @@ import type {
 } from "@ecommerce/shared";
 
 import type {
-  IAdminCustomerActivityItem,
   IAdminCustomerCart,
   IAdminCustomerCartItem,
   IAdminCustomerFavoriteProduct,
   IAdminCustomerOrder,
-  IAdminUser,
 } from "../types/user.model";
 
 const toIsoString = (date?: Date | string | null): string =>
@@ -82,72 +80,5 @@ export const AdminCustomerDetailMapper = {
       basePrice: Number(dto.product?.base_price ?? 0),
       createdAt: toIsoString(dto.created_at),
     };
-  },
-
-  buildActivity(input: {
-    user: IAdminUser | null;
-    orders: IAdminCustomerOrder[];
-    cart: IAdminCustomerCart;
-    favorites: IAdminCustomerFavoriteProduct[];
-  }): IAdminCustomerActivityItem[] {
-    const items: IAdminCustomerActivityItem[] = [];
-
-    if (input.user) {
-      items.push({
-        id: `account-created-${input.user.id}`,
-        type: "account",
-        title: "Account created",
-        description: input.user.email,
-        occurredAt: input.user.createdAt,
-      });
-
-      if (
-        input.user.updatedAt &&
-        input.user.updatedAt !== input.user.createdAt
-      ) {
-        items.push({
-          id: `account-updated-${input.user.id}`,
-          type: "account",
-          title: "Profile updated",
-          description: "Customer profile information changed.",
-          occurredAt: input.user.updatedAt,
-        });
-      }
-    }
-
-    input.orders.forEach((order) => {
-      items.push({
-        id: `order-${order.id}`,
-        type: "order",
-        title: `Order #${order.id.slice(0, 8).toUpperCase()}`,
-        description: `${order.itemCount} items · ${order.totalAmount.toLocaleString()}`,
-        occurredAt: order.createdAt,
-      });
-    });
-
-    input.favorites.forEach((favorite) => {
-      items.push({
-        id: `favorite-${favorite.productId}`,
-        type: "favorite",
-        title: "Favorited product",
-        description: favorite.productName,
-        occurredAt: favorite.createdAt,
-      });
-    });
-
-    if (input.cart.items.length > 0 && input.cart.updatedAt) {
-      items.push({
-        id: `cart-${input.cart.id}`,
-        type: "cart",
-        title: "Cart updated",
-        description: `${input.cart.totalItems} items in cart.`,
-        occurredAt: input.cart.updatedAt,
-      });
-    }
-
-    return items.sort(
-      (a, b) =>
-        new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime(),
-    );
   },
 };

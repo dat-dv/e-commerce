@@ -4,7 +4,6 @@ import { type IGetUsersRequest } from "@ecommerce/shared";
 import { ApiListResponse } from "@/utils/request";
 
 import {
-  type IAdminCustomerActivityItem,
   type IAdminCustomerCart,
   type IAdminCustomerFavoriteProduct,
   type IAdminCustomerOrder,
@@ -26,7 +25,6 @@ export interface IAdminUserRepository {
     id: string,
     params?: { page?: number; limit?: number },
   ): Promise<ApiListResponse<IAdminCustomerFavoriteProduct>>;
-  getUserActivity(id: string): Promise<IAdminCustomerActivityItem[]>;
   updateUser(id: string, data: IAdminUpdateUserInput): Promise<IAdminUser>;
   deleteUser(id: string): Promise<IApiResponse<boolean>>;
 }
