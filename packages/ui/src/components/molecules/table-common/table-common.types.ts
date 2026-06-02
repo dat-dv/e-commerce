@@ -34,6 +34,8 @@ export type TableColumnRenderParams<T extends object> = {
   rowIndex: number;
   column: CommonTableColumn<T>;
   updateValue: (value: unknown) => void;
+  isExpanded: boolean;
+  toggleExpanded: () => void;
 };
 
 export type TableColumnChangeParams<T extends object> = Omit<
@@ -62,14 +64,7 @@ export type CommonTableColumn<T extends object> = {
     value: string | number | boolean;
   }>;
 
-  renderItem?: (params: {
-    item: T;
-    value: unknown;
-    rowKey: TableKey;
-    rowIndex: number;
-    column: CommonTableColumn<T>;
-    updateValue: (value: unknown) => void;
-  }) => ReactNode;
+  renderItem?: (params: TableColumnRenderParams<T>) => ReactNode;
 
   onChange?: (params: {
     item: T;
@@ -123,6 +118,14 @@ export type CommonTableProps<T extends object> = Omit<
   onQueryChange?: (query: TableQuery) => void;
   onRowClick?: (item: T, index: number) => void;
   onEditChange?: (params: CommonTableEditChangeParams<T>) => void;
+  isRowExpandable?: (item: T, index: number) => boolean;
+  renderExpandedRow?: (params: {
+    item: T;
+    rowKey: TableKey;
+    rowIndex: number;
+    isExpanded: boolean;
+    toggleExpanded: () => void;
+  }) => ReactNode;
 };
 
 export type ITableColumn<T extends object> = CommonTableColumn<T>;

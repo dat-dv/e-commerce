@@ -165,7 +165,11 @@ export function Row<T extends object>({
         </Cell>
       )}
 
-      <Collection items={columns}>{children}</Collection>
+      {columns ? (
+        <Collection items={columns}>{children}</Collection>
+      ) : typeof children === "function" ? null : (
+        children
+      )}
     </AriaRow>
   );
 }

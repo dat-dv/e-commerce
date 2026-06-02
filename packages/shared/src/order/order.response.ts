@@ -1,9 +1,11 @@
 import type { Image, Order, OrderItem, OrderReturn, OrderReturnImage, ShippingAddress } from "../generate/browser";
 import type { IPaginatedResult } from "../paginate";
+import type { ISkuResponse } from "../product";
 
 export interface IOrderItemResponse extends OrderItem {
   // item_snapshot contains the JSON data of the product at order time
   // already defined as IOrderItemSnapshot in order.types.ts
+  sku?: ISkuResponse;
 }
 
 export interface IOrderResponse extends Order {

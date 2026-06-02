@@ -8,12 +8,13 @@ import {
   type TableQuery,
   type TableSortDirection,
 } from "@ecommerce/ui";
-import { Eye, User as UserIcon } from "lucide-react";
+import { ChevronDown, Eye, Package, User as UserIcon } from "lucide-react";
 import { useState } from "react";
 
 import {
   formatCurrency,
   formatDate,
+  getOrderItemDisplay,
   getOrderStatus,
 } from "@/components/organisms/orders-view/order.utils";
 
@@ -59,6 +60,27 @@ export const OrdersTable = ({
   };
 
   const columns: CommonTableColumn<IOrderResponse>[] = [
+    {
+      key: "expand",
+      header: "Expand",
+      resizable: true,
+      className: "text-center",
+      renderItem: ({ item: order, isExpanded, toggleExpanded }) => (
+        <Button
+          variant="ghost"
+          onClick={(event) => {
+            event.stopPropagation();
+            toggleExpanded();
+          }}
+          className="hover:bg-primary/10 inline-flex h-8 w-8 items-center justify-center rounded-lg p-0 text-[var(--muted)] transition-colors hover:text-[var(--app-text)]"
+          aria-label={`${isExpanded ? "Collapse" : "Expand"} order ${order.id}`}
+        >
+          <ChevronDown
+            className={`h-4 w-4 transition-transform ${isExpanded ? "rotate-360" : "rotate-270"}`}
+          />
+        </Button>
+      ),
+    },
     {
       key: "id",
       header: "Order ID",
@@ -169,6 +191,81 @@ export const OrdersTable = ({
         sortDirection={sortDirection}
         onQueryChange={handleQueryChange}
         emptyState="No orders found."
+        isRowExpandable={(order) => Boolean(order.items?.length)}
+        renderExpandedRow={({ item: order }) => {
+          const orderItems = order.items ?? [];
+
+          return (
+            <div className="border-content/5 bg-content/[0.012] border-t px-4 py-3">
+              <div className="mb-2 flex items-center justify-between gap-3">
+                <p className="text-xs font-bold tracking-wider text-[var(--muted)] uppercase">
+                  Order items ({orderItems.length})
+                </p>
+                <p className="text-xs font-semibold text-[var(--app-text)]">
+                  {formatCurrency(order.total_amount)}
+                </p>
+              </div>
+
+              <div className="divide-content/5 divide-y overflow-hidden rounded-lg border border-[var(--border-color)]/70 bg-[var(--app-bg)]/30">
+                {orderItems.map((item) => {
+                  const preview = getOrderItemDisplay(item);
+
+                  return (
+                    <div
+                      key={item.id}
+                      className="grid gap-3 p-3 sm:grid-cols-[minmax(0,1fr)_88px_120px]"
+                    >
+                      <div className="flex min-w-0 items-center gap-3">
+                        <div className="bg-content/5 flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+                          {preview.image ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={preview.image}
+                              alt=""
+                              className="h-full w-full object-cover"
+                            />
+                          ) : (
+                            <Package className="text-primary h-4 w-4" />
+                          )}
+                        </div>
+
+                        <div className="min-w-0">
+                          <p className="truncate text-sm font-semibold text-[var(--app-text)]">
+                            {preview.name}
+                          </p>
+                          <p className="text-primary truncate font-mono text-xs">
+                            {preview.skuCode}
+                          </p>
+                          {preview.attributes && (
+                            <p className="truncate text-xs text-[var(--muted)]">
+                              {preview.attributes}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="text-sm sm:text-right">
+                        <p className="text-xs text-[var(--muted)]">Qty</p>
+                        <p className="font-semibold text-[var(--app-text)]">
+                          {item.quantity}
+                        </p>
+                      </div>
+
+                      <div className="text-sm sm:text-right">
+                        <p className="text-xs text-[var(--muted)]">
+                          {formatCurrency(preview.unitPrice)}
+                        </p>
+                        <p className="font-semibold text-[var(--app-text)]">
+                          {formatCurrency(preview.subtotal)}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        }}
       />
     </div>
   );

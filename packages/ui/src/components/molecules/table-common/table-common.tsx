@@ -39,6 +39,21 @@ import type {
 import { TableFooter } from "./table-footer";
 
 type TableStoredWidth = number;
+type TableRenderRow<T extends object> =
+  | {
+      id: string;
+      item: T;
+      kind: "data";
+      rowIndex: number;
+      rowKey: TableKey;
+    }
+  | {
+      id: string;
+      item: T;
+      kind: "expanded";
+      rowIndex: number;
+      rowKey: TableKey;
+    };
 
 const TABLE_INDEX_COLUMN_KEY = "__table_index__";
 const TABLE_CONFIG_STORAGE_PREFIX = "ecommerce:table-common:";
@@ -115,6 +130,8 @@ function CommonTableInner<T extends object>(
     onQueryChange,
     onRowClick,
     onEditChange,
+    isRowExpandable,
+    renderExpandedRow,
     className,
     ...rest
   }: CommonTableProps<T>,
@@ -123,6 +140,9 @@ function CommonTableInner<T extends object>(
   const [draftData, setDraftData] = useState<T[]>(data);
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set());
   const [editedRows, setEditedRows] = useState<Record<string, Partial<T>>>({});
+  const [expandedRowKeys, setExpandedRowKeys] = useState<Set<TableKey>>(
+    () => new Set(),
+  );
   const [storedColumnWidths, setStoredColumnWidths] = useState(() =>
     readStoredColumnWidths(name),
   );
@@ -221,6 +241,23 @@ function CommonTableInner<T extends object>(
     writeStoredColumnWidths(name, nextColumnWidths);
   };
 
+  const canExpandRow = (item: T, index: number) =>
+    Boolean(renderExpandedRow) && (isRowExpandable?.(item, index) ?? true);
+
+  const toggleExpandedRow = (rowKey: TableKey) => {
+    setExpandedRowKeys((prev) => {
+      const next = new Set(prev);
+
+      if (next.has(rowKey)) {
+        next.delete(rowKey);
+      } else {
+        next.add(rowKey);
+      }
+
+      return next;
+    });
+  };
+
   const updateRowValue = (
     item: T,
     currentRowKey: TableKey,
@@ -278,6 +315,8 @@ function CommonTableInner<T extends object>(
     const currentRowKey = getRowKey(item, rowIndex);
     const columnKey = String(column.key);
     const value = (item as Record<string, unknown>)[columnKey];
+    const isExpanded = expandedRowKeys.has(currentRowKey);
+    const toggleExpanded = () => toggleExpandedRow(currentRowKey);
 
     const updateValue = (nextValue: unknown) => {
       updateRowValue(item, currentRowKey, columnKey, nextValue);
@@ -299,6 +338,8 @@ function CommonTableInner<T extends object>(
         rowIndex,
         column,
         updateValue,
+        isExpanded,
+        toggleExpanded,
       });
     }
 
@@ -364,6 +405,33 @@ function CommonTableInner<T extends object>(
   const pageSizeSelectOptions = pageSizeOptions.includes(pageSize)
     ? pageSizeOptions
     : [pageSize, ...pageSizeOptions].sort((a, b) => a - b);
+  const tableRows: TableRenderRow<T>[] = loading
+    ? []
+    : draftData.flatMap((item, rowIndex) => {
+        const rowKey = getRowKey(item, rowIndex);
+        const id = String(rowKey);
+        const rows: TableRenderRow<T>[] = [
+          {
+            id,
+            item,
+            kind: "data",
+            rowIndex,
+            rowKey,
+          },
+        ];
+
+        if (expandedRowKeys.has(rowKey) && canExpandRow(item, rowIndex)) {
+          rows.push({
+            id: `${id}__expanded`,
+            item,
+            kind: "expanded",
+            rowIndex,
+            rowKey,
+          });
+        }
+
+        return rows;
+      });
 
   return (
     <div
@@ -415,7 +483,7 @@ function CommonTableInner<T extends object>(
           </TableHeader>
 
           <TableBody
-            items={loading ? [] : draftData}
+            items={tableRows}
             renderEmptyState={() => (
               <div className="px-6 py-12 text-center opacity-50">
                 {loading ? (
@@ -428,17 +496,45 @@ function CommonTableInner<T extends object>(
               </div>
             )}
           >
-            {(item) => {
-              const rowIndex = draftData.indexOf(item);
-              const id = getRowKey(item, rowIndex);
+            {(tableRow) => {
+              const { item, rowIndex, rowKey } = tableRow;
+              const isExpanded = expandedRowKeys.has(rowKey);
+              const rowCanExpand = canExpandRow(item, rowIndex);
+              const toggleExpanded = () => toggleExpandedRow(rowKey);
+
+              if (tableRow.kind === "expanded" && renderExpandedRow) {
+                return (
+                  <Row id={tableRow.id}>
+                    <Cell
+                      colSpan={tableColumns.length + (selectable ? 1 : 0)}
+                      cellClassName="bg-content/[0.015] px-0 py-0"
+                    >
+                      {renderExpandedRow({
+                        item,
+                        rowKey,
+                        rowIndex,
+                        isExpanded,
+                        toggleExpanded,
+                      })}
+                    </Cell>
+                  </Row>
+                );
+              }
 
               return (
                 <Row
-                  id={id}
+                  id={tableRow.id}
                   columns={tableColumns}
-                  onAction={
-                    onRowClick ? () => onRowClick(item, rowIndex) : undefined
-                  }
+                  onAction={() => {
+                    if (onRowClick) {
+                      onRowClick(item, rowIndex);
+                      return;
+                    }
+
+                    if (rowCanExpand) {
+                      toggleExpanded();
+                    }
+                  }}
                 >
                   {(column) => (
                     <Cell cellClassName={column.className}>

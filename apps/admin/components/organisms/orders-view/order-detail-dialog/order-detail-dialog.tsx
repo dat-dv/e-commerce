@@ -11,6 +11,7 @@ import { Calendar, Package } from "lucide-react";
 import {
   formatCurrency,
   formatDate,
+  getOrderItemDisplay,
   getOrderStatus,
 } from "@/components/organisms/orders-view/order.utils";
 
@@ -101,29 +102,61 @@ export const OrderDetailDialog = ({
               <p className="text-[10px] font-bold tracking-wider text-[var(--muted)] uppercase">
                 Items ({order.items.length})
               </p>
-              <div className="border-content/5 bg-content/[0.02] space-y-2 rounded-xl border p-3">
-                {order.items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center justify-between gap-3"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Package className="text-primary h-4 w-4 shrink-0" />
-                      <span className="text-sm text-[var(--app-text)]">
-                        SKU:{" "}
-                        <code className="text-primary">
-                          {item.sku_id.slice(0, 8)}
-                        </code>
-                        <span className="ml-1 text-[var(--muted)]">
-                          × {item.quantity}
-                        </span>
-                      </span>
+              <div className="border-content/5 bg-content/[0.02] divide-content/5 divide-y overflow-hidden rounded-xl border">
+                {order.items.map((item) => {
+                  const preview = getOrderItemDisplay(item);
+
+                  return (
+                    <div
+                      key={item.id}
+                      className="grid gap-3 p-3 sm:grid-cols-[minmax(0,1fr)_84px_112px]"
+                    >
+                      <div className="flex min-w-0 items-center gap-3">
+                        <div className="bg-content/5 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+                          {preview.image ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={preview.image}
+                              alt=""
+                              className="h-full w-full object-cover"
+                            />
+                          ) : (
+                            <Package className="text-primary h-4 w-4" />
+                          )}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="truncate text-sm font-semibold text-[var(--app-text)]">
+                            {preview.name}
+                          </p>
+                          <p className="text-primary truncate font-mono text-xs">
+                            {preview.skuCode}
+                          </p>
+                          {preview.attributes && (
+                            <p className="truncate text-xs text-[var(--muted)]">
+                              {preview.attributes}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="text-sm sm:text-right">
+                        <p className="text-[var(--muted)]">Qty</p>
+                        <p className="font-semibold text-[var(--app-text)]">
+                          {item.quantity}
+                        </p>
+                      </div>
+
+                      <div className="text-sm sm:text-right">
+                        <p className="text-[var(--muted)]">
+                          {formatCurrency(preview.unitPrice)}
+                        </p>
+                        <p className="font-semibold text-[var(--app-text)]">
+                          {formatCurrency(preview.subtotal)}
+                        </p>
+                      </div>
                     </div>
-                    <span className="shrink-0 text-sm font-semibold text-[var(--app-text)]">
-                      {formatCurrency(item.price)}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
