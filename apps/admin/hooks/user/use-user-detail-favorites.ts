@@ -1,13 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
-  AdminUserRepository,
+  adminUserUseCase,
   type IAdminCustomerFavoriteProduct,
 } from "@/domain/user";
 import type { ApiListResponse } from "@/utils/request";
 
 export const useUserDetailFavorites = (userId: string | null) => {
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
   const [favorites, setFavorites] = useState<
     ApiListResponse<IAdminCustomerFavoriteProduct>
   >({
@@ -31,13 +30,11 @@ export const useUserDetailFavorites = (userId: string | null) => {
     const loadData = async () => {
       setLoading(true);
       try {
-        const favoritesResponse = await userRepository.getUserFavorites(
-          userId,
-          {
+        const favoritesResponse =
+          await adminUserUseCase.getUserFavorites.execute(userId, {
             page: 1,
             limit: 10,
-          },
-        );
+          });
         if (!ignore) setFavorites(favoritesResponse);
       } catch (err) {
         if (!ignore) console.error(err);
@@ -51,7 +48,7 @@ export const useUserDetailFavorites = (userId: string | null) => {
     return () => {
       ignore = true;
     };
-  }, [userId, userRepository]);
+  }, [userId]);
 
   return { favorites, loading };
 };

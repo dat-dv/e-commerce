@@ -1,25 +1,21 @@
 "use client";
 
-import type { IPermissionResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
-import { AdminPermissionRepository } from "@/domain/permission";
+import { adminPermissionUseCase } from "@/domain/permission";
+import type { IAdminPermission } from "@/domain/user/types/user.model";
 
 import { groupPermissionsByCategory } from "../../components/organisms/permissions-view/permissions-view.utils";
 import { useCreateRoleForm } from "./use-create-role-form";
 
 export const useCreateRoleView = () => {
   const router = useRouter();
-  const permissionRepository = useMemo(
-    () => new AdminPermissionRepository(),
-    [],
-  );
 
-  const [permissions, setPermissions] = useState<IPermissionResponse[]>([]);
+  const [permissions, setPermissions] = useState<IAdminPermission[]>([]);
   const [loading, setLoading] = useState(true);
 
   const groupedPermissions = useMemo(
@@ -31,7 +27,7 @@ export const useCreateRoleView = () => {
     setLoading(true);
 
     try {
-      const response = await permissionRepository.getPermissions();
+      const response = await adminPermissionUseCase.getPermissions.execute();
       setPermissions(response.items);
     } catch (err) {
       console.error(err);
@@ -39,12 +35,11 @@ export const useCreateRoleView = () => {
     } finally {
       setLoading(false);
     }
-  }, [permissionRepository]);
+  }, []);
 
   useLoadOnce(loadPermissionData);
 
   const createRoleForm = useCreateRoleForm({
-    permissionRepository,
     onCreated: () => router.push(APP_ROUTES.PERMISSIONS),
   });
 

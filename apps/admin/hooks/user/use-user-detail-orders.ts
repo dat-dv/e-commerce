@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { AdminUserRepository, type IAdminCustomerOrder } from "@/domain/user";
+import { adminUserUseCase, type IAdminCustomerOrder } from "@/domain/user";
 import type { ApiListResponse } from "@/utils/request";
 
 export const useUserDetailOrders = (userId: string | null) => {
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
   const [orders, setOrders] = useState<ApiListResponse<IAdminCustomerOrder>>({
     items: [],
     meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
@@ -26,7 +25,7 @@ export const useUserDetailOrders = (userId: string | null) => {
     const loadData = async () => {
       setLoading(true);
       try {
-        const ordersRes = await userRepository.getUserOrders(userId, {
+        const ordersRes = await adminUserUseCase.getUserOrders.execute(userId, {
           page: 1,
           limit: 10,
         });
@@ -43,7 +42,7 @@ export const useUserDetailOrders = (userId: string | null) => {
     return () => {
       ignore = true;
     };
-  }, [userId, userRepository]);
+  }, [userId]);
 
   return { orders, loading };
 };

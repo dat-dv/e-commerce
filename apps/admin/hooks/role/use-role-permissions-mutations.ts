@@ -3,17 +3,12 @@
 import { toast } from "@ecommerce/ui";
 import { useEffect, useState } from "react";
 
-import type {
-  AdminPermissionRepository,
-  TAdminRole,
-} from "@/domain/permission";
+import { adminPermissionUseCase } from "@/domain/permission";
+import type { IAdminRole } from "@/domain/user/types/user.model";
 
 import { getPermissionIds } from "../../components/organisms/permissions-view/permissions-view.utils";
 
-export const useRolePermissionsMutations = (
-  role: TAdminRole | null,
-  permissionRepository: AdminPermissionRepository,
-) => {
+export const useRolePermissionsMutations = (role: IAdminRole | null) => {
   const [selectedPermissionIds, setSelectedPermissionIds] = useState<string[]>(
     [],
   );
@@ -39,7 +34,7 @@ export const useRolePermissionsMutations = (
     setSavingPermissions(true);
 
     try {
-      await permissionRepository.updateRolePermissions(
+      await adminPermissionUseCase.updateRolePermissions.execute(
         role.id,
         selectedPermissionIds,
       );

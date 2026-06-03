@@ -6,19 +6,13 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
-import {
-  AdminPermissionRepository,
-  type TAdminRole,
-} from "@/domain/permission";
+import { adminPermissionUseCase } from "@/domain/permission";
+import type { IAdminRole } from "@/domain/user/types/user.model";
 
 export const useRolesView = () => {
   const router = useRouter();
-  const permissionRepository = useMemo(
-    () => new AdminPermissionRepository(),
-    [],
-  );
 
-  const [roles, setRoles] = useState<TAdminRole[]>([]);
+  const [roles, setRoles] = useState<IAdminRole[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,7 +23,7 @@ export const useRolesView = () => {
 
     try {
       // The API doesn't have pagination params mapped in getRoles signature fully in current repo (it's getRoles(page?, limit?) but we'll fetch all)
-      const response = await permissionRepository.getRoles(1, 100);
+      const response = await adminPermissionUseCase.getRoles.execute(1, 100);
       setRoles(response.items);
     } catch (err) {
       console.error(err);
@@ -38,11 +32,11 @@ export const useRolesView = () => {
     } finally {
       setLoading(false);
     }
-  }, [permissionRepository]);
+  }, []);
 
   useLoadOnce(loadData);
 
-  const handleEditRole = (role: TAdminRole) => {
+  const handleEditRole = (role: IAdminRole) => {
     router.push(`${APP_ROUTES.PERMISSIONS}?id=${role.id}`);
   };
 
@@ -51,7 +45,7 @@ export const useRolesView = () => {
     const lower = searchQuery.toLowerCase();
     return roles.filter(
       (r) =>
-        r.role_name?.toLowerCase().includes(lower) ||
+        r.roleName?.toLowerCase().includes(lower) ||
         r.description?.toLowerCase().includes(lower),
     );
   }, [roles, searchQuery]);

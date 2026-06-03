@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { AdminUserRepository, type IAdminCustomerCart } from "@/domain/user";
+import { adminUserUseCase, type IAdminCustomerCart } from "@/domain/user";
 
 const EMPTY_CART: IAdminCustomerCart = {
   id: "",
@@ -11,7 +11,6 @@ const EMPTY_CART: IAdminCustomerCart = {
 };
 
 export const useUserDetailCart = (userId: string | null) => {
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
   const [cart, setCart] = useState<IAdminCustomerCart>(EMPTY_CART);
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +26,7 @@ export const useUserDetailCart = (userId: string | null) => {
     const loadData = async () => {
       setLoading(true);
       try {
-        const cartResponse = await userRepository.getUserCart(userId);
+        const cartResponse = await adminUserUseCase.getUserCart.execute(userId);
         if (!ignore) setCart(cartResponse);
       } catch (err) {
         if (!ignore) console.error(err);
@@ -41,7 +40,7 @@ export const useUserDetailCart = (userId: string | null) => {
     return () => {
       ignore = true;
     };
-  }, [userId, userRepository]);
+  }, [userId]);
 
   return { cart, loading };
 };

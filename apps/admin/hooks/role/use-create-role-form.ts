@@ -3,17 +3,13 @@
 import { toast } from "@ecommerce/ui";
 import { useState } from "react";
 
-import type { AdminPermissionRepository } from "@/domain/permission";
+import { adminPermissionUseCase } from "@/domain/permission";
 
 interface IUseCreateRoleFormParams {
-  permissionRepository: AdminPermissionRepository;
   onCreated: () => void;
 }
 
-export const useCreateRoleForm = ({
-  permissionRepository,
-  onCreated,
-}: IUseCreateRoleFormParams) => {
+export const useCreateRoleForm = ({ onCreated }: IUseCreateRoleFormParams) => {
   const [newRoleName, setNewRoleName] = useState("");
   const [newRoleDescription, setNewRoleDescription] = useState("");
   const [newRolePermissionIds, setNewRolePermissionIds] = useState<string[]>(
@@ -36,7 +32,7 @@ export const useCreateRoleForm = ({
     setCreatingRole(true);
 
     try {
-      await permissionRepository.createRole({
+      await adminPermissionUseCase.createRole.execute({
         role_name: roleName,
         description: newRoleDescription.trim() || undefined,
         permissions: newRolePermissionIds,

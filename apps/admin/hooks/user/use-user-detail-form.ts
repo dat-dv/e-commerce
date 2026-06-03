@@ -4,8 +4,11 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import type { TAdminRole } from "@/domain/permission";
-import type { IAdminUser, IAdminUserAvatar } from "@/domain/user";
+import type {
+  IAdminRole,
+  IAdminUser,
+  IAdminUserAvatar,
+} from "@/domain/user/types/user.model";
 
 export const userDetailFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -21,7 +24,7 @@ export type IUserDetailFormState = z.infer<typeof userDetailFormSchema>;
 export const useUserDetailForm = (
   user: IAdminUser | null,
   avatars: IAdminUserAvatar[],
-  roles: TAdminRole[],
+  roles: IAdminRole[],
 ) => {
   const methods = useForm<IUserDetailFormState>({
     resolver: zodResolver(userDetailFormSchema),

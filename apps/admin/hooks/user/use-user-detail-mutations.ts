@@ -1,10 +1,10 @@
 import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import {
-  AdminUserRepository,
+  adminUserUseCase,
   type IAdminUser,
   type IAdminUserAvatar,
 } from "@/domain/user";
@@ -16,7 +16,6 @@ export const useUserDetailMutations = (
   onSaveSuccess: (user: IAdminUser, avatars: IAdminUserAvatar[]) => void,
 ) => {
   const router = useRouter();
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
 
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -36,8 +35,12 @@ export const useUserDetailMutations = (
         avatarId: form.avatarId || undefined,
       };
 
-      const updatedUser = await userRepository.updateUser(userId, payload);
-      const avatarsResponse = await userRepository.getUserAvatars(userId);
+      const updatedUser = await adminUserUseCase.updateUser.execute(
+        userId,
+        payload,
+      );
+      const avatarsResponse =
+        await adminUserUseCase.getUserAvatars.execute(userId);
 
       onSaveSuccess(updatedUser, avatarsResponse);
       toast.success("User profile updated successfully.");
@@ -56,7 +59,7 @@ export const useUserDetailMutations = (
     setDeleting(true);
 
     try {
-      await userRepository.deleteUser(userId);
+      await adminUserUseCase.deleteUser.execute(userId);
       toast.success("Customer deleted successfully.");
       router.push(APP_ROUTES.CUSTOMERS);
     } catch (err) {

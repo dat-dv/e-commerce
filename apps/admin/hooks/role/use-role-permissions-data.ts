@@ -1,15 +1,15 @@
 "use client";
 
-import type { IPermissionResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { toast } from "@ecommerce/ui";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
-import {
-  AdminPermissionRepository,
-  type TAdminRole,
-} from "@/domain/permission";
+import { adminPermissionUseCase } from "@/domain/permission";
+import type {
+  IAdminPermission,
+  IAdminRole,
+} from "@/domain/user/types/user.model";
 
 import { groupPermissionsByCategory } from "../../components/organisms/permissions-view/permissions-view.utils";
 
@@ -17,13 +17,8 @@ export const useRolePermissionsData = () => {
   const searchParams = useSearchParams();
   const roleId = searchParams.get("id");
 
-  const permissionRepository = useMemo(
-    () => new AdminPermissionRepository(),
-    [],
-  );
-
-  const [role, setRole] = useState<TAdminRole | null>(null);
-  const [permissions, setPermissions] = useState<IPermissionResponse[]>([]);
+  const [role, setRole] = useState<IAdminRole | null>(null);
+  const [permissions, setPermissions] = useState<IAdminPermission[]>([]);
   const [loading, setLoading] = useState(true);
 
   const groupedPermissions = useMemo(
@@ -36,8 +31,8 @@ export const useRolePermissionsData = () => {
 
     try {
       const [rolesResponse, permissionsResponse] = await Promise.all([
-        permissionRepository.getRoles(),
-        permissionRepository.getPermissions(),
+        adminPermissionUseCase.getRoles.execute(),
+        adminPermissionUseCase.getPermissions.execute(),
       ]);
 
       const nextRoles = rolesResponse.items;
@@ -53,7 +48,7 @@ export const useRolePermissionsData = () => {
     } finally {
       setLoading(false);
     }
-  }, [permissionRepository, roleId]);
+  }, [roleId]);
 
   useLoadOnce(loadData);
 
@@ -62,6 +57,5 @@ export const useRolePermissionsData = () => {
     permissions,
     groupedPermissions,
     loading,
-    permissionRepository,
   };
 };

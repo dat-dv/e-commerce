@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
-import { AdminUserRepository } from "@/domain/user";
+import { adminUserUseCase } from "@/domain/user";
 import type { IAdminUser } from "@/domain/user/types/user.model";
 import usePagination from "@/hooks/use-pagination";
 
@@ -14,7 +14,6 @@ export type ICustomersViewPaginationParams = ICustomerFilterPaginationParams;
 
 export const useCustomersView = () => {
   const router = useRouter();
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
 
   const [error, setError] = useState<string | null>(null);
 
@@ -25,7 +24,7 @@ export const useCustomersView = () => {
       fetchPage: async (params) => {
         setError(null);
         try {
-          const response = await userRepository.getUsers({
+          const response = await adminUserUseCase.getUsers.execute({
             page: params.page ?? 1,
             limit: params.limit ?? 10,
             search: params.search,

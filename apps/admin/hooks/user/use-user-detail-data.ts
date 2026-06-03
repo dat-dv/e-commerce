@@ -1,26 +1,18 @@
 import { toast, useLoadOnce } from "@ecommerce/ui";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
+import { adminPermissionUseCase } from "@/domain/permission";
 import {
-  AdminPermissionRepository,
-  type TAdminRole,
-} from "@/domain/permission";
-import {
-  AdminUserRepository,
+  adminUserUseCase,
+  type IAdminRole,
   type IAdminUser,
   type IAdminUserAvatar,
 } from "@/domain/user";
 
 export const useUserDetailData = (userId: string | null) => {
-  const userRepository = useMemo(() => new AdminUserRepository(), []);
-  const permissionRepository = useMemo(
-    () => new AdminPermissionRepository(),
-    [],
-  );
-
   const [user, setUser] = useState<IAdminUser | null>(null);
   const [avatars, setAvatars] = useState<IAdminUserAvatar[]>([]);
-  const [roles, setRoles] = useState<TAdminRole[]>([]);
+  const [roles, setRoles] = useState<IAdminRole[]>([]);
   const [loading, setLoading] = useState(true);
 
   const loadData = useCallback(async () => {
@@ -34,9 +26,9 @@ export const useUserDetailData = (userId: string | null) => {
 
     try {
       const [userResponse, rolesResponse, avatarsResponse] = await Promise.all([
-        userRepository.getUser(userId),
-        permissionRepository.getRoles(),
-        userRepository.getUserAvatars(userId),
+        adminUserUseCase.getUser.execute(userId),
+        adminPermissionUseCase.getRoles.execute(),
+        adminUserUseCase.getUserAvatars.execute(userId),
       ]);
 
       setUser(userResponse);
@@ -48,7 +40,7 @@ export const useUserDetailData = (userId: string | null) => {
     } finally {
       setLoading(false);
     }
-  }, [userId, userRepository, permissionRepository]);
+  }, [userId]);
 
   useLoadOnce(loadData, !!userId);
 
