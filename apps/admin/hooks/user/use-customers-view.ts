@@ -38,7 +38,7 @@ export const useCustomersView = () => {
               meta: response.meta,
             },
           };
-        } catch (err: unknown) {
+        } catch (err) {
           console.error(err);
           setError("Failed to fetch customer data. Please try again.");
           throw err;

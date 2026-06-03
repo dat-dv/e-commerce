@@ -29,7 +29,7 @@ export const useProductsView = () => {
               meta: response.meta,
             },
           };
-        } catch (err: unknown) {
+        } catch (err) {
           console.error(err);
           setError("Failed to fetch product data. Please try again.");
           throw err;

@@ -36,7 +36,7 @@ export const useOrdersView = () => {
             timestamp: new Date().toISOString(),
             status: "success",
           };
-        } catch (err: unknown) {
+        } catch (err) {
           console.error(err);
           setError(
             "Failed to fetch order data. Please check your permissions.",

@@ -1,19 +1,23 @@
-import { EProductStatus } from "@ecommerce/shared";
+enum EAdminProductStatus {
+  DRAFT = 0,
+  ACTIVE = 1,
+  OUT_OF_STOCK = 2,
+}
 
 /** @description Mapping of product status codes to display label and Tailwind color classes. */
 export const PRODUCT_STATUS_MAP: Record<
   number,
   { label: string; color: string }
 > = {
-  [EProductStatus.DRAFT]: {
+  [EAdminProductStatus.DRAFT]: {
     label: "Draft",
     color: "bg-zinc-500/10 text-zinc-400",
   },
-  [EProductStatus.ACTIVE]: {
+  [EAdminProductStatus.ACTIVE]: {
     label: "Active",
     color: "bg-emerald-500/10 text-emerald-400",
   },
-  [EProductStatus.OUT_OF_STOCK]: {
+  [EAdminProductStatus.OUT_OF_STOCK]: {
     label: "Out of Stock",
     color: "bg-red-500/10 text-red-400",
   },

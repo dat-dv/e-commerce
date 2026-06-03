@@ -249,7 +249,7 @@ export const ProductSkuTable = ({
             </thead>
             <tbody className="divide-content/5 divide-y">
               {rows.map((sku, index) => {
-                const editSku = sku as unknown as EditSkuType;
+                const editSku = sku as EditSkuType;
                 const attributes = getSkuAttributes(sku.id);
                 const skuCodeError = isEditing
                   ? getSkuCodeError(editSku)

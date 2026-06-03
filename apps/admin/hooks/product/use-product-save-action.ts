@@ -1,6 +1,5 @@
 "use client";
 
-import type { IUpdateProductRequest } from "@ecommerce/shared";
 import { toast } from "@ecommerce/ui";
 import { useCallback, useTransition } from "react";
 
@@ -8,6 +7,7 @@ import {
   adminProductUseCase,
   type IAdminCategory,
   type IAdminProduct,
+  type IAdminUpdateProductRequest,
 } from "@/domain/product";
 
 import type { IProductEditFormState } from "./use-product-edit-state";
@@ -26,7 +26,7 @@ const collectCategoryIds = (categories: IAdminCategory[]): Set<string> => {
 
 const buildProductUpdatePayload = (
   formState: IProductEditFormState,
-): IUpdateProductRequest => ({
+): IAdminUpdateProductRequest => ({
   base_price: Number(formState.basePrice),
   status: Number(formState.status),
   thumbnail_id: formState.thumbnailId || null,

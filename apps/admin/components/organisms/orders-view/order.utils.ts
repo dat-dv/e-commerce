@@ -1,50 +1,62 @@
-import { EOrderStatus } from "@ecommerce/shared";
+enum EAdminOrderStatus {
+  PENDING = 300,
+  PAID = 301,
+  SHIPPING = 302,
+  DELIVERED = 303,
+  CANCEL_REQUESTED = 304,
+  CANCEL_PROCESSING = 305,
+  CANCELLED = 306,
+  RETURN_REQUESTED = 307,
+  RETURN_PROCESSING = 308,
+  RETURNED = 309,
+  RETURN_REJECTED = 310,
+}
 
 export const ORDER_STATUS_MAP: Record<
   number,
   { label: string; color: string }
 > = {
-  [EOrderStatus.PENDING]: {
+  [EAdminOrderStatus.PENDING]: {
     label: "Pending",
     color: "bg-yellow-500/10 text-yellow-400",
   },
-  [EOrderStatus.PAID]: {
+  [EAdminOrderStatus.PAID]: {
     label: "Paid",
     color: "bg-blue-500/10 text-blue-400",
   },
-  [EOrderStatus.SHIPPING]: {
+  [EAdminOrderStatus.SHIPPING]: {
     label: "Shipping",
     color: "bg-primary/10 text-primary",
   },
-  [EOrderStatus.DELIVERED]: {
+  [EAdminOrderStatus.DELIVERED]: {
     label: "Delivered",
     color: "bg-emerald-500/10 text-emerald-400",
   },
-  [EOrderStatus.CANCEL_REQUESTED]: {
+  [EAdminOrderStatus.CANCEL_REQUESTED]: {
     label: "Cancel Requested",
     color: "bg-orange-500/10 text-orange-400",
   },
-  [EOrderStatus.CANCEL_PROCESSING]: {
+  [EAdminOrderStatus.CANCEL_PROCESSING]: {
     label: "Cancel Processing",
     color: "bg-orange-500/10 text-orange-400",
   },
-  [EOrderStatus.CANCELLED]: {
+  [EAdminOrderStatus.CANCELLED]: {
     label: "Cancelled",
     color: "bg-red-500/10 text-red-400",
   },
-  [EOrderStatus.RETURN_REQUESTED]: {
+  [EAdminOrderStatus.RETURN_REQUESTED]: {
     label: "Return Requested",
     color: "bg-primary/10 text-primary",
   },
-  [EOrderStatus.RETURN_PROCESSING]: {
+  [EAdminOrderStatus.RETURN_PROCESSING]: {
     label: "Return Processing",
     color: "bg-primary/10 text-primary",
   },
-  [EOrderStatus.RETURNED]: {
+  [EAdminOrderStatus.RETURNED]: {
     label: "Returned",
     color: "bg-zinc-500/10 text-zinc-400",
   },
-  [EOrderStatus.RETURN_REJECTED]: {
+  [EAdminOrderStatus.RETURN_REJECTED]: {
     label: "Return Rejected",
     color: "bg-red-500/10 text-red-400",
   },
