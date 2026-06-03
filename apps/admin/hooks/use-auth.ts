@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { toast } from "sonner";
 
 import { type TSignInSchema } from "@/components/organisms/sign-in-view/sign-in-view.schema";
@@ -9,11 +9,14 @@ import { useAdminUserStore } from "@/store/user";
 
 export const useAdminAuth = () => {
   const [isPending, startTransition] = useTransition();
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const setUser = useAdminUserStore((state) => state.setUser);
   const clearUser = useAdminUserStore((state) => state.logout);
 
   const login = async (data: TSignInSchema) => {
+    setError(null);
+
     try {
       const user = await adminAuthUseCase.login.execute(data);
       setUser(user);
@@ -22,6 +25,7 @@ export const useAdminAuth = () => {
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : "Login failed";
+      setError(message);
       toast.error(message);
     }
   };
@@ -38,6 +42,7 @@ export const useAdminAuth = () => {
   return {
     login,
     logout,
+    error,
     isLoading: isPending,
   };
 };
