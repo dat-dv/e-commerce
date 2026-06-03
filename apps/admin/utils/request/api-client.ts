@@ -2,13 +2,14 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 
 import { ENV } from "@/config/env";
 
+import { CustomAxiosInstance } from "./api-client.types";
 import { requestInterceptor } from "./interceptors/request";
 import {
   errorResponseInterceptor,
   successResponseInterceptor,
 } from "./interceptors/response";
 
-const apiClient = axios.create({
+const instance = axios.create({
   baseURL: ENV.NEXT_PUBLIC_API_URL,
   withCredentials: true,
   headers: {
@@ -16,15 +17,15 @@ const apiClient = axios.create({
   },
 });
 
-apiClient.interceptors.request.use(requestInterceptor, (error) =>
+instance.interceptors.request.use(requestInterceptor, (error) =>
   Promise.reject(error),
 );
 
-apiClient.interceptors.response.use(
+instance.interceptors.response.use(
   successResponseInterceptor as (response: AxiosResponse) => AxiosResponse,
-  errorResponseInterceptor(apiClient) as (
+  errorResponseInterceptor(instance) as (
     error: AxiosError,
   ) => Promise<AxiosResponse>,
 );
 
-export { apiClient };
+export const apiClient = instance as unknown as CustomAxiosInstance;
