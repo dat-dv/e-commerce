@@ -9,26 +9,11 @@ import {
   useImperativeHandle,
   useState,
 } from "react";
-import {
-  Checkbox,
-  Input,
-  Select,
-  type Selection,
-  SelectValue,
-  type SortDescriptor,
-  TextField,
-} from "react-aria-components";
+import { type Selection, type SortDescriptor } from "react-aria-components";
 
 import { cn } from "../../../utils";
-import {
-  Button,
-  Cell,
-  Column,
-  Row,
-  Table,
-  TableBody,
-  TableHeader,
-} from "./aria-table";
+import { Cell, Column, Row, Table, TableBody, TableHeader } from "./aria-table";
+import { TableCellRenderer } from "./table-cell-renderer";
 import type {
   CommonTableColumn,
   CommonTableProps,
@@ -308,93 +293,6 @@ function CommonTableInner<T extends object>(
     },
   }));
 
-  const renderCell = (
-    item: T,
-    rowIndex: number,
-    column: CommonTableColumn<T>,
-  ): ReactNode => {
-    const currentRowKey = getRowKey(item, rowIndex);
-    const columnKey = String(column.key);
-    const value = (item as Record<string, unknown>)[columnKey];
-    const isExpanded = expandedRowKeys.has(currentRowKey);
-    const toggleExpanded = () => toggleExpandedRow(currentRowKey);
-
-    const updateValue = (nextValue: unknown) => {
-      updateRowValue(item, currentRowKey, columnKey, nextValue);
-
-      column.onChange?.({
-        item,
-        value: nextValue,
-        rowKey: currentRowKey,
-        rowIndex,
-        column,
-      });
-    };
-
-    if (column.renderItem) {
-      return column.renderItem({
-        item,
-        value,
-        rowKey: currentRowKey,
-        rowIndex,
-        column,
-        updateValue,
-        isExpanded,
-        toggleExpanded,
-      });
-    }
-
-    if (column.type === "checkbox") {
-      return (
-        <Checkbox
-          isSelected={Boolean(value)}
-          onChange={(checked) => updateValue(checked)}
-          className="flex cursor-pointer items-center"
-        >
-          <div className="border-content/20 selected:bg-primary selected:border-primary h-4 w-4 rounded border" />
-        </Checkbox>
-      );
-    }
-
-    if (column.type === "input" || column.type === "number") {
-      const inputValue =
-        typeof value === "string" || typeof value === "number" ? value : "";
-
-      return (
-        <TextField
-          value={String(inputValue)}
-          onChange={(nextValue) =>
-            updateValue(
-              column.type === "number" ? Number(nextValue) : nextValue,
-            )
-          }
-          className="w-full"
-        >
-          <Input
-            type={column.type === "number" ? "number" : "text"}
-            className="border-content/10 bg-surface/40 focus:border-primary/50 h-9 w-full rounded-lg border px-3 outline-none"
-          />
-        </TextField>
-      );
-    }
-
-    if (column.type === "select") {
-      return (
-        <Select
-          selectedKey={value == null ? null : String(value)}
-          onSelectionChange={(key) => updateValue(String(key))}
-          className="relative w-full"
-        >
-          <Button className="border-content/10 bg-surface/40 focus:border-primary/50 flex h-9 w-full items-center justify-between rounded-lg border px-3 outline-none">
-            <SelectValue />
-          </Button>
-        </Select>
-      );
-    }
-
-    return value == null ? "-" : String(value);
-  };
-
   const sortDescriptor: SortDescriptor | undefined = sortColumn
     ? {
         column: sortColumn,
@@ -539,7 +437,22 @@ function CommonTableInner<T extends object>(
                 >
                   {(column) => (
                     <Cell cellClassName={column.className}>
-                      {renderCell(item, rowIndex, column)}
+                      <TableCellRenderer
+                        item={item}
+                        rowIndex={rowIndex}
+                        rowKey={rowKey}
+                        column={column}
+                        isExpanded={isExpanded}
+                        toggleExpanded={toggleExpanded}
+                        onUpdateValue={(value) =>
+                          updateRowValue(
+                            item,
+                            rowKey,
+                            String(column.key),
+                            value,
+                          )
+                        }
+                      />
                     </Cell>
                   )}
                 </Row>
