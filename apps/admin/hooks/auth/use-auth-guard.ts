@@ -59,14 +59,11 @@ export const useAuthGuard = () => {
 
     const checkSession = async () => {
       try {
-        const response = await adminAuthUseCase.fetchMe.execute();
+        const currentUser = await adminAuthUseCase.fetchMe.execute();
         if (ignore) return;
 
-        if (response.status !== "success" || !response.data) {
-          throw new Error("Session verification failed");
-        }
-        setUser(response.data);
-        setIsForbidden(!canAccessAdminPath(response.data, pathname));
+        setUser(currentUser);
+        setIsForbidden(!canAccessAdminPath(currentUser, pathname));
         setIsSessionVerified(true);
       } catch {
         if (ignore) return;

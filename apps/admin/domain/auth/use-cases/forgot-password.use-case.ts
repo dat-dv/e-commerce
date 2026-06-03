@@ -1,5 +1,3 @@
-import { type IApiResponse } from "@ecommerce/shared";
-
 import { forgotPasswordSchema } from "@/components/organisms/forgot-password-view/forgot-password-view.schema";
 import { UseCase } from "@/utils/use-case";
 
@@ -8,15 +6,13 @@ import { type IAdminAuthRepository } from "../types/auth.repository";
 
 export class AdminForgotPasswordUseCase extends UseCase<
   TAdminForgotPasswordRequest,
-  Promise<IApiResponse<void>>
+  Promise<void>
 > {
   constructor(private repository: IAdminAuthRepository) {
     super();
   }
 
-  async execute(
-    request: TAdminForgotPasswordRequest,
-  ): Promise<IApiResponse<void>> {
+  async execute(request: TAdminForgotPasswordRequest): Promise<void> {
     const validated = forgotPasswordSchema.parse(request);
     return this.repository.forgotPassword(validated);
   }

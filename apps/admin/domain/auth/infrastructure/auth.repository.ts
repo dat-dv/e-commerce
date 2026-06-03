@@ -12,37 +12,29 @@ import { type IAdminAuthRepository } from "../types/auth.repository";
 import { AdminUserMapper } from "./auth.mapper";
 
 export class AdminAuthRepository implements IAdminAuthRepository {
-  async login(request: TAdminSignInRequest): Promise<IApiResponse<IAdminUser>> {
+  async login(request: TAdminSignInRequest): Promise<IAdminUser> {
     const response = await apiClient.post<IApiResponse<IUserResponse>>(
       API_ROUTES.AUTH.LOGIN,
       request,
     );
-    return {
-      ...response,
-      data: AdminUserMapper.toDomain(response.data),
-    };
+    return AdminUserMapper.toDomain(response.data);
   }
 
-  async forgotPassword(
-    request: TAdminForgotPasswordRequest,
-  ): Promise<IApiResponse<void>> {
-    return apiClient.post<IApiResponse<void>>(
+  async forgotPassword(request: TAdminForgotPasswordRequest): Promise<void> {
+    await apiClient.post<IApiResponse<void>>(
       API_ROUTES.AUTH.FORGOT_PASSWORD,
       request,
     );
   }
 
-  async fetchMe(): Promise<IApiResponse<IAdminUser>> {
+  async fetchMe(): Promise<IAdminUser> {
     const response = await apiClient.get<IApiResponse<IUserResponse>>(
       API_ROUTES.AUTH.ME,
     );
-    return {
-      ...response,
-      data: AdminUserMapper.toDomain(response.data),
-    };
+    return AdminUserMapper.toDomain(response.data);
   }
 
-  async logout(): Promise<IApiResponse<void>> {
-    return apiClient.post<IApiResponse<void>>(API_ROUTES.AUTH.LOGOUT, {});
+  async logout(): Promise<void> {
+    await apiClient.post<IApiResponse<void>>(API_ROUTES.AUTH.LOGOUT, {});
   }
 }

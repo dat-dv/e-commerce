@@ -15,16 +15,11 @@ export const useAdminAuth = () => {
   const login = async (data: TSignInSchema) => {
     setError(null);
     try {
-      const response = await adminAuthUseCase.login.execute(data);
-
-      if (response.status === "success" && response.data) {
-        setUser(response.data);
-        startTransition(() => {
-          router.push(APP_ROUTES.DASHBOARD);
-        });
-      } else {
-        setError(response.message || "Invalid response status from server");
-      }
+      const user = await adminAuthUseCase.login.execute(data);
+      setUser(user);
+      startTransition(() => {
+        router.push(APP_ROUTES.DASHBOARD);
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Authentication failed");
     }

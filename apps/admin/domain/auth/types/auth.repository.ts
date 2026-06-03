@@ -1,5 +1,3 @@
-import { type IApiResponse } from "@ecommerce/shared";
-
 import { type IAdminUser } from "@/domain/user";
 
 import {
@@ -8,10 +6,8 @@ import {
 } from "./auth.model";
 
 export interface IAdminAuthRepository {
-  login(request: TAdminSignInRequest): Promise<IApiResponse<IAdminUser>>;
-  forgotPassword(
-    request: TAdminForgotPasswordRequest,
-  ): Promise<IApiResponse<void>>;
-  fetchMe(): Promise<IApiResponse<IAdminUser>>;
-  logout(): Promise<IApiResponse<void>>;
+  login(request: TAdminSignInRequest): Promise<IAdminUser>;
+  forgotPassword(request: TAdminForgotPasswordRequest): Promise<void>;
+  fetchMe(): Promise<IAdminUser>;
+  logout(): Promise<void>;
 }
