@@ -6,16 +6,18 @@ import type {
   IRoleResponse,
 } from "@ecommerce/shared";
 
+import type {
+  IAdminPermission,
+  IAdminRole,
+} from "@/domain/user/types/user.model";
 import type { ApiListResponse } from "@/utils/request";
 
-import type { TAdminPermission, TAdminRole } from "./permission.model";
-
 export interface IAdminPermissionRepository {
-  getRoles(page?: number, limit?: number): Promise<ApiListResponse<TAdminRole>>;
+  getRoles(page?: number, limit?: number): Promise<ApiListResponse<IAdminRole>>;
   getPermissions(
     page?: number,
     limit?: number,
-  ): Promise<ApiListResponse<TAdminPermission>>;
+  ): Promise<ApiListResponse<IAdminPermission>>;
   createRole(data: ICreateRoleRequest): Promise<IApiResponse<IRoleResponse>>;
   updateRolePermissions(
     roleId: string,

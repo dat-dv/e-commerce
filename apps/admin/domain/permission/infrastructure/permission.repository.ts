@@ -12,6 +12,7 @@ import type {
   TPermissionsApiResponse,
   TRolesApiResponse,
 } from "../types/permission.repository";
+import { AdminPermissionMapper } from "./permission.mapper";
 
 export class AdminPermissionRepository implements IAdminPermissionRepository {
   async getRoles(page = 1, limit = 100) {
@@ -23,7 +24,9 @@ export class AdminPermissionRepository implements IAdminPermissionRepository {
     );
 
     return {
-      items: response.data?.items ?? [],
+      items: (response.data?.items ?? []).map(
+        AdminPermissionMapper.roleToDomain,
+      ),
       meta: response.data?.meta ?? {
         total: 0,
         page,
@@ -42,7 +45,9 @@ export class AdminPermissionRepository implements IAdminPermissionRepository {
     );
 
     return {
-      items: response.data?.items ?? [],
+      items: (response.data?.items ?? []).map(
+        AdminPermissionMapper.permissionToDomain,
+      ),
       meta: response.data?.meta ?? {
         total: 0,
         page,
