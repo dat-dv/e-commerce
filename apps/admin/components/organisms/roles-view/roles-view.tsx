@@ -1,15 +1,8 @@
 "use client";
 
-import {
-  Button,
-  type CommonTableColumn,
-  TableCommon,
-  type TableQuery,
-  type TableSortDirection,
-} from "@ecommerce/ui";
+import { Button, type CommonTableColumn, TableCommon } from "@ecommerce/ui";
 import { Plus, ShieldCog } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 import { FilterBar } from "@/components/molecules/filter-bar";
 import { PageHeader } from "@/components/molecules/page-header";
@@ -20,21 +13,11 @@ import { useRolesView } from "@/hooks/role/use-roles-view";
 export const RolesView = () => {
   const { roles, loading, error, searchQuery, setSearchQuery, handleEditRole } =
     useRolesView();
-  const [sortColumn, setSortColumn] = React.useState<string>();
-  const [sortDirection, setSortDirection] =
-    React.useState<TableSortDirection>();
-
-  const handleQueryChange = (nextQuery: TableQuery) => {
-    console.log("Roles table query change", nextQuery);
-    setSortColumn(nextQuery.sortColumn);
-    setSortDirection(nextQuery.sortDirection);
-  };
 
   const columns: CommonTableColumn<IAdminRole>[] = [
     {
       key: "roleName",
       header: "Role Name",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: role }) => (
         <span className="font-semibold text-[var(--app-text)]">
@@ -45,7 +28,6 @@ export const RolesView = () => {
     {
       key: "description",
       header: "Description",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: role }) => (
         <span className="text-[var(--app-text)]/80">
@@ -107,9 +89,6 @@ export const RolesView = () => {
           pageSize={roles.length || 10}
           showIndex
           showPageSizeSelect={false}
-          sortColumn={sortColumn}
-          sortDirection={sortDirection}
-          onQueryChange={handleQueryChange}
           emptyState="No roles found."
         />
       </div>
