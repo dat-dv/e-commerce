@@ -4,6 +4,7 @@ import type { PaginationQueryParams } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
+import { CUSTOMER_DEFAULT_SORT } from "@/constants/customer.constants";
 import { APP_ROUTES } from "@/constants/routes";
 import { AdminUserRepository } from "@/domain/user";
 import type { IAdminUser } from "@/domain/user/types/user.model";
@@ -23,7 +24,7 @@ export const useCustomersView = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [roleFilter, setRoleFilter] = useState<string>("");
   const [genderFilter, setGenderFilter] = useState<string>("");
-  const [sortFilter, setSortFilter] = useState<string>("created_at:desc");
+  const [sortFilter, setSortFilter] = useState<string>(CUSTOMER_DEFAULT_SORT);
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IAdminUser, ICustomersViewPaginationParams>({

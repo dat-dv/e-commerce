@@ -13,7 +13,6 @@ import { useState } from "react";
 
 import {
   formatCurrency,
-  getProductName,
   getProductStatus,
 } from "@/components/organisms/products-view/product.utils";
 
@@ -65,7 +64,7 @@ export const ProductsTable = ({
       sortable: true,
       resizable: true,
       renderItem: ({ item: product }) => {
-        const name = getProductName(product.translations, product.slug);
+        const name = product.translations?.[0]?.name ?? "-";
         return (
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/5 bg-white/5">
@@ -139,7 +138,7 @@ export const ProductsTable = ({
       width: 50,
       className: "text-right",
       renderItem: ({ item: product }) => {
-        const name = getProductName(product.translations, product.slug);
+        const name = product.translations?.[0]?.name ?? product.id;
         return (
           <Button
             variant="ghost"

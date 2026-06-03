@@ -295,3 +295,12 @@ export interface IAdminUserAvatar {
   isCurrent: boolean;
   createdAt: string;
 }
+
+export interface IAdminGetUsersRequest {
+  page?: number;
+  limit?: number;
+  search?: string;
+  roleId?: string;
+  gender?: string;
+  sortBy?: string;
+}

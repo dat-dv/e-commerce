@@ -4,7 +4,6 @@ import { Package, Star } from "lucide-react";
 
 import {
   formatCurrency,
-  getProductName,
   getProductStatus,
 } from "@/components/organisms/products-view/product.utils";
 
@@ -19,9 +18,7 @@ export const ProductDetailDialog = ({
   isOpen,
   onClose,
 }: IProductDetailDialogProps) => {
-  const name = product
-    ? getProductName(product.translations, product.slug)
-    : "";
+  const name = product?.translations?.[0]?.name ?? "";
   const statusInfo = product ? getProductStatus(product.status) : null;
 
   return (

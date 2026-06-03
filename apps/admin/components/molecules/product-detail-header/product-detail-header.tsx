@@ -2,10 +2,7 @@ import { type IProductResponse } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
 
 import { PageHeader } from "@/components/molecules/page-header";
-import {
-  getProductName,
-  getProductStatus,
-} from "@/components/organisms/products-view/product.utils";
+import { getProductStatus } from "@/components/organisms/products-view/product.utils";
 
 interface IProductDetailHeaderProps {
   product: IProductResponse | null;
@@ -30,9 +27,7 @@ export const ProductDetailHeader = ({
   onCancel,
   onSave,
 }: IProductDetailHeaderProps) => {
-  const name = product
-    ? getProductName(product.translations, product.slug)
-    : "";
+  const name = product?.translations?.[0]?.name ?? "";
   const statusInfo = product ? getProductStatus(product.status) : null;
 
   return (

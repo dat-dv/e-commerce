@@ -15,7 +15,6 @@ import {
   ProductThumbnailField,
 } from "@/components/molecules/product-fields";
 import { ProductSkuTable } from "@/components/organisms/product-detail-view/product-sku-table";
-import { getProductName } from "@/components/organisms/products-view/product.utils";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductGeneralInfoProps {
@@ -57,7 +56,7 @@ export const ProductGeneralInfo = ({
   isUploadingThumbnail = false,
   onThumbnailUpload,
 }: IProductGeneralInfoProps) => {
-  const defaultName = getProductName(product.translations, product.slug);
+  const defaultName = product.translations?.[0]?.name ?? "";
   const flatCategories = flattenCategories(categoryTree);
   const thumbnailUrl =
     isEditing && formState

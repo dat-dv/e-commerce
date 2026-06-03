@@ -5,7 +5,10 @@ import { Select } from "@ecommerce/ui";
 import React from "react";
 
 import { FilterBar } from "@/components/molecules/filter-bar";
-import { CUSTOMER_SORT_OPTIONS } from "@/constants/customer.constants";
+import {
+  CUSTOMER_DEFAULT_SORT,
+  CUSTOMER_SORT_OPTIONS,
+} from "@/constants/customer.constants";
 import { GENDER_OPTIONS } from "@/constants/gender.constanst";
 import type { PaginationFilterChange } from "@/hooks/use-pagination/use-pagination.types";
 
@@ -45,17 +48,17 @@ export const CustomersFilter = ({
         !!searchQuery ||
         !!roleFilter ||
         !!genderFilter ||
-        sortFilter !== "created_at:desc"
+        sortFilter !== CUSTOMER_DEFAULT_SORT
       }
       onClearFilters={() => {
         onSearch("");
         setRoleFilter("");
         setGenderFilter("");
-        setSortFilter("created_at:desc");
+        setSortFilter(CUSTOMER_DEFAULT_SORT);
         onChangeFilter([
           { key: "roleId", value: null },
           { key: "gender", value: null },
-          { key: "sortBy", value: "created_at:desc" },
+          { key: "sortBy", value: CUSTOMER_DEFAULT_SORT },
           { key: "search", value: null },
         ]);
       }}

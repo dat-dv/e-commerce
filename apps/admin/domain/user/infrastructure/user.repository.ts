@@ -10,6 +10,8 @@ import {
   type IUserProfileResponse,
 } from "@ecommerce/shared";
 
+import { ESortDirection } from "@/constants/common.constants";
+import { ECustomerSortField } from "@/constants/customer.constants";
 import { API_ROUTES } from "@/constants/routes";
 import { type ApiListResponse } from "@/utils/request";
 import { apiClient } from "@/utils/request/api-client";
@@ -19,6 +21,7 @@ import {
   type IAdminCustomerCart,
   type IAdminCustomerFavoriteProduct,
   type IAdminCustomerOrder,
+  type IAdminGetUsersRequest,
   type IAdminUpdateUserInput,
   type IAdminUser,
   type IAdminUserAvatar,
@@ -26,14 +29,40 @@ import {
 import { type IAdminUserRepository } from "../types/user.repository";
 import { AdminCustomerDetailMapper } from "./customer-detail.mapper";
 
+const toUserApiSort = (sortBy?: string): string | undefined => {
+  if (!sortBy) return undefined;
+
+  const [field, direction] = sortBy.split(":");
+  const apiField =
+    {
+      [ECustomerSortField.CREATED_AT]: "created_at",
+    }[field] ?? field;
+  const apiDirection =
+    direction === ESortDirection.ASC || direction === ESortDirection.DESC
+      ? direction
+      : undefined;
+
+  return apiDirection ? `${apiField}:${apiDirection}` : apiField;
+};
+
+const toGetUsersApiParams = (params: IAdminGetUsersRequest): IGetUsersRequest =>
+  ({
+    page: params.page,
+    limit: params.limit,
+    search: params.search,
+    roleId: params.roleId,
+    gender: params.gender,
+    sortBy: toUserApiSort(params.sortBy),
+  }) as IGetUsersRequest;
+
 export class AdminUserRepository implements IAdminUserRepository {
   async getUsers(
-    params: IGetUsersRequest,
+    params: IAdminGetUsersRequest,
   ): Promise<ApiListResponse<IAdminUser>> {
     const response = await apiClient.get<IApiResponse<IGetUsersResponse>>(
       API_ROUTES.USERS.LIST,
       {
-        params,
+        params: toGetUsersApiParams(params),
       },
     );
 
