@@ -1,6 +1,6 @@
 import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useTransition } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import {
@@ -17,56 +17,51 @@ export const useUserDetailMutations = (
 ) => {
   const router = useRouter();
 
-  const [saving, setSaving] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const [saving, startSavingTransition] = useTransition();
+  const [deleting, startDeletingTransition] = useTransition();
 
-  const handleSaveUser = async (form: IUserDetailFormState) => {
+  const handleSaveUser = (form: IUserDetailFormState) => {
     if (!userId) return;
 
-    setSaving(true);
+    startSavingTransition(async () => {
+      try {
+        const payload = {
+          firstName: form.firstName.trim(),
+          lastName: form.lastName.trim(),
+          dateOfBirth: form.dateOfBirth || undefined,
+          gender: form.gender,
+          roleId: form.roleId || undefined,
+          avatarId: form.avatarId || undefined,
+        };
 
-    try {
-      const payload = {
-        firstName: form.firstName.trim(),
-        lastName: form.lastName.trim(),
-        dateOfBirth: form.dateOfBirth || undefined,
-        gender: form.gender,
-        roleId: form.roleId || undefined,
-        avatarId: form.avatarId || undefined,
-      };
+        const updatedUser = await adminUserUseCase.updateUser.execute(
+          userId,
+          payload,
+        );
+        const avatarsResponse =
+          await adminUserUseCase.getUserAvatars.execute(userId);
 
-      const updatedUser = await adminUserUseCase.updateUser.execute(
-        userId,
-        payload,
-      );
-      const avatarsResponse =
-        await adminUserUseCase.getUserAvatars.execute(userId);
-
-      onSaveSuccess(updatedUser, avatarsResponse);
-      toast.success("User profile updated successfully.");
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to update user profile.");
-    } finally {
-      setSaving(false);
-    }
+        onSaveSuccess(updatedUser, avatarsResponse);
+        toast.success("User profile updated successfully.");
+      } catch {
+        toast.error("Failed to update user profile.");
+      }
+    });
   };
 
-  const handleDeleteUser = async () => {
+  const handleDeleteUser = () => {
     if (!userId) return;
     if (!window.confirm("Delete this user?")) return;
 
-    setDeleting(true);
-
-    try {
-      await adminUserUseCase.deleteUser.execute(userId);
-      toast.success("Customer deleted successfully.");
-      router.push(APP_ROUTES.CUSTOMERS);
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to delete user.");
-      setDeleting(false);
-    }
+    startDeletingTransition(async () => {
+      try {
+        await adminUserUseCase.deleteUser.execute(userId);
+        toast.success("Customer deleted successfully.");
+        router.push(APP_ROUTES.CUSTOMERS);
+      } catch {
+        toast.error("Failed to delete user.");
+      }
+    });
   };
 
   return {

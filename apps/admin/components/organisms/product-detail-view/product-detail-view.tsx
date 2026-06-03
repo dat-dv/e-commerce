@@ -13,7 +13,7 @@ import { useProductMetadata } from "@/hooks/product/use-product-metadata";
 export const ProductDetailView = () => {
   const router = useRouter();
 
-  const { product, loading, error, setProduct } = useProductDetailData();
+  const { product, loading, setProduct } = useProductDetailData();
 
   const {
     brands,
@@ -63,12 +63,6 @@ export const ProductDetailView = () => {
         onCancel={cancelEdit}
         onSave={saveProduct}
       />
-
-      {error && (
-        <div className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-          {error}
-        </div>
-      )}
 
       {loading && (
         <div className="space-y-6">

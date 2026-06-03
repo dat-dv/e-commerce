@@ -12,23 +12,18 @@ export const useProductDetailData = () => {
 
   const [product, setProduct] = useState<IAdminProduct | null>(null);
   const [loading, startLoadingTransition] = useTransition();
-  const [error, setError] = useState<string | null>(null);
 
   const loadProductDetail = useCallback(() => {
     if (!slug) {
-      setError("Missing product slug.");
       toast.error("Missing product slug.");
       return;
     }
-
-    setError(null);
 
     startLoadingTransition(async () => {
       try {
         const response = await adminProductUseCase.getProduct.execute(slug);
         setProduct(response);
       } catch {
-        setError("Failed to load product detail.");
         toast.error("Failed to load product detail.");
       }
     });
@@ -36,5 +31,5 @@ export const useProductDetailData = () => {
 
   useLoadOnce(loadProductDetail, !!slug);
 
-  return { product, loading, error, setProduct, loadProductDetail };
+  return { product, loading, setProduct, loadProductDetail };
 };
