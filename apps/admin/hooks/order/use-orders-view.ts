@@ -1,17 +1,36 @@
 "use client";
 
+import { EOrderSortBy, ESortValue } from "@ecommerce/shared";
+import type { PaginationQueryParams, TableSortDirection } from "@ecommerce/ui";
 import { useState } from "react";
 
 import { adminOrderUseCase } from "@/domain/order";
 import type { IAdminCustomerOrder } from "@/domain/user/types/user.model";
 import usePagination from "@/hooks/use-pagination";
+import { getTableSortField, type TableSortFieldMap } from "@/utils/table-sort";
+
+type OrdersViewPaginationParams = PaginationQueryParams & {
+  sort_by?: EOrderSortBy;
+  sort_order?: ESortValue;
+};
+
+const ORDER_SORT_COLUMN_MAP: TableSortFieldMap<EOrderSortBy> = {
+  createdAt: EOrderSortBy.CREATED_AT,
+  status: EOrderSortBy.STATUS,
+  totalAmount: EOrderSortBy.TOTAL_AMOUNT,
+};
+
+const ORDER_SORT_DIRECTION_MAP: Record<TableSortDirection, ESortValue> = {
+  asc: ESortValue.ASC,
+  desc: ESortValue.DESC,
+};
 
 export const useOrdersView = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
-    usePagination<IAdminCustomerOrder>({
+    usePagination<IAdminCustomerOrder, OrdersViewPaginationParams>({
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
@@ -21,6 +40,8 @@ export const useOrdersView = () => {
             page: params.page ?? 1,
             limit: params.limit ?? 10,
             search: params.search,
+            sort_by: params.sort_by ?? undefined,
+            sort_order: params.sort_order ?? undefined,
           });
           return {
             data: {
@@ -51,6 +72,21 @@ export const useOrdersView = () => {
     onChangeFilter([{ key: "search", value: q }]);
   };
 
+  const handleSortChange = (
+    column?: string,
+    direction?: TableSortDirection,
+  ) => {
+    const sort = getTableSortField(column, direction, ORDER_SORT_COLUMN_MAP);
+
+    onChangeFilter([
+      { key: "sort_by", value: sort?.field ?? null },
+      {
+        key: "sort_order",
+        value: sort ? ORDER_SORT_DIRECTION_MAP[sort.direction] : null,
+      },
+    ]);
+  };
+
   return {
     orders: data.items,
     loading,
@@ -63,5 +99,6 @@ export const useOrdersView = () => {
     setPage: onChangePagination,
     setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     setSearchQuery: handleSearch,
+    setSort: handleSortChange,
   };
 };

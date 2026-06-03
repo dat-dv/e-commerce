@@ -22,6 +22,10 @@ export interface ICustomersTableProps {
   total: number;
   onPageChange: (page: number) => void;
   onPageSizeChange: (pageSize: number) => void;
+  onSortChange: (
+    sortColumn?: string,
+    sortDirection?: TableSortDirection,
+  ) => void;
   onViewDetail: (user: IAdminUser) => void;
 }
 
@@ -34,6 +38,7 @@ export const CustomersTable = ({
   total,
   onPageChange,
   onPageSizeChange,
+  onSortChange,
   onViewDetail,
 }: ICustomersTableProps) => {
   const [sortColumn, setSortColumn] = React.useState<string>();
@@ -41,9 +46,17 @@ export const CustomersTable = ({
     React.useState<TableSortDirection>();
 
   const handleQueryChange = (nextQuery: TableQuery) => {
-    console.log("Customers table query change", nextQuery);
+    const isSortChange =
+      nextQuery.sortColumn !== sortColumn ||
+      nextQuery.sortDirection !== sortDirection;
+
     setSortColumn(nextQuery.sortColumn);
     setSortDirection(nextQuery.sortDirection);
+
+    if (isSortChange) {
+      onSortChange(nextQuery.sortColumn, nextQuery.sortDirection);
+      return;
+    }
 
     if (nextQuery.pageSize !== pageSize) {
       onPageSizeChange(nextQuery.pageSize);
@@ -84,7 +97,6 @@ export const CustomersTable = ({
     {
       key: "email",
       header: "Email",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: user }) => (
         <span className="text-[var(--app-text)]/80">{user.email}</span>
@@ -93,7 +105,6 @@ export const CustomersTable = ({
     {
       key: "role",
       header: "Role",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: user }) => {
         const roleName = user.role?.roleName || "User";

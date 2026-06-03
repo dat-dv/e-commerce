@@ -28,6 +28,10 @@ interface IOrdersTableProps {
   total: number;
   onPageChange: (page: number) => void;
   onPageSizeChange: (pageSize: number) => void;
+  onSortChange: (
+    sortColumn?: string,
+    sortDirection?: TableSortDirection,
+  ) => void;
   onViewDetail: (order: IAdminCustomerOrder) => void;
 }
 
@@ -40,15 +44,24 @@ export const OrdersTable = ({
   total,
   onPageChange,
   onPageSizeChange,
+  onSortChange,
   onViewDetail,
 }: IOrdersTableProps) => {
   const [sortColumn, setSortColumn] = useState<string>();
   const [sortDirection, setSortDirection] = useState<TableSortDirection>();
 
   const handleQueryChange = (nextQuery: TableQuery) => {
-    console.log("Orders table query change", nextQuery);
+    const isSortChange =
+      nextQuery.sortColumn !== sortColumn ||
+      nextQuery.sortDirection !== sortDirection;
+
     setSortColumn(nextQuery.sortColumn);
     setSortDirection(nextQuery.sortDirection);
+
+    if (isSortChange) {
+      onSortChange(nextQuery.sortColumn, nextQuery.sortDirection);
+      return;
+    }
 
     if (nextQuery.pageSize !== pageSize) {
       onPageSizeChange(nextQuery.pageSize);
@@ -85,7 +98,6 @@ export const OrdersTable = ({
     {
       key: "id",
       header: "Order ID",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: order }) => (
         <code className="text-primary rounded bg-white/5 px-2 py-1 text-xs">
@@ -96,7 +108,6 @@ export const OrdersTable = ({
     {
       key: "customer",
       header: "Customer",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: order }) => {
         const customerName =

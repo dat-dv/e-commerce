@@ -21,6 +21,7 @@ export const OrdersView = () => {
     setPage,
     setPageSize,
     setSearchQuery,
+    setSort,
   } = useOrdersView();
   const { selectedOrder, isDetailOpen, openOrderDetail, closeOrderDetail } =
     useOrderDetailDialog();
@@ -44,6 +45,7 @@ export const OrdersView = () => {
         total={total}
         onPageChange={setPage}
         onPageSizeChange={setPageSize}
+        onSortChange={setSort}
         onViewDetail={openOrderDetail}
       />
 

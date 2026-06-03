@@ -19,6 +19,7 @@ export const ProductsView = () => {
     setPage,
     setPageSize,
     setSearchQuery,
+    setSort,
     handleViewDetail,
   } = useProductsView();
 
@@ -41,6 +42,7 @@ export const ProductsView = () => {
         total={total}
         onPageChange={setPage}
         onPageSizeChange={setPageSize}
+        onSortChange={setSort}
         onViewDetail={handleViewDetail}
       />
     </div>

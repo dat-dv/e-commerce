@@ -1,18 +1,32 @@
 "use client";
 
+import { EProductSort } from "@ecommerce/shared";
+import type { PaginationQueryParams, TableSortDirection } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { adminProductUseCase, type IAdminProduct } from "@/domain/product";
 import usePagination from "@/hooks/use-pagination";
+import { getTableSortValue, type TableSortValueMap } from "@/utils/table-sort";
+
+type ProductsViewPaginationParams = PaginationQueryParams & {
+  sort?: EProductSort;
+};
+
+const PRODUCT_SORT_VALUE_MAP: TableSortValueMap<EProductSort> = {
+  basePrice: {
+    asc: EProductSort.PRICE_ASC,
+    desc: EProductSort.PRICE_DESC,
+  },
+};
 
 export const useProductsView = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
-    usePagination<IAdminProduct>({
+    usePagination<IAdminProduct, ProductsViewPaginationParams>({
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
@@ -22,6 +36,7 @@ export const useProductsView = () => {
             page: params.page ?? 1,
             limit: params.limit ?? 12,
             search: params.search,
+            sort: params.sort ?? undefined,
           });
           return {
             data: {
@@ -42,6 +57,18 @@ export const useProductsView = () => {
     onChangeFilter([{ key: "search", value: q }]);
   };
 
+  const handleSortChange = (
+    column?: string,
+    direction?: TableSortDirection,
+  ) => {
+    onChangeFilter([
+      {
+        key: "sort",
+        value: getTableSortValue(column, direction, PRODUCT_SORT_VALUE_MAP),
+      },
+    ]);
+  };
+
   const router = useRouter();
 
   const handleViewDetail = (product: IAdminProduct) => {
@@ -60,6 +87,7 @@ export const useProductsView = () => {
     setPage: onChangePagination,
     setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     setSearchQuery: handleSearch,
+    setSort: handleSortChange,
     handleViewDetail,
   };
 };

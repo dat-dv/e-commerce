@@ -25,6 +25,10 @@ interface IProductsTableProps {
   total: number;
   onPageChange: (page: number) => void;
   onPageSizeChange: (pageSize: number) => void;
+  onSortChange: (
+    sortColumn?: string,
+    sortDirection?: TableSortDirection,
+  ) => void;
   onViewDetail: (product: IAdminProduct) => void;
 }
 
@@ -37,15 +41,24 @@ export const ProductsTable = ({
   total,
   onPageChange,
   onPageSizeChange,
+  onSortChange,
   onViewDetail,
 }: IProductsTableProps) => {
   const [sortColumn, setSortColumn] = useState<string>();
   const [sortDirection, setSortDirection] = useState<TableSortDirection>();
 
   const handleQueryChange = (nextQuery: TableQuery) => {
-    console.log("Products table query change", nextQuery);
+    const isSortChange =
+      nextQuery.sortColumn !== sortColumn ||
+      nextQuery.sortDirection !== sortDirection;
+
     setSortColumn(nextQuery.sortColumn);
     setSortDirection(nextQuery.sortDirection);
+
+    if (isSortChange) {
+      onSortChange(nextQuery.sortColumn, nextQuery.sortDirection);
+      return;
+    }
 
     if (nextQuery.pageSize !== pageSize) {
       onPageSizeChange(nextQuery.pageSize);
@@ -61,7 +74,6 @@ export const ProductsTable = ({
     {
       key: "product",
       header: "Product",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: product }) => {
         const name = product.translations?.[0]?.name ?? "-";
@@ -89,7 +101,6 @@ export const ProductsTable = ({
     {
       key: "slug",
       header: "Slug",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: product }) => (
         <code className="text-xs text-[var(--muted)]">{product.slug}</code>
@@ -98,7 +109,6 @@ export const ProductsTable = ({
     {
       key: "status",
       header: "Status",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: product }) => {
         const statusInfo = getProductStatus(product.status);
@@ -121,7 +131,6 @@ export const ProductsTable = ({
     {
       key: "rating",
       header: "Rating",
-      sortable: true,
       resizable: true,
       renderItem: ({ item: product }) => (
         <div className="flex items-center gap-1">
