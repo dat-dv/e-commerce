@@ -2,14 +2,11 @@
 
 import {
   forwardRef,
-  type Key as ReactKey,
   type ReactNode,
   type Ref,
-  useEffect,
   useImperativeHandle,
-  useState,
 } from "react";
-import { type Selection, type SortDescriptor } from "react-aria-components";
+import { type SortDescriptor } from "react-aria-components";
 
 import { cn } from "../../../utils";
 import { Cell, Column, Row, Table, TableBody, TableHeader } from "./aria-table";
@@ -19,11 +16,11 @@ import type {
   CommonTableProps,
   CommonTableRef,
   TableKey,
-  TableQuery,
 } from "./table-common.types";
 import { TableFooter } from "./table-footer";
+import { TABLE_DEFAULT_COLUMN_WIDTH } from "./table-storage";
+import { useCommonTable } from "./use-common-table";
 
-type TableStoredWidth = number;
 type TableRenderRow<T extends object> =
   | {
       id: string;
@@ -41,55 +38,7 @@ type TableRenderRow<T extends object> =
     };
 
 const TABLE_INDEX_COLUMN_KEY = "__table_index__";
-const TABLE_CONFIG_STORAGE_PREFIX = "ecommerce:table-common:";
-const TABLE_DEFAULT_COLUMN_WIDTH = 180;
 const DEFAULT_PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
-
-const getTableConfigStorageKey = (name: string) =>
-  `${TABLE_CONFIG_STORAGE_PREFIX}${name}`;
-
-const readStoredColumnWidths = (
-  name?: string,
-): Record<string, TableStoredWidth> => {
-  if (!name || typeof window === "undefined") return {};
-
-  try {
-    const rawValue = window.localStorage.getItem(
-      getTableConfigStorageKey(name),
-    );
-    if (!rawValue) return {};
-
-    const parsed = JSON.parse(rawValue) as unknown;
-    if (!parsed || typeof parsed !== "object") return {};
-
-    const widths = (parsed as { columnWidths?: unknown }).columnWidths;
-    if (!widths || typeof widths !== "object") return {};
-
-    return Object.entries(widths as Record<string, unknown>).reduce<
-      Record<string, TableStoredWidth>
-    >((acc, [columnKey, width]) => {
-      if (typeof width === "number") {
-        acc[columnKey] = width;
-      }
-
-      return acc;
-    }, {});
-  } catch {
-    return {};
-  }
-};
-
-const writeStoredColumnWidths = (
-  name: string | undefined,
-  columnWidths: Record<string, TableStoredWidth>,
-) => {
-  if (!name || typeof window === "undefined") return;
-
-  window.localStorage.setItem(
-    getTableConfigStorageKey(name),
-    JSON.stringify({ columnWidths }),
-  );
-};
 
 function CommonTableInner<T extends object>(
   {
@@ -123,15 +72,47 @@ function CommonTableInner<T extends object>(
   }: CommonTableProps<T>,
   ref: Ref<CommonTableRef<T>>,
 ) {
-  const [draftData, setDraftData] = useState<T[]>(data);
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set());
-  const [editedRows, setEditedRows] = useState<Record<string, Partial<T>>>({});
-  const [expandedRowKeys, setExpandedRowKeys] = useState<Set<TableKey>>(
-    () => new Set(),
-  );
-  const [storedColumnWidths, setStoredColumnWidths] = useState(() =>
-    readStoredColumnWidths(name),
-  );
+  const {
+    draftData,
+    selectedKeys,
+    setSelectedKeys,
+    expandedRowKeys,
+    storedColumnWidths,
+    getRowKey,
+    emitQueryChange,
+    handleSortChange,
+    handlePageSizeChange,
+    handleResizeEnd,
+    canExpandRow,
+    toggleExpandedRow,
+    updateRowValue,
+    getDraftData,
+    getEditedRows,
+    getCheckedRows,
+    getCheckedKeys,
+    resetDraft,
+  } = useCommonTable({
+    name,
+    data,
+    page,
+    pageSize,
+    rowKey,
+    sortColumn,
+    sortDirection,
+    onQueryChange,
+    onEditChange,
+    renderExpandedRow,
+    isRowExpandable,
+  });
+
+  useImperativeHandle(ref, () => ({
+    getDraftData,
+    getEditedRows,
+    getCheckedRows,
+    getCheckedKeys,
+    resetDraft,
+  }));
+
   const tableColumns: CommonTableColumn<T>[] = showIndex
     ? [
         {
@@ -165,133 +146,6 @@ function CommonTableInner<T extends object>(
         TABLE_DEFAULT_COLUMN_WIDTH)
     );
   }, 0);
-
-  useEffect(() => {
-    setDraftData(data);
-  }, [data]);
-
-  useEffect(() => {
-    setStoredColumnWidths(readStoredColumnWidths(name));
-  }, [name]);
-
-  const getRowKey = (item: T, index: number): TableKey => {
-    if (rowKey) return rowKey(item, index);
-
-    const itemRecord = item as Record<string, unknown>;
-    const fallbackKey = itemRecord.id ?? itemRecord.key;
-
-    return typeof fallbackKey === "string" || typeof fallbackKey === "number"
-      ? fallbackKey
-      : index;
-  };
-
-  const emitQueryChange = (nextQuery: Partial<TableQuery>) => {
-    onQueryChange?.({
-      page,
-      pageSize,
-      sortColumn,
-      sortDirection,
-      ...nextQuery,
-    });
-  };
-
-  const handleSortChange = (descriptor: SortDescriptor) => {
-    emitQueryChange({
-      page: 1,
-      sortColumn: String(descriptor.column),
-      sortDirection: descriptor.direction === "ascending" ? "asc" : "desc",
-    });
-  };
-
-  const handlePageSizeChange = (nextPageSize: number) => {
-    emitQueryChange({
-      page: 1,
-      pageSize: nextPageSize,
-    });
-  };
-
-  const handleResizeEnd = (widths: Map<ReactKey, unknown>) => {
-    if (!name) return;
-
-    const nextColumnWidths = Array.from(widths.entries()).reduce<
-      Record<string, TableStoredWidth>
-    >((acc, [columnKey, width]) => {
-      if (typeof width === "number") {
-        acc[String(columnKey)] = width;
-      }
-
-      return acc;
-    }, {});
-
-    setStoredColumnWidths(nextColumnWidths);
-    writeStoredColumnWidths(name, nextColumnWidths);
-  };
-
-  const canExpandRow = (item: T, index: number) =>
-    Boolean(renderExpandedRow) && (isRowExpandable?.(item, index) ?? true);
-
-  const toggleExpandedRow = (rowKey: TableKey) => {
-    setExpandedRowKeys((prev) => {
-      const next = new Set(prev);
-
-      if (next.has(rowKey)) {
-        next.delete(rowKey);
-      } else {
-        next.add(rowKey);
-      }
-
-      return next;
-    });
-  };
-
-  const updateRowValue = (
-    item: T,
-    currentRowKey: TableKey,
-    columnKey: string,
-    value: unknown,
-  ) => {
-    setDraftData((prev) =>
-      prev.map((row, index) =>
-        getRowKey(row, index) === currentRowKey
-          ? { ...row, [columnKey]: value }
-          : row,
-      ),
-    );
-
-    setEditedRows((prev) => ({
-      ...prev,
-      [String(currentRowKey)]: {
-        ...prev[String(currentRowKey)],
-        [columnKey]: value,
-      } as Partial<T>,
-    }));
-
-    onEditChange?.({
-      item,
-      rowKey: currentRowKey,
-      columnKey,
-      value,
-    });
-  };
-
-  useImperativeHandle(ref, () => ({
-    getDraftData: () => draftData,
-    getEditedRows: () => editedRows,
-    getCheckedRows: () => {
-      if (selectedKeys === "all") return draftData;
-
-      return draftData.filter((item, index) =>
-        selectedKeys.has(getRowKey(item, index)),
-      );
-    },
-    getCheckedKeys: () =>
-      selectedKeys === "all" ? new Set<TableKey>() : selectedKeys,
-    resetDraft: () => {
-      setDraftData(data);
-      setEditedRows({});
-      setSelectedKeys(new Set());
-    },
-  }));
 
   const sortDescriptor: SortDescriptor | undefined = sortColumn
     ? {
