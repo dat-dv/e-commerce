@@ -40,7 +40,7 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
   const currentAvatarId = methods.watch("avatarId");
   const currentAvatarUrl =
     avatars.find((a) => a.id === currentAvatarId)?.url ||
-    user?.avatarUrl ||
+    user?.avatar?.url ||
     undefined;
 
   if (loading) {
@@ -58,7 +58,7 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
   const phones =
     user.phones && user.phones.length > 0
       ? user.phones
-          .map((phone) => `${phone.phone_code}${phone.phone}`)
+          .map((phone) => `${phone.phoneCode}${phone.phone}`)
           .join(", ")
       : "No registered phone number";
 

@@ -89,7 +89,7 @@ export const UserProfilePanel = ({ user }: IUserProfilePanelProps) => (
         <div className="space-y-1 text-sm text-[var(--app-text)]">
           {user.phones.map((phone) => (
             <p key={phone.id}>
-              {phone.phone_code}
+              {phone.phoneCode}
               {phone.phone}
             </p>
           ))}

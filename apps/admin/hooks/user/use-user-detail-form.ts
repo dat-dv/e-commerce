@@ -39,8 +39,8 @@ export const useUserDetailForm = (
     if (!user) return;
 
     methods.reset({
-      firstName: user.firstName,
-      lastName: user.lastName,
+      firstName: user.firstName ?? "",
+      lastName: user.lastName ?? "",
       dateOfBirth: user.dateOfBirth ? user.dateOfBirth.slice(0, 10) : "",
       gender: user.gender ?? undefined,
       roleId: user.roleId || roles[0]?.id || "",

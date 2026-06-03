@@ -4,11 +4,10 @@ import { AdminUserRepository, type IAdminCustomerCart } from "@/domain/user";
 
 const EMPTY_CART: IAdminCustomerCart = {
   id: "",
+  userId: "",
   createdAt: "",
   updatedAt: "",
   items: [],
-  totalItems: 0,
-  subtotal: 0,
 };
 
 export const useUserDetailCart = (userId: string | null) => {

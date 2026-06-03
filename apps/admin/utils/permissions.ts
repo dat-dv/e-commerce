@@ -8,7 +8,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import type { IAdminUser } from "@/domain/user";
 
 export const getUserPermissions = (user?: IAdminUser | null): string[] =>
-  user?.role?.permissions ?? [];
+  user?.role?.permissions?.map((item) => item.permission.permissionName) ?? [];
 
 export const hasPermission = (
   user: IAdminUser | null | undefined,
