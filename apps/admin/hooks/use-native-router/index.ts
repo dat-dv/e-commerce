@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import type {
   AppRouterNavigateOptions,
@@ -63,19 +63,19 @@ export default function useAppRouter<T extends QueryParams>({
   useEffect(() => {
     if (!isSyncWithSearchParams) return;
 
-    const mergeSearchParms = () => {
+    const mergeSearchParams = () => {
       const currentSearchParams = Object.fromEntries(searchParams.entries());
-      const newRouterState = {
-        ...(extendParams ?? {}),
-        ...routerState,
-        ...currentSearchParams,
-      } as T;
-
-      setRouterState(newRouterState);
+      setRouterState(
+        (prev) =>
+          ({
+            ...(extendParams ?? {}),
+            ...prev,
+            ...currentSearchParams,
+          }) as T,
+      );
     };
-    mergeSearchParms();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+    mergeSearchParams();
+  }, [extendParams, isSyncWithSearchParams, searchParams]);
 
   const push = useCallback(
     (
@@ -129,11 +129,14 @@ export default function useAppRouter<T extends QueryParams>({
     [replace, extendParams],
   );
 
-  return {
-    routerState,
-    push,
-    replace,
-    clear,
-    setRouterState,
-  };
+  return useMemo(
+    () => ({
+      routerState,
+      push,
+      replace,
+      clear,
+      setRouterState,
+    }),
+    [clear, push, replace, routerState],
+  );
 }

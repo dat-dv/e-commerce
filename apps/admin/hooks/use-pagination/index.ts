@@ -49,6 +49,7 @@ const usePagination = <
     isSyncWithSearchParams,
     extendParams,
   });
+  const { routerState, push: pushRoute, replace: replaceRoute } = router;
 
   const getData = useCallback(
     async (
@@ -61,14 +62,14 @@ const usePagination = <
       } as Partial<TParams>;
       const nextParams = (
         options.merge
-          ? { ...router.routerState, ...paramsWithPagination }
+          ? { ...routerState, ...paramsWithPagination }
           : paramsWithPagination
       ) as Partial<TParams>;
 
       await getPaginationData(nextParams);
-      router.replace(nextParams, options);
+      replaceRoute(nextParams, options);
     },
-    [data.meta.limit, getPaginationData, router],
+    [data.meta.limit, getPaginationData, replaceRoute, routerState],
   );
 
   const getFirstPage = useCallback(
@@ -82,14 +83,14 @@ const usePagination = <
       } as Partial<TParams>;
       const nextParams = (
         options.merge
-          ? { ...router.routerState, ...paramsWithPagination }
+          ? { ...routerState, ...paramsWithPagination }
           : paramsWithPagination
       ) as Partial<TParams>;
 
       await getFirstPaginationPage(nextParams);
-      router.replace(nextParams, options);
+      replaceRoute(nextParams, options);
     },
-    [data.meta.limit, getFirstPaginationPage, router],
+    [data.meta.limit, getFirstPaginationPage, replaceRoute, routerState],
   );
 
   const onChangePagination = useCallback(
@@ -103,15 +104,15 @@ const usePagination = <
       } as Partial<TParams>;
       const nextParams = (
         options.merge
-          ? { ...router.routerState, ...paginationParams }
+          ? { ...routerState, ...paginationParams }
           : paginationParams
       ) as Partial<TParams>;
 
       await fetchData(nextParams, "replace");
 
-      router.push(nextParams, options);
+      pushRoute(nextParams, options);
     },
-    [data.meta.limit, fetchData, router],
+    [data.meta.limit, fetchData, pushRoute, routerState],
   );
 
   const onChangeFilter = useCallback(
