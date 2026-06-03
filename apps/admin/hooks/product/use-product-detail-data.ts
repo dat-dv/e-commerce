@@ -1,8 +1,8 @@
 "use client";
 
-import { useLoadOnce } from "@ecommerce/ui";
+import { toast, useLoadOnce } from "@ecommerce/ui";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useTransition } from "react";
 
 import { adminProductUseCase, type IAdminProduct } from "@/domain/product";
 
@@ -11,28 +11,27 @@ export const useProductDetailData = () => {
   const slug = searchParams.get("slug");
 
   const [product, setProduct] = useState<IAdminProduct | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, startLoadingTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
-  const loadProductDetail = useCallback(async () => {
+  const loadProductDetail = useCallback(() => {
     if (!slug) {
-      setLoading(false);
       setError("Missing product slug.");
+      toast.error("Missing product slug.");
       return;
     }
 
-    setLoading(true);
     setError(null);
 
-    try {
-      const response = await adminProductUseCase.getProduct.execute(slug);
-      setProduct(response);
-    } catch (err) {
-      console.error(err);
-      setError("Failed to load product detail.");
-    } finally {
-      setLoading(false);
-    }
+    startLoadingTransition(async () => {
+      try {
+        const response = await adminProductUseCase.getProduct.execute(slug);
+        setProduct(response);
+      } catch {
+        setError("Failed to load product detail.");
+        toast.error("Failed to load product detail.");
+      }
+    });
   }, [slug]);
 
   useLoadOnce(loadProductDetail, !!slug);

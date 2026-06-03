@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "@ecommerce/ui";
-import { useCallback, useState } from "react";
+import { useCallback, useTransition } from "react";
 
 import { adminUploadUseCase } from "@/domain/upload";
 
@@ -17,29 +17,27 @@ interface IUseProductThumbnailUploadParams {
 export const useProductThumbnailUpload = ({
   onUploaded,
 }: IUseProductThumbnailUploadParams) => {
-  const [isUploadingThumbnail, setIsUploadingThumbnail] = useState(false);
+  const [isUploadingThumbnail, startUploadTransition] = useTransition();
 
   const uploadThumbnail = useCallback(
-    async (file: File) => {
+    (file: File) => {
       if (!file.type.startsWith("image/")) {
         toast.error("Select a valid image file.");
         return;
       }
 
-      setIsUploadingThumbnail(true);
-      try {
-        const response = await adminUploadUseCase.uploadImage.execute(file);
-        onUploaded({
-          id: response.id,
-          url: response.url,
-        });
-        toast.success("Thumbnail uploaded. Save product to apply it.");
-      } catch (err) {
-        console.error(err);
-        toast.error("Failed to upload thumbnail.");
-      } finally {
-        setIsUploadingThumbnail(false);
-      }
+      startUploadTransition(async () => {
+        try {
+          const response = await adminUploadUseCase.uploadImage.execute(file);
+          onUploaded({
+            id: response.id,
+            url: response.url,
+          });
+          toast.success("Thumbnail uploaded. Save product to apply it.");
+        } catch {
+          toast.error("Failed to upload thumbnail.");
+        }
+      });
     },
     [onUploaded],
   );

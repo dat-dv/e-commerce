@@ -142,8 +142,7 @@ export const useProductSaveAction = ({
         );
         onSaved(response);
         toast.success("Product updated successfully!");
-      } catch (err) {
-        console.error(err);
+      } catch {
         toast.error("Failed to save product details.");
       }
     });
