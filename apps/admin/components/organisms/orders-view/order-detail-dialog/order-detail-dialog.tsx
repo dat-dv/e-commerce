@@ -5,8 +5,9 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@ecommerce/ui";
-import { Calendar, Package } from "lucide-react";
+import { Calendar } from "lucide-react";
 
+import { AdminThumbnail } from "@/components/atoms/admin-thumbnail";
 import {
   formatCurrency,
   formatDate,
@@ -120,18 +121,11 @@ export const OrderDetailDialog = ({
                       className="grid gap-3 p-3 sm:grid-cols-[minmax(0,1fr)_84px_112px]"
                     >
                       <div className="flex min-w-0 items-center gap-3">
-                        <div className="bg-content/5 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-                          {imageUrl ? (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img
-                              src={imageUrl}
-                              alt=""
-                              className="h-full w-full object-cover"
-                            />
-                          ) : (
-                            <Package className="text-primary h-4 w-4" />
-                          )}
-                        </div>
+                        <AdminThumbnail
+                          src={imageUrl}
+                          alt={productName}
+                          containerClassName="relative bg-content/5 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg"
+                        />
                         <div className="min-w-0">
                           <p className="truncate text-sm font-semibold text-[var(--app-text)]">
                             {productName}

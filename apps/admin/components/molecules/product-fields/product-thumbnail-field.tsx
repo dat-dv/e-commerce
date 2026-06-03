@@ -1,4 +1,5 @@
 import { ImageUp, Package } from "lucide-react";
+import Image from "next/image";
 import type { ChangeEvent } from "react";
 
 interface IProductThumbnailFieldProps {
@@ -26,13 +27,13 @@ export const ProductThumbnailField = ({
 
   return (
     <div className="bg-content/[0.02] flex flex-col items-center justify-center rounded-xl border border-[var(--border-color)] p-4">
-      <div className="bg-content/[0.02] flex h-36 w-36 items-center justify-center overflow-hidden rounded-xl border border-[var(--border-color)]">
+      <div className="bg-content/[0.02] relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-xl border border-[var(--border-color)]">
         {thumbnailUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={thumbnailUrl}
             alt={defaultName}
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
           />
         ) : (
           <Package className="h-16 w-16 text-[var(--muted)]" />

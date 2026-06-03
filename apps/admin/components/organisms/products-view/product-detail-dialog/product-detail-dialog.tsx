@@ -1,6 +1,7 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from "@ecommerce/ui";
-import { Package, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
+import { AdminThumbnail } from "@/components/atoms/admin-thumbnail";
 import {
   formatCurrency,
   getProductStatus,
@@ -32,18 +33,11 @@ export const ProductDetailDialog = ({
           <div className="mt-6 space-y-5">
             {/* Thumbnail + Name */}
             <div className="border-content/5 bg-content/[0.02] flex items-center gap-4 rounded-xl border p-4">
-              <div className="border-content/10 bg-content/[0.02] flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border">
-                {product.thumbnail?.url ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={product.thumbnail.url}
-                    alt={name}
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <Package className="h-8 w-8 text-[var(--muted)]" />
-                )}
-              </div>
+              <AdminThumbnail
+                src={product.thumbnail?.url}
+                alt={name}
+                containerClassName="relative border-content/10 bg-content/[0.02] flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border"
+              />
               <div>
                 <h4 className="text-base font-bold text-[var(--app-text)]">
                   {name}

@@ -2,6 +2,7 @@
 
 import { Heart } from "lucide-react";
 
+import { AdminThumbnail } from "@/components/atoms/admin-thumbnail";
 import { EmptyTabState } from "@/components/molecules/empty-tab-state";
 import { formatCurrency } from "@/components/organisms/products-view/product.utils";
 import { formatAdminDate } from "@/components/organisms/user-detail-view/user-detail-view.utils";
@@ -44,16 +45,11 @@ export const UserDetailFavoritesTab = ({ userId }: { userId: string }) => {
                 className="rounded-lg border border-[var(--border-color)] bg-[var(--app-bg)]/30 p-4"
               >
                 <div className="flex items-start gap-3">
-                  <div className="bg-content/5 h-12 w-12 shrink-0 overflow-hidden rounded-md">
-                    {thumbnailUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={thumbnailUrl}
-                        alt=""
-                        className="h-full w-full object-cover"
-                      />
-                    ) : null}
-                  </div>
+                  <AdminThumbnail
+                    src={thumbnailUrl}
+                    alt={productName}
+                    containerClassName="relative bg-content/5 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md"
+                  />
                   <div className="min-w-0 flex-1">
                     <p className="text-content truncate text-sm font-semibold">
                       {productName}

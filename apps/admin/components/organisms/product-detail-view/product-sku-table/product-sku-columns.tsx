@@ -1,6 +1,7 @@
 import { Button, type CommonTableColumn } from "@ecommerce/ui";
-import { ImageIcon, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
+import { AdminThumbnail } from "@/components/atoms/admin-thumbnail";
 import { formatCurrency } from "@/components/organisms/products-view/product.utils";
 import type { IAdminAttribute, IAdminProduct } from "@/domain/product";
 import type { IProductEditFormState } from "@/hooks/product/use-product-detail-form";
@@ -315,17 +316,12 @@ export const createProductSkuColumns = ({
       const editSku = item as EditSkuType;
 
       if (!isEditing) {
-        return item.imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+        return (
+          <AdminThumbnail
             src={item.imageUrl}
             alt={item.skuCode}
-            className="h-10 w-10 rounded-md border border-[var(--border-color)] object-cover"
+            containerClassName="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[var(--border-color)] text-[var(--muted)] bg-transparent"
           />
-        ) : (
-          <div className="flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--muted)]">
-            <ImageIcon className="h-4 w-4" />
-          </div>
         );
       }
 

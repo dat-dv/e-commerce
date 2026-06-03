@@ -7,9 +7,10 @@ import {
   type TableQuery,
   type TableSortDirection,
 } from "@ecommerce/ui";
-import { Eye, Package, Star } from "lucide-react";
+import { Eye, Star } from "lucide-react";
 import { useState } from "react";
 
+import { AdminThumbnail } from "@/components/atoms/admin-thumbnail";
 import {
   formatCurrency,
   getProductStatus,
@@ -77,18 +78,7 @@ export const ProductsTable = ({
         const name = product.translations?.[0]?.name ?? "-";
         return (
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/5 bg-white/5">
-              {product.thumbnail?.url ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={product.thumbnail.url}
-                  alt={name}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <Package className="h-5 w-5 text-[var(--muted)]" />
-              )}
-            </div>
+            <AdminThumbnail src={product.thumbnail?.url} alt={name} />
             <span className="max-w-[180px] truncate font-semibold text-[var(--app-text)]">
               {name}
             </span>
