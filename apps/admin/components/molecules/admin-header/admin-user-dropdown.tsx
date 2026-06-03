@@ -8,7 +8,7 @@ import {
   ProfileIcon,
 } from "@/components/atoms/icons";
 import { APP_ROUTES } from "@/constants/routes";
-import { adminAuthUseCase } from "@/domain/auth";
+import { useAdminAuth } from "@/hooks/use-auth";
 import { useAdminUserStore } from "@/store/user";
 
 interface IAdminUserDropdownProps {
@@ -22,7 +22,8 @@ export const AdminUserDropdown = ({
   onToggle,
   onClose,
 }: IAdminUserDropdownProps) => {
-  const { user, logout } = useAdminUserStore();
+  const { user } = useAdminUserStore();
+  const { logout } = useAdminAuth();
   const router = useRouter();
 
   const userName = [user?.firstName, user?.lastName].filter(Boolean).join(" ");
@@ -30,10 +31,8 @@ export const AdminUserDropdown = ({
   const userAvatar = user?.avatar?.url || undefined;
 
   const handleLogout = async () => {
-    await adminAuthUseCase.logout.execute();
-    logout();
     onClose();
-    router.push(APP_ROUTES.SIGN_IN);
+    await logout();
   };
 
   return (

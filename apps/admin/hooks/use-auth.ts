@@ -11,6 +11,7 @@ export const useAdminAuth = () => {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const setUser = useAdminUserStore((state) => state.setUser);
+  const clearUser = useAdminUserStore((state) => state.logout);
 
   const login = async (data: TSignInSchema) => {
     setError(null);
@@ -25,8 +26,18 @@ export const useAdminAuth = () => {
     }
   };
 
+  const logout = async () => {
+    try {
+      await adminAuthUseCase.logout.execute();
+    } finally {
+      clearUser();
+      router.push(APP_ROUTES.SIGN_IN);
+    }
+  };
+
   return {
     login,
+    logout,
     isLoading: isPending,
     error,
   };
