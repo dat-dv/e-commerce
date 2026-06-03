@@ -127,7 +127,7 @@ export default function MobileSearchDrawer({
                   variant="outline"
                   size="lg"
                   placeholder={selectedOption.placeholder}
-                  className="border-content/10 bg-content/[0.02] h-12 w-full min-w-0 rounded-full pr-24 pl-11 text-sm font-semibold"
+                  className="border-content/10 bg-content/[0.02] h-12 w-full min-w-0 rounded-full pr-24 pl-11 text-base font-semibold"
                 />
 
                 <Button

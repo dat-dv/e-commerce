@@ -35,7 +35,7 @@ export function CategorySearchInput({
         placeholder={placeholder}
         variant="none"
         size="sm"
-        className="text-content placeholder:text-content/35 min-w-0 flex-1 bg-transparent text-sm font-medium outline-none"
+        className="text-content placeholder:text-content/35 min-w-0 flex-1 bg-transparent text-base font-medium outline-none"
       />
 
       {value ? (
