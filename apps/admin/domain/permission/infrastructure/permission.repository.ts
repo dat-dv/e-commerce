@@ -58,18 +58,20 @@ export class AdminPermissionRepository implements IAdminPermissionRepository {
   }
 
   async createRole(data: ICreateRoleRequest) {
-    return apiClient.post<IApiResponse<IRoleResponse>>(
+    const response = await apiClient.post<IApiResponse<IRoleResponse>>(
       API_ROUTES.ROLES.CREATE,
       data,
     );
+    return AdminPermissionMapper.roleToDomain(response.data!);
   }
 
   async updateRolePermissions(roleId: string, permissionIds: string[]) {
-    return apiClient.patch<IApiResponse<IRoleResponse>>(
+    const response = await apiClient.patch<IApiResponse<IRoleResponse>>(
       API_ROUTES.ROLES.UPDATE(roleId),
       {
         permissions: permissionIds,
       },
     );
+    return AdminPermissionMapper.roleToDomain(response.data!);
   }
 }

@@ -3,7 +3,6 @@ import type {
   ICreateRoleRequest,
   IPermissionListResponse,
   IRoleListResponse,
-  IRoleResponse,
 } from "@ecommerce/shared";
 
 import type {
@@ -18,11 +17,11 @@ export interface IAdminPermissionRepository {
     page?: number,
     limit?: number,
   ): Promise<ApiListResponse<IAdminPermission>>;
-  createRole(data: ICreateRoleRequest): Promise<IApiResponse<IRoleResponse>>;
+  createRole(data: ICreateRoleRequest): Promise<IAdminRole>;
   updateRolePermissions(
     roleId: string,
     permissionIds: string[],
-  ): Promise<IApiResponse<IRoleResponse>>;
+  ): Promise<IAdminRole>;
 }
 
 export type TRolesApiResponse = IApiResponse<IRoleListResponse>;
