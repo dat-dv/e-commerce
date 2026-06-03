@@ -1,13 +1,11 @@
-import {
-  type ILanguageListResponse,
-  type IProductResponse,
-} from "@ecommerce/shared";
+import { type ILanguageListResponse } from "@ecommerce/shared";
 import { Globe, Info } from "lucide-react";
 
+import type { IAdminProduct } from "@/domain/product";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductTranslationsProps {
-  product: IProductResponse;
+  product: IAdminProduct;
   languages?: ILanguageListResponse;
   isEditing?: boolean;
   formState?: IProductFormState | null;
@@ -62,7 +60,7 @@ export const ProductTranslations = ({
     isEditing && languages.length > 0
       ? languages.map((language) => {
           const translation = existingTranslations.find(
-            (item) => item.language_id === language.id,
+            (item) => item.languageId === language.id,
           );
           return {
             id: translation?.id ?? language.id,
@@ -74,11 +72,10 @@ export const ProductTranslations = ({
         })
       : existingTranslations.map((translation) => ({
           id: translation.id,
-          language_id: translation.language_id,
+          language_id: translation.languageId,
           languageLabel:
-            languages.find(
-              (language) => language.id === translation.language_id,
-            )?.name ?? translation.language_id,
+            languages.find((language) => language.id === translation.languageId)
+              ?.name ?? translation.languageId,
           name: translation.name,
           description: translation.description ?? "",
         }));

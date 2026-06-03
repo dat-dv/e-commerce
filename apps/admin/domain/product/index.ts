@@ -3,7 +3,9 @@ import { GetProductUseCase } from "./use-cases/get-product.use-case";
 import { GetProductsUseCase } from "./use-cases/get-products.use-case";
 import { UpdateProductUseCase } from "./use-cases/update-product.use-case";
 
+export * from "./infrastructure/product.mapper";
 export * from "./infrastructure/product.repository";
+export * from "./types/product.model";
 export * from "./types/product.repository";
 export * from "./use-cases/get-product.use-case";
 export * from "./use-cases/get-products.use-case";

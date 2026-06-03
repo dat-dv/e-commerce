@@ -1,6 +1,5 @@
 "use client";
 
-import { type IProductResponse } from "@ecommerce/shared";
 import {
   Button,
   type CommonTableColumn,
@@ -15,9 +14,10 @@ import {
   formatCurrency,
   getProductStatus,
 } from "@/components/organisms/products-view/product.utils";
+import type { IAdminProduct } from "@/domain/product";
 
 interface IProductsTableProps {
-  products: IProductResponse[];
+  products: IAdminProduct[];
   loading?: boolean;
   error: string | null;
   page: number;
@@ -25,7 +25,7 @@ interface IProductsTableProps {
   total: number;
   onPageChange: (page: number) => void;
   onPageSizeChange: (pageSize: number) => void;
-  onViewDetail: (product: IProductResponse) => void;
+  onViewDetail: (product: IAdminProduct) => void;
 }
 
 export const ProductsTable = ({
@@ -57,7 +57,7 @@ export const ProductsTable = ({
     }
   };
 
-  const columns: CommonTableColumn<IProductResponse>[] = [
+  const columns: CommonTableColumn<IAdminProduct>[] = [
     {
       key: "product",
       header: "Product",
@@ -112,11 +112,11 @@ export const ProductsTable = ({
       },
     },
     {
-      key: "base_price",
+      key: "basePrice",
       header: "Price",
       sortable: true,
       resizable: true,
-      renderItem: ({ item: product }) => formatCurrency(product.base_price),
+      renderItem: ({ item: product }) => formatCurrency(product.basePrice),
     },
     {
       key: "rating",
@@ -158,7 +158,7 @@ export const ProductsTable = ({
 
   return (
     <div className="flex flex-col gap-4">
-      <TableCommon<IProductResponse>
+      <TableCommon<IAdminProduct>
         name="admin-products"
         data={products}
         columns={columns}

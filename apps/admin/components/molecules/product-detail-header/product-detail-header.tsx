@@ -1,11 +1,11 @@
-import { type IProductResponse } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
 
 import { PageHeader } from "@/components/molecules/page-header";
 import { getProductStatus } from "@/components/organisms/products-view/product.utils";
+import type { IAdminProduct } from "@/domain/product";
 
 interface IProductDetailHeaderProps {
-  product: IProductResponse | null;
+  product: IAdminProduct | null;
   onBack: () => void;
   isEditing: boolean;
   isDirty: boolean;

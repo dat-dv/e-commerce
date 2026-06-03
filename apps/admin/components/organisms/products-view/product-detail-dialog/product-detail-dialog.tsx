@@ -1,4 +1,3 @@
-import { type IProductResponse } from "@ecommerce/shared";
 import { Button, Dialog, DialogPanel, DialogTitle } from "@ecommerce/ui";
 import { Package, Star } from "lucide-react";
 
@@ -6,9 +5,10 @@ import {
   formatCurrency,
   getProductStatus,
 } from "@/components/organisms/products-view/product.utils";
+import type { IAdminProduct } from "@/domain/product";
 
 interface IProductDetailDialogProps {
-  product: IProductResponse | null;
+  product: IAdminProduct | null;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -68,7 +68,7 @@ export const ProductDetailDialog = ({
                   Price
                 </p>
                 <p className="mt-1 text-sm font-bold text-emerald-400">
-                  {formatCurrency(product.base_price)}
+                  {formatCurrency(product.basePrice)}
                 </p>
               </div>
               <div className="border-content/5 bg-content/[0.02] rounded-xl border px-3 py-3 text-center">
@@ -87,7 +87,7 @@ export const ProductDetailDialog = ({
                   Sold
                 </p>
                 <p className="mt-1 text-sm font-bold text-[var(--app-text)]">
-                  {product.sold_count}
+                  {product.soldCount}
                 </p>
               </div>
             </div>
@@ -105,7 +105,7 @@ export const ProductDetailDialog = ({
                       className="flex items-center justify-between gap-2"
                     >
                       <code className="text-primary text-xs">
-                        {sku.sku_code}
+                        {sku.skuCode}
                       </code>
                       <div className="flex items-center gap-3 text-xs text-[var(--muted)]">
                         <span>
@@ -129,7 +129,7 @@ export const ProductDetailDialog = ({
                   Reviews
                 </p>
                 <p className="mt-1 text-base font-bold text-[var(--app-text)]">
-                  {product.review_count}
+                  {product.reviewCount}
                 </p>
               </div>
               <div className="border-content/5 bg-content/[0.02] flex-1 rounded-xl border px-4 py-3">

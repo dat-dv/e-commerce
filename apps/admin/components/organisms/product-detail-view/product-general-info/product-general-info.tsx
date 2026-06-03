@@ -1,12 +1,4 @@
 import {
-  type IAttributeListResponse,
-  type IBrandResponse,
-  type ICategoryResponse,
-  type ICategoryTreeResponse,
-  type IProductResponse,
-} from "@ecommerce/shared";
-
-import {
   ProductBasePriceField,
   ProductBrandField,
   ProductCategoriesField,
@@ -15,13 +7,19 @@ import {
   ProductThumbnailField,
 } from "@/components/molecules/product-fields";
 import { ProductSkuTable } from "@/components/organisms/product-detail-view/product-sku-table";
+import type {
+  IAdminAttribute,
+  IAdminBrand,
+  IAdminCategory,
+  IAdminProduct,
+} from "@/domain/product";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductGeneralInfoProps {
-  product: IProductResponse;
-  brands?: IBrandResponse[];
-  attributes?: IAttributeListResponse;
-  categoryTree?: ICategoryTreeResponse;
+  product: IAdminProduct;
+  brands?: IAdminBrand[];
+  attributes?: IAdminAttribute[];
+  categoryTree?: IAdminCategory[];
   metadataLoading?: boolean;
   metadataError?: string | null;
   isEditing?: boolean;
@@ -35,9 +33,9 @@ interface IProductGeneralInfoProps {
 }
 
 const flattenCategories = (
-  categories: ICategoryResponse[],
+  categories: IAdminCategory[],
   level = 0,
-): Array<ICategoryResponse & { depth: number }> =>
+): Array<IAdminCategory & { depth: number }> =>
   categories.flatMap((category) => [
     { ...category, depth: level },
     ...flattenCategories(category.children ?? [], level + 1),
@@ -85,7 +83,7 @@ export const ProductGeneralInfo = ({
 
         <div className="grid gap-4 sm:grid-cols-2">
           <ProductBasePriceField
-            basePrice={Number(product.base_price)}
+            basePrice={Number(product.basePrice)}
             editPrice={formState?.base_price ?? 0}
             isEditing={isEditing}
             onPriceChange={(price) => updateFormState?.("base_price", price)}

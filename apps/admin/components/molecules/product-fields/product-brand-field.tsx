@@ -1,16 +1,17 @@
-import type { IBrandResponse, IProductResponse } from "@ecommerce/shared";
 import { Award } from "lucide-react";
 
+import type { IAdminBrand, IAdminProduct } from "@/domain/product";
+
 interface IProductBrandFieldProps {
-  product: IProductResponse;
-  brands: IBrandResponse[];
+  product: IAdminProduct;
+  brands: IAdminBrand[];
   editBrandId: string;
   isEditing: boolean;
   metadataLoading: boolean;
   onBrandChange?: (brandId: string) => void;
 }
 
-export const getBrandName = (brand: IBrandResponse) =>
+export const getBrandName = (brand: IAdminBrand) =>
   brand.translations?.[0]?.name || brand.slug;
 
 export const ProductBrandField = ({

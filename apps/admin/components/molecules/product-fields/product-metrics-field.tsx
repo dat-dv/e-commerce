@@ -1,8 +1,9 @@
-import type { IProductResponse } from "@ecommerce/shared";
 import { Star } from "lucide-react";
 
+import type { IAdminProduct } from "@/domain/product";
+
 interface IProductMetricsFieldProps {
-  product: IProductResponse;
+  product: IAdminProduct;
 }
 
 export const ProductMetricsField = ({ product }: IProductMetricsFieldProps) => {
@@ -18,10 +19,10 @@ export const ProductMetricsField = ({ product }: IProductMetricsFieldProps) => {
           <b>{product.rating.toFixed(1)}</b>
         </span>
         <span>
-          Sold: <b>{product.sold_count}</b>
+          Sold: <b>{product.soldCount}</b>
         </span>
         <span>
-          Reviews: <b>{product.review_count}</b>
+          Reviews: <b>{product.reviewCount}</b>
         </span>
       </div>
     </div>

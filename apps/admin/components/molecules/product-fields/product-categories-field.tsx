@@ -1,9 +1,10 @@
-import type { ICategoryResponse, IProductResponse } from "@ecommerce/shared";
 import { Grid, X } from "lucide-react";
 
+import type { IAdminCategory, IAdminProduct } from "@/domain/product";
+
 interface IProductCategoriesFieldProps {
-  product: IProductResponse;
-  flatCategories: Array<ICategoryResponse & { depth: number }>;
+  product: IAdminProduct;
+  flatCategories: Array<IAdminCategory & { depth: number }>;
   editCategoryIds: string[];
   isEditing: boolean;
   metadataLoading: boolean;
@@ -11,7 +12,7 @@ interface IProductCategoriesFieldProps {
   onToggleCategory?: (categoryId: string) => void;
 }
 
-export const getCategoryName = (category?: ICategoryResponse) =>
+export const getCategoryName = (category?: IAdminCategory) =>
   category?.translations?.[0]?.name || category?.slug || "";
 
 export const ProductCategoriesField = ({
@@ -66,10 +67,10 @@ export const ProductCategoriesField = ({
         <div className="mt-1 flex flex-wrap gap-1">
           {product.categories && product.categories.length > 0 ? (
             product.categories.map((c) => {
-              const label = getCategoryName(c.category) || c.category_id;
+              const label = getCategoryName(c.category) || c.categoryId;
               return (
                 <span
-                  key={c.category_id}
+                  key={c.categoryId}
                   className="bg-content/5 rounded px-2 py-0.5 text-xs text-[var(--app-text)]"
                 >
                   {label}

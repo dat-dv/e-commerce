@@ -1,17 +1,14 @@
-import {
-  type IAttributeListResponse,
-  type IProductResponse,
-  type IUpdateProductSkuRequest,
-} from "@ecommerce/shared";
+import { type IUpdateProductSkuRequest } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
 import { ImageIcon, Layers, Plus, Trash2 } from "lucide-react";
 
 import { formatCurrency } from "@/components/organisms/products-view/product.utils";
+import type { IAdminAttribute, IAdminProduct } from "@/domain/product";
 import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductSkuTableProps {
-  product: IProductResponse;
-  attributes?: IAttributeListResponse;
+  product: IAdminProduct;
+  attributes?: IAdminAttribute[];
   isEditing?: boolean;
   formState?: IProductFormState | null;
   updateFormState?: <K extends keyof IProductFormState>(
@@ -61,10 +58,10 @@ export const ProductSkuTable = ({
     const sku = product.skus?.find((item) => item.id === skuId);
 
     return (
-      sku?.sku_attribute_values
+      sku?.skuAttributeValues
         ?.map((item) => {
-          const attribute = item.attribute_value?.attribute?.name;
-          const value = item.attribute_value?.value;
+          const attribute = item.attributeValue?.attribute?.name;
+          const value = item.attributeValue?.value;
 
           return attribute && value ? `${attribute}: ${value}` : value;
         })
@@ -162,7 +159,7 @@ export const ProductSkuTable = ({
       ...formState.skus,
       {
         sku_code: "",
-        price: product.base_price,
+        price: product.basePrice,
         stock: 0,
         original_price: null,
         image_url: "",
@@ -348,7 +345,7 @@ export const ProductSkuTable = ({
                       ) : (
                         <div className="space-y-1">
                           <code className="text-primary text-xs font-semibold">
-                            {sku.sku_code}
+                            {"skuCode" in sku ? sku.skuCode : sku.sku_code}
                           </code>
                           {attributes.length > 0 && (
                             <div className="flex flex-wrap gap-1">
@@ -393,7 +390,10 @@ export const ProductSkuTable = ({
                         <span className="font-semibold text-[var(--app-text)]">
                           {formatCurrency(sku.price)}{" "}
                           <span className="text-xs text-[var(--muted)]">
-                            {sku.unit_price ?? "VND"}
+                            {"unitPrice" in sku
+                              ? (sku.unitPrice ?? "VND")
+                              : ((sku as IUpdateProductSkuRequest).unit_price ??
+                                "VND")}
                           </span>
                         </span>
                       )}
@@ -423,9 +423,9 @@ export const ProductSkuTable = ({
                             </p>
                           )}
                         </div>
-                      ) : sku.original_price ? (
+                      ) : "originalPrice" in sku && sku.originalPrice ? (
                         <span className="text-sm font-semibold text-[var(--muted)] line-through">
-                          {formatCurrency(sku.original_price)}
+                          {formatCurrency(sku.originalPrice)}
                         </span>
                       ) : (
                         <span className="text-sm text-[var(--muted)]">-</span>
@@ -487,11 +487,11 @@ export const ProductSkuTable = ({
                             placeholder="Image URL"
                           />
                         </div>
-                      ) : sku.image_url ? (
+                      ) : "imageUrl" in sku && sku.imageUrl ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={sku.image_url}
-                          alt={sku.sku_code}
+                          src={sku.imageUrl}
+                          alt={sku.skuCode}
                           className="h-10 w-10 rounded-md border border-[var(--border-color)] object-cover"
                         />
                       ) : (
