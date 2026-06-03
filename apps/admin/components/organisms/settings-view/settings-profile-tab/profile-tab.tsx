@@ -9,7 +9,7 @@ interface IProfileTabProps {
 export const ProfileTab = ({ user }: IProfileTabProps) => {
   const userName = [user?.firstName, user?.lastName].filter(Boolean).join(" ");
   const userEmail = user?.email;
-  const userAvatar = user?.avatarUrl || undefined;
+  const userAvatar = user?.avatar?.url || undefined;
 
   return (
     <div className="space-y-6">

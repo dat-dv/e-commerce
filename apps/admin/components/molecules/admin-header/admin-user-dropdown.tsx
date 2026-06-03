@@ -27,7 +27,7 @@ export const AdminUserDropdown = ({
 
   const userName = [user?.firstName, user?.lastName].filter(Boolean).join(" ");
   const userEmail = user?.email;
-  const userAvatar = user?.avatarUrl || undefined;
+  const userAvatar = user?.avatar?.url || undefined;
 
   const handleLogout = async () => {
     await adminAuthUseCase.logout.execute();

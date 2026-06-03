@@ -70,7 +70,7 @@ export const CustomersTable = ({
             <div className="from-primary/20 to-primary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ring-2 ring-white/5">
               <Avatar
                 name={fullName}
-                url={user.avatarUrl || undefined}
+                url={user.avatar?.url || undefined}
                 size={40}
               />
             </div>

@@ -19,9 +19,13 @@ export const AdminUserMapper = {
           roleName: dto.role.role_name,
           description: dto.role.description || null,
           permissions: dto.role.permissions
-            ? dto.role.permissions.map(
-                (item) => item.permission.permission_name,
-              )
+            ? dto.role.permissions.map((item) => ({
+                permission: {
+                  id: item.permission.id,
+                  permissionName: item.permission.permission_name,
+                  description: item.permission.description,
+                },
+              }))
             : [],
           createdAt: dto.role.created_at
             ? new Date(dto.role.created_at).toISOString()
@@ -47,9 +51,29 @@ export const AdminUserMapper = {
       deletedAt: dto.deleted_at ? new Date(dto.deleted_at).toISOString() : null,
       roleId: dto.role_id ?? "",
       role,
-      avatar: dto.avatar,
-      avatarUrl: dto.avatar?.url ?? null,
-      phones: dto.phones,
+      avatar: dto.avatar
+        ? {
+            id: dto.avatar.id,
+            url: dto.avatar.url,
+            width: dto.avatar.width,
+            height: dto.avatar.height,
+            format: dto.avatar.format,
+          }
+        : null,
+      phones:
+        dto.phones?.map((phone) => ({
+          id: phone.id,
+          userId: phone.user_id,
+          phone: phone.phone,
+          phoneCode: phone.phone_code,
+          isVerified: phone.is_verified,
+          createdAt: phone.created_at
+            ? new Date(phone.created_at).toISOString()
+            : "",
+          updatedAt: phone.updated_at
+            ? new Date(phone.updated_at).toISOString()
+            : "",
+        })) ?? [],
     };
   },
 
