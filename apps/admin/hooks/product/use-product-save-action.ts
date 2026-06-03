@@ -10,7 +10,7 @@ import {
   type IAdminProduct,
 } from "@/domain/product";
 
-import type { IProductFormState } from "./use-product-detail-form";
+import type { IProductEditFormState } from "./use-product-edit-state";
 
 const collectCategoryIds = (categories: IAdminCategory[]): Set<string> => {
   const ids = new Set<string>();
@@ -25,37 +25,37 @@ const collectCategoryIds = (categories: IAdminCategory[]): Set<string> => {
 };
 
 const buildProductUpdatePayload = (
-  formState: IProductFormState,
+  formState: IProductEditFormState,
 ): IUpdateProductRequest => ({
-  base_price: Number(formState.base_price),
+  base_price: Number(formState.basePrice),
   status: Number(formState.status),
-  thumbnail_id: formState.thumbnail_id || null,
-  brand_id: formState.brand_id || null,
-  category_ids: formState.category_ids,
+  thumbnail_id: formState.thumbnailId || null,
+  brand_id: formState.brandId || null,
+  category_ids: formState.categoryIds,
   translations: formState.translations.map((translation) => ({
-    ...translation,
+    language_id: translation.languageId,
     name: translation.name.trim(),
     description: translation.description?.trim() || "",
   })),
   skus: formState.skus.map((sku) => ({
-    ...sku,
-    sku_code: sku.sku_code.trim(),
+    id: sku.id,
+    sku_code: sku.skuCode.trim(),
     price: Number(sku.price),
     original_price:
-      sku.original_price === null || sku.original_price === undefined
+      sku.originalPrice === null || sku.originalPrice === undefined
         ? null
-        : Number(sku.original_price),
+        : Number(sku.originalPrice),
     stock: Number(sku.stock),
-    image_url: sku.image_url?.trim() || null,
-    unit_price: sku.unit_price?.trim() || "VND",
-    attribute_value_ids: sku.attribute_value_ids ?? [],
+    image_url: sku.imageUrl?.trim() || null,
+    unit_price: sku.unitPrice?.trim() || "VND",
+    attribute_value_ids: sku.attributeValueIds ?? [],
   })),
-  deleted_sku_ids: formState.deleted_sku_ids,
+  deleted_sku_ids: formState.deletedSkuIds,
 });
 
 interface IUseProductSaveActionParams {
   product: IAdminProduct | null;
-  formState: IProductFormState | null;
+  formState: IProductEditFormState | null;
   categoryTree: IAdminCategory[];
   canSubmit: boolean;
   onSaved: (product: IAdminProduct) => void;
@@ -80,12 +80,12 @@ export const useProductSaveAction = ({
         const normalizedTranslations = payload.translations ?? [];
         const skuCodes = normalizedSkus.map((sku) => sku.sku_code);
 
-        if (Number(formState.base_price) < 0) {
+        if (Number(formState.basePrice) < 0) {
           toast.error("Base price must be zero or greater.");
           return;
         }
 
-        if (formState.category_ids.length === 0) {
+        if (formState.categoryIds.length === 0) {
           toast.error("Select at least one category.");
           return;
         }
@@ -103,7 +103,7 @@ export const useProductSaveAction = ({
         const availableCategoryIds = collectCategoryIds(categoryTree);
         if (
           availableCategoryIds.size > 0 &&
-          formState.category_ids.some((id) => !availableCategoryIds.has(id))
+          formState.categoryIds.some((id) => !availableCategoryIds.has(id))
         ) {
           toast.error("Selected categories are no longer available.");
           return;

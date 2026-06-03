@@ -1,9 +1,9 @@
 "use client";
 
-import type { IOrderResponse } from "@ecommerce/shared";
 import { useState } from "react";
 
 import { adminOrderUseCase } from "@/domain/order";
+import type { IAdminCustomerOrder } from "@/domain/user/types/user.model";
 import usePagination from "@/hooks/use-pagination";
 
 export const useOrdersView = () => {
@@ -11,7 +11,7 @@ export const useOrdersView = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
-    usePagination<IOrderResponse>({
+    usePagination<IAdminCustomerOrder>({
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
@@ -24,17 +24,17 @@ export const useOrdersView = () => {
           });
           return {
             data: {
-              items: response.data?.items ?? [],
-              meta: response.data?.meta ?? {
+              items: response.items ?? [],
+              meta: response.meta ?? {
                 total: 0,
                 page: params.page ?? 1,
                 limit: params.limit ?? 10,
                 totalPages: 0,
               },
             },
-            message: response.message,
-            timestamp: response.timestamp || new Date().toISOString(),
-            status: response.status as "success" | "fail",
+            message: "Success",
+            timestamp: new Date().toISOString(),
+            status: "success",
           };
         } catch (err: unknown) {
           console.error(err);

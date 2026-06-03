@@ -13,7 +13,7 @@ import type {
   IAdminCategory,
   IAdminProduct,
 } from "@/domain/product";
-import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
+import type { IProductEditFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductGeneralInfoProps {
   product: IAdminProduct;
@@ -23,10 +23,10 @@ interface IProductGeneralInfoProps {
   metadataLoading?: boolean;
   metadataError?: string | null;
   isEditing?: boolean;
-  formState?: IProductFormState | null;
-  updateFormState?: <K extends keyof IProductFormState>(
+  formState?: IProductEditFormState | null;
+  updateFormState?: <K extends keyof IProductEditFormState>(
     key: K,
-    value: IProductFormState[K],
+    value: IProductEditFormState[K],
   ) => void;
   isUploadingThumbnail?: boolean;
   onThumbnailUpload?: (file: File) => void;
@@ -58,7 +58,7 @@ export const ProductGeneralInfo = ({
   const flatCategories = flattenCategories(categoryTree);
   const thumbnailUrl =
     isEditing && formState
-      ? formState.thumbnail_url || product.thumbnail?.url
+      ? formState.thumbnailUrl || product.thumbnail?.url
       : product.thumbnail?.url;
 
   return (
@@ -84,9 +84,9 @@ export const ProductGeneralInfo = ({
         <div className="grid gap-4 sm:grid-cols-2">
           <ProductBasePriceField
             basePrice={Number(product.basePrice)}
-            editPrice={formState?.base_price ?? 0}
+            editPrice={formState?.basePrice ?? 0}
             isEditing={isEditing}
-            onPriceChange={(price) => updateFormState?.("base_price", price)}
+            onPriceChange={(price) => updateFormState?.("basePrice", price)}
           />
 
           <ProductStatusField
@@ -99,26 +99,26 @@ export const ProductGeneralInfo = ({
           <ProductBrandField
             product={product}
             brands={brands}
-            editBrandId={formState?.brand_id ?? ""}
+            editBrandId={formState?.brandId ?? ""}
             isEditing={isEditing}
             metadataLoading={metadataLoading}
-            onBrandChange={(brandId) => updateFormState?.("brand_id", brandId)}
+            onBrandChange={(brandId) => updateFormState?.("brandId", brandId)}
           />
 
           <ProductCategoriesField
             product={product}
             flatCategories={flatCategories}
-            editCategoryIds={formState?.category_ids ?? []}
+            editCategoryIds={formState?.categoryIds ?? []}
             isEditing={isEditing}
             metadataLoading={metadataLoading}
             metadataError={metadataError}
             onToggleCategory={(categoryId) => {
               if (!updateFormState || !formState) return;
               updateFormState(
-                "category_ids",
-                formState.category_ids.includes(categoryId)
-                  ? formState.category_ids.filter((id) => id !== categoryId)
-                  : [...formState.category_ids, categoryId],
+                "categoryIds",
+                formState.categoryIds.includes(categoryId)
+                  ? formState.categoryIds.filter((id) => id !== categoryId)
+                  : [...formState.categoryIds, categoryId],
               );
             }}
           />

@@ -1,19 +1,20 @@
-import { type IUpdateProductSkuRequest } from "@ecommerce/shared";
 import { Button } from "@ecommerce/ui";
 import { ImageIcon, Layers, Plus, Trash2 } from "lucide-react";
 
 import { formatCurrency } from "@/components/organisms/products-view/product.utils";
 import type { IAdminAttribute, IAdminProduct } from "@/domain/product";
-import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
+import type { IProductEditFormState } from "@/hooks/product/use-product-detail-form";
+
+type EditSkuType = IProductEditFormState["skus"][number];
 
 interface IProductSkuTableProps {
   product: IAdminProduct;
   attributes?: IAdminAttribute[];
   isEditing?: boolean;
-  formState?: IProductFormState | null;
-  updateFormState?: <K extends keyof IProductFormState>(
+  formState?: IProductEditFormState | null;
+  updateFormState?: <K extends keyof IProductEditFormState>(
     key: K,
-    value: IProductFormState[K],
+    value: IProductEditFormState[K],
   ) => void;
 }
 
@@ -26,10 +27,10 @@ export const ProductSkuTable = ({
 }: IProductSkuTableProps) => {
   const editSkus = formState?.skus ?? [];
   const rows = isEditing ? editSkus : (product.skus ?? []);
-  const skuCodes = editSkus.map((sku) => sku.sku_code.trim()).filter(Boolean);
+  const skuCodes = editSkus.map((sku) => sku.skuCode.trim()).filter(Boolean);
 
-  const getSkuCodeError = (sku: IUpdateProductSkuRequest) => {
-    const skuCode = sku.sku_code.trim();
+  const getSkuCodeError = (sku: EditSkuType) => {
+    const skuCode = sku.skuCode.trim();
 
     if (!skuCode) return "Required";
     if (skuCodes.filter((code) => code === skuCode).length > 1) {
@@ -39,17 +40,17 @@ export const ProductSkuTable = ({
     return null;
   };
 
-  const getSkuPriceError = (sku: IUpdateProductSkuRequest) =>
+  const getSkuPriceError = (sku: EditSkuType) =>
     Number(sku.price) < 0 ? "Invalid" : null;
 
-  const getSkuOriginalPriceError = (sku: IUpdateProductSkuRequest) =>
-    sku.original_price !== null &&
-    sku.original_price !== undefined &&
-    Number(sku.original_price) < 0
+  const getSkuOriginalPriceError = (sku: EditSkuType) =>
+    sku.originalPrice !== null &&
+    sku.originalPrice !== undefined &&
+    Number(sku.originalPrice) < 0
       ? "Invalid"
       : null;
 
-  const getSkuStockError = (sku: IUpdateProductSkuRequest) =>
+  const getSkuStockError = (sku: EditSkuType) =>
     Number(sku.stock) < 0 || !Number.isInteger(Number(sku.stock))
       ? "Invalid"
       : null;
@@ -84,7 +85,7 @@ export const ProductSkuTable = ({
     updateFormState(
       "skus",
       formState.skus.map((sku, skuIndex) =>
-        skuIndex === index ? { ...sku, sku_code: newCode } : sku,
+        skuIndex === index ? { ...sku, skuCode: newCode } : sku,
       ),
     );
   };
@@ -107,7 +108,7 @@ export const ProductSkuTable = ({
     updateFormState(
       "skus",
       formState.skus.map((sku, skuIndex) =>
-        skuIndex === index ? { ...sku, original_price: newOriginalPrice } : sku,
+        skuIndex === index ? { ...sku, originalPrice: newOriginalPrice } : sku,
       ),
     );
   };
@@ -117,7 +118,7 @@ export const ProductSkuTable = ({
     updateFormState(
       "skus",
       formState.skus.map((sku, skuIndex) =>
-        skuIndex === index ? { ...sku, unit_price: newUnitPrice } : sku,
+        skuIndex === index ? { ...sku, unitPrice: newUnitPrice } : sku,
       ),
     );
   };
@@ -127,7 +128,7 @@ export const ProductSkuTable = ({
     updateFormState(
       "skus",
       formState.skus.map((sku, skuIndex) =>
-        skuIndex === index ? { ...sku, image_url: newImageUrl } : sku,
+        skuIndex === index ? { ...sku, imageUrl: newImageUrl } : sku,
       ),
     );
   };
@@ -142,10 +143,10 @@ export const ProductSkuTable = ({
       formState.skus.map((sku, skuIndex) => {
         if (skuIndex !== index) return sku;
 
-        const currentIds = sku.attribute_value_ids ?? [];
+        const currentIds = sku.attributeValueIds ?? [];
         return {
           ...sku,
-          attribute_value_ids: currentIds.includes(attributeValueId)
+          attributeValueIds: currentIds.includes(attributeValueId)
             ? currentIds.filter((id) => id !== attributeValueId)
             : [...currentIds, attributeValueId],
         };
@@ -158,12 +159,13 @@ export const ProductSkuTable = ({
     updateFormState("skus", [
       ...formState.skus,
       {
-        sku_code: "",
+        skuCode: "",
         price: product.basePrice,
         stock: 0,
-        original_price: null,
-        image_url: "",
-        unit_price: "VND",
+        originalPrice: null,
+        imageUrl: "",
+        unitPrice: "VND",
+        attributeValueIds: [],
       },
     ]);
   };
@@ -179,8 +181,8 @@ export const ProductSkuTable = ({
     }
 
     if (sku.id) {
-      updateFormState("deleted_sku_ids", [
-        ...new Set([...formState.deleted_sku_ids, sku.id]),
+      updateFormState("deletedSkuIds", [
+        ...new Set([...formState.deletedSkuIds, sku.id]),
       ]);
     }
 
@@ -247,7 +249,7 @@ export const ProductSkuTable = ({
             </thead>
             <tbody className="divide-content/5 divide-y">
               {rows.map((sku, index) => {
-                const editSku = sku as IUpdateProductSkuRequest;
+                const editSku = sku as unknown as EditSkuType;
                 const attributes = getSkuAttributes(sku.id);
                 const skuCodeError = isEditing
                   ? getSkuCodeError(editSku)
@@ -272,7 +274,7 @@ export const ProductSkuTable = ({
                         <div className="space-y-1">
                           <input
                             type="text"
-                            value={editSku.sku_code}
+                            value={editSku.skuCode}
                             onChange={(e) =>
                               handleSkuCodeChange(index, e.target.value)
                             }
@@ -312,7 +314,7 @@ export const ProductSkuTable = ({
                                   <div className="flex flex-wrap gap-1">
                                     {attribute.values?.map((value) => {
                                       const checked =
-                                        editSku.attribute_value_ids?.includes(
+                                        editSku.attributeValueIds?.includes(
                                           value.id,
                                         ) ?? false;
 
@@ -345,7 +347,7 @@ export const ProductSkuTable = ({
                       ) : (
                         <div className="space-y-1">
                           <code className="text-primary text-xs font-semibold">
-                            {"skuCode" in sku ? sku.skuCode : sku.sku_code}
+                            {sku.skuCode}
                           </code>
                           {attributes.length > 0 && (
                             <div className="flex flex-wrap gap-1">
@@ -390,10 +392,7 @@ export const ProductSkuTable = ({
                         <span className="font-semibold text-[var(--app-text)]">
                           {formatCurrency(sku.price)}{" "}
                           <span className="text-xs text-[var(--muted)]">
-                            {"unitPrice" in sku
-                              ? (sku.unitPrice ?? "VND")
-                              : ((sku as IUpdateProductSkuRequest).unit_price ??
-                                "VND")}
+                            {sku.unitPrice ?? "VND"}
                           </span>
                         </span>
                       )}
@@ -403,7 +402,7 @@ export const ProductSkuTable = ({
                         <div className="ml-auto space-y-1">
                           <input
                             type="number"
-                            value={editSku.original_price ?? ""}
+                            value={editSku.originalPrice ?? ""}
                             onChange={(e) =>
                               handleSkuOriginalPriceChange(
                                 index,
@@ -470,7 +469,7 @@ export const ProductSkuTable = ({
                         <div className="space-y-2">
                           <input
                             type="text"
-                            value={editSku.unit_price ?? ""}
+                            value={editSku.unitPrice ?? ""}
                             onChange={(e) =>
                               handleSkuUnitPriceChange(index, e.target.value)
                             }
@@ -479,7 +478,7 @@ export const ProductSkuTable = ({
                           />
                           <input
                             type="url"
-                            value={editSku.image_url ?? ""}
+                            value={editSku.imageUrl ?? ""}
                             onChange={(e) =>
                               handleSkuImageUrlChange(index, e.target.value)
                             }
@@ -487,7 +486,7 @@ export const ProductSkuTable = ({
                             placeholder="Image URL"
                           />
                         </div>
-                      ) : "imageUrl" in sku && sku.imageUrl ? (
+                      ) : sku.imageUrl ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={sku.imageUrl}
@@ -508,7 +507,7 @@ export const ProductSkuTable = ({
                           onClick={() => handleRemoveSku(index)}
                           disabled={editSkus.length === 1}
                           className="ml-auto h-8 w-8 rounded-lg text-red-300 hover:bg-red-500/10 disabled:opacity-30"
-                          aria-label={`Remove SKU ${editSku.sku_code || index + 1}`}
+                          aria-label={`Remove SKU ${editSku.skuCode || index + 1}`}
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>

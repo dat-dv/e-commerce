@@ -1,4 +1,3 @@
-import { type IOrderResponse } from "@ecommerce/shared";
 import {
   Avatar,
   Button,
@@ -13,9 +12,10 @@ import {
   formatDate,
   getOrderStatus,
 } from "@/components/organisms/orders-view/order.utils";
+import type { IAdminCustomerOrder } from "@/domain/user/types/user.model";
 
 interface IOrderDetailDialogProps {
-  order: IOrderResponse | null;
+  order: IAdminCustomerOrder | null;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -58,13 +58,13 @@ export const OrderDetailDialog = ({
             <div className="border-content/5 bg-content/[0.02] flex items-center gap-3 rounded-xl border px-4 py-3">
               <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-full">
                 <Avatar
-                  name={`${order.user?.first_name ?? ""} ${order.user?.last_name ?? ""}`}
+                  name={`${order.user?.firstName ?? ""} ${order.user?.lastName ?? ""}`}
                   size={40}
                 />
               </div>
               <div>
                 <p className="font-semibold text-[var(--app-text)]">
-                  {[order.user?.first_name, order.user?.last_name]
+                  {[order.user?.firstName, order.user?.lastName]
                     .filter(Boolean)
                     .join(" ") || "Unknown"}
                 </p>
@@ -82,7 +82,7 @@ export const OrderDetailDialog = ({
                 Total Amount
               </p>
               <p className="mt-1 text-base font-bold text-emerald-400">
-                {formatCurrency(order.total_amount)}
+                {formatCurrency(Number(order.totalAmount))}
               </p>
             </div>
             <div className="border-content/5 bg-content/[0.02] rounded-xl border px-4 py-3">
@@ -90,7 +90,7 @@ export const OrderDetailDialog = ({
                 Discount
               </p>
               <p className="mt-1 text-base font-bold text-orange-400">
-                {formatCurrency(order.discount_amount ?? 0)}
+                {formatCurrency(Number(order.discountAmount ?? 0))}
               </p>
             </div>
           </div>
@@ -106,10 +106,10 @@ export const OrderDetailDialog = ({
                   const sku = item.sku;
                   const product = sku?.product;
                   const productName = product?.translations?.[0]?.name ?? "-";
-                  const imageUrl = sku?.image_url ?? product?.thumbnail?.url;
-                  const skuCode = sku?.sku_code ?? item.sku_id;
-                  const attributes = sku?.sku_attribute_values
-                    ?.map((entry) => entry.attribute_value?.value)
+                  const imageUrl = sku?.imageUrl ?? product?.thumbnail?.url;
+                  const skuCode = sku?.skuCode ?? item.skuId;
+                  const attributes = sku?.skuAttributeValues
+                    ?.map((entry) => entry.attributeValue?.value)
                     .filter(Boolean)
                     .join(" | ");
                   const unitPrice = Number(item.price);
@@ -178,7 +178,7 @@ export const OrderDetailDialog = ({
                   Placed
                 </p>
                 <p className="text-xs text-[var(--app-text)]">
-                  {formatDate(order.created_at)}
+                  {formatDate(order.createdAt)}
                 </p>
               </div>
             </div>
@@ -189,7 +189,7 @@ export const OrderDetailDialog = ({
                   Updated
                 </p>
                 <p className="text-xs text-[var(--app-text)]">
-                  {formatDate(order.updated_at)}
+                  {formatDate(order.updatedAt)}
                 </p>
               </div>
             </div>

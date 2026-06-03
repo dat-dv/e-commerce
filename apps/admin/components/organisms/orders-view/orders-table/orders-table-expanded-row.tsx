@@ -1,10 +1,11 @@
-import type { IOrderResponse } from "@ecommerce/shared";
 import { Package } from "lucide-react";
+
+import type { IAdminCustomerOrder } from "@/domain/user/types/user.model";
 
 import { formatCurrency } from "../../products-view/product.utils";
 
 export interface OrdersTableExpandedRowProps {
-  order: IOrderResponse;
+  order: IAdminCustomerOrder;
 }
 
 export const OrdersTableExpandedRow = ({
@@ -19,7 +20,7 @@ export const OrdersTableExpandedRow = ({
           Order items ({orderItems.length})
         </p>
         <p className="text-xs font-semibold text-[var(--app-text)]">
-          {formatCurrency(order.total_amount)}
+          {formatCurrency(Number(order.totalAmount))}
         </p>
       </div>
 
@@ -28,10 +29,10 @@ export const OrdersTableExpandedRow = ({
           const sku = item.sku;
           const product = sku?.product;
           const productName = product?.translations?.[0]?.name ?? "-";
-          const imageUrl = sku?.image_url ?? product?.thumbnail?.url;
-          const skuCode = sku?.sku_code ?? item.sku_id;
-          const attributes = sku?.sku_attribute_values
-            ?.map((entry) => entry.attribute_value?.value)
+          const imageUrl = sku?.imageUrl ?? product?.thumbnail?.url;
+          const skuCode = sku?.skuCode ?? item.skuId;
+          const attributes = sku?.skuAttributeValues
+            ?.map((entry) => entry.attributeValue?.value)
             .filter(Boolean)
             .join(" | ");
           const unitPrice = Number(item.price);

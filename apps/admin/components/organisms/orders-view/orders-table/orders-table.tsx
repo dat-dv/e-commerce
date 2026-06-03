@@ -1,6 +1,5 @@
 "use client";
 
-import { type IOrderResponse } from "@ecommerce/shared";
 import {
   Button,
   type CommonTableColumn,
@@ -16,11 +15,12 @@ import {
   formatDate,
   getOrderStatus,
 } from "@/components/organisms/orders-view/order.utils";
+import type { IAdminCustomerOrder } from "@/domain/user/types/user.model";
 
 import { OrdersTableExpandedRow } from "./orders-table-expanded-row";
 
 interface IOrdersTableProps {
-  orders: IOrderResponse[];
+  orders: IAdminCustomerOrder[];
   loading?: boolean;
   error: string | null;
   page: number;
@@ -28,7 +28,7 @@ interface IOrdersTableProps {
   total: number;
   onPageChange: (page: number) => void;
   onPageSizeChange: (pageSize: number) => void;
-  onViewDetail: (order: IOrderResponse) => void;
+  onViewDetail: (order: IAdminCustomerOrder) => void;
 }
 
 export const OrdersTable = ({
@@ -60,7 +60,7 @@ export const OrdersTable = ({
     }
   };
 
-  const columns: CommonTableColumn<IOrderResponse>[] = [
+  const columns: CommonTableColumn<IAdminCustomerOrder>[] = [
     {
       key: "expand",
       header: "Expand",
@@ -100,7 +100,7 @@ export const OrdersTable = ({
       resizable: true,
       renderItem: ({ item: order }) => {
         const customerName =
-          [order.user?.first_name, order.user?.last_name]
+          [order.user?.firstName, order.user?.lastName]
             .filter(Boolean)
             .join(" ") ||
           order.user?.email ||
@@ -142,18 +142,19 @@ export const OrdersTable = ({
       },
     },
     {
-      key: "total_amount",
+      key: "totalAmount",
       header: "Total",
       sortable: true,
       resizable: true,
-      renderItem: ({ item: order }) => formatCurrency(order.total_amount),
+      renderItem: ({ item: order }) =>
+        formatCurrency(Number(order.totalAmount)),
     },
     {
-      key: "created_at",
+      key: "createdAt",
       header: "Date",
       sortable: true,
       resizable: true,
-      renderItem: ({ item: order }) => formatDate(order.created_at),
+      renderItem: ({ item: order }) => formatDate(order.createdAt),
     },
     {
       key: "actions",
@@ -178,7 +179,7 @@ export const OrdersTable = ({
 
   return (
     <div className="flex flex-col gap-4">
-      <TableCommon<IOrderResponse>
+      <TableCommon<IAdminCustomerOrder>
         name="admin-orders"
         data={orders}
         columns={columns}

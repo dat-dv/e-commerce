@@ -1,15 +1,15 @@
 "use client";
 
-import type { IOrderResponse } from "@ecommerce/shared";
 import { useState } from "react";
 
+import type { IAdminCustomerOrder } from "@/domain/user/types/user.model";
+
 export const useOrderDetailDialog = () => {
-  const [selectedOrder, setSelectedOrder] = useState<IOrderResponse | null>(
-    null,
-  );
+  const [selectedOrder, setSelectedOrder] =
+    useState<IAdminCustomerOrder | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const openOrderDetail = (order: IOrderResponse) => {
+  const openOrderDetail = (order: IAdminCustomerOrder) => {
     setSelectedOrder(order);
     setIsDetailOpen(true);
   };

@@ -2,16 +2,16 @@ import { type ILanguageListResponse } from "@ecommerce/shared";
 import { Globe, Info } from "lucide-react";
 
 import type { IAdminProduct } from "@/domain/product";
-import type { IProductFormState } from "@/hooks/product/use-product-detail-form";
+import type { IProductEditFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductTranslationsProps {
   product: IAdminProduct;
   languages?: ILanguageListResponse;
   isEditing?: boolean;
-  formState?: IProductFormState | null;
-  updateFormState?: <K extends keyof IProductFormState>(
+  formState?: IProductEditFormState | null;
+  updateFormState?: <K extends keyof IProductEditFormState>(
     key: K,
-    value: IProductFormState[K],
+    value: IProductEditFormState[K],
   ) => void;
 }
 
@@ -30,14 +30,14 @@ export const ProductTranslations = ({
     if (!updateFormState || !formState) return;
     const current = formState.translations;
     const existingTranslation = current.find(
-      (translation) => translation.language_id === langId,
+      (translation) => translation.languageId === langId,
     );
 
     if (existingTranslation) {
       updateFormState(
         "translations",
         current.map((translation) =>
-          translation.language_id === langId
+          translation.languageId === langId
             ? { ...translation, [field]: value }
             : translation,
         ),
@@ -48,7 +48,7 @@ export const ProductTranslations = ({
     updateFormState("translations", [
       ...current,
       {
-        language_id: langId,
+        languageId: langId,
         name: field === "name" ? value : "",
         description: field === "description" ? value : "",
       },
@@ -64,7 +64,7 @@ export const ProductTranslations = ({
           );
           return {
             id: translation?.id ?? language.id,
-            language_id: language.id,
+            languageId: language.id,
             languageLabel: `${language.name} (${language.code})`,
             name: translation?.name ?? "",
             description: translation?.description ?? "",
@@ -72,7 +72,7 @@ export const ProductTranslations = ({
         })
       : existingTranslations.map((translation) => ({
           id: translation.id,
-          language_id: translation.languageId,
+          languageId: translation.languageId,
           languageLabel:
             languages.find((language) => language.id === translation.languageId)
               ?.name ?? translation.languageId,
@@ -97,7 +97,7 @@ export const ProductTranslations = ({
           {rows.map((translation) => {
             const editT = formState
               ? formState.translations.find(
-                  (x) => x.language_id === translation.language_id,
+                  (x) => x.languageId === translation.languageId,
                 ) || translation
               : translation;
             return (
@@ -121,7 +121,7 @@ export const ProductTranslations = ({
                         value={editT.name}
                         onChange={(e) =>
                           handleTranslationChange(
-                            translation.language_id,
+                            translation.languageId,
                             "name",
                             e.target.value,
                           )
@@ -143,7 +143,7 @@ export const ProductTranslations = ({
                         value={editT.description || ""}
                         onChange={(e) =>
                           handleTranslationChange(
-                            translation.language_id,
+                            translation.languageId,
                             "description",
                             e.target.value,
                           )
