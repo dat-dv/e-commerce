@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { toast } from "@ecommerce/ui";
+import { useEffect, useState, useTransition } from "react";
 
 import { adminUserUseCase, type IAdminCustomerCart } from "@/domain/user";
 
@@ -12,34 +13,22 @@ const EMPTY_CART: IAdminCustomerCart = {
 
 export const useUserDetailCart = (userId: string | null) => {
   const [cart, setCart] = useState<IAdminCustomerCart>(EMPTY_CART);
-  const [loading, setLoading] = useState(false);
+  const [loading, startLoadingTransition] = useTransition();
 
   useEffect(() => {
     if (!userId) {
       setCart(EMPTY_CART);
-      setLoading(false);
       return;
     }
 
-    let ignore = false;
-
-    const loadData = async () => {
-      setLoading(true);
+    startLoadingTransition(async () => {
       try {
         const cartResponse = await adminUserUseCase.getUserCart.execute(userId);
-        if (!ignore) setCart(cartResponse);
-      } catch (err) {
-        if (!ignore) console.error(err);
-      } finally {
-        if (!ignore) setLoading(false);
+        setCart(cartResponse);
+      } catch {
+        toast.error("Failed to load customer cart.");
       }
-    };
-
-    void loadData();
-
-    return () => {
-      ignore = true;
-    };
+    });
   }, [userId]);
 
   return { cart, loading };

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { toast } from "@ecommerce/ui";
+import { useEffect, useState, useTransition } from "react";
 
 import {
   adminUserUseCase,
@@ -13,7 +14,7 @@ export const useUserDetailFavorites = (userId: string | null) => {
     items: [],
     meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, startLoadingTransition] = useTransition();
 
   useEffect(() => {
     if (!userId) {
@@ -21,33 +22,21 @@ export const useUserDetailFavorites = (userId: string | null) => {
         items: [],
         meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
       });
-      setLoading(false);
       return;
     }
 
-    let ignore = false;
-
-    const loadData = async () => {
-      setLoading(true);
+    startLoadingTransition(async () => {
       try {
         const favoritesResponse =
           await adminUserUseCase.getUserFavorites.execute(userId, {
             page: 1,
             limit: 10,
           });
-        if (!ignore) setFavorites(favoritesResponse);
-      } catch (err) {
-        if (!ignore) console.error(err);
-      } finally {
-        if (!ignore) setLoading(false);
+        setFavorites(favoritesResponse);
+      } catch {
+        toast.error("Failed to load customer favorites.");
       }
-    };
-
-    void loadData();
-
-    return () => {
-      ignore = true;
-    };
+    });
   }, [userId]);
 
   return { favorites, loading };

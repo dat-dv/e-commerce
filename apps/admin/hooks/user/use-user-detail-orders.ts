@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { toast } from "@ecommerce/ui";
+import { useEffect, useState, useTransition } from "react";
 
 import { adminUserUseCase, type IAdminCustomerOrder } from "@/domain/user";
 import type { ApiListResponse } from "@/utils/request";
@@ -8,7 +9,7 @@ export const useUserDetailOrders = (userId: string | null) => {
     items: [],
     meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, startLoadingTransition] = useTransition();
 
   useEffect(() => {
     if (!userId) {
@@ -16,32 +17,20 @@ export const useUserDetailOrders = (userId: string | null) => {
         items: [],
         meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
       });
-      setLoading(false);
       return;
     }
 
-    let ignore = false;
-
-    const loadData = async () => {
-      setLoading(true);
+    startLoadingTransition(async () => {
       try {
         const ordersRes = await adminUserUseCase.getUserOrders.execute(userId, {
           page: 1,
           limit: 10,
         });
-        if (!ignore) setOrders(ordersRes);
-      } catch (err) {
-        if (!ignore) console.error(err);
-      } finally {
-        if (!ignore) setLoading(false);
+        setOrders(ordersRes);
+      } catch {
+        toast.error("Failed to load customer orders.");
       }
-    };
-
-    void loadData();
-
-    return () => {
-      ignore = true;
-    };
+    });
   }, [userId]);
 
   return { orders, loading };
