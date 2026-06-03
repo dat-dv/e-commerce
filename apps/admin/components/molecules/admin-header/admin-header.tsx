@@ -1,12 +1,8 @@
 "use client";
 
 import { Button, Logo } from "@ecommerce/ui";
-import { Settings } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
 
 import { BellIcon, MenuIcon } from "@/components/atoms/icons";
-import { APP_ROUTES } from "@/constants/routes";
 
 import { AdminUserDropdown } from "./admin-user-dropdown";
 
@@ -15,8 +11,6 @@ interface IAdminHeaderProps {
 }
 
 export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
-
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/[0.06] bg-[var(--app-bg)]/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6">
@@ -58,28 +52,11 @@ export const AdminHeader = ({ onMenuToggle }: IAdminHeaderProps) => {
             />
           </Button>
 
-          {/* Settings */}
-          <Button
-            linkComponent={Link}
-            href={APP_ROUTES.SETTINGS}
-            variant="ghost"
-            size="icon"
-            aria-label="Settings"
-            className="rounded-lg text-[var(--sidebar-text)] hover:bg-white/8 hover:text-[var(--app-text)]"
-            title="Interface Settings"
-          >
-            <Settings className="h-5 w-5" />
-          </Button>
-
           {/* Divider */}
           <div className="mx-2 h-5 w-px bg-white/10" aria-hidden="true" />
 
           {/* User menu */}
-          <AdminUserDropdown
-            isOpen={userMenuOpen}
-            onToggle={() => setUserMenuOpen((v) => !v)}
-            onClose={() => setUserMenuOpen(false)}
-          />
+          <AdminUserDropdown />
         </div>
       </div>
     </header>
