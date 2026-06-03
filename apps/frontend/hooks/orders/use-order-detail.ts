@@ -19,7 +19,7 @@ export const useOrderDetail = (orderId: string) => {
       } else {
         throw new Error(response.message || "Failed to load order details");
       }
-    } catch (err) {
+    } catch {
       toast.error("Failed to load order details. Please try again.");
     } finally {
       setLoading(false);
