@@ -107,7 +107,7 @@ export const CreateRoleView = () => {
                       >
                         <span className="min-w-0">
                           <span className="block text-sm font-semibold text-[var(--app-text)]">
-                            {permission.permission_name}
+                            {permission.permissionName}
                           </span>
                           {permission.description && (
                             <span className="mt-0.5 block text-xs text-[var(--muted)]">

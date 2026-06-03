@@ -1,17 +1,16 @@
-import type { IPermissionResponse } from "@ecommerce/shared";
-
-import type { TAdminRole } from "@/domain/permission";
+import type {
+  IAdminPermission,
+  IAdminRole,
+} from "@/domain/user/types/user.model";
 
 export const DEFAULT_PERMISSION_ERROR =
   "Failed to load permission settings. Please try again.";
 
-export const getPermissionIds = (role: TAdminRole | null) =>
+export const getPermissionIds = (role: IAdminRole | null) =>
   role?.permissions?.map((item) => item.permission.id) ?? [];
 
-export const groupPermissionsByCategory = (
-  permissions: IPermissionResponse[],
-) => {
-  return permissions.reduce<Record<string, IPermissionResponse[]>>(
+export const groupPermissionsByCategory = (permissions: IAdminPermission[]) => {
+  return permissions.reduce<Record<string, IAdminPermission[]>>(
     (acc, permission) => {
       const category = permission.category || "Other";
       acc[category] = [...(acc[category] ?? []), permission];

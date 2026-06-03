@@ -161,7 +161,7 @@ export const UserDetailInfoTab = ({ userId }: { userId: string }) => {
             label="Role"
             size="md"
             options={roles.map((r) => ({
-              label: r.role_name,
+              label: r.roleName,
               value: r.id,
             }))}
           />

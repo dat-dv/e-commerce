@@ -14,7 +14,7 @@ import React from "react";
 import { FilterBar } from "@/components/molecules/filter-bar";
 import { PageHeader } from "@/components/molecules/page-header";
 import { APP_ROUTES } from "@/constants/routes";
-import type { TAdminRole } from "@/domain/permission";
+import type { IAdminRole } from "@/domain/user/types/user.model";
 import { useRolesView } from "@/hooks/role/use-roles-view";
 
 export const RolesView = () => {
@@ -30,7 +30,7 @@ export const RolesView = () => {
     setSortDirection(nextQuery.sortDirection);
   };
 
-  const columns: CommonTableColumn<TAdminRole>[] = [
+  const columns: CommonTableColumn<IAdminRole>[] = [
     {
       key: "roleName",
       header: "Role Name",
@@ -38,7 +38,7 @@ export const RolesView = () => {
       resizable: true,
       renderItem: ({ item: role }) => (
         <span className="font-semibold text-[var(--app-text)]">
-          {role.role_name || role.id}
+          {role.roleName || role.id}
         </span>
       ),
     },
@@ -65,7 +65,7 @@ export const RolesView = () => {
             handleEditRole(role);
           }}
           className="hover:bg-primary inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 p-0 text-[var(--app-text)]/80 transition-colors hover:text-white"
-          aria-label={`Manage permissions for ${role.role_name}`}
+          aria-label={`Manage permissions for ${role.roleName}`}
         >
           <ShieldCog className="h-4 w-4" />
         </Button>
@@ -96,7 +96,7 @@ export const RolesView = () => {
       />
 
       <div className="flex flex-col gap-4">
-        <TableCommon<TAdminRole>
+        <TableCommon<IAdminRole>
           name="admin-roles"
           data={roles}
           columns={columns}

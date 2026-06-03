@@ -40,7 +40,7 @@ export const RolePermissionsPanel = ({
 
       <div className="border-b border-[var(--border-color)] px-5 py-3 text-sm text-[var(--muted)]">
         <span className="font-semibold text-[var(--app-text)]">
-          {selectedRole?.role_name ?? "No role"}
+          {selectedRole?.roleName ?? "No role"}
         </span>{" "}
         has {selectedCount} selected permissions.
       </div>
@@ -73,7 +73,7 @@ export const RolePermissionsPanel = ({
                   >
                     <span className="min-w-0">
                       <span className="block text-sm font-semibold text-[var(--app-text)]">
-                        {permission.permission_name}
+                        {permission.permissionName}
                       </span>
                       {permission.description && (
                         <span className="mt-0.5 block text-xs text-[var(--muted)]">

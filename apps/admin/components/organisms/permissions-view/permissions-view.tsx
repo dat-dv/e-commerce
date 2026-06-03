@@ -6,15 +6,14 @@ import { useRolePermissionsData } from "@/hooks/role/use-role-permissions-data";
 import { useRolePermissionsMutations } from "@/hooks/role/use-role-permissions-mutations";
 
 export const PermissionsView = () => {
-  const { role, permissions, groupedPermissions, permissionRepository } =
-    useRolePermissionsData();
+  const { role, permissions, groupedPermissions } = useRolePermissionsData();
 
   const {
     selectedPermissionIds,
     savingPermissions,
     togglePermission,
     handleSavePermissions,
-  } = useRolePermissionsMutations(role, permissionRepository);
+  } = useRolePermissionsMutations(role);
 
   return (
     <div className="space-y-6">

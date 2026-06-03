@@ -1,8 +1,9 @@
-import type { IPermissionResponse } from "@ecommerce/shared";
+import type {
+  IAdminPermission,
+  IAdminRole,
+} from "@/domain/user/types/user.model";
 
-import type { TAdminRole } from "@/domain/permission";
-
-export type PermissionsByCategory = Record<string, IPermissionResponse[]>;
+export type PermissionsByCategory = Record<string, IAdminPermission[]>;
 
 export interface IPermissionsHeaderProps {
   permissionCount: number;
@@ -11,7 +12,7 @@ export interface IPermissionsHeaderProps {
 }
 
 export interface IRolePermissionsPanelProps {
-  selectedRole: TAdminRole | null;
+  selectedRole: IAdminRole | null;
   selectedRoleId: string;
   selectedPermissionIds: string[];
   groupedPermissions: PermissionsByCategory;
