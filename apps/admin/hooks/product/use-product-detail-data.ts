@@ -1,17 +1,16 @@
 "use client";
 
-import type { IProductResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 
-import { adminProductUseCase } from "@/domain/product";
+import { adminProductUseCase, type IAdminProduct } from "@/domain/product";
 
 export const useProductDetailData = () => {
   const searchParams = useSearchParams();
   const slug = searchParams.get("slug");
 
-  const [product, setProduct] = useState<IProductResponse | null>(null);
+  const [product, setProduct] = useState<IAdminProduct | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

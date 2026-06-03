@@ -1,20 +1,22 @@
 "use client";
 
-import {
-  type ICategoryTreeResponse,
-  type IProductResponse,
-  type IUpdateProductSkuRequest,
-  type IUpdateProductTranslationRequest,
+import type {
+  IUpdateProductSkuRequest,
+  IUpdateProductTranslationRequest,
 } from "@ecommerce/shared";
 import { toast } from "@ecommerce/ui";
 import { useCallback, useMemo, useState, useTransition } from "react";
 
-import { adminProductUseCase } from "@/domain/product";
+import {
+  adminProductUseCase,
+  type IAdminCategory,
+  type IAdminProduct,
+} from "@/domain/product";
 import { adminUploadUseCase } from "@/domain/upload";
 
-const collectCategoryIds = (categories: ICategoryTreeResponse): Set<string> => {
+const collectCategoryIds = (categories: IAdminCategory[]): Set<string> => {
   const ids = new Set<string>();
-  const visit = (items: ICategoryTreeResponse) => {
+  const visit = (items: IAdminCategory[]) => {
     for (const item of items) {
       ids.add(item.id);
       visit(item.children ?? []);
@@ -40,44 +42,44 @@ export interface IProductFormState {
 }
 
 export const getProductEditSnapshot = (
-  product: IProductResponse,
+  product: IAdminProduct,
 ): IProductFormState => ({
-  base_price: Number(product.base_price),
+  base_price: Number(product.basePrice),
   status: Number(product.status),
-  thumbnail_id: product.thumbnail_id ?? "",
+  thumbnail_id: product.thumbnailId ?? "",
   thumbnail_url: product.thumbnail?.url ?? "",
-  brand_id: product.brand_id ?? "",
+  brand_id: product.brandId ?? "",
   category_ids: normalizeCategoryIds(
-    product.categories?.map((category) => category.category_id) ?? [],
+    product.categories?.map((category) => category.categoryId) ?? [],
   ),
   translations:
     product.translations?.map((translation) => ({
-      language_id: translation.language_id,
+      language_id: translation.languageId,
       name: translation.name,
       description: translation.description || "",
     })) ?? [],
   skus:
     product.skus?.map((sku) => ({
       id: sku.id,
-      sku_code: sku.sku_code.trim(),
+      sku_code: sku.skuCode.trim(),
       price: Number(sku.price),
       original_price:
-        sku.original_price === null || sku.original_price === undefined
+        sku.originalPrice === null || sku.originalPrice === undefined
           ? null
-          : Number(sku.original_price),
+          : Number(sku.originalPrice),
       stock: Number(sku.stock),
-      image_url: sku.image_url || "",
-      unit_price: sku.unit_price || "VND",
+      image_url: sku.imageUrl || "",
+      unit_price: sku.unitPrice || "VND",
       attribute_value_ids:
-        sku.sku_attribute_values?.map((item) => item.attribute_value_id) ?? [],
+        sku.skuAttributeValues?.map((item) => item.attributeValueId) ?? [],
     })) ?? [],
   deleted_sku_ids: [],
 });
 
 export const useProductDetailForm = (
-  product: IProductResponse | null,
-  setProduct: (product: IProductResponse) => void,
-  categoryTree: ICategoryTreeResponse,
+  product: IAdminProduct | null,
+  setProduct: (product: IAdminProduct) => void,
+  categoryTree: IAdminCategory[],
   metadataLoading: boolean,
 ) => {
   const [isEditing, setIsEditing] = useState(false);

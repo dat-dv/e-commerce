@@ -1,24 +1,25 @@
 "use client";
 
-import type {
-  IAttributeListResponse,
-  IBrandResponse,
-  ICategoryTreeResponse,
-  ILanguageListResponse,
-} from "@ecommerce/shared";
+import type { ILanguageListResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { useCallback, useState } from "react";
 
 import { adminAttributeUseCase } from "@/domain/attribute";
 import { adminBrandUseCase } from "@/domain/brand";
 import { adminLanguageUseCase } from "@/domain/language";
+import {
+  AdminProductMapper,
+  type IAdminAttribute,
+  type IAdminBrand,
+  type IAdminCategory,
+} from "@/domain/product";
 import { adminProductCategoryUseCase } from "@/domain/product-category";
 
 export const useProductMetadata = (enabled = true) => {
-  const [brands, setBrands] = useState<IBrandResponse[]>([]);
-  const [attributes, setAttributes] = useState<IAttributeListResponse>([]);
+  const [brands, setBrands] = useState<IAdminBrand[]>([]);
+  const [attributes, setAttributes] = useState<IAdminAttribute[]>([]);
   const [languages, setLanguages] = useState<ILanguageListResponse>([]);
-  const [categoryTree, setCategoryTree] = useState<ICategoryTreeResponse>([]);
+  const [categoryTree, setCategoryTree] = useState<IAdminCategory[]>([]);
   const [metadataLoading, setMetadataLoading] = useState(true);
   const [metadataError, setMetadataError] = useState<string | null>(null);
 
@@ -37,14 +38,22 @@ export const useProductMetadata = (enabled = true) => {
       ]);
 
     if (brandsResult.status === "fulfilled") {
-      setBrands(brandsResult.value.data?.items ?? []);
+      setBrands(
+        brandsResult.value.data?.items.map((brand) =>
+          AdminProductMapper.brandToDomain(brand),
+        ) ?? [],
+      );
     } else {
       console.error(brandsResult.reason);
       setMetadataError("Failed to load brand options.");
     }
 
     if (categoriesResult.status === "fulfilled") {
-      setCategoryTree(categoriesResult.value.data ?? []);
+      setCategoryTree(
+        AdminProductMapper.categoryTreeToDomain(
+          categoriesResult.value.data ?? [],
+        ),
+      );
     } else {
       console.error(categoriesResult.reason);
       setMetadataError((current) =>
@@ -55,7 +64,11 @@ export const useProductMetadata = (enabled = true) => {
     }
 
     if (attributesResult.status === "fulfilled") {
-      setAttributes(attributesResult.value.data ?? []);
+      setAttributes(
+        AdminProductMapper.attributeListToDomain(
+          attributesResult.value.data ?? [],
+        ),
+      );
     } else {
       console.error(attributesResult.reason);
       setMetadataError((current) =>

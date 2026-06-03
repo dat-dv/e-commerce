@@ -1,22 +1,20 @@
 "use client";
 
-import type { IProductResponse } from "@ecommerce/shared";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
-import { adminProductUseCase } from "@/domain/product";
+import { adminProductUseCase, type IAdminProduct } from "@/domain/product";
 import usePagination from "@/hooks/use-pagination";
 
 export const useProductsView = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct, setSelectedProduct] =
-    useState<IProductResponse | null>(null);
+  const [selectedProduct] = useState<IAdminProduct | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
-    usePagination<IProductResponse>({
+    usePagination<IAdminProduct>({
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
@@ -58,7 +56,7 @@ export const useProductsView = () => {
 
   const router = useRouter();
 
-  const handleViewDetail = (product: IProductResponse) => {
+  const handleViewDetail = (product: IAdminProduct) => {
     router.push(APP_ROUTES.PRODUCT_DETAIL(product.slug));
   };
 
