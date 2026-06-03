@@ -60,7 +60,7 @@ export function ProductListingContent({
     <div className="flex flex-col gap-12">
       <ProductGrid products={products} loading={loading} />
 
-      {totalPages > 1 && !loading ? (
+      {totalPages > 1 ? (
         <div className="mt-8 flex justify-center">
           <Pagination
             currentPage={currentPage}

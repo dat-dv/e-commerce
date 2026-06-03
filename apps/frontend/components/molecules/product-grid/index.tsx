@@ -43,7 +43,7 @@ export function ProductGrid({
       className={cn(
         gridClassName,
         "transition-all duration-300",
-        loading && "pointer-events-none scale-[0.99] opacity-40 blur-[1px]",
+        loading && "pointer-events-none opacity-40 blur-[1px]",
       )}
     >
       {products.map((product, idx) => (
