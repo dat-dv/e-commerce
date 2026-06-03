@@ -7,14 +7,11 @@ import { apiClient } from "@/utils/request/api-client";
 import type { IAdminAttributeRepository } from "../types/attribute.repository";
 
 export class AdminAttributeRepository implements IAdminAttributeRepository {
-  async getAttributes(): Promise<IApiResponse<IAdminAttribute[]>> {
+  async getAttributes(): Promise<IAdminAttribute[]> {
     const response = await apiClient.get<IApiResponse<IAttributeListResponse>>(
       API_ROUTES.ATTRIBUTES.LIST,
     );
 
-    return {
-      ...response,
-      data: AdminProductMapper.attributeListToDomain(response.data ?? []),
-    };
+    return AdminProductMapper.attributeListToDomain(response.data ?? []);
   }
 }

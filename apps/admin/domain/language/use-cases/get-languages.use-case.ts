@@ -1,18 +1,17 @@
-import type { IApiResponse, ILanguageListResponse } from "@ecommerce/shared";
-
 import { UseCase } from "@/utils/use-case";
 
+import type { IAdminLanguage } from "../types/language.model";
 import type { IAdminLanguageRepository } from "../types/language.repository";
 
 export class GetLanguagesUseCase extends UseCase<
   void,
-  Promise<IApiResponse<ILanguageListResponse>>
+  Promise<IAdminLanguage[]>
 > {
   constructor(private repository: IAdminLanguageRepository) {
     super();
   }
 
-  async execute(): Promise<IApiResponse<ILanguageListResponse>> {
+  async execute(): Promise<IAdminLanguage[]> {
     return this.repository.getLanguages();
   }
 }

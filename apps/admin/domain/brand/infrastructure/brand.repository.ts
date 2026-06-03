@@ -14,7 +14,7 @@ import type { IAdminBrandRepository } from "../types/brand.repository";
 export class AdminBrandRepository implements IAdminBrandRepository {
   async getBrands(
     params?: IGetBrandListRequest,
-  ): Promise<IApiResponse<ApiListResponse<IAdminBrand>>> {
+  ): Promise<ApiListResponse<IAdminBrand>> {
     const response = await apiClient.get<IApiResponse<IBrandListResponse>>(
       API_ROUTES.BRANDS.LIST,
       {
@@ -22,18 +22,15 @@ export class AdminBrandRepository implements IAdminBrandRepository {
       },
     );
     return {
-      ...response,
-      data: {
-        items:
-          response.data?.items.map((brand) =>
-            AdminProductMapper.brandToDomain(brand),
-          ) ?? [],
-        meta: response.data?.meta ?? {
-          total: 0,
-          page: params?.page ?? 1,
-          limit: params?.limit ?? 10,
-          totalPages: 0,
-        },
+      items:
+        response.data?.items.map((brand) =>
+          AdminProductMapper.brandToDomain(brand),
+        ) ?? [],
+      meta: response.data?.meta ?? {
+        total: 0,
+        page: params?.page ?? 1,
+        limit: params?.limit ?? 10,
+        totalPages: 0,
       },
     };
   }

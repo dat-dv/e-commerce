@@ -1,12 +1,11 @@
 "use client";
 
-import type { ILanguageListResponse } from "@ecommerce/shared";
 import { useLoadOnce } from "@ecommerce/ui";
 import { useCallback, useState } from "react";
 
 import { adminAttributeUseCase } from "@/domain/attribute";
 import { adminBrandUseCase } from "@/domain/brand";
-import { adminLanguageUseCase } from "@/domain/language";
+import { adminLanguageUseCase, type IAdminLanguage } from "@/domain/language";
 import type {
   IAdminAttribute,
   IAdminBrand,
@@ -17,7 +16,7 @@ import { adminProductCategoryUseCase } from "@/domain/product-category";
 export const useProductMetadata = (enabled = true) => {
   const [brands, setBrands] = useState<IAdminBrand[]>([]);
   const [attributes, setAttributes] = useState<IAdminAttribute[]>([]);
-  const [languages, setLanguages] = useState<ILanguageListResponse>([]);
+  const [languages, setLanguages] = useState<IAdminLanguage[]>([]);
   const [categoryTree, setCategoryTree] = useState<IAdminCategory[]>([]);
   const [metadataLoading, setMetadataLoading] = useState(true);
   const [metadataError, setMetadataError] = useState<string | null>(null);
@@ -37,14 +36,14 @@ export const useProductMetadata = (enabled = true) => {
       ]);
 
     if (brandsResult.status === "fulfilled") {
-      setBrands(brandsResult.value.data?.items ?? []);
+      setBrands(brandsResult.value.items);
     } else {
       console.error(brandsResult.reason);
       setMetadataError("Failed to load brand options.");
     }
 
     if (categoriesResult.status === "fulfilled") {
-      setCategoryTree(categoriesResult.value.data ?? []);
+      setCategoryTree(categoriesResult.value);
     } else {
       console.error(categoriesResult.reason);
       setMetadataError((current) =>
@@ -55,7 +54,7 @@ export const useProductMetadata = (enabled = true) => {
     }
 
     if (attributesResult.status === "fulfilled") {
-      setAttributes(attributesResult.value.data ?? []);
+      setAttributes(attributesResult.value);
     } else {
       console.error(attributesResult.reason);
       setMetadataError((current) =>
@@ -66,7 +65,7 @@ export const useProductMetadata = (enabled = true) => {
     }
 
     if (languagesResult.status === "fulfilled") {
-      setLanguages(languagesResult.value.data ?? []);
+      setLanguages(languagesResult.value);
     } else {
       console.error(languagesResult.reason);
       setMetadataError((current) =>

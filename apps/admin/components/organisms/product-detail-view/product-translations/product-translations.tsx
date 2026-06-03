@@ -1,12 +1,12 @@
-import { type ILanguageListResponse } from "@ecommerce/shared";
 import { Globe, Info } from "lucide-react";
 
+import type { IAdminLanguage } from "@/domain/language";
 import type { IAdminProduct } from "@/domain/product";
 import type { IProductEditFormState } from "@/hooks/product/use-product-detail-form";
 
 interface IProductTranslationsProps {
   product: IAdminProduct;
-  languages?: ILanguageListResponse;
+  languages?: IAdminLanguage[];
   isEditing?: boolean;
   formState?: IProductEditFormState | null;
   updateFormState?: <K extends keyof IProductEditFormState>(

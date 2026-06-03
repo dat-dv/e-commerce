@@ -1,5 +1,3 @@
-import type { IApiResponse } from "@ecommerce/shared";
-
 import type { IAdminCategory } from "@/domain/product";
 import { UseCase } from "@/utils/use-case";
 
@@ -7,13 +5,13 @@ import type { IAdminProductCategoryRepository } from "../types/product-category.
 
 export class GetCategoryTreeUseCase extends UseCase<
   void,
-  Promise<IApiResponse<IAdminCategory[]>>
+  Promise<IAdminCategory[]>
 > {
   constructor(private repository: IAdminProductCategoryRepository) {
     super();
   }
 
-  async execute(): Promise<IApiResponse<IAdminCategory[]>> {
+  async execute(): Promise<IAdminCategory[]> {
     return this.repository.getCategoryTree();
   }
 }

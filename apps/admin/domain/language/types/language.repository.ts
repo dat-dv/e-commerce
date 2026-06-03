@@ -1,5 +1,5 @@
-import type { IApiResponse, ILanguageListResponse } from "@ecommerce/shared";
+import type { IAdminLanguage } from "./language.model";
 
 export interface IAdminLanguageRepository {
-  getLanguages(): Promise<IApiResponse<ILanguageListResponse>>;
+  getLanguages(): Promise<IAdminLanguage[]>;
 }
