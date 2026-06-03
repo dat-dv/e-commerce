@@ -30,7 +30,7 @@ export const UserRolePanel = ({
         >
           {roles.map((role) => (
             <option key={role.id} value={role.id}>
-              {role.role_name}
+              {role.roleName}
             </option>
           ))}
         </select>

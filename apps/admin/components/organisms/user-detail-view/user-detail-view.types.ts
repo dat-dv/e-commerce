@@ -1,5 +1,4 @@
-import type { TAdminRole } from "@/domain/permission";
-import type { IAdminUser } from "@/domain/user";
+import type { IAdminRole, IAdminUser } from "@/domain/user/types/user.model";
 
 export interface IUserDetailHeaderProps {
   user: IAdminUser | null;
@@ -11,7 +10,7 @@ export interface IUserProfilePanelProps {
 }
 
 export interface IUserRolePanelProps {
-  roles: TAdminRole[];
+  roles: IAdminRole[];
   selectedRoleId: string;
   saving: boolean;
   onRoleChange: (roleId: string) => void;
