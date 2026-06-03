@@ -7,11 +7,10 @@ import { useCallback, useState } from "react";
 import { adminAttributeUseCase } from "@/domain/attribute";
 import { adminBrandUseCase } from "@/domain/brand";
 import { adminLanguageUseCase } from "@/domain/language";
-import {
-  AdminProductMapper,
-  type IAdminAttribute,
-  type IAdminBrand,
-  type IAdminCategory,
+import type {
+  IAdminAttribute,
+  IAdminBrand,
+  IAdminCategory,
 } from "@/domain/product";
 import { adminProductCategoryUseCase } from "@/domain/product-category";
 
@@ -38,22 +37,14 @@ export const useProductMetadata = (enabled = true) => {
       ]);
 
     if (brandsResult.status === "fulfilled") {
-      setBrands(
-        brandsResult.value.data?.items.map((brand) =>
-          AdminProductMapper.brandToDomain(brand),
-        ) ?? [],
-      );
+      setBrands(brandsResult.value.data?.items ?? []);
     } else {
       console.error(brandsResult.reason);
       setMetadataError("Failed to load brand options.");
     }
 
     if (categoriesResult.status === "fulfilled") {
-      setCategoryTree(
-        AdminProductMapper.categoryTreeToDomain(
-          categoriesResult.value.data ?? [],
-        ),
-      );
+      setCategoryTree(categoriesResult.value.data ?? []);
     } else {
       console.error(categoriesResult.reason);
       setMetadataError((current) =>
@@ -64,11 +55,7 @@ export const useProductMetadata = (enabled = true) => {
     }
 
     if (attributesResult.status === "fulfilled") {
-      setAttributes(
-        AdminProductMapper.attributeListToDomain(
-          attributesResult.value.data ?? [],
-        ),
-      );
+      setAttributes(attributesResult.value.data ?? []);
     } else {
       console.error(attributesResult.reason);
       setMetadataError((current) =>

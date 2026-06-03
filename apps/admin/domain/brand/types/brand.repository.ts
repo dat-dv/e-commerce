@@ -1,11 +1,10 @@
-import type {
-  IApiResponse,
-  IBrandListResponse,
-  IGetBrandListRequest,
-} from "@ecommerce/shared";
+import type { IApiResponse, IGetBrandListRequest } from "@ecommerce/shared";
+
+import type { IAdminBrand } from "@/domain/product";
+import type { ApiListResponse } from "@/utils/request";
 
 export interface IAdminBrandRepository {
   getBrands(
     params?: IGetBrandListRequest,
-  ): Promise<IApiResponse<IBrandListResponse>>;
+  ): Promise<IApiResponse<ApiListResponse<IAdminBrand>>>;
 }

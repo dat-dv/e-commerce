@@ -1,5 +1,7 @@
-import type { IApiResponse, ICategoryTreeResponse } from "@ecommerce/shared";
+import type { IApiResponse } from "@ecommerce/shared";
+
+import type { IAdminCategory } from "@/domain/product";
 
 export interface IAdminProductCategoryRepository {
-  getCategoryTree(): Promise<IApiResponse<ICategoryTreeResponse>>;
+  getCategoryTree(): Promise<IApiResponse<IAdminCategory[]>>;
 }
