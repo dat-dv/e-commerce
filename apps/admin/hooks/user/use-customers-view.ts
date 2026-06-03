@@ -1,30 +1,22 @@
 "use client";
 
-import type { PaginationQueryParams } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
-import { CUSTOMER_DEFAULT_SORT } from "@/constants/customer.constants";
 import { APP_ROUTES } from "@/constants/routes";
 import { AdminUserRepository } from "@/domain/user";
 import type { IAdminUser } from "@/domain/user/types/user.model";
 import usePagination from "@/hooks/use-pagination";
 
-export type ICustomersViewPaginationParams = PaginationQueryParams & {
-  roleId?: string;
-  gender?: string;
-  sortBy?: string;
-};
+import { type ICustomerFilterPaginationParams } from "./use-customer-filters";
+
+export type ICustomersViewPaginationParams = ICustomerFilterPaginationParams;
 
 export const useCustomersView = () => {
   const router = useRouter();
   const userRepository = useMemo(() => new AdminUserRepository(), []);
 
   const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [roleFilter, setRoleFilter] = useState<string>("");
-  const [genderFilter, setGenderFilter] = useState<string>("");
-  const [sortFilter, setSortFilter] = useState<string>(CUSTOMER_DEFAULT_SORT);
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IAdminUser, ICustomersViewPaginationParams>({
@@ -58,48 +50,21 @@ export const useCustomersView = () => {
       },
     });
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    onChangeFilter([{ key: "search", value: query }]);
-  };
-  const uniqueRoles = useMemo(() => {
-    const rolesMap = new Map<string, string>();
-    data.items.forEach((u) => {
-      if (u.role && u.roleId) rolesMap.set(u.roleId, u.role.roleName);
-    });
-    return Array.from(rolesMap.entries()).map(([value, label]) => ({
-      value,
-      label,
-    }));
-  }, [data.items]);
-
   const handleViewDetail = (user: IAdminUser) => {
     router.push(APP_ROUTES.CUSTOMER_DETAIL(user.id));
   };
-
-  const filteredUsers = data.items;
 
   return {
     users: data.items,
     loading,
     error,
-    searchQuery,
     page: data.meta.page,
     limit: data.meta.limit,
     total: data.meta.total,
     totalPages: data.meta.totalPages,
-    filteredUsers,
-    uniqueRoles,
-    roleFilter,
-    setRoleFilter,
-    genderFilter,
-    setGenderFilter,
-    sortFilter,
-    setSortFilter,
     setPage: onChangePagination,
     setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     onChangeFilter,
-    handleSearch,
     handleViewDetail,
   };
 };

@@ -3,6 +3,7 @@
 import React from "react";
 
 import { PageHeader } from "@/components/molecules/page-header";
+import { useCustomerFilters } from "@/hooks/user/use-customer-filters";
 import { useCustomersView } from "@/hooks/user/use-customers-view";
 
 import { CustomersFilter } from "./customers-filter";
@@ -12,24 +13,29 @@ export const CustomersView = () => {
   const {
     error,
     loading,
-    searchQuery,
     page,
     limit,
     total,
-    filteredUsers,
-    uniqueRoles,
+    users,
+    setPage,
+    setPageSize,
+    onChangeFilter,
+    handleViewDetail,
+  } = useCustomersView();
+  const {
+    searchQuery,
     roleFilter,
     setRoleFilter,
     genderFilter,
     setGenderFilter,
     sortFilter,
     setSortFilter,
-    setPage,
-    setPageSize,
-    onChangeFilter,
+    uniqueRoles,
     handleSearch,
-    handleViewDetail,
-  } = useCustomersView();
+  } = useCustomerFilters({
+    users,
+    onChangeFilter,
+  });
 
   return (
     <div className="space-y-6">
@@ -52,7 +58,7 @@ export const CustomersView = () => {
       />
 
       <CustomersTable
-        users={filteredUsers}
+        users={users}
         loading={loading}
         error={error}
         page={page}
