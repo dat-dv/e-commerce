@@ -11,7 +11,7 @@ import type { IAdminRole } from "@/domain/user/types/user.model";
 import { useRolesView } from "@/hooks/role/use-roles-view";
 
 export const RolesView = () => {
-  const { roles, loading, error, searchQuery, setSearchQuery, handleEditRole } =
+  const { roles, loading, searchQuery, setSearchQuery, handleEditRole } =
     useRolesView();
 
   const columns: CommonTableColumn<IAdminRole>[] = [
@@ -83,7 +83,6 @@ export const RolesView = () => {
           data={roles}
           columns={columns}
           loading={loading}
-          error={error}
           total={roles.length}
           page={1}
           pageSize={roles.length || 10}

@@ -3,7 +3,7 @@
 import { useLoadOnce } from "@ecommerce/ui";
 import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useTransition } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { adminPermissionUseCase } from "@/domain/permission";
@@ -13,25 +13,18 @@ export const useRolesView = () => {
   const router = useRouter();
 
   const [roles, setRoles] = useState<IAdminRole[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [loading, startLoadingTransition] = useTransition();
   const [searchQuery, setSearchQuery] = useState("");
 
-  const loadData = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      // The API doesn't have pagination params mapped in getRoles signature fully in current repo (it's getRoles(page?, limit?) but we'll fetch all)
-      const response = await adminPermissionUseCase.getRoles.execute(1, 100);
-      setRoles(response.items);
-    } catch (err) {
-      console.error(err);
-      setError("Failed to load roles.");
-      toast.error("Failed to load roles.");
-    } finally {
-      setLoading(false);
-    }
+  const loadData = useCallback(() => {
+    startLoadingTransition(async () => {
+      try {
+        const response = await adminPermissionUseCase.getRoles.execute(1, 100);
+        setRoles(response.items);
+      } catch {
+        toast.error("Failed to load roles.");
+      }
+    });
   }, []);
 
   useLoadOnce(loadData);
@@ -53,7 +46,6 @@ export const useRolesView = () => {
   return {
     roles: filteredRoles,
     loading,
-    error,
     searchQuery,
     setSearchQuery,
     handleEditRole,

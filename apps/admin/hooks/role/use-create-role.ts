@@ -3,7 +3,7 @@
 import { useLoadOnce } from "@ecommerce/ui";
 import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useTransition } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { adminPermissionUseCase } from "@/domain/permission";
@@ -16,25 +16,22 @@ export const useCreateRoleView = () => {
   const router = useRouter();
 
   const [permissions, setPermissions] = useState<IAdminPermission[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, startLoadingTransition] = useTransition();
 
   const groupedPermissions = useMemo(
     () => groupPermissionsByCategory(permissions),
     [permissions],
   );
 
-  const loadPermissionData = useCallback(async () => {
-    setLoading(true);
-
-    try {
-      const response = await adminPermissionUseCase.getPermissions.execute();
-      setPermissions(response.items);
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to load permissions.");
-    } finally {
-      setLoading(false);
-    }
+  const loadPermissionData = useCallback(() => {
+    startLoadingTransition(async () => {
+      try {
+        const response = await adminPermissionUseCase.getPermissions.execute();
+        setPermissions(response.items);
+      } catch {
+        toast.error("Failed to load permissions.");
+      }
+    });
   }, []);
 
   useLoadOnce(loadPermissionData);

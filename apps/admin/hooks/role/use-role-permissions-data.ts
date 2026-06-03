@@ -3,7 +3,7 @@
 import { useLoadOnce } from "@ecommerce/ui";
 import { toast } from "@ecommerce/ui";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useTransition } from "react";
 
 import { adminPermissionUseCase } from "@/domain/permission";
 import type {
@@ -19,35 +19,32 @@ export const useRolePermissionsData = () => {
 
   const [role, setRole] = useState<IAdminRole | null>(null);
   const [permissions, setPermissions] = useState<IAdminPermission[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, startLoadingTransition] = useTransition();
 
   const groupedPermissions = useMemo(
     () => groupPermissionsByCategory(permissions),
     [permissions],
   );
 
-  const loadData = useCallback(async () => {
-    setLoading(true);
+  const loadData = useCallback(() => {
+    startLoadingTransition(async () => {
+      try {
+        const [rolesResponse, permissionsResponse] = await Promise.all([
+          adminPermissionUseCase.getRoles.execute(),
+          adminPermissionUseCase.getPermissions.execute(),
+        ]);
 
-    try {
-      const [rolesResponse, permissionsResponse] = await Promise.all([
-        adminPermissionUseCase.getRoles.execute(),
-        adminPermissionUseCase.getPermissions.execute(),
-      ]);
+        const nextRoles = rolesResponse.items;
+        const targetRole = roleId
+          ? nextRoles.find((r) => r.id === roleId) || nextRoles[0]
+          : nextRoles[0];
 
-      const nextRoles = rolesResponse.items;
-      const targetRole = roleId
-        ? nextRoles.find((r) => r.id === roleId) || nextRoles[0]
-        : nextRoles[0];
-
-      setRole(targetRole ?? null);
-      setPermissions(permissionsResponse.items);
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to load role permissions data.");
-    } finally {
-      setLoading(false);
-    }
+        setRole(targetRole ?? null);
+        setPermissions(permissionsResponse.items);
+      } catch {
+        toast.error("Failed to load role permissions data.");
+      }
+    });
   }, [roleId]);
 
   useLoadOnce(loadData);
