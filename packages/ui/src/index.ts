@@ -19,6 +19,7 @@ export * from "./components/atoms/favorite-icon";
 export * from "./components/atoms/form-card";
 export * from "./components/atoms/hamburger-button";
 export * from "./components/atoms/icons";
+export * from "./components/atoms/image-with-fallback";
 export * from "./components/atoms/input";
 export * from "./components/atoms/liquid-wave-text";
 export * from "./components/atoms/loading";
