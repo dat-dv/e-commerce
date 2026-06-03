@@ -29,15 +29,11 @@ export const useProductThumbnailUpload = ({
       setIsUploadingThumbnail(true);
       try {
         const response = await adminUploadUseCase.uploadImage.execute(file);
-        if (response.status === "success" && response.data) {
-          onUploaded({
-            id: response.data.id,
-            url: response.data.url,
-          });
-          toast.success("Thumbnail uploaded. Save product to apply it.");
-        } else {
-          toast.error(response.message || "Failed to upload thumbnail.");
-        }
+        onUploaded({
+          id: response.id,
+          url: response.url,
+        });
+        toast.success("Thumbnail uploaded. Save product to apply it.");
       } catch (err) {
         console.error(err);
         toast.error("Failed to upload thumbnail.");
