@@ -127,6 +127,7 @@ function CommonTableInner<T extends object>(
     showPageSizeSelect = true,
     pageSizeOptions = DEFAULT_PAGE_SIZE_OPTIONS,
     pageSizeLabel = "Rows per page",
+    showFooter = true,
     onQueryChange,
     onRowClick,
     onEditChange,
@@ -548,17 +549,19 @@ function CommonTableInner<T extends object>(
         </Table>
       )}
 
-      <TableFooter
-        page={page}
-        pageSize={pageSize}
-        total={total}
-        totalPages={totalPages}
-        pageSizeLabel={pageSizeLabel}
-        pageSizeOptions={pageSizeSelectOptions}
-        showPageSizeSelect={showPageSizeSelect}
-        onPageChange={(nextPage) => emitQueryChange({ page: nextPage })}
-        onPageSizeChange={handlePageSizeChange}
-      />
+      {showFooter && (
+        <TableFooter
+          page={page}
+          pageSize={pageSize}
+          total={total}
+          totalPages={totalPages}
+          pageSizeLabel={pageSizeLabel}
+          pageSizeOptions={pageSizeSelectOptions}
+          showPageSizeSelect={showPageSizeSelect}
+          onPageChange={(nextPage) => emitQueryChange({ page: nextPage })}
+          onPageSizeChange={handlePageSizeChange}
+        />
+      )}
     </div>
   );
 }

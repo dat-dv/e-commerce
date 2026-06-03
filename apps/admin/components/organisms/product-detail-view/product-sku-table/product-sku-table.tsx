@@ -1,11 +1,14 @@
-import { Button } from "@ecommerce/ui";
-import { ImageIcon, Layers, Plus, Trash2 } from "lucide-react";
+import { Button, CommonTable } from "@ecommerce/ui";
+import { Layers, Plus } from "lucide-react";
 
-import { formatCurrency } from "@/components/organisms/products-view/product.utils";
 import type { IAdminAttribute, IAdminProduct } from "@/domain/product";
 import type { IProductEditFormState } from "@/hooks/product/use-product-detail-form";
 
-type EditSkuType = IProductEditFormState["skus"][number];
+import {
+  createProductSkuColumns,
+  type EditSkuType,
+  type SkuTableRow,
+} from "./product-sku-columns";
 
 interface IProductSkuTableProps {
   product: IAdminProduct;
@@ -26,7 +29,7 @@ export const ProductSkuTable = ({
   updateFormState,
 }: IProductSkuTableProps) => {
   const editSkus = formState?.skus ?? [];
-  const rows = isEditing ? editSkus : (product.skus ?? []);
+  const rows: SkuTableRow[] = isEditing ? editSkus : (product.skus ?? []);
   const skuCodes = editSkus.map((sku) => sku.skuCode.trim()).filter(Boolean);
 
   const getSkuCodeError = (sku: EditSkuType) => {
@@ -192,26 +195,24 @@ export const ProductSkuTable = ({
     );
   };
 
-  const getStockBadge = (stock: number) => {
-    if (stock <= 0) {
-      return {
-        label: "Out of stock",
-        className: "bg-red-500/10 text-red-300",
-      };
-    }
-
-    if (stock <= 10) {
-      return {
-        label: "Low stock",
-        className: "bg-orange-500/10 text-orange-300",
-      };
-    }
-
-    return {
-      label: "In stock",
-      className: "bg-emerald-500/10 text-emerald-300",
-    };
-  };
+  const columns = createProductSkuColumns({
+    attributeOptions,
+    editSkuCount: editSkus.length,
+    isEditing,
+    getSkuAttributes,
+    getSkuCodeError,
+    getSkuPriceError,
+    getSkuOriginalPriceError,
+    getSkuStockError,
+    onSkuAttributeValueToggle: handleSkuAttributeValueToggle,
+    onSkuCodeChange: handleSkuCodeChange,
+    onSkuImageUrlChange: handleSkuImageUrlChange,
+    onSkuOriginalPriceChange: handleSkuOriginalPriceChange,
+    onSkuPriceChange: handleSkuPriceChange,
+    onSkuStockChange: handleSkuStockChange,
+    onSkuUnitPriceChange: handleSkuUnitPriceChange,
+    onRemoveSku: handleRemoveSku,
+  });
 
   return (
     <div className="border-content/5 mt-6 border-t pt-6">
@@ -234,296 +235,19 @@ export const ProductSkuTable = ({
         )}
       </div>
 
-      {rows.length > 0 ? (
-        <div className="border-content/5 overflow-hidden rounded-lg border">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-content/[0.02] border-content/5 border-b text-xs font-semibold tracking-wider text-[var(--muted)] uppercase">
-              <tr>
-                <th className="px-4 py-3">SKU Code</th>
-                <th className="px-4 py-3 text-right">Price</th>
-                <th className="px-4 py-3 text-right">Original</th>
-                <th className="px-4 py-3 text-right">Stock</th>
-                <th className="px-4 py-3">Media</th>
-                {isEditing && <th className="px-4 py-3 text-right">Action</th>}
-              </tr>
-            </thead>
-            <tbody className="divide-content/5 divide-y">
-              {rows.map((sku, index) => {
-                const editSku = sku as EditSkuType;
-                const attributes = getSkuAttributes(sku.id);
-                const skuCodeError = isEditing
-                  ? getSkuCodeError(editSku)
-                  : null;
-                const skuPriceError = isEditing
-                  ? getSkuPriceError(editSku)
-                  : null;
-                const skuOriginalPriceError = isEditing
-                  ? getSkuOriginalPriceError(editSku)
-                  : null;
-                const skuStockError = isEditing
-                  ? getSkuStockError(editSku)
-                  : null;
-
-                return (
-                  <tr
-                    key={sku.id ?? `new-sku-${index}`}
-                    className="hover:bg-content/[0.01] transition-colors"
-                  >
-                    <td className="px-4 py-3">
-                      {isEditing ? (
-                        <div className="space-y-1">
-                          <input
-                            type="text"
-                            value={editSku.skuCode}
-                            onChange={(e) =>
-                              handleSkuCodeChange(index, e.target.value)
-                            }
-                            className={`w-40 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
-                              skuCodeError
-                                ? "border-red-400 focus:border-red-400"
-                                : "focus:border-primary border-[var(--border-color)]"
-                            }`}
-                          />
-                          {skuCodeError && (
-                            <p className="text-xs font-semibold text-red-300">
-                              {skuCodeError}
-                            </p>
-                          )}
-                          {attributes.length > 0 && (
-                            <div className="flex flex-wrap gap-1">
-                              {attributes.map((attribute) => (
-                                <span
-                                  key={attribute}
-                                  className="bg-content/5 rounded px-1.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]"
-                                >
-                                  {attribute}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                          {attributeOptions.length > 0 && (
-                            <div className="mt-2 grid max-w-md grid-cols-1 gap-2 sm:grid-cols-2">
-                              {attributeOptions.map((attribute) => (
-                                <div
-                                  key={attribute.id}
-                                  className="bg-content/[0.02] rounded-md border border-[var(--border-color)] p-2"
-                                >
-                                  <p className="mb-1 text-[10px] font-bold tracking-wide text-[var(--muted)] uppercase">
-                                    {attribute.name}
-                                  </p>
-                                  <div className="flex flex-wrap gap-1">
-                                    {attribute.values?.map((value) => {
-                                      const checked =
-                                        editSku.attributeValueIds?.includes(
-                                          value.id,
-                                        ) ?? false;
-
-                                      return (
-                                        <button
-                                          key={value.id}
-                                          type="button"
-                                          onClick={() =>
-                                            handleSkuAttributeValueToggle(
-                                              index,
-                                              value.id,
-                                            )
-                                          }
-                                          className={`rounded px-2 py-0.5 text-[10px] font-semibold transition-colors ${
-                                            checked
-                                              ? "bg-primary/20 text-primary"
-                                              : "bg-content/5 hover:bg-content/10 text-[var(--muted)]"
-                                          }`}
-                                        >
-                                          {value.value}
-                                        </button>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <div className="space-y-1">
-                          <code className="text-primary text-xs font-semibold">
-                            {sku.skuCode}
-                          </code>
-                          {attributes.length > 0 && (
-                            <div className="flex flex-wrap gap-1">
-                              {attributes.map((attribute) => (
-                                <span
-                                  key={attribute}
-                                  className="bg-content/5 rounded px-1.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]"
-                                >
-                                  {attribute}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      {isEditing ? (
-                        <div className="ml-auto space-y-1">
-                          <input
-                            type="number"
-                            value={editSku.price}
-                            onChange={(e) =>
-                              handleSkuPriceChange(
-                                index,
-                                Number(e.target.value),
-                              )
-                            }
-                            className={`w-28 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
-                              skuPriceError
-                                ? "border-red-400 focus:border-red-400"
-                                : "focus:border-primary border-[var(--border-color)]"
-                            }`}
-                          />
-                          {skuPriceError && (
-                            <p className="text-xs font-semibold text-red-300">
-                              {skuPriceError}
-                            </p>
-                          )}
-                        </div>
-                      ) : (
-                        <span className="font-semibold text-[var(--app-text)]">
-                          {formatCurrency(sku.price)}{" "}
-                          <span className="text-xs text-[var(--muted)]">
-                            {sku.unitPrice ?? "VND"}
-                          </span>
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      {isEditing ? (
-                        <div className="ml-auto space-y-1">
-                          <input
-                            type="number"
-                            value={editSku.originalPrice ?? ""}
-                            onChange={(e) =>
-                              handleSkuOriginalPriceChange(
-                                index,
-                                e.target.value ? Number(e.target.value) : null,
-                              )
-                            }
-                            className={`w-28 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
-                              skuOriginalPriceError
-                                ? "border-red-400 focus:border-red-400"
-                                : "focus:border-primary border-[var(--border-color)]"
-                            }`}
-                            placeholder="Optional"
-                          />
-                          {skuOriginalPriceError && (
-                            <p className="text-xs font-semibold text-red-300">
-                              {skuOriginalPriceError}
-                            </p>
-                          )}
-                        </div>
-                      ) : "originalPrice" in sku && sku.originalPrice ? (
-                        <span className="text-sm font-semibold text-[var(--muted)] line-through">
-                          {formatCurrency(sku.originalPrice)}
-                        </span>
-                      ) : (
-                        <span className="text-sm text-[var(--muted)]">-</span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      {isEditing ? (
-                        <div className="ml-auto space-y-1">
-                          <input
-                            type="number"
-                            value={editSku.stock}
-                            onChange={(e) =>
-                              handleSkuStockChange(
-                                index,
-                                Number(e.target.value),
-                              )
-                            }
-                            className={`w-24 rounded-md border bg-[var(--card-bg)] px-2 py-1 text-right text-sm font-semibold text-[var(--app-text)] focus:outline-none ${
-                              skuStockError
-                                ? "border-red-400 focus:border-red-400"
-                                : "focus:border-primary border-[var(--border-color)]"
-                            }`}
-                          />
-                          {skuStockError && (
-                            <p className="text-xs font-semibold text-red-300">
-                              {skuStockError}
-                            </p>
-                          )}
-                        </div>
-                      ) : (
-                        <span
-                          className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-bold ${getStockBadge(Number(sku.stock)).className}`}
-                        >
-                          {sku.stock > 0
-                            ? `${sku.stock} items`
-                            : "Out of stock"}
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3">
-                      {isEditing ? (
-                        <div className="space-y-2">
-                          <input
-                            type="text"
-                            value={editSku.unitPrice ?? ""}
-                            onChange={(e) =>
-                              handleSkuUnitPriceChange(index, e.target.value)
-                            }
-                            className="focus:border-primary w-20 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm font-semibold text-[var(--app-text)] focus:outline-none"
-                            placeholder="Unit"
-                          />
-                          <input
-                            type="url"
-                            value={editSku.imageUrl ?? ""}
-                            onChange={(e) =>
-                              handleSkuImageUrlChange(index, e.target.value)
-                            }
-                            className="focus:border-primary w-44 rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2 py-1 text-sm text-[var(--app-text)] focus:outline-none"
-                            placeholder="Image URL"
-                          />
-                        </div>
-                      ) : sku.imageUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={sku.imageUrl}
-                          alt={sku.skuCode}
-                          className="h-10 w-10 rounded-md border border-[var(--border-color)] object-cover"
-                        />
-                      ) : (
-                        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--muted)]">
-                          <ImageIcon className="h-4 w-4" />
-                        </div>
-                      )}
-                    </td>
-                    {isEditing && (
-                      <td className="px-4 py-3 text-right">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handleRemoveSku(index)}
-                          disabled={editSkus.length === 1}
-                          className="ml-auto h-8 w-8 rounded-lg text-red-300 hover:bg-red-500/10 disabled:opacity-30"
-                          aria-label={`Remove SKU ${editSku.skuCode || index + 1}`}
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </td>
-                    )}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <p className="py-4 text-center text-sm text-[var(--muted)]">
-          No SKUs registered for this product.
-        </p>
-      )}
+      <CommonTable
+        name="admin-product-skus"
+        data={rows}
+        columns={columns}
+        rowKey={(sku, index) => sku.id ?? `new-sku-${index}`}
+        total={rows.length}
+        page={1}
+        pageSize={Math.max(rows.length, 1)}
+        emptyState="No SKUs registered for this product."
+        showFooter={false}
+        showPageSizeSelect={false}
+        className="border-content/5 overflow-hidden rounded-lg border"
+      />
     </div>
   );
 };

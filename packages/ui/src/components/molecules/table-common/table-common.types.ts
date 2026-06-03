@@ -115,6 +115,7 @@ export type CommonTableProps<T extends object> = Omit<
   showPageSizeSelect?: boolean;
   pageSizeOptions?: number[];
   pageSizeLabel?: ReactNode;
+  showFooter?: boolean;
   onQueryChange?: (query: TableQuery) => void;
   onRowClick?: (item: T, index: number) => void;
   onEditChange?: (params: CommonTableEditChangeParams<T>) => void;
