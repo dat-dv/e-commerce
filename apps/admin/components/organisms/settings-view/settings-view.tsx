@@ -6,13 +6,11 @@ import React from "react";
 import { SettingsHeader } from "@/components/molecules/settings-header";
 import { AppearanceTab } from "@/components/organisms/settings-view/settings-appearance-tab";
 import { ProfileTab } from "@/components/organisms/settings-view/settings-profile-tab";
-import { SystemTab } from "@/components/organisms/settings-view/settings-system-tab";
 import { useSettingsView } from "@/hooks/settings/use-settings-view";
 
 const TOC_ITEMS = [
   { id: "appearance", title: "Appearance" },
   { id: "profile", title: "Account Profile" },
-  { id: "system", title: "System Info" },
 ];
 
 export const SettingsView = () => {
@@ -67,19 +65,6 @@ export const SettingsView = () => {
             className="relative scroll-mt-24 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-xl backdrop-blur-xl"
           >
             <ProfileTab user={user} />
-          </section>
-
-          {/* Section 3: System Info */}
-          <section
-            id="system"
-            className="relative scroll-mt-24 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-xl backdrop-blur-xl"
-          >
-            <SystemTab
-              env={process.env.NODE_ENV || "development"}
-              apiUrl={
-                process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
-              }
-            />
           </section>
         </div>
       </div>
