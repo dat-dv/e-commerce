@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import type {
   AppRouterNavigateOptions,
+  QueryParams,
   UseAppRouterOptions,
 } from "./use-app-router.types";
 
@@ -13,7 +14,7 @@ const DEFAULT_NAVIGATE_OPTIONS: AppRouterNavigateOptions = {
   scroll: false,
 };
 
-const createUrlBySearchParams = (searchParams: Record<string, unknown>) => {
+const createUrlBySearchParams = (searchParams: QueryParams) => {
   const params = new URLSearchParams();
 
   Object.entries(searchParams).forEach(([key, value]) => {
@@ -43,7 +44,7 @@ const createUrlBySearchParams = (searchParams: Record<string, unknown>) => {
     : window.location.pathname;
 };
 
-export default function useAppRouter<T extends Record<string, unknown>>({
+export default function useAppRouter<T extends QueryParams>({
   isSyncWithSearchParams = true,
   extendParams,
 }: UseAppRouterOptions<T> = {}) {

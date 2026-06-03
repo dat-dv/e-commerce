@@ -1,13 +1,6 @@
 import { Avatar, Button } from "@ecommerce/ui";
-import { useRouter } from "next/navigation";
 
-import {
-  ChevronDownIcon,
-  LogOutIcon,
-  PreferencesIcon,
-  ProfileIcon,
-} from "@/components/atoms/icons";
-import { APP_ROUTES } from "@/constants/routes";
+import { ChevronDownIcon, LogOutIcon } from "@/components/atoms/icons";
 import { useAdminAuth } from "@/hooks/use-auth";
 import { useAdminUserStore } from "@/store/user";
 
@@ -24,7 +17,6 @@ export const AdminUserDropdown = ({
 }: IAdminUserDropdownProps) => {
   const { user } = useAdminUserStore();
   const { logout } = useAdminAuth();
-  const router = useRouter();
 
   const userName = [user?.firstName, user?.lastName].filter(Boolean).join(" ");
   const userEmail = user?.email;
@@ -84,42 +76,6 @@ export const AdminUserDropdown = ({
             </div>
 
             {/* Menu items */}
-            <div className="p-1">
-              {[
-                {
-                  label: "Profile settings",
-                  icon: ProfileIcon,
-                  id: "admin-menu-profile",
-                },
-                {
-                  label: "Preferences",
-                  icon: PreferencesIcon,
-                  id: "admin-menu-preferences",
-                },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={item.id}
-                    id={item.id}
-                    role="menuitem"
-                    type="button"
-                    className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm text-[var(--app-text)] transition-colors hover:bg-white/8"
-                    onClick={() => {
-                      onClose();
-                      if (item.id === "admin-menu-profile") {
-                        router.push(`${APP_ROUTES.SETTINGS}?tab=profile`);
-                      } else if (item.id === "admin-menu-preferences") {
-                        router.push(`${APP_ROUTES.SETTINGS}?tab=appearance`);
-                      }
-                    }}
-                  >
-                    <Icon className="h-4 w-4 shrink-0 text-[var(--muted)]" />
-                    {item.label}
-                  </button>
-                );
-              })}
-            </div>
 
             {/* Sign out */}
             <div className="border-t border-white/[0.06] p-1">
