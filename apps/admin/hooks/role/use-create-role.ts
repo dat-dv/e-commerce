@@ -10,6 +10,7 @@ import { APP_ROUTES } from "@/constants/routes";
 import { AdminPermissionRepository } from "@/domain/permission";
 
 import { groupPermissionsByCategory } from "../../components/organisms/permissions-view/permissions-view.utils";
+import { useCreateRoleForm } from "./use-create-role-form";
 
 export const useCreateRoleView = () => {
   const router = useRouter();
@@ -19,13 +20,7 @@ export const useCreateRoleView = () => {
   );
 
   const [permissions, setPermissions] = useState<IPermissionResponse[]>([]);
-  const [newRoleName, setNewRoleName] = useState("");
-  const [newRoleDescription, setNewRoleDescription] = useState("");
-  const [newRolePermissionIds, setNewRolePermissionIds] = useState<string[]>(
-    [],
-  );
   const [loading, setLoading] = useState(true);
-  const [creatingRole, setCreatingRole] = useState(false);
 
   const groupedPermissions = useMemo(
     () => groupPermissionsByCategory(permissions),
@@ -48,48 +43,15 @@ export const useCreateRoleView = () => {
 
   useLoadOnce(loadPermissionData);
 
-  const toggleNewRolePermission = (permissionId: string) => {
-    setNewRolePermissionIds((current) =>
-      current.includes(permissionId)
-        ? current.filter((id) => id !== permissionId)
-        : [...current, permissionId],
-    );
-  };
-
-  const handleCreateRole = async () => {
-    const roleName = newRoleName.trim();
-    if (!roleName) return;
-
-    setCreatingRole(true);
-
-    try {
-      await permissionRepository.createRole({
-        role_name: roleName,
-        description: newRoleDescription.trim() || undefined,
-        permissions: newRolePermissionIds,
-      });
-
-      toast.success("Role created successfully.");
-      router.push(APP_ROUTES.PERMISSIONS);
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to create role.");
-    } finally {
-      setCreatingRole(false);
-    }
-  };
+  const createRoleForm = useCreateRoleForm({
+    permissionRepository,
+    onCreated: () => router.push(APP_ROUTES.PERMISSIONS),
+  });
 
   return {
-    newRoleName,
-    newRoleDescription,
-    newRolePermissionIds,
+    ...createRoleForm,
     loading,
-    creatingRole,
     groupedPermissions,
-    toggleNewRolePermission,
-    handleCreateRole,
-    setNewRoleName,
-    setNewRoleDescription,
     router,
   };
 };

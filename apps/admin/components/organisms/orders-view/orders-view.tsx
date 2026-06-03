@@ -6,6 +6,7 @@ import { FilterBar } from "@/components/molecules/filter-bar";
 import { OrdersHeader } from "@/components/molecules/orders-header";
 import { OrderDetailDialog } from "@/components/organisms/orders-view/order-detail-dialog";
 import { OrdersTable } from "@/components/organisms/orders-view/orders-table";
+import { useOrderDetailDialog } from "@/hooks/order/use-order-detail-dialog";
 import { useOrdersView } from "@/hooks/order/use-orders-view";
 
 export const OrdersView = () => {
@@ -16,15 +17,13 @@ export const OrdersView = () => {
     page,
     limit,
     total,
-    selectedOrder,
-    isDetailOpen,
-    filteredOrders,
+    orders,
     setPage,
     setPageSize,
     setSearchQuery,
-    setIsDetailOpen,
-    handleViewDetail,
   } = useOrdersView();
+  const { selectedOrder, isDetailOpen, openOrderDetail, closeOrderDetail } =
+    useOrderDetailDialog();
 
   return (
     <div className="space-y-6">
@@ -37,7 +36,7 @@ export const OrdersView = () => {
       />
 
       <OrdersTable
-        orders={filteredOrders}
+        orders={orders}
         loading={loading}
         error={error}
         page={page}
@@ -45,13 +44,13 @@ export const OrdersView = () => {
         total={total}
         onPageChange={setPage}
         onPageSizeChange={setPageSize}
-        onViewDetail={handleViewDetail}
+        onViewDetail={openOrderDetail}
       />
 
       <OrderDetailDialog
         order={selectedOrder}
         isOpen={isDetailOpen}
-        onClose={() => setIsDetailOpen(false)}
+        onClose={closeOrderDetail}
       />
     </div>
   );

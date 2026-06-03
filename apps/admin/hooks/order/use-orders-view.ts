@@ -9,10 +9,6 @@ import usePagination from "@/hooks/use-pagination";
 export const useOrdersView = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedOrder, setSelectedOrder] = useState<IOrderResponse | null>(
-    null,
-  );
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IOrderResponse>({
@@ -50,16 +46,9 @@ export const useOrdersView = () => {
       },
     });
 
-  const filteredOrders = data.items;
-
   const handleSearch = (q: string) => {
     setSearchQuery(q);
     onChangeFilter([{ key: "search", value: q }]);
-  };
-
-  const handleViewDetail = (order: IOrderResponse) => {
-    setSelectedOrder(order);
-    setIsDetailOpen(true);
   };
 
   return {
@@ -71,13 +60,8 @@ export const useOrdersView = () => {
     limit: data.meta.limit,
     total: data.meta.total,
     totalPages: data.meta.totalPages,
-    selectedOrder,
-    isDetailOpen,
-    filteredOrders,
     setPage: onChangePagination,
     setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     setSearchQuery: handleSearch,
-    setIsDetailOpen,
-    handleViewDetail,
   };
 };
