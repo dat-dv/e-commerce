@@ -90,7 +90,6 @@ export type {
 } from "./components/molecules/sign-in-form";
 export { default as SignInForm } from "./components/molecules/sign-in-form";
 export * from "./components/molecules/summary-card";
-export * from "./components/molecules/table";
 export type {
   CommonTableColumn,
   CommonTableEditChangeParams,
