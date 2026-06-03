@@ -55,33 +55,23 @@ export const useAuthGuard = () => {
     }
 
     // 4. Verify session in the background
-    let ignore = false;
-
     const checkSession = async () => {
       try {
         const currentUser = await adminAuthUseCase.fetchMe.execute();
-        if (ignore) return;
 
         setUser(currentUser);
         setIsForbidden(!canAccessAdminPath(currentUser, pathname));
         setIsSessionVerified(true);
       } catch {
-        if (ignore) return;
         logout();
         setIsForbidden(false);
         router.replace(APP_ROUTES.SIGN_IN);
       } finally {
-        if (!ignore) {
-          setIsCheckingSession(false);
-        }
+        setIsCheckingSession(false);
       }
     };
 
-    checkSession();
-
-    return () => {
-      ignore = true;
-    };
+    void checkSession();
   }, [
     hasHydrated,
     pathname,
