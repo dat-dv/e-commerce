@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "@ecommerce/ui";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 import { adminPermissionUseCase } from "@/domain/permission";
 import type { IAdminRole } from "@/domain/user/types/user.model";
@@ -12,7 +12,7 @@ export const useRolePermissionsMutations = (role: IAdminRole | null) => {
   const [selectedPermissionIds, setSelectedPermissionIds] = useState<string[]>(
     [],
   );
-  const [savingPermissions, setSavingPermissions] = useState(false);
+  const [savingPermissions, startSavingTransition] = useTransition();
 
   useEffect(() => {
     if (role) {
@@ -28,23 +28,20 @@ export const useRolePermissionsMutations = (role: IAdminRole | null) => {
     );
   };
 
-  const handleSavePermissions = async () => {
+  const handleSavePermissions = () => {
     if (!role?.id) return;
 
-    setSavingPermissions(true);
-
-    try {
-      await adminPermissionUseCase.updateRolePermissions.execute(
-        role.id,
-        selectedPermissionIds,
-      );
-      toast.success("Role permissions updated successfully.");
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to update role permissions.");
-    } finally {
-      setSavingPermissions(false);
-    }
+    startSavingTransition(async () => {
+      try {
+        await adminPermissionUseCase.updateRolePermissions.execute(
+          role.id,
+          selectedPermissionIds,
+        );
+        toast.success("Role permissions updated successfully.");
+      } catch {
+        toast.error("Failed to update role permissions.");
+      }
+    });
   };
 
   return {

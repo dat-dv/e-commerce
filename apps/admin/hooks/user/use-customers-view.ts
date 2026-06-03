@@ -1,7 +1,7 @@
 "use client";
 
+import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { adminUserUseCase } from "@/domain/user";
@@ -15,14 +15,11 @@ export type ICustomersViewPaginationParams = ICustomerFilterPaginationParams;
 export const useCustomersView = () => {
   const router = useRouter();
 
-  const [error, setError] = useState<string | null>(null);
-
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IAdminUser, ICustomersViewPaginationParams>({
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
-        setError(null);
         try {
           const response = await adminUserUseCase.getUsers.execute({
             page: params.page ?? 1,
@@ -38,10 +35,10 @@ export const useCustomersView = () => {
               meta: response.meta,
             },
           };
-        } catch (err) {
-          console.error(err);
-          setError("Failed to fetch customer data. Please try again.");
-          throw err;
+        } catch {
+          const message = "Failed to fetch customer data. Please try again.";
+          toast.error(message);
+          throw new Error(message);
         }
       },
     });
@@ -53,7 +50,6 @@ export const useCustomersView = () => {
   return {
     users: data.items,
     loading,
-    error,
     page: data.meta.page,
     limit: data.meta.limit,
     total: data.meta.total,

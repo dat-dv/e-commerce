@@ -2,6 +2,7 @@
 
 import { EProductSort } from "@ecommerce/shared";
 import type { PaginationQueryParams, TableSortDirection } from "@ecommerce/ui";
+import { toast } from "@ecommerce/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -22,7 +23,6 @@ const PRODUCT_SORT_VALUE_MAP: TableSortValueMap<EProductSort> = {
 };
 
 export const useProductsView = () => {
-  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
@@ -30,7 +30,6 @@ export const useProductsView = () => {
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
-        setError(null);
         try {
           const response = await adminProductUseCase.getProducts.execute({
             page: params.page ?? 1,
@@ -44,10 +43,10 @@ export const useProductsView = () => {
               meta: response.meta,
             },
           };
-        } catch (err) {
-          console.error(err);
-          setError("Failed to fetch product data. Please try again.");
-          throw err;
+        } catch {
+          const message = "Failed to fetch product data. Please try again.";
+          toast.error(message);
+          throw new Error(message);
         }
       },
     });
@@ -78,7 +77,6 @@ export const useProductsView = () => {
   return {
     products: data.items,
     loading,
-    error,
     searchQuery,
     page: data.meta.page,
     limit: data.meta.limit,

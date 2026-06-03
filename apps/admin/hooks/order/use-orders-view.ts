@@ -1,7 +1,11 @@
 "use client";
 
 import { EOrderSortBy, ESortValue } from "@ecommerce/shared";
-import type { PaginationQueryParams, TableSortDirection } from "@ecommerce/ui";
+import {
+  type PaginationQueryParams,
+  type TableSortDirection,
+  toast,
+} from "@ecommerce/ui";
 import { useState } from "react";
 
 import { adminOrderUseCase } from "@/domain/order";
@@ -26,7 +30,6 @@ const ORDER_SORT_DIRECTION_MAP: Record<TableSortDirection, ESortValue> = {
 };
 
 export const useOrdersView = () => {
-  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
@@ -34,7 +37,6 @@ export const useOrdersView = () => {
       initialData: null,
       isSyncWithSearchParams: false,
       fetchPage: async (params) => {
-        setError(null);
         try {
           const response = await adminOrderUseCase.getOrders.execute({
             page: params.page ?? 1,
@@ -57,12 +59,11 @@ export const useOrdersView = () => {
             timestamp: new Date().toISOString(),
             status: "success",
           };
-        } catch (err) {
-          console.error(err);
-          setError(
-            "Failed to fetch order data. Please check your permissions.",
-          );
-          throw err;
+        } catch {
+          const message =
+            "Failed to fetch order data. Please check your permissions.";
+          toast.error(message);
+          throw new Error(message);
         }
       },
     });
@@ -90,7 +91,6 @@ export const useOrdersView = () => {
   return {
     orders: data.items,
     loading,
-    error,
     searchQuery,
     page: data.meta.page,
     limit: data.meta.limit,

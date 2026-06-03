@@ -9,7 +9,6 @@ import { useProductsView } from "@/hooks/product/use-products-view";
 
 export const ProductsView = () => {
   const {
-    error,
     loading,
     searchQuery,
     page,
@@ -36,7 +35,6 @@ export const ProductsView = () => {
       <ProductsTable
         products={products}
         loading={loading}
-        error={error}
         page={page}
         pageSize={limit}
         total={total}

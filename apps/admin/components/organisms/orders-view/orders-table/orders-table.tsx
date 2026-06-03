@@ -22,7 +22,6 @@ import { OrdersTableExpandedRow } from "./orders-table-expanded-row";
 interface IOrdersTableProps {
   orders: IAdminCustomerOrder[];
   loading?: boolean;
-  error: string | null;
   page: number;
   pageSize: number;
   total: number;
@@ -38,7 +37,6 @@ interface IOrdersTableProps {
 export const OrdersTable = ({
   orders,
   loading = false,
-  error,
   page,
   pageSize,
   total,
@@ -195,7 +193,6 @@ export const OrdersTable = ({
         data={orders}
         columns={columns}
         loading={loading}
-        error={error}
         total={total}
         page={page}
         pageSize={pageSize}

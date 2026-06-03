@@ -24,7 +24,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   const locale = useLocale();
 
   const [isReturnModalOpen, setIsReturnModalOpen] = useState(false);
-  const { order, loading, error, refresh } = useOrderDetail(orderId);
+  const { order, loading, refresh } = useOrderDetail(orderId);
   const returnRequest = useOrderReturnRequest({
     orderId,
     onSuccess: async () => {
@@ -57,7 +57,7 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
     );
   }
 
-  if (error || !order) {
+  if (!order) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
         <AlertCircle className="mb-6 h-16 w-16 text-red-500/50" />

@@ -24,7 +24,6 @@ const CUSTOMER_TABLE_SORT_FIELD_MAP: TableSortFieldMap<ECustomerSortField> = {
 
 export const CustomersView = () => {
   const {
-    error,
     loading,
     page,
     limit,
@@ -89,7 +88,6 @@ export const CustomersView = () => {
       <CustomersTable
         users={users}
         loading={loading}
-        error={error}
         page={page}
         pageSize={limit}
         total={total}

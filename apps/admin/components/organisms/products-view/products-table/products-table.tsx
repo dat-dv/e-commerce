@@ -19,7 +19,6 @@ import type { IAdminProduct } from "@/domain/product";
 interface IProductsTableProps {
   products: IAdminProduct[];
   loading?: boolean;
-  error: string | null;
   page: number;
   pageSize: number;
   total: number;
@@ -35,7 +34,6 @@ interface IProductsTableProps {
 export const ProductsTable = ({
   products,
   loading = false,
-  error,
   page,
   pageSize,
   total,
@@ -172,7 +170,6 @@ export const ProductsTable = ({
         data={products}
         columns={columns}
         loading={loading}
-        error={error}
         total={total}
         page={page}
         pageSize={pageSize}

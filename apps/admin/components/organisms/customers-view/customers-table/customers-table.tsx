@@ -16,7 +16,6 @@ import type { IAdminUser } from "@/domain/user/types/user.model";
 export interface ICustomersTableProps {
   users: IAdminUser[];
   loading: boolean;
-  error: string | null;
   page: number;
   pageSize: number;
   total: number;
@@ -32,7 +31,6 @@ export interface ICustomersTableProps {
 export const CustomersTable = ({
   users,
   loading,
-  error,
   page,
   pageSize,
   total,
@@ -162,7 +160,6 @@ export const CustomersTable = ({
         data={users}
         columns={columns}
         loading={loading}
-        error={error}
         total={total}
         page={page}
         pageSize={pageSize}

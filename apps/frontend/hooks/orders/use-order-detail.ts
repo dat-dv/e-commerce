@@ -6,13 +6,11 @@ import { useCallback, useEffect, useState } from "react";
 export const useOrderDetail = (orderId: string) => {
   const [order, setOrder] = useState<TOrder | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
 
   const fetchOrderDetail = useCallback(async () => {
     if (!orderId) return;
 
     setLoading(true);
-    setError(null);
 
     try {
       const response = await ordersUseCase.getOrderDetail.execute(orderId);
@@ -22,8 +20,6 @@ export const useOrderDetail = (orderId: string) => {
         throw new Error(response.message || "Failed to load order details");
       }
     } catch (err) {
-      console.error("Error fetching order detail:", err);
-      setError(err instanceof Error ? err : new Error(String(err)));
       toast.error("Failed to load order details. Please try again.");
     } finally {
       setLoading(false);
@@ -37,7 +33,6 @@ export const useOrderDetail = (orderId: string) => {
   return {
     order,
     loading,
-    error,
     refresh: fetchOrderDetail,
   };
 };

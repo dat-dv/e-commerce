@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "@ecommerce/ui";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 import { adminPermissionUseCase } from "@/domain/permission";
 
@@ -15,7 +15,7 @@ export const useCreateRoleForm = ({ onCreated }: IUseCreateRoleFormParams) => {
   const [newRolePermissionIds, setNewRolePermissionIds] = useState<string[]>(
     [],
   );
-  const [creatingRole, setCreatingRole] = useState(false);
+  const [creatingRole, startCreatingTransition] = useTransition();
 
   const toggleNewRolePermission = (permissionId: string) => {
     setNewRolePermissionIds((current) =>
@@ -25,27 +25,24 @@ export const useCreateRoleForm = ({ onCreated }: IUseCreateRoleFormParams) => {
     );
   };
 
-  const handleCreateRole = async () => {
+  const handleCreateRole = () => {
     const roleName = newRoleName.trim();
     if (!roleName) return;
 
-    setCreatingRole(true);
+    startCreatingTransition(async () => {
+      try {
+        await adminPermissionUseCase.createRole.execute({
+          role_name: roleName,
+          description: newRoleDescription.trim() || undefined,
+          permissions: newRolePermissionIds,
+        });
 
-    try {
-      await adminPermissionUseCase.createRole.execute({
-        role_name: roleName,
-        description: newRoleDescription.trim() || undefined,
-        permissions: newRolePermissionIds,
-      });
-
-      toast.success("Role created successfully.");
-      onCreated();
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to create role.");
-    } finally {
-      setCreatingRole(false);
-    }
+        toast.success("Role created successfully.");
+        onCreated();
+      } catch {
+        toast.error("Failed to create role.");
+      }
+    });
   };
 
   return {
