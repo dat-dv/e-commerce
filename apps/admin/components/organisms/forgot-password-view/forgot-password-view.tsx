@@ -2,7 +2,6 @@
 
 import { ForgotPasswordForm } from "@ecommerce/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -12,6 +11,7 @@ import {
   AuthPageShell,
   AuthSuccessBanner,
 } from "@/components/molecules/auth";
+import { useForgotPassword } from "@/hooks/auth/use-forgot-password";
 
 import {
   forgotPasswordSchema,
@@ -42,44 +42,42 @@ const SUCCESS_MODAL = {
     "We've sent a password reset link to your email address. Please check your inbox (and spam folder) and follow the instructions within 15 minutes.",
 };
 
-const SENT_BANNER_MESSAGE =
-  "Password reset email sent. Please check your inbox.";
-
 export const ForgotPasswordView = ({
   signInHref,
 }: IForgotPasswordViewProps) => {
-  const [isSent, setIsSent] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const {
+    isSent,
+    isModalOpen,
+    isSubmitting,
+    sentBannerMessage,
+    closeModal,
+    submitForgotPassword,
+  } = useForgotPassword();
 
   const methods = useForm<TForgotPasswordSchema>({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: { email: "" },
   });
 
-  // TODO: integrate with admin auth API
-  const handleSubmit = (_data: TForgotPasswordSchema) => {
-    setIsSent(true);
-    setIsModalOpen(true);
-  };
-
   return (
     <AuthPageShell variant="forgot-password">
       <AuthCard>
         <AuthBackLink href={signInHref} label="Back to sign in" />
 
-        {isSent && <AuthSuccessBanner message={SENT_BANNER_MESSAGE} />}
+        {isSent && <AuthSuccessBanner message={sentBannerMessage} />}
 
         <ForgotPasswordForm<TForgotPasswordSchema>
           id="admin-forgot-password-form"
           methods={methods}
-          onSubmit={handleSubmit}
+          onSubmit={submitForgotPassword}
           labels={LABELS}
           signInHref={signInHref}
           method="email"
           showMethodTabs={false}
+          isLoading={isSubmitting}
           isSent={isSent}
           isModalOpen={isModalOpen}
-          onModalClose={() => setIsModalOpen(false)}
+          onModalClose={closeModal}
           modalContent={SUCCESS_MODAL}
         />
       </AuthCard>
