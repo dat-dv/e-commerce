@@ -1,4 +1,4 @@
-import type { IUpdateProductRequest } from "@ecommerce/shared";
+import type { EProductSort, IUpdateProductRequest } from "@ecommerce/shared";
 
 import type { ApiListResponse } from "@/utils/request";
 
@@ -9,6 +9,7 @@ export interface IAdminProductRepository {
     page: number,
     limit: number,
     search?: string,
+    sort?: EProductSort,
   ): Promise<ApiListResponse<IAdminProduct>>;
 
   getProduct(slug: string): Promise<IAdminProduct>;

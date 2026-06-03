@@ -15,7 +15,7 @@ export class AdminOrderRepository implements IAdminOrderRepository {
   async getOrders(
     params: IAdminOrderGetParams,
   ): Promise<ApiListResponse<IAdminCustomerOrder>> {
-    const { page, limit, userId, search } = params;
+    const { page, limit, userId, search, sort_by, sort_order } = params;
     const response = await apiClient.get<
       IApiResponse<ApiListResponse<IOrderResponse>>
     >(API_ROUTES.ORDERS.ALL, {
@@ -24,6 +24,8 @@ export class AdminOrderRepository implements IAdminOrderRepository {
         limit,
         ...(userId ? { user_id: userId } : {}),
         ...(search ? { search } : {}),
+        ...(sort_by ? { sort_by } : {}),
+        ...(sort_order != null ? { sort_order } : {}),
       },
     });
 

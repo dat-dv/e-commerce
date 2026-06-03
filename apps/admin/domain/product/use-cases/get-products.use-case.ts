@@ -1,3 +1,5 @@
+import type { EProductSort } from "@ecommerce/shared";
+
 import type { ApiListResponse } from "@/utils/request";
 import { UseCase } from "@/utils/use-case";
 
@@ -8,6 +10,7 @@ interface IGetProductsRequest {
   page: number;
   limit: number;
   search?: string;
+  sort?: EProductSort;
 }
 
 export class GetProductsUseCase extends UseCase<
@@ -25,6 +28,7 @@ export class GetProductsUseCase extends UseCase<
       request.page,
       request.limit,
       request.search,
+      request.sort,
     );
   }
 }

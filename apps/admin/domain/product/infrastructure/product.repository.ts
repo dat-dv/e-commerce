@@ -1,4 +1,5 @@
 import type {
+  EProductSort,
   IApiResponse,
   IProductListResponse,
   IProductResponse,
@@ -18,11 +19,17 @@ export class AdminProductRepository implements IAdminProductRepository {
     page: number,
     limit: number,
     search?: string,
+    sort?: EProductSort,
   ): Promise<ApiListResponse<IAdminProduct>> {
     const response = await apiClient.get<IApiResponse<IProductListResponse>>(
       API_ROUTES.PRODUCTS.LIST,
       {
-        params: { page, limit, ...(search ? { search } : {}) },
+        params: {
+          page,
+          limit,
+          ...(search ? { search } : {}),
+          ...(sort != null ? { sort } : {}),
+        },
       },
     );
     return AdminProductMapper.productListToDomain(response.data!);
