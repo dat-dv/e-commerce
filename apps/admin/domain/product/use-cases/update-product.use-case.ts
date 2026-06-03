@@ -1,4 +1,4 @@
-import type { IApiResponse, IUpdateProductRequest } from "@ecommerce/shared";
+import type { IUpdateProductRequest } from "@ecommerce/shared";
 
 import type { IAdminProduct } from "../types/product.model";
 import type { IAdminProductRepository } from "../types/product.repository";
@@ -9,7 +9,7 @@ export class UpdateProductUseCase {
   async execute(
     id: string,
     data: IUpdateProductRequest,
-  ): Promise<IApiResponse<IAdminProduct>> {
+  ): Promise<IAdminProduct> {
     return this.productRepository.updateProduct(id, data);
   }
 }

@@ -26,11 +26,7 @@ export const useProductDetailData = () => {
 
     try {
       const response = await adminProductUseCase.getProduct.execute(slug);
-      if (response.status === "success" && response.data) {
-        setProduct(response.data);
-      } else {
-        setError(response.message || "Failed to load product detail.");
-      }
+      setProduct(response);
     } catch (err) {
       console.error(err);
       setError("Failed to load product detail.");

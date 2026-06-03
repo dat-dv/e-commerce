@@ -140,12 +140,8 @@ export const useProductSaveAction = ({
           product.id,
           payload,
         );
-        if (response.status === "success" && response.data) {
-          onSaved(response.data);
-          toast.success("Product updated successfully!");
-        } else {
-          toast.error(response.message || "Failed to save product.");
-        }
+        onSaved(response);
+        toast.success("Product updated successfully!");
       } catch (err) {
         console.error(err);
         toast.error("Failed to save product details.");

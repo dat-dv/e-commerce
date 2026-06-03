@@ -1,18 +1,20 @@
-import type { IApiResponse, IUpdateProductRequest } from "@ecommerce/shared";
+import type { IUpdateProductRequest } from "@ecommerce/shared";
 
-import type { IAdminProduct, IAdminProductListResponse } from "./product.model";
+import type { ApiListResponse } from "@/utils/request";
+
+import type { IAdminProduct } from "./product.model";
 
 export interface IAdminProductRepository {
   getProducts(
     page: number,
     limit: number,
     search?: string,
-  ): Promise<IApiResponse<IAdminProductListResponse>>;
+  ): Promise<ApiListResponse<IAdminProduct>>;
 
-  getProduct(slug: string): Promise<IApiResponse<IAdminProduct>>;
+  getProduct(slug: string): Promise<IAdminProduct>;
 
   updateProduct(
     id: string,
     data: IUpdateProductRequest,
-  ): Promise<IApiResponse<IAdminProduct>>;
+  ): Promise<IAdminProduct>;
 }

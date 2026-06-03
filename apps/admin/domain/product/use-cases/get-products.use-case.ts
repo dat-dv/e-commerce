@@ -1,8 +1,7 @@
-import type { IApiResponse } from "@ecommerce/shared";
-
+import type { ApiListResponse } from "@/utils/request";
 import { UseCase } from "@/utils/use-case";
 
-import type { IAdminProductListResponse } from "../types/product.model";
+import type { IAdminProduct } from "../types/product.model";
 import type { IAdminProductRepository } from "../types/product.repository";
 
 interface IGetProductsRequest {
@@ -13,7 +12,7 @@ interface IGetProductsRequest {
 
 export class GetProductsUseCase extends UseCase<
   IGetProductsRequest,
-  Promise<IApiResponse<IAdminProductListResponse>>
+  Promise<ApiListResponse<IAdminProduct>>
 > {
   constructor(private repository: IAdminProductRepository) {
     super();
@@ -21,7 +20,7 @@ export class GetProductsUseCase extends UseCase<
 
   async execute(
     request: IGetProductsRequest,
-  ): Promise<IApiResponse<IAdminProductListResponse>> {
+  ): Promise<ApiListResponse<IAdminProduct>> {
     return this.repository.getProducts(
       request.page,
       request.limit,

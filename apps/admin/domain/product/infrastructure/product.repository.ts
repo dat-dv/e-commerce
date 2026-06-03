@@ -6,12 +6,10 @@ import type {
 } from "@ecommerce/shared";
 
 import { API_ROUTES } from "@/constants/routes";
+import type { ApiListResponse } from "@/utils/request";
 import { apiClient } from "@/utils/request/api-client";
 
-import type {
-  IAdminProduct,
-  IAdminProductListResponse,
-} from "../types/product.model";
+import type { IAdminProduct } from "../types/product.model";
 import type { IAdminProductRepository } from "../types/product.repository";
 import { AdminProductMapper } from "./product.mapper";
 
@@ -20,43 +18,34 @@ export class AdminProductRepository implements IAdminProductRepository {
     page: number,
     limit: number,
     search?: string,
-  ): Promise<IApiResponse<IAdminProductListResponse>> {
+  ): Promise<ApiListResponse<IAdminProduct>> {
     const response = await apiClient.get<IApiResponse<IProductListResponse>>(
       API_ROUTES.PRODUCTS.LIST,
       {
         params: { page, limit, ...(search ? { search } : {}) },
       },
     );
-    return {
-      ...response,
-      data: AdminProductMapper.productListToDomain(response.data),
-    };
+    return AdminProductMapper.productListToDomain(response.data!);
   }
 
-  async getProduct(slug: string): Promise<IApiResponse<IAdminProduct>> {
+  async getProduct(slug: string): Promise<IAdminProduct> {
     const response = await apiClient.get<IApiResponse<IProductResponse>>(
       API_ROUTES.PRODUCTS.DETAIL(slug),
       {
         params: { all_translations: true },
       },
     );
-    return {
-      ...response,
-      data: AdminProductMapper.productToDomain(response.data),
-    };
+    return AdminProductMapper.productToDomain(response.data!);
   }
 
   async updateProduct(
     id: string,
     data: IUpdateProductRequest,
-  ): Promise<IApiResponse<IAdminProduct>> {
+  ): Promise<IAdminProduct> {
     const response = await apiClient.patch<IApiResponse<IProductResponse>>(
       `${API_ROUTES.PRODUCTS.LIST}/${id}`,
       data,
     );
-    return {
-      ...response,
-      data: AdminProductMapper.productToDomain(response.data),
-    };
+    return AdminProductMapper.productToDomain(response.data!);
   }
 }

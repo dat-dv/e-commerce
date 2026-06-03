@@ -37,9 +37,6 @@ export const useCustomersView = () => {
               items: response.items,
               meta: response.meta,
             },
-            message: null,
-            timestamp: new Date().toISOString(),
-            status: "success",
           };
         } catch (err: unknown) {
           console.error(err);

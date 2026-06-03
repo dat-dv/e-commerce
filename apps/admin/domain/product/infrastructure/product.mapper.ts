@@ -9,6 +9,8 @@ import type {
   ISkuResponse,
 } from "@ecommerce/shared";
 
+import type { ApiListResponse } from "@/utils/request";
+
 import type {
   IAdminAttribute,
   IAdminBrand,
@@ -18,7 +20,6 @@ import type {
   IAdminProduct,
   IAdminProductCategoryMapping,
   IAdminProductImage,
-  IAdminProductListResponse,
   IAdminProductTranslation,
   IAdminSku,
   IAdminSkuAttributeValue,
@@ -172,7 +173,7 @@ export class AdminProductMapper {
 
   static productListToDomain(
     productList: IProductListResponse,
-  ): IAdminProductListResponse {
+  ): ApiListResponse<IAdminProduct> {
     return {
       items: productList.items.map((product) =>
         AdminProductMapper.productToDomain(product),

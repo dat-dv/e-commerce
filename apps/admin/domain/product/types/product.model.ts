@@ -1,7 +1,5 @@
 import type { IUpdateProductRequest } from "@ecommerce/shared";
 
-import type { IPaginationMeta } from "@/utils/request";
-
 export interface IAdminProductImage {
   id: string;
   url: string;
@@ -152,11 +150,6 @@ export interface IAdminProduct {
   categories?: IAdminProductCategoryMapping[];
   skus?: IAdminSku[];
   isFavorited?: boolean;
-}
-
-export interface IAdminProductListResponse {
-  items: IAdminProduct[];
-  meta: IPaginationMeta;
 }
 
 export type IAdminUpdateProductRequest = IUpdateProductRequest;

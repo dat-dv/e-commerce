@@ -25,17 +25,9 @@ export const useProductsView = () => {
           });
           return {
             data: {
-              items: response.data?.items ?? [],
-              meta: response.data?.meta ?? {
-                total: 0,
-                page: params.page ?? 1,
-                limit: params.limit ?? 12,
-                totalPages: 0,
-              },
+              items: response.items,
+              meta: response.meta,
             },
-            message: response.message,
-            timestamp: response.timestamp || new Date().toISOString(),
-            status: response.status as "success" | "fail",
           };
         } catch (err: unknown) {
           console.error(err);

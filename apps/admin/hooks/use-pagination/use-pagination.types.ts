@@ -1,10 +1,9 @@
 import type {
+  PaginatedResponse,
   PaginationData,
   PaginationParams,
   PaginationQueryParams,
 } from "@ecommerce/ui";
-
-import type { ApiPaginatedResponse } from "@/utils/request";
 
 export type UsePaginationParams<
   T,
@@ -13,7 +12,7 @@ export type UsePaginationParams<
   initialData: PaginationData<T> | null;
   extendParams?: Partial<TParams>;
   resetParams?: Partial<Omit<TParams, "page" | "limit">>;
-  fetchPage: (params: Partial<TParams>) => Promise<ApiPaginatedResponse<T>>;
+  fetchPage: (params: Partial<TParams>) => Promise<PaginatedResponse<T>>;
   isSyncWithSearchParams: boolean;
 };
 
