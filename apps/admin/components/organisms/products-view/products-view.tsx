@@ -15,7 +15,7 @@ export const ProductsView = () => {
     page,
     limit,
     total,
-    filteredProducts,
+    products,
     setPage,
     setPageSize,
     setSearchQuery,
@@ -33,7 +33,7 @@ export const ProductsView = () => {
       />
 
       <ProductsTable
-        products={filteredProducts}
+        products={products}
         loading={loading}
         error={error}
         page={page}

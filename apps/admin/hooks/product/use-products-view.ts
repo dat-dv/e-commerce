@@ -10,8 +10,6 @@ import usePagination from "@/hooks/use-pagination";
 export const useProductsView = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct] = useState<IAdminProduct | null>(null);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   const { data, loading, getFirstPage, onChangePagination, onChangeFilter } =
     usePagination<IAdminProduct>({
@@ -47,8 +45,6 @@ export const useProductsView = () => {
       },
     });
 
-  const filteredProducts = data.items;
-
   const handleSearch = (q: string) => {
     setSearchQuery(q);
     onChangeFilter([{ key: "search", value: q }]);
@@ -69,13 +65,9 @@ export const useProductsView = () => {
     limit: data.meta.limit,
     total: data.meta.total,
     totalPages: data.meta.totalPages,
-    selectedProduct,
-    isDetailOpen,
-    filteredProducts,
     setPage: onChangePagination,
     setPageSize: (limit: number) => getFirstPage({ page: 1, limit }),
     setSearchQuery: handleSearch,
-    setIsDetailOpen,
     handleViewDetail,
   };
 };
