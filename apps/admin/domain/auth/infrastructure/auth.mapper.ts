@@ -17,16 +17,21 @@ export const AdminUserMapper = {
       ? {
           id: dto.role.id,
           roleName: dto.role.role_name,
-          description: dto.role.description || null,
-          permissions: dto.role.permissions
-            ? dto.role.permissions.map((item) => ({
-                permission: {
-                  id: item.permission.id,
-                  permissionName: item.permission.permission_name,
-                  description: item.permission.description,
-                },
-              }))
-            : [],
+          description: dto.role.description,
+          permissions: dto.role.permissions?.map((item) => ({
+            permission: {
+              id: item.permission.id,
+              permissionName: item.permission.permission_name,
+              description: item.permission.description,
+              category: item.permission.category,
+              createdAt: item.permission.created_at
+                ? new Date(item.permission.created_at).toISOString()
+                : "",
+              updatedAt: item.permission.updated_at
+                ? new Date(item.permission.updated_at).toISOString()
+                : "",
+            },
+          })),
           createdAt: dto.role.created_at
             ? new Date(dto.role.created_at).toISOString()
             : "",
@@ -38,8 +43,8 @@ export const AdminUserMapper = {
 
     return {
       id: dto.id,
-      firstName: dto.first_name || "",
-      lastName: dto.last_name || "",
+      firstName: dto.first_name,
+      lastName: dto.last_name,
       email: dto.email,
       dateOfBirth: dto.date_of_birth
         ? new Date(dto.date_of_birth).toISOString()
@@ -49,31 +54,54 @@ export const AdminUserMapper = {
       createdAt: dto.created_at ? new Date(dto.created_at).toISOString() : "",
       updatedAt: dto.updated_at ? new Date(dto.updated_at).toISOString() : "",
       deletedAt: dto.deleted_at ? new Date(dto.deleted_at).toISOString() : null,
-      roleId: dto.role_id ?? "",
+      roleId: dto.role_id,
+      activePhoneId: dto.active_phone_id,
       role,
       avatar: dto.avatar
         ? {
             id: dto.avatar.id,
             url: dto.avatar.url,
+            publicId: dto.avatar.public_id,
             width: dto.avatar.width,
             height: dto.avatar.height,
             format: dto.avatar.format,
+            bytes: dto.avatar.bytes,
+            createdAt: dto.avatar.created_at
+              ? new Date(dto.avatar.created_at).toISOString()
+              : "",
+            updatedAt: dto.avatar.updated_at
+              ? new Date(dto.avatar.updated_at).toISOString()
+              : "",
           }
         : null,
-      phones:
-        dto.phones?.map((phone) => ({
-          id: phone.id,
-          userId: phone.user_id,
-          phone: phone.phone,
-          phoneCode: phone.phone_code,
-          isVerified: phone.is_verified,
-          createdAt: phone.created_at
-            ? new Date(phone.created_at).toISOString()
-            : "",
-          updatedAt: phone.updated_at
-            ? new Date(phone.updated_at).toISOString()
-            : "",
-        })) ?? [],
+      activePhone: dto.active_phone
+        ? {
+            id: dto.active_phone.id,
+            userId: dto.active_phone.user_id,
+            phone: dto.active_phone.phone,
+            phoneCode: dto.active_phone.phone_code,
+            isVerified: dto.active_phone.is_verified,
+            createdAt: dto.active_phone.created_at
+              ? new Date(dto.active_phone.created_at).toISOString()
+              : "",
+            updatedAt: dto.active_phone.updated_at
+              ? new Date(dto.active_phone.updated_at).toISOString()
+              : "",
+          }
+        : dto.active_phone,
+      phones: dto.phones?.map((phone) => ({
+        id: phone.id,
+        userId: phone.user_id,
+        phone: phone.phone,
+        phoneCode: phone.phone_code,
+        isVerified: phone.is_verified,
+        createdAt: phone.created_at
+          ? new Date(phone.created_at).toISOString()
+          : "",
+        updatedAt: phone.updated_at
+          ? new Date(phone.updated_at).toISOString()
+          : "",
+      })),
     };
   },
 

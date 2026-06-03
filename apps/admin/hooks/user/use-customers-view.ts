@@ -64,7 +64,7 @@ export const useCustomersView = () => {
   const uniqueRoles = useMemo(() => {
     const rolesMap = new Map<string, string>();
     data.items.forEach((u) => {
-      if (u.role) rolesMap.set(u.roleId, u.role.roleName);
+      if (u.role && u.roleId) rolesMap.set(u.roleId, u.role.roleName);
     });
     return Array.from(rolesMap.entries()).map(([value, label]) => ({
       value,

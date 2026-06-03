@@ -1,8 +1,6 @@
 import type { IOrderResponse } from "@ecommerce/shared";
 import { Package } from "lucide-react";
 
-import { getOrderItemDisplay } from "@/components/organisms/orders-view/order.utils";
-
 import { formatCurrency } from "../../products-view/product.utils";
 
 export interface OrdersTableExpandedRowProps {
@@ -27,7 +25,16 @@ export const OrdersTableExpandedRow = ({
 
       <div className="divide-content/5 divide-y overflow-hidden rounded-lg border border-[var(--border-color)]/70 bg-[var(--app-bg)]/30">
         {orderItems.map((item) => {
-          const preview = getOrderItemDisplay(item);
+          const sku = item.sku;
+          const product = sku?.product;
+          const productName = product?.translations?.[0]?.name ?? "-";
+          const imageUrl = sku?.image_url ?? product?.thumbnail?.url;
+          const skuCode = sku?.sku_code ?? item.sku_id;
+          const attributes = sku?.sku_attribute_values
+            ?.map((entry) => entry.attribute_value?.value)
+            .filter(Boolean)
+            .join(" | ");
+          const unitPrice = Number(item.price);
 
           return (
             <div
@@ -36,10 +43,10 @@ export const OrdersTableExpandedRow = ({
             >
               <div className="flex min-w-0 items-center gap-3">
                 <div className="bg-content/5 flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-                  {preview.image ? (
+                  {imageUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={preview.image}
+                      src={imageUrl}
                       alt=""
                       className="h-full w-full object-cover"
                     />
@@ -50,14 +57,14 @@ export const OrdersTableExpandedRow = ({
 
                 <div className="min-w-0">
                   <p className="truncate text-sm font-semibold text-[var(--app-text)]">
-                    {preview.name}
+                    {productName}
                   </p>
                   <p className="text-primary truncate font-mono text-xs">
-                    {preview.skuCode}
+                    {skuCode}
                   </p>
-                  {preview.attributes && (
+                  {attributes && (
                     <p className="truncate text-xs text-[var(--muted)]">
-                      {preview.attributes}
+                      {attributes}
                     </p>
                   )}
                 </div>
@@ -72,10 +79,10 @@ export const OrdersTableExpandedRow = ({
 
               <div className="text-sm sm:text-right">
                 <p className="text-xs text-[var(--muted)]">
-                  {formatCurrency(preview.unitPrice)}
+                  {formatCurrency(unitPrice)}
                 </p>
                 <p className="font-semibold text-[var(--app-text)]">
-                  {formatCurrency(preview.subtotal)}
+                  {formatCurrency(unitPrice * item.quantity)}
                 </p>
               </div>
             </div>

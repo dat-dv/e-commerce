@@ -11,7 +11,6 @@ import { Calendar, Package } from "lucide-react";
 import {
   formatCurrency,
   formatDate,
-  getOrderItemDisplay,
   getOrderStatus,
 } from "@/components/organisms/orders-view/order.utils";
 
@@ -104,7 +103,16 @@ export const OrderDetailDialog = ({
               </p>
               <div className="border-content/5 bg-content/[0.02] divide-content/5 divide-y overflow-hidden rounded-xl border">
                 {order.items.map((item) => {
-                  const preview = getOrderItemDisplay(item);
+                  const sku = item.sku;
+                  const product = sku?.product;
+                  const productName = product?.translations?.[0]?.name ?? "-";
+                  const imageUrl = sku?.image_url ?? product?.thumbnail?.url;
+                  const skuCode = sku?.sku_code ?? item.sku_id;
+                  const attributes = sku?.sku_attribute_values
+                    ?.map((entry) => entry.attribute_value?.value)
+                    .filter(Boolean)
+                    .join(" | ");
+                  const unitPrice = Number(item.price);
 
                   return (
                     <div
@@ -113,10 +121,10 @@ export const OrderDetailDialog = ({
                     >
                       <div className="flex min-w-0 items-center gap-3">
                         <div className="bg-content/5 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-                          {preview.image ? (
+                          {imageUrl ? (
                             // eslint-disable-next-line @next/next/no-img-element
                             <img
-                              src={preview.image}
+                              src={imageUrl}
                               alt=""
                               className="h-full w-full object-cover"
                             />
@@ -126,14 +134,14 @@ export const OrderDetailDialog = ({
                         </div>
                         <div className="min-w-0">
                           <p className="truncate text-sm font-semibold text-[var(--app-text)]">
-                            {preview.name}
+                            {productName}
                           </p>
                           <p className="text-primary truncate font-mono text-xs">
-                            {preview.skuCode}
+                            {skuCode}
                           </p>
-                          {preview.attributes && (
+                          {attributes && (
                             <p className="truncate text-xs text-[var(--muted)]">
-                              {preview.attributes}
+                              {attributes}
                             </p>
                           )}
                         </div>
@@ -148,10 +156,10 @@ export const OrderDetailDialog = ({
 
                       <div className="text-sm sm:text-right">
                         <p className="text-[var(--muted)]">
-                          {formatCurrency(preview.unitPrice)}
+                          {formatCurrency(unitPrice)}
                         </p>
                         <p className="font-semibold text-[var(--app-text)]">
-                          {formatCurrency(preview.subtotal)}
+                          {formatCurrency(unitPrice * item.quantity)}
                         </p>
                       </div>
                     </div>

@@ -30,8 +30,6 @@ export interface IAdminPermission {
 }
 
 export interface IAdminRolePermission {
-  roleId?: string;
-  permissionId?: string;
   permission: IAdminPermission;
 }
 
@@ -54,7 +52,7 @@ export interface IAdminUser {
   createdAt: string;
   updatedAt: string;
   deletedAt?: string | null;
-  roleId: string;
+  roleId?: string | null;
   avatarId?: string | null;
   activePhoneId?: string | null;
   role?: IAdminRole | null;
