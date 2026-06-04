@@ -98,9 +98,11 @@ export default function MobileSearchDrawer({
                   const isActive = selectedRoute === option.router;
 
                   return (
-                    <button
+                    <Button
                       key={option.router}
                       type="button"
+                      variant="ghost"
+                      size="sm"
                       onClick={() =>
                         methods.setValue("route", option.router, {
                           shouldDirty: true,
@@ -114,7 +116,7 @@ export default function MobileSearchDrawer({
                       )}
                     >
                       {option.label}
-                    </button>
+                    </Button>
                   );
                 })}
               </div>

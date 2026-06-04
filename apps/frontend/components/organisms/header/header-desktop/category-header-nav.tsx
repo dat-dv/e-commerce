@@ -1,5 +1,5 @@
 "use client";
-import { LiquidWaveText } from "@ecommerce/ui";
+import { Button, LiquidWaveText } from "@ecommerce/ui";
 
 import React from "react";
 import { ChevronDown } from "lucide-react";
@@ -23,10 +23,12 @@ export const CategoryHeaderNav = ({
 
   return (
     <div className="relative flex h-full items-center">
-      <button
+      <Button
+        type="button"
+        variant="ghost"
         onClick={toggleMenu}
         className={cn(
-          "relative flex h-full items-center gap-1.5 px-2 text-sm font-bold",
+          "relative flex h-full items-center gap-1.5 rounded-none px-2 text-sm font-bold opacity-100 hover:bg-transparent",
           isActive ? "text-primary" : "text-content/70",
         )}
       >
@@ -45,7 +47,7 @@ export const CategoryHeaderNav = ({
         {isActive && (
           <span className="bg-primary absolute -bottom-[22px] left-0 h-[2.5px] w-full rounded-full shadow-[0_-2px_8px_rgba(var(--primary),0.4)]" />
         )}
-      </button>
+      </Button>
     </div>
   );
 };

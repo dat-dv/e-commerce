@@ -171,12 +171,15 @@ export function ListingProductsToolbar({
               </span>
             </div>
             {sortOptions.map((option) => (
-              <button
+              <Button
                 key={option.value}
+                type="button"
+                variant="ghost"
+                size="sm"
                 onClick={() => updateSort(option.value.toString())}
                 className={cn(
                   UI_RADIUS.control,
-                  `flex items-center justify-between px-3 py-2.5 ${TYPOGRAPHY.caption} font-semibold transition-colors`,
+                  `flex h-auto w-full items-center justify-between px-3 py-2.5 ${TYPOGRAPHY.caption} font-semibold transition-colors`,
                   currentSort === option.value.toString()
                     ? "bg-content/[0.06] text-content font-bold"
                     : "text-content/65 hover:text-content hover:bg-content/[0.04]",
@@ -189,7 +192,7 @@ export function ListingProductsToolbar({
                     className="bg-content/55 size-1.5 rounded-full"
                   />
                 )}
-              </button>
+              </Button>
             ))}
           </div>
         </AppDropdown>
