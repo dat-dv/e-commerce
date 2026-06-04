@@ -28,7 +28,6 @@ export const useAuthGuard = () => {
   useEffect(() => {
     if (!hasHydrated) return;
 
-    // 1. If we are on a public path (like sign-in)
     if (isPublicPath) {
       setIsForbidden(false);
       if (user) {
@@ -39,22 +38,14 @@ export const useAuthGuard = () => {
       return;
     }
 
-    // 2. If we are on a protected path and have no session/user locally
-    if (!user) {
-      setIsForbidden(false);
-      router.replace(APP_ROUTES.SIGN_IN);
-      setIsCheckingSession(false);
-      return;
-    }
-
-    // 3. If we already verified the session during this mount, skip API call
-    if (isSessionVerified) {
+    if (isSessionVerified && user) {
       setIsForbidden(!canAccessAdminPath(user, pathname));
       setIsCheckingSession(false);
       return;
     }
 
-    // 4. Verify session in the background
+    setIsCheckingSession(true);
+
     const checkSession = async () => {
       try {
         const currentUser = await adminAuthUseCase.fetchMe.execute();
