@@ -9,6 +9,15 @@ export const PRODUCT_LISTING_GRID_COLUMNS = {
   md: 4,
 } satisfies VirtualGridColumns;
 
+export const PRODUCT_TWO_ROW_CAROUSEL_GRID_CLASS_NAME =
+  "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4";
+
+export const PRODUCT_TWO_ROW_CAROUSEL_GRID_COLUMNS = {
+  base: 2,
+  sm: 3,
+  md: 4,
+} satisfies VirtualGridColumns;
+
 export const PRODUCT_FILTER_LAYOUT_CLASS_NAME =
   "grid grid-cols-1 gap-8 lg:grid-cols-4";
 

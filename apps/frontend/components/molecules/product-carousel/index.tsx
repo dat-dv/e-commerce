@@ -1,7 +1,17 @@
 "use client";
 
-import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
-import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/constants/grid-presets";
+import {
+  Carousel,
+  CarouselItem,
+  SectionHeader,
+  useResponsiveColumns,
+} from "@ecommerce/ui";
+import {
+  PRODUCT_LISTING_GRID_COLUMNS,
+  PRODUCT_LISTING_GRID_CLASS_NAME,
+  PRODUCT_TWO_ROW_CAROUSEL_GRID_COLUMNS,
+  PRODUCT_TWO_ROW_CAROUSEL_GRID_CLASS_NAME,
+} from "@/constants/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
 import { LucideIcon } from "lucide-react";
@@ -19,8 +29,6 @@ interface IProductCarouselProps {
   lang: string;
 }
 
-const DESKTOP_COLUMNS = 4;
-
 export const ProductCarousel = ({
   title,
   href,
@@ -28,8 +36,18 @@ export const ProductCarousel = ({
   products,
   rows = 1,
 }: IProductCarouselProps) => {
+  const gridClassName =
+    rows === 2
+      ? PRODUCT_TWO_ROW_CAROUSEL_GRID_CLASS_NAME
+      : PRODUCT_LISTING_GRID_CLASS_NAME;
+  const responsiveColumns = useResponsiveColumns(
+    rows === 2
+      ? PRODUCT_TWO_ROW_CAROUSEL_GRID_COLUMNS
+      : PRODUCT_LISTING_GRID_COLUMNS,
+  );
+
   const carouselPages = useMemo(() => {
-    const itemsPerPage = rows * DESKTOP_COLUMNS;
+    const itemsPerPage = rows * responsiveColumns;
     const result: TProduct[][] = [];
 
     for (let i = 0; i < products.length; i += itemsPerPage) {
@@ -37,7 +55,7 @@ export const ProductCarousel = ({
     }
 
     return result;
-  }, [products, rows]);
+  }, [products, responsiveColumns, rows]);
 
   if (products.length === 0) return null;
 
@@ -53,7 +71,7 @@ export const ProductCarousel = ({
       <Carousel options={{ align: "start" }}>
         {carouselPages.map((page, pageIndex) => (
           <CarouselItem key={pageIndex} className="flex-[0_0_100%]">
-            <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
+            <div className={gridClassName}>
               {page.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
