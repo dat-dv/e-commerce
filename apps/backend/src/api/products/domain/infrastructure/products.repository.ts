@@ -744,6 +744,18 @@ export class ProductsRepository implements IProductsRepository {
     return count > 0;
   }
 
+  async getFavoriteProductIds(userId: string, productIds: string[]): Promise<string[]> {
+    if (!productIds.length) return [];
+    const favorites = await this.prisma.userFavoriteProduct.findMany({
+      where: {
+        user_id: userId,
+        product_id: { in: productIds },
+      },
+      select: { product_id: true },
+    });
+    return favorites.map((f) => f.product_id);
+  }
+
   async update(id: string, data: UpdateProductDto, languageCode = DEFAULT_LANGUAGE_CODE): Promise<IProductResponse> {
     const { translations, skus, category_ids, deleted_sku_ids, ...productData } = data;
 

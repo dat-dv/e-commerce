@@ -46,6 +46,7 @@ export interface IProductsRepository {
   getSimilarProducts(categoryId: string, limit?: number, languageCode?: string): Promise<IProductResponse[]>;
   getProductCategories(productId: string): Promise<string[] | null>;
   isFavorited(userId: string, productId: string): Promise<boolean>;
+  getFavoriteProductIds(userId: string, productIds: string[]): Promise<string[]>;
   update(id: string, data: UpdateProductDto, languageCode?: string): Promise<IProductResponse>;
 }
 
