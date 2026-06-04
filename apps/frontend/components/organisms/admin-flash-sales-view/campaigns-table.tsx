@@ -1,10 +1,17 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
+import { Button, EmptyState } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import type { TFlashSale } from "@/domain/flash-sales/types/flash-sale.model";
 import { cn } from "@/utils/cn";
-import { Plus, RefreshCw, Rows3, Tags } from "lucide-react";
+import {
+  AlertTriangle,
+  PackageOpen,
+  Plus,
+  RefreshCw,
+  Rows3,
+  Tags,
+} from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 
@@ -97,28 +104,35 @@ export function CampaignsTable({
               </tr>
             ) : hasError ? (
               <tr>
-                <td colSpan={6} className="px-6 py-12 text-center">
-                  <p className="mb-4 text-sm font-semibold text-red-500">
-                    {t("error")}
-                  </p>
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    onClick={onRetry}
+                <td colSpan={6} className="px-6 py-6">
+                  <EmptyState
+                    title={t("error")}
+                    description={t("error")}
+                    icon={AlertTriangle}
+                    className="border-0 bg-transparent py-10"
                   >
-                    <RefreshCw aria-hidden="true" className="size-4" />
-                    {t("retry")}
-                  </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={onRetry}
+                      className="mt-6"
+                    >
+                      <RefreshCw aria-hidden="true" className="size-4" />
+                      {t("retry")}
+                    </Button>
+                  </EmptyState>
                 </td>
               </tr>
             ) : flashSales.length === 0 ? (
               <tr>
-                <td
-                  colSpan={6}
-                  className="text-content/50 px-6 py-12 text-center"
-                >
-                  {t("empty")}
+                <td colSpan={6} className="px-6 py-6">
+                  <EmptyState
+                    title={t("empty")}
+                    description={t("empty")}
+                    icon={PackageOpen}
+                    className="border-0 bg-transparent py-10"
+                  />
                 </td>
               </tr>
             ) : (

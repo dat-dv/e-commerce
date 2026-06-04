@@ -3,12 +3,11 @@
 import { RequestReturnModal } from "@/components/molecules/order-part/request-return-modal";
 import { ORDER_STATUS_CONFIG } from "@/constants/order-status.constant";
 import { APP_ROUTES } from "@/constants/routes";
-import { UI_RADIUS } from "@/constants/ui-radius";
 import { useOrderReturnRequest } from "@/hooks/order-returns/use-order-return-request";
 import { useOrderDetail } from "@/hooks/orders/use-order-detail";
-import { cn } from "@/utils/cn";
 import { getOrderStatusLabel } from "@/utils/order";
 import { EOrderStatus } from "@ecommerce/shared";
+import { EmptyState, Loading } from "@ecommerce/ui";
 import { AlertCircle } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
@@ -44,38 +43,20 @@ export const OrderDetailView = ({ orderId }: { orderId: string }) => {
   };
 
   if (loading) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
-        <div className="relative h-12 w-12">
-          <div className="border-primary/5 absolute inset-0 rounded-full border-4" />
-          <div className="border-primary absolute inset-0 animate-spin rounded-full border-4 border-t-transparent" />
-        </div>
-        <div className="text-content/30 mt-6 animate-pulse text-xs font-semibold">
-          {t("detail.loading")}
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (!order) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
-        <AlertCircle className="mb-6 h-16 w-16 text-red-500/50" />
-        <h1 className="text-content mb-4 text-2xl font-bold tracking-tight">
-          {t("detail.notFoundTitle")}
-        </h1>
-        <p className="text-content/40 mb-8 max-w-sm text-center text-sm font-medium">
-          {t("detail.notFoundDesc")}
-        </p>
-        <Link
-          href={APP_ROUTES.ORDERS}
-          className={cn(
-            UI_RADIUS.control,
-            "bg-content text-surface px-8 py-3 text-sm font-semibold shadow-lg shadow-black/10 transition-all hover:-translate-y-1",
-          )}
-        >
-          {t("detail.backToOrders")}
-        </Link>
+      <div className="flex min-h-screen items-center justify-center px-4">
+        <EmptyState
+          title={t("detail.notFoundTitle")}
+          description={t("detail.notFoundDesc")}
+          icon={AlertCircle}
+          actionLabel={t("detail.backToOrders")}
+          actionHref={APP_ROUTES.ORDERS}
+          linkComponent={Link}
+        />
       </div>
     );
   }

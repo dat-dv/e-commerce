@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, FormCard } from "@ecommerce/ui";
+import { Button, EmptyState, FormCard } from "@ecommerce/ui";
 
 import { CreditCard, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -31,19 +31,12 @@ export function ProfileBankView(): React.ReactElement {
         </Button>
       </div>
 
-      <div className="border-content/10 flex min-w-0 flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed p-5 text-center sm:p-8">
-        <div className="bg-content/5 text-content/40 flex h-12 w-12 items-center justify-center rounded-full">
-          <CreditCard size={24} aria-hidden="true" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-content font-semibold break-words">
-            {t("empty.title")}
-          </p>
-          <p className="text-content/50 text-sm break-words">
-            {t("empty.description")}
-          </p>
-        </div>
-      </div>
+      <EmptyState
+        title={t("empty.title")}
+        description={t("empty.description")}
+        icon={CreditCard}
+        className="rounded-xl border-dashed py-12"
+      />
     </FormCard>
   );
 }

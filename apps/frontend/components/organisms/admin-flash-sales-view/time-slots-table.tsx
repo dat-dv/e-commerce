@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
+import { Button, EmptyState } from "@ecommerce/ui";
 import { UI_RADIUS } from "@/constants/ui-radius";
 import type { TFlashSaleTimeSlot } from "@/domain/flash-sales/types/flash-sale.model";
 import { cn } from "@/utils/cn";
-import { Clock3, Plus, RefreshCw, Rows3 } from "lucide-react";
+import { AlertTriangle, Clock3, Plus, RefreshCw, Rows3 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 function formatSlotTime(hour: number, minute: number) {
@@ -66,29 +66,35 @@ export function TimeSlotsTable({
               </tr>
             ) : hasError ? (
               <tr>
-                <td colSpan={4} className="px-6 py-12 text-center">
-                  <p className="mb-4 text-sm font-semibold text-red-500">
-                    {t("error")}
-                  </p>
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    onClick={onRetry}
+                <td colSpan={4} className="px-6 py-6">
+                  <EmptyState
+                    title={t("error")}
+                    description={t("error")}
+                    icon={AlertTriangle}
+                    className="border-0 bg-transparent py-10"
                   >
-                    <RefreshCw aria-hidden="true" className="size-4" />
-                    {t("retry")}
-                  </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={onRetry}
+                      className="mt-6"
+                    >
+                      <RefreshCw aria-hidden="true" className="size-4" />
+                      {t("retry")}
+                    </Button>
+                  </EmptyState>
                 </td>
               </tr>
             ) : timeSlots.length === 0 ? (
               <tr>
-                <td
-                  colSpan={4}
-                  className="text-content/50 px-6 py-12 text-center"
-                >
-                  <Clock3 aria-hidden="true" className="mx-auto mb-3 size-5" />
-                  {t("empty")}
+                <td colSpan={4} className="px-6 py-6">
+                  <EmptyState
+                    title={t("empty")}
+                    description={t("empty")}
+                    icon={Clock3}
+                    className="border-0 bg-transparent py-10"
+                  />
                 </td>
               </tr>
             ) : (

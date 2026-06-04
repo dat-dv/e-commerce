@@ -1,9 +1,10 @@
 "use client";
 
-import { VirtualList } from "@ecommerce/ui";
+import { EmptyState, VirtualList } from "@ecommerce/ui";
 import { TYPOGRAPHY } from "@/constants/typography";
 import { INotification } from "@/domain/notifications/types/notification";
 import { motion } from "framer-motion";
+import { Bell } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { NotificationItem } from "../notification-item";
 
@@ -41,16 +42,12 @@ export const NotificationList = ({
 
   if (notifications.length === 0) {
     return (
-      <div className="bg-surface border-content/[0.08] shadow-content/[0.02] flex flex-col items-center gap-6 rounded-2xl border p-24 text-center shadow-xl">
-        <div className="space-y-1">
-          <h3 className="text-content text-lg font-bold">
-            {t("list.emptyTitle")}
-          </h3>
-          <p className="text-content/40 font-inter mx-auto max-w-[280px] text-sm leading-relaxed">
-            {t("list.emptyDescription")}
-          </p>
-        </div>
-      </div>
+      <EmptyState
+        title={t("list.emptyTitle")}
+        description={t("list.emptyDescription")}
+        icon={Bell}
+        className="shadow-content/[0.02] shadow-xl"
+      />
     );
   }
 
