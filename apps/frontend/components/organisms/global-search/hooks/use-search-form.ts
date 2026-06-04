@@ -36,9 +36,15 @@ export const useSearchForm = () => {
 
   const onSubmit = ({ search, route }: SearchFormValues) => {
     const keyword = search.trim();
-    const prevSearch = searchParams.get("search");
-    if (keyword === prevSearch) return;
-    router.push(`${route}?search=${keyword}`);
+    const prevSearch = searchParams.get("search") || "";
+    const currentRoute = pathname;
+
+    if (keyword === prevSearch && route === currentRoute) return;
+
+    const params = new URLSearchParams();
+    if (keyword) params.set("search", keyword);
+
+    router.push(params.toString() ? `${route}?${params.toString()}` : route);
   };
 
   const options = buildSearchOptions(pathname, t);
