@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@ecommerce/ui";
-import { useHeaderStore } from "@/hooks/config/use-header-store";
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart, ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -10,7 +9,6 @@ interface ProductMobilePurchaseBarProps {
   hasSelectedSku: boolean;
   isOutOfStock?: boolean;
   isFavorited: boolean;
-  price: number;
   onAddToCart: () => void;
   onBuyNow: () => void;
   onToggleFavorite?: () => void;
@@ -20,7 +18,6 @@ export function ProductMobilePurchaseBar({
   hasSelectedSku,
   isOutOfStock,
   isFavorited,
-  price,
   onAddToCart,
   onBuyNow,
   onToggleFavorite,

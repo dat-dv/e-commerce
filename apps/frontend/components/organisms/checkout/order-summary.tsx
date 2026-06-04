@@ -108,7 +108,7 @@ export const OrderSummary = ({
           </div>
 
           <TurnstileWrapper>
-            {({ isVerified, token }) => {
+            {({ isVerified }) => {
               const isLoading = !isVerified && loading && !isItemsEmpty;
               const disabled = !isVerified || isLoading || isItemsEmpty;
               return (

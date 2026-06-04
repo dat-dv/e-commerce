@@ -1,6 +1,7 @@
 "use client";
 
 import { Carousel, CarouselItem, SectionHeader } from "@ecommerce/ui";
+import { PRODUCT_LISTING_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import { TProduct } from "@/domain/products/types/products.model";
 import { LucideIcon } from "lucide-react";
@@ -52,7 +53,7 @@ export const ProductCarousel = ({
       <Carousel options={{ align: "start" }}>
         {carouselPages.map((page, pageIndex) => (
           <CarouselItem key={pageIndex} className="flex-[0_0_100%]">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+            <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
               {page.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

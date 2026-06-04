@@ -151,7 +151,6 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           hasSelectedSku={Boolean(selectedSku.id)}
           isOutOfStock={selectedSku?.stock === 0}
           isFavorited={isFavorited}
-          price={price}
           onAddToCart={handleAddToCart}
           onBuyNow={handleBuyNow}
           onToggleFavorite={() => toggleFavorite(product.id)}

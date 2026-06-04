@@ -1,11 +1,9 @@
 import { addressesUseCase } from "@/domain/addresses";
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
-import { useTranslations } from "next-intl";
 import { useCallback, useTransition } from "react";
 import { useAddressStore } from "./use-address-store";
 
 export const useUpdateAddress = () => {
-  const t = useTranslations("ProfileAddressesPage.toast");
   const [isPending, startTransition] = useTransition();
   const setAddresses = useAddressStore((s) => s.setAddresses);
 
@@ -20,13 +18,11 @@ export const useUpdateAddress = () => {
               if (listRes.status === "success") {
                 setAddresses(listRes.data || []);
               }
-              // toast.success(t("updateSuccess"));
               resolve(true);
               return;
             }
             throw new Error(res.message);
           } catch {
-            // toast.error(t("updateFailed"));
             resolve(false);
           }
         });
