@@ -11,6 +11,11 @@ import {
 import { AppForm } from "@ecommerce/ui";
 import { FormCheckbox } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
+import {
+  FORM_ACTION_ROW_CLASS_NAME,
+  FORM_FOUR_COLUMN_GRID_CLASS_NAME,
+  FORM_STACK_CLASS_NAME,
+} from "@/constants/grid-presets";
 import type { TCreateTimeSlotInput } from "@/domain/flash-sales/types/flash-sale.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
@@ -90,7 +95,7 @@ export function TimeSlotFormModal({
           <AppForm
             methods={methods}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-5"
+            className={FORM_STACK_CLASS_NAME}
           >
             <FormInput
               name="name"
@@ -99,7 +104,7 @@ export function TimeSlotFormModal({
               disabled={loading}
             />
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className={FORM_FOUR_COLUMN_GRID_CLASS_NAME}>
               <FormInput
                 name="startHour"
                 type="number"
@@ -138,7 +143,7 @@ export function TimeSlotFormModal({
               {t("isActive")}
             </FormCheckbox>
 
-            <div className="flex justify-end gap-3 pt-2">
+            <div className={FORM_ACTION_ROW_CLASS_NAME}>
               <Button
                 type="button"
                 variant="ghost"

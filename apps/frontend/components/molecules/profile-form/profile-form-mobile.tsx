@@ -6,6 +6,7 @@ import { FormDateInput } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormPhoneInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
+import { FORM_ACTION_ROW_CLASS_NAME } from "@/constants/grid-presets";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import { useProfileFormLogic } from "@/hooks/profile/use-profile-form-logic";
@@ -109,7 +110,7 @@ export const ProfileFormMobile = ({
           {/* Sticky bottom action bar */}
           <div className="mt-4">
             {isEditing ? (
-              <div className="grid grid-cols-1 gap-3 sm:flex">
+              <div className={FORM_ACTION_ROW_CLASS_NAME}>
                 <FormListenerDirty>
                   {(isDirty) => (
                     <Button

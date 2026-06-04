@@ -8,6 +8,10 @@ import { FormPhoneInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
 import { Pencil } from "lucide-react";
 
+import {
+  FORM_ACTION_ROW_CLASS_NAME,
+  FORM_TWO_COLUMN_GRID_CLASS_NAME,
+} from "@/constants/grid-presets";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import {
@@ -151,7 +155,7 @@ export const ProfileForm = ({
           {/* Avatar & Name Header INSIDE the card! */}
           <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
             <FormInput
               variant="outline"
               name="firstName"
@@ -200,7 +204,7 @@ export const ProfileForm = ({
             />
           </div>
 
-          <AnimationItem className="flex flex-wrap items-center justify-end gap-4 pt-6">
+          <AnimationItem className={FORM_ACTION_ROW_CLASS_NAME}>
             {isEditing ? (
               <>
                 <FormListenerDirty>

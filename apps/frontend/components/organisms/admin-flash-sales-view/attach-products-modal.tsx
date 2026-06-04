@@ -12,6 +12,10 @@ import { AppForm } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
 import { FormSelectAutocomplete } from "@ecommerce/ui";
+import {
+  FORM_ACTION_ROW_CLASS_NAME,
+  FORM_STACK_CLASS_NAME,
+} from "@/constants/grid-presets";
 import type {
   TAddProductsToFlashSaleInput,
   TFlashSale,
@@ -204,7 +208,7 @@ export function AttachProductsModal({
           <AppForm
             methods={methods}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-5"
+            className={FORM_STACK_CLASS_NAME}
           >
             <FormSelect
               name="flashSaleId"
@@ -268,7 +272,7 @@ export function AttachProductsModal({
               />
             </div>
 
-            <div className="flex justify-end gap-3 pt-2">
+            <div className={FORM_ACTION_ROW_CLASS_NAME}>
               <Button
                 type="button"
                 variant="ghost"

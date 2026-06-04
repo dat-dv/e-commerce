@@ -11,7 +11,11 @@ import {
 import { AppForm } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
-import { FORM_TWO_COLUMN_GRID_CLASS_NAME } from "@/constants/grid-presets";
+import {
+  FORM_ACTION_ROW_CLASS_NAME,
+  FORM_STACK_CLASS_NAME,
+  FORM_TWO_COLUMN_GRID_CLASS_NAME,
+} from "@/constants/grid-presets";
 import type {
   TCreateFlashSaleInput,
   TFlashSaleTimeSlot,
@@ -110,7 +114,7 @@ export function CampaignFormModal({
           <AppForm
             methods={methods}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-5"
+            className={FORM_STACK_CLASS_NAME}
           >
             <FormInput
               name="name"
@@ -141,7 +145,7 @@ export function CampaignFormModal({
               disabled={loading}
             />
 
-            <div className="flex justify-end gap-3 pt-2">
+            <div className={FORM_ACTION_ROW_CLASS_NAME}>
               <Button
                 type="button"
                 variant="ghost"

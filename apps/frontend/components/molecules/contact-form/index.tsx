@@ -5,6 +5,7 @@ import { AppForm } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormPhoneInput } from "@ecommerce/ui";
 import { FormTextarea } from "@ecommerce/ui";
+import { FORM_TWO_COLUMN_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import {
   HELP_CONTACT_ALLOWED_IMAGE_TYPES,
   HELP_CONTACT_MAX_ATTACHMENTS,
@@ -32,7 +33,7 @@ export default function ContactForm() {
       onSubmit={onSubmit}
       className="space-y-4 sm:space-y-5"
     >
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
         <FormInput
           name="contact_name"
           label={t("nameLabel")}

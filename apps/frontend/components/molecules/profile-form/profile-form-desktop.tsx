@@ -6,6 +6,10 @@ import { FormDateInput } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormPhoneInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
+import {
+  FORM_ACTION_ROW_CLASS_NAME,
+  FORM_TWO_COLUMN_GRID_CLASS_NAME,
+} from "@/constants/grid-presets";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { TUpdateUserInput } from "@/domain/users/types/user.model";
 import { useProfileFormLogic } from "@/hooks/profile/use-profile-form-logic";
@@ -52,7 +56,7 @@ export const ProfileFormDesktop = ({
       <FormCard className="space-y-6">
         <AvatarWrapper user={user} isFormDisabled={isFormDisabled} />
 
-        <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
           <FormInput
             variant="outline"
             name="firstName"
@@ -101,7 +105,7 @@ export const ProfileFormDesktop = ({
           />
         </div>
 
-        <AnimationItem className="flex min-w-0 flex-col-reverse items-stretch justify-end gap-3 pt-6 sm:flex-row sm:items-center sm:gap-4">
+        <AnimationItem className={FORM_ACTION_ROW_CLASS_NAME}>
           {isEditing ? (
             <>
               <FormListenerDirty>

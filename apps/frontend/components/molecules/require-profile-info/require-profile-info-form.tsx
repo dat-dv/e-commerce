@@ -10,6 +10,7 @@ import { AppForm } from "@ecommerce/ui";
 import { FormDateInput } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
+import { FORM_ACTION_ROW_CLASS_NAME } from "@/constants/grid-presets";
 import { GENDER_OPTIONS } from "@/constants/gender.constant";
 import { TUser } from "@/domain/auth/types/auth.model";
 import { EGender } from "@ecommerce/shared";
@@ -118,7 +119,7 @@ export const RequireProfileInfoForm = ({
         />
       </div>
 
-      <div className="mt-4 flex justify-end gap-4">
+      <div className={`mt-4 ${FORM_ACTION_ROW_CLASS_NAME}`}>
         <Button
           type="submit"
           variant="primary"

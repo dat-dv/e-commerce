@@ -38,6 +38,14 @@ export const REGION_GRID_CLASS_NAME = "grid grid-cols-2 gap-4 md:grid-cols-3";
 export const FORM_TWO_COLUMN_GRID_CLASS_NAME =
   "grid grid-cols-1 gap-4 sm:grid-cols-2";
 
+export const FORM_FOUR_COLUMN_GRID_CLASS_NAME =
+  "grid grid-cols-2 gap-3 sm:grid-cols-4";
+
+export const FORM_STACK_CLASS_NAME = "flex flex-col gap-5";
+
+export const FORM_ACTION_ROW_CLASS_NAME =
+  "flex flex-col-reverse justify-end gap-3 pt-2 sm:flex-row";
+
 export const PRODUCT_CAROUSEL_ITEM_CLASS =
   "grow-0 shrink-0 basis-[calc((100%_-_0.75rem)/2)] sm:basis-[calc((100%_-_2rem)/3)] md:basis-[calc((100%_-_3rem)/4)]";
 
