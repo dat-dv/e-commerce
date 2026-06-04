@@ -1,3 +1,4 @@
+import { Select } from "@ecommerce/ui";
 import { Award } from "lucide-react";
 
 import type { IAdminBrand, IAdminProduct } from "@/domain/product";
@@ -29,21 +30,19 @@ export const ProductBrandField = ({
         Brand
       </div>
       {isEditing ? (
-        <select
-          value={editBrandId}
-          onChange={(e) => onBrandChange?.(e.target.value)}
-          disabled={metadataLoading || brands.length === 0}
-          className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:outline-none disabled:opacity-50"
-        >
-          <option value="">
-            {metadataLoading ? "Loading brands..." : "Select brand"}
-          </option>
-          {brands.map((brand) => (
-            <option key={brand.id} value={brand.id}>
-              {getBrandName(brand)}
-            </option>
-          ))}
-        </select>
+        <Select
+          aria-label="Product brand"
+          placeholder={metadataLoading ? "Loading brands..." : "Select brand"}
+          selectedKey={editBrandId || undefined}
+          onSelectionChange={(key) => onBrandChange?.(String(key))}
+          isDisabled={metadataLoading || brands.length === 0}
+          options={brands.map((brand) => ({
+            label: getBrandName(brand),
+            value: brand.id,
+          }))}
+          className="mt-1"
+          size="sm"
+        />
       ) : (
         <p className="text-sm font-semibold text-[var(--app-text)]">
           {product.brand?.slug ? (

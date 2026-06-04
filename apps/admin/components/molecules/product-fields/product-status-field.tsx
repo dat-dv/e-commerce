@@ -1,3 +1,4 @@
+import { Select } from "@ecommerce/ui";
 import { Activity } from "lucide-react";
 
 interface IProductStatusFieldProps {
@@ -20,15 +21,18 @@ export const ProductStatusField = ({
         Status
       </div>
       {isEditing ? (
-        <select
-          value={editStatus}
-          onChange={(e) => onStatusChange?.(Number(e.target.value))}
-          className="focus:border-primary mt-1 w-full rounded-md border border-[var(--border-color)] bg-[var(--card-bg)] px-2.5 py-1.5 text-sm text-[var(--app-text)] focus:outline-none"
-        >
-          <option value={0}>Draft</option>
-          <option value={1}>Active</option>
-          <option value={2}>Out of Stock</option>
-        </select>
+        <Select
+          aria-label="Product status"
+          selectedKey={editStatus}
+          onSelectionChange={(key) => onStatusChange?.(Number(key))}
+          options={[
+            { label: "Draft", value: 0 },
+            { label: "Active", value: 1 },
+            { label: "Out of Stock", value: 2 },
+          ]}
+          className="mt-1"
+          size="sm"
+        />
       ) : (
         <p className="text-sm font-semibold text-[var(--app-text)] capitalize">
           {status === 0 ? "Draft" : status === 1 ? "Active" : "Out of Stock"}
