@@ -9,6 +9,7 @@ export interface IFlashSalesRepository {
   findFlashSaleById(id: string): Promise<IFlashSale | null>;
   addProductsToFlashSale(flashSaleId: string, data: AddProductsToFlashSaleDto): Promise<IFlashSale>;
   findTimeSlotById(id: string): Promise<FlashSaleTimeSlot | null>;
+  findTimeSlotsByIds(ids: string[]): Promise<FlashSaleTimeSlot[]>;
   createTimeSlot(data: CreateTimeSlotDto): Promise<FlashSaleTimeSlot>;
   createTimeSlotsBatch(data: CreateTimeSlotsBatchDto): Promise<{ count: number }>;
   findAllFlashSales(): Promise<IFlashSale[]>;

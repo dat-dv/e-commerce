@@ -112,6 +112,13 @@ export class FlashSalesRepository implements IFlashSalesRepository {
     });
   }
 
+  async findTimeSlotsByIds(ids: string[]): Promise<FlashSaleTimeSlot[]> {
+    if (!ids.length) return [];
+    return this.prisma.flashSaleTimeSlot.findMany({
+      where: { id: { in: ids } },
+    });
+  }
+
   async createTimeSlot(data: CreateTimeSlotDto): Promise<FlashSaleTimeSlot> {
     return this.prisma.flashSaleTimeSlot.create({
       data: {

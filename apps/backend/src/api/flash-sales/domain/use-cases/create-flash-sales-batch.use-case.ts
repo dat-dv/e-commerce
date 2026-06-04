@@ -14,6 +14,15 @@ export class CreateFlashSalesBatchUseCase {
       throw new BadRequestException('Flash sales list cannot be empty');
     }
 
+    // Lọc ra các time_slot_id và loại bỏ trùng lặp
+    const timeSlotIds = Array.from(
+      new Set(dto.flash_sales.map((item) => item.time_slot_id).filter((id): id is string => !!id)),
+    );
+
+    // Batch fetch tất cả time slot liên quan
+    const timeSlots = await this.flashSalesRepository.findTimeSlotsByIds(timeSlotIds);
+    const timeSlotSet = new Set(timeSlots.map((ts) => ts.id));
+
     for (const item of dto.flash_sales) {
       const startTime = new Date(item.start_time);
       const endTime = new Date(item.end_time);
@@ -22,11 +31,8 @@ export class CreateFlashSalesBatchUseCase {
         throw new BadRequestException(`Start time must be before end time in campaign "${item.name}"`);
       }
 
-      if (item.time_slot_id) {
-        const timeSlot = await this.flashSalesRepository.findTimeSlotById(item.time_slot_id);
-        if (!timeSlot) {
-          throw new BadRequestException(`Time slot not found for campaign "${item.name}"`);
-        }
+      if (item.time_slot_id && !timeSlotSet.has(item.time_slot_id)) {
+        throw new BadRequestException(`Time slot not found for campaign "${item.name}"`);
       }
     }
 
