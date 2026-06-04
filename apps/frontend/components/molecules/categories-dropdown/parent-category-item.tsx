@@ -1,5 +1,5 @@
 "use client";
-import { LiquidWaveText } from "@ecommerce/ui";
+import { Button, LiquidWaveText } from "@ecommerce/ui";
 
 import { cn } from "@/utils/cn";
 
@@ -19,12 +19,13 @@ export const ParentCategoryItem = ({
   refCallback,
 }: ParentCategoryItemProps) => {
   return (
-    <button
+    <Button
       ref={refCallback}
-      type="button"
+      variant="ghost"
+      size="md"
       onClick={onClick}
       className={cn(
-        "relative pb-2 text-left text-sm font-bold whitespace-nowrap capitalize",
+        "relative h-auto justify-start rounded-none px-0 pt-0 pb-2 text-left text-sm font-bold whitespace-nowrap capitalize hover:bg-transparent hover:brightness-100",
         active ? "text-primary" : "text-content/60",
       )}
     >
@@ -38,6 +39,6 @@ export const ParentCategoryItem = ({
       {active && (
         <span className="bg-primary absolute bottom-0 left-0 h-[2.5px] w-full rounded-full" />
       )}
-    </button>
+    </Button>
   );
 };
