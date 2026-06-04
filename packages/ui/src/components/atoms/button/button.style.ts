@@ -14,8 +14,8 @@ export const variantClasses = {
 } as const;
 
 export const sizeClasses = {
-  sm: "h-7 px-2 text-[12px]",
-  md: "h-9 px-4 text-[13px]",
-  lg: "h-10 px-5 text-sm",
+  sm: "h-8 px-3 text-xs",
+  md: "h-10 px-4 text-sm",
+  lg: "h-12 px-5 text-base",
   icon: "size-9 p-0",
 } as const;
