@@ -1,4 +1,4 @@
-import { Button } from "@ecommerce/ui";
+import { Button, Select } from "@ecommerce/ui";
 import { Save } from "lucide-react";
 
 import type { IUserRolePanelProps } from "@/components/organisms/user-detail-view/user-detail-view.types";
@@ -19,22 +19,17 @@ export const UserRolePanel = ({
     </div>
 
     <div className="space-y-4">
-      <label className="block space-y-1.5">
-        <span className="text-xs font-bold tracking-wide text-[var(--muted)] uppercase">
-          Role
-        </span>
-        <select
-          value={selectedRoleId}
-          onChange={(event) => onRoleChange(event.target.value)}
-          className="focus:border-primary h-10 w-full rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] px-3 text-sm text-[var(--app-text)] outline-none"
-        >
-          {roles.map((role) => (
-            <option key={role.id} value={role.id}>
-              {role.roleName}
-            </option>
-          ))}
-        </select>
-      </label>
+      <Select
+        label="Role"
+        aria-label="User role"
+        placeholder="Select role"
+        selectedKey={selectedRoleId || undefined}
+        onSelectionChange={(key) => onRoleChange(String(key))}
+        options={roles.map((role) => ({
+          label: role.roleName,
+          value: role.id,
+        }))}
+      />
 
       <Button
         onClick={onSave}
