@@ -1,4 +1,8 @@
-import type { IApiResponse, IOrderResponse } from "@ecommerce/shared";
+import type {
+  EOrderStatus,
+  IApiResponse,
+  IOrderResponse,
+} from "@ecommerce/shared";
 
 import { API_ROUTES } from "@/constants/routes";
 import { AdminCustomerDetailMapper } from "@/domain/user/infrastructure/customer-detail.mapper";
@@ -41,5 +45,25 @@ export class AdminOrderRepository implements IAdminOrderRepository {
       items: items.map((item) => AdminCustomerDetailMapper.orderToDomain(item)),
       meta,
     };
+  }
+
+  async getOrder(id: string): Promise<IAdminCustomerOrder> {
+    const response = await apiClient.get<IApiResponse<IOrderResponse>>(
+      API_ROUTES.ORDERS.DETAIL(id),
+    );
+
+    return AdminCustomerDetailMapper.orderToDomain(response.data!);
+  }
+
+  async updateStatus(
+    id: string,
+    status: EOrderStatus,
+  ): Promise<IAdminCustomerOrder> {
+    const response = await apiClient.put<IApiResponse<IOrderResponse>>(
+      API_ROUTES.ORDERS.UPDATE_STATUS(id),
+      { status },
+    );
+
+    return AdminCustomerDetailMapper.orderToDomain(response.data!);
   }
 }

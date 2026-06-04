@@ -1,15 +1,16 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 
 import { FilterBar } from "@/components/molecules/filter-bar";
 import { OrdersHeader } from "@/components/molecules/orders-header";
-import { OrderDetailDialog } from "@/components/organisms/orders-view/order-detail-dialog";
 import { OrdersTable } from "@/components/organisms/orders-view/orders-table";
-import { useOrderDetailDialog } from "@/hooks/order/use-order-detail-dialog";
+import { APP_ROUTES } from "@/constants/routes";
 import { useOrdersView } from "@/hooks/order/use-orders-view";
 
 export const OrdersView = () => {
+  const router = useRouter();
   const {
     loading,
     searchQuery,
@@ -22,8 +23,6 @@ export const OrdersView = () => {
     setSearchQuery,
     setSort,
   } = useOrdersView();
-  const { selectedOrder, isDetailOpen, openOrderDetail, closeOrderDetail } =
-    useOrderDetailDialog();
 
   return (
     <div className="space-y-6">
@@ -44,13 +43,7 @@ export const OrdersView = () => {
         onPageChange={setPage}
         onPageSizeChange={setPageSize}
         onSortChange={setSort}
-        onViewDetail={openOrderDetail}
-      />
-
-      <OrderDetailDialog
-        order={selectedOrder}
-        isOpen={isDetailOpen}
-        onClose={closeOrderDetail}
+        onViewDetail={(order) => router.push(APP_ROUTES.ORDER_DETAIL(order.id))}
       />
     </div>
   );

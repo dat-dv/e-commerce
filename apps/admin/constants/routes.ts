@@ -10,6 +10,7 @@ export const APP_ROUTES = {
   PERMISSIONS: "/dashboard/roles/detail",
   ROLES: "/dashboard/roles",
   ORDERS: "/dashboard/orders",
+  ORDER_DETAIL: (id: string) => `/dashboard/orders/detail?id=${id}`,
   PRODUCTS: "/dashboard/products",
   SETTINGS: "/dashboard/settings",
 } as const;
@@ -43,7 +44,7 @@ export const API_ROUTES = {
   },
   ORDERS: {
     ALL: "/orders/all",
-    DETAIL: (id: string) => `/orders/${id}`,
+    DETAIL: (id: string) => `/orders/admin/${id}`,
     UPDATE_STATUS: (id: string) => `/orders/${id}/status`,
   },
   PRODUCTS: {
