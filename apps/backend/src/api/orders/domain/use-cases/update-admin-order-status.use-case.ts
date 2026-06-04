@@ -1,12 +1,5 @@
 import { ENotificationType, EOrderStatus, IOrderResponse } from '@ecommerce/shared';
-import {
-  BadRequestException,
-  Inject,
-  Injectable,
-  Logger,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { BadRequestException, Inject, Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
@@ -19,8 +12,8 @@ const TERMINAL_STATUSES = [EOrderStatus.DELIVERED, EOrderStatus.CANCELLED, EOrde
 const STOCK_RESTORE_STATUSES = [EOrderStatus.CANCELLED];
 
 @Injectable()
-export class UpdateOrderStatusUseCase {
-  private readonly logger = new Logger(UpdateOrderStatusUseCase.name);
+export class UpdateAdminOrderStatusUseCase {
+  private readonly logger = new Logger(UpdateAdminOrderStatusUseCase.name);
 
   constructor(
     @Inject(IOrdersRepository)
@@ -29,19 +22,14 @@ export class UpdateOrderStatusUseCase {
     private readonly notificationService: NotificationService,
   ) {}
 
-  async execute(id: string, dto: UpdateOrderStatusDto, isAdmin = false): Promise<IOrderResponse> {
+  async execute(id: string, dto: UpdateOrderStatusDto): Promise<IOrderResponse> {
     const newStatus = dto.status;
     this.logger.log(
       `Order status update requested: ${JSON.stringify({
         orderId: id,
         newStatus,
-        isAdmin,
       })}`,
     );
-
-    if (!isAdmin) {
-      throw new UnauthorizedException('Only admins can update order status');
-    }
 
     const order = await this.prisma.order.findUnique({
       where: { id },

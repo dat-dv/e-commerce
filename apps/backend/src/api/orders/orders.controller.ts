@@ -3,10 +3,11 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 import { PermissionsGuard } from 'src/api/auth/guards/permissions.guard';
 import { Permissions } from 'src/common/decorators/permissions.decorator';
 import { CreateOrderUseCase } from './domain/use-cases/create-order.use-case';
+import { GetAdminOrderUseCase } from './domain/use-cases/get-admin-order.use-case';
 import { GetOrderUseCase } from './domain/use-cases/get-order.use-case';
 import { GetUserOrdersUseCase } from './domain/use-cases/get-user-orders.use-case';
 import { GetAllOrdersUseCase } from './domain/use-cases/get-all-orders.use-case';
-import { UpdateOrderStatusUseCase } from './domain/use-cases/update-order-status.use-case';
+import { UpdateAdminOrderStatusUseCase } from './domain/use-cases/update-admin-order-status.use-case';
 import { CancelOrderUseCase } from './domain/use-cases/cancel-order.use-case';
 import createSuccessResponse from 'src/common/respomse';
 import { IApiResponse, IOrderResponse, IPaginatedResult } from '@ecommerce/shared';
@@ -21,10 +22,11 @@ import type { Request } from 'express';
 export class OrdersController {
   constructor(
     private readonly createOrderUseCase: CreateOrderUseCase,
+    private readonly getAdminOrderUseCase: GetAdminOrderUseCase,
     private readonly getOrderUseCase: GetOrderUseCase,
     private readonly getUserOrdersUseCase: GetUserOrdersUseCase,
     private readonly getAllOrdersUseCase: GetAllOrdersUseCase,
-    private readonly updateOrderStatusUseCase: UpdateOrderStatusUseCase,
+    private readonly updateAdminOrderStatusUseCase: UpdateAdminOrderStatusUseCase,
     private readonly cancelOrderUseCase: CancelOrderUseCase,
   ) {}
 
@@ -53,10 +55,18 @@ export class OrdersController {
     return createSuccessResponse(result);
   }
 
+  @Get('admin/:id')
+  @UseGuards(PermissionsGuard)
+  @Permissions('DETAIL:ANY_ORDER')
+  async getOrderByAdmin(@Param('id') id: string): Promise<IApiResponse<IOrderResponse | null>> {
+    const result = await this.getAdminOrderUseCase.execute(id);
+    return createSuccessResponse(result);
+  }
+
   @Get(':id')
   async getOrder(@Param('id') id: string, @Req() req: Request): Promise<IApiResponse<IOrderResponse | null>> {
     const userId = req.user?.sub;
-    const result = await this.getOrderUseCase.execute(id, userId, false);
+    const result = await this.getOrderUseCase.execute(id, userId);
     return createSuccessResponse(result);
   }
 
@@ -67,7 +77,7 @@ export class OrdersController {
     @Param('id') id: string,
     @Body() body: UpdateOrderStatusDto,
   ): Promise<IApiResponse<IOrderResponse>> {
-    const result = await this.updateOrderStatusUseCase.execute(id, body, true);
+    const result = await this.updateAdminOrderStatusUseCase.execute(id, body);
     return createSuccessResponse(result);
   }
 
