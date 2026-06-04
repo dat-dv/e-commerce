@@ -1,5 +1,6 @@
 import { ENotificationType, EOrderStatus, IOrderResponse } from '@ecommerce/shared';
 import { BadRequestException, Inject, Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Prisma } from 'generated/prisma/client';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { UpdateOrderStatusDto } from '../../dto/update-order-status.dto';
@@ -61,22 +62,31 @@ export class UpdateAdminOrderStatusUseCase {
           data: { status: newStatus },
         });
 
+        const skuUpdates: Prisma.PrismaPromise<unknown>[] = [];
+        const flashSaleUpdates: Prisma.PrismaPromise<unknown>[] = [];
+
         for (const item of order.items) {
-          await tx.sku.update({
-            where: { id: item.sku_id },
-            data: { stock: { increment: item.quantity } },
-          });
+          skuUpdates.push(
+            tx.sku.update({
+              where: { id: item.sku_id },
+              data: { stock: { increment: item.quantity } },
+            }),
+          );
 
           if (item.flash_sale_id) {
-            await tx.flashSaleProduct.update({
-              where: { id: item.flash_sale_id },
-              data: {
-                stock: { increment: item.quantity },
-                sold_count: { decrement: item.quantity },
-              },
-            });
+            flashSaleUpdates.push(
+              tx.flashSaleProduct.update({
+                where: { id: item.flash_sale_id },
+                data: {
+                  stock: { increment: item.quantity },
+                  sold_count: { decrement: item.quantity },
+                },
+              }),
+            );
           }
         }
+
+        await Promise.all(skuUpdates.concat(flashSaleUpdates));
         return res;
       });
     } else {

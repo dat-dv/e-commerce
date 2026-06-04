@@ -1,5 +1,6 @@
 import { ENotificationType, EOrderStatus } from '@ecommerce/shared';
 import { BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Prisma } from 'generated/prisma/client';
 import { NotificationService } from 'src/api/notifications/notifications.service';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IOrdersRepository } from '../entities/orders.repository.interface';
@@ -44,24 +45,33 @@ export class CancelOrderUseCase {
       }
 
       // 2. Hoàn trả tồn kho
+      const skuUpdates: Prisma.PrismaPromise<unknown>[] = [];
+      const flashSaleUpdates: Prisma.PrismaPromise<unknown>[] = [];
+
       for (const item of order.items) {
         // Hoàn trả tồn kho SKU
-        await tx.sku.update({
-          where: { id: item.sku_id },
-          data: { stock: { increment: item.quantity } },
-        });
+        skuUpdates.push(
+          tx.sku.update({
+            where: { id: item.sku_id },
+            data: { stock: { increment: item.quantity } },
+          }),
+        );
 
         // Hoàn trả tồn kho Flash Sale nếu có
         if (item.flash_sale_id) {
-          await tx.flashSaleProduct.update({
-            where: { id: item.flash_sale_id },
-            data: {
-              stock: { increment: item.quantity },
-              sold_count: { decrement: item.quantity },
-            },
-          });
+          flashSaleUpdates.push(
+            tx.flashSaleProduct.update({
+              where: { id: item.flash_sale_id },
+              data: {
+                stock: { increment: item.quantity },
+                sold_count: { decrement: item.quantity },
+              },
+            }),
+          );
         }
       }
+
+      await Promise.all(skuUpdates.concat(flashSaleUpdates));
 
       // 3. Hoàn trả lượt sử dụng mã giảm giá nếu có
       if (order.coupon_id) {
