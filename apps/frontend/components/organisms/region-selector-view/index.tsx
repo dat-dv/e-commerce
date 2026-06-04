@@ -1,6 +1,7 @@
 "use client";
 
 import { aseanCountries } from "@/constants/countries";
+import { REGION_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 
@@ -25,7 +26,7 @@ export function RegionSelectorView() {
           <p className="text-content/60">{t("description")}</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className={REGION_GRID_CLASS_NAME}>
           {aseanCountries.map((country) => (
             <Button
               key={country.code}

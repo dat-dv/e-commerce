@@ -1,6 +1,7 @@
 "use client";
 
 import { TCreateAddressInput } from "@/domain/addresses/types/address.model";
+import { FORM_TWO_COLUMN_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import { EAddressLabel } from "@ecommerce/shared";
 import {
   AppForm,
@@ -78,7 +79,7 @@ export const AddressesForm = ({
   return (
     <AppForm methods={methods} onSubmit={handleFormSubmit}>
       <div className="space-y-4">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
           <FormInput
             name="receiverName"
             label={t("receiverNameLabel")}
@@ -120,7 +121,7 @@ export const AddressesForm = ({
           disabled={loading}
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
           <FormInput
             name="city"
             label={t("cityLabel")}
@@ -139,7 +140,7 @@ export const AddressesForm = ({
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
           <FormInput
             name="country"
             label={t("countryLabel")}

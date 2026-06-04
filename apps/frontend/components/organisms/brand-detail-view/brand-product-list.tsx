@@ -4,6 +4,7 @@ import { FilterDrawerTrigger } from "@ecommerce/ui";
 import { ProductFilterSidebar } from "@/components/molecules/product-filter-sidebar";
 import { RenderDesktopOnly, RenderTabletAndBelow } from "@ecommerce/ui";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
+import { PRODUCT_FILTER_LAYOUT_CLASS_NAME } from "@/constants/grid-presets";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { TBrand } from "@/domain/homepage/types/homepage.model";
 import { TProduct } from "@/domain/products/types/products.model";
@@ -91,7 +92,7 @@ export function BrandProductListSection({
         />
       </RenderTabletAndBelow>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+      <div className={PRODUCT_FILTER_LAYOUT_CLASS_NAME}>
         <RenderDesktopOnly>
           <div className="col-span-1">
             <ProductFilterSidebar<BrandProductsFilterKey>

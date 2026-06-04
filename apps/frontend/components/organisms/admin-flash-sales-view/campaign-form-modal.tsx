@@ -11,6 +11,7 @@ import {
 import { AppForm } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { FormSelect } from "@ecommerce/ui";
+import { FORM_TWO_COLUMN_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import type {
   TCreateFlashSaleInput,
   TFlashSaleTimeSlot,
@@ -118,7 +119,7 @@ export function CampaignFormModal({
               disabled={loading}
             />
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className={FORM_TWO_COLUMN_GRID_CLASS_NAME}>
               <FormInput
                 name="startTime"
                 type="datetime-local"

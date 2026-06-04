@@ -9,6 +9,9 @@ export const PRODUCT_LISTING_GRID_COLUMNS = {
   md: 4,
 } satisfies VirtualGridColumns;
 
+export const PRODUCT_FILTER_LAYOUT_CLASS_NAME =
+  "grid grid-cols-1 gap-8 lg:grid-cols-4";
+
 export const BRAND_LISTING_GRID_CLASS_NAME =
   "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 
@@ -20,6 +23,11 @@ export const BRAND_LISTING_GRID_COLUMNS = {
 } satisfies VirtualGridColumns;
 
 export const CATEGORY_GRID_CLASS_NAME = "grid grid-cols-2 gap-4 md:grid-cols-4";
+
+export const REGION_GRID_CLASS_NAME = "grid grid-cols-2 gap-4 md:grid-cols-3";
+
+export const FORM_TWO_COLUMN_GRID_CLASS_NAME =
+  "grid grid-cols-1 gap-4 sm:grid-cols-2";
 
 export const PRODUCT_CAROUSEL_ITEM_CLASS =
   "grow-0 shrink-0 basis-[calc((100%_-_0.75rem)/2)] sm:basis-[calc((100%_-_2rem)/3)] md:basis-[calc((100%_-_3rem)/4)]";

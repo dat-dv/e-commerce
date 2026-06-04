@@ -7,6 +7,7 @@ import { ProductsHeader } from "@/components/molecules/products-header";
 import { RenderDesktopOnly, RenderTabletAndBelow } from "@ecommerce/ui";
 import { DiscoveryCarouselSection } from "@/components/organisms/discovery-sections";
 import { ProductsCatalog } from "@/components/organisms/products-view/products-catalog";
+import { PRODUCT_FILTER_LAYOUT_CLASS_NAME } from "@/constants/grid-presets";
 import { TProduct } from "@/domain/products/types/products.model";
 import { productsUseCase } from "@/domain/products/use-cases";
 import { useCategoriesStore } from "@/hooks/categories/use-categories-store";
@@ -106,7 +107,7 @@ export function SearchView({ searchQuery, initialData }: SearchViewProps) {
         />
       </RenderTabletAndBelow>
 
-      <div className="mb-24 grid grid-cols-1 gap-8 lg:grid-cols-4">
+      <div className={`${PRODUCT_FILTER_LAYOUT_CLASS_NAME} mb-24`}>
         <RenderDesktopOnly>
           <div className="col-span-1">
             <ProductFilterSidebar<SearchFilterKey>
