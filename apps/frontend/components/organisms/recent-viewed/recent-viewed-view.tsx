@@ -1,11 +1,12 @@
 "use client";
 
-import { AppContainer, VirtualGrid } from "@ecommerce/ui";
-import { Eye, ShoppingBag } from "lucide-react";
+import { AppContainer, EmptyState, VirtualGrid } from "@ecommerce/ui";
+import { Eye } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 import { ProductCard } from "@/components/molecules/product-card";
+import { ProductGrid } from "@/components/molecules/product-grid";
 
 import {
   PRODUCT_LISTING_GRID_CLASS_NAME,
@@ -34,14 +35,7 @@ export const RecentViewedView = () => {
       <RecentViewedHeader />
 
       {loading ? (
-        <div className={PRODUCT_LISTING_GRID_CLASS_NAME}>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <div
-              key={index}
-              className="border-content/[0.05] bg-content/[0.03] aspect-[3/4] animate-pulse rounded-2xl border"
-            />
-          ))}
-        </div>
+        <ProductGrid products={[]} loading skeletonCount={10} />
       ) : recentViewedProducts.length > 0 ? (
         <VirtualGrid
           data={recentViewedProducts}
@@ -58,24 +52,14 @@ export const RecentViewedView = () => {
           columns={PRODUCT_LISTING_GRID_COLUMNS}
         />
       ) : (
-        <div className="border-content/10 bg-surface/50 flex min-w-0 flex-col items-center justify-center rounded-2xl border border-dashed px-4 py-14 text-center sm:px-6 sm:py-20">
-          <div className="bg-content/5 text-content/30 mb-6 flex h-16 w-16 items-center justify-center rounded-full">
-            <Eye size={28} />
-          </div>
-          <h2 className="text-content max-w-full text-xl font-black">
-            {t("emptyTitle")}
-          </h2>
-          <p className="text-content/50 mt-2 max-w-sm text-sm">
-            {t("emptyDescription")}
-          </p>
-          <Link
-            href={APP_ROUTES.PRODUCTS}
-            className="bg-content text-surface mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-transform active:scale-95"
-          >
-            <ShoppingBag size={16} />
-            <span className="truncate">{t("browseButton")}</span>
-          </Link>
-        </div>
+        <EmptyState
+          title={t("emptyTitle")}
+          description={t("emptyDescription")}
+          icon={Eye}
+          actionLabel={t("browseButton")}
+          actionHref={APP_ROUTES.PRODUCTS}
+          linkComponent={Link}
+        />
       )}
       <DiscoveryCarouselSection exclude={["recent-viewed"]} />
     </AppContainer>

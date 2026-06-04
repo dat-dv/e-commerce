@@ -19,6 +19,8 @@ export const BRAND_LISTING_GRID_COLUMNS = {
   xl: 4,
 } satisfies VirtualGridColumns;
 
+export const CATEGORY_GRID_CLASS_NAME = "grid grid-cols-2 gap-4 md:grid-cols-4";
+
 export const PRODUCT_CAROUSEL_ITEM_CLASS =
   "grow-0 shrink-0 basis-[calc((100%_-_0.75rem)/2)] sm:basis-[calc((100%_-_2rem)/3)] md:basis-[calc((100%_-_3rem)/4)]";
 

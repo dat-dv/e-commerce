@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { CATEGORY_GRID_CLASS_NAME } from "@/constants/grid-presets";
 import { APP_ROUTES } from "@/constants/routes";
 import { ArrowRight, LucideIcon } from "lucide-react";
 import Image from "next/image";
@@ -21,7 +22,7 @@ interface CategoriesGridProps {
 
 export const CategoriesGrid = ({ categories }: CategoriesGridProps) => {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div className={CATEGORY_GRID_CLASS_NAME}>
       {categories.map((cat) => (
         <Link
           key={cat.name}
