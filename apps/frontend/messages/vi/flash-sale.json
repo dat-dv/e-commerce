@@ -137,7 +137,11 @@
       "status": "Trạng thái",
       "attachProductBtn": "Thêm sản phẩm",
       "refreshBtn": "Làm mới chi tiết",
+      "retryBtn": "Thử lại",
+      "loadErrorTitle": "Không thể tải chiến dịch",
+      "loadErrorDescription": "Không thể tải thông tin chiến dịch. Vui lòng thử lại.",
       "emptyAttachedProducts": "Chưa có sản phẩm nào được thêm vào chiến dịch này.",
+      "emptyAttachedProductsDescription": "Thêm SKU sản phẩm để cấu hình giá khuyến mãi, tồn kho và giới hạn đơn hàng.",
       "table": {
         "product": "Sản phẩm",
         "sku": "Phân loại SKU",

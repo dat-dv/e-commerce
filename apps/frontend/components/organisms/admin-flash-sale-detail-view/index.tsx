@@ -1,6 +1,6 @@
 "use client";
 
-import { AppContainer, Button } from "@ecommerce/ui";
+import { AppContainer, Button, EmptyState, Loading } from "@ecommerce/ui";
 
 import { APP_ROUTES } from "@/constants/routes";
 import { UI_RADIUS } from "@/constants/ui-radius";
@@ -10,7 +10,9 @@ import { useAdminFlashSaleDetail } from "@/hooks/flash-sales/use-admin-flash-sal
 import { cn } from "@/utils/cn";
 import {
   ArrowLeft,
+  AlertTriangle,
   ExternalLink,
+  PackageOpen,
   Plus,
   RefreshCw,
   ShoppingBag,
@@ -126,21 +128,19 @@ export function AdminFlashSaleDetailView({
         </div>
 
         {loading && !flashSale ? (
-          <div className="flex h-64 items-center justify-center">
-            <RefreshCw className="size-8 animate-spin opacity-45" />
-          </div>
+          <Loading />
         ) : hasError || !flashSale ? (
-          <div className="flex h-64 flex-col items-center justify-center gap-4">
-            <p className="text-sm font-semibold text-red-500">
-              {locale === "vi"
-                ? "Lỗi tải thông tin chiến dịch."
-                : "Failed to load campaign information."}
-            </p>
+          <EmptyState
+            title={t("loadErrorTitle")}
+            description={t("loadErrorDescription")}
+            icon={AlertTriangle}
+            className="py-16"
+          >
             <Button type="button" variant="ghost" size="sm" onClick={refresh}>
               <RefreshCw aria-hidden="true" className="size-4" />
-              {locale === "vi" ? "Thử lại" : "Retry"}
+              {t("retryBtn")}
             </Button>
-          </div>
+          </EmptyState>
         ) : (
           <>
             <div className="bg-surface/50 border-content/5 rounded-3xl border p-6 backdrop-blur-xl sm:p-8">
@@ -233,19 +233,22 @@ export function AdminFlashSaleDetailView({
               </div>
 
               {flashSale.products.length === 0 ? (
-                <div className="text-content/45 flex flex-col items-center justify-center gap-4 py-16 text-center">
-                  <p className="text-sm font-medium">
-                    {t("emptyAttachedProducts")}
-                  </p>
+                <EmptyState
+                  title={t("emptyAttachedProducts")}
+                  description={t("emptyAttachedProductsDescription")}
+                  icon={PackageOpen}
+                  className="border-0 bg-transparent py-16"
+                >
                   <Button
                     type="button"
                     size="sm"
+                    className="mt-6"
                     onClick={() => setIsAttachModalOpen(true)}
                   >
                     <Plus className="size-4" />
                     {t("attachProductBtn")}
                   </Button>
-                </div>
+                </EmptyState>
               ) : (
                 <div className="w-full overflow-x-auto">
                   <table className="w-full border-collapse text-left text-sm">

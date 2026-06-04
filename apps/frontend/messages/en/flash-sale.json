@@ -137,7 +137,11 @@
       "status": "Status",
       "attachProductBtn": "Attach Product",
       "refreshBtn": "Refresh Details",
+      "retryBtn": "Retry",
+      "loadErrorTitle": "Unable to load campaign",
+      "loadErrorDescription": "Campaign information could not be loaded. Please try again.",
       "emptyAttachedProducts": "No products have been attached to this campaign yet.",
+      "emptyAttachedProductsDescription": "Attach a product SKU to start configuring promotional price, stock, and order limits.",
       "table": {
         "product": "Product",
         "sku": "SKU Attributes",
