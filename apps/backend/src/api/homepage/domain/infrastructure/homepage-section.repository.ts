@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
 import { IHomepageFeaturedCategory } from '@ecommerce/shared';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class HomepageSectionRepository implements IHomepageSectionRepository {
@@ -13,7 +14,7 @@ export class HomepageSectionRepository implements IHomepageSectionRepository {
     page?: number;
     limit?: number;
   }): Promise<IHomepageFeaturedCategory[]> {
-    const { languageCode = 'en', page = 1, limit = 10 } = params || {};
+    const { languageCode = DEFAULT_LANGUAGE_CODE, page = 1, limit = 10 } = params || {};
 
     return this.prisma.featuredCategory.findMany({
       where: {

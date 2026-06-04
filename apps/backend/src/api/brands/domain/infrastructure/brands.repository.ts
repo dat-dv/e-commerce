@@ -5,6 +5,7 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { GetBrandListDto } from '../../dto/get-brand-list.dto';
 import { GetBrandProductsDto } from '../../dto/get-brand-products.dto';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class BrandsRepository implements IBrandsRepository {
@@ -43,7 +44,10 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getBrandList(query: GetBrandListDto, languageCode = 'en'): Promise<IPaginatedResult<IBrandResponse>> {
+  async getBrandList(
+    query: GetBrandListDto,
+    languageCode = DEFAULT_LANGUAGE_CODE,
+  ): Promise<IPaginatedResult<IBrandResponse>> {
     const trimmedSearch = query.search?.trim();
     const where = {
       ...(trimmedSearch
@@ -75,7 +79,7 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getBrandBySlug(slug: string, languageCode = 'en'): Promise<IBrandResponse | null> {
+  async getBrandBySlug(slug: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<IBrandResponse | null> {
     return this.prisma.brand.findUnique({
       where: { slug },
       include: this.getBrandInclude(languageCode),
@@ -85,7 +89,7 @@ export class BrandsRepository implements IBrandsRepository {
   async getBrandProducts(
     slug: string,
     query: GetBrandProductsDto,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
   ): Promise<IBrandProductsResponse> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) {
@@ -146,7 +150,7 @@ export class BrandsRepository implements IBrandsRepository {
     };
   }
 
-  async getBrandCategoryTree(slug: string, languageCode = 'en'): Promise<ICategoryResponse[]> {
+  async getBrandCategoryTree(slug: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICategoryResponse[]> {
     const brand = await this.getBrandBySlug(slug, languageCode);
     if (!brand) return [];
 

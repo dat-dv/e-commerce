@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { IPaginatedResult, IProductResponse } from '@ecommerce/shared';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetRecommendedUseCase {
@@ -13,7 +14,7 @@ export class GetRecommendedUseCase {
     page = 1,
     limit = 15,
     user_id?: string,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
   ): Promise<IPaginatedResult<IProductResponse>> {
     return this.productsRepository.findPaginated({
       page,

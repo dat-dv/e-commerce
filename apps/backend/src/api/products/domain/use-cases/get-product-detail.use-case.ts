@@ -2,6 +2,7 @@ import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { IProductDetailResponse } from '@ecommerce/shared';
 import { IUserFavoriteProductsRepository } from 'src/api/user-favorite-products/domain/entities/user-favorite-products.repository.interface';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetProductDetailUseCase {
@@ -14,7 +15,7 @@ export class GetProductDetailUseCase {
 
   async execute(
     slug: string,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
     userId?: string,
     options?: { allTranslations?: boolean },
   ): Promise<IProductDetailResponse> {

@@ -1,8 +1,9 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { Request } from 'express';
 
-const SUPPORT_LANGUAGE = ['en', 'vi'];
-const DEFAULT_LANG = SUPPORT_LANGUAGE[0];
+import { DEFAULT_LANGUAGE_CODE } from '../constants/app.constant';
+
+const SUPPORT_LANGUAGE = [DEFAULT_LANGUAGE_CODE, 'vi'];
 
 export const Language = createParamDecorator((_data: string | undefined, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest<Request>();
@@ -13,5 +14,5 @@ export const Language = createParamDecorator((_data: string | undefined, ctx: Ex
     if (SUPPORT_LANGUAGE.includes(lang)) return lang;
   }
 
-  return DEFAULT_LANG;
+  return DEFAULT_LANGUAGE_CODE;
 });

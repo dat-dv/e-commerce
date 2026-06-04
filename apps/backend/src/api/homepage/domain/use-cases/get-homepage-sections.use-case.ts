@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { IHomepageSectionRepository } from '../entities/homepage-section.repository.interface';
 import { EHomepageSectionType, IHomepageSectionResponse } from '@ecommerce/shared';
 import { IProductsRepository } from 'src/api/products/domain/entities/products.repository.interface';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetHomepageSectionsUseCase {
@@ -18,7 +19,7 @@ export class GetHomepageSectionsUseCase {
     page?: number;
     limit?: number;
   }): Promise<IHomepageSectionResponse[]> {
-    const { languageCode = 'en', userId, page = 1, limit = 10 } = params || {};
+    const { languageCode = DEFAULT_LANGUAGE_CODE, userId, page = 1, limit = 10 } = params || {};
     const featuredCategories = await this.homepageSectionRepo.findAllEnabled({
       languageCode,
       isLoggedIn: !!userId,

@@ -4,6 +4,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { CacheKeys } from 'src/shared/services/cache/cache-keys';
 import { ICacheService } from 'src/shared/services/cache/cache.interface';
 import { IProductCategoriesRepository } from '../entities/product-categories.repository.interface';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 const CATEGORY_TREE_CACHE_TTL_SECONDS = 6 * 60 * 60;
 
@@ -17,7 +18,7 @@ export class GetProductCategoryTreeUseCase {
     private readonly cacheService: ICacheService,
   ) {}
 
-  async execute(languageCode = 'en'): Promise<ICategoryResponse[]> {
+  async execute(languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICategoryResponse[]> {
     const cacheKey = CacheKeys.productCategoryTree(languageCode);
 
     const cached = await this.cacheService.get(cacheKey).catch(() => null);

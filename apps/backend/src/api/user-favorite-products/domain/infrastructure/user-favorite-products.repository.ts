@@ -10,6 +10,7 @@ import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { IUserFavoriteProductsRepository } from '../entities/user-favorite-products.repository.interface';
 
 import { GetUserFavoriteProductsDto } from '../../dto/get-user-favorite-products.dto';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepository {
@@ -69,7 +70,7 @@ export class UserFavoriteProductsRepository implements IUserFavoriteProductsRepo
   async getUserFavoriteProducts(
     userId: string,
     query?: GetUserFavoriteProductsDto,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
   ): Promise<IPaginatedResult<IUserFavoriteProductResponse>> {
     const page = query?.page || 1;
     const limit = query?.limit || 10;

@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { IProductResponse } from '@ecommerce/shared';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetInterestBasedUseCase {
@@ -9,7 +10,7 @@ export class GetInterestBasedUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(take: number, userId?: string, languageCode = 'en'): Promise<IProductResponse[]> {
+  async execute(take: number, userId?: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<IProductResponse[]> {
     let basedOnInterest: IProductResponse[] = [];
 
     if (userId) {

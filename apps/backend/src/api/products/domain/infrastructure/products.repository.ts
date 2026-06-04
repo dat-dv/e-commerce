@@ -14,6 +14,7 @@ import { GetProductsDto } from '../../dto/get-products.dto';
 import { UpdateProductDto } from '../../dto/update-product.dto';
 import { IProductsRepository } from '../entities/products.repository.interface';
 import { ProductSearchService } from './product-search.service';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {
@@ -84,7 +85,7 @@ export class ProductsRepository implements IProductsRepository {
 
   async findById(
     id: string,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
     options?: { allTranslations?: boolean },
   ): Promise<IProductResponse | null> {
     return this.prisma.product.findUnique({
@@ -95,7 +96,7 @@ export class ProductsRepository implements IProductsRepository {
 
   async findBySlug(
     slug: string,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
     options?: { allTranslations?: boolean },
   ): Promise<IProductResponse | null> {
     const product = await this.prisma.product.findUnique({
@@ -154,7 +155,7 @@ export class ProductsRepository implements IProductsRepository {
     return product?.categories[0]?.category_id || null;
   }
 
-  async getActiveFlashSale(languageCode = 'en', userId?: string): Promise<IFlashSaleResponse | null> {
+  async getActiveFlashSale(languageCode = DEFAULT_LANGUAGE_CODE, userId?: string): Promise<IFlashSaleResponse | null> {
     const now = new Date();
     const flashSale = await this.prisma.flashSale.findFirst({
       where: {
@@ -226,7 +227,7 @@ export class ProductsRepository implements IProductsRepository {
     languageCode?: string;
     userId?: string;
   }): Promise<IPaginatedResult<IProductResponse>> {
-    const { page = 1, limit = 12, languageCode = 'en', userId } = params;
+    const { page = 1, limit = 12, languageCode = DEFAULT_LANGUAGE_CODE, userId } = params;
     const now = new Date();
     const flashSale = await this.prisma.flashSale.findFirst({
       where: {
@@ -333,7 +334,7 @@ export class ProductsRepository implements IProductsRepository {
     languageCode?: string;
     userId?: string;
   }): Promise<IProductResponse[]> {
-    const { category_id, category_slug, orderBy, take, languageCode = 'en', userId } = params;
+    const { category_id, category_slug, orderBy, take, languageCode = DEFAULT_LANGUAGE_CODE, userId } = params;
 
     const products = await this.prisma.product.findMany({
       where: {
@@ -363,7 +364,11 @@ export class ProductsRepository implements IProductsRepository {
     return this.attachFavoriteStatus(products, userId);
   }
 
-  async getRecentlyViewed(userId: string, take = 10, languageCode = 'en'): Promise<IProductResponse[]> {
+  async getRecentlyViewed(
+    userId: string,
+    take = 10,
+    languageCode = DEFAULT_LANGUAGE_CODE,
+  ): Promise<IProductResponse[]> {
     const whereHistory = { user_id: userId };
     const history = await this.prisma.userBrowsingHistory.findMany({
       where: whereHistory,
@@ -388,7 +393,7 @@ export class ProductsRepository implements IProductsRepository {
     limit?: number;
     languageCode?: string;
   }): Promise<IPaginatedResult<IProductResponse>> {
-    const { userId, page = 1, limit = 10, languageCode = 'en' } = params;
+    const { userId, page = 1, limit = 10, languageCode = DEFAULT_LANGUAGE_CODE } = params;
     const history = await this.prisma.userBrowsingHistory.findMany({
       where: { user_id: userId },
       orderBy: { viewed_at: 'desc' },
@@ -433,7 +438,7 @@ export class ProductsRepository implements IProductsRepository {
     };
   }
 
-  async getSuperDeals(take = 12, languageCode = 'en', userId?: string): Promise<IProductResponse[]> {
+  async getSuperDeals(take = 12, languageCode = DEFAULT_LANGUAGE_CODE, userId?: string): Promise<IProductResponse[]> {
     const products = await this.prisma.product.findMany({
       where: {
         deleted_at: null,
@@ -452,7 +457,7 @@ export class ProductsRepository implements IProductsRepository {
     return this.attachFavoriteStatus(products, userId);
   }
 
-  async getNewArrivals(take = 12, languageCode = 'en', userId?: string): Promise<IProductResponse[]> {
+  async getNewArrivals(take = 12, languageCode = DEFAULT_LANGUAGE_CODE, userId?: string): Promise<IProductResponse[]> {
     const products = await this.prisma.product.findMany({
       where: { deleted_at: null, status: 1 },
       orderBy: { created_at: 'desc' },
@@ -500,7 +505,7 @@ export class ProductsRepository implements IProductsRepository {
       rating,
       attribute_value_ids,
       sort,
-      languageCode = 'en',
+      languageCode = DEFAULT_LANGUAGE_CODE,
       user_id,
     } = params;
 
@@ -604,7 +609,7 @@ export class ProductsRepository implements IProductsRepository {
 
     const page = params.page ?? 1;
     const limit = params.limit ?? 10;
-    const languageCode = params.languageCode ?? 'en';
+    const languageCode = params.languageCode ?? DEFAULT_LANGUAGE_CODE;
 
     try {
       const searchResult = await this.productSearchService.searchProducts(params);
@@ -697,7 +702,7 @@ export class ProductsRepository implements IProductsRepository {
   async getSimilarProducts(
     categoryId: string,
     limit = 4,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
     userId?: string,
   ): Promise<IProductResponse[]> {
     const products = await this.prisma.product.findMany({
@@ -739,7 +744,7 @@ export class ProductsRepository implements IProductsRepository {
     return count > 0;
   }
 
-  async update(id: string, data: UpdateProductDto, languageCode = 'en'): Promise<IProductResponse> {
+  async update(id: string, data: UpdateProductDto, languageCode = DEFAULT_LANGUAGE_CODE): Promise<IProductResponse> {
     const { translations, skus, category_ids, deleted_sku_ids, ...productData } = data;
 
     const updatedProduct = await this.prisma.$transaction(async (tx) => {

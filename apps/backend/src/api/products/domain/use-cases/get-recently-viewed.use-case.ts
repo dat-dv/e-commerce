@@ -3,6 +3,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
 
 import { GetRecentlyViewedDto } from '../../dto/get-recently-viewed.dto';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetRecentlyViewedUseCase {
@@ -14,7 +15,7 @@ export class GetRecentlyViewedUseCase {
   async execute(
     userId: string,
     query?: GetRecentlyViewedDto,
-    languageCode = 'en',
+    languageCode = DEFAULT_LANGUAGE_CODE,
   ): Promise<IPaginatedResult<IProductResponse>> {
     const page = query?.page || 1;
     const limit = query?.limit || 15;

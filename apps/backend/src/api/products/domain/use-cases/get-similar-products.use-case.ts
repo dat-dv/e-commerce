@@ -1,5 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { IProductsRepository } from '../entities/products.repository.interface';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetSimilarProductsUseCase {
@@ -8,7 +9,7 @@ export class GetSimilarProductsUseCase {
     private readonly productsRepository: IProductsRepository,
   ) {}
 
-  async execute(productId: string, limit: number, languageCode = 'en') {
+  async execute(productId: string, limit: number, languageCode = DEFAULT_LANGUAGE_CODE) {
     const categoryIds = await this.productsRepository.getProductCategories(productId);
 
     if (categoryIds === null) {

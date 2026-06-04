@@ -3,6 +3,7 @@ import { ICartRepository } from '../entities/cart.repository.interface';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 import { ICartResponse, ICartItemResponse } from '@ecommerce/shared';
 import { AddToCartDto, UpdateCartItemDto } from '../../dto/cart.dto';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class CartRepository implements ICartRepository {
@@ -29,21 +30,21 @@ export class CartRepository implements ICartRepository {
     };
   }
 
-  async getCart(userId: string, languageCode = 'en'): Promise<ICartResponse | null> {
+  async getCart(userId: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICartResponse | null> {
     return this.prisma.cart.findUnique({
       where: { user_id: userId },
       include: this.getCartInclude(languageCode),
     });
   }
 
-  async createCart(userId: string, languageCode = 'en'): Promise<ICartResponse> {
+  async createCart(userId: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICartResponse> {
     return this.prisma.cart.create({
       data: { user_id: userId },
       include: this.getCartInclude(languageCode),
     });
   }
 
-  async upsertCart(userId: string, languageCode = 'en'): Promise<ICartResponse> {
+  async upsertCart(userId: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICartResponse> {
     return this.prisma.cart.upsert({
       where: { user_id: userId },
       update: {},
@@ -77,7 +78,7 @@ export class CartRepository implements ICartRepository {
     };
   }
 
-  async addItem(cartId: string, data: AddToCartDto, languageCode = 'en'): Promise<ICartItemResponse> {
+  async addItem(cartId: string, data: AddToCartDto, languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICartItemResponse> {
     return this.prisma.cartItem.create({
       data: {
         cart_id: cartId,
@@ -88,7 +89,11 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async upsertItem(cartId: string, data: AddToCartDto, languageCode = 'en'): Promise<ICartItemResponse> {
+  async upsertItem(
+    cartId: string,
+    data: AddToCartDto,
+    languageCode = DEFAULT_LANGUAGE_CODE,
+  ): Promise<ICartItemResponse> {
     return this.prisma.cartItem.upsert({
       where: {
         cart_id_sku_id: {
@@ -108,7 +113,11 @@ export class CartRepository implements ICartRepository {
     });
   }
 
-  async updateItem(itemId: string, data: UpdateCartItemDto, languageCode = 'en'): Promise<ICartItemResponse> {
+  async updateItem(
+    itemId: string,
+    data: UpdateCartItemDto,
+    languageCode = DEFAULT_LANGUAGE_CODE,
+  ): Promise<ICartItemResponse> {
     return this.prisma.cartItem.update({
       where: { id: itemId },
       data: { quantity: data.quantity },

@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IBrandsRepository } from '../entities/brands.repository.interface';
 import { ICategoryResponse } from '@ecommerce/shared';
+import { DEFAULT_LANGUAGE_CODE } from 'src/common/constants/app.constant';
 
 @Injectable()
 export class GetBrandCategoryTreeUseCase {
@@ -9,7 +10,7 @@ export class GetBrandCategoryTreeUseCase {
     private readonly brandsRepository: IBrandsRepository,
   ) {}
 
-  async execute(slug: string, languageCode = 'en'): Promise<ICategoryResponse[]> {
+  async execute(slug: string, languageCode = DEFAULT_LANGUAGE_CODE): Promise<ICategoryResponse[]> {
     return this.brandsRepository.getBrandCategoryTree(slug, languageCode);
   }
 }
