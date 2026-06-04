@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
+import { Button, Portal } from "@ecommerce/ui";
 import { AppForm } from "@ecommerce/ui";
 import { FormInput } from "@ecommerce/ui";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
@@ -42,13 +42,13 @@ export default function MobileSearchDrawer({
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <Portal>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 h-dvh w-screen max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px]"
+            className="fixed inset-0 z-[120] h-dvh w-screen max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px]"
           />
 
           <motion.div
@@ -57,7 +57,7 @@ export default function MobileSearchDrawer({
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 240 }}
             className={cn(
-              "border-content/10 bg-surface fixed right-0 bottom-0 left-0 z-100",
+              "border-content/10 bg-surface fixed right-0 bottom-0 left-0 z-[121]",
               "w-full max-w-full overflow-x-hidden",
               "max-h-[calc(100dvh-16px)] overflow-y-auto overscroll-contain",
               "rounded-t-3xl border p-4 shadow-2xl",
@@ -142,7 +142,7 @@ export default function MobileSearchDrawer({
               </div>
             </AppForm>
           </motion.div>
-        </>
+        </Portal>
       )}
     </AnimatePresence>
   );

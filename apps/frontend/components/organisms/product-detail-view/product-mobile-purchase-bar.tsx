@@ -32,7 +32,7 @@ export function ProductMobilePurchaseBar({
         transition={{ type: "spring", damping: 26, stiffness: 230, delay: 0.3 }}
         className="fixed right-0 bottom-0 left-0 z-50"
       >
-        <div className="border-content/10 bg-surface/90 pb-safe border-t px-4 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl">
+        <div className="border-content/10 bg-surface/90 pb-safe border-t pt-3 pr-[calc(1rem+var(--scrollbar-width,0px))] pl-4 shadow-[0_-8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl">
           <div className="flex items-center gap-3 pb-4">
             <Button
               variant="ghost"

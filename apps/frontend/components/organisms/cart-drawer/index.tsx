@@ -1,5 +1,6 @@
 "use client";
 
+import { Portal } from "@ecommerce/ui";
 import { APP_ROUTES } from "@/constants/routes";
 import { useAddToCart } from "@/hooks/cart/use-add-to-cart";
 import { useCart } from "@/hooks/cart/use-cart";
@@ -35,14 +36,14 @@ export const CartDrawer = () => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <Portal>
           {/* Backdrop with extreme blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed inset-0 z-[100] h-dvh w-dvw max-w-full overflow-hidden bg-black/40 backdrop-blur-md"
+            className="fixed inset-0 z-[120] h-dvh w-dvw max-w-full overflow-hidden bg-black/40 backdrop-blur-md"
           />
 
           {/* Premium Drawer */}
@@ -51,7 +52,7 @@ export const CartDrawer = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 35, stiffness: 350 }}
-            className="bg-surface/95 border-content/5 fixed top-0 right-0 z-[101] flex h-dvh w-full max-w-full min-w-0 flex-col overflow-hidden border-l shadow-[0_0_100px_rgba(0,0,0,0.1)] backdrop-blur-3xl sm:max-w-[24rem]"
+            className="bg-surface/95 border-content/5 fixed top-0 right-0 z-[121] flex h-dvh w-full max-w-full min-w-0 flex-col overflow-hidden border-l shadow-[0_0_100px_rgba(0,0,0,0.1)] backdrop-blur-3xl sm:max-w-[24rem]"
           >
             {/* Header Section */}
             <CartHeader count={itemsCount} onClose={handleClose} />
@@ -99,7 +100,7 @@ export const CartDrawer = () => {
               />
             )}
           </motion.div>
-        </>
+        </Portal>
       )}
     </AnimatePresence>
   );

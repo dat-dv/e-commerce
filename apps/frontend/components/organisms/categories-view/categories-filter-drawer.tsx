@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@ecommerce/ui";
+import { Button, Portal } from "@ecommerce/ui";
 import { CategoryNavSidebar } from "@/components/molecules/category-nav-sidebar";
 import { TCategory } from "@/domain/categories/types/categories.model";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
@@ -30,13 +30,13 @@ export function CategoriesFilterDrawer({
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <Portal>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[90] h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px] lg:hidden"
+            className="fixed inset-0 z-[120] h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px] lg:hidden"
           />
 
           <motion.aside
@@ -44,7 +44,7 @@ export function CategoriesFilterDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 26, stiffness: 230 }}
-            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[91] flex w-full max-w-full min-w-0 flex-col overflow-hidden border-r shadow-2xl sm:w-[380px] sm:max-w-[380px] md:w-[420px] md:max-w-[420px] lg:hidden"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[121] flex w-full max-w-full min-w-0 flex-col overflow-hidden border-r shadow-2xl sm:w-[380px] sm:max-w-[380px] md:w-[420px] md:max-w-[420px] lg:hidden"
             aria-label={t("title")}
           >
             <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
@@ -77,7 +77,7 @@ export function CategoriesFilterDrawer({
               />
             </div>
           </motion.aside>
-        </>
+        </Portal>
       )}
     </AnimatePresence>
   );

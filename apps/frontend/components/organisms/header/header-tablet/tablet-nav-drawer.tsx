@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { HamburgerButton } from "@ecommerce/ui";
+import { HamburgerButton, Portal } from "@ecommerce/ui";
 import { useAuthStore } from "@/hooks/auth/use-auth-store";
 import { useLogout } from "@/hooks/auth/use-logout";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
@@ -34,13 +34,13 @@ export default function MobileNavDrawer({
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <Portal>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-50 h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px]"
+            className="fixed inset-0 z-[120] h-dvh w-dvw max-w-full overflow-hidden bg-black/35 backdrop-blur-[2px]"
           />
 
           <motion.div
@@ -48,7 +48,7 @@ export default function MobileNavDrawer({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-50 flex w-full max-w-full min-w-0 flex-col overflow-hidden border-r shadow-2xl sm:w-[380px] sm:max-w-[380px] md:w-[420px] md:max-w-[420px]"
+            className="border-content/10 bg-surface fixed top-0 bottom-0 left-0 z-[121] flex w-full max-w-full min-w-0 flex-col overflow-hidden border-r shadow-2xl sm:w-[380px] sm:max-w-[380px] md:w-[420px] md:max-w-[420px]"
           >
             <div className="border-content/10 flex h-16 shrink-0 items-center justify-between border-b px-4">
               <HeaderLogo />
@@ -71,7 +71,7 @@ export default function MobileNavDrawer({
               />
             </div>
           </motion.div>
-        </>
+        </Portal>
       )}
     </AnimatePresence>
   );
